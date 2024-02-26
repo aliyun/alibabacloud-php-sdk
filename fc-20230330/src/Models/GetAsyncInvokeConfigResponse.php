@@ -18,9 +18,6 @@ class GetAsyncInvokeConfigResponse extends Model
      */
     public $statusCode;
 
-    /**
-     * @var AsyncConfig
-     */
     public $body;
     protected $_name = [
         'headers'    => 'headers',
@@ -29,9 +26,6 @@ class GetAsyncInvokeConfigResponse extends Model
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('statusCode', $this->statusCode, true);
-        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()

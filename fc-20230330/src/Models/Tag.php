@@ -6,18 +6,24 @@ namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetResourceTagsRequest extends Model
+class Tag extends Model
 {
     /**
-     * @description The resource ID.
-     *
-     * @example acs:fc:cn-shanghai:1234/functions/my-func
+     * @example k1
      *
      * @var string
      */
-    public $arn;
+    public $key;
+
+    /**
+     * @example v1
+     *
+     * @var string
+     */
+    public $value;
     protected $_name = [
-        'arn' => 'arn',
+        'key'   => 'Key',
+        'value' => 'Value',
     ];
 
     public function validate()
@@ -27,8 +33,11 @@ class GetResourceTagsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->arn) {
-            $res['arn'] = $this->arn;
+        if (null !== $this->key) {
+            $res['Key'] = $this->key;
+        }
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -37,13 +46,16 @@ class GetResourceTagsRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetResourceTagsRequest
+     * @return Tag
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['arn'])) {
-            $model->arn = $map['arn'];
+        if (isset($map['Key'])) {
+            $model->key = $map['Key'];
+        }
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

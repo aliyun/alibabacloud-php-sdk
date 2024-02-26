@@ -136,14 +136,12 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 创建函数别名。
-     *   *
      * @param string             $functionName
-     * @param CreateAliasRequest $request      CreateAliasRequest
-     * @param string[]           $headers      map
-     * @param RuntimeOptions     $runtime      runtime options for this request RuntimeOptions
+     * @param CreateAliasRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
      *
-     * @return CreateAliasResponse CreateAliasResponse
+     * @return CreateAliasResponse
      */
     public function createAliasWithOptions($functionName, $request, $headers, $runtime)
     {
@@ -168,12 +166,10 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 创建函数别名。
-     *   *
      * @param string             $functionName
-     * @param CreateAliasRequest $request      CreateAliasRequest
+     * @param CreateAliasRequest $request
      *
-     * @return CreateAliasResponse CreateAliasResponse
+     * @return CreateAliasResponse
      */
     public function createAlias($functionName, $request)
     {
@@ -184,13 +180,11 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 创建自定义域名。
-     *   *
-     * @param CreateCustomDomainRequest $request CreateCustomDomainRequest
-     * @param string[]                  $headers map
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param CreateCustomDomainRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
      *
-     * @return CreateCustomDomainResponse CreateCustomDomainResponse
+     * @return CreateCustomDomainResponse
      */
     public function createCustomDomainWithOptions($request, $headers, $runtime)
     {
@@ -215,11 +209,9 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 创建自定义域名。
-     *   *
-     * @param CreateCustomDomainRequest $request CreateCustomDomainRequest
+     * @param CreateCustomDomainRequest $request
      *
-     * @return CreateCustomDomainResponse CreateCustomDomainResponse
+     * @return CreateCustomDomainResponse
      */
     public function createCustomDomain($request)
     {
@@ -230,13 +222,11 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 创建函数。
-     *   *
-     * @param CreateFunctionRequest $request CreateFunctionRequest
-     * @param string[]              $headers map
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param CreateFunctionRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
      *
-     * @return CreateFunctionResponse CreateFunctionResponse
+     * @return CreateFunctionResponse
      */
     public function createFunctionWithOptions($request, $headers, $runtime)
     {
@@ -261,11 +251,9 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 创建函数。
-     *   *
-     * @param CreateFunctionRequest $request CreateFunctionRequest
+     * @param CreateFunctionRequest $request
      *
-     * @return CreateFunctionResponse CreateFunctionResponse
+     * @return CreateFunctionResponse
      */
     public function createFunction($request)
     {
@@ -276,14 +264,12 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 创建层版本。
-     *   *
      * @param string                    $layerName
-     * @param CreateLayerVersionRequest $request   CreateLayerVersionRequest
-     * @param string[]                  $headers   map
-     * @param RuntimeOptions            $runtime   runtime options for this request RuntimeOptions
+     * @param CreateLayerVersionRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
      *
-     * @return CreateLayerVersionResponse CreateLayerVersionResponse
+     * @return CreateLayerVersionResponse
      */
     public function createLayerVersionWithOptions($layerName, $request, $headers, $runtime)
     {
@@ -308,12 +294,10 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 创建层版本。
-     *   *
      * @param string                    $layerName
-     * @param CreateLayerVersionRequest $request   CreateLayerVersionRequest
+     * @param CreateLayerVersionRequest $request
      *
-     * @return CreateLayerVersionResponse CreateLayerVersionResponse
+     * @return CreateLayerVersionResponse
      */
     public function createLayerVersion($layerName, $request)
     {
@@ -324,14 +308,12 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 创建函数触发器。
-     *   *
      * @param string               $functionName
-     * @param CreateTriggerRequest $request      CreateTriggerRequest
-     * @param string[]             $headers      map
-     * @param RuntimeOptions       $runtime      runtime options for this request RuntimeOptions
+     * @param CreateTriggerRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
      *
-     * @return CreateTriggerResponse CreateTriggerResponse
+     * @return CreateTriggerResponse
      */
     public function createTriggerWithOptions($functionName, $request, $headers, $runtime)
     {
@@ -356,12 +338,10 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 创建函数触发器。
-     *   *
      * @param string               $functionName
-     * @param CreateTriggerRequest $request      CreateTriggerRequest
+     * @param CreateTriggerRequest $request
      *
-     * @return CreateTriggerResponse CreateTriggerResponse
+     * @return CreateTriggerResponse
      */
     public function createTrigger($functionName, $request)
     {
@@ -372,14 +352,12 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 创建VPC绑定。
-     *   *
      * @param string                  $functionName
-     * @param CreateVpcBindingRequest $request      CreateVpcBindingRequest
-     * @param string[]                $headers      map
-     * @param RuntimeOptions          $runtime      runtime options for this request RuntimeOptions
+     * @param CreateVpcBindingRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
      *
-     * @return CreateVpcBindingResponse CreateVpcBindingResponse
+     * @return CreateVpcBindingResponse
      */
     public function createVpcBindingWithOptions($functionName, $request, $headers, $runtime)
     {
@@ -404,12 +382,10 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 创建VPC绑定。
-     *   *
      * @param string                  $functionName
-     * @param CreateVpcBindingRequest $request      CreateVpcBindingRequest
+     * @param CreateVpcBindingRequest $request
      *
-     * @return CreateVpcBindingResponse CreateVpcBindingResponse
+     * @return CreateVpcBindingResponse
      */
     public function createVpcBinding($functionName, $request)
     {
@@ -420,14 +396,12 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 删除函数别名。
-     *   *
      * @param string         $functionName
      * @param string         $aliasName
-     * @param string[]       $headers      map
-     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteAliasResponse DeleteAliasResponse
+     * @return DeleteAliasResponse
      */
     public function deleteAliasWithOptions($functionName, $aliasName, $headers, $runtime)
     {
@@ -450,12 +424,10 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 删除函数别名。
-     *   *
      * @param string $functionName
      * @param string $aliasName
      *
-     * @return DeleteAliasResponse DeleteAliasResponse
+     * @return DeleteAliasResponse
      */
     public function deleteAlias($functionName, $aliasName)
     {
@@ -466,14 +438,12 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 删除函数异步调用配置。
-     *   *
      * @param string                         $functionName
-     * @param DeleteAsyncInvokeConfigRequest $request      DeleteAsyncInvokeConfigRequest
-     * @param string[]                       $headers      map
-     * @param RuntimeOptions                 $runtime      runtime options for this request RuntimeOptions
+     * @param DeleteAsyncInvokeConfigRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
      *
-     * @return DeleteAsyncInvokeConfigResponse DeleteAsyncInvokeConfigResponse
+     * @return DeleteAsyncInvokeConfigResponse
      */
     public function deleteAsyncInvokeConfigWithOptions($functionName, $request, $headers, $runtime)
     {
@@ -502,12 +472,10 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 删除函数异步调用配置。
-     *   *
      * @param string                         $functionName
-     * @param DeleteAsyncInvokeConfigRequest $request      DeleteAsyncInvokeConfigRequest
+     * @param DeleteAsyncInvokeConfigRequest $request
      *
-     * @return DeleteAsyncInvokeConfigResponse DeleteAsyncInvokeConfigResponse
+     * @return DeleteAsyncInvokeConfigResponse
      */
     public function deleteAsyncInvokeConfig($functionName, $request)
     {
@@ -518,13 +486,11 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 删除函数并发度配置。
-     *   *
      * @param string         $functionName
-     * @param string[]       $headers      map
-     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteConcurrencyConfigResponse DeleteConcurrencyConfigResponse
+     * @return DeleteConcurrencyConfigResponse
      */
     public function deleteConcurrencyConfigWithOptions($functionName, $headers, $runtime)
     {
@@ -547,11 +513,9 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 删除函数并发度配置。
-     *   *
      * @param string $functionName
      *
-     * @return DeleteConcurrencyConfigResponse DeleteConcurrencyConfigResponse
+     * @return DeleteConcurrencyConfigResponse
      */
     public function deleteConcurrencyConfig($functionName)
     {
@@ -562,13 +526,11 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 删除自定义域名。
-     *   *
      * @param string         $domainName
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteCustomDomainResponse DeleteCustomDomainResponse
+     * @return DeleteCustomDomainResponse
      */
     public function deleteCustomDomainWithOptions($domainName, $headers, $runtime)
     {
@@ -591,11 +553,9 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 删除自定义域名。
-     *   *
      * @param string $domainName
      *
-     * @return DeleteCustomDomainResponse DeleteCustomDomainResponse
+     * @return DeleteCustomDomainResponse
      */
     public function deleteCustomDomain($domainName)
     {
@@ -606,13 +566,11 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 删除函数。
-     *   *
      * @param string         $functionName
-     * @param string[]       $headers      map
-     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteFunctionResponse DeleteFunctionResponse
+     * @return DeleteFunctionResponse
      */
     public function deleteFunctionWithOptions($functionName, $headers, $runtime)
     {
@@ -635,11 +593,9 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 删除函数。
-     *   *
      * @param string $functionName
      *
-     * @return DeleteFunctionResponse DeleteFunctionResponse
+     * @return DeleteFunctionResponse
      */
     public function deleteFunction($functionName)
     {
@@ -650,14 +606,12 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 删除函数版本。
-     *   *
      * @param string         $functionName
      * @param string         $versionId
-     * @param string[]       $headers      map
-     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteFunctionVersionResponse DeleteFunctionVersionResponse
+     * @return DeleteFunctionVersionResponse
      */
     public function deleteFunctionVersionWithOptions($functionName, $versionId, $headers, $runtime)
     {
@@ -680,12 +634,10 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 删除函数版本。
-     *   *
      * @param string $functionName
      * @param string $versionId
      *
-     * @return DeleteFunctionVersionResponse DeleteFunctionVersionResponse
+     * @return DeleteFunctionVersionResponse
      */
     public function deleteFunctionVersion($functionName, $versionId)
     {
@@ -696,14 +648,12 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 删除层版本。
-     *   *
      * @param string         $layerName
      * @param string         $version
-     * @param string[]       $headers   map
-     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteLayerVersionResponse DeleteLayerVersionResponse
+     * @return DeleteLayerVersionResponse
      */
     public function deleteLayerVersionWithOptions($layerName, $version, $headers, $runtime)
     {
@@ -726,12 +676,10 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 删除层版本。
-     *   *
      * @param string $layerName
      * @param string $version
      *
-     * @return DeleteLayerVersionResponse DeleteLayerVersionResponse
+     * @return DeleteLayerVersionResponse
      */
     public function deleteLayerVersion($layerName, $version)
     {
@@ -742,14 +690,12 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 删除函数预留配置。
-     *   *
      * @param string                       $functionName
-     * @param DeleteProvisionConfigRequest $request      DeleteProvisionConfigRequest
-     * @param string[]                     $headers      map
-     * @param RuntimeOptions               $runtime      runtime options for this request RuntimeOptions
+     * @param DeleteProvisionConfigRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
      *
-     * @return DeleteProvisionConfigResponse DeleteProvisionConfigResponse
+     * @return DeleteProvisionConfigResponse
      */
     public function deleteProvisionConfigWithOptions($functionName, $request, $headers, $runtime)
     {
@@ -778,12 +724,10 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 删除函数预留配置。
-     *   *
      * @param string                       $functionName
-     * @param DeleteProvisionConfigRequest $request      DeleteProvisionConfigRequest
+     * @param DeleteProvisionConfigRequest $request
      *
-     * @return DeleteProvisionConfigResponse DeleteProvisionConfigResponse
+     * @return DeleteProvisionConfigResponse
      */
     public function deleteProvisionConfig($functionName, $request)
     {
@@ -794,14 +738,12 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 删除函数触发器。
-     *   *
      * @param string         $functionName
      * @param string         $triggerName
-     * @param string[]       $headers      map
-     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteTriggerResponse DeleteTriggerResponse
+     * @return DeleteTriggerResponse
      */
     public function deleteTriggerWithOptions($functionName, $triggerName, $headers, $runtime)
     {
@@ -824,12 +766,10 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 删除函数触发器。
-     *   *
      * @param string $functionName
      * @param string $triggerName
      *
-     * @return DeleteTriggerResponse DeleteTriggerResponse
+     * @return DeleteTriggerResponse
      */
     public function deleteTrigger($functionName, $triggerName)
     {
@@ -840,14 +780,12 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 删除VPC绑定。
-     *   *
      * @param string         $functionName
      * @param string         $vpcId
-     * @param string[]       $headers      map
-     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteVpcBindingResponse DeleteVpcBindingResponse
+     * @return DeleteVpcBindingResponse
      */
     public function deleteVpcBindingWithOptions($functionName, $vpcId, $headers, $runtime)
     {
@@ -870,12 +808,10 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 删除VPC绑定。
-     *   *
      * @param string $functionName
      * @param string $vpcId
      *
-     * @return DeleteVpcBindingResponse DeleteVpcBindingResponse
+     * @return DeleteVpcBindingResponse
      */
     public function deleteVpcBinding($functionName, $vpcId)
     {
@@ -886,14 +822,12 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 获取函数别名信息。
-     *   *
      * @param string         $functionName
      * @param string         $aliasName
-     * @param string[]       $headers      map
-     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetAliasResponse GetAliasResponse
+     * @return GetAliasResponse
      */
     public function getAliasWithOptions($functionName, $aliasName, $headers, $runtime)
     {
@@ -916,12 +850,10 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 获取函数别名信息。
-     *   *
      * @param string $functionName
      * @param string $aliasName
      *
-     * @return GetAliasResponse GetAliasResponse
+     * @return GetAliasResponse
      */
     public function getAlias($functionName, $aliasName)
     {
@@ -932,14 +864,12 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 获取函数异步调用配置。
-     *   *
      * @param string                      $functionName
-     * @param GetAsyncInvokeConfigRequest $request      GetAsyncInvokeConfigRequest
-     * @param string[]                    $headers      map
-     * @param RuntimeOptions              $runtime      runtime options for this request RuntimeOptions
+     * @param GetAsyncInvokeConfigRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
      *
-     * @return GetAsyncInvokeConfigResponse GetAsyncInvokeConfigResponse
+     * @return GetAsyncInvokeConfigResponse
      */
     public function getAsyncInvokeConfigWithOptions($functionName, $request, $headers, $runtime)
     {
@@ -968,12 +898,10 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 获取函数异步调用配置。
-     *   *
      * @param string                      $functionName
-     * @param GetAsyncInvokeConfigRequest $request      GetAsyncInvokeConfigRequest
+     * @param GetAsyncInvokeConfigRequest $request
      *
-     * @return GetAsyncInvokeConfigResponse GetAsyncInvokeConfigResponse
+     * @return GetAsyncInvokeConfigResponse
      */
     public function getAsyncInvokeConfig($functionName, $request)
     {
@@ -984,13 +912,11 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 获取函数并发度配置。
-     *   *
      * @param string         $functionName
-     * @param string[]       $headers      map
-     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetConcurrencyConfigResponse GetConcurrencyConfigResponse
+     * @return GetConcurrencyConfigResponse
      */
     public function getConcurrencyConfigWithOptions($functionName, $headers, $runtime)
     {
@@ -1013,11 +939,9 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 获取函数并发度配置。
-     *   *
      * @param string $functionName
      *
-     * @return GetConcurrencyConfigResponse GetConcurrencyConfigResponse
+     * @return GetConcurrencyConfigResponse
      */
     public function getConcurrencyConfig($functionName)
     {
@@ -1028,13 +952,11 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 获取自定义域名。
-     *   *
      * @param string         $domainName
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetCustomDomainResponse GetCustomDomainResponse
+     * @return GetCustomDomainResponse
      */
     public function getCustomDomainWithOptions($domainName, $headers, $runtime)
     {
@@ -1057,11 +979,9 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 获取自定义域名。
-     *   *
      * @param string $domainName
      *
-     * @return GetCustomDomainResponse GetCustomDomainResponse
+     * @return GetCustomDomainResponse
      */
     public function getCustomDomain($domainName)
     {
@@ -1072,14 +992,12 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 获取函数信息。
-     *   *
      * @param string             $functionName
-     * @param GetFunctionRequest $request      GetFunctionRequest
-     * @param string[]           $headers      map
-     * @param RuntimeOptions     $runtime      runtime options for this request RuntimeOptions
+     * @param GetFunctionRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
      *
-     * @return GetFunctionResponse GetFunctionResponse
+     * @return GetFunctionResponse
      */
     public function getFunctionWithOptions($functionName, $request, $headers, $runtime)
     {
@@ -1108,12 +1026,10 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 获取函数信息。
-     *   *
      * @param string             $functionName
-     * @param GetFunctionRequest $request      GetFunctionRequest
+     * @param GetFunctionRequest $request
      *
-     * @return GetFunctionResponse GetFunctionResponse
+     * @return GetFunctionResponse
      */
     public function getFunction($functionName, $request)
     {
@@ -1124,14 +1040,12 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 获取函数代码。
-     *   *
      * @param string                 $functionName
-     * @param GetFunctionCodeRequest $request      GetFunctionCodeRequest
-     * @param string[]               $headers      map
-     * @param RuntimeOptions         $runtime      runtime options for this request RuntimeOptions
+     * @param GetFunctionCodeRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
      *
-     * @return GetFunctionCodeResponse GetFunctionCodeResponse
+     * @return GetFunctionCodeResponse
      */
     public function getFunctionCodeWithOptions($functionName, $request, $headers, $runtime)
     {
@@ -1160,12 +1074,10 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 获取函数代码。
-     *   *
      * @param string                 $functionName
-     * @param GetFunctionCodeRequest $request      GetFunctionCodeRequest
+     * @param GetFunctionCodeRequest $request
      *
-     * @return GetFunctionCodeResponse GetFunctionCodeResponse
+     * @return GetFunctionCodeResponse
      */
     public function getFunctionCode($functionName, $request)
     {
@@ -1176,14 +1088,12 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 获取层版本。
-     *   *
      * @param string         $layerName
      * @param string         $version
-     * @param string[]       $headers   map
-     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetLayerVersionResponse GetLayerVersionResponse
+     * @return GetLayerVersionResponse
      */
     public function getLayerVersionWithOptions($layerName, $version, $headers, $runtime)
     {
@@ -1206,12 +1116,10 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 获取层版本。
-     *   *
      * @param string $layerName
      * @param string $version
      *
-     * @return GetLayerVersionResponse GetLayerVersionResponse
+     * @return GetLayerVersionResponse
      */
     public function getLayerVersion($layerName, $version)
     {
@@ -1222,13 +1130,11 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 根据资源标识获取层版本。
-     *   *
      * @param string         $arn
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetLayerVersionByArnResponse GetLayerVersionByArnResponse
+     * @return GetLayerVersionByArnResponse
      */
     public function getLayerVersionByArnWithOptions($arn, $headers, $runtime)
     {
@@ -1251,11 +1157,9 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 根据资源标识获取层版本。
-     *   *
      * @param string $arn
      *
-     * @return GetLayerVersionByArnResponse GetLayerVersionByArnResponse
+     * @return GetLayerVersionByArnResponse
      */
     public function getLayerVersionByArn($arn)
     {
@@ -1266,14 +1170,12 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 获取函数预留配置。
-     *   *
      * @param string                    $functionName
-     * @param GetProvisionConfigRequest $request      GetProvisionConfigRequest
-     * @param string[]                  $headers      map
-     * @param RuntimeOptions            $runtime      runtime options for this request RuntimeOptions
+     * @param GetProvisionConfigRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
      *
-     * @return GetProvisionConfigResponse GetProvisionConfigResponse
+     * @return GetProvisionConfigResponse
      */
     public function getProvisionConfigWithOptions($functionName, $request, $headers, $runtime)
     {
@@ -1302,12 +1204,10 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 获取函数预留配置。
-     *   *
      * @param string                    $functionName
-     * @param GetProvisionConfigRequest $request      GetProvisionConfigRequest
+     * @param GetProvisionConfigRequest $request
      *
-     * @return GetProvisionConfigResponse GetProvisionConfigResponse
+     * @return GetProvisionConfigResponse
      */
     public function getProvisionConfig($functionName, $request)
     {
@@ -1318,8 +1218,10 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 获取资源标签。
+     * @deprecated
      *   *
+     * Deprecated
+     *
      * @param GetResourceTagsRequest $request GetResourceTagsRequest
      * @param string[]               $headers map
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -1353,8 +1255,10 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 获取资源标签。
+     * @deprecated
      *   *
+     * Deprecated
+     *
      * @param GetResourceTagsRequest $request GetResourceTagsRequest
      *
      * @return GetResourceTagsResponse GetResourceTagsResponse
@@ -1368,14 +1272,12 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 获取函数触发器。
-     *   *
      * @param string         $functionName
      * @param string         $triggerName
-     * @param string[]       $headers      map
-     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetTriggerResponse GetTriggerResponse
+     * @return GetTriggerResponse
      */
     public function getTriggerWithOptions($functionName, $triggerName, $headers, $runtime)
     {
@@ -1398,12 +1300,10 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 获取函数触发器。
-     *   *
      * @param string $functionName
      * @param string $triggerName
      *
-     * @return GetTriggerResponse GetTriggerResponse
+     * @return GetTriggerResponse
      */
     public function getTrigger($functionName, $triggerName)
     {
@@ -1414,14 +1314,12 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 调用函数。
-     *   *
      * @param string                $functionName
-     * @param InvokeFunctionRequest $request      InvokeFunctionRequest
-     * @param InvokeFunctionHeaders $headers      InvokeFunctionHeaders
-     * @param RuntimeOptions        $runtime      runtime options for this request RuntimeOptions
+     * @param InvokeFunctionRequest $request
+     * @param InvokeFunctionHeaders $headers
+     * @param RuntimeOptions        $runtime
      *
-     * @return InvokeFunctionResponse InvokeFunctionResponse
+     * @return InvokeFunctionResponse
      */
     public function invokeFunctionWithOptions($functionName, $request, $headers, $runtime)
     {
@@ -1476,12 +1374,10 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 调用函数。
-     *   *
      * @param string                $functionName
-     * @param InvokeFunctionRequest $request      InvokeFunctionRequest
+     * @param InvokeFunctionRequest $request
      *
-     * @return InvokeFunctionResponse InvokeFunctionResponse
+     * @return InvokeFunctionResponse
      */
     public function invokeFunction($functionName, $request)
     {
@@ -1492,14 +1388,12 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出函数别名。
-     *   *
      * @param string             $functionName
-     * @param ListAliasesRequest $request      ListAliasesRequest
-     * @param string[]           $headers      map
-     * @param RuntimeOptions     $runtime      runtime options for this request RuntimeOptions
+     * @param ListAliasesRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
      *
-     * @return ListAliasesResponse ListAliasesResponse
+     * @return ListAliasesResponse
      */
     public function listAliasesWithOptions($functionName, $request, $headers, $runtime)
     {
@@ -1534,12 +1428,10 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出函数别名。
-     *   *
      * @param string             $functionName
-     * @param ListAliasesRequest $request      ListAliasesRequest
+     * @param ListAliasesRequest $request
      *
-     * @return ListAliasesResponse ListAliasesResponse
+     * @return ListAliasesResponse
      */
     public function listAliases($functionName, $request)
     {
@@ -1550,13 +1442,11 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出函数异步调用配置。
-     *   *
-     * @param ListAsyncInvokeConfigsRequest $request ListAsyncInvokeConfigsRequest
-     * @param string[]                      $headers map
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param ListAsyncInvokeConfigsRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
      *
-     * @return ListAsyncInvokeConfigsResponse ListAsyncInvokeConfigsResponse
+     * @return ListAsyncInvokeConfigsResponse
      */
     public function listAsyncInvokeConfigsWithOptions($request, $headers, $runtime)
     {
@@ -1591,11 +1481,9 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出函数异步调用配置。
-     *   *
-     * @param ListAsyncInvokeConfigsRequest $request ListAsyncInvokeConfigsRequest
+     * @param ListAsyncInvokeConfigsRequest $request
      *
-     * @return ListAsyncInvokeConfigsResponse ListAsyncInvokeConfigsResponse
+     * @return ListAsyncInvokeConfigsResponse
      */
     public function listAsyncInvokeConfigs($request)
     {
@@ -1606,13 +1494,11 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出函数并发度配置。
-     *   *
-     * @param ListConcurrencyConfigsRequest $request ListConcurrencyConfigsRequest
-     * @param string[]                      $headers map
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param ListConcurrencyConfigsRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
      *
-     * @return ListConcurrencyConfigsResponse ListConcurrencyConfigsResponse
+     * @return ListConcurrencyConfigsResponse
      */
     public function listConcurrencyConfigsWithOptions($request, $headers, $runtime)
     {
@@ -1647,11 +1533,9 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出函数并发度配置。
-     *   *
-     * @param ListConcurrencyConfigsRequest $request ListConcurrencyConfigsRequest
+     * @param ListConcurrencyConfigsRequest $request
      *
-     * @return ListConcurrencyConfigsResponse ListConcurrencyConfigsResponse
+     * @return ListConcurrencyConfigsResponse
      */
     public function listConcurrencyConfigs($request)
     {
@@ -1662,13 +1546,11 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出自定义域名。
-     *   *
-     * @param ListCustomDomainsRequest $request ListCustomDomainsRequest
-     * @param string[]                 $headers map
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param ListCustomDomainsRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
      *
-     * @return ListCustomDomainsResponse ListCustomDomainsResponse
+     * @return ListCustomDomainsResponse
      */
     public function listCustomDomainsWithOptions($request, $headers, $runtime)
     {
@@ -1703,11 +1585,9 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出自定义域名。
-     *   *
-     * @param ListCustomDomainsRequest $request ListCustomDomainsRequest
+     * @param ListCustomDomainsRequest $request
      *
-     * @return ListCustomDomainsResponse ListCustomDomainsResponse
+     * @return ListCustomDomainsResponse
      */
     public function listCustomDomains($request)
     {
@@ -1718,14 +1598,12 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出函数版本。
-     *   *
      * @param string                      $functionName
-     * @param ListFunctionVersionsRequest $request      ListFunctionVersionsRequest
-     * @param string[]                    $headers      map
-     * @param RuntimeOptions              $runtime      runtime options for this request RuntimeOptions
+     * @param ListFunctionVersionsRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
      *
-     * @return ListFunctionVersionsResponse ListFunctionVersionsResponse
+     * @return ListFunctionVersionsResponse
      */
     public function listFunctionVersionsWithOptions($functionName, $request, $headers, $runtime)
     {
@@ -1760,12 +1638,10 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出函数版本。
-     *   *
      * @param string                      $functionName
-     * @param ListFunctionVersionsRequest $request      ListFunctionVersionsRequest
+     * @param ListFunctionVersionsRequest $request
      *
-     * @return ListFunctionVersionsResponse ListFunctionVersionsResponse
+     * @return ListFunctionVersionsResponse
      */
     public function listFunctionVersions($functionName, $request)
     {
@@ -1776,13 +1652,11 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出函数。
-     *   *
-     * @param ListFunctionsRequest $request ListFunctionsRequest
-     * @param string[]             $headers map
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param ListFunctionsRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
      *
-     * @return ListFunctionsResponse ListFunctionsResponse
+     * @return ListFunctionsResponse
      */
     public function listFunctionsWithOptions($request, $headers, $runtime)
     {
@@ -1817,11 +1691,9 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出函数。
-     *   *
-     * @param ListFunctionsRequest $request ListFunctionsRequest
+     * @param ListFunctionsRequest $request
      *
-     * @return ListFunctionsResponse ListFunctionsResponse
+     * @return ListFunctionsResponse
      */
     public function listFunctions($request)
     {
@@ -1832,14 +1704,12 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出函数实例。
-     *   *
      * @param string               $functionName
-     * @param ListInstancesRequest $request      ListInstancesRequest
-     * @param string[]             $headers      map
-     * @param RuntimeOptions       $runtime      runtime options for this request RuntimeOptions
+     * @param ListInstancesRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
      *
-     * @return ListInstancesResponse ListInstancesResponse
+     * @return ListInstancesResponse
      */
     public function listInstancesWithOptions($functionName, $request, $headers, $runtime)
     {
@@ -1871,12 +1741,10 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出函数实例。
-     *   *
      * @param string               $functionName
-     * @param ListInstancesRequest $request      ListInstancesRequest
+     * @param ListInstancesRequest $request
      *
-     * @return ListInstancesResponse ListInstancesResponse
+     * @return ListInstancesResponse
      */
     public function listInstances($functionName, $request)
     {
@@ -1887,14 +1755,12 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出层版本。
-     *   *
      * @param string                   $layerName
-     * @param ListLayerVersionsRequest $request   ListLayerVersionsRequest
-     * @param string[]                 $headers   map
-     * @param RuntimeOptions           $runtime   runtime options for this request RuntimeOptions
+     * @param ListLayerVersionsRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
      *
-     * @return ListLayerVersionsResponse ListLayerVersionsResponse
+     * @return ListLayerVersionsResponse
      */
     public function listLayerVersionsWithOptions($layerName, $request, $headers, $runtime)
     {
@@ -1926,12 +1792,10 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出层版本。
-     *   *
      * @param string                   $layerName
-     * @param ListLayerVersionsRequest $request   ListLayerVersionsRequest
+     * @param ListLayerVersionsRequest $request
      *
-     * @return ListLayerVersionsResponse ListLayerVersionsResponse
+     * @return ListLayerVersionsResponse
      */
     public function listLayerVersions($layerName, $request)
     {
@@ -1942,13 +1806,11 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出层。
-     *   *
-     * @param ListLayersRequest $request ListLayersRequest
-     * @param string[]          $headers map
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * @param ListLayersRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
      *
-     * @return ListLayersResponse ListLayersResponse
+     * @return ListLayersResponse
      */
     public function listLayersWithOptions($request, $headers, $runtime)
     {
@@ -1989,11 +1851,9 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出层。
-     *   *
-     * @param ListLayersRequest $request ListLayersRequest
+     * @param ListLayersRequest $request
      *
-     * @return ListLayersResponse ListLayersResponse
+     * @return ListLayersResponse
      */
     public function listLayers($request)
     {
@@ -2004,13 +1864,11 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出函数预留配置。
-     *   *
-     * @param ListProvisionConfigsRequest $request ListProvisionConfigsRequest
-     * @param string[]                    $headers map
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param ListProvisionConfigsRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
      *
-     * @return ListProvisionConfigsResponse ListProvisionConfigsResponse
+     * @return ListProvisionConfigsResponse
      */
     public function listProvisionConfigsWithOptions($request, $headers, $runtime)
     {
@@ -2045,11 +1903,9 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出函数预留配置。
-     *   *
-     * @param ListProvisionConfigsRequest $request ListProvisionConfigsRequest
+     * @param ListProvisionConfigsRequest $request
      *
-     * @return ListProvisionConfigsResponse ListProvisionConfigsResponse
+     * @return ListProvisionConfigsResponse
      */
     public function listProvisionConfigs($request)
     {
@@ -2060,8 +1916,10 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出具有标签的资源。
+     * @deprecated
      *   *
+     * Deprecated
+     *
      * @param ListTaggedResourcesRequest $request ListTaggedResourcesRequest
      * @param string[]                   $headers map
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -2101,8 +1959,10 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出具有标签的资源。
+     * @deprecated
      *   *
+     * Deprecated
+     *
      * @param ListTaggedResourcesRequest $request ListTaggedResourcesRequest
      *
      * @return ListTaggedResourcesResponse ListTaggedResourcesResponse
@@ -2116,14 +1976,12 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出函数触发器。
-     *   *
      * @param string              $functionName
-     * @param ListTriggersRequest $request      ListTriggersRequest
-     * @param string[]            $headers      map
-     * @param RuntimeOptions      $runtime      runtime options for this request RuntimeOptions
+     * @param ListTriggersRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
      *
-     * @return ListTriggersResponse ListTriggersResponse
+     * @return ListTriggersResponse
      */
     public function listTriggersWithOptions($functionName, $request, $headers, $runtime)
     {
@@ -2158,12 +2016,10 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出函数触发器。
-     *   *
      * @param string              $functionName
-     * @param ListTriggersRequest $request      ListTriggersRequest
+     * @param ListTriggersRequest $request
      *
-     * @return ListTriggersResponse ListTriggersResponse
+     * @return ListTriggersResponse
      */
     public function listTriggers($functionName, $request)
     {
@@ -2174,13 +2030,11 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出VPC绑定配置。
-     *   *
      * @param string         $functionName
-     * @param string[]       $headers      map
-     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return ListVpcBindingsResponse ListVpcBindingsResponse
+     * @return ListVpcBindingsResponse
      */
     public function listVpcBindingsWithOptions($functionName, $headers, $runtime)
     {
@@ -2203,11 +2057,9 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出VPC绑定配置。
-     *   *
      * @param string $functionName
      *
-     * @return ListVpcBindingsResponse ListVpcBindingsResponse
+     * @return ListVpcBindingsResponse
      */
     public function listVpcBindings($functionName)
     {
@@ -2218,14 +2070,12 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 发布函数版本。
-     *   *
      * @param string                        $functionName
-     * @param PublishFunctionVersionRequest $request      PublishFunctionVersionRequest
-     * @param string[]                      $headers      map
-     * @param RuntimeOptions                $runtime      runtime options for this request RuntimeOptions
+     * @param PublishFunctionVersionRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
      *
-     * @return PublishFunctionVersionResponse PublishFunctionVersionResponse
+     * @return PublishFunctionVersionResponse
      */
     public function publishFunctionVersionWithOptions($functionName, $request, $headers, $runtime)
     {
@@ -2250,12 +2100,10 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 发布函数版本。
-     *   *
      * @param string                        $functionName
-     * @param PublishFunctionVersionRequest $request      PublishFunctionVersionRequest
+     * @param PublishFunctionVersionRequest $request
      *
-     * @return PublishFunctionVersionResponse PublishFunctionVersionResponse
+     * @return PublishFunctionVersionResponse
      */
     public function publishFunctionVersion($functionName, $request)
     {
@@ -2266,14 +2114,12 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 设置函数异步调用配置。
-     *   *
      * @param string                      $functionName
-     * @param PutAsyncInvokeConfigRequest $request      PutAsyncInvokeConfigRequest
-     * @param string[]                    $headers      map
-     * @param RuntimeOptions              $runtime      runtime options for this request RuntimeOptions
+     * @param PutAsyncInvokeConfigRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
      *
-     * @return PutAsyncInvokeConfigResponse PutAsyncInvokeConfigResponse
+     * @return PutAsyncInvokeConfigResponse
      */
     public function putAsyncInvokeConfigWithOptions($functionName, $request, $headers, $runtime)
     {
@@ -2303,12 +2149,10 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 设置函数异步调用配置。
-     *   *
      * @param string                      $functionName
-     * @param PutAsyncInvokeConfigRequest $request      PutAsyncInvokeConfigRequest
+     * @param PutAsyncInvokeConfigRequest $request
      *
-     * @return PutAsyncInvokeConfigResponse PutAsyncInvokeConfigResponse
+     * @return PutAsyncInvokeConfigResponse
      */
     public function putAsyncInvokeConfig($functionName, $request)
     {
@@ -2319,14 +2163,12 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 设置函数并发度配置。
-     *   *
      * @param string                      $functionName
-     * @param PutConcurrencyConfigRequest $request      PutConcurrencyConfigRequest
-     * @param string[]                    $headers      map
-     * @param RuntimeOptions              $runtime      runtime options for this request RuntimeOptions
+     * @param PutConcurrencyConfigRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
      *
-     * @return PutConcurrencyConfigResponse PutConcurrencyConfigResponse
+     * @return PutConcurrencyConfigResponse
      */
     public function putConcurrencyConfigWithOptions($functionName, $request, $headers, $runtime)
     {
@@ -2351,12 +2193,10 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 设置函数并发度配置。
-     *   *
      * @param string                      $functionName
-     * @param PutConcurrencyConfigRequest $request      PutConcurrencyConfigRequest
+     * @param PutConcurrencyConfigRequest $request
      *
-     * @return PutConcurrencyConfigResponse PutConcurrencyConfigResponse
+     * @return PutConcurrencyConfigResponse
      */
     public function putConcurrencyConfig($functionName, $request)
     {
@@ -2367,14 +2207,12 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 设置层的访问权限。
-     *   *
      * @param string             $layerName
-     * @param PutLayerACLRequest $request   PutLayerACLRequest
-     * @param string[]           $headers   map
-     * @param RuntimeOptions     $runtime   runtime options for this request RuntimeOptions
+     * @param PutLayerACLRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
      *
-     * @return PutLayerACLResponse PutLayerACLResponse
+     * @return PutLayerACLResponse
      */
     public function putLayerACLWithOptions($layerName, $request, $headers, $runtime)
     {
@@ -2403,12 +2241,10 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 设置层的访问权限。
-     *   *
      * @param string             $layerName
-     * @param PutLayerACLRequest $request   PutLayerACLRequest
+     * @param PutLayerACLRequest $request
      *
-     * @return PutLayerACLResponse PutLayerACLResponse
+     * @return PutLayerACLResponse
      */
     public function putLayerACL($layerName, $request)
     {
@@ -2419,14 +2255,12 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 设置函数预留配置。
-     *   *
      * @param string                    $functionName
-     * @param PutProvisionConfigRequest $request      PutProvisionConfigRequest
-     * @param string[]                  $headers      map
-     * @param RuntimeOptions            $runtime      runtime options for this request RuntimeOptions
+     * @param PutProvisionConfigRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
      *
-     * @return PutProvisionConfigResponse PutProvisionConfigResponse
+     * @return PutProvisionConfigResponse
      */
     public function putProvisionConfigWithOptions($functionName, $request, $headers, $runtime)
     {
@@ -2456,12 +2290,10 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 设置函数预留配置。
-     *   *
      * @param string                    $functionName
-     * @param PutProvisionConfigRequest $request      PutProvisionConfigRequest
+     * @param PutProvisionConfigRequest $request
      *
-     * @return PutProvisionConfigResponse PutProvisionConfigResponse
+     * @return PutProvisionConfigResponse
      */
     public function putProvisionConfig($functionName, $request)
     {
@@ -2472,8 +2304,10 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 设置资源标签。
+     * @deprecated
      *   *
+     * Deprecated
+     *
      * @param TagResourceRequest $request TagResourceRequest
      * @param string[]           $headers map
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -2503,8 +2337,10 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 设置资源标签。
+     * @deprecated
      *   *
+     * Deprecated
+     *
      * @param TagResourceRequest $request TagResourceRequest
      *
      * @return TagResourceResponse TagResourceResponse
@@ -2518,8 +2354,10 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 删除资源标签。
+     * @deprecated
      *   *
+     * Deprecated
+     *
      * @param UntagResourceRequest $request UntagResourceRequest
      * @param string[]             $headers map
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -2559,8 +2397,10 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 删除资源标签。
+     * @deprecated
      *   *
+     * Deprecated
+     *
      * @param UntagResourceRequest $request UntagResourceRequest
      *
      * @return UntagResourceResponse UntagResourceResponse
@@ -2574,15 +2414,13 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 更新函数别名。
-     *   *
      * @param string             $functionName
      * @param string             $aliasName
-     * @param UpdateAliasRequest $request      UpdateAliasRequest
-     * @param string[]           $headers      map
-     * @param RuntimeOptions     $runtime      runtime options for this request RuntimeOptions
+     * @param UpdateAliasRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
      *
-     * @return UpdateAliasResponse UpdateAliasResponse
+     * @return UpdateAliasResponse
      */
     public function updateAliasWithOptions($functionName, $aliasName, $request, $headers, $runtime)
     {
@@ -2607,13 +2445,11 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 更新函数别名。
-     *   *
      * @param string             $functionName
      * @param string             $aliasName
-     * @param UpdateAliasRequest $request      UpdateAliasRequest
+     * @param UpdateAliasRequest $request
      *
-     * @return UpdateAliasResponse UpdateAliasResponse
+     * @return UpdateAliasResponse
      */
     public function updateAlias($functionName, $aliasName, $request)
     {
@@ -2624,14 +2460,12 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 更新自定义域名。
-     *   *
      * @param string                    $domainName
-     * @param UpdateCustomDomainRequest $request    UpdateCustomDomainRequest
-     * @param string[]                  $headers    map
-     * @param RuntimeOptions            $runtime    runtime options for this request RuntimeOptions
+     * @param UpdateCustomDomainRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
      *
-     * @return UpdateCustomDomainResponse UpdateCustomDomainResponse
+     * @return UpdateCustomDomainResponse
      */
     public function updateCustomDomainWithOptions($domainName, $request, $headers, $runtime)
     {
@@ -2656,12 +2490,10 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 更新自定义域名。
-     *   *
      * @param string                    $domainName
-     * @param UpdateCustomDomainRequest $request    UpdateCustomDomainRequest
+     * @param UpdateCustomDomainRequest $request
      *
-     * @return UpdateCustomDomainResponse UpdateCustomDomainResponse
+     * @return UpdateCustomDomainResponse
      */
     public function updateCustomDomain($domainName, $request)
     {
@@ -2672,14 +2504,12 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 更新函数。
-     *   *
      * @param string                $functionName
-     * @param UpdateFunctionRequest $request      UpdateFunctionRequest
-     * @param string[]              $headers      map
-     * @param RuntimeOptions        $runtime      runtime options for this request RuntimeOptions
+     * @param UpdateFunctionRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
      *
-     * @return UpdateFunctionResponse UpdateFunctionResponse
+     * @return UpdateFunctionResponse
      */
     public function updateFunctionWithOptions($functionName, $request, $headers, $runtime)
     {
@@ -2704,12 +2534,10 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 更新函数。
-     *   *
      * @param string                $functionName
-     * @param UpdateFunctionRequest $request      UpdateFunctionRequest
+     * @param UpdateFunctionRequest $request
      *
-     * @return UpdateFunctionResponse UpdateFunctionResponse
+     * @return UpdateFunctionResponse
      */
     public function updateFunction($functionName, $request)
     {
@@ -2720,15 +2548,13 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 更新函数触发器。
-     *   *
      * @param string               $functionName
      * @param string               $triggerName
-     * @param UpdateTriggerRequest $request      UpdateTriggerRequest
-     * @param string[]             $headers      map
-     * @param RuntimeOptions       $runtime      runtime options for this request RuntimeOptions
+     * @param UpdateTriggerRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
      *
-     * @return UpdateTriggerResponse UpdateTriggerResponse
+     * @return UpdateTriggerResponse
      */
     public function updateTriggerWithOptions($functionName, $triggerName, $request, $headers, $runtime)
     {
@@ -2753,13 +2579,11 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 更新函数触发器。
-     *   *
      * @param string               $functionName
      * @param string               $triggerName
-     * @param UpdateTriggerRequest $request      UpdateTriggerRequest
+     * @param UpdateTriggerRequest $request
      *
-     * @return UpdateTriggerResponse UpdateTriggerResponse
+     * @return UpdateTriggerResponse
      */
     public function updateTrigger($functionName, $triggerName, $request)
     {

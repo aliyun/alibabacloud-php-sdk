@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UntagResourceRequest extends Model
 {
     /**
+     * @description Specifies whether to delete all tags.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class UntagResourceRequest extends Model
     public $all;
 
     /**
+     * @description The resource ID.
+     *
      * @example acs:fc:cn-shanghai:1234/functions/my-func
      *
      * @var string
@@ -23,6 +27,8 @@ class UntagResourceRequest extends Model
     public $arn;
 
     /**
+     * @description The tag name.
+     *
      * @example tag1, tag2
      *
      * @var string

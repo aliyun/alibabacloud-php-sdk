@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListTaggedResourcesRequest extends Model
 {
     /**
+     * @description The number of resources to return.
+     *
      * @example 10
      *
      * @var int
@@ -16,6 +18,8 @@ class ListTaggedResourcesRequest extends Model
     public $limit;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
      * @example MTIzNCNhYmM=
      *
      * @var string
@@ -23,6 +27,8 @@ class ListTaggedResourcesRequest extends Model
     public $nextToken;
 
     /**
+     * @description The type of the resource quantity. ALIYUN::FC::FUNCTION indicates functions in Function Compute 3.0. ALIYUN::FC::SERVICE indicates the original service of Function Compute. The default value is ALIYUN::FC:FUNCTION.
+     *
      * @example ALIYUN::FC:FUNCTION
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListFunctionsRequest extends Model
 {
     /**
+     * @description The number of functions to return.
+     *
      * @example 10
      *
      * @var int
@@ -16,6 +18,8 @@ class ListFunctionsRequest extends Model
     public $limit;
 
     /**
+     * @description A pagination token.
+     *
      * @example MTIzNCNhYmM=
      *
      * @var string
@@ -23,6 +27,8 @@ class ListFunctionsRequest extends Model
     public $nextToken;
 
     /**
+     * @description A prefix of function names.
+     *
      * @example my-func
      *
      * @var string

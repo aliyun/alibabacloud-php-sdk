@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListProvisionConfigsRequest extends Model
 {
     /**
+     * @description The name of the function. If this parameter is not specified, the provisioned configurations of all functions are listed.
+     *
      * @example my-func
      *
      * @var string
@@ -16,6 +18,8 @@ class ListProvisionConfigsRequest extends Model
     public $functionName;
 
     /**
+     * @description Number of provisioned configurations to return.
+     *
      * @example 10
      *
      * @var int
@@ -23,6 +27,8 @@ class ListProvisionConfigsRequest extends Model
     public $limit;
 
     /**
+     * @description A pagination token.
+     *
      * @example MTIzNCNhYmM=
      *
      * @var string

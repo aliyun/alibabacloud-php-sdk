@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class PutConcurrencyConfigRequest extends Model
 {
     /**
+     * @description The concurrency configurations.
+     *
      * @var PutConcurrencyInput
      */
     public $body;

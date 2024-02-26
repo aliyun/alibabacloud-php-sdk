@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class TagResourceRequest extends Model
 {
     /**
+     * @description The configuration of the resource tag.
+     *
      * @var TagResourceInput
      */
     public $body;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class PublishFunctionVersionRequest extends Model
 {
     /**
+     * @description The information about the function version.
+     *
      * @var PublishVersionInput
      */
     public $body;
