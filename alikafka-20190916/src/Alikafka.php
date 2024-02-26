@@ -83,6 +83,7 @@ use AlibabaCloud\SDK\Alikafka\V20190916\Models\UpgradeInstanceVersionRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\UpgradeInstanceVersionResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\UpgradePostPayOrderRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\UpgradePostPayOrderResponse;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\UpgradePostPayOrderShrinkRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\UpgradePrePayOrderRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\UpgradePrePayOrderResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -2223,14 +2224,19 @@ class Alikafka extends OpenApiClient
     /**
      * Before you call this operation, make sure that you understand the billing method and pricing of pay-as-you-go Message Queue for Apache Kafka instances. For more information, see [Billing](~~84737~~).
      *   *
-     * @param UpgradePostPayOrderRequest $request UpgradePostPayOrderRequest
+     * @param UpgradePostPayOrderRequest $tmpReq  UpgradePostPayOrderRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
      * @return UpgradePostPayOrderResponse UpgradePostPayOrderResponse
      */
-    public function upgradePostPayOrderWithOptions($request, $runtime)
+    public function upgradePostPayOrderWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new UpgradePostPayOrderShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->serverlessConfig)) {
+            $request->serverlessConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->serverlessConfig, 'ServerlessConfig', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->diskSize)) {
             $query['DiskSize'] = $request->diskSize;
@@ -2255,6 +2261,9 @@ class Alikafka extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serverlessConfigShrink)) {
+            $query['ServerlessConfig'] = $request->serverlessConfigShrink;
         }
         if (!Utils::isUnset($request->specType)) {
             $query['SpecType'] = $request->specType;

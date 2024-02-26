@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models;
 
-use AlibabaCloud\SDK\Alikafka\V20190916\Models\UpgradePostPayOrderRequest\serverlessConfig;
 use AlibabaCloud\Tea\Model;
 
-class UpgradePostPayOrderRequest extends Model
+class UpgradePostPayOrderShrinkRequest extends Model
 {
     /**
      * @description The disk size. Unit: GB.
@@ -104,9 +103,9 @@ class UpgradePostPayOrderRequest extends Model
     public $regionId;
 
     /**
-     * @var serverlessConfig
+     * @var string
      */
-    public $serverlessConfig;
+    public $serverlessConfigShrink;
 
     /**
      * @description The edition of the instance. Valid values:
@@ -136,17 +135,17 @@ class UpgradePostPayOrderRequest extends Model
      */
     public $topicQuota;
     protected $_name = [
-        'diskSize'         => 'DiskSize',
-        'eipMax'           => 'EipMax',
-        'eipModel'         => 'EipModel',
-        'instanceId'       => 'InstanceId',
-        'ioMax'            => 'IoMax',
-        'ioMaxSpec'        => 'IoMaxSpec',
-        'partitionNum'     => 'PartitionNum',
-        'regionId'         => 'RegionId',
-        'serverlessConfig' => 'ServerlessConfig',
-        'specType'         => 'SpecType',
-        'topicQuota'       => 'TopicQuota',
+        'diskSize'               => 'DiskSize',
+        'eipMax'                 => 'EipMax',
+        'eipModel'               => 'EipModel',
+        'instanceId'             => 'InstanceId',
+        'ioMax'                  => 'IoMax',
+        'ioMaxSpec'              => 'IoMaxSpec',
+        'partitionNum'           => 'PartitionNum',
+        'regionId'               => 'RegionId',
+        'serverlessConfigShrink' => 'ServerlessConfig',
+        'specType'               => 'SpecType',
+        'topicQuota'             => 'TopicQuota',
     ];
 
     public function validate()
@@ -180,8 +179,8 @@ class UpgradePostPayOrderRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->serverlessConfig) {
-            $res['ServerlessConfig'] = null !== $this->serverlessConfig ? $this->serverlessConfig->toMap() : null;
+        if (null !== $this->serverlessConfigShrink) {
+            $res['ServerlessConfig'] = $this->serverlessConfigShrink;
         }
         if (null !== $this->specType) {
             $res['SpecType'] = $this->specType;
@@ -196,7 +195,7 @@ class UpgradePostPayOrderRequest extends Model
     /**
      * @param array $map
      *
-     * @return UpgradePostPayOrderRequest
+     * @return UpgradePostPayOrderShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -226,7 +225,7 @@ class UpgradePostPayOrderRequest extends Model
             $model->regionId = $map['RegionId'];
         }
         if (isset($map['ServerlessConfig'])) {
-            $model->serverlessConfig = serverlessConfig::fromMap($map['ServerlessConfig']);
+            $model->serverlessConfigShrink = $map['ServerlessConfig'];
         }
         if (isset($map['SpecType'])) {
             $model->specType = $map['SpecType'];
