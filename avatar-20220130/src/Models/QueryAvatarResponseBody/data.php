@@ -68,6 +68,11 @@ class data extends Model
     public $portrait;
 
     /**
+     * @var string
+     */
+    public $preview;
+
+    /**
      * @var supportedResolutions
      */
     public $supportedResolutions;
@@ -82,6 +87,7 @@ class data extends Model
         'modelType'            => 'ModelType',
         'name'                 => 'Name',
         'portrait'             => 'Portrait',
+        'preview'              => 'Preview',
         'supportedResolutions' => 'SupportedResolutions',
     ];
 
@@ -121,6 +127,9 @@ class data extends Model
         }
         if (null !== $this->portrait) {
             $res['Portrait'] = $this->portrait;
+        }
+        if (null !== $this->preview) {
+            $res['Preview'] = $this->preview;
         }
         if (null !== $this->supportedResolutions) {
             $res['SupportedResolutions'] = null !== $this->supportedResolutions ? $this->supportedResolutions->toMap() : null;
@@ -166,6 +175,9 @@ class data extends Model
         }
         if (isset($map['Portrait'])) {
             $model->portrait = $map['Portrait'];
+        }
+        if (isset($map['Preview'])) {
+            $model->preview = $map['Preview'];
         }
         if (isset($map['SupportedResolutions'])) {
             $model->supportedResolutions = supportedResolutions::fromMap($map['SupportedResolutions']);
