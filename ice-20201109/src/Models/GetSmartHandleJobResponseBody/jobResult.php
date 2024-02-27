@@ -25,9 +25,15 @@ class jobResult extends Model
      * @var string
      */
     public $mediaId;
+
+    /**
+     * @var string
+     */
+    public $usage;
     protected $_name = [
         'aiResult' => 'AiResult',
         'mediaId'  => 'MediaId',
+        'usage'    => 'Usage',
     ];
 
     public function validate()
@@ -42,6 +48,9 @@ class jobResult extends Model
         }
         if (null !== $this->mediaId) {
             $res['MediaId'] = $this->mediaId;
+        }
+        if (null !== $this->usage) {
+            $res['Usage'] = $this->usage;
         }
 
         return $res;
@@ -60,6 +69,9 @@ class jobResult extends Model
         }
         if (isset($map['MediaId'])) {
             $model->mediaId = $map['MediaId'];
+        }
+        if (isset($map['Usage'])) {
+            $model->usage = $map['Usage'];
         }
 
         return $model;
