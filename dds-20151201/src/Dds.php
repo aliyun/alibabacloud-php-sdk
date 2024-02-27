@@ -715,7 +715,9 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Creates or clones an ApsaraDB for MongoDB replica set instance.
+     * Make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/mongodb/detail/mongodb_computeudr_dp_cn) of ApsaraDB for MongoDB before you call this operation.
+     *   * For more information about the instance types of ApsaraDB for MongoDB instances, see [Instance types](https://www.alibabacloud.com/help/en/mongodb/product-overview/instance-types-1).
+     *   * To create sharded cluster instances, you can call the [CreateShardingDBInstance](~~CreateShardingDBInstance~~) operation.
      *   *
      * @param CreateDBInstanceRequest $request CreateDBInstanceRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -862,7 +864,9 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Creates or clones an ApsaraDB for MongoDB replica set instance.
+     * Make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/mongodb/detail/mongodb_computeudr_dp_cn) of ApsaraDB for MongoDB before you call this operation.
+     *   * For more information about the instance types of ApsaraDB for MongoDB instances, see [Instance types](https://www.alibabacloud.com/help/en/mongodb/product-overview/instance-types-1).
+     *   * To create sharded cluster instances, you can call the [CreateShardingDBInstance](~~CreateShardingDBInstance~~) operation.
      *   *
      * @param CreateDBInstanceRequest $request CreateDBInstanceRequest
      *
@@ -5394,6 +5398,9 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->enableBackupLog)) {
             $query['EnableBackupLog'] = $request->enableBackupLog;
         }
+        if (!Utils::isUnset($request->highFrequencyBackupRetention)) {
+            $query['HighFrequencyBackupRetention'] = $request->highFrequencyBackupRetention;
+        }
         if (!Utils::isUnset($request->logBackupRetentionPeriod)) {
             $query['LogBackupRetentionPeriod'] = $request->logBackupRetentionPeriod;
         }
@@ -5414,9 +5421,6 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
         }
         if (!Utils::isUnset($request->snapshotBackupType)) {
             $query['SnapshotBackupType'] = $request->snapshotBackupType;

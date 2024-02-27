@@ -63,6 +63,11 @@ class ModifyBackupPolicyRequest extends Model
     public $enableBackupLog;
 
     /**
+     * @var int
+     */
+    public $highFrequencyBackupRetention;
+
+    /**
      * @description The number of days for which log backups are retained. Default value: 7.
      *
      * Valid values: 7 to 730.
@@ -121,11 +126,6 @@ class ModifyBackupPolicyRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @var string
-     */
-    public $securityToken;
-
-    /**
      * @description The snapshot backup type. Default value: Standard. Valid values:
      *
      *   **Flash**: single-digit second backup
@@ -137,19 +137,19 @@ class ModifyBackupPolicyRequest extends Model
      */
     public $snapshotBackupType;
     protected $_name = [
-        'backupInterval'           => 'BackupInterval',
-        'backupRetentionPeriod'    => 'BackupRetentionPeriod',
-        'DBInstanceId'             => 'DBInstanceId',
-        'enableBackupLog'          => 'EnableBackupLog',
-        'logBackupRetentionPeriod' => 'LogBackupRetentionPeriod',
-        'ownerAccount'             => 'OwnerAccount',
-        'ownerId'                  => 'OwnerId',
-        'preferredBackupPeriod'    => 'PreferredBackupPeriod',
-        'preferredBackupTime'      => 'PreferredBackupTime',
-        'resourceOwnerAccount'     => 'ResourceOwnerAccount',
-        'resourceOwnerId'          => 'ResourceOwnerId',
-        'securityToken'            => 'SecurityToken',
-        'snapshotBackupType'       => 'SnapshotBackupType',
+        'backupInterval'               => 'BackupInterval',
+        'backupRetentionPeriod'        => 'BackupRetentionPeriod',
+        'DBInstanceId'                 => 'DBInstanceId',
+        'enableBackupLog'              => 'EnableBackupLog',
+        'highFrequencyBackupRetention' => 'HighFrequencyBackupRetention',
+        'logBackupRetentionPeriod'     => 'LogBackupRetentionPeriod',
+        'ownerAccount'                 => 'OwnerAccount',
+        'ownerId'                      => 'OwnerId',
+        'preferredBackupPeriod'        => 'PreferredBackupPeriod',
+        'preferredBackupTime'          => 'PreferredBackupTime',
+        'resourceOwnerAccount'         => 'ResourceOwnerAccount',
+        'resourceOwnerId'              => 'ResourceOwnerId',
+        'snapshotBackupType'           => 'SnapshotBackupType',
     ];
 
     public function validate()
@@ -171,6 +171,9 @@ class ModifyBackupPolicyRequest extends Model
         if (null !== $this->enableBackupLog) {
             $res['EnableBackupLog'] = $this->enableBackupLog;
         }
+        if (null !== $this->highFrequencyBackupRetention) {
+            $res['HighFrequencyBackupRetention'] = $this->highFrequencyBackupRetention;
+        }
         if (null !== $this->logBackupRetentionPeriod) {
             $res['LogBackupRetentionPeriod'] = $this->logBackupRetentionPeriod;
         }
@@ -191,9 +194,6 @@ class ModifyBackupPolicyRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->snapshotBackupType) {
             $res['SnapshotBackupType'] = $this->snapshotBackupType;
@@ -222,6 +222,9 @@ class ModifyBackupPolicyRequest extends Model
         if (isset($map['EnableBackupLog'])) {
             $model->enableBackupLog = $map['EnableBackupLog'];
         }
+        if (isset($map['HighFrequencyBackupRetention'])) {
+            $model->highFrequencyBackupRetention = $map['HighFrequencyBackupRetention'];
+        }
         if (isset($map['LogBackupRetentionPeriod'])) {
             $model->logBackupRetentionPeriod = $map['LogBackupRetentionPeriod'];
         }
@@ -242,9 +245,6 @@ class ModifyBackupPolicyRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['SnapshotBackupType'])) {
             $model->snapshotBackupType = $map['SnapshotBackupType'];

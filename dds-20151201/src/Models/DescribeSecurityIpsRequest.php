@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSecurityIpsRequest extends Model
 {
     /**
-     * @description com.aliyun.abs.dds.service.v20151201.domain.GetDdsSecurityIpsRequest
+     * @description The ID of the instance.
      *
      * @example dds-bpxxxxxxxx
      *
@@ -38,7 +38,7 @@ class DescribeSecurityIpsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The operation that you want to perform. Set the value to **DescribeSecurityIps**.
+     * @description Whether to display DAS whitelist information.
      *
      * @example true
      *

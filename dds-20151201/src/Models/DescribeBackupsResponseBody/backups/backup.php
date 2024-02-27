@@ -55,6 +55,11 @@ class backup extends Model
     public $backupIntranetDownloadURL;
 
     /**
+     * @var int
+     */
+    public $backupJobId;
+
+    /**
      * @description The method that is used to generate the backup set. Valid values:
      *
      *   **Snapshot**
@@ -126,6 +131,7 @@ class backup extends Model
         'backupEndTime'             => 'BackupEndTime',
         'backupId'                  => 'BackupId',
         'backupIntranetDownloadURL' => 'BackupIntranetDownloadURL',
+        'backupJobId'               => 'BackupJobId',
         'backupMethod'              => 'BackupMethod',
         'backupMode'                => 'BackupMode',
         'backupSize'                => 'BackupSize',
@@ -155,6 +161,9 @@ class backup extends Model
         }
         if (null !== $this->backupIntranetDownloadURL) {
             $res['BackupIntranetDownloadURL'] = $this->backupIntranetDownloadURL;
+        }
+        if (null !== $this->backupJobId) {
+            $res['BackupJobId'] = $this->backupJobId;
         }
         if (null !== $this->backupMethod) {
             $res['BackupMethod'] = $this->backupMethod;
@@ -200,6 +209,9 @@ class backup extends Model
         }
         if (isset($map['BackupIntranetDownloadURL'])) {
             $model->backupIntranetDownloadURL = $map['BackupIntranetDownloadURL'];
+        }
+        if (isset($map['BackupJobId'])) {
+            $model->backupJobId = $map['BackupJobId'];
         }
         if (isset($map['BackupMethod'])) {
             $model->backupMethod = $map['BackupMethod'];

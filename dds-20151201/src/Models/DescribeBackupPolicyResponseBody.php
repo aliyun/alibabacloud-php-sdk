@@ -50,6 +50,11 @@ class DescribeBackupPolicyResponseBody extends Model
     public $enableBackupLog;
 
     /**
+     * @var string
+     */
+    public $highFrequencyBackupRetention;
+
+    /**
      * @description The number of days for which log backups are retained. Valid values: 7 to 730.
      *
      * @example 7
@@ -105,14 +110,15 @@ class DescribeBackupPolicyResponseBody extends Model
      */
     public $snapshotBackupType;
     protected $_name = [
-        'backupInterval'           => 'BackupInterval',
-        'backupRetentionPeriod'    => 'BackupRetentionPeriod',
-        'enableBackupLog'          => 'EnableBackupLog',
-        'logBackupRetentionPeriod' => 'LogBackupRetentionPeriod',
-        'preferredBackupPeriod'    => 'PreferredBackupPeriod',
-        'preferredBackupTime'      => 'PreferredBackupTime',
-        'requestId'                => 'RequestId',
-        'snapshotBackupType'       => 'SnapshotBackupType',
+        'backupInterval'               => 'BackupInterval',
+        'backupRetentionPeriod'        => 'BackupRetentionPeriod',
+        'enableBackupLog'              => 'EnableBackupLog',
+        'highFrequencyBackupRetention' => 'HighFrequencyBackupRetention',
+        'logBackupRetentionPeriod'     => 'LogBackupRetentionPeriod',
+        'preferredBackupPeriod'        => 'PreferredBackupPeriod',
+        'preferredBackupTime'          => 'PreferredBackupTime',
+        'requestId'                    => 'RequestId',
+        'snapshotBackupType'           => 'SnapshotBackupType',
     ];
 
     public function validate()
@@ -130,6 +136,9 @@ class DescribeBackupPolicyResponseBody extends Model
         }
         if (null !== $this->enableBackupLog) {
             $res['EnableBackupLog'] = $this->enableBackupLog;
+        }
+        if (null !== $this->highFrequencyBackupRetention) {
+            $res['HighFrequencyBackupRetention'] = $this->highFrequencyBackupRetention;
         }
         if (null !== $this->logBackupRetentionPeriod) {
             $res['LogBackupRetentionPeriod'] = $this->logBackupRetentionPeriod;
@@ -166,6 +175,9 @@ class DescribeBackupPolicyResponseBody extends Model
         }
         if (isset($map['EnableBackupLog'])) {
             $model->enableBackupLog = $map['EnableBackupLog'];
+        }
+        if (isset($map['HighFrequencyBackupRetention'])) {
+            $model->highFrequencyBackupRetention = $map['HighFrequencyBackupRetention'];
         }
         if (isset($map['LogBackupRetentionPeriod'])) {
             $model->logBackupRetentionPeriod = $map['LogBackupRetentionPeriod'];

@@ -27,7 +27,7 @@ class CreateDBInstanceResponseBody extends Model
     public $orderId;
 
     /**
-     * @description The ID of the instance.
+     * @description The ID of the request.
      *
      * @example D8F1D721-6439-4257-A89C-F1E8E9C9****
      *
