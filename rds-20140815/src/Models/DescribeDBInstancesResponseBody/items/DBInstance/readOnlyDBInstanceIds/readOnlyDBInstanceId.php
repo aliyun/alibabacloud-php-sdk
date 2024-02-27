@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class readOnlyDBInstanceId extends Model
 {
     /**
-     * @description The ID of the read-only instance.
+     * @description The read-only instance ID.
      *
      * @example rr-uf6wjk5xxxxxxx
      *

@@ -48,6 +48,8 @@ class DBInstance extends Model
     public $category;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $coldDataEnabled;
@@ -122,7 +124,7 @@ class DBInstance extends Model
     public $DBInstanceNetType;
 
     /**
-     * @description The status of the instance. For more information, see [Instance states](~~26315~~).
+     * @description The instance status. For more information, see [Instance statuses](~~26315~~).
      *
      * @example Running
      *
@@ -154,7 +156,7 @@ class DBInstance extends Model
     public $DBInstanceType;
 
     /**
-     * @description The ID of the dedicated cluster.
+     * @description The ID of the dedicated cluster to which the instances belong.
      *
      * @example dhg-7a9xxxxxxxx
      *
@@ -311,7 +313,7 @@ class DBInstance extends Model
     public $generalGroupName;
 
     /**
-     * @description The ID of the disaster recovery instance. This parameter is returned only when the instance is a primary instance and has a disaster recovery instance.
+     * @description The ID of the disaster recovery instance. This parameter is returned only when the instance is a primary instance and has a disaster recovery instance attached.
      *
      * @example rm-uf64zsuxxxxxxxxxx
      *
@@ -332,6 +334,8 @@ class DBInstance extends Model
     public $instanceNetworkType;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $ioAccelerationEnabled;
@@ -362,7 +366,7 @@ class DBInstance extends Model
     public $lockReason;
 
     /**
-     * @description The ID of the primary instance. If the value of this parameter is null, the instance is a primary instance.
+     * @description The ID of the primary instance. If this parameter is null, the instance is a primary instance.
      *
      * @example rm-uf6wjk5xxxxxxxxxx
      *
@@ -396,14 +400,14 @@ class DBInstance extends Model
     public $payType;
 
     /**
-     * @description An array that consists of the IDs of the read-only instances that are attached to the instance. This parameter is returned only when the instance is a primary instance and has read-only instances.
+     * @description The IDs of the read-only instances that are attached to the primary instance. This parameter is returned only when the instance is a primary instance.
      *
      * @var readOnlyDBInstanceIds
      */
     public $readOnlyDBInstanceIds;
 
     /**
-     * @description The region ID of the instance.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -433,7 +437,7 @@ class DBInstance extends Model
     public $switchWeight;
 
     /**
-     * @description The ID of the temporary instance. This parameter is returned only when the instance is a primary instance and has a temporary instance.
+     * @description The ID of the temporary instance. This parameter is returned only when the instance is a primary instance and has a temporary instance attached.
      *
      * @example rm-uf64zsuxxxxxxxxxx
      *
@@ -451,7 +455,7 @@ class DBInstance extends Model
     public $tips;
 
     /**
-     * @description The severity level of the exception that is detected on the instance. This parameter is returned only when the instance is created in an ApsaraDB MyBase cluster that runs MySQL on Standard Edition. Valid values:
+     * @description The severity of the exception that is detected on the instance. This parameter is returned only when the instance is created in an ApsaraDB MyBase cluster that runs MySQL on Standard Edition. Valid values:
      *
      *   **1**: The instance is normal.
      *   **2**: The specifications of the read-only instances do not match the specifications of the primary instance, and instance performance may be affected. You must adjust the specifications of these instances based on your business requirements.
@@ -472,7 +476,7 @@ class DBInstance extends Model
     public $vSwitchId;
 
     /**
-     * @description The VPC ID.
+     * @description The ID of the instance. This parameter is returned only when the instance resides in a VPC.
      *
      * @example rm-uf6wjk5xxxxxxx
      *
@@ -481,7 +485,7 @@ class DBInstance extends Model
     public $vpcCloudInstanceId;
 
     /**
-     * @description The virtual private cloud (VPC) ID of the instance.
+     * @description The virtual private cloud (VPC) ID.
      *
      * @example vpc-uf6f7l4fg90xxxxxxx
      *

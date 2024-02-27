@@ -9299,7 +9299,7 @@ class Rds extends OpenApiClient
 
     /**
      * @deprecated : DescribeDBInstancesAsCsv is deprecated, please use Rds::2014-08-15::DescribeDBInstances instead.
-     *   * This operation is phased out. Use the DescribeDBInstances operation instead.
+     *   * >  The DescribeDBInstancesAsCsv operation is phased out. You can call the DescribeDBInstances operation.
      *   *
      * Deprecated
      *
@@ -9356,7 +9356,7 @@ class Rds extends OpenApiClient
 
     /**
      * @deprecated : DescribeDBInstancesAsCsv is deprecated, please use Rds::2014-08-15::DescribeDBInstances instead.
-     *   * This operation is phased out. Use the DescribeDBInstances operation instead.
+     *   * >  The DescribeDBInstancesAsCsv operation is phased out. You can call the DescribeDBInstances operation.
      *   *
      * Deprecated
      *
@@ -18001,6 +18001,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->CAType)) {
             $query['CAType'] = $request->CAType;
         }
+        if (!Utils::isUnset($request->certificate)) {
+            $query['Certificate'] = $request->certificate;
+        }
         if (!Utils::isUnset($request->clientCACert)) {
             $query['ClientCACert'] = $request->clientCACert;
         }
@@ -18027,6 +18030,9 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->passWord)) {
+            $query['PassWord'] = $request->passWord;
         }
         if (!Utils::isUnset($request->replicationACL)) {
             $query['ReplicationACL'] = $request->replicationACL;

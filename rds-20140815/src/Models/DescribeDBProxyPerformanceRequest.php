@@ -27,7 +27,10 @@ class DescribeDBProxyPerformanceRequest extends Model
     public $DBProxyEngineType;
 
     /**
-     * @description The type of proxy that is enabled on the instance. Set the value to **DedicatedProxy**.
+     * @description The type of the database proxy instance. Valid values:
+     *
+     *   common: the general-purpose database proxy
+     *   exclusive: the dedicated database proxy
      *
      * @example DedicatedProxy
      *

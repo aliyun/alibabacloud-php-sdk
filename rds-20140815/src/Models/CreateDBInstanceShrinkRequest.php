@@ -68,7 +68,7 @@ class CreateDBInstanceShrinkRequest extends Model
     public $babelfishConfig;
 
     /**
-     * @description A reserved parameter. You do not need to specify this parameter.
+     * @description A deprecated parameter. You do not need to specify this parameter.
      *
      * @example false
      *
@@ -128,6 +128,10 @@ class CreateDBInstanceShrinkRequest extends Model
     public $clientToken;
 
     /**
+     * @description A reserved parameter. You do not need to specify this parameter.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $coldDataEnabled;
@@ -345,19 +349,26 @@ class CreateDBInstanceShrinkRequest extends Model
      *   Regular instance
      *
      *   Valid values when you set Engine to MySQL: **5.5**, **5.6**, **5.7**, and **8.0**
-     *   Valid values when you set Engine to SQLServer: **08r2\_ent_ha** (cloud disks, discontinued), **2008r2** (local disks, discontinued), **2012** (SQL Server EE Basic), **2012\_ent_ha**, **2012\_std_ha**, **2012\_web**, **2014\_ent_ha**, **2014\_std_ha**, **2016\_ent_ha**, **2016\_std_ha**, **2016\_web**, **2017\_ent**, **2017\_std_ha**, **2017\_web**, **2019\_ent**, **2019\_std_ha**, **2019\_web**, **2022\_ent**, **2022\_std_ha**, and **2022\_web**
-     *   Valid values when you set Engine to PostgreSQL: **10.0**, **11.0**, **12.0**, **13.0**, **14.0**, and **15.0**
+     *   Valid values if you set Engine to SQLServer: **08r2\_ent_ha** (cloud disks, discontinued), **2008r2** (local disks, discontinued), **2012** (SQL Server EE Basic), **2012\_ent_ha**, **2012\_std_ha**, **2012\_web**, **2014\_ent_ha**, **2014\_std_ha**, **2016\_ent_ha**, **2016\_std_ha**, **2016\_web**, **2017\_ent**, **2017\_std_ha**, **2017\_web**, **2019\_ent**, **2019\_std_ha**, **2019\_web**, **2022\_ent**, **2022\_std_ha**, and **2022\_web**
+     *   Valid values when you set Engine to PostgreSQL: **10.0**, **11.0**, **12.0**, **13.0**, **14.0**, **15.0**, and **16.0**
      *   Valid values when you set the Engine parameter to MariaDB: **10.3**
      *
      *   Serverless instance
      *
      *   Valid values when you set Engine to MySQL: **5.7** and **8.0**
      *   Valid values when you set Engine to SQLServer: **2016\_std_sl**, **2017\_std_sl**, and **2019\_std_sl**
-     *   Valid value when you set Engine to PostgreSQL: **14.0**
+     *   Valid values when you set Engine to PostgreSQL: **14.0**, **15.0**, and **16.0**
      *
-     * > *   ApsaraDB RDS for MariaDB does not support serverless instances.
-     * > *   Valid value if you set Engine to SQLServer: `_ent` specifies SQL Server EE on RDS Cluster Edition, `_ent_ha` specifies SQL Server EE, `_std_ha` specifies SQL Server SE, and `_web` specifies SQL Server Web.
-     * > *   RDS instances that run SQL Server 2014 are not available for purchase on the international site (alibabacloud.com).
+     * >
+     *
+     *   ApsaraDB RDS for MariaDB does not support serverless instances.
+     *
+     *   RDS instances that run SQL Server, `_ent` specifies SQL Server EE (Always On), `_ent_ha` specifies SQL Server EE, `_std_ha` specifies SQL Server SE, and `_web` specifies SQL Server Web.
+     *
+     *   RDS instances that run SQL Server 2014 are not available for purchase on the international site (alibabacloud.com).
+     *
+     *   ApsaraDB RDS for PostgreSQL instances for which Babelfish is enabled support only PostgreSQL 13.0, PostgreSQL 14.0, and PostgreSQL 15.0.
+     *
      * @example 5.6
      *
      * @var string
@@ -380,6 +391,10 @@ class CreateDBInstanceShrinkRequest extends Model
     public $instanceNetworkType;
 
     /**
+     * @description A reserved parameter. You do not need to specify this parameter.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $ioAccelerationEnabled;

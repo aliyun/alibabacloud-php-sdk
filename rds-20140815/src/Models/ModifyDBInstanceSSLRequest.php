@@ -35,6 +35,11 @@ class ModifyDBInstanceSSLRequest extends Model
     public $CAType;
 
     /**
+     * @var string
+     */
+    public $certificate;
+
+    /**
      * @description The public key of the CA that issues client certificates. This parameter is supported only when the instance runs PostgreSQL with cloud disks. This parameter must be specified when ClientCAEbabled is set to **1**.
      *
      * @example -----BEGIN CERTIFICATE-----MIID*****viXk=-----END CERTIFICATE-----
@@ -95,6 +100,13 @@ class ModifyDBInstanceSSLRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description Specifies whether to enable the forceful SSL encryption feature. This parameter is supported only for ApsaraDB RDS for SQL Server instances. For more information, see [Configure the SSL encryption feature](~~95715~~). Valid values:
+     *
+     *   **1**: enables the feature.
+     *   **0**: disables the feature.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $forceEncryption;
@@ -108,6 +120,11 @@ class ModifyDBInstanceSSLRequest extends Model
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $passWord;
 
     /**
      * @description The method that is used to verify the replication permission. This parameter is supported only when the instance runs PostgreSQL with cloud disks. In addition, this parameter is available only when the public key of the CA that issues client certificates is enabled. Valid values:
@@ -164,12 +181,17 @@ class ModifyDBInstanceSSLRequest extends Model
     public $serverKey;
 
     /**
+     * @description The minimum Transport Layer Security (TLS) version. Valid values: 1.0, 1.1, and 1.2. This parameter is supported only for ApsaraDB RDS for SQL Server instances. For more information, see [Configure the SSL encryption feature](~~95715~~).
+     *
+     * @example 1.1
+     *
      * @var string
      */
     public $tlsVersion;
     protected $_name = [
         'ACL'                      => 'ACL',
         'CAType'                   => 'CAType',
+        'certificate'              => 'Certificate',
         'clientCACert'             => 'ClientCACert',
         'clientCAEnabled'          => 'ClientCAEnabled',
         'clientCertRevocationList' => 'ClientCertRevocationList',
@@ -179,6 +201,7 @@ class ModifyDBInstanceSSLRequest extends Model
         'forceEncryption'          => 'ForceEncryption',
         'ownerAccount'             => 'OwnerAccount',
         'ownerId'                  => 'OwnerId',
+        'passWord'                 => 'PassWord',
         'replicationACL'           => 'ReplicationACL',
         'resourceOwnerAccount'     => 'ResourceOwnerAccount',
         'resourceOwnerId'          => 'ResourceOwnerId',
@@ -200,6 +223,9 @@ class ModifyDBInstanceSSLRequest extends Model
         }
         if (null !== $this->CAType) {
             $res['CAType'] = $this->CAType;
+        }
+        if (null !== $this->certificate) {
+            $res['Certificate'] = $this->certificate;
         }
         if (null !== $this->clientCACert) {
             $res['ClientCACert'] = $this->clientCACert;
@@ -227,6 +253,9 @@ class ModifyDBInstanceSSLRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->passWord) {
+            $res['PassWord'] = $this->passWord;
         }
         if (null !== $this->replicationACL) {
             $res['ReplicationACL'] = $this->replicationACL;
@@ -267,6 +296,9 @@ class ModifyDBInstanceSSLRequest extends Model
         if (isset($map['CAType'])) {
             $model->CAType = $map['CAType'];
         }
+        if (isset($map['Certificate'])) {
+            $model->certificate = $map['Certificate'];
+        }
         if (isset($map['ClientCACert'])) {
             $model->clientCACert = $map['ClientCACert'];
         }
@@ -293,6 +325,9 @@ class ModifyDBInstanceSSLRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PassWord'])) {
+            $model->passWord = $map['PassWord'];
         }
         if (isset($map['ReplicationACL'])) {
             $model->replicationACL = $map['ReplicationACL'];

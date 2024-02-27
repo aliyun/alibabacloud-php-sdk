@@ -67,6 +67,10 @@ class MigrateToOtherZoneRequest extends Model
     public $effectiveTime;
 
     /**
+     * @description A reserved parameter. You do not need to specify this parameter.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $ioAccelerationEnabled;

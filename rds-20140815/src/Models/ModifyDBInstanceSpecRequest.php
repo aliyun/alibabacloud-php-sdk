@@ -22,7 +22,7 @@ class ModifyDBInstanceSpecRequest extends Model
     public $autoUseCoupon;
 
     /**
-     * @description An invalid parameter. You do not need to specify this parameter.
+     * @description An invalid parameter. You can ignore this parameter.
      *
      * @example false
      *
@@ -33,20 +33,23 @@ class ModifyDBInstanceSpecRequest extends Model
     /**
      * @description The RDS edition of the instance. Valid values:
      *
-     *   Regular RDS instance
+     *   Regular instance
      *
-     *   **Basic**: RDS Basic Edition
-     *   **HighAvailability**: RDS High-availability Edition
-     *   **AlwaysOn**: RDS Cluster Edition for ApsaraDB RDS for SQL Server
+     *   **Basic**: RDS Basic Edition.
+     *   **HighAvailability**: RDS High-availability Edition.
+     *   **AlwaysOn**: RDS Cluster Edition for ApsaraDB RDS for SQL Server.
      *   **Cluster**: RDS Cluster Edition for ApsaraDB RDS for MySQL.
      *
      *   Serverless instance
      *
      *   **serverless_basic**: RDS Basic Edition. This edition is available only for serverless instances that run MySQL and PostgreSQL.
-     *   **serverless_standard**: RDS High-availability Edition for ApsaraDB RDS for MySQL.
+     *   **serverless_standard**: RDS High-availability Edition. This edition is available only for serverless instances that run MySQL and PostgreSQL.
      *   **serverless_ha**: RDS High-availability Edition for ApsaraDB RDS for SQL Server.
      *
-     * > If you set the **EngineVersion** parameter to an SQL Server version number, you must also specify this parameter.
+     **
+     *
+     **Note** If you set the **EngineVersion** parameter to an SQL Server version number, you must also specify this parameter.
+     *
      * @example HighAvailability
      *
      * @var string
@@ -54,6 +57,8 @@ class ModifyDBInstanceSpecRequest extends Model
     public $category;
 
     /**
+     * @description A reserved parameter.
+     *
      * @example true
      *
      * @var bool
@@ -148,16 +153,16 @@ class ModifyDBInstanceSpecRequest extends Model
      *
      *   Regular instance
      *
-     *   Valid values if you set Engine to MySQL: **5.5**, **5.6**, **5.7**, and **8.0**
-     *   Valid values if you set Engine to SQLServer: **2008r2**, **08r2\_ent_ha**, **2012**, **2012\_ent_ha**, **2012\_std_ha**, **2012\_web**, **2014\_std_ha**, **2016\_ent_ha**, **2016\_std_ha**, **2016\_web**, **2017\_std_ha**, **2017\_ent**, **2019\_std_ha**, and **2019\_ent**
-     *   Valid values if you set Engine to PostgreSQL: **10.0**, **11.0**, **12.0**, **13.0**, **14.0**, and **15.0**
-     *   Valid value if you set Engine to MariaDB: **10.3**
+     *   Valid values if you set the Engine parameter to MySQL: **5.5**, **5.6**, **5.7**, and **8.0**
+     *   Valid values if you set the Engine parameter to SQLServer: **2008r2**, **08r2\_ent_ha**, **2012**, **2012\_ent_ha**, **2012\_std_ha**, **2012\_web**, **2014\_std_ha**, **2016\_ent_ha**, **2016\_std_ha**, **2016\_web**, **2017\_std_ha**, **2017\_ent**, **2019\_std_ha**, and **2019\_ent**
+     *   Valid values if you set the Engine parameter to PostgreSQL: **10.0**, **11.0**, **12.0**, **13.0**, **14.0**, and **15.0**
+     *   Valid value if you set the Engine parameter to MariaDB: **10.3**
      *
      *   Serverless instance
      *
-     *   Valid values if you set Engine to MySQL: **5.7** and **8.0**
-     *   Valid values if you set Engine to SQLServer: **2016\_std_sl**, **2017\_std_sl**, and **2019\_std_sl**
-     *   Valid value if you set Engine to PostgreSQL: **14.0**
+     *   Valid values if you set the Engine parameter to MySQL: **5.7** and **8.0**
+     *   Valid values if you set the Engine parameter to SQLServer: **2016\_std_sl**, **2017\_std_sl**, and **2019\_std_sl**
+     *   Valid values if you set the Engine parameter to PostgreSQL: **14.0**, **15.0**, **16.0**
      *
      * > ApsaraDB RDS for MariaDB does not support serverless instances.
      * @example 5.6
@@ -167,7 +172,9 @@ class ModifyDBInstanceSpecRequest extends Model
     public $engineVersion;
 
     /**
-     * @example 0
+     * @description A reserved parameter.
+     *
+     * @example None
      *
      * @var string
      */
@@ -216,7 +223,7 @@ class ModifyDBInstanceSpecRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The serverless instance on which you want to perform the specification change.
+     * @description The serverless instance specifications that you want to change.
      *
      * @var serverlessConfiguration
      */

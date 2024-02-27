@@ -55,7 +55,7 @@ class CloneDBInstanceShrinkRequest extends Model
     public $bpeEnabled;
 
     /**
-     * @description A reserved parameter. You do not need to specify this parameter.
+     * @description This parameter is reserved. You do not need to specify this parameter.
      *
      * @example false
      *
@@ -174,6 +174,10 @@ class CloneDBInstanceShrinkRequest extends Model
     public $instanceNetworkType;
 
     /**
+     * @description A reserved parameter.
+     *
+     * @example None
+     *
      * @var string
      */
     public $ioAccelerationEnabled;

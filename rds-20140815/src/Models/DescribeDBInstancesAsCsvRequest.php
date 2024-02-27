@@ -18,7 +18,7 @@ class DescribeDBInstancesAsCsvRequest extends Model
     public $cachedAsync;
 
     /**
-     * @description The instance ID. You can call the DescribeDBInstances operation to query the ID of the instance.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the IDs of instances.
      *
      * @example rm-uf6wjk5xxxxxxxxxx
      *

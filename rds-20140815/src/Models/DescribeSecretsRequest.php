@@ -88,6 +88,8 @@ class DescribeSecretsRequest extends Model
     public $regionId;
 
     /**
+     * @example rg-acfmxypivk***
+     *
      * @var string
      */
     public $resourceGroupId;

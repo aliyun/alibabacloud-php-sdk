@@ -18,7 +18,7 @@ class CreateSecretRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the instance ID.
+     * @description The ID of the instance. You can call the DescribeDBInstances operation to query the ID of the instance.
      *
      * @example rm-sdfljk123***
      *
@@ -69,7 +69,7 @@ class CreateSecretRequest extends Model
     public $password;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeDBInstanceAttribute](~~26231~~) operation to query region ID of the instance.
+     * @description The region ID of the instance. You can call the DescribeDBInstanceAttribute operation to query the region ID of the instance.
      *
      * @example cn-hangzhou
      *
@@ -78,7 +78,7 @@ class CreateSecretRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which the instance belongs. You can call the [DescribeDBInstanceAttribute](~~26231~~) operation to query the resource group ID.
+     * @description The ID of the resource group to which the instance belongs. You can call the DescribeDBInstanceAttribute operation to query the ID of the resource group.
      *
      * @example rg-acfmxypivk***
      *

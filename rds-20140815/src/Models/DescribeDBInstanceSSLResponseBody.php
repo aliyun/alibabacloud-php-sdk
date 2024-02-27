@@ -71,6 +71,13 @@ class DescribeDBInstanceSSLResponseBody extends Model
     public $connectionString;
 
     /**
+     * @description Indicates whether the forceful SSL encryption feature is enabled. This parameter is supported only for ApsaraDB RDS for SQL Server instances. For more information, see [Configure the SSL encryption feature](~~95715~~).
+     *
+     *   **1**: enabled
+     *   **0**: The feature is disabled.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $forceEncryption;
@@ -222,6 +229,10 @@ class DescribeDBInstanceSSLResponseBody extends Model
     public $serverKey;
 
     /**
+     * @description The minimum Transport Layer Security (TLS) version. Valid values: 1.0, 1.1, and 1.2. This parameter is supported only for ApsaraDB RDS for SQL Server instances. For more information, see [Configure the SSL encryption feature](~~95715~~).
+     *
+     * @example 1.1
+     *
      * @var string
      */
     public $tlsVersion;

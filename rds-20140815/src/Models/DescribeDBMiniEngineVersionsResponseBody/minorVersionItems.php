@@ -79,9 +79,9 @@ class minorVersionItems extends Model
     /**
      * @description The RDS edition of the instance that runs the minor engine version. Valid values:
      *
-     *   **Basic**: RDS Basic Edition.
-     *   **HighAvailability**: RDS High-availability Edition.
-     *   **Finance**: RDS Enterprise Edition.
+     *   **Basic**: RDS Basic Edition
+     *   **HighAvailability**: RDS High-availability Edition
+     *   **Finance**: RDS Enterprise Edition
      *
      * @example HighAvailability
      *
@@ -113,8 +113,8 @@ class minorVersionItems extends Model
     /**
      * @description The status of the minor engine version. Valid values:
      *
-     *   **Offline**
-     *   **online**
+     *   **Offline**: discontinued
+     *   **Online**: available
      *
      * >  If the minor engine version is in the Offline state, the minor engine version is discontinued. In this case, ignore the expiration status. If the minor engine version is in the Online state and the expiration state is expired, the minor engine version expires. If the expiration state is vaild, the minor engine version is still in its lifecycle.
      * @example Online
@@ -126,8 +126,8 @@ class minorVersionItems extends Model
     /**
      * @description The tag that corresponds to the minor engine version. Valid values:
      *
-     *   **pgsql_docker_image**: tag of the common instance
-     *   **pgsql_babelfish_image**: tag of the instance for which Babelfish is enabled
+     *   **pgsql_docker_image**: tag of common instances
+     *   **pgsql_babelfish_image**: tag of instances for which Babelfish is enabled
      *
      * >  This parameter is available only for instances that run **PostgreSQL**.
      * @example pgsql_babelfish_image

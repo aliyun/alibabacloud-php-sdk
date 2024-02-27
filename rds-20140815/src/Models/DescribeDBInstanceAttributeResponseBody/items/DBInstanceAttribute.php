@@ -38,7 +38,7 @@ class DBInstanceAttribute extends Model
     /**
      * @description The method that is used to update the minor engine version of the instance. Valid values:
      *
-     *   **Auto:** automatic update.
+     *   **Auto**: automatic update.
      *   **Manual**: manual update. The minor engine version of the instance is forcefully updated only when the in-use minor engine version is phased out.
      *
      * @example Auto
@@ -59,7 +59,7 @@ class DBInstanceAttribute extends Model
     /**
      * @description The configuration of the Babelfish feature for the ApsaraDB RDS for PostgreSQL instance.
      *
-     * >  This parameter is suitable only for ApsaraDB RDS for PostgreSQL instances for which Babelfish is enabled. For more information, see [Introduction to Babelfish](~~428613~~).
+     * >  This parameter applies only to ApsaraDB RDS for PostgreSQL instances for which Babelfish is enabled. For more information, see [Introduction to Babelfish](~~428613~~).
      * @var babelfishConfig
      */
     public $babelfishConfig;
@@ -99,7 +99,9 @@ class DBInstanceAttribute extends Model
     public $category;
 
     /**
-     * @example false
+     * @description A reserved parameter.
+     *
+     * @example None
      *
      * @var bool
      */
@@ -138,8 +140,8 @@ class DBInstanceAttribute extends Model
     /**
      * @description The type of the proxy that is used by the instance. Valid values:
      *
-     *   **1**: shared proxy
-     *   **2**: dedicated proxy
+     *   **1**: shared database proxy
+     *   **2**: dedicated database proxy
      *
      * >  We recommend that you use the **ProxyType** parameter instead of this parameter.
      * @example 2
@@ -149,7 +151,7 @@ class DBInstanceAttribute extends Model
     public $consoleVersion;
 
     /**
-     * @description The creation time. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The creation time of the instance. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2011-05-30T12:11:04Z
      *
@@ -215,7 +217,7 @@ class DBInstanceAttribute extends Model
     public $DBInstanceDescription;
 
     /**
-     * @description The disk usage of the instance.
+     * @description The disk usage of the instance. Unit: MB.
      *
      * @example 300
      *
@@ -274,9 +276,9 @@ class DBInstanceAttribute extends Model
     /**
      * @description The storage type of the instance. Valid values:
      *
-     *   **local_ssd** and **ephemeral_ssd**: local SSD
+     *   **local_ssd** or **ephemeral_ssd**: local SSD
      *   **cloud_ssd**: standard SSD
-     *   **cloud_essd**: enhanced SSD (ESSD)
+     *   **cloud_essd**: enhanced SSD (ESSD).
      *   **general_essd**: general ESSD
      *
      * @example local_ssd
@@ -309,7 +311,7 @@ class DBInstanceAttribute extends Model
     public $DBMaxQuantity;
 
     /**
-     * @description The dedicated cluster ID.
+     * @description The ID of the dedicated cluster to which the instances belong.
      *
      * @example dhg-7a9*****
      *
@@ -353,7 +355,7 @@ class DBInstanceAttribute extends Model
     public $engineVersion;
 
     /**
-     * @description The expiration time. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The expiration time of the instance. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * >  Pay-as-you-go instances never expire.
      * @example 2019-03-27T16:00:00Z
@@ -379,7 +381,7 @@ class DBInstanceAttribute extends Model
     public $generalGroupName;
 
     /**
-     * @description The ID of the disaster recovery instance that is attached to the instance.
+     * @description The ID of the disaster recovery instance that is attached to the primary instance.
      *
      * @example rm-uf64zsu*****
      *
@@ -388,7 +390,7 @@ class DBInstanceAttribute extends Model
     public $guardDBInstanceId;
 
     /**
-     * @description The IP address type. Only **IPv4** addresses are supported.
+     * @description The IP address type. Only **IPv4 addresses** are supported.
      *
      * @example IPv4
      *
@@ -397,7 +399,7 @@ class DBInstanceAttribute extends Model
     public $IPType;
 
     /**
-     * @description The ID of the instance from which incremental data comes. The incremental data of a read-only instance comes from its primary instance. If this parameter is not returned, the instance is a primary instance.
+     * @description The ID of the instance from which incremental data comes. The incremental data of a disaster recovery instance comes from its primary instance. The incremental data of a read-only instance comes from its primary instance. If this parameter is not returned, the instance is a primary instance.
      *
      * @example rm-uf6wjk5*****
      *
@@ -430,7 +432,9 @@ class DBInstanceAttribute extends Model
     public $instructionSetArch;
 
     /**
-     * @example 0
+     * @description A reserved parameter.
+     *
+     * @example None
      *
      * @var string
      */
@@ -471,7 +475,7 @@ class DBInstanceAttribute extends Model
     public $lockReason;
 
     /**
-     * @description The maintenance window of the instance. The time is displayed in UTC. Take note that the maintenance window displayed in the ApsaraDB RDS console is equal to the value of this parameter plus 8 hours.
+     * @description The maintenance window of the instance. The time is displayed in UTC. The maintenance window displayed in the ApsaraDB RDS console is equal to the value of this parameter plus 8 hours.
      *
      * @example 00:00Z-02:00Z
      *
@@ -540,7 +544,6 @@ class DBInstanceAttribute extends Model
      *
      *   **Postpaid**: pay-as-you-go
      *   **Prepaid**: subscription
-     *   **SERVERLESS**: Serverless
      *
      * @example Postpaid
      *
@@ -633,14 +636,14 @@ class DBInstanceAttribute extends Model
     public $serverlessConfig;
 
     /**
-     * @description The information about the zone of the secondary instance.
+     * @description The zone IDs of the secondary instances.
      *
      * @var slaveZones
      */
     public $slaveZones;
 
     /**
-     * @description Indicates whether the instance supports superuser accounts, such as the system administrator (SA) account, the Active Directory (AD) account, and the host account. Valid values:
+     * @description Indicates whether the instance supports superuser accounts, such as the system administrator (SA) account, Active Directory (AD) account, and host account. Valid values:
      *
      *   **Enable**
      *   **Disabled**
@@ -652,7 +655,7 @@ class DBInstanceAttribute extends Model
     public $superPermissionMode;
 
     /**
-     * @description The ID of the temporary instance that is attached to the instance.
+     * @description The ID of the temporary instance that is attached to the primary instance.
      *
      * @example rm-uf64zsu*****
      *
@@ -679,7 +682,7 @@ class DBInstanceAttribute extends Model
     public $tips;
 
     /**
-     * @description The severity level of the exception that is detected on the instance. This parameter is returned only when the instance is created in an ApsaraDB MyBase cluster that runs MySQL on Standard Edition. Valid values:
+     * @description The severity of the exception that is detected on the instance. This parameter is returned only when the instance is created in an ApsaraDB MyBase cluster that runs MySQL on Standard Edition. Valid values:
      *
      *   **1**: The instance is normal.
      *   **2**: The specifications of the read-only instances do not match the specifications of the primary instance, and instance performance may be affected. You must adjust the specifications of these instances based on your business requirements.
@@ -700,7 +703,7 @@ class DBInstanceAttribute extends Model
     public $vSwitchId;
 
     /**
-     * @description The VPC ID.
+     * @description The ID of the instance. This parameter is returned only when the instance resides in a VPC.
      *
      * @example vpc-23rsxdf*****
      *
@@ -709,7 +712,7 @@ class DBInstanceAttribute extends Model
     public $vpcCloudInstanceId;
 
     /**
-     * @description The VPC ID.
+     * @description The virtual private cloud (VPC) ID.
      *
      * @example vpc-*****
      *
