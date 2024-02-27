@@ -37,6 +37,11 @@ class AddUserRequest extends Model
     public $nickName;
 
     /**
+     * @var string
+     */
+    public $roleIds;
+
+    /**
      * @example 1
      *
      * @var int
@@ -47,6 +52,7 @@ class AddUserRequest extends Model
         'adminUser'     => 'AdminUser',
         'authAdminUser' => 'AuthAdminUser',
         'nickName'      => 'NickName',
+        'roleIds'       => 'RoleIds',
         'userType'      => 'UserType',
     ];
 
@@ -68,6 +74,9 @@ class AddUserRequest extends Model
         }
         if (null !== $this->nickName) {
             $res['NickName'] = $this->nickName;
+        }
+        if (null !== $this->roleIds) {
+            $res['RoleIds'] = $this->roleIds;
         }
         if (null !== $this->userType) {
             $res['UserType'] = $this->userType;
@@ -95,6 +104,9 @@ class AddUserRequest extends Model
         }
         if (isset($map['NickName'])) {
             $model->nickName = $map['NickName'];
+        }
+        if (isset($map['RoleIds'])) {
+            $model->roleIds = $map['RoleIds'];
         }
         if (isset($map['UserType'])) {
             $model->userType = $map['UserType'];

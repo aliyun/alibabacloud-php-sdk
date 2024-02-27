@@ -40,6 +40,11 @@ class data extends Model
     public $nickName;
 
     /**
+     * @var int[]
+     */
+    public $roleIdList;
+
+    /**
      * @example fe67f61a35a94b7da1a34ba174a7****
      *
      * @var string
@@ -58,6 +63,7 @@ class data extends Model
         'adminUser'     => 'AdminUser',
         'authAdminUser' => 'AuthAdminUser',
         'nickName'      => 'NickName',
+        'roleIdList'    => 'RoleIdList',
         'userId'        => 'UserId',
         'userType'      => 'UserType',
     ];
@@ -83,6 +89,9 @@ class data extends Model
         }
         if (null !== $this->nickName) {
             $res['NickName'] = $this->nickName;
+        }
+        if (null !== $this->roleIdList) {
+            $res['RoleIdList'] = $this->roleIdList;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
@@ -116,6 +125,11 @@ class data extends Model
         }
         if (isset($map['NickName'])) {
             $model->nickName = $map['NickName'];
+        }
+        if (isset($map['RoleIdList'])) {
+            if (!empty($map['RoleIdList'])) {
+                $model->roleIdList = $map['RoleIdList'];
+            }
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];

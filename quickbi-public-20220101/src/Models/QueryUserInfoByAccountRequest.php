@@ -25,8 +25,14 @@ class QueryUserInfoByAccountRequest extends Model
      * @var string
      */
     public $account;
+
+    /**
+     * @var string
+     */
+    public $parentAccountName;
     protected $_name = [
-        'account' => 'Account',
+        'account'           => 'Account',
+        'parentAccountName' => 'ParentAccountName',
     ];
 
     public function validate()
@@ -38,6 +44,9 @@ class QueryUserInfoByAccountRequest extends Model
         $res = [];
         if (null !== $this->account) {
             $res['Account'] = $this->account;
+        }
+        if (null !== $this->parentAccountName) {
+            $res['ParentAccountName'] = $this->parentAccountName;
         }
 
         return $res;
@@ -53,6 +62,9 @@ class QueryUserInfoByAccountRequest extends Model
         $model = new self();
         if (isset($map['Account'])) {
             $model->account = $map['Account'];
+        }
+        if (isset($map['ParentAccountName'])) {
+            $model->parentAccountName = $map['ParentAccountName'];
         }
 
         return $model;

@@ -45,6 +45,11 @@ class UpdateUserRequest extends Model
     public $nickName;
 
     /**
+     * @var string
+     */
+    public $roleIds;
+
+    /**
      * @description The ID of the user to be updated. The user ID is the UserID of the Quick BI, not the UID of Alibaba Cloud.
      *
      * @example fe67f61a35a94b7da1a34ba174a7****
@@ -69,6 +74,7 @@ class UpdateUserRequest extends Model
         'adminUser'     => 'AdminUser',
         'authAdminUser' => 'AuthAdminUser',
         'nickName'      => 'NickName',
+        'roleIds'       => 'RoleIds',
         'userId'        => 'UserId',
         'userType'      => 'UserType',
     ];
@@ -88,6 +94,9 @@ class UpdateUserRequest extends Model
         }
         if (null !== $this->nickName) {
             $res['NickName'] = $this->nickName;
+        }
+        if (null !== $this->roleIds) {
+            $res['RoleIds'] = $this->roleIds;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
@@ -115,6 +124,9 @@ class UpdateUserRequest extends Model
         }
         if (isset($map['NickName'])) {
             $model->nickName = $map['NickName'];
+        }
+        if (isset($map['RoleIds'])) {
+            $model->roleIds = $map['RoleIds'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];

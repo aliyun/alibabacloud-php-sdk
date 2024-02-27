@@ -401,8 +401,13 @@ class Quickbipublic extends OpenApiClient
         if (!Utils::isUnset($request->userType)) {
             $query['UserType'] = $request->userType;
         }
+        $body = [];
+        if (!Utils::isUnset($request->roleIds)) {
+            $body['RoleIds'] = $request->roleIds;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'AddUser',
@@ -3126,6 +3131,9 @@ class Quickbipublic extends OpenApiClient
         if (!Utils::isUnset($request->account)) {
             $query['Account'] = $request->account;
         }
+        if (!Utils::isUnset($request->parentAccountName)) {
+            $query['ParentAccountName'] = $request->parentAccountName;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -4010,6 +4018,9 @@ class Quickbipublic extends OpenApiClient
         }
         if (!Utils::isUnset($request->nickName)) {
             $query['NickName'] = $request->nickName;
+        }
+        if (!Utils::isUnset($request->roleIds)) {
+            $query['RoleIds'] = $request->roleIds;
         }
         if (!Utils::isUnset($request->userId)) {
             $query['UserId'] = $request->userId;

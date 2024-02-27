@@ -78,6 +78,11 @@ class result extends Model
     public $phone;
 
     /**
+     * @var int[]
+     */
+    public $roleIdList;
+
+    /**
      * @description The UserID in the Quick BI.
      *
      * @example fe67f61a35a94b7da1a34ba174a7****
@@ -106,6 +111,7 @@ class result extends Model
         'email'         => 'Email',
         'nickName'      => 'NickName',
         'phone'         => 'Phone',
+        'roleIdList'    => 'RoleIdList',
         'userId'        => 'UserId',
         'userType'      => 'UserType',
     ];
@@ -137,6 +143,9 @@ class result extends Model
         }
         if (null !== $this->phone) {
             $res['Phone'] = $this->phone;
+        }
+        if (null !== $this->roleIdList) {
+            $res['RoleIdList'] = $this->roleIdList;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
@@ -176,6 +185,11 @@ class result extends Model
         }
         if (isset($map['Phone'])) {
             $model->phone = $map['Phone'];
+        }
+        if (isset($map['RoleIdList'])) {
+            if (!empty($map['RoleIdList'])) {
+                $model->roleIdList = $map['RoleIdList'];
+            }
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
