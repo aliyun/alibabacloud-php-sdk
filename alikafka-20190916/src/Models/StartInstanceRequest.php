@@ -218,6 +218,11 @@ class StartInstanceRequest extends Model
     public $vSwitchId;
 
     /**
+     * @var string[]
+     */
+    public $vSwitchIds;
+
+    /**
      * @description The ID of the virtual private cloud (VPC) in which you want to deploy the instance.
      *
      * @example vpc-bp1r4eg3yrxmygv****
@@ -256,6 +261,7 @@ class StartInstanceRequest extends Model
         'userPhoneNum'         => 'UserPhoneNum',
         'username'             => 'Username',
         'vSwitchId'            => 'VSwitchId',
+        'vSwitchIds'           => 'VSwitchIds',
         'vpcId'                => 'VpcId',
         'zoneId'               => 'ZoneId',
     ];
@@ -320,6 +326,9 @@ class StartInstanceRequest extends Model
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
+        }
+        if (null !== $this->vSwitchIds) {
+            $res['VSwitchIds'] = $this->vSwitchIds;
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
@@ -392,6 +401,11 @@ class StartInstanceRequest extends Model
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
+        }
+        if (isset($map['VSwitchIds'])) {
+            if (!empty($map['VSwitchIds'])) {
+                $model->vSwitchIds = $map['VSwitchIds'];
+            }
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models\GetInstanceListResponseBody\instanceList;
 
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetInstanceListResponseBody\instanceList\instanceVO\confluentConfig;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetInstanceListResponseBody\instanceList\instanceVO\tags;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetInstanceListResponseBody\instanceList\instanceVO\upgradeServiceDetailInfo;
 use AlibabaCloud\Tea\Model;
@@ -18,6 +19,11 @@ class instanceVO extends Model
      * @var string
      */
     public $allConfig;
+
+    /**
+     * @var confluentConfig
+     */
+    public $confluentConfig;
 
     /**
      * @description The time when the instance was created. Unit: milliseconds.
@@ -357,6 +363,7 @@ class instanceVO extends Model
     public $zoneId;
     protected $_name = [
         'allConfig'                => 'AllConfig',
+        'confluentConfig'          => 'ConfluentConfig',
         'createTime'               => 'CreateTime',
         'deployType'               => 'DeployType',
         'diskSize'                 => 'DiskSize',
@@ -401,6 +408,9 @@ class instanceVO extends Model
         $res = [];
         if (null !== $this->allConfig) {
             $res['AllConfig'] = $this->allConfig;
+        }
+        if (null !== $this->confluentConfig) {
+            $res['ConfluentConfig'] = null !== $this->confluentConfig ? $this->confluentConfig->toMap() : null;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
@@ -515,6 +525,9 @@ class instanceVO extends Model
         $model = new self();
         if (isset($map['AllConfig'])) {
             $model->allConfig = $map['AllConfig'];
+        }
+        if (isset($map['ConfluentConfig'])) {
+            $model->confluentConfig = confluentConfig::fromMap($map['ConfluentConfig']);
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];

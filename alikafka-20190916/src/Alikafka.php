@@ -18,6 +18,7 @@ use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreatePostPayOrderRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreatePostPayOrderResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreatePrePayOrderRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreatePrePayOrderResponse;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreatePrePayOrderShrinkRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreateSaslUserRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreateSaslUserResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreateTopicRequest;
@@ -88,6 +89,7 @@ use AlibabaCloud\SDK\Alikafka\V20190916\Models\UpgradePostPayOrderResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\UpgradePostPayOrderShrinkRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\UpgradePrePayOrderRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\UpgradePrePayOrderResponse;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\UpgradePrePayOrderShrinkRequest;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -425,15 +427,23 @@ class Alikafka extends OpenApiClient
      * *   Before you call this operation, make sure that you understand the billing methods and pricing of subscription ApsaraMQ for Kafka instances. For more information, see [Billing](~~84737~~).
      *   * *   If you create an ApsaraMQ for Kafka instance by calling this operation, the subscription duration is one month and the auto-renewal feature is enabled by default. The auto-renewal cycle is also one month. If you want to change the auto-renewal cycle or disable the auto-renewal feature, you can go to the [Renewal](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console.
      *   *
-     * @param CreatePrePayOrderRequest $request CreatePrePayOrderRequest
+     * @param CreatePrePayOrderRequest $tmpReq  CreatePrePayOrderRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
      * @return CreatePrePayOrderResponse CreatePrePayOrderResponse
      */
-    public function createPrePayOrderWithOptions($request, $runtime)
+    public function createPrePayOrderWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new CreatePrePayOrderShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->confluentConfig)) {
+            $request->confluentConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->confluentConfig, 'ConfluentConfig', 'json');
+        }
         $query = [];
+        if (!Utils::isUnset($request->confluentConfigShrink)) {
+            $query['ConfluentConfig'] = $request->confluentConfigShrink;
+        }
         if (!Utils::isUnset($request->deployType)) {
             $query['DeployType'] = $request->deployType;
         }
@@ -1806,6 +1816,9 @@ class Alikafka extends OpenApiClient
         if (!Utils::isUnset($request->vSwitchId)) {
             $query['VSwitchId'] = $request->vSwitchId;
         }
+        if (!Utils::isUnset($request->vSwitchIds)) {
+            $query['VSwitchIds'] = $request->vSwitchIds;
+        }
         if (!Utils::isUnset($request->vpcId)) {
             $query['VpcId'] = $request->vpcId;
         }
@@ -2357,15 +2370,23 @@ class Alikafka extends OpenApiClient
     /**
      * Before you call this operation, make sure that you understand the billing method and pricing of subscription Message Queue for Apache Kafka instances. For more information, see [Billing overview](~~84737~~).
      *   *
-     * @param UpgradePrePayOrderRequest $request UpgradePrePayOrderRequest
+     * @param UpgradePrePayOrderRequest $tmpReq  UpgradePrePayOrderRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
      * @return UpgradePrePayOrderResponse UpgradePrePayOrderResponse
      */
-    public function upgradePrePayOrderWithOptions($request, $runtime)
+    public function upgradePrePayOrderWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new UpgradePrePayOrderShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->confluentConfig)) {
+            $request->confluentConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->confluentConfig, 'ConfluentConfig', 'json');
+        }
         $query = [];
+        if (!Utils::isUnset($request->confluentConfigShrink)) {
+            $query['ConfluentConfig'] = $request->confluentConfigShrink;
+        }
         if (!Utils::isUnset($request->diskSize)) {
             $query['DiskSize'] = $request->diskSize;
         }
@@ -2383,6 +2404,9 @@ class Alikafka extends OpenApiClient
         }
         if (!Utils::isUnset($request->ioMaxSpec)) {
             $query['IoMaxSpec'] = $request->ioMaxSpec;
+        }
+        if (!Utils::isUnset($request->paidType)) {
+            $query['PaidType'] = $request->paidType;
         }
         if (!Utils::isUnset($request->partitionNum)) {
             $query['PartitionNum'] = $request->partitionNum;

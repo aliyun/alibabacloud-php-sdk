@@ -4,16 +4,15 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models;
 
-use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreatePrePayOrderRequest\confluentConfig;
-use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreatePrePayOrderRequest\tag;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreatePrePayOrderShrinkRequest\tag;
 use AlibabaCloud\Tea\Model;
 
-class CreatePrePayOrderRequest extends Model
+class CreatePrePayOrderShrinkRequest extends Model
 {
     /**
-     * @var confluentConfig
+     * @var string
      */
-    public $confluentConfig;
+    public $confluentConfigShrink;
 
     /**
      * @description The deployment mode of the instance. Valid values:
@@ -152,19 +151,19 @@ class CreatePrePayOrderRequest extends Model
      */
     public $topicQuota;
     protected $_name = [
-        'confluentConfig' => 'ConfluentConfig',
-        'deployType'      => 'DeployType',
-        'diskSize'        => 'DiskSize',
-        'diskType'        => 'DiskType',
-        'eipMax'          => 'EipMax',
-        'ioMax'           => 'IoMax',
-        'ioMaxSpec'       => 'IoMaxSpec',
-        'partitionNum'    => 'PartitionNum',
-        'regionId'        => 'RegionId',
-        'resourceGroupId' => 'ResourceGroupId',
-        'specType'        => 'SpecType',
-        'tag'             => 'Tag',
-        'topicQuota'      => 'TopicQuota',
+        'confluentConfigShrink' => 'ConfluentConfig',
+        'deployType'            => 'DeployType',
+        'diskSize'              => 'DiskSize',
+        'diskType'              => 'DiskType',
+        'eipMax'                => 'EipMax',
+        'ioMax'                 => 'IoMax',
+        'ioMaxSpec'             => 'IoMaxSpec',
+        'partitionNum'          => 'PartitionNum',
+        'regionId'              => 'RegionId',
+        'resourceGroupId'       => 'ResourceGroupId',
+        'specType'              => 'SpecType',
+        'tag'                   => 'Tag',
+        'topicQuota'            => 'TopicQuota',
     ];
 
     public function validate()
@@ -174,8 +173,8 @@ class CreatePrePayOrderRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->confluentConfig) {
-            $res['ConfluentConfig'] = null !== $this->confluentConfig ? $this->confluentConfig->toMap() : null;
+        if (null !== $this->confluentConfigShrink) {
+            $res['ConfluentConfig'] = $this->confluentConfigShrink;
         }
         if (null !== $this->deployType) {
             $res['DeployType'] = $this->deployType;
@@ -226,13 +225,13 @@ class CreatePrePayOrderRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreatePrePayOrderRequest
+     * @return CreatePrePayOrderShrinkRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfluentConfig'])) {
-            $model->confluentConfig = confluentConfig::fromMap($map['ConfluentConfig']);
+            $model->confluentConfigShrink = $map['ConfluentConfig'];
         }
         if (isset($map['DeployType'])) {
             $model->deployType = $map['DeployType'];

@@ -4,10 +4,16 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models;
 
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\UpgradePrePayOrderRequest\confluentConfig;
 use AlibabaCloud\Tea\Model;
 
 class UpgradePrePayOrderRequest extends Model
 {
+    /**
+     * @var confluentConfig
+     */
+    public $confluentConfig;
+
     /**
      * @description The size of the disk.
      *
@@ -81,6 +87,11 @@ class UpgradePrePayOrderRequest extends Model
     public $ioMaxSpec;
 
     /**
+     * @var int
+     */
+    public $paidType;
+
+    /**
      * @description The number of partitions. We recommend that you configure this parameter.
      *
      *   You must specify at least one of the PartitionNum and TopicQuota parameters. We recommend that you configure only the PartitionNum parameter.
@@ -130,16 +141,18 @@ class UpgradePrePayOrderRequest extends Model
      */
     public $topicQuota;
     protected $_name = [
-        'diskSize'     => 'DiskSize',
-        'eipMax'       => 'EipMax',
-        'eipModel'     => 'EipModel',
-        'instanceId'   => 'InstanceId',
-        'ioMax'        => 'IoMax',
-        'ioMaxSpec'    => 'IoMaxSpec',
-        'partitionNum' => 'PartitionNum',
-        'regionId'     => 'RegionId',
-        'specType'     => 'SpecType',
-        'topicQuota'   => 'TopicQuota',
+        'confluentConfig' => 'ConfluentConfig',
+        'diskSize'        => 'DiskSize',
+        'eipMax'          => 'EipMax',
+        'eipModel'        => 'EipModel',
+        'instanceId'      => 'InstanceId',
+        'ioMax'           => 'IoMax',
+        'ioMaxSpec'       => 'IoMaxSpec',
+        'paidType'        => 'PaidType',
+        'partitionNum'    => 'PartitionNum',
+        'regionId'        => 'RegionId',
+        'specType'        => 'SpecType',
+        'topicQuota'      => 'TopicQuota',
     ];
 
     public function validate()
@@ -149,6 +162,9 @@ class UpgradePrePayOrderRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->confluentConfig) {
+            $res['ConfluentConfig'] = null !== $this->confluentConfig ? $this->confluentConfig->toMap() : null;
+        }
         if (null !== $this->diskSize) {
             $res['DiskSize'] = $this->diskSize;
         }
@@ -166,6 +182,9 @@ class UpgradePrePayOrderRequest extends Model
         }
         if (null !== $this->ioMaxSpec) {
             $res['IoMaxSpec'] = $this->ioMaxSpec;
+        }
+        if (null !== $this->paidType) {
+            $res['PaidType'] = $this->paidType;
         }
         if (null !== $this->partitionNum) {
             $res['PartitionNum'] = $this->partitionNum;
@@ -191,6 +210,9 @@ class UpgradePrePayOrderRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ConfluentConfig'])) {
+            $model->confluentConfig = confluentConfig::fromMap($map['ConfluentConfig']);
+        }
         if (isset($map['DiskSize'])) {
             $model->diskSize = $map['DiskSize'];
         }
@@ -208,6 +230,9 @@ class UpgradePrePayOrderRequest extends Model
         }
         if (isset($map['IoMaxSpec'])) {
             $model->ioMaxSpec = $map['IoMaxSpec'];
+        }
+        if (isset($map['PaidType'])) {
+            $model->paidType = $map['PaidType'];
         }
         if (isset($map['PartitionNum'])) {
             $model->partitionNum = $map['PartitionNum'];

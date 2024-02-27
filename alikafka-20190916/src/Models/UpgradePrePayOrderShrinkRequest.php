@@ -4,70 +4,69 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models;
 
-use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreatePrePayOrderRequest\confluentConfig;
-use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreatePrePayOrderRequest\tag;
 use AlibabaCloud\Tea\Model;
 
-class CreatePrePayOrderRequest extends Model
+class UpgradePrePayOrderShrinkRequest extends Model
 {
     /**
-     * @var confluentConfig
+     * @var string
      */
-    public $confluentConfig;
+    public $confluentConfigShrink;
 
     /**
-     * @description The deployment mode of the instance. Valid values:
+     * @description The size of the disk.
      *
-     *   **4**: deploys the instance that allows access from the Internet and a VPC.
-     *   **5**: deploys the instance that allows access only from a VPC.
+     *   The disk size that you specify must be greater than or equal to the current disk size of the instance.
+     *   For more information about the valid values, see [Billing overview](~~84737~~).
      *
-     * @example 5
-     *
-     * @var int
-     */
-    public $deployType;
-
-    /**
-     * @description The disk size. Unit: GB.
-     *
-     * For more information about the valid values, see [Billing](~~84737~~).
-     * @example 500
+     * @example 900
      *
      * @var int
      */
     public $diskSize;
 
     /**
-     * @description The disk type. Valid values:
-     *
-     *   **0**: ultra disk
-     *   **1**: standard SSD
-     *
-     * @example 0
-     *
-     * @var string
-     */
-    public $diskType;
-
-    /**
      * @description The Internet traffic for the instance.
      *
-     *   This parameter is required if the **DeployType** parameter is set to **4**.
-     *   For more information about the valid values, see [Pay-as-you-go](~~72142~~).
-     *
-     * @example 0
+     *   The Internet traffic volume that you specify must be greater than or equal to the current Internet traffic volume of the instance.
+     *   For more information about the valid values, see [Billing overview](~~84737~~).
+     * > - If the **EipModel** parameter is set to **true**, set the **EipMax** parameter to a value that is greater than 0.
+     * > - If the **EipModel** parameter is set to **false**, set the **EipMax** parameter to **0**.
+     * @example 3
      *
      * @var int
      */
     public $eipMax;
 
     /**
+     * @description Specifies whether to enable Internet access for the instance. Valid values:
+     *
+     *   true: enables Internet access.
+     *   false: disables Internet access.
+     *
+     * @example true
+     *
+     * @var bool
+     */
+    public $eipModel;
+
+    /**
+     * @description The ID of the instance.
+     *
+     * @example alikafka_post-cn-mp919o4v****
+     *
+     * @var string
+     */
+    public $instanceId;
+
+    /**
      * @description The maximum traffic for the instance. We recommend that you do not configure this parameter.
      *
-     *   You must configure at least one of the **IoMax** and **IoMaxSpec** parameters. If both parameters are configured, the value of the **IoMaxSpec** parameter takes effect. We recommend that you configure only the **IoMaxSpec** parameter.
-     *   For more information about the valid values, see [Billing](~~84737~~).
+     *   The maximum traffic volume that you specify must be greater than or equal to the current maximum traffic volume of the instance.
+     *   You must configure at least one of the IoMax and IoMaxSpec parameters. If you configure both parameters, the value of the IoMaxSpec parameter takes effect. We recommend that you configure only the IoMaxSpec parameter.
+     *   For more information about the valid values, see [Billing overview](~~84737~~).
      *
-     * @example 20
+     * @example 40
      *
      * @var int
      */
@@ -76,8 +75,9 @@ class CreatePrePayOrderRequest extends Model
     /**
      * @description The traffic specification of the instance. We recommend that you configure this parameter.
      *
-     *   You must configure at least one of the **IoMax** and **IoMaxSpec** parameters. If both parameters are configured, the value of the **IoMaxSpec** parameter takes effect. We recommend that you configure only the **IoMaxSpec** parameter.
-     *   For more information about the valid values, see [Billing](~~84737~~).
+     *   The traffic specification that you specify must be greater than or equal to the current traffic specification of the instance.
+     *   You must configure at least one of the IoMax and IoMaxSpec parameters. If you configure both parameters, the value of the IoMaxSpec parameter takes effect. We recommend that you configure only the IoMaxSpec parameter.
+     *   For more information about the valid values, see [Billing overview](~~84737~~).
      *
      * @example alikafka.hw.2xlarge
      *
@@ -86,11 +86,16 @@ class CreatePrePayOrderRequest extends Model
     public $ioMaxSpec;
 
     /**
+     * @var int
+     */
+    public $paidType;
+
+    /**
      * @description The number of partitions. We recommend that you configure this parameter.
      *
      *   You must specify at least one of the PartitionNum and TopicQuota parameters. We recommend that you configure only the PartitionNum parameter.
      *   If you specify both parameters, the topic-based sales model is used to check whether the PartitionNum value and the TopicQuota value are the same. If they are not the same, a failure response is returned. If they are the same, the order is placed based on the PartitionNum value.
-     *   For more information about the valid values, see [Billing](~~84737~~).
+     *   For more information about the valid values, see [Billing overview](~~84737~~).
      *
      * @example 50
      *
@@ -108,35 +113,18 @@ class CreatePrePayOrderRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group.
-     *
-     * If this parameter is left empty, the default resource group is used. You can view the resource group ID on the Resource Group page in the Resource Management console.
-     * @example rg-ac***********7q
-     *
-     * @var string
-     */
-    public $resourceGroupId;
-
-    /**
      * @description The edition of the instance. Valid values:
      *
      *   **normal**: Standard Edition (High Write)
      *   **professional**: Professional Edition (High Write)
      *   **professionalForHighRead**: Professional Edition (High Read)
      *
-     * For more information, see [Billing](~~84737~~).
-     * @example normal
+     * You cannot downgrade an instance from the Professional Edition to the Standard Edition. For more information about these instance editions, see [Billing overview](~~84737~~).
+     * @example professional
      *
      * @var string
      */
     public $specType;
-
-    /**
-     * @description The tags.
-     *
-     * @var tag[]
-     */
-    public $tag;
 
     /**
      * @description The number of topics. We recommend that you do not configure this parameter.
@@ -144,7 +132,7 @@ class CreatePrePayOrderRequest extends Model
      *   You must specify at least one of the PartitionNum and TopicQuota parameters. We recommend that you configure only the PartitionNum parameter.
      *   If you specify both parameters, the topic-based sales model is used to check whether the PartitionNum value and the TopicQuota value are the same. If they are not the same, a failure response is returned. If they are the same, the order is placed based on the PartitionNum value.
      *   The default value of the TopicQuota parameter varies based on the value of the IoMaxSpec parameter. If the number of topics that you consume exceeds the default value, you are charged additional fees.
-     *   For more information about the valid values, see [Billing](~~84737~~).
+     *   For more information about the valid values, see [Billing overview](~~84737~~).
      *
      * @example 50
      *
@@ -152,19 +140,18 @@ class CreatePrePayOrderRequest extends Model
      */
     public $topicQuota;
     protected $_name = [
-        'confluentConfig' => 'ConfluentConfig',
-        'deployType'      => 'DeployType',
-        'diskSize'        => 'DiskSize',
-        'diskType'        => 'DiskType',
-        'eipMax'          => 'EipMax',
-        'ioMax'           => 'IoMax',
-        'ioMaxSpec'       => 'IoMaxSpec',
-        'partitionNum'    => 'PartitionNum',
-        'regionId'        => 'RegionId',
-        'resourceGroupId' => 'ResourceGroupId',
-        'specType'        => 'SpecType',
-        'tag'             => 'Tag',
-        'topicQuota'      => 'TopicQuota',
+        'confluentConfigShrink' => 'ConfluentConfig',
+        'diskSize'              => 'DiskSize',
+        'eipMax'                => 'EipMax',
+        'eipModel'              => 'EipModel',
+        'instanceId'            => 'InstanceId',
+        'ioMax'                 => 'IoMax',
+        'ioMaxSpec'             => 'IoMaxSpec',
+        'paidType'              => 'PaidType',
+        'partitionNum'          => 'PartitionNum',
+        'regionId'              => 'RegionId',
+        'specType'              => 'SpecType',
+        'topicQuota'            => 'TopicQuota',
     ];
 
     public function validate()
@@ -174,20 +161,20 @@ class CreatePrePayOrderRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->confluentConfig) {
-            $res['ConfluentConfig'] = null !== $this->confluentConfig ? $this->confluentConfig->toMap() : null;
-        }
-        if (null !== $this->deployType) {
-            $res['DeployType'] = $this->deployType;
+        if (null !== $this->confluentConfigShrink) {
+            $res['ConfluentConfig'] = $this->confluentConfigShrink;
         }
         if (null !== $this->diskSize) {
             $res['DiskSize'] = $this->diskSize;
         }
-        if (null !== $this->diskType) {
-            $res['DiskType'] = $this->diskType;
-        }
         if (null !== $this->eipMax) {
             $res['EipMax'] = $this->eipMax;
+        }
+        if (null !== $this->eipModel) {
+            $res['EipModel'] = $this->eipModel;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->ioMax) {
             $res['IoMax'] = $this->ioMax;
@@ -195,26 +182,17 @@ class CreatePrePayOrderRequest extends Model
         if (null !== $this->ioMaxSpec) {
             $res['IoMaxSpec'] = $this->ioMaxSpec;
         }
+        if (null !== $this->paidType) {
+            $res['PaidType'] = $this->paidType;
+        }
         if (null !== $this->partitionNum) {
             $res['PartitionNum'] = $this->partitionNum;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
         if (null !== $this->specType) {
             $res['SpecType'] = $this->specType;
-        }
-        if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->topicQuota) {
             $res['TopicQuota'] = $this->topicQuota;
@@ -226,25 +204,25 @@ class CreatePrePayOrderRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreatePrePayOrderRequest
+     * @return UpgradePrePayOrderShrinkRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfluentConfig'])) {
-            $model->confluentConfig = confluentConfig::fromMap($map['ConfluentConfig']);
-        }
-        if (isset($map['DeployType'])) {
-            $model->deployType = $map['DeployType'];
+            $model->confluentConfigShrink = $map['ConfluentConfig'];
         }
         if (isset($map['DiskSize'])) {
             $model->diskSize = $map['DiskSize'];
         }
-        if (isset($map['DiskType'])) {
-            $model->diskType = $map['DiskType'];
-        }
         if (isset($map['EipMax'])) {
             $model->eipMax = $map['EipMax'];
+        }
+        if (isset($map['EipModel'])) {
+            $model->eipModel = $map['EipModel'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['IoMax'])) {
             $model->ioMax = $map['IoMax'];
@@ -252,26 +230,17 @@ class CreatePrePayOrderRequest extends Model
         if (isset($map['IoMaxSpec'])) {
             $model->ioMaxSpec = $map['IoMaxSpec'];
         }
+        if (isset($map['PaidType'])) {
+            $model->paidType = $map['PaidType'];
+        }
         if (isset($map['PartitionNum'])) {
             $model->partitionNum = $map['PartitionNum'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
         if (isset($map['SpecType'])) {
             $model->specType = $map['SpecType'];
-        }
-        if (isset($map['Tag'])) {
-            if (!empty($map['Tag'])) {
-                $model->tag = [];
-                $n          = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['TopicQuota'])) {
             $model->topicQuota = $map['TopicQuota'];
