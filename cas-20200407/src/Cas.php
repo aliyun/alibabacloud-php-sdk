@@ -16,12 +16,16 @@ use AlibabaCloud\SDK\Cas\V20200407\Models\CreateCertificateRequestRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\CreateCertificateRequestResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\CreateCertificateWithCsrRequestRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\CreateCertificateWithCsrRequestResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\CreateCsrRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\CreateCsrResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\CreateWHClientCertificateRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\CreateWHClientCertificateResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DecryptRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DecryptResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DeleteCertificateRequestRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DeleteCertificateRequestResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\DeleteCsrRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\DeleteCsrResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DeletePCACertRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DeletePCACertResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DeleteUserCertificateRequest;
@@ -33,12 +37,16 @@ use AlibabaCloud\SDK\Cas\V20200407\Models\DescribePackageStateResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\EncryptRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\EncryptResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\GetCertWarehouseQuotaResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\GetCsrDetailRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\GetCsrDetailResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\GetUserCertificateDetailRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\GetUserCertificateDetailResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListCertRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListCertResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListCertWarehouseRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListCertWarehouseResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\ListCsrRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\ListCsrResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListUserCertificateOrderRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListUserCertificateOrderResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\RenewCertificateOrderForPackageRequestRequest;
@@ -47,6 +55,10 @@ use AlibabaCloud\SDK\Cas\V20200407\Models\RevokeWHClientCertificateRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\RevokeWHClientCertificateResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\SignRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\SignResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\UpdateCsrRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\UpdateCsrResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\UploadCsrRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\UploadCsrResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\UploadPCACertRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\UploadPCACertResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\UploadUserCertificateRequest;
@@ -454,6 +466,76 @@ class Cas extends OpenApiClient
     }
 
     /**
+     * @param CreateCsrRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return CreateCsrResponse
+     */
+    public function createCsrWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->algorithm)) {
+            $query['Algorithm'] = $request->algorithm;
+        }
+        if (!Utils::isUnset($request->commonName)) {
+            $query['CommonName'] = $request->commonName;
+        }
+        if (!Utils::isUnset($request->corpName)) {
+            $query['CorpName'] = $request->corpName;
+        }
+        if (!Utils::isUnset($request->countryCode)) {
+            $query['CountryCode'] = $request->countryCode;
+        }
+        if (!Utils::isUnset($request->department)) {
+            $query['Department'] = $request->department;
+        }
+        if (!Utils::isUnset($request->keySize)) {
+            $query['KeySize'] = $request->keySize;
+        }
+        if (!Utils::isUnset($request->locality)) {
+            $query['Locality'] = $request->locality;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->province)) {
+            $query['Province'] = $request->province;
+        }
+        if (!Utils::isUnset($request->sans)) {
+            $query['Sans'] = $request->sans;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCsr',
+            'version'     => '2020-04-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateCsrResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateCsrRequest $request
+     *
+     * @return CreateCsrResponse
+     */
+    public function createCsr($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCsrWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateWHClientCertificateRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -645,6 +727,49 @@ class Cas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteCertificateRequestWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteCsrRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return DeleteCsrResponse
+     */
+    public function deleteCsrWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->csrId)) {
+            $query['CsrId'] = $request->csrId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCsr',
+            'version'     => '2020-04-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteCsrResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteCsrRequest $request
+     *
+     * @return DeleteCsrResponse
+     */
+    public function deleteCsr($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCsrWithOptions($request, $runtime);
     }
 
     /**
@@ -915,6 +1040,49 @@ class Cas extends OpenApiClient
     }
 
     /**
+     * @param GetCsrDetailRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetCsrDetailResponse
+     */
+    public function getCsrDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->csrId)) {
+            $query['CsrId'] = $request->csrId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCsrDetail',
+            'version'     => '2020-04-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCsrDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetCsrDetailRequest $request
+     *
+     * @return GetCsrDetailResponse
+     */
+    public function getCsrDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCsrDetailWithOptions($request, $runtime);
+    }
+
+    /**
      * You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param GetUserCertificateDetailRequest $request GetUserCertificateDetailRequest
@@ -1082,6 +1250,58 @@ class Cas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listCertWarehouseWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListCsrRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListCsrResponse
+     */
+    public function listCsrWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->algorithm)) {
+            $query['Algorithm'] = $request->algorithm;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->keyWord)) {
+            $query['KeyWord'] = $request->keyWord;
+        }
+        if (!Utils::isUnset($request->showSize)) {
+            $query['ShowSize'] = $request->showSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCsr',
+            'version'     => '2020-04-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCsrResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCsrRequest $request
+     *
+     * @return ListCsrResponse
+     */
+    public function listCsr($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCsrWithOptions($request, $runtime);
     }
 
     /**
@@ -1295,6 +1515,101 @@ class Cas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->signWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateCsrRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return UpdateCsrResponse
+     */
+    public function updateCsrWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->csrId)) {
+            $query['CsrId'] = $request->csrId;
+        }
+        if (!Utils::isUnset($request->key)) {
+            $query['Key'] = $request->key;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCsr',
+            'version'     => '2020-04-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateCsrResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateCsrRequest $request
+     *
+     * @return UpdateCsrResponse
+     */
+    public function updateCsr($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCsrWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UploadCsrRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return UploadCsrResponse
+     */
+    public function uploadCsrWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->csr)) {
+            $query['Csr'] = $request->csr;
+        }
+        if (!Utils::isUnset($request->key)) {
+            $query['Key'] = $request->key;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UploadCsr',
+            'version'     => '2020-04-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UploadCsrResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UploadCsrRequest $request
+     *
+     * @return UploadCsrResponse
+     */
+    public function uploadCsr($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->uploadCsrWithOptions($request, $runtime);
     }
 
     /**
