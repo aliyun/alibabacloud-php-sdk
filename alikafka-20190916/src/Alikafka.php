@@ -52,6 +52,8 @@ use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetTopicListRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetTopicListResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetTopicStatusRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetTopicStatusResponse;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetTopicSubscribeStatusRequest;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetTopicSubscribeStatusResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\ModifyInstanceNameRequest;
@@ -1386,6 +1388,55 @@ class Alikafka extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getTopicStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetTopicSubscribeStatusRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetTopicSubscribeStatusResponse
+     */
+    public function getTopicSubscribeStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $query['Topic'] = $request->topic;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTopicSubscribeStatus',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTopicSubscribeStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetTopicSubscribeStatusRequest $request
+     *
+     * @return GetTopicSubscribeStatusResponse
+     */
+    public function getTopicSubscribeStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTopicSubscribeStatusWithOptions($request, $runtime);
     }
 
     /**
