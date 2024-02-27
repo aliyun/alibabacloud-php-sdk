@@ -37,6 +37,8 @@ use AlibabaCloud\SDK\Agency\V20221216\Models\GetUnassociatedCustomerResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\InviteSubAccountRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\InviteSubAccountResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\ListCountriesResponse;
+use AlibabaCloud\SDK\Agency\V20221216\Models\ListCouponUsageRequest;
+use AlibabaCloud\SDK\Agency\V20221216\Models\ListCouponUsageResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\QuotaListExportPagedRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\QuotaListExportPagedResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\ResendEmailRequest;
@@ -898,6 +900,64 @@ class Agency extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listCountriesWithOptions($runtime);
+    }
+
+    /**
+     * @param ListCouponUsageRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListCouponUsageResponse
+     */
+    public function listCouponUsageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->account)) {
+            $query['Account'] = $request->account;
+        }
+        if (!Utils::isUnset($request->couponTemplateId)) {
+            $query['CouponTemplateId'] = $request->couponTemplateId;
+        }
+        if (!Utils::isUnset($request->page)) {
+            $query['Page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->uid)) {
+            $query['Uid'] = $request->uid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCouponUsage',
+            'version'     => '2022-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCouponUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCouponUsageRequest $request
+     *
+     * @return ListCouponUsageResponse
+     */
+    public function listCouponUsage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCouponUsageWithOptions($request, $runtime);
     }
 
     /**
