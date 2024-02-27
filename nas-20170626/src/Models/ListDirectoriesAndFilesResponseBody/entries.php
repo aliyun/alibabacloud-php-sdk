@@ -129,7 +129,7 @@ class entries extends Model
      *   File
      *   Directory
      *
-     * @example File
+     * @example Directory
      *
      * @var string
      */

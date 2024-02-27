@@ -45,6 +45,11 @@ class accessGroup extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $fileSystemType;
+
+    /**
      * @description The number of mount targets to which the permission group is attached.
      *
      * @example 0
@@ -52,6 +57,11 @@ class accessGroup extends Model
      * @var int
      */
     public $mountTargetCount;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @description The total number of rules in the permission group.
@@ -66,7 +76,9 @@ class accessGroup extends Model
         'accessGroupType'  => 'AccessGroupType',
         'createTime'       => 'CreateTime',
         'description'      => 'Description',
+        'fileSystemType'   => 'FileSystemType',
         'mountTargetCount' => 'MountTargetCount',
+        'regionId'         => 'RegionId',
         'ruleCount'        => 'RuleCount',
     ];
 
@@ -89,8 +101,14 @@ class accessGroup extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+        if (null !== $this->fileSystemType) {
+            $res['FileSystemType'] = $this->fileSystemType;
+        }
         if (null !== $this->mountTargetCount) {
             $res['MountTargetCount'] = $this->mountTargetCount;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->ruleCount) {
             $res['RuleCount'] = $this->ruleCount;
@@ -119,8 +137,14 @@ class accessGroup extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+        if (isset($map['FileSystemType'])) {
+            $model->fileSystemType = $map['FileSystemType'];
+        }
         if (isset($map['MountTargetCount'])) {
             $model->mountTargetCount = $map['MountTargetCount'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RuleCount'])) {
             $model->ruleCount = $map['RuleCount'];

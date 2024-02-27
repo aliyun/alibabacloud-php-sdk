@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class accessRule extends Model
 {
     /**
+     * @var string
+     */
+    public $accessGroupName;
+
+    /**
      * @description The ID of the rule.
      *
      * @example 1
@@ -16,6 +21,11 @@ class accessRule extends Model
      * @var string
      */
     public $accessRuleId;
+
+    /**
+     * @var string
+     */
+    public $fileSystemType;
 
     /**
      * @description The IPv6 address or CIDR block of the authorized object.
@@ -51,6 +61,11 @@ class accessRule extends Model
     public $RWAccess;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @description The IP address or CIDR block of the authorized object.
      *
      * @example 10.0.*.*\/**
@@ -75,10 +90,13 @@ class accessRule extends Model
      */
     public $userAccess;
     protected $_name = [
+        'accessGroupName'  => 'AccessGroupName',
         'accessRuleId'     => 'AccessRuleId',
+        'fileSystemType'   => 'FileSystemType',
         'ipv6SourceCidrIp' => 'Ipv6SourceCidrIp',
         'priority'         => 'Priority',
         'RWAccess'         => 'RWAccess',
+        'regionId'         => 'RegionId',
         'sourceCidrIp'     => 'SourceCidrIp',
         'userAccess'       => 'UserAccess',
     ];
@@ -90,8 +108,14 @@ class accessRule extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessGroupName) {
+            $res['AccessGroupName'] = $this->accessGroupName;
+        }
         if (null !== $this->accessRuleId) {
             $res['AccessRuleId'] = $this->accessRuleId;
+        }
+        if (null !== $this->fileSystemType) {
+            $res['FileSystemType'] = $this->fileSystemType;
         }
         if (null !== $this->ipv6SourceCidrIp) {
             $res['Ipv6SourceCidrIp'] = $this->ipv6SourceCidrIp;
@@ -101,6 +125,9 @@ class accessRule extends Model
         }
         if (null !== $this->RWAccess) {
             $res['RWAccess'] = $this->RWAccess;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->sourceCidrIp) {
             $res['SourceCidrIp'] = $this->sourceCidrIp;
@@ -120,8 +147,14 @@ class accessRule extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessGroupName'])) {
+            $model->accessGroupName = $map['AccessGroupName'];
+        }
         if (isset($map['AccessRuleId'])) {
             $model->accessRuleId = $map['AccessRuleId'];
+        }
+        if (isset($map['FileSystemType'])) {
+            $model->fileSystemType = $map['FileSystemType'];
         }
         if (isset($map['Ipv6SourceCidrIp'])) {
             $model->ipv6SourceCidrIp = $map['Ipv6SourceCidrIp'];
@@ -131,6 +164,9 @@ class accessRule extends Model
         }
         if (isset($map['RWAccess'])) {
             $model->RWAccess = $map['RWAccess'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['SourceCidrIp'])) {
             $model->sourceCidrIp = $map['SourceCidrIp'];
