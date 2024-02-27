@@ -571,6 +571,9 @@ class Servicecatalog extends OpenApiClient
         if (!Utils::isUnset($request->providerName)) {
             $body['ProviderName'] = $request->providerName;
         }
+        if (!Utils::isUnset($request->templateType)) {
+            $body['TemplateType'] = $request->templateType;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);

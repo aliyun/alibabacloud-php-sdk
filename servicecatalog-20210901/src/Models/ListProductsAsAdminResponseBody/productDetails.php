@@ -72,6 +72,11 @@ class productDetails extends Model
      * @var string
      */
     public $providerName;
+
+    /**
+     * @var string
+     */
+    public $templateType;
     protected $_name = [
         'createTime'   => 'CreateTime',
         'description'  => 'Description',
@@ -80,6 +85,7 @@ class productDetails extends Model
         'productName'  => 'ProductName',
         'productType'  => 'ProductType',
         'providerName' => 'ProviderName',
+        'templateType' => 'TemplateType',
     ];
 
     public function validate()
@@ -109,6 +115,9 @@ class productDetails extends Model
         }
         if (null !== $this->providerName) {
             $res['ProviderName'] = $this->providerName;
+        }
+        if (null !== $this->templateType) {
+            $res['TemplateType'] = $this->templateType;
         }
 
         return $res;
@@ -142,6 +151,9 @@ class productDetails extends Model
         }
         if (isset($map['ProviderName'])) {
             $model->providerName = $map['ProviderName'];
+        }
+        if (isset($map['TemplateType'])) {
+            $model->templateType = $map['TemplateType'];
         }
 
         return $model;
