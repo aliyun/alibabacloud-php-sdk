@@ -297,6 +297,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\ListSprintsRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListSprintsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListTestCaseFieldsRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListTestCaseFieldsResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListUserDrawRecordByPkRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListUserDrawRecordByPkResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListUserKeysRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListUserKeysResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListUserResourcesRequest;
@@ -9363,6 +9365,58 @@ class Devops extends OpenApiClient
         $headers = [];
 
         return $this->listTestCaseFieldsWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListUserDrawRecordByPkRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListUserDrawRecordByPkResponse
+     */
+    public function listUserDrawRecordByPkWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliyunPk)) {
+            $query['aliyunPk'] = $request->aliyunPk;
+        }
+        if (!Utils::isUnset($request->drawGroup)) {
+            $query['drawGroup'] = $request->drawGroup;
+        }
+        if (!Utils::isUnset($request->drawPoolName)) {
+            $query['drawPoolName'] = $request->drawPoolName;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListUserDrawRecordByPk',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/listUserDrawRecords',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListUserDrawRecordByPkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListUserDrawRecordByPkRequest $request
+     *
+     * @return ListUserDrawRecordByPkResponse
+     */
+    public function listUserDrawRecordByPk($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listUserDrawRecordByPkWithOptions($request, $headers, $runtime);
     }
 
     /**
