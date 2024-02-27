@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteVulAutoRepairConfigRequest extends Model
 {
     /**
+     * @description The alias of the vulnerability.
+     *
      * @example RHSA-2017:0184-Important: mysql security update
      *
      * @var string
@@ -16,11 +18,18 @@ class DeleteVulAutoRepairConfigRequest extends Model
     public $aliasName;
 
     /**
+     * @description The configuration ID of the vulnerability. You can call the [ListVulAutoRepairConfig](~~ListVulAutoRepairConfig~~) operation to query the configuration IDs of the vulnerability.
+     *
      * @var int[]
      */
     public $configIdList;
 
     /**
+     * @description The type of the vulnerability. Valid values:
+     *
+     *   **cve**: Linux software vulnerability
+     *   **sys**: Windows system vulnerability
+     *
      * @example cve
      *
      * @var string

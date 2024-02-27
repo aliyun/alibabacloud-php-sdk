@@ -31,6 +31,11 @@ class DescribeVersionConfigResponseBody extends Model
     public $allowPartialBuy;
 
     /**
+     * @var int
+     */
+    public $antiRansomwareService;
+
+    /**
      * @description Indicates whether the application whitelist feature is enabled. Valid values:
      *
      *   **0**: no
@@ -401,6 +406,7 @@ class DescribeVersionConfigResponseBody extends Model
     protected $_name = [
         'agentlessCapacity'      => 'AgentlessCapacity',
         'allowPartialBuy'        => 'AllowPartialBuy',
+        'antiRansomwareService'  => 'AntiRansomwareService',
         'appWhiteList'           => 'AppWhiteList',
         'appWhiteListAuthCount'  => 'AppWhiteListAuthCount',
         'assetLevel'             => 'AssetLevel',
@@ -450,6 +456,9 @@ class DescribeVersionConfigResponseBody extends Model
         }
         if (null !== $this->allowPartialBuy) {
             $res['AllowPartialBuy'] = $this->allowPartialBuy;
+        }
+        if (null !== $this->antiRansomwareService) {
+            $res['AntiRansomwareService'] = $this->antiRansomwareService;
         }
         if (null !== $this->appWhiteList) {
             $res['AppWhiteList'] = $this->appWhiteList;
@@ -573,6 +582,9 @@ class DescribeVersionConfigResponseBody extends Model
         }
         if (isset($map['AllowPartialBuy'])) {
             $model->allowPartialBuy = $map['AllowPartialBuy'];
+        }
+        if (isset($map['AntiRansomwareService'])) {
+            $model->antiRansomwareService = $map['AntiRansomwareService'];
         }
         if (isset($map['AppWhiteList'])) {
             $model->appWhiteList = $map['AppWhiteList'];
