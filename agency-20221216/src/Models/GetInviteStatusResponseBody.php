@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class GetInviteStatusResponseBody extends Model
 {
     /**
+     * @description Status Code. Error Code:
+     *
+     * - 3057 InviteId is empty
      * @example 200
      *
      * @var string
@@ -17,16 +20,24 @@ class GetInviteStatusResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The message returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description Request ID, Alibaba Cloud will track errors with this.
+     *
      * @example 9C14ADFE-DF0A-54D4-8BD5-45D0839246B4
      *
      * @var string
@@ -34,6 +45,8 @@ class GetInviteStatusResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Candidate Value: True/False, which indicates whether the current API call itself is successful. It does not guarantee the success of subsequent business operations.
+     *
      * @example true
      *
      * @var bool

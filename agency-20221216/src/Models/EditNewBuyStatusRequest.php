@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class EditNewBuyStatusRequest extends Model
 {
     /**
+     * @description New Purchase Status</br>
+     *
+     * - ban: ban the New Purchase request</br>
      * @example cancelBan
      *
      * @var string
@@ -16,6 +19,8 @@ class EditNewBuyStatusRequest extends Model
     public $newBuyStatus;
 
     /**
+     * @description Customer UID
+     *
      * @example 1133166938931507
      *
      * @var int

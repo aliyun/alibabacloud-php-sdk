@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class pageInfo extends Model
 {
     /**
+     * @description Pagination, current page.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class pageInfo extends Model
     public $page;
 
     /**
+     * @description Pagination, record number on each page.
+     *
      * @example 10
      *
      * @var int
@@ -23,6 +27,8 @@ class pageInfo extends Model
     public $pageSize;
 
     /**
+     * @description Pagination, page volume in total.
+     *
      * @example 12
      *
      * @var int

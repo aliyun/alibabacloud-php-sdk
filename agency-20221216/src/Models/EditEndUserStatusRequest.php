@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class EditEndUserStatusRequest extends Model
 {
     /**
+     * @description Shutdown Status</br>
+     *
+     * - postPayThaw, the account have been unlocked</br>
      * @example postPayFreeze
      *
      * @var string
@@ -16,7 +19,7 @@ class EditEndUserStatusRequest extends Model
     public $creditStatus;
 
     /**
-     * @description uid
+     * @description UID
      *
      * @example 1792155717328010
      *

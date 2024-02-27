@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDailyBillRequest extends Model
 {
     /**
+     * @description Bill Owner type. Value Range:</br>
+     * 2: Sub account</br>
      * @example 1
      *
      * @var string
@@ -16,6 +18,9 @@ class GetDailyBillRequest extends Model
     public $billOwner;
 
     /**
+     * @description BillType. Value Range:</br>
+     *
+     * - DailyInstanceBillV2
      * @example DailyInstanceBillV2
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeductOutstandingBalanceRequest extends Model
 {
     /**
+     * @description The Deducted Credit to be offset.
+     *
      * @example 300
      *
      * @var string
@@ -16,6 +18,8 @@ class DeductOutstandingBalanceRequest extends Model
     public $deductAmount;
 
     /**
+     * @description Account UID of Distribution Customer.
+     *
      * @example 1133166938931507
      *
      * @var int

@@ -6,10 +6,10 @@ namespace AlibabaCloud\SDK\Agency\V20221216\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetUnassociatedCustomerRequest extends Model
+class QuotaListExportPagedRequest extends Model
 {
     /**
-     * @description Pagination, current page.
+     * @description Pagination, current page number, starting from 1.
      *
      * @example 1
      *
@@ -18,7 +18,16 @@ class GetUnassociatedCustomerRequest extends Model
     public $currentPage;
 
     /**
-     * @description Pagination, record number on each page.
+     * @description Multilingual Parameters, the default language is English.</br>
+     * ja: Japanese </br>
+     * @example en
+     *
+     * @var string
+     */
+    public $language;
+
+    /**
+     * @description Pagination, record number on each page, maximum 100.
      *
      * @example 10
      *
@@ -27,6 +36,7 @@ class GetUnassociatedCustomerRequest extends Model
     public $pageSize;
     protected $_name = [
         'currentPage' => 'CurrentPage',
+        'language'    => 'Language',
         'pageSize'    => 'PageSize',
     ];
 
@@ -40,6 +50,9 @@ class GetUnassociatedCustomerRequest extends Model
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+        if (null !== $this->language) {
+            $res['Language'] = $this->language;
+        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -50,13 +63,16 @@ class GetUnassociatedCustomerRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetUnassociatedCustomerRequest
+     * @return QuotaListExportPagedRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['Language'])) {
+            $model->language = $map['Language'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];

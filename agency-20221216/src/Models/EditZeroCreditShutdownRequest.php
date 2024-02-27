@@ -9,14 +9,17 @@ use AlibabaCloud\Tea\Model;
 class EditZeroCreditShutdownRequest extends Model
 {
     /**
-     * @example NO_STOP
+     * @description UID
      *
+     * @example Shutdown Policy</br>
+     *
+     * - noStop, The instances of the specified End User\"s account will not be shutdown, after EU have triggered the Shutdown Policy.</br>
      * @var string
      */
     public $shutdownPolicy;
 
     /**
-     * @description uid
+     * @description No Change History
      *
      * @example 1263644979775567
      *

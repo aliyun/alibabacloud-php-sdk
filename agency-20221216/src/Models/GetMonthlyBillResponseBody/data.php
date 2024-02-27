@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The link to download CSV file, please use HTTP Protocol.
+     *
      * @example intl-reseller-month-bill.oss-ap-southeast-1.aliyuncs.com/statements/month/dts/1064252248461886/202104/Month%20Billing%20Invoice%20202104.pdf?Expires=1671160973&OSSAccessKeyId=TMP.3KhvoD9pW264cPv8sYe8E2zJ5HLWmrijNHgKiKpXcy8yS472BcrvemgTfNrrXKu5fCCdbLr2XhmYAyYPmbCe8zJyEkmYzL&Signature=hns1PgiiYl1WdI%2FdiOqbEdsgmfI%3D
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $billLinkCSV;
 
     /**
+     * @description The link to download XLSX file, please use HTTP Protocol.
+     *
      * @example intl-reseller-month-bill.oss-ap-southeast-1.aliyuncs.com/statements/month/dts/1064252248461886/202104/Month%20Billing%20Invoice%20202104.pdf?Expires=1671160973&OSSAccessKeyId=TMP.3KhvoD9pW264cPv8sYe8E2zJ5HLWmrijNHgKiKpXcy8yS472BcrvemgTfNrrXKu5fCCdbLr2XhmYAyYPmbCe8zJyEkmYzL&Signature=hns1PgiiYl1WdI%2FdiOqbEdsgmfI%3D
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $billLinkXLSX;
 
     /**
+     * @description Same as inserted parameter BillOwner.
+     *
      * @example 1
      *
      * @var string
@@ -30,6 +36,8 @@ class data extends Model
     public $billOwner;
 
     /**
+     * @description Same as inserted parameter BillType.
+     *
      * @example MonthlyInvoice
      *
      * @var string
@@ -37,6 +45,8 @@ class data extends Model
     public $billType;
 
     /**
+     * @description The URL to download invoice.
+     *
      * @example intl-reseller-month-bill.oss-ap-southeast-1.aliyuncs.com/statements/month/dts/1064252248461886/202104/Month%20Billing%20Invoice%20202104.pdf?Expires=1671160973&OSSAccessKeyId=TMP.3KhvoD9pW264cPv8sYe8E2zJ5HLWmrijNHgKiKpXcy8yS472BcrvemgTfNrrXKu5fCCdbLr2XhmYAyYPmbCe8zJyEkmYzL&Signature=hns1PgiiYl1WdI%2FdiOqbEdsgmfI%3D
      *
      * @var string
@@ -44,6 +54,8 @@ class data extends Model
     public $invoiceLink;
 
     /**
+     * @description It states the existence of refund invoice. </br>
+     * Candidate Values: True/False
      * @example True
      *
      * @var bool
@@ -51,6 +63,8 @@ class data extends Model
     public $refundInvoiceFlag;
 
     /**
+     * @description The URL to download refund invoice.
+     *
      * @example intl-reseller-month-bill.oss-ap-southeast-1.aliyuncs.com/statements/month/dts/1064252248461886/202104/Month%20Billing%20Invoice%20202104.pdf?Expires=1671160973&OSSAccessKeyId=TMP.3KhvoD9pW264cPv8sYe8E2zJ5HLWmrijNHgKiKpXcy8yS472BcrvemgTfNrrXKu5fCCdbLr2XhmYAyYPmbCe8zJyEkmYzL&Signature=hns1PgiiYl1WdI%2FdiOqbEdsgmfI%3D
      *
      * @var string
@@ -58,6 +72,8 @@ class data extends Model
     public $refundInvoiceLink;
 
     /**
+     * @description Spending Time, refer to the exact time of costuming.
+     *
      * @example 20221201
      *
      * @var string

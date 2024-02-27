@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateCustomerRequest extends Model
 {
     /**
+     * @description Customer\"s name.
+     *
      * @example DoorBell Marketing
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateCustomerRequest extends Model
     public $customerName;
 
     /**
+     * @description The source/channel that allow client to connected with us. Please enumerate with Customer Source.
+     *
      * @example website
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateCustomerRequest extends Model
     public $customerSource;
 
     /**
+     * @description The sub-industry that Customer\"s business belongs to. Please enumerate with Customer Trade.
+     *
      * @example 0101
      *
      * @var string
@@ -30,6 +36,8 @@ class CreateCustomerRequest extends Model
     public $customerSubTrade;
 
     /**
+     * @description The industry that Customer\"s business belongs to. Please enumerate with Customer Trade.
+     *
      * @example 01
      *
      * @var string
@@ -37,6 +45,8 @@ class CreateCustomerRequest extends Model
     public $customerTrade;
 
     /**
+     * @description The region that Customer choose to launch the Cloud Service. Please use ListCountries to confirm the valid region list for current UID.
+     *
      * @example AR
      *
      * @var string

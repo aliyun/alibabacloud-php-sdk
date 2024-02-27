@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class SetAccountInfoResponseBody extends Model
 {
     /**
+     * @description Result Code:
+     *   200 OK
+     *   1109 System error
+     *   3030 Sub Account Nickname exceeds maximum length,  maximum length 150 bytes.
+     *   3031 Remark exceeds maximum length,  maximum length 3000 bytes.
+     *
      * @example 200
      *
      * @var string
@@ -16,11 +22,17 @@ class SetAccountInfoResponseBody extends Model
     public $code;
 
     /**
+     * @description Message information
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description Request ID, Alibaba Cloud will track errors with this.
+     *
      * @example 9C14ADFE-DF0A-54D4-8BD5-45D0839246B4
      *
      * @var string
@@ -28,6 +40,8 @@ class SetAccountInfoResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Candidate Value: True/False, which indicates whether the current API call itself is successful. It does not guarantee the success of subsequent business operations.
+     *
      * @example true
      *
      * @var bool

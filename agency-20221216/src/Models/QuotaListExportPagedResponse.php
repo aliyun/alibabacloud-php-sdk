@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Agency\V20221216\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class SetAccountInfoResponse extends Model
+class QuotaListExportPagedResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class SetAccountInfoResponse extends Model
     public $statusCode;
 
     /**
-     * @var SetAccountInfoResponseBody
+     * @var QuotaListExportPagedResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class SetAccountInfoResponse extends Model
     /**
      * @param array $map
      *
-     * @return SetAccountInfoResponse
+     * @return QuotaListExportPagedResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class SetAccountInfoResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = SetAccountInfoResponseBody::fromMap($map['body']);
+            $model->body = QuotaListExportPagedResponseBody::fromMap($map['body']);
         }
 
         return $model;

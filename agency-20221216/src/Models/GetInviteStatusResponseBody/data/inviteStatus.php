@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class inviteStatus extends Model
 {
     /**
+     * @description Result Code. Value Range:
+     *   200 OK
+     *   1109 system error
+     *
      * @example 200
      *
      * @var string
@@ -17,16 +21,24 @@ class inviteStatus extends Model
     public $code;
 
     /**
+     * @description List of Invitation Status result
+     *
      * @var inviteStatusList
      */
     public $inviteStatusList;
 
     /**
+     * @description The message returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description Candidate Value: True/False, which indicates whether the current API call itself is successful. It does not guarantee the success of subsequent business operations.
+     *
      * @example true
      *
      * @var bool

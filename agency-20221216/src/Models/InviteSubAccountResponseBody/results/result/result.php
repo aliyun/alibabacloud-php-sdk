@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description Valid days of registration URL, count on daily basis.
+     *
      * @example 15
      *
      * @var int
@@ -16,6 +18,8 @@ class result extends Model
     public $days;
 
     /**
+     * @description Invitation ID, The invitation status tracking code.
+     *
      * @example 12345
      *
      * @var int
@@ -23,6 +27,8 @@ class result extends Model
     public $inviteId;
 
     /**
+     * @description URL for Partner Customer Registration.
+     *
      * @example http://agency-intl.console.aliyun.com/customer/register?intl=true&fxinfo=-4uT%2FMWHnnUdvr5GXVd1AYK8luTnGgH3M7Y3lSCd5M1fxRwAkViTWtDJDpckh0HL
      *
      * @var string

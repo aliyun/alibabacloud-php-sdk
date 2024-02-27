@@ -10,8 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetInviteStatusRequest extends Model
 {
     /**
-     * @description inviteId list
-     *
+     * @description inviteId list</br>
+     * `Sub-levels <= 5`
      * @var inviteStatusList[]
      */
     public $inviteStatusList;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetCreditLineRequest extends Model
 {
     /**
+     * @description New Credit Line
+     *
      * @example 100
      *
      * @var string
@@ -16,6 +18,8 @@ class SetCreditLineRequest extends Model
     public $creditLine;
 
     /**
+     * @description The UID of Sub Account.
+     *
      * @example 1263644979775567
      *
      * @var int

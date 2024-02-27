@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ResendEmailRequest extends Model
 {
     /**
+     * @description Invitation ID, from interface InviteSubAccount </br>
+     * Note: This field type is Long, which may result in precision loss in serialization/deserialization process. Please ensure the value does not exceed 9007199254740991.
      * @example 176
      *
      * @var int

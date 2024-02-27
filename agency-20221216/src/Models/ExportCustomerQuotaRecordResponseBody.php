@@ -4,14 +4,14 @@
 
 namespace AlibabaCloud\SDK\Agency\V20221216\Models;
 
-use AlibabaCloud\SDK\Agency\V20221216\Models\GetCreditInfoResponseBody\data;
+use AlibabaCloud\SDK\Agency\V20221216\Models\ExportCustomerQuotaRecordResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class GetCreditInfoResponseBody extends Model
+class ExportCustomerQuotaRecordResponseBody extends Model
 {
     /**
-     * @description Result Code:
-     * - 1109 System Error
+     * @description Code
+     *
      * @example 200
      *
      * @var string
@@ -19,44 +19,34 @@ class GetCreditInfoResponseBody extends Model
     public $code;
 
     /**
-     * @description The data returned.
+     * @description Data
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description Message Information
+     * @description Description
      *
-     * @example success
+     * @example SUCCESS
      *
      * @var string
      */
-    public $message;
+    public $msg;
 
     /**
-     * @description Request ID, Alibaba Cloud will track errors with this.
+     * @description ID of the Request
      *
-     * @example 9C14ADFE-DF0A-54D4-8BD5-45D0839246B4
+     * @example 210bc4b416874189683843905d9f9a
      *
      * @var string
      */
     public $requestId;
-
-    /**
-     * @description Candidate Value: True/False, which indicates whether the current API call itself is successful. It does not guarantee the success of subsequent business operations.
-     *
-     * @example true
-     *
-     * @var bool
-     */
-    public $success;
     protected $_name = [
         'code'      => 'Code',
         'data'      => 'Data',
-        'message'   => 'Message',
+        'msg'       => 'Msg',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
     ];
 
     public function validate()
@@ -72,14 +62,11 @@ class GetCreditInfoResponseBody extends Model
         if (null !== $this->data) {
             $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
+        if (null !== $this->msg) {
+            $res['Msg'] = $this->msg;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -88,7 +75,7 @@ class GetCreditInfoResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetCreditInfoResponseBody
+     * @return ExportCustomerQuotaRecordResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -99,14 +86,11 @@ class GetCreditInfoResponseBody extends Model
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
+        if (isset($map['Msg'])) {
+            $model->msg = $map['Msg'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
         }
 
         return $model;

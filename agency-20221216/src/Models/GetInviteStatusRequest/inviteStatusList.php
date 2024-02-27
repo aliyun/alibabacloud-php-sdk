@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class inviteStatusList extends Model
 {
     /**
+     * @description Invitation ID, From interface InviteSubAccount
+     *
      * @example 123
      *
      * @var int

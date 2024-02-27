@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class EditZeroCreditShutdownResponseBody extends Model
 {
     /**
+     * @description Success or not</br>
+     *
      * @example 200
      *
      * @var string
@@ -16,6 +18,8 @@ class EditZeroCreditShutdownResponseBody extends Model
     public $code;
 
     /**
+     * @description Request ID</br>
+     *
      * @example true
      *
      * @var string
@@ -23,11 +27,17 @@ class EditZeroCreditShutdownResponseBody extends Model
     public $data;
 
     /**
+     * @description Message</br>
+     *
+     * @example Message</br>
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description NO_STOP
+     *
      * @example SUCCESS
      *
      * @var string
@@ -35,6 +45,8 @@ class EditZeroCreditShutdownResponseBody extends Model
     public $msg;
 
     /**
+     * @description success
+     *
      * @example 9C14ADFE-DF0A-54D4-8BD5-45D0839246B4
      *
      * @var string

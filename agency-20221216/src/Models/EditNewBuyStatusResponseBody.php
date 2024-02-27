@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class EditNewBuyStatusResponseBody extends Model
 {
     /**
+     * @description Status Code</br>
+     *
      * @example 200
      *
      * @var string
@@ -16,6 +18,8 @@ class EditNewBuyStatusResponseBody extends Model
     public $code;
 
     /**
+     * @description Success or not</br>
+     *
      * @example true
      *
      * @var string
@@ -23,11 +27,17 @@ class EditNewBuyStatusResponseBody extends Model
     public $data;
 
     /**
+     * @description Message</br>
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description Message</br>
+     *
      * @example success
      *
      * @var string
@@ -35,6 +45,8 @@ class EditNewBuyStatusResponseBody extends Model
     public $msg;
 
     /**
+     * @description Request ID</br>
+     *
      * @example 9C14ADFE-DF0A-54D4-8BD5-45D0839246B4
      *
      * @var string

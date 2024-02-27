@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class accountInfo extends Model
 {
     /**
+     * @description The name of Sub Account:
+     * 2.	Use the official name of Partner, if Sub Account is a T2 reseller.
+     * @example XXX Technology LTD.
+     *
      * @var string
      */
     public $accountNickname;
 
     /**
+     * @description Alibaba Cloud Login name of Distribution Customer.
+     *
      * @example 1234@qq.com
      *
      * @var string
@@ -21,6 +27,8 @@ class accountInfo extends Model
     public $aliyunId;
 
     /**
+     * @description The time that Distribution Customer successfully associated with Distributor.
+     *
      * @example 2021-01-01
      *
      * @var string
@@ -28,6 +36,8 @@ class accountInfo extends Model
     public $associationSuccessTime;
 
     /**
+     * @description Account CID of Distribution Customer.
+     *
      * @example 61479572
      *
      * @var int
@@ -35,6 +45,8 @@ class accountInfo extends Model
     public $cid;
 
     /**
+     * @description The E-mail of Distribution Customer.
+     *
      * @example 1234@qq.com
      *
      * @var string
@@ -42,6 +54,8 @@ class accountInfo extends Model
     public $email;
 
     /**
+     * @description Valid mobile number of Distribution Customer.
+     *
      * @example 13641588680
      *
      * @var string
@@ -49,11 +63,17 @@ class accountInfo extends Model
     public $mobile;
 
     /**
+     * @description Description of Distribution Customer.
+     *
+     * @example Sub Account
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @description Account Type:
+     * - 6 T2 Agency+Reseller Partner
      * @example 1
      *
      * @var int
@@ -61,6 +81,8 @@ class accountInfo extends Model
     public $subAccountType;
 
     /**
+     * @description Account UID of Distribution Customer.
+     *
      * @example 1415740779475837
      *
      * @var int

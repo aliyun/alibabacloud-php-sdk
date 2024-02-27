@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class InviteSubAccountResponseBody extends Model
 {
     /**
+     * @description Error Code: </br>
+     * • 1109 System Error</br>
      * @example 200
      *
      * @var string
@@ -17,11 +19,17 @@ class InviteSubAccountResponseBody extends Model
     public $code;
 
     /**
+     * @description Message</br>
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description Request ID, Alibaba Cloud will track errors with this ID.
+     *
      * @example 9C14ADFE-DF0A-54D4-8BD5-45D0839246B4
      *
      * @var string
@@ -29,11 +37,15 @@ class InviteSubAccountResponseBody extends Model
     public $requestId;
 
     /**
+     * @description List of invitation sending results
+     *
      * @var results
      */
     public $results;
 
     /**
+     * @description Candidate Values: True/False, this value states if the current API calling action is successful. It does not guarantee the success of subsequent business operations.
+     *
      * @example true
      *
      * @var bool

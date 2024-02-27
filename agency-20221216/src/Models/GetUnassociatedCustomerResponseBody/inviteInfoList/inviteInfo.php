@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class inviteInfo extends Model
 {
     /**
+     * @description The name of Customer who are to be invited.
+     *
+     * @example My Client
+     *
      * @var string
      */
     public $accountNickname;
 
     /**
+     * @description The Email of Customer who are to be invited.
+     *
      * @example 12345@qq.com
      *
      * @var string
@@ -21,6 +27,8 @@ class inviteInfo extends Model
     public $email;
 
     /**
+     * @description The time of email been sent out.
+     *
      * @example 2023-05-10
      *
      * @var string
@@ -28,6 +36,8 @@ class inviteInfo extends Model
     public $gmtCreate;
 
     /**
+     * @description Invitation ID
+     *
      * @example 190
      *
      * @var int
@@ -35,6 +45,12 @@ class inviteInfo extends Model
     public $inviteId;
 
     /**
+     * @description Invitation Status:
+     * 0 No visit on registration URL
+     * 1 Successful Registration
+     * 2 Unsuccessful Registration
+     * 3 Registration URL have been visited, but no submitted sheet/ticket.
+     *
      * @example 1
      *
      * @var int

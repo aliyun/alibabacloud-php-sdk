@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetCreditInfoRequest extends Model
 {
     /**
+     * @description Sub Account UID
+     *
      * @example 1792155717328010
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description Error Code, 200 OK
+     *
      * @example 200
      *
      * @var string
@@ -16,16 +18,24 @@ class result extends Model
     public $code;
 
     /**
+     * @description Message, Notes of Code
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description Returning Message of Invitation Results
+     *
      * @var \AlibabaCloud\SDK\Agency\V20221216\Models\InviteSubAccountResponseBody\results\result\result
      */
     public $result;
 
     /**
+     * @description Always true.
+     *
      * @example true
      *
      * @var bool

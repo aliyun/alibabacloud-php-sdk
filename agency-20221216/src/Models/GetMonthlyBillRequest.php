@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetMonthlyBillRequest extends Model
 {
     /**
-     * @description Bill Owner type.
-     *
-     * 2: Sub account
+     * @description Bill Owner type. Value Range:</br>
+     * 2: Sub account</br>
      * @example 1
      *
      * @var string
@@ -21,7 +20,7 @@ class GetMonthlyBillRequest extends Model
     /**
      * @description Value Range:
      *
-     * MarginReportV2
+     * - MarginReportV2
      * @example MonthlyInvoice
      *
      * @var string

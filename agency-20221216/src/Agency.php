@@ -10,6 +10,8 @@ use AlibabaCloud\SDK\Agency\V20221216\Models\CancelSubscriptionBillRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\CancelSubscriptionBillResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\CreateCustomerRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\CreateCustomerResponse;
+use AlibabaCloud\SDK\Agency\V20221216\Models\CustomerQuotaRecordListRequest;
+use AlibabaCloud\SDK\Agency\V20221216\Models\CustomerQuotaRecordListResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\DeductOutstandingBalanceRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\DeductOutstandingBalanceResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\EditEndUserStatusRequest;
@@ -18,6 +20,8 @@ use AlibabaCloud\SDK\Agency\V20221216\Models\EditNewBuyStatusRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\EditNewBuyStatusResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\EditZeroCreditShutdownRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\EditZeroCreditShutdownResponse;
+use AlibabaCloud\SDK\Agency\V20221216\Models\ExportCustomerQuotaRecordRequest;
+use AlibabaCloud\SDK\Agency\V20221216\Models\ExportCustomerQuotaRecordResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\GetAccountInfoRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\GetAccountInfoResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\GetCreditInfoRequest;
@@ -33,6 +37,8 @@ use AlibabaCloud\SDK\Agency\V20221216\Models\GetUnassociatedCustomerResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\InviteSubAccountRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\InviteSubAccountResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\ListCountriesResponse;
+use AlibabaCloud\SDK\Agency\V20221216\Models\QuotaListExportPagedRequest;
+use AlibabaCloud\SDK\Agency\V20221216\Models\QuotaListExportPagedResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\ResendEmailRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\ResendEmailResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\SetAccountInfoRequest;
@@ -249,10 +255,53 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * @param DeductOutstandingBalanceRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param CustomerQuotaRecordListRequest $request
+     * @param RuntimeOptions                 $runtime
      *
-     * @return DeductOutstandingBalanceResponse
+     * @return CustomerQuotaRecordListResponse
+     */
+    public function customerQuotaRecordListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CustomerQuotaRecordList',
+            'version'     => '2022-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CustomerQuotaRecordListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CustomerQuotaRecordListRequest $request
+     *
+     * @return CustomerQuotaRecordListResponse
+     */
+    public function customerQuotaRecordList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->customerQuotaRecordListWithOptions($request, $runtime);
+    }
+
+    /**
+     * Note that sometimes you may find that the customer\\"s Used Credit is negative. This indicates that there is no need to restore the Used Credit, and its ready for customer\\"s usage. This phenomenon occurs because a refund is generated while the customer\\"s credit is full, thereby triggered additional increasing on the customer\\"s credit.
+     *   * For example, if the customer\\"s maximum Available Credit is 1000 with no usage, and a refund of 300 occurs, the Used Credit will become -300.
+     *   *
+     * @param DeductOutstandingBalanceRequest $request DeductOutstandingBalanceRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeductOutstandingBalanceResponse DeductOutstandingBalanceResponse
      */
     public function deductOutstandingBalanceWithOptions($request, $runtime)
     {
@@ -283,9 +332,12 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * @param DeductOutstandingBalanceRequest $request
+     * Note that sometimes you may find that the customer\\"s Used Credit is negative. This indicates that there is no need to restore the Used Credit, and its ready for customer\\"s usage. This phenomenon occurs because a refund is generated while the customer\\"s credit is full, thereby triggered additional increasing on the customer\\"s credit.
+     *   * For example, if the customer\\"s maximum Available Credit is 1000 with no usage, and a refund of 300 occurs, the Used Credit will become -300.
+     *   *
+     * @param DeductOutstandingBalanceRequest $request DeductOutstandingBalanceRequest
      *
-     * @return DeductOutstandingBalanceResponse
+     * @return DeductOutstandingBalanceResponse DeductOutstandingBalanceResponse
      */
     public function deductOutstandingBalance($request)
     {
@@ -295,10 +347,13 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * @param EditEndUserStatusRequest $request
-     * @param RuntimeOptions           $runtime
+     * The caller should be the Partner as identified in the Alibaba Cloud distribution model. </br>
+     *   * **This content is only published on the international site. **.
+     *   *
+     * @param EditEndUserStatusRequest $request EditEndUserStatusRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return EditEndUserStatusResponse
+     * @return EditEndUserStatusResponse EditEndUserStatusResponse
      */
     public function editEndUserStatusWithOptions($request, $runtime)
     {
@@ -323,9 +378,12 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * @param EditEndUserStatusRequest $request
+     * The caller should be the Partner as identified in the Alibaba Cloud distribution model. </br>
+     *   * **This content is only published on the international site. **.
+     *   *
+     * @param EditEndUserStatusRequest $request EditEndUserStatusRequest
      *
-     * @return EditEndUserStatusResponse
+     * @return EditEndUserStatusResponse EditEndUserStatusResponse
      */
     public function editEndUserStatus($request)
     {
@@ -335,10 +393,13 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * @param EditNewBuyStatusRequest $request
-     * @param RuntimeOptions          $runtime
+     * The caller should be the Partner as identified in the Alibaba Cloud distribution model. </br>
+     *   * **This content is only published on the international site. **.
+     *   *
+     * @param EditNewBuyStatusRequest $request EditNewBuyStatusRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return EditNewBuyStatusResponse
+     * @return EditNewBuyStatusResponse EditNewBuyStatusResponse
      */
     public function editNewBuyStatusWithOptions($request, $runtime)
     {
@@ -369,9 +430,12 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * @param EditNewBuyStatusRequest $request
+     * The caller should be the Partner as identified in the Alibaba Cloud distribution model. </br>
+     *   * **This content is only published on the international site. **.
+     *   *
+     * @param EditNewBuyStatusRequest $request EditNewBuyStatusRequest
      *
-     * @return EditNewBuyStatusResponse
+     * @return EditNewBuyStatusResponse EditNewBuyStatusResponse
      */
     public function editNewBuyStatus($request)
     {
@@ -381,10 +445,13 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * @param EditZeroCreditShutdownRequest $request
-     * @param RuntimeOptions                $runtime
+     * The caller should be the Partner as identified in the Alibaba Cloud distribution model. </br>
+     *   * **This content is only published on the international site. **.
+     *   *
+     * @param EditZeroCreditShutdownRequest $request EditZeroCreditShutdownRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return EditZeroCreditShutdownResponse
+     * @return EditZeroCreditShutdownResponse EditZeroCreditShutdownResponse
      */
     public function editZeroCreditShutdownWithOptions($request, $runtime)
     {
@@ -415,15 +482,77 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * @param EditZeroCreditShutdownRequest $request
+     * The caller should be the Partner as identified in the Alibaba Cloud distribution model. </br>
+     *   * **This content is only published on the international site. **.
+     *   *
+     * @param EditZeroCreditShutdownRequest $request EditZeroCreditShutdownRequest
      *
-     * @return EditZeroCreditShutdownResponse
+     * @return EditZeroCreditShutdownResponse EditZeroCreditShutdownResponse
      */
     public function editZeroCreditShutdown($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->editZeroCreditShutdownWithOptions($request, $runtime);
+    }
+
+    /**
+     * Caller must be a Partner from International Site, either Distribution or Reseller will do.
+     *   *
+     * @param ExportCustomerQuotaRecordRequest $request ExportCustomerQuotaRecordRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ExportCustomerQuotaRecordResponse ExportCustomerQuotaRecordResponse
+     */
+    public function exportCustomerQuotaRecordWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->endUserPk)) {
+            $query['EndUserPk'] = $request->endUserPk;
+        }
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->operationType)) {
+            $query['OperationType'] = $request->operationType;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ExportCustomerQuotaRecord',
+            'version'     => '2022-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExportCustomerQuotaRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Caller must be a Partner from International Site, either Distribution or Reseller will do.
+     *   *
+     * @param ExportCustomerQuotaRecordRequest $request ExportCustomerQuotaRecordRequest
+     *
+     * @return ExportCustomerQuotaRecordResponse ExportCustomerQuotaRecordResponse
+     */
+    public function exportCustomerQuotaRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->exportCustomerQuotaRecordWithOptions($request, $runtime);
     }
 
     /**
@@ -688,10 +817,12 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * @param InviteSubAccountRequest $request
-     * @param RuntimeOptions          $runtime
+     * The current API request rate for the Cloud Product has not been disclosed.
+     *   *
+     * @param InviteSubAccountRequest $request InviteSubAccountRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return InviteSubAccountResponse
+     * @return InviteSubAccountResponse InviteSubAccountResponse
      */
     public function inviteSubAccountWithOptions($request, $runtime)
     {
@@ -719,9 +850,11 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * @param InviteSubAccountRequest $request
+     * The current API request rate for the Cloud Product has not been disclosed.
+     *   *
+     * @param InviteSubAccountRequest $request InviteSubAccountRequest
      *
-     * @return InviteSubAccountResponse
+     * @return InviteSubAccountResponse InviteSubAccountResponse
      */
     public function inviteSubAccount($request)
     {
@@ -731,9 +864,11 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * The current API request rate for cloud products has not been disclosed.
+     *   *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCountriesResponse
+     * @return ListCountriesResponse ListCountriesResponse
      */
     public function listCountriesWithOptions($runtime)
     {
@@ -754,13 +889,59 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * @return ListCountriesResponse
+     * The current API request rate for cloud products has not been disclosed.
+     *   *
+     * @return ListCountriesResponse ListCountriesResponse
      */
     public function listCountries()
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->listCountriesWithOptions($runtime);
+    }
+
+    /**
+     * Caller must be a Partner from International Site, either Distribution or Reseller will do.
+     *   *
+     * @param QuotaListExportPagedRequest $request QuotaListExportPagedRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return QuotaListExportPagedResponse QuotaListExportPagedResponse
+     */
+    public function quotaListExportPagedWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QuotaListExportPaged',
+            'version'     => '2022-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QuotaListExportPagedResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Caller must be a Partner from International Site, either Distribution or Reseller will do.
+     *   *
+     * @param QuotaListExportPagedRequest $request QuotaListExportPagedRequest
+     *
+     * @return QuotaListExportPagedResponse QuotaListExportPagedResponse
+     */
+    public function quotaListExportPaged($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->quotaListExportPagedWithOptions($request, $runtime);
     }
 
     /**

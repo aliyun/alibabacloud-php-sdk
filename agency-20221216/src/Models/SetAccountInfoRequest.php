@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class SetAccountInfoRequest extends Model
 {
     /**
+     * @description Sub Account Nickname.
+     * Use the official name of Company, if Sub Account is an enterprise.
+     * Use the official name of Partner, if Sub Account is a T2 reseller.
+     *
+     * @example my account
+     *
      * @var string
      */
     public $accountNickname;
 
     /**
+     * @description Description of Sub Account.
+     *
+     * @example test account
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @description The UID of Sub Account.
+     *
      * @example 1133166938931507
      *
      * @var int

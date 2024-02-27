@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class inviteStatusList extends Model
 {
     /**
+     * @description The time that Distribution Customer successfully associated with Distributor.</br>
+     * This value will be empty if there is no existing association.
      * @example 2018-02-13
      *
      * @var string
@@ -16,6 +18,8 @@ class inviteStatusList extends Model
     public $associationSuccessTime;
 
     /**
+     * @description Distribution Customer\"s CID
+     *
      * @example 1234567890123
      *
      * @var int
@@ -23,6 +27,8 @@ class inviteStatusList extends Model
     public $cid;
 
     /**
+     * @description The time of email been sent out.
+     *
      * @example 2018-02-12
      *
      * @var string
@@ -30,6 +36,8 @@ class inviteStatusList extends Model
     public $gmtCreate;
 
     /**
+     * @description The parent organization ID.
+     *
      * @example 1093238769140523
      *
      * @var string
@@ -37,6 +45,12 @@ class inviteStatusList extends Model
     public $parentId;
 
     /**
+     * @description Invitation Status:
+     * 0 No visit on registration URL
+     * 1 Successful Registration
+     * 2 Unsuccessful Registration
+     * 3 Registration URL have been visited, but no submitted sheet/ticket.
+     *
      * @example 2
      *
      * @var int
@@ -44,6 +58,8 @@ class inviteStatusList extends Model
     public $status;
 
     /**
+     * @description Account Type:
+     * - 5 T2 Reseller Partner
      * @example 1
      *
      * @var string
@@ -51,6 +67,8 @@ class inviteStatusList extends Model
     public $subAccountType;
 
     /**
+     * @description Distribution Customer\"s UID
+     *
      * @example 1234567890123
      *
      * @var int

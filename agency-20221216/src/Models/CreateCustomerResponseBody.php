@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateCustomerResponseBody extends Model
 {
     /**
+     * @description Code indicating whether the call was successful.
+     *
      * @example 200
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateCustomerResponseBody extends Model
     public $code;
 
     /**
+     * @description Data indicating whether a customer was successfully created. If it\"s "true", the Message contains CID.
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +27,8 @@ class CreateCustomerResponseBody extends Model
     public $data;
 
     /**
+     * @description Massage indicating whether the call was successful.
+     *
      * @example 12345
      *
      * @var string
@@ -30,6 +36,8 @@ class CreateCustomerResponseBody extends Model
     public $message;
 
     /**
+     * @description Request ID, Alibaba Cloud will track errors with this.
+     *
      * @example A9B725C7-3DBD-576B-AC91-F6F22AB99A77
      *
      * @var string
@@ -37,6 +45,8 @@ class CreateCustomerResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Candidate Value: True/False, which indicates whether the current API call it self was successful. It does not guarantee the success of subsequent business operations.
+     *
      * @example true
      *
      * @var bool

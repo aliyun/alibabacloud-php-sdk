@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetAccountInfoRequest extends Model
 {
     /**
+     * @description Pagination, current page.
+     *
      * @example 1
      *
      * @var int
@@ -16,13 +18,17 @@ class GetAccountInfoRequest extends Model
     public $currentPage;
 
     /**
-     * @example 10
+     * @description Pagination, record number on each page, maximum 20.
+     *
+     * @example 10 (Value <= 20)
      *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description Account UID of Distribution Customer. This parameter and the UserType parameter must have one filled. If this parameter is empty, then check all Distribution Customer accounts of the selected UserType.
+     *
      * @example 1215848086704806
      *
      * @var int
@@ -30,6 +36,8 @@ class GetAccountInfoRequest extends Model
     public $uid;
 
     /**
+     * @description Distribution Customer\"s Account Type:
+     * - 3 T2 Partner
      * @example 1
      *
      * @var string
