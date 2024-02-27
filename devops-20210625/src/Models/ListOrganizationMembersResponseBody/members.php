@@ -48,6 +48,11 @@ class members extends Model
     public $identities;
 
     /**
+     * @var string
+     */
+    public $jobNumber;
+
+    /**
      * @example 1631845101798
      *
      * @var int
@@ -98,6 +103,7 @@ class members extends Model
         'email'                  => 'email',
         'hiredDate'              => 'hiredDate',
         'identities'             => 'identities',
+        'jobNumber'              => 'jobNumber',
         'joinTime'               => 'joinTime',
         'lastVisitTime'          => 'lastVisitTime',
         'mobile'                 => 'mobile',
@@ -131,6 +137,9 @@ class members extends Model
         }
         if (null !== $this->identities) {
             $res['identities'] = null !== $this->identities ? $this->identities->toMap() : null;
+        }
+        if (null !== $this->jobNumber) {
+            $res['jobNumber'] = $this->jobNumber;
         }
         if (null !== $this->joinTime) {
             $res['joinTime'] = $this->joinTime;
@@ -184,6 +193,9 @@ class members extends Model
         }
         if (isset($map['identities'])) {
             $model->identities = identities::fromMap($map['identities']);
+        }
+        if (isset($map['jobNumber'])) {
+            $model->jobNumber = $map['jobNumber'];
         }
         if (isset($map['joinTime'])) {
             $model->joinTime = $map['joinTime'];
