@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDisksResponseBody extends Model
 {
     /**
-     * @description The details of the cloud disks or local disks.
+     * @description Details about the cloud disks or local disks.
      *
      * @var disks
      */

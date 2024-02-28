@@ -64,7 +64,7 @@ class RunInstancesRequest extends Model
     public $affinity;
 
     /**
-     * @description The number of instances that you want to create. Valid values: 1 to 100.
+     * @description The number of ECS instances that you want to create. Valid values: 1 to 100.
      *
      * Default value: 1.
      * @example 3
@@ -74,7 +74,7 @@ class RunInstancesRequest extends Model
     public $amount;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable.
+     * @description This parameter is not publicly available.
      *
      * @var arn[]
      */
@@ -82,6 +82,18 @@ class RunInstancesRequest extends Model
 
     /**
      * @description Specifies whether to automatically complete the payment for instance creation. Valid values:
+     *
+     *   true: The payment is automatically completed.
+     *
+     **
+     *
+     **Note** Make sure that your account balance is sufficient. Otherwise, your order becomes invalid and is canceled. If your account balance is insufficient, you can set `AutoPay` to `false` to generate an unpaid order. Then, you can log on to the ECS console to pay for the order.
+     *
+     *   false: An order is generated but no payment is made.
+     *
+     **
+     *
+     **Note** When `InstanceChargeType` is set to `PostPaid`, `AutoPay` cannot be set to `false`.
      *
      * Default value: true.
      * @example true
@@ -91,11 +103,11 @@ class RunInstancesRequest extends Model
     public $autoPay;
 
     /**
-     * @description The time when to automatically release the pay-as-you-go instance. Specify the time in the [ISO 8601](~~25696~~) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
+     * @description The time when to automatically release the pay-as-you-go instance. Specify the time in the [ISO 8601 standard](~~25696~~) in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
      *
-     *   If the value of seconds (`ss`) is not `00`, the time is automatically rounded to the nearest minute based on the value of minutes (`mm`).
+     *   If the value of seconds (`ss`) is not `00`, the start time is automatically rounded to the nearest minute based on the value of minutes (`mm`).
      *   The specified time must be at least 30 minutes later than the current time.
-     *   The specified time can be at most three years from the current time.
+     *   The specified time can be at most three years later than the current time.
      *
      * @example 2018-01-01T12:05:00Z
      *
@@ -130,7 +142,7 @@ class RunInstancesRequest extends Model
     public $autoRenewPeriod;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.**** For more information, see [How to ensure idempotence](~~25693~~).
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -141,7 +153,7 @@ class RunInstancesRequest extends Model
     /**
      * @description The performance mode of the burstable instance. Valid values:
      *
-     *   Standard: the standard mode. For more information, see the "Standard mode" section in [Burstable instances](~~59977~~).
+     *   Standard: the standard mode. For more information, see the "Standard mode" section in [Overview of burstable instances](~~59977~~).
      *   Unlimited: the unlimited mode. For more information, see the "Unlimited mode" section in [Burstable instances](~~59977~~).
      *
      * @example Standard
@@ -151,7 +163,7 @@ class RunInstancesRequest extends Model
     public $creditSpecification;
 
     /**
-     * @description Details about the data disks.
+     * @description Details of the data disks.
      *
      * @var dataDisk[]
      */
@@ -252,8 +264,9 @@ class RunInstancesRequest extends Model
     public $hostNames;
 
     /**
-     * @description The ID of the Elastic High Performance Computing (E-HPC) cluster to which to assign the instance.
+     * @description The ID of the high performance computing (HPC) cluster to which the instance belongs.
      *
+     * This parameter is required when you create instances of a Supper Computing Cluster (SCC) instance type. For information about how to create an HPC cluster, see [CreateHpcCluster](~~109138~~).
      * @example hpc-bp67acfmxazb4p****
      *
      * @var string
@@ -299,11 +312,12 @@ class RunInstancesRequest extends Model
     /**
      * @description The name of the image family. You can set this parameter to obtain the latest available custom image from the specified image family to create instances.
      *
-     *   If you set the `ImageId` parameter, you cannot set the ImageFamily parameter.
-     *   If you do not set the `ImageId` parameter but use the `LaunchTemplateId` or `LaunchTemplateName` parameter to specify a launch template that has the `ImageId` parameter set, you cannot set the ImageFamily parameter.
-     *   If you do not set the `ImageId` parameter but use the `LaunchTemplateId` or `LaunchTemplateName` parameter to specify a launch template that does not have the `ImageId` parameter set, you can set the ImageFamily parameter.
-     *   If you do not set the `ImageId`, `LaunchTemplateId`, or `LaunchTemplateName` parameter, you can set the ImageFamily parameter.
+     *   If you specify `ImageId`, you cannot specify ImageFamily.
+     *   If you do not specify `ImageId` but use the `LaunchTemplateId` or `LaunchTemplateName` parameter to specify a launch template that has the `ImageId` parameter specified, you cannot specify ImageFamily.
+     *   If you do not specify `ImageId` but use the `LaunchTemplateId` or `LaunchTemplateName` parameter to specify a launch template that does not have the `ImageId` parameter specified, you can specify ImageFamily.
+     *   If you do not specify `ImageId`, `LaunchTemplateId`, or `LaunchTemplateName`, you can specify ImageFamily.
      *
+     * >  For information about image families that are associated with Alibaba Cloud official images, see [Overview of public images](~~108393~~).
      * @example hangzhou-daily-update
      *
      * @var string
@@ -311,7 +325,7 @@ class RunInstancesRequest extends Model
     public $imageFamily;
 
     /**
-     * @description The ID of the image to use to create the instance. You can call the [DescribeImages](~~25534~~) operation to query available images. If you do not use the `LaunchTemplateId` or `LaunchTemplateName` parameter to specify a launch template and do not set the `ImageFamily` parameter to obtain the latest available custom image from the specified image family, you must specify the `ImageId` parameter.
+     * @description The ID of the image. You can call the [DescribeImages](~~25534~~) operation to query available images. If you do not use `LaunchTemplateId` or `LaunchTemplateName` to specify a launch template and do not set `ImageFamily` to obtain the latest available custom image from a specified image family, you must specify `ImageId`.
      *
      * @example aliyun_2_1903_x64_20G_alibase_20200324.vhd
      *
@@ -320,7 +334,7 @@ class RunInstancesRequest extends Model
     public $imageId;
 
     /**
-     * @description The image-related attribute parameters.
+     * @description Details about the image options.
      *
      * @var imageOptions
      */
@@ -340,7 +354,7 @@ class RunInstancesRequest extends Model
     public $instanceChargeType;
 
     /**
-     * @description The name of the instance. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), periods (.), and hyphens (-). The default value of this parameter is the `InstanceId` value.
+     * @description The name of the instance. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (\_), periods (.), and hyphens (-). The default value of this parameter is the `InstanceId` value.
      *
      * When you batch create instances, you can batch configure sequential names for the instances. For more information, see [Batch configure sequential names or hostnames for multiple instances](~~196048~~).
      * @example k8s-node-[1,4]-alibabacloud
@@ -460,7 +474,7 @@ class RunInstancesRequest extends Model
     public $keyPairName;
 
     /**
-     * @description The ID of the launch template. For more information, see [DescribeLaunchTemplates](~~73759~~).
+     * @description The ID of the launch template. For more information, call the [DescribeLaunchTemplates](~~73759~~) operation.
      *
      * To use a launch template to create an instance, you must use the `LaunchTemplateId` or `LaunchTemplateName` parameter to specify the launch template.
      * @example lt-bp1apo0bbbkuy0rj****
@@ -521,7 +535,7 @@ class RunInstancesRequest extends Model
     public $networkInterfaceQueueNumber;
 
     /**
-     * @description The network-related attribute parameters.
+     * @description Details about network options.
      *
      * @var networkOptions
      */
@@ -654,12 +668,12 @@ class RunInstancesRequest extends Model
     public $securityEnhancementStrategy;
 
     /**
-     * @description The ID of the security group to which to assign the instance. Instances in the same security group can communicate with each other. The maximum number of instances that a security group can contain depends on the type of the security group. For more information, see the "Security group limits" section in [Limits](~~25412~~).
+     * @description The ID of the security group to which you want to assign the instance. Instances in the same security group can communicate with each other. The maximum number of instances that a security group can contain depends on the type of the security group. For more information, see the "Security group limits" section in [Limits](~~25412~~#SecurityGroupQuota).
      *
-     * If you do not use `LaunchTemplateId` or `LaunchTemplateName` to specify a launch template, you must set the SecurityGroupId parameter. Take note of the following items:
+     * If you do not use `LaunchTemplateId` or `LaunchTemplateName` to specify a launch template, you must specify SecurityGroupId. Take note of the following items:
      *
      *   You can set `SecurityGroupId` to specify a single security group or set `SecurityGroupIds.N` to specify one or more security groups. However, you cannot specify both `SecurityGroupId` and `SecurityGroupIds.N`.
-     *   If `NetworkInterface.N.InstanceType` is set to `Primary`, you cannot specify `SecurityGroupId` or `SecurityGroupIds.N` but can specify only `NetworkInterface.N.SecurityGroupId` or `NetworkInterface.N.SecurityGroupIds.N`.
+     *   If `NetworkInterface.N.InstanceType` is set to `Primary`, you cannot specify `SecurityGroupId` or `SecurityGroupIds.N` but can specify `NetworkInterface.N.SecurityGroupId` or `NetworkInterface.N.SecurityGroupIds.N`.
      *
      * @example sg-bp15ed6xe1yxeycg7****
      *
@@ -668,11 +682,11 @@ class RunInstancesRequest extends Model
     public $securityGroupId;
 
     /**
-     * @description The ID of security group N to which to assign the instance. The valid values of N vary based on the maximum number of security groups to which an instance can belong. For more information, see the "Security group limits" section in [Limits](~~101348~~).
+     * @description The ID of security group N to which to assign the instance. The valid values of N vary based on the maximum number of security groups to which an instance can belong. For more information, see [Security group limits](~~101348~~).
      *
      * Take note of the following items:
      *
-     *   You cannot specify both the `SecurityGroupId` and `SecurityGroupIds.N` parameters.
+     *   You cannot specify both `SecurityGroupId` and `SecurityGroupIds.N`.
      *   If `NetworkInterface.N.InstanceType` is set to `Primary`, you cannot specify `SecurityGroupId` or `SecurityGroupIds.N` but can specify `NetworkInterface.N.SecurityGroupId` or `NetworkInterface.N.SecurityGroupIds.N`.
      *
      * @example sg-bp15ed6xe1yxeycg7****
@@ -682,12 +696,12 @@ class RunInstancesRequest extends Model
     public $securityGroupIds;
 
     /**
-     * @description The protection period of the preemptible instance. Unit: hours. Valid values: 0, 1, 2, 3, 4, 5, and 6.
+     * @description The protection period of the preemptible instance. Unit: hours. Default value: 1. Valid values:
      *
-     *   Protection periods of 2, 3, 4, 5, and 6 hours are in invitational preview. If you want to set this parameter to one of these values, submit a ticket.
-     *   If this parameter is set to 0, no protection period is configured for the preemptible instance.
+     *   1: After a preemptible instance is created, Alibaba Cloud ensures that the instance is not automatically released within 1 hour. After the 1-hour protection period ends, the system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
+     *   0: After a preemptible instance is created, Alibaba Cloud does not ensure that the instance runs for 1 hour. The system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
      *
-     * Default value: 1.
+     * Alibaba Cloud sends an ECS system event to notify you 5 minutes before the instance is released. Preemptible instances are billed by second. We recommend that you specify an appropriate protection period based on your business requirements.
      * @example 1
      *
      * @var int
@@ -780,7 +794,7 @@ class RunInstancesRequest extends Model
     /**
      * @description The user data of the instance. The user data must be encoded in Base64. The raw data can be up to 16 KB in size.
      *
-     * > If the instance type supports [user data](~~~49121~), you can use the UserData parameter to pass in user data. We recommend that you do not pass in confidential information (such as passwords or private keys) in plaintext as user data. This is because the system does not encrypt UserData values when API requests are transmitted. If you must pass in confidential information, we recommend that you encrypt and encode the information in Base64, and then decode and decrypt the information in the same way within the instance.
+     * >  If the instance type supports [user data](~~49121~~), you can use the UserData parameter to pass in user data. We recommend that you do not pass in confidential information (such as passwords or private keys) in plaintext as user data. This is because the system does not encrypt UserData values when API requests are transmitted. If you must pass in confidential information, we recommend that you encrypt and encode the information in Base64, and then decode and decrypt the information in the same way inside the instance.
      * @example ZWNobyBoZWxsbyBlY3Mh
      *
      * @var string

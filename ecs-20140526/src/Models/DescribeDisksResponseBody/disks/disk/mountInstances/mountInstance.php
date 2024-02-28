@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class mountInstance extends Model
 {
     /**
-     * @description The time when the cloud disk was attached. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format and is displayed in UTC.
+     * @description The time when the disk was attached. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
      * @example 2017-12-05T2340:00Z
      *
@@ -27,7 +27,7 @@ class mountInstance extends Model
     public $device;
 
     /**
-     * @description The ID of the instance to which the disk was attached.
+     * @description The ID of the instance to which the disk is attached.
      *
      * @example i-bp1j4i2jdf3owlhe****
      *

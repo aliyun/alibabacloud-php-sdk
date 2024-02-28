@@ -28,12 +28,11 @@ class cpuOptions extends Model
     public $numa;
 
     /**
-     * @description The number of threads per CPU core. The following formula is used to calculate the number of vCPUs of the instance: `CpuOptions.Core` value × `CpuOptions.ThreadPerCore` value.
+     * @description The number of threads per CPU core. The following formula is used to calculate the number of vCPUs of the instance: `CpuOptions.Core` value × `CpuOptions.ThreadsPerCore` value.
      *
-     *   The following formula is used to calculate the number of vCPUs of the instance: `CpuOptions.Core` value × CpuOptions.ThreadPerCore value.
+     *   If `CpuOptionsThreadPerCore` is set to 1, Hyper-Threading (HT) is disabled.
      *   This parameter is applicable only to specific instance types.
      *
-     * For information about valid values and the default value, see [Customize CPU options](~~145895~~).
      * @example 2
      *
      * @var int
@@ -43,7 +42,10 @@ class cpuOptions extends Model
     /**
      * @description The CPU topology type of the instance. Valid values:
      *
-     * >This parameter is supported only for specific instance families. For more information about the supported instance families, see [View and modify the CPU topology](~~2636059~~).
+     *   ContinuousCoreToHTMapping: The HT technology allows continuous threads to run on the same core in the CPU topology of the instance.``
+     *   DiscreteCoreToHTMapping: The HT technology allows discrete threads to run on the same core in the CPU topology of the instance.``
+     *
+     * >  This parameter is supported only for specific instance families. For more information about the supported instance families, see [View and modify the CPU topology](~~2636059~~).
      * @example DiscreteCoreToHTMapping
      *
      * @var string

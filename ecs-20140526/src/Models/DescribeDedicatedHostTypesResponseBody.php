@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeDedicatedHostTypesResponseBody extends Model
 {
     /**
-     * @description The category of the local disks.
+     * @description The information about the dedicated host type.
      *
      * @var dedicatedHostTypes
      */
     public $dedicatedHostTypes;
 
     /**
-     * @description The number of cores in a single physical CPU.
+     * @description The ID of the request.
      *
      * @example 5FE5FF06-3A33-4658-8495-6445FC54E327
      *

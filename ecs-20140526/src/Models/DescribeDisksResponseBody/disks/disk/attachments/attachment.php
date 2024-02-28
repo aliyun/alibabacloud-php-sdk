@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class attachment extends Model
 {
     /**
-     * @description The time when the disk was attached, which is displayed in UTC.
+     * @description The time when the disk was attached. The time is displayed in UTC.
      *
      * @example 2021-06-07T06:08:56Z
      *
@@ -18,7 +18,7 @@ class attachment extends Model
     public $attachedTime;
 
     /**
-     * @description The device name.
+     * @description The device name of the disk.
      *
      * @example /dev/xvda
      *
@@ -27,7 +27,7 @@ class attachment extends Model
     public $device;
 
     /**
-     * @description The ID of the instance to which the disk was attached.
+     * @description The ID of the instance to which the disk is attached.
      *
      * @example i-bp67acfmxazb4q****
      *

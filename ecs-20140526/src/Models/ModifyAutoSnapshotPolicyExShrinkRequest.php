@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyAutoSnapshotPolicyExRequest\copyEncryptionConfiguration;
 use AlibabaCloud\Tea\Model;
 
-class ModifyAutoSnapshotPolicyExRequest extends Model
+class ModifyAutoSnapshotPolicyExShrinkRequest extends Model
 {
     /**
      * @description The ID of the request.
@@ -19,9 +18,9 @@ class ModifyAutoSnapshotPolicyExRequest extends Model
     public $copiedSnapshotsRetentionDays;
 
     /**
-     * @var copyEncryptionConfiguration
+     * @var string
      */
-    public $copyEncryptionConfiguration;
+    public $copyEncryptionConfigurationShrink;
 
     /**
      * @description The destination region to which to copy the snapshot. You can specify only a single destination region.
@@ -131,19 +130,19 @@ class ModifyAutoSnapshotPolicyExRequest extends Model
      */
     public $timePoints;
     protected $_name = [
-        'copiedSnapshotsRetentionDays' => 'CopiedSnapshotsRetentionDays',
-        'copyEncryptionConfiguration'  => 'CopyEncryptionConfiguration',
-        'enableCrossRegionCopy'        => 'EnableCrossRegionCopy',
-        'ownerId'                      => 'OwnerId',
-        'resourceOwnerAccount'         => 'ResourceOwnerAccount',
-        'resourceOwnerId'              => 'ResourceOwnerId',
-        'targetCopyRegions'            => 'TargetCopyRegions',
-        'autoSnapshotPolicyId'         => 'autoSnapshotPolicyId',
-        'autoSnapshotPolicyName'       => 'autoSnapshotPolicyName',
-        'regionId'                     => 'regionId',
-        'repeatWeekdays'               => 'repeatWeekdays',
-        'retentionDays'                => 'retentionDays',
-        'timePoints'                   => 'timePoints',
+        'copiedSnapshotsRetentionDays'      => 'CopiedSnapshotsRetentionDays',
+        'copyEncryptionConfigurationShrink' => 'CopyEncryptionConfiguration',
+        'enableCrossRegionCopy'             => 'EnableCrossRegionCopy',
+        'ownerId'                           => 'OwnerId',
+        'resourceOwnerAccount'              => 'ResourceOwnerAccount',
+        'resourceOwnerId'                   => 'ResourceOwnerId',
+        'targetCopyRegions'                 => 'TargetCopyRegions',
+        'autoSnapshotPolicyId'              => 'autoSnapshotPolicyId',
+        'autoSnapshotPolicyName'            => 'autoSnapshotPolicyName',
+        'regionId'                          => 'regionId',
+        'repeatWeekdays'                    => 'repeatWeekdays',
+        'retentionDays'                     => 'retentionDays',
+        'timePoints'                        => 'timePoints',
     ];
 
     public function validate()
@@ -156,8 +155,8 @@ class ModifyAutoSnapshotPolicyExRequest extends Model
         if (null !== $this->copiedSnapshotsRetentionDays) {
             $res['CopiedSnapshotsRetentionDays'] = $this->copiedSnapshotsRetentionDays;
         }
-        if (null !== $this->copyEncryptionConfiguration) {
-            $res['CopyEncryptionConfiguration'] = null !== $this->copyEncryptionConfiguration ? $this->copyEncryptionConfiguration->toMap() : null;
+        if (null !== $this->copyEncryptionConfigurationShrink) {
+            $res['CopyEncryptionConfiguration'] = $this->copyEncryptionConfigurationShrink;
         }
         if (null !== $this->enableCrossRegionCopy) {
             $res['EnableCrossRegionCopy'] = $this->enableCrossRegionCopy;
@@ -199,7 +198,7 @@ class ModifyAutoSnapshotPolicyExRequest extends Model
     /**
      * @param array $map
      *
-     * @return ModifyAutoSnapshotPolicyExRequest
+     * @return ModifyAutoSnapshotPolicyExShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -208,7 +207,7 @@ class ModifyAutoSnapshotPolicyExRequest extends Model
             $model->copiedSnapshotsRetentionDays = $map['CopiedSnapshotsRetentionDays'];
         }
         if (isset($map['CopyEncryptionConfiguration'])) {
-            $model->copyEncryptionConfiguration = copyEncryptionConfiguration::fromMap($map['CopyEncryptionConfiguration']);
+            $model->copyEncryptionConfigurationShrink = $map['CopyEncryptionConfiguration'];
         }
         if (isset($map['EnableCrossRegionCopy'])) {
             $model->enableCrossRegionCopy = $map['EnableCrossRegionCopy'];

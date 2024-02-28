@@ -22,11 +22,12 @@ class systemDisk extends Model
      *
      *   cloud_efficiency: ultra disk
      *   cloud_ssd: standard SSD
-     *   cloud_essd: enhanced SSD (ESSD)
+     *   cloud_essd: ESSD
      *   cloud: basic disk
      *   cloud_auto: ESSD AutoPL disk
+     *   cloud_essd_entry: ESSD Entry disk
      *
-     * For non-I/O optimized instances of retired instance types, the default value is cloud. For other instances, the default value is cloud_efficiency.
+     * For non-I/O optimized instances of retired instance types, the default value is cloud. For instances of other instance types, the default value is cloud_efficiency.
      * @example cloud_ssd
      *
      * @var string
@@ -43,7 +44,7 @@ class systemDisk extends Model
     public $description;
 
     /**
-     * @description The name of the system disk. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (\_), and hyphens (-). It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, periods (.), colons (:), underscores (\_), and hyphens (-).
+     * @description The name of the system disk. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, periods (.), colons (:), underscores (\_), and hyphens (-).
      *
      * @example cloud_ssdSystem
      *
@@ -67,7 +68,10 @@ class systemDisk extends Model
     public $performanceLevel;
 
     /**
-     * @description The size of the system disk. Unit: GiB. Valid values: 20 to 500.
+     * @description The size of the system disk. Unit: GiB. Valid values:
+     *
+     *   Basic disks: 20 to 500.
+     *   Other disks: 20 to 2048.
      *
      * Default value: 40 or the image size, whichever is greater.
      * @example 40
@@ -77,12 +81,12 @@ class systemDisk extends Model
     public $size;
 
     /**
-     * @description Specifies whether to enable the burst feature for the system disk. Valid values:
+     * @description Specifies whether to enable the performance burst feature for the system disk. Valid values:
      *
      *   true
      *   false
      *
-     * > This parameter is available only if you set `SystemDisk.Category` to `cloud_auto`.
+     * >  This parameter is available only if you set the `SystemDisk.Category` parameter to `cloud_auto`. For more information, see [ESSD AutoPL disks](~~368372~~).
      * @example false
      *
      * @var bool
@@ -90,12 +94,8 @@ class systemDisk extends Model
     public $burstingEnabled;
 
     /**
-     * @description The algorithm to use to encrypt the system disk. Valid values:
+     * @description >  This parameter is not publicly available.
      *
-     *   ase-256
-     *   sm4-128
-     *
-     * Default value: ase-256.
      * @example ase-256
      *
      * @var string
@@ -105,10 +105,10 @@ class systemDisk extends Model
     /**
      * @description Specifies whether to encrypt the system disk. Valid values:
      *
-     *   true: encrypts the data disk.
-     *   false: does not encrypt the data disk.
+     *   true
+     *   false
      *
-     * > The system disks of instances cannot be encrypted during instance creation in Hong Kong Zone D or Singapore Zone A.
+     * >  The system disks of instances cannot be encrypted during instance creation in Hong Kong Zone D or Singapore Zone A.
      * @example false
      *
      * @var string
@@ -125,9 +125,9 @@ class systemDisk extends Model
     public $KMSKeyId;
 
     /**
-     * @description The provisioned read/write IOPS of the ESSD AutoPL disk to use as the system disk. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS}
+     * @description The provisioned read/write IOPS of the ESSD AutoPL disk to use as the system disk. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS}.
      *
-     * > This parameter is available only if you set the SystemDisk.Category parameter to cloud_auto. For more information, see [ESSD AutoPL disks](~~368372~~) and [Modify the performance configurations of an ESSD AutoPL disk](~~413275~~).
+     * >  This parameter is available only if you set the `SystemDisk.Category` parameter to `cloud_auto`. For more information, see [ESSD AutoPL disks](~~368372~~).
      * @example 40000
      *
      * @var int
@@ -135,7 +135,7 @@ class systemDisk extends Model
     public $provisionedIops;
 
     /**
-     * @description The ID of the dedicated block storage cluster. If you want to use disks in a dedicated block storage cluster as system disks when you create instances, you must specify this parameter.
+     * @description The ID of the dedicated block storage cluster. If you want to use disks in a dedicated block storage cluster as system disks when you create instances, you need to specify this parameter.
      *
      * @example dbsc-j5e1sf2vaf5he8m2****
      *

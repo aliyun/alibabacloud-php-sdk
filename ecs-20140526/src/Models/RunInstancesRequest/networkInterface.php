@@ -9,9 +9,12 @@ use AlibabaCloud\Tea\Model;
 class networkInterface extends Model
 {
     /**
-     * @description Specifies whether to release ENI N when the instance is released. Valid values:
+     * @description Specifies whether to retain the ENI when the associated instance is released. Valid values:
      *
-     * Example: true.
+     *   true
+     *   false
+     *
+     * >  This parameter takes effect only for secondary ENIs.
      * @example true
      *
      * @var bool
@@ -56,19 +59,19 @@ class networkInterface extends Model
      * Take note of the following items:
      *
      *   This parameter is valid only when `NetworkInterface.N.InstanceType` is set to `Primary`. If `NetworkInterface.N.InstanceType` is set to `Secondary` or left empty, you cannot set this parameter.
-     *   If you specify this parameter, you must set `Amount` to 1. You cannot specify `Ipv6AddressCount`, `Ipv6Address.N`, or `NetworkInterface.N.Ipv6AddressCount`.
+     *   If you specify this parameter, you must set `Amount` to 1 and cannot specify `Ipv6AddressCount`, `Ipv6Address.N`, or `NetworkInterface.N.Ipv6AddressCount`.
      *
      * @var string[]
      */
     public $ipv6Address;
 
     /**
-     * @description The number of IPv6 addresses that the system randomly generates for the primary ENI. Valid values: 1 to 10.
+     * @description The number of IPv6 addresses to randomly generate for the primary ENI. Valid values: 1 to 10.
      *
      * Take note of the following items:
      *
      *   This parameter is valid only when `NetworkInterface.N.InstanceType` is set to `Primary`. If `NetworkInterface.N.InstanceType` is set to `Secondary` or left empty, you cannot set this parameter.
-     *   If you specify this parameter, you cannot specify `Ipv6AddressCount`, `Ipv6Address.N`, or `NetworkInterface.N.Ipv6Address.N`.
+     *   If this parameter is specified, you cannot specify `Ipv6AddressCount`, `Ipv6Address.N`, or `NetworkInterface.N.Ipv6Address.N`.
      *
      * @example 1
      *
@@ -77,9 +80,14 @@ class networkInterface extends Model
     public $ipv6AddressCount;
 
     /**
-     * @description The network interface controller (NIC) index specified for an ENI.
+     * @description The index of the network card for ENI N.
      *
-     * - If NetworkInterface.N.InstanceType is set to Secondary or left empty, specify this parameter based on the instance type of the instance that supports NICs. For more information, see [Overview of instance families](~~25378~~).
+     * Take note of the following items:
+     *
+     *   You can specify network card indexes only for instances of specific instance types.
+     *   When NetworkInterface.N.InstanceType is set to Primary, you can set NetworkInterface.N.NetworkCardIndex only to 0 for instance types that support network cards.
+     *   When NetworkInterface.N.InstanceType is set to Secondary or left empty, you can set NetworkInterface.N.NetworkCardIndex based on instance types if the instance types support network cards. For more information, see [Overview of instance families](~~25378~~).
+     *
      * @example 0
      *
      * @var int
@@ -87,10 +95,9 @@ class networkInterface extends Model
     public $networkCardIndex;
 
     /**
-     * @description The ID of ENI N.
+     * @description The ID of the ENI to attach to the instance.
      *
-     * > Note This parameter takes effect only for secondary ENIs.
-     * Example: eni-bp1gn106np8jhxhj****.
+     * >  This parameter takes effect only for secondary ENIs.
      * @example eni-bp1gn106np8jhxhj****
      *
      * @var string
@@ -112,16 +119,12 @@ class networkInterface extends Model
     public $networkInterfaceName;
 
     /**
-     * @description The communication mode of primary ENI N. Valid values:
+     * @description The communication mode of ENI N. Valid values:
      *
      *   Standard: uses the TCP communication mode.
-     *   HighPerformance: enables the Elastic RDMA Interface (ERI) and uses the remote direct memory access (RDMA) communication mode.
+     *   HighPerformance: uses the remote direct memory access (RDMA) communication mode with Elastic RDMA Interface (ERI) enabled.
      *
-     * Take note of the following items:
-     *
-     *   This parameter is valid only when `NetworkInterface.N.InstanceType` is set to `Primary`. If `NetworkInterface.N.InstanceType` is set to `Secondary` or left empty, you cannot set this parameter.
-     *   If you set this parameter to HighPerformance, you can create instances only of the c7re RDMA-enhanced instance family. The maximum number of ENIs in RDMA mode that can be bound to a c7re instance is determined based on the instance type. The c7re instance family is in invitational preview in Beijing Zone K. For more information, see [Instance family](~~25378~~).
-     *
+     * >  The number of ERIs on an instance cannot exceed the maximum number of ERIs that the instance type supports. For more information, see [Overview of instance families](~~25378~~).
      * @example Standard
      *
      * @var string
@@ -135,14 +138,14 @@ class networkInterface extends Model
      *
      *   Valid values of N: 1 and 2.
      *
-     *   If the value of N is 1, you can configure a primary or secondary ENI. If this parameter is specified, `Amount` is set to a numeric value greater than 1, and NetworkInterface.N.InstanceType is set to Primary, the specified number of instances are created and consecutive primary IP addresses starting from the specified one are assigned to the instances. In this case, you cannot bind secondary ENIs to the instances.
-     *   If the value of N is 2, you can configure a primary ENI and a secondary ENI. If this parameter is specified, `Amount` is set to a numeric value greater than 1, and NetworkInterface.N.InstanceType is set to Primary, you cannot specify `NetworkInterface.2.InstanceType` to Secondary to bind a secondary ENI.
+     *   If the value of N is 1, you can configure a primary or secondary ENI. If this parameter is specified, `Amount` is set to a numeric value greater than 1, and NetworkInterface.N.InstanceType is set to Primary, the specified number of instances are created and consecutive primary IP addresses starting from the specified one are assigned to the instances. In this case, you cannot attach secondary ENIs to the instances.
+     *   If the value of N is 2, you can configure a primary ENI and a secondary ENI. If this parameter is specified, `Amount` is set to a numeric value greater than 1, and NetworkInterface.N.InstanceType is set to Primary, you cannot set `NetworkInterface.2.InstanceType` to Secondary to attach a secondary ENI.
      *
-     *   If `NetworkInterface.N.InstanceType` is set to `Primary`, this parameter is equivalent to `PrivateIpAddress` and you cannot specify both NetworkInterface.N.PrimaryIpAddress and `PrivateIpAddress`.
+     *   If `NetworkInterface.N.InstanceType` is set to `Primary`, this parameter is equivalent to `PrivateIpAddress`. You cannot specify both NetworkInterface.N.PrimaryIpAddress and `PrivateIpAddress`.
      *
      *   If `NetworkInterface.N.InstanceType` is set to `Secondary` or left empty, the specified primary IP address is assigned to the secondary ENI. The default value is an IP address that is randomly selected from within the CIDR block of the vSwitch to which to connect the secondary ENI.
      *
-     * > You can bind only a single secondary ENI when you create an instance. After the instance is created, you can call the [CreateNetworkInterface](~~58504~~) and [AttachNetworkInterface](~~58515~~) operations to bind more secondary ENIs.
+     * >  You can attach only a single secondary ENI when you create an instance. After the instance is created, you can call the [CreateNetworkInterface](~~58504~~) and [AttachNetworkInterface](~~58515~~) operations to attach more secondary ENIs.
      * @example 172.16.**.**
      *
      * @var string
@@ -154,10 +157,10 @@ class networkInterface extends Model
      *
      * Take note of the following items:
      *
-     *   Valid values of N: 1 and 2. If the value of N is 1, you can set a primary or secondary ENI. If the value of N is 2, you can set a primary ENI and a secondary ENI.
-     *   The value of this parameter cannot exceed the maximum number of queues per ENI allowed for the specified instance type.
-     *   The total number of queues for all ENIs on the instance cannot exceed the queue quota for the instance type. To query the maximum number of queues per ENI and the queue quota for an instance type, you can call the [DescribeInstanceTypes](~~25620~~) operation to query the `MaximumQueueNumberPerEni` and `TotalEniQueueQuantity` values.
-     *   If this parameter is set and `NetworkInterface.N.InstanceType` is set to `Primary`, you cannot set the `NetworkInterfaceQueueNumber` parameter.
+     *   Valid values of N: 1 and 2. If the value of N is 1, you can configure a primary or secondary ENI. If the value of N is 2, you must configure a primary ENI and a secondary ENI.
+     *   The value of this parameter cannot exceed the maximum number of queues per ENI allowed for the instance type.
+     *   The total number of queues for all ENIs on the instance cannot exceed the queue quota for the instance type. To learn the maximum number of queues per ENI and the queue quota for an instance type, you can call the [DescribeInstanceTypes](~~25620~~) operation to query the `MaximumQueueNumberPerEni` and `TotalEniQueueQuantity` values.
+     *   If this parameter is set and `NetworkInterface.N.InstanceType` is set to `Primary`, you cannot specify `NetworkInterfaceQueueNumber`.
      *
      * @example 8
      *
@@ -166,7 +169,7 @@ class networkInterface extends Model
     public $queueNumber;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable.
+     * @description The number of queues supported by the ERI.
      *
      * @example 0
      *
@@ -175,18 +178,23 @@ class networkInterface extends Model
     public $queuePairNumber;
 
     /**
+     * @description Elastic Network Interface RxQueueSize.
+     *
+     * - A larger RxQueueSize can improve the throughput of inbound traffic but will consume more memory.
+     * @example 8192
+     *
      * @var int
      */
     public $rxQueueSize;
 
     /**
-     * @description The ID of the security group to which to assign secondary ENI N.
+     * @description The ID of the security group to which to assign ENI N.
      *
      * Take note of the following items:
      *
      *   Valid values of N: 1 and 2. If the value of N is 1, you can configure a primary or secondary ENI. If the value of N is 2, you must configure a primary ENI and a secondary ENI.
-     *   If `NetworkInterface.N.InstanceType` is set to `Primary`, you must set this parameter. In this case, this parameter is equivalent to `SecurityGroupId` and you cannot specify `SecurityGroupId`, `SecurityGroupIds.N`, or `NetworkInterface.N.SecurityGroupIds.N`.
-     *   If `NetworkInterface.N.InstanceType` is set to `Secondary` or left empty, this parameter is optional. The default value is the ID of the security group to which to assign the ECS instance.
+     *   If `NetworkInterface.N.InstanceType` is set to `Primary`, you must set this parameter. In this case, this parameter is equivalent to `SecurityGroupId`. You cannot specify `SecurityGroupId`, `SecurityGroupIds.N`, or `NetworkInterface.N.SecurityGroupIds.N`.
+     *   If `NetworkInterface.N.InstanceType` is set to `Secondary` or left empty, this parameter is optional. The default value is the ID of the security group to which the instance belongs.
      *
      * @example sg-bp67acfmxazb4p****
      *
@@ -198,12 +206,12 @@ class networkInterface extends Model
      * @description The ID of security group N to which to assign ENI N.
      *
      *   Valid values of the first N: 1 and 2. If the value of N is 1, you can configure a primary or secondary ENI. If the value of N is 2, you must configure a primary ENI and a secondary ENI.
-     *   The second N indicates that one or more security group IDs can be specified. The valid values of N vary based on the maximum number of security groups to which an instance can belong. For more information, see the "Security group limits" section in [Limits](~~25412#SecurityGroupQuota1~~).
+     *   The second N indicates that one or more security group IDs can be specified. The valid values of N vary based on the maximum number of security groups to which an instance can belong. For more information, see [Security group limits](~~25412#SecurityGroupQuota1~~).
      *
      * Take note of the following items:
      *
-     *   If `NetworkInterface.N.InstanceType` is set to `Primary`, you must set this parameter or `NetworkInterface.N.SecurityGroupId`. In this case, this parameter is equivalent to `SecurityGroupIds.N` and you cannot specify `SecurityGroupId`, `SecurityGroupIds.N`, or `NetworkInterface.N.SecurityGroupId`.
-     *   If `NetworkInterface.N.InstanceType` is set to `Secondary` or left empty, this parameter is optional. The default value is the ID of the security group to which to assign the ECS instance.
+     *   If `NetworkInterface.N.InstanceType` is set to `Primary`, you must specify this parameter or `NetworkInterface.N.SecurityGroupId`. In this case, this parameter is equivalent to `SecurityGroupIds.N`. You cannot specify `SecurityGroupId`, `SecurityGroupIds.N`, or `NetworkInterface.N.SecurityGroupId`.
+     *   If `NetworkInterface.N.InstanceType` is set to `Secondary` or left empty, this parameter is optional. The default value is the ID of the security group to which the instance belongs.
      *
      * @example sg-bp15ed6xe1yxeycg7****
      *
@@ -212,18 +220,23 @@ class networkInterface extends Model
     public $securityGroupIds;
 
     /**
+     * @description Elastic Network Interface TxQueueSize.
+     *
+     * - A larger TxQueueSize can improve the throughput of outbound traffic but will consume more memory.
+     * @example 8192
+     *
      * @var int
      */
     public $txQueueSize;
 
     /**
-     * @description The ID of the vSwitch to which to connect to ENI N.
+     * @description The ID of the vSwitch to which to connect ENI N.
      *
      * Take note of the following items:
      *
      *   Valid values of N: 1 and 2. If the value of N is 1, you can configure a primary or secondary ENI. If the value of N is 2, you must configure a primary ENI and a secondary ENI.
-     *   If `NetworkInterface.N.InstanceType` is set to `Primary`, you must set this parameter. In this case, this parameter is equivalent to `VSwitchId` and you cannot specify `VSwitchId`.
-     *   If `NetworkInterface.N.InstanceType` is set to `Secondary` or left empty, this parameter is optional. The default value is the ID of the vSwitch to which to connect to the instance.
+     *   If `NetworkInterface.N.InstanceType` is set to `Primary`, you must set this parameter. In this case, this parameter is equivalent to `VSwitchId`. You cannot specify both NetworkInterface.N.VSwitchId and `VSwitchId`.
+     *   If `NetworkInterface.N.InstanceType` is set to `Secondary` or left empty, this parameter is optional. The default value is the VSwitchId value.
      *
      * @example vsw-bp67acfmxazb4p****
      *

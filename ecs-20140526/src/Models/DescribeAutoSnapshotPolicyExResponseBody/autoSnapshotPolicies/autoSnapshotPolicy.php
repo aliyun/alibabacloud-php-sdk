@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAutoSnapshotPolicyExResponseBody\autoSnapshotPolicies;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAutoSnapshotPolicyExResponseBody\autoSnapshotPolicies\autoSnapshotPolicy\copyEncryptionConfiguration;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAutoSnapshotPolicyExResponseBody\autoSnapshotPolicies\autoSnapshotPolicy\tags;
 use AlibabaCloud\Tea\Model;
 
@@ -38,6 +39,11 @@ class autoSnapshotPolicy extends Model
      * @var int
      */
     public $copiedSnapshotsRetentionDays;
+
+    /**
+     * @var copyEncryptionConfiguration
+     */
+    public $copyEncryptionConfiguration;
 
     /**
      * @description The state of the automatic snapshot policy. Valid values:
@@ -156,6 +162,7 @@ class autoSnapshotPolicy extends Model
         'autoSnapshotPolicyId'         => 'AutoSnapshotPolicyId',
         'autoSnapshotPolicyName'       => 'AutoSnapshotPolicyName',
         'copiedSnapshotsRetentionDays' => 'CopiedSnapshotsRetentionDays',
+        'copyEncryptionConfiguration'  => 'CopyEncryptionConfiguration',
         'creationTime'                 => 'CreationTime',
         'diskNums'                     => 'DiskNums',
         'enableCrossRegionCopy'        => 'EnableCrossRegionCopy',
@@ -186,6 +193,9 @@ class autoSnapshotPolicy extends Model
         }
         if (null !== $this->copiedSnapshotsRetentionDays) {
             $res['CopiedSnapshotsRetentionDays'] = $this->copiedSnapshotsRetentionDays;
+        }
+        if (null !== $this->copyEncryptionConfiguration) {
+            $res['CopyEncryptionConfiguration'] = null !== $this->copyEncryptionConfiguration ? $this->copyEncryptionConfiguration->toMap() : null;
         }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
@@ -246,6 +256,9 @@ class autoSnapshotPolicy extends Model
         }
         if (isset($map['CopiedSnapshotsRetentionDays'])) {
             $model->copiedSnapshotsRetentionDays = $map['CopiedSnapshotsRetentionDays'];
+        }
+        if (isset($map['CopyEncryptionConfiguration'])) {
+            $model->copyEncryptionConfiguration = copyEncryptionConfiguration::fromMap($map['CopyEncryptionConfiguration']);
         }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];

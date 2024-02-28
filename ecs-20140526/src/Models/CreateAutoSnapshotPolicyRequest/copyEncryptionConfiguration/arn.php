@@ -2,35 +2,23 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Ecs\V20140526\Models\RunInstancesRequest;
+namespace AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoSnapshotPolicyRequest\copyEncryptionConfiguration;
 
 use AlibabaCloud\Tea\Model;
 
 class arn extends Model
 {
     /**
-     * @description This parameter is not publicly available.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $assumeRoleFor;
 
     /**
-     * @description This parameter is not publicly available.
-     *
-     * @example null
-     *
      * @var string
      */
     public $roleType;
 
     /**
-     * @description This parameter is not publicly available.
-     *
-     * @example null
-     *
      * @var string
      */
     public $rolearn;

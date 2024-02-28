@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoSnapshotPolicyRequest\copyEncryptionConfiguration;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoSnapshotPolicyRequest\tag;
 use AlibabaCloud\Tea\Model;
 
@@ -21,6 +22,11 @@ class CreateAutoSnapshotPolicyRequest extends Model
      * @var int
      */
     public $copiedSnapshotsRetentionDays;
+
+    /**
+     * @var copyEncryptionConfiguration
+     */
+    public $copyEncryptionConfiguration;
 
     /**
      * @description Specifies whether to enable cross-region replication for snapshots.
@@ -140,6 +146,7 @@ class CreateAutoSnapshotPolicyRequest extends Model
     public $timePoints;
     protected $_name = [
         'copiedSnapshotsRetentionDays' => 'CopiedSnapshotsRetentionDays',
+        'copyEncryptionConfiguration'  => 'CopyEncryptionConfiguration',
         'enableCrossRegionCopy'        => 'EnableCrossRegionCopy',
         'ownerId'                      => 'OwnerId',
         'resourceGroupId'              => 'ResourceGroupId',
@@ -164,6 +171,9 @@ class CreateAutoSnapshotPolicyRequest extends Model
         $res = [];
         if (null !== $this->copiedSnapshotsRetentionDays) {
             $res['CopiedSnapshotsRetentionDays'] = $this->copiedSnapshotsRetentionDays;
+        }
+        if (null !== $this->copyEncryptionConfiguration) {
+            $res['CopyEncryptionConfiguration'] = null !== $this->copyEncryptionConfiguration ? $this->copyEncryptionConfiguration->toMap() : null;
         }
         if (null !== $this->enableCrossRegionCopy) {
             $res['EnableCrossRegionCopy'] = $this->enableCrossRegionCopy;
@@ -224,6 +234,9 @@ class CreateAutoSnapshotPolicyRequest extends Model
         $model = new self();
         if (isset($map['CopiedSnapshotsRetentionDays'])) {
             $model->copiedSnapshotsRetentionDays = $map['CopiedSnapshotsRetentionDays'];
+        }
+        if (isset($map['CopyEncryptionConfiguration'])) {
+            $model->copyEncryptionConfiguration = copyEncryptionConfiguration::fromMap($map['CopyEncryptionConfiguration']);
         }
         if (isset($map['EnableCrossRegionCopy'])) {
             $model->enableCrossRegionCopy = $map['EnableCrossRegionCopy'];

@@ -18,8 +18,12 @@ class dataDisk extends Model
     public $autoSnapshotPolicyId;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable.
+     * @description Specifies whether to enable the performance burst feature for data disk N. Valid values:
      *
+     *   true
+     *   false
+     *
+     * >  This parameter is available only if you set the DataDisk.N.Category parameter to cloud_auto. For more information, see [ESSD AutoPL disks](~~368372~~).
      * @example false
      *
      * @var bool
@@ -34,6 +38,7 @@ class dataDisk extends Model
      *   cloud_essd: ESSD
      *   cloud: basic disk
      *   cloud_auto: ESSD AutoPL disk
+     *   cloud_essd_entry: ESSD Entry disk
      *
      * For I/O optimized instances, the default value is cloud_efficiency. For non-I/O optimized instances, the default value is cloud.
      * @example cloud_ssd
@@ -45,8 +50,8 @@ class dataDisk extends Model
     /**
      * @description Specifies whether to release data disk N when the instance is released. Valid values:
      *
-     *   true: releases data disk N when the instance is released.
-     *   false: does not release data disk N when the instance is released.
+     *   true
+     *   false
      *
      * Default value: true.
      * @example true
@@ -65,9 +70,12 @@ class dataDisk extends Model
     public $description;
 
     /**
-     * @description The mount point of data disk N.
+     * @description The mount point of data disk N. The mount points are named based on the number of data disks:
      *
-     * > This parameter is applicable to scenarios in which a full image is used to create instances. A full image is an image that contains an operating system, application software, and business data. For these scenarios, you can set this parameter to the mount point of data disk N contained in the full image and modify the `DataDisk.N.Size` and `DataDisk.N.Category` parameters to change the category and size of data disk N created based on the image.
+     *   1st to 25th data disks: /dev/xvd`[b-z]`.
+     *   From the 26th data disk on: /dev/xvd`[aa-zz]`. For example, the 26th data disk is named /dev/xvdaa, the 27th data disk is named /dev/xvdab, and so on.
+     *
+     * >  This parameter is applicable to scenarios in which a full image is used to create instances. A full image is an image that contains an operating system, application software, and business data. For these scenarios, you can set the parameter to the mount point of data disk N contained in the full image and modify the `DataDisk.N.Size` and `DataDisk.N.Category` parameters to change the category and size of data disk N created based on the image.
      * @example /dev/xvdb
      *
      * @var string
@@ -75,7 +83,7 @@ class dataDisk extends Model
     public $device;
 
     /**
-     * @description The name of data disk N. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, periods (.), colons (:), underscores (\_), and hyphens (-).
+     * @description The name of data disk N. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, periods (.), colons (:), underscores (\_), and hyphens (-).
      *
      * @example cloud_ssdData
      *
@@ -84,12 +92,8 @@ class dataDisk extends Model
     public $diskName;
 
     /**
-     * @description The algorithm to use to encrypt data disk N. Valid values:
+     * @description >  This parameter is not publicly available.
      *
-     *   aes-256
-     *   sm4-128
-     *
-     * Default value: aes-256.
      * @example aes-256
      *
      * @var string
@@ -99,8 +103,8 @@ class dataDisk extends Model
     /**
      * @description Specifies whether to encrypt data disk N. Valid values:
      *
-     *   true: encrypts the data disk.
-     *   false: does not encrypt the data disk.
+     *   true
+     *   false
      *
      * Default value: false.
      * @example false
@@ -110,7 +114,7 @@ class dataDisk extends Model
     public $encrypted;
 
     /**
-     * @description The ID of the Key Management Service (KMS) key that is used for the data disk.
+     * @description The ID of the Key Management Service (KMS) key to use for data disk N.
      *
      * @example 0e478b7a-4262-4802-b8cb-00d3fb40****
      *
@@ -119,14 +123,14 @@ class dataDisk extends Model
     public $KMSKeyId;
 
     /**
-     * @description The performance level of the ESSD to use as data disk N. The value of N must be the same as that in `DataDisk.N.Category` when DataDisk.N.Category is set to cloud_essd. Default value: PL1. Valid values:
+     * @description The performance level of the ESSD to use as data disk N. The value of N must be the same as that in `DataDisk.N.Category` when DataDisk.N.Category is set to cloud_essd. Valid values:
      *
-     *   PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
-     *   PL1: A single ESSD can deliver up to 50,000 random read/write IOPS.
-     *   PL2: A single ESSD can deliver up to 100,000 random read/write IOPS.
-     *   PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
+     *   PL0: A single ESSD can deliver up to 10000 random read/write IOPS.
+     *   PL1 (default): A single ESSD can deliver up to 50000 random read/write IOPS.
+     *   PL2: A single ESSD can deliver up to 100000 random read/write IOPS.
+     *   PL3: A single ESSD can deliver up to 1000000 random read/write IOPS.
      *
-     * For more information about ESSD performance levels, see [ESSDs](~~122389~~).
+     * For information about ESSD performance levels, see [ESSDs](~~122389~~).
      * @example PL1
      *
      * @var string
@@ -134,8 +138,9 @@ class dataDisk extends Model
     public $performanceLevel;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable.
+     * @description The provisioned read/write IOPS of the ESSD AutoPL disk to use as data disk N. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS}.
      *
+     * >  This parameter is available only if you set the DataDisk.N.Category parameter to cloud_auto. For more information, see [ESSD AutoPL disks](~~368372~~).
      * @example 40000
      *
      * @var int
@@ -143,13 +148,13 @@ class dataDisk extends Model
     public $provisionedIops;
 
     /**
-     * @description The size of data disk N. Valid values of N: 1 to 16. Unit: GiB. Valid values of this parameter:
+     * @description The size of data disk N. Valid values of N: 1 to 16. Unit: GiB. Valid values:
      *
      *   Valid values when DataDisk.N.Category is set to cloud_efficiency: 20 to 32768.
      *
      *   Valid values when DataDisk.N.Category is set to cloud_ssd: 20 to 32768.
      *
-     *   Valid values when DataDisk.N.Category is set to cloud_essd: depend on the `DataDisk.N.PerformanceLevel` value.
+     *   Valid values when DataDisk.N.Category is set to cloud_essd: vary based on the `DataDisk.N.PerformanceLevel` value.
      *
      *   Valid values when DataDisk.N.PerformanceLevel is set to PL0: 40 to 32768.
      *   Valid values when DataDisk.N.PerformanceLevel is set to PL1: 20 to 32768.
@@ -160,7 +165,9 @@ class dataDisk extends Model
      *
      *   Valid values when DataDisk.N.Category is set to cloud_auto: 40 to 32768.
      *
-     * The value of this parameter must be greater than or equal to the size of the snapshot specified by the `SnapshotId` parameter.
+     *   Valid values when DataDisk.N.Category is set to cloud_essd_entry: 10 to 32768.
+     *
+     * The value of this parameter must be greater than or equal to the size of the snapshot specified by the `DataDisk.N.SnapshotId` parameter.
      * @example 2000
      *
      * @var int
@@ -170,7 +177,7 @@ class dataDisk extends Model
     /**
      * @description The ID of the snapshot to use to create data disk N. Valid values of N: 1 to 16.
      *
-     * If the `DataDisk.N.SnapshotId` parameter is specified, the `DataDisk.N.Size` parameter is ignored. The data disk is created with the size of the specified snapshot. Use snapshots created after July 15, 2013. Otherwise, an error is returned and your request is rejected.
+     * When the `DataDisk.N.SnapshotId` parameter is specified, the `DataDisk.N.Size` parameter is ignored. The data disk is created with the size of the specified snapshot. Use snapshots created on or after July 15, 2013. Otherwise, an error is returned and your request is rejected.
      * @example s-bp17441ohwka0yuh****
      *
      * @var string
@@ -178,7 +185,7 @@ class dataDisk extends Model
     public $snapshotId;
 
     /**
-     * @description The ID of the dedicated block storage cluster. If you want to use a disk in a dedicated block storage cluster as data disk N when you create instances, you must specify this parameter.
+     * @description The ID of the dedicated block storage cluster to which data disk N belongs. If you want to use a disk in a dedicated block storage cluster as data disk N when you create the instance, you must specify this parameter.
      *
      * @example dbsc-j5e1sf2vaf5he8m2****
      *

@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class dedicatedHostType extends Model
 {
     /**
-     * @description The GPU model.
+     * @description The number of cores in a single physical CPU.
      *
      * @example 2
      *
@@ -20,7 +20,7 @@ class dedicatedHostType extends Model
     public $cores;
 
     /**
-     * @description The size of the memory. Unit: GiB.
+     * @description The supported CPU overcommit ratio range.
      *
      * @example 1-5
      *
@@ -29,7 +29,7 @@ class dedicatedHostType extends Model
     public $cpuOverCommitRatioRange;
 
     /**
-     * @description The total number of vGPUs.
+     * @description The type of the dedicated host. You can submit a ticket to request more dedicated host types.
      *
      * @example ddh.sn1ne
      *
@@ -38,7 +38,7 @@ class dedicatedHostType extends Model
     public $dedicatedHostType;
 
     /**
-     * @description The supported CPU overcommit ratio range.
+     * @description The GPU model.
      *
      * @example gpu
      *
@@ -47,7 +47,7 @@ class dedicatedHostType extends Model
     public $GPUSpec;
 
     /**
-     * @description The number of physical CPUs.
+     * @description The number of local disks on a dedicated host.
      *
      * @example 0
      *
@@ -56,7 +56,7 @@ class dedicatedHostType extends Model
     public $localStorageAmount;
 
     /**
-     * @description The number of local disks on a dedicated host.
+     * @description The capacity of a local disk. Unit: GiB.
      *
      * @example 0
      *
@@ -65,7 +65,7 @@ class dedicatedHostType extends Model
     public $localStorageCapacity;
 
     /**
-     * @description The total number of vCPUs.
+     * @description The category of the local disks.
      *
      * @example local
      *
@@ -74,7 +74,7 @@ class dedicatedHostType extends Model
     public $localStorageCategory;
 
     /**
-     * @description The capacity of a local disk. Unit: GiB.
+     * @description The size of the memory. Unit: GiB.
      *
      * @example 112.0
      *
@@ -83,7 +83,7 @@ class dedicatedHostType extends Model
     public $memorySize;
 
     /**
-     * @description Indicates whether the CPU overcommit ratio setting is supported.
+     * @description The number of physical GPUs.
      *
      * @example 2
      *
@@ -92,7 +92,7 @@ class dedicatedHostType extends Model
     public $physicalGpus;
 
     /**
-     * @description The ECS instance family.
+     * @description The number of physical CPUs.
      *
      * @example 2
      *
@@ -101,7 +101,7 @@ class dedicatedHostType extends Model
     public $sockets;
 
     /**
-     * @description The type of the dedicated host. You can submit a ticket to request more dedicated host types.
+     * @description Indicates whether the CPU overcommit ratio setting is supported.
      *
      * @example true
      *
@@ -110,19 +110,21 @@ class dedicatedHostType extends Model
     public $supportCpuOverCommitRatio;
 
     /**
-     * @description The ECS instance types supported by the dedicated host.
+     * @description The ECS instance families supported by the dedicated host.
      *
      * @var supportedInstanceTypeFamilies
      */
     public $supportedInstanceTypeFamilies;
 
     /**
+     * @description The ECS instance types supported by the dedicated host.
+     *
      * @var supportedInstanceTypesList
      */
     public $supportedInstanceTypesList;
 
     /**
-     * @description The number of physical GPUs.
+     * @description The total number of vCPUs.
      *
      * @example 56
      *
@@ -131,7 +133,7 @@ class dedicatedHostType extends Model
     public $totalVcpus;
 
     /**
-     * @description The ECS instance families supported by the dedicated host.
+     * @description The total number of vGPUs.
      *
      * @example 10
      *
