@@ -1,3 +1,7 @@
+2024-02-28 Version: 1.3.0
+- Support API GetTableInfo.
+
+
 2024-01-08 Version: 1.2.0
 - Generated php 2022-01-04 for MaxCompute.
 

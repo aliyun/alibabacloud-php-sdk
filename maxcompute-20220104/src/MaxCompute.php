@@ -38,6 +38,8 @@ use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetRolePolicyResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetRunningJobsRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetRunningJobsResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetRunningJobsShrinkRequest;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetTableInfoRequest;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetTableInfoResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetTrustedProjectsResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\KillJobsRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\KillJobsResponse;
@@ -991,6 +993,59 @@ class MaxCompute extends OpenApiClient
         $headers = [];
 
         return $this->getRunningJobsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param string              $projectName
+     * @param string              $tableName
+     * @param GetTableInfoRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetTableInfoResponse
+     */
+    public function getTableInfoWithOptions($projectName, $tableName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->schemaName)) {
+            $query['schemaName'] = $request->schemaName;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTableInfo',
+            'version'     => '2022-01-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/projects/' . OpenApiUtilClient::getEncodeParam($projectName) . '/tables/' . OpenApiUtilClient::getEncodeParam($tableName) . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTableInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string              $projectName
+     * @param string              $tableName
+     * @param GetTableInfoRequest $request
+     *
+     * @return GetTableInfoResponse
+     */
+    public function getTableInfo($projectName, $tableName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getTableInfoWithOptions($projectName, $tableName, $request, $headers, $runtime);
     }
 
     /**

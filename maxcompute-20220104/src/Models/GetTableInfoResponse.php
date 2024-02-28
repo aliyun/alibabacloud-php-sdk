@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListUsersResponse extends Model
+class GetTableInfoResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class ListUsersResponse extends Model
     public $statusCode;
 
     /**
-     * @var ListUsersResponseBody
+     * @var GetTableInfoResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class ListUsersResponse extends Model
     /**
      * @param array $map
      *
-     * @return ListUsersResponse
+     * @return GetTableInfoResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class ListUsersResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = ListUsersResponseBody::fromMap($map['body']);
+            $model->body = GetTableInfoResponseBody::fromMap($map['body']);
         }
 
         return $model;
