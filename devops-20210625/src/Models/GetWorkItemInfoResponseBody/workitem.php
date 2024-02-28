@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkItemInfoResponseBody;
 
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkItemInfoResponseBody\workitem\customFields;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkItemInfoResponseBody\workitem\tagDetails;
 use AlibabaCloud\Tea\Model;
 
 class workitem extends Model
@@ -161,6 +162,11 @@ class workitem extends Model
     public $tag;
 
     /**
+     * @var tagDetails[]
+     */
+    public $tagDetails;
+
+    /**
      * @var string[]
      */
     public $tracker;
@@ -207,6 +213,7 @@ class workitem extends Model
         'statusStageIdentifier'  => 'statusStageIdentifier',
         'subject'                => 'subject',
         'tag'                    => 'tag',
+        'tagDetails'             => 'tagDetails',
         'tracker'                => 'tracker',
         'updateStatusAt'         => 'updateStatusAt',
         'verifier'               => 'verifier',
@@ -294,6 +301,15 @@ class workitem extends Model
         }
         if (null !== $this->tag) {
             $res['tag'] = $this->tag;
+        }
+        if (null !== $this->tagDetails) {
+            $res['tagDetails'] = [];
+            if (null !== $this->tagDetails && \is_array($this->tagDetails)) {
+                $n = 0;
+                foreach ($this->tagDetails as $item) {
+                    $res['tagDetails'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->tracker) {
             $res['tracker'] = $this->tracker;
@@ -398,6 +414,15 @@ class workitem extends Model
         if (isset($map['tag'])) {
             if (!empty($map['tag'])) {
                 $model->tag = $map['tag'];
+            }
+        }
+        if (isset($map['tagDetails'])) {
+            if (!empty($map['tagDetails'])) {
+                $model->tagDetails = [];
+                $n                 = 0;
+                foreach ($map['tagDetails'] as $item) {
+                    $model->tagDetails[$n++] = null !== $item ? tagDetails::fromMap($item) : $item;
+                }
             }
         }
         if (isset($map['tracker'])) {
