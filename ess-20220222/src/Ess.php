@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Ess\V20220222;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Ess\V20220222\Models\ApplyEciScalingConfigurationRequest;
+use AlibabaCloud\SDK\Ess\V20220222\Models\ApplyEciScalingConfigurationResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ApplyScalingGroupRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ApplyScalingGroupResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\AttachAlbServerGroupsRequest;
@@ -61,6 +63,8 @@ use AlibabaCloud\SDK\Ess\V20220222\Models\DeleteScheduledTaskRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DeleteScheduledTaskResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeAlarmsRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeAlarmsResponse;
+use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeEciScalingConfigurationDetailRequest;
+use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeEciScalingConfigurationDetailResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeEciScalingConfigurationsRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeEciScalingConfigurationsResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeLifecycleActionsRequest;
@@ -81,6 +85,8 @@ use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingActivityDetailRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingActivityDetailResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsResponse;
+use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingGroupDetailRequest;
+use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingGroupDetailResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingGroupsRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingGroupsResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingInstancesRequest;
@@ -125,6 +131,8 @@ use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyAlarmRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyAlarmResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyEciScalingConfigurationRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyEciScalingConfigurationResponse;
+use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyInstanceAttributeRequest;
+use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyInstanceAttributeResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyLifecycleHookRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyLifecycleHookResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyNotificationConfigurationRequest;
@@ -248,6 +256,61 @@ class Ess extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param ApplyEciScalingConfigurationRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ApplyEciScalingConfigurationResponse
+     */
+    public function applyEciScalingConfigurationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->content)) {
+            $query['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->format)) {
+            $query['Format'] = $request->format;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->scalingConfigurationId)) {
+            $query['ScalingConfigurationId'] = $request->scalingConfigurationId;
+        }
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ApplyEciScalingConfiguration',
+            'version'     => '2022-02-22',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ApplyEciScalingConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ApplyEciScalingConfigurationRequest $request
+     *
+     * @return ApplyEciScalingConfigurationResponse
+     */
+    public function applyEciScalingConfiguration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->applyEciScalingConfigurationWithOptions($request, $runtime);
     }
 
     /**
@@ -2614,6 +2677,58 @@ class Ess extends OpenApiClient
     }
 
     /**
+     * @param DescribeEciScalingConfigurationDetailRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return DescribeEciScalingConfigurationDetailResponse
+     */
+    public function describeEciScalingConfigurationDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->outputFormat)) {
+            $query['OutputFormat'] = $request->outputFormat;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->scalingConfigurationId)) {
+            $query['ScalingConfigurationId'] = $request->scalingConfigurationId;
+        }
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeEciScalingConfigurationDetail',
+            'version'     => '2022-02-22',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeEciScalingConfigurationDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeEciScalingConfigurationDetailRequest $request
+     *
+     * @return DescribeEciScalingConfigurationDetailResponse
+     */
+    public function describeEciScalingConfigurationDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeEciScalingConfigurationDetailWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeEciScalingConfigurationsRequest $request
      * @param RuntimeOptions                          $runtime
      *
@@ -3217,6 +3332,58 @@ class Ess extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeScalingConfigurationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeScalingGroupDetailRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeScalingGroupDetailResponse
+     */
+    public function describeScalingGroupDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->outputFormat)) {
+            $query['OutputFormat'] = $request->outputFormat;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScalingGroupDetail',
+            'version'     => '2022-02-22',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeScalingGroupDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeScalingGroupDetailRequest $request
+     *
+     * @return DescribeScalingGroupDetailResponse
+     */
+    public function describeScalingGroupDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeScalingGroupDetailWithOptions($request, $runtime);
     }
 
     /**
@@ -4885,6 +5052,64 @@ class Ess extends OpenApiClient
     }
 
     /**
+     * @param ModifyInstanceAttributeRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModifyInstanceAttributeResponse
+     */
+    public function modifyInstanceAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->entrusted)) {
+            $query['Entrusted'] = $request->entrusted;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyInstanceAttribute',
+            'version'     => '2022-02-22',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyInstanceAttributeRequest $request
+     *
+     * @return ModifyInstanceAttributeResponse
+     */
+    public function modifyInstanceAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyInstanceAttributeWithOptions($request, $runtime);
+    }
+
+    /**
      * You can use one of the following methods to specify the lifecycle hook that you want to modify:
      *   * *   Specify the lifecycle hook ID by using the LifecycleHookId parameter. When you use this method, the ScalingGroupId and LifecycleHookName parameters are ignored.
      *   * *   Specify the scaling group ID by using the ScalingGroupId parameter and specify the lifecycle hook name by using the LifecycleHookName parameter.
@@ -5334,6 +5559,9 @@ class Ess extends OpenApiClient
         }
         if (!Utils::isUnset($request->scalingGroupName)) {
             $query['ScalingGroupName'] = $request->scalingGroupName;
+        }
+        if (!Utils::isUnset($request->scalingPolicy)) {
+            $query['ScalingPolicy'] = $request->scalingPolicy;
         }
         if (!Utils::isUnset($request->spotAllocationStrategy)) {
             $query['SpotAllocationStrategy'] = $request->spotAllocationStrategy;

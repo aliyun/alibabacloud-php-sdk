@@ -24,6 +24,8 @@ class DeactivateScalingConfigurationRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @example asc-bp1ahp2ud7qkzt2a****
+     *
      * @var string
      */
     public $scalingConfigurationId;

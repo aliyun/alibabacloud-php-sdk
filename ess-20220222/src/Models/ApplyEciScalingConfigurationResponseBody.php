@@ -6,16 +6,24 @@ namespace AlibabaCloud\SDK\Ess\V20220222\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeactivateScalingConfigurationResponseBody extends Model
+class ApplyEciScalingConfigurationResponseBody extends Model
 {
     /**
-     * @example D09C9E64-7D19-4E1C-8CD6-123D34A4****
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
      *
      * @var string
      */
     public $requestId;
+
+    /**
+     * @example asc-bp16har3jpj6fjbx****
+     *
+     * @var string
+     */
+    public $scalingConfigurationId;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'requestId'              => 'RequestId',
+        'scalingConfigurationId' => 'ScalingConfigurationId',
     ];
 
     public function validate()
@@ -28,6 +36,9 @@ class DeactivateScalingConfigurationResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->scalingConfigurationId) {
+            $res['ScalingConfigurationId'] = $this->scalingConfigurationId;
+        }
 
         return $res;
     }
@@ -35,13 +46,16 @@ class DeactivateScalingConfigurationResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DeactivateScalingConfigurationResponseBody
+     * @return ApplyEciScalingConfigurationResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ScalingConfigurationId'])) {
+            $model->scalingConfigurationId = $map['ScalingConfigurationId'];
         }
 
         return $model;

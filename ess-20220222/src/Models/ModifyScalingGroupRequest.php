@@ -270,6 +270,11 @@ class ModifyScalingGroupRequest extends Model
     public $scalingGroupName;
 
     /**
+     * @var string
+     */
+    public $scalingPolicy;
+
+    /**
      * @description The allocation policy of preemptible instances. You can use this parameter to individually specify the allocation policy of preemptible instances. This parameter takes effect only when you set the `MultiAZPolicy` parameter to `COMPOSABLE`. Valid values:
      *
      *   priority: Auto Scaling selects instance types based on the specified order to create the required number of preemptible instances.
@@ -336,6 +341,7 @@ class ModifyScalingGroupRequest extends Model
         'resourceOwnerId'                     => 'ResourceOwnerId',
         'scalingGroupId'                      => 'ScalingGroupId',
         'scalingGroupName'                    => 'ScalingGroupName',
+        'scalingPolicy'                       => 'ScalingPolicy',
         'spotAllocationStrategy'              => 'SpotAllocationStrategy',
         'spotInstancePools'                   => 'SpotInstancePools',
         'spotInstanceRemedy'                  => 'SpotInstanceRemedy',
@@ -435,6 +441,9 @@ class ModifyScalingGroupRequest extends Model
         }
         if (null !== $this->scalingGroupName) {
             $res['ScalingGroupName'] = $this->scalingGroupName;
+        }
+        if (null !== $this->scalingPolicy) {
+            $res['ScalingPolicy'] = $this->scalingPolicy;
         }
         if (null !== $this->spotAllocationStrategy) {
             $res['SpotAllocationStrategy'] = $this->spotAllocationStrategy;
@@ -550,6 +559,9 @@ class ModifyScalingGroupRequest extends Model
         }
         if (isset($map['ScalingGroupName'])) {
             $model->scalingGroupName = $map['ScalingGroupName'];
+        }
+        if (isset($map['ScalingPolicy'])) {
+            $model->scalingPolicy = $map['ScalingPolicy'];
         }
         if (isset($map['SpotAllocationStrategy'])) {
             $model->spotAllocationStrategy = $map['SpotAllocationStrategy'];

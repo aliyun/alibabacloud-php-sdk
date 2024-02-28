@@ -6,10 +6,10 @@ namespace AlibabaCloud\SDK\Ess\V20220222\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeactivateScalingConfigurationResponseBody extends Model
+class ModifyInstanceAttributeResponseBody extends Model
 {
     /**
-     * @example D09C9E64-7D19-4E1C-8CD6-123D34A4****
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
      *
      * @var string
      */
@@ -35,7 +35,7 @@ class DeactivateScalingConfigurationResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DeactivateScalingConfigurationResponseBody
+     * @return ModifyInstanceAttributeResponseBody
      */
     public static function fromMap($map = [])
     {
