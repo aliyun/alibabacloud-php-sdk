@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeActiveOperationTaskRequest extends Model
 {
     /**
-     * @description The time when the O\&M task was created. The time in UTC is displayed in the *yyyy-MM-dd*T*HH:mm:ss*Z format.
+     * @description Specifies whether to return the historical tasks. Default value: 0. Valid values:
+     *
+     *   **0**: returns the current task.
+     *   **1**: returns the historical tasks.
      *
      * @example 1
      *
@@ -46,8 +49,9 @@ class DescribeActiveOperationTaskRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the O\&M task.
+     * @description The region ID of the O&M task. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the most recent region list.
      *
+     * > A value of **all** indicates all region IDs.
      * @example all
      *
      * @var string
@@ -70,7 +74,12 @@ class DescribeActiveOperationTaskRequest extends Model
     public $securityToken;
 
     /**
-     * @description The ID of the region.
+     * @description The type of the O&M task. Valid values:
+     *
+     *   **rds_apsaradb_ha**: master-replica switchover
+     *   **rds_apsaradb_transfer**: instance migration
+     *   **rds_apsaradb_upgrade**: minor version update
+     *   **all**: all types
      *
      * @example all
      *

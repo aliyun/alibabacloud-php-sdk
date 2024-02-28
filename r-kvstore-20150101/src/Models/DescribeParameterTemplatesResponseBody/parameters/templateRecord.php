@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class templateRecord extends Model
 {
     /**
-     * @description The check code that indicates the valid values of the parameter.
+     * @description The valid values of the parameter.
      *
      * @example [yes|no]
      *
@@ -18,10 +18,10 @@ class templateRecord extends Model
     public $checkingCode;
 
     /**
-     * @description Indicates whether the parameter can be reset. Valid values:
+     * @description Indicates whether the parameter can be reconfigured. Valid values:
      *
-     *   **true**: The parameter can be reset.
-     *   **false**: The parameter cannot be reset.
+     *   **true**: The parameter can be reconfigured.
+     *   **false**: The parameter cannot be reconfigured.
      *
      * @example true
      *
@@ -30,12 +30,12 @@ class templateRecord extends Model
     public $forceModify;
 
     /**
-     * @description Indicates whether a restart of the instance is required after the parameter is reset. Valid values:
+     * @description Indicates whether a restart of the instance is required after the parameter is reconfigured. Valid values:
      *
-     *   **true**: After the parameter is reset, you must restart the instance to make the new value of the parameter take effect.
-     *   **false**: After the parameter is reset, the new value of the parameter immediately takes effect. You do not need to restart the instance.
+     *   **true**: After the parameter is reconfigured, you must restart the instance to make the new value of the parameter take effect.
+     *   **false**: After the parameter is reconfigured, the new value of the parameter immediately takes effect. You do not need to restart the instance.
      *
-     * @example false
+     * @example true
      *
      * @var bool
      */

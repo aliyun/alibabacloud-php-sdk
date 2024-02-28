@@ -9,8 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateBackupResponseBody extends Model
 {
     /**
-     * @description The ID of the backup task.
-     *
+     * @description The ID of the backup task.\
+     * For cluster instance created after December 5, 2023, all jobs for nodes in an instance are represented by a single job ID.
      * @example 1162****
      *
      * @var string

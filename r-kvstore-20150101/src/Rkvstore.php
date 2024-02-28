@@ -1157,8 +1157,8 @@ class Rkvstore extends OpenApiClient
 
     /**
      * Before you call this operation, make sure that you understand the billing methods and [pricing](~~54532~~) of ApsaraDB for Redis.
-     *   * >  For more information about how to create an instance that meets your requirements in the ApsaraDB for Redis console, see [Step 1: Create an ApsaraDB for Redis instance](~~26351~~).
-     *   * To create an ApsaraDB for Redis Enhanced Edition (Tair) instance that uses cloud disks, call [CreateTairInstance](~~208271~~).
+     *   * >  For more information about how to create an instance that meets your requirements in the ApsaraDB for Redis console, see Step 1: Create an ApsaraDB for Redis instance.[](~~26351~~)
+     *   * This operation can only be used to create ApsaraDB for Redis Community Edition instances and ApsaraDB for Redis Enhanced Edition (Tair) DRAM-based classic instances.
      *   *
      * @param CreateInstancesRequest $request CreateInstancesRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -1231,8 +1231,8 @@ class Rkvstore extends OpenApiClient
 
     /**
      * Before you call this operation, make sure that you understand the billing methods and [pricing](~~54532~~) of ApsaraDB for Redis.
-     *   * >  For more information about how to create an instance that meets your requirements in the ApsaraDB for Redis console, see [Step 1: Create an ApsaraDB for Redis instance](~~26351~~).
-     *   * To create an ApsaraDB for Redis Enhanced Edition (Tair) instance that uses cloud disks, call [CreateTairInstance](~~208271~~).
+     *   * >  For more information about how to create an instance that meets your requirements in the ApsaraDB for Redis console, see Step 1: Create an ApsaraDB for Redis instance.[](~~26351~~)
+     *   * This operation can only be used to create ApsaraDB for Redis Community Edition instances and ApsaraDB for Redis Enhanced Edition (Tair) DRAM-based classic instances.
      *   *
      * @param CreateInstancesRequest $request CreateInstancesRequest
      *
@@ -1774,9 +1774,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Specifies whether to return the historical tasks. Valid values:
-     *   * *   **0**: returns the current task. This is the default value.
-     *   * *   **1**: returns the historical tasks.
+     * After you have called this API operation and queried the information about a specific O&M task, you can also call the [ModifyActiveOperationTask](~~ModifyActiveOperationTask~~) operation to modify the scheduled switchover time of the O&M task.
      *   *
      * @param DescribeActiveOperationTaskRequest $request DescribeActiveOperationTaskRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -1836,9 +1834,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Specifies whether to return the historical tasks. Valid values:
-     *   * *   **0**: returns the current task. This is the default value.
-     *   * *   **1**: returns the historical tasks.
+     * After you have called this API operation and queried the information about a specific O&M task, you can also call the [ModifyActiveOperationTask](~~ModifyActiveOperationTask~~) operation to modify the scheduled switchover time of the O&M task.
      *   *
      * @param DescribeActiveOperationTaskRequest $request DescribeActiveOperationTaskRequest
      *
@@ -2640,10 +2636,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBNodeDirectVipInfoRequest $request
-     * @param RuntimeOptions                     $runtime
+     * > Only instances that use cloud disks support this operation.
+     *   *
+     * @param DescribeDBNodeDirectVipInfoRequest $request DescribeDBNodeDirectVipInfoRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBNodeDirectVipInfoResponse
+     * @return DescribeDBNodeDirectVipInfoResponse DescribeDBNodeDirectVipInfoResponse
      */
     public function describeDBNodeDirectVipInfoWithOptions($request, $runtime)
     {
@@ -2683,9 +2681,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBNodeDirectVipInfoRequest $request
+     * > Only instances that use cloud disks support this operation.
+     *   *
+     * @param DescribeDBNodeDirectVipInfoRequest $request DescribeDBNodeDirectVipInfoRequest
      *
-     * @return DescribeDBNodeDirectVipInfoResponse
+     * @return DescribeDBNodeDirectVipInfoResponse DescribeDBNodeDirectVipInfoResponse
      */
     public function describeDBNodeDirectVipInfo($request)
     {
@@ -4105,7 +4105,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * An array that consists of the details about the parameters returned.
+     * After you call this operation to query the parameters and default values of an instance, you can call the [ModifyInstanceConfig](~~61113~~) operation to reconfigure the parameters of the instance.
      *   *
      * @param DescribeParameterTemplatesRequest $request DescribeParameterTemplatesRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -4165,7 +4165,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * An array that consists of the details about the parameters returned.
+     * After you call this operation to query the parameters and default values of an instance, you can call the [ModifyInstanceConfig](~~61113~~) operation to reconfigure the parameters of the instance.
      *   *
      * @param DescribeParameterTemplatesRequest $request DescribeParameterTemplatesRequest
      *
@@ -5271,7 +5271,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The log management feature of ApsaraDB for Redis requires the resources of [Log Service](~~48869~~). To use the log management feature of ApsaraDB for Redis, you can call this operation to associate the RAM role named AliyunServiceRoleForKvstore with the ApsaraDB for Redis instance. For more information, see [Associated RAM roles of ApsaraDB for Redis] (~~184337~~).
+     * The log management feature of ApsaraDB for Redis requires the resources of [Log Service](~~48869~~). To use the log management feature of ApsaraDB for Redis, you can call this operation to associate the RAM role named AliyunServiceRoleForKvstore with the ApsaraDB for Redis instance. For more information, see [Associated RAM roles of ApsaraDB for Redis](~~184337~~).
      *   *
      * @param InitializeKvstorePermissionRequest $request InitializeKvstorePermissionRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -5319,7 +5319,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The log management feature of ApsaraDB for Redis requires the resources of [Log Service](~~48869~~). To use the log management feature of ApsaraDB for Redis, you can call this operation to associate the RAM role named AliyunServiceRoleForKvstore with the ApsaraDB for Redis instance. For more information, see [Associated RAM roles of ApsaraDB for Redis] (~~184337~~).
+     * The log management feature of ApsaraDB for Redis requires the resources of [Log Service](~~48869~~). To use the log management feature of ApsaraDB for Redis, you can call this operation to associate the RAM role named AliyunServiceRoleForKvstore with the ApsaraDB for Redis instance. For more information, see [Associated RAM roles of ApsaraDB for Redis](~~184337~~).
      *   *
      * @param InitializeKvstorePermissionRequest $request InitializeKvstorePermissionRequest
      *

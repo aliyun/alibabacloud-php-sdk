@@ -28,7 +28,7 @@ class DescribeClusterMemberInfoRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. The value must be an integer that is greater than **0**. Default value: **1**.
+     * @description The page number.
      *
      * @example 1
      *
@@ -37,9 +37,8 @@ class DescribeClusterMemberInfoRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Valid values: **30**, **50**, and **100**.
+     * @description The number of entries to return on each page. Valid values: **30**, **50**, and **100**. Default value: **30**.
      *
-     * >  Default value: **30**.
      * @example 30
      *
      * @var int

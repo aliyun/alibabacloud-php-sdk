@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class vipInfo extends Model
 {
     /**
+     * @description The network type of the security group. Valid values:
+     *
+     *   **vpc**: Virtual Private Cloud (VPC)
+     *
      * @example vpc
      *
      * @var string
@@ -16,6 +20,8 @@ class vipInfo extends Model
     public $netType;
 
     /**
+     * @description The shard ID.
+     *
      * @example r-8vb3679b04551444-db-2
      *
      * @var string
@@ -23,6 +29,8 @@ class vipInfo extends Model
     public $nodeId;
 
     /**
+     * @description The port number. Valid values: **1024** to **65535**. Default value: **6379**.
+     *
      * @example 6379
      *
      * @var string
@@ -30,6 +38,8 @@ class vipInfo extends Model
     public $port;
 
     /**
+     * @description The VIP of the shard.
+     *
      * @example 100.115.61.8
      *
      * @var string

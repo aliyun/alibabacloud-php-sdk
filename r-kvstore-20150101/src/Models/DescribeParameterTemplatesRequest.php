@@ -11,7 +11,7 @@ class DescribeParameterTemplatesRequest extends Model
     /**
      * @description The architecture of the instance. For more information, see [Overview](~~86132~~). Valid values:
      *
-     *   **logic**: The instance is a cluster or read/write splitting instance.
+     *   **logic**: The instance is a cluster master-replica instance or a read/write splitting instance.
      *   **normal**: The instance is a standard master-replica instance.
      *
      * @example logic
@@ -21,7 +21,7 @@ class DescribeParameterTemplatesRequest extends Model
     public $characterType;
 
     /**
-     * @description The operation that you want to perform. Set the value to **DescribeParameterTemplates**.
+     * @description The database engine that is run on the instance. Set the value to **Redis**.
      *
      * @example Redis
      *
@@ -30,7 +30,7 @@ class DescribeParameterTemplatesRequest extends Model
     public $engine;
 
     /**
-     * @description The database engine that is run on the instance. The value **Redis** is returned for this parameter.
+     * @description The major version that is run on the instance. Valid values: **2.8**, **4.0**, and **5.0**.
      *
      * @example 5.0
      *
@@ -39,7 +39,7 @@ class DescribeParameterTemplatesRequest extends Model
     public $engineVersion;
 
     /**
-     * @description r-bp1zxszhcgatnx****
+     * @description The ID of the instance. You can call the [DescribeInstances](~~DescribeInstances~~) operation to query the IDs of instances.
      *
      * @example r-bp1zxszhcgatnx****
      *
@@ -58,8 +58,9 @@ class DescribeParameterTemplatesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the instance. You can call the [DescribeInstances](~~60933~~) operation to query the IDs of instances.
+     * @description The ID of the resource group to which the instance belongs. You can call the [ListResourceGroups](~~ListResourceGroups~~) operation to query the IDs of resource groups.
      *
+     * >  You can also query the ID of a resource group in the Resource Management console. For more information, see [View the basic information of a resource group](~~151181~~).
      * @example rg-acfmyiu4ekp****
      *
      * @var string

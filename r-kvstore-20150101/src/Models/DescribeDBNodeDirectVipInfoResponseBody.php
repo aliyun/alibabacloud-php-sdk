@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBNodeDirectVipInfoResponseBody extends Model
 {
     /**
+     * @description The VIPs of shards in the cluster instance.
+     *
      * @var directVipInfo
      */
     public $directVipInfo;
 
     /**
+     * @description The instance ID.
+     *
      * @example r-bp1zxszhcgatnx****
      *
      * @var string
@@ -22,6 +26,8 @@ class DescribeDBNodeDirectVipInfoResponseBody extends Model
     public $instanceId;
 
     /**
+     * @description The request ID.
+     *
      * @example ABAF95F6-35C1-4177-AF3A-70969EBD****
      *
      * @var string

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class globalSecurityIPGroupRel extends Model
 {
     /**
+     * @description The IP address in the IP whitelist template.
+     *
+     * >  Multiple IP addresses are separated by commas (,).
      * @example 192.168.0.1,10.10.10.10
      *
      * @var string
@@ -16,6 +19,8 @@ class globalSecurityIPGroupRel extends Model
     public $GIpList;
 
     /**
+     * @description The name of the IP whitelist template.
+     *
      * @example test_123
      *
      * @var string
@@ -23,6 +28,8 @@ class globalSecurityIPGroupRel extends Model
     public $globalIgName;
 
     /**
+     * @description The ID of the IP whitelist template.
+     *
      * @example g-zsldxfiwjmti0kcm****
      *
      * @var string
@@ -30,6 +37,8 @@ class globalSecurityIPGroupRel extends Model
     public $globalSecurityGroupId;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string

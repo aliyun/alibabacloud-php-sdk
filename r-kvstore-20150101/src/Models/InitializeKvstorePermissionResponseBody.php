@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class InitializeKvstorePermissionResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 5D622714-AEDD-4609-9167-F5DDD3D1****
      *

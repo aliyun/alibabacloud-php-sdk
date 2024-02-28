@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeGlobalSecurityIPGroupRelationRequest extends Model
 {
     /**
+     * @description The instance ID.
+     *
      * @example r-t4n885e834f6****
      *
      * @var string
@@ -26,6 +28,8 @@ class DescribeGlobalSecurityIPGroupRelationRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -33,6 +37,8 @@ class DescribeGlobalSecurityIPGroupRelationRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfmyiu4ekp****
      *
      * @var string

@@ -101,7 +101,7 @@ class CreateInstanceRequest extends Model
     public $chargeType;
 
     /**
-     * @description Backup files ID of cluster instance.
+     * @description The backup set ID.
      *
      * @example cb-hyxdof5x9kqbtust
      *
@@ -119,7 +119,7 @@ class CreateInstanceRequest extends Model
     public $connectionStringPrefix;
 
     /**
-     * @description The coupon code. Default value: `youhuiquan_promotion_option_id_for_blank`.
+     * @description The coupon code. Default value: `default`.
      *
      * @example youhuiquan_promotion_option_id_for_blank
      *
@@ -239,9 +239,12 @@ class CreateInstanceRequest extends Model
     /**
      * @description The node type. Valid values:
      *
+     *   **MASTER_SLAVE**: high availability (master-replica)
      *   **STAND_ALONE**: standalone
-     *   **MASTER_SLAVE** (default): high availability (master-replica)
+     *   **double**: master-replica
+     *   **single**: standalone
      *
+     * >  To create a cloud-native instance, set this parameter to **MASTER_SLAVE** or **STAND_ALONE**. To create a classic instance, set this parameter to **double** or **single**.
      * @example STAND_ALONE
      *
      * @var string
@@ -259,7 +262,7 @@ class CreateInstanceRequest extends Model
     public $ownerId;
 
     /**
-     * @description Parameter template ID.
+     * @description The parameter template ID, which must be globally unique.
      *
      * @example rpg-test**
      *

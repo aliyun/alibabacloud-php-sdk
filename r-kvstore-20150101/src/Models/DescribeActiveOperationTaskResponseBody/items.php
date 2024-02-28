@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
-     * @description The time when the O\&M task was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the O\&M task was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2018-07-15 23:59:59
      *
@@ -18,7 +18,7 @@ class items extends Model
     public $createdTime;
 
     /**
-     * @description The engine type of the instance. The return value is **Redis**.
+     * @description The database type of the instance. The return value is **Redis**.
      *
      * @example redis
      *
@@ -27,7 +27,7 @@ class items extends Model
     public $dbType;
 
     /**
-     * @description The deadline before which the time to perform the O\&M task can be modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The deadline before which the time to preform the O&M task can be modified. The time in UTC is displayed in the *yyyy-MM-dd*T*HH:mm:ss*Z format.
      *
      * @example 2018-07-19 23:59:59
      *
@@ -36,7 +36,7 @@ class items extends Model
     public $deadline;
 
     /**
-     * @description The ID of the O\&M task.
+     * @description The ID of the O&M task.
      *
      * @example 114111
      *
@@ -45,7 +45,7 @@ class items extends Model
     public $id;
 
     /**
-     * @description The ID of the ApsaraDB for Redis instance.
+     * @description The ID of the instance.
      *
      * @example r-bp1lgal1sdvxrz****
      *
@@ -54,7 +54,7 @@ class items extends Model
     public $insName;
 
     /**
-     * @description The time when the O\&M task was modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the O\&M task was modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2018-07-19 14:00:00
      *
@@ -72,7 +72,7 @@ class items extends Model
     public $prepareInterval;
 
     /**
-     * @description The region ID.
+     * @description The region ID of the instance.
      *
      * @example cn-hanghzou
      *
@@ -81,7 +81,7 @@ class items extends Model
     public $region;
 
     /**
-     * @description The time when the O\&M task was performed. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the O\&M task was preformed. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2018-07-19 10:00:00
      *
@@ -90,11 +90,11 @@ class items extends Model
     public $startTime;
 
     /**
-     * @description The state of the O\&M task. Valid values:
+     * @description The state of the O&M task. Valid values:
      *
      *   **2**: The task is waiting for users to specify a switchover time.
      *   **3**: The task is waiting to be performed.
-     *   **4**: The task is being performed. If the task is in this state, the [ModifyActiveOperationTask](~~197384~~) operation cannot be called to modify the scheduled switchover time.
+     *   **4**: The task is being performed. If the task is in this state, the [ModifyActiveOperationTask](~~ModifyActiveOperationTask~~) operation cannot be called to modify the scheduled switchover time.
      *   **5**: The task is performed.
      *   **6**: The task fails.
      *   **7**: The task is canceled.
@@ -106,7 +106,7 @@ class items extends Model
     public $status;
 
     /**
-     * @description The time when the switchover operation was performed. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the system performs the switchover operation. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2018-07-19 14:00:00
      *
@@ -117,7 +117,7 @@ class items extends Model
     /**
      * @description The type of the task. Valid values:
      *
-     *   **rds_apsaradb_ha**: primary/secondary switchover
+     *   **rds_apsaradb_ha**: master-replica switchover
      *   **rds_apsaradb_transfer**: instance migration
      *   **rds_apsaradb_upgrade**: minor version update
      *   **all**: all types

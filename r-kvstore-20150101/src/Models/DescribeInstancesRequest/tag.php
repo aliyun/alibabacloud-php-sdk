@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The key of the tag. A tag is a key-value pair.
+     * @description The tag key. A tag is a key-value pair.
      *
-     * > A maximum of five key-value pairs can be specified at a time.
+     * >  A maximum of five key-value pairs can be specified at a time.
      * @example Storage type
      *
      * @var string
@@ -19,7 +19,7 @@ class tag extends Model
     public $key;
 
     /**
-     * @description The value of the tag. A tag is a key-value pair.
+     * @description The tag value.
      *
      * @example Local disk
      *

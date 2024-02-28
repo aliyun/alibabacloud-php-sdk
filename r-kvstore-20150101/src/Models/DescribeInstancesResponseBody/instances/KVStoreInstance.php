@@ -12,10 +12,10 @@ class KVStoreInstance extends Model
     /**
      * @description The architecture of the instance. Default value: NULL. Valid values:
      *
-     *   **cluster**: The instance is a cluster instance.
-     *   **standard**: The instance is a standard instance.
-     *   **rwsplit**: The instance is a read/write splitting instance.
-     *   **NULL**: The instance can be a cluster, standard, or read/write splitting instance.
+     *   **cluster**: cluster architecture
+     *   **standard**: standard architecture
+     *   **rwsplit**: read/write splitting architecture
+     *   **NULL**: all of the preceding architectures
      *
      * @example cluster
      *
@@ -84,7 +84,7 @@ class KVStoreInstance extends Model
      * @description The connection mode of the instance. Valid values:
      *
      *   **Standard**: standard mode
-     *   **Safe**: proxy mode
+     *   **Safe**: database proxy mode
      *
      * @example Standard
      *
@@ -122,8 +122,8 @@ class KVStoreInstance extends Model
     /**
      * @description The edition of the instance. Valid values:
      *
-     *   **Community**: Community Edition
-     *   **Enterprise**: Enhance Edition (Tair)
+     *   **Community**: ApsaraDB for Redis Community Edition
+     *   **Enterprise**: ApsaraDB for Redis Enhanced Edition (Tair)
      *
      * @example Enterprise
      *
@@ -141,7 +141,7 @@ class KVStoreInstance extends Model
     public $endTime;
 
     /**
-     * @description The database engine version of the instance. Valid values: **2.8**, **4.0**, **5.0**, and **6.0**.
+     * @description The engine version of the instance. Valid values: **2.8**, **4.0**, and **5.0**.
      *
      * @example 4.0
      *
@@ -152,7 +152,7 @@ class KVStoreInstance extends Model
     /**
      * @description The ID of the distributed instance.
      *
-     * > This parameter is returned only when the instance is a child instance of a distributed instance.
+     * >  This parameter is returned only if the instance is a child instance of a distributed instance.
      * @example gr-bp14rkqrhac****
      *
      * @var string
@@ -162,8 +162,8 @@ class KVStoreInstance extends Model
     /**
      * @description Indicates whether your Alibaba Cloud account has pending orders for renewal and configuration change. Valid values:
      *
-     *   **true**: Your Alibaba Cloud account has pending orders for renewal and configuration change.
-     *   **false**: Your Alibaba Cloud account does not have pending orders for renewal and configuration change.
+     *   **true**
+     *   **false**
      *
      * @example false
      *
@@ -172,7 +172,7 @@ class KVStoreInstance extends Model
     public $hasRenewChangeOrder;
 
     /**
-     * @description The instance class of the instance.
+     * @description The instance class.
      *
      * @example redis.logic.sharding.2g.2db.0rodb.4proxy.default
      *
@@ -208,13 +208,13 @@ class KVStoreInstance extends Model
      *   **Flushing**: The instance is being released.
      *   **Released**: The instance is released.
      *   **Transforming**: The billing method of the instance is being changed.
-     *   **Unavailable**: The instance is suspended.
+     *   **Unavailable**: The instance is unavailable.
      *   **Error**: The instance failed to be created.
      *   **Migrating**: The instance is being migrated.
      *   **BackupRecovering**: The instance is being restored from a backup.
      *   **MinorVersionUpgrading**: The minor version of the instance is being updated.
      *   **NetworkModifying**: The network type of the instance is being changed.
-     *   **SSLModifying**: The SSL certificate of the instance is being changed.
+     *   **SSLModifying**: The SSL configurations of the instance are being changed.
      *   **MajorVersionUpgrading**: The major version of the instance is being upgraded. The instance remains accessible during the upgrade.
      *
      * @example Normal
@@ -239,8 +239,8 @@ class KVStoreInstance extends Model
     /**
      * @description Indicates whether the instance is managed by ApsaraDB RDS. Valid values:
      *
-     *   **true**: The instance is managed by ApsaraDB RDS.
-     *   **false**: The instance is not managed by ApsaraDB RDS.
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -251,8 +251,8 @@ class KVStoreInstance extends Model
     /**
      * @description The network type of the instance. Valid values:
      *
-     *   **CLASSIC**: classic network
-     *   **VPC**: VPC
+     *   **CLASSIC**
+     *   **VPC**
      *
      * @example CLASSIC
      *
@@ -264,7 +264,7 @@ class KVStoreInstance extends Model
      * @description The node type. Valid values:
      *
      *   **double**: The instance contains a master node and a replica node.
-     *   **single**: The instance contains only a master node. This node type is phrased out.
+     *   **single**: The instance contains only a master node. This node type is phased out.
      *
      * @example double
      *
@@ -273,7 +273,7 @@ class KVStoreInstance extends Model
     public $nodeType;
 
     /**
-     * @description The plan type of the instance. Valid values:
+     * @description The plan type. Valid values:
      *
      *   **standard**: standard plan
      *   **customized**: custom plan
@@ -285,7 +285,7 @@ class KVStoreInstance extends Model
     public $packageType;
 
     /**
-     * @description The port number of the instance.
+     * @description The service port of the instance.
      *
      * @example 6379
      *
@@ -294,9 +294,9 @@ class KVStoreInstance extends Model
     public $port;
 
     /**
-     * @description The private IP address of the instance.
+     * @description The private IP address.
      *
-     * > This parameter is not returned when the instance is deployed in the classic network.
+     * >  This parameter is not returned when the instance is deployed in the classic network.
      * @example 172.16.49.***
      *
      * @var string
@@ -304,7 +304,7 @@ class KVStoreInstance extends Model
     public $privateIp;
 
     /**
-     * @description The expected maximum queries per second (QPS).
+     * @description The number of queries per second (QPS).
      *
      * @example 100000
      *
@@ -313,7 +313,7 @@ class KVStoreInstance extends Model
     public $QPS;
 
     /**
-     * @description The region ID of the instance.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -322,7 +322,7 @@ class KVStoreInstance extends Model
     public $regionId;
 
     /**
-     * @description The logical ID of the replica instance.
+     * @description The logical ID of the distributed instance.
      *
      * @example grr-bp11381ebc16****
      *
@@ -342,7 +342,7 @@ class KVStoreInstance extends Model
     /**
      * @description The ID of the secondary zone.
      *
-     * > If multiple zones are returned for **ZoneId** such as cn-hangzhou-MAZ10(h,i), this parameter is ignored.
+     * >  If multiple zones are returned for **ZoneId**, such as cn-hangzhou-MAZ10(h,i), this parameter is ignored.
      * @example cn-hangzhou-h
      *
      * @var string
@@ -350,8 +350,9 @@ class KVStoreInstance extends Model
     public $secondaryZoneId;
 
     /**
-     * @description The shard class for the instance.
+     * @description The shard class. For more information about shard classes, see [Overview](~~26350~~).
      *
+     * >  The overall performance of a cluster instance is calculated by multiplying the class of a single shard (ShardClass) by the number of shards (ShardCount).
      * @example redis.shard.small.ce
      *
      * @var string
@@ -359,9 +360,9 @@ class KVStoreInstance extends Model
     public $shardClass;
 
     /**
-     * @description The number of data shards in the instance.
+     * @description The number of data shards in the cluster instance.
      *
-     * > This parameter is returned only when the instance is a cluster instance that uses cloud disks.
+     * >  This parameter is returned only for cloud-native cluster instances or read/write splitting instances.
      * @example 3
      *
      * @var int
@@ -369,14 +370,14 @@ class KVStoreInstance extends Model
     public $shardCount;
 
     /**
-     * @description Details of the tags.
+     * @description Details about the tags.
      *
      * @var tags
      */
     public $tags;
 
     /**
-     * @description The username that is used to connect to the instance. By default, the username that is named after the instance ID is returned.
+     * @description The username used to connect to the instance. By default, a username named after the instance ID is included.
      *
      * @example r-bp1zxszhcgatnx****
      *
@@ -394,7 +395,7 @@ class KVStoreInstance extends Model
     public $vSwitchId;
 
     /**
-     * @description The ID of the VPC.
+     * @description The ID of the virtual private cloud (VPC).
      *
      * @example vpc-bp1nme44gek34slfc****
      *
@@ -403,7 +404,7 @@ class KVStoreInstance extends Model
     public $vpcId;
 
     /**
-     * @description The zone ID of the instance.
+     * @description The zone ID.
      *
      * @example cn-hangzhou-b
      *

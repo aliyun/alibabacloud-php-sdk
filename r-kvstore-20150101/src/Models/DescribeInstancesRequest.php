@@ -23,7 +23,7 @@ class DescribeInstancesRequest extends Model
     public $architectureType;
 
     /**
-     * @description The billing method of the instance. Valid values:
+     * @description The billing method. Valid values:
      *
      *   **PrePaid**: subscription
      *   **PostPaid**: pay-as-you-go
@@ -37,8 +37,8 @@ class DescribeInstancesRequest extends Model
     /**
      * @description The edition of the instance. Valid values:
      *
-     *   **Community**: Community Edition
-     *   **Enterprise**: Enhance Edition (Tair)
+     *   **Community**: ApsaraDB for Redis Community Edition
+     *   **Enterprise**: ApsaraDB for Redis Enhanced Edition (Tair)
      *
      * @example Enterprise
      *
@@ -47,7 +47,16 @@ class DescribeInstancesRequest extends Model
     public $editionType;
 
     /**
-     * @description The database engine version of the instance. Valid values: **2.8**, **4.0**, **5.0**, and **6.0**.
+     * @description The engine version of the instance. Valid values: **2.8**, **4.0**, and **5.0**.
+     *
+     * Valid values:
+     *
+     *   1.0
+     *   2.8
+     *   4.0
+     *   5.0
+     *   6.0
+     *   7.0
      *
      * @example 4.0
      *
@@ -89,9 +98,9 @@ class DescribeInstancesRequest extends Model
     public $instanceClass;
 
     /**
-     * @description The ID of the instance.
+     * @description The IDs of the instances that you want to query.
      *
-     * > If you specify multiple instance IDs, separate these IDs with commas (,).
+     * >  If you want to specify multiple instance IDs, separate the instance IDs with commas (,). You can specify a maximum of 30 instance IDs in a single request.
      * @example r-bp1zxszhcgatnx****
      *
      * @var string
@@ -138,10 +147,10 @@ class DescribeInstancesRequest extends Model
     public $instanceType;
 
     /**
-     * @description The network type of the instance. Valid values:
+     * @description The network type. Valid values:
      *
-     *   **CLASSIC**: classic network
-     *   **VPC**: Virtual Private Cloud (VPC)
+     *   **CLASSIC**
+     *   **VPC**
      *
      * @example CLASSIC
      *
@@ -160,7 +169,7 @@ class DescribeInstancesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. Pages start from page **1**. Default value: **1**.
+     * @description The page number. Pages start from page **1**. Default value: **1**.
      *
      * @example 1
      *
@@ -169,7 +178,7 @@ class DescribeInstancesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+     * @description The number of entries per page. Maximum value: **50**. Default value: **10**.
      *
      * @example 10
      *

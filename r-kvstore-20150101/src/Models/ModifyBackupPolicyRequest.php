@@ -14,15 +14,11 @@ class ModifyBackupPolicyRequest extends Model
     public $backupRetentionPeriod;
 
     /**
-     * @description Enables or disables the data flashback feature for the instance. Valid values:
+     * @description Specifies whether to enable incremental data backup. Default value: 0. Valid values:
      *
-     *   **1**: enables the data flashback feature. You must also enable AOF persistence by setting `appendonly` to `yes` in the parameter settings of the instance. Then, you can use the data flashback feature.
-     *   **0** (default): disables the data flashback feature.
-     *
-     **
-     *
-     **Description** This parameter is available only for ApsaraDB for Redis Enhanced Edition (Tair) DRAM-based and persistent memory-optimized instances. For more information, see [Data flashback](~~443784~~).
-     *
+     *   **1**: enables incremental data backup.
+     *   **0**: disables incremental data backup.
+     * >This parameter is available only for ApsaraDB for Redis Enhanced Edition (Tair) DRAM-based and persistent memory-optimized instances. For more information, see [Data flashback](~~443784~~).
      * @example 1
      *
      * @var int
@@ -51,15 +47,15 @@ class ModifyBackupPolicyRequest extends Model
     /**
      * @description The days of the week to back up data. Valid values:
      *
-     *   **Monday**: every Monday
-     *   **Tuesday**: every Tuesday
-     *   **Wednesday**: every Wednesday
-     *   **Thursday**: every Thursday
-     *   **Friday**: every Friday
-     *   **Saturday**: every Saturday
-     *   **Sunday**: every Sunday
+     *   **Monday**
+     *   **Tuesday**
+     *   **Wednesday**
+     *   **Thursday**
+     *   **Friday**
+     *   **Saturday**
+     *   **Sunday**
      *
-     * >  Separate multiple options with commas (,).
+     * > Separate multiple options with commas (,).
      * @example Tuesday
      *
      * @var string
@@ -67,9 +63,9 @@ class ModifyBackupPolicyRequest extends Model
     public $preferredBackupPeriod;
 
     /**
-     * @description The time range to back up data. Specify the time in the ISO 8601 standard in the *HH:mm*Z-*HH:mm*Z format. The time must be in UTC.
+     * @description The time range to back up data. Specify the time in the *HH:mm*Z-*HH:mm*Z format. The time is displayed in UTC.
      *
-     * >  The beginning and end of the time range must be on the hour. The duration must be an hour.
+     * > The beginning and end of the time range must be on the hour. The duration must be an hour.
      * @example 07:00Z-08:00Z
      *
      * @var string

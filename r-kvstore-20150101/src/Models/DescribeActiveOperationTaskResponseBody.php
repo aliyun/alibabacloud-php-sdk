@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeActiveOperationTaskResponseBody extends Model
 {
     /**
-     * @description The O\&M tasks of the instance.
+     * @description Details of O\&M tasks.
      *
      * @var items[]
      */
     public $items;
 
     /**
-     * @description The number of the page to return. It must be an integer that is greater than **0** and less than or equal to the maximum value supported by the integer data type. Default value: **1**.
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeActiveOperationTaskResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The total number of entries.
+     * @description The maximum number of entries returned per page.
      *
      * @example 30
      *
@@ -35,7 +35,7 @@ class DescribeActiveOperationTaskResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The time when the O\&M task was executed. The time in UTC is displayed in the *yyyy-MM-dd*T*HH:mm:ss*Z format.
+     * @description The ID of the request.
      *
      * @example 2E1FF0CC-F42A-4B6F-A1F4-A17B1451****
      *
@@ -44,9 +44,8 @@ class DescribeActiveOperationTaskResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the region to which pending events belong. You can call the [DescribeRegions](~~61012~~) operation to query the region IDs.
+     * @description The total number of returned entries.
      *
-     * >  A value of **all** indicates all region IDs.
      * @example 1
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyGlobalSecurityIPGroupRelationResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 1E83311F-0EE4-4922-A3BF-730B312B****
      *
      * @var string

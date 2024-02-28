@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeGlobalSecurityIPGroupRelationResponseBody extends Model
 {
     /**
+     * @description The instance ID.
+     *
      * @example r-t4n885e834f6****
      *
      * @var string
@@ -17,11 +19,15 @@ class DescribeGlobalSecurityIPGroupRelationResponseBody extends Model
     public $DBClusterId;
 
     /**
+     * @description The information about the associated global IP whitelist template.
+     *
      * @var globalSecurityIPGroupRel[]
      */
     public $globalSecurityIPGroupRel;
 
     /**
+     * @description The request ID.
+     *
      * @example 9B7BFB11-C077-4FE3-B051-F69CEB******
      *
      * @var string
