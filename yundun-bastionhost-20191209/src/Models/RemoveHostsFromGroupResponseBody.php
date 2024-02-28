@@ -10,9 +10,8 @@ use AlibabaCloud\Tea\Model;
 class RemoveHostsFromGroupResponseBody extends Model
 {
     /**
-     * @description All Alibaba Cloud API operations must include common request parameters. For more information about common request parameters, see [Common parameters](~~315526~~).
+     * @description The ID of the request.
      *
-     * For more information about sample requests, see the "Examples" section of this topic.
      * @example EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
      *
      * @var string
@@ -20,7 +19,7 @@ class RemoveHostsFromGroupResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Removes one or more hosts from a host group.
+     * @description The result of the call.
      *
      * @var results[]
      */

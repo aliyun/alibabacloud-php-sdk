@@ -54,6 +54,16 @@ class users extends Model
     public $email;
 
     /**
+     * @var string
+     */
+    public $language;
+
+    /**
+     * @var string
+     */
+    public $languageStatus;
+
+    /**
      * @description The mobile number of the user.
      *
      * @example 1359999****
@@ -173,6 +183,8 @@ class users extends Model
         'effectiveEndTime'   => 'EffectiveEndTime',
         'effectiveStartTime' => 'EffectiveStartTime',
         'email'              => 'Email',
+        'language'           => 'Language',
+        'languageStatus'     => 'LanguageStatus',
         'mobile'             => 'Mobile',
         'mobileCountryCode'  => 'MobileCountryCode',
         'needResetPassword'  => 'NeedResetPassword',
@@ -206,6 +218,12 @@ class users extends Model
         }
         if (null !== $this->email) {
             $res['Email'] = $this->email;
+        }
+        if (null !== $this->language) {
+            $res['Language'] = $this->language;
+        }
+        if (null !== $this->languageStatus) {
+            $res['LanguageStatus'] = $this->languageStatus;
         }
         if (null !== $this->mobile) {
             $res['Mobile'] = $this->mobile;
@@ -263,6 +281,12 @@ class users extends Model
         }
         if (isset($map['Email'])) {
             $model->email = $map['Email'];
+        }
+        if (isset($map['Language'])) {
+            $model->language = $map['Language'];
+        }
+        if (isset($map['LanguageStatus'])) {
+            $model->languageStatus = $map['LanguageStatus'];
         }
         if (isset($map['Mobile'])) {
             $model->mobile = $map['Mobile'];

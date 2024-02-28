@@ -10,15 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListHostsForUserResponseBody extends Model
 {
     /**
-     * @description The ID of the user.
+     * @description The hosts returned.
      *
-     * >  You can call the [ListUsers](~~204522~~) operation to query the ID of the user ID.
      * @var hosts[]
      */
     public $hosts;
 
     /**
-     * @description The hosts returned.
+     * @description The request ID.
      *
      * @example EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
      *
@@ -27,7 +26,7 @@ class ListHostsForUserResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The public endpoint of the host. The value is a domain name or an IP address.
+     * @description The total number of hosts returned.
      *
      * @example 1
      *

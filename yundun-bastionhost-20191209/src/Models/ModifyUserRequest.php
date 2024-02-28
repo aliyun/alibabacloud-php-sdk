@@ -65,6 +65,16 @@ class ModifyUserRequest extends Model
     public $instanceId;
 
     /**
+     * @var string
+     */
+    public $language;
+
+    /**
+     * @var string
+     */
+    public $languageStatus;
+
+    /**
      * @description The new mobile number of the user.
      *
      * > This parameter is required when the TwoFactorStatus parameter is set to Enable and the TwoFactorMethods parameter is set to sms or dingtalk.
@@ -176,6 +186,8 @@ class ModifyUserRequest extends Model
         'effectiveStartTime' => 'EffectiveStartTime',
         'email'              => 'Email',
         'instanceId'         => 'InstanceId',
+        'language'           => 'Language',
+        'languageStatus'     => 'LanguageStatus',
         'mobile'             => 'Mobile',
         'mobileCountryCode'  => 'MobileCountryCode',
         'needResetPassword'  => 'NeedResetPassword',
@@ -210,6 +222,12 @@ class ModifyUserRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->language) {
+            $res['Language'] = $this->language;
+        }
+        if (null !== $this->languageStatus) {
+            $res['LanguageStatus'] = $this->languageStatus;
         }
         if (null !== $this->mobile) {
             $res['Mobile'] = $this->mobile;
@@ -264,6 +282,12 @@ class ModifyUserRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['Language'])) {
+            $model->language = $map['Language'];
+        }
+        if (isset($map['LanguageStatus'])) {
+            $model->languageStatus = $map['LanguageStatus'];
         }
         if (isset($map['Mobile'])) {
             $model->mobile = $map['Mobile'];

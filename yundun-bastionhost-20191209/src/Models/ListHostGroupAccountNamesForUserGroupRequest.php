@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListHostGroupAccountNamesForUserGroupRequest extends Model
 {
     /**
-     * @description WB662865
+     * @description The ID of the host group.
      *
+     * > You can call the [ListHostGroups](~~201307~~) operation to query the ID of the host group.
      * @example 1
      *
      * @var string
@@ -18,9 +19,9 @@ class ListHostGroupAccountNamesForUserGroupRequest extends Model
     public $hostGroupId;
 
     /**
-     * @description All Bastionhost API requests must include common request parameters. For more information about common request parameters, see [Common parameters](~~148139~~).
+     * @description The ID of the bastion host on which you want to query the host account names the user group is authorized to manage in a host group.
      *
-     * For more information about sample requests, see the "Examples" section of this topic.
+     * > You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -28,8 +29,9 @@ class ListHostGroupAccountNamesForUserGroupRequest extends Model
     public $instanceId;
 
     /**
-     * @description Queries the names of the host accounts that a specified user group is authorized to manage in a specified host group.
+     * @description The region ID of the bastion host on which you want to query the host account names the user group is authorized to manage in a host group.
      *
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
      * @example cn-hangzhou
      *
      * @var string
@@ -37,8 +39,9 @@ class ListHostGroupAccountNamesForUserGroupRequest extends Model
     public $regionId;
 
     /**
-     * @description ListHostGroupAccountNamesForUserGroup
+     * @description The ID of the user group.
      *
+     * > You can call the [ListUserGroups](~~204509~~) operation to query the ID of the user group.
      * @example 1
      *
      * @var string

@@ -9,11 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetHostRequest extends Model
 {
     /**
-     * @description The protocol that is used to connect to the host. Valid values:
+     * @description The ID of the host that you want to query. You can specify only one host ID.
      *
-     *   **SSH**
-     *   **RDP**
-     *
+     * >  You can call the [ListHosts](~~200665~~) operation to query the ID of the host.
      * @example 1
      *
      * @var string
@@ -21,9 +19,9 @@ class GetHostRequest extends Model
     public $hostId;
 
     /**
-     * @description The ID of the host that you want to query. You can specify only one host ID.
+     * @description The ID of the bastion host in which you want to query the host.
      *
-     * >  You can call the [ListHosts](~~200665~~) operation to query the ID of the host.
+     * >  You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -31,8 +29,9 @@ class GetHostRequest extends Model
     public $instanceId;
 
     /**
-     * @description The name of the host.
+     * @description The region ID of the bastion host in which you want to query the host.
      *
+     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
      * @example cn-hangzhou
      *
      * @var string

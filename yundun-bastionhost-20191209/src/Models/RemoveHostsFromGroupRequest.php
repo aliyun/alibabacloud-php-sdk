@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class RemoveHostsFromGroupRequest extends Model
 {
     /**
-     * @description The return code that indicates whether the call was successful. Valid values:
+     * @description The ID of the host group from which you want to remove hosts.
      *
-     *   **OK**: The call was successful.
-     *   **UNEXPECTED**: An unknown error occurred.
-     *   **INVALID_ARGUMENT**: A request parameter is invalid.
-     *   **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
-     *   **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
-     *
+     * >  You can call the [ListHostGroups](~~201307~~) operation to query the ID of the host group.
      * @example 1
      *
      * @var string
@@ -24,8 +19,9 @@ class RemoveHostsFromGroupRequest extends Model
     public $hostGroupId;
 
     /**
-     * @description The ID of the request.
+     * @description The ID of the host that you want to remove from the host group. The value is a JSON string. You can add up to 100 host IDs.
      *
+     * >  You can call the [ListHosts](~~200665~~) operation to query the IDs of hosts.
      * @example ["1","2","3"]
      *
      * @var string
@@ -33,9 +29,9 @@ class RemoveHostsFromGroupRequest extends Model
     public $hostIds;
 
     /**
-     * @description The ID of the host that you want to remove from the host group. The value is a JSON string. You can add up to 100 host IDs.
+     * @description The ID of the bastion host for which you want to remove hosts from the host group.
      *
-     * >  You can call the [ListHosts](~~200665~~) operation to query the IDs of hosts.
+     * >  You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -43,8 +39,9 @@ class RemoveHostsFromGroupRequest extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the host group.
+     * @description The region ID of the bastion host for which you want to remove hosts from the host group.
      *
+     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
      * @example cn-hangzhou
      *
      * @var string

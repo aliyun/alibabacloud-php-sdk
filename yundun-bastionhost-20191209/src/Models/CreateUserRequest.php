@@ -64,6 +64,16 @@ class CreateUserRequest extends Model
     public $instanceId;
 
     /**
+     * @var string
+     */
+    public $language;
+
+    /**
+     * @var string
+     */
+    public $languageStatus;
+
+    /**
      * @description The mobile phone number of the user that you want to add.
      *
      * @example 1359999****
@@ -194,6 +204,8 @@ class CreateUserRequest extends Model
         'effectiveStartTime' => 'EffectiveStartTime',
         'email'              => 'Email',
         'instanceId'         => 'InstanceId',
+        'language'           => 'Language',
+        'languageStatus'     => 'LanguageStatus',
         'mobile'             => 'Mobile',
         'mobileCountryCode'  => 'MobileCountryCode',
         'needResetPassword'  => 'NeedResetPassword',
@@ -230,6 +242,12 @@ class CreateUserRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->language) {
+            $res['Language'] = $this->language;
+        }
+        if (null !== $this->languageStatus) {
+            $res['LanguageStatus'] = $this->languageStatus;
         }
         if (null !== $this->mobile) {
             $res['Mobile'] = $this->mobile;
@@ -290,6 +308,12 @@ class CreateUserRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['Language'])) {
+            $model->language = $map['Language'];
+        }
+        if (isset($map['LanguageStatus'])) {
+            $model->languageStatus = $map['LanguageStatus'];
         }
         if (isset($map['Mobile'])) {
             $model->mobile = $map['Mobile'];

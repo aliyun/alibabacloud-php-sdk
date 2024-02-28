@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class protocols extends Model
 {
     /**
-     * @description WB662865
+     * @description The fingerprint of the host. This parameter uniquely identifies a host.
      *
      * @example ssh-ed25519|3e:46:5a:e1:1f:0d:39:7e:61:35:d5:fa:7b:2b:**:**
      *
@@ -18,7 +18,7 @@ class protocols extends Model
     public $hostFingerPrint;
 
     /**
-     * @description GetHost
+     * @description The service port of the host.
      *
      * @example 22
      *
@@ -27,6 +27,11 @@ class protocols extends Model
     public $port;
 
     /**
+     * @description The protocol that is used to connect to the host. Valid values:
+     *
+     *   **SSH**
+     *   **RDP**
+     *
      * @example SSH
      *
      * @var string

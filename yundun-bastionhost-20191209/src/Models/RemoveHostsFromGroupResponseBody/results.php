@@ -9,7 +9,13 @@ use AlibabaCloud\Tea\Model;
 class results extends Model
 {
     /**
-     * @description RemoveHostsFromGroup
+     * @description The return code that indicates whether the call was successful. Valid values:
+     *
+     *   **OK**: The call was successful.
+     *   **UNEXPECTED**: An unknown error occurred.
+     *   **INVALID_ARGUMENT**: A request parameter is invalid.
+     *   **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
+     *   **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
      *
      * @example OK
      *
@@ -18,7 +24,7 @@ class results extends Model
     public $code;
 
     /**
-     * @description RemoveHostsFromGroup
+     * @description The ID of the host group.
      *
      * @example 1
      *
@@ -27,6 +33,8 @@ class results extends Model
     public $hostGroupId;
 
     /**
+     * @description The ID of the host.
+     *
      * @example 1
      *
      * @var string
@@ -34,7 +42,7 @@ class results extends Model
     public $hostId;
 
     /**
-     * @description WB662865
+     * @description This parameter is deprecated.
      *
      * @var string
      */

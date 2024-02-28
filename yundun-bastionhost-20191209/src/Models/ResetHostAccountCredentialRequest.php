@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ResetHostAccountCredentialRequest extends Model
 {
     /**
-     * @description ResetHostAccountCredential
+     * @description The type of the logon credential that you want to delete. Valid values:
+     *
+     *   **Password**
+     *   **PrivateKey**
      *
      * @example Password
      *
@@ -18,8 +21,9 @@ class ResetHostAccountCredentialRequest extends Model
     public $credentialType;
 
     /**
-     * @description WB662865
+     * @description The ID of the host account for which the logon credential is to be deleted.
      *
+     * >  You can call the [ListHostAccounts](~~204372~~) operation to query the ID of the host account.
      * @example 1
      *
      * @var string
@@ -27,8 +31,9 @@ class ResetHostAccountCredentialRequest extends Model
     public $hostAccountId;
 
     /**
-     * @description Deletes the logon credential of a specified host account of a specified Bastionhost instance. The logon credential can be the password or SSH private key.
+     * @description The ID of the bastion host from which you want to delete the logon credential for the host account.
      *
+     * >  You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -36,8 +41,9 @@ class ResetHostAccountCredentialRequest extends Model
     public $instanceId;
 
     /**
-     * @description ResetHostAccountCredential
+     * @description The region ID of the bastion host from which you want to delete the logon credential for the host account.
      *
+     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
      * @example cn-hangzhou
      *
      * @var string

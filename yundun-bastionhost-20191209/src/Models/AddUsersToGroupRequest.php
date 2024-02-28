@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class AddUsersToGroupRequest extends Model
 {
     /**
-     * @description The ID of the user that you want to add to the user group. The value is a JSON string. You can add up to 100 user IDs. If you specify multiple IDs, separate the IDs with commas (,).
+     * @description The ID of the bastion host for which you want to add users to the user group.
      *
-     * >  You can call the [ListUsers](~~204522~~) operation to query the IDs of users.
+     * > You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -19,8 +19,9 @@ class AddUsersToGroupRequest extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the user.
+     * @description The region ID of the bastion host for which you want to add users to the user group.
      *
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
      * @example cn-hangzhou
      *
      * @var string
@@ -28,22 +29,9 @@ class AddUsersToGroupRequest extends Model
     public $regionId;
 
     /**
-     * @description The return code that indicates whether the call was successful. Valid values:
+     * @description The ID of the user group to which you want to add users.
      *
-     *   **OK**: The call was successful.
-     *
-     *   **UNEXPECTED**: An unknown error occurred.
-     *
-     *   **INVALID_ARGUMENT**: A request parameter is invalid.
-     *
-     * > Make sure that the request parameters are valid and call the operation again.
-     *
-     *   **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
-     *
-     * > Check whether the specified ID of the bastion host exists, whether the specified hosts exist, and whether the specified host IDs are valid. Then, call the operation again.
-     *
-     *   **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
-     *
+     * > You can call the [ListUserGroups](~~204509~~) operation to query the ID of the user group.
      * @example １
      *
      * @var string
@@ -51,8 +39,9 @@ class AddUsersToGroupRequest extends Model
     public $userGroupId;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The ID of the user that you want to add to the user group. The value is a JSON string. You can add up to 100 user IDs. If you specify multiple IDs, separate the IDs with commas (,).
      *
+     * > You can call the [ListUsers](~~204522~~) operation to query the ID of the user.
      * @example ["1","2","3"]
      *
      * @var string

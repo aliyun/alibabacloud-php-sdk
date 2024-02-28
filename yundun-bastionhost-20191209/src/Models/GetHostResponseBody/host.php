@@ -10,7 +10,10 @@ use AlibabaCloud\Tea\Model;
 class host extends Model
 {
     /**
-     * @description The public endpoint of the host. You can set this parameter to a domain name or an IP address.
+     * @description The address type of the host. Valid values:
+     *
+     *   **Public**: a public address
+     *   **Private**: a private address
      *
      * @example Public
      *
@@ -19,9 +22,8 @@ class host extends Model
     public $activeAddressType;
 
     /**
-     * @description The ID of the ECS instance or dedicated cluster host that was queried.
+     * @description The description of the host.
      *
-     * >  No value is returned for this parameter if the **Source** parameter is set to **Local**.
      * @example host
      *
      * @var string
@@ -29,7 +31,7 @@ class host extends Model
     public $comment;
 
     /**
-     * @description The ID of the request.
+     * @description The ID of the host.
      *
      * @example 1
      *
@@ -38,9 +40,8 @@ class host extends Model
     public $hostId;
 
     /**
-     * @description The ID of the Bastionhost instance where you want to query the host.
+     * @description The hostname.
      *
-     * >  You can call the [DescribeInstances](~~153281~~) operation to query the ID of the Bastionhost instance.
      * @example host
      *
      * @var string
@@ -48,7 +49,7 @@ class host extends Model
     public $hostName;
 
     /**
-     * @description The description of the host.
+     * @description The internal endpoint of the host. The value is a domain name or an IP address.
      *
      * @example 192.168.XX.XX
      *
@@ -57,11 +58,8 @@ class host extends Model
     public $hostPrivateAddress;
 
     /**
-     * @description The status of the host. Valid values:
+     * @description The public address of the host. The value is a domain name or an IP address.
      *
-     * - **Normal**: The host is normal.
-     *
-     * - **Release**: The host is released.
      * @example 1.1.XX.XX
      *
      * @var string
@@ -69,6 +67,10 @@ class host extends Model
     public $hostPublicAddress;
 
     /**
+     * @description The ID of the new network domain to which the host belongs.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $networkDomainId;
@@ -86,14 +88,18 @@ class host extends Model
     public $OSType;
 
     /**
-     * @description GetHost
+     * @description The protocol information about the host.
      *
      * @var protocols[]
      */
     public $protocols;
 
     /**
-     * @description The protocol information of the host.
+     * @description The source of the host. Valid values:
+     *
+     *   **Local**: a host in a data center
+     *   **Ecs**: an Elastic Compute Service (ECS) instance
+     *   **Rds**: a host in an ApsaraDB MyBase dedicated cluster
      *
      * @example Local
      *
@@ -102,8 +108,9 @@ class host extends Model
     public $source;
 
     /**
-     * @description Queries the details of a specified host, such as the name, source, endpoint, protocol, and service port of the host.
+     * @description The ID of the ECS instance or the host in an ApsaraDB MyBase dedicated cluster.
      *
+     * >  If **Local** is returned for the **Source** parameter, no value is returned for this parameter.
      * @example i-bp19ienyt0yax748****
      *
      * @var string
@@ -111,9 +118,11 @@ class host extends Model
     public $sourceInstanceId;
 
     /**
-     * @description All Alibaba Cloud API operations must include common request parameters. For more information about common request parameters, see [Common parameters](~~315526~~).
+     * @description The status of the host. Valid values:
      *
-     * For more information about sample requests, see the "Examples" section of this topic.
+     *   **Normal**: normal
+     *   **Release**: released
+     *
      * @example Normal
      *
      * @var string

@@ -79,6 +79,10 @@ class CreateHostRequest extends Model
     public $instanceRegionId;
 
     /**
+     * @description The ID of the network domain to which the host belongs.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $networkDomainId;

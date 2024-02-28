@@ -9,9 +9,11 @@ use AlibabaCloud\Tea\Model;
 class hosts extends Model
 {
     /**
-     * @description All Bastionhost API requests must include common request parameters. For more information about common request parameters, see [Common parameters](~~148139~~).
+     * @description The endpoint type of the host. Valid values:
      *
-     * For more information about sample requests, see the "Examples" section of this topic.
+     *   **Public**: public endpoint
+     *   **Private**: internal endpoint
+     *
      * @example Public
      *
      * @var string
@@ -19,7 +21,7 @@ class hosts extends Model
     public $activeAddressType;
 
     /**
-     * @description The ID of the request.
+     * @description The description of the host.
      *
      * @example comment
      *
@@ -28,6 +30,8 @@ class hosts extends Model
     public $comment;
 
     /**
+     * @description The ID of the host.
+     *
      * @example 1
      *
      * @var string
@@ -35,7 +39,7 @@ class hosts extends Model
     public $hostId;
 
     /**
-     * @description ListHostsForUser
+     * @description The name of the host.
      *
      * @example host01
      *
@@ -44,7 +48,7 @@ class hosts extends Model
     public $hostName;
 
     /**
-     * @description WB662865
+     * @description The internal endpoint of the host. The value is a domain name or an IP address.
      *
      * @example 192.168.XX.XX
      *
@@ -53,7 +57,7 @@ class hosts extends Model
     public $hostPrivateAddress;
 
     /**
-     * @description Queries the hosts that a specified user is authorized or not authorized to manage.
+     * @description The public endpoint of the host. The value is a domain name or an IP address.
      *
      * @example 10.158.XX.XX
      *
@@ -62,7 +66,10 @@ class hosts extends Model
     public $hostPublicAddress;
 
     /**
-     * @description ListHostsForUser
+     * @description The operating system of the host. Valid values:
+     *
+     *   **Linux**
+     *   **Windows**
      *
      * @example Linux
      *

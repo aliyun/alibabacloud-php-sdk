@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteHostAccountRequest extends Model
 {
     /**
-     * @description DeleteHostAccount
+     * @description The ID of the host account that you want to remove.
      *
+     * >  You can call the [ListHostAccounts](~~204372~~) operation to query the ID of the host account.
      * @example 1
      *
      * @var string
@@ -18,8 +19,9 @@ class DeleteHostAccountRequest extends Model
     public $hostAccountId;
 
     /**
-     * @description DeleteHostAccount
+     * @description The ID of the bastion host from which you want to remove the host account.
      *
+     * >  You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -27,8 +29,9 @@ class DeleteHostAccountRequest extends Model
     public $instanceId;
 
     /**
-     * @description WB01014029
+     * @description The region ID of the bastion host from which you want to remove the host account.
      *
+     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
      * @example cn-hangzhou
      *
      * @var string

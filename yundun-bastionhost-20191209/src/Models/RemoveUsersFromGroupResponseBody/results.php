@@ -9,7 +9,21 @@ use AlibabaCloud\Tea\Model;
 class results extends Model
 {
     /**
-     * @description RemoveUsersFromGroup
+     * @description The return code that indicates whether the call was successful. Valid values:
+     *
+     *   **OK**: The call was successful.
+     *
+     *   **UNEXPECTED**: An unknown error occurred.
+     *
+     *   **INVALID_ARGUMENT**: A request parameter is invalid.
+     *
+     * > Make sure that the request parameters are valid and call the operation again.
+     *
+     *   **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
+     *
+     * > Check whether the specified ID of the bastion host exists, whether the specified hosts exist, and whether the specified host IDs are valid. Then, call the operation again.
+     *
+     *   **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
      *
      * @example OK
      *
@@ -18,14 +32,16 @@ class results extends Model
     public $code;
 
     /**
-     * @description WB01014029
+     * @description This parameter is deprecated.
+     *
+     * @example success
      *
      * @var string
      */
     public $message;
 
     /**
-     * @description RemoveUsersFromGroup
+     * @description The ID of the group.
      *
      * @example 1
      *
@@ -34,6 +50,8 @@ class results extends Model
     public $userGroupId;
 
     /**
+     * @description The ID of the user.
+     *
      * @example 1
      *
      * @var string
