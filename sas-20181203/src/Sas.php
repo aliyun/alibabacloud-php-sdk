@@ -10583,6 +10583,9 @@ class Sas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->resourceDirectoryAccountId)) {
+            $query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
         if (!Utils::isUnset($request->value)) {
             $query['Value'] = $request->value;
         }
@@ -10626,6 +10629,9 @@ class Sas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->resourceDirectoryAccountId)) {
+            $query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
         if (!Utils::isUnset($request->uuid)) {
             $query['Uuid'] = $request->uuid;
         }
@@ -10695,6 +10701,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceDirectoryAccountId)) {
+            $query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
         }
         if (!Utils::isUnset($request->vulStatus)) {
             $query['VulStatus'] = $request->vulStatus;
@@ -10777,6 +10786,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceDirectoryAccountId)) {
+            $query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
         }
         if (!Utils::isUnset($request->statisticsType)) {
             $query['StatisticsType'] = $request->statisticsType;

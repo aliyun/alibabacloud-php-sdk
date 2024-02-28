@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeExposedInstanceCriteriaRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @description The value of the search condition. Fuzzy match is supported.
      *
      * @example id
@@ -17,7 +22,8 @@ class DescribeExposedInstanceCriteriaRequest extends Model
      */
     public $value;
     protected $_name = [
-        'value' => 'Value',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
+        'value'                      => 'Value',
     ];
 
     public function validate()
@@ -27,6 +33,9 @@ class DescribeExposedInstanceCriteriaRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
+        }
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -42,6 +51,9 @@ class DescribeExposedInstanceCriteriaRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
+        }
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

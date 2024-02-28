@@ -28,6 +28,11 @@ class DescribeExposedStatisticsDetailRequest extends Model
     public $pageSize;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @description The type of the exposed asset. Valid values:
      *
      *   **exposureType**: gateway assets
@@ -64,6 +69,7 @@ class DescribeExposedStatisticsDetailRequest extends Model
     protected $_name = [
         'currentPage'                 => 'CurrentPage',
         'pageSize'                    => 'PageSize',
+        'resourceDirectoryAccountId'  => 'ResourceDirectoryAccountId',
         'statisticsType'              => 'StatisticsType',
         'statisticsTypeGatewayType'   => 'StatisticsTypeGatewayType',
         'statisticsTypeInstanceValue' => 'StatisticsTypeInstanceValue',
@@ -81,6 +87,9 @@ class DescribeExposedStatisticsDetailRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
         if (null !== $this->statisticsType) {
             $res['StatisticsType'] = $this->statisticsType;
@@ -108,6 +117,9 @@ class DescribeExposedStatisticsDetailRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
         if (isset($map['StatisticsType'])) {
             $model->statisticsType = $map['StatisticsType'];

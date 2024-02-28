@@ -96,6 +96,11 @@ class DescribeExposedInstanceListRequest extends Model
     public $pageSize;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @description Specifies whether the server has vulnerabilities. Valid values:
      *
      *   **true**: The server has vulnerabilities.
@@ -107,16 +112,17 @@ class DescribeExposedInstanceListRequest extends Model
      */
     public $vulStatus;
     protected $_name = [
-        'currentPage'       => 'CurrentPage',
-        'exposureComponent' => 'ExposureComponent',
-        'exposureIp'        => 'ExposureIp',
-        'exposurePort'      => 'ExposurePort',
-        'groupId'           => 'GroupId',
-        'healthStatus'      => 'HealthStatus',
-        'instanceId'        => 'InstanceId',
-        'instanceName'      => 'InstanceName',
-        'pageSize'          => 'PageSize',
-        'vulStatus'         => 'VulStatus',
+        'currentPage'                => 'CurrentPage',
+        'exposureComponent'          => 'ExposureComponent',
+        'exposureIp'                 => 'ExposureIp',
+        'exposurePort'               => 'ExposurePort',
+        'groupId'                    => 'GroupId',
+        'healthStatus'               => 'HealthStatus',
+        'instanceId'                 => 'InstanceId',
+        'instanceName'               => 'InstanceName',
+        'pageSize'                   => 'PageSize',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
+        'vulStatus'                  => 'VulStatus',
     ];
 
     public function validate()
@@ -152,6 +158,9 @@ class DescribeExposedInstanceListRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
         if (null !== $this->vulStatus) {
             $res['VulStatus'] = $this->vulStatus;
@@ -194,6 +203,9 @@ class DescribeExposedInstanceListRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
         if (isset($map['VulStatus'])) {
             $model->vulStatus = $map['VulStatus'];
