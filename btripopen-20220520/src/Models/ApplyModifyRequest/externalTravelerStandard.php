@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyModifyRequest;
 
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyModifyRequest\externalTravelerStandard\hotelCitys;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyModifyRequest\externalTravelerStandard\hotelIntlCitys;
 use AlibabaCloud\Tea\Model;
 
 class externalTravelerStandard extends Model
@@ -43,6 +44,11 @@ class externalTravelerStandard extends Model
     public $hotelCitys;
 
     /**
+     * @var hotelIntlCitys[]
+     */
+    public $hotelIntlCitys;
+
+    /**
      * @description 超级经济舱折扣。1到10的整数
      *
      * @example 1
@@ -70,6 +76,7 @@ class externalTravelerStandard extends Model
         'firstDiscount'          => 'first_discount',
         'flightCabins'           => 'flight_cabins',
         'hotelCitys'             => 'hotel_citys',
+        'hotelIntlCitys'         => 'hotel_intl_citys',
         'premiumEconomyDiscount' => 'premium_economy_discount',
         'reserveType'            => 'reserve_type',
         'trainSeats'             => 'train_seats',
@@ -100,6 +107,15 @@ class externalTravelerStandard extends Model
                 $n = 0;
                 foreach ($this->hotelCitys as $item) {
                     $res['hotel_citys'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->hotelIntlCitys) {
+            $res['hotel_intl_citys'] = [];
+            if (null !== $this->hotelIntlCitys && \is_array($this->hotelIntlCitys)) {
+                $n = 0;
+                foreach ($this->hotelIntlCitys as $item) {
+                    $res['hotel_intl_citys'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -142,6 +158,15 @@ class externalTravelerStandard extends Model
                 $n                 = 0;
                 foreach ($map['hotel_citys'] as $item) {
                     $model->hotelCitys[$n++] = null !== $item ? hotelCitys::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['hotel_intl_citys'])) {
+            if (!empty($map['hotel_intl_citys'])) {
+                $model->hotelIntlCitys = [];
+                $n                     = 0;
+                foreach ($map['hotel_intl_citys'] as $item) {
+                    $model->hotelIntlCitys[$n++] = null !== $item ? hotelIntlCitys::fromMap($item) : $item;
                 }
             }
         }
