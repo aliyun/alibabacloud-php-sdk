@@ -4271,6 +4271,9 @@ class ARMS extends OpenApiClient
         if (!Utils::isUnset($request->pid)) {
             $query['Pid'] = $request->pid;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;
         }

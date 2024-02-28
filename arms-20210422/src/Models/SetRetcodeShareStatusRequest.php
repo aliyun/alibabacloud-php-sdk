@@ -14,12 +14,18 @@ class SetRetcodeShareStatusRequest extends Model
     public $pid;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var bool
      */
     public $status;
     protected $_name = [
-        'pid'    => 'Pid',
-        'status' => 'Status',
+        'pid'      => 'Pid',
+        'regionId' => 'RegionId',
+        'status'   => 'Status',
     ];
 
     public function validate()
@@ -31,6 +37,9 @@ class SetRetcodeShareStatusRequest extends Model
         $res = [];
         if (null !== $this->pid) {
             $res['Pid'] = $this->pid;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -49,6 +58,9 @@ class SetRetcodeShareStatusRequest extends Model
         $model = new self();
         if (isset($map['Pid'])) {
             $model->pid = $map['Pid'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
