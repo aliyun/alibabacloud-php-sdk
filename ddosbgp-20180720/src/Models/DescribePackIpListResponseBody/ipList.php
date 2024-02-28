@@ -27,6 +27,11 @@ class ipList extends Model
     public $memberUid;
 
     /**
+     * @var int
+     */
+    public $nsmStatus;
+
+    /**
      * @description The type of the cloud asset to which the IP address belongs. Valid values:
      *
      *   **ECS**: an ECS instance.
@@ -74,6 +79,7 @@ class ipList extends Model
     protected $_name = [
         'ip'        => 'Ip',
         'memberUid' => 'MemberUid',
+        'nsmStatus' => 'NsmStatus',
         'product'   => 'Product',
         'region'    => 'Region',
         'remark'    => 'Remark',
@@ -92,6 +98,9 @@ class ipList extends Model
         }
         if (null !== $this->memberUid) {
             $res['MemberUid'] = $this->memberUid;
+        }
+        if (null !== $this->nsmStatus) {
+            $res['NsmStatus'] = $this->nsmStatus;
         }
         if (null !== $this->product) {
             $res['Product'] = $this->product;
@@ -122,6 +131,9 @@ class ipList extends Model
         }
         if (isset($map['MemberUid'])) {
             $model->memberUid = $map['MemberUid'];
+        }
+        if (isset($map['NsmStatus'])) {
+            $model->nsmStatus = $map['NsmStatus'];
         }
         if (isset($map['Product'])) {
             $model->product = $map['Product'];

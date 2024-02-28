@@ -4,10 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeInstanceListResponseBody;
 
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeInstanceListResponseBody\instanceList\autoProtectCondition;
 use AlibabaCloud\Tea\Model;
 
 class instanceList extends Model
 {
+    /**
+     * @var autoProtectCondition
+     */
+    public $autoProtectCondition;
+
     /**
      * @description Indicates whether auto-renewal is enabled for the instance. Valid values:
      *
@@ -127,18 +133,19 @@ class instanceList extends Model
      */
     public $status;
     protected $_name = [
-        'autoRenewal'       => 'AutoRenewal',
-        'blackholdingCount' => 'BlackholdingCount',
-        'commodityType'     => 'CommodityType',
-        'coverageType'      => 'CoverageType',
-        'expireTime'        => 'ExpireTime',
-        'gmtCreate'         => 'GmtCreate',
-        'instanceId'        => 'InstanceId',
-        'instanceType'      => 'InstanceType',
-        'ipType'            => 'IpType',
-        'product'           => 'Product',
-        'remark'            => 'Remark',
-        'status'            => 'Status',
+        'autoProtectCondition' => 'AutoProtectCondition',
+        'autoRenewal'          => 'AutoRenewal',
+        'blackholdingCount'    => 'BlackholdingCount',
+        'commodityType'        => 'CommodityType',
+        'coverageType'         => 'CoverageType',
+        'expireTime'           => 'ExpireTime',
+        'gmtCreate'            => 'GmtCreate',
+        'instanceId'           => 'InstanceId',
+        'instanceType'         => 'InstanceType',
+        'ipType'               => 'IpType',
+        'product'              => 'Product',
+        'remark'               => 'Remark',
+        'status'               => 'Status',
     ];
 
     public function validate()
@@ -148,6 +155,9 @@ class instanceList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->autoProtectCondition) {
+            $res['AutoProtectCondition'] = null !== $this->autoProtectCondition ? $this->autoProtectCondition->toMap() : null;
+        }
         if (null !== $this->autoRenewal) {
             $res['AutoRenewal'] = $this->autoRenewal;
         }
@@ -196,6 +206,9 @@ class instanceList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoProtectCondition'])) {
+            $model->autoProtectCondition = autoProtectCondition::fromMap($map['AutoProtectCondition']);
+        }
         if (isset($map['AutoRenewal'])) {
             $model->autoRenewal = $map['AutoRenewal'];
         }
