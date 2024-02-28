@@ -286,6 +286,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeInstanceKeywordsRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeInstanceKeywordsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeInstanceLinkedWhitelistTemplateRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeInstanceLinkedWhitelistTemplateResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeKmsAssociateResourcesRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeKmsAssociateResourcesResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeLocalAvailableRecoveryTimeRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeLocalAvailableRecoveryTimeResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeLogBackupFilesRequest;
@@ -11539,6 +11541,79 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeInstanceLinkedWhitelistTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeKmsAssociateResourcesRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeKmsAssociateResourcesResponse
+     */
+    public function describeKmsAssociateResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->kmsResourceId)) {
+            $query['KmsResourceId'] = $request->kmsResourceId;
+        }
+        if (!Utils::isUnset($request->kmsResourceRegionId)) {
+            $query['KmsResourceRegionId'] = $request->kmsResourceRegionId;
+        }
+        if (!Utils::isUnset($request->kmsResourceType)) {
+            $query['KmsResourceType'] = $request->kmsResourceType;
+        }
+        if (!Utils::isUnset($request->kmsResourceUser)) {
+            $query['KmsResourceUser'] = $request->kmsResourceUser;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeKmsAssociateResources',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeKmsAssociateResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeKmsAssociateResourcesRequest $request
+     *
+     * @return DescribeKmsAssociateResourcesResponse
+     */
+    public function describeKmsAssociateResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeKmsAssociateResourcesWithOptions($request, $runtime);
     }
 
     /**
