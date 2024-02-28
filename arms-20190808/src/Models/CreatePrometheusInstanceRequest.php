@@ -46,6 +46,11 @@ class CreatePrometheusInstanceRequest extends Model
     public $clusterType;
 
     /**
+     * @var int
+     */
+    public $duration;
+
+    /**
      * @description The ID of the Grafana dedicated instance. This parameter is available if you set ClusterType to ecs.
      *
      * @example grafana-bp1*****
@@ -121,6 +126,7 @@ class CreatePrometheusInstanceRequest extends Model
         'clusterId'             => 'ClusterId',
         'clusterName'           => 'ClusterName',
         'clusterType'           => 'ClusterType',
+        'duration'              => 'Duration',
         'grafanaInstanceId'     => 'GrafanaInstanceId',
         'regionId'              => 'RegionId',
         'resourceGroupId'       => 'ResourceGroupId',
@@ -149,6 +155,9 @@ class CreatePrometheusInstanceRequest extends Model
         }
         if (null !== $this->clusterType) {
             $res['ClusterType'] = $this->clusterType;
+        }
+        if (null !== $this->duration) {
+            $res['Duration'] = $this->duration;
         }
         if (null !== $this->grafanaInstanceId) {
             $res['GrafanaInstanceId'] = $this->grafanaInstanceId;
@@ -203,6 +212,9 @@ class CreatePrometheusInstanceRequest extends Model
         }
         if (isset($map['ClusterType'])) {
             $model->clusterType = $map['ClusterType'];
+        }
+        if (isset($map['Duration'])) {
+            $model->duration = $map['Duration'];
         }
         if (isset($map['GrafanaInstanceId'])) {
             $model->grafanaInstanceId = $map['GrafanaInstanceId'];

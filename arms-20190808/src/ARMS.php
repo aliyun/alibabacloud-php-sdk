@@ -2867,6 +2867,9 @@ class ARMS extends OpenApiClient
         if (!Utils::isUnset($request->clusterType)) {
             $query['ClusterType'] = $request->clusterType;
         }
+        if (!Utils::isUnset($request->duration)) {
+            $query['Duration'] = $request->duration;
+        }
         if (!Utils::isUnset($request->grafanaInstanceId)) {
             $query['GrafanaInstanceId'] = $request->grafanaInstanceId;
         }

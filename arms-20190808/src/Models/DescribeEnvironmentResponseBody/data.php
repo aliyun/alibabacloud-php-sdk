@@ -64,6 +64,11 @@ class data extends Model
     public $bindVpcCidr;
 
     /**
+     * @var string
+     */
+    public $dbInstanceStatus;
+
+    /**
      * @description The ID of the environment instance.
      *
      * @example env-xxxxx
@@ -224,6 +229,7 @@ class data extends Model
         'bindResourceStoreDuration' => 'BindResourceStoreDuration',
         'bindResourceType'          => 'BindResourceType',
         'bindVpcCidr'               => 'BindVpcCidr',
+        'dbInstanceStatus'          => 'DbInstanceStatus',
         'environmentId'             => 'EnvironmentId',
         'environmentName'           => 'EnvironmentName',
         'environmentSubType'        => 'EnvironmentSubType',
@@ -267,6 +273,9 @@ class data extends Model
         }
         if (null !== $this->bindVpcCidr) {
             $res['BindVpcCidr'] = $this->bindVpcCidr;
+        }
+        if (null !== $this->dbInstanceStatus) {
+            $res['DbInstanceStatus'] = $this->dbInstanceStatus;
         }
         if (null !== $this->environmentId) {
             $res['EnvironmentId'] = $this->environmentId;
@@ -354,6 +363,9 @@ class data extends Model
         }
         if (isset($map['BindVpcCidr'])) {
             $model->bindVpcCidr = $map['BindVpcCidr'];
+        }
+        if (isset($map['DbInstanceStatus'])) {
+            $model->dbInstanceStatus = $map['DbInstanceStatus'];
         }
         if (isset($map['EnvironmentId'])) {
             $model->environmentId = $map['EnvironmentId'];

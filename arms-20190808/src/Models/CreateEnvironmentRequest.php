@@ -72,6 +72,10 @@ class CreateEnvironmentRequest extends Model
     public $managedType;
 
     /**
+     * @description the ID of prometheus instance bound to the environment. If not provided, please call the InitEnvironment interface to complete the initialization of the storage instance.
+     *
+     * @example c6e9dec475dca4a50a188411d8cbxxx
+     *
      * @var string
      */
     public $prometheusInstanceId;
