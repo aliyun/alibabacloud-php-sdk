@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class topic extends Model
 {
     /**
+     * @description The method that is used to transform events. Default value: CONSTANT.
+     *
      * @example CONSTANT
      *
      * @var string
@@ -16,11 +18,15 @@ class topic extends Model
     public $form;
 
     /**
+     * @description None
+     *
      * @var string
      */
     public $template;
 
     /**
+     * @description The name of the topic on the Message Queue for Apache RocketMQ instance.
+     *
      * @example topic
      *
      * @var string

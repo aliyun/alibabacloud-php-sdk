@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class targetType extends Model
 {
     /**
+     * @description The method that is used to transform events. Default value: CONSTANT.
+     *
      * @example CONSTANT
      *
      * @var string
@@ -16,11 +18,15 @@ class targetType extends Model
     public $form;
 
     /**
+     * @description None
+     *
      * @var string
      */
     public $template;
 
     /**
+     * @description The type of the resource to which events are delivered. Valid values: Exchange and Queue.
+     *
      * @example Queue
      *
      * @var string

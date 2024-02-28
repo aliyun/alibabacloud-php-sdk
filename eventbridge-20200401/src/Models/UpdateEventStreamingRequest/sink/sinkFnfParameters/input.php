@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class input extends Model
 {
     /**
+     * @example CONSTANT
+     *
      * @var string
      */
     public $form;
@@ -19,6 +21,8 @@ class input extends Model
     public $template;
 
     /**
+     * @example 123
+     *
      * @var string
      */
     public $value;

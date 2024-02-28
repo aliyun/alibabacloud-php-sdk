@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class logStore extends Model
 {
     /**
+     * @description The method that is used to transform events. Default value: CONSTANT.
+     *
      * @example CONSTANT
      *
      * @var string
@@ -16,11 +18,15 @@ class logStore extends Model
     public $form;
 
     /**
+     * @description None
+     *
      * @var string
      */
     public $template;
 
     /**
+     * @description The Log Service Logstore.
+     *
      * @example test-logstore
      *
      * @var string

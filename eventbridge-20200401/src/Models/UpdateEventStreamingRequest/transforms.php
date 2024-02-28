@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class transforms extends Model
 {
     /**
+     * @example acs:fc:cn-hangzhou:*****:services/demo-service.LATEST/functions/demo-func
+     *
      * @var string
      */
     public $arn;

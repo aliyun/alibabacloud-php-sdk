@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class flowName extends Model
 {
     /**
+     * @example CONSTANT
+     *
      * @var string
      */
     public $form;
@@ -19,6 +21,8 @@ class flowName extends Model
     public $template;
 
     /**
+     * @example test-streaming-fnf
+     *
      * @var string
      */
     public $value;

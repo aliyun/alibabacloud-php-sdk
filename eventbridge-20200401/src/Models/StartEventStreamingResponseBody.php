@@ -13,7 +13,7 @@ class StartEventStreamingResponseBody extends Model
      *
      * @example Success
      *
-     * @var bool
+     * @var string
      */
     public $code;
 
@@ -36,7 +36,7 @@ class StartEventStreamingResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values: true and false.
+     * @description Indicates whether the operation is successful. The value true indicates that the operation is successful.
      *
      * @example true
      *

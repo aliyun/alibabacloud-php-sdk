@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class sourceKafkaParameters extends Model
 {
     /**
-     * @description The ID of the consumer group that subscribes to the topic.
+     * @description The group ID of the consumer that subscribes to the topic.
      *
      * @example DEFAULT_GROUP
      *
@@ -27,7 +27,7 @@ class sourceKafkaParameters extends Model
     public $instanceId;
 
     /**
-     * @description The network. Default value: Default. The value PublicNetwork specifies a virtual private cloud (VPC).
+     * @description The network setting. Default value: Default. The value PublicNetwork specifies a virtual private cloud (VPC).
      *
      * @example Default
      *
@@ -54,7 +54,7 @@ class sourceKafkaParameters extends Model
     public $regionId;
 
     /**
-     * @description The ID of the security group to which the Message Queue for Apache Kafka instance belongs.
+     * @description The security group ID.
      *
      * @example sg-uf6jcm3y5hcs7hklytxh
      *
@@ -63,7 +63,7 @@ class sourceKafkaParameters extends Model
     public $securityGroupId;
 
     /**
-     * @description The name of the topic in the Message Queue for Apache Kafka instance.
+     * @description The topic name.
      *
      * @example topic_empower_1641539400786
      *
@@ -72,7 +72,7 @@ class sourceKafkaParameters extends Model
     public $topic;
 
     /**
-     * @description The ID of the vSwitch with which the Message Queue for Apache Kafka instance is associated.
+     * @description The vSwitch ID.
      *
      * @example vsw-wz9t1l1e8eu2omwjazmtm
      *
@@ -81,7 +81,12 @@ class sourceKafkaParameters extends Model
     public $vSwitchIds;
 
     /**
-     * @description The ID of the VPC to which the Message Queue for Apache Kafka instance belongs.
+     * @var string
+     */
+    public $valueDataType;
+
+    /**
+     * @description The VPC ID.
      *
      * @example vpc-2ze6p0o345nykmekxtuop
      *
@@ -97,6 +102,7 @@ class sourceKafkaParameters extends Model
         'securityGroupId' => 'SecurityGroupId',
         'topic'           => 'Topic',
         'vSwitchIds'      => 'VSwitchIds',
+        'valueDataType'   => 'ValueDataType',
         'vpcId'           => 'VpcId',
     ];
 
@@ -130,6 +136,9 @@ class sourceKafkaParameters extends Model
         }
         if (null !== $this->vSwitchIds) {
             $res['VSwitchIds'] = $this->vSwitchIds;
+        }
+        if (null !== $this->valueDataType) {
+            $res['ValueDataType'] = $this->valueDataType;
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
@@ -169,6 +178,9 @@ class sourceKafkaParameters extends Model
         }
         if (isset($map['VSwitchIds'])) {
             $model->vSwitchIds = $map['VSwitchIds'];
+        }
+        if (isset($map['ValueDataType'])) {
+            $model->valueDataType = $map['ValueDataType'];
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];

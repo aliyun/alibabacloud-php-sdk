@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class paramList extends Model
 {
     /**
+     * @description The format that is used by the event target parameter.
+     *
      * @example TEMPLATE
      *
      * @var string
@@ -16,6 +18,8 @@ class paramList extends Model
     public $form;
 
     /**
+     * @description The resource parameter of the event target.
+     *
      * @example body
      *
      * @var string
@@ -23,6 +27,8 @@ class paramList extends Model
     public $resourceKey;
 
     /**
+     * @description The template that is used by the event target parameter.
+     *
      * @example The value of ${key} is ${value}!
      *
      * @var string
@@ -30,6 +36,8 @@ class paramList extends Model
     public $template;
 
     /**
+     * @description The value of the event target parameter.
+     *
      * @example {\"key\"=\"value\"}
      *
      * @var string

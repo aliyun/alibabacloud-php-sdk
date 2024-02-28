@@ -15,31 +15,46 @@ use AlibabaCloud\Tea\Model;
 class sinkFcParameters extends Model
 {
     /**
+     * @description The message body that is delivered to Function Compute.
+     *
      * @var body
      */
     public $body;
 
     /**
+     * @description The delivery concurrency. Minimum value: 1.
+     *
      * @var concurrency
      */
     public $concurrency;
 
     /**
+     * @description The function name.
+     *
      * @var functionName
      */
     public $functionName;
 
     /**
+     * @description The invocation mode. Valid values:
+     *
+     *   Sync: the synchronous mode
+     *   Async: the asynchronous mode
+     *
      * @var invocationType
      */
     public $invocationType;
 
     /**
+     * @description The alias of the service to which the function belongs.
+     *
      * @var qualifier
      */
     public $qualifier;
 
     /**
+     * @description The service name.
+     *
      * @var serviceName
      */
     public $serviceName;

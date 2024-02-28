@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class isBase64Encode extends Model
 {
     /**
+     * @description The method that is used to transform events. Default value: CONSTANT.
+     *
      * @example CONSTANT
      *
      * @var string
@@ -16,11 +18,15 @@ class isBase64Encode extends Model
     public $form;
 
     /**
+     * @description None
+     *
      * @var string
      */
     public $template;
 
     /**
+     * @description Indicates that Base64 encoding is enabled.
+     *
      * @example true
      *
      * @var string

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The name of the event source to which the queried event type belongs.
+     * @description The event sources.
      *
      * @var eventSourceList[]
      */

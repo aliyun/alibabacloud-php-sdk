@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class sourceSLSParameters extends Model
 {
     /**
+     * @description The consumer offset. The value begin indicates the earliest offset, and the value end indicates the latest offset. You can also specify a time in seconds to start message consumption.
+     *
      * @example begin
      *
      * @var string
@@ -16,6 +18,8 @@ class sourceSLSParameters extends Model
     public $consumePosition;
 
     /**
+     * @description The ID of the consumer group that subscribes to the topic.
+     *
      * @example go-dts-shelf-group
      *
      * @var string
@@ -23,6 +27,8 @@ class sourceSLSParameters extends Model
     public $consumerGroup;
 
     /**
+     * @description The Log Service Logstore.
+     *
      * @example waf-logstore
      *
      * @var string
@@ -30,6 +36,8 @@ class sourceSLSParameters extends Model
     public $logStore;
 
     /**
+     * @description The Log Service project.
+     *
      * @example dmmzk
      *
      * @var string
@@ -37,6 +45,8 @@ class sourceSLSParameters extends Model
     public $project;
 
     /**
+     * @description The role name. If you want to authorize EventBridge to use this role to read logs in Log Service, you must select Alibaba Cloud Service for Selected Trusted Entity and EventBridge for Select Trusted Service when you create the role in the Resource Access Management (RAM) console.
+     *
      * @example testRole
      *
      * @var string

@@ -27,7 +27,7 @@ class sourceRocketMQParameters extends Model
     public $groupId;
 
     /**
-     * @description The instance endpoint.
+     * @description The endpoint that is used to access the Message Queue for Apache RocketMQ instance.
      *
      * @example registry-vpc.cn-hangzhou.aliyuncs.com
      *
@@ -45,7 +45,7 @@ class sourceRocketMQParameters extends Model
     public $instanceId;
 
     /**
-     * @description The network that is used by the Message Queue for Apache RocketMQ instance.
+     * @description The type of network over which the Message Queue for Apache RocketMQ instance is accessed.
      *
      * @example PublicNetwork
      *
@@ -54,7 +54,7 @@ class sourceRocketMQParameters extends Model
     public $instanceNetwork;
 
     /**
-     * @description The instance password.
+     * @description The password that is used to access the Message Queue for Apache RocketMQ instance.
      *
      * @example ***
      *
@@ -63,7 +63,7 @@ class sourceRocketMQParameters extends Model
     public $instancePassword;
 
     /**
-     * @description The security group ID.
+     * @description The ID of the security group to which the Message Queue for Apache RocketMQ instance belongs.
      *
      * @example eb-167adad548***
      *
@@ -81,7 +81,7 @@ class sourceRocketMQParameters extends Model
     public $instanceType;
 
     /**
-     * @description The instance username.
+     * @description The username that is used to access the Message Queue for Apache RocketMQ instance.
      *
      * @example root
      *
@@ -90,7 +90,7 @@ class sourceRocketMQParameters extends Model
     public $instanceUsername;
 
     /**
-     * @description The vSwitch ID.
+     * @description The ID of the vSwitch with which the Message Queue for Apache RocketMQ instance is associated.
      *
      * @example vsw-bp1iu***
      *
@@ -99,7 +99,7 @@ class sourceRocketMQParameters extends Model
     public $instanceVSwitchIds;
 
     /**
-     * @description The virtual private cloud (VPC) ID.
+     * @description The ID of the virtual private cloud (VPC) in which the Message Queue for Apache RocketMQ instance is deployed.
      *
      * @example vpc-***
      *
@@ -122,7 +122,7 @@ class sourceRocketMQParameters extends Model
     public $offset;
 
     /**
-     * @description The region where the Message Queue for Apache RocketMQ instance resides.
+     * @description The ID of the region where the Message Queue for Apache RocketMQ instance resides.
      *
      * @example cn-shenzhen
      *

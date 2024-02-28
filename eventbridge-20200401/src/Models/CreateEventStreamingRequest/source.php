@@ -17,28 +17,28 @@ use AlibabaCloud\Tea\Model;
 class source extends Model
 {
     /**
-     * @description The parameters that are configured if you specify the event source as Data Transmission Service (DTS).
+     * @description The parameters that are configured if you specify Data Transmission Service (DTS) as the event source.
      *
      * @var sourceDTSParameters
      */
     public $sourceDTSParameters;
 
     /**
-     * @description The parameters that are configured if you specify the event source as Message Queue for Apache Kafka.
+     * @description The parameters that are configured if you specify Message Queue for Apache Kafka as the event source.
      *
      * @var sourceKafkaParameters
      */
     public $sourceKafkaParameters;
 
     /**
-     * @description The parameters that are configured if you specify the event source as Message Service (MNS).
+     * @description The parameters that are configured if you specify Message Service (MNS) as the event source.
      *
      * @var sourceMNSParameters
      */
     public $sourceMNSParameters;
 
     /**
-     * @description The parameters that are configured if you specify the event source as Message Queue for MQTT.
+     * @description The parameters that are configured if you specify Message Queue for MQTT as the event source.
      *
      * @var sourceMQTTParameters
      */
@@ -50,21 +50,21 @@ class source extends Model
     public $sourcePrometheusParameters;
 
     /**
-     * @description The parameters that are configured if you specify the event source as Message Queue for RabbitMQ.
+     * @description The parameters that are configured if you specify Message Queue for RabbitMQ as the event source.
      *
      * @var sourceRabbitMQParameters
      */
     public $sourceRabbitMQParameters;
 
     /**
-     * @description The parameters that are configured if you specify the event source as Message Queue for Apache RocketMQ.
+     * @description The parameters that are configured if you specify Message Queue for Apache RocketMQ as the event source.
      *
      * @var sourceRocketMQParameters
      */
     public $sourceRocketMQParameters;
 
     /**
-     * @description The parameters that are configured if you specify the event source as Simple Log Service.
+     * @description The parameters that are configured if you specify Log Service as the event source.
      *
      * @var sourceSLSParameters
      */

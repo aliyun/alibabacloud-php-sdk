@@ -19,7 +19,7 @@ class data extends Model
     public $nextToken;
 
     /**
-     * @description The name of the event rule.
+     * @description The event targets.
      *
      * @var targets[]
      */

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The status of the event stream that is returned.
+     * @description The event streams.
      *
      * @var eventStreamings[]
      */

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class retryStrategy extends Model
 {
     /**
+     * @description The maximum timeout period for a retry.
+     *
      * @example 512
      *
      * @var float
@@ -16,6 +18,8 @@ class retryStrategy extends Model
     public $maximumEventAgeInSeconds;
 
     /**
+     * @description The maximum number of retries.
+     *
      * @example 2
      *
      * @var float
@@ -23,6 +27,8 @@ class retryStrategy extends Model
     public $maximumRetryAttempts;
 
     /**
+     * @description Valid values: BACKOFFRETRY and EXPONENTIALDECAY_RETRY.
+     *
      * @example EXPONENTIALDECAY_RETRY
      *
      * @var string

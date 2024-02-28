@@ -13,6 +13,8 @@ use AlibabaCloud\Tea\Model;
 class eventStreamings extends Model
 {
     /**
+     * @description The description of the event stream.
+     *
      * @example demo
      *
      * @var string
@@ -20,6 +22,8 @@ class eventStreamings extends Model
     public $description;
 
     /**
+     * @description The name of the event stream.
+     *
      * @example name
      *
      * @var string
@@ -27,26 +31,36 @@ class eventStreamings extends Model
     public $eventStreamingName;
 
     /**
+     * @description The rule that is used to filter events. If you leave this parameter empty, all events are matched.
+     *
      * @var string
      */
     public $filterPattern;
 
     /**
+     * @description The parameters that are returned for the runtime environment.
+     *
      * @var runOptions
      */
     public $runOptions;
 
     /**
+     * @description The event target.
+     *
      * @var sink
      */
     public $sink;
 
     /**
+     * @description The event provider, which is also known as the event source.
+     *
      * @var source
      */
     public $source;
 
     /**
+     * @description The status of the event stream that is returned.
+     *
      * @example RUNNING
      *
      * @var string

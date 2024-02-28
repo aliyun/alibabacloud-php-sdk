@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class sourceKafkaParameters extends Model
 {
     /**
-     * @description The ID of the consumer group that subscribes to the topic.
+     * @description The ID of the consumer group that subscribes to the topic on the Message Queue for Apache Kafka instance.
      *
      * @example test-gid
      *
@@ -36,7 +36,7 @@ class sourceKafkaParameters extends Model
     public $maximumTasks;
 
     /**
-     * @description The network. Valid values: Default and PublicNetwork. Default value: Default. The value PublicNetwork indicates a self-managed network.
+     * @description The network type. Valid values: Default and PublicNetwork. Default value: Default. The value PublicNetwork indicates a self-managed network.
      *
      * @example Default
      *
@@ -54,7 +54,7 @@ class sourceKafkaParameters extends Model
     public $offsetReset;
 
     /**
-     * @description The region ID.
+     * @description The ID of the region where the Message Queue for Apache Kafka instance resides.
      *
      * @example cn-hangzhou
      *
@@ -63,7 +63,7 @@ class sourceKafkaParameters extends Model
     public $regionId;
 
     /**
-     * @description The security group ID.
+     * @description The ID of the security group to which the Message Queue for Apache Kafka instance belongs.
      *
      * @example sg-f8zatts5g97x0j***
      *
@@ -81,7 +81,7 @@ class sourceKafkaParameters extends Model
     public $topic;
 
     /**
-     * @description The vSwitch ID.
+     * @description The ID of the vSwitch with which the Message Queue for Apache Kafka instance is associated.
      *
      * @example vsw-bp1hcrxq3mkcik***e
      *
@@ -90,7 +90,7 @@ class sourceKafkaParameters extends Model
     public $vSwitchIds;
 
     /**
-     * @description The VPC ID.
+     * @description The ID of the VPC in which the Message Queue for Apache Kafka instance is deployed.
      *
      * @example vpc-bp1kz3ohhzgrau2***
      *

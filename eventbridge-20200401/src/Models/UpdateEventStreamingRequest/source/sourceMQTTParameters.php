@@ -18,7 +18,7 @@ class sourceMQTTParameters extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the region where the Message Queue for MQTT resides.
+     * @description The ID of the region where the Message Queue for MQTT instance resides.
      *
      * @example cn-shanghai
      *
@@ -27,7 +27,7 @@ class sourceMQTTParameters extends Model
     public $regionId;
 
     /**
-     * @description The name of the topic in the Message Queue for MQTT instance.
+     * @description The topic name.
      *
      * @example topic_empower_1642400400779
      *

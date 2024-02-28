@@ -27,7 +27,7 @@ class sourceMNSParameters extends Model
     public $queueName;
 
     /**
-     * @description The region where the MNS queue resides.
+     * @description The ID of the region where the MNS queue resides.
      *
      * @example cn-hangzhou
      *

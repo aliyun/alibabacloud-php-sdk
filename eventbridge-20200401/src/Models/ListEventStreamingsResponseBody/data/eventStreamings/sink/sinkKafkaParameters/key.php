@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class key extends Model
 {
     /**
+     * @description The method that is used to transform events. Default value: CONSTANT.
+     *
      * @example CONSTANT
      *
      * @var string
@@ -16,11 +18,15 @@ class key extends Model
     public $form;
 
     /**
+     * @description None
+     *
      * @var string
      */
     public $template;
 
     /**
+     * @description The message key.
+     *
      * @example key
      *
      * @var string

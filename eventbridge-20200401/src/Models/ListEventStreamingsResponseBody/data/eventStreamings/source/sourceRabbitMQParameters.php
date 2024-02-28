@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class sourceRabbitMQParameters extends Model
 {
     /**
+     * @description The ID of the Message Queue for RabbitMQ instance.
+     *
      * @example dbaudit-cn-7mz2hqolc06
      *
      * @var string
@@ -16,6 +18,8 @@ class sourceRabbitMQParameters extends Model
     public $instanceId;
 
     /**
+     * @description The name of the queue on the Message Queue for RabbitMQ instance.
+     *
      * @example liuyang
      *
      * @var string
@@ -23,6 +27,8 @@ class sourceRabbitMQParameters extends Model
     public $queueName;
 
     /**
+     * @description The ID of the region where the Message Queue for RabbitMQ instance resides.
+     *
      * @example cn-zhangjiakou
      *
      * @var string
@@ -30,6 +36,8 @@ class sourceRabbitMQParameters extends Model
     public $regionId;
 
     /**
+     * @description The name of the vhost of the Message Queue for RabbitMQ instance.
+     *
      * @example eb-connect
      *
      * @var string

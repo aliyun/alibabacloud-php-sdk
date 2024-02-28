@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class sourceDTSParameters extends Model
 {
     /**
-     * @description The URL and port number of the data subscription channel.
+     * @description The URL and port number of the change tracking instance.
      *
      * @var string
      */
     public $brokerUrl;
 
     /**
-     * @description The consumer offset. It is the timestamp that indicates when the SDK client consumes the first data record.
+     * @description The UNIX timestamp that is generated when the SDK client consumes the first data record.
      *
      * @example 1620962769
      *
@@ -52,7 +52,7 @@ class sourceDTSParameters extends Model
     public $taskId;
 
     /**
-     * @description The topic to which you want to subscribe by using the data subscription channel.
+     * @description The name of the tracked topic of the change tracking instance.
      *
      * @example LTC_CACHE_PRD
      *

@@ -9,6 +9,7 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\si
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkFnfParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkKafkaParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkMNSParameters;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkPrometheusParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkRabbitMQParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkRocketMQParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkSLSParameters;
@@ -52,6 +53,11 @@ class sink extends Model
     public $sinkMNSParameters;
 
     /**
+     * @var sinkPrometheusParameters
+     */
+    public $sinkPrometheusParameters;
+
+    /**
      * @description The parameters that are configured if you specify the event target as Message Queue for RabbitMQ.
      *
      * @var sinkRabbitMQParameters
@@ -72,14 +78,15 @@ class sink extends Model
      */
     public $sinkSLSParameters;
     protected $_name = [
-        'sinkDataHubParameters'  => 'SinkDataHubParameters',
-        'sinkFcParameters'       => 'SinkFcParameters',
-        'sinkFnfParameters'      => 'SinkFnfParameters',
-        'sinkKafkaParameters'    => 'SinkKafkaParameters',
-        'sinkMNSParameters'      => 'SinkMNSParameters',
-        'sinkRabbitMQParameters' => 'SinkRabbitMQParameters',
-        'sinkRocketMQParameters' => 'SinkRocketMQParameters',
-        'sinkSLSParameters'      => 'SinkSLSParameters',
+        'sinkDataHubParameters'    => 'SinkDataHubParameters',
+        'sinkFcParameters'         => 'SinkFcParameters',
+        'sinkFnfParameters'        => 'SinkFnfParameters',
+        'sinkKafkaParameters'      => 'SinkKafkaParameters',
+        'sinkMNSParameters'        => 'SinkMNSParameters',
+        'sinkPrometheusParameters' => 'SinkPrometheusParameters',
+        'sinkRabbitMQParameters'   => 'SinkRabbitMQParameters',
+        'sinkRocketMQParameters'   => 'SinkRocketMQParameters',
+        'sinkSLSParameters'        => 'SinkSLSParameters',
     ];
 
     public function validate()
@@ -103,6 +110,9 @@ class sink extends Model
         }
         if (null !== $this->sinkMNSParameters) {
             $res['SinkMNSParameters'] = null !== $this->sinkMNSParameters ? $this->sinkMNSParameters->toMap() : null;
+        }
+        if (null !== $this->sinkPrometheusParameters) {
+            $res['SinkPrometheusParameters'] = null !== $this->sinkPrometheusParameters ? $this->sinkPrometheusParameters->toMap() : null;
         }
         if (null !== $this->sinkRabbitMQParameters) {
             $res['SinkRabbitMQParameters'] = null !== $this->sinkRabbitMQParameters ? $this->sinkRabbitMQParameters->toMap() : null;
@@ -139,6 +149,9 @@ class sink extends Model
         }
         if (isset($map['SinkMNSParameters'])) {
             $model->sinkMNSParameters = sinkMNSParameters::fromMap($map['SinkMNSParameters']);
+        }
+        if (isset($map['SinkPrometheusParameters'])) {
+            $model->sinkPrometheusParameters = sinkPrometheusParameters::fromMap($map['SinkPrometheusParameters']);
         }
         if (isset($map['SinkRabbitMQParameters'])) {
             $model->sinkRabbitMQParameters = sinkRabbitMQParameters::fromMap($map['SinkRabbitMQParameters']);

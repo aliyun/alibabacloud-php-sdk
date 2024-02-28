@@ -9,7 +9,12 @@ use AlibabaCloud\Tea\Model;
 class sourceMQTTParameters extends Model
 {
     /**
-     * @description The instance ID.
+     * @var string
+     */
+    public $bodyDataType;
+
+    /**
+     * @description The ID of the Message Queue for MQTT instance.
      *
      * @example r-bp1b5ncun5lqerzg4r
      *
@@ -18,7 +23,7 @@ class sourceMQTTParameters extends Model
     public $instanceId;
 
     /**
-     * @description The region ID.
+     * @description The ID of the region where the Message Queue for MQTT instance resides.
      *
      * @example cn-shenzhen
      *
@@ -27,7 +32,7 @@ class sourceMQTTParameters extends Model
     public $regionId;
 
     /**
-     * @description The topic in which messages are stored.
+     * @description The topic from which messages are sent.
      *
      * @example CANAL_VICUTU_UAT
      *
@@ -35,9 +40,10 @@ class sourceMQTTParameters extends Model
      */
     public $topic;
     protected $_name = [
-        'instanceId' => 'InstanceId',
-        'regionId'   => 'RegionId',
-        'topic'      => 'Topic',
+        'bodyDataType' => 'BodyDataType',
+        'instanceId'   => 'InstanceId',
+        'regionId'     => 'RegionId',
+        'topic'        => 'Topic',
     ];
 
     public function validate()
@@ -47,6 +53,9 @@ class sourceMQTTParameters extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bodyDataType) {
+            $res['BodyDataType'] = $this->bodyDataType;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -68,6 +77,9 @@ class sourceMQTTParameters extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BodyDataType'])) {
+            $model->bodyDataType = $map['BodyDataType'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class functionName extends Model
 {
     /**
+     * @description The method that is used to transform events. Default value: CONSTANT.
+     *
      * @example CONSTANT
      *
      * @var string
@@ -16,11 +18,15 @@ class functionName extends Model
     public $form;
 
     /**
+     * @description None
+     *
      * @var string
      */
     public $template;
 
     /**
+     * @description The function name.
+     *
      * @example mFunction
      *
      * @var string

@@ -18,7 +18,7 @@ class sourceMNSParameters extends Model
     public $isBase64Decode;
 
     /**
-     * @description The queue name.
+     * @description The name of the MNS queue.
      *
      * @example queue_api_1642474203601
      *
@@ -27,7 +27,7 @@ class sourceMNSParameters extends Model
     public $queueName;
 
     /**
-     * @description The region ID.
+     * @description The ID of the region where the MNS queue resides.
      *
      * @example cn-beijing
      *

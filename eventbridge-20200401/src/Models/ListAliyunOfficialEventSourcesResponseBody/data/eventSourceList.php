@@ -28,14 +28,14 @@ class eventSourceList extends Model
     public $ctime;
 
     /**
-     * @description The description of the queried event source.
+     * @description The description of the event source.
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description The name of the event source to which the queried event type belongs.
+     * @description The name of the event source to which the event type belongs.
      *
      * @example acs.aliyuncvc
      *
@@ -44,13 +44,15 @@ class eventSourceList extends Model
     public $eventBusName;
 
     /**
-     * @description The queried event types.
+     * @description The event types.
      *
      * @var eventTypes[]
      */
     public $eventTypes;
 
     /**
+     * @description The full name of the event source.
+     *
      * @example E-MapReduce
      *
      * @var string
@@ -58,7 +60,7 @@ class eventSourceList extends Model
     public $fullName;
 
     /**
-     * @description The name of the queried event source.
+     * @description The name of the event source.
      *
      * @example acs.aliyuncvc
      *
@@ -67,7 +69,7 @@ class eventSourceList extends Model
     public $name;
 
     /**
-     * @description The status of the queried event source. Valid value: Activated.
+     * @description The status of the event source. Valid value: Activated.
      *
      * @example Activated
      *
@@ -76,7 +78,7 @@ class eventSourceList extends Model
     public $status;
 
     /**
-     * @description The type of the queried event source.
+     * @description The type of the event source.
      *
      * @example 1
      *

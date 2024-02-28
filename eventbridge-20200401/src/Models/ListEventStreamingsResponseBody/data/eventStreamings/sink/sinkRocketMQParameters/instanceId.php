@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class instanceId extends Model
 {
     /**
+     * @description The method that is used to transform events. Default value: CONSTANT.
+     *
      * @example CONSTANT
      *
      * @var string
@@ -16,11 +18,15 @@ class instanceId extends Model
     public $form;
 
     /**
+     * @description None
+     *
      * @var string
      */
     public $template;
 
     /**
+     * @description The ID of the Message Queue for Apache RocketMQ instance.
+     *
      * @example MQ_INST_164901546557****_BAAN****
      *
      * @var string

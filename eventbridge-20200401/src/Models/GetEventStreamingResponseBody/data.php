@@ -52,7 +52,7 @@ class data extends Model
     public $sink;
 
     /**
-     * @description The event provider.
+     * @description The event provider, which is also known as the event source.
      *
      * @var source
      */

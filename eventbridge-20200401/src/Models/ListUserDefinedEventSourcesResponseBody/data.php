@@ -15,8 +15,20 @@ class data extends Model
      * @var eventSourceList[]
      */
     public $eventSourceList;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
+     * @var int
+     */
+    public $total;
     protected $_name = [
         'eventSourceList' => 'EventSourceList',
+        'nextToken'       => 'NextToken',
+        'total'           => 'Total',
     ];
 
     public function validate()
@@ -34,6 +46,12 @@ class data extends Model
                     $res['EventSourceList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -55,6 +73,12 @@ class data extends Model
                     $model->eventSourceList[$n++] = null !== $item ? eventSourceList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;

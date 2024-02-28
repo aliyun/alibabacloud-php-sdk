@@ -12,16 +12,22 @@ use AlibabaCloud\Tea\Model;
 class sinkMNSParameters extends Model
 {
     /**
+     * @description The message body.
+     *
      * @var body
      */
     public $body;
 
     /**
+     * @description Indicates whether Base64 encoding is enabled.
+     *
      * @var isBase64Encode
      */
     public $isBase64Encode;
 
     /**
+     * @description The name of the MNS queue.
+     *
      * @var queueName
      */
     public $queueName;

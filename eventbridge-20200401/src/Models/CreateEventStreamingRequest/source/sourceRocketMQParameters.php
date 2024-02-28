@@ -18,7 +18,7 @@ class sourceRocketMQParameters extends Model
     public $authType;
 
     /**
-     * @description The SQL statement that is used to filter messages.
+     * @description The SQL statement that you want to use to filter messages.
      *
      * @example index > 10
      *
@@ -27,7 +27,7 @@ class sourceRocketMQParameters extends Model
     public $filterSql;
 
     /**
-     * @description The message filter type.
+     * @description The method that you want to use to filter messages.
      *
      * @example Tag
      *
@@ -54,7 +54,7 @@ class sourceRocketMQParameters extends Model
     public $instanceEndpoint;
 
     /**
-     * @description The region where the Message Queue for Apache RocketMQ instance resides.
+     * @description The ID of the Message Queue for Apache RocketMQ instance.
      *
      * @example default_C56C360261515
      *
@@ -63,7 +63,7 @@ class sourceRocketMQParameters extends Model
     public $instanceId;
 
     /**
-     * @description The network type of the instance. Valid values:
+     * @description The network type of the Message Queue for Apache RocketMQ instance. Valid values:
      *
      *   PublicNetwork
      *   PrivateNetwork
@@ -84,7 +84,7 @@ class sourceRocketMQParameters extends Model
     public $instancePassword;
 
     /**
-     * @description The security group ID of the instance.
+     * @description The security group ID of the Message Queue for Apache RocketMQ instance.
      *
      * @example sg-m5edtu24f123456789
      *
@@ -111,7 +111,7 @@ class sourceRocketMQParameters extends Model
     public $instanceUsername;
 
     /**
-     * @description The vSwitch ID of the instance.
+     * @description The vSwitch ID of the Message Queue for Apache RocketMQ instance.
      *
      * @example vsw-m5ev8asdc6h123456789
      *
@@ -120,7 +120,7 @@ class sourceRocketMQParameters extends Model
     public $instanceVSwitchIds;
 
     /**
-     * @description The VPC ID of the instance.
+     * @description The VPC ID of the Message Queue for Apache RocketMQ instance.
      *
      * @example vpc-m5e3sv4b123456789
      *
@@ -138,11 +138,11 @@ class sourceRocketMQParameters extends Model
     public $network;
 
     /**
-     * @description The offset from which message consumption starts. Valid values:
+     * @description The offset from which messages are consumed. Valid values:
      *
-     *   CONSUME_FROM_LAST_OFFSET: Start message consumption from the latest offset.
-     *   CONSUME_FROM_FIRST_OFFSET: Start message consumption from the earliest offset.
-     *   CONSUME_FROM_TIMESTAMP: Start message consumption from the offset at the specified point in time.
+     *   CONSUME_FROM_LAST_OFFSET: Messages are consumed from the latest offset.
+     *   CONSUME_FROM_FIRST_OFFSET: Messages are consumed from the earliest offset.
+     *   CONSUME_FROM_TIMESTAMP: Messages are consumed from the offset at the specified point in time.
      *
      * Default value: CONSUME_FROM_LAST_OFFSET.
      * @example CONSUMEFROMLAST_OFFSET
@@ -152,7 +152,7 @@ class sourceRocketMQParameters extends Model
     public $offset;
 
     /**
-     * @description The region ID.
+     * @description The ID of the region where the Message Queue for Apache RocketMQ instance resides.
      *
      * @example cn-qingdao
      *
@@ -161,7 +161,7 @@ class sourceRocketMQParameters extends Model
     public $regionId;
 
     /**
-     * @description The security group of the cross-border task.
+     * @description The security group ID of the cross-border task.
      *
      * @example sg-m5edtu24f123456789
      *
@@ -170,7 +170,7 @@ class sourceRocketMQParameters extends Model
     public $securityGroupId;
 
     /**
-     * @description The tag that is used to filter messages.
+     * @description The tag that you want to use to filter messages.
      *
      * @example test
      *

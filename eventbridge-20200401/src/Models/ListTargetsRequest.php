@@ -27,7 +27,7 @@ class ListTargetsRequest extends Model
     public $eventBusName;
 
     /**
-     * @description The maximum number of entries returned per page.
+     * @description The maximum number of returned entries in a call.
      *
      * @example 10
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class sourceMNSParameters extends Model
 {
     /**
+     * @description Indicates whether Base64 encoding is enabled.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class sourceMNSParameters extends Model
     public $isBase64Decode;
 
     /**
+     * @description The name of the MNS queue.
+     *
      * @example work4
      *
      * @var string
@@ -23,6 +27,8 @@ class sourceMNSParameters extends Model
     public $queueName;
 
     /**
+     * @description The ID of the region where the MNS queue resides.
+     *
      * @example cn-zhangjiakou
      *
      * @var string

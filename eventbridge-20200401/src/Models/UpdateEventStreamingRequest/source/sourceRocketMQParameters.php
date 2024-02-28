@@ -9,12 +9,16 @@ use AlibabaCloud\Tea\Model;
 class sourceRocketMQParameters extends Model
 {
     /**
+     * @description The authentication method.
+     *
+     * @example ACL
+     *
      * @var string
      */
     public $authType;
 
     /**
-     * @description The ID of the consumer group in the Message Queue for Apache RocketMQ instance.
+     * @description The ID of the consumer group on the Message Queue for Apache RocketMQ instance.
      *
      * @example GID_test
      *
@@ -23,6 +27,10 @@ class sourceRocketMQParameters extends Model
     public $groupID;
 
     /**
+     * @description The instance endpoint.
+     *
+     * @example reg****-vpc.cn-zhangjiakou.aliyuncs.com
+     *
      * @var string
      */
     public $instanceEndpoint;
@@ -37,43 +45,77 @@ class sourceRocketMQParameters extends Model
     public $instanceId;
 
     /**
+     * @description The network type of the instance. Valid values:
+     *
+     * PublicNetwork and PrivateNetwork.
+     * @example PublicNetwork
+     *
      * @var string
      */
     public $instanceNetwork;
 
     /**
+     * @description The instance password.
+     *
+     * @example admin
+     *
      * @var string
      */
     public $instancePassword;
 
     /**
+     * @description The security group ID of the instance.
+     *
+     * @example sg-m5edtu24f12345****
+     *
      * @var string
      */
     public $instanceSecurityGroupId;
 
     /**
+     * @description The instance type.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The instance username.
+     *
+     * @example admin
+     *
      * @var string
      */
     public $instanceUsername;
 
     /**
+     * @description The vSwitch ID of the instance.
+     *
+     * @example vsw-m5ev8asdc6h12****
+     *
      * @var string
      */
     public $instanceVSwitchIds;
 
     /**
+     * @description The VPC ID of the instance.
+     *
+     * @example vpc-m5e3sv4b12345****
+     *
      * @var string
      */
     public $instanceVpcId;
 
     /**
-     * @description The consumer offset of the message. Valid values: CONSUME_FROM_LAST_OFFSET: consumes messages from the latest offset. CONSUME_FROM_FIRST_OFFSET: consumes messages from the earliest offset. CONSUME_FROM_TIMESTAMP: consumes messages from the offset at the specified point in time. Default value: CONSUME_FROM_LAST_OFFSET.
+     * @description The offset from which messages are consumed. Valid values:
      *
+     *   CONSUMEFROMLASTOFFSET: Messages are consumed from the latest offset.
+     *   CONSUMEFROMFIRSTOFFSET: Messages are consumed from the earliest offset.
+     *   CONSUMEFROMTIMESTAMP: Messages are consumed from the offset at the specified point in time.
+     *
+     * Default value: CONSUMEFROMLASTOFFSET.
      * @example CONSUMEFROMLASTOFFSET
      *
      * @var string
@@ -90,7 +132,7 @@ class sourceRocketMQParameters extends Model
     public $regionId;
 
     /**
-     * @description The tags that are used to filter messages.
+     * @description The tag that you want to use to filter messages.
      *
      * @example test
      *
@@ -99,7 +141,7 @@ class sourceRocketMQParameters extends Model
     public $tag;
 
     /**
-     * @description The timestamp that indicates the time from which messages are consumed. This parameter is valid only if you set Offset to CONSUME_FROM_TIMESTAMP.
+     * @description The timestamp that specifies the time from which messages are consumed. This parameter is valid only if you set Offset to CONSUMEFROMTIMESTAMP.
      *
      * @example 1670656652009
      *
@@ -108,7 +150,7 @@ class sourceRocketMQParameters extends Model
     public $timestamp;
 
     /**
-     * @description The name of the topic in the Message Queue for Apache RocketMQ instance.
+     * @description The topic name.
      *
      * @example TOPIC-cainiao-pcs-order-process-inBoundConditionCheck
      *

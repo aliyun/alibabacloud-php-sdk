@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
+     * @description The method that is used to transform events.
+     *
      * @example TEMPLATE
      *
      * @var string
@@ -16,6 +18,8 @@ class tags extends Model
     public $form;
 
     /**
+     * @description The template based on which events are transformed.
+     *
      * @example The value of ${key} is ${value}!
      *
      * @var string
@@ -23,6 +27,8 @@ class tags extends Model
     public $template;
 
     /**
+     * @description The value before transformation.
+     *
      * @example {
      * }
      * @var string

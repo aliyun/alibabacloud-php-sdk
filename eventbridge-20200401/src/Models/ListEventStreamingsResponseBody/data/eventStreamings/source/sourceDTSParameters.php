@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class sourceDTSParameters extends Model
 {
     /**
+     * @description The URL and port number of the change tracking instance.
+     *
      * @var string
      */
     public $brokerUrl;
 
     /**
+     * @description The consumer offset. It is the timestamp that indicates when the SDK client consumes the first data record.
+     *
      * @example 1620962769
      *
      * @var string
@@ -21,6 +25,8 @@ class sourceDTSParameters extends Model
     public $initCheckPoint;
 
     /**
+     * @description The consumer group password.
+     *
      * @example 123456
      *
      * @var string
@@ -28,6 +34,8 @@ class sourceDTSParameters extends Model
     public $password;
 
     /**
+     * @description The consumer group ID.
+     *
      * @example HG9
      *
      * @var string
@@ -35,6 +43,8 @@ class sourceDTSParameters extends Model
     public $sid;
 
     /**
+     * @description The task ID.
+     *
      * @example 1611b337285f44e2936a2c4170bbbb7f
      *
      * @var string
@@ -42,6 +52,8 @@ class sourceDTSParameters extends Model
     public $taskId;
 
     /**
+     * @description The name of the tracked topic on the change tracking instance.
+     *
      * @example TP_TEST_UNDERWRITE_ISSUE
      *
      * @var string
@@ -49,6 +61,8 @@ class sourceDTSParameters extends Model
     public $topic;
 
     /**
+     * @description The consumer group username.
+     *
      * @example admin
      *
      * @var string

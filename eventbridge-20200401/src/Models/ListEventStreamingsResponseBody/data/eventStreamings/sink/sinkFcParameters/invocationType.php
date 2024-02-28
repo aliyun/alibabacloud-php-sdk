@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class invocationType extends Model
 {
     /**
+     * @description The method that is used to transform events. Default value: CONSTANT.
+     *
      * @example CONSTANT
      *
      * @var string
@@ -16,11 +18,18 @@ class invocationType extends Model
     public $form;
 
     /**
+     * @description None
+     *
      * @var string
      */
     public $template;
 
     /**
+     * @description The invocation mode. Valid values:
+     *
+     *   Sync: the synchronous mode
+     *   Async: the asynchronous mode
+     *
      * @example Async
      *
      * @var string

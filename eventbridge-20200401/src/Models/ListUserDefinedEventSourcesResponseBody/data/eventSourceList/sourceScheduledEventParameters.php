@@ -27,6 +27,8 @@ class sourceScheduledEventParameters extends Model
     public $timeZone;
 
     /**
+     * @description The JSON string.
+     *
      * @example {"a": "b"}
      *
      * @var string

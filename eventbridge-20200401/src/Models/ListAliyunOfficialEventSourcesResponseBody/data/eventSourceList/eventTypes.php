@@ -18,7 +18,7 @@ class eventTypes extends Model
     public $eventSourceName;
 
     /**
-     * @description The name of the group to which the queried event type belongs.
+     * @description The name of the group to which the event type belongs.
      *
      * @example aliyuncvc:MeetingEvent
      *
@@ -27,7 +27,7 @@ class eventTypes extends Model
     public $groupName;
 
     /**
-     * @description The full name of the queried event type.
+     * @description The full name of the event type.
      *
      * @example aliyuncvc:MeetingEvent:MeetingStateEvent
      *
@@ -36,7 +36,7 @@ class eventTypes extends Model
     public $name;
 
     /**
-     * @description The short name of the queried event type.
+     * @description The short name of the event type.
      *
      * @example MeetingStateEvent
      *

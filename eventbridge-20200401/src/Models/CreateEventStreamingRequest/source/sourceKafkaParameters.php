@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class sourceKafkaParameters extends Model
 {
     /**
-     * @description The ID of the consumer group that subscribes to the topic.
+     * @description The group ID of the consumer that subscribes to the topic.
      *
      * @example DEFAULT_GROUP
      *
@@ -18,7 +18,7 @@ class sourceKafkaParameters extends Model
     public $consumerGroup;
 
     /**
-     * @description The instance ID.
+     * @description The ID of the Message Queue for Apache Kafka instance.
      *
      * @example r-8vb64581862cd814
      *
@@ -27,7 +27,7 @@ class sourceKafkaParameters extends Model
     public $instanceId;
 
     /**
-     * @description The network type. Default value: Default. The value PublicNetwork specifies virtual private clouds (VPCs).
+     * @description The network setting. Default value: Default. The value PublicNetwork specifies a virtual private cloud (VPC).
      *
      * @example Default
      *
@@ -45,7 +45,7 @@ class sourceKafkaParameters extends Model
     public $offsetReset;
 
     /**
-     * @description The region ID.
+     * @description The ID of the region where the Message Queue for Apache Kafka instance resides.
      *
      * @example cn-hangzhou
      *
@@ -81,6 +81,11 @@ class sourceKafkaParameters extends Model
     public $vSwitchIds;
 
     /**
+     * @var string
+     */
+    public $valueDataType;
+
+    /**
      * @description The VPC ID.
      *
      * @example vpc-8vblalsi0vbhizr77cbhu
@@ -97,6 +102,7 @@ class sourceKafkaParameters extends Model
         'securityGroupId' => 'SecurityGroupId',
         'topic'           => 'Topic',
         'vSwitchIds'      => 'VSwitchIds',
+        'valueDataType'   => 'ValueDataType',
         'vpcId'           => 'VpcId',
     ];
 
@@ -130,6 +136,9 @@ class sourceKafkaParameters extends Model
         }
         if (null !== $this->vSwitchIds) {
             $res['VSwitchIds'] = $this->vSwitchIds;
+        }
+        if (null !== $this->valueDataType) {
+            $res['ValueDataType'] = $this->valueDataType;
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
@@ -169,6 +178,9 @@ class sourceKafkaParameters extends Model
         }
         if (isset($map['VSwitchIds'])) {
             $model->vSwitchIds = $map['VSwitchIds'];
+        }
+        if (isset($map['ValueDataType'])) {
+            $model->valueDataType = $map['ValueDataType'];
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];

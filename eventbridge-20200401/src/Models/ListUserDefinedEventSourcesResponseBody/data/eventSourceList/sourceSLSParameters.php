@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class sourceSLSParameters extends Model
 {
     /**
-     * @description The consumer offset. The value begin indicates the earliest offset, and the value end indicates the latest offset. You can also specify a time in seconds to start message consumption.
+     * @description The consumer offset. The value begin indicates the earliest offset, and the value end indicates the latest offset. You can also specify a time in seconds to start consumption.
      *
      * @example end
      *

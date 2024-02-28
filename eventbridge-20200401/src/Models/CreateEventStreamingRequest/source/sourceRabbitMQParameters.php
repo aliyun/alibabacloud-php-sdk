@@ -18,7 +18,7 @@ class sourceRabbitMQParameters extends Model
     public $instanceId;
 
     /**
-     * @description The name of the queue on the Message Queue for RabbitMQ instance.
+     * @description The queue name of the Message Queue for RabbitMQ instance.
      *
      * @example demo
      *
@@ -27,7 +27,7 @@ class sourceRabbitMQParameters extends Model
     public $queueName;
 
     /**
-     * @description The region ID. You can call the [describeregions](~~62010~~) operation to query the most recent region list.
+     * @description The ID of the region where the Message Queue for RabbitMQ instance resides. You can call the [DescribeRegions](~~62010~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -36,7 +36,7 @@ class sourceRabbitMQParameters extends Model
     public $regionId;
 
     /**
-     * @description The name of the vhost of the Message Queue for RabbitMQ instance.
+     * @description The vhost name of the Message Queue for RabbitMQ instance.
      *
      * @example eb-connect
      *

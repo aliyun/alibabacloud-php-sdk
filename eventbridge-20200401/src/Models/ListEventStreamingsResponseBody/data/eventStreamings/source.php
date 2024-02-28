@@ -16,31 +16,35 @@ use AlibabaCloud\Tea\Model;
 class source extends Model
 {
     /**
+     * @description The parameters that are returned if Data Transmission Service (DTS) is specified as the event source.
+     *
      * @var sourceDTSParameters
      */
     public $sourceDTSParameters;
 
     /**
-     * @description Source Kafka Parameters
+     * @description The parameters that are returned if Message Queue for Apache Kafka is specified as the event source.
      *
      * @var sourceKafkaParameters
      */
     public $sourceKafkaParameters;
 
     /**
-     * @description Source MNS Parameters
+     * @description The parameters that are returned if Message Service (MNS) is specified as the event source.
      *
      * @var sourceMNSParameters
      */
     public $sourceMNSParameters;
 
     /**
+     * @description The parameters that are returned if Message Queue for MQTT is specified as the event source.
+     *
      * @var sourceMQTTParameters
      */
     public $sourceMQTTParameters;
 
     /**
-     * @description Source RabbitMQ Parameters
+     * @description The parameters that are returned if Message Queue for RabbitMQ is specified as the event source.
      *
      * @var sourceRabbitMQParameters
      */
@@ -54,6 +58,8 @@ class source extends Model
     public $sourceRocketMQParameters;
 
     /**
+     * @description The parameters that are returned if Log Service is specified as the event source.
+     *
      * @var sourceSLSParameters
      */
     public $sourceSLSParameters;

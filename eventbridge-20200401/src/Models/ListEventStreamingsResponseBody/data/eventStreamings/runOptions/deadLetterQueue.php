@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class deadLetterQueue extends Model
 {
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the dead-letter queue.
+     *
      * @example acs:ram::1597871211794192:role/aliyunsaedefaultrole
      *
      * @var string

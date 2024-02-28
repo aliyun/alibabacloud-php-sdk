@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class sourceDTSParameters extends Model
 {
     /**
-     * @description The URL and port number of the data subscription channel.
+     * @description The URL and port number of the change tracking instance.
      *
      * @var string
      */
     public $brokerUrl;
 
     /**
-     * @description The consumer offset. A consumer offset is a timestamp that indicates when the SDK client consumes the first data record. The value is a UNIX timestamp.
+     * @description The UNIX timestamp that is generated when the SDK client consumes the first data record.
      *
      * @example 1620962769
      *
@@ -25,7 +25,7 @@ class sourceDTSParameters extends Model
     public $initCheckPoint;
 
     /**
-     * @description The password of the consumer group.
+     * @description The consumer group password.
      *
      * @example admin
      *
@@ -34,7 +34,7 @@ class sourceDTSParameters extends Model
     public $password;
 
     /**
-     * @description The ID of the consumer group.
+     * @description The consumer group ID.
      *
      * @example hkprdb
      *
@@ -52,7 +52,7 @@ class sourceDTSParameters extends Model
     public $taskId;
 
     /**
-     * @description The topic to which you want to subscribe by using the data subscription channel.
+     * @description The name of the tracked topic of the change tracking instance.
      *
      * @example LTC_CACHE_PRD
      *
@@ -61,7 +61,7 @@ class sourceDTSParameters extends Model
     public $topic;
 
     /**
-     * @description The username of the consumer group.
+     * @description The consumer group username.
      *
      * @example admin
      *

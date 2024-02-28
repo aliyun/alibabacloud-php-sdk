@@ -16,26 +16,36 @@ use AlibabaCloud\Tea\Model;
 class sink extends Model
 {
     /**
+     * @description The parameters that are returned if Function Compute is specified as the event target.
+     *
      * @var sinkFcParameters
      */
     public $sinkFcParameters;
 
     /**
+     * @description The parameters that are returned if Serverless Workflow is specified as the event target.
+     *
      * @var sinkFnfParameters
      */
     public $sinkFnfParameters;
 
     /**
+     * @description The parameters that are returned if Message Queue for Apache Kafka is specified as the event target.
+     *
      * @var sinkKafkaParameters
      */
     public $sinkKafkaParameters;
 
     /**
+     * @description The parameters that are returned if MNS is specified as the event target.
+     *
      * @var sinkMNSParameters
      */
     public $sinkMNSParameters;
 
     /**
+     * @description The parameters that are returned if Message Queue for RabbitMQ is specified as the event target.
+     *
      * @var sinkRabbitMQParameters
      */
     public $sinkRabbitMQParameters;

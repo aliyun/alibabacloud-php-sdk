@@ -12,7 +12,9 @@ class ListTargetsResponseBody extends Model
     /**
      * @description The returned response code. Valid values:
      *
-     * Other codes: The request failed. For more information about error codes, see Error codes.
+     *   Success: The request is successful.
+     *   Other codes: The request failed. For a list of error codes, see Error codes.
+     *
      * @example Success
      *
      * @var string
@@ -47,7 +49,9 @@ class ListTargetsResponseBody extends Model
     /**
      * @description Indicates whether the request is successful. Valid values:
      *
-     * false: The request failed.
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

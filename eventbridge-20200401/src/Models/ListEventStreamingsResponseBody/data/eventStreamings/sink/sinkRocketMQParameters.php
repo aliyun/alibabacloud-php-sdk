@@ -15,31 +15,43 @@ use AlibabaCloud\Tea\Model;
 class sinkRocketMQParameters extends Model
 {
     /**
+     * @description The message body.
+     *
      * @var body
      */
     public $body;
 
     /**
+     * @description The parameters that are returned if Message Queue for Apache RocketMQ is specified as the event target.
+     *
      * @var instanceId
      */
     public $instanceId;
 
     /**
+     * @description The keys that are used to filter messages.
+     *
      * @var keys
      */
     public $keys;
 
     /**
+     * @description The attributes that are used to filter messages.
+     *
      * @var properties
      */
     public $properties;
 
     /**
+     * @description The tags that are used to filter messages.
+     *
      * @var tags
      */
     public $tags;
 
     /**
+     * @description The name of the topic on the Message Queue for Apache RocketMQ instance.
+     *
      * @var topic
      */
     public $topic;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class targets extends Model
 {
     /**
+     * @description The endpoint of the event target.
+     *
      * @example acs:fc:cn-hangzhou:123456789098****:services/guide.LATEST/functions/HelloFC
      *
      * @var string
@@ -22,6 +24,8 @@ class targets extends Model
     public $errorsTolerance;
 
     /**
+     * @description The name of the event bus.
+     *
      * @example sls-beijing-one1-tf
      *
      * @var string
@@ -29,6 +33,8 @@ class targets extends Model
     public $eventBusName;
 
     /**
+     * @description The ID of the event target.
+     *
      * @example 1453
      *
      * @var string
@@ -36,11 +42,15 @@ class targets extends Model
     public $id;
 
     /**
+     * @description The parameters that are configured for the event target.
+     *
      * @var paramList[]
      */
     public $paramList;
 
     /**
+     * @description The name of the event rule.
+     *
      * @example rule-uKAK2
      *
      * @var string
@@ -48,6 +58,8 @@ class targets extends Model
     public $ruleName;
 
     /**
+     * @description The type of the event target. For more information, see [Event target parameters](~~183698~~).
+     *
      * @example acs.fc.function
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class sourceKafkaParameters extends Model
 {
     /**
+     * @description The ID of the consumer group that subscribes to the topic.
+     *
      * @example GID_TEST
      *
      * @var string
@@ -16,6 +18,8 @@ class sourceKafkaParameters extends Model
     public $consumerGroup;
 
     /**
+     * @description The ID of the Message Queue for Apache Kafka instance.
+     *
      * @example bastionhost-cn-i7m2gwt7z1n
      *
      * @var string
@@ -23,6 +27,8 @@ class sourceKafkaParameters extends Model
     public $instanceId;
 
     /**
+     * @description The network type. Valid values: Default and PublicNetwork. Default value: Default. The value PublicNetwork indicates a VPC.
+     *
      * @example Default
      *
      * @var string
@@ -30,6 +36,8 @@ class sourceKafkaParameters extends Model
     public $network;
 
     /**
+     * @description The offset.
+     *
      * @example latest
      *
      * @var string
@@ -37,6 +45,8 @@ class sourceKafkaParameters extends Model
     public $offsetReset;
 
     /**
+     * @description The ID of the region where the Message Queue for Apache Kafka instance resides.
+     *
      * @example cn-chengdu
      *
      * @var string
@@ -44,6 +54,8 @@ class sourceKafkaParameters extends Model
     public $regionId;
 
     /**
+     * @description The security group ID.
+     *
      * @example sg-5ud5f3p0rqqis69tpp8eho7cp
      *
      * @var string
@@ -51,6 +63,8 @@ class sourceKafkaParameters extends Model
     public $securityGroupId;
 
     /**
+     * @description The name of the topic on the Message Queue for Apache Kafka instance.
+     *
      * @example topic_empower_1642473600414
      *
      * @var string
@@ -58,6 +72,8 @@ class sourceKafkaParameters extends Model
     public $topic;
 
     /**
+     * @description The vSwitch ID.
+     *
      * @example vsw-bp1rmi8rind7eo50cbied
      *
      * @var string
@@ -65,6 +81,8 @@ class sourceKafkaParameters extends Model
     public $vSwitchIds;
 
     /**
+     * @description The VPC ID.
+     *
      * @example vpc-wz9ki1qdlx3cx5cbbhowf
      *
      * @var string

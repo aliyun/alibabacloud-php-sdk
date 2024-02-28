@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class roleName extends Model
 {
     /**
+     * @example CONSTANT
+     *
      * @var string
      */
     public $form;
@@ -19,6 +21,8 @@ class roleName extends Model
     public $template;
 
     /**
+     * @example Al****FNF-x****
+     *
      * @var string
      */
     public $value;
