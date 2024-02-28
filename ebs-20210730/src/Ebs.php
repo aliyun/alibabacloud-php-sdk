@@ -31,6 +31,8 @@ use AlibabaCloud\SDK\Ebs\V20210730\Models\DeleteDiskReplicaGroupRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DeleteDiskReplicaGroupResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DeleteDiskReplicaPairRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DeleteDiskReplicaPairResponse;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\DeleteDiskRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\DeleteDiskResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DeleteEnterpriseSnapshotPolicyRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DeleteEnterpriseSnapshotPolicyResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDedicatedBlockStorageClusterDisksRequest;
@@ -62,6 +64,8 @@ use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeReplicaGroupDrillsRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeReplicaGroupDrillsResponse;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeSolutionInstanceConfigurationRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeSolutionInstanceConfigurationResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\FailoverDiskReplicaGroupRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\FailoverDiskReplicaGroupResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\FailoverDiskReplicaPairRequest;
@@ -860,6 +864,56 @@ class Ebs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createEnterpriseSnapshotPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Currently, this API is only available for use with ACS resource hosting and is not yet open for direct invocation.
+     *   *
+     * @param DeleteDiskRequest $request DeleteDiskRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteDiskResponse DeleteDiskResponse
+     */
+    public function deleteDiskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->diskId)) {
+            $query['DiskId'] = $request->diskId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDisk',
+            'version'     => '2021-07-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDiskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Currently, this API is only available for use with ACS resource hosting and is not yet open for direct invocation.
+     *   *
+     * @param DeleteDiskRequest $request DeleteDiskRequest
+     *
+     * @return DeleteDiskResponse DeleteDiskResponse
+     */
+    public function deleteDisk($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDiskWithOptions($request, $runtime);
     }
 
     /**
@@ -1999,6 +2053,58 @@ class Ebs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeReplicaGroupDrillsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeSolutionInstanceConfigurationRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return DescribeSolutionInstanceConfigurationResponse
+     */
+    public function describeSolutionInstanceConfigurationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->parameters)) {
+            $query['Parameters'] = $request->parameters;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->solutionId)) {
+            $query['SolutionId'] = $request->solutionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSolutionInstanceConfiguration',
+            'version'     => '2021-07-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSolutionInstanceConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSolutionInstanceConfigurationRequest $request
+     *
+     * @return DescribeSolutionInstanceConfigurationResponse
+     */
+    public function describeSolutionInstanceConfiguration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSolutionInstanceConfigurationWithOptions($request, $runtime);
     }
 
     /**
