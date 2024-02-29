@@ -40,6 +40,11 @@ class data extends Model
     public $name;
 
     /**
+     * @var int
+     */
+    public $sortOrder;
+
+    /**
      * @var string
      */
     public $type;
@@ -50,6 +55,7 @@ class data extends Model
         'files'      => 'Files',
         'id'         => 'Id',
         'name'       => 'Name',
+        'sortOrder'  => 'SortOrder',
         'type'       => 'Type',
     ];
 
@@ -83,6 +89,9 @@ class data extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->sortOrder) {
+            $res['SortOrder'] = $this->sortOrder;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -122,6 +131,9 @@ class data extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['SortOrder'])) {
+            $model->sortOrder = $map['SortOrder'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
