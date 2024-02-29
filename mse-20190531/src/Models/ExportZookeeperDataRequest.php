@@ -21,7 +21,7 @@ class ExportZookeeperDataRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The type of the object that you want to export. Valid values:
+     * @description The type of the object that is exported. Valid values:
      *
      *   transactionLog: transaction logs
      *   snapshot: snapshots
@@ -33,7 +33,7 @@ class ExportZookeeperDataRequest extends Model
     public $exportType;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example mse-cn-78v1l83****
      *

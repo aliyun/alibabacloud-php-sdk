@@ -59,6 +59,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\CreateEngineNamespaceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateEngineNamespaceResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateFlowRuleRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateFlowRuleResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\CreateIsolationRuleRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\CreateIsolationRuleResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateMseServiceApplicationRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateMseServiceApplicationResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateNacosConfigRequest;
@@ -102,6 +104,9 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewayServiceVersionRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewayServiceVersionResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewaySlbRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewaySlbResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteIsolationRulesRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteIsolationRulesResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteIsolationRulesShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteMigrationTaskRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteMigrationTaskResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteNacosConfigRequest;
@@ -257,6 +262,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewaySlbRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewaySlbResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListInstanceCountRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListInstanceCountResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListIsolationRulesRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListIsolationRulesResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListListenersByConfigRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListListenersByConfigResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListListenersByIpRequest;
@@ -411,6 +418,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewaySpecRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewaySpecResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateImageRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateImageResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateIsolationRuleRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateIsolationRuleResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateMessageQueueRouteRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateMessageQueueRouteResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateMessageQueueRouteShrinkRequest;
@@ -2210,6 +2219,70 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * @param CreateIsolationRuleRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateIsolationRuleResponse
+     */
+    public function createIsolationRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->enable)) {
+            $query['Enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resource)) {
+            $query['Resource'] = $request->resource;
+        }
+        if (!Utils::isUnset($request->threshold)) {
+            $query['Threshold'] = $request->threshold;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateIsolationRule',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateIsolationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateIsolationRuleRequest $request
+     *
+     * @return CreateIsolationRuleResponse
+     */
+    public function createIsolationRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createIsolationRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * @deprecated : CreateMseServiceApplication is deprecated, please use mse::2019-05-31::CreateApplication instead.
      *   *
      * Deprecated
@@ -3388,6 +3461,63 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteGatewaySlbWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteIsolationRulesRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteIsolationRulesResponse
+     */
+    public function deleteIsolationRulesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DeleteIsolationRulesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->ids)) {
+            $request->idsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ids, 'Ids', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->idsShrink)) {
+            $query['Ids'] = $request->idsShrink;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteIsolationRules',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteIsolationRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteIsolationRulesRequest $request
+     *
+     * @return DeleteIsolationRulesResponse
+     */
+    public function deleteIsolationRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteIsolationRulesWithOptions($request, $runtime);
     }
 
     /**
@@ -7620,6 +7750,70 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * @param ListIsolationRulesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListIsolationRulesResponse
+     */
+    public function listIsolationRulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->pageIndex)) {
+            $query['PageIndex'] = $request->pageIndex;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resource)) {
+            $query['Resource'] = $request->resource;
+        }
+        if (!Utils::isUnset($request->resourceSearchKey)) {
+            $query['ResourceSearchKey'] = $request->resourceSearchKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListIsolationRules',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListIsolationRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListIsolationRulesRequest $request
+     *
+     * @return ListIsolationRulesResponse
+     */
+    public function listIsolationRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listIsolationRulesWithOptions($request, $runtime);
+    }
+
+    /**
      * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
      *   *
      * @param ListListenersByConfigRequest $request ListListenersByConfigRequest
@@ -11754,6 +11948,67 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateImageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateIsolationRuleRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateIsolationRuleResponse
+     */
+    public function updateIsolationRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->enable)) {
+            $query['Enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->threshold)) {
+            $query['Threshold'] = $request->threshold;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateIsolationRule',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateIsolationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateIsolationRuleRequest $request
+     *
+     * @return UpdateIsolationRuleResponse
+     */
+    public function updateIsolationRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateIsolationRuleWithOptions($request, $runtime);
     }
 
     /**
