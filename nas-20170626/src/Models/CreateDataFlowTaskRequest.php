@@ -19,6 +19,13 @@ class CreateDataFlowTaskRequest extends Model
     public $clientToken;
 
     /**
+     * @example SKIP_THE_FILE
+     *
+     * @var string
+     */
+    public $conflictPolicy;
+
+    /**
      * @description The dataflow ID.
      *
      * @example dfid-123456
@@ -122,15 +129,16 @@ class CreateDataFlowTaskRequest extends Model
      */
     public $taskAction;
     protected $_name = [
-        'clientToken'  => 'ClientToken',
-        'dataFlowId'   => 'DataFlowId',
-        'dataType'     => 'DataType',
-        'directory'    => 'Directory',
-        'dryRun'       => 'DryRun',
-        'entryList'    => 'EntryList',
-        'fileSystemId' => 'FileSystemId',
-        'srcTaskId'    => 'SrcTaskId',
-        'taskAction'   => 'TaskAction',
+        'clientToken'    => 'ClientToken',
+        'conflictPolicy' => 'ConflictPolicy',
+        'dataFlowId'     => 'DataFlowId',
+        'dataType'       => 'DataType',
+        'directory'      => 'Directory',
+        'dryRun'         => 'DryRun',
+        'entryList'      => 'EntryList',
+        'fileSystemId'   => 'FileSystemId',
+        'srcTaskId'      => 'SrcTaskId',
+        'taskAction'     => 'TaskAction',
     ];
 
     public function validate()
@@ -142,6 +150,9 @@ class CreateDataFlowTaskRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->conflictPolicy) {
+            $res['ConflictPolicy'] = $this->conflictPolicy;
         }
         if (null !== $this->dataFlowId) {
             $res['DataFlowId'] = $this->dataFlowId;
@@ -181,6 +192,9 @@ class CreateDataFlowTaskRequest extends Model
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['ConflictPolicy'])) {
+            $model->conflictPolicy = $map['ConflictPolicy'];
         }
         if (isset($map['DataFlowId'])) {
             $model->dataFlowId = $map['DataFlowId'];

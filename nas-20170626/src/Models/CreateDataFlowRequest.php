@@ -87,6 +87,13 @@ class CreateDataFlowRequest extends Model
     public $fileSystemId;
 
     /**
+     * @example /path/
+     *
+     * @var string
+     */
+    public $fileSystemPath;
+
+    /**
      * @description The fileset ID.
      *
      * @example fset-1902718ea0ae****
@@ -129,6 +136,13 @@ class CreateDataFlowRequest extends Model
     public $sourceStorage;
 
     /**
+     * @example /prefix/
+     *
+     * @var string
+     */
+    public $sourceStoragePath;
+
+    /**
      * @description The maximum dataflow throughput. Unit: MB/s. Valid values:
      *
      *   600
@@ -149,9 +163,11 @@ class CreateDataFlowRequest extends Model
         'description'         => 'Description',
         'dryRun'              => 'DryRun',
         'fileSystemId'        => 'FileSystemId',
+        'fileSystemPath'      => 'FileSystemPath',
         'fsetId'              => 'FsetId',
         'sourceSecurityType'  => 'SourceSecurityType',
         'sourceStorage'       => 'SourceStorage',
+        'sourceStoragePath'   => 'SourceStoragePath',
         'throughput'          => 'Throughput',
     ];
 
@@ -189,6 +205,9 @@ class CreateDataFlowRequest extends Model
         if (null !== $this->fileSystemId) {
             $res['FileSystemId'] = $this->fileSystemId;
         }
+        if (null !== $this->fileSystemPath) {
+            $res['FileSystemPath'] = $this->fileSystemPath;
+        }
         if (null !== $this->fsetId) {
             $res['FsetId'] = $this->fsetId;
         }
@@ -197,6 +216,9 @@ class CreateDataFlowRequest extends Model
         }
         if (null !== $this->sourceStorage) {
             $res['SourceStorage'] = $this->sourceStorage;
+        }
+        if (null !== $this->sourceStoragePath) {
+            $res['SourceStoragePath'] = $this->sourceStoragePath;
         }
         if (null !== $this->throughput) {
             $res['Throughput'] = $this->throughput;
@@ -240,6 +262,9 @@ class CreateDataFlowRequest extends Model
         if (isset($map['FileSystemId'])) {
             $model->fileSystemId = $map['FileSystemId'];
         }
+        if (isset($map['FileSystemPath'])) {
+            $model->fileSystemPath = $map['FileSystemPath'];
+        }
         if (isset($map['FsetId'])) {
             $model->fsetId = $map['FsetId'];
         }
@@ -248,6 +273,9 @@ class CreateDataFlowRequest extends Model
         }
         if (isset($map['SourceStorage'])) {
             $model->sourceStorage = $map['SourceStorage'];
+        }
+        if (isset($map['SourceStoragePath'])) {
+            $model->sourceStoragePath = $map['SourceStoragePath'];
         }
         if (isset($map['Throughput'])) {
             $model->throughput = $map['Throughput'];

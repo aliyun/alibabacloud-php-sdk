@@ -156,6 +156,13 @@ class dataFlow extends Model
     public $sourceStorage;
 
     /**
+     * @description 源端存储内的访问路径。
+     *
+     * @var string
+     */
+    public $sourceStoragePath;
+
+    /**
      * @description The dataflow status. Valid values:
      *
      *   Starting: The dataflow is being created or enabled.
@@ -209,6 +216,7 @@ class dataFlow extends Model
         'fsetId'              => 'FsetId',
         'sourceSecurityType'  => 'SourceSecurityType',
         'sourceStorage'       => 'SourceStorage',
+        'sourceStoragePath'   => 'SourceStoragePath',
         'status'              => 'Status',
         'throughput'          => 'Throughput',
         'updateTime'          => 'UpdateTime',
@@ -259,6 +267,9 @@ class dataFlow extends Model
         }
         if (null !== $this->sourceStorage) {
             $res['SourceStorage'] = $this->sourceStorage;
+        }
+        if (null !== $this->sourceStoragePath) {
+            $res['SourceStoragePath'] = $this->sourceStoragePath;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -319,6 +330,9 @@ class dataFlow extends Model
         }
         if (isset($map['SourceStorage'])) {
             $model->sourceStorage = $map['SourceStorage'];
+        }
+        if (isset($map['SourceStoragePath'])) {
+            $model->sourceStoragePath = $map['SourceStoragePath'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

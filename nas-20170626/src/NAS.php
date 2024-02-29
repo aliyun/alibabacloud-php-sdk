@@ -1161,6 +1161,9 @@ class NAS extends OpenApiClient
         if (!Utils::isUnset($request->fileSystemId)) {
             $query['FileSystemId'] = $request->fileSystemId;
         }
+        if (!Utils::isUnset($request->fileSystemPath)) {
+            $query['FileSystemPath'] = $request->fileSystemPath;
+        }
         if (!Utils::isUnset($request->fsetId)) {
             $query['FsetId'] = $request->fsetId;
         }
@@ -1169,6 +1172,9 @@ class NAS extends OpenApiClient
         }
         if (!Utils::isUnset($request->sourceStorage)) {
             $query['SourceStorage'] = $request->sourceStorage;
+        }
+        if (!Utils::isUnset($request->sourceStoragePath)) {
+            $query['SourceStoragePath'] = $request->sourceStoragePath;
         }
         if (!Utils::isUnset($request->throughput)) {
             $query['Throughput'] = $request->throughput;
@@ -1257,6 +1263,9 @@ class NAS extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->conflictPolicy)) {
+            $query['ConflictPolicy'] = $request->conflictPolicy;
         }
         if (!Utils::isUnset($request->dataFlowId)) {
             $query['DataFlowId'] = $request->dataFlowId;

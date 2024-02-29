@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class task extends Model
 {
     /**
+     * @example KEEP_LATEST
+     *
+     * @var string
+     */
+    public $conflictPolicy;
+
+    /**
      * @description The time when the task was created.
      *
      * @example 2021-08-04 18:27:35
@@ -36,6 +43,11 @@ class task extends Model
      * @var string
      */
     public $dataType;
+
+    /**
+     * @var string
+     */
+    public $directory;
 
     /**
      * @description The time when the task ended.
@@ -167,9 +179,11 @@ class task extends Model
      */
     public $taskId;
     protected $_name = [
+        'conflictPolicy' => 'ConflictPolicy',
         'createTime'     => 'CreateTime',
         'dataFlowId'     => 'DataFlowId',
         'dataType'       => 'DataType',
+        'directory'      => 'Directory',
         'endTime'        => 'EndTime',
         'fileSystemPath' => 'FileSystemPath',
         'filesystemId'   => 'FilesystemId',
@@ -191,6 +205,9 @@ class task extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->conflictPolicy) {
+            $res['ConflictPolicy'] = $this->conflictPolicy;
+        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
@@ -199,6 +216,9 @@ class task extends Model
         }
         if (null !== $this->dataType) {
             $res['DataType'] = $this->dataType;
+        }
+        if (null !== $this->directory) {
+            $res['Directory'] = $this->directory;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -248,6 +268,9 @@ class task extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ConflictPolicy'])) {
+            $model->conflictPolicy = $map['ConflictPolicy'];
+        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
@@ -256,6 +279,9 @@ class task extends Model
         }
         if (isset($map['DataType'])) {
             $model->dataType = $map['DataType'];
+        }
+        if (isset($map['Directory'])) {
+            $model->directory = $map['Directory'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
