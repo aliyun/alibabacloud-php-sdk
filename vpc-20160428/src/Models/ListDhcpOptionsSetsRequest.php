@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListDhcpOptionsSetsRequest extends Model
 {
     /**
+     * @description The ID of the DHCP options set. You can specify at most 20 IDs.
+     *
      * @example dopt-o6w0df4epg9zo8isy****
      *
      * @var string[]
@@ -19,7 +21,11 @@ class ListDhcpOptionsSetsRequest extends Model
     /**
      * @description The name of the DHCP options set.
      *
-     * The name must be 2 to 128 characters in length and can contain letters, digits, underscores (\_), and hyphens (-). It must start with a letter.
+     * Valid values:
+     *
+     *   tf-testAccVpcDhcpOptionsSets-1585169790614573448
+     *
+     * .
      * @example test
      *
      * @var string
@@ -29,7 +35,7 @@ class ListDhcpOptionsSetsRequest extends Model
     /**
      * @description The root domain. For example, you can set the value to example.com.
      *
-     * After a DHCP options set is associated with a virtual private cloud (VPC), the root domain in the DHCP options set is automatically synchronized with the Elastic Compute Service (ECS) instances in the VPC.
+     * After a DHCP options set is associated with a virtual private cloud (VPC), the root domain in the DHCP options set is automatically synchronized with the ECS instances in the VPC.
      * @example example.com
      *
      * @var string
@@ -37,7 +43,7 @@ class ListDhcpOptionsSetsRequest extends Model
     public $domainName;
 
     /**
-     * @description The number of entries to return on each page. Valid values: **1** to **100**. Default value: **10**.
+     * @description The number of entries per page. Valid values: **1** to **100**. Default value: **10**.
      *
      * @example 10
      *
@@ -46,10 +52,10 @@ class ListDhcpOptionsSetsRequest extends Model
     public $maxResults;
 
     /**
-     * @description The token that is used for the next query. Valid values:
+     * @description The pagination token that is used in the next request to retrieve a new page of results. Valid values:
      *
-     *   If this is your first query or no next queries are to be sent, ignore this parameter.
-     *   If a subsequent query is to be sent, set the value to the value of **NextToken** that is returned from the last call.
+     *   You do not need to specify this parameter for the first request.
+     *   You must specify the token that is obtained from the previous query as the value of the **NextToken** parameter.
      *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
@@ -78,6 +84,8 @@ class ListDhcpOptionsSetsRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the DHCP options set belongs.
+     *
      * @example rg-acfmxazb4ph****
      *
      * @var string
@@ -95,6 +103,8 @@ class ListDhcpOptionsSetsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The tag list.
+     *
      * @var tags[]
      */
     public $tags;

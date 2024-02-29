@@ -63,6 +63,8 @@ class dhcpOptionsSets extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the resource group to which the DHCP options set belongs.
+     *
      * @example rg-acfmxazb4ph****
      *
      * @var string
@@ -72,10 +74,10 @@ class dhcpOptionsSets extends Model
     /**
      * @description The status of the DHCP options set. Valid values:
      *
-     *   **Available**: available
-     *   **InUse**: in use
-     *   **Pending**: being configured
-     *   **Deleted**: deleted
+     *   **Available**
+     *   **InUse**
+     *   **Pending**
+     *   **Deleted**
      *
      * @example Available
      *
@@ -84,6 +86,8 @@ class dhcpOptionsSets extends Model
     public $status;
 
     /**
+     * @description The tag list.
+     *
      * @var tags[]
      */
     public $tags;

@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeHaVipsRequest extends Model
 {
     /**
+     * @description The details of the filter condition.
+     *
      * @var filter[]
      */
     public $filter;
@@ -26,7 +28,7 @@ class DescribeHaVipsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The page number. Default value: **1**.
      *
      * @example 1
      *
@@ -35,7 +37,7 @@ class DescribeHaVipsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+     * @description The number of entries per page. Maximum value: **50**. Default value: **10**.
      *
      * @example 10
      *
@@ -44,7 +46,7 @@ class DescribeHaVipsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the region to which the HAVIP belongs.
+     * @description The region ID of the HAVIP.
      *
      * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
@@ -73,6 +75,8 @@ class DescribeHaVipsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The tag list.
+     *
      * @var tags[]
      */
     public $tags;

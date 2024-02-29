@@ -9,9 +9,7 @@ use AlibabaCloud\Tea\Model;
 class filter extends Model
 {
     /**
-     * @description The filter keys. You can specify at most five filter keys. Valid values of **N**: **1 to 5**.
-     *
-     * The following filter keys are supported:
+     * @description The filter keys. You can specify at most five filter keys. Valid values of **N**: **1 to 5**. The following filter keys are supported:
      *
      *   **VpcId**: virtual private cloud (VPC) ID
      *   **VSwitchId**: vSwitch ID
@@ -27,6 +25,8 @@ class filter extends Model
     public $key;
 
     /**
+     * @description The value of the filter key. Valid values of **N**: **1 to 5**.
+     *
      * @example havip-bp19o63nequs01i8d****
      *
      * @var string[]

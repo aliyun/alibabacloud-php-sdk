@@ -76,6 +76,8 @@ class CreateVpcPrefixListRequest extends Model
     public $prefixListDescription;
 
     /**
+     * @description The CIDR block information specified in the prefix list.
+     *
      * @var prefixListEntries[]
      */
     public $prefixListEntries;
@@ -120,6 +122,8 @@ class CreateVpcPrefixListRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The tag list.
+     *
      * @var tag[]
      */
     public $tag;

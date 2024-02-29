@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ReleaseIpv6AddressResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example C44F62BE-9CE7-4277-B117-69243F3988BF
      *
      * @var string

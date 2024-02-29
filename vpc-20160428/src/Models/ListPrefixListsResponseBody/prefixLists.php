@@ -97,6 +97,10 @@ class prefixLists extends Model
     public $prefixListStatus;
 
     /**
+     * @description The type of the prefix list.
+     *
+     * @example Custom
+     *
      * @var string
      */
     public $prefixListType;

@@ -21,8 +21,8 @@ class trafficMirrorSessions extends Model
     /**
      * @description Indicates whether the traffic mirror session was enabled.
      *
-     *   **false**: the traffic mirror session was disabled. This is the default value.
-     *   **true**: the traffic mirror session was enabled.
+     *   **false**
+     *   **true**
      *
      * @example false
      *
@@ -31,7 +31,7 @@ class trafficMirrorSessions extends Model
     public $enabled;
 
     /**
-     * @description The maximum transmission unit (MTU).
+     * @description The maximum transmission unit.
      *
      * @example 1500
      *
@@ -50,7 +50,7 @@ class trafficMirrorSessions extends Model
     public $priority;
 
     /**
-     * @description The ID of the resource group to which the mirrored traffic belongs.
+     * @description The ID of the resource group to which the traffic mirror session belongs.
      *
      * @example rg-bp67acfmxazb4ph****
      *
@@ -59,14 +59,14 @@ class trafficMirrorSessions extends Model
     public $resourceGroupId;
 
     /**
-     * @description The list of tags.
+     * @description The tag list.
      *
      * @var tags[]
      */
     public $tags;
 
     /**
-     * @description The ID of the traffic mirror filter.
+     * @description The ID of the filter.
      *
      * @example tmf-j6cmls82xnc86vtpe****
      *
@@ -77,8 +77,8 @@ class trafficMirrorSessions extends Model
     /**
      * @description The status of the traffic mirror session.
      *
-     *   **Normal**: active
-     *   **FinancialLocked**: locked due to overdue payments
+     *   **Normal**
+     *   **FinancialLocked**
      *
      * @example Normal
      *
@@ -128,14 +128,14 @@ class trafficMirrorSessions extends Model
     public $trafficMirrorSessionStatus;
 
     /**
-     * @description The ID of the mirror source.
+     * @description The ID of the traffic mirror source.
      *
      * @var string[]
      */
     public $trafficMirrorSourceIds;
 
     /**
-     * @description The ID of the mirror destination.
+     * @description The ID of the traffic mirror destination.
      *
      * @example eni-j6c2fp57q8rr47rp****
      *
@@ -146,8 +146,8 @@ class trafficMirrorSessions extends Model
     /**
      * @description The type of the traffic mirror destination. Valid values:
      *
-     *   **NetworkInterface**: an ENI
-     *   **SLB**: an internal-facing SLB instance
+     *   **NetworkInterface**: an elastic network interface (ENI)
+     *   **SLB**: an internal-facing Server Load Balancer (SLB) instance
      *
      * @example NetworkInterface
      *

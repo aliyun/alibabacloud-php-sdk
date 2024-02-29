@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class nextHopRelatedInfo extends Model
 {
     /**
-     * @description The ID of the instance associated with the next hop.
+     * @description The ID of the instance that is associated with the next hop.
      *
      * @example vpc-bp1t36rn9l53iwbsf****
      *
@@ -31,7 +31,7 @@ class nextHopRelatedInfo extends Model
     public $instanceType;
 
     /**
-     * @description The region ID of the instance associated with the next hop.
+     * @description The region ID of the instance associated with the next hop. Valid values:
      *
      * @example ch-hangzhou
      *

@@ -25,6 +25,8 @@ class DescribeVpcAttributeResponseBody extends Model
     public $associatedCens;
 
     /**
+     * @description The propagation source associated with the VPC.
+     *
      * @var associatedPropagationSources
      */
     public $associatedPropagationSources;

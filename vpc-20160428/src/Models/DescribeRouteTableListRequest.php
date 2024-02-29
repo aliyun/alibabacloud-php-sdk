@@ -20,8 +20,9 @@ class DescribeRouteTableListRequest extends Model
     public $ownerId;
 
     /**
-     * @description The page number. Default value: **1**.
+     * @description The value of tag N to add to the resource. You can specify up to 20 tag values. The tag value can be an empty string.
      *
+     * The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
      * @example 1
      *
      * @var int
@@ -29,7 +30,10 @@ class DescribeRouteTableListRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page. Maximum value: **50**. Default value: **10**.
+     * @description The type of the route table.
+     *
+     *   **System**
+     *   **Custom**
      *
      * @example 10
      *
@@ -38,9 +42,8 @@ class DescribeRouteTableListRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the VPC to which the route table belongs.
+     * @description The number of entries per page.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example ap-southeast-6
      *
      * @var string
@@ -48,7 +51,7 @@ class DescribeRouteTableListRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which the route table to be queried belongs.
+     * @description The details of the route table.
      *
      * @example rg-acfmxazb4ph****
      *
@@ -67,7 +70,7 @@ class DescribeRouteTableListRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the route table that you want to query.
+     * @description The tags.
      *
      * @example vtb-bp145q7glnuzdvzu2****
      *
@@ -76,8 +79,9 @@ class DescribeRouteTableListRequest extends Model
     public $routeTableId;
 
     /**
-     * @description The name of the route table that you want to query.
+     * @description The key of tag N to add to the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
      *
+     * The tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
      * @example doctest
      *
      * @var string
@@ -85,9 +89,8 @@ class DescribeRouteTableListRequest extends Model
     public $routeTableName;
 
     /**
-     * @description The type of the route table. Valid values:
-     * - **System**
-     * - **Custom**
+     * @description The time when the route table was created.
+     *
      * @example System
      *
      * @var string
@@ -95,8 +98,9 @@ class DescribeRouteTableListRequest extends Model
     public $routeTableType;
 
     /**
-     * @description The ID of the router to which the route table belongs.
+     * @description The region ID of the VPC to which the route table belongs.
      *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example vrt-bp1lhl0taikrteen8****
      *
      * @var string
@@ -104,10 +108,7 @@ class DescribeRouteTableListRequest extends Model
     public $routerId;
 
     /**
-     * @description The type of the router to which the route table belongs. Valid values:
-     *
-     *   **VRouter** (default)
-     *   **VBR**
+     * @description The ID of the resource group to which the route table to be queried belongs.
      *
      * @example VRouter
      *
@@ -116,16 +117,15 @@ class DescribeRouteTableListRequest extends Model
     public $routerType;
 
     /**
-     * @description The tags of the resource.
+     * @description The page number.
      *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description The ID of the virtual private cloud (VPC) to which the route table belongs.
+     * @description The tags of the resource.
      *
-     * After this parameter is specified, the value of the **RouterType** parameter is automatically set to **VRouter**.
      * @example vpc-bp15zckdt37pq72****
      *
      * @var string

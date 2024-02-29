@@ -18,14 +18,14 @@ class ipv6CidrBlock extends Model
     public $ipv6CidrBlock;
 
     /**
-     * @description The type of the IPv6 CIDR block. Valid values:
+     * @description The IPv6 CIDR block type of the VPC. Valid values:
      *
      *   **BGP** (default)
      *   **ChinaMobile**
      *   **ChinaUnicom**
      *   **ChinaTelecom**
      *
-     * >  If your Alibaba Cloud account is allowed to activate single-ISP bandwidth, you can set this parameter to **ChinaTelecom**, **ChinaUnicom**, or **ChinaMobile**.
+     * >  If you are allowed to use single-ISP bandwidth, valid values are **ChinaTelecom**, **ChinaUnicom**, and **ChinaMobile**
      * @example BGP
      *
      * @var string

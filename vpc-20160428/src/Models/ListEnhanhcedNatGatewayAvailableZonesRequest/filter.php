@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class filter extends Model
 {
     /**
+     * @description The filter key. Only **PrivateLinkEnabled** is supported.
+     *
+     * @example PrivateLinkEnabled
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The value of the filter key.
+     *
+     * >  If the filter key is set to **PrivateLinkEnabled**, you must specify a filter value. Valid values: **true** and **false**.
+     * @example true
+     *
      * @var string
      */
     public $value;

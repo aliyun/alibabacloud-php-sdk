@@ -28,7 +28,7 @@ class routeEntry extends Model
     public $destinationCidrBlock;
 
     /**
-     * @description The time when the route was modified. The time is displayed in the `YYYY-MM-DDThh:mm:ssZ` format in UTC.
+     * @description The time when the route was modified. Specify the time in the `YYYY-MM-DDThh:mm:ssZ` format. The time must be in UTC.
      *
      * @example 2022-05-09T03:00:07Z
      *
@@ -39,8 +39,8 @@ class routeEntry extends Model
     /**
      * @description The IP version. Valid values:
      *
-     *   **IPv4**
-     *   **IPv6**
+     *   **ipv4**
+     *   **ipv6**
      *
      * @example IPv4
      *
@@ -49,13 +49,20 @@ class routeEntry extends Model
     public $ipVersion;
 
     /**
-     * @description The information about the next hop.
+     * @description The information about the next hops.
      *
      * @var nextHops
      */
     public $nextHops;
 
     /**
+     * @description The route origin. Valid values：
+     * **RoutePropagation**: The route is created by a dynamic propagation source.
+     * **SystemCreate**: The route is created by the system.
+     * **CustomCreate**: The route is created by a user.
+     *
+     * @example RoutePropagation
+     *
      * @var string
      */
     public $origin;
@@ -98,11 +105,11 @@ class routeEntry extends Model
     public $serviceType;
 
     /**
-     * @description The status of the route. Valid values:
+     * @description The route status. Valid values:
      *
      *   **Pending**
      *   **Available**
-     *   **Modifying**
+     *   **Modifying**: The Internet Shared Bandwidth instance is being modified.
      *
      * @example Available
      *

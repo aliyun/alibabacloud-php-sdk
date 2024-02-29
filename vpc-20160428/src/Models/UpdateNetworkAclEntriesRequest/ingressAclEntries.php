@@ -28,6 +28,13 @@ class ingressAclEntries extends Model
     public $entryType;
 
     /**
+     * @description The IP version. Valid values:
+     *
+     *   **IPv4** (default)
+     *   **IPv6**
+     *
+     * @example IPv4
+     *
      * @var string
      */
     public $ipVersion;
@@ -53,7 +60,7 @@ class ingressAclEntries extends Model
     public $networkAclEntryName;
 
     /**
-     * @description The rule action that determines whether to allow inbound requests. Valid values:
+     * @description The action to be performed on network traffic that matches the rule. Valid values:
      *
      *   **accept**
      *   **drop**
@@ -77,7 +84,7 @@ class ingressAclEntries extends Model
     public $port;
 
     /**
-     * @description The protocol type. Valid values:
+     * @description The protocol. Valid values:
      *
      *   **icmp**
      *   **gre**

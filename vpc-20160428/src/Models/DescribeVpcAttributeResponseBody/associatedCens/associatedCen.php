@@ -18,7 +18,7 @@ class associatedCen extends Model
     public $cenId;
 
     /**
-     * @description The ID of the Alibaba Cloud account to which the CEN instance belongs.
+     * @description The ID of the account to which the CEN instance belongs.
      *
      * @example 283117732402483989
      *
@@ -27,9 +27,9 @@ class associatedCen extends Model
     public $cenOwnerId;
 
     /**
-     * @description The status of the CEN instance to which the VPC is attached.
+     * @description The status of the CEN instance.
      *
-     **Attached** is returned only if the VPC is attached to a CEN instance.
+     **Attached** is returned only when the VPC is attached to a CEN instance.
      *
      * @example Attached
      *

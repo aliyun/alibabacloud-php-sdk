@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class filter extends Model
 {
     /**
-     * @description The filter conditions. You can specify up to five filter conditions. The following filter conditions are supported:
+     * @description The filter conditions. You can specify at most five filter conditions. The following filter conditions are supported:
      *
      *   **PhysicalConnectionId**: filter VBRs by the Express Connect circuit ID.
      *   **VbrId**: filter VBRs by ID.
@@ -26,7 +26,7 @@ class filter extends Model
     public $key;
 
     /**
-     * @description The filter values for keys. You can specify multiple filter values for a key. The logical operator between filter values is OR. If one filter value is matched, the filter condition is matched.
+     * @description The filter value for the key. You can specify multiple filter values for one key. The logical operator among filter values is OR. If one filter value is matched, the filter condition is matched.
      *
      * @example Active
      *

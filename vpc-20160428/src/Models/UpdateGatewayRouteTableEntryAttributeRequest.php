@@ -52,6 +52,10 @@ class UpdateGatewayRouteTableEntryAttributeRequest extends Model
     public $dryRun;
 
     /**
+     * @description The ID of the gateway route table that you want to modify.
+     *
+     * @example vtb-5ts0ohchwkp3dydt2****
+     *
      * @var string
      */
     public $gatewayRouteTableId;

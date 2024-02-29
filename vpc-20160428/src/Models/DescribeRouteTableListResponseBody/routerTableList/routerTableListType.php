@@ -12,10 +12,7 @@ use AlibabaCloud\Tea\Model;
 class routerTableListType extends Model
 {
     /**
-     * @description The type of the cloud resource with which the route table is associated. Valid values:
-     *
-     *   **VSwitch**: a vSwitch
-     *   **Gateway**: an IPv4 gateway
+     * @description The tags.
      *
      * @example VSwitch
      *
@@ -24,7 +21,10 @@ class routerTableListType extends Model
     public $associateType;
 
     /**
-     * @description The time when the route table was created.
+     * @description The type of the router to which the route table belongs. Valid values:
+     *
+     *   **VRouter**
+     *   **VBR**
      *
      * @example 2021-08-22T10:40:25Z
      *
@@ -33,7 +33,7 @@ class routerTableListType extends Model
     public $creationTime;
 
     /**
-     * @description The description of the route table.
+     * @description The information about the vSwitches.
      *
      * @example This is Route Table.
      *
@@ -49,7 +49,7 @@ class routerTableListType extends Model
     public $gatewayIds;
 
     /**
-     * @description The ID of the Alibaba Cloud account to which the route table belongs.
+     * @description The value of tag N added to the resource.
      *
      * @example 253460731706911258
      *
@@ -58,7 +58,7 @@ class routerTableListType extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the resource group to which the route table belongs.
+     * @description The detailed information about the IPv4 gateway.
      *
      * @example rg-acfmxazb4ph****
      *
@@ -67,12 +67,20 @@ class routerTableListType extends Model
     public $resourceGroupId;
 
     /**
+     * @description Whether to receive the propagation routes. Valid Values:
+     *
+     *   **True**: The propagation route is received.
+     *
+     *   **False**: The propagation route is not received.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $routePropagationEnable;
 
     /**
-     * @description The ID of the route table.
+     * @description The key of tag N added to the resource.
      *
      * @example vtb-bp145q7glnuzdvzu2****
      *
@@ -90,10 +98,7 @@ class routerTableListType extends Model
     public $routeTableName;
 
     /**
-     * @description The type of the route table. Valid values:
-     *
-     *   **Custom**
-     *   **System**
+     * @description The ID of the vSwitch.
      *
      * @example System
      *
@@ -102,7 +107,7 @@ class routerTableListType extends Model
     public $routeTableType;
 
     /**
-     * @description The ID of the router to which the route table belongs.
+     * @description The tag added to the route table.
      *
      * @example vrt-bp1lhl0taikrteen8****
      *
@@ -111,10 +116,7 @@ class routerTableListType extends Model
     public $routerId;
 
     /**
-     * @description The type of the router to which the route table belongs. Valid values:
-     *
-     *   **VRouter**
-     *   **VBR**
+     * @description The detailed information about the IPv4 gateway.
      *
      * @example VRouter
      *
@@ -123,11 +125,7 @@ class routerTableListType extends Model
     public $routerType;
 
     /**
-     * @description The status of the route table. Valid values:
-     *
-     *   **Pending**
-     *   **Available**
-     *   **Deleting**
+     * @description The name of the route table.
      *
      * @example Available
      *
@@ -136,21 +134,21 @@ class routerTableListType extends Model
     public $status;
 
     /**
-     * @description The tag added to the route table.
+     * @description The tags.
      *
      * @var tags
      */
     public $tags;
 
     /**
-     * @description The information about the vSwitches.
+     * @description The vSwitch IDs.
      *
      * @var vSwitchIds
      */
     public $vSwitchIds;
 
     /**
-     * @description The ID of the VPC to which the route table belongs.
+     * @description The ID of the resource group to which the route table belongs.
      *
      * @example vpc-bp15zckdt37pq72****
      *

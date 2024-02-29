@@ -112,6 +112,8 @@ class CreateVpcGatewayEndpointRequest extends Model
     public $serviceName;
 
     /**
+     * @description The tags of the resource.
+     *
      * @var tag[]
      */
     public $tag;

@@ -22,6 +22,8 @@ class ListEnhanhcedNatGatewayAvailableZonesRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The filter information. You can specify a filter key and a filter value.
+     *
      * @var filter[]
      */
     public $filter;

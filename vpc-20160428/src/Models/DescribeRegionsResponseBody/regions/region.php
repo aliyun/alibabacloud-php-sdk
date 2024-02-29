@@ -11,12 +11,14 @@ class region extends Model
     /**
      * @description The name of the region.
      *
+     * @example China (Qingdao)
+     *
      * @var string
      */
     public $localName;
 
     /**
-     * @description The endpoint of the region.
+     * @description The endpoint of the region service.
      *
      * @example vpc.aliyuncs.com
      *
@@ -25,7 +27,7 @@ class region extends Model
     public $regionEndpoint;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-qingdao
      *

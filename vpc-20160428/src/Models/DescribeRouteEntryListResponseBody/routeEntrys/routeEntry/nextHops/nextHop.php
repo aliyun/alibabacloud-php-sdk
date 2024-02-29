@@ -15,7 +15,7 @@ class nextHop extends Model
      *   **0**: unavailable
      *   **1**: available
      *
-     * >  This parameter is returned if the next hop type is set to **RouterInterface**.
+     * >  This parameter is returned when the next hop type is set to **RouterInterface**.
      * @example 1
      *
      * @var int
@@ -32,9 +32,9 @@ class nextHop extends Model
     public $nextHopId;
 
     /**
-     * @description The region ID of the next hop.
+     * @description The ID of the region where the next hop is deployed.
      *
-     * >  This parameter is returned if the next hop type is set to **RouterInterface**.
+     * >  This parameter is returned when the next hop type is set to **RouterInterface**.
      * @example cn-hangzhou
      *
      * @var string
@@ -51,11 +51,11 @@ class nextHop extends Model
     /**
      * @description The type of the next hop. Valid values:
      *
-     *   **Instance**: an ECS instance
-     *   **HaVip**: an HAVIP
+     *   **Instance**: an Elastic Compute Service (ECS) instance
+     *   **HaVip**: a high-availability virtual IP address (HAVIP)
      *   **VpnGateway**: a VPN gateway
      *   **NatGateway**: a NAT gateway
-     *   **NetworkInterface**: a secondary ENI
+     *   **NetworkInterface**: a secondary elastic network interface (ENI)
      *   **RouterInterface**: a router interface
      *   **IPv6Gateway**: an IPv6 gateway
      *   **Attachment**: a transit router
@@ -69,7 +69,7 @@ class nextHop extends Model
     /**
      * @description The weight of the route.
      *
-     * >  This parameter is returned if the next hop type is set to **RouterInterface**.
+     * >  This parameter is returned when the next hop type is set to **RouterInterface**.
      * @example 100
      *
      * @var int

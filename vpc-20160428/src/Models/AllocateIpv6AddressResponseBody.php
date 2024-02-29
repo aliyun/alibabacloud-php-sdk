@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AllocateIpv6AddressResponseBody extends Model
 {
     /**
+     * @description The IPv6 address.
+     *
      * @example 2408:XXXX:153:3921:851c:c435:7b12:1c5f
      *
      * @var string
@@ -16,6 +18,8 @@ class AllocateIpv6AddressResponseBody extends Model
     public $ipv6Address;
 
     /**
+     * @description The ID of the IPv6 address.
+     *
      * @example ipv6-2zen5j4axcp5l5qyy****
      *
      * @var string
@@ -23,6 +27,8 @@ class AllocateIpv6AddressResponseBody extends Model
     public $ipv6AddressId;
 
     /**
+     * @description The request ID.
+     *
      * @example 54B48E3D-DF70-471B-AA93-08E683A1B45
      *
      * @var string
@@ -30,6 +36,8 @@ class AllocateIpv6AddressResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfmxazdjdhd****
      *
      * @var string

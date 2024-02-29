@@ -18,7 +18,7 @@ class dhcpOptions extends Model
     public $domainName;
 
     /**
-     * @description The DNS server IP address.
+     * @description The IP address of the DNS server.
      *
      * @example 192.168.XX.XX
      *

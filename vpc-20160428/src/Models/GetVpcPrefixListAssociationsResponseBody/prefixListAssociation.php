@@ -18,7 +18,7 @@ class prefixListAssociation extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the prefix list.
+     * @description The prefix list ID.
      *
      * @example pl-0b7hwu67****
      *
@@ -56,7 +56,7 @@ class prefixListAssociation extends Model
     /**
      * @description The type of the associated resource. Valid values:
      *
-     *   **vpcRouteTable** :VPC route table.
+     *   **vpcRouteTable**: virtual private cloud (VPC) route table.
      *   **trRouteTable**: route table of a transit router.
      *
      * @example vpcRouteTable

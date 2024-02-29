@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyVpcPrefixListRequest extends Model
 {
     /**
+     * @description The information about CIDR blocks to be added to the prefix list.
+     *
      * @var addPrefixListEntry[]
      */
     public $addPrefixListEntry;
@@ -97,6 +99,8 @@ class ModifyVpcPrefixListRequest extends Model
     public $regionId;
 
     /**
+     * @description The information about CIDR blocks to be deleted to the prefix list.
+     *
      * @var removePrefixListEntry[]
      */
     public $removePrefixListEntry;

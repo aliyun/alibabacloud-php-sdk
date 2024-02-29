@@ -166,7 +166,7 @@ class CreateVirtualBorderRouterRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID.
      *
      * For more information about resource group, see [What is Resource Management?](~~94475~~)
      * @example rg-acfmxazb4ph6aiy****
@@ -186,7 +186,7 @@ class CreateVirtualBorderRouterRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The tag list.
+     * @description The tags.
      *
      * @var tags[]
      */

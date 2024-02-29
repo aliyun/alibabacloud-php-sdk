@@ -149,6 +149,8 @@ class DescribeFlowLogsRequest extends Model
     public $status;
 
     /**
+     * @description The list of tags.
+     *
      * @var tags[]
      */
     public $tags;

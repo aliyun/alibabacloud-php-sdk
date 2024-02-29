@@ -129,6 +129,8 @@ class CreatePublicIpAddressPoolRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The editions of Anti-DDoS.
+     * - If you set the parameter to AntiDDoS_Enhanced, Anti-DDoS Pro/Premium is used.
      * @var string[]
      */
     public $securityProtectionTypes;

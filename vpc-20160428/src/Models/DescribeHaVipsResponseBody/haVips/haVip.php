@@ -12,7 +12,7 @@ use AlibabaCloud\Tea\Model;
 class haVip extends Model
 {
     /**
-     * @description The elastic IP address (EIP) associated with the HAVIP.
+     * @description The list of EIPs associated with the HAVIP.
      *
      * @var associatedEipAddresses
      */
@@ -21,8 +21,8 @@ class haVip extends Model
     /**
      * @description The type of the instance with which the HAVIP is associated. Valid values:
      *
-     *   **EcsInstance**: an ECS instance
-     *   **NetworkInterface**: an ENI
+     *   **EcsInstance**: Elastic Compute Service (ECS) instance
+     *   **NetworkInterface**: elastic network interface (ENI)
      *
      * @example EcsInstance
      *
@@ -31,7 +31,7 @@ class haVip extends Model
     public $associatedInstanceType;
 
     /**
-     * @description The ID of the instance with which the HAVIP is associated.
+     * @description The information about the instance associated with the HAVIP.
      *
      * @var associatedInstances
      */
@@ -121,8 +121,8 @@ class haVip extends Model
     /**
      * @description The status of the HAVIP. Valid values:
      *
-     *   **Creating**
-     *   **Available**
+     *   **Creating**: The server group is being created.
+     *   **Available**: The FULLNAT entry is available.
      *   **Deleting**
      *
      * @example Available
@@ -132,7 +132,7 @@ class haVip extends Model
     public $status;
 
     /**
-     * @description The list of tags.
+     * @description The tag list.
      *
      * @var tags
      */

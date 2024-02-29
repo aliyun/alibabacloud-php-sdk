@@ -73,9 +73,9 @@ class CreateIpsecServerRequest extends Model
     public $ikeConfig;
 
     /**
-     * @description The IPsec server name.
+     * @description The name of the IPsec server.
      *
-     * The name must be 1 to 100 characters in length and cannot start with `http://` or `https://`.
+     * The name must be 1 to 100 characters in length.
      * @example test
      *
      * @var string
@@ -117,8 +117,9 @@ class CreateIpsecServerRequest extends Model
     public $psk;
 
     /**
-     * @description Specifies whether to enable pre-shared key authentication. If you set the value to **true**, pre-shared key authentication is enabled.
+     * @description Indicates whether pre-shared key authentication is enabled. If you set the value to **true**, pre-shared key authentication is enabled.
      *
+     * >  This parameter is required.
      * @example true
      *
      * @var bool

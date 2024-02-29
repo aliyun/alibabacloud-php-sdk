@@ -98,6 +98,12 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateDhcpOptionsSetRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateDhcpOptionsSetResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateExpressCloudConnectionRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateExpressCloudConnectionResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateExpressConnectTrafficQosQueueRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateExpressConnectTrafficQosQueueResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateExpressConnectTrafficQosRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateExpressConnectTrafficQosResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateExpressConnectTrafficQosRuleRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateExpressConnectTrafficQosRuleResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateFailoverTestJobRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateFailoverTestJobResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateFlowLogRequest;
@@ -208,6 +214,12 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteCustomerGatewayRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteCustomerGatewayResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteDhcpOptionsSetRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteDhcpOptionsSetResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteExpressConnectTrafficQosQueueRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteExpressConnectTrafficQosQueueResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteExpressConnectTrafficQosRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteExpressConnectTrafficQosResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteExpressConnectTrafficQosRuleRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteExpressConnectTrafficQosRuleResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteFailoverTestJobRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteFailoverTestJobResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteFlowLogRequest;
@@ -298,6 +310,8 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteVSwitchRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteVSwitchResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeletionProtectionRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeletionProtectionResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\Describe95TrafficRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\Describe95TrafficResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeAccessPointsRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeAccessPointsResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeBgpGroupsRequest;
@@ -322,6 +336,12 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeEipMonitorDataRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeEipMonitorDataResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeEipSegmentRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeEipSegmentResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeExpressConnectTrafficQosQueueRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeExpressConnectTrafficQosQueueResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeExpressConnectTrafficQosRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeExpressConnectTrafficQosResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeExpressConnectTrafficQosRuleRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeExpressConnectTrafficQosRuleResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeFailoverTestJobRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeFailoverTestJobResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeFailoverTestJobsRequest;
@@ -556,6 +576,12 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyExpressCloudConnectionAttributeR
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyExpressCloudConnectionAttributeResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyExpressCloudConnectionBandwidthRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyExpressCloudConnectionBandwidthResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyExpressConnectTrafficQosQueueRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyExpressConnectTrafficQosQueueResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyExpressConnectTrafficQosRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyExpressConnectTrafficQosResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyExpressConnectTrafficQosRuleRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyExpressConnectTrafficQosRuleResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyFlowLogAttributeRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyFlowLogAttributeResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyForwardEntryRequest;
@@ -4456,6 +4482,243 @@ class Vpc extends OpenApiClient
     }
 
     /**
+     * @param CreateExpressConnectTrafficQosRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return CreateExpressConnectTrafficQosResponse
+     */
+    public function createExpressConnectTrafficQosWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->qosDescription)) {
+            $query['QosDescription'] = $request->qosDescription;
+        }
+        if (!Utils::isUnset($request->qosName)) {
+            $query['QosName'] = $request->qosName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateExpressConnectTrafficQos',
+            'version'     => '2016-04-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateExpressConnectTrafficQosResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateExpressConnectTrafficQosRequest $request
+     *
+     * @return CreateExpressConnectTrafficQosResponse
+     */
+    public function createExpressConnectTrafficQos($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createExpressConnectTrafficQosWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateExpressConnectTrafficQosQueueRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return CreateExpressConnectTrafficQosQueueResponse
+     */
+    public function createExpressConnectTrafficQosQueueWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bandwidthPercent)) {
+            $query['BandwidthPercent'] = $request->bandwidthPercent;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->qosId)) {
+            $query['QosId'] = $request->qosId;
+        }
+        if (!Utils::isUnset($request->queueDescription)) {
+            $query['QueueDescription'] = $request->queueDescription;
+        }
+        if (!Utils::isUnset($request->queueName)) {
+            $query['QueueName'] = $request->queueName;
+        }
+        if (!Utils::isUnset($request->queueType)) {
+            $query['QueueType'] = $request->queueType;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateExpressConnectTrafficQosQueue',
+            'version'     => '2016-04-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateExpressConnectTrafficQosQueueResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateExpressConnectTrafficQosQueueRequest $request
+     *
+     * @return CreateExpressConnectTrafficQosQueueResponse
+     */
+    public function createExpressConnectTrafficQosQueue($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createExpressConnectTrafficQosQueueWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateExpressConnectTrafficQosRuleRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return CreateExpressConnectTrafficQosRuleResponse
+     */
+    public function createExpressConnectTrafficQosRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dstCidr)) {
+            $query['DstCidr'] = $request->dstCidr;
+        }
+        if (!Utils::isUnset($request->dstIPv6Cidr)) {
+            $query['DstIPv6Cidr'] = $request->dstIPv6Cidr;
+        }
+        if (!Utils::isUnset($request->dstPortRange)) {
+            $query['DstPortRange'] = $request->dstPortRange;
+        }
+        if (!Utils::isUnset($request->matchDscp)) {
+            $query['MatchDscp'] = $request->matchDscp;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->priority)) {
+            $query['Priority'] = $request->priority;
+        }
+        if (!Utils::isUnset($request->protocol)) {
+            $query['Protocol'] = $request->protocol;
+        }
+        if (!Utils::isUnset($request->qosId)) {
+            $query['QosId'] = $request->qosId;
+        }
+        if (!Utils::isUnset($request->queueId)) {
+            $query['QueueId'] = $request->queueId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->remarkingDscp)) {
+            $query['RemarkingDscp'] = $request->remarkingDscp;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->ruleDescription)) {
+            $query['RuleDescription'] = $request->ruleDescription;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
+        if (!Utils::isUnset($request->srcCidr)) {
+            $query['SrcCidr'] = $request->srcCidr;
+        }
+        if (!Utils::isUnset($request->srcIPv6Cidr)) {
+            $query['SrcIPv6Cidr'] = $request->srcIPv6Cidr;
+        }
+        if (!Utils::isUnset($request->srcPortRange)) {
+            $query['SrcPortRange'] = $request->srcPortRange;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateExpressConnectTrafficQosRule',
+            'version'     => '2016-04-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateExpressConnectTrafficQosRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateExpressConnectTrafficQosRuleRequest $request
+     *
+     * @return CreateExpressConnectTrafficQosRuleResponse
+     */
+    public function createExpressConnectTrafficQosRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createExpressConnectTrafficQosRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateFailoverTestJobRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -4532,7 +4795,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * **CreateFlowLog** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeFlowLogs](~~87923~~) operation to query the status of a flow log:
+     * **CreateFlowLog** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeFlowLogs](~~87923~~) operation to query the status of the flow log.
      *   * *   If the flow log is in the **Activating** state, the flow log is being created.
      *   * *   If the flow log is in the **Active** state, the flow log is created and started.
      *   *
@@ -4612,7 +4875,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * **CreateFlowLog** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeFlowLogs](~~87923~~) operation to query the status of a flow log:
+     * **CreateFlowLog** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeFlowLogs](~~87923~~) operation to query the status of the flow log.
      *   * *   If the flow log is in the **Activating** state, the flow log is being created.
      *   * *   If the flow log is in the **Active** state, the flow log is created and started.
      *   *
@@ -5341,10 +5604,11 @@ class Vpc extends OpenApiClient
 
     /**
      * *   Before you create an IPsec server, you must create a VPN gateway and enable the SSL-VPN feature for the VPN gateway. For more information, see [CreateVpnGateway](~~120363~~).
-     *   * *   **CreateIpsecServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task:
+     *   * *   Before you create an IPsec server, make sure that no IPsec-VPN connection exists on the VPN gateway. For more information, see [DeleteVpnConnection](~~2526948~~).
+     *   * *   **CreateIpsecServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
      *   *     *   If the VPN gateway is in the **updating** state, the IPsec server is being created.
      *   *     *   If the VPN gateway is in the **active** state, the IPsec server is created.
-     *   * *   You cannot repeatedly call the **CreateIpsecServer** operation for the same VPN gateway within the specified period of time.
+     *   * *   You cannot repeatedly call **CreateIpsecServer** within the specified period of time.
      *   *
      * @param CreateIpsecServerRequest $request CreateIpsecServerRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -5411,10 +5675,11 @@ class Vpc extends OpenApiClient
 
     /**
      * *   Before you create an IPsec server, you must create a VPN gateway and enable the SSL-VPN feature for the VPN gateway. For more information, see [CreateVpnGateway](~~120363~~).
-     *   * *   **CreateIpsecServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task:
+     *   * *   Before you create an IPsec server, make sure that no IPsec-VPN connection exists on the VPN gateway. For more information, see [DeleteVpnConnection](~~2526948~~).
+     *   * *   **CreateIpsecServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
      *   *     *   If the VPN gateway is in the **updating** state, the IPsec server is being created.
      *   *     *   If the VPN gateway is in the **active** state, the IPsec server is created.
-     *   * *   You cannot repeatedly call the **CreateIpsecServer** operation for the same VPN gateway within the specified period of time.
+     *   * *   You cannot repeatedly call **CreateIpsecServer** within the specified period of time.
      *   *
      * @param CreateIpsecServerRequest $request CreateIpsecServerRequest
      *
@@ -6721,8 +6986,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)
-     *   * When you call this operation, take note of the following limits:
+     * When you call this operation, take note of the following limits:
      *   * *   You can create only one pair of interfaces to be connected between two routers.
      *   * *   You can create a maximum of five router interfaces for a router.
      *   * *   If your Alibaba Cloud account has a router interface with overdue payments, you cannot create new router interfaces.
@@ -6848,8 +7112,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)
-     *   * When you call this operation, take note of the following limits:
+     * When you call this operation, take note of the following limits:
      *   * *   You can create only one pair of interfaces to be connected between two routers.
      *   * *   You can create a maximum of five router interfaces for a router.
      *   * *   If your Alibaba Cloud account has a router interface with overdue payments, you cannot create new router interfaces.
@@ -7773,7 +8036,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * When you create a VBR, the VBR is in the **active** state by default.
+     * After you create a VBR, the VBR is in the **active** state.
      *   *
      * @param CreateVirtualBorderRouterRequest $request CreateVirtualBorderRouterRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -7869,7 +8132,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * When you create a VBR, the VBR is in the **active** state by default.
+     * After you create a VBR, the VBR is in the **active** state.
      *   *
      * @param CreateVirtualBorderRouterRequest $request CreateVirtualBorderRouterRequest
      *
@@ -8078,10 +8341,15 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param CreateVpcGatewayEndpointRequest $request
-     * @param RuntimeOptions                  $runtime
+     * *   **CreateVpcGatewayEndpoint** is an asynchronous operation. After a request is sent, the system returns an **EndpointId** and runs the task in the background. You can call the [ListVpcGatewayEndpoints](~~448682~~) operation to query the status of the task.
+     *   *     *   If the gateway endpoint is in the **Creating** state, the gateway endpoint is being created.
+     *   *     *   If the gateway endpoint is in the **Created** state, the gateway endpoint is created.
+     *   * *   You cannot repeatedly call the **CreateVpcGatewayEndpoint** operation for the same endpoint service within the specified period of time.
+     *   *
+     * @param CreateVpcGatewayEndpointRequest $request CreateVpcGatewayEndpointRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateVpcGatewayEndpointResponse
+     * @return CreateVpcGatewayEndpointResponse CreateVpcGatewayEndpointResponse
      */
     public function createVpcGatewayEndpointWithOptions($request, $runtime)
     {
@@ -8148,9 +8416,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param CreateVpcGatewayEndpointRequest $request
+     * *   **CreateVpcGatewayEndpoint** is an asynchronous operation. After a request is sent, the system returns an **EndpointId** and runs the task in the background. You can call the [ListVpcGatewayEndpoints](~~448682~~) operation to query the status of the task.
+     *   *     *   If the gateway endpoint is in the **Creating** state, the gateway endpoint is being created.
+     *   *     *   If the gateway endpoint is in the **Created** state, the gateway endpoint is created.
+     *   * *   You cannot repeatedly call the **CreateVpcGatewayEndpoint** operation for the same endpoint service within the specified period of time.
+     *   *
+     * @param CreateVpcGatewayEndpointRequest $request CreateVpcGatewayEndpointRequest
      *
-     * @return CreateVpcGatewayEndpointResponse
+     * @return CreateVpcGatewayEndpointResponse CreateVpcGatewayEndpointResponse
      */
     public function createVpcGatewayEndpoint($request)
     {
@@ -8160,7 +8433,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You cannot repeatedly call the **CreateVpcPrefixList** operation to create a prefix list in a region within the specified period of time.
+     * You cannot repeatedly call the **CreateVpcPrefixList** operation within the specified period of time.
      *   *
      * @param CreateVpcPrefixListRequest $request CreateVpcPrefixListRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -8232,7 +8505,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You cannot repeatedly call the **CreateVpcPrefixList** operation to create a prefix list in a region within the specified period of time.
+     * You cannot repeatedly call the **CreateVpcPrefixList** operation within the specified period of time.
      *   *
      * @param CreateVpcPrefixListRequest $request CreateVpcPrefixListRequest
      *
@@ -9369,6 +9642,198 @@ class Vpc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteDhcpOptionsSetWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteExpressConnectTrafficQosRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DeleteExpressConnectTrafficQosResponse
+     */
+    public function deleteExpressConnectTrafficQosWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->qosId)) {
+            $query['QosId'] = $request->qosId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteExpressConnectTrafficQos',
+            'version'     => '2016-04-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteExpressConnectTrafficQosResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteExpressConnectTrafficQosRequest $request
+     *
+     * @return DeleteExpressConnectTrafficQosResponse
+     */
+    public function deleteExpressConnectTrafficQos($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteExpressConnectTrafficQosWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteExpressConnectTrafficQosQueueRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return DeleteExpressConnectTrafficQosQueueResponse
+     */
+    public function deleteExpressConnectTrafficQosQueueWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->qosId)) {
+            $query['QosId'] = $request->qosId;
+        }
+        if (!Utils::isUnset($request->queueId)) {
+            $query['QueueId'] = $request->queueId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteExpressConnectTrafficQosQueue',
+            'version'     => '2016-04-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteExpressConnectTrafficQosQueueResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteExpressConnectTrafficQosQueueRequest $request
+     *
+     * @return DeleteExpressConnectTrafficQosQueueResponse
+     */
+    public function deleteExpressConnectTrafficQosQueue($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteExpressConnectTrafficQosQueueWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteExpressConnectTrafficQosRuleRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DeleteExpressConnectTrafficQosRuleResponse
+     */
+    public function deleteExpressConnectTrafficQosRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->qosId)) {
+            $query['QosId'] = $request->qosId;
+        }
+        if (!Utils::isUnset($request->queueId)) {
+            $query['QueueId'] = $request->queueId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteExpressConnectTrafficQosRule',
+            'version'     => '2016-04-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteExpressConnectTrafficQosRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteExpressConnectTrafficQosRuleRequest $request
+     *
+     * @return DeleteExpressConnectTrafficQosRuleResponse
+     */
+    public function deleteExpressConnectTrafficQosRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteExpressConnectTrafficQosRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -11930,7 +12395,7 @@ class Vpc extends OpenApiClient
      * Before you call this operation, take note of the following limits:
      *   * *   Before you delete a VBR, you must delete all router interfaces of the VBR.
      *   * *   You can delete only a VBR in the **unconfirmed**, **active**, or **terminated** state.
-     *   * *   If the VBR belongs to another Alibaba Cloud account, you can delete the VBR only if it is in the **unconfirmed** state.
+     *   * *   The owner of an Express Connect circuit can delete a VBR that belongs to another account only if the VBR is in the **unconfirmed** state.
      *   *
      * @param DeleteVirtualBorderRouterRequest $request DeleteVirtualBorderRouterRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -11984,7 +12449,7 @@ class Vpc extends OpenApiClient
      * Before you call this operation, take note of the following limits:
      *   * *   Before you delete a VBR, you must delete all router interfaces of the VBR.
      *   * *   You can delete only a VBR in the **unconfirmed**, **active**, or **terminated** state.
-     *   * *   If the VBR belongs to another Alibaba Cloud account, you can delete the VBR only if it is in the **unconfirmed** state.
+     *   * *   The owner of an Express Connect circuit can delete a VBR that belongs to another account only if the VBR is in the **unconfirmed** state.
      *   *
      * @param DeleteVirtualBorderRouterRequest $request DeleteVirtualBorderRouterRequest
      *
@@ -12652,6 +13117,70 @@ class Vpc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deletionProtectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param Describe95TrafficRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return Describe95TrafficResponse
+     */
+    public function describe95TrafficWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->day)) {
+            $query['Day'] = $request->day;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'Describe95Traffic',
+            'version'     => '2016-04-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return Describe95TrafficResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param Describe95TrafficRequest $request
+     *
+     * @return Describe95TrafficResponse
+     */
+    public function describe95Traffic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describe95TrafficWithOptions($request, $runtime);
     }
 
     /**
@@ -13504,6 +14033,213 @@ class Vpc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeEipSegmentWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeExpressConnectTrafficQosRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeExpressConnectTrafficQosResponse
+     */
+    public function describeExpressConnectTrafficQosWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->qosIdList)) {
+            $query['QosIdList'] = $request->qosIdList;
+        }
+        if (!Utils::isUnset($request->qosNameList)) {
+            $query['QosNameList'] = $request->qosNameList;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeExpressConnectTrafficQos',
+            'version'     => '2016-04-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeExpressConnectTrafficQosResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeExpressConnectTrafficQosRequest $request
+     *
+     * @return DescribeExpressConnectTrafficQosResponse
+     */
+    public function describeExpressConnectTrafficQos($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeExpressConnectTrafficQosWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeExpressConnectTrafficQosQueueRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return DescribeExpressConnectTrafficQosQueueResponse
+     */
+    public function describeExpressConnectTrafficQosQueueWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->qosId)) {
+            $query['QosId'] = $request->qosId;
+        }
+        if (!Utils::isUnset($request->queueIdList)) {
+            $query['QueueIdList'] = $request->queueIdList;
+        }
+        if (!Utils::isUnset($request->queueNameList)) {
+            $query['QueueNameList'] = $request->queueNameList;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeExpressConnectTrafficQosQueue',
+            'version'     => '2016-04-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeExpressConnectTrafficQosQueueResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeExpressConnectTrafficQosQueueRequest $request
+     *
+     * @return DescribeExpressConnectTrafficQosQueueResponse
+     */
+    public function describeExpressConnectTrafficQosQueue($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeExpressConnectTrafficQosQueueWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeExpressConnectTrafficQosRuleRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return DescribeExpressConnectTrafficQosRuleResponse
+     */
+    public function describeExpressConnectTrafficQosRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->qosId)) {
+            $query['QosId'] = $request->qosId;
+        }
+        if (!Utils::isUnset($request->queueId)) {
+            $query['QueueId'] = $request->queueId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->ruleIdList)) {
+            $query['RuleIdList'] = $request->ruleIdList;
+        }
+        if (!Utils::isUnset($request->ruleNameList)) {
+            $query['RuleNameList'] = $request->ruleNameList;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeExpressConnectTrafficQosRule',
+            'version'     => '2016-04-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeExpressConnectTrafficQosRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeExpressConnectTrafficQosRuleRequest $request
+     *
+     * @return DescribeExpressConnectTrafficQosRuleResponse
+     */
+    public function describeExpressConnectTrafficQosRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeExpressConnectTrafficQosRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -15282,8 +16018,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)References
-     *   * Before you call the [DeleteRouteEntry](~~36013~~) operation to delete a route, you can call this operation to query the next hop of the route that you want to delete.
+     * Before you call the [DeleteRouteEntry](~~36013~~) operation to delete a route, you can call this operation to query the next hop of the route that you want to delete.
      *   *
      * @param DescribeRouteEntryListRequest $request DescribeRouteEntryListRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -15367,8 +16102,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)References
-     *   * Before you call the [DeleteRouteEntry](~~36013~~) operation to delete a route, you can call this operation to query the next hop of the route that you want to delete.
+     * Before you call the [DeleteRouteEntry](~~36013~~) operation to delete a route, you can call this operation to query the next hop of the route that you want to delete.
      *   *
      * @param DescribeRouteEntryListRequest $request DescribeRouteEntryListRequest
      *
@@ -21800,6 +22534,252 @@ class Vpc extends OpenApiClient
     }
 
     /**
+     * @param ModifyExpressConnectTrafficQosRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ModifyExpressConnectTrafficQosResponse
+     */
+    public function modifyExpressConnectTrafficQosWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pconnIdList)) {
+            $query['PconnIdList'] = $request->pconnIdList;
+        }
+        if (!Utils::isUnset($request->qosDescription)) {
+            $query['QosDescription'] = $request->qosDescription;
+        }
+        if (!Utils::isUnset($request->qosId)) {
+            $query['QosId'] = $request->qosId;
+        }
+        if (!Utils::isUnset($request->qosName)) {
+            $query['QosName'] = $request->qosName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyExpressConnectTrafficQos',
+            'version'     => '2016-04-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyExpressConnectTrafficQosResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyExpressConnectTrafficQosRequest $request
+     *
+     * @return ModifyExpressConnectTrafficQosResponse
+     */
+    public function modifyExpressConnectTrafficQos($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyExpressConnectTrafficQosWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyExpressConnectTrafficQosQueueRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return ModifyExpressConnectTrafficQosQueueResponse
+     */
+    public function modifyExpressConnectTrafficQosQueueWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bandwidthPercent)) {
+            $query['BandwidthPercent'] = $request->bandwidthPercent;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->qosId)) {
+            $query['QosId'] = $request->qosId;
+        }
+        if (!Utils::isUnset($request->queueDescription)) {
+            $query['QueueDescription'] = $request->queueDescription;
+        }
+        if (!Utils::isUnset($request->queueId)) {
+            $query['QueueId'] = $request->queueId;
+        }
+        if (!Utils::isUnset($request->queueName)) {
+            $query['QueueName'] = $request->queueName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyExpressConnectTrafficQosQueue',
+            'version'     => '2016-04-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyExpressConnectTrafficQosQueueResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyExpressConnectTrafficQosQueueRequest $request
+     *
+     * @return ModifyExpressConnectTrafficQosQueueResponse
+     */
+    public function modifyExpressConnectTrafficQosQueue($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyExpressConnectTrafficQosQueueWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyExpressConnectTrafficQosRuleRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return ModifyExpressConnectTrafficQosRuleResponse
+     */
+    public function modifyExpressConnectTrafficQosRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dstCidr)) {
+            $query['DstCidr'] = $request->dstCidr;
+        }
+        if (!Utils::isUnset($request->dstIPv6Cidr)) {
+            $query['DstIPv6Cidr'] = $request->dstIPv6Cidr;
+        }
+        if (!Utils::isUnset($request->dstPortRange)) {
+            $query['DstPortRange'] = $request->dstPortRange;
+        }
+        if (!Utils::isUnset($request->matchDscp)) {
+            $query['MatchDscp'] = $request->matchDscp;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->priority)) {
+            $query['Priority'] = $request->priority;
+        }
+        if (!Utils::isUnset($request->protocol)) {
+            $query['Protocol'] = $request->protocol;
+        }
+        if (!Utils::isUnset($request->qosId)) {
+            $query['QosId'] = $request->qosId;
+        }
+        if (!Utils::isUnset($request->queueId)) {
+            $query['QueueId'] = $request->queueId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->remarkingDscp)) {
+            $query['RemarkingDscp'] = $request->remarkingDscp;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->ruleDescription)) {
+            $query['RuleDescription'] = $request->ruleDescription;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
+        if (!Utils::isUnset($request->srcCidr)) {
+            $query['SrcCidr'] = $request->srcCidr;
+        }
+        if (!Utils::isUnset($request->srcIPv6Cidr)) {
+            $query['SrcIPv6Cidr'] = $request->srcIPv6Cidr;
+        }
+        if (!Utils::isUnset($request->srcPortRange)) {
+            $query['SrcPortRange'] = $request->srcPortRange;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyExpressConnectTrafficQosRule',
+            'version'     => '2016-04-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyExpressConnectTrafficQosRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyExpressConnectTrafficQosRuleRequest $request
+     *
+     * @return ModifyExpressConnectTrafficQosRuleResponse
+     */
+    public function modifyExpressConnectTrafficQosRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyExpressConnectTrafficQosRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * *   **ModifyFlowLogAttribute** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeFlowLogs](~~87923~~) operation to query the status of a flow log:
      *   *     *   If the flow log is in the **Modifying** state, the flow log is being modified.
      *   *     *   If the flow log is in the **Active** or **Inactive** state, the flow log is modified.
@@ -23574,8 +24554,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)Description
-     *   * After you call this operation, the router interface enters the **Activating** state. After the router interface is activated, the router interface enters the **Active** state.
+     * After you call this operation, the router interface enters the **Activating** state. After the router interface is activated, the router interface enters the **Active** state.
      *   * >  You cannot modify the specification of a router interface that has overdue payments.
      *   *
      * @param ModifyRouterInterfaceSpecRequest $request ModifyRouterInterfaceSpecRequest
@@ -23630,8 +24609,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)Description
-     *   * After you call this operation, the router interface enters the **Activating** state. After the router interface is activated, the router interface enters the **Active** state.
+     * After you call this operation, the router interface enters the **Activating** state. After the router interface is activated, the router interface enters the **Active** state.
      *   * >  You cannot modify the specification of a router interface that has overdue payments.
      *   *
      * @param ModifyRouterInterfaceSpecRequest $request ModifyRouterInterfaceSpecRequest
@@ -24478,10 +25456,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   The **ModifyVpcPrefixList** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [ListPrefixLists](~~311535~~) to query the status of a prefix list.
+     * *   **ModifyVpcPrefixList** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListPrefixLists](~~311535~~) to query the status of the task.
      *   *     *   If the prefix list is in the **Modifying** state, the configuration of the prefix list is being modified.
      *   *     *   If the prefix list is in the **Created** state, the configuration of the prefix list is modified.
-     *   *     *   After the configuration of the prefix list is modified, you can call the [GetVpcPrefixListAssociations](~~445478~~) operation to query information about the network instances that are associated with the prefix list and determine whether the associated network instances use the new CIDR blocks. If the association **status** of the prefix list is **Created**, the new CIDR blocks are used by the network instances that are associated with the prefix list.
+     *   *     *   After the configuration of the prefix list is modified, you can call the [GetVpcPrefixListAssociations](~~445478~~) operation to query the information about the network instances that are associated with the prefix list and determine whether the associated network instances use the new CIDR blocks. If the association **status** of the prefix list is **Created**, the new CIDR blocks are used by the network instances that are associated with the prefix list.
      *   * *   You cannot repeatedly call **ModifyVpcPrefixList** to modify the configuration of a prefix list within the specified period of time.
      *   *
      * @param ModifyVpcPrefixListRequest $request ModifyVpcPrefixListRequest
@@ -24551,10 +25529,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   The **ModifyVpcPrefixList** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [ListPrefixLists](~~311535~~) to query the status of a prefix list.
+     * *   **ModifyVpcPrefixList** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListPrefixLists](~~311535~~) to query the status of the task.
      *   *     *   If the prefix list is in the **Modifying** state, the configuration of the prefix list is being modified.
      *   *     *   If the prefix list is in the **Created** state, the configuration of the prefix list is modified.
-     *   *     *   After the configuration of the prefix list is modified, you can call the [GetVpcPrefixListAssociations](~~445478~~) operation to query information about the network instances that are associated with the prefix list and determine whether the associated network instances use the new CIDR blocks. If the association **status** of the prefix list is **Created**, the new CIDR blocks are used by the network instances that are associated with the prefix list.
+     *   *     *   After the configuration of the prefix list is modified, you can call the [GetVpcPrefixListAssociations](~~445478~~) operation to query the information about the network instances that are associated with the prefix list and determine whether the associated network instances use the new CIDR blocks. If the association **status** of the prefix list is **Created**, the new CIDR blocks are used by the network instances that are associated with the prefix list.
      *   * *   You cannot repeatedly call **ModifyVpcPrefixList** to modify the configuration of a prefix list within the specified period of time.
      *   *
      * @param ModifyVpcPrefixListRequest $request ModifyVpcPrefixListRequest
@@ -25705,7 +26683,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * After the operation is called, the VBR changes from the **terminated** state to the **recovering** state. When the VBR recovers, it enters the **active** state.
+     * After you call this operation, the VBR changes from the **terminated** state to the **recovering** state. After the operation is performed, the VBR enters the **active** state.
      *   * When you call this operation, take note of the following items:
      *   * *   Only the owner of the Express Connect circuit can call this operation.
      *   * *   The Express Connect circuit to which the VBR connects must be in the **Enabled** state.
@@ -25759,7 +26737,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * After the operation is called, the VBR changes from the **terminated** state to the **recovering** state. When the VBR recovers, it enters the **active** state.
+     * After you call this operation, the VBR changes from the **terminated** state to the **recovering** state. After the operation is performed, the VBR enters the **active** state.
      *   * When you call this operation, take note of the following items:
      *   * *   Only the owner of the Express Connect circuit can call this operation.
      *   * *   The Express Connect circuit to which the VBR connects must be in the **Enabled** state.
@@ -27069,7 +28047,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * After the operation is performed, the VBR changes from the **active** state to the **terminating** state. After the VBR is terminated, it enters the **terminated** state.
+     * After you call this operation, the VBR enters the **terminating** state from the **active** state. After the VBR is terminated, the VBR enters the **terminated** state.
      *   * >  Only the owner of an Express Connect circuit can call this operation.
      *   *
      * @param TerminateVirtualBorderRouterRequest $request TerminateVirtualBorderRouterRequest
@@ -27121,7 +28099,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * After the operation is performed, the VBR changes from the **active** state to the **terminating** state. After the VBR is terminated, it enters the **terminated** state.
+     * After you call this operation, the VBR enters the **terminating** state from the **active** state. After the VBR is terminated, the VBR enters the **terminated** state.
      *   * >  Only the owner of an Express Connect circuit can call this operation.
      *   *
      * @param TerminateVirtualBorderRouterRequest $request TerminateVirtualBorderRouterRequest

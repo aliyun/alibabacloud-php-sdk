@@ -125,11 +125,18 @@ class CreateFlowLogRequest extends Model
     public $resourceType;
 
     /**
+     * @description The tag of the resource.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description The scope of the traffic that you want to capture. Valid values:
+     *
+     *   **all**: all traffic.
+     *   **internetGateway**: Internet traffic.
+     *
      * @var string[]
      */
     public $trafficPath;

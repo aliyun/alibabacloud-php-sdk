@@ -20,7 +20,7 @@ class DescribeVbrHaResponseBody extends Model
     /**
      * @description The description of the VBR failover group.
      *
-     * The description must be 2 to 256 characters in length. It must start with a letter and cannot start with `http://`or `https://`.
+     * The description must be 2 to 256 characters in length. It must start with a letter but cannot start with `http://` or `https://`.
      * @example desc
      *
      * @var string
@@ -46,7 +46,7 @@ class DescribeVbrHaResponseBody extends Model
     public $peerVbrId;
 
     /**
-     * @description The ID of the region where the VBR is deployed.
+     * @description The ID of the region in which the VBR is deployed.
      *
      * @example cn-hangzhou
      *
@@ -55,7 +55,7 @@ class DescribeVbrHaResponseBody extends Model
     public $regionId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 4EC47282-1B74-4534-BD0E-403F3EE64CAF
      *
@@ -64,10 +64,10 @@ class DescribeVbrHaResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The state of the VBR failover group.
+     * @description The status of the VBR failover group.
      *
-     *   **Creating**: The VBR failover group is being created.
-     *   **Active**: The VBR failover group is running as expected.
+     *   **Creating**
+     *   **Active**
      *
      * @example Active
      *
@@ -85,7 +85,7 @@ class DescribeVbrHaResponseBody extends Model
     public $vbrHaId;
 
     /**
-     * @description The ID of the VBR.
+     * @description The VBR ID.
      *
      * @example vbr-bp1jcg5cmxjbl9xgc****
      *
