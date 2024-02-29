@@ -495,7 +495,6 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyAutoProvisioningGroupRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyAutoProvisioningGroupResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyAutoSnapshotPolicyExRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyAutoSnapshotPolicyExResponse;
-use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyAutoSnapshotPolicyExShrinkRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyAutoSnapshotPolicyRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyAutoSnapshotPolicyResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyBandwidthPackageSpecRequest;
@@ -3437,6 +3436,9 @@ class Ecs extends OpenApiClient
         }
         if (!Utils::isUnset($request->systemDiskConfig)) {
             $query['SystemDiskConfig'] = $request->systemDiskConfig;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         if (!Utils::isUnset($request->terminateInstances)) {
             $query['TerminateInstances'] = $request->terminateInstances;
@@ -10103,6 +10105,9 @@ class Ecs extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -21046,25 +21051,20 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @param ModifyAutoSnapshotPolicyExRequest $tmpReq
+     * @param ModifyAutoSnapshotPolicyExRequest $request
      * @param RuntimeOptions                    $runtime
      *
      * @return ModifyAutoSnapshotPolicyExResponse
      */
-    public function modifyAutoSnapshotPolicyExWithOptions($tmpReq, $runtime)
+    public function modifyAutoSnapshotPolicyExWithOptions($request, $runtime)
     {
-        Utils::validateModel($tmpReq);
-        $request = new ModifyAutoSnapshotPolicyExShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->copyEncryptionConfiguration)) {
-            $request->copyEncryptionConfigurationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->copyEncryptionConfiguration, 'CopyEncryptionConfiguration', 'json');
-        }
+        Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->copiedSnapshotsRetentionDays)) {
             $query['CopiedSnapshotsRetentionDays'] = $request->copiedSnapshotsRetentionDays;
         }
-        if (!Utils::isUnset($request->copyEncryptionConfigurationShrink)) {
-            $query['CopyEncryptionConfiguration'] = $request->copyEncryptionConfigurationShrink;
+        if (!Utils::isUnset($request->copyEncryptionConfiguration)) {
+            $query['CopyEncryptionConfiguration'] = $request->copyEncryptionConfiguration;
         }
         if (!Utils::isUnset($request->enableCrossRegionCopy)) {
             $query['EnableCrossRegionCopy'] = $request->enableCrossRegionCopy;

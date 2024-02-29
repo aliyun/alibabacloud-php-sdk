@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAutoProvisioningGroupsRe
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAutoProvisioningGroupsResponseBody\autoProvisioningGroups\autoProvisioningGroup\launchTemplateConfigs;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAutoProvisioningGroupsResponseBody\autoProvisioningGroups\autoProvisioningGroup\payAsYouGoOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAutoProvisioningGroupsResponseBody\autoProvisioningGroups\autoProvisioningGroup\spotOptions;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAutoProvisioningGroupsResponseBody\autoProvisioningGroups\autoProvisioningGroup\tags;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAutoProvisioningGroupsResponseBody\autoProvisioningGroups\autoProvisioningGroup\targetCapacitySpecification;
 use AlibabaCloud\Tea\Model;
 
@@ -156,6 +157,11 @@ class autoProvisioningGroup extends Model
     public $status;
 
     /**
+     * @var tags
+     */
+    public $tags;
+
+    /**
      * @description The settings of the target capacity of the auto provisioning group.
      *
      * @var targetCapacitySpecification
@@ -219,6 +225,7 @@ class autoProvisioningGroup extends Model
         'spotOptions'                      => 'SpotOptions',
         'state'                            => 'State',
         'status'                           => 'Status',
+        'tags'                             => 'Tags',
         'targetCapacitySpecification'      => 'TargetCapacitySpecification',
         'terminateInstances'               => 'TerminateInstances',
         'terminateInstancesWithExpiration' => 'TerminateInstancesWithExpiration',
@@ -277,6 +284,9 @@ class autoProvisioningGroup extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
         if (null !== $this->targetCapacitySpecification) {
             $res['TargetCapacitySpecification'] = null !== $this->targetCapacitySpecification ? $this->targetCapacitySpecification->toMap() : null;
@@ -349,6 +359,9 @@ class autoProvisioningGroup extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
         }
         if (isset($map['TargetCapacitySpecification'])) {
             $model->targetCapacitySpecification = targetCapacitySpecification::fromMap($map['TargetCapacitySpecification']);

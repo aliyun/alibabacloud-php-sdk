@@ -8,6 +8,7 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupRequest\dat
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupRequest\launchConfiguration;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupRequest\launchTemplateConfig;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupRequest\systemDiskConfig;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateAutoProvisioningGroupRequest extends Model
@@ -260,6 +261,11 @@ class CreateAutoProvisioningGroupRequest extends Model
     public $systemDiskConfig;
 
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @description Specifies whether to release instances in the auto provisioning group when the auto provisioning group is deleted. Valid values:
      *
      *   true: releases the instances.
@@ -342,6 +348,7 @@ class CreateAutoProvisioningGroupRequest extends Model
         'spotInstancePoolsToUseCount'      => 'SpotInstancePoolsToUseCount',
         'spotTargetCapacity'               => 'SpotTargetCapacity',
         'systemDiskConfig'                 => 'SystemDiskConfig',
+        'tag'                              => 'Tag',
         'terminateInstances'               => 'TerminateInstances',
         'terminateInstancesWithExpiration' => 'TerminateInstancesWithExpiration',
         'totalTargetCapacity'              => 'TotalTargetCapacity',
@@ -452,6 +459,15 @@ class CreateAutoProvisioningGroupRequest extends Model
                 $n = 0;
                 foreach ($this->systemDiskConfig as $item) {
                     $res['SystemDiskConfig'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -578,6 +594,15 @@ class CreateAutoProvisioningGroupRequest extends Model
                 $n                       = 0;
                 foreach ($map['SystemDiskConfig'] as $item) {
                     $model->systemDiskConfig[$n++] = null !== $item ? systemDiskConfig::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
         }
