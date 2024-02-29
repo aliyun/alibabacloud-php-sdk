@@ -4,10 +4,16 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models;
 
+use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ListHotelRoomsRequest\hotelAdminRoom;
 use AlibabaCloud\Tea\Model;
 
 class ListHotelRoomsRequest extends Model
 {
+    /**
+     * @var hotelAdminRoom
+     */
+    public $hotelAdminRoom;
+
     /**
      * @example e6dd44fd16084db8a60d69fd625d9f0f
      *
@@ -15,7 +21,8 @@ class ListHotelRoomsRequest extends Model
      */
     public $hotelId;
     protected $_name = [
-        'hotelId' => 'HotelId',
+        'hotelAdminRoom' => 'HotelAdminRoom',
+        'hotelId'        => 'HotelId',
     ];
 
     public function validate()
@@ -25,6 +32,9 @@ class ListHotelRoomsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->hotelAdminRoom) {
+            $res['HotelAdminRoom'] = null !== $this->hotelAdminRoom ? $this->hotelAdminRoom->toMap() : null;
+        }
         if (null !== $this->hotelId) {
             $res['HotelId'] = $this->hotelId;
         }
@@ -40,6 +50,9 @@ class ListHotelRoomsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['HotelAdminRoom'])) {
+            $model->hotelAdminRoom = hotelAdminRoom::fromMap($map['HotelAdminRoom']);
+        }
         if (isset($map['HotelId'])) {
             $model->hotelId = $map['HotelId'];
         }

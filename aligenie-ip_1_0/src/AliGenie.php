@@ -13,6 +13,10 @@ use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\AddCustomQAHeaders;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\AddCustomQARequest;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\AddCustomQAResponse;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\AddCustomQAShrinkRequest;
+use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\AddCustomQAV2Headers;
+use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\AddCustomQAV2Request;
+use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\AddCustomQAV2Response;
+use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\AddCustomQAV2ShrinkRequest;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\AddMessageTemplateHeaders;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\AddMessageTemplateRequest;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\AddMessageTemplateResponse;
@@ -207,6 +211,7 @@ use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ListHotelOrderShrinkRequest;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ListHotelRoomsHeaders;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ListHotelRoomsRequest;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ListHotelRoomsResponse;
+use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ListHotelRoomsShrinkRequest;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ListHotelSceneBookItemsHeaders;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ListHotelSceneBookItemsRequest;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ListHotelSceneBookItemsResponse;
@@ -250,10 +255,20 @@ use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ListTicketsShrinkRequest;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\PageGetHotelRoomDevicesHeaders;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\PageGetHotelRoomDevicesRequest;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\PageGetHotelRoomDevicesResponse;
+use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\PmsEventReportHeaders;
+use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\PmsEventReportRequest;
+use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\PmsEventReportResponse;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\PushHotelMessageHeaders;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\PushHotelMessageRequest;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\PushHotelMessageResponse;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\PushHotelMessageShrinkRequest;
+use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\PushVoiceBoxCommandsHeaders;
+use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\PushVoiceBoxCommandsRequest;
+use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\PushVoiceBoxCommandsResponse;
+use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\PushVoiceBoxCommandsShrinkRequest;
+use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\PushWelcomeHeaders;
+use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\PushWelcomeRequest;
+use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\PushWelcomeResponse;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\PushWelcomeTextAndMusicHeaders;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\PushWelcomeTextAndMusicRequest;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\PushWelcomeTextAndMusicResponse;
@@ -506,6 +521,85 @@ class AliGenie extends OpenApiClient
         $headers = new AddCustomQAHeaders([]);
 
         return $this->addCustomQAWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param AddCustomQAV2Request $tmpReq
+     * @param AddCustomQAV2Headers $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return AddCustomQAV2Response
+     */
+    public function addCustomQAV2WithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new AddCustomQAV2ShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->answers)) {
+            $request->answersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->answers, 'Answers', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->keyWords)) {
+            $request->keyWordsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->keyWords, 'KeyWords', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->supplementaryQuestions)) {
+            $request->supplementaryQuestionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->supplementaryQuestions, 'SupplementaryQuestions', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->answersShrink)) {
+            $body['Answers'] = $request->answersShrink;
+        }
+        if (!Utils::isUnset($request->hotelId)) {
+            $body['HotelId'] = $request->hotelId;
+        }
+        if (!Utils::isUnset($request->keyWordsShrink)) {
+            $body['KeyWords'] = $request->keyWordsShrink;
+        }
+        if (!Utils::isUnset($request->majorQuestion)) {
+            $body['MajorQuestion'] = $request->majorQuestion;
+        }
+        if (!Utils::isUnset($request->supplementaryQuestionsShrink)) {
+            $body['SupplementaryQuestions'] = $request->supplementaryQuestionsShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
+            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+        }
+        if (!Utils::isUnset($headers->authorization)) {
+            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AddCustomQAV2',
+            'version'     => 'ip_1.0',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v1.0/ip/addQAV2',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddCustomQAV2Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddCustomQAV2Request $request
+     *
+     * @return AddCustomQAV2Response
+     */
+    public function addCustomQAV2($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new AddCustomQAV2Headers([]);
+
+        return $this->addCustomQAV2WithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3932,16 +4026,24 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param ListHotelRoomsRequest $request
+     * @param ListHotelRoomsRequest $tmpReq
      * @param ListHotelRoomsHeaders $headers
      * @param RuntimeOptions        $runtime
      *
      * @return ListHotelRoomsResponse
      */
-    public function listHotelRoomsWithOptions($request, $headers, $runtime)
+    public function listHotelRoomsWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new ListHotelRoomsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->hotelAdminRoom)) {
+            $request->hotelAdminRoomShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->hotelAdminRoom, 'HotelAdminRoom', 'json');
+        }
         $body = [];
+        if (!Utils::isUnset($request->hotelAdminRoomShrink)) {
+            $body['HotelAdminRoom'] = $request->hotelAdminRoomShrink;
+        }
         if (!Utils::isUnset($request->hotelId)) {
             $body['HotelId'] = $request->hotelId;
         }
@@ -4262,10 +4364,16 @@ class AliGenie extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new ListHotelsShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->hotelRequest)) {
+            $request->hotelRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->hotelRequest, 'HotelRequest', 'json');
+        }
         if (!Utils::isUnset($tmpReq->page)) {
             $request->pageShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->page, 'Page', 'json');
         }
         $query = [];
+        if (!Utils::isUnset($request->hotelRequestShrink)) {
+            $query['HotelRequest'] = $request->hotelRequestShrink;
+        }
         if (!Utils::isUnset($request->pageShrink)) {
             $query['Page'] = $request->pageShrink;
         }
@@ -4788,6 +4896,62 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * @param PmsEventReportRequest $request
+     * @param PmsEventReportHeaders $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return PmsEventReportResponse
+     */
+    public function pmsEventReportWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->payload)) {
+            $body['Payload'] = $request->payload;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
+            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+        }
+        if (!Utils::isUnset($headers->authorization)) {
+            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'PmsEventReport',
+            'version'     => 'ip_1.0',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v1.0/ip/pmsEventReport',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PmsEventReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param PmsEventReportRequest $request
+     *
+     * @return PmsEventReportResponse
+     */
+    public function pmsEventReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new PmsEventReportHeaders([]);
+
+        return $this->pmsEventReportWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param PushHotelMessageRequest $tmpReq
      * @param PushHotelMessageHeaders $headers
      * @param RuntimeOptions          $runtime
@@ -4846,6 +5010,138 @@ class AliGenie extends OpenApiClient
         $headers = new PushHotelMessageHeaders([]);
 
         return $this->pushHotelMessageWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param PushVoiceBoxCommandsRequest $tmpReq
+     * @param PushVoiceBoxCommandsHeaders $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return PushVoiceBoxCommandsResponse
+     */
+    public function pushVoiceBoxCommandsWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new PushVoiceBoxCommandsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->commands)) {
+            $request->commandsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->commands, 'Commands', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->commandsShrink)) {
+            $body['Commands'] = $request->commandsShrink;
+        }
+        if (!Utils::isUnset($request->hotelId)) {
+            $body['HotelId'] = $request->hotelId;
+        }
+        if (!Utils::isUnset($request->roomNo)) {
+            $body['RoomNo'] = $request->roomNo;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
+            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+        }
+        if (!Utils::isUnset($headers->authorization)) {
+            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'PushVoiceBoxCommands',
+            'version'     => 'ip_1.0',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v1.0/ip/pushVoiceBoxCommands',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PushVoiceBoxCommandsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param PushVoiceBoxCommandsRequest $request
+     *
+     * @return PushVoiceBoxCommandsResponse
+     */
+    public function pushVoiceBoxCommands($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new PushVoiceBoxCommandsHeaders([]);
+
+        return $this->pushVoiceBoxCommandsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param PushWelcomeRequest $request
+     * @param PushWelcomeHeaders $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return PushWelcomeResponse
+     */
+    public function pushWelcomeWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->hotelId)) {
+            $body['HotelId'] = $request->hotelId;
+        }
+        if (!Utils::isUnset($request->roomNo)) {
+            $body['RoomNo'] = $request->roomNo;
+        }
+        if (!Utils::isUnset($request->welcomeMusicUrl)) {
+            $body['WelcomeMusicUrl'] = $request->welcomeMusicUrl;
+        }
+        if (!Utils::isUnset($request->welcomeText)) {
+            $body['WelcomeText'] = $request->welcomeText;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
+            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+        }
+        if (!Utils::isUnset($headers->authorization)) {
+            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'PushWelcome',
+            'version'     => 'ip_1.0',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v1.0/ip/pushWelcome',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PushWelcomeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param PushWelcomeRequest $request
+     *
+     * @return PushWelcomeResponse
+     */
+    public function pushWelcome($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new PushWelcomeHeaders([]);
+
+        return $this->pushWelcomeWithOptions($request, $headers, $runtime);
     }
 
     /**

@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models;
 
+use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ListHotelsRequest\hotelRequest;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ListHotelsRequest\page;
 use AlibabaCloud\Tea\Model;
 
 class ListHotelsRequest extends Model
 {
+    /**
+     * @var hotelRequest
+     */
+    public $hotelRequest;
+
     /**
      * @var page
      */
@@ -21,8 +27,9 @@ class ListHotelsRequest extends Model
      */
     public $status;
     protected $_name = [
-        'page'   => 'Page',
-        'status' => 'Status',
+        'hotelRequest' => 'HotelRequest',
+        'page'         => 'Page',
+        'status'       => 'Status',
     ];
 
     public function validate()
@@ -32,6 +39,9 @@ class ListHotelsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->hotelRequest) {
+            $res['HotelRequest'] = null !== $this->hotelRequest ? $this->hotelRequest->toMap() : null;
+        }
         if (null !== $this->page) {
             $res['Page'] = null !== $this->page ? $this->page->toMap() : null;
         }
@@ -50,6 +60,9 @@ class ListHotelsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['HotelRequest'])) {
+            $model->hotelRequest = hotelRequest::fromMap($map['HotelRequest']);
+        }
         if (isset($map['Page'])) {
             $model->page = page::fromMap($map['Page']);
         }

@@ -11,6 +11,11 @@ class ListHotelsShrinkRequest extends Model
     /**
      * @var string
      */
+    public $hotelRequestShrink;
+
+    /**
+     * @var string
+     */
     public $pageShrink;
 
     /**
@@ -20,8 +25,9 @@ class ListHotelsShrinkRequest extends Model
      */
     public $status;
     protected $_name = [
-        'pageShrink' => 'Page',
-        'status'     => 'Status',
+        'hotelRequestShrink' => 'HotelRequest',
+        'pageShrink'         => 'Page',
+        'status'             => 'Status',
     ];
 
     public function validate()
@@ -31,6 +37,9 @@ class ListHotelsShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->hotelRequestShrink) {
+            $res['HotelRequest'] = $this->hotelRequestShrink;
+        }
         if (null !== $this->pageShrink) {
             $res['Page'] = $this->pageShrink;
         }
@@ -49,6 +58,9 @@ class ListHotelsShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['HotelRequest'])) {
+            $model->hotelRequestShrink = $map['HotelRequest'];
+        }
         if (isset($map['Page'])) {
             $model->pageShrink = $map['Page'];
         }
