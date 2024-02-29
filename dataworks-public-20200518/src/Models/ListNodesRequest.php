@@ -79,15 +79,21 @@ class ListNodesRequest extends Model
      * @var int
      */
     public $projectId;
+
+    /**
+     * @var string
+     */
+    public $schedulerType;
     protected $_name = [
-        'bizName'     => 'BizName',
-        'nodeName'    => 'NodeName',
-        'owner'       => 'Owner',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'programType' => 'ProgramType',
-        'projectEnv'  => 'ProjectEnv',
-        'projectId'   => 'ProjectId',
+        'bizName'       => 'BizName',
+        'nodeName'      => 'NodeName',
+        'owner'         => 'Owner',
+        'pageNumber'    => 'PageNumber',
+        'pageSize'      => 'PageSize',
+        'programType'   => 'ProgramType',
+        'projectEnv'    => 'ProjectEnv',
+        'projectId'     => 'ProjectId',
+        'schedulerType' => 'SchedulerType',
     ];
 
     public function validate()
@@ -120,6 +126,9 @@ class ListNodesRequest extends Model
         }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->schedulerType) {
+            $res['SchedulerType'] = $this->schedulerType;
         }
 
         return $res;
@@ -156,6 +165,9 @@ class ListNodesRequest extends Model
         }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['SchedulerType'])) {
+            $model->schedulerType = $map['SchedulerType'];
         }
 
         return $model;

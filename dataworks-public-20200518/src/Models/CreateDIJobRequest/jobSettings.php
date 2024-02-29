@@ -5,16 +5,28 @@
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateDIJobRequest;
 
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateDIJobRequest\jobSettings\columnDataTypeSettings;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateDIJobRequest\jobSettings\cycleScheduleSettings;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateDIJobRequest\jobSettings\ddlHandlingSettings;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateDIJobRequest\jobSettings\importRuleSettings;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateDIJobRequest\jobSettings\runtimeSettings;
 use AlibabaCloud\Tea\Model;
 
 class jobSettings extends Model
 {
     /**
+     * @var string
+     */
+    public $channelSettings;
+
+    /**
      * @var columnDataTypeSettings[]
      */
     public $columnDataTypeSettings;
+
+    /**
+     * @var cycleScheduleSettings
+     */
+    public $cycleScheduleSettings;
 
     /**
      * @var ddlHandlingSettings[]
@@ -22,12 +34,20 @@ class jobSettings extends Model
     public $ddlHandlingSettings;
 
     /**
+     * @var importRuleSettings
+     */
+    public $importRuleSettings;
+
+    /**
      * @var runtimeSettings[]
      */
     public $runtimeSettings;
     protected $_name = [
+        'channelSettings'        => 'ChannelSettings',
         'columnDataTypeSettings' => 'ColumnDataTypeSettings',
+        'cycleScheduleSettings'  => 'CycleScheduleSettings',
         'ddlHandlingSettings'    => 'DdlHandlingSettings',
+        'importRuleSettings'     => 'ImportRuleSettings',
         'runtimeSettings'        => 'RuntimeSettings',
     ];
 
@@ -38,6 +58,9 @@ class jobSettings extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->channelSettings) {
+            $res['ChannelSettings'] = $this->channelSettings;
+        }
         if (null !== $this->columnDataTypeSettings) {
             $res['ColumnDataTypeSettings'] = [];
             if (null !== $this->columnDataTypeSettings && \is_array($this->columnDataTypeSettings)) {
@@ -47,6 +70,9 @@ class jobSettings extends Model
                 }
             }
         }
+        if (null !== $this->cycleScheduleSettings) {
+            $res['CycleScheduleSettings'] = null !== $this->cycleScheduleSettings ? $this->cycleScheduleSettings->toMap() : null;
+        }
         if (null !== $this->ddlHandlingSettings) {
             $res['DdlHandlingSettings'] = [];
             if (null !== $this->ddlHandlingSettings && \is_array($this->ddlHandlingSettings)) {
@@ -55,6 +81,9 @@ class jobSettings extends Model
                     $res['DdlHandlingSettings'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->importRuleSettings) {
+            $res['ImportRuleSettings'] = null !== $this->importRuleSettings ? $this->importRuleSettings->toMap() : null;
         }
         if (null !== $this->runtimeSettings) {
             $res['RuntimeSettings'] = [];
@@ -77,6 +106,9 @@ class jobSettings extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ChannelSettings'])) {
+            $model->channelSettings = $map['ChannelSettings'];
+        }
         if (isset($map['ColumnDataTypeSettings'])) {
             if (!empty($map['ColumnDataTypeSettings'])) {
                 $model->columnDataTypeSettings = [];
@@ -86,6 +118,9 @@ class jobSettings extends Model
                 }
             }
         }
+        if (isset($map['CycleScheduleSettings'])) {
+            $model->cycleScheduleSettings = cycleScheduleSettings::fromMap($map['CycleScheduleSettings']);
+        }
         if (isset($map['DdlHandlingSettings'])) {
             if (!empty($map['DdlHandlingSettings'])) {
                 $model->ddlHandlingSettings = [];
@@ -94,6 +129,9 @@ class jobSettings extends Model
                     $model->ddlHandlingSettings[$n++] = null !== $item ? ddlHandlingSettings::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ImportRuleSettings'])) {
+            $model->importRuleSettings = importRuleSettings::fromMap($map['ImportRuleSettings']);
         }
         if (isset($map['RuntimeSettings'])) {
             if (!empty($map['RuntimeSettings'])) {

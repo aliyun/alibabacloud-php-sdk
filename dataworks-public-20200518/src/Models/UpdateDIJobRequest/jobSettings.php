@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateDIJobRequest;
 
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateDIJobRequest\jobSettings\columnDataTypeSettings;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateDIJobRequest\jobSettings\cycleScheduleSettings;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateDIJobRequest\jobSettings\ddlHandlingSettings;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateDIJobRequest\jobSettings\runtimeSettings;
 use AlibabaCloud\Tea\Model;
@@ -12,9 +13,19 @@ use AlibabaCloud\Tea\Model;
 class jobSettings extends Model
 {
     /**
+     * @var string
+     */
+    public $channelSettings;
+
+    /**
      * @var columnDataTypeSettings[]
      */
     public $columnDataTypeSettings;
+
+    /**
+     * @var cycleScheduleSettings
+     */
+    public $cycleScheduleSettings;
 
     /**
      * @var ddlHandlingSettings[]
@@ -26,7 +37,9 @@ class jobSettings extends Model
      */
     public $runtimeSettings;
     protected $_name = [
+        'channelSettings'        => 'ChannelSettings',
         'columnDataTypeSettings' => 'ColumnDataTypeSettings',
+        'cycleScheduleSettings'  => 'CycleScheduleSettings',
         'ddlHandlingSettings'    => 'DdlHandlingSettings',
         'runtimeSettings'        => 'RuntimeSettings',
     ];
@@ -38,6 +51,9 @@ class jobSettings extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->channelSettings) {
+            $res['ChannelSettings'] = $this->channelSettings;
+        }
         if (null !== $this->columnDataTypeSettings) {
             $res['ColumnDataTypeSettings'] = [];
             if (null !== $this->columnDataTypeSettings && \is_array($this->columnDataTypeSettings)) {
@@ -46,6 +62,9 @@ class jobSettings extends Model
                     $res['ColumnDataTypeSettings'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->cycleScheduleSettings) {
+            $res['CycleScheduleSettings'] = null !== $this->cycleScheduleSettings ? $this->cycleScheduleSettings->toMap() : null;
         }
         if (null !== $this->ddlHandlingSettings) {
             $res['DdlHandlingSettings'] = [];
@@ -77,6 +96,9 @@ class jobSettings extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ChannelSettings'])) {
+            $model->channelSettings = $map['ChannelSettings'];
+        }
         if (isset($map['ColumnDataTypeSettings'])) {
             if (!empty($map['ColumnDataTypeSettings'])) {
                 $model->columnDataTypeSettings = [];
@@ -85,6 +107,9 @@ class jobSettings extends Model
                     $model->columnDataTypeSettings[$n++] = null !== $item ? columnDataTypeSettings::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['CycleScheduleSettings'])) {
+            $model->cycleScheduleSettings = cycleScheduleSettings::fromMap($map['CycleScheduleSettings']);
         }
         if (isset($map['DdlHandlingSettings'])) {
             if (!empty($map['DdlHandlingSettings'])) {

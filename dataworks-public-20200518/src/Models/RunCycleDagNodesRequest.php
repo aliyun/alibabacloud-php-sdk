@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class RunCycleDagNodesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $alertNoticeType;
+
+    /**
+     * @var string
+     */
+    public $alertType;
+
+    /**
      * @description The time when the node started to run. This parameter is required only for auto triggered nodes that are scheduled by hour. Specify the value in the HH:mm:ss format. Valid values: 00:00:00 to 23:59:59.
      *
      * @example 00:00:00
@@ -25,6 +35,11 @@ class RunCycleDagNodesRequest extends Model
      * @var string
      */
     public $bizEndTime;
+
+    /**
+     * @var int
+     */
+    public $concurrentRuns;
 
     /**
      * @description The data timestamp at which data is no longer backfilled. Specify the value in the yyyy-MM-dd 00:00:00 format.
@@ -116,8 +131,11 @@ class RunCycleDagNodesRequest extends Model
      */
     public $startFutureInstanceImmediately;
     protected $_name = [
+        'alertNoticeType'                => 'AlertNoticeType',
+        'alertType'                      => 'AlertType',
         'bizBeginTime'                   => 'BizBeginTime',
         'bizEndTime'                     => 'BizEndTime',
+        'concurrentRuns'                 => 'ConcurrentRuns',
         'endBizDate'                     => 'EndBizDate',
         'excludeNodeIds'                 => 'ExcludeNodeIds',
         'includeNodeIds'                 => 'IncludeNodeIds',
@@ -137,11 +155,20 @@ class RunCycleDagNodesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->alertNoticeType) {
+            $res['AlertNoticeType'] = $this->alertNoticeType;
+        }
+        if (null !== $this->alertType) {
+            $res['AlertType'] = $this->alertType;
+        }
         if (null !== $this->bizBeginTime) {
             $res['BizBeginTime'] = $this->bizBeginTime;
         }
         if (null !== $this->bizEndTime) {
             $res['BizEndTime'] = $this->bizEndTime;
+        }
+        if (null !== $this->concurrentRuns) {
+            $res['ConcurrentRuns'] = $this->concurrentRuns;
         }
         if (null !== $this->endBizDate) {
             $res['EndBizDate'] = $this->endBizDate;
@@ -185,11 +212,20 @@ class RunCycleDagNodesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AlertNoticeType'])) {
+            $model->alertNoticeType = $map['AlertNoticeType'];
+        }
+        if (isset($map['AlertType'])) {
+            $model->alertType = $map['AlertType'];
+        }
         if (isset($map['BizBeginTime'])) {
             $model->bizBeginTime = $map['BizBeginTime'];
         }
         if (isset($map['BizEndTime'])) {
             $model->bizEndTime = $map['BizEndTime'];
+        }
+        if (isset($map['ConcurrentRuns'])) {
+            $model->concurrentRuns = $map['ConcurrentRuns'];
         }
         if (isset($map['EndBizDate'])) {
             $model->endBizDate = $map['EndBizDate'];

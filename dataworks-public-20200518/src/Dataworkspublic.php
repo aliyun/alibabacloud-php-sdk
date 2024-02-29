@@ -158,6 +158,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GenerateDISyncTaskConfigFo
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GenerateDISyncTaskConfigForCreatingResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GenerateDISyncTaskConfigForUpdatingRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GenerateDISyncTaskConfigForUpdatingResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetAlertMessageRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetAlertMessageResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetBaselineConfigRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetBaselineConfigResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetBaselineKeyPathRequest;
@@ -5110,6 +5112,49 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->generateDISyncTaskConfigForUpdatingWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetAlertMessageRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetAlertMessageResponse
+     */
+    public function getAlertMessageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->alertId)) {
+            $body['AlertId'] = $request->alertId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAlertMessage',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAlertMessageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetAlertMessageRequest $request
+     *
+     * @return GetAlertMessageResponse
+     */
+    public function getAlertMessage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAlertMessageWithOptions($request, $runtime);
     }
 
     /**
@@ -10996,6 +11041,9 @@ class Dataworkspublic extends OpenApiClient
         if (!Utils::isUnset($request->projectId)) {
             $body['ProjectId'] = $request->projectId;
         }
+        if (!Utils::isUnset($request->schedulerType)) {
+            $body['SchedulerType'] = $request->schedulerType;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -12708,11 +12756,20 @@ class Dataworkspublic extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->alertNoticeType)) {
+            $body['AlertNoticeType'] = $request->alertNoticeType;
+        }
+        if (!Utils::isUnset($request->alertType)) {
+            $body['AlertType'] = $request->alertType;
+        }
         if (!Utils::isUnset($request->bizBeginTime)) {
             $body['BizBeginTime'] = $request->bizBeginTime;
         }
         if (!Utils::isUnset($request->bizEndTime)) {
             $body['BizEndTime'] = $request->bizEndTime;
+        }
+        if (!Utils::isUnset($request->concurrentRuns)) {
+            $body['ConcurrentRuns'] = $request->concurrentRuns;
         }
         if (!Utils::isUnset($request->endBizDate)) {
             $body['EndBizDate'] = $request->endBizDate;
