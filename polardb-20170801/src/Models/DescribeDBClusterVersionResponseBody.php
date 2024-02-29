@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterVersionResponseBody extends Model
 {
     /**
-     * @description The ID of the cluster.
+     * @description The latest version of the database engine.
      *
      * @example pc-****************
      *
@@ -19,13 +19,36 @@ class DescribeDBClusterVersionResponseBody extends Model
     public $DBClusterId;
 
     /**
-     * @description The latest version of the database engine.
+     * @description The release note of the kernel version.
      *
      * @example 8.0.1.1.16
      *
      * @var string
      */
     public $DBLatestVersion;
+
+    /**
+     * @description The versions to which the cluster can be upgraded.
+     *
+     * @example 8.0.1
+     *
+     * @var string
+     */
+    public $DBMinorVersion;
+
+    /**
+     * @description The version of PolarProxy.
+     *
+     * @example 8.0.1.1.7
+     *
+     * @var string
+     */
+    public $DBRevisionVersion;
+
+    /**
+     * @var DBRevisionVersionList[]
+     */
+    public $DBRevisionVersionList;
 
     /**
      * @description The minor version of the database engine.
@@ -39,41 +62,20 @@ class DescribeDBClusterVersionResponseBody extends Model
      *
      *   If `DBVersion` is **5.6**, the value of this parameter is **5.6.16**.
      *
-     * @example 8.0.1
-     *
-     * @var string
-     */
-    public $DBMinorVersion;
-
-    /**
-     * @description The revision version of the database engine.
-     *
-     * > For a cluster of the PolarDB for MySQL 5.6, the `DBRevisionVersion` parameter returns the revision version information only if the revision version is released later than August 31, 2020. Otherwise, this parameter returns an empty value. For more information about the kernel version of a cluster that runs the PolarDB for MySQL, see [PolarDB for MySQL](~~423884~~).
-     * @example 8.0.1.1.7
-     *
-     * @var string
-     */
-    public $DBRevisionVersion;
-
-    /**
-     * @description 可升级的版本信息列表。
-     *
-     * @var DBRevisionVersionList[]
-     */
-    public $DBRevisionVersionList;
-
-    /**
-     * @description The major version of the database engine. Valid values:
-     *
-     *   **8.0**
-     *   **5.7**
-     *   **5.6**
-     *
      * @example 8.0
      *
      * @var string
      */
     public $DBVersion;
+
+    /**
+     * @description The latest version of PolarProxy.
+     *
+     * @example Stable
+     *
+     * @var string
+     */
+    public $DBVersionStatus;
 
     /**
      * @description The status of the minor version. Valid values:
@@ -83,18 +85,6 @@ class DescribeDBClusterVersionResponseBody extends Model
      *   **HighRisk**: The minor version has critical defects. We recommend that you immediately upgrade the cluster to the latest version.
      *
      * > For more information about how to upgrade the minor version, see [Upgrade versions](~~158572~~).
-     * @example Stable
-     *
-     * @var string
-     */
-    public $DBVersionStatus;
-
-    /**
-     * @description Indicates whether the kernel version is the latest version. Valid values:
-     *
-     *   **true**
-     *   **false**
-     *
      * @example true
      *
      * @var string
@@ -102,10 +92,7 @@ class DescribeDBClusterVersionResponseBody extends Model
     public $isLatestVersion;
 
     /**
-     * @description Indicates whether PolarProxy is the latest version. Valid values:
-     *
-     *   **true**
-     *   **false**
+     * @description The ID of the cluster.
      *
      * @example true
      *
@@ -114,7 +101,7 @@ class DescribeDBClusterVersionResponseBody extends Model
     public $isProxyLatestVersion;
 
     /**
-     * @description The latest version of PolarProxy.
+     * @description The revision version of the database engine.
      *
      * @example 2.4.17
      *
@@ -123,7 +110,11 @@ class DescribeDBClusterVersionResponseBody extends Model
     public $proxyLatestVersion;
 
     /**
-     * @description The version of PolarProxy.
+     * @description The release status of the kernel version. Valid values:
+     *
+     *   **Stable**: The kernel version is stable.
+     *   **Old**: The kernel version is old. We recommend that you do not upgrade the cluster to this version returned for this parameter.
+     *   **HighRisk**: The kernel version has critical defects. We recommend that you do not upgrade the cluster to this version returned for this parameter.
      *
      * @example 2.4.15
      *
@@ -132,13 +123,8 @@ class DescribeDBClusterVersionResponseBody extends Model
     public $proxyRevisionVersion;
 
     /**
-     * @description The status of PolarProxy. Valid values:
+     * @description The code of the revision version of the database engine to which the cluster can be upgraded.
      *
-     *   **Stable**: The minor version is stable.
-     *   **Old**: The minor version is outdated. We recommend that you upgrade the cluster to the latest version.
-     *   **HighRisk**: The minor version has critical defects. We recommend that you immediately upgrade the cluster to the latest version.
-     *
-     * > For more information about how to upgrade the PolarProxy version, see [Upgrade versions](~~158572~~).
      * @example Stable
      *
      * @var string
@@ -146,8 +132,14 @@ class DescribeDBClusterVersionResponseBody extends Model
     public $proxyVersionStatus;
 
     /**
-     * @description The ID of the request.
+     * @description The status of PolarProxy. Valid values:
      *
+     *   **Stable**: The minor version is stable.
+     *   **Old**: The minor version is outdated. We recommend that you upgrade the cluster to the latest version.
+     *   **HighRisk**: The minor version has critical defects. We recommend that you immediately upgrade the cluster to the latest version.
+     *   **Beta**: The minor version is a beta version.
+     *
+     * > For more information about how to upgrade the PolarProxy version, see [Upgrade versions](~~158572~~).
      * @example 47921222-0D37-4133-8C0D-017DC3******
      *
      * @var string

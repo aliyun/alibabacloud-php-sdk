@@ -27,6 +27,11 @@ class DescribeDBClusterPerformanceRequest extends Model
     public $endTime;
 
     /**
+     * @var string
+     */
+    public $interval;
+
+    /**
      * @description The performance metrics that you want to query. Separate multiple metrics with commas (,). For more information, see [Performance parameters](~~141787~~).
      *
      * >  You can specify a maximum of five performance metrics.
@@ -47,6 +52,7 @@ class DescribeDBClusterPerformanceRequest extends Model
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
         'endTime'     => 'EndTime',
+        'interval'    => 'Interval',
         'key'         => 'Key',
         'startTime'   => 'StartTime',
     ];
@@ -63,6 +69,9 @@ class DescribeDBClusterPerformanceRequest extends Model
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->interval) {
+            $res['Interval'] = $this->interval;
         }
         if (null !== $this->key) {
             $res['Key'] = $this->key;
@@ -87,6 +96,9 @@ class DescribeDBClusterPerformanceRequest extends Model
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['Interval'])) {
+            $model->interval = $map['Interval'];
         }
         if (isset($map['Key'])) {
             $model->key = $map['Key'];

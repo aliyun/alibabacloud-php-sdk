@@ -9,18 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DBRevisionVersionList extends Model
 {
     /**
-     * @description 版本发布说明。
+     * @example ReleaseNote
      *
      * @var string
      */
     public $releaseNote;
 
     /**
-     * @description 数据库版本发布状态。取值范围如下：
-     * **Stable**：当前版本状态稳定。
-     * **Old**：当前版本过旧，不建议升级到该版本。
-     * **HighRisk**：当前版本有严重缺陷，不建议升级到该版本。
-     *
      * @example Stable
      *
      * @var string
@@ -28,8 +23,6 @@ class DBRevisionVersionList extends Model
     public $releaseType;
 
     /**
-     * @description 数据库引擎的修订版本Code，用于指定升级到该目标版本。
-     *
      * @example 20230707
      *
      * @var string
@@ -37,8 +30,6 @@ class DBRevisionVersionList extends Model
     public $revisionVersionCode;
 
     /**
-     * @description 数据库引擎的修订版本号。
-     *
      * @example 8.0.1.1.35.1
      *
      * @var string

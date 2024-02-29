@@ -122,6 +122,11 @@ class ModifyDBClusterPrimaryZoneRequest extends Model
      * @var string
      */
     public $zoneId;
+
+    /**
+     * @var string
+     */
+    public $zoneType;
     protected $_name = [
         'DBClusterId'             => 'DBClusterId',
         'fromTimeService'         => 'FromTimeService',
@@ -135,6 +140,7 @@ class ModifyDBClusterPrimaryZoneRequest extends Model
         'VPCId'                   => 'VPCId',
         'vSwitchId'               => 'VSwitchId',
         'zoneId'                  => 'ZoneId',
+        'zoneType'                => 'ZoneType',
     ];
 
     public function validate()
@@ -179,6 +185,9 @@ class ModifyDBClusterPrimaryZoneRequest extends Model
         }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
+        }
+        if (null !== $this->zoneType) {
+            $res['ZoneType'] = $this->zoneType;
         }
 
         return $res;
@@ -227,6 +236,9 @@ class ModifyDBClusterPrimaryZoneRequest extends Model
         }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
+        }
+        if (isset($map['ZoneType'])) {
+            $model->zoneType = $map['ZoneType'];
         }
 
         return $model;

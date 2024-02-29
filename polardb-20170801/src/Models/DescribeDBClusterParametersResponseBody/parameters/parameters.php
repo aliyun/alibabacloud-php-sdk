@@ -18,6 +18,26 @@ class parameters extends Model
     public $isEqual;
 
     /**
+     * @var string
+     */
+    public $isInstancePolarDBKey;
+
+    /**
+     * @var string
+     */
+    public $isInstanceRdsKey;
+
+    /**
+     * @var string
+     */
+    public $isPolarDBKey;
+
+    /**
+     * @var string
+     */
+    public $isRdsKey;
+
+    /**
      * @description The description of the parameter of the current cluster.
      *
      * @example The server\"s default character set.
@@ -90,6 +110,10 @@ class parameters extends Model
     public $rdsParameterValue;
     protected $_name = [
         'isEqual'                  => 'IsEqual',
+        'isInstancePolarDBKey'     => 'IsInstancePolarDBKey',
+        'isInstanceRdsKey'         => 'IsInstanceRdsKey',
+        'isPolarDBKey'             => 'IsPolarDBKey',
+        'isRdsKey'                 => 'IsRdsKey',
         'distParameterDescription' => 'distParameterDescription',
         'distParameterName'        => 'distParameterName',
         'distParameterOptional'    => 'distParameterOptional',
@@ -109,6 +133,18 @@ class parameters extends Model
         $res = [];
         if (null !== $this->isEqual) {
             $res['IsEqual'] = $this->isEqual;
+        }
+        if (null !== $this->isInstancePolarDBKey) {
+            $res['IsInstancePolarDBKey'] = $this->isInstancePolarDBKey;
+        }
+        if (null !== $this->isInstanceRdsKey) {
+            $res['IsInstanceRdsKey'] = $this->isInstanceRdsKey;
+        }
+        if (null !== $this->isPolarDBKey) {
+            $res['IsPolarDBKey'] = $this->isPolarDBKey;
+        }
+        if (null !== $this->isRdsKey) {
+            $res['IsRdsKey'] = $this->isRdsKey;
         }
         if (null !== $this->distParameterDescription) {
             $res['distParameterDescription'] = $this->distParameterDescription;
@@ -148,6 +184,18 @@ class parameters extends Model
         $model = new self();
         if (isset($map['IsEqual'])) {
             $model->isEqual = $map['IsEqual'];
+        }
+        if (isset($map['IsInstancePolarDBKey'])) {
+            $model->isInstancePolarDBKey = $map['IsInstancePolarDBKey'];
+        }
+        if (isset($map['IsInstanceRdsKey'])) {
+            $model->isInstanceRdsKey = $map['IsInstanceRdsKey'];
+        }
+        if (isset($map['IsPolarDBKey'])) {
+            $model->isPolarDBKey = $map['IsPolarDBKey'];
+        }
+        if (isset($map['IsRdsKey'])) {
+            $model->isRdsKey = $map['IsRdsKey'];
         }
         if (isset($map['distParameterDescription'])) {
             $model->distParameterDescription = $map['distParameterDescription'];

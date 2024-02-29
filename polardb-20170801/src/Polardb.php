@@ -3827,6 +3827,9 @@ class Polardb extends OpenApiClient
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
         }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
         if (!Utils::isUnset($request->key)) {
             $query['Key'] = $request->key;
         }
@@ -4042,7 +4045,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * > For more information, see [Engine versions](~~471239~~) and [PolarDB for MySQL](~~172561~~).
+     * The release note of the kernel version.
      *   *
      * @param DescribeDBClusterVersionRequest $request DescribeDBClusterVersionRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -4090,7 +4093,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * > For more information, see [Engine versions](~~471239~~) and [PolarDB for MySQL](~~172561~~).
+     * The release note of the kernel version.
      *   *
      * @param DescribeDBClusterVersionRequest $request DescribeDBClusterVersionRequest
      *
@@ -7768,6 +7771,9 @@ class Polardb extends OpenApiClient
         }
         if (!Utils::isUnset($request->zoneId)) {
             $query['ZoneId'] = $request->zoneId;
+        }
+        if (!Utils::isUnset($request->zoneType)) {
+            $query['ZoneType'] = $request->zoneType;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
