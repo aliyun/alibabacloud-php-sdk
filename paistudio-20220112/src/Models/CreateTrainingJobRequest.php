@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\CreateTrainingJobRequest\computeResource;
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\CreateTrainingJobRequest\experimentConfig;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\CreateTrainingJobRequest\hyperParameters;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\CreateTrainingJobRequest\inputChannels;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\CreateTrainingJobRequest\labels;
@@ -45,6 +46,11 @@ class CreateTrainingJobRequest extends Model
      * @var computeResource
      */
     public $computeResource;
+
+    /**
+     * @var experimentConfig
+     */
+    public $experimentConfig;
 
     /**
      * @var hyperParameters[]
@@ -107,6 +113,7 @@ class CreateTrainingJobRequest extends Model
         'algorithmVersion'       => 'AlgorithmVersion',
         'codeDir'                => 'CodeDir',
         'computeResource'        => 'ComputeResource',
+        'experimentConfig'       => 'ExperimentConfig',
         'hyperParameters'        => 'HyperParameters',
         'inputChannels'          => 'InputChannels',
         'labels'                 => 'Labels',
@@ -144,6 +151,9 @@ class CreateTrainingJobRequest extends Model
         }
         if (null !== $this->computeResource) {
             $res['ComputeResource'] = null !== $this->computeResource ? $this->computeResource->toMap() : null;
+        }
+        if (null !== $this->experimentConfig) {
+            $res['ExperimentConfig'] = null !== $this->experimentConfig ? $this->experimentConfig->toMap() : null;
         }
         if (null !== $this->hyperParameters) {
             $res['HyperParameters'] = [];
@@ -231,6 +241,9 @@ class CreateTrainingJobRequest extends Model
         }
         if (isset($map['ComputeResource'])) {
             $model->computeResource = computeResource::fromMap($map['ComputeResource']);
+        }
+        if (isset($map['ExperimentConfig'])) {
+            $model->experimentConfig = experimentConfig::fromMap($map['ExperimentConfig']);
         }
         if (isset($map['HyperParameters'])) {
             if (!empty($map['HyperParameters'])) {

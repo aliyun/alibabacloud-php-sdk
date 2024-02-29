@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListTrainingJobsResponseBody;
 
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListTrainingJobsResponseBody\trainingJobs\computeResource;
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListTrainingJobsResponseBody\trainingJobs\experimentConfig;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListTrainingJobsResponseBody\trainingJobs\hyperParameters;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListTrainingJobsResponseBody\trainingJobs\inputChannels;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListTrainingJobsResponseBody\trainingJobs\labels;
@@ -35,6 +36,11 @@ class trainingJobs extends Model
      * @var computeResource
      */
     public $computeResource;
+
+    /**
+     * @var experimentConfig
+     */
+    public $experimentConfig;
 
     /**
      * @var string
@@ -135,6 +141,7 @@ class trainingJobs extends Model
         'algorithmProvider'      => 'AlgorithmProvider',
         'algorithmVersion'       => 'AlgorithmVersion',
         'computeResource'        => 'ComputeResource',
+        'experimentConfig'       => 'ExperimentConfig',
         'gmtCreateTime'          => 'GmtCreateTime',
         'gmtModifiedTime'        => 'GmtModifiedTime',
         'hyperParameters'        => 'HyperParameters',
@@ -174,6 +181,9 @@ class trainingJobs extends Model
         }
         if (null !== $this->computeResource) {
             $res['ComputeResource'] = null !== $this->computeResource ? $this->computeResource->toMap() : null;
+        }
+        if (null !== $this->experimentConfig) {
+            $res['ExperimentConfig'] = null !== $this->experimentConfig ? $this->experimentConfig->toMap() : null;
         }
         if (null !== $this->gmtCreateTime) {
             $res['GmtCreateTime'] = $this->gmtCreateTime;
@@ -285,6 +295,9 @@ class trainingJobs extends Model
         }
         if (isset($map['ComputeResource'])) {
             $model->computeResource = computeResource::fromMap($map['ComputeResource']);
+        }
+        if (isset($map['ExperimentConfig'])) {
+            $model->experimentConfig = experimentConfig::fromMap($map['ExperimentConfig']);
         }
         if (isset($map['GmtCreateTime'])) {
             $model->gmtCreateTime = $map['GmtCreateTime'];

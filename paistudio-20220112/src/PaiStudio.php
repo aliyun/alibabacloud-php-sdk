@@ -401,6 +401,9 @@ class PaiStudio extends OpenApiClient
         if (!Utils::isUnset($request->computeResource)) {
             $body['ComputeResource'] = $request->computeResource;
         }
+        if (!Utils::isUnset($request->experimentConfig)) {
+            $body['ExperimentConfig'] = $request->experimentConfig;
+        }
         if (!Utils::isUnset($request->hyperParameters)) {
             $body['HyperParameters'] = $request->hyperParameters;
         }
