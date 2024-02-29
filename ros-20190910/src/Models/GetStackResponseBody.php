@@ -192,6 +192,11 @@ class GetStackResponseBody extends Model
     public $resourceProgress;
 
     /**
+     * @var string
+     */
+    public $rollbackFailedRootReason;
+
+    /**
      * @description The ID of the root stack. This parameter is returned if the specified stack is a nested stack.
      *
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf692****
@@ -404,6 +409,7 @@ class GetStackResponseBody extends Model
         'requestId'                    => 'RequestId',
         'resourceGroupId'              => 'ResourceGroupId',
         'resourceProgress'             => 'ResourceProgress',
+        'rollbackFailedRootReason'     => 'RollbackFailedRootReason',
         'rootStackId'                  => 'RootStackId',
         'serviceManaged'               => 'ServiceManaged',
         'serviceName'                  => 'ServiceName',
@@ -495,6 +501,9 @@ class GetStackResponseBody extends Model
         }
         if (null !== $this->resourceProgress) {
             $res['ResourceProgress'] = null !== $this->resourceProgress ? $this->resourceProgress->toMap() : null;
+        }
+        if (null !== $this->rollbackFailedRootReason) {
+            $res['RollbackFailedRootReason'] = $this->rollbackFailedRootReason;
         }
         if (null !== $this->rootStackId) {
             $res['RootStackId'] = $this->rootStackId;
@@ -636,6 +645,9 @@ class GetStackResponseBody extends Model
         }
         if (isset($map['ResourceProgress'])) {
             $model->resourceProgress = resourceProgress::fromMap($map['ResourceProgress']);
+        }
+        if (isset($map['RollbackFailedRootReason'])) {
+            $model->rollbackFailedRootReason = $map['RollbackFailedRootReason'];
         }
         if (isset($map['RootStackId'])) {
             $model->rootStackId = $map['RootStackId'];
