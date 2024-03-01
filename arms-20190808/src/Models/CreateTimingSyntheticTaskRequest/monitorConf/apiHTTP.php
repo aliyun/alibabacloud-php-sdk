@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class apiHTTP extends Model
 {
     /**
+     * @var bool
+     */
+    public $checkCert;
+
+    /**
      * @example 5000
      *
      * @var int
@@ -47,6 +52,7 @@ class apiHTTP extends Model
      */
     public $timeout;
     protected $_name = [
+        'checkCert'      => 'CheckCert',
         'connectTimeout' => 'ConnectTimeout',
         'method'         => 'Method',
         'requestBody'    => 'RequestBody',
@@ -62,6 +68,9 @@ class apiHTTP extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->checkCert) {
+            $res['CheckCert'] = $this->checkCert;
+        }
         if (null !== $this->connectTimeout) {
             $res['ConnectTimeout'] = $this->connectTimeout;
         }
@@ -92,6 +101,9 @@ class apiHTTP extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CheckCert'])) {
+            $model->checkCert = $map['CheckCert'];
+        }
         if (isset($map['ConnectTimeout'])) {
             $model->connectTimeout = $map['ConnectTimeout'];
         }
