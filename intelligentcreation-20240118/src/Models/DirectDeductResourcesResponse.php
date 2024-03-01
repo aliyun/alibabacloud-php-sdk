@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\IntelligentCreation\V20240118\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DirectDeductResourceResponse extends Model
+class DirectDeductResourcesResponse extends Model
 {
     /**
      * @var string[]
@@ -47,7 +47,7 @@ class DirectDeductResourceResponse extends Model
     /**
      * @param array $map
      *
-     * @return DirectDeductResourceResponse
+     * @return DirectDeductResourcesResponse
      */
     public static function fromMap($map = [])
     {

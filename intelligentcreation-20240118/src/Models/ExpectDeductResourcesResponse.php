@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\IntelligentCreation\V20240118\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DirectDeductResourceResponse extends Model
+class ExpectDeductResourcesResponse extends Model
 {
     /**
      * @var string[]
@@ -47,7 +47,7 @@ class DirectDeductResourceResponse extends Model
     /**
      * @param array $map
      *
-     * @return DirectDeductResourceResponse
+     * @return ExpectDeductResourcesResponse
      */
     public static function fromMap($map = [])
     {
@@ -59,7 +59,7 @@ class DirectDeductResourceResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = DirectDeductResourceResult::fromMap($map['body']);
+            $model->body = ExpectDeductResourceResult::fromMap($map['body']);
         }
 
         return $model;

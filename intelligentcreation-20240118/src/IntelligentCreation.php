@@ -8,10 +8,18 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\IntelligentCreation\V20240118\Models\ActualDeductResourceRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240118\Models\ActualDeductResourceResponse;
+use AlibabaCloud\SDK\IntelligentCreation\V20240118\Models\ActualDeductResourcesRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240118\Models\ActualDeductResourcesResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240118\Models\DirectDeductResourceRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240118\Models\DirectDeductResourceResponse;
+use AlibabaCloud\SDK\IntelligentCreation\V20240118\Models\DirectDeductResourcesRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240118\Models\DirectDeductResourcesResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240118\Models\ExpectDeductResourceRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240118\Models\ExpectDeductResourceResponse;
+use AlibabaCloud\SDK\IntelligentCreation\V20240118\Models\ExpectDeductResourcesRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240118\Models\ExpectDeductResourcesResponse;
+use AlibabaCloud\SDK\IntelligentCreation\V20240118\Models\GetRemainResourceRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240118\Models\GetRemainResourceResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -94,6 +102,48 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
+     * @param ActualDeductResourcesRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ActualDeductResourcesResponse
+     */
+    public function actualDeductResourcesWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'ActualDeductResources',
+            'version'     => '2024-01-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/yic/yic-console/openService/v1/digitalHuman/commands/actualDeductResources',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ActualDeductResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ActualDeductResourcesRequest $request
+     *
+     * @return ActualDeductResourcesResponse
+     */
+    public function actualDeductResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->actualDeductResourcesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param DirectDeductResourceRequest $request
      * @param string[]                    $headers
      * @param RuntimeOptions              $runtime
@@ -136,6 +186,48 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
+     * @param DirectDeductResourcesRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DirectDeductResourcesResponse
+     */
+    public function directDeductResourcesWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'DirectDeductResources',
+            'version'     => '2024-01-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/yic/yic-console/openService/v1/digitalHuman/commands/directDeductResources',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DirectDeductResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DirectDeductResourcesRequest $request
+     *
+     * @return DirectDeductResourcesResponse
+     */
+    public function directDeductResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->directDeductResourcesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param ExpectDeductResourceRequest $request
      * @param string[]                    $headers
      * @param RuntimeOptions              $runtime
@@ -175,5 +267,99 @@ class IntelligentCreation extends OpenApiClient
         $headers = [];
 
         return $this->expectDeductResourceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param ExpectDeductResourcesRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ExpectDeductResourcesResponse
+     */
+    public function expectDeductResourcesWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'ExpectDeductResources',
+            'version'     => '2024-01-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/yic/yic-console/openService/v1/digitalHuman/commands/expectDeductResources',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExpectDeductResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ExpectDeductResourcesRequest $request
+     *
+     * @return ExpectDeductResourcesResponse
+     */
+    public function expectDeductResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->expectDeductResourcesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param GetRemainResourceRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetRemainResourceResponse
+     */
+    public function getRemainResourceWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountId)) {
+            $query['accountId'] = $request->accountId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['resourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->subAccountId)) {
+            $query['subAccountId'] = $request->subAccountId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetRemainResource',
+            'version'     => '2024-01-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/yic/yic-console/openService/v1/digitalHuman/commands/getRemainResource',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetRemainResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetRemainResourceRequest $request
+     *
+     * @return GetRemainResourceResponse
+     */
+    public function getRemainResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getRemainResourceWithOptions($request, $headers, $runtime);
     }
 }
