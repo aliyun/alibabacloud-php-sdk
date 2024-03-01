@@ -43,11 +43,17 @@ class DescribeDBResourceGroupRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
     protected $_name = [
         'DBClusterId'          => 'DBClusterId',
         'groupName'            => 'GroupName',
         'groupType'            => 'GroupType',
+        'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
     ];
 
@@ -66,6 +72,9 @@ class DescribeDBResourceGroupRequest extends Model
         }
         if (null !== $this->groupType) {
             $res['GroupType'] = $this->groupType;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -90,6 +99,9 @@ class DescribeDBResourceGroupRequest extends Model
         }
         if (isset($map['GroupType'])) {
             $model->groupType = $map['GroupType'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

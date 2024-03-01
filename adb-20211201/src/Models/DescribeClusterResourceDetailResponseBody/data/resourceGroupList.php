@@ -27,6 +27,11 @@ class resourceGroupList extends Model
     public $clusterSizeResource;
 
     /**
+     * @var bool
+     */
+    public $enableSpot;
+
+    /**
      * @description A reserved parameter.
      *
      * @example 0
@@ -122,6 +127,7 @@ class resourceGroupList extends Model
     protected $_name = [
         'clusterMode'         => 'ClusterMode',
         'clusterSizeResource' => 'ClusterSizeResource',
+        'enableSpot'          => 'EnableSpot',
         'maxClusterCount'     => 'MaxClusterCount',
         'maxComputeResource'  => 'MaxComputeResource',
         'minClusterCount'     => 'MinClusterCount',
@@ -146,6 +152,9 @@ class resourceGroupList extends Model
         }
         if (null !== $this->clusterSizeResource) {
             $res['ClusterSizeResource'] = $this->clusterSizeResource;
+        }
+        if (null !== $this->enableSpot) {
+            $res['EnableSpot'] = $this->enableSpot;
         }
         if (null !== $this->maxClusterCount) {
             $res['MaxClusterCount'] = $this->maxClusterCount;
@@ -194,6 +203,9 @@ class resourceGroupList extends Model
         }
         if (isset($map['ClusterSizeResource'])) {
             $model->clusterSizeResource = $map['ClusterSizeResource'];
+        }
+        if (isset($map['EnableSpot'])) {
+            $model->enableSpot = $map['EnableSpot'];
         }
         if (isset($map['MaxClusterCount'])) {
             $model->maxClusterCount = $map['MaxClusterCount'];

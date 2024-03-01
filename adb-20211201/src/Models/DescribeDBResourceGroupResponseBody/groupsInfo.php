@@ -45,6 +45,11 @@ class groupsInfo extends Model
     public $elasticMinComputeResource;
 
     /**
+     * @var string
+     */
+    public $enableSpot;
+
+    /**
      * @description The name of the resource group.
      *
      * @example test1
@@ -146,6 +151,7 @@ class groupsInfo extends Model
         'clusterSizeResource'       => 'ClusterSizeResource',
         'createTime'                => 'CreateTime',
         'elasticMinComputeResource' => 'ElasticMinComputeResource',
+        'enableSpot'                => 'EnableSpot',
         'groupName'                 => 'GroupName',
         'groupType'                 => 'GroupType',
         'groupUsers'                => 'GroupUsers',
@@ -176,6 +182,9 @@ class groupsInfo extends Model
         }
         if (null !== $this->elasticMinComputeResource) {
             $res['ElasticMinComputeResource'] = $this->elasticMinComputeResource;
+        }
+        if (null !== $this->enableSpot) {
+            $res['EnableSpot'] = $this->enableSpot;
         }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
@@ -230,6 +239,9 @@ class groupsInfo extends Model
         }
         if (isset($map['ElasticMinComputeResource'])) {
             $model->elasticMinComputeResource = $map['ElasticMinComputeResource'];
+        }
+        if (isset($map['EnableSpot'])) {
+            $model->enableSpot = $map['EnableSpot'];
         }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];

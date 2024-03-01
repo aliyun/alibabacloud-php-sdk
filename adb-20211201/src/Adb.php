@@ -781,6 +781,9 @@ class Adb extends OpenApiClient
         if (!Utils::isUnset($request->DBClusterId)) {
             $query['DBClusterId'] = $request->DBClusterId;
         }
+        if (!Utils::isUnset($request->enableSpot)) {
+            $query['EnableSpot'] = $request->enableSpot;
+        }
         if (!Utils::isUnset($request->groupName)) {
             $query['GroupName'] = $request->groupName;
         }
@@ -2667,6 +2670,9 @@ class Adb extends OpenApiClient
         }
         if (!Utils::isUnset($request->groupType)) {
             $query['GroupType'] = $request->groupType;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -6097,6 +6103,9 @@ class Adb extends OpenApiClient
         }
         if (!Utils::isUnset($request->DBClusterId)) {
             $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->enableSpot)) {
+            $query['EnableSpot'] = $request->enableSpot;
         }
         if (!Utils::isUnset($request->groupName)) {
             $query['GroupName'] = $request->groupName;

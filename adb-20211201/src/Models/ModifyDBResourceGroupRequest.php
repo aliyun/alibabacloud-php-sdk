@@ -36,6 +36,11 @@ class ModifyDBResourceGroupRequest extends Model
     public $DBClusterId;
 
     /**
+     * @var bool
+     */
+    public $enableSpot;
+
+    /**
      * @description The name of the resource group.
      *
      * > You can call the [DescribeDBResourceGroup](~~459446~~) operation to query the name of a resource group in a cluster.
@@ -113,6 +118,7 @@ class ModifyDBResourceGroupRequest extends Model
         'clusterMode'         => 'ClusterMode',
         'clusterSizeResource' => 'ClusterSizeResource',
         'DBClusterId'         => 'DBClusterId',
+        'enableSpot'          => 'EnableSpot',
         'groupName'           => 'GroupName',
         'groupType'           => 'GroupType',
         'maxClusterCount'     => 'MaxClusterCount',
@@ -137,6 +143,9 @@ class ModifyDBResourceGroupRequest extends Model
         }
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->enableSpot) {
+            $res['EnableSpot'] = $this->enableSpot;
         }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
@@ -179,6 +188,9 @@ class ModifyDBResourceGroupRequest extends Model
         }
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['EnableSpot'])) {
+            $model->enableSpot = $map['EnableSpot'];
         }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];

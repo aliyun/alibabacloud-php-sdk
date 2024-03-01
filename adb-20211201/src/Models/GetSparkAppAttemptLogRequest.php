@@ -28,6 +28,8 @@ class GetSparkAppAttemptLogRequest extends Model
     public $logLength;
 
     /**
+     * @description The log offset.
+     *
      * @example 1
      *
      * @var int
@@ -35,6 +37,8 @@ class GetSparkAppAttemptLogRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 500
      *
      * @var string
