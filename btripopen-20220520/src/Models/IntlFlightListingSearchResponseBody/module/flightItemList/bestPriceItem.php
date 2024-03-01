@@ -15,11 +15,17 @@ class bestPriceItem extends Model
     public $agreementPriceCodes;
 
     /**
+     * @var string
+     */
+    public $itemType;
+
+    /**
      * @var ModuleFlightItemListBestPriceItemShoppingItemMapValue[]
      */
     public $shoppingItemMap;
     protected $_name = [
         'agreementPriceCodes' => 'agreement_price_codes',
+        'itemType'            => 'item_type',
         'shoppingItemMap'     => 'shopping_item_map',
     ];
 
@@ -32,6 +38,9 @@ class bestPriceItem extends Model
         $res = [];
         if (null !== $this->agreementPriceCodes) {
             $res['agreement_price_codes'] = $this->agreementPriceCodes;
+        }
+        if (null !== $this->itemType) {
+            $res['item_type'] = $this->itemType;
         }
         if (null !== $this->shoppingItemMap) {
             $res['shopping_item_map'] = [];
@@ -57,6 +66,9 @@ class bestPriceItem extends Model
             if (!empty($map['agreement_price_codes'])) {
                 $model->agreementPriceCodes = $map['agreement_price_codes'];
             }
+        }
+        if (isset($map['item_type'])) {
+            $model->itemType = $map['item_type'];
         }
         if (isset($map['shopping_item_map'])) {
             $model->shoppingItemMap = $map['shopping_item_map'];

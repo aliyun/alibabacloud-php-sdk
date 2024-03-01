@@ -30,6 +30,11 @@ class groupItem extends Model
     public $itemId;
 
     /**
+     * @var string
+     */
+    public $itemType;
+
+    /**
      * @var ModuleGroupItemShoppingItemMapValue[]
      */
     public $shoppingItemMap;
@@ -47,6 +52,7 @@ class groupItem extends Model
         'agreementPriceCodes' => 'agreement_price_codes',
         'flightRuleInfoList'  => 'flight_rule_info_list',
         'itemId'              => 'item_id',
+        'itemType'            => 'item_type',
         'shoppingItemMap'     => 'shopping_item_map',
         'subItemPositionMap'  => 'sub_item_position_map',
         'subItems'            => 'sub_items',
@@ -73,6 +79,9 @@ class groupItem extends Model
         }
         if (null !== $this->itemId) {
             $res['item_id'] = $this->itemId;
+        }
+        if (null !== $this->itemType) {
+            $res['item_type'] = $this->itemType;
         }
         if (null !== $this->shoppingItemMap) {
             $res['shopping_item_map'] = [];
@@ -122,6 +131,9 @@ class groupItem extends Model
         }
         if (isset($map['item_id'])) {
             $model->itemId = $map['item_id'];
+        }
+        if (isset($map['item_type'])) {
+            $model->itemType = $map['item_type'];
         }
         if (isset($map['shopping_item_map'])) {
             $model->shoppingItemMap = $map['shopping_item_map'];
