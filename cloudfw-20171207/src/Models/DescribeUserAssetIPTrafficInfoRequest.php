@@ -20,7 +20,7 @@ class DescribeUserAssetIPTrafficInfoRequest extends Model
     /**
      * @description The language of the content within the response. Valid values:
      *
-     *   **zh**: Chinese (default)
+     *   **zh** (default): Chinese
      *   **en**: English
      *
      * @example zh
@@ -30,7 +30,7 @@ class DescribeUserAssetIPTrafficInfoRequest extends Model
     public $lang;
 
     /**
-     * @description The point in time to query. The value is a UNIX timestamp. Unit: seconds.
+     * @description The time range to query. The value is a UNIX timestamp. Unit: seconds.
      *
      * @example 1656923760
      *

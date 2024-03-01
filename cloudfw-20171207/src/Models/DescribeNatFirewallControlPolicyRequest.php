@@ -45,6 +45,8 @@ class DescribeNatFirewallControlPolicyRequest extends Model
      * @description The description of the access control policy. Fuzzy match is supported.
      *
      * > If you do not specify this parameter, the descriptions of all policies are queried.
+     * @example test
+     *
      * @var string
      */
     public $description;
@@ -133,6 +135,14 @@ class DescribeNatFirewallControlPolicyRequest extends Model
     public $release;
 
     /**
+     * @description The recurrence type for the access control policy to take effect. Valid values:
+     *
+     *   **Permanent** (default): The policy always takes effect.
+     *   **None**: The policy takes effect for only once.
+     *   **Daily**: The policy takes effect on a daily basis.
+     *   **Weekly**: The policy takes effect on a weekly basis.
+     *   **Monthly**: The policy takes effect on a monthly basis.
+     *
      * @example Permanent
      *
      * @var string

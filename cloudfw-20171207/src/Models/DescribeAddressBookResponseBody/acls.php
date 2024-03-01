@@ -28,8 +28,8 @@ class acls extends Model
     /**
      * @description Indicates whether the public IP addresses of ECS instances are automatically added to the address book if the instances match the specified tags. The setting takes effect on both newly purchased ECS instances whose tag settings are complete and ECS instances whose tag settings are modified. Valid values:
      *
-     * **1**: yes
-     * **0**: no
+     *   **1**: yes
+     *   **0**: no
      *
      * @example 1
      *
@@ -58,12 +58,12 @@ class acls extends Model
     /**
      * @description The type of the address book. Valid values:
      *
-     * **ip**: IP address book
-     * **domain**: domain address book
-     * **port**: port address book
-     * **tag**: ECS tag-based address book
-     * **allCloud**: cloud service address book
-     * **threat**: threat intelligence address book
+     *   **ip**: IP address book
+     *   **domain**: domain address book
+     *   **port**: port address book
+     *   **tag**: ECS tag-based address book
+     *   **allCloud**: cloud service address book
+     *   **threat**: threat intelligence address book
      *
      * @example ip
      *
@@ -72,7 +72,7 @@ class acls extends Model
     public $groupType;
 
     /**
-     * @description The unique ID of the address book.
+     * @description The UUID of the address book.
      *
      * @example f04ac7ce-628b-4cb7-be61-310222b7****
      *
@@ -99,8 +99,8 @@ class acls extends Model
     /**
      * @description The logical relationship among ECS tags. Valid values:
      *
-     * **and**: Only the public IP addresses of ECS instances that match all the specified tags can be added to the address book.
-     * **or**: The public IP addresses of ECS instances that match any of the specified tags can be added to the address book.
+     *   **and**: Only the public IP addresses of ECS instances that match all the specified tags can be added to the address book.
+     *   **or**: The public IP addresses of ECS instances that match any of the specified tags can be added to the address book.
      *
      * @example and
      *

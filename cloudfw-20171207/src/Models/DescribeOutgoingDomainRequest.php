@@ -64,10 +64,10 @@ class DescribeOutgoingDomainRequest extends Model
     public $lang;
 
     /**
-     * @description The order in which you want to sort the query results. Valid values:
+     * @description The method that is used to sort the results. Valid values:
      *
      *   **asc**: the ascending order.
-     *   **desc**: the descending order. This is the default value.
+     *   **desc** (default): the descending order.
      *
      * @example desc
      *
@@ -97,7 +97,7 @@ class DescribeOutgoingDomainRequest extends Model
     /**
      * @description The field based on which you want to sort the query results. Valid values:
      *
-     *   **SessionCount**: the number of requests. This is the default value.
+     *   **SessionCount** (default): the number of requests.
      *   **TotalBytes**: the total volume of traffic.
      *
      * @example SessionCount

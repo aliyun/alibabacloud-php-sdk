@@ -14,8 +14,8 @@ class dstIPList extends Model
     /**
      * @description Indicates whether an access control policy is configured. Valid values:
      *
-     *   **Uncovered**: No access control policies are configured.
-     *   **FullCoverage**: An access control policy is configured.
+     *   **Uncovered**: no
+     *   **FullCoverage**: yes
      *
      * @example Uncovered
      *
@@ -24,7 +24,7 @@ class dstIPList extends Model
     public $aclCoverage;
 
     /**
-     * @description The suggestion in an access control policy.
+     * @description The suggestion to configure an access control policy.
      *
      * @example Allows the traffic.
      *
@@ -33,9 +33,9 @@ class dstIPList extends Model
     public $aclRecommendDetail;
 
     /**
-     * @description The state of the access control policy. Valid values:
+     * @description The status of the access control policy. Valid values:
      *
-     *   **Normal**: healthy
+     *   **normal**: healthy
      *   **Abnormal**: unhealthy
      *
      * @example Normal
@@ -52,7 +52,7 @@ class dstIPList extends Model
     public $addressGroupList;
 
     /**
-     * @description An array that consists of application ports.
+     * @description The application ports.
      *
      * @var applicationPortList[]
      */
@@ -72,7 +72,7 @@ class dstIPList extends Model
     public $categoryClassId;
 
     /**
-     * @description The ID of the service to which the destination IP address belongs. Valid values:
+     * @description The ID of the service type. Valid values:
      *
      *   **Aliyun**: Alibaba Cloud services
      *   **NotAliyun**: third-party services
@@ -87,7 +87,7 @@ class dstIPList extends Model
      * @description The type of the service to which the destination IP address belongs. Valid values:
      *
      *   **Alibaba Cloud services**
-     *   **third-party services**
+     *   **Third-party services**
      *
      * @example Alibaba Cloud services
      *
@@ -96,7 +96,7 @@ class dstIPList extends Model
     public $categoryName;
 
     /**
-     * @description The destination IP address in the outbound connection that is initiated to access a domain name.
+     * @description The destination IP addresses in outbound connections.
      *
      * @example 10.0.XX.XX
      *
@@ -116,8 +116,8 @@ class dstIPList extends Model
     /**
      * @description Indicates whether an access control policy is configured. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -128,8 +128,8 @@ class dstIPList extends Model
     /**
      * @description Indicates whether an access control policy is recommended. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -149,8 +149,8 @@ class dstIPList extends Model
     /**
      * @description Indicates whether the destination IP address is added to a whitelist. Valid values:
      *
-     *   **true**: added
-     *   **false**: not added
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -224,7 +224,7 @@ class dstIPList extends Model
     public $tagList;
 
     /**
-     * @description The total volume of traffic. Unit: bytes.
+     * @description The total traffic. Unit: bytes
      *
      * @example 800
      *

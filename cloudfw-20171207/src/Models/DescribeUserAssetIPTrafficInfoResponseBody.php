@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserAssetIPTrafficInfoResponseBody extends Model
 {
     /**
-     * @description The end of the time range that is queried. The value is a UNIX timestamp. Unit: seconds.
+     * @description The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
      *
      * @example 1656923760
      *
@@ -27,7 +27,7 @@ class DescribeUserAssetIPTrafficInfoResponseBody extends Model
     public $inBps;
 
     /**
-     * @description The network throughput, which indicates the inbound packet rate. Unit: packets per second (pps).
+     * @description The inbound network throughput, which indicates the number of packets that are sent inbound per second. Unit: packets per second (pps).
      *
      * @example 233
      *
@@ -36,7 +36,7 @@ class DescribeUserAssetIPTrafficInfoResponseBody extends Model
     public $inPps;
 
     /**
-     * @description The number of new connections.
+     * @description The new connection creation rate.
      *
      * @example 43
      *
@@ -54,7 +54,7 @@ class DescribeUserAssetIPTrafficInfoResponseBody extends Model
     public $outBps;
 
     /**
-     * @description The network throughput, which indicates the outbound packet rate. Unit: pps.
+     * @description The outbound network throughput, which indicates the number of packets that are sent outbound per second. Unit: pps.
      *
      * @example 224
      *
@@ -63,7 +63,7 @@ class DescribeUserAssetIPTrafficInfoResponseBody extends Model
     public $outPps;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example F0F82705-CFC7-5F83-86C8-A063892F****
      *
@@ -81,7 +81,7 @@ class DescribeUserAssetIPTrafficInfoResponseBody extends Model
     public $sessionCount;
 
     /**
-     * @description The beginning of the time range that is queried. The value is a UNIX timestamp. Unit: seconds.
+     * @description The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
      *
      * @example 1656837360
      *

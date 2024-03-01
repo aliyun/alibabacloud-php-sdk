@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcFirewallAclGroupListResponseBody extends Model
 {
     /**
-     * @description An array that consists of the information about the policy group.
+     * @description The information about the policy groups.
      *
      * @var aclGroupList[]
      */

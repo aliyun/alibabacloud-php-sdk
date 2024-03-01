@@ -18,7 +18,7 @@ class DescribeAddressBookRequest extends Model
     public $containPort;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number.
      *
      * Pages start from page 1. Default value: 1.
      * @example 1
@@ -30,14 +30,14 @@ class DescribeAddressBookRequest extends Model
     /**
      * @description The type of the address book. Valid values:
      *
-     * **ip**: IP address book
-     * **domain**: domain address book
-     * **port**: port address book
-     * **tag**: Elastic Compute Service (ECS) tag-based address book
-     * **allCloud**: cloud service address book
-     * **threat**: threat intelligence address book
+     *   **ip**: IP address book
+     *   **domain**: domain address book
+     *   **port**: port address book
+     *   **tag**: Elastic Compute Service (ECS) tag-based address book
+     *   **allCloud**: cloud service address book
+     *   **threat**: threat intelligence address book
      *
-     * > If you do not specify a type, the domain address books and ECS tag-based address books are queried.
+     * >  If you do not specify a type, the domain address books and ECS tag-based address books are queried.
      * @example ip
      *
      * @var string
@@ -47,8 +47,8 @@ class DescribeAddressBookRequest extends Model
     /**
      * @description The language of the content within the request. Valid values:
      *
-     * **zh**: Chinese (default)
-     * **en**: English
+     *   **zh** (default): Chinese
+     *   **en**: English
      *
      * @example zh
      *
@@ -57,7 +57,7 @@ class DescribeAddressBookRequest extends Model
     public $lang;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page.
      *
      * Default value: 10. Maximum value: 50.
      * @example 10

@@ -42,6 +42,8 @@ class ModifyNatFirewallControlPolicyRequest extends Model
      * @description The description of the access control policy. Fuzzy match is supported.
      *
      * > If you do not specify this parameter, the descriptions of all policies are queried.
+     * @example test
+     *
      * @var string
      */
     public $description;
@@ -106,6 +108,12 @@ class ModifyNatFirewallControlPolicyRequest extends Model
     public $destinationType;
 
     /**
+     * @description The direction of the traffic to which the access control policy applies.
+     *
+     *   Set the value to **out**.
+     *
+     * @example out
+     *
      * @var string
      */
     public $direction;
@@ -124,6 +132,11 @@ class ModifyNatFirewallControlPolicyRequest extends Model
     public $domainResolveType;
 
     /**
+     * @description The time when the access control policy stops taking effect. The value is a UNIX timestamp. Unit: seconds. The value must be on the hour or on the half hour, and at least 30 minutes later than the value of StartTime.
+     *
+     * >  If RepeatType is set to Permanent, EndTime is left empty. If RepeatType is set to None, Daily, Weekly, or Monthly, EndTime must be specified.
+     * @example 1694764800
+     *
      * @var int
      */
     public $endTime;
@@ -167,8 +180,8 @@ class ModifyNatFirewallControlPolicyRequest extends Model
     /**
      * @description The status of the access control policy. Valid values:
      *
-     *   true: enabled
-     *   false: disabled
+     *   **true**: enabled
+     *   **false**: disabled
      *
      * @example true
      *
@@ -177,37 +190,61 @@ class ModifyNatFirewallControlPolicyRequest extends Model
     public $release;
 
     /**
+     * @description The days of a week or of a month on which the access control policy takes effect.
+     *
+     *   If RepeatType is set to `Permanent`, `None`, or `Daily`, RepeatDays is left empty. Example: \[].
+     *   If RepeatType is set to Weekly, RepeatDays must be specified. Example: \[0, 6].
+     *
+     * >  If RepeatType is set to Weekly, the fields in the value of RepeatDays cannot be repeated.
+     *
+     *   If RepeatType is set to `Monthly`, RepeatDays must be specified. Example: \[1, 31].
+     *
+     * >  If RepeatType is set to Monthly, the fields in the value of RepeatDays cannot be repeated.
      * @var int[]
      */
     public $repeatDays;
 
     /**
+     * @description The point in time when the recurrence ends. Example: 23:30. The value must be on the hour or on the half hour, and at least 30 minutes later than the value of RepeatStartTime.
+     *
+     * >  If RepeatType is set to Permanent or None, RepeatEndTime is left empty. If RepeatType is set to Daily, Weekly, or Monthly, RepeatEndTime must be specified.
+     * @example 23:30
+     *
      * @var string
      */
     public $repeatEndTime;
 
     /**
+     * @description The point in time when the recurrence starts. Example: 08:00. The value must be on the hour or on the half hour, and at least 30 minutes earlier than the value of RepeatEndTime.
+     *
+     * >  If RepeatType is set to Permanent or None, RepeatStartTime is left empty. If RepeatType is set to Daily, Weekly, or Monthly, this parameter must be specified.
+     * @example 08:00
+     *
      * @var string
      */
     public $repeatStartTime;
 
     /**
+     * @description The recurrence type for the access control policy to take effect. Valid values:
+     *
+     *   **Permanent** (default): The policy always takes effect.
+     *   **None**: The policy takes effect for only once.
+     *   **Daily**: The policy takes effect on a daily basis.
+     *   **Weekly**: The policy takes effect on a weekly basis.
+     *   **Monthly**: The policy takes effect on a monthly basis.
+     *
+     * @example Permanent
+     *
      * @var string
      */
     public $repeatType;
 
     /**
-     * @description The source address in the access control policy.
+     * @description The source address in the access control policy. Valid values:
      *
-     * Valid values:
+     *   If **SourceType** is set to `net`, the value of this parameter is a CIDR block. Example: 10.2.XX.XX/24.
+     *   If **SourceType** is set to `group`, the value of this parameter is an address book name. Example: db_group.
      *
-     *   If **SourceType** is set to `net`, the value of Source is a CIDR block.
-     *
-     * Example: 10.2.4.0/24
-     *
-     *   If **SourceType** is set to `group`, the value of this parameter is an address book.
-     *
-     * Example: db_group
      * @example 192.168.0.25/32
      *
      * @var string
@@ -215,9 +252,7 @@ class ModifyNatFirewallControlPolicyRequest extends Model
     public $source;
 
     /**
-     * @description The type of the source address in the access control policy.
-     *
-     * Valid values:
+     * @description The type of the source address in the access control policy. Valid values:
      *
      *   **net**: CIDR block
      *   **group**: address book
@@ -229,6 +264,11 @@ class ModifyNatFirewallControlPolicyRequest extends Model
     public $sourceType;
 
     /**
+     * @description The time when the access control policy starts to take effect. The value is a UNIX timestamp. Unit: seconds. The value must be on the hour or on the half hour, and at least 30 minutes earlier than the value of EndTime.
+     *
+     * >  If RepeatType is set to Permanent, StartTime is left empty. If RepeatType is set to None, Daily, Weekly, or Monthly, StartTime must be specified.
+     * @example 1694761200
+     *
      * @var int
      */
     public $startTime;

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tagList extends Model
 {
     /**
-     * @description The key of the tag.
+     * @description The key of the ECS tag.
      *
      * @example TXY
      *
@@ -18,7 +18,7 @@ class tagList extends Model
     public $tagKey;
 
     /**
-     * @description The value of the tag.
+     * @description The value of the ECS tag.
      *
      * @example 1
      *

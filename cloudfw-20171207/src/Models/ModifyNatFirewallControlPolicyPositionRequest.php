@@ -18,6 +18,12 @@ class ModifyNatFirewallControlPolicyPositionRequest extends Model
     public $aclUuid;
 
     /**
+     * @description The direction of the traffic to which the access control policy applies.
+     *
+     *   Set the value to **out**.
+     *
+     * @example out
+     *
      * @var string
      */
     public $direction;

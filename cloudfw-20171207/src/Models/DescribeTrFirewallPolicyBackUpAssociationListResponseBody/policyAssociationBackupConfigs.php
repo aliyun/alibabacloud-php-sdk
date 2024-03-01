@@ -20,6 +20,8 @@ class policyAssociationBackupConfigs extends Model
     /**
      * @description The name of the traffic redirection instance.
      *
+     * @example test
+     *
      * @var string
      */
     public $candidateName;

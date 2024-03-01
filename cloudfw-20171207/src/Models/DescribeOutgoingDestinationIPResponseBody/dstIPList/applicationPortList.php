@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class applicationPortList extends Model
 {
     /**
-     * @description The application type in the access control policy. Valid values:
+     * @description The application type used in the access control policy. Valid values:
      *
      *   **FTP**
      *   **HTTP**
@@ -27,7 +27,7 @@ class applicationPortList extends Model
      *   **SSL**
      *   **VNC**
      *
-     * >  The value of this parameter depends on the value of Proto. If you set Proto to TCP, you can set ApplicationNameList to any valid value. If you specify both ApplicationNameList and ApplicationName, only the value of ApplicationNameList is used.
+     * >  The value of this parameter depends on the value of the Proto parameter. If you set Proto to TCP, you can set ApplicationNameList to any valid value. If you configure both ApplicationNameList and ApplicationName, only the value of ApplicationNameList is used.
      * @example HTTP
      *
      * @var string
@@ -35,7 +35,7 @@ class applicationPortList extends Model
     public $applicationName;
 
     /**
-     * @description The port of the application.
+     * @description The application port.
      *
      * @example 80
      *

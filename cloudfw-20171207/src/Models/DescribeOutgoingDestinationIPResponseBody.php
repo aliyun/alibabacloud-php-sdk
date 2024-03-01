@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeOutgoingDestinationIPResponseBody extends Model
 {
     /**
-     * @description The destination IP addresses in outbound connections.
+     * @description The IP addresses in outbound connections.
      *
      * @var dstIPList[]
      */

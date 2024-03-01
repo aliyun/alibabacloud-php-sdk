@@ -90,7 +90,7 @@ class dataList extends Model
     public $time;
 
     /**
-     * @description The total inbound and outbound network throughput, which indicates the number of bits that are sent inbound per second. Unit: bit/s.
+     * @description The total outbound and inbound network throughput, which indicates the total number of bits that are sent inbound and outbound per second. Unit: bit/s.
      *
      * @example 323
      *

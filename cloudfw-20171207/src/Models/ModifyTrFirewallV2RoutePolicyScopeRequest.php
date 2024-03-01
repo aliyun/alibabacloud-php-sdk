@@ -30,6 +30,11 @@ class ModifyTrFirewallV2RoutePolicyScopeRequest extends Model
     public $lang;
 
     /**
+     * @var string
+     */
+    public $shouldRecover;
+
+    /**
      * @var srcCandidateList[]
      */
     public $srcCandidateList;
@@ -44,6 +49,7 @@ class ModifyTrFirewallV2RoutePolicyScopeRequest extends Model
         'destCandidateList'       => 'DestCandidateList',
         'firewallId'              => 'FirewallId',
         'lang'                    => 'Lang',
+        'shouldRecover'           => 'ShouldRecover',
         'srcCandidateList'        => 'SrcCandidateList',
         'trFirewallRoutePolicyId' => 'TrFirewallRoutePolicyId',
     ];
@@ -69,6 +75,9 @@ class ModifyTrFirewallV2RoutePolicyScopeRequest extends Model
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->shouldRecover) {
+            $res['ShouldRecover'] = $this->shouldRecover;
         }
         if (null !== $this->srcCandidateList) {
             $res['SrcCandidateList'] = [];
@@ -108,6 +117,9 @@ class ModifyTrFirewallV2RoutePolicyScopeRequest extends Model
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['ShouldRecover'])) {
+            $model->shouldRecover = $map['ShouldRecover'];
         }
         if (isset($map['SrcCandidateList'])) {
             if (!empty($map['SrcCandidateList'])) {

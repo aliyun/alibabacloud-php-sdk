@@ -17,7 +17,7 @@ class aclGroupList extends Model
      *
      * Example: cen-ervw0g12b5jbw\*\*\*\*
      *
-     *   If the VPC firewall is used to protect an Express Connect circuit, the value of this parameter is the ID of the VPC firewall instance.
+     *   If the VPC firewall is used to protect an Express Connect circuit, the value of this parameter is the instance ID of the VPC firewall.
      *
      * Example: vfw-a42bbb7b887148c9\*\*\*\*
      * @example vfw-a42bbb7b887148c9****
@@ -30,7 +30,7 @@ class aclGroupList extends Model
      * @description The name of the policy group. Valid values:
      *
      *   If the VPC firewall is used to protect a CEN instance, the value of this parameter is the name of the CEN instance.
-     *   If the VPC firewall is used to protect an Express Connect circuit, the value of this parameter is the name of the VPC firewall instance.
+     *   If the VPC firewall is used to protect an Express Connect circuit, the value of this parameter is the instance name of the VPC firewall.
      *
      * @example group_test
      *
@@ -39,11 +39,20 @@ class aclGroupList extends Model
     public $aclGroupName;
 
     /**
+     * @description The number of access control policies in the policy group.
+     *
+     * @example 9
+     *
      * @var int
      */
     public $aclRuleCount;
 
     /**
+     * @description 是否是默认防火墙。取值：
+     * - **true**：是默认防火墙。
+     * - **false**：不是默认防火墙。
+     * @example true
+     *
      * @var bool
      */
     public $isDefault;

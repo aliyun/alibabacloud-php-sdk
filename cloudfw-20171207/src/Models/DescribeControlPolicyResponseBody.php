@@ -28,7 +28,7 @@ class DescribeControlPolicyResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The details about the access control policy.
+     * @description The information about the access control policies.
      *
      * @var policys[]
      */

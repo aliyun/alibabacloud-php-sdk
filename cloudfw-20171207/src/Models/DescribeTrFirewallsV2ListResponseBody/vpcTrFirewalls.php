@@ -156,6 +156,8 @@ class vpcTrFirewalls extends Model
     /**
      * @description The instance name of the VPC firewall.
      *
+     * @example test
+     *
      * @var string
      */
     public $vpcFirewallName;

@@ -22,7 +22,7 @@ class policys extends Model
     public $aclAction;
 
     /**
-     * @description The unique ID of the access control policy.
+     * @description The UUID of the access control policy.
      *
      * @example 00281255-d220-4db1-8f4f-c4df221a****
      *
@@ -40,7 +40,7 @@ class policys extends Model
     public $applicationId;
 
     /**
-     * @description The type of the application that the access control policy supports. Valid values:
+     * @description The application type supported by the access control policy. We recommend that you specify ApplicationNameList. Valid values:
      *
      *   **FTP**
      *   **HTTP**
@@ -65,14 +65,14 @@ class policys extends Model
     public $applicationName;
 
     /**
-     * @description The names of applications.
+     * @description The application names.
      *
      * @var string[]
      */
     public $applicationNameList;
 
     /**
-     * @description The time at which the access control policy was created.
+     * @description The time when the access control policy was created.
      *
      * @example 1761062400
      *
@@ -127,7 +127,7 @@ class policys extends Model
     public $destPortType;
 
     /**
-     * @description The destination address in the access control policy. The value of this parameter depends on the value of the DestinationType parameter. Valid values:
+     * @description The destination address in the access control policy. The value of this parameter varies based on the value of DestinationType. Valid values:
      *
      *   If **DestinationType** is set to **net**, the value of Destination is a CIDR block. Example: 192.0.XX.XX/24.
      *   If **DestinationType** is set to **domain**, the value of Destination is a domain name. Example: aliyuncs.com.
@@ -165,10 +165,10 @@ class policys extends Model
     /**
      * @description The type of the destination address in the access control policy. Valid values:
      *
-     *   **net**: destination CIDR block
-     *   **group**: destination address book
-     *   **domain**: destination domain name
-     *   **location**: destination location
+     *   **net**: CIDR block
+     *   **group**: address book
+     *   **domain**: domain name
+     *   **location**: location
      *
      * @example net
      *
@@ -198,7 +198,7 @@ class policys extends Model
     public $dnsResult;
 
     /**
-     * @description The timestamp of the DNS resolution result. The value is a UNIX timestamp. Unit: seconds.
+     * @description The time when the Domain Name System (DNS) resolution was performed. The value is a timestamp. Unit: seconds.
      *
      * @example 1579261141
      *
@@ -207,12 +207,17 @@ class policys extends Model
     public $dnsResultTime;
 
     /**
+     * @description The time when the access control policy stops taking effect. The value is a timestamp. Unit: seconds. The end time must be on the hour or on the half hour, and at least 30 minutes later than the start time.
+     *
+     * >  If RepeatType is set to Permanent, this parameter is left empty. If RepeatType is set to None, Daily, Weekly, or Monthly, this parameter must be specified.
+     * @example 1694764800
+     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @description The timestamp when the access control policy was last hit. The value is a UNIX timestamp. Unit: seconds.
+     * @description The time when the access control policy was last hit. The value is a timestamp. Unit: seconds.
      *
      * @example 1579261141
      *
@@ -230,7 +235,7 @@ class policys extends Model
     public $hitTimes;
 
     /**
-     * @description The IP version of the address in the access control policy. Valid values:
+     * @description The IP version used in the access control policy. Valid values:
      *
      *   **4**: IPv4
      *   **6**: IPv6
@@ -242,7 +247,7 @@ class policys extends Model
     public $ipVersion;
 
     /**
-     * @description The time at which the access control policy was modified.
+     * @description The time when the access control policy was modified.
      *
      * @example 1761062400
      *
@@ -253,7 +258,7 @@ class policys extends Model
     /**
      * @description The priority of the access control policy.
      *
-     * The priority value starts from 1. A small priority value indicates a high priority.
+     * The priority value starts from 1. A smaller priority value indicates a higher priority.
      * @example 1
      *
      * @var int
@@ -261,7 +266,7 @@ class policys extends Model
     public $order;
 
     /**
-     * @description The type of the protocol in the access control policy. Valid values:
+     * @description The protocol type in the access control policy. Valid values:
      *
      *   **ANY**
      *   **TCP**
@@ -275,10 +280,10 @@ class policys extends Model
     public $proto;
 
     /**
-     * @description Indicates whether the access control policy is enabled. By default, an access control policy is enabled after it is created. Valid values:
+     * @description The status of the access control policy. By default, an access control policy is enabled after it is created. Valid values:
      *
-     *   **true**: The access control policy is enabled.
-     *   **false**: The access control policy is disabled.
+     *   **true**: enabled
+     *   **false**: disabled
      *
      * @example true
      *
@@ -287,21 +292,51 @@ class policys extends Model
     public $release;
 
     /**
+     * @description The days of a week or of a month on which the access control policy takes effect.
+     *
+     *   If RepeatType is set to `Permanent`, `None`, or `Daily`, this parameter is left empty. Example: \[].
+     *   If RepeatType is set to Weekly, this parameter must be specified. Example: \[0, 6].
+     *
+     * >  If RepeatType is set to Weekly, the fields in the value of RepeatDays cannot be repeated.
+     *
+     *   If RepeatType is set to `Monthly`, this parameter must be specified. Example: \[1, 31].
+     *
+     * >  If RepeatType is set to Monthly, the fields in the value of RepeatDays cannot be repeated.
      * @var int[]
      */
     public $repeatDays;
 
     /**
+     * @description The point in time when the recurrence ends. Example: 23:30. The value must be on the hour or on the half hour, and at least 30 minutes later than the start time.
+     *
+     * >  If RepeatType is set to Permanent or None, this parameter is left empty. If RepeatType is set to Daily, Weekly, or Monthly, this parameter must be specified.
+     * @example 23:30
+     *
      * @var string
      */
     public $repeatEndTime;
 
     /**
+     * @description The point in time when the recurrence starts. Example: 08:00. The value must be on the hour or on the half hour, and at least 30 minutes earlier than the end time.
+     *
+     * >  If RepeatType is set to Permanent or None, this parameter is left empty. If RepeatType is set to Daily, Weekly, or Monthly, this parameter must be specified.
+     * @example 08:00
+     *
      * @var string
      */
     public $repeatStartTime;
 
     /**
+     * @description The recurrence type based on which the access control policy takes effect. Valid values:
+     *
+     *   **Permanent** (default): The policy always takes effect.
+     *   **None**: The policy takes effect for only once.
+     *   **Daily**: The policy takes effect on a daily basis.
+     *   **Weekly**: The policy takes effect on a weekly basis.
+     *   **Monthly**: The policy takes effect on a monthly basis.
+     *
+     * @example Permanent
+     *
      * @var string
      */
     public $repeatType;
@@ -344,9 +379,9 @@ class policys extends Model
     /**
      * @description The type of the source address in the access control policy. Valid values:
      *
-     *   **net**: source CIDR block
-     *   **group**: source address book
-     *   **location**: source location
+     *   **net**: CIDR block
+     *   **group**: address book
+     *   **location**: location
      *
      * @example net
      *
@@ -355,9 +390,8 @@ class policys extends Model
     public $sourceType;
 
     /**
-     * @description The total quota consumed by the returned access control policies, which is the sum of the quota consumed by each policy.
+     * @description The total quota consumed by the returned access control policies, which is the sum of the quota consumed by each policy. The quota that is consumed by an access control policy is calculated by using the following formula: Quota that is consumed by an access control policy = Number of source addresses (number of CIDR blocks or regions) × Number of destination addresses (number of CIDR blocks, regions, or domain names) × Number of port ranges × Number of applications.
      *
-     * Quota that is consumed by an access control policy = Number of source CIDR blocks × Number of destination CIDR blocks, destination locations, or IP addresses that are resolved from destination domain names × Number of applications × Number of ports.
      * @example 10,000
      *
      * @var int
@@ -365,6 +399,11 @@ class policys extends Model
     public $spreadCnt;
 
     /**
+     * @description The time when the access control policy starts to take effect. The value is a timestamp. Unit: seconds. The start time must be on the hour or on the half hour, and at least 30 minutes earlier than the end time.
+     *
+     * >  If RepeatType is set to Permanent, this parameter is left empty. If RepeatType is set to None, Daily, Weekly, or Monthly, this parameter must be specified.
+     * @example 1694761200
+     *
      * @var int
      */
     public $startTime;

@@ -14,6 +14,8 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\AddInstanceMembersRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\AddInstanceMembersResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\BatchCopyVpcFirewallControlPolicyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\BatchCopyVpcFirewallControlPolicyResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateDownloadTaskRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateDownloadTaskResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateNatFirewallControlPolicyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateNatFirewallControlPolicyResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateTrFirewallV2Request;
@@ -31,10 +33,16 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteAddressBookRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteAddressBookResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteControlPolicyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteControlPolicyResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteControlPolicyTemplateRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteControlPolicyTemplateResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteDownloadTaskRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteDownloadTaskResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteFirewallV2RoutePoliciesRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteFirewallV2RoutePoliciesResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteInstanceMembersRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteInstanceMembersResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteNatFirewallControlPolicyBatchRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteNatFirewallControlPolicyBatchResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteNatFirewallControlPolicyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteNatFirewallControlPolicyResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteTrFirewallV2Request;
@@ -51,20 +59,32 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAddressBookRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAddressBookResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAssetListRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAssetListResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAssetRiskListRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAssetRiskListResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeCfwRiskLevelSummaryRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeCfwRiskLevelSummaryResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeControlPolicyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeControlPolicyResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeDefaultIPSConfigRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeDefaultIPSConfigResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeDomainResolveRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeDomainResolveResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeDownloadTaskRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeDownloadTaskResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeDownloadTaskTypeRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeDownloadTaskTypeResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInstanceMembersRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInstanceMembersResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInstanceRiskLevelsRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInstanceRiskLevelsResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInternetOpenIpRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInternetOpenIpResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInternetTrafficTrendRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInternetTrafficTrendResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInvadeEventListRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInvadeEventListResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeNatAclPageStatusRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeNatAclPageStatusResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeNatFirewallControlPolicyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeNatFirewallControlPolicyResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeNatFirewallPolicyPriorUsedRequest;
@@ -77,12 +97,16 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePolicyAdvancedConfigReques
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePolicyAdvancedConfigResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePolicyPriorUsedRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePolicyPriorUsedResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePrefixListsRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePrefixListsResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeRiskEventGroupRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeRiskEventGroupResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeRiskEventPayloadRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeRiskEventPayloadResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeSignatureLibVersionResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeTrFirewallPolicyBackUpAssociationListRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeTrFirewallPolicyBackUpAssociationListResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeTrFirewallPolicyBackUpAssociationListShrinkRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeTrFirewallsV2DetailRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeTrFirewallsV2DetailResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeTrFirewallsV2ListRequest;
@@ -107,10 +131,16 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallDefaultIPSConfi
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallDefaultIPSConfigResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallDetailRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallDetailResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallIPSWhitelistRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallIPSWhitelistResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallListRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallListResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallPolicyPriorUsedRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallPolicyPriorUsedResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcListLiteRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcListLiteResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcZoneRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcZoneResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVulnerabilityProtectedListRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVulnerabilityProtectedListResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyAddressBookRequest;
@@ -150,6 +180,8 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyVpcFirewallControlPolicyRequ
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyVpcFirewallControlPolicyResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyVpcFirewallDefaultIPSConfigRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyVpcFirewallDefaultIPSConfigResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyVpcFirewallIPSWhitelistRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyVpcFirewallIPSWhitelistResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyVpcFirewallSwitchStatusRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyVpcFirewallSwitchStatusResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\PutDisableAllFwSwitchRequest;
@@ -162,6 +194,8 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\PutEnableFwSwitchRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\PutEnableFwSwitchResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ReleasePostInstanceRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ReleasePostInstanceResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ResetNatFirewallRuleHitCountRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ResetNatFirewallRuleHitCountResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ResetVpcFirewallRuleHitCountRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ResetVpcFirewallRuleHitCountResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -209,7 +243,7 @@ class Cloudfw extends OpenApiClient
 
     /**
      * You can call the AddAddressBook operation to create an address book for access control. The address book can be an IP address book, an ECS tag-based address book, a port address book, or a domain address book.
-     *   * ## Limits
+     *   * ## [](#qps)Limits
      *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param AddAddressBookRequest $request AddAddressBookRequest
@@ -268,7 +302,7 @@ class Cloudfw extends OpenApiClient
 
     /**
      * You can call the AddAddressBook operation to create an address book for access control. The address book can be an IP address book, an ECS tag-based address book, a port address book, or a domain address book.
-     *   * ## Limits
+     *   * ## [](#qps)Limits
      *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param AddAddressBookRequest $request AddAddressBookRequest
@@ -517,6 +551,52 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->batchCopyVpcFirewallControlPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDownloadTaskRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateDownloadTaskResponse
+     */
+    public function createDownloadTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->taskData)) {
+            $query['TaskData'] = $request->taskData;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDownloadTask',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDownloadTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDownloadTaskRequest $request
+     *
+     * @return CreateDownloadTaskResponse
+     */
+    public function createDownloadTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDownloadTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -1183,6 +1263,104 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * @param DeleteControlPolicyTemplateRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeleteControlPolicyTemplateResponse
+     */
+    public function deleteControlPolicyTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteControlPolicyTemplate',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteControlPolicyTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteControlPolicyTemplateRequest $request
+     *
+     * @return DeleteControlPolicyTemplateResponse
+     */
+    public function deleteControlPolicyTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteControlPolicyTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteDownloadTaskRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteDownloadTaskResponse
+     */
+    public function deleteDownloadTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDownloadTask',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDownloadTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDownloadTaskRequest $request
+     *
+     * @return DeleteDownloadTaskResponse
+     */
+    public function deleteDownloadTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDownloadTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteFirewallV2RoutePoliciesRequest $request
      * @param RuntimeOptions                       $runtime
      *
@@ -1336,6 +1514,58 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteNatFirewallControlPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteNatFirewallControlPolicyBatchRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return DeleteNatFirewallControlPolicyBatchResponse
+     */
+    public function deleteNatFirewallControlPolicyBatchWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclUuidList)) {
+            $query['AclUuidList'] = $request->aclUuidList;
+        }
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->natGatewayId)) {
+            $query['NatGatewayId'] = $request->natGatewayId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteNatFirewallControlPolicyBatch',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteNatFirewallControlPolicyBatchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteNatFirewallControlPolicyBatchRequest $request
+     *
+     * @return DeleteNatFirewallControlPolicyBatchResponse
+     */
+    public function deleteNatFirewallControlPolicyBatch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteNatFirewallControlPolicyBatchWithOptions($request, $runtime);
     }
 
     /**
@@ -1611,8 +1841,8 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeAddressBook operation to query the details about an address book for an access control policy.
-     *   * ## Limits
+     * You can call this operation to query the details about an address book for an access control policy.
+     *   * ## [](#qps)Limits
      *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param DescribeAddressBookRequest $request DescribeAddressBookRequest
@@ -1661,8 +1891,8 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeAddressBook operation to query the details about an address book for an access control policy.
-     *   * ## Limits
+     * You can call this operation to query the details about an address book for an access control policy.
+     *   * ## [](#qps)Limits
      *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param DescribeAddressBookRequest $request DescribeAddressBookRequest
@@ -1761,6 +1991,107 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAssetListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeAssetRiskListRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeAssetRiskListResponse
+     */
+    public function describeAssetRiskListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ipAddrList)) {
+            $query['IpAddrList'] = $request->ipAddrList;
+        }
+        if (!Utils::isUnset($request->ipVersion)) {
+            $query['IpVersion'] = $request->ipVersion;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAssetRiskList',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAssetRiskListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAssetRiskListRequest $request
+     *
+     * @return DescribeAssetRiskListResponse
+     */
+    public function describeAssetRiskList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAssetRiskListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeCfwRiskLevelSummaryRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeCfwRiskLevelSummaryResponse
+     */
+    public function describeCfwRiskLevelSummaryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCfwRiskLevelSummary',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCfwRiskLevelSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCfwRiskLevelSummaryRequest $request
+     *
+     * @return DescribeCfwRiskLevelSummaryResponse
+     */
+    public function describeCfwRiskLevelSummary($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCfwRiskLevelSummaryWithOptions($request, $runtime);
     }
 
     /**
@@ -1963,6 +2294,110 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * @param DescribeDownloadTaskRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeDownloadTaskResponse
+     */
+    public function describeDownloadTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDownloadTask',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDownloadTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDownloadTaskRequest $request
+     *
+     * @return DescribeDownloadTaskResponse
+     */
+    public function describeDownloadTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDownloadTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDownloadTaskTypeRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeDownloadTaskTypeResponse
+     */
+    public function describeDownloadTaskTypeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDownloadTaskType',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDownloadTaskTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDownloadTaskTypeRequest $request
+     *
+     * @return DescribeDownloadTaskTypeResponse
+     */
+    public function describeDownloadTaskType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDownloadTaskTypeWithOptions($request, $runtime);
+    }
+
+    /**
      * You can use this operation to query the information about members in Cloud Firewall.
      *   * ## Limits
      *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
@@ -2023,6 +2458,52 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeInstanceMembersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeInstanceRiskLevelsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeInstanceRiskLevelsResponse
+     */
+    public function describeInstanceRiskLevelsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instances)) {
+            $query['Instances'] = $request->instances;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceRiskLevels',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeInstanceRiskLevelsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeInstanceRiskLevelsRequest $request
+     *
+     * @return DescribeInstanceRiskLevelsResponse
+     */
+    public function describeInstanceRiskLevels($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInstanceRiskLevelsWithOptions($request, $runtime);
     }
 
     /**
@@ -2260,6 +2741,49 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeInvadeEventListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeNatAclPageStatusRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeNatAclPageStatusResponse
+     */
+    public function describeNatAclPageStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeNatAclPageStatus',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeNatAclPageStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeNatAclPageStatusRequest $request
+     *
+     * @return DescribeNatAclPageStatusResponse
+     */
+    public function describeNatAclPageStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeNatAclPageStatusWithOptions($request, $runtime);
     }
 
     /**
@@ -2674,6 +3198,46 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * @param DescribePrefixListsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribePrefixListsResponse
+     */
+    public function describePrefixListsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePrefixLists',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribePrefixListsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribePrefixListsRequest $request
+     *
+     * @return DescribePrefixListsResponse
+     */
+    public function describePrefixLists($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePrefixListsWithOptions($request, $runtime);
+    }
+
+    /**
      * You can call the DescribeRiskEventGroup operation to query and download the details of intrusion events. We recommend that you query the details of 5 to 10 intrusion events at a time. If you do not need to query the geographical information about IP addresses, you can set the NoLocation parameter to true to prevent query timeout.
      *   * ## Limits
      *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
@@ -2858,15 +3422,56 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeTrFirewallPolicyBackUpAssociationListRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeSignatureLibVersionResponse
+     */
+    public function describeSignatureLibVersionWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeSignatureLibVersion',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSignatureLibVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return DescribeSignatureLibVersionResponse
+     */
+    public function describeSignatureLibVersion()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSignatureLibVersionWithOptions($runtime);
+    }
+
+    /**
+     * @param DescribeTrFirewallPolicyBackUpAssociationListRequest $tmpReq
      * @param RuntimeOptions                                       $runtime
      *
      * @return DescribeTrFirewallPolicyBackUpAssociationListResponse
      */
-    public function describeTrFirewallPolicyBackUpAssociationListWithOptions($request, $runtime)
+    public function describeTrFirewallPolicyBackUpAssociationListWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new DescribeTrFirewallPolicyBackUpAssociationListShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->candidateList)) {
+            $request->candidateListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->candidateList, 'CandidateList', 'json');
+        }
         $query = [];
+        if (!Utils::isUnset($request->candidateListShrink)) {
+            $query['CandidateList'] = $request->candidateListShrink;
+        }
         if (!Utils::isUnset($request->firewallId)) {
             $query['FirewallId'] = $request->firewallId;
         }
@@ -3641,6 +4246,55 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * @param DescribeVpcFirewallIPSWhitelistRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeVpcFirewallIPSWhitelistResponse
+     */
+    public function describeVpcFirewallIPSWhitelistWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->memberUid)) {
+            $query['MemberUid'] = $request->memberUid;
+        }
+        if (!Utils::isUnset($request->vpcFirewallId)) {
+            $query['VpcFirewallId'] = $request->vpcFirewallId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVpcFirewallIPSWhitelist',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeVpcFirewallIPSWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVpcFirewallIPSWhitelistRequest $request
+     *
+     * @return DescribeVpcFirewallIPSWhitelistResponse
+     */
+    public function describeVpcFirewallIPSWhitelist($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVpcFirewallIPSWhitelistWithOptions($request, $runtime);
+    }
+
+    /**
      * You can call the DescribeVpcFirewallList operation to query the details about VPC firewalls by page. Each VPC firewall protects traffic between two VPCs that are connected by using an Express Connect circuit.
      *   * ### Limits
      *   * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
@@ -3776,6 +4430,113 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeVpcFirewallPolicyPriorUsedWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeVpcListLiteRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeVpcListLiteResponse
+     */
+    public function describeVpcListLiteWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->regionNo)) {
+            $query['RegionNo'] = $request->regionNo;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        if (!Utils::isUnset($request->vpcName)) {
+            $query['VpcName'] = $request->vpcName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVpcListLite',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeVpcListLiteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVpcListLiteRequest $request
+     *
+     * @return DescribeVpcListLiteResponse
+     */
+    public function describeVpcListLite($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVpcListLiteWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeVpcZoneRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeVpcZoneResponse
+     */
+    public function describeVpcZoneWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->environment)) {
+            $query['Environment'] = $request->environment;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->memberUid)) {
+            $query['MemberUid'] = $request->memberUid;
+        }
+        if (!Utils::isUnset($request->regionNo)) {
+            $query['RegionNo'] = $request->regionNo;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVpcZone',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeVpcZoneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVpcZoneRequest $request
+     *
+     * @return DescribeVpcZoneResponse
+     */
+    public function describeVpcZone($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVpcZoneWithOptions($request, $runtime);
     }
 
     /**
@@ -4062,8 +4823,8 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the ModifyControlPolicyPosition operation to modify the priority of an IPv4 access control policy for the Internet firewall. No API operations are provided for you to modify the priority of an IPv6 access control policy for the Internet firewall.
-     *   * ## Limits
+     * You can use this operation to modify the priority of an IPv4 access control policy for the Internet firewall. No API operations are provided for you to modify the priority of an IPv6 access control policy for the Internet firewall.
+     *   * ## [](#qps)Limits
      *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param ModifyControlPolicyPositionRequest $request ModifyControlPolicyPositionRequest
@@ -4109,8 +4870,8 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the ModifyControlPolicyPosition operation to modify the priority of an IPv4 access control policy for the Internet firewall. No API operations are provided for you to modify the priority of an IPv6 access control policy for the Internet firewall.
-     *   * ## Limits
+     * You can use this operation to modify the priority of an IPv4 access control policy for the Internet firewall. No API operations are provided for you to modify the priority of an IPv6 access control policy for the Internet firewall.
+     *   * ## [](#qps)Limits
      *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param ModifyControlPolicyPositionRequest $request ModifyControlPolicyPositionRequest
@@ -4600,6 +5361,9 @@ class Cloudfw extends OpenApiClient
         }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->shouldRecover)) {
+            $query['ShouldRecover'] = $request->shouldRecover;
         }
         if (!Utils::isUnset($request->srcCandidateListShrink)) {
             $query['SrcCandidateList'] = $request->srcCandidateListShrink;
@@ -5136,6 +5900,64 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * @param ModifyVpcFirewallIPSWhitelistRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ModifyVpcFirewallIPSWhitelistResponse
+     */
+    public function modifyVpcFirewallIPSWhitelistWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->listType)) {
+            $query['ListType'] = $request->listType;
+        }
+        if (!Utils::isUnset($request->listValue)) {
+            $query['ListValue'] = $request->listValue;
+        }
+        if (!Utils::isUnset($request->memberUid)) {
+            $query['MemberUid'] = $request->memberUid;
+        }
+        if (!Utils::isUnset($request->vpcFirewallId)) {
+            $query['VpcFirewallId'] = $request->vpcFirewallId;
+        }
+        if (!Utils::isUnset($request->whiteType)) {
+            $query['WhiteType'] = $request->whiteType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyVpcFirewallIPSWhitelist',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyVpcFirewallIPSWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyVpcFirewallIPSWhitelistRequest $request
+     *
+     * @return ModifyVpcFirewallIPSWhitelistResponse
+     */
+    public function modifyVpcFirewallIPSWhitelist($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyVpcFirewallIPSWhitelistWithOptions($request, $runtime);
+    }
+
+    /**
      * You can call the ModifyVpcFirewallSwitchStatus operation to enable or disable a VPC firewall. The VPC firewall protects traffic between two VPCs that are connected by using an Express Connect circuit. After you enable the VPC firewall, the VPC firewall protects access traffic between two VPCs that are connected by using an Express Connect circuit. After you disable the VPC firewall, the VPC firewall no longer protects access traffic between two VPCs that are connected by using an Express Connect circuit.
      *   * Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](~~342893~~) operation.
      *   * ## Limits
@@ -5478,6 +6300,55 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->releasePostInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ResetNatFirewallRuleHitCountRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ResetNatFirewallRuleHitCountResponse
+     */
+    public function resetNatFirewallRuleHitCountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclUuid)) {
+            $query['AclUuid'] = $request->aclUuid;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->natGatewayId)) {
+            $query['NatGatewayId'] = $request->natGatewayId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ResetNatFirewallRuleHitCount',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ResetNatFirewallRuleHitCountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ResetNatFirewallRuleHitCountRequest $request
+     *
+     * @return ResetNatFirewallRuleHitCountResponse
+     */
+    public function resetNatFirewallRuleHitCount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resetNatFirewallRuleHitCountWithOptions($request, $runtime);
     }
 
     /**

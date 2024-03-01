@@ -80,7 +80,7 @@ class DescribeOutgoingDestinationIPRequest extends Model
     /**
      * @description The language of the content within the response. Valid values:
      *
-     *   **zh**: Chinese (default)
+     *   **zh** (default): Chinese
      *   **en**: English
      *
      * @example zh
@@ -90,10 +90,10 @@ class DescribeOutgoingDestinationIPRequest extends Model
     public $lang;
 
     /**
-     * @description The order in which you want to sort the queried information. Valid values:
+     * @description The method that is used to sort the results. Valid values:
      *
      *   **asc**: the ascending order.
-     *   **desc**: the descending order. This is the default value.
+     *   **desc** (default): the descending order.
      *
      * @example desc
      *
@@ -139,9 +139,9 @@ class DescribeOutgoingDestinationIPRequest extends Model
     public $publicIP;
 
     /**
-     * @description The field based on which you want to sort the queried information. Valid values:
+     * @description The field based on which you want to sort the query results. Valid values:
      *
-     *   **SessionCount**: the number of requests. This is the default value.
+     *   **SessionCount** (default): the number of requests.
      *   **TotalBytes**: the total volume of traffic.
      *
      * @example SessionCount

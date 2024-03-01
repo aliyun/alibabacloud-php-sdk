@@ -20,12 +20,16 @@ class trFirewallRoutePolicies extends Model
     /**
      * @description The description of the routing policy.
      *
+     * @example test
+     *
      * @var string
      */
     public $policyDescription;
 
     /**
      * @description The name of the routing policy.
+     *
+     * @example TEST_VPC_FW
      *
      * @var string
      */

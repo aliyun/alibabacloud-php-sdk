@@ -110,6 +110,8 @@ class CreateTrFirewallV2Request extends Model
     public $trAttachmentMasterCidr;
 
     /**
+     * @example cn-chengdu-a
+     *
      * @var string
      */
     public $trAttachmentMasterZone;
@@ -124,6 +126,8 @@ class CreateTrFirewallV2Request extends Model
     public $trAttachmentSlaveCidr;
 
     /**
+     * @example cn-chengdu-b
+     *
      * @var string
      */
     public $trAttachmentSlaveZone;

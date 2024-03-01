@@ -17,7 +17,7 @@ class DescribeAddressBookResponseBody extends Model
     public $acls;
 
     /**
-     * @description The page number of the current page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeAddressBookResponseBody extends Model
     public $pageNo;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -35,7 +35,7 @@ class DescribeAddressBookResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example B36F150A-1E27-43AA-B72C-D2AC712F09DA
      *

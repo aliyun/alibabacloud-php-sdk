@@ -38,6 +38,8 @@ class DescribeTrFirewallsV2ListRequest extends Model
     /**
      * @description The name of the VPC firewall.
      *
+     * @example test
+     *
      * @var string
      */
     public $firewallName;
