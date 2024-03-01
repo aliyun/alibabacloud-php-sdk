@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class AddDomainResponseBody extends Model
 {
     /**
-     * @description The Domain Name System (DNS) servers that resolve the domain name.
+     * @description The Domain Name System (DNS) servers configured for the domain name.
      *
      * @var dnsServers
      */
@@ -27,6 +27,8 @@ class AddDomainResponseBody extends Model
 
     /**
      * @description The domain name.
+     *
+     * @example dns-example.top
      *
      * @var string
      */
@@ -60,7 +62,7 @@ class AddDomainResponseBody extends Model
     public $punyCode;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 536E9CAD-DB30-4647-AC87-AA5CC38C5382
      *

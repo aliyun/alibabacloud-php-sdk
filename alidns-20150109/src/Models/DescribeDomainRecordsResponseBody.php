@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainRecordsResponseBody extends Model
 {
     /**
-     * @description The returned DNS records.
+     * @description The returned Domain Name System (DNS) records.
      *
      * @var domainRecords
      */

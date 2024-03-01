@@ -18,12 +18,16 @@ class statistic extends Model
     public $count;
 
     /**
+     * @description The domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @description The statistical timestamp. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     * @description The statistical timestamp. Unit: milliseconds. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1556640000000
      *

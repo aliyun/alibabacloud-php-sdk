@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainResolveStatisticsSummaryRequest extends Model
 {
     /**
-     * @description The order in which you want to sort the query results. Valid values: DESC and ASC. DESC indicates that the query results are sorted in descending order. ASC indicates that the query results are sorted in ascending order.
+     * @description The order in which you want to sort the returned entries. Valid values:
+     *
+     *   DESC: the descending order
+     *   ASC: the ascending order
      *
      * @example DESC
      *
@@ -27,7 +30,7 @@ class DescribeDomainResolveStatisticsSummaryRequest extends Model
     public $endDate;
 
     /**
-     * @description The keyword. The Keyword parameter must be used together with the SearchMode parameter.
+     * @description The keyword. The Keyword parameter is used together with the SearchMode parameter.
      *
      * @example test
      *
@@ -36,7 +39,7 @@ class DescribeDomainResolveStatisticsSummaryRequest extends Model
     public $keyword;
 
     /**
-     * @description The language used. Valid values: zh, en, and ja.
+     * @description The language. Valid values: zh, en, and ja.
      *
      * @example zh
      *
@@ -65,7 +68,9 @@ class DescribeDomainResolveStatisticsSummaryRequest extends Model
     /**
      * @description The search mode of the keyword. Valid values:
      *
-     * LIKE and EXACT. LIKE is the default value and indicates the fuzzy search mode. EXACT indicates the exact match mode.
+     *   LIKE (default): fuzzy search
+     *   EXACT: exact search
+     *
      * @example EXACT
      *
      * @var string
@@ -82,8 +87,9 @@ class DescribeDomainResolveStatisticsSummaryRequest extends Model
     public $startDate;
 
     /**
-     * @description The threshold for the number of resolution requests. You can query the paid domain names at the specified quantity level of resolution requests and query the number of resolution requests. For example, if you set this parameter to 100, you can obtain data about the paid domain names with less than 100 resolution requests. If you do not specify this parameter, the data about the paid domain names that have resolution requests is obtained. If you set this parameter to a value less than 0, the data about all paid domain names is obtained. If you set this parameter to 0, the data about the paid domain names that do not have resolution requests is obtained. If you set this parameter to a value greater than 0, the data about the paid domain names whose number of resolution requests is less than or equal to the value of this parameter is obtained.
+     * @description The threshold for the number of Domain Name System (DNS) requests. You can query the domain names at the specified quantity level of DNS requests and query the number of DNS requests for each domain name.
      *
+     * If you set this parameter to a value greater than 0, the data about the domain names whose number of DNS requests is less than or equal to the value of this parameter is obtained.
      * @example -1
      *
      * @var int

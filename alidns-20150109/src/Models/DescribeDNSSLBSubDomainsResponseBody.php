@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDNSSLBSubDomainsResponseBody extends Model
 {
     /**
-     * @description The page number of the returned page.
+     * @description The page number. Pages start from page **1**. Default value: **1**.
      *
      * @example 1
      *
@@ -19,7 +19,7 @@ class DescribeDNSSLBSubDomainsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The total number of subdomains returned.
+     * @description The number of entries per page. Valid values: **1 to 100**. Default value: **20**.
      *
      * @example 1
      *
@@ -28,7 +28,7 @@ class DescribeDNSSLBSubDomainsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 536E9CAD-DB30-4647-AC87-AA5CC38C5382
      *
@@ -37,14 +37,14 @@ class DescribeDNSSLBSubDomainsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The details of the subdomains.
+     * @description The subdomains for which weighted round-robin is enabled.
      *
      * @var slbSubDomains
      */
     public $slbSubDomains;
 
     /**
-     * @description The number of domain name groups.
+     * @description The total number of entries returned.
      *
      * @example 1
      *

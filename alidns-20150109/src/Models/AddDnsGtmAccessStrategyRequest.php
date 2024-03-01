@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class AddDnsGtmAccessStrategyRequest extends Model
 {
     /**
+     * @description The address pools in the primary address pool set.
+     *
      * @var defaultAddrPool[]
      */
     public $defaultAddrPool;
@@ -29,10 +31,10 @@ class AddDnsGtmAccessStrategyRequest extends Model
     public $defaultAddrPoolType;
 
     /**
-     * @description Specifies whether to enable scheduling optimization for latency resolution for the primary address pool group. Valid values:
+     * @description Specifies whether to enable DNS resolution with optimal latency for the primary address pool set. Valid values:
      *
-     *   OPEN: enable
-     *   CLOSE: disable
+     *   OPEN
+     *   CLOSE
      *
      * @example open
      *
@@ -41,7 +43,7 @@ class AddDnsGtmAccessStrategyRequest extends Model
     public $defaultLatencyOptimization;
 
     /**
-     * @description The load balancing policy of the primary address pool group. Valid values:
+     * @description The load balancing policy of the primary address pool set. Valid values:
      *
      *   ALL_RR: returns all addresses.
      *   RATIO: returns addresses by weight.
@@ -53,7 +55,7 @@ class AddDnsGtmAccessStrategyRequest extends Model
     public $defaultLbaStrategy;
 
     /**
-     * @description The maximum number of addresses returned from the primary address pool group.
+     * @description The maximum number of addresses returned from the primary address pool set.
      *
      * @example 3
      *
@@ -62,7 +64,7 @@ class AddDnsGtmAccessStrategyRequest extends Model
     public $defaultMaxReturnAddrNum;
 
     /**
-     * @description The minimum number of available addresses in the primary address pool group.
+     * @description The minimum number of available addresses in the primary address pool set.
      *
      * @example 1
      *
@@ -71,6 +73,8 @@ class AddDnsGtmAccessStrategyRequest extends Model
     public $defaultMinAvailableAddrNum;
 
     /**
+     * @description The address pools in the secondary address pool set. If no address pool exists in the secondary address pool set, set this parameter to EMPTY.
+     *
      * @var failoverAddrPool[]
      */
     public $failoverAddrPool;
@@ -89,10 +93,10 @@ class AddDnsGtmAccessStrategyRequest extends Model
     public $failoverAddrPoolType;
 
     /**
-     * @description Specifies whether to enable scheduling optimization for latency resolution for the secondary address pool group. Valid values:
+     * @description Specifies whether to enable DNS resolution with optimal latency for the secondary address pool set. Valid values:
      *
-     *   OPEN: enable
-     *   CLOSE: disable
+     *   OPEN
+     *   CLOSE
      *
      * @example open
      *
@@ -101,7 +105,7 @@ class AddDnsGtmAccessStrategyRequest extends Model
     public $failoverLatencyOptimization;
 
     /**
-     * @description The load balancing policy of the secondary address pool group. Valid values:
+     * @description The load balancing policy of the secondary address pool set. Valid values:
      *
      *   ALL_RR: returns all addresses.
      *   RATIO: returns addresses by weight.
@@ -113,7 +117,7 @@ class AddDnsGtmAccessStrategyRequest extends Model
     public $failoverLbaStrategy;
 
     /**
-     * @description The maximum number of addresses returned from the secondary address pool group.
+     * @description The maximum number of addresses returned from the secondary address pool set.
      *
      * @example 1
      *
@@ -122,7 +126,7 @@ class AddDnsGtmAccessStrategyRequest extends Model
     public $failoverMaxReturnAddrNum;
 
     /**
-     * @description The minimum number of available addresses in the secondary address pool group.
+     * @description The minimum number of available addresses in the secondary address pool set.
      *
      * @example 1
      *
@@ -131,7 +135,7 @@ class AddDnsGtmAccessStrategyRequest extends Model
     public $failoverMinAvailableAddrNum;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example instance1
      *
@@ -140,7 +144,7 @@ class AddDnsGtmAccessStrategyRequest extends Model
     public $instanceId;
 
     /**
-     * @description The language to return some response parameters. Default value: en. Valid values: en, zh, and ja.
+     * @description The language of the values for specific response parameters. Default value: en. Valid values: en, zh, and ja.
      *
      * @example en
      *
@@ -149,7 +153,7 @@ class AddDnsGtmAccessStrategyRequest extends Model
     public $lang;
 
     /**
-     * @description The line codes of source regions. For example: `["default", "drpeng"]` indicates Global and Dr. Peng Telecom & Media Group.
+     * @description The Domain Name System (DNS) request source. For example: `["default", "drpeng"]` indicates Global and Dr. Peng Group.
      *
      * @example ["default", "drpeng"]
      *
@@ -160,8 +164,8 @@ class AddDnsGtmAccessStrategyRequest extends Model
     /**
      * @description The type of the access policy. Valid values:
      *
-     *   GEO: geographical location-based
-     *   LATENCY: latency-based
+     *   GEO: geographical location-based access policy
+     *   LATENCY: latency-based access policy
      *
      * @example geo
      *

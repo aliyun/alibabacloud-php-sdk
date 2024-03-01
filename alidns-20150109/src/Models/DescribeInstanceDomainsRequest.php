@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceDomainsRequest extends Model
 {
     /**
+     * @description The instance ID.
+     *
      * @example weriwieru
      *
      * @var string
@@ -30,6 +32,8 @@ class DescribeInstanceDomainsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values: 1 to 100. Default value: 20.
+     *
      * @example 2
      *
      * @var int

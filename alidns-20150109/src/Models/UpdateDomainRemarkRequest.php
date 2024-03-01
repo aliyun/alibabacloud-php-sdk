@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateDomainRemarkRequest extends Model
 {
     /**
-     * @description The domain name in Alibaba Cloud DNS.
+     * @description The domain name that already exists in Alibaba Cloud DNS.
      *
      * @example mydomain.com
      *
@@ -18,7 +18,7 @@ class UpdateDomainRemarkRequest extends Model
     public $domainName;
 
     /**
-     * @description The language type.
+     * @description The language.
      *
      * @example cn
      *

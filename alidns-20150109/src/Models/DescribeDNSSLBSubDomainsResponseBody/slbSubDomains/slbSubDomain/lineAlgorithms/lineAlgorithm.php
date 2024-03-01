@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class lineAlgorithm extends Model
 {
     /**
+     * @description The DNS resolution line. The line can be China Telecom, China Mobile, and China Unicom.
+     *
+     * @example default
+     *
      * @var string
      */
     public $line;
 
     /**
+     * @description Indicates whether weighted round-robin is enabled for the line. Valid values:
+     *
+     *   **true** (default): Weighted round-robin is enabled.
+     *   **false**: Weighted round-robin is disabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $open;

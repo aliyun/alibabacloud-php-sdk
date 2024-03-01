@@ -9,14 +9,16 @@ use AlibabaCloud\Tea\Model;
 class AddDomainRequest extends Model
 {
     /**
-     * @description The domain name to be added.
+     * @description The domain name.
+     *
+     * @example dns-example.top
      *
      * @var string
      */
     public $domainName;
 
     /**
-     * @description The ID of the domain name group. The default value is the ID of the default domain name group.
+     * @description The ID of the group to which the domain name will belong. The default value is the ID of the default group.
      *
      * @example 2223
      *
@@ -25,7 +27,7 @@ class AddDomainRequest extends Model
     public $groupId;
 
     /**
-     * @description The language of the domain name.
+     * @description The language.
      *
      * @example en
      *

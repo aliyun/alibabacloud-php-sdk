@@ -18,7 +18,7 @@ class DeleteDomainRequest extends Model
     public $domainName;
 
     /**
-     * @description The language type.
+     * @description The language.
      *
      * @example en
      *

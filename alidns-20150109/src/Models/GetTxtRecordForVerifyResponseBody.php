@@ -19,7 +19,7 @@ class GetTxtRecordForVerifyResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The host record.
+     * @description The hostname.
      *
      * @example aliyunRetrieval
      *
@@ -28,7 +28,7 @@ class GetTxtRecordForVerifyResponseBody extends Model
     public $RR;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 9CC0D642-49D4-48DE-A1A5-9F218652E4A7
      *
@@ -37,7 +37,7 @@ class GetTxtRecordForVerifyResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The value of the DNS record.
+     * @description The record value.
      *
      * >  The validity period is three days.
      * @example c99419e6997f41daaa3e*****

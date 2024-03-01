@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateDomainRemarkResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 536E9CAD-DB30-4647-AC87-AA5CC38C5382
      *

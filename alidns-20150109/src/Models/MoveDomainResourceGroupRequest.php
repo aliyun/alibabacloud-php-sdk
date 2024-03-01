@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class MoveDomainResourceGroupRequest extends Model
 {
     /**
-     * @description The language of some returned parameters. Default value: en. Valid values: en, zh, and ja.
+     * @description The language of the values of specific response parameters. Default value: en. Valid values: en, zh, and ja.
      *
      * @example en
      *
@@ -18,7 +18,7 @@ class MoveDomainResourceGroupRequest extends Model
     public $lang;
 
     /**
-     * @description The ID of the resource group.
+     * @description The ID of the new resource group.
      *
      * @example rg-aekzzk7hx3glaoq
      *
@@ -27,7 +27,7 @@ class MoveDomainResourceGroupRequest extends Model
     public $newResourceGroupId;
 
     /**
-     * @description The domain name.
+     * @description The resource ID. If Tag is left empty, ResourceId is required.
      *
      * @example example.com
      *

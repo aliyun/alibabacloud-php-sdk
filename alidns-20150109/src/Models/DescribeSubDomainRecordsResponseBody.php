@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeSubDomainRecordsResponseBody extends Model
 {
     /**
-     * @description The list of DNS records returned.
+     * @description The returned DNS records.
      *
      * @var domainRecords
      */
     public $domainRecords;
 
     /**
-     * @description The number of the returned page.
+     * @description The page number. Pages start from page **1**. Default value: **1**.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeSubDomainRecordsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 2
      *
@@ -35,7 +35,7 @@ class DescribeSubDomainRecordsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 536E9CAD-DB30-4647-AC87-AA5CC38C5382
      *
@@ -44,7 +44,7 @@ class DescribeSubDomainRecordsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of DNS records returned.
+     * @description The total number of entries returned.
      *
      * @example 2
      *

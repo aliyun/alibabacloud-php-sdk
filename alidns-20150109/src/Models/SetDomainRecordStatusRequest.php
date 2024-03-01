@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SetDomainRecordStatusRequest extends Model
 {
     /**
-     * @description The language type.
+     * @description The language.
      *
      * @example en
      *
@@ -27,10 +27,10 @@ class SetDomainRecordStatusRequest extends Model
     public $recordId;
 
     /**
-     * @description The status of the DNS record. Valid values:
+     * @description The state of the DNS record. Valid values:
      *
-     *   **Enable**: enables resolution.
-     *   **Disable**: suspends resolution.
+     *   **Enable**: enables the DNS record.
+     *   **Disable**: disables the DNS record.
      *
      * @example Disable
      *

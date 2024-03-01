@@ -18,7 +18,10 @@ class domainGroup extends Model
     public $domainCount;
 
     /**
-     * @description The ID of the domain name group.
+     * @description The ID of the domain name group. Valid values:
+     *
+     *   defaultGroup: the default group
+     *   If an empty string is returned, it indicates the group that contains all domain names.
      *
      * @example 2223
      *

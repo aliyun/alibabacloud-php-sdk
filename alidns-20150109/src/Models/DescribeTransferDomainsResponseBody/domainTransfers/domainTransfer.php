@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class domainTransfer extends Model
 {
     /**
-     * @description The time when the task for transferring domain names was created.
+     * @description The time when the domain name was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
      *
      * @example 2019-10-30T07:16Z
      *
@@ -18,7 +18,7 @@ class domainTransfer extends Model
     public $createTime;
 
     /**
-     * @description The UNIX timestamp representing when the task for transferring domain names was created.
+     * @description The time when the domain name was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1572419764000
      *
@@ -36,7 +36,7 @@ class domainTransfer extends Model
     public $domainName;
 
     /**
-     * @description The ID of the user from which the domain name was transferred.
+     * @description The user ID from which the domain name was transferred.
      *
      * @example 2222
      *
@@ -54,7 +54,7 @@ class domainTransfer extends Model
     public $id;
 
     /**
-     * @description The ID of the user to which the domain name was transferred.
+     * @description The user ID to which the domain name was transferred.
      *
      * @example 111111
      *

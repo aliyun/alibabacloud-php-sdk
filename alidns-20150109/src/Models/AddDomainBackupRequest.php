@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AddDomainBackupRequest extends Model
 {
     /**
-     * @description The domain name for which you want to create a backup task.
+     * @description The domain name.
      *
      * @example test.aliyun.com
      *

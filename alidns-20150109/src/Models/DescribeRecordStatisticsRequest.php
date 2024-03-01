@@ -18,14 +18,21 @@ class DescribeRecordStatisticsRequest extends Model
     public $domainName;
 
     /**
+     * @description The type of the domain name. The parameter value is not case-sensitive. Valid values:
+     *
+     *   PUBLIC (default): hosted public domain name
+     *   CACHE: cache-accelerated domain name
+     *
+     * @example PUBLIC
+     *
      * @var string
      */
     public $domainType;
 
     /**
-     * @description The end of the time range to query. Specify the time in the **YYYY-MM-DD** format.
+     * @description The end date of the query. Specify the end date in the **YYYY-MM-DD** format.
      *
-     * The default value is the day when you perform the operation.
+     * The default value is the day when you query the data.
      * @example 2019-07-04
      *
      * @var string
@@ -33,7 +40,7 @@ class DescribeRecordStatisticsRequest extends Model
     public $endDate;
 
     /**
-     * @description The language type.
+     * @description The language.
      *
      * @example en
      *
@@ -42,9 +49,8 @@ class DescribeRecordStatisticsRequest extends Model
     public $lang;
 
     /**
-     * @description The DNS record.
+     * @description The hostname. If you want to resolve the subdomain name www.dns-exmaple.top, set this parameter to www.
      *
-     * The host record. For example, to resolve `www.dns-exmaple.com`, you must set Rr to www.
      * @example www
      *
      * @var string
@@ -52,9 +58,9 @@ class DescribeRecordStatisticsRequest extends Model
     public $rr;
 
     /**
-     * @description The beginning of the time range to query. Specify the time in the **YYYY-MM-DD** format.
+     * @description The start date of the query. Specify the start date in the **YYYY-MM-DD** format.
      *
-     * You can only query DNS records of the last 90 days.
+     * If the time range is greater than seven days, data is returned on a daily basis.````
      * @example 2019-07-04
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateDomainRecordRequest extends Model
 {
     /**
-     * @description The language type.
+     * @description The language.
      *
      * @example en
      *
@@ -18,8 +18,9 @@ class UpdateDomainRecordRequest extends Model
     public $lang;
 
     /**
-     * @description The resolution line. Default value: **default**.
+     * @description The DNS resolution line. Default value: **default**.
      *
+     * [DNS lines](https://www.alibabacloud.com/help/zh/doc-detail/29807.htm).
      * @example default
      *
      * @var string
@@ -27,7 +28,7 @@ class UpdateDomainRecordRequest extends Model
     public $line;
 
     /**
-     * @description The priority of an MX-type DNS record. Valid values: `[1,50]`.
+     * @description The priority of the mail exchanger (MX) record. Valid values: `1 to 50`.
      *
      * This parameter must be specified if the type of the DNS record is MX.
      * @example 1
@@ -37,9 +38,9 @@ class UpdateDomainRecordRequest extends Model
     public $priority;
 
     /**
-     * @description The host record.
+     * @description The hostname.
      *
-     * For example, to resolve @.example.com, you must set RR to an at sign (@) instead of leaving it blank.
+     * For example, if you want to resolve @.example.com, you must set RR to an at sign (@) instead of leaving it empty.
      * @example www
      *
      * @var string
@@ -56,8 +57,9 @@ class UpdateDomainRecordRequest extends Model
     public $recordId;
 
     /**
-     * @description The TTL of the resolution. Default value: 600. Unit: seconds.
+     * @description The time-to-live (TTL) of the DNS record. Default value: 600. Unit: seconds.
      *
+     * [TTL definition](https://www.alibabacloud.com/help/zh/doc-detail/29806.htm).
      * @example 600
      *
      * @var int
@@ -65,8 +67,9 @@ class UpdateDomainRecordRequest extends Model
     public $TTL;
 
     /**
-     * @description The type of the DNS record.
+     * @description The type of the DNS record. For more information, see
      *
+     * [DNS record types](https://www.alibabacloud.com/help/zh/doc-detail/29805.htm).
      * @example A
      *
      * @var string
@@ -83,7 +86,7 @@ class UpdateDomainRecordRequest extends Model
     public $userClientIp;
 
     /**
-     * @description The value of the DNS record.
+     * @description The record value.
      *
      * @example 192.0.2.254
      *

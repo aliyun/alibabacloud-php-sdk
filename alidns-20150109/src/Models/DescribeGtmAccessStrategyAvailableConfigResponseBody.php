@@ -11,21 +11,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeGtmAccessStrategyAvailableConfigResponseBody extends Model
 {
     /**
-     * @description The returned list of address pools.
+     * @description The address pools.
      *
      * @var addrPools
      */
     public $addrPools;
 
     /**
-     * @description The returned lines of access regions.
+     * @description The Domain Name System (DNS) request sources.
      *
      * @var lines
      */
     public $lines;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example C2851BA9-CE56-49AF-8D12-4FC6A49EE688
      *
@@ -34,6 +34,10 @@ class DescribeGtmAccessStrategyAvailableConfigResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the global line is recommended.
+     *
+     * @example True
+     *
      * @var bool
      */
     public $suggestSetDefaultLine;

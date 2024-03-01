@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceDomainsResponseBody extends Model
 {
     /**
+     * @description The domain names that are bound to the Alibaba Cloud DNS instance.
+     *
      * @var instanceDomains[]
      */
     public $instanceDomains;
 
     /**
+     * @description The page number. Pages start from page **1**. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeInstanceDomainsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values: **1 to 100**. Default value: **20**.
+     *
      * @example 2
      *
      * @var int

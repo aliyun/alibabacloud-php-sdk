@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateDNSSLBWeightRequest extends Model
 {
     /**
-     * @description The language of the domain name.
+     * @description The language.
      *
      * @example en
      *
@@ -27,7 +27,7 @@ class UpdateDNSSLBWeightRequest extends Model
     public $recordId;
 
     /**
-     * @description The IP address of the client that you use to change the weight.
+     * @description The IP address of the client.
      *
      * @example 1.1.1.1
      *
@@ -36,7 +36,7 @@ class UpdateDNSSLBWeightRequest extends Model
     public $userClientIp;
 
     /**
-     * @description The updated weight of the DNS record. Valid values: `1 to 100`.
+     * @description The weight of the DNS record that you want to specify. Valid values: `1 to 100`.
      *
      * @example 2
      *

@@ -200,6 +200,11 @@ class DescribeDomainInfoResponseBody extends Model
     public $slaveDns;
 
     /**
+     * @description Indicates whether the queried domain name is a hosted subdomain name. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example false
      *
      * @var bool

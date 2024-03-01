@@ -18,7 +18,7 @@ class GetTxtRecordForVerifyRequest extends Model
     public $domainName;
 
     /**
-     * @description The language type.
+     * @description The language.
      *
      * @example en
      *
@@ -27,9 +27,9 @@ class GetTxtRecordForVerifyRequest extends Model
     public $lang;
 
     /**
-     * @description The function verified by using the TXT record. Valid values:
+     * @description The feature verified by using the TXT record. Valid values:
      *
-     *   ADD_SUBDOMAIN
+     *   ADD_SUB_DOMAIN
      *   RETRIEVAL
      *
      * @example ADD_SUB_DOMAIN

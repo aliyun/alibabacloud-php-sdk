@@ -45,7 +45,7 @@ class DescribeDomainRecordInfoResponseBody extends Model
     public $groupName;
 
     /**
-     * @description The resolution line.
+     * @description The DNS resolution line.
      *
      * @example default
      *
@@ -54,7 +54,7 @@ class DescribeDomainRecordInfoResponseBody extends Model
     public $line;
 
     /**
-     * @description The lock status of the DNS record. Valid values: true and false.
+     * @description The lock state of the DNS record. Valid values: **true and false**.
      *
      * @example true
      *
@@ -63,7 +63,7 @@ class DescribeDomainRecordInfoResponseBody extends Model
     public $locked;
 
     /**
-     * @description The priority of the MX-type DNS record.
+     * @description The priority of the mail exchanger (MX) record.
      *
      * @example 5
      *
@@ -72,7 +72,7 @@ class DescribeDomainRecordInfoResponseBody extends Model
     public $priority;
 
     /**
-     * @description The punycode is only returned for Chinese domain names.
+     * @description The Punycode for the domain name. This parameter is returned only for Chinese domain names.
      *
      * @example xn--fsq270a.com
      *
@@ -81,7 +81,7 @@ class DescribeDomainRecordInfoResponseBody extends Model
     public $punyCode;
 
     /**
-     * @description The host record.
+     * @description The hostname.
      *
      * @example @
      *
@@ -99,7 +99,7 @@ class DescribeDomainRecordInfoResponseBody extends Model
     public $recordId;
 
     /**
-     * @description The remark of the DNS record.
+     * @description The description of your DNS record.
      *
      * @example test
      *
@@ -108,7 +108,7 @@ class DescribeDomainRecordInfoResponseBody extends Model
     public $remark;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 536E9CAD-DB30-4647-AC87-AA5CC38C5382
      *
@@ -117,7 +117,7 @@ class DescribeDomainRecordInfoResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The status of the DNS record. Valid values: Enable and Disable.
+     * @description The state of the DNS records. Valid values: **Enable and Disable**.
      *
      * @example Enable
      *
@@ -126,7 +126,7 @@ class DescribeDomainRecordInfoResponseBody extends Model
     public $status;
 
     /**
-     * @description The TTL of the resolution.
+     * @description The time-to-live (TTL) of the DNS record.
      *
      * @example 600
      *
@@ -144,7 +144,7 @@ class DescribeDomainRecordInfoResponseBody extends Model
     public $type;
 
     /**
-     * @description The value of the DNS record.
+     * @description The record value.
      *
      * @example 1.1.XX.XX
      *

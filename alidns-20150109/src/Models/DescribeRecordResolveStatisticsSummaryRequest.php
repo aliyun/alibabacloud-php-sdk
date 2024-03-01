@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeRecordResolveStatisticsSummaryRequest extends Model
 {
     /**
-     * @description The order in which you want to sort the query results. Valid values: DESC and ASC. DESC is the default value and indicates that the query results are sorted in descending order. ASC indicates that the query results are sorted in ascending order.
+     * @description The order in which the returned entries are sorted. Valid values:
+     *
+     *   DESC (default): descending order
+     *   ASC: ascending order
      *
      * @example DESC
      *
@@ -29,7 +32,9 @@ class DescribeRecordResolveStatisticsSummaryRequest extends Model
     /**
      * @description The type of the domain name. The parameter value is not case-sensitive. Valid values:
      *
-     * PUBLIC and CACHE. PUBLIC is the default value and indicates an authoritative domain name. CACHE indicates a cache-accelerated domain name.
+     *   PUBLIC (default): hosted public domain name
+     *   CACHE: cache-accelerated domain name
+     *
      * @example PUBLIC
      *
      * @var string
@@ -37,7 +42,7 @@ class DescribeRecordResolveStatisticsSummaryRequest extends Model
     public $domainType;
 
     /**
-     * @description The end time in the yyyy-MM-dd format, for example, 2023-03-13.
+     * @description The end date of the time range to be queried. Specify the time in the yyyy-MM-dd format, such as 2023-03-13.
      *
      * @example 2023-03-29
      *
@@ -46,7 +51,7 @@ class DescribeRecordResolveStatisticsSummaryRequest extends Model
     public $endDate;
 
     /**
-     * @description The keyword. The Keyword parameter is used together with the SearchMode parameter.
+     * @description The keyword. Keyword is used together with SearchMode.
      *
      * @example test
      *
@@ -55,7 +60,7 @@ class DescribeRecordResolveStatisticsSummaryRequest extends Model
     public $keyword;
 
     /**
-     * @description The language used. Valid values: zh, en, and ja.
+     * @description The language. Valid values: zh, en, and ja.
      *
      * @example zh
      *
@@ -84,7 +89,9 @@ class DescribeRecordResolveStatisticsSummaryRequest extends Model
     /**
      * @description The search mode of the keyword. Valid values:
      *
-     * LIKE (default): fuzzy search. EXACT: exact match.
+     *   LIKE (default): fuzzy search
+     *   EXACT: exact search
+     *
      * @example LIKE
      *
      * @var string
@@ -92,7 +99,7 @@ class DescribeRecordResolveStatisticsSummaryRequest extends Model
     public $searchMode;
 
     /**
-     * @description The start time in the yyyy-MM-dd format, for example, 2023-03-01.
+     * @description The start date of the time range to be queried. Specify the time in the yyyy-MM-dd format, such as 2023-03-01.
      *
      * @example 2023-03-29
      *
@@ -101,9 +108,9 @@ class DescribeRecordResolveStatisticsSummaryRequest extends Model
     public $startDate;
 
     /**
-     * @description The threshold for the number of resolution requests. You can query the subdomain names at the specified quantity level of resolution requests and query the number of resolution requests for each subdomain name. For example, if you set this parameter to 100, you can obtain data about the subdomain names with less than 100 resolution requests.
+     * @description The threshold for the number of Domain Name System (DNS) requests. You can query the subdomain names at the specified quantity level of DNS requests and query the number of DNS requests for each subdomain name.
      *
-     * If you set this parameter to a value greater than 0, the data about the subdomain names whose number of resolution requests is less than or equal to the value of this parameter is obtained.
+     * If you set this parameter to a value greater than 0, the data about the subdomain names whose number of DNS requests is less than or equal to the value of this parameter is obtained.
      * @example -1
      *
      * @var int

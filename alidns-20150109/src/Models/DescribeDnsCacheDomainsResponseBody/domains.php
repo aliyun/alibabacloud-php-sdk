@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class domains extends Model
 {
     /**
+     * @description The maximum time-to-live (TTL) period of the cached data retrieved from the origin DNS server. Unit: seconds. Valid values: 30 to 86400.
+     *
      * @example 86400
      *
      * @var int
@@ -17,6 +19,8 @@ class domains extends Model
     public $cacheTtlMax;
 
     /**
+     * @description The minimum TTL period of the cached data retrieved from the origin DNS server. Unit: seconds. Valid values: 30 to 86400.
+     *
      * @example 30
      *
      * @var int
@@ -24,6 +28,8 @@ class domains extends Model
     public $cacheTtlMin;
 
     /**
+     * @description The time when the domain name was added. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+     *
      * @example 2022-10-17T06:13Z
      *
      * @var string
@@ -31,6 +37,8 @@ class domains extends Model
     public $createTime;
 
     /**
+     * @description The time when the domain name was added. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1660546144000
      *
      * @var int
@@ -38,6 +46,8 @@ class domains extends Model
     public $createTimestamp;
 
     /**
+     * @description The ID of the cache-accelerated domain name.
+     *
      * @example 00efd71a-770e-4255-b54e-6fe5659baffe
      *
      * @var string
@@ -45,6 +55,8 @@ class domains extends Model
     public $domainId;
 
     /**
+     * @description The cache-accelerated domain name.
+     *
      * @example dns-example.top
      *
      * @var string
@@ -52,6 +64,8 @@ class domains extends Model
     public $domainName;
 
     /**
+     * @description The time when the instance expires. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+     *
      * @example 2022-12-02T16:00Z
      *
      * @var string
@@ -59,6 +73,8 @@ class domains extends Model
     public $expireTime;
 
     /**
+     * @description The time when the instance expires. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1692374400000
      *
      * @var int
@@ -66,6 +82,8 @@ class domains extends Model
     public $expireTimestamp;
 
     /**
+     * @description The instance ID of the cache-accelerated domain name.
+     *
      * @example i-7bg
      *
      * @var string
@@ -73,6 +91,8 @@ class domains extends Model
     public $instanceId;
 
     /**
+     * @description The description of the domain name.
+     *
      * @example remark
      *
      * @var string
@@ -80,11 +100,15 @@ class domains extends Model
     public $remark;
 
     /**
+     * @description The origin DNS servers.
+     *
      * @var sourceDnsServers[]
      */
     public $sourceDnsServers;
 
     /**
+     * @description Specifies whether the origin Domain Name System (DNS) server supports Extension Mechanisms for DNS (EDNS). Valid values: NOT_SUPPORT and SUPPORT.
+     *
      * @example SUPPORT
      *
      * @var string
@@ -92,6 +116,8 @@ class domains extends Model
     public $sourceEdns;
 
     /**
+     * @description The origin protocol policy. Valid values: TCP and UDP. Default value: UDP.
+     *
      * @example UDP
      *
      * @var string
@@ -99,6 +125,8 @@ class domains extends Model
     public $sourceProtocol;
 
     /**
+     * @description The time when the configurations of the domain name were updated. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+     *
      * @example 2023-05-22T03:40Z
      *
      * @var string
@@ -106,6 +134,8 @@ class domains extends Model
     public $updateTime;
 
     /**
+     * @description The time when the configurations of the domain name were updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1671690491000
      *
      * @var int
@@ -113,6 +143,8 @@ class domains extends Model
     public $updateTimestamp;
 
     /**
+     * @description The edition code of Alibaba Cloud DNS.
+     *
      * @example ultimate
      *
      * @var string

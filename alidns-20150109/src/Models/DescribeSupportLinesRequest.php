@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSupportLinesRequest extends Model
 {
     /**
-     * @description The domain name.
+     * @description 域名名称。
      *
      * @example example.com
      *
@@ -18,7 +18,7 @@ class DescribeSupportLinesRequest extends Model
     public $domainName;
 
     /**
-     * @description The language type.
+     * @description 语言。
      *
      * @example en
      *
@@ -27,7 +27,7 @@ class DescribeSupportLinesRequest extends Model
     public $lang;
 
     /**
-     * @description The IP address of the client.
+     * @description 用户端IP。
      *
      * @example 1.1.*.*
      *

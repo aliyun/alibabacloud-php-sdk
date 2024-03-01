@@ -18,7 +18,7 @@ class record extends Model
     public $domainName;
 
     /**
-     * @description The resolution line.
+     * @description The DNS resolution line.
      *
      * @example default
      *
@@ -27,7 +27,7 @@ class record extends Model
     public $line;
 
     /**
-     * @description Indicates whether the DNS record is locked.
+     * @description The lock status of the DNS record.
      *
      * @example false
      *
@@ -36,7 +36,7 @@ class record extends Model
     public $locked;
 
     /**
-     * @description The priority of the MX record.
+     * @description The priority of the mail exchanger (MX) record.
      *
      * @example 2
      *
@@ -65,6 +65,8 @@ class record extends Model
     /**
      * @description The description of the DNS record.
      *
+     * @example test
+     *
      * @var string
      */
     public $remark;
@@ -79,7 +81,7 @@ class record extends Model
     public $status;
 
     /**
-     * @description The Time-to-Live (TTL) of the DNS record.
+     * @description The time-to-live (TTL) of the DNS record.
      *
      * @example 600
      *

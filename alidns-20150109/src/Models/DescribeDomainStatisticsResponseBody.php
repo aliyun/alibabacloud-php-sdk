@@ -19,7 +19,7 @@ class DescribeDomainStatisticsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The DNS requests.
+     * @description The statistics on the Domain Name System (DNS) requests.
      *
      * @var statistics
      */

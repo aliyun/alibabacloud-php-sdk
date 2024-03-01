@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class BindInstanceDomainsResponseBody extends Model
 {
     /**
-     * @description The number of domain names that failed to be bound.
+     * @description The number of domain names that failed to be bound to the instance.
      *
      * @example 0
      *
@@ -18,7 +18,7 @@ class BindInstanceDomainsResponseBody extends Model
     public $failedCount;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 536E9CAD-DB30-4647-AC87-AA5CC38C5382
      *
@@ -27,7 +27,7 @@ class BindInstanceDomainsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The number of domain names that have been bound.
+     * @description The number of domain names that are bound to the instance.
      *
      * @example 2
      *

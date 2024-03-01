@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainResolveStatisticsSummaryResponseBody extends Model
 {
     /**
-     * @description The page number of the returned page.
+     * @description The page number. Pages start from page **1**. Default value: **1**.
      *
      * @example 1
      *
@@ -19,7 +19,7 @@ class DescribeDomainResolveStatisticsSummaryResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page. Maximum value: **100**. Default value: **20**.
      *
      * @example 10
      *

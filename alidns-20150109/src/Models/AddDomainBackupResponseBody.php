@@ -27,7 +27,7 @@ class AddDomainBackupResponseBody extends Model
     public $periodType;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example FD552816-FCC8-4832-B4A2-2DA0C2BA1688
      *

@@ -10,6 +10,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeDnsProductInstanceResponseBody extends Model
 {
     /**
+     * @description The auto-renewal status of the instance. Valid values:
+     *
+     *   **true**: Auto-renewal is enabled.
+     *   **false**: Auto-renewal is disabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $autoRenewal;

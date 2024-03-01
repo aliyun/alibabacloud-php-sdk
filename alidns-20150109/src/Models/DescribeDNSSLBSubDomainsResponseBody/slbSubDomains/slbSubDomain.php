@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class slbSubDomain extends Model
 {
     /**
+     * @description The lines for which weighted round-robin is enabled.
+     *
      * @var lineAlgorithms
      */
     public $lineAlgorithms;
@@ -33,7 +35,7 @@ class slbSubDomain extends Model
     public $recordCount;
 
     /**
-     * @description The subdomain.
+     * @description The subdomain name.
      *
      * @example www.example.com
      *
@@ -42,7 +44,7 @@ class slbSubDomain extends Model
     public $subDomain;
 
     /**
-     * @description The type of the DNS record that supports weighted round-robin. Valid values: A, AAAA, and CNAME.
+     * @description The type of the Domain Name System (DNS) record that supports weighted round-robin. Valid values: A, AAAA, and CNAME.
      *
      * @example A
      *

@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class domainRecordInfo extends Model
 {
     /**
-     * @description The resolution line of DNS record N. Default value: default.
+     * @description The domain name.
      *
-     * For more information, see [Resolution line enumeration](https://www.alibabacloud.com/help/zh/doc-detail/29807.htm).
+     * >  You can submit 1 to 1,000 domain names. Due to the limit on the length of HTTP request headers, excessive domain names are ignored. Do not enter more than 1,000 domain names.
      * @example example.com
      *
      * @var string
@@ -19,9 +19,8 @@ class domainRecordInfo extends Model
     public $domain;
 
     /**
-     * @description The host record corresponding to DNS record N.
+     * @description The resolution line. Default value: default.
      *
-     * >  If you set the Type parameter to **RR_ADD**, you must also specify this parameter.
      * @example default
      *
      * @var string
@@ -29,23 +28,30 @@ class domainRecordInfo extends Model
     public $line;
 
     /**
+     * @example mail
+     *
      * @var string
      */
     public $newRr;
 
     /**
+     * @example AAAA
+     *
      * @var string
      */
     public $newType;
 
     /**
+     * @example 114.92.XX.XX
+     *
      * @var string
      */
     public $newValue;
 
     /**
-     * @description The ID of the task.
+     * @description The priority of the mail exchanger (MX) record.
      *
+     * This parameter is required if the type of the DNS record is MX. Default value: 10.
      * @example 5
      *
      * @var int
@@ -53,9 +59,9 @@ class domainRecordInfo extends Model
     public $priority;
 
     /**
-     * @description The priority of MX-type DNS record N.
+     * @description The hostname.
      *
-     * This parameter must be specified if the type of the DNS record is MX. Default value: 10.
+     * >  This parameter is required if you set Type to **RR_ADD** or **RR_DEL**.
      * @example zhaohui
      *
      * @var string
@@ -63,9 +69,8 @@ class domainRecordInfo extends Model
     public $rr;
 
     /**
-     * @description The domain name corresponding to DNS record N.
+     * @description The time-to-live (TTL) value of the cached DNS record. Unit: seconds. Default value: ***600***.
      *
-     * >  N is specified by users. **N** starts from **1**. The maximum value of N is **1000**. Extra data entries are ignored.
      * @example 600
      *
      * @var int
@@ -73,9 +78,9 @@ class domainRecordInfo extends Model
     public $ttl;
 
     /**
-     * @description The value of DNS record N.
+     * @description The type of the DNS record. Valid values: A, AAAA, TXT, MX, and CNAME.
      *
-     * >  If you set the Type parameter to **RR_ADD**, you must also specify this parameter.
+     * >  This parameter is required if you set Type to **RR_ADD** or **RR_DEL**.
      * @example MX
      *
      * @var string
@@ -83,8 +88,9 @@ class domainRecordInfo extends Model
     public $type;
 
     /**
-     * @description The TTL of DNS record N. Unit: seconds. Default value: **600**.
+     * @description The record value.
      *
+     * >  This parameter is required if you set Type to **RR_ADD** or **RR_DEL**.
      * @example fd87da3c4528844d45af39200155a905
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class OperateBatchDomainResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 75446CC1-FC9A-4595-8D96-089D73D7A63D
      *
      * @var string
@@ -16,7 +18,7 @@ class OperateBatchDomainResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the request.
+     * @description The task ID.
      *
      * @example 345345
      *

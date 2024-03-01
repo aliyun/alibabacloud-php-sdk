@@ -180,6 +180,8 @@ use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeGtmRecoveryPlansRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeGtmRecoveryPlansResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeInstanceDomainsRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeInstanceDomainsResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeInternetDnsLogsRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeInternetDnsLogsResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeIspFlushCacheInstancesRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeIspFlushCacheInstancesResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeIspFlushCacheRemainQuotaRequest;
@@ -727,7 +729,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * You can check whether a domain name is valid based on the following topic:
+     * For more information about how to check whether a domain name is valid, see
      *   * [Domain name validity](https://www.alibabacloud.com/help/zh/doc-detail/67788.htm).
      *   *
      * @param AddDomainRequest $request AddDomainRequest
@@ -770,7 +772,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * You can check whether a domain name is valid based on the following topic:
+     * For more information about how to check whether a domain name is valid, see
      *   * [Domain name validity](https://www.alibabacloud.com/help/zh/doc-detail/67788.htm).
      *   *
      * @param AddDomainRequest $request AddDomainRequest
@@ -1200,10 +1202,13 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param BindInstanceDomainsRequest $request
-     * @param RuntimeOptions             $runtime
+     * A paid Alibaba Cloud DNS instance whose ID starts with dns is an instance of the new version. You can call this API operation to bind multiple domain names to the instance. If the upper limit is exceeded, an error message is returned.\\
+     *   * A paid Alibaba Cloud DNS instance whose ID does not start with dns is an instance of the old version. You can call this API operation to bind only one domain name to the instance. However, if the instance is already bound to a domain name, you must unbind the original domain name from the instance and bind the desired domain name to the instance.
+     *   *
+     * @param BindInstanceDomainsRequest $request BindInstanceDomainsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return BindInstanceDomainsResponse
+     * @return BindInstanceDomainsResponse BindInstanceDomainsResponse
      */
     public function bindInstanceDomainsWithOptions($request, $runtime)
     {
@@ -1237,9 +1242,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param BindInstanceDomainsRequest $request
+     * A paid Alibaba Cloud DNS instance whose ID starts with dns is an instance of the new version. You can call this API operation to bind multiple domain names to the instance. If the upper limit is exceeded, an error message is returned.\\
+     *   * A paid Alibaba Cloud DNS instance whose ID does not start with dns is an instance of the old version. You can call this API operation to bind only one domain name to the instance. However, if the instance is already bound to a domain name, you must unbind the original domain name from the instance and bind the desired domain name to the instance.
+     *   *
+     * @param BindInstanceDomainsRequest $request BindInstanceDomainsRequest
      *
-     * @return BindInstanceDomainsResponse
+     * @return BindInstanceDomainsResponse BindInstanceDomainsResponse
      */
     public function bindInstanceDomains($request)
     {
@@ -1249,10 +1257,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param ChangeDomainGroupRequest $request
-     * @param RuntimeOptions           $runtime
+     * You can specify GroupId to move a domain name to a specific domain name group. You can move the domain name to the group that contains all domain names or the default group.
+     *   *
+     * @param ChangeDomainGroupRequest $request ChangeDomainGroupRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ChangeDomainGroupResponse
+     * @return ChangeDomainGroupResponse ChangeDomainGroupResponse
      */
     public function changeDomainGroupWithOptions($request, $runtime)
     {
@@ -1286,9 +1296,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param ChangeDomainGroupRequest $request
+     * You can specify GroupId to move a domain name to a specific domain name group. You can move the domain name to the group that contains all domain names or the default group.
+     *   *
+     * @param ChangeDomainGroupRequest $request ChangeDomainGroupRequest
      *
-     * @return ChangeDomainGroupResponse
+     * @return ChangeDomainGroupResponse ChangeDomainGroupResponse
      */
     public function changeDomainGroup($request)
     {
@@ -1685,13 +1697,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * *   Given the unique nature of a HiChina domain name, you are not allowed to delete the HiChina domain name by calling the Alibaba Cloud DNS API.
-     *   * *   If the system prompts that a domain name does not exist, it is an unregistered domain name, it does not exist under the account, or its format in the request parameters is incorrect.
-     *   *
-     * @param DeleteDomainRequest $request DeleteDomainRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param DeleteDomainRequest $request
+     * @param RuntimeOptions      $runtime
      *
-     * @return DeleteDomainResponse DeleteDomainResponse
+     * @return DeleteDomainResponse
      */
     public function deleteDomainWithOptions($request, $runtime)
     {
@@ -1722,12 +1731,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * *   Given the unique nature of a HiChina domain name, you are not allowed to delete the HiChina domain name by calling the Alibaba Cloud DNS API.
-     *   * *   If the system prompts that a domain name does not exist, it is an unregistered domain name, it does not exist under the account, or its format in the request parameters is incorrect.
-     *   *
-     * @param DeleteDomainRequest $request DeleteDomainRequest
+     * @param DeleteDomainRequest $request
      *
-     * @return DeleteDomainResponse DeleteDomainResponse
+     * @return DeleteDomainResponse
      */
     public function deleteDomain($request)
     {
@@ -1737,7 +1743,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * >  A domain name group can be deleted only when it contains no domain names. The default group cannot be deleted.
+     * >  The default group cannot be deleted.
      *   *
      * @param DeleteDomainGroupRequest $request DeleteDomainGroupRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -1773,7 +1779,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * >  A domain name group can be deleted only when it contains no domain names. The default group cannot be deleted.
+     * >  The default group cannot be deleted.
      *   *
      * @param DeleteDomainGroupRequest $request DeleteDomainGroupRequest
      *
@@ -2082,7 +2088,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * **Before you call this operation, make sure that the batch operation task is complete.
+     * Before you call this operation, make sure that the batch operation task is complete.
      *   *
      * @param DescribeBatchResultDetailRequest $request DescribeBatchResultDetailRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -2130,7 +2136,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * **Before you call this operation, make sure that the batch operation task is complete.
+     * Before you call this operation, make sure that the batch operation task is complete.
      *   *
      * @param DescribeBatchResultDetailRequest $request DescribeBatchResultDetailRequest
      *
@@ -5025,6 +5031,70 @@ class Alidns extends OpenApiClient
     }
 
     /**
+     * @param DescribeInternetDnsLogsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeInternetDnsLogsResponse
+     */
+    public function describeInternetDnsLogsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTimestamp)) {
+            $query['EndTimestamp'] = $request->endTimestamp;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->module)) {
+            $query['Module'] = $request->module;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->queryCondition)) {
+            $query['QueryCondition'] = $request->queryCondition;
+        }
+        if (!Utils::isUnset($request->startTimestamp)) {
+            $query['StartTimestamp'] = $request->startTimestamp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInternetDnsLogs',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeInternetDnsLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeInternetDnsLogsRequest $request
+     *
+     * @return DescribeInternetDnsLogsResponse
+     */
+    public function describeInternetDnsLogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInternetDnsLogsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeIspFlushCacheInstancesRequest $request
      * @param RuntimeOptions                        $runtime
      *
@@ -6391,10 +6461,13 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param GetMainDomainNameRequest $request
-     * @param RuntimeOptions           $runtime
+     * For more information about the difference between primary domain names and subdomain names, see
+     *   * [Subdomain levels](https://www.alibabacloud.com/help/zh/faq-detail/39803.htm). For example, if you enter `www.abc.com`, abc.com is obtained.
+     *   *
+     * @param GetMainDomainNameRequest $request GetMainDomainNameRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMainDomainNameResponse
+     * @return GetMainDomainNameResponse GetMainDomainNameResponse
      */
     public function getMainDomainNameWithOptions($request, $runtime)
     {
@@ -6425,9 +6498,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param GetMainDomainNameRequest $request
+     * For more information about the difference between primary domain names and subdomain names, see
+     *   * [Subdomain levels](https://www.alibabacloud.com/help/zh/faq-detail/39803.htm). For example, if you enter `www.abc.com`, abc.com is obtained.
+     *   *
+     * @param GetMainDomainNameRequest $request GetMainDomainNameRequest
      *
-     * @return GetMainDomainNameResponse
+     * @return GetMainDomainNameResponse GetMainDomainNameResponse
      */
     public function getMainDomainName($request)
     {
@@ -6704,10 +6780,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param OperateBatchDomainRequest $request
-     * @param RuntimeOptions            $runtime
+     * Scenario: You need to execute a large number of tasks related to DNS resolution and you do not have high requirements for efficiency.
+     *   *
+     * @param OperateBatchDomainRequest $request OperateBatchDomainRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return OperateBatchDomainResponse
+     * @return OperateBatchDomainResponse OperateBatchDomainResponse
      */
     public function operateBatchDomainWithOptions($request, $runtime)
     {
@@ -6741,9 +6819,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param OperateBatchDomainRequest $request
+     * Scenario: You need to execute a large number of tasks related to DNS resolution and you do not have high requirements for efficiency.
+     *   *
+     * @param OperateBatchDomainRequest $request OperateBatchDomainRequest
      *
-     * @return OperateBatchDomainResponse
+     * @return OperateBatchDomainResponse OperateBatchDomainResponse
      */
     public function operateBatchDomain($request)
     {
@@ -6989,10 +7069,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param RetrieveDomainRequest $request
-     * @param RuntimeOptions        $runtime
+     * To retrieve a domain name, you must verify a text (TXT) record. Therefore, before you call this API operation to retrieve a domain name, call the [GetTxtRecordForVerify](https://www.alibabacloud.com/help/zh/alibaba-cloud-dns/latest/generating-a-txt-record) operation to generate a TXT record.
+     *   *
+     * @param RetrieveDomainRequest $request RetrieveDomainRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return RetrieveDomainResponse
+     * @return RetrieveDomainResponse RetrieveDomainResponse
      */
     public function retrieveDomainWithOptions($request, $runtime)
     {
@@ -7023,9 +7105,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param RetrieveDomainRequest $request
+     * To retrieve a domain name, you must verify a text (TXT) record. Therefore, before you call this API operation to retrieve a domain name, call the [GetTxtRecordForVerify](https://www.alibabacloud.com/help/zh/alibaba-cloud-dns/latest/generating-a-txt-record) operation to generate a TXT record.
+     *   *
+     * @param RetrieveDomainRequest $request RetrieveDomainRequest
      *
-     * @return RetrieveDomainResponse
+     * @return RetrieveDomainResponse RetrieveDomainResponse
      */
     public function retrieveDomain($request)
     {
@@ -7648,10 +7732,13 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param UnbindInstanceDomainsRequest $request
-     * @param RuntimeOptions               $runtime
+     * A paid Alibaba Cloud DNS instance whose ID starts with dns is an instance of the new version. You can call an API operation to bind multiple domain names to the instance. If the upper limit is exceeded, an error message is returned.\\
+     *   * A paid Alibaba Cloud DNS instance whose ID does not start with dns is an instance of the old version. You can call an API operation to bind only one domain name to the instance. However, if the instance that you want to bind to the desired domain name is already bound to a domain name, you can call this operation to unbind the original domain name from the instance and then bind the desired domain name to the instance.
+     *   *
+     * @param UnbindInstanceDomainsRequest $request UnbindInstanceDomainsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnbindInstanceDomainsResponse
+     * @return UnbindInstanceDomainsResponse UnbindInstanceDomainsResponse
      */
     public function unbindInstanceDomainsWithOptions($request, $runtime)
     {
@@ -7685,9 +7772,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param UnbindInstanceDomainsRequest $request
+     * A paid Alibaba Cloud DNS instance whose ID starts with dns is an instance of the new version. You can call an API operation to bind multiple domain names to the instance. If the upper limit is exceeded, an error message is returned.\\
+     *   * A paid Alibaba Cloud DNS instance whose ID does not start with dns is an instance of the old version. You can call an API operation to bind only one domain name to the instance. However, if the instance that you want to bind to the desired domain name is already bound to a domain name, you can call this operation to unbind the original domain name from the instance and then bind the desired domain name to the instance.
+     *   *
+     * @param UnbindInstanceDomainsRequest $request UnbindInstanceDomainsRequest
      *
-     * @return UnbindInstanceDomainsResponse
+     * @return UnbindInstanceDomainsResponse UnbindInstanceDomainsResponse
      */
     public function unbindInstanceDomains($request)
     {
@@ -7801,8 +7891,8 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * In each CIDR block, the end IP address must be greater than or equal to the start IP address.
-     *   * The CIDR blocks that are specified for all custom lines of a domain name cannot intersect.
+     * In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
+     *   * The CIDR blocks that are specified for all custom lines of a domain name cannot be overlapped.
      *   *
      * @param UpdateCustomLineRequest $request UpdateCustomLineRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -7844,8 +7934,8 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * In each CIDR block, the end IP address must be greater than or equal to the start IP address.
-     *   * The CIDR blocks that are specified for all custom lines of a domain name cannot intersect.
+     * In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
+     *   * The CIDR blocks that are specified for all custom lines of a domain name cannot be overlapped.
      *   *
      * @param UpdateCustomLineRequest $request UpdateCustomLineRequest
      *

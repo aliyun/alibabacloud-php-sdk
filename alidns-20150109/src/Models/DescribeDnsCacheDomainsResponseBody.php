@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDnsCacheDomainsResponseBody extends Model
 {
     /**
+     * @description The domain names.
+     *
      * @var domains[]
      */
     public $domains;
 
     /**
+     * @description The page number. Pages start from page **1**. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeDnsCacheDomainsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values: 1 to 100. Default value: 20.
+     *
      * @example 20
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeDnsCacheDomainsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example 57121A9C-CDCF-541F-AD39-275D89099420
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeDnsCacheDomainsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 3
      *
      * @var int

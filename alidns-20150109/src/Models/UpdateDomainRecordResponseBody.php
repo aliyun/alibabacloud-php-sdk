@@ -18,7 +18,7 @@ class UpdateDomainRecordResponseBody extends Model
     public $recordId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 536E9CAD-DB30-4647-AC87-AA5CC38C5382
      *

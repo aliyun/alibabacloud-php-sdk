@@ -20,6 +20,8 @@ class addrPool extends Model
     /**
      * @description The name of the address pool.
      *
+     * @example test
+     *
      * @var string
      */
     public $addrPoolName;

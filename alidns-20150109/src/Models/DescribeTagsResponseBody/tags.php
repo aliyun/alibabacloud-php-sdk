@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
-     * @description The key of the tag.
+     * @description The key of tag N added to the resource.
      *
      * @example abc
      *
@@ -18,6 +18,8 @@ class tags extends Model
     public $key;
 
     /**
+     * @description The values of tags added to the resource.
+     *
      * @var string[]
      */
     public $values;

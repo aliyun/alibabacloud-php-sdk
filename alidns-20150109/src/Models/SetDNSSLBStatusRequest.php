@@ -29,7 +29,7 @@ class SetDNSSLBStatusRequest extends Model
     /**
      * @description The DNS resolution line. The line can be the default line, China Telecom, and China Mobile.
      *
-     * @example telecom
+     * @example China Mobile.
      *
      * @var string
      */

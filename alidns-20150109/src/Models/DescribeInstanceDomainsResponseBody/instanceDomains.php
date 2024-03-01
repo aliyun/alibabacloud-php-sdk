@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class instanceDomains extends Model
 {
     /**
+     * @description The time when the instance was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+     *
      * @example 2020-03-09T02:15Z
      *
      * @var string
@@ -16,6 +18,8 @@ class instanceDomains extends Model
     public $createTime;
 
     /**
+     * @description The time when the instance was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1583720154000
      *
      * @var int
@@ -23,6 +27,8 @@ class instanceDomains extends Model
     public $createTimestamp;
 
     /**
+     * @description The domain name.
+     *
      * @example example.com
      *
      * @var string

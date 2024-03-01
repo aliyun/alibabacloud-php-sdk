@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class recordLine extends Model
 {
     /**
-     * @description The code of the parent line. This parameter is left empty if the line has no parent line.
+     * @description The code of the parent line. This parameter is not returned if the line has no parent line.
      *
      * @example internal
      *

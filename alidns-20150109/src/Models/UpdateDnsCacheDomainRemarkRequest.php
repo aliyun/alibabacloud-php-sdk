@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateDnsCacheDomainRemarkRequest extends Model
 {
     /**
+     * @description The domain name.
+     *
      * @example dns-example.com
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateDnsCacheDomainRemarkRequest extends Model
     public $domainName;
 
     /**
+     * @description The language.
+     *
      * @example en
      *
      * @var string
@@ -23,6 +27,8 @@ class UpdateDnsCacheDomainRemarkRequest extends Model
     public $lang;
 
     /**
+     * @description The remarks. The remarks can be up to 50 characters in length and can contain only letters, digits, periods (.), underscores (\_), and hyphens (-).
+     *
      * @example test
      *
      * @var string

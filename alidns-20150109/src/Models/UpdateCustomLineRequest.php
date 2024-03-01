@@ -10,12 +10,14 @@ use AlibabaCloud\Tea\Model;
 class UpdateCustomLineRequest extends Model
 {
     /**
+     * @description The CIDR blocks. Separate IP addresses with a hyphen (-). Enter a CIDR block in each row. You can enter 1 to 50 CIDR blocks at a time. If a CIDR block contains only one IP address, enter the IP address in the format of IP1-IP1. Different CIDR blocks cannot be overlapped.
+     *
      * @var ipSegment[]
      */
     public $ipSegment;
 
     /**
-     * @description The language type.
+     * @description The language.
      *
      * @example en
      *
@@ -33,7 +35,7 @@ class UpdateCustomLineRequest extends Model
     public $lineId;
 
     /**
-     * @description The new name of the custom line.
+     * @description The name of the custom line. The name must be 1 to 20 characters in length and can contain letters, digits, hyphens (-), and underscores (\_).
      *
      * @var string
      */

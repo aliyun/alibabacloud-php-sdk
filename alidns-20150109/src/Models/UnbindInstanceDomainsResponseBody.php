@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UnbindInstanceDomainsResponseBody extends Model
 {
     /**
-     * @description The number of domain names that failed to be unbound.
+     * @description The number of domain names that failed to be unbound from the instance.
      *
      * @example 0
      *
@@ -18,7 +18,7 @@ class UnbindInstanceDomainsResponseBody extends Model
     public $failedCount;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 123
      *
@@ -27,7 +27,7 @@ class UnbindInstanceDomainsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The number of domain names that have been unbound.
+     * @description The number of domain names that are unbound from the instance.
      *
      * @example 2
      *

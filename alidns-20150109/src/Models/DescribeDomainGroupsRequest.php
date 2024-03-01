@@ -18,7 +18,7 @@ class DescribeDomainGroupsRequest extends Model
     public $keyWord;
 
     /**
-     * @description The language type.
+     * @description The language.
      *
      * @example en
      *
@@ -27,7 +27,7 @@ class DescribeDomainGroupsRequest extends Model
     public $lang;
 
     /**
-     * @description The number of the page to return. Pages start from page **1**. Default value: **1**.
+     * @description The page number. Pages start from page **1**. Default value: **1**.
      *
      * @example 1
      *
@@ -36,7 +36,7 @@ class DescribeDomainGroupsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: **100**. Default value: **20**.
+     * @description The number of entries per page. Valid values: **1 to 100**. Default value: **20**.
      *
      * @example 20
      *

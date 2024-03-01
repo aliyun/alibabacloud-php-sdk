@@ -11,11 +11,21 @@ use AlibabaCloud\Tea\Model;
 class UpdateDnsGtmAccessStrategyRequest extends Model
 {
     /**
+     * @description The primary/secondary switchover policy for address pool sets. Valid values:
+     *
+     *   AUTO: performs automatic switchover between the primary and secondary address pool sets upon failures.
+     *   DEFAULT: the primary address pool set
+     *   FAILOVER: the secondary address pool set
+     *
+     * @example DEFAULT
+     *
      * @var string
      */
     public $accessMode;
 
     /**
+     * @description The address pools in the primary address pool set.
+     *
      * @var defaultAddrPool[]
      */
     public $defaultAddrPool;
@@ -34,10 +44,10 @@ class UpdateDnsGtmAccessStrategyRequest extends Model
     public $defaultAddrPoolType;
 
     /**
-     * @description Specifies whether to enable scheduling optimization for latency resolution for the primary address pool group. Valid values:
+     * @description Specifies whether to enable Domain Name System (DNS) resolution with optimal latency for the primary address pool set. Valid values:
      *
-     *   OPEN: enable
-     *   CLOSE: disable
+     *   OPEN
+     *   CLOSE
      *
      * @example open
      *
@@ -46,7 +56,7 @@ class UpdateDnsGtmAccessStrategyRequest extends Model
     public $defaultLatencyOptimization;
 
     /**
-     * @description The load balancing policy of the primary address pool group. Valid values:
+     * @description The load balancing policy of the primary address pool set. Valid values:
      *
      *   ALL_RR: returns all addresses.
      *   RATIO: returns addresses by weight.
@@ -58,7 +68,7 @@ class UpdateDnsGtmAccessStrategyRequest extends Model
     public $defaultLbaStrategy;
 
     /**
-     * @description The maximum number of addresses returned from the primary address pool group.
+     * @description The maximum number of addresses returned from the primary address pool set.
      *
      * @example 1
      *
@@ -67,7 +77,7 @@ class UpdateDnsGtmAccessStrategyRequest extends Model
     public $defaultMaxReturnAddrNum;
 
     /**
-     * @description The minimum number of available addresses in the primary address pool group.
+     * @description The minimum number of available addresses in the primary address pool set.
      *
      * @example 1
      *
@@ -76,6 +86,8 @@ class UpdateDnsGtmAccessStrategyRequest extends Model
     public $defaultMinAvailableAddrNum;
 
     /**
+     * @description The address pools in the secondary address pool set. If no address pool exists in the secondary address pool set, set this parameter to EMPTY.
+     *
      * @var failoverAddrPool[]
      */
     public $failoverAddrPool;
@@ -94,10 +106,10 @@ class UpdateDnsGtmAccessStrategyRequest extends Model
     public $failoverAddrPoolType;
 
     /**
-     * @description Specifies whether to enable scheduling optimization for latency resolution for the secondary address pool group. Valid values:
+     * @description Specifies whether to enable DNS resolution with optimal latency for the secondary address pool set. Valid values:
      *
-     *   OPEN: enable
-     *   CLOSE: disable
+     *   OPEN
+     *   CLOSE
      *
      * @example open
      *
@@ -106,7 +118,7 @@ class UpdateDnsGtmAccessStrategyRequest extends Model
     public $failoverLatencyOptimization;
 
     /**
-     * @description The load balancing policy of the secondary address pool group. Valid values:
+     * @description The load balancing policy of the secondary address pool set. Valid values:
      *
      *   ALL_RR: returns all addresses.
      *   RATIO: returns addresses by weight.
@@ -118,7 +130,7 @@ class UpdateDnsGtmAccessStrategyRequest extends Model
     public $failoverLbaStrategy;
 
     /**
-     * @description The maximum number of addresses returned from the secondary address pool group.
+     * @description The maximum number of addresses returned from the secondary address pool set.
      *
      * @example 1
      *
@@ -127,7 +139,7 @@ class UpdateDnsGtmAccessStrategyRequest extends Model
     public $failoverMaxReturnAddrNum;
 
     /**
-     * @description The minimum number of available addresses in the secondary address pool group.
+     * @description The minimum number of available addresses in the secondary address pool set.
      *
      * @example 1
      *
@@ -136,7 +148,7 @@ class UpdateDnsGtmAccessStrategyRequest extends Model
     public $failoverMinAvailableAddrNum;
 
     /**
-     * @description The language to return some response parameters. Default value: en. Valid values: en, zh, and ja.
+     * @description The language of the values for specific response parameters. Default value: en. Valid values: en, zh, and ja.
      *
      * @example en
      *
@@ -145,7 +157,7 @@ class UpdateDnsGtmAccessStrategyRequest extends Model
     public $lang;
 
     /**
-     * @description The line codes of source regions. For example: `["default", "drpeng"]` indicates Global and Dr. Peng Telecom & Media Group.
+     * @description The line codes of the source regions. Example: `["default", "drpeng"]`, which indicates the global line and Dr. Peng Group line.
      *
      * @example ["default", "drpeng"]
      *

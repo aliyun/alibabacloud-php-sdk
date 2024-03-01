@@ -27,7 +27,7 @@ class UpdateDomainGroupRequest extends Model
     public $groupName;
 
     /**
-     * @description The language type.
+     * @description The language.
      *
      * @example en
      *

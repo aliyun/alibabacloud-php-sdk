@@ -27,7 +27,7 @@ class GetMainDomainNameResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The host record.
+     * @description The hostname.
      *
      * @example www
      *
@@ -36,7 +36,7 @@ class GetMainDomainNameResponseBody extends Model
     public $RR;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 536E9CAD-DB30-4647-AC87-AA5CC38C5382
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteCustomLinesRequest extends Model
 {
     /**
-     * @description The language type.
+     * @description The language.
      *
      * @example en
      *

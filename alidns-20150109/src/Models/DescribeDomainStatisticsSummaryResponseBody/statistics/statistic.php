@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class statistic extends Model
 {
     /**
-     * @description The number of queries.
+     * @description The number of DNS requests.
      *
      * @example 35509014
      *
@@ -27,6 +27,11 @@ class statistic extends Model
     public $domainName;
 
     /**
+     * @description The type of the domain name. The parameter value is not case-sensitive. Valid values:
+     *
+     * CACHE: cache-accelerated domain name
+     * @example PUBLIC
+     *
      * @var string
      */
     public $domainType;

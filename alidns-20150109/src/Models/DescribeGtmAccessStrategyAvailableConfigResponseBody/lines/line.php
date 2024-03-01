@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class line extends Model
 {
     /**
-     * @description The code of the parent line for the access region. If no parent line exists, leave this parameter blank.
+     * @description The code of the parent line. No value is returned if no parent line exists.
      *
      * @example telecom
      *
@@ -18,7 +18,7 @@ class line extends Model
     public $fatherCode;
 
     /**
-     * @description The code of the access region group.
+     * @description The group number of the DNS request source.
      *
      * @example ISP
      *
@@ -27,14 +27,16 @@ class line extends Model
     public $groupCode;
 
     /**
-     * @description The name of the access region group.
+     * @description The group name of the DNS request source.
+     *
+     * @example Mainland China
      *
      * @var string
      */
     public $groupName;
 
     /**
-     * @description The code for the line of the access region.
+     * @description The code of the DNS request source.
      *
      * @example cn_telecom_hubei
      *
@@ -43,17 +45,20 @@ class line extends Model
     public $lineCode;
 
     /**
-     * @description The name for the line of the access region.
+     * @description The name of the DNS request source.
+     *
+     * @example South China
      *
      * @var string
      */
     public $lineName;
 
     /**
-     * @description The current status of the line. Valid values:
+     * @description The state of the line. Valid values:
      *
-     * - **FORBIDDEN**: Unavailable
-     * - **OPTIONAL**: Availabe
+     *   **FORBIDDEN**: The line is unavailable.
+     *   **OPTIONAL**: The line is available.
+     *
      * @example FORBIDDEN
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class record extends Model
 {
     /**
+     * @description The time when the DNS record was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since 00:00:00 UTC on January 1, 1970.
+     *
      * @example 1666501957000
      *
      * @var int
@@ -70,7 +72,7 @@ class record extends Model
     public $recordId;
 
     /**
-     * @description The description.
+     * @description The description of the DNS record.
      *
      * @var string
      */
@@ -86,7 +88,7 @@ class record extends Model
     public $status;
 
     /**
-     * @description The time-to-live (TTL) of the cached data. Unit: seconds.
+     * @description The time-to-live (TTL) of the cached DNS record. Unit: seconds.
      *
      * @example 600
      *
@@ -104,6 +106,8 @@ class record extends Model
     public $type;
 
     /**
+     * @description The time when the DNS record was updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since 00:00:00 UTC on January 1, 1970.
+     *
      * @example 1676872961000
      *
      * @var int

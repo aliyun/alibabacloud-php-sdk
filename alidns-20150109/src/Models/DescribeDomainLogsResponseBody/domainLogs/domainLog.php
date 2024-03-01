@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class domainLog extends Model
 {
     /**
-     * @description The operation performed.
+     * @description The operation.
      *
      * @example Add
      *
@@ -18,7 +18,7 @@ class domainLog extends Model
     public $action;
 
     /**
-     * @description The time when the operation was performed.
+     * @description The time when the operation is performed. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
      *
      * @example 2015-12-12T09:23Z
      *
@@ -27,7 +27,7 @@ class domainLog extends Model
     public $actionTime;
 
     /**
-     * @description The UNIX timestamp that indicates when the operation was performed.
+     * @description The time when the operation was performed. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 143562300000
      *
@@ -36,7 +36,7 @@ class domainLog extends Model
     public $actionTimestamp;
 
     /**
-     * @description The IP address from which the operation was performed.
+     * @description The IP address of the operator.
      *
      * @example 182.92.253.20
      *
@@ -63,7 +63,7 @@ class domainLog extends Model
     public $message;
 
     /**
-     * @description The ID of the zone.
+     * @description The ID of the private zone.
      *
      * @example cxfd345sd234
      *

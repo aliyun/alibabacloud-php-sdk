@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDnsCacheDomainsRequest extends Model
 {
     /**
+     * @description The keyword for searches in "%KeyWord%" mode. The value is not case-sensitive.
+     *
      * @example a\"\"
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeDnsCacheDomainsRequest extends Model
     public $keyword;
 
     /**
+     * @description The language.
+     *
      * @example zh
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeDnsCacheDomainsRequest extends Model
     public $lang;
 
     /**
+     * @description The page number. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +36,8 @@ class DescribeDnsCacheDomainsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values: **1 to 100**. Default value: **20**.
+     *
      * @example 20
      *
      * @var int

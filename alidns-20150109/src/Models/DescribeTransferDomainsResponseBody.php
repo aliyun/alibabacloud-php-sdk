@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeTransferDomainsResponseBody extends Model
 {
     /**
-     * @description The list of domain names that were transferred between accounts.
+     * @description The domain names that were transferred between accounts.
      *
      * @var domainTransfers
      */
     public $domainTransfers;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number. Pages start from page **1**. Default value: **1**.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeTransferDomainsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page. Valid values: 1 to 100. Default value: 20.
      *
      * @example 20
      *
@@ -35,7 +35,7 @@ class DescribeTransferDomainsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 536E9CAD-DB30-4647-AC87-AA5CC38C5382
      *
@@ -44,7 +44,7 @@ class DescribeTransferDomainsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of domain names.
+     * @description The total number of entries returned.
      *
      * @example 1
      *

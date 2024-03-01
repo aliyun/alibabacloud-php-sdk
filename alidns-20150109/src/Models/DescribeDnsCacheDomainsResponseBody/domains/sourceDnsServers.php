@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class sourceDnsServers extends Model
 {
     /**
+     * @description The domain name or IP address of the origin DNS server.
+     *
      * @example ns8.alidns.com
      *
      * @var string
@@ -16,6 +18,8 @@ class sourceDnsServers extends Model
     public $host;
 
     /**
+     * @description The port of the origin DNS server.
+     *
      * @example 53
      *
      * @var string

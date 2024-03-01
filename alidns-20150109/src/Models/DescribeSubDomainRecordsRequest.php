@@ -27,7 +27,7 @@ class DescribeSubDomainRecordsRequest extends Model
     public $lang;
 
     /**
-     * @description The resolution line.
+     * @description The DNS resolution line.
      *
      * @example default
      *
@@ -36,7 +36,7 @@ class DescribeSubDomainRecordsRequest extends Model
     public $line;
 
     /**
-     * @description The number of the page to return. Pages start from page **1**. Default value: **1**.
+     * @description The page number. Pages start from page **1**. Default value: **1**.
      *
      * @example 1
      *
@@ -45,7 +45,7 @@ class DescribeSubDomainRecordsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: **500**. Default value: **20**.
+     * @description The number of entries per page. Valid values: **1 to 100**. Default value: **20**.
      *
      * @example 20
      *
@@ -54,9 +54,9 @@ class DescribeSubDomainRecordsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The subdomain. For example, assume that the SubDomain parameter is set to a.www.example.com.
+     * @description If you set SubDomain to `a.www.example.com` and leave
      *
-     * If the DomainName parameter is set to a.www.example.com, the DNS records of the subdomain whose domain name is a.www.example.com and hostname is "@" are queried.
+     * DomainName empty, the system returns the DNS records that contain the hostname `a.www` for the domain name example.com. If you set SubDomain to a.www.example.com and set DomainName to www.example.com, the system returns the DNS records that contain the hostname `a` for the domain name www.example.com. If you set SubDomain to a.www.example.com and set DomainName to a.www.example.com, the system returns the DNS records that contain the hostname `@` for the domain name a.www.example.com.
      * @example a.www.example.com
      *
      * @var string
@@ -64,9 +64,9 @@ class DescribeSubDomainRecordsRequest extends Model
     public $subDomain;
 
     /**
-     * @description The type of DNS records to query. If you do not specify this parameter, all types of DNS records corresponding to the subdomain are returned.
+     * @description The type of DNS records. If you do not specify this parameter, all types of DNS records for the subdomain name are returned.
      *
-     * DNS record types include **A, MX, CNAME, TXT, REDIRECT_URL, FORWORD_URL, NS, AAAA, and SRV**. The value is not case-sensitive.
+     * Valid values: **A, MX, CNAME, TXT, REDIRECT_URL, FORWORD_URL, NS, AAAA, and SRV**.
      * @example MX
      *
      * @var string

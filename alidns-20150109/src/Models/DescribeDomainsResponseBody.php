@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainsResponseBody extends Model
 {
     /**
-     * @description The list of domain names queried by this operation.
+     * @description The domain names.
      *
      * @var domains
      */

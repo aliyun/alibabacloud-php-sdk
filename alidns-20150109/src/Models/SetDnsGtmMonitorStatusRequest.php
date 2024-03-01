@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SetDnsGtmMonitorStatusRequest extends Model
 {
     /**
-     * @description The language to return some response parameters. Default value: en. Valid values: en, zh, and ja.
+     * @description The language of the values for specific response parameters. Default value: en. Valid values: en, zh, and ja.
      *
      * @example en
      *
@@ -29,8 +29,8 @@ class SetDnsGtmMonitorStatusRequest extends Model
     /**
      * @description Specifies whether to enable the health check feature. Valid values:
      *
-     *   OPEN: enable
-     *   CLOSE: disable
+     *   OPEN: enables the health check feature.
+     *   CLOSE: disables the health check feature.
      *
      * @example open
      *

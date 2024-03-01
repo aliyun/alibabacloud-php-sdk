@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeTransferDomainsRequest extends Model
 {
     /**
+     * @description Specifies the domain name for which you want to view the transfer record.
+     *
      * @example alidns.com
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeTransferDomainsRequest extends Model
     public $domainName;
 
     /**
+     * @description The user ID from which the domain name was transferred to the current account.
+     *
      * @example 123456
      *
      * @var int
@@ -23,7 +27,7 @@ class DescribeTransferDomainsRequest extends Model
     public $fromUserId;
 
     /**
-     * @description The language type.
+     * @description The language.
      *
      * @example en
      *
@@ -32,7 +36,7 @@ class DescribeTransferDomainsRequest extends Model
     public $lang;
 
     /**
-     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     * @description The page number. Pages start from page 1. Default value: 1.
      *
      * @example 1
      *
@@ -41,7 +45,7 @@ class DescribeTransferDomainsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: 100. Default value: 20.
+     * @description The number of entries per page. Valid values: 1 to 100. Default value: 20.
      *
      * @example 20
      *
@@ -50,6 +54,8 @@ class DescribeTransferDomainsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The user ID to which the domain name was transferred from the current account.
+     *
      * @example 123456
      *
      * @var int
@@ -59,8 +65,8 @@ class DescribeTransferDomainsRequest extends Model
     /**
      * @description The transfer type. Valid values:
      *
-     *   IN: transferred to this account.
-     *   OUT: transferred from this account.
+     *   IN: The domain name was transferred to the current account.
+     *   OUT: The domain name was transferred from the current account.
      *
      * @example IN
      *

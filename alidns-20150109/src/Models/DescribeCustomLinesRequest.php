@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomLinesRequest extends Model
 {
     /**
+     * @description The domain name.
+     *
      * @example example.com
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeCustomLinesRequest extends Model
     public $domainName;
 
     /**
+     * @description The language.
+     *
      * @example en
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeCustomLinesRequest extends Model
     public $lang;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +36,8 @@ class DescribeCustomLinesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class failoverAddrPool extends Model
 {
     /**
-     * @description The ID of the address pool in the secondary address pool group.
+     * @description The ID of the address pool in the secondary address pool set.
      *
      * @example pool1
      *
@@ -18,7 +18,7 @@ class failoverAddrPool extends Model
     public $id;
 
     /**
-     * @description The weight of the address pool in the secondary address pool group.
+     * @description The weight of the address pool in the secondary address pool set.
      *
      * @example 1
      *

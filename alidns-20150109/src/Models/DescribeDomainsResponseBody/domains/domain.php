@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class domain extends Model
 {
     /**
-     * @description Indicates whether the domain name is an Alibaba Cloud HiChina domain name.
+     * @description Indicates whether the domain name was registered in Alibaba Cloud.
      *
      * @example true
      *
@@ -20,6 +20,8 @@ class domain extends Model
     public $aliDomain;
 
     /**
+     * @description The time when the domain name was added.
+     *
      * @example 2019-01-30T05:25Z
      *
      * @var string
@@ -27,6 +29,8 @@ class domain extends Model
     public $createTime;
 
     /**
+     * @description The time when the domain name was added. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1660546144000
      *
      * @var int
@@ -34,7 +38,7 @@ class domain extends Model
     public $createTimestamp;
 
     /**
-     * @description The list of DNS servers of the domain name in the DNS system.
+     * @description The names of the DNS servers configured for the domain name.
      *
      * @var dnsServers
      */
@@ -82,7 +86,7 @@ class domain extends Model
     public $groupName;
 
     /**
-     * @description The expiration time of the instance.
+     * @description The time when the Alibaba Cloud DNS instance expires.
      *
      * @example 2020-03-14T16:00Z
      *
@@ -91,7 +95,7 @@ class domain extends Model
     public $instanceEndTime;
 
     /**
-     * @description Indicates whether the instance expired.
+     * @description Indicates whether the Alibaba Cloud DNS instance expires.
      *
      * @example false
      *
@@ -109,7 +113,7 @@ class domain extends Model
     public $instanceId;
 
     /**
-     * @description The punycode is returned for Chinese domain names and is left blank for English domain names.
+     * @description The Punycode for the domain name. This parameter is returned only for Chinese domain names.
      *
      * @example abc.com
      *
@@ -118,7 +122,7 @@ class domain extends Model
     public $punyCode;
 
     /**
-     * @description The number of DNS records of the domain name.
+     * @description The number of Domain Name System (DNS) records added for the domain name.
      *
      * @example 100
      *
@@ -136,7 +140,7 @@ class domain extends Model
     public $registrantEmail;
 
     /**
-     * @description The description.
+     * @description The description of the domain name.
      *
      * @example remark
      *
@@ -145,6 +149,8 @@ class domain extends Model
     public $remark;
 
     /**
+     * @description The ID of the resource group to which the domain name belongs.
+     *
      * @example rg-acf
      *
      * @var string
@@ -152,7 +158,7 @@ class domain extends Model
     public $resourceGroupId;
 
     /**
-     * @description Indicates whether to query the starmark of the domain name.
+     * @description Indicates whether the domain name was added to favorites.
      *
      * @example true
      *
@@ -161,12 +167,14 @@ class domain extends Model
     public $starmark;
 
     /**
+     * @description The tags added to the resource.
+     *
      * @var tags
      */
     public $tags;
 
     /**
-     * @description The version code of the Alibaba Cloud DNS instance.
+     * @description The edition code of Alibaba Cloud DNS.
      *
      * @example version_enterprise_basic
      *
@@ -175,7 +183,7 @@ class domain extends Model
     public $versionCode;
 
     /**
-     * @description The version name of the Alibaba Cloud DNS instance.
+     * @description The edition of Alibaba Cloud DNS.
      *
      * @var string
      */

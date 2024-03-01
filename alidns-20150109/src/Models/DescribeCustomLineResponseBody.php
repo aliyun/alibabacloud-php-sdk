@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomLineResponseBody extends Model
 {
     /**
-     * @description The code of the custom line. The code is used when you configure a resolution record.
+     * @description The code of the custom line.
      *
      * @example hra0yc-597
      *
@@ -19,7 +19,7 @@ class DescribeCustomLineResponseBody extends Model
     public $code;
 
     /**
-     * @description The domain name for which the custom line is configured.
+     * @description The domain name.
      *
      * @example example.com
      *
@@ -28,7 +28,7 @@ class DescribeCustomLineResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The unique ID of the custom line.
+     * @description The ID of the custom line.
      *
      * @example 597
      *
@@ -37,7 +37,7 @@ class DescribeCustomLineResponseBody extends Model
     public $id;
 
     /**
-     * @description The list of CIDR blocks.
+     * @description The CIDR blocks. Separate IP addresses with a hyphen (-). Enter a CIDR block in each row. You can enter 1 to 50 CIDR blocks at a time. If a CIDR block contains only one IP address, enter the IP address in the format of IP1-IP1. Different CIDR blocks cannot be overlapped.
      *
      * @var ipSegmentList[]
      */
@@ -51,7 +51,7 @@ class DescribeCustomLineResponseBody extends Model
     public $name;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example B57C121B-A45F-44D8-A9B2-13E5A5044195
      *

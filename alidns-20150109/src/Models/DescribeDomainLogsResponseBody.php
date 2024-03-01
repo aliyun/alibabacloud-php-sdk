@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainLogsResponseBody extends Model
 {
     /**
-     * @description The details about the operation logs that are queried.
+     * @description The operation logs.
      *
      * @var domainLogs
      */
     public $domainLogs;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeDomainLogsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of operation logs returned per page.
+     * @description The number of entries per page.
      *
      * @example 2
      *
@@ -35,7 +35,7 @@ class DescribeDomainLogsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 536E9CAD-DB30-4647-AC87-AA5CC38C5382
      *
@@ -44,7 +44,7 @@ class DescribeDomainLogsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of operation logs returned.
+     * @description The total number of entries returned.
      *
      * @example 2
      *

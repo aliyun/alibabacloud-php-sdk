@@ -37,7 +37,7 @@ class DescribeDomainStatisticsSummaryResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The list of query volume records.
+     * @description The statistics on the Domain Name System (DNS) requests.
      *
      * @var statistics
      */

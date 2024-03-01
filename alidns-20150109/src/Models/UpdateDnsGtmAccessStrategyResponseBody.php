@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateDnsGtmAccessStrategyResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 29D0F8F8-5499-4F6C-9FDC-1EE13BF55925
      *

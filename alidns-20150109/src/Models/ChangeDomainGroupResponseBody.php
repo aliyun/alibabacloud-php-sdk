@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ChangeDomainGroupResponseBody extends Model
 {
     /**
-     * @description The ID of the target domain name group.
+     * @description The ID of the destination domain name group.
      *
      * @example 2223
      *
@@ -18,7 +18,7 @@ class ChangeDomainGroupResponseBody extends Model
     public $groupId;
 
     /**
-     * @description The name of the target domain name group.
+     * @description The name of the destination domain name group.
      *
      * @example MyGroup
      *
@@ -27,7 +27,7 @@ class ChangeDomainGroupResponseBody extends Model
     public $groupName;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 536E9CAD-DB30-4647-AC87-AA5CC38C5382
      *

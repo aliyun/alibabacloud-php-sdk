@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainDnssecInfoResponseBody extends Model
 {
     /**
-     * @description The algorithm configured in a DNSSEC record. This parameter is returned if DNSSEC is enabled.
+     * @description The algorithm type. This parameter is returned if DNSSEC is enabled.
      *
      * @example 13
      *
@@ -18,7 +18,7 @@ class DescribeDomainDnssecInfoResponseBody extends Model
     public $algorithm;
 
     /**
-     * @description The digest configured in a DNSSEC record. This parameter is returned if DNSSEC is enabled.
+     * @description The digest. This parameter is returned if DNSSEC is enabled.
      *
      * @example C1A0424B97A049F1F9B2EA139CC298533219668164E343BD21203ABC4608C02A
      *
@@ -27,7 +27,7 @@ class DescribeDomainDnssecInfoResponseBody extends Model
     public $digest;
 
     /**
-     * @description The digest type configured in a DNSSEC record. This parameter is returned if DNSSEC is enabled.
+     * @description The digest type. This parameter is returned if DNSSEC is enabled.
      *
      * @example SHA256
      *
@@ -36,7 +36,7 @@ class DescribeDomainDnssecInfoResponseBody extends Model
     public $digestType;
 
     /**
-     * @description The domain name that is queried.
+     * @description The domain name.
      *
      * @example example.com
      *
@@ -45,7 +45,7 @@ class DescribeDomainDnssecInfoResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The DS record. This parameter is returned if DNSSEC is enabled.
+     * @description The delegation signer (DS) record. This parameter is returned if DNSSEC is enabled.
      *
      * @example example.com. 3600 IN DS 2371 13 2 C1A0424B97A049F1F9B2EA139CC298533219668164E343BD21203ABC4608C02A
      *
@@ -54,7 +54,7 @@ class DescribeDomainDnssecInfoResponseBody extends Model
     public $dsRecord;
 
     /**
-     * @description The flag of a DNSSEC record. This parameter is returned if DNSSEC is enabled.
+     * @description The flag. This parameter is returned if DNSSEC is enabled.
      *
      * @example 257 (KSK)
      *
@@ -63,7 +63,7 @@ class DescribeDomainDnssecInfoResponseBody extends Model
     public $flags;
 
     /**
-     * @description The key tag of a DNSSEC record. This parameter is returned if DNSSEC is enabled.
+     * @description The key tag. This parameter is returned if DNSSEC is enabled.
      *
      * @example 54931
      *
@@ -72,7 +72,7 @@ class DescribeDomainDnssecInfoResponseBody extends Model
     public $keyTag;
 
     /**
-     * @description The public key for a DNSSEC record. This parameter is returned if DNSSEC is enabled.
+     * @description The public key. This parameter is returned if DNSSEC is enabled.
      *
      * @example mdsswUyr3DPW132mOi8V9xESWE8jTo0dxCjjnopKl+GqJxpVXckHAeF+KkxLbxILfDLUT0rAK9iUzy1L53eKGQ==
      *
@@ -81,7 +81,7 @@ class DescribeDomainDnssecInfoResponseBody extends Model
     public $publicKey;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 536E9CAD-DB30-4647-AC87-AA5CC38C5382
      *
@@ -90,10 +90,10 @@ class DescribeDomainDnssecInfoResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether DNSSEC is enabled for the specified domain name.
+     * @description The state of the DNSSEC. Valid values:
      *
-     *   ON: DNSSEC is enabled.
-     *   OFF: DNSSEC is disabled.
+     *   ON
+     *   OFF
      *
      * @example ON
      *
