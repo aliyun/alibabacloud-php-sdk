@@ -37,6 +37,10 @@ use AlibabaCloud\SDK\Alikafka\V20190916\Models\DescribeAclsRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\DescribeAclsResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\DescribeSaslUsersRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\DescribeSaslUsersResponse;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\EnableAutoGroupCreationRequest;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\EnableAutoGroupCreationResponse;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\EnableAutoTopicCreationRequest;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\EnableAutoTopicCreationResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetAllInstanceIdListRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetAllInstanceIdListResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetAllowedIpListRequest;
@@ -1006,6 +1010,107 @@ class Alikafka extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSaslUsersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param EnableAutoGroupCreationRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return EnableAutoGroupCreationResponse
+     */
+    public function enableAutoGroupCreationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->enable)) {
+            $query['Enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableAutoGroupCreation',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return EnableAutoGroupCreationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param EnableAutoGroupCreationRequest $request
+     *
+     * @return EnableAutoGroupCreationResponse
+     */
+    public function enableAutoGroupCreation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableAutoGroupCreationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param EnableAutoTopicCreationRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return EnableAutoTopicCreationResponse
+     */
+    public function enableAutoTopicCreationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->operate)) {
+            $query['Operate'] = $request->operate;
+        }
+        if (!Utils::isUnset($request->partitionNum)) {
+            $query['PartitionNum'] = $request->partitionNum;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableAutoTopicCreation',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return EnableAutoTopicCreationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param EnableAutoTopicCreationRequest $request
+     *
+     * @return EnableAutoTopicCreationResponse
+     */
+    public function enableAutoTopicCreation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableAutoTopicCreationWithOptions($request, $runtime);
     }
 
     /**
