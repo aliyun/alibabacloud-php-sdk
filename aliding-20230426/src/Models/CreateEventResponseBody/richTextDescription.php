@@ -2,20 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Aliding\V20230426\Models\GetDocContentHeaders;
+namespace AlibabaCloud\SDK\Aliding\V20230426\Models\CreateEventResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
-class accountContext extends Model
+class richTextDescription extends Model
 {
     /**
-     * @example ba3a9b612345678d8fedf544ef69d19e
-     *
      * @var string
      */
-    public $accountId;
+    public $text;
     protected $_name = [
-        'accountId' => 'accountId',
+        'text' => 'text',
     ];
 
     public function validate()
@@ -25,8 +23,8 @@ class accountContext extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->accountId) {
-            $res['accountId'] = $this->accountId;
+        if (null !== $this->text) {
+            $res['text'] = $this->text;
         }
 
         return $res;
@@ -35,13 +33,13 @@ class accountContext extends Model
     /**
      * @param array $map
      *
-     * @return accountContext
+     * @return richTextDescription
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['accountId'])) {
-            $model->accountId = $map['accountId'];
+        if (isset($map['text'])) {
+            $model->text = $map['text'];
         }
 
         return $model;

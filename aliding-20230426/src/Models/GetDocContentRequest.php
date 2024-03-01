@@ -27,10 +27,16 @@ class GetDocContentRequest extends Model
      * @var tenantContext
      */
     public $tenantContext;
+
+    /**
+     * @var string
+     */
+    public $userToken;
     protected $_name = [
         'dentryUuid'    => 'DentryUuid',
         'targetFormat'  => 'TargetFormat',
         'tenantContext' => 'TenantContext',
+        'userToken'     => 'userToken',
     ];
 
     public function validate()
@@ -48,6 +54,9 @@ class GetDocContentRequest extends Model
         }
         if (null !== $this->tenantContext) {
             $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
+        }
+        if (null !== $this->userToken) {
+            $res['userToken'] = $this->userToken;
         }
 
         return $res;
@@ -69,6 +78,9 @@ class GetDocContentRequest extends Model
         }
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
+        }
+        if (isset($map['userToken'])) {
+            $model->userToken = $map['userToken'];
         }
 
         return $model;

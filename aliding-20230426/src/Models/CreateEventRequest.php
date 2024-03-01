@@ -10,6 +10,7 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateEventRequest\location;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateEventRequest\onlineMeetingInfo;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateEventRequest\recurrence;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateEventRequest\reminders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateEventRequest\richTextDescription;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateEventRequest\start;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateEventRequest\uiConfigs;
 use AlibabaCloud\Tea\Model;
@@ -64,6 +65,11 @@ class CreateEventRequest extends Model
     public $reminders;
 
     /**
+     * @var richTextDescription
+     */
+    public $richTextDescription;
+
+    /**
      * @var string
      */
     public $summary;
@@ -85,19 +91,20 @@ class CreateEventRequest extends Model
      */
     public $start;
     protected $_name = [
-        'attendees'         => 'Attendees',
-        'description'       => 'Description',
-        'end'               => 'End',
-        'extra'             => 'Extra',
-        'isAllDay'          => 'IsAllDay',
-        'location'          => 'Location',
-        'onlineMeetingInfo' => 'OnlineMeetingInfo',
-        'recurrence'        => 'Recurrence',
-        'reminders'         => 'Reminders',
-        'summary'           => 'Summary',
-        'uiConfigs'         => 'UiConfigs',
-        'calendarId'        => 'calendarId',
-        'start'             => 'start',
+        'attendees'           => 'Attendees',
+        'description'         => 'Description',
+        'end'                 => 'End',
+        'extra'               => 'Extra',
+        'isAllDay'            => 'IsAllDay',
+        'location'            => 'Location',
+        'onlineMeetingInfo'   => 'OnlineMeetingInfo',
+        'recurrence'          => 'Recurrence',
+        'reminders'           => 'Reminders',
+        'richTextDescription' => 'RichTextDescription',
+        'summary'             => 'Summary',
+        'uiConfigs'           => 'UiConfigs',
+        'calendarId'          => 'calendarId',
+        'start'               => 'start',
     ];
 
     public function validate()
@@ -145,6 +152,9 @@ class CreateEventRequest extends Model
                     $res['Reminders'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->richTextDescription) {
+            $res['RichTextDescription'] = null !== $this->richTextDescription ? $this->richTextDescription->toMap() : null;
         }
         if (null !== $this->summary) {
             $res['Summary'] = $this->summary;
@@ -214,6 +224,9 @@ class CreateEventRequest extends Model
                     $model->reminders[$n++] = null !== $item ? reminders::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RichTextDescription'])) {
+            $model->richTextDescription = richTextDescription::fromMap($map['RichTextDescription']);
         }
         if (isset($map['Summary'])) {
             $model->summary = $map['Summary'];

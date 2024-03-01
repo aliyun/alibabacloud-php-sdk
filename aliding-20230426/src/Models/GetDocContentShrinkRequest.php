@@ -26,10 +26,16 @@ class GetDocContentShrinkRequest extends Model
      * @var string
      */
     public $tenantContextShrink;
+
+    /**
+     * @var string
+     */
+    public $userToken;
     protected $_name = [
         'dentryUuid'          => 'DentryUuid',
         'targetFormat'        => 'TargetFormat',
         'tenantContextShrink' => 'TenantContext',
+        'userToken'           => 'userToken',
     ];
 
     public function validate()
@@ -47,6 +53,9 @@ class GetDocContentShrinkRequest extends Model
         }
         if (null !== $this->tenantContextShrink) {
             $res['TenantContext'] = $this->tenantContextShrink;
+        }
+        if (null !== $this->userToken) {
+            $res['userToken'] = $this->userToken;
         }
 
         return $res;
@@ -68,6 +77,9 @@ class GetDocContentShrinkRequest extends Model
         }
         if (isset($map['TenantContext'])) {
             $model->tenantContextShrink = $map['TenantContext'];
+        }
+        if (isset($map['userToken'])) {
+            $model->userToken = $map['userToken'];
         }
 
         return $model;

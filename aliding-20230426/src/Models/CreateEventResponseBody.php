@@ -11,6 +11,7 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateEventResponseBody\onlineMeet
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateEventResponseBody\organizer;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateEventResponseBody\recurrence;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateEventResponseBody\reminders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateEventResponseBody\richTextDescription;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateEventResponseBody\start;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateEventResponseBody\uiConfigs;
 use AlibabaCloud\Tea\Model;
@@ -88,6 +89,11 @@ class CreateEventResponseBody extends Model
     public $requestId;
 
     /**
+     * @var richTextDescription
+     */
+    public $richTextDescription;
+
+    /**
      * @var start
      */
     public $start;
@@ -109,22 +115,23 @@ class CreateEventResponseBody extends Model
      */
     public $updateTime;
     protected $_name = [
-        'attendees'         => 'attendees',
-        'createTime'        => 'createTime',
-        'description'       => 'description',
-        'end'               => 'end',
-        'id'                => 'id',
-        'isAllDay'          => 'isAllDay',
-        'location'          => 'location',
-        'onlineMeetingInfo' => 'onlineMeetingInfo',
-        'organizer'         => 'organizer',
-        'recurrence'        => 'recurrence',
-        'reminders'         => 'reminders',
-        'requestId'         => 'requestId',
-        'start'             => 'start',
-        'summary'           => 'summary',
-        'uiConfigs'         => 'uiConfigs',
-        'updateTime'        => 'updateTime',
+        'attendees'           => 'attendees',
+        'createTime'          => 'createTime',
+        'description'         => 'description',
+        'end'                 => 'end',
+        'id'                  => 'id',
+        'isAllDay'            => 'isAllDay',
+        'location'            => 'location',
+        'onlineMeetingInfo'   => 'onlineMeetingInfo',
+        'organizer'           => 'organizer',
+        'recurrence'          => 'recurrence',
+        'reminders'           => 'reminders',
+        'requestId'           => 'requestId',
+        'richTextDescription' => 'richTextDescription',
+        'start'               => 'start',
+        'summary'             => 'summary',
+        'uiConfigs'           => 'uiConfigs',
+        'updateTime'          => 'updateTime',
     ];
 
     public function validate()
@@ -181,6 +188,9 @@ class CreateEventResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
+        }
+        if (null !== $this->richTextDescription) {
+            $res['richTextDescription'] = null !== $this->richTextDescription ? $this->richTextDescription->toMap() : null;
         }
         if (null !== $this->start) {
             $res['start'] = null !== $this->start ? $this->start->toMap() : null;
@@ -259,6 +269,9 @@ class CreateEventResponseBody extends Model
         }
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
+        }
+        if (isset($map['richTextDescription'])) {
+            $model->richTextDescription = richTextDescription::fromMap($map['richTextDescription']);
         }
         if (isset($map['start'])) {
             $model->start = start::fromMap($map['start']);

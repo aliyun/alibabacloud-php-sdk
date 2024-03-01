@@ -58,6 +58,11 @@ class CreateEventShrinkRequest extends Model
     /**
      * @var string
      */
+    public $richTextDescriptionShrink;
+
+    /**
+     * @var string
+     */
     public $summary;
 
     /**
@@ -77,19 +82,20 @@ class CreateEventShrinkRequest extends Model
      */
     public $startShrink;
     protected $_name = [
-        'attendeesShrink'         => 'Attendees',
-        'description'             => 'Description',
-        'endShrink'               => 'End',
-        'extraShrink'             => 'Extra',
-        'isAllDay'                => 'IsAllDay',
-        'locationShrink'          => 'Location',
-        'onlineMeetingInfoShrink' => 'OnlineMeetingInfo',
-        'recurrenceShrink'        => 'Recurrence',
-        'remindersShrink'         => 'Reminders',
-        'summary'                 => 'Summary',
-        'uiConfigsShrink'         => 'UiConfigs',
-        'calendarId'              => 'calendarId',
-        'startShrink'             => 'start',
+        'attendeesShrink'           => 'Attendees',
+        'description'               => 'Description',
+        'endShrink'                 => 'End',
+        'extraShrink'               => 'Extra',
+        'isAllDay'                  => 'IsAllDay',
+        'locationShrink'            => 'Location',
+        'onlineMeetingInfoShrink'   => 'OnlineMeetingInfo',
+        'recurrenceShrink'          => 'Recurrence',
+        'remindersShrink'           => 'Reminders',
+        'richTextDescriptionShrink' => 'RichTextDescription',
+        'summary'                   => 'Summary',
+        'uiConfigsShrink'           => 'UiConfigs',
+        'calendarId'                => 'calendarId',
+        'startShrink'               => 'start',
     ];
 
     public function validate()
@@ -125,6 +131,9 @@ class CreateEventShrinkRequest extends Model
         }
         if (null !== $this->remindersShrink) {
             $res['Reminders'] = $this->remindersShrink;
+        }
+        if (null !== $this->richTextDescriptionShrink) {
+            $res['RichTextDescription'] = $this->richTextDescriptionShrink;
         }
         if (null !== $this->summary) {
             $res['Summary'] = $this->summary;
@@ -176,6 +185,9 @@ class CreateEventShrinkRequest extends Model
         }
         if (isset($map['Reminders'])) {
             $model->remindersShrink = $map['Reminders'];
+        }
+        if (isset($map['RichTextDescription'])) {
+            $model->richTextDescriptionShrink = $map['RichTextDescription'];
         }
         if (isset($map['Summary'])) {
             $model->summary = $map['Summary'];

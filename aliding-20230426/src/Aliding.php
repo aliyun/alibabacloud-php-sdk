@@ -2151,6 +2151,9 @@ class Aliding extends OpenApiClient
         if (!Utils::isUnset($tmpReq->reminders)) {
             $request->remindersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->reminders, 'Reminders', 'json');
         }
+        if (!Utils::isUnset($tmpReq->richTextDescription)) {
+            $request->richTextDescriptionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->richTextDescription, 'RichTextDescription', 'json');
+        }
         if (!Utils::isUnset($tmpReq->uiConfigs)) {
             $request->uiConfigsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->uiConfigs, 'UiConfigs', 'json');
         }
@@ -2184,6 +2187,9 @@ class Aliding extends OpenApiClient
         }
         if (!Utils::isUnset($request->remindersShrink)) {
             $body['Reminders'] = $request->remindersShrink;
+        }
+        if (!Utils::isUnset($request->richTextDescriptionShrink)) {
+            $body['RichTextDescription'] = $request->richTextDescriptionShrink;
         }
         if (!Utils::isUnset($request->summary)) {
             $body['Summary'] = $request->summary;
@@ -5307,6 +5313,9 @@ class Aliding extends OpenApiClient
         }
         if (!Utils::isUnset($request->tenantContextShrink)) {
             $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        if (!Utils::isUnset($request->userToken)) {
+            $body['userToken'] = $request->userToken;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
