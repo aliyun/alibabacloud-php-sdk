@@ -364,6 +364,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitStandardCustomizedVoiceJobRespon
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSyncMediaInfoJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSyncMediaInfoJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSyncMediaInfoJobShrinkRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTextGenerateJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTextGenerateJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTranscodeJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTranscodeJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTranscodeJobShrinkRequest;
@@ -9423,6 +9425,61 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitSyncMediaInfoJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitTextGenerateJobRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SubmitTextGenerateJobResponse
+     */
+    public function submitTextGenerateJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->generateConfig)) {
+            $query['GenerateConfig'] = $request->generateConfig;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitTextGenerateJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitTextGenerateJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SubmitTextGenerateJobRequest $request
+     *
+     * @return SubmitTextGenerateJobResponse
+     */
+    public function submitTextGenerateJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitTextGenerateJobWithOptions($request, $runtime);
     }
 
     /**
