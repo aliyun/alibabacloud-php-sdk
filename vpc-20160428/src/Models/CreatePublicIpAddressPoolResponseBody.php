@@ -9,9 +9,16 @@ use AlibabaCloud\Tea\Model;
 class CreatePublicIpAddressPoolResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $publicIpAddressPoolId;
+
+    /**
      * @description The ID of the IP address pool.
      *
      * @example pippool-6wetvn6fumkgycssx****
+     *
+     * @deprecated
      *
      * @var string
      */
@@ -35,6 +42,7 @@ class CreatePublicIpAddressPoolResponseBody extends Model
      */
     public $resourceGroupId;
     protected $_name = [
+        'publicIpAddressPoolId' => 'PublicIpAddressPoolId',
         'pulbicIpAddressPoolId' => 'PulbicIpAddressPoolId',
         'requestId'             => 'RequestId',
         'resourceGroupId'       => 'ResourceGroupId',
@@ -47,6 +55,9 @@ class CreatePublicIpAddressPoolResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->publicIpAddressPoolId) {
+            $res['PublicIpAddressPoolId'] = $this->publicIpAddressPoolId;
+        }
         if (null !== $this->pulbicIpAddressPoolId) {
             $res['PulbicIpAddressPoolId'] = $this->pulbicIpAddressPoolId;
         }
@@ -68,6 +79,9 @@ class CreatePublicIpAddressPoolResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['PublicIpAddressPoolId'])) {
+            $model->publicIpAddressPoolId = $map['PublicIpAddressPoolId'];
+        }
         if (isset($map['PulbicIpAddressPoolId'])) {
             $model->pulbicIpAddressPoolId = $map['PulbicIpAddressPoolId'];
         }

@@ -56,7 +56,7 @@ class routeEntry extends Model
     public $nextHops;
 
     /**
-     * @description The route origin. Valid values：
+     * @description The route origin. Valid values:
      * **RoutePropagation**: The route is created by a dynamic propagation source.
      * **SystemCreate**: The route is created by the system.
      * **CustomCreate**: The route is created by a user.
