@@ -151,6 +151,9 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\ExtractDocumentTextShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\FuzzyQueryRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\FuzzyQueryResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\FuzzyQueryShrinkRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\GenerateVideoPlaylistRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\GenerateVideoPlaylistResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\GenerateVideoPlaylistShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GenerateWebofficeTokenRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GenerateWebofficeTokenResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GenerateWebofficeTokenShrinkRequest;
@@ -3690,6 +3693,99 @@ class Imm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->fuzzyQueryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GenerateVideoPlaylistRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GenerateVideoPlaylistResponse
+     */
+    public function generateVideoPlaylistWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GenerateVideoPlaylistShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->credentialConfig)) {
+            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->notification)) {
+            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->sourceSubtitles)) {
+            $request->sourceSubtitlesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceSubtitles, 'SourceSubtitles', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->targets)) {
+            $request->targetsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->targets, 'Targets', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->credentialConfigShrink)) {
+            $query['CredentialConfig'] = $request->credentialConfigShrink;
+        }
+        if (!Utils::isUnset($request->masterURI)) {
+            $query['MasterURI'] = $request->masterURI;
+        }
+        if (!Utils::isUnset($request->notificationShrink)) {
+            $query['Notification'] = $request->notificationShrink;
+        }
+        if (!Utils::isUnset($request->overwritePolicy)) {
+            $query['OverwritePolicy'] = $request->overwritePolicy;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->sourceDuration)) {
+            $query['SourceDuration'] = $request->sourceDuration;
+        }
+        if (!Utils::isUnset($request->sourceStartTime)) {
+            $query['SourceStartTime'] = $request->sourceStartTime;
+        }
+        if (!Utils::isUnset($request->sourceSubtitlesShrink)) {
+            $query['SourceSubtitles'] = $request->sourceSubtitlesShrink;
+        }
+        if (!Utils::isUnset($request->sourceURI)) {
+            $query['SourceURI'] = $request->sourceURI;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
+        }
+        if (!Utils::isUnset($request->targetsShrink)) {
+            $query['Targets'] = $request->targetsShrink;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GenerateVideoPlaylist',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GenerateVideoPlaylistResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GenerateVideoPlaylistRequest $request
+     *
+     * @return GenerateVideoPlaylistResponse
+     */
+    public function generateVideoPlaylist($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateVideoPlaylistWithOptions($request, $runtime);
     }
 
     /**
