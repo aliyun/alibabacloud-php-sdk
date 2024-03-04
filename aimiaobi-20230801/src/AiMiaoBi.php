@@ -571,6 +571,9 @@ class AiMiaoBi extends OpenApiClient
         if (!Utils::isUnset($request->fileKey)) {
             $body['FileKey'] = $request->fileKey;
         }
+        if (!Utils::isUnset($request->fileName)) {
+            $body['FileName'] = $request->fileName;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
             'body'  => OpenApiUtilClient::parseToMap($body),

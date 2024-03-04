@@ -21,9 +21,15 @@ class GenerateFileUrlByKeyRequest extends Model
      * @var string
      */
     public $fileKey;
+
+    /**
+     * @var string
+     */
+    public $fileName;
     protected $_name = [
         'agentKey' => 'AgentKey',
         'fileKey'  => 'FileKey',
+        'fileName' => 'FileName',
     ];
 
     public function validate()
@@ -38,6 +44,9 @@ class GenerateFileUrlByKeyRequest extends Model
         }
         if (null !== $this->fileKey) {
             $res['FileKey'] = $this->fileKey;
+        }
+        if (null !== $this->fileName) {
+            $res['FileName'] = $this->fileName;
         }
 
         return $res;
@@ -56,6 +65,9 @@ class GenerateFileUrlByKeyRequest extends Model
         }
         if (isset($map['FileKey'])) {
             $model->fileKey = $map['FileKey'];
+        }
+        if (isset($map['FileName'])) {
+            $model->fileName = $map['FileName'];
         }
 
         return $model;
