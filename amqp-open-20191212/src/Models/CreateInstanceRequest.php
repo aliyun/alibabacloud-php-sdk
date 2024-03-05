@@ -103,6 +103,13 @@ class CreateInstanceRequest extends Model
     public $renewalDurationUnit;
 
     /**
+     * @example on-demand
+     *
+     * @var string
+     */
+    public $serverlessChargeType;
+
+    /**
      * @example 7
      *
      * @var int
@@ -130,24 +137,25 @@ class CreateInstanceRequest extends Model
      */
     public $tracingStorageTime;
     protected $_name = [
-        'autoRenew'           => 'AutoRenew',
-        'autoRenewPeriod'     => 'AutoRenewPeriod',
-        'clientToken'         => 'ClientToken',
-        'instanceName'        => 'InstanceName',
-        'instanceType'        => 'InstanceType',
-        'maxConnections'      => 'MaxConnections',
-        'maxEipTps'           => 'MaxEipTps',
-        'maxPrivateTps'       => 'MaxPrivateTps',
-        'paymentType'         => 'PaymentType',
-        'period'              => 'Period',
-        'periodCycle'         => 'PeriodCycle',
-        'queueCapacity'       => 'QueueCapacity',
-        'renewStatus'         => 'RenewStatus',
-        'renewalDurationUnit' => 'RenewalDurationUnit',
-        'storageSize'         => 'StorageSize',
-        'supportEip'          => 'SupportEip',
-        'supportTracing'      => 'SupportTracing',
-        'tracingStorageTime'  => 'TracingStorageTime',
+        'autoRenew'            => 'AutoRenew',
+        'autoRenewPeriod'      => 'AutoRenewPeriod',
+        'clientToken'          => 'ClientToken',
+        'instanceName'         => 'InstanceName',
+        'instanceType'         => 'InstanceType',
+        'maxConnections'       => 'MaxConnections',
+        'maxEipTps'            => 'MaxEipTps',
+        'maxPrivateTps'        => 'MaxPrivateTps',
+        'paymentType'          => 'PaymentType',
+        'period'               => 'Period',
+        'periodCycle'          => 'PeriodCycle',
+        'queueCapacity'        => 'QueueCapacity',
+        'renewStatus'          => 'RenewStatus',
+        'renewalDurationUnit'  => 'RenewalDurationUnit',
+        'serverlessChargeType' => 'ServerlessChargeType',
+        'storageSize'          => 'StorageSize',
+        'supportEip'           => 'SupportEip',
+        'supportTracing'       => 'SupportTracing',
+        'tracingStorageTime'   => 'TracingStorageTime',
     ];
 
     public function validate()
@@ -198,6 +206,9 @@ class CreateInstanceRequest extends Model
         }
         if (null !== $this->renewalDurationUnit) {
             $res['RenewalDurationUnit'] = $this->renewalDurationUnit;
+        }
+        if (null !== $this->serverlessChargeType) {
+            $res['ServerlessChargeType'] = $this->serverlessChargeType;
         }
         if (null !== $this->storageSize) {
             $res['StorageSize'] = $this->storageSize;
@@ -264,6 +275,9 @@ class CreateInstanceRequest extends Model
         }
         if (isset($map['RenewalDurationUnit'])) {
             $model->renewalDurationUnit = $map['RenewalDurationUnit'];
+        }
+        if (isset($map['ServerlessChargeType'])) {
+            $model->serverlessChargeType = $map['ServerlessChargeType'];
         }
         if (isset($map['StorageSize'])) {
             $model->storageSize = $map['StorageSize'];

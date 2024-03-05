@@ -325,6 +325,9 @@ class Amqpopen extends OpenApiClient
         if (!Utils::isUnset($request->renewalDurationUnit)) {
             $query['RenewalDurationUnit'] = $request->renewalDurationUnit;
         }
+        if (!Utils::isUnset($request->serverlessChargeType)) {
+            $query['ServerlessChargeType'] = $request->serverlessChargeType;
+        }
         if (!Utils::isUnset($request->storageSize)) {
             $query['StorageSize'] = $request->storageSize;
         }
