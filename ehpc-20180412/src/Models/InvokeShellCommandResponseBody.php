@@ -19,6 +19,8 @@ class InvokeShellCommandResponseBody extends Model
     public $commandId;
 
     /**
+     * @description The list of IDs of the instances on which you want to run the command.
+     *
      * @var instanceIds
      */
     public $instanceIds;

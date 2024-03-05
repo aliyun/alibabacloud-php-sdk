@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class AddNodesResponseBody extends Model
 {
     /**
+     * @description The instance IDs.
+     *
      * @var instanceIds
      */
     public $instanceIds;

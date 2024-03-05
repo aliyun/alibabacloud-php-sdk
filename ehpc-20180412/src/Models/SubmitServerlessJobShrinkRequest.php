@@ -11,7 +11,7 @@ class SubmitServerlessJobShrinkRequest extends Model
     /**
      * @description The configuration of the array job.
      *
-     * >  The index value of an array job is passed to the serverless job container by using the environment variable **EHPC_JOB_ARRAY_INDEX** to allow access to the array job from business programs.
+     * >  The value of an array job index is passed to a serverless job container through the environment variable `EHPC_ARRAY_TASK_ID`. Users can access the container from business programs.
      * @var string
      */
     public $arrayPropertiesShrink;
@@ -69,7 +69,6 @@ class SubmitServerlessJobShrinkRequest extends Model
     /**
      * @description The name of the serverless job.
      *
-     * >  The name can contain lowercase letters, digits, and hyphens (-). It cannot start or end with a hyphen.
      * @example testjob
      *
      * @var string
@@ -104,8 +103,6 @@ class SubmitServerlessJobShrinkRequest extends Model
     public $ramRoleName;
 
     /**
-     * @description The retry policy for the serverless job.
-     *
      * @var string
      */
     public $retryStrategyShrink;
@@ -128,7 +125,7 @@ class SubmitServerlessJobShrinkRequest extends Model
      *   SpotAsPriceGo: The instance is created as a preemptible instance for which the market price at the time of purchase is used as the bid price.
      *
      * Default value: NoSpot.
-     * @example SpotPriceLimit
+     * @example SpotWithPriceLimit
      *
      * @var string
      */

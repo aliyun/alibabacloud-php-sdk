@@ -11,22 +11,19 @@ use AlibabaCloud\Tea\Model;
 class queueInfo extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoMinNodesPerCycle;
 
     /**
-     * @description The list of data disks.
-     *
      * @var dataDisks
      */
     public $dataDisks;
 
     /**
-     * @description Indicates whether the queue enabled auto scale-out. Valid values:
-     *
-     *   true
-     *   false
+     * @description The instance type of the node.
      *
      * @example true
      *
@@ -35,10 +32,7 @@ class queueInfo extends Model
     public $enableAutoGrow;
 
     /**
-     * @description Indicates whether the queue enabled auto scale-in. Valid values:
-     *
-     *   true
-     *   false
+     * @description The ID of the zone.
      *
      * @example true
      *
@@ -47,7 +41,7 @@ class queueInfo extends Model
     public $enableAutoShrink;
 
     /**
-     * @description The prefix of the queue name. You can query queues that have a specified prefix.
+     * @description The specification information of the compute nodes.
      *
      * @example compute
      *
@@ -56,7 +50,12 @@ class queueInfo extends Model
     public $hostNamePrefix;
 
     /**
-     * @description The suffix of the queue name. You can query queues that have a specified suffix.
+     * @description The performance level of the system disk. Valid values:
+     *
+     *   PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
+     *   PL1: A single ESSD can deliver up to 50,000 random read/write IOPS.
+     *   PL2: A single ESSD can deliver up to 100,000 random read/write IOPS.
+     *   PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
      *
      * @example 000
      *
@@ -65,7 +64,10 @@ class queueInfo extends Model
     public $hostNameSuffix;
 
     /**
-     * @description The instance type of the compute nodes that were automatically added in the queue.
+     * @description Indicates whether the queue enabled auto scale-out. Valid values:
+     *
+     *   true
+     *   false
      *
      * @example ecs.sn1ne.large
      *
@@ -74,14 +76,14 @@ class queueInfo extends Model
     public $instanceType;
 
     /**
-     * @description The specification information of the compute nodes.
+     * @description The list of data disks.
      *
      * @var instanceTypes
      */
     public $instanceTypes;
 
     /**
-     * @description The maximum number of compute nodes that can be added in a queue. Valid values: 0 to 500.
+     * @description The ID of the vSwitch.
      *
      * @example 100
      *
@@ -90,9 +92,6 @@ class queueInfo extends Model
     public $maxNodesInQueue;
 
     /**
-     * @description The maximum number of compute nodes that can be added in each round of an auto scale-out task. Valid values: 0 to 99.
-     *
-     * Default value: 0.
      * @example 20
      *
      * @var int
@@ -100,7 +99,7 @@ class queueInfo extends Model
     public $maxNodesPerCycle;
 
     /**
-     * @description The minimum number of compute nodes that can be retained in a queue. Valid values: 0 to 50.
+     * @description The maximum hourly price of the compute nodes. The value can be accurate to three decimal places. The parameter takes effect only when SpotStrategy is set to SpotWithPriceLimit.
      *
      * @example 10
      *
@@ -109,9 +108,6 @@ class queueInfo extends Model
     public $minNodesInQueue;
 
     /**
-     * @description The minimum number of compute nodes that can be added in each round of an auto scale-out task. Valid values: 1 to 99.
-     *
-     * > The configuration takes effect only for the minimum compute nodes that can be added in the current round.
      * @example 5
      *
      * @var int
@@ -119,7 +115,10 @@ class queueInfo extends Model
     public $minNodesPerCycle;
 
     /**
-     * @description The image ID of the compute nodes in the queue.
+     * @description Indicates whether the queue enabled auto scale-in. Valid values:
+     *
+     *   true
+     *   false
      *
      * @example centos_7_06_64_20G_alibase_2019071****
      *
@@ -128,7 +127,7 @@ class queueInfo extends Model
     public $queueImageId;
 
     /**
-     * @description The name of the queue.
+     * @description The maximum hourly price of the compute nodes. The value can be accurate to three decimal places. The parameter takes effect only when SpotStrategy is set to SpotWithPriceLimit.
      *
      * @example workq
      *
@@ -137,7 +136,7 @@ class queueInfo extends Model
     public $queueName;
 
     /**
-     * @description The ID of the resource group to which the compute nodes belong.
+     * @description The protection period of the preemptible instance. Unit: hours. Valid values: 0 to 1. Default value: 1. A value of 0 means no protection period is specified.
      *
      * @example rg-acfmxp7uc24****
      *
@@ -153,7 +152,7 @@ class queueInfo extends Model
     public $sortedByInventory;
 
     /**
-     * @description The maximum hourly price of the compute nodes. The value can be accurate to three decimal places. The parameter takes effect only when SpotStrategy is set to SpotWithPriceLimit.
+     * @description The interruption mode of the preemptible instance. Default value: Terminate. Set the value to Terminate, which indicates that the instance is released.
      *
      * @example 0.062
      *
@@ -162,11 +161,7 @@ class queueInfo extends Model
     public $spotPriceLimit;
 
     /**
-     * @description The preemption policy of the compute nodes. Valid values:
-     *
-     *   NoSpot: The compute nodes are pay-as-you-go instances.
-     *   SpotWithPriceLimit: The compute nodes are preemptible instances that have a user-defined maximum hourly price.
-     *   SpotAsPriceGo: The compute nodes are preemptible instances for which the market price at the time of purchase is used as the bid price.
+     * @description The ID of the resource group to which the compute nodes belong.
      *
      * @example NoSpot
      *
@@ -175,12 +170,7 @@ class queueInfo extends Model
     public $spotStrategy;
 
     /**
-     * @description The type of the system disk. Valid values:
-     *
-     *   cloud_efficiency: ultra disk
-     *   cloud_ssd: SSD
-     *   cloud_essd: ESSD
-     *   cloud: basic disk
+     * @description The name of the queue.
      *
      * @example cloud_efficiency
      *
@@ -189,12 +179,11 @@ class queueInfo extends Model
     public $systemDiskCategory;
 
     /**
-     * @description The performance level of the system disk. Valid values:
+     * @description The bidding method of the compute nodes. Valid values:
      *
-     *   PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
-     *   PL1: A single ESSD can deliver up to 50,000 random read/write IOPS.
-     *   PL2: A single ESSD can deliver up to 100,000 random read/write IOPS.
-     *   PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
+     *   NoSpot: The compute nodes are pay-as-you-go instances.
+     *   SpotWithPriceLimit: The compute nodes are preemptible instances that have a user-defined maximum hourly price.
+     *   SpotAsPriceGo: The compute nodes are preemptible instances for which the market price at the time of purchase is used as the bid price.
      *
      * @example PL1
      *
@@ -203,7 +192,7 @@ class queueInfo extends Model
     public $systemDiskLevel;
 
     /**
-     * @description The size of the system disk. Unit: GB. Valid values: 40 to 500.
+     * @description The prefix of the hostname. You can query compute nodes that have a specified prefix.
      *
      * @example 40
      *

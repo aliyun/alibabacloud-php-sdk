@@ -11,6 +11,10 @@ use AlibabaCloud\Tea\Model;
 class queues extends Model
 {
     /**
+     * @description Automatic Configuration of the Minimum Node Number for Each Scale-out.
+     * If you set this parameter to true, the minimum number of nodes for each scale-out is equal to the number of nodes required by the job. The maximum number is 99.
+     * @example false
+     *
      * @var bool
      */
     public $autoMinNodesPerCycle;

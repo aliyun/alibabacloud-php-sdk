@@ -25,7 +25,7 @@ class container extends Model
     public $command;
 
     /**
-     * @description The value of the environment variable for the container.
+     * @description The environment variable of the container.
      *
      * @var environmentVar[]
      */
@@ -50,7 +50,7 @@ class container extends Model
     public $image;
 
     /**
-     * @description The data volumes that are mounted to the container.
+     * @description The data volumes mounted to the container.
      *
      * @var volumeMount[]
      */

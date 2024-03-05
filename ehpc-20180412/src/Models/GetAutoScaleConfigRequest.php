@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetAutoScaleConfigRequest extends Model
 {
     /**
-     * @description The ID of the cluster.
+     * @description The interval between two consecutive rounds of scale-out. Unit: minutes. Valid values: 2 to 10.
      *
      * @example ehpc-hz-FYUr32****
      *

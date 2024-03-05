@@ -155,6 +155,10 @@ class AddNodesRequest extends Model
     public $dataDisks;
 
     /**
+     * @description The information about Domain Name System (DNS) settings.
+     *
+     * @example "{\"DnsType\":\"PrivateZone\",\"DnsName\":\"xxxxx\"}"
+     *
      * @var string
      */
     public $dnsConfig;

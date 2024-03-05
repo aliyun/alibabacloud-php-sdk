@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class volumeMount extends Model
 {
     /**
-     * @description The driver type when you use the FlexVolume plug-in to mount the volume. Valid values:
-     *
-     *   alicloud/nas: a NAS driver.
-     *   alicloud/oss: an OSS driver.
-     *
      * @example alicloud/oss
      *
      * @var string
@@ -21,10 +16,8 @@ class volumeMount extends Model
     public $flexVolumeDriver;
 
     /**
-     * @description The options when you set the Type parameter to FlexVolume. Each option is a key-value pair in a JSON string.
-     *
-     * @example \"{"bucket":"hpctest","url": "oss-cn-hangzhou-internal.aliyuncs.com
-     * ","path":"/data","ramRole":"AliyunECSInstanceForEHPCRole"}\"
+     * @example {"bucket":"hpctest","url": "oss-cn-hangzhou-internal.aliyuncs.com
+     * ","path":"/data","ramRole":"AliyunECSInstanceForEHPCRole"}
      * @var string
      */
     public $flexVolumeOptions;
@@ -32,7 +25,7 @@ class volumeMount extends Model
     /**
      * @description The directory to which the volume is mounted.
      *
-     * >  The data stored in this directory is overwritten by the data on the volume. Specify the parameter with caution.
+     * > The data stored in this directory is overwritten by the data on the volume. Specify this parameter with caution.
      * @example /data
      *
      * @var string

@@ -18,7 +18,7 @@ class arrayProperties extends Model
     public $indexEnd;
 
     /**
-     * @description The starting value of the array job index. Valid values: 0 to 4999.
+     * @description The start value of the array job index. Valid values: 0 to 4999.
      *
      * @example 1
      *
@@ -29,7 +29,7 @@ class arrayProperties extends Model
     /**
      * @description The interval of the array job index.
      *
-     * >  If the IndexStart of the array job is set to 1, IndexEnd is set to 5, and IndexStep is set to 2, the array job contains three subtasks. The subtask indexes are 1, 3, and 5.
+     * >  If the array job property is IndexStart=1,IndexEnd=5, and IndexStep=2, the array job contains three subtasks. The values of the subtask indexes are 1,3, and 5.
      * @example 2
      *
      * @var int

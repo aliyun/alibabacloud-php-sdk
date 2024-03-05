@@ -2131,13 +2131,10 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * ## Debugging
-     *   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=EHPC\\&api=GetAutoScaleConfig\\&type=RPC\\&version=2018-04-12).
-     *   *
-     * @param GetAutoScaleConfigRequest $request GetAutoScaleConfigRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param GetAutoScaleConfigRequest $request
+     * @param RuntimeOptions            $runtime
      *
-     * @return GetAutoScaleConfigResponse GetAutoScaleConfigResponse
+     * @return GetAutoScaleConfigResponse
      */
     public function getAutoScaleConfigWithOptions($request, $runtime)
     {
@@ -2162,12 +2159,9 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * ## Debugging
-     *   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=EHPC\\&api=GetAutoScaleConfig\\&type=RPC\\&version=2018-04-12).
-     *   *
-     * @param GetAutoScaleConfigRequest $request GetAutoScaleConfigRequest
+     * @param GetAutoScaleConfigRequest $request
      *
-     * @return GetAutoScaleConfigResponse GetAutoScaleConfigResponse
+     * @return GetAutoScaleConfigResponse
      */
     public function getAutoScaleConfig($request)
     {

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class manager extends Model
 {
     /**
-     * @description The hostname of the on-premises management nodes.
+     * @description The number of management nodes.
      *
      * @example 1
      *
@@ -18,11 +18,7 @@ class manager extends Model
     public $count;
 
     /**
-     * @description The type of on-premises management nodes. Valid values:
-     *
-     *   scheduler
-     *   account
-     *   account, scheduler
+     * @description The instance type of the management nodes.
      *
      * @example ecs.n1.tiny
      *

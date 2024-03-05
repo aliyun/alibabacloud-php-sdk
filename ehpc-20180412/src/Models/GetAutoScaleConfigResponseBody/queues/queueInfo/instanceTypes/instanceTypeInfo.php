@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class instanceTypeInfo extends Model
 {
     /**
-     * @description The prefix of the hostname. You can query compute nodes that have a specified prefix.
+     * @description The type of the data disk. Valid values:
      *
+     * - cloud: basic disk
      * @example compute
      *
      * @var string
@@ -18,8 +19,9 @@ class instanceTypeInfo extends Model
     public $hostNamePrefix;
 
     /**
-     * @description The instance type of the node.
+     * @description Indicates whether the data disk is encrypted. Valid values:
      *
+     * - false
      * @example ecs.sn1ne.large
      *
      * @var string
@@ -27,7 +29,7 @@ class instanceTypeInfo extends Model
     public $instanceType;
 
     /**
-     * @description The protection period of the preemptible instance. Unit: hours. Valid values: 0 to 1. Default value: 1. A value of 0 means no protection period is specified.
+     * @description The list of data disks.
      *
      * @example 0
      *
@@ -36,8 +38,9 @@ class instanceTypeInfo extends Model
     public $spotDuration;
 
     /**
-     * @description The interruption mode of the preemptible instance. Default value: Terminate. Set the value to Terminate, which indicates that the instance is released.
+     * @description The minimum number of compute nodes that can be added in each round of an auto scale-out task. Valid values: 1 to 99.
      *
+     * > The configuration takes effect only for the minimum compute nodes that can be added in the current round.
      * @example Terminate
      *
      * @var string
@@ -45,8 +48,9 @@ class instanceTypeInfo extends Model
     public $spotInterruptionBehavior;
 
     /**
-     * @description The maximum hourly price of the compute nodes. The value can be accurate to three decimal places. The parameter takes effect only when SpotStrategy is set to SpotWithPriceLimit.
+     * @description The performance level of the ESSD used as the data disk. The parameter takes effect only when the DataDisks.N.DataDiskCategory parameter is set to cloud_essd. Valid values:
      *
+     * - PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
      * @example 0.062
      *
      * @var float
@@ -54,11 +58,7 @@ class instanceTypeInfo extends Model
     public $spotPriceLimit;
 
     /**
-     * @description The bidding method of the compute nodes. Valid values:
-     *
-     *   NoSpot: The compute nodes are pay-as-you-go instances.
-     *   SpotWithPriceLimit: The compute nodes are preemptible instances that have a user-defined maximum hourly price.
-     *   SpotAsPriceGo: The compute nodes are preemptible instances for which the market price at the time of purchase is used as the bid price.
+     * @description The KMS key ID of the data disk.
      *
      * @example NoSpot
      *
@@ -67,8 +67,9 @@ class instanceTypeInfo extends Model
     public $spotStrategy;
 
     /**
-     * @description The ID of the vSwitch.
+     * @description The capacity of the data disk. Unit: GB.
      *
+     * Valid values: 40 to 500.
      * @example vsw-bp1lfcjbfb099rrjn****
      *
      * @var string
@@ -76,8 +77,9 @@ class instanceTypeInfo extends Model
     public $vSwitchId;
 
     /**
-     * @description The ID of the zone.
+     * @description Indicates whether the data disk is released when the node is released. Valid values:
      *
+     * - false
      * @example cn-hangzhou-b
      *
      * @var string

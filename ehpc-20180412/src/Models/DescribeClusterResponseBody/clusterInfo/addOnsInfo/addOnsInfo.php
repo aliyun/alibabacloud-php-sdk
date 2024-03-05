@@ -9,12 +9,11 @@ use AlibabaCloud\Tea\Model;
 class addOnsInfo extends Model
 {
     /**
-     * @description Specifies whether to enable auto-renewal. The parameter takes effect only when EcsChargeType is set to PrePaid. Valid values:
+     * @description The deployment mode of the custom component. Valid values:
      *
-     *   true: enables auto-renewal.
-     *   false: disables auto-renewal.
+     *   local
+     *   ecs
      *
-     * Default value: true.
      * @example local
      *
      * @var string
@@ -22,11 +21,7 @@ class addOnsInfo extends Model
     public $deployMode;
 
     /**
-     * @description The bidding method of the compute node. Valid values:
-     *
-     *   NoSpot: The instance is created as a pay-as-you-go instance.
-     *   SpotWithPriceLimit: The instance is created as a preemptible instance with a user-defined maximum hourly price.
-     *   SpotAsPriceGo: The instance is a preemptible instance for which the market price at the time of purchase is automatically used as the bidding price.
+     * @description The TCP port number of the custom component.
      *
      * @example 10000
      *
@@ -35,12 +30,8 @@ class addOnsInfo extends Model
     public $port;
 
     /**
-     * @description The auto-renewal period of the subscription compute nodes. The parameter takes effect when AutoRenew is set to true.
+     * @description The software ID of the component.
      *
-     *   If PeriodUnit is set to Week, the valid values of the AutoRenewPeriod parameter are 1, 2, and 3.
-     *   If PeriodUnit is set to Month, the valid values of the AutoRenewPeriod parameter are 1, 2, 3, 6, and 12.
-     *
-     * Default value: 1.
      * @example CROMWELL_85
      *
      * @var string
@@ -48,7 +39,11 @@ class addOnsInfo extends Model
     public $softwareId;
 
     /**
-     * @description The maximum hourly price of the compute nodes. A maximum of three decimal places can be used in the value of the parameter. The parameter is valid only when the ComputeSpotStrategy parameter is set to SpotWithPriceLimit.
+     * @description The running status of the custom component. Valid values:
+     *
+     *   running
+     *   stopped
+     *   exception
      *
      * @example running
      *
@@ -57,7 +52,7 @@ class addOnsInfo extends Model
     public $status;
 
     /**
-     * @description The information of the on-premises node in the cluster.
+     * @description The endpoint of the custom component service.
      *
      * @example http://172.16.10.12:10000/
      *

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class environmentVar extends Model
 {
     /**
-     * @description The name of the environment variable. The name must be 1 to 128 characters in length and can contain letters, digits, and underscores (\_). The name cannot start with a digit. Specify the name in the \[0-9a-zA-Z] format.
-     *
      * @example PATH
      *
      * @var string
@@ -18,7 +16,7 @@ class environmentVar extends Model
     public $key;
 
     /**
-     * @description The value of the environment variable. The value can be up to 256 characters in length.
+     * @description The value of the environment variable for the container. The value must be 0 to 256 characters in length.
      *
      * @example /usr/local/bin
      *

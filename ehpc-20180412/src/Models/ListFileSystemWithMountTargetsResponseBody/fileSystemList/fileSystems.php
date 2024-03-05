@@ -20,7 +20,7 @@ class fileSystems extends Model
     public $bandWidth;
 
     /**
-     * @description The capacity of the file system. Unit: GiB.
+     * @description The capacity of the file system. Unit: GiB
      *
      * @example 5120
      *
@@ -29,7 +29,7 @@ class fileSystems extends Model
     public $capacity;
 
     /**
-     * @description The time at which the file system is created.
+     * @description The time when the file system was created.
      *
      * @example 2018-07-26 16:36:27
      *
@@ -47,13 +47,13 @@ class fileSystems extends Model
     public $destription;
 
     /**
-     * @description Specifies whether to encrypt the data in the file system.
+     * @description Indicates whether data in the file system is encrypted.
      *
      * Valid values:
      *
-     *   0 (default): The data in the file system is not encrypted.
-     *   1: NAS-managed keys are used to encrypt the data in the file system. This value is valid only if the FileSystemType parameter is set to standard or extreme.
-     *   2: KMS-managed keys are used to encrypt the data in the file system. This value is valid only if the FileSystemType parameter is set to extreme.
+     *   0 (default): does not encrypt the data in the file system.
+     *   1: encrypts data in the file system by using a NAS-managed key. This parameter is valid only if the FileSystemType parameter is set to standard or extreme.
+     *   2: A KMS-managed key is used to encrypt the data in the file system. This parameter is valid only if the FileSystemType parameter is set to extreme.
      *
      * @example 0
      *
@@ -71,9 +71,9 @@ class fileSystems extends Model
     public $fileSystemId;
 
     /**
-     * @description The type of the file system. Valid values:
+     * @description The type of the file system.
      *
-     *   standard: general-purpose NAS. extreme: Extreme NAS.
+     *   Valid values: standard (General-purpose NAS file systems) and extreme (Extreme NAS file systems).
      *
      * @example standard
      *
@@ -82,7 +82,7 @@ class fileSystems extends Model
     public $fileSystemType;
 
     /**
-     * @description The used storage of the NAS file system. Unit: byte.
+     * @description The used capacity of the NAS file system. Unit: bytes.
      *
      * @example 1216816455
      *
@@ -91,7 +91,7 @@ class fileSystems extends Model
     public $meteredSize;
 
     /**
-     * @description The mount targets.
+     * @description The list of mount targets.
      *
      * @var mountTargetList
      */
@@ -107,7 +107,7 @@ class fileSystems extends Model
     /**
      * @description The protocol type of the file system. Valid values:
      *
-     *   NFS- SMB
+     *   NFS-SMB
      *
      * @example NFS
      *
@@ -131,7 +131,7 @@ class fileSystems extends Model
      *   Running: The file system is available.
      *   Stopped: The file system is unavailable.
      *   Extending: The file system is being scaled out.
-     *   Stopping: The file system is being disabled.
+     *   Stopping: The file system is being stopped.
      *   Deleting: The file system is being deleted.
      *
      * @example Running
@@ -143,7 +143,8 @@ class fileSystems extends Model
     /**
      * @description The storage type of the file system.
      *
-     *   Valid values when FileSystemType is set to standard: Capacity and Performance. Valid values when FileSystemType is set to extreme: standard and advance.
+     *   Valid values if FileSystemType is set to standard: Capacity and Performance.
+     *   Valid values if FileSystemType is set to extreme: standard and advance.
      *
      * @example Performance
      *
@@ -152,7 +153,7 @@ class fileSystems extends Model
     public $storageType;
 
     /**
-     * @description The VPC ID of the node.
+     * @description The ID of the VPC.
      *
      * @example vpc-bp132kgui8n0targbn1cm
      *

@@ -29,6 +29,10 @@ class SetAutoScaleConfigRequest extends Model
     public $computeEnableHt;
 
     /**
+     * @description The Domain Name System (DNS) settings.
+     *
+     * @example "{\"DnsType\":\"PrivateZone\",\"DnsName\":\"xxxxx\"}"
+     *
      * @var string
      */
     public $dnsConfig;

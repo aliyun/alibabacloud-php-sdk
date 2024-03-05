@@ -19,6 +19,10 @@ class InitializeEHPCRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is unavailable for public use.
+     *
+     * @example E-HPC
+     *
      * @var string
      */
     public $serviceName;

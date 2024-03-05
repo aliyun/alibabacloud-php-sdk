@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetAutoScaleConfigResponseBody extends Model
 {
     /**
-     * @description The ID of the cluster.
+     * @description The prefix of the queue name. You can query queues that have a specified prefix.
      *
      * @example ehpc-hz-FYUr32****
      *
@@ -19,12 +19,7 @@ class GetAutoScaleConfigResponseBody extends Model
     public $clusterId;
 
     /**
-     * @description The type of the scheduler. Valid values:
-     *
-     *   slurm
-     *   pbs
-     *   opengridscheduler
-     *   deadline
+     * @description The ID of the cluster.
      *
      * @example pbs
      *
@@ -33,6 +28,9 @@ class GetAutoScaleConfigResponseBody extends Model
     public $clusterType;
 
     /**
+     * @description Specifies whether to enable hyper-threading for the ECS instance that is used as the compute node.
+     *
+     * >  You can only disable hyper-threading for some instance types. The hyper-threading is enabled for ECS instances by default. For more information, see [Specify and view CPU options](~~145895~~).
      * @example true
      *
      * @var bool
@@ -40,16 +38,18 @@ class GetAutoScaleConfigResponseBody extends Model
     public $computeEnableHt;
 
     /**
+     * @description The Domain Name System (DNS) settings.
+     *
+     * @example "{\"DnsType\":\"PrivateZone\",\"DnsName\":\"xxxxx\"}"
+     *
      * @var string
      */
     public $dnsConfig;
 
     /**
-     * @description Indicates whether the cluster enabled auto scale-out. Valid values:
+     * @description The percentage of each round of scale-out. Valid values: 1 to 100.
      *
-     *   true
-     *   false
-     *
+     * If you set GrowRatio to 50, the scale-out has two rounds. Each round completes half of the scale-out.
      * @example true
      *
      * @var bool
@@ -57,11 +57,9 @@ class GetAutoScaleConfigResponseBody extends Model
     public $enableAutoGrow;
 
     /**
-     * @description Indicates whether the cluster enabled auto scale-in. Valid values:
+     * @description The number of consecutive times that a compute node is idle during the resource scale-in check. Valid values: 2 to 5.
      *
-     *   true
-     *   false
-     *
+     * If the parameter is set to 3, a compute node is idle for more than three consecutive times. In this case, the node is released.
      * @example true
      *
      * @var bool
@@ -69,7 +67,7 @@ class GetAutoScaleConfigResponseBody extends Model
     public $enableAutoShrink;
 
     /**
-     * @description The compute nodes that were excluded from the list of auto scaling nodes. Multiple compute nodes were separated with commas (,).
+     * @description The ID of the Alibaba Cloud account.
      *
      * @example i-bp19lgqwxb4206t5****,i-bp1g4hvzs9pywrhb****
      *
@@ -78,9 +76,8 @@ class GetAutoScaleConfigResponseBody extends Model
     public $excludeNodes;
 
     /**
-     * @description The percentage of extra compute nodes. Valid values: 0 to 100.
+     * @description The instance type of the compute nodes that were automatically added in the queue.
      *
-     * If you need to add 100 compute nodes and the value of the ExtraNodesGrowRatio parameter is 2, 102 compute nodes are added.
      * @example 2
      *
      * @var int
@@ -88,9 +85,8 @@ class GetAutoScaleConfigResponseBody extends Model
     public $extraNodesGrowRatio;
 
     /**
-     * @description The interval between two consecutive rounds of scale-in. Unit: minutes. Valid values: 2 to 10.
+     * @description The image ID of the compute nodes in the queue.
      *
-     * >  An interval may exist during multiple rounds of a scale-out task or between two consecutive scale-out tasks.
      * @example 2
      *
      * @var int
@@ -98,9 +94,8 @@ class GetAutoScaleConfigResponseBody extends Model
     public $growIntervalInMinutes;
 
     /**
-     * @description The percentage of each round of scale-out. Valid values: 1 to 100.
+     * @description The minimum number of compute nodes that can be retained in a queue. Valid values: 0 to 50.
      *
-     * If you set GrowRatio to 50, the scale-out has two rounds. Each round completes half of the scale-out.
      * @example 100
      *
      * @var int
@@ -108,77 +103,13 @@ class GetAutoScaleConfigResponseBody extends Model
     public $growRatio;
 
     /**
-     * @description The timeout period before the scale-out nodes were started. Unit: minutes. Valid values: 10 to 60.
+     * @description The maximum hourly price of the compute nodes. The value can be accurate to three decimal places. The parameter takes effect only when SpotStrategy is set to SpotWithPriceLimit.
      *
-     * If the scale-out timeout period has been reached but the scale-out nodes still do not reach the Running state, the system resets them.
      * @example 20
      *
      * @var int
      */
     public $growTimeoutInMinutes;
-
-    /**
-     * @description The image ID of the compute nodes in the queue.
-     *
-     * @example m-bp10txryr4mhrrt1****
-     *
-     * @var string
-     */
-    public $imageId;
-
-    /**
-     * @description The maximum number of compute nodes that can be added in the cluster. Valid values: 0 to 500.
-     *
-     * @example 300
-     *
-     * @var int
-     */
-    public $maxNodesInCluster;
-
-    /**
-     * @description The auto scaling configuration of the queue.
-     *
-     * >  If auto scaling is enabled for the cluster and queue at the same time, the queue settings prevail.
-     * @var queues
-     */
-    public $queues;
-
-    /**
-     * @description The ID of the request.
-     *
-     * @example 04F0F334-1335-436C-A1D7-6C044FE73368
-     *
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @description The number of consecutive times that a compute node is idle during the resource scale-in check. Valid values: 2 to 5.
-     *
-     * If the parameter is set to 3, a compute node is idle for more than three consecutive times. In this case, the node is released.
-     * @example 3
-     *
-     * @var int
-     */
-    public $shrinkIdleTimes;
-
-    /**
-     * @description The interval between two consecutive rounds of scale-out. Unit: minutes. Valid values: 2 to 10.
-     *
-     * @example 2
-     *
-     * @var int
-     */
-    public $shrinkIntervalInMinutes;
-
-    /**
-     * @description The maximum hourly price of the compute nodes. The value can be accurate to three decimal places. The parameter takes effect only when SpotStrategy is set to SpotWithPriceLimit.
-     *
-     * @example 0.062
-     *
-     * @var float
-     */
-    public $spotPriceLimit;
 
     /**
      * @description The preemption policy of the compute nodes. Valid values:
@@ -187,6 +118,75 @@ class GetAutoScaleConfigResponseBody extends Model
      *   SpotWithPriceLimit: The compute nodes are preemptible instances that have a user-defined maximum hourly price.
      *   SpotAsPriceGo: The compute nodes are preemptible instances for which the market price at the time of purchase is used as the bid price.
      *
+     * @example m-bp10txryr4mhrrt1****
+     *
+     * @var string
+     */
+    public $imageId;
+
+    /**
+     * @description The interval between two consecutive rounds of scale-in. Unit: minutes. Valid values: 2 to 10.
+     *
+     * >  An interval may exist during multiple rounds of a scale-out task or between two consecutive scale-out tasks.
+     * @example 300
+     *
+     * @var int
+     */
+    public $maxNodesInCluster;
+
+    /**
+     * @description The maximum number of compute nodes that can be added in a queue. Valid values: 0 to 500.
+     *
+     * @var queues
+     */
+    public $queues;
+
+    /**
+     * @description The image ID of the compute nodes in the queue.
+     *
+     * @example 04F0F334-1335-436C-A1D7-6C044FE73368
+     *
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @description The suffix of the queue name. You can query queues that have a specified suffix.
+     *
+     * @example 3
+     *
+     * @var int
+     */
+    public $shrinkIdleTimes;
+
+    /**
+     * @description The auto scaling configuration of the queue.
+     *
+     * >  If auto scaling is enabled for the cluster and queue at the same time, the queue settings prevail.
+     * @example 2
+     *
+     * @var int
+     */
+    public $shrinkIntervalInMinutes;
+
+    /**
+     * @description The type of the system disk. Valid values:
+     *
+     *   cloud_efficiency: ultra disk
+     *   cloud_ssd: SSD
+     *   cloud_essd: ESSD
+     *   cloud: basic disk
+     *
+     * @example 0.062
+     *
+     * @var float
+     */
+    public $spotPriceLimit;
+
+    /**
+     * @description The percentage of extra compute nodes. Valid values: 0 to 100.
+     *
+     * If you need to add 100 compute nodes and the value of the ExtraNodesGrowRatio parameter is 2, 102 compute nodes are added.
      * @example SpotWithPriceLimit
      *
      * @var string
@@ -194,7 +194,7 @@ class GetAutoScaleConfigResponseBody extends Model
     public $spotStrategy;
 
     /**
-     * @description The ID of the Alibaba Cloud account.
+     * @description The size of the system disk. Unit: GB. Valid values: 40 to 500.
      *
      * @example 129845258050****
      *

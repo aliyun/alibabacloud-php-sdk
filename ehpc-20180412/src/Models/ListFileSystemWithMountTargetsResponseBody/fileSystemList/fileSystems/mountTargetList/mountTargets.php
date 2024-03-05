@@ -13,7 +13,7 @@ class mountTargets extends Model
      *
      * Valid values:
      *
-     *   true: ueses the default permission group. If you use the default permission group, access from all IP addresses are allowed. The default permission group and the permission rules in the default permission group cannot be deleted.
+     *   true: uses the default permission group. If the permission group is the default one, all IP addresses are allowed to access the permission group, and users cannot delete the group and its rules.
      *   false: does not use the default permission group.
      *
      * @example DEFAULT_VPC_GROUP_NAME
@@ -23,7 +23,7 @@ class mountTargets extends Model
     public $accessGroup;
 
     /**
-     * @description The domain where the mount target resides.
+     * @description The domain in which the mount target resides.
      *
      * @example 088b****-lj2.cn-hangzhou.nas.aliyuncs.com
      *
@@ -32,10 +32,10 @@ class mountTargets extends Model
     public $mountTargetDomain;
 
     /**
-     * @description The network type of the cluster. Valid values:
+     * @description The network type. Valid values:
      *
-     *   vpc: Virtual Private Cloud (VPC)
-     *   classic: the classic network
+     *   vpc
+     *   classic
      *
      * @example vpc
      *
@@ -44,11 +44,11 @@ class mountTargets extends Model
     public $networkType;
 
     /**
-     * @description The status of the mount target. Valid values:
+     * @description The state of the mount target. Valid values:
      *
      *   Active: The mount target is available.
      *   Inactive: The mount target is unavailable.
-     *   Pending: The mount target is being created or modified.
+     *   Pending: The mount target is pending to be used.
      *   Deleting: The mount target is being deleted.
      *
      * @example Active

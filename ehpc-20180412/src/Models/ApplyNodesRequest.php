@@ -306,6 +306,11 @@ class ApplyNodesRequest extends Model
     public $targetCapacity;
 
     /**
+     * @var string
+     */
+    public $userData;
+
+    /**
      * @description The details of the zones. You can specify up to 10 zones.
      *
      * @var zoneInfos[]
@@ -338,6 +343,7 @@ class ApplyNodesRequest extends Model
         'systemDiskType'                => 'SystemDiskType',
         'tag'                           => 'Tag',
         'targetCapacity'                => 'TargetCapacity',
+        'userData'                      => 'UserData',
         'zoneInfos'                     => 'ZoneInfos',
     ];
 
@@ -437,6 +443,9 @@ class ApplyNodesRequest extends Model
         }
         if (null !== $this->targetCapacity) {
             $res['TargetCapacity'] = $this->targetCapacity;
+        }
+        if (null !== $this->userData) {
+            $res['UserData'] = $this->userData;
         }
         if (null !== $this->zoneInfos) {
             $res['ZoneInfos'] = [];
@@ -548,6 +557,9 @@ class ApplyNodesRequest extends Model
         }
         if (isset($map['TargetCapacity'])) {
             $model->targetCapacity = $map['TargetCapacity'];
+        }
+        if (isset($map['UserData'])) {
+            $model->userData = $map['UserData'];
         }
         if (isset($map['ZoneInfos'])) {
             if (!empty($map['ZoneInfos'])) {
