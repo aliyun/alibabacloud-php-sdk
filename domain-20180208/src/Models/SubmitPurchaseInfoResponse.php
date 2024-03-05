@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Domain\V20180208\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class QueryPurchasedDomainsResponse extends Model
+class SubmitPurchaseInfoResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class QueryPurchasedDomainsResponse extends Model
     public $statusCode;
 
     /**
-     * @var QueryPurchasedDomainsResponseBody
+     * @var SubmitPurchaseInfoResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class QueryPurchasedDomainsResponse extends Model
     /**
      * @param array $map
      *
-     * @return QueryPurchasedDomainsResponse
+     * @return SubmitPurchaseInfoResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class QueryPurchasedDomainsResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = QueryPurchasedDomainsResponseBody::fromMap($map['body']);
+            $model->body = SubmitPurchaseInfoResponseBody::fromMap($map['body']);
         }
 
         return $model;

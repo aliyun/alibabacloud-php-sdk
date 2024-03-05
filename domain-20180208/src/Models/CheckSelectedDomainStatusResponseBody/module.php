@@ -30,6 +30,11 @@ class module extends Model
     public $endTime;
 
     /**
+     * @var bool
+     */
+    public $premium;
+
+    /**
      * @example 20.00
      *
      * @var float
@@ -46,6 +51,7 @@ class module extends Model
         'deadDate' => 'DeadDate',
         'domain'   => 'Domain',
         'endTime'  => 'EndTime',
+        'premium'  => 'Premium',
         'price'    => 'Price',
         'regDate'  => 'RegDate',
     ];
@@ -65,6 +71,9 @@ class module extends Model
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->premium) {
+            $res['Premium'] = $this->premium;
         }
         if (null !== $this->price) {
             $res['Price'] = $this->price;
@@ -92,6 +101,9 @@ class module extends Model
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['Premium'])) {
+            $model->premium = $map['Premium'];
         }
         if (isset($map['Price'])) {
             $model->price = $map['Price'];

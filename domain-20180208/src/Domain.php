@@ -56,6 +56,8 @@ use AlibabaCloud\SDK\Domain\V20180208\Models\ReserveIntlDomainRequest;
 use AlibabaCloud\SDK\Domain\V20180208\Models\ReserveIntlDomainResponse;
 use AlibabaCloud\SDK\Domain\V20180208\Models\SelectedDomainListRequest;
 use AlibabaCloud\SDK\Domain\V20180208\Models\SelectedDomainListResponse;
+use AlibabaCloud\SDK\Domain\V20180208\Models\SubmitPurchaseInfoRequest;
+use AlibabaCloud\SDK\Domain\V20180208\Models\SubmitPurchaseInfoResponse;
 use AlibabaCloud\SDK\Domain\V20180208\Models\UpdatePartnerReservePriceRequest;
 use AlibabaCloud\SDK\Domain\V20180208\Models\UpdatePartnerReservePriceResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -1304,6 +1306,58 @@ class Domain extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->selectedDomainListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitPurchaseInfoRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SubmitPurchaseInfoResponse
+     */
+    public function submitPurchaseInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $body['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->purchaseCurrency)) {
+            $body['PurchaseCurrency'] = $request->purchaseCurrency;
+        }
+        if (!Utils::isUnset($request->purchasePrice)) {
+            $body['PurchasePrice'] = $request->purchasePrice;
+        }
+        if (!Utils::isUnset($request->purchaseProofs)) {
+            $body['PurchaseProofs'] = $request->purchaseProofs;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitPurchaseInfo',
+            'version'     => '2018-02-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitPurchaseInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SubmitPurchaseInfoRequest $request
+     *
+     * @return SubmitPurchaseInfoResponse
+     */
+    public function submitPurchaseInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitPurchaseInfoWithOptions($request, $runtime);
     }
 
     /**
