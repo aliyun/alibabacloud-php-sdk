@@ -60,6 +60,8 @@ use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeBackupPolicyRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeBackupPolicyResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeBackupsRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeBackupsResponse;
+use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeBackupTasksRequest;
+use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeBackupTasksResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeClusterBackupsRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeClusterBackupsResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeClusterRecoverTimeRequest;
@@ -94,6 +96,8 @@ use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeHistoryTasksStatRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeHistoryTasksStatResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeInstanceAutoRenewalAttributeRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeInstanceAutoRenewalAttributeResponse;
+use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeInstanceRecoverTimeRequest;
+use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeInstanceRecoverTimeResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeKernelReleaseNotesRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeKernelReleaseNotesResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeKmsKeysRequest;
@@ -2349,6 +2353,46 @@ class Dds extends OpenApiClient
     }
 
     /**
+     * @param DescribeBackupTasksRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeBackupTasksResponse
+     */
+    public function describeBackupTasksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeBackupTasks',
+            'version'     => '2015-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeBackupTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeBackupTasksRequest $request
+     *
+     * @return DescribeBackupTasksResponse
+     */
+    public function describeBackupTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeBackupTasksWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeBackupsRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -3612,6 +3656,46 @@ class Dds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeInstanceAutoRenewalAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeInstanceRecoverTimeRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeInstanceRecoverTimeResponse
+     */
+    public function describeInstanceRecoverTimeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceRecoverTime',
+            'version'     => '2015-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeInstanceRecoverTimeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeInstanceRecoverTimeRequest $request
+     *
+     * @return DescribeInstanceRecoverTimeResponse
+     */
+    public function describeInstanceRecoverTime($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInstanceRecoverTimeWithOptions($request, $runtime);
     }
 
     /**
