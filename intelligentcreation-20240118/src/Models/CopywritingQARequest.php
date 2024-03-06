@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240118\Models;
 
+use AlibabaCloud\SDK\IntelligentCreation\V20240118\Models\CopywritingQARequest\histories;
 use AlibabaCloud\SDK\IntelligentCreation\V20240118\Models\CopywritingQARequest\history;
 use AlibabaCloud\Tea\Model;
 
@@ -17,6 +18,13 @@ class CopywritingQARequest extends Model
     public $accountId;
 
     /**
+     * @var histories[]
+     */
+    public $histories;
+
+    /**
+     * @deprecated
+     *
      * @var history
      */
     public $history;
@@ -48,6 +56,7 @@ class CopywritingQARequest extends Model
     public $subAccountId;
     protected $_name = [
         'accountId'    => 'accountId',
+        'histories'    => 'histories',
         'history'      => 'history',
         'question'     => 'question',
         'sessionId'    => 'sessionId',
@@ -64,6 +73,15 @@ class CopywritingQARequest extends Model
         $res = [];
         if (null !== $this->accountId) {
             $res['accountId'] = $this->accountId;
+        }
+        if (null !== $this->histories) {
+            $res['histories'] = [];
+            if (null !== $this->histories && \is_array($this->histories)) {
+                $n = 0;
+                foreach ($this->histories as $item) {
+                    $res['histories'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->history) {
             $res['history'] = null !== $this->history ? $this->history->toMap() : null;
@@ -94,6 +112,15 @@ class CopywritingQARequest extends Model
         $model = new self();
         if (isset($map['accountId'])) {
             $model->accountId = $map['accountId'];
+        }
+        if (isset($map['histories'])) {
+            if (!empty($map['histories'])) {
+                $model->histories = [];
+                $n                = 0;
+                foreach ($map['histories'] as $item) {
+                    $model->histories[$n++] = null !== $item ? histories::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['history'])) {
             $model->history = history::fromMap($map['history']);

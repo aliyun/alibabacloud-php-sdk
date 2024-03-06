@@ -18,6 +18,13 @@ class CopywritingQAShrinkRequest extends Model
     /**
      * @var string
      */
+    public $historiesShrink;
+
+    /**
+     * @deprecated
+     *
+     * @var string
+     */
     public $historyShrink;
 
     /**
@@ -46,12 +53,13 @@ class CopywritingQAShrinkRequest extends Model
      */
     public $subAccountId;
     protected $_name = [
-        'accountId'     => 'accountId',
-        'historyShrink' => 'history',
-        'question'      => 'question',
-        'sessionId'     => 'sessionId',
-        'stream'        => 'stream',
-        'subAccountId'  => 'subAccountId',
+        'accountId'       => 'accountId',
+        'historiesShrink' => 'histories',
+        'historyShrink'   => 'history',
+        'question'        => 'question',
+        'sessionId'       => 'sessionId',
+        'stream'          => 'stream',
+        'subAccountId'    => 'subAccountId',
     ];
 
     public function validate()
@@ -63,6 +71,9 @@ class CopywritingQAShrinkRequest extends Model
         $res = [];
         if (null !== $this->accountId) {
             $res['accountId'] = $this->accountId;
+        }
+        if (null !== $this->historiesShrink) {
+            $res['histories'] = $this->historiesShrink;
         }
         if (null !== $this->historyShrink) {
             $res['history'] = $this->historyShrink;
@@ -93,6 +104,9 @@ class CopywritingQAShrinkRequest extends Model
         $model = new self();
         if (isset($map['accountId'])) {
             $model->accountId = $map['accountId'];
+        }
+        if (isset($map['histories'])) {
+            $model->historiesShrink = $map['histories'];
         }
         if (isset($map['history'])) {
             $model->historyShrink = $map['history'];

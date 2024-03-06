@@ -161,12 +161,18 @@ class IntelligentCreation extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new CopywritingQAShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->histories)) {
+            $request->historiesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->histories, 'histories', 'json');
+        }
         if (!Utils::isUnset($tmpReq->history)) {
             $request->historyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->history, 'history', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->accountId)) {
             $query['accountId'] = $request->accountId;
+        }
+        if (!Utils::isUnset($request->historiesShrink)) {
+            $query['histories'] = $request->historiesShrink;
         }
         if (!Utils::isUnset($request->historyShrink)) {
             $query['history'] = $request->historyShrink;

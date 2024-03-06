@@ -21,12 +21,18 @@ class questions extends Model
     public $id;
 
     /**
+     * @var int
+     */
+    public $time;
+
+    /**
      * @var string
      */
     public $username;
     protected $_name = [
         'content'  => 'content',
         'id'       => 'id',
+        'time'     => 'time',
         'username' => 'username',
     ];
 
@@ -42,6 +48,9 @@ class questions extends Model
         }
         if (null !== $this->id) {
             $res['id'] = $this->id;
+        }
+        if (null !== $this->time) {
+            $res['time'] = $this->time;
         }
         if (null !== $this->username) {
             $res['username'] = $this->username;
@@ -63,6 +72,9 @@ class questions extends Model
         }
         if (isset($map['id'])) {
             $model->id = $map['id'];
+        }
+        if (isset($map['time'])) {
+            $model->time = $map['time'];
         }
         if (isset($map['username'])) {
             $model->username = $map['username'];
