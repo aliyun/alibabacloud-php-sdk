@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListNetworkRulesRequest extends Model
 {
     /**
+     * @description The page number. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class ListNetworkRulesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values: 1 to 100. Default value: 20.
+     *
      * @example 10
      *
      * @var int

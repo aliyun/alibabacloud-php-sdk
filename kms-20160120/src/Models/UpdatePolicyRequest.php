@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdatePolicyRequest extends Model
 {
     /**
+     * @description The access control rule.
+     *
+     * > For more information about how to query created access control rules, see [ListNetworkRules](~~2539433~~).
      * @example {"NetworkRules":["kst-hzz62ee817bvyyr5x****.efkd","kst-hzz62ee817bvyyr5x****.eyyp"]}
      *
      * @var string
@@ -16,6 +19,8 @@ class UpdatePolicyRequest extends Model
     public $accessControlRules;
 
     /**
+     * @description The description.
+     *
      * @example policy  description
      *
      * @var string
@@ -23,6 +28,8 @@ class UpdatePolicyRequest extends Model
     public $description;
 
     /**
+     * @description The name of the permission policy that you want to update.
+     *
      * @example policy_test
      *
      * @var string
@@ -30,6 +37,12 @@ class UpdatePolicyRequest extends Model
     public $name;
 
     /**
+     * @description The operations that are supported by the updated policy. Valid values:
+     *
+     *   RbacPermission/Template/CryptoServiceKeyUser: allows you to perform cryptographic operations.
+     *   RbacPermission/Template/CryptoServiceSecretUser: allows you to perform secret-related operations.
+     *
+     * You can select both.
      * @example ["RbacPermission/Template/CryptoServiceKeyUser", "RbacPermission/Template/CryptoServiceSecretUser"]
      *
      * @var string
@@ -37,6 +50,11 @@ class UpdatePolicyRequest extends Model
     public $permissions;
 
     /**
+     * @description The key and secret that are allowed to access after the update.
+     *
+     *   Key: Enter a key in the `key/${KeyId}` format. To allow access to all keys of a KMS instance, enter key/\*.
+     *   Secret: Enter a secret in the `secret/${SecretName}` format. To allow access to all secrets of a KMS instance, enter secret/\*.
+     *
      * @example ["secret/acs/ram/user/ram-secret", "secret/acs/ram/user/acr-master", "key/key-hzz63d9c8d3dfv8cv****"]
      *
      * @var string

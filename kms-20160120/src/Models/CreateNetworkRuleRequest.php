@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateNetworkRuleRequest extends Model
 {
     /**
+     * @description The description.
+     *
      * @example networkrule description
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateNetworkRuleRequest extends Model
     public $description;
 
     /**
+     * @description The name of the access control rule.
+     *
      * @example networkrule_test
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateNetworkRuleRequest extends Model
     public $name;
 
     /**
+     * @description The private IP address or private CIDR block. Separate multiple items with commas (,).
+     *
      * @example ["192.10.XX.XX","192.168.XX.XX/24"]
      *
      * @var string
@@ -30,6 +36,9 @@ class CreateNetworkRuleRequest extends Model
     public $sourcePrivateIp;
 
     /**
+     * @description The network type.
+     *
+     * Only private IP addresses are supported. Set the value to Private.
      * @example Private
      *
      * @var string

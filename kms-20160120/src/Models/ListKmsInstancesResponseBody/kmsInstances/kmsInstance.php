@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class kmsInstance extends Model
 {
     /**
+     * @description The ARN of the KMS instance.
+     *
      * @example acs:kms:pre-hangzhou:120708975881****:keystore/kst-phzz64c9f84eo32dbs****
      *
      * @var string
@@ -16,6 +18,8 @@ class kmsInstance extends Model
     public $kmsInstanceArn;
 
     /**
+     * @description The ID of the KMS instance.
+     *
      * @example kst-phzz64c9f84eo32dbs****
      *
      * @var string

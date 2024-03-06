@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateApplicationAccessPointRequest extends Model
 {
     /**
+     * @description The authentication method. Currently, only ClientKey is supported.
+     *
      * @example ClientKey
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateApplicationAccessPointRequest extends Model
     public $authenticationMethod;
 
     /**
+     * @description The description of the AAP.
+     *
      * @example aap description
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateApplicationAccessPointRequest extends Model
     public $description;
 
     /**
+     * @description The name of the AAP.
+     *
      * @example aap_test
      *
      * @var string
@@ -30,6 +36,9 @@ class CreateApplicationAccessPointRequest extends Model
     public $name;
 
     /**
+     * @description The permission policy.
+     *
+     * > You can bind up to three permission policies to each AAP.
      * @example ["kst-hzz62ee817bvyyr5x****.efkd","kst-hzz62ee817bvyyr5x****.eyyp"]
      *
      * @var string

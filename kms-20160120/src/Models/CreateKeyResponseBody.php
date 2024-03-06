@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateKeyResponseBody extends Model
 {
     /**
-     * @description The metadata of the CMK.
+     * @description The metadata of the key.
      *
      * @var keyMetadata
      */
@@ -19,7 +19,7 @@ class CreateKeyResponseBody extends Model
     /**
      * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
-     * @example 36c7e41a-3f2c-45f7-9bdd-d1dc1e7e7e06
+     * @example 381D5D33-BB8F-395F-8EE4-AE3BB4B523C4
      *
      * @var string
      */

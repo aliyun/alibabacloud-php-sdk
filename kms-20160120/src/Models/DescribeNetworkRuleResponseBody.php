@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeNetworkRuleResponseBody extends Model
 {
     /**
+     * @description The ARN of the access control rule.
+     *
      * @example acs:kms:cn-hangzhou:119285303511****:network/networkrule_test
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeNetworkRuleResponseBody extends Model
     public $arn;
 
     /**
+     * @description The description.
+     *
      * @example Creat by kst-hzz62ee817bvyyr5****
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeNetworkRuleResponseBody extends Model
     public $description;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 3bf02f7a-015b-4f93-be0f-cc043fda2d33
      *
      * @var string
@@ -30,6 +36,8 @@ class DescribeNetworkRuleResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The private IP address or private CIDR block.
+     *
      * @example ["192.10.XX.XX","192.168.XX.XX/24"]
      *
      * @var string
@@ -37,6 +45,8 @@ class DescribeNetworkRuleResponseBody extends Model
     public $sourcePrivateIp;
 
     /**
+     * @description The network type. Only private IP addresses are supported. The value is fixed as Private.
+     *
      * @example Private
      *
      * @var string

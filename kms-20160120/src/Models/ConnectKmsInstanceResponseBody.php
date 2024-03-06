@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ConnectKmsInstanceResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example d3eca5c8-a856-4347-8eb6-e1898c3fda2e
      *
      * @var string

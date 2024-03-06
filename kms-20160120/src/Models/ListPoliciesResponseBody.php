@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListPoliciesResponseBody extends Model
 {
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class ListPoliciesResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -24,11 +28,15 @@ class ListPoliciesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description A list of permission policies.
+     *
      * @var policies
      */
     public $policies;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example b66ad557-9c00-4064-9c8d-b621c3263308
      *
      * @var string
@@ -36,6 +44,8 @@ class ListPoliciesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1
      *
      * @var int

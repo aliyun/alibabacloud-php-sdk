@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListNetworkRulesResponseBody extends Model
 {
     /**
+     * @description A list of access control rules.
+     *
      * @var networkRules
      */
     public $networkRules;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class ListNetworkRulesResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class ListNetworkRulesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 3bf02f7a-015b-4f34-be0f-cc043fda2d33
      *
      * @var string
@@ -36,6 +44,8 @@ class ListNetworkRulesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1
      *
      * @var int

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListKmsInstancesResponseBody extends Model
 {
     /**
+     * @description A list of KMS instances.
+     *
      * @var kmsInstances
      */
     public $kmsInstances;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class ListKmsInstancesResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class ListKmsInstancesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example d3eca5c8-a856-4347-8eb6-e1898c3fda2e
      *
      * @var string
@@ -36,6 +44,8 @@ class ListKmsInstancesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of KMS instances.
+     *
      * @example 1
      *
      * @var int

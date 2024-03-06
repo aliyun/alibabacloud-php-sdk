@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateApplicationAccessPointResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example bcfefe15-46f0-44a3-bd96-3d422474b71a
      *
      * @var string

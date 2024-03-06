@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribePolicyRequest extends Model
 {
     /**
+     * @description The name of the permission policy that you want to query.
+     *
      * @example policy_test
      *
      * @var string

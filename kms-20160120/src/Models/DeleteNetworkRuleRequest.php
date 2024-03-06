@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteNetworkRuleRequest extends Model
 {
     /**
+     * @description The name of the network access rule that you want to delete.
+     *
      * @example networkrule_test
      *
      * @var string

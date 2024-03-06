@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description The key of the tag. A tag consists of a key-value pair.
+     *
+     * >  The key cannot start with aliyun or acs:.
+     * @example disk-encryption
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The value of the tag. A tag consists of a key-value pair.
+     *
+     * Each value can be up to 128 characters in length and can contain letters, digits, forward slashes (/), backslashes (\\), underscores (\_), hyphens (-), periods (.), plus signs (+), equal signs (=), colons (:), and at signs (@).
+     * @example true
+     *
      * @var string
      */
     public $value;

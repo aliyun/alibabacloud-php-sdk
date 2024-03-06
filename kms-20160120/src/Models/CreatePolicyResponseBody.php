@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreatePolicyResponseBody extends Model
 {
     /**
+     * @description The name of the access control rule.
+     *
      * @example {"NetworkRules":["kst-hzz62ee817bvyyr5x****.efkd","kst-hzz62ee817bvyyr5x****.eyyp"]}
      *
      * @var string
@@ -16,6 +18,8 @@ class CreatePolicyResponseBody extends Model
     public $accessControlRules;
 
     /**
+     * @description The ARN of the permission policy.
+     *
      * @example acs:kms:cn-hangzhou:119285303511****:policy/policy_test
      *
      * @var string
@@ -23,6 +27,8 @@ class CreatePolicyResponseBody extends Model
     public $arn;
 
     /**
+     * @description The description.
+     *
      * @example policy  description
      *
      * @var string
@@ -30,6 +36,8 @@ class CreatePolicyResponseBody extends Model
     public $description;
 
     /**
+     * @description The scope of the permission policy.
+     *
      * @example kst-hzz634e67d126u9p9****
      *
      * @var string
@@ -37,6 +45,8 @@ class CreatePolicyResponseBody extends Model
     public $kmsInstance;
 
     /**
+     * @description The name of the permission policy.
+     *
      * @example policy_test
      *
      * @var string
@@ -44,6 +54,8 @@ class CreatePolicyResponseBody extends Model
     public $name;
 
     /**
+     * @description The operations that can be performed.
+     *
      * @example ["RbacPermission/Template/CryptoServiceKeyUser", "RbacPermission/Template/CryptoServiceSecretUser"]
      *
      * @var string
@@ -51,6 +63,8 @@ class CreatePolicyResponseBody extends Model
     public $permissions;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 3bf02f7a-015b-4f34-be0f-c4543fda2d33
      *
      * @var string
@@ -58,6 +72,11 @@ class CreatePolicyResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The key and secret that are allowed to access.
+     *
+     *   `key/*` indicates that all keys of the KMS instance can be accessed.
+     *   `secret/*` indicates all secrets of the KMS instance can be accessed.
+     *
      * @example ["secret/acs/ram/user/ram-secret", "secret/acs/ram/user/acr-master", "key/key-hzz63d9c8d3dfv8cv****"]
      *
      * @var string

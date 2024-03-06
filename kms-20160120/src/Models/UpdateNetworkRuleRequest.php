@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateNetworkRuleRequest extends Model
 {
     /**
+     * @description The description after the update.
+     *
      * @example Creat by kst-hzz62ee817bvyyr5****
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateNetworkRuleRequest extends Model
     public $description;
 
     /**
+     * @description The name of the access control rule that you want to update.
+     *
      * @example networkrule_test
      *
      * @var string
@@ -23,6 +27,8 @@ class UpdateNetworkRuleRequest extends Model
     public $name;
 
     /**
+     * @description The private IP address or CIDR block after the update. Separate multiple items with commas (,).
+     *
      * @example ["192.10.XX.XX","192.168.XX.XX/24"]
      *
      * @var string

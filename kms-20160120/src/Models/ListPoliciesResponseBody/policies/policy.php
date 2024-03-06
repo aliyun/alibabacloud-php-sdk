@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class policy extends Model
 {
     /**
+     * @description The name of the permission policy.
+     *
      * @example policy_test
      *
      * @var string

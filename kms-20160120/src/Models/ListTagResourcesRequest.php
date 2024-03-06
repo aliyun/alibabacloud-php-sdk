@@ -10,26 +10,48 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
+     * >  If the call does not return all result entries, the value of the NextToken parameter is returned. By default, 200 rows are returned. You can call this operation again and set the value of the parameter to the value of the parameter that is returned in the last call to implement paged query.
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The region ID of the resource.
+     *
+     * >  You can call the [DescribeRegions](~~601478~~) to query the most recent region list.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description A list of resource IDs for which you want to query tags. You can enter a maximum of 50 resource IDs.
+     *
+     * Enter multiple resource IDs in the `["ResourceId. 1","ResourceId. 2",...]` format.
      * @var string[]
      */
     public $resourceId;
 
     /**
+     * @description The type of resource whose tags you want to query. Valid value:
+     *
+     *   key
+     *   secret
+     *
+     * @example key
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description A list of tags that you want to query. Valid values of N: 1 to 20.
+     *
      * @var tag[]
      */
     public $tag;

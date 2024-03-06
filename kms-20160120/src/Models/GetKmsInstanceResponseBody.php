@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetKmsInstanceResponseBody extends Model
 {
     /**
+     * @description The details of the KMS instance.
+     *
      * @var kmsInstance
      */
     public $kmsInstance;
 
     /**
+     * @description The request ID.
+     *
      * @example 46b4a94a-57d2-44b4-9810-1e87d31abb33
      *
      * @var string

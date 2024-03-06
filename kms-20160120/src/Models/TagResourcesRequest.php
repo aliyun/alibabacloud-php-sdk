@@ -10,21 +10,39 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesRequest extends Model
 {
     /**
+     * @description The region ID of the resource.
+     *
+     * >  You can call the [DescribeRegions](~~601478~~) to query the most recent region list.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The IDs of the resources to which you want to add tags. You can enter a maximum of 50 resource IDs.
+     *
+     * Enter multiple resource IDs in the `["ResourceId. 1","ResourceId. 2",...]` format.
      * @var string[]
      */
     public $resourceId;
 
     /**
+     * @description The type of the resource to which you want to add tags. Valid values:
+     *
+     *   key
+     *   secret
+     *
+     * @example key
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description A list of tags. You can enter up to 20 tags.
+     *
+     * A tag consists of a key-value pair. Enter multiple tags in the `[{"Key":"key1","Value":"value1"},{"Key":"key2","Value":"value2"},..]` format.
      * @var tag[]
      */
     public $tag;

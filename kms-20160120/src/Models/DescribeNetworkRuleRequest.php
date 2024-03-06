@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeNetworkRuleRequest extends Model
 {
     /**
+     * @description The name of the access control rule that you want to query.
+     *
      * @example networkrule_test
      *
      * @var string

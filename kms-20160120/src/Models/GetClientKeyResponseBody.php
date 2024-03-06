@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetClientKeyResponseBody extends Model
 {
     /**
+     * @description The name of the application access point (AAP).
+     *
      * @example aap_test
      *
      * @var string
@@ -16,6 +18,8 @@ class GetClientKeyResponseBody extends Model
     public $aapName;
 
     /**
+     * @description The ID of the client key.
+     *
      * @example KAAP.66abf237-63f6-4625-b8cf-47e1086e****
      *
      * @var string
@@ -23,6 +27,8 @@ class GetClientKeyResponseBody extends Model
     public $clientKeyId;
 
     /**
+     * @description The time when the client key was created.
+     *
      * @example 2023-08-31T09:14:38Z
      *
      * @var string
@@ -30,6 +36,8 @@ class GetClientKeyResponseBody extends Model
     public $createTime;
 
     /**
+     * @description The private key algorithm of the client key.
+     *
      * @example RSA_2048
      *
      * @var string
@@ -37,6 +45,9 @@ class GetClientKeyResponseBody extends Model
     public $keyAlgorithm;
 
     /**
+     * @description The provider of the client key.
+     *
+     * Currently, only Key Management Service (KMS) is supported. The value is fixed as KMS_PROVIDED.
      * @example KMS_PROVIDED
      *
      * @var string
@@ -44,6 +55,8 @@ class GetClientKeyResponseBody extends Model
     public $keyOrigin;
 
     /**
+     * @description The end of the validity period of the client key.
+     *
      * @example 2028-08-31T17:14:33Z
      *
      * @var string
@@ -51,6 +64,8 @@ class GetClientKeyResponseBody extends Model
     public $notAfter;
 
     /**
+     * @description The beginning of the validity period of the client key.
+     *
      * @example 2023-08-31T17:14:33Z
      *
      * @var string
@@ -58,6 +73,8 @@ class GetClientKeyResponseBody extends Model
     public $notBefore;
 
     /**
+     * @description The content of the public key of the client key.
+     *
      * @example -----BEGIN CERTIFICATE-----\nMIIDcjCCAlqgAwIBAgIQT/sAVRxwYp54mrw****-----END CERTIFICATE-----
      *
      * @var string
@@ -65,6 +82,8 @@ class GetClientKeyResponseBody extends Model
     public $publicKeyData;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 63d849a6-045b-4a57-ad9f-c5f756cea9e9
      *
      * @var string

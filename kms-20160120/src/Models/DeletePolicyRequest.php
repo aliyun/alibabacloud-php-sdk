@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeletePolicyRequest extends Model
 {
     /**
+     * @description The name of the permission policy that you want to delete.
+     *
      * @example policy_test
      *
      * @var string

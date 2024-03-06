@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListClientKeysRequest extends Model
 {
     /**
+     * @description The name of the application access point (AAP).
+     *
      * @example aap_test
      *
      * @var string

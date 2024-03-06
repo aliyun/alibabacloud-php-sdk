@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateApplicationAccessPointResponseBody extends Model
 {
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the AAP.
+     *
      * @example acs:kms:cn-hangzhou:119285303511****:applicationaccesspoint/aap_test
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateApplicationAccessPointResponseBody extends Model
     public $arn;
 
     /**
+     * @description The authentication method.
+     *
      * @example ClientKey
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateApplicationAccessPointResponseBody extends Model
     public $authenticationMethod;
 
     /**
+     * @description The description of the AAP.
+     *
      * @example aap description
      *
      * @var string
@@ -30,6 +36,8 @@ class CreateApplicationAccessPointResponseBody extends Model
     public $description;
 
     /**
+     * @description The name of the AAP.
+     *
      * @example aap_test
      *
      * @var string
@@ -37,6 +45,8 @@ class CreateApplicationAccessPointResponseBody extends Model
     public $name;
 
     /**
+     * @description The permission policy.
+     *
      * @example ["kst-hzz62ee817bvyyr5x****.efkd","kst-hzz62ee817bvyyr5x****.eyyp"]
      *
      * @var string
@@ -44,6 +54,8 @@ class CreateApplicationAccessPointResponseBody extends Model
     public $policies;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example bcfefe15-46f0-44a3-bd96-3d422474b71a
      *
      * @var string

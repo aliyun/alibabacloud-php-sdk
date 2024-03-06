@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateNetworkRuleResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 3bf02f7a-015b-4f34-be0f-cc043fda2d85
      *
      * @var string

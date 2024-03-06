@@ -10,11 +10,16 @@ use AlibabaCloud\Tea\Model;
 class kmsInstance extends Model
 {
     /**
+     * @description A list of associated VPCs.
+     *
+     * >  If your self-managed applications are deployed in multiple VPCs in the same region, you can associate VPCs with the KMS instance beyond the VPC that you specify when you enable the KMS instance. The VPCs can belong to the same Alibaba Cloud account or different Alibaba Cloud accounts. After the configuration is complete, self-managed applications in the VPCs can access the specified KMS instance.
      * @var bindVpcs
      */
     public $bindVpcs;
 
     /**
+     * @description The content of the certificate authority (CA) certificate of the KMS instance.
+     *
      * @example -----BEGIN CERTIFICATE-----\r\nMIIDuzCCAqOgAwIBAgIJALTKwWAjvbMiMA0GCSqGSIb3DQEBCwUAMHQxCzAJBgNV****-----END CERTIFICATE-----
      *
      * @var string
@@ -22,6 +27,8 @@ class kmsInstance extends Model
     public $caCertificateChainPem;
 
     /**
+     * @description The time when the KMS instance is created.
+     *
      * @example 2023-09-05T12:44:20Z
      *
      * @var string
@@ -29,6 +36,8 @@ class kmsInstance extends Model
     public $createTime;
 
     /**
+     * @description The expiration time of the KMS instance.
+     *
      * @example 2023-10-05T16:00:00Z
      *
      * @var string
@@ -36,6 +45,8 @@ class kmsInstance extends Model
     public $endDate;
 
     /**
+     * @description The ID of the KMS instance.
+     *
      * @example kst-bjj62f5ba3dnpb6v8****
      *
      * @var string
@@ -43,6 +54,8 @@ class kmsInstance extends Model
     public $instanceId;
 
     /**
+     * @description The name of the KMS instance.
+     *
      * @example kst-bjj62f5ba3dnpb6v8****
      *
      * @var string
@@ -50,6 +63,8 @@ class kmsInstance extends Model
     public $instanceName;
 
     /**
+     * @description The number of keys that can be created for the KMS instance.
+     *
      * @example 1000
      *
      * @var int
@@ -57,6 +72,8 @@ class kmsInstance extends Model
     public $keyNum;
 
     /**
+     * @description The number of secrets that can be created for the KMS instance.
+     *
      * @example 10
      *
      * @var string
@@ -64,6 +81,8 @@ class kmsInstance extends Model
     public $secretNum;
 
     /**
+     * @description The computing performance of the KMS instance.
+     *
      * @example 1000
      *
      * @var int
@@ -71,6 +90,8 @@ class kmsInstance extends Model
     public $spec;
 
     /**
+     * @description The time when the KMS instance is enabled.
+     *
      * @example 2023-09-05T12:44:19Z
      *
      * @var string
@@ -78,6 +99,14 @@ class kmsInstance extends Model
     public $startDate;
 
     /**
+     * @description The status of the KMS instance. Valid values:
+     *
+     *   Uninitialized: The KMS instance is not enabled.
+     *   Connecting: The KMS instance is being connected.
+     *   Connected: The KMS instance is enabled.
+     *   Disconnected: The KMS instance is disconnected.
+     *   Error: The KMS instance is abnormal.
+     *
      * @example Connected
      *
      * @var string
@@ -85,6 +114,8 @@ class kmsInstance extends Model
     public $status;
 
     /**
+     * @description The virtual private cloud (VPC) with which the KMS instance is associated.
+     *
      * @example vpc-bp19z7cwmltad5dff****
      *
      * @var string
@@ -92,6 +123,8 @@ class kmsInstance extends Model
     public $vpcId;
 
     /**
+     * @description The access management quota for the KMS instance.
+     *
      * @example 5
      *
      * @var int
@@ -99,6 +132,8 @@ class kmsInstance extends Model
     public $vpcNum;
 
     /**
+     * @description The vSwitch in the VPC.
+     *
      * @example vsw-bp1i512amda6d10a0****
      *
      * @var string
@@ -106,6 +141,8 @@ class kmsInstance extends Model
     public $vswitchIds;
 
     /**
+     * @description The zone with which the KMS instance is associated.
+     *
      * @example "cn-hangzhou-k",       "cn-hangzhou-j"
      *
      * @var string

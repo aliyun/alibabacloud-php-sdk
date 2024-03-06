@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribePolicyResponseBody extends Model
 {
     /**
+     * @description The network access rule that is associated with the permission policy.
+     *
      * @example {"NetworkRules":["kst-hzz62ee817bvyyr5x****.efkd","kst-hzz62ee817bvyyr5x****.eyyp"]}
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribePolicyResponseBody extends Model
     public $accessControlRules;
 
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the permission policy.
+     *
      * @example acs:kms:cn-hangzhou:119285303511****:policy/policy_test
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribePolicyResponseBody extends Model
     public $arn;
 
     /**
+     * @description The description.
+     *
      * @example policy  description
      *
      * @var string
@@ -30,6 +36,8 @@ class DescribePolicyResponseBody extends Model
     public $description;
 
     /**
+     * @description The scope of the permission policy.
+     *
      * @example kst-hzz634e67d126u9p9****
      *
      * @var string
@@ -37,6 +45,8 @@ class DescribePolicyResponseBody extends Model
     public $kmsInstance;
 
     /**
+     * @description The name of the permission policy.
+     *
      * @example policy_test
      *
      * @var string
@@ -44,6 +54,8 @@ class DescribePolicyResponseBody extends Model
     public $name;
 
     /**
+     * @description A list of operations that can be performed.
+     *
      * @example ["RbacPermission/Template/CryptoServiceKeyUser", "RbacPermission/Template/CryptoServiceSecretUser"]
      *
      * @var string[]
@@ -51,6 +63,8 @@ class DescribePolicyResponseBody extends Model
     public $permissions;
 
     /**
+     * @description The request ID.
+     *
      * @example f455324b-e229-4066-9f58-9c1cf3fe83a9
      *
      * @var string
@@ -58,6 +72,8 @@ class DescribePolicyResponseBody extends Model
     public $requestId;
 
     /**
+     * @description A list of keys and secrets that are allowed to access.
+     *
      * @example ["secret/acs/ram/user/ram-secret", "secret/acs/ram/user/acr-master", "key/key-hzz63d9c8d3dfv8cv****"]
      *
      * @var string[]

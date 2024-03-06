@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class UpdateKmsInstanceBindVpcRequest extends Model
 {
     /**
+     * @description The VPC configuration. The configuration of each VPC contains the following content:
+     *
+     *   VpcId: the ID of the VPC.
+     *   VSwitchId: the vSwitch in the VPC.
+     *   RegionID: the ID of the region to which the VPC belongs.
+     *   VpcOwnerId: the Alibaba Cloud account to which the VPC belongs.
+     *
+     * Format: `[{"VpcId":"${VpcId}","VSwitchId":"${VSwitchId}","RegionId":"${RegionId}","VpcOwnerId":${VpcOwnerId}},..]`.
      * @example [{"VpcId":"vpc-bp1go9qvmj78j4f4c****","VSwitchId":"vsw-bp16c5pvvcf0fp5b9****","RegionId":"cn-hangzhou","VpcOwnerId":120708975881****},{"VpcId":"vpc-bp14c07ucxg6h1xjm****","VSwitchId":"vsw-bp1wujtnspi1l3gvu****","RegionId":"cn-hangzhou","VpcOwnerId":119285303511****}]
      *
      * @var string
@@ -16,6 +24,8 @@ class UpdateKmsInstanceBindVpcRequest extends Model
     public $bindVpcs;
 
     /**
+     * @description The ID of the KMS instance.
+     *
      * @example kst-phzz64f722a1buamw0****
      *
      * @var string

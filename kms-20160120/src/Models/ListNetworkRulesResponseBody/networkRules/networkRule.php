@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class networkRule extends Model
 {
     /**
+     * @description The name of the access control rule.
+     *
      * @example networkrule_test
      *
      * @var string
@@ -16,6 +18,8 @@ class networkRule extends Model
     public $name;
 
     /**
+     * @description The network type. The value is fixed as Private. Self-managed applications can access KMS instances only over a private virtual private cloud (VPC).
+     *
      * @example Private
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetClientKeyRequest extends Model
 {
     /**
+     * @description The ID of the client key.
+     *
      * @example KAAP.66abf237-63f6-4625-b8cf-47e1086e****
      *
      * @var string

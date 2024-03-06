@@ -831,10 +831,13 @@ class Kms extends OpenApiClient
     }
 
     /**
-     * @param ConnectKmsInstanceRequest $request
-     * @param RuntimeOptions            $runtime
+     * ### [](#)Limits
+     *   * You can enable only instances of the software key management type. You cannot enable instances of the hardware key management type.
+     *   *
+     * @param ConnectKmsInstanceRequest $request ConnectKmsInstanceRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ConnectKmsInstanceResponse
+     * @return ConnectKmsInstanceResponse ConnectKmsInstanceResponse
      */
     public function connectKmsInstanceWithOptions($request, $runtime)
     {
@@ -874,9 +877,12 @@ class Kms extends OpenApiClient
     }
 
     /**
-     * @param ConnectKmsInstanceRequest $request
+     * ### [](#)Limits
+     *   * You can enable only instances of the software key management type. You cannot enable instances of the hardware key management type.
+     *   *
+     * @param ConnectKmsInstanceRequest $request ConnectKmsInstanceRequest
      *
-     * @return ConnectKmsInstanceResponse
+     * @return ConnectKmsInstanceResponse ConnectKmsInstanceResponse
      */
     public function connectKmsInstance($request)
     {
@@ -940,10 +946,16 @@ class Kms extends OpenApiClient
     }
 
     /**
-     * @param CreateApplicationAccessPointRequest $request
-     * @param RuntimeOptions                      $runtime
+     * To perform cryptographic operations and retrieve secret values, self-managed applications must use a client key to access a Key Management Service (KMS) instance. The following process shows how to create a client key-based AAP:
+     *   * 1.Create a network access rule: You can configure the private IP addresses or private CIDR blocks that are allowed to access KMS. For more information, see [CreateNetworkRule](~~2539407~~).
+     *   * 2.Create a permission policy: You can configure the keys and secrets that are allowed to access and bind network access rules to the keys and secrets. For more information, see [CreatePolicy](~~2539454~~).
+     *   * 3.Create an AAP: You can configure an authentication method and bind a permission policy to an AAP. This topic describes how to create an AAP.
+     *   * 4.Create a client key: You can configure the encryption password and validity period of a client key and bind the client key to an AAP. For more information, see [CreateClientKey](~~2539509~~).
+     *   *
+     * @param CreateApplicationAccessPointRequest $request CreateApplicationAccessPointRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateApplicationAccessPointResponse
+     * @return CreateApplicationAccessPointResponse CreateApplicationAccessPointResponse
      */
     public function createApplicationAccessPointWithOptions($request, $runtime)
     {
@@ -980,9 +992,15 @@ class Kms extends OpenApiClient
     }
 
     /**
-     * @param CreateApplicationAccessPointRequest $request
+     * To perform cryptographic operations and retrieve secret values, self-managed applications must use a client key to access a Key Management Service (KMS) instance. The following process shows how to create a client key-based AAP:
+     *   * 1.Create a network access rule: You can configure the private IP addresses or private CIDR blocks that are allowed to access KMS. For more information, see [CreateNetworkRule](~~2539407~~).
+     *   * 2.Create a permission policy: You can configure the keys and secrets that are allowed to access and bind network access rules to the keys and secrets. For more information, see [CreatePolicy](~~2539454~~).
+     *   * 3.Create an AAP: You can configure an authentication method and bind a permission policy to an AAP. This topic describes how to create an AAP.
+     *   * 4.Create a client key: You can configure the encryption password and validity period of a client key and bind the client key to an AAP. For more information, see [CreateClientKey](~~2539509~~).
+     *   *
+     * @param CreateApplicationAccessPointRequest $request CreateApplicationAccessPointRequest
      *
-     * @return CreateApplicationAccessPointResponse
+     * @return CreateApplicationAccessPointResponse CreateApplicationAccessPointResponse
      */
     public function createApplicationAccessPoint($request)
     {
@@ -1055,10 +1073,18 @@ class Kms extends OpenApiClient
     }
 
     /**
-     * @param CreateClientKeyRequest $request
-     * @param RuntimeOptions         $runtime
+     * To perform cryptographic operations and retrieve secret values, self-managed applications must use a client key to access a Key Management Service (KMS) instance. The following process shows how to create a client key-based application access point (AAP):
+     *   * 1.Create an access control rule: You can configure the private IP addresses or private CIDR blocks that are allowed to access a KMS instance. For more information, see [CreateNetworkRule](~~2539407~~).
+     *   * 2.Create a permission policy: You can configure the keys and secrets that are allowed to access and bind access control rules to the keys and secrets. For more information, see [CreatePolicy](~~2539454~~).
+     *   * 3.Create an AAP: You can configure an authentication method and bind a permission policy to an AAP. For more information, see [CreateApplicationAccessPoint](~~2539467~~).
+     *   * 4.Create a client key: You can configure the encryption password and validity period of a client key and bind the client key to an AAP.
+     *   * ### Precautions
+     *   * A client key has a validity period. After a client key expires, applications into which the client key is integrated cannot access the required KMS instance. You must replace the client key before the client key expires. We recommend that you delete the expired client key in KMS after the new client key is used.
+     *   *
+     * @param CreateClientKeyRequest $request CreateClientKeyRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateClientKeyResponse
+     * @return CreateClientKeyResponse CreateClientKeyResponse
      */
     public function createClientKeyWithOptions($request, $runtime)
     {
@@ -1095,9 +1121,17 @@ class Kms extends OpenApiClient
     }
 
     /**
-     * @param CreateClientKeyRequest $request
+     * To perform cryptographic operations and retrieve secret values, self-managed applications must use a client key to access a Key Management Service (KMS) instance. The following process shows how to create a client key-based application access point (AAP):
+     *   * 1.Create an access control rule: You can configure the private IP addresses or private CIDR blocks that are allowed to access a KMS instance. For more information, see [CreateNetworkRule](~~2539407~~).
+     *   * 2.Create a permission policy: You can configure the keys and secrets that are allowed to access and bind access control rules to the keys and secrets. For more information, see [CreatePolicy](~~2539454~~).
+     *   * 3.Create an AAP: You can configure an authentication method and bind a permission policy to an AAP. For more information, see [CreateApplicationAccessPoint](~~2539467~~).
+     *   * 4.Create a client key: You can configure the encryption password and validity period of a client key and bind the client key to an AAP.
+     *   * ### Precautions
+     *   * A client key has a validity period. After a client key expires, applications into which the client key is integrated cannot access the required KMS instance. You must replace the client key before the client key expires. We recommend that you delete the expired client key in KMS after the new client key is used.
+     *   *
+     * @param CreateClientKeyRequest $request CreateClientKeyRequest
      *
-     * @return CreateClientKeyResponse
+     * @return CreateClientKeyResponse CreateClientKeyResponse
      */
     public function createClientKey($request)
     {
@@ -1107,21 +1141,7 @@ class Kms extends OpenApiClient
     }
 
     /**
-     * A CMK can be symmetric or asymmetric. Symmetric CMKs are used to generate data keys that can be used to encrypt large amounts of data. You can also use symmetric CMKs to encrypt small volume of data that is less than 6 KB. For more information, see [GenerateDataKey](https://www.alibabacloud.com/help/en/key-management-service/latest/generatedatakey). Asymmetric CMKs are used to encrypt data, decrypt data, generate digital signatures, and verify digital signatures. However, you cannot use asymmetric CMKs to generate data keys.
-     *   * The following table describes different types of CMKs and the operations that are supported by the CMKs.
-     *   * | CMK category | CMK type | Description | Encryption and decryption | Signature generation and verification |
-     *   * | ------------ | -------- | ----------- | ------------------------- | ------------------------------------- |
-     *   * | Symmetric CMK | Aliyun_AES_256 | An advanced Encryption Standard (AES) CMK with a length of 256 bits. | Yes | No |
-     *   * | Symmetric CMK | Aliyun_AES_128 | An AES CMK with a length of 128 bits. Only Dedicated KMS supports this CMK type. | Yes | No |
-     *   * | Symmetric CMK | Aliyun_AES_192 | An AES CMK with a length of 192 bits. Only Dedicated KMS supports this CMK type. | Yes | No |
-     *   * | Symmetric CMK | Aliyun_SM4 | SM4 CMK. | Yes | No |
-     *   * | Asymmetric CMK | RSA_2048 | Rivest-Shamir-Adleman (RSA) CMK with a length of 2,048 bits. | Supported | Supported |
-     *   * | Asymmetric CMK | RSA_3072 | RSA CMK with a length of 3,072 bits. | Supported | Supported |
-     *   * | Asymmetric CMK | EC_P256 | National Institute of Standards and Technology (NIST)-recommended elliptic curve P-256 (secp256r1). | Not supported | Supported |
-     *   * | Asymmetric CMK | EC_P256K | Standards for Efficient Cryptography Group (SECG) elliptic curve secp256k1 | Not supported | Supported |
-     *   * | Asymmetric CMK | EC_SM2 | 256-bit elliptic curves over the prime field that is defined in GB/T 32918. | Supported | Supported |
-     *   * > - If the value of the KeySpec parameter that is used to create a symmetric CMK is prefixed with `Aliyun_`, a standard cryptographic algorithm is used, but non-standard ciphertext is generated. An asymmetric CMK can be used to generate standard ciphertext or signatures.
-     *   * > - You can use an RSA CMK to perform one of the two types of operations: encrypt and decrypt data, and generate and verify signatures. You cannot use the RSA CMK to perform both two types of operations.
+     * KMS supports common symmetric keys and asymmetric keys. For more information, see [Key types and specifications](~~480161~~).
      *   *
      * @param CreateKeyRequest $request CreateKeyRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
@@ -1178,21 +1198,7 @@ class Kms extends OpenApiClient
     }
 
     /**
-     * A CMK can be symmetric or asymmetric. Symmetric CMKs are used to generate data keys that can be used to encrypt large amounts of data. You can also use symmetric CMKs to encrypt small volume of data that is less than 6 KB. For more information, see [GenerateDataKey](https://www.alibabacloud.com/help/en/key-management-service/latest/generatedatakey). Asymmetric CMKs are used to encrypt data, decrypt data, generate digital signatures, and verify digital signatures. However, you cannot use asymmetric CMKs to generate data keys.
-     *   * The following table describes different types of CMKs and the operations that are supported by the CMKs.
-     *   * | CMK category | CMK type | Description | Encryption and decryption | Signature generation and verification |
-     *   * | ------------ | -------- | ----------- | ------------------------- | ------------------------------------- |
-     *   * | Symmetric CMK | Aliyun_AES_256 | An advanced Encryption Standard (AES) CMK with a length of 256 bits. | Yes | No |
-     *   * | Symmetric CMK | Aliyun_AES_128 | An AES CMK with a length of 128 bits. Only Dedicated KMS supports this CMK type. | Yes | No |
-     *   * | Symmetric CMK | Aliyun_AES_192 | An AES CMK with a length of 192 bits. Only Dedicated KMS supports this CMK type. | Yes | No |
-     *   * | Symmetric CMK | Aliyun_SM4 | SM4 CMK. | Yes | No |
-     *   * | Asymmetric CMK | RSA_2048 | Rivest-Shamir-Adleman (RSA) CMK with a length of 2,048 bits. | Supported | Supported |
-     *   * | Asymmetric CMK | RSA_3072 | RSA CMK with a length of 3,072 bits. | Supported | Supported |
-     *   * | Asymmetric CMK | EC_P256 | National Institute of Standards and Technology (NIST)-recommended elliptic curve P-256 (secp256r1). | Not supported | Supported |
-     *   * | Asymmetric CMK | EC_P256K | Standards for Efficient Cryptography Group (SECG) elliptic curve secp256k1 | Not supported | Supported |
-     *   * | Asymmetric CMK | EC_SM2 | 256-bit elliptic curves over the prime field that is defined in GB/T 32918. | Supported | Supported |
-     *   * > - If the value of the KeySpec parameter that is used to create a symmetric CMK is prefixed with `Aliyun_`, a standard cryptographic algorithm is used, but non-standard ciphertext is generated. An asymmetric CMK can be used to generate standard ciphertext or signatures.
-     *   * > - You can use an RSA CMK to perform one of the two types of operations: encrypt and decrypt data, and generate and verify signatures. You cannot use the RSA CMK to perform both two types of operations.
+     * KMS supports common symmetric keys and asymmetric keys. For more information, see [Key types and specifications](~~480161~~).
      *   *
      * @param CreateKeyRequest $request CreateKeyRequest
      *
@@ -1261,10 +1267,16 @@ class Kms extends OpenApiClient
     }
 
     /**
-     * @param CreateNetworkRuleRequest $request
-     * @param RuntimeOptions           $runtime
+     * To perform cryptographic operations and retrieve secret values, self-managed applications must use a client key to access a KMS instance. The following process shows how to create a client key-based application access point (AAP):
+     *   * 1.Create an access control rule: You can configure the private IP addresses or private CIDR blocks that are allowed to access a KMS instance.
+     *   * 2.Create a permission policy: You can configure the keys and secrets that are allowed to access and bind access control rules to the keys and secrets. For more information, see [CreatePolicy](~~2539454~~).
+     *   * 3.Create an AAP: You can configure an authentication method and bind a permission policy to an AAP. For more information, see [CreateApplicationAccessPoint](~~2539467~~).
+     *   * 4.Create a client key: You can configure the encryption password and validity period of a client key and bind the client key to an AAP. For more information, see [CreateClientKey](~~2539509~~).
+     *   *
+     * @param CreateNetworkRuleRequest $request CreateNetworkRuleRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateNetworkRuleResponse
+     * @return CreateNetworkRuleResponse CreateNetworkRuleResponse
      */
     public function createNetworkRuleWithOptions($request, $runtime)
     {
@@ -1301,9 +1313,15 @@ class Kms extends OpenApiClient
     }
 
     /**
-     * @param CreateNetworkRuleRequest $request
+     * To perform cryptographic operations and retrieve secret values, self-managed applications must use a client key to access a KMS instance. The following process shows how to create a client key-based application access point (AAP):
+     *   * 1.Create an access control rule: You can configure the private IP addresses or private CIDR blocks that are allowed to access a KMS instance.
+     *   * 2.Create a permission policy: You can configure the keys and secrets that are allowed to access and bind access control rules to the keys and secrets. For more information, see [CreatePolicy](~~2539454~~).
+     *   * 3.Create an AAP: You can configure an authentication method and bind a permission policy to an AAP. For more information, see [CreateApplicationAccessPoint](~~2539467~~).
+     *   * 4.Create a client key: You can configure the encryption password and validity period of a client key and bind the client key to an AAP. For more information, see [CreateClientKey](~~2539509~~).
+     *   *
+     * @param CreateNetworkRuleRequest $request CreateNetworkRuleRequest
      *
-     * @return CreateNetworkRuleResponse
+     * @return CreateNetworkRuleResponse CreateNetworkRuleResponse
      */
     public function createNetworkRule($request)
     {
@@ -1313,10 +1331,16 @@ class Kms extends OpenApiClient
     }
 
     /**
-     * @param CreatePolicyRequest $request
-     * @param RuntimeOptions      $runtime
+     * To perform cryptographic operations and retrieve secret values, self-managed applications must use a client key to access a Key Management Service (KMS) instance. The following process shows how to create a client key-based application access point (AAP):
+     *   * 1.Create an access control rule: You can configure the private IP addresses or private CIDR blocks that are allowed to access a KMS instance. For more information, see [CreateNetworkRule](~~2539407~~).
+     *   * 2.Create a permission policy: You can configure the keys and secrets that are allowed to access and bind access control rules to the keys and secrets.
+     *   * 3.Create an AAP: You can configure an authentication method and bind a permission policy to an AAP. For more information, see [CreateApplicationAccessPoint](~~2539467~~).
+     *   * 4.Create a client key: You can configure the encryption password and validity period of a client key and bind the client key to an AAP. For more information, see [CreateClientKey](~~2539509~~).
+     *   *
+     * @param CreatePolicyRequest $request CreatePolicyRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreatePolicyResponse
+     * @return CreatePolicyResponse CreatePolicyResponse
      */
     public function createPolicyWithOptions($request, $runtime)
     {
@@ -1359,9 +1383,15 @@ class Kms extends OpenApiClient
     }
 
     /**
-     * @param CreatePolicyRequest $request
+     * To perform cryptographic operations and retrieve secret values, self-managed applications must use a client key to access a Key Management Service (KMS) instance. The following process shows how to create a client key-based application access point (AAP):
+     *   * 1.Create an access control rule: You can configure the private IP addresses or private CIDR blocks that are allowed to access a KMS instance. For more information, see [CreateNetworkRule](~~2539407~~).
+     *   * 2.Create a permission policy: You can configure the keys and secrets that are allowed to access and bind access control rules to the keys and secrets.
+     *   * 3.Create an AAP: You can configure an authentication method and bind a permission policy to an AAP. For more information, see [CreateApplicationAccessPoint](~~2539467~~).
+     *   * 4.Create a client key: You can configure the encryption password and validity period of a client key and bind the client key to an AAP. For more information, see [CreateClientKey](~~2539509~~).
+     *   *
+     * @param CreatePolicyRequest $request CreatePolicyRequest
      *
-     * @return CreatePolicyResponse
+     * @return CreatePolicyResponse CreatePolicyResponse
      */
     public function createPolicy($request)
     {
@@ -1558,10 +1588,12 @@ class Kms extends OpenApiClient
     }
 
     /**
-     * @param DeleteApplicationAccessPointRequest $request
-     * @param RuntimeOptions                      $runtime
+     * Before you delete an AAP, make sure that the AAP is no longer in use. If you delete an AAP that is in use, applications that use the AAP cannot access Key Management Service (KMS). Exercise caution when you delete an AAP.
+     *   *
+     * @param DeleteApplicationAccessPointRequest $request DeleteApplicationAccessPointRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteApplicationAccessPointResponse
+     * @return DeleteApplicationAccessPointResponse DeleteApplicationAccessPointResponse
      */
     public function deleteApplicationAccessPointWithOptions($request, $runtime)
     {
@@ -1589,9 +1621,11 @@ class Kms extends OpenApiClient
     }
 
     /**
-     * @param DeleteApplicationAccessPointRequest $request
+     * Before you delete an AAP, make sure that the AAP is no longer in use. If you delete an AAP that is in use, applications that use the AAP cannot access Key Management Service (KMS). Exercise caution when you delete an AAP.
+     *   *
+     * @param DeleteApplicationAccessPointRequest $request DeleteApplicationAccessPointRequest
      *
-     * @return DeleteApplicationAccessPointResponse
+     * @return DeleteApplicationAccessPointResponse DeleteApplicationAccessPointResponse
      */
     public function deleteApplicationAccessPoint($request)
     {
@@ -1650,10 +1684,12 @@ class Kms extends OpenApiClient
     }
 
     /**
-     * @param DeleteClientKeyRequest $request
-     * @param RuntimeOptions         $runtime
+     * Before you delete a client key, make sure that the client key is no longer in use. If you delete a client key that is in use, applications that use the client key cannot access Key Management Service (KMS). Exercise caution when you delete a client key.
+     *   *
+     * @param DeleteClientKeyRequest $request DeleteClientKeyRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteClientKeyResponse
+     * @return DeleteClientKeyResponse DeleteClientKeyResponse
      */
     public function deleteClientKeyWithOptions($request, $runtime)
     {
@@ -1681,9 +1717,11 @@ class Kms extends OpenApiClient
     }
 
     /**
-     * @param DeleteClientKeyRequest $request
+     * Before you delete a client key, make sure that the client key is no longer in use. If you delete a client key that is in use, applications that use the client key cannot access Key Management Service (KMS). Exercise caution when you delete a client key.
+     *   *
+     * @param DeleteClientKeyRequest $request DeleteClientKeyRequest
      *
-     * @return DeleteClientKeyResponse
+     * @return DeleteClientKeyResponse DeleteClientKeyResponse
      */
     public function deleteClientKey($request)
     {
@@ -1744,10 +1782,12 @@ class Kms extends OpenApiClient
     }
 
     /**
-     * @param DeleteNetworkRuleRequest $request
-     * @param RuntimeOptions           $runtime
+     * Before you delete a network access rule, make sure that the network access rule is not bound to permission policies. Otherwise, related applications cannot access Key Management Service (KMS).
+     *   *
+     * @param DeleteNetworkRuleRequest $request DeleteNetworkRuleRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteNetworkRuleResponse
+     * @return DeleteNetworkRuleResponse DeleteNetworkRuleResponse
      */
     public function deleteNetworkRuleWithOptions($request, $runtime)
     {
@@ -1775,9 +1815,11 @@ class Kms extends OpenApiClient
     }
 
     /**
-     * @param DeleteNetworkRuleRequest $request
+     * Before you delete a network access rule, make sure that the network access rule is not bound to permission policies. Otherwise, related applications cannot access Key Management Service (KMS).
+     *   *
+     * @param DeleteNetworkRuleRequest $request DeleteNetworkRuleRequest
      *
-     * @return DeleteNetworkRuleResponse
+     * @return DeleteNetworkRuleResponse DeleteNetworkRuleResponse
      */
     public function deleteNetworkRule($request)
     {
@@ -1787,10 +1829,12 @@ class Kms extends OpenApiClient
     }
 
     /**
-     * @param DeletePolicyRequest $request
-     * @param RuntimeOptions      $runtime
+     * Before you delete a permission policy, make sure that the permission policy is not associated with application access points (AAPs). Otherwise, related applications cannot access Key Management Service (KMS).
+     *   *
+     * @param DeletePolicyRequest $request DeletePolicyRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeletePolicyResponse
+     * @return DeletePolicyResponse DeletePolicyResponse
      */
     public function deletePolicyWithOptions($request, $runtime)
     {
@@ -1818,9 +1862,11 @@ class Kms extends OpenApiClient
     }
 
     /**
-     * @param DeletePolicyRequest $request
+     * Before you delete a permission policy, make sure that the permission policy is not associated with application access points (AAPs). Otherwise, related applications cannot access Key Management Service (KMS).
+     *   *
+     * @param DeletePolicyRequest $request DeletePolicyRequest
      *
-     * @return DeletePolicyResponse
+     * @return DeletePolicyResponse DeletePolicyResponse
      */
     public function deletePolicy($request)
     {
@@ -2191,9 +2237,12 @@ class Kms extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * ## Debugging
+     *   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Kms\\&api=DescribeRegions\\&type=RPC\\&version=2016-01-20).
+     *   *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($runtime)
     {
@@ -2214,7 +2263,10 @@ class Kms extends OpenApiClient
     }
 
     /**
-     * @return DescribeRegionsResponse
+     * ## Debugging
+     *   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Kms\\&api=DescribeRegions\\&type=RPC\\&version=2016-01-20).
+     *   *
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions()
     {
@@ -4274,10 +4326,12 @@ class Kms extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
-     * @param RuntimeOptions      $runtime
+     * You can add multiple tags to multiple keys or multiple secrets at a time.
+     *   *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
@@ -4314,9 +4368,11 @@ class Kms extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
+     * You can add multiple tags to multiple keys or multiple secrets at a time.
+     *   *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -4386,10 +4442,13 @@ class Kms extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
-     * @param RuntimeOptions        $runtime
+     * You can remove multiple tags from multiple keys or multiple secrets at a time. You cannot remove tags that start with aliyun or acs:.
+     *   * If you enter multiple tag keys in the request parameters and only some of the tag keys are associated with resources, the operation can be called and the tags whose keys are associated with resources are removed from the resources.
+     *   *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
@@ -4429,9 +4488,12 @@ class Kms extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
+     * You can remove multiple tags from multiple keys or multiple secrets at a time. You cannot remove tags that start with aliyun or acs:.
+     *   * If you enter multiple tag keys in the request parameters and only some of the tag keys are associated with resources, the operation can be called and the tags whose keys are associated with resources are removed from the resources.
+     *   *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -4487,10 +4549,12 @@ class Kms extends OpenApiClient
     }
 
     /**
-     * @param UpdateApplicationAccessPointRequest $request
-     * @param RuntimeOptions                      $runtime
+     * The update takes effect immediately after an AAP information is updated. Exercise caution when you perform this operation. You can update the description of an AAP and the permission policies that are associated with the AAP. You cannot update the name of the AAP.
+     *   *
+     * @param UpdateApplicationAccessPointRequest $request UpdateApplicationAccessPointRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateApplicationAccessPointResponse
+     * @return UpdateApplicationAccessPointResponse UpdateApplicationAccessPointResponse
      */
     public function updateApplicationAccessPointWithOptions($request, $runtime)
     {
@@ -4524,9 +4588,11 @@ class Kms extends OpenApiClient
     }
 
     /**
-     * @param UpdateApplicationAccessPointRequest $request
+     * The update takes effect immediately after an AAP information is updated. Exercise caution when you perform this operation. You can update the description of an AAP and the permission policies that are associated with the AAP. You cannot update the name of the AAP.
+     *   *
+     * @param UpdateApplicationAccessPointRequest $request UpdateApplicationAccessPointRequest
      *
-     * @return UpdateApplicationAccessPointResponse
+     * @return UpdateApplicationAccessPointResponse UpdateApplicationAccessPointResponse
      */
     public function updateApplicationAccessPoint($request)
     {
@@ -4636,10 +4702,14 @@ class Kms extends OpenApiClient
     }
 
     /**
-     * @param UpdateKmsInstanceBindVpcRequest $request
-     * @param RuntimeOptions                  $runtime
+     * If your own applications are deployed in multiple VPCs in the same region, you can associate the VPCs except the VPC in which the KMS instance resides with the KMS instance. This topic describes how to configure the VPCs.
+     *   * The VPCs can belong to the same Alibaba Cloud account or different Alibaba Cloud accounts. After the configuration is complete, the applications in these VPCs can access the KMS instance.
+     *   * > If the VPCs belong to different Alibaba Cloud accounts, you must first configure resource sharing to share the vSwitches of other Alibaba Cloud accounts with the Alibaba Cloud account to which the KMS instance belongs. For more information, see [Access a KMS instance from multiple VPCs in the same region](~~2393236~~).
+     *   *
+     * @param UpdateKmsInstanceBindVpcRequest $request UpdateKmsInstanceBindVpcRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateKmsInstanceBindVpcResponse
+     * @return UpdateKmsInstanceBindVpcResponse UpdateKmsInstanceBindVpcResponse
      */
     public function updateKmsInstanceBindVpcWithOptions($request, $runtime)
     {
@@ -4664,9 +4734,13 @@ class Kms extends OpenApiClient
     }
 
     /**
-     * @param UpdateKmsInstanceBindVpcRequest $request
+     * If your own applications are deployed in multiple VPCs in the same region, you can associate the VPCs except the VPC in which the KMS instance resides with the KMS instance. This topic describes how to configure the VPCs.
+     *   * The VPCs can belong to the same Alibaba Cloud account or different Alibaba Cloud accounts. After the configuration is complete, the applications in these VPCs can access the KMS instance.
+     *   * > If the VPCs belong to different Alibaba Cloud accounts, you must first configure resource sharing to share the vSwitches of other Alibaba Cloud accounts with the Alibaba Cloud account to which the KMS instance belongs. For more information, see [Access a KMS instance from multiple VPCs in the same region](~~2393236~~).
+     *   *
+     * @param UpdateKmsInstanceBindVpcRequest $request UpdateKmsInstanceBindVpcRequest
      *
-     * @return UpdateKmsInstanceBindVpcResponse
+     * @return UpdateKmsInstanceBindVpcResponse UpdateKmsInstanceBindVpcResponse
      */
     public function updateKmsInstanceBindVpc($request)
     {
@@ -4676,10 +4750,13 @@ class Kms extends OpenApiClient
     }
 
     /**
-     * @param UpdateNetworkRuleRequest $request
-     * @param RuntimeOptions           $runtime
+     * - You can update only private IP addresses and description of an access control rule. You cannot update the name and network type of an access control rule.
+     *   * - Updating an access control rule affects all permission policies that are bound to the access control rule. Exercise caution when you perform this operation.
+     *   *
+     * @param UpdateNetworkRuleRequest $request UpdateNetworkRuleRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateNetworkRuleResponse
+     * @return UpdateNetworkRuleResponse UpdateNetworkRuleResponse
      */
     public function updateNetworkRuleWithOptions($request, $runtime)
     {
@@ -4713,9 +4790,12 @@ class Kms extends OpenApiClient
     }
 
     /**
-     * @param UpdateNetworkRuleRequest $request
+     * - You can update only private IP addresses and description of an access control rule. You cannot update the name and network type of an access control rule.
+     *   * - Updating an access control rule affects all permission policies that are bound to the access control rule. Exercise caution when you perform this operation.
+     *   *
+     * @param UpdateNetworkRuleRequest $request UpdateNetworkRuleRequest
      *
-     * @return UpdateNetworkRuleResponse
+     * @return UpdateNetworkRuleResponse UpdateNetworkRuleResponse
      */
     public function updateNetworkRule($request)
     {
@@ -4725,10 +4805,13 @@ class Kms extends OpenApiClient
     }
 
     /**
-     * @param UpdatePolicyRequest $request
-     * @param RuntimeOptions      $runtime
+     * - You can update the role-based access control (RBAC) permissions, accessible resources, access control rules, and description of a permission policy. You cannot update the name or scope of a permission policy.
+     *   * - Updating a permission policy affects all application access points (AAPs) that are bound to the permission policy. Exercise caution when you perform this operation.
+     *   *
+     * @param UpdatePolicyRequest $request UpdatePolicyRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdatePolicyResponse
+     * @return UpdatePolicyResponse UpdatePolicyResponse
      */
     public function updatePolicyWithOptions($request, $runtime)
     {
@@ -4768,9 +4851,12 @@ class Kms extends OpenApiClient
     }
 
     /**
-     * @param UpdatePolicyRequest $request
+     * - You can update the role-based access control (RBAC) permissions, accessible resources, access control rules, and description of a permission policy. You cannot update the name or scope of a permission policy.
+     *   * - Updating a permission policy affects all application access points (AAPs) that are bound to the permission policy. Exercise caution when you perform this operation.
+     *   *
+     * @param UpdatePolicyRequest $request UpdatePolicyRequest
      *
-     * @return UpdatePolicyResponse
+     * @return UpdatePolicyResponse UpdatePolicyResponse
      */
     public function updatePolicy($request)
     {

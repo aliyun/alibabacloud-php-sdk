@@ -83,6 +83,8 @@ class keyMetadata extends Model
     /**
      * @description The description of deletion protection.
      *
+     * @example The CMK is being used by XXX. Deletion protection is set.
+     *
      * @var string
      */
     public $deletionProtectionDescription;

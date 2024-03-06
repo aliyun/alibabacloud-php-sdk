@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdatePolicyResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example f455324b-e229-4066-9f58-9c1cf3fe83a8
      *
      * @var string

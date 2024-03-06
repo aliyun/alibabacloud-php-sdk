@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateKeyRequest extends Model
 {
     /**
-     * @description The ID of the dedicated KMS instance.
+     * @description The ID of the KMS instance.
      *
+     * > You must specify this parameter if you need to create a key for a KMS instance. If you need to create a default key of the CMK type, you do not need to specify this parameter.
      * @example kst-bjj62d8f5e0sgtx8h****
      *
      * @var string
@@ -18,7 +19,7 @@ class CreateKeyRequest extends Model
     public $DKMSInstanceId;
 
     /**
-     * @description The description of the CMK.
+     * @description The description of the key.
      *
      * The description can be 0 to 8,192 characters in length.
      * @example key description example
@@ -30,31 +31,17 @@ class CreateKeyRequest extends Model
     /**
      * @description Specifies whether to enable automatic key rotation. Valid values:
      *
-     *   true
-     *   false
-     *
-     * >  If the Origin parameter is set to EXTERNAL or the KeySpec parameter is set to an asymmetric CMK type, automatic key rotation is not supported.
-     * @example false
+     * This parameter is valid only when the key belongs to an instance type that supports automatic rotation. For more information, see [Key rotation](~~2358146~~).
+     * @example true
      *
      * @var bool
      */
     public $enableAutomaticRotation;
 
     /**
-     * @description The type of the CMK. Valid values:
+     * @description The key specification. The valid values vary based on the KMS instance type. For more information, see [Overview](~~480159~~).
      *
-     *   Aliyun_AES\_256
-     *   Aliyun_AES\_128
-     *   Aliyun_AES\_192
-     *   Aliyun_SM4
-     *   RSA\_2048
-     *   RSA\_3072
-     *   EC_P256
-     *   EC_P256K
-     *   EC_SM2
-     *
-     * > * The default type of the CMK is Aliyun\_AES\_256.
-     * > * Only Dedicated KMS supports Aliyun\_AES\_128 and Aliyun\_AES\_192.
+     * > If you do not specify a value for this parameter, the default key specification is Aliyun_AES_256.
      * @example Aliyun_AES_256
      *
      * @var string
@@ -62,12 +49,9 @@ class CreateKeyRequest extends Model
     public $keySpec;
 
     /**
-     * @description The usage of the CMK. Valid values:
+     * @description The usage of the key. Valid values:
      *
-     *   ENCRYPT/DECRYPT: encrypts or decrypts data.
-     *   SIGN/VERIFY: generates or verifies a digital signature.
-     *
-     * If the CMK supports signature verification, the default value is SIGN/VERIFY. If the CMK does not support signature verification, the default value is ENCRYPT/DECRYPT.
+     * If the key supports signing and verification, the default value is SIGN/VERIFY. If the key does not support signing and verification, the default value is ENCRYPT/DECRYPT.
      * @example ENCRYPT/DECRYPT
      *
      * @var string
@@ -75,14 +59,9 @@ class CreateKeyRequest extends Model
     public $keyUsage;
 
     /**
-     * @description The source of key material. Valid values:
+     * @description The key material origin. Valid values:
      *
-     *   Aliyun_KMS (default value)
-     *   EXTERNAL
-     *
-     * > * The value of this parameter is case-sensitive.
-     * > * If you set the KeySpec parameter to an asymmetric CMK type, you are not allowed to set the Origin parameter to EXTERNAL.
-     * > * If you set the Origin parameter to EXTERNAL, you must import key material. For more information, see [Import key material](~~68523~~).
+     * > - If you set Origin to EXTERNAL, you must import key material. For more information, see [Import key material into a symmetric key](~~607841~~) or [Import key material into an asymmetric key](~~608827~~).
      * @example Aliyun_KMS
      *
      * @var string
@@ -90,15 +69,9 @@ class CreateKeyRequest extends Model
     public $origin;
 
     /**
-     * @description The protection level of the CMK. Valid values:
+     * @description You do not need to specify this parameter. KMS sets a protection level for your key.
      *
-     *   SOFTWARE
-     *   HSM
-     *
-     * Default value: SOFTWARE.
-     *
-     * > * The value of this parameter is case-sensitive.
-     * > * Assume that you set this parameter to HSM. If you set the Origin parameter to Aliyun_KMS, the CMK is created in a managed HSM. If you set the Origin parameter to EXTERNAL, you can import an external key into the managed HSM.
+     * > - If you do not specify DKMSInstanceId, we recommend that you do not specify this parameter. KMS sets a protection level for your key. If managed hardware security modules (HSMs) exist in the region of your KMS instance, set the value to HSM. If managed HSMs do not exist in the region of your KMS instance, set the value to SOFTWARE. For more information, see Managed HSM overview.
      * @example SOFTWARE
      *
      * @var string
@@ -106,9 +79,9 @@ class CreateKeyRequest extends Model
     public $protectionLevel;
 
     /**
-     * @description The period of automatic key rotation. Specify the value in the integer\[unit] format. Unit: d (day), h (hour), m (minute), or s (second). For example, you can use either 7d or 604800s to specify a seven-day period. The period can range from 7 days to 730 days.
+     * @description The period of automatic key rotation. Format: integer[unit]. Unit: d (day), h (hour), m (minute), or s (second). For example, both 7d and 604800s represent a seven-day interval.
      *
-     * >  If you set the EnableAutomaticRotation parameter to true, you must also specify this parameter. If you set the EnableAutomaticRotation parameter to false, you can leave this parameter unspecified.
+     * > If EnableAutomaticRotation is set to true, this parameter is required.
      * @example 365d
      *
      * @var string
@@ -116,6 +89,9 @@ class CreateKeyRequest extends Model
     public $rotationInterval;
 
     /**
+     * @description The tag that is added to the key. A tag consists of a key-value pair.
+     *
+     * > The tag key cannot start with aliyun or acs:.
      * @example [{"TagKey":"disk-encryption","TagValue":"true"}]
      *
      * @var string

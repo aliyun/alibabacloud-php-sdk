@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class applicationAccessPoint extends Model
 {
     /**
+     * @description The authentication method.
+     *
      * @example ClientKey
      *
      * @var string
@@ -16,6 +18,8 @@ class applicationAccessPoint extends Model
     public $authenticationMethod;
 
     /**
+     * @description The name of the AAP.
+     *
      * @example aap_test
      *
      * @var string

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListApplicationAccessPointsResponseBody extends Model
 {
     /**
+     * @description A list of AAPs.
+     *
      * @var applicationAccessPoints
      */
     public $applicationAccessPoints;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class ListApplicationAccessPointsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class ListApplicationAccessPointsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example bcfefe15-46f0-44a3-bd96-3d422474b71a
      *
      * @var string
@@ -36,6 +44,8 @@ class ListApplicationAccessPointsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1
      *
      * @var int

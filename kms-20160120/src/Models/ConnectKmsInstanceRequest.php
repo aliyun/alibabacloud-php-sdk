@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ConnectKmsInstanceRequest extends Model
 {
     /**
+     * @description The provider of the KMS instance. Set the value to Aliyun.
+     *
      * @example Aliyun
      *
      * @var string
@@ -16,6 +18,8 @@ class ConnectKmsInstanceRequest extends Model
     public $KMProvider;
 
     /**
+     * @description The ID of the KMS instance that you want to enable.
+     *
      * @example kst-phzz64f722a1buamw0****
      *
      * @var string
@@ -23,6 +27,8 @@ class ConnectKmsInstanceRequest extends Model
     public $kmsInstanceId;
 
     /**
+     * @description The vSwitch in the two zones. The vSwitch must have at least one available IP address.
+     *
      * @example vsw-bp1i512amda6d10a0****
      *
      * @var string
@@ -30,6 +36,8 @@ class ConnectKmsInstanceRequest extends Model
     public $vSwitchIds;
 
     /**
+     * @description The ID of the virtual private cloud (VPC) that is associated with the KMS instance.
+     *
      * @example vpc-bp19z7cwmltad5dff****
      *
      * @var string
@@ -37,6 +45,8 @@ class ConnectKmsInstanceRequest extends Model
     public $vpcId;
 
     /**
+     * @description The two zones for the KMS instance. Dual-zone deployment improves service availability and disaster recovery capabilities.
+     *
      * @example cn-hangzhou-k,cn-hangzhou-j
      *
      * @var string
