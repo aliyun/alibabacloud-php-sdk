@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\CarbonFootprint\V20230711\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetSummaryDataRequest extends Model
+class GetSummaryDataShrinkRequest extends Model
 {
     /**
      * @example 2023-02-01 23:59:59
@@ -30,14 +30,14 @@ class GetSummaryDataRequest extends Model
     public $startTime;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $uids;
+    public $uidsShrink;
     protected $_name = [
-        'endTime'   => 'EndTime',
-        'group'     => 'Group',
-        'startTime' => 'StartTime',
-        'uids'      => 'Uids',
+        'endTime'    => 'EndTime',
+        'group'      => 'Group',
+        'startTime'  => 'StartTime',
+        'uidsShrink' => 'Uids',
     ];
 
     public function validate()
@@ -56,8 +56,8 @@ class GetSummaryDataRequest extends Model
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
-        if (null !== $this->uids) {
-            $res['Uids'] = $this->uids;
+        if (null !== $this->uidsShrink) {
+            $res['Uids'] = $this->uidsShrink;
         }
 
         return $res;
@@ -66,7 +66,7 @@ class GetSummaryDataRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetSummaryDataRequest
+     * @return GetSummaryDataShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -81,9 +81,7 @@ class GetSummaryDataRequest extends Model
             $model->startTime = $map['StartTime'];
         }
         if (isset($map['Uids'])) {
-            if (!empty($map['Uids'])) {
-                $model->uids = $map['Uids'];
-            }
+            $model->uidsShrink = $map['Uids'];
         }
 
         return $model;

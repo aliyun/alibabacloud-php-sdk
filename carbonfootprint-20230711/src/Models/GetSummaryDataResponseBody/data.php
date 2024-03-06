@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var string
+     */
+    public $aircraftConsumptionConversion;
+
+    /**
+     * @var string
+     */
+    public $carConsumptionConversion;
+
+    /**
      * @example 301.83
      *
      * @var string
@@ -56,7 +66,14 @@ class data extends Model
      * @var string
      */
     public $totalCarbonConsumptionConversion;
+
+    /**
+     * @var string
+     */
+    public $treeConsumptionConversion;
     protected $_name = [
+        'aircraftConsumptionConversion'    => 'AircraftConsumptionConversion',
+        'carConsumptionConversion'         => 'CarConsumptionConversion',
         'lastMonthConsumptionConversion'   => 'LastMonthConsumptionConversion',
         'lastYearConsumptionConversion'    => 'LastYearConsumptionConversion',
         'lastYearConsumptionConversionSum' => 'LastYearConsumptionConversionSum',
@@ -64,6 +81,7 @@ class data extends Model
         'thisMonthConsumptionConversion'   => 'ThisMonthConsumptionConversion',
         'thisYearConsumptionConversion'    => 'ThisYearConsumptionConversion',
         'totalCarbonConsumptionConversion' => 'TotalCarbonConsumptionConversion',
+        'treeConsumptionConversion'        => 'TreeConsumptionConversion',
     ];
 
     public function validate()
@@ -73,6 +91,12 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->aircraftConsumptionConversion) {
+            $res['AircraftConsumptionConversion'] = $this->aircraftConsumptionConversion;
+        }
+        if (null !== $this->carConsumptionConversion) {
+            $res['CarConsumptionConversion'] = $this->carConsumptionConversion;
+        }
         if (null !== $this->lastMonthConsumptionConversion) {
             $res['LastMonthConsumptionConversion'] = $this->lastMonthConsumptionConversion;
         }
@@ -94,6 +118,9 @@ class data extends Model
         if (null !== $this->totalCarbonConsumptionConversion) {
             $res['TotalCarbonConsumptionConversion'] = $this->totalCarbonConsumptionConversion;
         }
+        if (null !== $this->treeConsumptionConversion) {
+            $res['TreeConsumptionConversion'] = $this->treeConsumptionConversion;
+        }
 
         return $res;
     }
@@ -106,6 +133,12 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AircraftConsumptionConversion'])) {
+            $model->aircraftConsumptionConversion = $map['AircraftConsumptionConversion'];
+        }
+        if (isset($map['CarConsumptionConversion'])) {
+            $model->carConsumptionConversion = $map['CarConsumptionConversion'];
+        }
         if (isset($map['LastMonthConsumptionConversion'])) {
             $model->lastMonthConsumptionConversion = $map['LastMonthConsumptionConversion'];
         }
@@ -126,6 +159,9 @@ class data extends Model
         }
         if (isset($map['TotalCarbonConsumptionConversion'])) {
             $model->totalCarbonConsumptionConversion = $map['TotalCarbonConsumptionConversion'];
+        }
+        if (isset($map['TreeConsumptionConversion'])) {
+            $model->treeConsumptionConversion = $map['TreeConsumptionConversion'];
         }
 
         return $model;

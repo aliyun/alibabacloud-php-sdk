@@ -9,6 +9,7 @@ use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\CarbonFootprint\V20230711\Models\AllowResponse;
 use AlibabaCloud\SDK\CarbonFootprint\V20230711\Models\GetSummaryDataRequest;
 use AlibabaCloud\SDK\CarbonFootprint\V20230711\Models\GetSummaryDataResponse;
+use AlibabaCloud\SDK\CarbonFootprint\V20230711\Models\GetSummaryDataShrinkRequest;
 use AlibabaCloud\SDK\CarbonFootprint\V20230711\Models\QueryCarbonTrackRequest;
 use AlibabaCloud\SDK\CarbonFootprint\V20230711\Models\QueryCarbonTrackResponse;
 use AlibabaCloud\SDK\CarbonFootprint\V20230711\Models\QueryMultiAccountCarbonTrackRequest;
@@ -87,14 +88,19 @@ class CarbonFootprint extends OpenApiClient
     }
 
     /**
-     * @param GetSummaryDataRequest $request
+     * @param GetSummaryDataRequest $tmpReq
      * @param RuntimeOptions        $runtime
      *
      * @return GetSummaryDataResponse
      */
-    public function getSummaryDataWithOptions($request, $runtime)
+    public function getSummaryDataWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new GetSummaryDataShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->uids)) {
+            $request->uidsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->uids, 'Uids', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
@@ -104,6 +110,9 @@ class CarbonFootprint extends OpenApiClient
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->uidsShrink)) {
+            $query['Uids'] = $request->uidsShrink;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
