@@ -8,6 +8,8 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\PaiAutoML\V20220828\Models\CreateHpoExperimentRequest;
 use AlibabaCloud\SDK\PaiAutoML\V20220828\Models\CreateHpoExperimentResponse;
+use AlibabaCloud\SDK\PaiAutoML\V20220828\Models\ListHpoExperimentsRequest;
+use AlibabaCloud\SDK\PaiAutoML\V20220828\Models\ListHpoExperimentsResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -103,5 +105,84 @@ class PaiAutoML extends OpenApiClient
         $headers = [];
 
         return $this->createHpoExperimentWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListHpoExperimentsRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListHpoExperimentsResponse
+     */
+    public function listHpoExperimentsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessibility)) {
+            $query['Accessibility'] = $request->accessibility;
+        }
+        if (!Utils::isUnset($request->creator)) {
+            $query['Creator'] = $request->creator;
+        }
+        if (!Utils::isUnset($request->includeConfigData)) {
+            $query['IncludeConfigData'] = $request->includeConfigData;
+        }
+        if (!Utils::isUnset($request->maxCreateTime)) {
+            $query['MaxCreateTime'] = $request->maxCreateTime;
+        }
+        if (!Utils::isUnset($request->minCreateTime)) {
+            $query['MinCreateTime'] = $request->minCreateTime;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->sortBy)) {
+            $query['SortBy'] = $request->sortBy;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListHpoExperiments',
+            'version'     => '2022-08-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/automl/v1/hpo/experiments',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListHpoExperimentsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListHpoExperimentsRequest $request
+     *
+     * @return ListHpoExperimentsResponse
+     */
+    public function listHpoExperiments($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listHpoExperimentsWithOptions($request, $headers, $runtime);
     }
 }
