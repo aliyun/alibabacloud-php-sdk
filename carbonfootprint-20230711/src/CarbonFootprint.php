@@ -12,6 +12,7 @@ use AlibabaCloud\SDK\CarbonFootprint\V20230711\Models\GetSummaryDataResponse;
 use AlibabaCloud\SDK\CarbonFootprint\V20230711\Models\GetSummaryDataShrinkRequest;
 use AlibabaCloud\SDK\CarbonFootprint\V20230711\Models\QueryCarbonTrackRequest;
 use AlibabaCloud\SDK\CarbonFootprint\V20230711\Models\QueryCarbonTrackResponse;
+use AlibabaCloud\SDK\CarbonFootprint\V20230711\Models\QueryCarbonTrackShrinkRequest;
 use AlibabaCloud\SDK\CarbonFootprint\V20230711\Models\QueryMultiAccountCarbonTrackRequest;
 use AlibabaCloud\SDK\CarbonFootprint\V20230711\Models\QueryMultiAccountCarbonTrackResponse;
 use AlibabaCloud\SDK\CarbonFootprint\V20230711\Models\VerifyResponse;
@@ -145,23 +146,34 @@ class CarbonFootprint extends OpenApiClient
     }
 
     /**
-     * @param QueryCarbonTrackRequest $request
+     * @param QueryCarbonTrackRequest $tmpReq
      * @param RuntimeOptions          $runtime
      *
      * @return QueryCarbonTrackResponse
      */
-    public function queryCarbonTrackWithOptions($request, $runtime)
+    public function queryCarbonTrackWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new QueryCarbonTrackShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->uids)) {
+            $request->uidsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->uids, 'Uids', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->filterRDAccount)) {
+            $query['FilterRDAccount'] = $request->filterRDAccount;
         }
         if (!Utils::isUnset($request->group)) {
             $query['Group'] = $request->group;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->uidsShrink)) {
+            $query['Uids'] = $request->uidsShrink;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

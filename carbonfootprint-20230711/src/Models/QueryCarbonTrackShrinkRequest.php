@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\CarbonFootprint\V20230711\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class QueryCarbonTrackRequest extends Model
+class QueryCarbonTrackShrinkRequest extends Model
 {
     /**
      * @example 2023-02-01 23:59:59
@@ -35,15 +35,15 @@ class QueryCarbonTrackRequest extends Model
     public $startTime;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $uids;
+    public $uidsShrink;
     protected $_name = [
         'endTime'         => 'EndTime',
         'filterRDAccount' => 'FilterRDAccount',
         'group'           => 'Group',
         'startTime'       => 'StartTime',
-        'uids'            => 'Uids',
+        'uidsShrink'      => 'Uids',
     ];
 
     public function validate()
@@ -65,8 +65,8 @@ class QueryCarbonTrackRequest extends Model
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
-        if (null !== $this->uids) {
-            $res['Uids'] = $this->uids;
+        if (null !== $this->uidsShrink) {
+            $res['Uids'] = $this->uidsShrink;
         }
 
         return $res;
@@ -75,7 +75,7 @@ class QueryCarbonTrackRequest extends Model
     /**
      * @param array $map
      *
-     * @return QueryCarbonTrackRequest
+     * @return QueryCarbonTrackShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -93,9 +93,7 @@ class QueryCarbonTrackRequest extends Model
             $model->startTime = $map['StartTime'];
         }
         if (isset($map['Uids'])) {
-            if (!empty($map['Uids'])) {
-                $model->uids = $map['Uids'];
-            }
+            $model->uidsShrink = $map['Uids'];
         }
 
         return $model;
