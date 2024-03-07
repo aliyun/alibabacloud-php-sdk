@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class QueryCreateInstancePriceShrinkRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $architectureType;
+
+    /**
      * @example true
      *
      * @var bool
@@ -28,6 +33,21 @@ class QueryCreateInstancePriceShrinkRequest extends Model
      * @var int
      */
     public $duration;
+
+    /**
+     * @var string
+     */
+    public $extra;
+
+    /**
+     * @var bool
+     */
+    public $ha;
+
+    /**
+     * @var string
+     */
+    public $haResourceSpecShrink;
 
     /**
      * @example rtc-e2e-test-post
@@ -68,6 +88,11 @@ class QueryCreateInstancePriceShrinkRequest extends Model
     public $storageShrink;
 
     /**
+     * @var bool
+     */
+    public $usePromotionCode;
+
+    /**
      * @var string
      */
     public $vSwitchIdsShrink;
@@ -86,18 +111,23 @@ class QueryCreateInstancePriceShrinkRequest extends Model
      */
     public $zoneId;
     protected $_name = [
-        'autoRenew'          => 'AutoRenew',
-        'chargeType'         => 'ChargeType',
-        'duration'           => 'Duration',
-        'instanceName'       => 'InstanceName',
-        'pricingCycle'       => 'PricingCycle',
-        'promotionCode'      => 'PromotionCode',
-        'region'             => 'Region',
-        'resourceSpecShrink' => 'ResourceSpec',
-        'storageShrink'      => 'Storage',
-        'vSwitchIdsShrink'   => 'VSwitchIds',
-        'vpcId'              => 'VpcId',
-        'zoneId'             => 'ZoneId',
+        'architectureType'     => 'ArchitectureType',
+        'autoRenew'            => 'AutoRenew',
+        'chargeType'           => 'ChargeType',
+        'duration'             => 'Duration',
+        'extra'                => 'Extra',
+        'ha'                   => 'Ha',
+        'haResourceSpecShrink' => 'HaResourceSpec',
+        'instanceName'         => 'InstanceName',
+        'pricingCycle'         => 'PricingCycle',
+        'promotionCode'        => 'PromotionCode',
+        'region'               => 'Region',
+        'resourceSpecShrink'   => 'ResourceSpec',
+        'storageShrink'        => 'Storage',
+        'usePromotionCode'     => 'UsePromotionCode',
+        'vSwitchIdsShrink'     => 'VSwitchIds',
+        'vpcId'                => 'VpcId',
+        'zoneId'               => 'ZoneId',
     ];
 
     public function validate()
@@ -107,6 +137,9 @@ class QueryCreateInstancePriceShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->architectureType) {
+            $res['ArchitectureType'] = $this->architectureType;
+        }
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
         }
@@ -115,6 +148,15 @@ class QueryCreateInstancePriceShrinkRequest extends Model
         }
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
+        }
+        if (null !== $this->extra) {
+            $res['Extra'] = $this->extra;
+        }
+        if (null !== $this->ha) {
+            $res['Ha'] = $this->ha;
+        }
+        if (null !== $this->haResourceSpecShrink) {
+            $res['HaResourceSpec'] = $this->haResourceSpecShrink;
         }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
@@ -133,6 +175,9 @@ class QueryCreateInstancePriceShrinkRequest extends Model
         }
         if (null !== $this->storageShrink) {
             $res['Storage'] = $this->storageShrink;
+        }
+        if (null !== $this->usePromotionCode) {
+            $res['UsePromotionCode'] = $this->usePromotionCode;
         }
         if (null !== $this->vSwitchIdsShrink) {
             $res['VSwitchIds'] = $this->vSwitchIdsShrink;
@@ -155,6 +200,9 @@ class QueryCreateInstancePriceShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ArchitectureType'])) {
+            $model->architectureType = $map['ArchitectureType'];
+        }
         if (isset($map['AutoRenew'])) {
             $model->autoRenew = $map['AutoRenew'];
         }
@@ -163,6 +211,15 @@ class QueryCreateInstancePriceShrinkRequest extends Model
         }
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
+        }
+        if (isset($map['Extra'])) {
+            $model->extra = $map['Extra'];
+        }
+        if (isset($map['Ha'])) {
+            $model->ha = $map['Ha'];
+        }
+        if (isset($map['HaResourceSpec'])) {
+            $model->haResourceSpecShrink = $map['HaResourceSpec'];
         }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
@@ -181,6 +238,9 @@ class QueryCreateInstancePriceShrinkRequest extends Model
         }
         if (isset($map['Storage'])) {
             $model->storageShrink = $map['Storage'];
+        }
+        if (isset($map['UsePromotionCode'])) {
+            $model->usePromotionCode = $map['UsePromotionCode'];
         }
         if (isset($map['VSwitchIds'])) {
             $model->vSwitchIdsShrink = $map['VSwitchIds'];

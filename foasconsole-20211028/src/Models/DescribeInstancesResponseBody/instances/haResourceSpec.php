@@ -2,33 +2,23 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeNamespacesResponseBody\namespaces;
+namespace AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeInstancesResponseBody\instances;
 
 use AlibabaCloud\Tea\Model;
 
-class resourceUsed extends Model
+class haResourceSpec extends Model
 {
     /**
-     * @example 2
-     *
-     * @var float
+     * @var int
      */
     public $cpu;
 
     /**
-     * @var float
-     */
-    public $cu;
-
-    /**
-     * @example 4
-     *
-     * @var float
+     * @var int
      */
     public $memoryGB;
     protected $_name = [
         'cpu'      => 'Cpu',
-        'cu'       => 'Cu',
         'memoryGB' => 'MemoryGB',
     ];
 
@@ -42,9 +32,6 @@ class resourceUsed extends Model
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
         }
-        if (null !== $this->cu) {
-            $res['Cu'] = $this->cu;
-        }
         if (null !== $this->memoryGB) {
             $res['MemoryGB'] = $this->memoryGB;
         }
@@ -55,16 +42,13 @@ class resourceUsed extends Model
     /**
      * @param array $map
      *
-     * @return resourceUsed
+     * @return haResourceSpec
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
-        }
-        if (isset($map['Cu'])) {
-            $model->cu = $map['Cu'];
         }
         if (isset($map['MemoryGB'])) {
             $model->memoryGB = $map['MemoryGB'];

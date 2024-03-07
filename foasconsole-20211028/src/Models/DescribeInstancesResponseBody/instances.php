@@ -4,6 +4,8 @@
 
 namespace AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeInstancesResponseBody;
 
+use AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeInstancesResponseBody\instances\haResourceSpec;
+use AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeInstancesResponseBody\instances\hostAliases;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeInstancesResponseBody\instances\resourceSpec;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeInstancesResponseBody\instances\storage;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeInstancesResponseBody\instances\tags;
@@ -11,6 +13,16 @@ use AlibabaCloud\Tea\Model;
 
 class instances extends Model
 {
+    /**
+     * @var string
+     */
+    public $architectureType;
+
+    /**
+     * @var string
+     */
+    public $askClusterId;
+
     /**
      * @example PRE
      *
@@ -26,6 +38,31 @@ class instances extends Model
     public $clusterStatus;
 
     /**
+     * @var bool
+     */
+    public $ha;
+
+    /**
+     * @var haResourceSpec
+     */
+    public $haResourceSpec;
+
+    /**
+     * @var string[]
+     */
+    public $haVSwitchIds;
+
+    /**
+     * @var string
+     */
+    public $haZoneId;
+
+    /**
+     * @var hostAliases[]
+     */
+    public $hostAliases;
+
+    /**
      * @example f-cn-zvp2q0zik06
      *
      * @var string
@@ -38,6 +75,11 @@ class instances extends Model
      * @var string
      */
     public $instanceName;
+
+    /**
+     * @var string
+     */
+    public $monitorType;
 
     /**
      * @example NORMAL
@@ -66,6 +108,11 @@ class instances extends Model
      * @var int
      */
     public $resourceExpiredTime;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
 
     /**
      * @example b3690a1655da47
@@ -115,14 +162,23 @@ class instances extends Model
      */
     public $zoneId;
     protected $_name = [
+        'architectureType'    => 'ArchitectureType',
+        'askClusterId'        => 'AskClusterId',
         'chargeType'          => 'ChargeType',
         'clusterStatus'       => 'ClusterStatus',
+        'ha'                  => 'Ha',
+        'haResourceSpec'      => 'HaResourceSpec',
+        'haVSwitchIds'        => 'HaVSwitchIds',
+        'haZoneId'            => 'HaZoneId',
+        'hostAliases'         => 'HostAliases',
         'instanceId'          => 'InstanceId',
         'instanceName'        => 'InstanceName',
+        'monitorType'         => 'MonitorType',
         'orderState'          => 'OrderState',
         'region'              => 'Region',
         'resourceCreateTime'  => 'ResourceCreateTime',
         'resourceExpiredTime' => 'ResourceExpiredTime',
+        'resourceGroupId'     => 'ResourceGroupId',
         'resourceId'          => 'ResourceId',
         'resourceSpec'        => 'ResourceSpec',
         'storage'             => 'Storage',
@@ -140,17 +196,47 @@ class instances extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->architectureType) {
+            $res['ArchitectureType'] = $this->architectureType;
+        }
+        if (null !== $this->askClusterId) {
+            $res['AskClusterId'] = $this->askClusterId;
+        }
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
         }
         if (null !== $this->clusterStatus) {
             $res['ClusterStatus'] = $this->clusterStatus;
         }
+        if (null !== $this->ha) {
+            $res['Ha'] = $this->ha;
+        }
+        if (null !== $this->haResourceSpec) {
+            $res['HaResourceSpec'] = null !== $this->haResourceSpec ? $this->haResourceSpec->toMap() : null;
+        }
+        if (null !== $this->haVSwitchIds) {
+            $res['HaVSwitchIds'] = $this->haVSwitchIds;
+        }
+        if (null !== $this->haZoneId) {
+            $res['HaZoneId'] = $this->haZoneId;
+        }
+        if (null !== $this->hostAliases) {
+            $res['HostAliases'] = [];
+            if (null !== $this->hostAliases && \is_array($this->hostAliases)) {
+                $n = 0;
+                foreach ($this->hostAliases as $item) {
+                    $res['HostAliases'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
+        }
+        if (null !== $this->monitorType) {
+            $res['MonitorType'] = $this->monitorType;
         }
         if (null !== $this->orderState) {
             $res['OrderState'] = $this->orderState;
@@ -163,6 +249,9 @@ class instances extends Model
         }
         if (null !== $this->resourceExpiredTime) {
             $res['ResourceExpiredTime'] = $this->resourceExpiredTime;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
@@ -206,17 +295,49 @@ class instances extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ArchitectureType'])) {
+            $model->architectureType = $map['ArchitectureType'];
+        }
+        if (isset($map['AskClusterId'])) {
+            $model->askClusterId = $map['AskClusterId'];
+        }
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
         }
         if (isset($map['ClusterStatus'])) {
             $model->clusterStatus = $map['ClusterStatus'];
         }
+        if (isset($map['Ha'])) {
+            $model->ha = $map['Ha'];
+        }
+        if (isset($map['HaResourceSpec'])) {
+            $model->haResourceSpec = haResourceSpec::fromMap($map['HaResourceSpec']);
+        }
+        if (isset($map['HaVSwitchIds'])) {
+            if (!empty($map['HaVSwitchIds'])) {
+                $model->haVSwitchIds = $map['HaVSwitchIds'];
+            }
+        }
+        if (isset($map['HaZoneId'])) {
+            $model->haZoneId = $map['HaZoneId'];
+        }
+        if (isset($map['HostAliases'])) {
+            if (!empty($map['HostAliases'])) {
+                $model->hostAliases = [];
+                $n                  = 0;
+                foreach ($map['HostAliases'] as $item) {
+                    $model->hostAliases[$n++] = null !== $item ? hostAliases::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
+        }
+        if (isset($map['MonitorType'])) {
+            $model->monitorType = $map['MonitorType'];
         }
         if (isset($map['OrderState'])) {
             $model->orderState = $map['OrderState'];
@@ -229,6 +350,9 @@ class instances extends Model
         }
         if (isset($map['ResourceExpiredTime'])) {
             $model->resourceExpiredTime = $map['ResourceExpiredTime'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];

@@ -9,13 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeSupportedZonesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $architectureType;
+
+    /**
      * @example cn-beijing
      *
      * @var string
      */
     public $region;
     protected $_name = [
-        'region' => 'Region',
+        'architectureType' => 'ArchitectureType',
+        'region'           => 'Region',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class DescribeSupportedZonesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->architectureType) {
+            $res['ArchitectureType'] = $this->architectureType;
+        }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
@@ -40,6 +49,9 @@ class DescribeSupportedZonesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ArchitectureType'])) {
+            $model->architectureType = $map['ArchitectureType'];
+        }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }

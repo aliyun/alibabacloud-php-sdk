@@ -166,6 +166,12 @@ class Foasconsole extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new CreateInstanceShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->haResourceSpec)) {
+            $request->haResourceSpecShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->haResourceSpec, 'HaResourceSpec', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->haVSwitchIds)) {
+            $request->haVSwitchIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->haVSwitchIds, 'HaVSwitchIds', 'json');
+        }
         if (!Utils::isUnset($tmpReq->resourceSpec)) {
             $request->resourceSpecShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceSpec, 'ResourceSpec', 'json');
         }
@@ -176,6 +182,9 @@ class Foasconsole extends OpenApiClient
             $request->vSwitchIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->vSwitchIds, 'VSwitchIds', 'json');
         }
         $body = [];
+        if (!Utils::isUnset($request->architectureType)) {
+            $body['ArchitectureType'] = $request->architectureType;
+        }
         if (!Utils::isUnset($request->autoRenew)) {
             $body['AutoRenew'] = $request->autoRenew;
         }
@@ -185,8 +194,26 @@ class Foasconsole extends OpenApiClient
         if (!Utils::isUnset($request->duration)) {
             $body['Duration'] = $request->duration;
         }
+        if (!Utils::isUnset($request->extra)) {
+            $body['Extra'] = $request->extra;
+        }
+        if (!Utils::isUnset($request->ha)) {
+            $body['Ha'] = $request->ha;
+        }
+        if (!Utils::isUnset($request->haResourceSpecShrink)) {
+            $body['HaResourceSpec'] = $request->haResourceSpecShrink;
+        }
+        if (!Utils::isUnset($request->haVSwitchIdsShrink)) {
+            $body['HaVSwitchIds'] = $request->haVSwitchIdsShrink;
+        }
+        if (!Utils::isUnset($request->haZoneId)) {
+            $body['HaZoneId'] = $request->haZoneId;
+        }
         if (!Utils::isUnset($request->instanceName)) {
             $body['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->monitorType)) {
+            $body['MonitorType'] = $request->monitorType;
         }
         if (!Utils::isUnset($request->pricingCycle)) {
             $body['PricingCycle'] = $request->pricingCycle;
@@ -197,11 +224,17 @@ class Foasconsole extends OpenApiClient
         if (!Utils::isUnset($request->region)) {
             $body['Region'] = $request->region;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $body['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->resourceSpecShrink)) {
             $body['ResourceSpec'] = $request->resourceSpecShrink;
         }
         if (!Utils::isUnset($request->storageShrink)) {
             $body['Storage'] = $request->storageShrink;
+        }
+        if (!Utils::isUnset($request->usePromotionCode)) {
+            $body['UsePromotionCode'] = $request->usePromotionCode;
         }
         if (!Utils::isUnset($request->vSwitchIdsShrink)) {
             $body['VSwitchIds'] = $request->vSwitchIdsShrink;
@@ -257,6 +290,9 @@ class Foasconsole extends OpenApiClient
             $request->resourceSpecShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceSpec, 'ResourceSpec', 'json');
         }
         $body = [];
+        if (!Utils::isUnset($request->ha)) {
+            $body['Ha'] = $request->ha;
+        }
         if (!Utils::isUnset($request->instanceId)) {
             $body['InstanceId'] = $request->instanceId;
         }
@@ -613,20 +649,42 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @param ModifyPrepayInstanceSpecRequest $tmpReq
-     * @param RuntimeOptions                  $runtime
+     * @deprecated : ModifyPrepayInstanceSpec is deprecated, please use foasconsole::2021-10-28::ModifyInstanceSpec instead.
+     *   *
+     * Deprecated
      *
-     * @return ModifyPrepayInstanceSpecResponse
+     * @param ModifyPrepayInstanceSpecRequest $tmpReq  ModifyPrepayInstanceSpecRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyPrepayInstanceSpecResponse ModifyPrepayInstanceSpecResponse
      */
     public function modifyPrepayInstanceSpecWithOptions($tmpReq, $runtime)
     {
         Utils::validateModel($tmpReq);
         $request = new ModifyPrepayInstanceSpecShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->haResourceSpec)) {
+            $request->haResourceSpecShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->haResourceSpec, 'HaResourceSpec', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->haVSwitchIds)) {
+            $request->haVSwitchIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->haVSwitchIds, 'HaVSwitchIds', 'json');
+        }
         if (!Utils::isUnset($tmpReq->resourceSpec)) {
             $request->resourceSpecShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceSpec, 'ResourceSpec', 'json');
         }
         $body = [];
+        if (!Utils::isUnset($request->ha)) {
+            $body['Ha'] = $request->ha;
+        }
+        if (!Utils::isUnset($request->haResourceSpecShrink)) {
+            $body['HaResourceSpec'] = $request->haResourceSpecShrink;
+        }
+        if (!Utils::isUnset($request->haVSwitchIdsShrink)) {
+            $body['HaVSwitchIds'] = $request->haVSwitchIdsShrink;
+        }
+        if (!Utils::isUnset($request->haZoneId)) {
+            $body['HaZoneId'] = $request->haZoneId;
+        }
         if (!Utils::isUnset($request->instanceId)) {
             $body['InstanceId'] = $request->instanceId;
         }
@@ -655,9 +713,13 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @param ModifyPrepayInstanceSpecRequest $request
+     * @deprecated : ModifyPrepayInstanceSpec is deprecated, please use foasconsole::2021-10-28::ModifyInstanceSpec instead.
+     *   *
+     * Deprecated
      *
-     * @return ModifyPrepayInstanceSpecResponse
+     * @param ModifyPrepayInstanceSpecRequest $request ModifyPrepayInstanceSpecRequest
+     *
+     * @return ModifyPrepayInstanceSpecResponse ModifyPrepayInstanceSpecResponse
      */
     public function modifyPrepayInstanceSpec($request)
     {
@@ -667,10 +729,14 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @param ModifyPrepayNamespaceSpecRequest $tmpReq
-     * @param RuntimeOptions                   $runtime
+     * @deprecated : ModifyPrepayNamespaceSpec is deprecated, please use foasconsole::2021-10-28::ModifyNamespaceSpec instead.
+     *   *
+     * Deprecated
      *
-     * @return ModifyPrepayNamespaceSpecResponse
+     * @param ModifyPrepayNamespaceSpecRequest $tmpReq  ModifyPrepayNamespaceSpecRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyPrepayNamespaceSpecResponse ModifyPrepayNamespaceSpecResponse
      */
     public function modifyPrepayNamespaceSpecWithOptions($tmpReq, $runtime)
     {
@@ -712,9 +778,13 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @param ModifyPrepayNamespaceSpecRequest $request
+     * @deprecated : ModifyPrepayNamespaceSpec is deprecated, please use foasconsole::2021-10-28::ModifyNamespaceSpec instead.
+     *   *
+     * Deprecated
      *
-     * @return ModifyPrepayNamespaceSpecResponse
+     * @param ModifyPrepayNamespaceSpecRequest $request ModifyPrepayNamespaceSpecRequest
+     *
+     * @return ModifyPrepayNamespaceSpecResponse ModifyPrepayNamespaceSpecResponse
      */
     public function modifyPrepayNamespaceSpec($request)
     {
@@ -797,6 +867,9 @@ class Foasconsole extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new QueryCreateInstancePriceShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->haResourceSpec)) {
+            $request->haResourceSpecShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->haResourceSpec, 'HaResourceSpec', 'json');
+        }
         if (!Utils::isUnset($tmpReq->resourceSpec)) {
             $request->resourceSpecShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceSpec, 'ResourceSpec', 'json');
         }
@@ -807,6 +880,9 @@ class Foasconsole extends OpenApiClient
             $request->vSwitchIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->vSwitchIds, 'VSwitchIds', 'json');
         }
         $body = [];
+        if (!Utils::isUnset($request->architectureType)) {
+            $body['ArchitectureType'] = $request->architectureType;
+        }
         if (!Utils::isUnset($request->autoRenew)) {
             $body['AutoRenew'] = $request->autoRenew;
         }
@@ -815,6 +891,15 @@ class Foasconsole extends OpenApiClient
         }
         if (!Utils::isUnset($request->duration)) {
             $body['Duration'] = $request->duration;
+        }
+        if (!Utils::isUnset($request->extra)) {
+            $body['Extra'] = $request->extra;
+        }
+        if (!Utils::isUnset($request->ha)) {
+            $body['Ha'] = $request->ha;
+        }
+        if (!Utils::isUnset($request->haResourceSpecShrink)) {
+            $body['HaResourceSpec'] = $request->haResourceSpecShrink;
         }
         if (!Utils::isUnset($request->instanceName)) {
             $body['InstanceName'] = $request->instanceName;
@@ -833,6 +918,9 @@ class Foasconsole extends OpenApiClient
         }
         if (!Utils::isUnset($request->storageShrink)) {
             $body['Storage'] = $request->storageShrink;
+        }
+        if (!Utils::isUnset($request->usePromotionCode)) {
+            $body['UsePromotionCode'] = $request->usePromotionCode;
         }
         if (!Utils::isUnset($request->vSwitchIdsShrink)) {
             $body['VSwitchIds'] = $request->vSwitchIdsShrink;
@@ -884,10 +972,28 @@ class Foasconsole extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new QueryModifyInstancePriceShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->haResourceSpec)) {
+            $request->haResourceSpecShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->haResourceSpec, 'HaResourceSpec', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->haVSwitchIds)) {
+            $request->haVSwitchIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->haVSwitchIds, 'HaVSwitchIds', 'json');
+        }
         if (!Utils::isUnset($tmpReq->resourceSpec)) {
             $request->resourceSpecShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceSpec, 'ResourceSpec', 'json');
         }
         $body = [];
+        if (!Utils::isUnset($request->ha)) {
+            $body['Ha'] = $request->ha;
+        }
+        if (!Utils::isUnset($request->haResourceSpecShrink)) {
+            $body['HaResourceSpec'] = $request->haResourceSpecShrink;
+        }
+        if (!Utils::isUnset($request->haVSwitchIdsShrink)) {
+            $body['HaVSwitchIds'] = $request->haVSwitchIdsShrink;
+        }
+        if (!Utils::isUnset($request->haZoneId)) {
+            $body['HaZoneId'] = $request->haZoneId;
+        }
         if (!Utils::isUnset($request->instanceId)) {
             $body['InstanceId'] = $request->instanceId;
         }

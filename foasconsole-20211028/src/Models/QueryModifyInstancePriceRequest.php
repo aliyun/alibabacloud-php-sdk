@@ -4,11 +4,32 @@
 
 namespace AlibabaCloud\SDK\Foasconsole\V20211028\Models;
 
+use AlibabaCloud\SDK\Foasconsole\V20211028\Models\QueryModifyInstancePriceRequest\haResourceSpec;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\QueryModifyInstancePriceRequest\resourceSpec;
 use AlibabaCloud\Tea\Model;
 
 class QueryModifyInstancePriceRequest extends Model
 {
+    /**
+     * @var bool
+     */
+    public $ha;
+
+    /**
+     * @var haResourceSpec
+     */
+    public $haResourceSpec;
+
+    /**
+     * @var string[]
+     */
+    public $haVSwitchIds;
+
+    /**
+     * @var string
+     */
+    public $haZoneId;
+
     /**
      * @example f-cn-wwo36qj4g06
      *
@@ -28,9 +49,13 @@ class QueryModifyInstancePriceRequest extends Model
      */
     public $resourceSpec;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
-        'region'       => 'Region',
-        'resourceSpec' => 'ResourceSpec',
+        'ha'             => 'Ha',
+        'haResourceSpec' => 'HaResourceSpec',
+        'haVSwitchIds'   => 'HaVSwitchIds',
+        'haZoneId'       => 'HaZoneId',
+        'instanceId'     => 'InstanceId',
+        'region'         => 'Region',
+        'resourceSpec'   => 'ResourceSpec',
     ];
 
     public function validate()
@@ -40,6 +65,18 @@ class QueryModifyInstancePriceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ha) {
+            $res['Ha'] = $this->ha;
+        }
+        if (null !== $this->haResourceSpec) {
+            $res['HaResourceSpec'] = null !== $this->haResourceSpec ? $this->haResourceSpec->toMap() : null;
+        }
+        if (null !== $this->haVSwitchIds) {
+            $res['HaVSwitchIds'] = $this->haVSwitchIds;
+        }
+        if (null !== $this->haZoneId) {
+            $res['HaZoneId'] = $this->haZoneId;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -61,6 +98,20 @@ class QueryModifyInstancePriceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Ha'])) {
+            $model->ha = $map['Ha'];
+        }
+        if (isset($map['HaResourceSpec'])) {
+            $model->haResourceSpec = haResourceSpec::fromMap($map['HaResourceSpec']);
+        }
+        if (isset($map['HaVSwitchIds'])) {
+            if (!empty($map['HaVSwitchIds'])) {
+                $model->haVSwitchIds = $map['HaVSwitchIds'];
+            }
+        }
+        if (isset($map['HaZoneId'])) {
+            $model->haZoneId = $map['HaZoneId'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

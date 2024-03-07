@@ -4,12 +4,18 @@
 
 namespace AlibabaCloud\SDK\Foasconsole\V20211028\Models;
 
+use AlibabaCloud\SDK\Foasconsole\V20211028\Models\CreateInstanceRequest\haResourceSpec;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\CreateInstanceRequest\resourceSpec;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\CreateInstanceRequest\storage;
 use AlibabaCloud\Tea\Model;
 
 class CreateInstanceRequest extends Model
 {
+    /**
+     * @var string
+     */
+    public $architectureType;
+
     /**
      * @example true
      *
@@ -32,11 +38,41 @@ class CreateInstanceRequest extends Model
     public $duration;
 
     /**
+     * @var string
+     */
+    public $extra;
+
+    /**
+     * @var bool
+     */
+    public $ha;
+
+    /**
+     * @var haResourceSpec
+     */
+    public $haResourceSpec;
+
+    /**
+     * @var string[]
+     */
+    public $haVSwitchIds;
+
+    /**
+     * @var string
+     */
+    public $haZoneId;
+
+    /**
      * @example rtc-e2e-test-pre
      *
      * @var string
      */
     public $instanceName;
+
+    /**
+     * @var string
+     */
+    public $monitorType;
 
     /**
      * @example Month
@@ -60,6 +96,11 @@ class CreateInstanceRequest extends Model
     public $region;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @var resourceSpec
      */
     public $resourceSpec;
@@ -68,6 +109,11 @@ class CreateInstanceRequest extends Model
      * @var storage
      */
     public $storage;
+
+    /**
+     * @var bool
+     */
+    public $usePromotionCode;
 
     /**
      * @var string[]
@@ -88,18 +134,27 @@ class CreateInstanceRequest extends Model
      */
     public $zoneId;
     protected $_name = [
-        'autoRenew'     => 'AutoRenew',
-        'chargeType'    => 'ChargeType',
-        'duration'      => 'Duration',
-        'instanceName'  => 'InstanceName',
-        'pricingCycle'  => 'PricingCycle',
-        'promotionCode' => 'PromotionCode',
-        'region'        => 'Region',
-        'resourceSpec'  => 'ResourceSpec',
-        'storage'       => 'Storage',
-        'vSwitchIds'    => 'VSwitchIds',
-        'vpcId'         => 'VpcId',
-        'zoneId'        => 'ZoneId',
+        'architectureType' => 'ArchitectureType',
+        'autoRenew'        => 'AutoRenew',
+        'chargeType'       => 'ChargeType',
+        'duration'         => 'Duration',
+        'extra'            => 'Extra',
+        'ha'               => 'Ha',
+        'haResourceSpec'   => 'HaResourceSpec',
+        'haVSwitchIds'     => 'HaVSwitchIds',
+        'haZoneId'         => 'HaZoneId',
+        'instanceName'     => 'InstanceName',
+        'monitorType'      => 'MonitorType',
+        'pricingCycle'     => 'PricingCycle',
+        'promotionCode'    => 'PromotionCode',
+        'region'           => 'Region',
+        'resourceGroupId'  => 'ResourceGroupId',
+        'resourceSpec'     => 'ResourceSpec',
+        'storage'          => 'Storage',
+        'usePromotionCode' => 'UsePromotionCode',
+        'vSwitchIds'       => 'VSwitchIds',
+        'vpcId'            => 'VpcId',
+        'zoneId'           => 'ZoneId',
     ];
 
     public function validate()
@@ -109,6 +164,9 @@ class CreateInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->architectureType) {
+            $res['ArchitectureType'] = $this->architectureType;
+        }
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
         }
@@ -118,8 +176,26 @@ class CreateInstanceRequest extends Model
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
         }
+        if (null !== $this->extra) {
+            $res['Extra'] = $this->extra;
+        }
+        if (null !== $this->ha) {
+            $res['Ha'] = $this->ha;
+        }
+        if (null !== $this->haResourceSpec) {
+            $res['HaResourceSpec'] = null !== $this->haResourceSpec ? $this->haResourceSpec->toMap() : null;
+        }
+        if (null !== $this->haVSwitchIds) {
+            $res['HaVSwitchIds'] = $this->haVSwitchIds;
+        }
+        if (null !== $this->haZoneId) {
+            $res['HaZoneId'] = $this->haZoneId;
+        }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
+        }
+        if (null !== $this->monitorType) {
+            $res['MonitorType'] = $this->monitorType;
         }
         if (null !== $this->pricingCycle) {
             $res['PricingCycle'] = $this->pricingCycle;
@@ -130,11 +206,17 @@ class CreateInstanceRequest extends Model
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->resourceSpec) {
             $res['ResourceSpec'] = null !== $this->resourceSpec ? $this->resourceSpec->toMap() : null;
         }
         if (null !== $this->storage) {
             $res['Storage'] = null !== $this->storage ? $this->storage->toMap() : null;
+        }
+        if (null !== $this->usePromotionCode) {
+            $res['UsePromotionCode'] = $this->usePromotionCode;
         }
         if (null !== $this->vSwitchIds) {
             $res['VSwitchIds'] = $this->vSwitchIds;
@@ -157,6 +239,9 @@ class CreateInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ArchitectureType'])) {
+            $model->architectureType = $map['ArchitectureType'];
+        }
         if (isset($map['AutoRenew'])) {
             $model->autoRenew = $map['AutoRenew'];
         }
@@ -166,8 +251,28 @@ class CreateInstanceRequest extends Model
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }
+        if (isset($map['Extra'])) {
+            $model->extra = $map['Extra'];
+        }
+        if (isset($map['Ha'])) {
+            $model->ha = $map['Ha'];
+        }
+        if (isset($map['HaResourceSpec'])) {
+            $model->haResourceSpec = haResourceSpec::fromMap($map['HaResourceSpec']);
+        }
+        if (isset($map['HaVSwitchIds'])) {
+            if (!empty($map['HaVSwitchIds'])) {
+                $model->haVSwitchIds = $map['HaVSwitchIds'];
+            }
+        }
+        if (isset($map['HaZoneId'])) {
+            $model->haZoneId = $map['HaZoneId'];
+        }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
+        }
+        if (isset($map['MonitorType'])) {
+            $model->monitorType = $map['MonitorType'];
         }
         if (isset($map['PricingCycle'])) {
             $model->pricingCycle = $map['PricingCycle'];
@@ -178,11 +283,17 @@ class CreateInstanceRequest extends Model
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['ResourceSpec'])) {
             $model->resourceSpec = resourceSpec::fromMap($map['ResourceSpec']);
         }
         if (isset($map['Storage'])) {
             $model->storage = storage::fromMap($map['Storage']);
+        }
+        if (isset($map['UsePromotionCode'])) {
+            $model->usePromotionCode = $map['UsePromotionCode'];
         }
         if (isset($map['VSwitchIds'])) {
             if (!empty($map['VSwitchIds'])) {

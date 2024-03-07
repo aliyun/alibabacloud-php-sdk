@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstancesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $architectureType;
+
+    /**
      * @example PRE
      *
      * @var string
@@ -45,16 +50,23 @@ class DescribeInstancesRequest extends Model
     public $region;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @var tags[]
      */
     public $tags;
     protected $_name = [
-        'chargeType' => 'ChargeType',
-        'instanceId' => 'InstanceId',
-        'pageIndex'  => 'PageIndex',
-        'pageSize'   => 'PageSize',
-        'region'     => 'Region',
-        'tags'       => 'Tags',
+        'architectureType' => 'ArchitectureType',
+        'chargeType'       => 'ChargeType',
+        'instanceId'       => 'InstanceId',
+        'pageIndex'        => 'PageIndex',
+        'pageSize'         => 'PageSize',
+        'region'           => 'Region',
+        'resourceGroupId'  => 'ResourceGroupId',
+        'tags'             => 'Tags',
     ];
 
     public function validate()
@@ -64,6 +76,9 @@ class DescribeInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->architectureType) {
+            $res['ArchitectureType'] = $this->architectureType;
+        }
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
         }
@@ -78,6 +93,9 @@ class DescribeInstancesRequest extends Model
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->tags) {
             $res['Tags'] = [];
@@ -100,6 +118,9 @@ class DescribeInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ArchitectureType'])) {
+            $model->architectureType = $map['ArchitectureType'];
+        }
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
         }
@@ -114,6 +135,9 @@ class DescribeInstancesRequest extends Model
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {

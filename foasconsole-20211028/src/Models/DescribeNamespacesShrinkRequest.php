@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeNamespacesShrinkRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $ha;
+
+    /**
      * @example f-cn-wwo36qj4g06
      *
      * @var string
@@ -48,6 +53,7 @@ class DescribeNamespacesShrinkRequest extends Model
      */
     public $tagsShrink;
     protected $_name = [
+        'ha'         => 'Ha',
         'instanceId' => 'InstanceId',
         'namespace'  => 'Namespace',
         'pageIndex'  => 'PageIndex',
@@ -63,6 +69,9 @@ class DescribeNamespacesShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ha) {
+            $res['Ha'] = $this->ha;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -93,6 +102,9 @@ class DescribeNamespacesShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Ha'])) {
+            $model->ha = $map['Ha'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

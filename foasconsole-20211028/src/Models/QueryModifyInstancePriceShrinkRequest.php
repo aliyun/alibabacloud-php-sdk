@@ -9,6 +9,26 @@ use AlibabaCloud\Tea\Model;
 class QueryModifyInstancePriceShrinkRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $ha;
+
+    /**
+     * @var string
+     */
+    public $haResourceSpecShrink;
+
+    /**
+     * @var string
+     */
+    public $haVSwitchIdsShrink;
+
+    /**
+     * @var string
+     */
+    public $haZoneId;
+
+    /**
      * @example f-cn-wwo36qj4g06
      *
      * @var string
@@ -27,9 +47,13 @@ class QueryModifyInstancePriceShrinkRequest extends Model
      */
     public $resourceSpecShrink;
     protected $_name = [
-        'instanceId'         => 'InstanceId',
-        'region'             => 'Region',
-        'resourceSpecShrink' => 'ResourceSpec',
+        'ha'                   => 'Ha',
+        'haResourceSpecShrink' => 'HaResourceSpec',
+        'haVSwitchIdsShrink'   => 'HaVSwitchIds',
+        'haZoneId'             => 'HaZoneId',
+        'instanceId'           => 'InstanceId',
+        'region'               => 'Region',
+        'resourceSpecShrink'   => 'ResourceSpec',
     ];
 
     public function validate()
@@ -39,6 +63,18 @@ class QueryModifyInstancePriceShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ha) {
+            $res['Ha'] = $this->ha;
+        }
+        if (null !== $this->haResourceSpecShrink) {
+            $res['HaResourceSpec'] = $this->haResourceSpecShrink;
+        }
+        if (null !== $this->haVSwitchIdsShrink) {
+            $res['HaVSwitchIds'] = $this->haVSwitchIdsShrink;
+        }
+        if (null !== $this->haZoneId) {
+            $res['HaZoneId'] = $this->haZoneId;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -60,6 +96,18 @@ class QueryModifyInstancePriceShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Ha'])) {
+            $model->ha = $map['Ha'];
+        }
+        if (isset($map['HaResourceSpec'])) {
+            $model->haResourceSpecShrink = $map['HaResourceSpec'];
+        }
+        if (isset($map['HaVSwitchIds'])) {
+            $model->haVSwitchIdsShrink = $map['HaVSwitchIds'];
+        }
+        if (isset($map['HaZoneId'])) {
+            $model->haZoneId = $map['HaZoneId'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceShrinkRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $architectureType;
+
+    /**
      * @example true
      *
      * @var bool
@@ -30,11 +35,41 @@ class CreateInstanceShrinkRequest extends Model
     public $duration;
 
     /**
+     * @var string
+     */
+    public $extra;
+
+    /**
+     * @var bool
+     */
+    public $ha;
+
+    /**
+     * @var string
+     */
+    public $haResourceSpecShrink;
+
+    /**
+     * @var string
+     */
+    public $haVSwitchIdsShrink;
+
+    /**
+     * @var string
+     */
+    public $haZoneId;
+
+    /**
      * @example rtc-e2e-test-pre
      *
      * @var string
      */
     public $instanceName;
+
+    /**
+     * @var string
+     */
+    public $monitorType;
 
     /**
      * @example Month
@@ -60,12 +95,22 @@ class CreateInstanceShrinkRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $resourceSpecShrink;
 
     /**
      * @var string
      */
     public $storageShrink;
+
+    /**
+     * @var bool
+     */
+    public $usePromotionCode;
 
     /**
      * @var string
@@ -86,18 +131,27 @@ class CreateInstanceShrinkRequest extends Model
      */
     public $zoneId;
     protected $_name = [
-        'autoRenew'          => 'AutoRenew',
-        'chargeType'         => 'ChargeType',
-        'duration'           => 'Duration',
-        'instanceName'       => 'InstanceName',
-        'pricingCycle'       => 'PricingCycle',
-        'promotionCode'      => 'PromotionCode',
-        'region'             => 'Region',
-        'resourceSpecShrink' => 'ResourceSpec',
-        'storageShrink'      => 'Storage',
-        'vSwitchIdsShrink'   => 'VSwitchIds',
-        'vpcId'              => 'VpcId',
-        'zoneId'             => 'ZoneId',
+        'architectureType'     => 'ArchitectureType',
+        'autoRenew'            => 'AutoRenew',
+        'chargeType'           => 'ChargeType',
+        'duration'             => 'Duration',
+        'extra'                => 'Extra',
+        'ha'                   => 'Ha',
+        'haResourceSpecShrink' => 'HaResourceSpec',
+        'haVSwitchIdsShrink'   => 'HaVSwitchIds',
+        'haZoneId'             => 'HaZoneId',
+        'instanceName'         => 'InstanceName',
+        'monitorType'          => 'MonitorType',
+        'pricingCycle'         => 'PricingCycle',
+        'promotionCode'        => 'PromotionCode',
+        'region'               => 'Region',
+        'resourceGroupId'      => 'ResourceGroupId',
+        'resourceSpecShrink'   => 'ResourceSpec',
+        'storageShrink'        => 'Storage',
+        'usePromotionCode'     => 'UsePromotionCode',
+        'vSwitchIdsShrink'     => 'VSwitchIds',
+        'vpcId'                => 'VpcId',
+        'zoneId'               => 'ZoneId',
     ];
 
     public function validate()
@@ -107,6 +161,9 @@ class CreateInstanceShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->architectureType) {
+            $res['ArchitectureType'] = $this->architectureType;
+        }
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
         }
@@ -116,8 +173,26 @@ class CreateInstanceShrinkRequest extends Model
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
         }
+        if (null !== $this->extra) {
+            $res['Extra'] = $this->extra;
+        }
+        if (null !== $this->ha) {
+            $res['Ha'] = $this->ha;
+        }
+        if (null !== $this->haResourceSpecShrink) {
+            $res['HaResourceSpec'] = $this->haResourceSpecShrink;
+        }
+        if (null !== $this->haVSwitchIdsShrink) {
+            $res['HaVSwitchIds'] = $this->haVSwitchIdsShrink;
+        }
+        if (null !== $this->haZoneId) {
+            $res['HaZoneId'] = $this->haZoneId;
+        }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
+        }
+        if (null !== $this->monitorType) {
+            $res['MonitorType'] = $this->monitorType;
         }
         if (null !== $this->pricingCycle) {
             $res['PricingCycle'] = $this->pricingCycle;
@@ -128,11 +203,17 @@ class CreateInstanceShrinkRequest extends Model
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->resourceSpecShrink) {
             $res['ResourceSpec'] = $this->resourceSpecShrink;
         }
         if (null !== $this->storageShrink) {
             $res['Storage'] = $this->storageShrink;
+        }
+        if (null !== $this->usePromotionCode) {
+            $res['UsePromotionCode'] = $this->usePromotionCode;
         }
         if (null !== $this->vSwitchIdsShrink) {
             $res['VSwitchIds'] = $this->vSwitchIdsShrink;
@@ -155,6 +236,9 @@ class CreateInstanceShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ArchitectureType'])) {
+            $model->architectureType = $map['ArchitectureType'];
+        }
         if (isset($map['AutoRenew'])) {
             $model->autoRenew = $map['AutoRenew'];
         }
@@ -164,8 +248,26 @@ class CreateInstanceShrinkRequest extends Model
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }
+        if (isset($map['Extra'])) {
+            $model->extra = $map['Extra'];
+        }
+        if (isset($map['Ha'])) {
+            $model->ha = $map['Ha'];
+        }
+        if (isset($map['HaResourceSpec'])) {
+            $model->haResourceSpecShrink = $map['HaResourceSpec'];
+        }
+        if (isset($map['HaVSwitchIds'])) {
+            $model->haVSwitchIdsShrink = $map['HaVSwitchIds'];
+        }
+        if (isset($map['HaZoneId'])) {
+            $model->haZoneId = $map['HaZoneId'];
+        }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
+        }
+        if (isset($map['MonitorType'])) {
+            $model->monitorType = $map['MonitorType'];
         }
         if (isset($map['PricingCycle'])) {
             $model->pricingCycle = $map['PricingCycle'];
@@ -176,11 +278,17 @@ class CreateInstanceShrinkRequest extends Model
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['ResourceSpec'])) {
             $model->resourceSpecShrink = $map['ResourceSpec'];
         }
         if (isset($map['Storage'])) {
             $model->storageShrink = $map['Storage'];
+        }
+        if (isset($map['UsePromotionCode'])) {
+            $model->usePromotionCode = $map['UsePromotionCode'];
         }
         if (isset($map['VSwitchIds'])) {
             $model->vSwitchIdsShrink = $map['VSwitchIds'];

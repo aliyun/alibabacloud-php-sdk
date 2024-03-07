@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstancesShrinkRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $architectureType;
+
+    /**
      * @example PRE
      *
      * @var string
@@ -46,14 +51,21 @@ class DescribeInstancesShrinkRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $tagsShrink;
     protected $_name = [
-        'chargeType' => 'ChargeType',
-        'instanceId' => 'InstanceId',
-        'pageIndex'  => 'PageIndex',
-        'pageSize'   => 'PageSize',
-        'region'     => 'Region',
-        'tagsShrink' => 'Tags',
+        'architectureType' => 'ArchitectureType',
+        'chargeType'       => 'ChargeType',
+        'instanceId'       => 'InstanceId',
+        'pageIndex'        => 'PageIndex',
+        'pageSize'         => 'PageSize',
+        'region'           => 'Region',
+        'resourceGroupId'  => 'ResourceGroupId',
+        'tagsShrink'       => 'Tags',
     ];
 
     public function validate()
@@ -63,6 +75,9 @@ class DescribeInstancesShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->architectureType) {
+            $res['ArchitectureType'] = $this->architectureType;
+        }
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
         }
@@ -77,6 +92,9 @@ class DescribeInstancesShrinkRequest extends Model
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->tagsShrink) {
             $res['Tags'] = $this->tagsShrink;
@@ -93,6 +111,9 @@ class DescribeInstancesShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ArchitectureType'])) {
+            $model->architectureType = $map['ArchitectureType'];
+        }
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
         }
@@ -107,6 +128,9 @@ class DescribeInstancesShrinkRequest extends Model
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Tags'])) {
             $model->tagsShrink = $map['Tags'];
