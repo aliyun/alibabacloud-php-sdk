@@ -99,6 +99,9 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeTemplatesResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeXpackMonitorConfigResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DiagnoseInstanceRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DiagnoseInstanceResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DisableKibanaPvlNetworkResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\EnableKibanaPvlNetworkRequest;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\EnableKibanaPvlNetworkResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\EstimatedLogstashRestartTimeRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\EstimatedLogstashRestartTimeResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\EstimatedRestartTimeRequest;
@@ -189,6 +192,7 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListInstanceRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListInstanceResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListKibanaPluginsRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListKibanaPluginsResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListKibanaPvlNetworkResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListLogstashLogRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListLogstashLogResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListLogstashPluginsRequest;
@@ -319,6 +323,8 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateInstanceRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateInstanceResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateInstanceSettingsRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateInstanceSettingsResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateKibanaPvlNetworkRequest;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateKibanaPvlNetworkResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateKibanaSettingsRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateKibanaSettingsResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateKibanaWhiteIpsRequest;
@@ -3119,6 +3125,103 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @param string         $InstanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DisableKibanaPvlNetworkResponse
+     */
+    public function disableKibanaPvlNetworkWithOptions($InstanceId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DisableKibanaPvlNetwork',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/actions/disable-kibana-private',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DisableKibanaPvlNetworkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $InstanceId
+     *
+     * @return DisableKibanaPvlNetworkResponse
+     */
+    public function disableKibanaPvlNetwork($InstanceId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->disableKibanaPvlNetworkWithOptions($InstanceId, $headers, $runtime);
+    }
+
+    /**
+     * @param string                        $InstanceId
+     * @param EnableKibanaPvlNetworkRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return EnableKibanaPvlNetworkResponse
+     */
+    public function enableKibanaPvlNetworkWithOptions($InstanceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->endpointName)) {
+            $body['endpointName'] = $request->endpointName;
+        }
+        if (!Utils::isUnset($request->securityGroups)) {
+            $body['securityGroups'] = $request->securityGroups;
+        }
+        if (!Utils::isUnset($request->vSwitchIdsZone)) {
+            $body['vSwitchIdsZone'] = $request->vSwitchIdsZone;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $body['vpcId'] = $request->vpcId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableKibanaPvlNetwork',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/actions/enable-kibana-private',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return EnableKibanaPvlNetworkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                        $InstanceId
+     * @param EnableKibanaPvlNetworkRequest $request
+     *
+     * @return EnableKibanaPvlNetworkResponse
+     */
+    public function enableKibanaPvlNetwork($InstanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->enableKibanaPvlNetworkWithOptions($InstanceId, $request, $headers, $runtime);
+    }
+
+    /**
      * @param string                              $InstanceId
      * @param EstimatedLogstashRestartTimeRequest $request
      * @param string[]                            $headers
@@ -5592,6 +5695,46 @@ class Elasticsearch extends OpenApiClient
         $headers = [];
 
         return $this->listKibanaPluginsWithOptions($InstanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $InstanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListKibanaPvlNetworkResponse
+     */
+    public function listKibanaPvlNetworkWithOptions($InstanceId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'ListKibanaPvlNetwork',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/actions/get-kibana-private',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListKibanaPvlNetworkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $InstanceId
+     *
+     * @return ListKibanaPvlNetworkResponse
+     */
+    public function listKibanaPvlNetwork($InstanceId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listKibanaPvlNetworkWithOptions($InstanceId, $headers, $runtime);
     }
 
     /**
@@ -9143,6 +9286,62 @@ class Elasticsearch extends OpenApiClient
         $headers = [];
 
         return $this->updateInstanceSettingsWithOptions($InstanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                        $InstanceId
+     * @param UpdateKibanaPvlNetworkRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateKibanaPvlNetworkResponse
+     */
+    public function updateKibanaPvlNetworkWithOptions($InstanceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pvlId)) {
+            $query['pvlId'] = $request->pvlId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->endpointName)) {
+            $body['endpointName'] = $request->endpointName;
+        }
+        if (!Utils::isUnset($request->securityGroups)) {
+            $body['securityGroups'] = $request->securityGroups;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateKibanaPvlNetwork',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/actions/update-kibana-private',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateKibanaPvlNetworkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                        $InstanceId
+     * @param UpdateKibanaPvlNetworkRequest $request
+     *
+     * @return UpdateKibanaPvlNetworkResponse
+     */
+    public function updateKibanaPvlNetwork($InstanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateKibanaPvlNetworkWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
