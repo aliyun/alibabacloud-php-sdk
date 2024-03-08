@@ -16,11 +16,6 @@ class templates extends Model
     public $createTime;
 
     /**
-     * @var bool
-     */
-    public $enableVad;
-
-    /**
      * @var string[]
      */
     public $layoutIds;
@@ -47,7 +42,6 @@ class templates extends Model
     public $templateId;
     protected $_name = [
         'createTime'  => 'CreateTime',
-        'enableVad'   => 'EnableVad',
         'layoutIds'   => 'LayoutIds',
         'mediaEncode' => 'MediaEncode',
         'name'        => 'Name',
@@ -63,9 +57,6 @@ class templates extends Model
         $res = [];
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->enableVad) {
-            $res['EnableVad'] = $this->enableVad;
         }
         if (null !== $this->layoutIds) {
             $res['LayoutIds'] = $this->layoutIds;
@@ -93,9 +84,6 @@ class templates extends Model
         $model = new self();
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['EnableVad'])) {
-            $model->enableVad = $map['EnableVad'];
         }
         if (isset($map['LayoutIds'])) {
             if (!empty($map['LayoutIds'])) {

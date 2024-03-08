@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class streamingOutTemplate extends Model
 {
     /**
-     * @var bool
-     */
-    public $enableVad;
-
-    /**
      * @var string[]
      */
     public $layoutIds;
@@ -39,7 +34,6 @@ class streamingOutTemplate extends Model
      */
     public $templateId;
     protected $_name = [
-        'enableVad'   => 'EnableVad',
         'layoutIds'   => 'LayoutIds',
         'mediaEncode' => 'MediaEncode',
         'name'        => 'Name',
@@ -53,9 +47,6 @@ class streamingOutTemplate extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->enableVad) {
-            $res['EnableVad'] = $this->enableVad;
-        }
         if (null !== $this->layoutIds) {
             $res['LayoutIds'] = $this->layoutIds;
         }
@@ -80,9 +71,6 @@ class streamingOutTemplate extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EnableVad'])) {
-            $model->enableVad = $map['EnableVad'];
-        }
         if (isset($map['LayoutIds'])) {
             if (!empty($map['LayoutIds'])) {
                 $model->layoutIds = $map['LayoutIds'];

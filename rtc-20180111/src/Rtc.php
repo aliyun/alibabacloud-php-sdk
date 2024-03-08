@@ -43,6 +43,8 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeCallListRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeCallListResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeCallRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeCallResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeChannelAllUsersRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeChannelAllUsersResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeChannelAreaDistributionStatDataRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeChannelAreaDistributionStatDataResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeChannelDistributionStatDataRequest;
@@ -51,10 +53,14 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeChannelOverallDataRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeChannelOverallDataResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeChannelParticipantsRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeChannelParticipantsResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeChannelRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeChannelResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeChannelTopPubUserListRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeChannelTopPubUserListResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeChannelUserMetricsRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeChannelUserMetricsResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeChannelUserRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeChannelUserResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeChannelUsersRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeChannelUsersResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeEndPointEventListRequest;
@@ -122,14 +128,26 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyMPULayoutRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyMPULayoutResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\RemoveTerminalsRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\RemoveTerminalsResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\RemoveUsersRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\RemoveUsersResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartMPUTaskRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartMPUTaskResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartRecordTaskRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartRecordTaskResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StopChannelRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StopChannelResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StopCloudRecordRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StopCloudRecordResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StopMPUTaskRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StopMPUTaskResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StopRecordTaskRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StopRecordTaskResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StopStreamingOutRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StopStreamingOutResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateAutoLiveStreamRuleRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateAutoLiveStreamRuleResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateMPUTaskRequest;
@@ -1144,6 +1162,98 @@ class Rtc extends OpenApiClient
     }
 
     /**
+     * @param DescribeChannelRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeChannelResponse
+     */
+    public function describeChannelWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeChannel',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeChannelRequest $request
+     *
+     * @return DescribeChannelResponse
+     */
+    public function describeChannel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeChannelWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeChannelAllUsersRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeChannelAllUsersResponse
+     */
+    public function describeChannelAllUsersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeChannelAllUsers',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeChannelAllUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeChannelAllUsersRequest $request
+     *
+     * @return DescribeChannelAllUsersResponse
+     */
+    public function describeChannelAllUsers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeChannelAllUsersWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeChannelAreaDistributionStatDataRequest $request
      * @param RuntimeOptions                                 $runtime
      *
@@ -1413,6 +1523,55 @@ class Rtc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeChannelTopPubUserListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeChannelUserRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeChannelUserResponse
+     */
+    public function describeChannelUserWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeChannelUser',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeChannelUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeChannelUserRequest $request
+     *
+     * @return DescribeChannelUserResponse
+     */
+    public function describeChannelUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeChannelUserWithOptions($request, $runtime);
     }
 
     /**
@@ -3258,6 +3417,113 @@ class Rtc extends OpenApiClient
     }
 
     /**
+     * @param RemoveUsersRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return RemoveUsersResponse
+     */
+    public function removeUsersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->users)) {
+            $query['Users'] = $request->users;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveUsers',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RemoveUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RemoveUsersRequest $request
+     *
+     * @return RemoveUsersResponse
+     */
+    public function removeUsers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeUsersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StartCloudRecordRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return StartCloudRecordResponse
+     */
+    public function startCloudRecordWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->panes)) {
+            $query['Panes'] = $request->panes;
+        }
+        if (!Utils::isUnset($request->storageConfig)) {
+            $query['StorageConfig'] = $request->storageConfig;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartCloudRecord',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartCloudRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StartCloudRecordRequest $request
+     *
+     * @return StartCloudRecordResponse
+     */
+    public function startCloudRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startCloudRecordWithOptions($request, $runtime);
+    }
+
+    /**
      * @param StartMPUTaskRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -3492,6 +3758,159 @@ class Rtc extends OpenApiClient
     }
 
     /**
+     * @param StartStreamingOutRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return StartStreamingOutResponse
+     */
+    public function startStreamingOutWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->panes)) {
+            $query['Panes'] = $request->panes;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartStreamingOut',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartStreamingOutResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StartStreamingOutRequest $request
+     *
+     * @return StartStreamingOutResponse
+     */
+    public function startStreamingOut($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startStreamingOutWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StopChannelRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return StopChannelResponse
+     */
+    public function stopChannelWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopChannel',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StopChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StopChannelRequest $request
+     *
+     * @return StopChannelResponse
+     */
+    public function stopChannel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopChannelWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StopCloudRecordRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return StopCloudRecordResponse
+     */
+    public function stopCloudRecordWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopCloudRecord',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StopCloudRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StopCloudRecordRequest $request
+     *
+     * @return StopCloudRecordResponse
+     */
+    public function stopCloudRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopCloudRecordWithOptions($request, $runtime);
+    }
+
+    /**
      * @param StopMPUTaskRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -3587,6 +4006,55 @@ class Rtc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->stopRecordTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StopStreamingOutRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return StopStreamingOutResponse
+     */
+    public function stopStreamingOutWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopStreamingOut',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StopStreamingOutResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StopStreamingOutRequest $request
+     *
+     * @return StopStreamingOutResponse
+     */
+    public function stopStreamingOut($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopStreamingOutWithOptions($request, $runtime);
     }
 
     /**
