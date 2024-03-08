@@ -6,22 +6,8 @@ namespace AlibabaCloud\SDK\Amqpopen\V20191212\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateInstanceRequest extends Model
+class UpdateInstanceRequest extends Model
 {
-    /**
-     * @example AutoRenewal
-     *
-     * @var bool
-     */
-    public $autoRenew;
-
-    /**
-     * @example 1
-     *
-     * @var int
-     */
-    public $autoRenewPeriod;
-
     /**
      * @example c2c5d1274axxxxxxxx
      *
@@ -30,9 +16,11 @@ class CreateInstanceRequest extends Model
     public $clientToken;
 
     /**
+     * @example amqp-cn-jtexxxxx
+     *
      * @var string
      */
-    public $instanceName;
+    public $instanceId;
 
     /**
      * @example professional
@@ -42,7 +30,7 @@ class CreateInstanceRequest extends Model
     public $instanceType;
 
     /**
-     * @example 50000
+     * @example 1000
      *
      * @var int
      */
@@ -63,25 +51,11 @@ class CreateInstanceRequest extends Model
     public $maxPrivateTps;
 
     /**
-     * @example Subscription
+     * @example UPGRADE
      *
      * @var string
      */
-    public $paymentType;
-
-    /**
-     * @example 1
-     *
-     * @var int
-     */
-    public $period;
-
-    /**
-     * @example Month
-     *
-     * @var string
-     */
-    public $periodCycle;
+    public $modifyType;
 
     /**
      * @example 1000
@@ -89,18 +63,6 @@ class CreateInstanceRequest extends Model
      * @var int
      */
     public $queueCapacity;
-
-    /**
-     * @description autoRenew和renewStatus都是续费方式，当两个同时填写时，以renewStatus为准
-     *
-     * @var string
-     */
-    public $renewStatus;
-
-    /**
-     * @var string
-     */
-    public $renewalDurationUnit;
 
     /**
      * @example onDemand
@@ -117,14 +79,14 @@ class CreateInstanceRequest extends Model
     public $storageSize;
 
     /**
-     * @example true
+     * @example false
      *
      * @var bool
      */
     public $supportEip;
 
     /**
-     * @example true
+     * @example false
      *
      * @var bool
      */
@@ -137,20 +99,14 @@ class CreateInstanceRequest extends Model
      */
     public $tracingStorageTime;
     protected $_name = [
-        'autoRenew'            => 'AutoRenew',
-        'autoRenewPeriod'      => 'AutoRenewPeriod',
         'clientToken'          => 'ClientToken',
-        'instanceName'         => 'InstanceName',
+        'instanceId'           => 'InstanceId',
         'instanceType'         => 'InstanceType',
         'maxConnections'       => 'MaxConnections',
         'maxEipTps'            => 'MaxEipTps',
         'maxPrivateTps'        => 'MaxPrivateTps',
-        'paymentType'          => 'PaymentType',
-        'period'               => 'Period',
-        'periodCycle'          => 'PeriodCycle',
+        'modifyType'           => 'ModifyType',
         'queueCapacity'        => 'QueueCapacity',
-        'renewStatus'          => 'RenewStatus',
-        'renewalDurationUnit'  => 'RenewalDurationUnit',
         'serverlessChargeType' => 'ServerlessChargeType',
         'storageSize'          => 'StorageSize',
         'supportEip'           => 'SupportEip',
@@ -165,17 +121,11 @@ class CreateInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->autoRenew) {
-            $res['AutoRenew'] = $this->autoRenew;
-        }
-        if (null !== $this->autoRenewPeriod) {
-            $res['AutoRenewPeriod'] = $this->autoRenewPeriod;
-        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-        if (null !== $this->instanceName) {
-            $res['InstanceName'] = $this->instanceName;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
@@ -189,23 +139,11 @@ class CreateInstanceRequest extends Model
         if (null !== $this->maxPrivateTps) {
             $res['MaxPrivateTps'] = $this->maxPrivateTps;
         }
-        if (null !== $this->paymentType) {
-            $res['PaymentType'] = $this->paymentType;
-        }
-        if (null !== $this->period) {
-            $res['Period'] = $this->period;
-        }
-        if (null !== $this->periodCycle) {
-            $res['PeriodCycle'] = $this->periodCycle;
+        if (null !== $this->modifyType) {
+            $res['ModifyType'] = $this->modifyType;
         }
         if (null !== $this->queueCapacity) {
             $res['QueueCapacity'] = $this->queueCapacity;
-        }
-        if (null !== $this->renewStatus) {
-            $res['RenewStatus'] = $this->renewStatus;
-        }
-        if (null !== $this->renewalDurationUnit) {
-            $res['RenewalDurationUnit'] = $this->renewalDurationUnit;
         }
         if (null !== $this->serverlessChargeType) {
             $res['ServerlessChargeType'] = $this->serverlessChargeType;
@@ -229,22 +167,16 @@ class CreateInstanceRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateInstanceRequest
+     * @return UpdateInstanceRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AutoRenew'])) {
-            $model->autoRenew = $map['AutoRenew'];
-        }
-        if (isset($map['AutoRenewPeriod'])) {
-            $model->autoRenewPeriod = $map['AutoRenewPeriod'];
-        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-        if (isset($map['InstanceName'])) {
-            $model->instanceName = $map['InstanceName'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
@@ -258,23 +190,11 @@ class CreateInstanceRequest extends Model
         if (isset($map['MaxPrivateTps'])) {
             $model->maxPrivateTps = $map['MaxPrivateTps'];
         }
-        if (isset($map['PaymentType'])) {
-            $model->paymentType = $map['PaymentType'];
-        }
-        if (isset($map['Period'])) {
-            $model->period = $map['Period'];
-        }
-        if (isset($map['PeriodCycle'])) {
-            $model->periodCycle = $map['PeriodCycle'];
+        if (isset($map['ModifyType'])) {
+            $model->modifyType = $map['ModifyType'];
         }
         if (isset($map['QueueCapacity'])) {
             $model->queueCapacity = $map['QueueCapacity'];
-        }
-        if (isset($map['RenewStatus'])) {
-            $model->renewStatus = $map['RenewStatus'];
-        }
-        if (isset($map['RenewalDurationUnit'])) {
-            $model->renewalDurationUnit = $map['RenewalDurationUnit'];
         }
         if (isset($map['ServerlessChargeType'])) {
             $model->serverlessChargeType = $map['ServerlessChargeType'];

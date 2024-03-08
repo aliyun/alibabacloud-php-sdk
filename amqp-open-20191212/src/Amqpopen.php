@@ -52,6 +52,8 @@ use AlibabaCloud\SDK\Amqpopen\V20191212\Models\ListVirtualHostsRequest;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\ListVirtualHostsResponse;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\UpdateInstanceNameRequest;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\UpdateInstanceNameResponse;
+use AlibabaCloud\SDK\Amqpopen\V20191212\Models\UpdateInstanceRequest;
+use AlibabaCloud\SDK\Amqpopen\V20191212\Models\UpdateInstanceResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -1194,6 +1196,85 @@ class Amqpopen extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listVirtualHostsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateInstanceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateInstanceResponse
+     */
+    public function updateInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->maxConnections)) {
+            $query['MaxConnections'] = $request->maxConnections;
+        }
+        if (!Utils::isUnset($request->maxEipTps)) {
+            $query['MaxEipTps'] = $request->maxEipTps;
+        }
+        if (!Utils::isUnset($request->maxPrivateTps)) {
+            $query['MaxPrivateTps'] = $request->maxPrivateTps;
+        }
+        if (!Utils::isUnset($request->modifyType)) {
+            $query['ModifyType'] = $request->modifyType;
+        }
+        if (!Utils::isUnset($request->queueCapacity)) {
+            $query['QueueCapacity'] = $request->queueCapacity;
+        }
+        if (!Utils::isUnset($request->serverlessChargeType)) {
+            $query['ServerlessChargeType'] = $request->serverlessChargeType;
+        }
+        if (!Utils::isUnset($request->storageSize)) {
+            $query['StorageSize'] = $request->storageSize;
+        }
+        if (!Utils::isUnset($request->supportEip)) {
+            $query['SupportEip'] = $request->supportEip;
+        }
+        if (!Utils::isUnset($request->supportTracing)) {
+            $query['SupportTracing'] = $request->supportTracing;
+        }
+        if (!Utils::isUnset($request->tracingStorageTime)) {
+            $query['TracingStorageTime'] = $request->tracingStorageTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateInstance',
+            'version'     => '2019-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateInstanceRequest $request
+     *
+     * @return UpdateInstanceResponse
+     */
+    public function updateInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateInstanceWithOptions($request, $runtime);
     }
 
     /**
