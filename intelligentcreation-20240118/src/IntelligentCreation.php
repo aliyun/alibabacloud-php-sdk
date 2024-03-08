@@ -13,6 +13,8 @@ use AlibabaCloud\SDK\IntelligentCreation\V20240118\Models\ActualDeductResourcesR
 use AlibabaCloud\SDK\IntelligentCreation\V20240118\Models\CopywritingQARequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240118\Models\CopywritingQAResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240118\Models\CopywritingQAShrinkRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240118\Models\CopywritingQAV1Request;
+use AlibabaCloud\SDK\IntelligentCreation\V20240118\Models\CopywritingQAV1Response;
 use AlibabaCloud\SDK\IntelligentCreation\V20240118\Models\DirectDeductResourceRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240118\Models\DirectDeductResourceResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240118\Models\DirectDeductResourcesRequest;
@@ -26,6 +28,8 @@ use AlibabaCloud\SDK\IntelligentCreation\V20240118\Models\GetRemainResourceRespo
 use AlibabaCloud\SDK\IntelligentCreation\V20240118\Models\SubmitBulletQuestionsRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240118\Models\SubmitBulletQuestionsResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240118\Models\SubmitBulletQuestionsShrinkRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240118\Models\SubmitBulletQuestionsV1Request;
+use AlibabaCloud\SDK\IntelligentCreation\V20240118\Models\SubmitBulletQuestionsV1Response;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -219,6 +223,48 @@ class IntelligentCreation extends OpenApiClient
         $headers = [];
 
         return $this->copywritingQAWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param CopywritingQAV1Request $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CopywritingQAV1Response
+     */
+    public function copywritingQAV1WithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'CopywritingQAV1',
+            'version'     => '2024-01-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/yic/yic-console/openService/v1/digitalHuman/commands/copywritingQAV1',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CopywritingQAV1Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CopywritingQAV1Request $request
+     *
+     * @return CopywritingQAV1Response
+     */
+    public function copywritingQAV1($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->copywritingQAV1WithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -499,5 +545,47 @@ class IntelligentCreation extends OpenApiClient
         $headers = [];
 
         return $this->submitBulletQuestionsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param SubmitBulletQuestionsV1Request $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return SubmitBulletQuestionsV1Response
+     */
+    public function submitBulletQuestionsV1WithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitBulletQuestionsV1',
+            'version'     => '2024-01-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/yic/yic-console/openService/v1/digitalHuman/commands/submitBulletQuestionsV1',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitBulletQuestionsV1Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SubmitBulletQuestionsV1Request $request
+     *
+     * @return SubmitBulletQuestionsV1Response
+     */
+    public function submitBulletQuestionsV1($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->submitBulletQuestionsV1WithOptions($request, $headers, $runtime);
     }
 }
