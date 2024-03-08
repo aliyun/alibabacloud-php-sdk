@@ -172,6 +172,9 @@ class CarbonFootprint extends OpenApiClient
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
+        if (!Utils::isUnset($request->topNum)) {
+            $query['TopNum'] = $request->topNum;
+        }
         if (!Utils::isUnset($request->uidsShrink)) {
             $query['Uids'] = $request->uidsShrink;
         }

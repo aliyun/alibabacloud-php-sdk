@@ -35,6 +35,11 @@ class QueryCarbonTrackRequest extends Model
     public $startTime;
 
     /**
+     * @var int
+     */
+    public $topNum;
+
+    /**
      * @var string[]
      */
     public $uids;
@@ -43,6 +48,7 @@ class QueryCarbonTrackRequest extends Model
         'filterRDAccount' => 'FilterRDAccount',
         'group'           => 'Group',
         'startTime'       => 'StartTime',
+        'topNum'          => 'TopNum',
         'uids'            => 'Uids',
     ];
 
@@ -64,6 +70,9 @@ class QueryCarbonTrackRequest extends Model
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->topNum) {
+            $res['TopNum'] = $this->topNum;
         }
         if (null !== $this->uids) {
             $res['Uids'] = $this->uids;
@@ -91,6 +100,9 @@ class QueryCarbonTrackRequest extends Model
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['TopNum'])) {
+            $model->topNum = $map['TopNum'];
         }
         if (isset($map['Uids'])) {
             if (!empty($map['Uids'])) {

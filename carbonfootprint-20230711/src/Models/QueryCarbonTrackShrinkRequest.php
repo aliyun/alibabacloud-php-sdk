@@ -35,6 +35,11 @@ class QueryCarbonTrackShrinkRequest extends Model
     public $startTime;
 
     /**
+     * @var int
+     */
+    public $topNum;
+
+    /**
      * @var string
      */
     public $uidsShrink;
@@ -43,6 +48,7 @@ class QueryCarbonTrackShrinkRequest extends Model
         'filterRDAccount' => 'FilterRDAccount',
         'group'           => 'Group',
         'startTime'       => 'StartTime',
+        'topNum'          => 'TopNum',
         'uidsShrink'      => 'Uids',
     ];
 
@@ -64,6 +70,9 @@ class QueryCarbonTrackShrinkRequest extends Model
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->topNum) {
+            $res['TopNum'] = $this->topNum;
         }
         if (null !== $this->uidsShrink) {
             $res['Uids'] = $this->uidsShrink;
@@ -91,6 +100,9 @@ class QueryCarbonTrackShrinkRequest extends Model
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['TopNum'])) {
+            $model->topNum = $map['TopNum'];
         }
         if (isset($map['Uids'])) {
             $model->uidsShrink = $map['Uids'];
