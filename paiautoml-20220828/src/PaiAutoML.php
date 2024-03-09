@@ -11,8 +11,12 @@ use AlibabaCloud\SDK\PaiAutoML\V20220828\Models\CreateHpoExperimentResponse;
 use AlibabaCloud\SDK\PaiAutoML\V20220828\Models\DeleteHpoExperimentResponse;
 use AlibabaCloud\SDK\PaiAutoML\V20220828\Models\GetHpoExperimentResponse;
 use AlibabaCloud\SDK\PaiAutoML\V20220828\Models\GetHpoTrialResponse;
+use AlibabaCloud\SDK\PaiAutoML\V20220828\Models\ListHpoExperimentLogsRequest;
+use AlibabaCloud\SDK\PaiAutoML\V20220828\Models\ListHpoExperimentLogsResponse;
 use AlibabaCloud\SDK\PaiAutoML\V20220828\Models\ListHpoExperimentsRequest;
 use AlibabaCloud\SDK\PaiAutoML\V20220828\Models\ListHpoExperimentsResponse;
+use AlibabaCloud\SDK\PaiAutoML\V20220828\Models\ListHpoTrialCommandsResponse;
+use AlibabaCloud\SDK\PaiAutoML\V20220828\Models\ListHpoTrialLogNamesResponse;
 use AlibabaCloud\SDK\PaiAutoML\V20220828\Models\ListHpoTrialLogsRequest;
 use AlibabaCloud\SDK\PaiAutoML\V20220828\Models\ListHpoTrialLogsResponse;
 use AlibabaCloud\SDK\PaiAutoML\V20220828\Models\ListHpoTrialsRequest;
@@ -22,6 +26,8 @@ use AlibabaCloud\SDK\PaiAutoML\V20220828\Models\RestartHpoTrialsResponse;
 use AlibabaCloud\SDK\PaiAutoML\V20220828\Models\StopHpoExperimentResponse;
 use AlibabaCloud\SDK\PaiAutoML\V20220828\Models\StopHpoTrialsRequest;
 use AlibabaCloud\SDK\PaiAutoML\V20220828\Models\StopHpoTrialsResponse;
+use AlibabaCloud\SDK\PaiAutoML\V20220828\Models\UpdateHpoExperimentRequest;
+use AlibabaCloud\SDK\PaiAutoML\V20220828\Models\UpdateHpoExperimentResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -242,6 +248,60 @@ class PaiAutoML extends OpenApiClient
     }
 
     /**
+     * @param string                       $ExperimentId
+     * @param ListHpoExperimentLogsRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListHpoExperimentLogsResponse
+     */
+    public function listHpoExperimentLogsWithOptions($ExperimentId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->logName)) {
+            $query['LogName'] = $request->logName;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListHpoExperimentLogs',
+            'version'     => '2022-08-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/automl/v1/hpo/experiment/' . OpenApiUtilClient::getEncodeParam($ExperimentId) . '/logs',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListHpoExperimentLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                       $ExperimentId
+     * @param ListHpoExperimentLogsRequest $request
+     *
+     * @return ListHpoExperimentLogsResponse
+     */
+    public function listHpoExperimentLogs($ExperimentId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listHpoExperimentLogsWithOptions($ExperimentId, $request, $headers, $runtime);
+    }
+
+    /**
      * @param ListHpoExperimentsRequest $request
      * @param string[]                  $headers
      * @param RuntimeOptions            $runtime
@@ -318,6 +378,90 @@ class PaiAutoML extends OpenApiClient
         $headers = [];
 
         return $this->listHpoExperimentsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $ExperimentId
+     * @param string         $TrialId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListHpoTrialCommandsResponse
+     */
+    public function listHpoTrialCommandsWithOptions($ExperimentId, $TrialId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'ListHpoTrialCommands',
+            'version'     => '2022-08-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/automl/v1/hpo/experiment/' . OpenApiUtilClient::getEncodeParam($ExperimentId) . '/trial/' . OpenApiUtilClient::getEncodeParam($TrialId) . '/commands',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListHpoTrialCommandsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $ExperimentId
+     * @param string $TrialId
+     *
+     * @return ListHpoTrialCommandsResponse
+     */
+    public function listHpoTrialCommands($ExperimentId, $TrialId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listHpoTrialCommandsWithOptions($ExperimentId, $TrialId, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $ExperimentId
+     * @param string         $TrialId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListHpoTrialLogNamesResponse
+     */
+    public function listHpoTrialLogNamesWithOptions($ExperimentId, $TrialId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'ListHpoTrialLogNames',
+            'version'     => '2022-08-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/automl/v1/hpo/experiment/' . OpenApiUtilClient::getEncodeParam($ExperimentId) . '/trial/' . OpenApiUtilClient::getEncodeParam($TrialId) . '/lognames',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListHpoTrialLogNamesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $ExperimentId
+     * @param string $TrialId
+     *
+     * @return ListHpoTrialLogNamesResponse
+     */
+    public function listHpoTrialLogNames($ExperimentId, $TrialId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listHpoTrialLogNamesWithOptions($ExperimentId, $TrialId, $headers, $runtime);
     }
 
     /**
@@ -570,5 +714,65 @@ class PaiAutoML extends OpenApiClient
         $headers = [];
 
         return $this->stopHpoTrialsWithOptions($ExperimentId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                     $ExperimentId
+     * @param UpdateHpoExperimentRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateHpoExperimentResponse
+     */
+    public function updateHpoExperimentWithOptions($ExperimentId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->accessibility)) {
+            $body['Accessibility'] = $request->accessibility;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->hpoExperimentConfiguration)) {
+            $body['HpoExperimentConfiguration'] = $request->hpoExperimentConfiguration;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateHpoExperiment',
+            'version'     => '2022-08-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/automl/v1/hpo/experiment/' . OpenApiUtilClient::getEncodeParam($ExperimentId) . '/update',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateHpoExperimentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                     $ExperimentId
+     * @param UpdateHpoExperimentRequest $request
+     *
+     * @return UpdateHpoExperimentResponse
+     */
+    public function updateHpoExperiment($ExperimentId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateHpoExperimentWithOptions($ExperimentId, $request, $headers, $runtime);
     }
 }
