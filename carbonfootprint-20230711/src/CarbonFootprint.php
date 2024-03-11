@@ -178,6 +178,9 @@ class CarbonFootprint extends OpenApiClient
         if (!Utils::isUnset($request->uidsShrink)) {
             $query['Uids'] = $request->uidsShrink;
         }
+        if (!Utils::isUnset($request->useCode)) {
+            $query['UseCode'] = $request->useCode;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);

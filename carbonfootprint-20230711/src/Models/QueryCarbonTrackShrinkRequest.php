@@ -43,6 +43,11 @@ class QueryCarbonTrackShrinkRequest extends Model
      * @var string
      */
     public $uidsShrink;
+
+    /**
+     * @var int
+     */
+    public $useCode;
     protected $_name = [
         'endTime'         => 'EndTime',
         'filterRDAccount' => 'FilterRDAccount',
@@ -50,6 +55,7 @@ class QueryCarbonTrackShrinkRequest extends Model
         'startTime'       => 'StartTime',
         'topNum'          => 'TopNum',
         'uidsShrink'      => 'Uids',
+        'useCode'         => 'UseCode',
     ];
 
     public function validate()
@@ -76,6 +82,9 @@ class QueryCarbonTrackShrinkRequest extends Model
         }
         if (null !== $this->uidsShrink) {
             $res['Uids'] = $this->uidsShrink;
+        }
+        if (null !== $this->useCode) {
+            $res['UseCode'] = $this->useCode;
         }
 
         return $res;
@@ -106,6 +115,9 @@ class QueryCarbonTrackShrinkRequest extends Model
         }
         if (isset($map['Uids'])) {
             $model->uidsShrink = $map['Uids'];
+        }
+        if (isset($map['UseCode'])) {
+            $model->useCode = $map['UseCode'];
         }
 
         return $model;

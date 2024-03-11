@@ -43,6 +43,11 @@ class QueryCarbonTrackRequest extends Model
      * @var string[]
      */
     public $uids;
+
+    /**
+     * @var int
+     */
+    public $useCode;
     protected $_name = [
         'endTime'         => 'EndTime',
         'filterRDAccount' => 'FilterRDAccount',
@@ -50,6 +55,7 @@ class QueryCarbonTrackRequest extends Model
         'startTime'       => 'StartTime',
         'topNum'          => 'TopNum',
         'uids'            => 'Uids',
+        'useCode'         => 'UseCode',
     ];
 
     public function validate()
@@ -76,6 +82,9 @@ class QueryCarbonTrackRequest extends Model
         }
         if (null !== $this->uids) {
             $res['Uids'] = $this->uids;
+        }
+        if (null !== $this->useCode) {
+            $res['UseCode'] = $this->useCode;
         }
 
         return $res;
@@ -108,6 +117,9 @@ class QueryCarbonTrackRequest extends Model
             if (!empty($map['Uids'])) {
                 $model->uids = $map['Uids'];
             }
+        }
+        if (isset($map['UseCode'])) {
+            $model->useCode = $map['UseCode'];
         }
 
         return $model;
