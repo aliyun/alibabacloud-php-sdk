@@ -60,6 +60,8 @@ use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeBackupPolicyRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeBackupPolicyResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeBackupsRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeBackupsResponse;
+use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeBackupStorageRequest;
+use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeBackupStorageResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeBackupTasksRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeBackupTasksResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeClusterBackupsRequest;
@@ -2350,6 +2352,46 @@ class Dds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeBackupPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeBackupStorageRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeBackupStorageResponse
+     */
+    public function describeBackupStorageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeBackupStorage',
+            'version'     => '2015-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeBackupStorageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeBackupStorageRequest $request
+     *
+     * @return DescribeBackupStorageResponse
+     */
+    public function describeBackupStorage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeBackupStorageWithOptions($request, $runtime);
     }
 
     /**
