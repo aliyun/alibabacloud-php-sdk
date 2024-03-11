@@ -13,9 +13,9 @@ class accountContext extends Model
      *
      * @var string
      */
-    public $userToken;
+    public $accountId;
     protected $_name = [
-        'userToken' => 'userToken',
+        'accountId' => 'accountId',
     ];
 
     public function validate()
@@ -25,8 +25,8 @@ class accountContext extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userToken) {
-            $res['userToken'] = $this->userToken;
+        if (null !== $this->accountId) {
+            $res['accountId'] = $this->accountId;
         }
 
         return $res;
@@ -40,8 +40,8 @@ class accountContext extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['userToken'])) {
-            $model->userToken = $map['userToken'];
+        if (isset($map['accountId'])) {
+            $model->accountId = $map['accountId'];
         }
 
         return $model;
