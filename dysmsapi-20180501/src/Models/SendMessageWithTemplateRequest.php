@@ -55,6 +55,8 @@ class SendMessageWithTemplateRequest extends Model
     public $to;
 
     /**
+     * @description The validity period of the message.
+     *
      * @example 1
      *
      * @var int

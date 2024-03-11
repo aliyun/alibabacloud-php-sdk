@@ -19,7 +19,7 @@ class ConversionDataRequest extends Model
     public $conversionRate;
 
     /**
-     * @description Timestamp of the conversion rate observation should be a Unix timestamp, millisecond-level long integer.
+     * @description Timestamp of the conversion rate observation should be a Unix timestamp, a millisecond-level long integer.
      *
      * >  If this field is not specified: the current timestamp is the default.
      * @example 1349055900000

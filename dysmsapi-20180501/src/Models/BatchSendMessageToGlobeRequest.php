@@ -58,6 +58,8 @@ class BatchSendMessageToGlobeRequest extends Model
     public $type;
 
     /**
+     * @description The validity period of the message. Unit: seconds.
+     *
      * @example 1
      *
      * @var int

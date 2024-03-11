@@ -20,7 +20,7 @@ class numberDetail extends Model
     /**
      * @description The country to which the mobile phone number belongs.
      *
-     * @example Hongkong, China
+     * @example China
      *
      * @var string
      */
