@@ -9,28 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeUsageOverallDataRequest extends Model
 {
     /**
-     * @description APP ID
+     * @example 0rbd****
      *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 结束时间，秒级时间戳：1609344000
+     * @example 1615910399
      *
      * @var int
      */
     public $endDate;
 
     /**
-     * @description 开始时间，秒级时间戳：1609344000
+     * @example 1615824000
      *
      * @var int
      */
     public $startDate;
 
     /**
-     * @description 类型，半角逗号分隔    总时长：TOTAL_CALL_DURATION  视频通信时长：VIDEO_CALL_DURATION  音频通信时长：AUDIO_CALL_DURATION    通信频道数：CALL_CHANNEL_COUNT  高并发通信频道数：  HIGHLY_CONCURRENT_CHANNEL_COUNT  并发频道数峰值：  CHANNEL_CONCURRENT_PEAK    在线人数峰值：ONLINE_USER_PEAK  累计通话人数：  TOTAL_CALL_USER  累计进出人次：  TOTAL_INOUT_NUM
+     * @example ONLINE_USER_PEAK
      *
      * @var string
      */

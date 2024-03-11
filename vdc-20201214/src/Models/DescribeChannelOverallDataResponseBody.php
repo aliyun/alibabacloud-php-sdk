@@ -12,28 +12,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeChannelOverallDataResponseBody extends Model
 {
     /**
-     * @description 通信基本信息。
-     *
      * @var callInfo
      */
     public $callInfo;
 
     /**
-     * @description 指标数据列表。
-     *
      * @var metricDatas[]
      */
     public $metricDatas;
 
     /**
-     * @description 概览数据。
-     *
      * @var overallData
      */
     public $overallData;
 
     /**
-     * @description 请求ID。
+     * @example C9F1EB03-1B7E-4115-ABFA-CB945B2348E7
      *
      * @var string
      */

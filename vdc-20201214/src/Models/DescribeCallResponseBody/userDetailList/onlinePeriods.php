@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class onlinePeriods extends Model
 {
     /**
-     * @description 加入通话时间，使用UNIX时间戳表示，单位：秒。
+     * @example 1616564129
      *
      * @var int
      */
     public $joinTs;
 
     /**
-     * @description 离开通话时间，使用UNIX时间戳表示，单位：秒。
+     * @example 1616564304
      *
      * @var int
      */

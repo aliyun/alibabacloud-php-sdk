@@ -11,29 +11,25 @@ use AlibabaCloud\Tea\Model;
 class factorList extends Model
 {
     /**
-     * @description 影响因素ID： 1：发布端网络差 2：订阅端网络差 3：发布端设备性能差 4：发布端关闭摄像头 5：发布端切到后台运行
+     * @example 2
      *
      * @var string
      */
     public $factorId;
 
     /**
-     * @description 异常来源 LOCAL：本端 REMOTE：远端
+     * @example LOCAL
      *
      * @var string
      */
     public $faultSource;
 
     /**
-     * @description 关联的事件，按时间分组，当FaultType为AUDIO_STUCK、VIDEO_STUCK、VIDEO_VAGUE、HIGH_DELAY时返回
-     *
      * @var relatedEventDatas[]
      */
     public $relatedEventDatas;
 
     /**
-     * @description 关联的指标，坐标数据，当FaultType为AUDIO_STUCK、VIDEO_STUCK、VIDEO_VAGUE、HIGH_DELAY时返回
-     *
      * @var relatedMetricDatas[]
      */
     public $relatedMetricDatas;

@@ -11,129 +11,107 @@ use AlibabaCloud\Tea\Model;
 class userDetailList extends Model
 {
     /**
-     * @description 通话体验，取值：GOOD:优良，BAD:欠佳。
+     * @example GOOD
      *
      * @var string
      */
     public $callExp;
 
     /**
-     * @description 创建通话时间，使用UNIX时间戳表示，单位：秒。
+     * @example 1616564129
      *
      * @var int
      */
     public $createdTs;
 
     /**
-     * @description 释放通话时间，使用UNIX时间戳表示，单位：秒。通话未结束时值为0。
+     * @example 1616564304
      *
      * @var int
      */
     public $destroyedTs;
 
     /**
-     * @description 时长统计数据
-     *
      * @var durMetricStatData
      */
     public $durMetricStatData;
 
     /**
-     * @description 通话时长，首次进入到最后离开，单位：秒。
+     * @example 0
      *
      * @var int
      */
     public $duration;
 
     /**
-     * @description 地理位置信息，例如：北京市-北京市
+     * @example 浙江省-杭州市
      *
      * @var string
      */
     public $location;
 
     /**
-     * @var string
-     */
-    public $locationCn;
-
-    /**
-     * @var string
-     */
-    public $locationEn;
-
-    /**
-     * @description 网络类型，如WiFi，4G等
+     * @example WiFi
      *
      * @var string
      */
     public $network;
 
     /**
-     * @description 网络类型，如WiFi，4G等
-     *
      * @var string[]
      */
     public $networkList;
 
     /**
-     * @description 在线时长，单位：秒。
+     * @example 175
      *
      * @var int
      */
     public $onlineDuration;
 
     /**
-     * @description 在线时段信息。
-     *
      * @var onlinePeriods[]
      */
     public $onlinePeriods;
 
     /**
-     * @description 平台类型：若用户客户端为WEB则是浏览器类型，若客户端为NATIVE则是操作系统类型
+     * @example macOS
      *
      * @var string
      */
     public $os;
 
     /**
-     * @description 平台类型：若用户客户端为WEB则是浏览器类型，若客户端为NATIVE则是操作系统类型
-     *
      * @var string[]
      */
     public $osList;
 
     /**
-     * @description 用户角色，取值：SENDER：发布端。RECEIVER：订阅端。
-     *
      * @var string[]
      */
     public $roles;
 
     /**
-     * @description SDK版本，如1.0.0、1.1.1等
+     * @example 2.1.2103191
      *
      * @var string
      */
     public $sdkVersion;
 
     /**
-     * @description SDK版本列表，如1.0.0、1.1.1等
-     *
      * @var string[]
      */
     public $sdkVersionList;
 
     /**
-     * @description 用户ID。
+     * @example 29ebdab59ba8****
      *
      * @var string
      */
     public $userId;
 
     /**
-     * @description 用户ID 别称
+     * @example 旁路
      *
      * @var string
      */
@@ -145,8 +123,6 @@ class userDetailList extends Model
         'durMetricStatData' => 'DurMetricStatData',
         'duration'          => 'Duration',
         'location'          => 'Location',
-        'locationCn'        => 'LocationCn',
-        'locationEn'        => 'LocationEn',
         'network'           => 'Network',
         'networkList'       => 'NetworkList',
         'onlineDuration'    => 'OnlineDuration',
@@ -184,12 +160,6 @@ class userDetailList extends Model
         }
         if (null !== $this->location) {
             $res['Location'] = $this->location;
-        }
-        if (null !== $this->locationCn) {
-            $res['LocationCn'] = $this->locationCn;
-        }
-        if (null !== $this->locationEn) {
-            $res['LocationEn'] = $this->locationEn;
         }
         if (null !== $this->network) {
             $res['Network'] = $this->network;
@@ -259,12 +229,6 @@ class userDetailList extends Model
         }
         if (isset($map['Location'])) {
             $model->location = $map['Location'];
-        }
-        if (isset($map['LocationCn'])) {
-            $model->locationCn = $map['LocationCn'];
-        }
-        if (isset($map['LocationEn'])) {
-            $model->locationEn = $map['LocationEn'];
         }
         if (isset($map['Network'])) {
             $model->network = $map['Network'];

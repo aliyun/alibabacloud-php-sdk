@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class statList extends Model
 {
     /**
-     * @description 通信人数。
+     * @example 1
      *
      * @var int
      */
     public $callUserCount;
 
     /**
-     * @description 通信人数占比，用小数表示，例如1.0000表示通信人数占比为100%。
+     * @example 1.0000
      *
      * @var string
      */
     public $callUserRatio;
 
     /**
-     * @description 统计维度。
+     * @example macOS
      *
      * @var string
      */

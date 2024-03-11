@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class nodes extends Model
 {
     /**
-     * @description x轴坐标值，秒级时间戳，单位时间为分钟
+     * @example 1620957900
      *
      * @var string
      */
     public $x;
 
     /**
-     * @description y轴坐标值，异常指标的值
+     * @example 0.4540
      *
      * @var string
      */

@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeFaultDiagnosisFactorDistributionStatRequest extends Model
 {
     /**
-     * @description APP ID。
+     * @example 0rbd****
      *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 查询的结束时间，使用UNIX时间戳表示，单位：秒。
+     * @example 1615892596
      *
      * @var int
      */
     public $endTs;
 
     /**
-     * @description 查询的开始时间，使用UNIX时间戳表示，单位：秒。
+     * @example 1615806196
      *
      * @var int
      */

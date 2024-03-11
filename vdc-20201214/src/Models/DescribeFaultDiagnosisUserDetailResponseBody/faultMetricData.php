@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class faultMetricData extends Model
 {
     /**
-     * @description 指标坐标点列表
-     *
      * @var nodes[]
      */
     public $nodes;

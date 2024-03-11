@@ -10,14 +10,12 @@ use AlibabaCloud\Tea\Model;
 class eventDataItems extends Model
 {
     /**
-     * @description 事件列表。
-     *
      * @var eventList[]
      */
     public $eventList;
 
     /**
-     * @description 第一个事件发生的时间，使用UNIX时间戳表示，单位：秒。
+     * @example 1614936817
      *
      * @var int
      */

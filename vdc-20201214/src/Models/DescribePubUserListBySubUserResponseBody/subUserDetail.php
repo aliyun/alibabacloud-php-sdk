@@ -10,112 +10,102 @@ use AlibabaCloud\Tea\Model;
 class subUserDetail extends Model
 {
     /**
-     * @description 端类型，取值：WEB：Web端。NATIVE：本地端。
+     * @example WEB
      *
      * @var string
      */
     public $clientType;
 
     /**
-     * @description 第一次加入通话的时间，使用UNIX时间戳表示，单位：秒。
+     * @example 1614936817
      *
      * @var int
      */
     public $createdTs;
 
     /**
-     * @description 最后一次离开通话的时间，使用UNIX时间戳表示，单位：秒。通话未结束时值为0。
+     * @example 1614936820
      *
      * @var int
      */
     public $destroyedTs;
 
     /**
-     * @description 通话时长，首次进入到最后离开，单位：秒。
+     * @example 0
      *
      * @var int
      */
     public $duration;
 
     /**
-     * @description 地理位置信息，例如：浙江省-杭州市。
+     * @example 浙江省-杭州市
      *
      * @var string
      */
     public $location;
 
     /**
-     * @description 网络类型，如WiFi，4G等
+     * @example 4G
      *
      * @var string
      */
     public $network;
 
     /**
-     * @description 网络类型，如WiFi，4G等
-     *
      * @var string[]
      */
     public $networkList;
 
     /**
-     * @description 在线时长，单位：秒。
+     * @example 0
      *
      * @var int
      */
     public $onlineDuration;
 
     /**
-     * @description 在线时段信息。
-     *
      * @var onlinePeriods[]
      */
     public $onlinePeriods;
 
     /**
-     * @description 平台类型：若用户客户端为WEB则是浏览器类型，若客户端为NATIVE则是操作系统类型
+     * @example iOS
      *
      * @var string
      */
     public $os;
 
     /**
-     * @description 平台类型：若用户客户端为WEB则是浏览器类型，若客户端为NATIVE则是操作系统类型
-     *
      * @var string[]
      */
     public $osList;
 
     /**
-     * @description 用户角色，取值：SENDER：发布端。RECEIVER：订阅端。
-     *
      * @var string[]
      */
     public $roles;
 
     /**
-     * @description SDK版本。
+     * @example 1.0.0
      *
      * @var string
      */
     public $sdkVersion;
 
     /**
-     * @description SDK版本列表，如1.0.0、1.1.1等
-     *
      * @var string[]
      */
     public $sdkVersionList;
 
     /**
-     * @description 用户ID。
+     * @example c906531af5f9****
      *
      * @var string
      */
     public $userId;
 
     /**
-     * @description 用户ID别称
+     * @example 旁路转推
      *
      * @var string
      */

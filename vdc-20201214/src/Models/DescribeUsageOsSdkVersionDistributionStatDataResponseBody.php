@@ -10,15 +10,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeUsageOsSdkVersionDistributionStatDataResponseBody extends Model
 {
     /**
-     * @description 请求ID
+     * @example 579EA10B-8B89-449E-88E0-D362C76EAC62
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 用量统计SDK版本数据列表
-     *
      * @var usageOsSdkVersionStatList[]
      */
     public $usageOsSdkVersionStatList;

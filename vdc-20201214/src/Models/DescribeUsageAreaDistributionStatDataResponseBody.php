@@ -10,15 +10,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeUsageAreaDistributionStatDataResponseBody extends Model
 {
     /**
-     * @description 请求ID
+     * @example 4473A35B-18C1-4D91-A596-32F99C7D1C8B
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 用量统计地域分布数据
-     *
      * @var usageAreaStatList[]
      */
     public $usageAreaStatList;

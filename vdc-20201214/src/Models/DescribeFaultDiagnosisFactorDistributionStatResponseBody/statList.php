@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class statList extends Model
 {
     /**
-     * @description 影响因素ID： 1：发布端网络差 2：订阅端网络差 3：发布端设备性能差 4：发布端关闭摄像头 5：发布端切到后台运行，UNKNOWN：未知
+     * @example UNKNOWN
      *
      * @var string
      */
     public $factorId;
 
     /**
-     * @description 影响用户数
+     * @example 449
      *
      * @var int
      */
     public $userCount;
 
     /**
-     * @description 影响用户占比
+     * @example 0.9239
      *
      * @var float
      */

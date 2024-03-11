@@ -10,14 +10,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeEndPointEventListResponseBody extends Model
 {
     /**
-     * @description 用户基本信息列表。
-     *
      * @var nodes[]
      */
     public $nodes;
 
     /**
-     * @description 请求ID。
+     * @example 3CFF4E0E-4F4D-49B6-B4C9-12C97E2F1ECD
      *
      * @var string
      */

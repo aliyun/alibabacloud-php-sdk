@@ -10,15 +10,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeChannelTopPubUserListResponseBody extends Model
 {
     /**
-     * @description 请求ID。
+     * @example 3024CAAA-962D-459F-871B-C263841F264A
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Top发布用户详情列表
-     *
      * @var topPubUserDetailList[]
      */
     public $topPubUserDetailList;

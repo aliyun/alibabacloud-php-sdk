@@ -9,84 +9,84 @@ use AlibabaCloud\Tea\Model;
 class qualityStatDataList extends Model
 {
     /**
-     * @description 音频延时，单位毫秒
+     * @example 300
      *
      * @var int
      */
     public $audioDelay;
 
     /**
-     * @description 音频优质传输率， 四位小数表示，如0.9927
+     * @example 0.9941
      *
      * @var string
      */
     public $audioHighQualityTransmissionRate;
 
     /**
-     * @description 音频首次出声时间，单位毫秒
+     * @example 1060
      *
      * @var int
      */
     public $audioSpeakOutDuration;
 
     /**
-     * @description 音频卡顿率， 四位小数表示，如0.0034
+     * @example 0.0025
      *
      * @var string
      */
     public $audioStuckRate;
 
     /**
-     * @description 通话时长用量占比，四位小数表示，如1.0000
+     * @example 0.7959
      *
      * @var string
      */
     public $callDurationRatio;
 
     /**
-     * @description 5秒加入频道成功率， 四位小数表示，如1.0000
+     * @example 0.9939
      *
      * @var string
      */
     public $joinChannelSucFiveSecRate;
 
     /**
-     * @description 加入频道成功率， 四位小数表示，如1.0000
+     * @example 0.9972
      *
      * @var string
      */
     public $joinChannelSucRate;
 
     /**
-     * @description 区域名称，如广东省
+     * @example 中国_浙江省
      *
      * @var string
      */
     public $name;
 
     /**
-     * @description 视频延时，单位毫秒
+     * @example 252
      *
      * @var int
      */
     public $videoDelay;
 
     /**
-     * @description 视频首次出图时间，单位毫秒
+     * @example 1236
      *
      * @var int
      */
     public $videoFirstPicDuration;
 
     /**
-     * @description 视频优质传输率，四位小数表示，如0.9965
+     * @example 0.9978
      *
      * @var string
      */
     public $videoHighQualityTransmissionRate;
 
     /**
-     * @description 视频卡顿率， 四位小数表示，如0.0038
+     * @example 0.0104
      *
      * @var string
      */

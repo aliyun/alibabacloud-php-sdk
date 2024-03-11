@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class nodes extends Model
 {
     /**
-     * @description 视频指标趋势图中x轴横坐标。
+     * @example 1548670256
      *
      * @var string
      */
     public $x;
 
     /**
-     * @description 视频指标趋势图中y轴纵坐标。
+     * @example 123
      *
      * @var string
      */

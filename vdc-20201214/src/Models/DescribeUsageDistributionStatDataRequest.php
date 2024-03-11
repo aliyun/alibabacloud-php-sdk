@@ -9,28 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeUsageDistributionStatDataRequest extends Model
 {
     /**
-     * @description APP ID
+     * @example 0rbd****
      *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 结束时间，秒级时间戳：如1609344000
+     * @example 1615910399
      *
      * @var int
      */
     public $endDate;
 
     /**
-     * @description 开始时间，秒级时间戳：如1609344000
+     * @example 1615824000
      *
      * @var int
      */
     public $startDate;
 
     /**
-     * @description 统计维度，支持最多填入一个 CHANNEL_ONLINE, NETWORK, OS
+     * @example CHANNEL_ONLINE
      *
      * @var string
      */

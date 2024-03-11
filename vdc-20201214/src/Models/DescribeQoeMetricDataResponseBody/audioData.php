@@ -10,21 +10,19 @@ use AlibabaCloud\Tea\Model;
 class audioData extends Model
 {
     /**
-     * @description 音频指标趋势图坐标点列表。
-     *
      * @var nodes[]
      */
     public $nodes;
 
     /**
-     * @description 通信体验，取值：AUDIO：音频码率。AUDIO_STUCK：音频下行卡顿。
+     * @example AUDIO
      *
      * @var string
      */
     public $type;
 
     /**
-     * @description 用户ID。
+     * @example c906531af5f9****
      *
      * @var string
      */

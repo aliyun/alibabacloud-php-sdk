@@ -10,70 +10,68 @@ use AlibabaCloud\Tea\Model;
 class userDetail extends Model
 {
     /**
-     * @description 创建通话时间，使用UNIX时间戳表示，单位：秒。
+     * @example 1620957919
      *
      * @var int
      */
     public $createdTs;
 
     /**
-     * @description 释放通话时间，使用UNIX时间戳表示，单位：秒。通话未结束时值为0。
+     * @example 1620958150
      *
      * @var int
      */
     public $destroyedTs;
 
     /**
-     * @description 通话时长，首次进入到最后离开，单位：秒。
+     * @example 231
      *
      * @var int
      */
     public $duration;
 
     /**
-     * @description 地理位置信息，例如：北京市-北京市
+     * @example 浙江省-杭州市
      *
      * @var string
      */
     public $location;
 
     /**
-     * @description 网络类型，如WiFi，4G等
+     * @example WiFi
      *
      * @var string
      */
     public $network;
 
     /**
-     * @description 在线时长，单位：秒。
+     * @example 231
      *
      * @var int
      */
     public $onlineDuration;
 
     /**
-     * @description 在线时段信息。
-     *
      * @var onlinePeriods[]
      */
     public $onlinePeriods;
 
     /**
-     * @description 平台类型：若用户客户端为WEB则是浏览器类型，若客户端为NATIVE则是操作系统类型
+     * @example iOS
      *
      * @var string
      */
     public $os;
 
     /**
-     * @description SDK版本，如1.0.0、1.1.1等
+     * @example 2.2.2105081533277
      *
      * @var string
      */
     public $sdkVersion;
 
     /**
-     * @description 用户ID。
+     * @example 0a497933****
      *
      * @var string
      */

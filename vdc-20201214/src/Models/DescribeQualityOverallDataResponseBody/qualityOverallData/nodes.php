@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class nodes extends Model
 {
     /**
-     * @description x轴横坐标
+     * @example 1620144000
      *
      * @var string
      */
     public $x;
 
     /**
-     * @description y轴纵坐标
+     * @example 1.0000
      *
      * @var string
      */

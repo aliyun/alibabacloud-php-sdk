@@ -10,14 +10,12 @@ use AlibabaCloud\Tea\Model;
 class metricDatas extends Model
 {
     /**
-     * @description 指标趋势图坐标点列表。
-     *
      * @var nodes[]
      */
     public $nodes;
 
     /**
-     * @description 指标类型，取值：CALL_QUALITY：通信质量。CONN_NUM：通信次数。
+     * @example CALL_QUALITY
      *
      * @var string
      */

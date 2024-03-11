@@ -10,14 +10,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeChannelAreaDistributionStatDataResponseBody extends Model
 {
     /**
-     * @description 地域统计列表。
-     *
      * @var areaStatList[]
      */
     public $areaStatList;
 
     /**
-     * @description 请求ID。
+     * @example 659D0AE5-B9EC-4878-B297-A2444C9E64D7
      *
      * @var string
      */

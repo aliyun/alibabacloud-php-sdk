@@ -9,56 +9,56 @@ use AlibabaCloud\Tea\Model;
 class DescribeFaultDiagnosisUserListRequest extends Model
 {
     /**
-     * @description APP ID。
+     * @example 0rbd****
      *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 搜索的频道ID
+     * @example 311
      *
      * @var string
      */
     public $channelId;
 
     /**
-     * @description 查询的结束时间，使用UNIX时间戳表示，单位：秒。
+     * @example 1615892596
      *
      * @var int
      */
     public $endTs;
 
     /**
-     * @description 过滤的异常类型，多个使用半角逗号分隔 JOIN_SLOW：进频道慢 AUDIO_STUCK：音频卡顿 VIDEO_STUCK：视频卡顿 VIDEO_VAGUE：视频模糊 HIGH_DELAY：通话延迟高 FIRST_FRAME_SLOW：接收首屏慢
+     * @example JOIN_SLOW,AUDIO_STUCK
      *
      * @var string
      */
     public $faultTypes;
 
     /**
-     * @description 页码
+     * @example 1
      *
      * @var int
      */
     public $pageNo;
 
     /**
-     * @description 每页数量
+     * @example 10
      *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 查询的开始时间，使用UNIX时间戳表示，单位：秒。
+     * @example 1615806196
      *
      * @var int
      */
     public $startTs;
 
     /**
-     * @description 搜索的用户ID
+     * @example 140c1f12****
      *
      * @var string
      */

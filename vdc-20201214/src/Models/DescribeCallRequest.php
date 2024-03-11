@@ -9,42 +9,42 @@ use AlibabaCloud\Tea\Model;
 class DescribeCallRequest extends Model
 {
     /**
-     * @description APP ID。
+     * @example pdtk****
      *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 频道ID。
+     * @example 1230
      *
      * @var string
      */
     public $channelId;
 
     /**
-     * @description 创建频道时间，使用UNIX时间戳表示，单位：秒。
+     * @example 1616564129
      *
      * @var int
      */
     public $createdTs;
 
     /**
-     * @description 频道释放时间，使用UNIX时间戳表示，单位：秒。参数为空表示获取当前时间。
+     * @example 1616564304
      *
      * @var int
      */
     public $destroyedTs;
 
     /**
-     * @description 查询的扩展。取值：USER_DURATION_STAT：用户时长统计数据类型。
+     * @example USER_DURATION_STAT
      *
      * @var string
      */
     public $extDataType;
 
     /**
-     * @description 是否查询通信体验信息，不传默认是true
+     * @example false
      *
      * @var bool
      */

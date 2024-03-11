@@ -9,35 +9,35 @@ use AlibabaCloud\Tea\Model;
 class DescribeChannelDistributionStatDataRequest extends Model
 {
     /**
-     * @description APP ID。
+     * @example 9qb1****
      *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 频道ID
+     * @example 123333
      *
      * @var string
      */
     public $channelId;
 
     /**
-     * @description 创建频道的时间戳，使用UNIX时间戳表示，单位：秒。
+     * @example 1615893133
      *
      * @var int
      */
     public $createdTs;
 
     /**
-     * @description 频道释放时间，使用UNIX时间戳表示，单位：秒。参数为空表示获取当前时间。
+     * @example 1615893757
      *
      * @var int
      */
     public $destroyedTs;
 
     /**
-     * @description 统计维度，取值：OS：按照系统统计。SDK_VERSION：按照SDK版本统计。
+     * @example OS
      *
      * @var string
      */

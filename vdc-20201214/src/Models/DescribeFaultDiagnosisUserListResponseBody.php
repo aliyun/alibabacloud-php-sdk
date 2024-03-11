@@ -10,36 +10,34 @@ use AlibabaCloud\Tea\Model;
 class DescribeFaultDiagnosisUserListResponseBody extends Model
 {
     /**
-     * @description 页码。
+     * @example 1
      *
      * @var int
      */
     public $pageNo;
 
     /**
-     * @description 每页数量。
+     * @example 10
      *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 请求ID。
+     * @example 99C8FAD2-F96B-4A24-B2E8-3EC9529BAD2C
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 总数量。
+     * @example 187
      *
      * @var int
      */
     public $totalCnt;
 
     /**
-     * @description 异常用户明细列表。
-     *
      * @var userList[]
      */
     public $userList;

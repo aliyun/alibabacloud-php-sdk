@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class expInfoList extends Model
 {
     /**
-     * @description 用户体验：GOOD:优良, BAD:欠佳
-     *
      * @var string
      */
     public $callExp;
 
     /**
-     * @description 用户ID
-     *
      * @var string
      */
     public $userId;

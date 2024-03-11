@@ -10,21 +10,19 @@ use AlibabaCloud\Tea\Model;
 class relatedEventDatas extends Model
 {
     /**
-     * @description 事件数据列表
-     *
      * @var eventDataItems[]
      */
     public $eventDataItems;
 
     /**
-     * @description 来源角色： SENDER：发布端，即上行 RECEIVER：订阅端，即下行
+     * @example SENDER
      *
      * @var string
      */
     public $role;
 
     /**
-     * @description 用户ID
+     * @example 0a497933****
      *
      * @var string
      */

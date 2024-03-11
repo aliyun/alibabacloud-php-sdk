@@ -10,21 +10,19 @@ use AlibabaCloud\Tea\Model;
 class pubMetrics extends Model
 {
     /**
-     * @description 坐标点列表
-     *
      * @var nodes[]
      */
     public $nodes;
 
     /**
-     * @description 对应入参Metrics中的类型
+     * @example APP_CPU
      *
      * @var string
      */
     public $type;
 
     /**
-     * @description 用户ID。
+     * @example testuserid2
      *
      * @var string
      */

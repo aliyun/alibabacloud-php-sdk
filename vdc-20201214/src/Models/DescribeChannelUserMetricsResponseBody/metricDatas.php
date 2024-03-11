@@ -10,14 +10,12 @@ use AlibabaCloud\Tea\Model;
 class metricDatas extends Model
 {
     /**
-     * @description 指标趋势图坐标点列表。
-     *
      * @var nodes[]
      */
     public $nodes;
 
     /**
-     * @description 指标类型，取值：ALL_NUM：累计用户数量。PUB_NUM：累计发布用户数量。SUB_NUM：累计订阅用户数量。JOIN_FAIL_NUM：累计加入频道异常用户数量。BAD_EXP_NUM：累计通信体验异常用户。
+     * @example ALL_NUM
      *
      * @var string
      */

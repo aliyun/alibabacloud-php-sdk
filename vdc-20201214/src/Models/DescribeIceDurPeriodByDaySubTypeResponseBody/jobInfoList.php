@@ -10,22 +10,16 @@ use AlibabaCloud\Tea\Model;
 class jobInfoList extends Model
 {
     /**
-     * @description 日期时间戳
-     *
      * @var int
      */
     public $dateTs;
 
     /**
-     * @description 任务总时长,单位分钟
-     *
      * @var int
      */
     public $duration;
 
     /**
-     * @description 子任务信息列表
-     *
      * @var subJobInfoList[]
      */
     public $subJobInfoList;

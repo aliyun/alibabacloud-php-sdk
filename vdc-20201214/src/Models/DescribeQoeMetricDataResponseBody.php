@@ -11,22 +11,18 @@ use AlibabaCloud\Tea\Model;
 class DescribeQoeMetricDataResponseBody extends Model
 {
     /**
-     * @description 音频数据。
-     *
      * @var audioData[]
      */
     public $audioData;
 
     /**
-     * @description 请求ID
+     * @example 963F15CA-9D61-4341-B9D0-123E97229829
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 视频数据。
-     *
      * @var videoData[]
      */
     public $videoData;

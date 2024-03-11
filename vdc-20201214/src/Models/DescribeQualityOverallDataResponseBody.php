@@ -10,14 +10,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeQualityOverallDataResponseBody extends Model
 {
     /**
-     * @description 概览数据列表
-     *
      * @var qualityOverallData[]
      */
     public $qualityOverallData;
 
     /**
-     * @description 请求ID
+     * @example 4F8EE7C0-5B91-4EEF-AAA3-1C8430F6DB13
      *
      * @var string
      */

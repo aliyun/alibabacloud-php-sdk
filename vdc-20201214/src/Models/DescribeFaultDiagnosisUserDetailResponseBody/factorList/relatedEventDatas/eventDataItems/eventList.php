@@ -19,14 +19,14 @@ class eventList extends Model
     public $eventCode;
 
     /**
-     * @description 事件名称。
+     * @example 开始发布
      *
      * @var string
      */
     public $eventName;
 
     /**
-     * @description 事件类型，取值：USER：用户事件。SYSTEM：系统事件。
+     * @example USER
      *
      * @var string
      */
@@ -63,7 +63,7 @@ class eventList extends Model
     public $trackName;
 
     /**
-     * @description 事件发生的时间，使用UNIX时间戳表示，单位：秒。
+     * @example 1614936817
      *
      * @var int
      */

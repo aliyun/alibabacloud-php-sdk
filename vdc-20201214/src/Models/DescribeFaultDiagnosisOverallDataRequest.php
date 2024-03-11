@@ -9,28 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeFaultDiagnosisOverallDataRequest extends Model
 {
     /**
-     * @description APP ID
+     * @example 0rbd****
      *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 结束时间，秒级时间戳：1609344000
+     * @example 1615910399
      *
      * @var int
      */
     public $endTs;
 
     /**
-     * @description 开始时间，秒级时间戳：1609344000
+     * @example 1615824000
      *
      * @var int
      */
     public $startTs;
 
     /**
-     * @description 获取数据统计维度： JOIN_SLOW_USER：进频道慢用户数 AUDIO_STUCK_USER：音频卡顿用户数 VIDEO_STUCK_USER：视频卡顿用户数 VIDEO_VAGUE_USER：视频模糊用户数 HIGH_DELAY_USER：通话延迟高用户数 FIRST_SCREEN_SLOW_USER：接收首屏慢用户数
+     * @example JOIN_SLOW_USER
      *
      * @var string
      */

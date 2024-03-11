@@ -10,15 +10,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeFaultDiagnosisFactorDistributionStatResponseBody extends Model
 {
     /**
-     * @description 请求ID。
+     * @example D5220A80-94A3-4C3E-B0BC-DD914FB46BE4
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 影响因素分布统计数据
-     *
      * @var statList[]
      */
     public $statList;

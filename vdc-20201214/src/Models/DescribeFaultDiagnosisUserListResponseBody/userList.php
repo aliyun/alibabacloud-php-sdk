@@ -10,42 +10,40 @@ use AlibabaCloud\Tea\Model;
 class userList extends Model
 {
     /**
-     * @description 通信的创建时间戳，使用UNIX时间戳表示，单位：秒。
+     * @example 1620787721
      *
      * @var int
      */
     public $channelCreatedTs;
 
     /**
-     * @description 频道ID。
+     * @example 311
      *
      * @var string
      */
     public $channelId;
 
     /**
-     * @description 用户首次进入通话时间，使用UNIX时间戳表示，单位：秒。
+     * @example 1620788012
      *
      * @var int
      */
     public $createdTs;
 
     /**
-     * @description 用户最后一次离开通话时间，使用UNIX时间戳表示，单位：秒。
+     * @example 1620788861
      *
      * @var int
      */
     public $destroyedTs;
 
     /**
-     * @description 异常列表。
-     *
      * @var faultList[]
      */
     public $faultList;
 
     /**
-     * @description 用户ID。
+     * @example 140c1f12****
      *
      * @var string
      */

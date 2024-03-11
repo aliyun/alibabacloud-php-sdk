@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class thresholdConfig extends Model
 {
     /**
-     * @description 入会慢时间阈值，单位毫秒
+     * @example 1000
      *
      * @var int
      */

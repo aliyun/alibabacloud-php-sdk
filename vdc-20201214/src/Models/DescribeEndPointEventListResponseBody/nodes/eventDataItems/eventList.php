@@ -19,14 +19,14 @@ class eventList extends Model
     public $eventCode;
 
     /**
-     * @description 事件名称。
+     * @example 开始发布
      *
      * @var string
      */
     public $eventName;
 
     /**
-     * @description 事件类型，取值：USER：用户事件。SYSTEM：系统事件。
+     * @example USER
      *
      * @var string
      */
@@ -63,11 +63,16 @@ class eventList extends Model
     public $trackName;
 
     /**
-     * @description 事件发生的时间，使用UNIX时间戳表示，单位：秒。
+     * @example 1615887686
      *
      * @var int
      */
     public $ts;
+
+    /**
+     * @var string
+     */
+    public $tsInMs;
 
     /**
      * @var string
@@ -85,6 +90,7 @@ class eventList extends Model
         'trackCode'  => 'TrackCode',
         'trackName'  => 'TrackName',
         'ts'         => 'Ts',
+        'tsInMs'     => 'TsInMs',
         'userId'     => 'UserId',
     ];
 
@@ -127,6 +133,9 @@ class eventList extends Model
         }
         if (null !== $this->ts) {
             $res['Ts'] = $this->ts;
+        }
+        if (null !== $this->tsInMs) {
+            $res['TsInMs'] = $this->tsInMs;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
@@ -175,6 +184,9 @@ class eventList extends Model
         }
         if (isset($map['Ts'])) {
             $model->ts = $map['Ts'];
+        }
+        if (isset($map['TsInMs'])) {
+            $model->tsInMs = $map['TsInMs'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];

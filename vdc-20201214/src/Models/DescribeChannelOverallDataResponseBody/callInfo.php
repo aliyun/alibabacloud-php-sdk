@@ -9,42 +9,42 @@ use AlibabaCloud\Tea\Model;
 class callInfo extends Model
 {
     /**
-     * @description 应用ID。
+     * @example 9qb1****
      *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 通信状态，取值：IN：进行中。OUT：已结束
+     * @example IN
      *
      * @var string
      */
     public $callStatus;
 
     /**
-     * @description 频道ID。
+     * @example 123456
      *
      * @var string
      */
     public $channelId;
 
     /**
-     * @description 创建通信的时间戳，使用UNIX时间戳表示，单位：秒。
+     * @example 1615860711
      *
      * @var int
      */
     public $createdTs;
 
     /**
-     * @description 释放通信的时间戳，使用UNIX时间戳表示，单位：秒。
+     * @example 1615860811
      *
      * @var int
      */
     public $destroyedTs;
 
     /**
-     * @description 通信时长，单位：秒。
+     * @example 100
      *
      * @var int
      */

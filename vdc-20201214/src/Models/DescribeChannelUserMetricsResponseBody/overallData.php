@@ -9,35 +9,35 @@ use AlibabaCloud\Tea\Model;
 class overallData extends Model
 {
     /**
-     * @description 累计通信体验异常用户数量。
+     * @example 0
      *
      * @var int
      */
     public $totalBadExpNum;
 
     /**
-     * @description 累计加入频道异常用户数量。
+     * @example 0
      *
      * @var int
      */
     public $totalJoinFailNum;
 
     /**
-     * @description 累计发布端用户数量。
+     * @example 4
      *
      * @var int
      */
     public $totalPubUserNum;
 
     /**
-     * @description 累计订阅端用户数量。
+     * @example 1
      *
      * @var int
      */
     public $totalSubUserNum;
 
     /**
-     * @description 累计用户数量。
+     * @example 4
      *
      * @var int
      */

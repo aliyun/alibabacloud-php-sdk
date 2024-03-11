@@ -11,21 +11,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeFaultDiagnosisOverallDataResponseBody extends Model
 {
     /**
-     * @description 异常指标数据
-     *
      * @var metricData
      */
     public $metricData;
 
     /**
-     * @description 总览数据
-     *
      * @var overallData
      */
     public $overallData;
 
     /**
-     * @description 请求ID。
+     * @example 1C24B3B5-E41A-45CE-844D-D3C578B97AA6
      *
      * @var string
      */

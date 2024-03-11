@@ -10,21 +10,19 @@ use AlibabaCloud\Tea\Model;
 class subMetrics extends Model
 {
     /**
-     * @description 订阅端指标趋势图坐标点列表。
-     *
      * @var nodes[]
      */
     public $nodes;
 
     /**
-     * @description 对应入参Metrics中的类型
+     * @example VIDEO_STUCK_CAMERA
      *
      * @var string
      */
     public $type;
 
     /**
-     * @description 用户ID。
+     * @example testuserid1
      *
      * @var string
      */

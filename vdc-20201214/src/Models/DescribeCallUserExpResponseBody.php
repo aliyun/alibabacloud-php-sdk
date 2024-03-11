@@ -10,14 +10,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeCallUserExpResponseBody extends Model
 {
     /**
-     * @description 通信体验信息。
-     *
      * @var expInfoList[]
      */
     public $expInfoList;
 
     /**
-     * @description 请求ID
+     * @example 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
      *
      * @var string
      */

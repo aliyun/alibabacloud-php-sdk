@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class metricData extends Model
 {
     /**
-     * @description 指标坐标点列表，单位时间为1分钟的异常用户数据
-     *
      * @var nodes[]
      */
     public $nodes;

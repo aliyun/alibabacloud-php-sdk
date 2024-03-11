@@ -13,43 +13,33 @@ use AlibabaCloud\Tea\Model;
 class DescribeFaultDiagnosisUserDetailResponseBody extends Model
 {
     /**
-     * @description 通信基本信息，QueryCallUserInfo=false是返回。
-     *
      * @var callInfo
      */
     public $callInfo;
 
     /**
-     * @description 影响因素列表，空表示影响因素未知
-     *
      * @var factorList[]
      */
     public $factorList;
 
     /**
-     * @description 异常指标
-     *
      * @var faultMetricData
      */
     public $faultMetricData;
 
     /**
-     * @description 网络运营商列表
-     *
      * @var string[]
      */
     public $networkOperators;
 
     /**
-     * @description 请求ID。
+     * @example 1DB846A6-969D-4873-B592-B4A8D1CA3294
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 诊断用户详细信，QueryCallUserInfo=false是返回息
-     *
      * @var userDetail
      */
     public $userDetail;

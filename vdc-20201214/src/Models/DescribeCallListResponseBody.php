@@ -10,35 +10,33 @@ use AlibabaCloud\Tea\Model;
 class DescribeCallListResponseBody extends Model
 {
     /**
-     * @description 通信列表。
-     *
      * @var callList[]
      */
     public $callList;
 
     /**
-     * @description 页码。
+     * @example 2
      *
      * @var int
      */
     public $pageNo;
 
     /**
-     * @description 每页数量。
+     * @example 10
      *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 请求ID。
+     * @example 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 总数量。
+     * @example 20
      *
      * @var int
      */

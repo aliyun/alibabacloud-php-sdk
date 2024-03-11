@@ -10,14 +10,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeQualityDistributionStatDataResponseBody extends Model
 {
     /**
-     * @description 分布数据列表
-     *
      * @var qualityStatDataList[]
      */
     public $qualityStatDataList;
 
     /**
-     * @description 请求ID
+     * @example 2D9B00C1-1BA9-4388-9CC1-91F1A933262D
      *
      * @var string
      */

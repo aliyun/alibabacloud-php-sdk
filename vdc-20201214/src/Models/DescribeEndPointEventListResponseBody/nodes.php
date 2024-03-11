@@ -10,14 +10,12 @@ use AlibabaCloud\Tea\Model;
 class nodes extends Model
 {
     /**
-     * @description 事件数据列表
-     *
      * @var eventDataItems[]
      */
     public $eventDataItems;
 
     /**
-     * @description 用户ID
+     * @example testuserid
      *
      * @var string
      */

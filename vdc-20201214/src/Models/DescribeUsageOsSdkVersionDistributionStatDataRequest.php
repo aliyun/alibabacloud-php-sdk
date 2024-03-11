@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeUsageOsSdkVersionDistributionStatDataRequest extends Model
 {
     /**
-     * @description APP ID
+     * @example 0rbd****
      *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 结束时间，秒级时间戳：1609344000
+     * @example 1615910399
      *
      * @var int
      */
     public $endDate;
 
     /**
-     * @description 开始时间，秒级时间戳：1609344000
+     * @example 1615824000
      *
      * @var int
      */

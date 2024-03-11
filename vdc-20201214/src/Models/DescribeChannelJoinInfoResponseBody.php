@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeChannelJoinInfoResponseBody extends Model
 {
     /**
-     * @description 在入会慢时间阈值内的入会成功率
+     * @example 0.9243
      *
      * @var string
      */
     public $joinFastSuccessRate;
 
     /**
-     * @description 入会慢时间阈值
+     * @example 1000
      *
      * @var int
      */
     public $joinSlowThreshold;
 
     /**
-     * @description 请求ID
+     * @example 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
      *
      * @var string
      */

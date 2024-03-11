@@ -10,49 +10,47 @@ use AlibabaCloud\Tea\Model;
 class topPubUserDetailList extends Model
 {
     /**
-     * @description 第一次加入通话的时间，使用UNIX时间戳表示，单位：秒。
+     * @example 1615893327
      *
      * @var int
      */
     public $createdTs;
 
     /**
-     * @description 最后一次离开通话的时间，使用UNIX时间戳表示，单位：秒。通话未结束时值为0。
+     * @example 1615893442
      *
      * @var int
      */
     public $destroyedTs;
 
     /**
-     * @description 总时长，单位：秒。
+     * @example 115
      *
      * @var int
      */
     public $duration;
 
     /**
-     * @description 地域位置，例如：北京市-北京市
+     * @example 浙江省-杭州市
      *
      * @var string
      */
     public $location;
 
     /**
-     * @description 通信时长，单位：秒。
+     * @example 115
      *
      * @var int
      */
     public $onlineDuration;
 
     /**
-     * @description 在线期间用户列表。
-     *
      * @var onlinePeriods[]
      */
     public $onlinePeriods;
 
     /**
-     * @description 用户ID。
+     * @example d58e3582****
      *
      * @var string
      */

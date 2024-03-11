@@ -9,35 +9,35 @@ use AlibabaCloud\Tea\Model;
 class areaStatList extends Model
 {
     /**
-     * @description 地域名称，例如：中国_浙江省_杭州市。
+     * @example 浙江省
      *
      * @var string
      */
     public $areaName;
 
     /**
-     * @description 通信人数。
+     * @example 3
      *
      * @var int
      */
     public $callUserCount;
 
     /**
-     * @description 优质传输率，用小数表示，例如0.9999表示优质传输率为99.99%。
+     * @example 0.9999
      *
      * @var string
      */
     public $highQualityTransmissionRate;
 
     /**
-     * @description 发布端人数。
+     * @example 2
      *
      * @var int
      */
     public $pubUserCount;
 
     /**
-     * @description 订阅端人数。
+     * @example 1
      *
      * @var int
      */

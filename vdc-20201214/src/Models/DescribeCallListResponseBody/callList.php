@@ -11,54 +11,56 @@ class callList extends Model
     /**
      * @description App ID。
      *
+     * @example 9qb1****
+     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 通信体验差的用户数。
+     * @example 0
      *
      * @var int
      */
     public $badExpUserCnt;
 
     /**
-     * @description 通信状态，IN：进行中，OUT：已结束
+     * @example OUT
      *
      * @var string
      */
     public $callStatus;
 
     /**
-     * @description 频道ID。
+     * @example 904
      *
      * @var string
      */
     public $channelId;
 
     /**
-     * @description 通信的创建时间戳，使用UNIX时间戳表示，单位：秒。
+     * @example 1615885823
      *
      * @var int
      */
     public $createdTs;
 
     /**
-     * @description 通信的释放时间戳，使用UNIX时间戳表示，单位：秒。
+     * @example 1615886028
      *
      * @var int
      */
     public $destroyedTs;
 
     /**
-     * @description 通信持续时长，单位：秒。
+     * @example 205
      *
      * @var int
      */
     public $duration;
 
     /**
-     * @description 通信用户数。
+     * @example 2
      *
      * @var int
      */

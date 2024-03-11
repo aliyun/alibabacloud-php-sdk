@@ -9,70 +9,70 @@ use AlibabaCloud\Tea\Model;
 class durMetricStatData extends Model
 {
     /**
-     * @description 发布音频时长，单位秒
+     * @example 0
      *
      * @var int
      */
     public $pubAudio;
 
     /**
-     * @description 发布1080P视频时长，单位：秒
+     * @example 0
      *
      * @var int
      */
     public $pubVideo1080;
 
     /**
-     * @description 发布360P视频时长，单位秒
+     * @example 0
      *
      * @var int
      */
     public $pubVideo360;
 
     /**
-     * @description 发布720P视频时长，单位：秒
+     * @example 0
      *
      * @var int
      */
     public $pubVideo720;
 
     /**
-     * @description 发布屏幕共享时长，单位：秒
+     * @example 0
      *
      * @var int
      */
     public $pubVideoScreenShare;
 
     /**
-     * @description 订阅音频时长，单位秒
+     * @example 0
      *
      * @var int
      */
     public $subAudio;
 
     /**
-     * @description 订阅1080P视频时长，单位：秒
+     * @example 0
      *
      * @var int
      */
     public $subVideo1080;
 
     /**
-     * @description 订阅360P视频时长，单位：秒
+     * @example 0
      *
      * @var int
      */
     public $subVideo360;
 
     /**
-     * @description 订阅720P视频时长，单位：秒
+     * @example 0
      *
      * @var int
      */
     public $subVideo720;
 
     /**
-     * @description 订阅屏幕共享时长，单位：秒
+     * @example 0
      *
      * @var int
      */

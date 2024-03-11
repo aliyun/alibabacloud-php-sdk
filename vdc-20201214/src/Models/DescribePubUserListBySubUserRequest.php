@@ -9,35 +9,35 @@ use AlibabaCloud\Tea\Model;
 class DescribePubUserListBySubUserRequest extends Model
 {
     /**
-     * @description APP ID。
+     * @example 9qb1****
      *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 频道ID。
+     * @example 311
      *
      * @var string
      */
     public $channelId;
 
     /**
-     * @description 频道创建时间，使用UNIX时间戳表示，单位：秒。
+     * @example 1615887685
      *
      * @var int
      */
     public $createdTs;
 
     /**
-     * @description 频道释放时间，使用UNIX时间戳表示，单位：秒。参数为空表示获取当前时间。
+     * @example 1615888615
      *
      * @var int
      */
     public $destroyedTs;
 
     /**
-     * @description 订阅端用户ID。
+     * @example c906531af5f9****
      *
      * @var string
      */

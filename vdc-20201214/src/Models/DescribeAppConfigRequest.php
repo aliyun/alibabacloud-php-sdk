@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeAppConfigRequest extends Model
 {
     /**
-     * @description APP ID
+     * @example tekjxxxx
      *
      * @var string
      */

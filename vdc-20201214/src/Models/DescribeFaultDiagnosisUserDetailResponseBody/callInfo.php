@@ -11,40 +11,42 @@ class callInfo extends Model
     /**
      * @description App ID。
      *
+     * @example 0rbd****
+     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 通信状态。取值：IN：进行中。OUT：已结束。
+     * @example IN
      *
      * @var string
      */
     public $callStatus;
 
     /**
-     * @description 频道ID。
+     * @example 311
      *
      * @var string
      */
     public $channelId;
 
     /**
-     * @description 创建通信时间，使用UNIX时间戳表示，单位：秒。
+     * @example 1620957905
      *
      * @var int
      */
     public $createdTs;
 
     /**
-     * @description 释放通信时间，使用UNIX时间戳表示，单位：秒。
+     * @example 1620958150
      *
      * @var int
      */
     public $destroyedTs;
 
     /**
-     * @description 通信持续时长，单位：秒。
+     * @example 245
      *
      * @var int
      */

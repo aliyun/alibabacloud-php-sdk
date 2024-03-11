@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeIceDurSummaryOverviewResponseBody extends Model
 {
     /**
-     * @description 任务信息
-     *
      * @var jobInfoList[]
      */
     public $jobInfoList;
 
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;

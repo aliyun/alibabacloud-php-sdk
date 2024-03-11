@@ -9,36 +9,34 @@ use AlibabaCloud\Tea\Model;
 class DescribeChannelAreaDistributionStatDataRequest extends Model
 {
     /**
-     * @description APP ID。
+     * @example pdtk****
      *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 频道ID
+     * @example 12345
      *
      * @var string
      */
     public $channelId;
 
     /**
-     * @description 频道创建时间，使用UNIX时间戳表示，单位：秒。
+     * @example 1616125296
      *
      * @var int
      */
     public $createdTs;
 
     /**
-     * @description 频道释放时间，使用UNIX时间戳表示，单位：秒。参数为空表示获取当前时间。
+     * @example 1616125993
      *
      * @var int
      */
     public $destroyedTs;
 
     /**
-     * @description 父级地区名称，例如：深圳市的父级为广东省。参数为空表示世界范围（国家维度）的统计，例如：中国、英国。
-     *
      * @var string
      */
     public $parentArea;

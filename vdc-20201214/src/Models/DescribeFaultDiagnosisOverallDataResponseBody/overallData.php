@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class overallData extends Model
 {
     /**
-     * @description 异常用户数/人次
+     * @example 3
      *
      * @var int
      */
     public $faultUserCount;
 
     /**
-     * @description 异常用户总占比
+     * @example 0.0029
      *
      * @var float
      */
     public $faultUserRatio;
 
     /**
-     * @description 用户总数/人次
+     * @example 1027
      *
      * @var int
      */

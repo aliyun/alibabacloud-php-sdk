@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class faultList extends Model
 {
     /**
-     * @description 异常类型 JOIN_SLOW：进频道慢 AUDIO_STUCK：音频卡顿 VIDEO_STUCK：视频卡顿 VIDEO_VAGUE：视频模糊 HIGH_DELAY：通话延迟高 FIRST_FRAME_SLOW：接收首屏慢
+     * @example FIRST_FRAME_SLOW
      *
      * @var string
      */

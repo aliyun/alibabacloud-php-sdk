@@ -11,21 +11,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeChannelUserMetricsResponseBody extends Model
 {
     /**
-     * @description 指标数据列表。
-     *
      * @var metricDatas[]
      */
     public $metricDatas;
 
     /**
-     * @description 总览数据
-     *
      * @var overallData
      */
     public $overallData;
 
     /**
-     * @description 请求ID。
+     * @example F10D39C3-B58B-4A74-89B5-34162BA121E7
      *
      * @var string
      */

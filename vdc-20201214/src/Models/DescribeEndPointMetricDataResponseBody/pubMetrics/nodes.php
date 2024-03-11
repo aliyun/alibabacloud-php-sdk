@@ -9,21 +9,19 @@ use AlibabaCloud\Tea\Model;
 class nodes extends Model
 {
     /**
-     * @description 拓展属性
-     *
      * @var mixed[]
      */
     public $ext;
 
     /**
-     * @description 发布端指标趋势图中x轴横坐标。
+     * @example 1548670257
      *
      * @var string
      */
     public $x;
 
     /**
-     * @description 发布端指标趋势图中y轴纵坐标。
+     * @example 230100
      *
      * @var string
      */

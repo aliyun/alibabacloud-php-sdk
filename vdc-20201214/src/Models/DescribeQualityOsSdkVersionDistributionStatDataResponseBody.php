@@ -10,14 +10,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeQualityOsSdkVersionDistributionStatDataResponseBody extends Model
 {
     /**
-     * @description 分布数据列表
-     *
      * @var qualityOsSdkVersionStatDataList[]
      */
     public $qualityOsSdkVersionStatDataList;
 
     /**
-     * @description 请求ID
+     * @example 250069CD-B97C-46D8-9F9F-716D0D8A7E86
      *
      * @var string
      */

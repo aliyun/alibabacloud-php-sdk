@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeIceDurSummaryOverviewRequest extends Model
 {
     /**
-     * @description 当前时间戳
+     * @example 12312312313
      *
      * @var int
      */
     public $curTs;
 
     /**
-     * @description 时区
+     * @example GMT+08:00
      *
      * @var string
      */

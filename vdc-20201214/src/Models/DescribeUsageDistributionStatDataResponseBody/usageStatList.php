@@ -9,35 +9,35 @@ use AlibabaCloud\Tea\Model;
 class usageStatList extends Model
 {
     /**
-     * @description 音频通话时长，单位分钟
+     * @example 408
      *
      * @var int
      */
     public $audioCallDuration;
 
     /**
-     * @description 通话时长占比，四位小数表示，如1.0000
+     * @example 0.9782
      *
      * @var string
      */
     public $callDurationRatio;
 
     /**
-     * @description 统计名称， 当StatDim=CHANNEL_ONLINE： ONE_TO_FIVE：1-5人 SIX_TO_TEN：6-10人 ELEVEN_TO_TWENTY：11-20人 TWENTY_ONE_TO_FIFTY: 21-50人 ABOVE_FIFTY：50人以上  当StatDim=NETWORK： WiFi，4G等  当StatDim=OS： iOS、android等
+     * @example ONE_TO_FIVE
      *
      * @var string
      */
     public $name;
 
     /**
-     * @description 总通话时长，单位分钟
+     * @example 45964
      *
      * @var int
      */
     public $totalCallDuration;
 
     /**
-     * @description 视频通话时长，单位分钟
+     * @example 45556
      *
      * @var int
      */

@@ -9,42 +9,42 @@ use AlibabaCloud\Tea\Model;
 class DescribeFaultDiagnosisUserDetailRequest extends Model
 {
     /**
-     * @description APP ID。
+     * @example 0rbd****
      *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 频道ID
+     * @example 311
      *
      * @var string
      */
     public $channelId;
 
     /**
-     * @description 频道创建时间，使用UNIX时间戳表示，单位：秒。
+     * @example 1615892596
      *
      * @var int
      */
     public $createdTs;
 
     /**
-     * @description 异常类型 JOIN_SLOW：进频道慢 AUDIO_STUCK：音频卡顿 VIDEO_STUCK：视频卡顿 VIDEO_VAGUE：视频模糊 HIGH_DELAY：通话延迟高 FIRST_FRAME_SLOW：接收首屏慢
+     * @example JOIN_SLOW
      *
      * @var string
      */
     public $faultType;
 
     /**
-     * @description 是否查询通话用户信息，为空默认是false
+     * @example true
      *
      * @var bool
      */
     public $queryCallUserInfo;
 
     /**
-     * @description 用户ID
+     * @example 0a497933****
      *
      * @var string
      */

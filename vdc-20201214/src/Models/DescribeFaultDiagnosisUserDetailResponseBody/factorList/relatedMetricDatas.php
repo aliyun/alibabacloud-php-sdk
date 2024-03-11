@@ -10,28 +10,26 @@ use AlibabaCloud\Tea\Model;
 class relatedMetricDatas extends Model
 {
     /**
-     * @description 坐标数据列表
-     *
      * @var nodes[]
      */
     public $nodes;
 
     /**
-     * @description 来源角色： SENDER：发布端，即上行 RECEIVER：订阅端，即下行
+     * @example RECEIVER
      *
      * @var string
      */
     public $role;
 
     /**
-     * @description 指标类型，参照端到端指标接口的指标类型
+     * @example AUDIO_STUCK
      *
      * @var string
      */
     public $type;
 
     /**
-     * @description 数据来自对应发布端的用户ID
+     * @example 0a497933****
      *
      * @var string
      */

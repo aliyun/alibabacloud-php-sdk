@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeAppConfigResponseBody extends Model
 {
     /**
-     * @description 请求ID
+     * @example 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 阈值配置对象
+     * @example 1000
      *
      * @var thresholdConfig
      */

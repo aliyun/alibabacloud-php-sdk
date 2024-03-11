@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeIceDurPeriodByDaySubTypeResponseBody extends Model
 {
     /**
-     * @description 任务信息列表
-     *
      * @var jobInfoList[]
      */
     public $jobInfoList;
 
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;

@@ -9,21 +9,19 @@ use AlibabaCloud\Tea\Model;
 class nodes extends Model
 {
     /**
-     * @description 扩展数据
-     *
      * @var mixed[]
      */
     public $ext;
 
     /**
-     * @description X坐标值，秒级时间戳
+     * @example 1620957937
      *
      * @var string
      */
     public $x;
 
     /**
-     * @description Y坐标值，指标值
+     * @example 529.39
      *
      * @var string
      */

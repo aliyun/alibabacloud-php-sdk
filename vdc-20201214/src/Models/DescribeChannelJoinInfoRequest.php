@@ -9,28 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeChannelJoinInfoRequest extends Model
 {
     /**
-     * @description APP ID
+     * @example tekjxxxx
      *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 频道ID
+     * @example 12345
      *
      * @var string
      */
     public $channelId;
 
     /**
-     * @description 频道创建时间
+     * @example 1625455886
      *
      * @var int
      */
     public $createdTs;
 
     /**
-     * @description 频道释放时间
+     * @example 1625455886
      *
      * @var int
      */

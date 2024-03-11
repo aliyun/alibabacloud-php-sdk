@@ -9,21 +9,19 @@ use AlibabaCloud\Tea\Model;
 class nodes extends Model
 {
     /**
-     * @description 拓展属性，ratio：单位时间内异常用户占比，totalCount：单位时间内用户总数
-     *
      * @var mixed[]
      */
     public $ext;
 
     /**
-     * @description x轴横坐标，秒级时间戳
+     * @example 1620725400
      *
      * @var string
      */
     public $x;
 
     /**
-     * @description y轴横坐标，单位数据异常用户数
+     * @example 1
      *
      * @var string
      */

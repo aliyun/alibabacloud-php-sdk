@@ -9,28 +9,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeUsageAreaDistributionStatDataRequest extends Model
 {
     /**
-     * @description APP ID
+     * @example 0rbd****
      *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 结束时间，秒级时间戳，如1609344000
+     * @example 1615910399
      *
      * @var string
      */
     public $endDate;
 
     /**
-     * @description 父级地区名称，为空取世界范围（国家维度）的统计，如： ""->中国、英国 "中国"->北京市、广东省 "广东省"->广州市、深圳市、佛山市 "北京市"->北京市
-     *
      * @var string
      */
     public $parentArea;
 
     /**
-     * @description 开始时间，秒级时间戳，如1609344000
+     * @example 1615824000
      *
      * @var string
      */

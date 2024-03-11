@@ -9,35 +9,35 @@ use AlibabaCloud\Tea\Model;
 class overallData extends Model
 {
     /**
-     * @description 平均通信连接的用时，单位：秒。
+     * @example 0.10325
      *
      * @var float
      */
     public $connAvgTime;
 
     /**
-     * @description 5秒内连通成功率，用小数表示，例如1.0表示连通成功率为100%。
+     * @example 1.0
      *
      * @var float
      */
     public $fiveSecJoinRate;
 
     /**
-     * @description 整体音频卡顿率，用小数表示，例如0.02表示音频卡顿率为2%。
+     * @example 0.02
      *
      * @var float
      */
     public $totalAudioStuckRate;
 
     /**
-     * @description 整体视频卡顿率，用小数表示，例如0.02表示视频卡顿率为2%。
+     * @example 0.02
      *
      * @var float
      */
     public $totalVideoStuckRate;
 
     /**
-     * @description 整体视频模糊率，用小数表示，例如0.02表示视频模糊率为2%。
+     * @example 0.02
      *
      * @var float
      */

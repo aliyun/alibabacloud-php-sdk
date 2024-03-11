@@ -9,42 +9,42 @@ use AlibabaCloud\Tea\Model;
 class usageOsSdkVersionStatList extends Model
 {
     /**
-     * @description 音频通话时长，单位分钟
+     * @example 0
      *
      * @var int
      */
     public $audioCallDuration;
 
     /**
-     * @description 通话时长占比，四位小数表示，如1.0000
+     * @example 0.0768
      *
      * @var string
      */
     public $callDurationRatio;
 
     /**
-     * @description SDK版本名称，1.0.0、1.1.1等
+     * @example 2.1.2104
      *
      * @var string
      */
     public $name;
 
     /**
-     * @description 操作系统，如iOS、android等
+     * @example macOS
      *
      * @var string
      */
     public $os;
 
     /**
-     * @description 总通话时长，单位分钟
+     * @example 1720
      *
      * @var int
      */
     public $totalCallDuration;
 
     /**
-     * @description 视频通话时长，单位分钟
+     * @example 1720
      *
      * @var int
      */

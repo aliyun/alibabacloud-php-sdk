@@ -9,70 +9,70 @@ use AlibabaCloud\Tea\Model;
 class DescribeCallListRequest extends Model
 {
     /**
-     * @description APP ID。
+     * @example 9qb1****
      *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 通信状态。取值：IN：进行中。OUT：已结束。
+     * @example OUT
      *
      * @var string
      */
     public $callStatus;
 
     /**
-     * @description 频道ID
+     * @example 311
      *
      * @var string
      */
     public $channelId;
 
     /**
-     * @description 查询的结束时间，使用UNIX时间戳表示，单位：秒。
+     * @example 1615892596
      *
      * @var int
      */
     public $endTs;
 
     /**
-     * @description 排序字段。取值：BAD_EXP_USER_COUNT_DESC：按体验欠佳人数降序。BAD_EXP_USER_COUNT_ASC：按体验欠佳人数升序
+     * @example BAD_EXP_USER_COUNT_DESC
      *
      * @var string
      */
     public $orderBy;
 
     /**
-     * @description 页码
+     * @example 1
      *
      * @var int
      */
     public $pageNo;
 
     /**
-     * @description 每页数量
+     * @example 10
      *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 查询模式。取值：ALL：全部通话。FOLLOW：关注通话。
+     * @example ALL
      *
      * @var string
      */
     public $queryMode;
 
     /**
-     * @description 查询的开始时间，使用UNIX时间戳表示，单位：秒。
+     * @example 1615806196
      *
      * @var int
      */
     public $startTs;
 
     /**
-     * @description 用户ID
+     * @example c906531af5f9****
      *
      * @var string
      */

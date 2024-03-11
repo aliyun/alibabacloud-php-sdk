@@ -10,21 +10,19 @@ use AlibabaCloud\Tea\Model;
 class qualityOverallData extends Model
 {
     /**
-     * @description 平均值
+     * @example 0.9967
      *
      * @var string
      */
     public $average;
 
     /**
-     * @description 坐标点列表
-     *
      * @var nodes[]
      */
     public $nodes;
 
     /**
-     * @description 概览数据类型，加入频道成功率： JOIN_CHANNEL_SUC_RATE 五秒加入频道成功率： JOIN_CHANNEL_SUC_FIVE_SEC_RATE  首次出声时间： AUDIO_SPEAK_OUT_DUR 首次出图时间： VIDEO_FIRST_PIC_DUR 音频卡顿率： AUDIO_STUCK_RATE 视频卡顿率： VIDEO_STUCK_RATE 音频延时： AUDIO_DELAY 视频延时： AUDIO_DELAY 音频优质传输率： AUDIO_HIGH_QUALITY_TRANSMISSION_RATE 视频优质传输率： VIDEO_HIGH_QUALITY_TRANSMISSION_RATE
+     * @example JOIN_CHANNEL_SUC_RATE
      *
      * @var string
      */

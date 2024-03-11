@@ -9,28 +9,28 @@ use AlibabaCloud\Tea\Model;
 class usageAreaStatList extends Model
 {
     /**
-     * @description 音频通话时长，单位分钟
+     * @example 160
      *
      * @var int
      */
     public $audioCallDuration;
 
     /**
-     * @description 地域名称，如中国
+     * @example 中国
      *
      * @var string
      */
     public $name;
 
     /**
-     * @description 总通话时长，单位分钟
+     * @example 17521
      *
      * @var int
      */
     public $totalCallDuration;
 
     /**
-     * @description 视频通话时长，单位分钟
+     * @example 17361
      *
      * @var int
      */

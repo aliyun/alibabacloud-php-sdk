@@ -9,28 +9,24 @@ use AlibabaCloud\Tea\Model;
 class DescribeIceDurPeriodByDaySubTypeRequest extends Model
 {
     /**
-     * @description 结束是时间戳
-     *
      * @var int
      */
     public $endTs;
 
     /**
-     * @description 任务类型
+     * @example Smart,Edit
      *
      * @var string
      */
     public $jobType;
 
     /**
-     * @description 起始时间戳
-     *
      * @var int
      */
     public $startTs;
 
     /**
-     * @description 时区
+     * @example GMT+08:00
      *
      * @var string
      */

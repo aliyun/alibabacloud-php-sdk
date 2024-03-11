@@ -11,22 +11,18 @@ use AlibabaCloud\Tea\Model;
 class DescribeCallResponseBody extends Model
 {
     /**
-     * @description 通信基本信息。
-     *
      * @var callInfo
      */
     public $callInfo;
 
     /**
-     * @description 请求ID
+     * @example EC4960AA-A407-4853-975E-D68F253E18FF
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 用户详情列表。
-     *
      * @var userDetailList[]
      */
     public $userDetailList;

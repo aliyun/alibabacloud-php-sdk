@@ -11,22 +11,18 @@ use AlibabaCloud\Tea\Model;
 class DescribeEndPointMetricDataResponseBody extends Model
 {
     /**
-     * @description 发布端用户指标数据。
-     *
      * @var pubMetrics[]
      */
     public $pubMetrics;
 
     /**
-     * @description 请求ID。
+     * @example 478B9DE1-3958-4734-AE4F-534658AD8574
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 订阅端用户指标数据。
-     *
      * @var subMetrics[]
      */
     public $subMetrics;

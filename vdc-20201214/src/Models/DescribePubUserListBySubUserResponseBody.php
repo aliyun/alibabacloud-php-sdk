@@ -11,29 +11,25 @@ use AlibabaCloud\Tea\Model;
 class DescribePubUserListBySubUserResponseBody extends Model
 {
     /**
-     * @description 通信状态。取值：IN：进行中。OUT：已结束。
+     * @example OUT
      *
      * @var string
      */
     public $callStatus;
 
     /**
-     * @description 发布端用户详情信息。
-     *
      * @var pubUserDetailList[]
      */
     public $pubUserDetailList;
 
     /**
-     * @description 请求ID。
+     * @example D27DB8B0-73F6-42D0-9AAA-AD77EE3A9B29
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 订阅端用户详细信息。
-     *
      * @var subUserDetail
      */
     public $subUserDetail;
