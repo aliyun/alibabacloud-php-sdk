@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyDesktopChargeTypeRequest extends Model
 {
     /**
-     * @description The IDs of the cloud desktops. You can specify 1 to 20 IDs.
+     * @description Specifies whether to enable automatic payment if you specify subscription as the new billing method for the cloud desktop.
      *
      * @example false
      *
@@ -18,7 +18,7 @@ class ModifyDesktopChargeTypeRequest extends Model
     public $autoPay;
 
     /**
-     * @description The ID of the sales promotion.
+     * @description The new billing method that you want to use for the desktop group.
      *
      * @example PrePaid
      *
@@ -27,7 +27,7 @@ class ModifyDesktopChargeTypeRequest extends Model
     public $chargeType;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The IDs of the cloud desktops. You can specify 1 to 20 IDs.
      *
      * @example ecd-gx2x1dhsmucyy****
      *
@@ -36,7 +36,11 @@ class ModifyDesktopChargeTypeRequest extends Model
     public $desktopId;
 
     /**
-     * @description Specifies whether to enable automatic payment if you specify subscription as the new billing method for the cloud desktop.
+     * @description The subscription duration if you specify subscription as the new billing method for the cloud desktop. The unit of the value is specified by the `PeriodUnit` parameter. This parameter takes effect only when the `ChargeType` parameter is set to `PrePaid`.
+     *
+     *   If the `PeriodUnit` parameter is set to `Week`, the valid value of the Period parameter is 1.
+     *   If the `PeriodUnit` parameter is set to `Month`, the valid values of the Period parameter are 1, 2, 3, and 6.
+     *   If the `PeriodUnit` parameter is set to `Year`, the valid values of the Period parameter are 1, 2, 3, 4, and 5.
      *
      * @example 1
      *
@@ -45,7 +49,7 @@ class ModifyDesktopChargeTypeRequest extends Model
     public $period;
 
     /**
-     * @description The IDs of the desktop groups. If multiple cloud desktops are created at a time, multiple cloud desktop IDs are returned.
+     * @description The unit of the subscription duration if you specify subscription as the new billing method for the cloud desktop.
      *
      * @example Month
      *
@@ -54,7 +58,7 @@ class ModifyDesktopChargeTypeRequest extends Model
     public $periodUnit;
 
     /**
-     * @description The unit of the subscription duration if you specify subscription as the new billing method for the cloud desktop.
+     * @description The ID of the sales promotion.
      *
      * @example 500038360030606
      *
@@ -63,11 +67,7 @@ class ModifyDesktopChargeTypeRequest extends Model
     public $promotionId;
 
     /**
-     * @description The subscription duration if you specify subscription as the new billing method for the cloud desktop. The unit of the value is specified by the `PeriodUnit` parameter. This parameter takes effect only when the `ChargeType` parameter is set to `PrePaid`.
-     *
-     *   If the `PeriodUnit` parameter is set to `Week`, the valid value of the Period parameter is 1.
-     *   If the `PeriodUnit` parameter is set to `Month`, the valid values of the Period parameter are 1, 2, 3, and 6.
-     *   If the `PeriodUnit` parameter is set to `Year`, the valid values of the Period parameter are 1, 2, 3, 4, and 5.
+     * @description The ID of the region. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -76,7 +76,9 @@ class ModifyDesktopChargeTypeRequest extends Model
     public $regionId;
 
     /**
-     * @description >  This parameter is in invitational preview and not available to the public.
+     * @description > 处于定向邀测中，暂不对外开放。
+     *
+     * @example 处于定向邀测中，暂不对外开放。
      *
      * @var int
      */

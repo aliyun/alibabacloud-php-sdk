@@ -31,7 +31,7 @@ class CreateDesktopsRequest extends Model
     public $autoPay;
 
     /**
-     * @description Specifies whether to enable auto-renewal. This parameter takes effect only when the ChargeType parameter is set to PrePaid.````
+     * @description Specifies whether to enable auto-renewal. This parameter takes effect only when the ChargeType parameter is set to PrePaid.
      *
      * @example false
      *
@@ -65,6 +65,8 @@ class CreateDesktopsRequest extends Model
     public $chargeType;
 
     /**
+     * @example 10.0.0.1
+     *
      * @var string
      */
     public $desktopMemberIp;

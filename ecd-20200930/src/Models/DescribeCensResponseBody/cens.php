@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class cens extends Model
 {
     /**
-     * @description The number of entries returned per page.
+     * @description The ID of the CEN instance.
      *
      * @example cen-3gwy16dojz1m65****
      *
@@ -20,7 +20,7 @@ class cens extends Model
     public $cenId;
 
     /**
-     * @description The tag value of the CEN instance.
+     * @description The time when the CEN instance was created.
      *
      * @example 2021-06-16T08:46Z
      *
@@ -29,7 +29,7 @@ class cens extends Model
     public $creationTime;
 
     /**
-     * @description The tag key of the CEN instance.
+     * @description The description of the CEN instance.
      *
      * @example test
      *
@@ -38,9 +38,12 @@ class cens extends Model
     public $description;
 
     /**
-     * @description Indicates whether IPv6 is supported. Valid value: DISABLED. This value indicates that IPv6 is not supported.
+     * @description Indicates whether IPv6 is supported. A value of DISABLED indicates that IPv6 is not supported.
      *
-     * >  IPv6 is not supported.
+     **
+     *
+     **Description** IPv6 is not supported.
+     *
      * @example DISABLED
      *
      * @var string
@@ -48,7 +51,7 @@ class cens extends Model
     public $ipv6Level;
 
     /**
-     * @description The ID of the request.
+     * @description The name of the CEN instance.
      *
      * @example testCen
      *
@@ -57,12 +60,14 @@ class cens extends Model
     public $name;
 
     /**
+     * @description The IDs of the bandwidth plans that are associated with the CEN instance.
+     *
      * @var packageIds[]
      */
     public $packageIds;
 
     /**
-     * @description The name of the CEN instance.
+     * @description The level of CIDR block overlapping. If REDUCED returns, the CIDR blocks can overlap with each other but must not be the same.
      *
      * @example REDUCED
      *
@@ -71,7 +76,11 @@ class cens extends Model
     public $protectionLevel;
 
     /**
-     * @description The ID of the region.
+     * @description The status of the CEN instance. Valid values:
+     *
+     *   Creating
+     *   Active
+     *   Deleting
      *
      * @example Active
      *
@@ -80,7 +89,7 @@ class cens extends Model
     public $status;
 
     /**
-     * @description The ID of the CEN instance.
+     * @description The tags of the CEN instance.
      *
      * @var tags[]
      */

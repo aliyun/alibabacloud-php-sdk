@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CancelCoordinationForMonitoringRequest extends Model
 {
     /**
+     * @description The IDs of stream collaboration tasks.
+     *
      * @var string[]
      */
     public $coIds;
 
     /**
+     * @description The ID of the end user that initiates stream collaboration. If the initiator is the administrator, skip this parameter.
+     *
      * @example alice
      *
      * @var string
@@ -21,6 +25,8 @@ class CancelCoordinationForMonitoringRequest extends Model
     public $endUserId;
 
     /**
+     * @description The region ID. You can call the [DescribeRegions](~~436773~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -28,6 +34,13 @@ class CancelCoordinationForMonitoringRequest extends Model
     public $regionId;
 
     /**
+     * @description The type of the user.
+     *
+     * Valid value:
+     *
+     *   <!-- -->
+     *
+     * : administrator.
      * @example TENANT_ADMIN
      *
      * @var string

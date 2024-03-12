@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class StopInvocationRequest extends Model
 {
     /**
-     * @description StopInvocation
+     * @description The ID of cloud desktop N. Valid values of N: 1 to 50.
      *
      * @example ecd-7w78ozhjcwa3u****
      *
@@ -18,7 +18,7 @@ class StopInvocationRequest extends Model
     public $desktopId;
 
     /**
-     * @description The operation that you want to perform. Set the value to StopInvocation.
+     * @description The ID of the execution.
      *
      * @example t-7d2a745b412b4601b2d47f6a768d****
      *
@@ -27,7 +27,7 @@ class StopInvocationRequest extends Model
     public $invokeId;
 
     /**
-     * @description The ID of the request.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

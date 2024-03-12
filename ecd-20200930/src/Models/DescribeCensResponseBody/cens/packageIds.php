@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class packageIds extends Model
 {
     /**
+     * @description The ID of the bandwidth plan that is associated with the CEN instance.
+     *
      * @example cenbwp-4c2zaavbvh5f42****
      *
      * @var string

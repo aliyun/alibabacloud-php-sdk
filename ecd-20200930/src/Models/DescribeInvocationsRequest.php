@@ -97,9 +97,11 @@ class DescribeInvocationsRequest extends Model
     public $invokeStatus;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page.
      *
-     * Default value: 100.
+     *   Valid values: 1 to 50.
+     *   Default value: 10.
+     *
      * @example 10
      *
      * @var int

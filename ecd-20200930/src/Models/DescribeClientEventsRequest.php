@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeClientEventsRequest extends Model
 {
     /**
-     * @description The ID of the Alibaba Cloud account with which the event is associated.
+     * @description The ID of the cloud desktop. If you do not specify a value for this parameter, events of all cloud desktops in the specified region are queried.
      *
      * @example ecd-8fupvkhg0aayu****
      *
@@ -18,10 +18,7 @@ class DescribeClientEventsRequest extends Model
     public $desktopId;
 
     /**
-     * @description The account type of the workspace. Valid values:
-     *
-     *   SIMPLE: convenience account
-     *   AD_CONNECTOR: enterprise AD account
+     * @description The IP address of the cloud desktop. If you do not specify a value for this parameter, events of all cloud desktops in the specified region are queried.
      *
      * @example 10.10.*.*
      *
@@ -30,7 +27,7 @@ class DescribeClientEventsRequest extends Model
     public $desktopIp;
 
     /**
-     * @description The types of event.
+     * @description The name of the cloud desktop.
      *
      * @example test
      *
@@ -39,17 +36,18 @@ class DescribeClientEventsRequest extends Model
     public $desktopName;
 
     /**
-     * @description The ID of the desktop group.
+     * @description The ID of the directory to which the cloud desktop belongs.
      *
-     * @example The operation that you want to perform. Set the value to **DescribeClientEvents**.
+     * @example cn-hangzhou+dir-bh77qa8nmjot4****
      *
      * @var string
      */
     public $directoryId;
 
     /**
-     * @description The ID of the region where the cloud desktop resides.
+     * @description The end of the time range to query. Specify the time in the [ISO 8601](~~25696~~) standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.
      *
+     * If you do not specify a value for this parameter, the current time is used.
      * @example 2020-11-31T06:32:31Z
      *
      * @var string
@@ -57,7 +55,7 @@ class DescribeClientEventsRequest extends Model
     public $endTime;
 
     /**
-     * @description The ID of the directory to which the cloud desktop belongs.
+     * @description The information about the regular user that connects to the cloud desktop from the EDS client. The information can be the RAM user ID or Active Directory (AD) username. If you do not specify a value for this parameter, events of all regular users in the specified region are queried.
      *
      * @example 28961708130834****
      *
@@ -66,8 +64,17 @@ class DescribeClientEventsRequest extends Model
     public $endUserId;
 
     /**
-     * @description The ID of the workspace to which the cloud desktop belongs. If you do not specify a value for this parameter, events of all workspaces in the specified region are queried.
+     * @description The type of event that you want to query. Valid values:
      *
+     *   DESKTOP_CONNECT: The desktop session is established.
+     *   DESKTOP_DISCONNECT: The desktop session is disconnected.
+     *   DESKTOP_REBOOT: The cloud desktop is restarted.
+     *   CLIENT_AD_LOGIN: The AD user logs on to the client.
+     *   GET_CONNECTION_TICKET: The request to connect to the cloud desktop is sent.
+     *   DESKTOP_START: The cloud desktop is started.
+     *   DESKTOP_STOP: The cloud desktop is stopped.
+     *
+     * If you do not specify a value for this parameter, events of all types are queried.
      * @example DESKTOP_DISCONNECT
      *
      * @var string
@@ -75,18 +82,16 @@ class DescribeClientEventsRequest extends Model
     public $eventType;
 
     /**
-     * @description Details about the events.
+     * @description The types of event.
      *
      * @var string[]
      */
     public $eventTypes;
 
     /**
-     * @description The status of the event. This parameter is returned if you set the EventType parameter to DESKTOP_DISCONNECT or GET_CONNECTION_TICKET. Valid values:
+     * @description The number of entries to return on each page.
      *
-     *   200\. The value indicates that the request is successful.
-     *   An error message. The value indicates that the request failed. Example: FailedToGetConnectionTicket.
-     *
+     * Default value: 100.
      * @example 10
      *
      * @var int
@@ -94,7 +99,7 @@ class DescribeClientEventsRequest extends Model
     public $maxResults;
 
     /**
-     * @description The IP address of the client.
+     * @description The query token. Set the value to the NextToken value that is returned from the last call to the DescribeClientEvents operation.
      *
      * @example AAAAAV3MpHK1AP0pfERHZN5pu6nmB7qrRFJ8vmttjxPL****
      *
@@ -103,7 +108,7 @@ class DescribeClientEventsRequest extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the workspace to which the cloud desktop belongs.
+     * @description The ID of the workspace to which the cloud desktop belongs. If you do not specify a value for this parameter, events of all workspaces in the specified region are queried.
      *
      * @example cn-hangzhou+dir-bh77qa8nmjot4****
      *
@@ -112,7 +117,7 @@ class DescribeClientEventsRequest extends Model
     public $officeSiteId;
 
     /**
-     * @description The OS that the client runs.
+     * @description The name of the workspace.
      *
      * @example test
      *
@@ -121,7 +126,7 @@ class DescribeClientEventsRequest extends Model
     public $officeSiteName;
 
     /**
-     * @description The number of bytes that are received.
+     * @description The ID of the region where the cloud desktop resides.
      *
      * @example cn-hangzhou
      *
@@ -130,8 +135,9 @@ class DescribeClientEventsRequest extends Model
     public $regionId;
 
     /**
-     * @description The IP address of the cloud desktop.
+     * @description The beginning of the time range to query. Specify the time in the [ISO 8601](~~25696~~) standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.
      *
+     * If you do not specify a value for this parameter, all events that occurred before the point in time that you specify for `EndTime` are queried.
      * @example 2020-11-30T06:32:31Z
      *
      * @var string

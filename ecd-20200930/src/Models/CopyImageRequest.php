@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CopyImageRequest extends Model
 {
     /**
+     * @description The description of the image copy. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+     *
      * @example This is a test.
      *
      * @var string
@@ -16,6 +18,8 @@ class CopyImageRequest extends Model
     public $destinationDescription;
 
     /**
+     * @description The name of the image copy. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `acs:` or `aliyun`. The name cannot contain `http://` or `https://`. The name can contain letters, digits, periods (.), colons (:), underscores (\_), and hyphens (-).
+     *
      * @example Office_Shanghai
      *
      * @var string
@@ -23,6 +27,8 @@ class CopyImageRequest extends Model
     public $destinationImageName;
 
     /**
+     * @description The destination region to which you want to copy the image.
+     *
      * @example cn-shenzhen
      *
      * @var string
@@ -30,6 +36,8 @@ class CopyImageRequest extends Model
     public $destinationRegionId;
 
     /**
+     * @description The ID of the image that is copied to the destination region.
+     *
      * @example m-gx2x1dhsmusr2****
      *
      * @var string
@@ -37,6 +45,8 @@ class CopyImageRequest extends Model
     public $imageId;
 
     /**
+     * @description The ID of the region. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string

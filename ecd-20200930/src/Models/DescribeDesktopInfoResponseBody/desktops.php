@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class desktops extends Model
 {
     /**
-     * @description The connection status of the end user. Valid values:
+     * @description The connection status of the user. Valid values:
      *
      *   Connected
      *   Disconnected
@@ -21,7 +21,7 @@ class desktops extends Model
     public $connectionStatus;
 
     /**
-     * @description The current version of the cloud desktop.
+     * @description The current image version of the cloud desktop.
      *
      * @example 1.4.0-R-***
      *
@@ -30,7 +30,7 @@ class desktops extends Model
     public $currentAppVersion;
 
     /**
-     * @description The cloud desktop ID.
+     * @description The ID of the cloud desktop.
      *
      * @example ecd-gx2x1dhsmucyy****
      *
@@ -39,16 +39,16 @@ class desktops extends Model
     public $desktopId;
 
     /**
-     * @description The status of the cloud desktop. Valid values:
+     * @description The state of the cloud desktop. Valid values:
      *
-     *   Pending
-     *   Starting
-     *   Running
-     *   Stopping
-     *   Stopped
-     *   Expired
-     *   Deleted
-     *   Failed
+     *   Pending: The cloud desktop is being created.
+     *   Starting: The cloud desktop is being started.
+     *   Running: The cloud desktop is running.
+     *   Stopping: The cloud desktop is being stopped.
+     *   Stopped: The cloud desktop is stopped.
+     *   Expired: The cloud desktop is expired.
+     *   Deleted: The cloud desktop is deleted.
+     *   Failed: Failed to create the cloud desktop.
      *
      * @example Running
      *
@@ -57,18 +57,22 @@ class desktops extends Model
     public $desktopStatus;
 
     /**
-     * @description The flag that is used to manage the cloud desktop.
+     * @description The information about flags that are used to manage cloud desktops.
      *
      * @var string[]
      */
     public $managementFlag;
 
     /**
+     * @example 568533470
+     *
      * @var int
      */
     public $newAppSize;
 
     /**
+     * @example 1.6.0-R-***
+     *
      * @var string
      */
     public $newAppVersion;

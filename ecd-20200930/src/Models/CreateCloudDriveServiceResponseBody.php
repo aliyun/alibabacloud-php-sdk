@@ -27,14 +27,23 @@ class CreateCloudDriveServiceResponseBody extends Model
     public $cdsName;
 
     /**
+     * @example cen-638u3wxds9snyc****
+     *
      * @var string
      */
     public $cenId;
 
     /**
+     * @example test1.local
+     *
      * @var string
      */
     public $domainName;
+
+    /**
+     * @var string
+     */
+    public $errorCode;
 
     /**
      * @description The maximum capacity of each instance in Cloud Drive Service. Unit: GiB
@@ -46,9 +55,16 @@ class CreateCloudDriveServiceResponseBody extends Model
     public $maxSize;
 
     /**
+     * @example AD_CONNECTOR
+     *
      * @var string
      */
     public $officeSiteType;
+
+    /**
+     * @var string
+     */
+    public $orderId;
 
     /**
      * @description The ID of the request.
@@ -63,8 +79,10 @@ class CreateCloudDriveServiceResponseBody extends Model
         'cdsName'        => 'CdsName',
         'cenId'          => 'CenId',
         'domainName'     => 'DomainName',
+        'errorCode'      => 'ErrorCode',
         'maxSize'        => 'MaxSize',
         'officeSiteType' => 'OfficeSiteType',
+        'orderId'        => 'OrderId',
         'requestId'      => 'RequestId',
     ];
 
@@ -87,11 +105,17 @@ class CreateCloudDriveServiceResponseBody extends Model
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
+        }
         if (null !== $this->maxSize) {
             $res['MaxSize'] = $this->maxSize;
         }
         if (null !== $this->officeSiteType) {
             $res['OfficeSiteType'] = $this->officeSiteType;
+        }
+        if (null !== $this->orderId) {
+            $res['OrderId'] = $this->orderId;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -120,11 +144,17 @@ class CreateCloudDriveServiceResponseBody extends Model
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
+        }
         if (isset($map['MaxSize'])) {
             $model->maxSize = $map['MaxSize'];
         }
         if (isset($map['OfficeSiteType'])) {
             $model->officeSiteType = $map['OfficeSiteType'];
+        }
+        if (isset($map['OrderId'])) {
+            $model->orderId = $map['OrderId'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
