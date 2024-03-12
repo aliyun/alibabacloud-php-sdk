@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description Environment list.
+     * @description The queried environments.
      *
      * @var environments[]
      */
     public $environments;
 
     /**
-     * @description The total number of entries returned.
+     * @description The total number of returned entries.
      *
      * @example 12
      *

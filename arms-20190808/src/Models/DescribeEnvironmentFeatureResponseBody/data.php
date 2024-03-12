@@ -11,14 +11,14 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description Feature Installation information.
+     * @description The installation information of the feature.
      *
      * @var feature
      */
     public $feature;
 
     /**
-     * @description Running status of the Feature.
+     * @description The status of the feature.
      *
      * @var featureStatus
      */

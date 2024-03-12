@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class addons extends Model
 {
     /**
-     * @description Alias of Addon.
+     * @description The alias of the add-on.
      *
      * @example MySQL Exporter
      *
@@ -18,7 +18,7 @@ class addons extends Model
     public $alias;
 
     /**
-     * @description Description of Addon.
+     * @description The description of the add-on.
      *
      * @example Collect mysql indicator information
      *
@@ -27,7 +27,7 @@ class addons extends Model
     public $description;
 
     /**
-     * @description Icon of Addon.
+     * @description The URL of the icon.
      *
      * @example http://xxxx
      *
@@ -36,7 +36,7 @@ class addons extends Model
     public $icon;
 
     /**
-     * @description Name of Addon.
+     * @description The name of the add-on.
      *
      * @example metric-agent
      *

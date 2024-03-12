@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class featureStatus extends Model
 {
     /**
-     * @description Feature container list.
+     * @description The containers of the feature.
      *
      * @var featureContainers[]
      */
     public $featureContainers;
 
     /**
-     * @description K8s resource name of the Feature.
+     * @description The Kubernetes resource name of the feature.
      *
      * @example arms-prometheus-ack-arms-prometheus
      *
@@ -26,7 +26,7 @@ class featureStatus extends Model
     public $name;
 
     /**
-     * @description Namespace.
+     * @description The namespace.
      *
      * @example arms-prom
      *
@@ -35,8 +35,12 @@ class featureStatus extends Model
     public $namespace;
 
     /**
-     * @description Running status.
-     * - Not Found: Not installed
+     * @description The status of the agent. Valid values:
+     *
+     *   Success: The agent is running.
+     *   Failed: The agent failed to run.
+     *   Not Found: The agent is not installed.
+     *
      * @example Success
      *
      * @var string

@@ -12,14 +12,14 @@ use AlibabaCloud\Tea\Model;
 class environments extends Model
 {
     /**
-     * @description Addon list.
+     * @description The queried add-ons.
      *
      * @var addons[]
      */
     public $addons;
 
     /**
-     * @description Id of the resource to be bound.
+     * @description The ID of the resource associated with the environment, such as the ACK cluster ID or VPC ID.
      *
      * @example vpc-bp1bgo8ronn
      *
@@ -28,7 +28,7 @@ class environments extends Model
     public $bindResourceId;
 
     /**
-     * @description Profile of the resource to be bound.
+     * @description The profile of the resource.
      *
      * @example xxx
      *
@@ -37,7 +37,7 @@ class environments extends Model
     public $bindResourceProfile;
 
     /**
-     * @description Type of the resource to be bound.
+     * @description The resource type.
      *
      * @example VPC
      *
@@ -46,7 +46,7 @@ class environments extends Model
     public $bindResourceType;
 
     /**
-     * @description Bound Vpc IP Cidr.
+     * @description The CIDR block that is bound to the VPC.
      *
      * @example 172.16.0.0/12
      *
@@ -55,7 +55,7 @@ class environments extends Model
     public $bindVpcCidr;
 
     /**
-     * @description Create time.
+     * @description The time when the VPC was created.
      *
      * @example 2023-03-24 11:58:35 +0800
      *
@@ -64,7 +64,7 @@ class environments extends Model
     public $createTime;
 
     /**
-     * @description Created User ID.
+     * @description The ID of the user that created the VPC.
      *
      * @example 12378523784982
      *
@@ -73,7 +73,7 @@ class environments extends Model
     public $createdUserId;
 
     /**
-     * @description Environment ID.
+     * @description The ID of the environment instance.
      *
      * @example env-xxx
      *
@@ -82,7 +82,7 @@ class environments extends Model
     public $environmentId;
 
     /**
-     * @description Environment name.
+     * @description The name of the environment.
      *
      * @example feiliks-biz-prod-edas
      *
@@ -91,7 +91,11 @@ class environments extends Model
     public $environmentName;
 
     /**
-     * @description Environment type.
+     * @description The type of the environment. Valid values:
+     *
+     *   CS: Container Service for Kubernetes (ACK)
+     *   ECS: Elastic Compute Service (ECS)
+     *   Cloud: cloud service
      *
      * @example CS
      *
@@ -100,14 +104,14 @@ class environments extends Model
     public $environmentType;
 
     /**
-     * @description Featyre list.
+     * @description The features.
      *
      * @var features[]
      */
     public $features;
 
     /**
-     * @description Grafana datasource UID.
+     * @description The unique ID of the Grafana data source.
      *
      * @example 12374890
      *
@@ -116,7 +120,7 @@ class environments extends Model
     public $grafanaDatasourceUid;
 
     /**
-     * @description Grafana folder title.
+     * @description The name of the Grafana directory.
      *
      * @example filepath
      *
@@ -125,7 +129,7 @@ class environments extends Model
     public $grafanaFolderTitle;
 
     /**
-     * @description Grafana folder UID.
+     * @description The unique ID of the Grafana directory.
      *
      * @example 1798319482935
      *
@@ -134,7 +138,7 @@ class environments extends Model
     public $grafanaFolderUid;
 
     /**
-     * @description Latest Release create time.
+     * @description The time when the add-on was last created.
      *
      * @example 2023-09-22T16:56:29+08:00
      *
@@ -143,12 +147,16 @@ class environments extends Model
     public $latestReleaseCreateTime;
 
     /**
+     * @description type of managed:
+     * - agent-exproter: maanged agent and exporter. default of prometheus for Cloud.
+     * @example agent
+     *
      * @var string
      */
     public $managedType;
 
     /**
-     * @description Prometheus ID.
+     * @description The ID of the Prometheus service.
      *
      * @example 124769812
      *
@@ -157,7 +165,7 @@ class environments extends Model
     public $prometheusId;
 
     /**
-     * @description Prometheus instance ID.
+     * @description The ID of the Prometheus instance.
      *
      * @example vpc-m5e4alj2i24ndbn
      *
@@ -166,7 +174,7 @@ class environments extends Model
     public $prometheusInstanceId;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-zhangjiakou
      *
@@ -175,7 +183,7 @@ class environments extends Model
     public $regionId;
 
     /**
-     * @description Number of Release.
+     * @description The number of installed add-ons.
      *
      * @example 122
      *
@@ -193,14 +201,14 @@ class environments extends Model
     public $resourceGroupId;
 
     /**
-     * @description The tag value.
+     * @description The tags of the environment resource.
      *
      * @var tags[]
      */
     public $tags;
 
     /**
-     * @description User ID.
+     * @description The user ID.
      *
      * @example 13990957477389
      *

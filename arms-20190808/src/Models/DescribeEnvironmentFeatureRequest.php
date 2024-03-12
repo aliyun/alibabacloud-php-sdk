@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeEnvironmentFeatureRequest extends Model
 {
     /**
-     * @description Environment ID.
+     * @description The environment ID.
      *
      * @example env-xxx
      *
@@ -18,8 +18,17 @@ class DescribeEnvironmentFeatureRequest extends Model
     public $environmentId;
 
     /**
-     * @description Name of Feature.
+     * @description The name of the feature.
      *
+     * Valid values:
+     *
+     *   app-agent-pilot
+     *
+     * <!-- -->
+     *
+     *   metric-agent
+     *
+     * <!-- -->
      * @example metric-agent
      *
      * @var string

@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class featureContainers extends Model
 {
     /**
-     * @description Container parameters.
+     * @description The container parameters.
      *
      * @var string[]
      */
     public $args;
 
     /**
-     * @description Container image.
+     * @description The image of the container.
      *
      * @example registry-cn-hangzhou-vpc.ack.aliyuncs.com/acs/arms-prometheus-agent:v4.0.0
      *
@@ -25,7 +25,7 @@ class featureContainers extends Model
     public $image;
 
     /**
-     * @description Name of the container.
+     * @description The name of the container.
      *
      * @example arms-prometheus-operator
      *

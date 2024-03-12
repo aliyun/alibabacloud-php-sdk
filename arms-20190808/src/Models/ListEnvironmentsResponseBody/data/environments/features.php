@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class features extends Model
 {
     /**
-     * @description Alias of Feature.
+     * @description The alias of the feature.
      *
      * @example Prometheus Agent
      *
@@ -18,7 +18,7 @@ class features extends Model
     public $alias;
 
     /**
-     * @description Description of Feature.
+     * @description The description of the feature.
      *
      * @example Collect Metric data using the Prometheus collection specification
      *
@@ -27,7 +27,7 @@ class features extends Model
     public $description;
 
     /**
-     * @description Icon address.
+     * @description The URL of the feature icon.
      *
      * @example http://xxx
      *
@@ -36,7 +36,7 @@ class features extends Model
     public $icon;
 
     /**
-     * @description Name of Feature.
+     * @description The name of the feature.
      *
      * @example metirc-agent
      *

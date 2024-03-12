@@ -353,6 +353,9 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\ListScenarioRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListScenarioResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListSilencePoliciesRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListSilencePoliciesResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ListSyntheticDetailRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ListSyntheticDetailResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ListSyntheticDetailShrinkRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListTimingSyntheticTasksRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListTimingSyntheticTasksResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListTimingSyntheticTasksShrinkRequest;
@@ -9565,6 +9568,57 @@ class ARMS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listSilencePoliciesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListSyntheticDetailRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListSyntheticDetailResponse
+     */
+    public function listSyntheticDetailWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListSyntheticDetailShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->advancedFilters)) {
+            $request->advancedFiltersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->advancedFilters, 'AdvancedFilters', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->exactFilters)) {
+            $request->exactFiltersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->exactFilters, 'ExactFilters', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->filters)) {
+            $request->filtersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->filters, 'Filters', 'json');
+        }
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSyntheticDetail',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListSyntheticDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListSyntheticDetailRequest $request
+     *
+     * @return ListSyntheticDetailResponse
+     */
+    public function listSyntheticDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSyntheticDetailWithOptions($request, $runtime);
     }
 
     /**

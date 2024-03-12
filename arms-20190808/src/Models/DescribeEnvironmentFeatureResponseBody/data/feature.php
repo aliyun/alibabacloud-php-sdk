@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class feature extends Model
 {
     /**
-     * @description Alias of Feature.
+     * @description The alias of the feature.
      *
      * @example Prometheus agent.
      *
@@ -18,14 +18,14 @@ class feature extends Model
     public $alias;
 
     /**
-     * @description Config of Feature.
+     * @description The configuration of the feature.
      *
      * @var string[]
      */
     public $config;
 
     /**
-     * @description Description of Feature.
+     * @description The description of the feature.
      *
      * @example Collect Metric data using the Prometheus collection specification.
      *
@@ -34,7 +34,7 @@ class feature extends Model
     public $description;
 
     /**
-     * @description Environment ID.
+     * @description The environment ID.
      *
      * @example env-xxxxx
      *
@@ -43,7 +43,7 @@ class feature extends Model
     public $environmentId;
 
     /**
-     * @description Icon address.
+     * @description The URL of the icon.
      *
      * @example http://xxx
      *
@@ -52,7 +52,7 @@ class feature extends Model
     public $icon;
 
     /**
-     * @description Lanuage.
+     * @description The language.
      *
      * @example zh
      *
@@ -61,7 +61,7 @@ class feature extends Model
     public $language;
 
     /**
-     * @description This is the latest version of Feature.
+     * @description The latest version number.
      *
      * @example 1.1.17
      *
@@ -75,7 +75,7 @@ class feature extends Model
     public $managed;
 
     /**
-     * @description Name of Feature.
+     * @description The name of the feature.
      *
      * @example metric-agent
      *
@@ -84,7 +84,7 @@ class feature extends Model
     public $name;
 
     /**
-     * @description Installation status of Feature.
+     * @description The status.
      *
      * @example Success
      *
@@ -93,7 +93,7 @@ class feature extends Model
     public $status;
 
     /**
-     * @description Version of Feature.
+     * @description The version number.
      *
      * @example 1.1.17
      *

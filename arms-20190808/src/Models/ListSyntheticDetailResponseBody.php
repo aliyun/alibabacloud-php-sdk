@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeEnvironmentFeatureResponseBody\data;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ListSyntheticDetailResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class DescribeEnvironmentFeatureResponseBody extends Model
+class ListSyntheticDetailResponseBody extends Model
 {
     /**
-     * @description The HTTP status code. The status code 200 indicates that the request was successful.
-     *
      * @example 200
      *
      * @var int
@@ -19,44 +17,30 @@ class DescribeEnvironmentFeatureResponseBody extends Model
     public $code;
 
     /**
-     * @description The returned struct.
-     *
      * @var data
      */
     public $data;
 
     /**
-     * @description The returned message.
-     *
-     * @example success
+     * @example null
      *
      * @var string
      */
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description Id of the request
      *
-     * @example 01FF8DD9-A09C-47A1-895A-B6E321BE77B6
+     * @example 70675725-8F11-4817-8106-CFE0AD71****
      *
      * @var string
      */
     public $requestId;
-
-    /**
-     * @description Indicates whether the request was successful. Valid values: true and false.
-     *
-     * @example true
-     *
-     * @var bool
-     */
-    public $success;
     protected $_name = [
         'code'      => 'Code',
         'data'      => 'Data',
         'message'   => 'Message',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
     ];
 
     public function validate()
@@ -78,9 +62,6 @@ class DescribeEnvironmentFeatureResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
 
         return $res;
     }
@@ -88,7 +69,7 @@ class DescribeEnvironmentFeatureResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DescribeEnvironmentFeatureResponseBody
+     * @return ListSyntheticDetailResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -104,9 +85,6 @@ class DescribeEnvironmentFeatureResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
         }
 
         return $model;

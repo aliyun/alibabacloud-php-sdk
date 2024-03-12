@@ -2,32 +2,36 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvironmentsRequest;
+namespace AlibabaCloud\SDK\ARMS\V20190808\Models\ListSyntheticDetailRequest;
 
 use AlibabaCloud\Tea\Model;
 
-class tag extends Model
+class advancedFilters extends Model
 {
     /**
-     * @description The tag key.
-     *
-     * @example env
+     * @example taskType
      *
      * @var string
      */
     public $key;
 
     /**
-     * @description The tag value.
-     *
-     * @example gfn_web_outbound_add
+     * @example eq
      *
      * @var string
      */
+    public $opType;
+
+    /**
+     * @example 1
+     *
+     * @var mixed
+     */
     public $value;
     protected $_name = [
-        'key'   => 'Key',
-        'value' => 'Value',
+        'key'    => 'Key',
+        'opType' => 'OpType',
+        'value'  => 'Value',
     ];
 
     public function validate()
@@ -40,6 +44,9 @@ class tag extends Model
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+        if (null !== $this->opType) {
+            $res['OpType'] = $this->opType;
+        }
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -50,13 +57,16 @@ class tag extends Model
     /**
      * @param array $map
      *
-     * @return tag
+     * @return advancedFilters
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
+        }
+        if (isset($map['OpType'])) {
+            $model->opType = $map['OpType'];
         }
         if (isset($map['Value'])) {
             $model->value = $map['Value'];

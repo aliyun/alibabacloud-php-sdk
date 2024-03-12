@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListEnvironmentsShrinkRequest extends Model
 {
     /**
-     * @description Name of Addon.
+     * @description The add-on name. You must specify at least one of the AddonName and EnvironmentType parameters.
      *
      * @example trace-java
      *
@@ -18,13 +18,30 @@ class ListEnvironmentsShrinkRequest extends Model
     public $addonName;
 
     /**
+     * @description 绑定的资源ID。
+     *
+     * @example cff30f0d67d7542dfb05bd114b4b1d7af
+     *
      * @var string
      */
     public $bindResourceId;
 
     /**
-     * @description Environment type, AddonName or EnvironmentType must be at least one.
+     * @description The environment type. You must specify at least one of the AddonName and EnvironmentType parameters.
      *
+     * Valid values:
+     *
+     *   CS
+     *
+     * <!-- -->
+     *
+     *   ECS
+     *
+     * <!-- -->
+     *
+     *   Cloud
+     *
+     * <!-- -->
      * @example CS
      *
      * @var string
@@ -50,7 +67,7 @@ class ListEnvironmentsShrinkRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description Resource tag list.
+     * @description The tags.
      *
      * @var string
      */
