@@ -154,6 +154,13 @@ class user extends Model
     public $phoneRegion;
 
     /**
+     * @example en-US
+     *
+     * @var string
+     */
+    public $preferredLanguage;
+
+    /**
      * @description The ID of the primary organizational unit to which the account belongs.
      *
      * @example ou_wovwffm62xifdziem7an7xxxxx
@@ -260,6 +267,7 @@ class user extends Model
         'phoneNumber'                 => 'PhoneNumber',
         'phoneNumberVerified'         => 'PhoneNumberVerified',
         'phoneRegion'                 => 'PhoneRegion',
+        'preferredLanguage'           => 'PreferredLanguage',
         'primaryOrganizationalUnitId' => 'PrimaryOrganizationalUnitId',
         'registerTime'                => 'RegisterTime',
         'status'                      => 'Status',
@@ -343,6 +351,9 @@ class user extends Model
         }
         if (null !== $this->phoneRegion) {
             $res['PhoneRegion'] = $this->phoneRegion;
+        }
+        if (null !== $this->preferredLanguage) {
+            $res['PreferredLanguage'] = $this->preferredLanguage;
         }
         if (null !== $this->primaryOrganizationalUnitId) {
             $res['PrimaryOrganizationalUnitId'] = $this->primaryOrganizationalUnitId;
@@ -448,6 +459,9 @@ class user extends Model
         }
         if (isset($map['PhoneRegion'])) {
             $model->phoneRegion = $map['PhoneRegion'];
+        }
+        if (isset($map['PreferredLanguage'])) {
+            $model->preferredLanguage = $map['PreferredLanguage'];
         }
         if (isset($map['PrimaryOrganizationalUnitId'])) {
             $model->primaryOrganizationalUnitId = $map['PrimaryOrganizationalUnitId'];
