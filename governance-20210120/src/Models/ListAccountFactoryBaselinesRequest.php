@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Governance\V20210120\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListEnrolledAccountsRequest extends Model
+class ListAccountFactoryBaselinesRequest extends Model
 {
     /**
      * @description The maximum number of entries to return on each page.
@@ -28,7 +28,7 @@ class ListEnrolledAccountsRequest extends Model
     public $nextToken;
 
     /**
-     * @description The region ID.
+     * @description RegionId
      *
      * @example cn-hangzhou
      *
@@ -64,7 +64,7 @@ class ListEnrolledAccountsRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListEnrolledAccountsRequest
+     * @return ListAccountFactoryBaselinesRequest
      */
     public static function fromMap($map = [])
     {

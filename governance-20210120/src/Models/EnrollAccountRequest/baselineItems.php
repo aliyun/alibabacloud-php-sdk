@@ -9,28 +9,39 @@ use AlibabaCloud\Tea\Model;
 class baselineItems extends Model
 {
     /**
-     * @description 基线项配置
+     * @description The configurations of the baseline item.
+     *
+     * @example {\"Notifications\":[{\"GroupKey\":\"account_msg\",\"Contacts\":[{\"Name\":\"aa\"}],\"PmsgStatus\":1,\"EmailStatus\":1,\"SmsStatus\":1}]}
      *
      * @var string
      */
     public $config;
 
     /**
-     * @description 基线项名称
+     * @description The name of the baseline item.
+     *
+     * @example ACS-BP_ACCOUNT_FACTORY_VPC
      *
      * @var string
      */
     public $name;
 
     /**
-     * @description 是否跳过基线项
+     * @description Specifies whether to skip the baseline item. Valid values:
+     *
+     *   false: The baseline item is not skipped.
+     *   true: The baseline item is skipped.
+     *
+     * @example false
      *
      * @var bool
      */
     public $skip;
 
     /**
-     * @description 基线项版本
+     * @description The version of the baseline item.
+     *
+     * @example 1.0
      *
      * @var string
      */

@@ -4,17 +4,17 @@
 
 namespace AlibabaCloud\SDK\Governance\V20210120\Models;
 
-use AlibabaCloud\SDK\Governance\V20210120\Models\ListEnrolledAccountsResponseBody\enrolledAccounts;
+use AlibabaCloud\SDK\Governance\V20210120\Models\ListAccountFactoryBaselinesResponseBody\baselines;
 use AlibabaCloud\Tea\Model;
 
-class ListEnrolledAccountsResponseBody extends Model
+class ListAccountFactoryBaselinesResponseBody extends Model
 {
     /**
-     * @description The accounts.
+     * @description An array that consists of baselines.
      *
-     * @var enrolledAccounts[]
+     * @var baselines[]
      */
-    public $enrolledAccounts;
+    public $baselines;
 
     /**
      * @description The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results.
@@ -28,15 +28,15 @@ class ListEnrolledAccountsResponseBody extends Model
     /**
      * @description The request ID.
      *
-     * @example 768F908D-A66A-5A5D-816C-20C93CBBFEE3
+     * @example 3245E413-7CDD-5287-8988-6A94DE8A8369
      *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'enrolledAccounts' => 'EnrolledAccounts',
-        'nextToken'        => 'NextToken',
-        'requestId'        => 'RequestId',
+        'baselines' => 'Baselines',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -46,12 +46,12 @@ class ListEnrolledAccountsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->enrolledAccounts) {
-            $res['EnrolledAccounts'] = [];
-            if (null !== $this->enrolledAccounts && \is_array($this->enrolledAccounts)) {
+        if (null !== $this->baselines) {
+            $res['Baselines'] = [];
+            if (null !== $this->baselines && \is_array($this->baselines)) {
                 $n = 0;
-                foreach ($this->enrolledAccounts as $item) {
-                    $res['EnrolledAccounts'][$n++] = null !== $item ? $item->toMap() : $item;
+                foreach ($this->baselines as $item) {
+                    $res['Baselines'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -68,17 +68,17 @@ class ListEnrolledAccountsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ListEnrolledAccountsResponseBody
+     * @return ListAccountFactoryBaselinesResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EnrolledAccounts'])) {
-            if (!empty($map['EnrolledAccounts'])) {
-                $model->enrolledAccounts = [];
-                $n                       = 0;
-                foreach ($map['EnrolledAccounts'] as $item) {
-                    $model->enrolledAccounts[$n++] = null !== $item ? enrolledAccounts::fromMap($item) : $item;
+        if (isset($map['Baselines'])) {
+            if (!empty($map['Baselines'])) {
+                $model->baselines = [];
+                $n                = 0;
+                foreach ($map['Baselines'] as $item) {
+                    $model->baselines[$n++] = null !== $item ? baselines::fromMap($item) : $item;
                 }
             }
         }

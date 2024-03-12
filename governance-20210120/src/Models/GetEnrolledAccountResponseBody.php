@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Governance\V20210120\Models;
 
+use AlibabaCloud\SDK\Governance\V20210120\Models\GetEnrolledAccountResponseBody\baselineItems;
 use AlibabaCloud\SDK\Governance\V20210120\Models\GetEnrolledAccountResponseBody\errorInfo;
 use AlibabaCloud\SDK\Governance\V20210120\Models\GetEnrolledAccountResponseBody\inputs;
 use AlibabaCloud\SDK\Governance\V20210120\Models\GetEnrolledAccountResponseBody\progress;
@@ -12,97 +13,140 @@ use AlibabaCloud\Tea\Model;
 class GetEnrolledAccountResponseBody extends Model
 {
     /**
-     * @description 账号ID
+     * @description The account ID.
+     *
+     * @example 12868156179*****
      *
      * @var int
      */
     public $accountUid;
 
     /**
-     * @description 创建时间
+     * @description The ID of the baseline that was applied to the account.
+     *
+     * @example afb-bp1adadfadsf***
+     *
+     * @var string
+     */
+    public $baselineId;
+
+    /**
+     * @var baselineItems[]
+     */
+    public $baselineItems;
+
+    /**
+     * @description The time at which the account was created.
+     *
+     * @example 2021-11-01T02:38:27Z
      *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 账号显示名称
+     * @description The display name of the account.
+     *
+     * @example test-account
      *
      * @var string
      */
     public $displayName;
 
     /**
-     * @description 错误信息
+     * @description The error message returned.
      *
      * @var errorInfo
      */
     public $errorInfo;
 
     /**
-     * @description 父资源夹ID
+     * @description The ID of the parent folder.
+     *
+     * @example fd-5ESoku****
      *
      * @var string
      */
     public $folderId;
 
     /**
-     * @description 是否初始化完成
+     * @description Indicates whether the account was initialized.
+     *
+     * @example true
      *
      * @var bool
      */
     public $initialized;
 
     /**
-     * @description 注册账号时的输入参数
+     * @description The input parameters that are used when you enrolled the account.
      *
      * @var inputs
      */
     public $inputs;
 
     /**
-     * @description 所属的Master账号ID
+     * @description The ID of the master account to which the account belongs.
+     *
+     * @example 19534534552*****
      *
      * @var int
      */
     public $masterAccountUid;
 
     /**
-     * @description 结算账号ID
+     * @description The ID of the billing account.
+     *
+     * @example 19534534552*****
      *
      * @var int
      */
     public $payerAccountUid;
 
     /**
-     * @description 基线实施进度
+     * @description The progress of applying the account baseline to the account.
      *
      * @var progress[]
      */
     public $progress;
 
     /**
-     * @description 请求ID
+     * @description The request ID.
+     *
+     * @example 768F908D-A66A-5A5D-816C-20C93CBBFEE3
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 账号注册状态
+     * @description The creation status of the account. Valid values:
+     *
+     *   Pending: The account is waiting to be created.
+     *   Running: The account is being created.
+     *   Finished: The account is created.
+     *   Failed: The account failed to be created.
+     *   Scheduling: The account is being scheduled.
+     *   ScheduleFailed: The account failed to be scheduled.
+     *
+     * @example Finished
      *
      * @var string
      */
     public $status;
 
     /**
-     * @description 更新时间
+     * @description The time when the information about the account was updated.
+     *
+     * @example 2021-11-01T02:38:27Z
      *
      * @var string
      */
     public $updateTime;
     protected $_name = [
         'accountUid'       => 'AccountUid',
+        'baselineId'       => 'BaselineId',
+        'baselineItems'    => 'BaselineItems',
         'createTime'       => 'CreateTime',
         'displayName'      => 'DisplayName',
         'errorInfo'        => 'ErrorInfo',
@@ -126,6 +170,18 @@ class GetEnrolledAccountResponseBody extends Model
         $res = [];
         if (null !== $this->accountUid) {
             $res['AccountUid'] = $this->accountUid;
+        }
+        if (null !== $this->baselineId) {
+            $res['BaselineId'] = $this->baselineId;
+        }
+        if (null !== $this->baselineItems) {
+            $res['BaselineItems'] = [];
+            if (null !== $this->baselineItems && \is_array($this->baselineItems)) {
+                $n = 0;
+                foreach ($this->baselineItems as $item) {
+                    $res['BaselineItems'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
@@ -183,6 +239,18 @@ class GetEnrolledAccountResponseBody extends Model
         $model = new self();
         if (isset($map['AccountUid'])) {
             $model->accountUid = $map['AccountUid'];
+        }
+        if (isset($map['BaselineId'])) {
+            $model->baselineId = $map['BaselineId'];
+        }
+        if (isset($map['BaselineItems'])) {
+            if (!empty($map['BaselineItems'])) {
+                $model->baselineItems = [];
+                $n                    = 0;
+                foreach ($map['BaselineItems'] as $item) {
+                    $model->baselineItems[$n++] = null !== $item ? baselineItems::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];

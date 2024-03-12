@@ -2,44 +2,28 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Governance\V20210120\Models\GetEnrolledAccountResponseBody\inputs;
+namespace AlibabaCloud\SDK\Governance\V20210120\Models\GetEnrolledAccountResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
 class baselineItems extends Model
 {
     /**
-     * @description The configurations of the baseline item.
-     *
-     * @example {\"Contacts\":[{\"Name\":\"governance\",\"Email\":\"wibud****@gmail.com\",\"Mobile\":\"1234\",\"Position\":\"Other\"}]}
-     *
      * @var string
      */
     public $config;
 
     /**
-     * @description The name of the baseline item.
-     *
-     * @example ACS-BP_ACCOUNT_FACTORY_VPC
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description Indicates whether to skip the baseline item.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $skip;
 
     /**
-     * @description The version of the baseline item.
-     *
-     * @example 1.0
-     *
      * @var string
      */
     public $version;

@@ -6,16 +6,16 @@ namespace AlibabaCloud\SDK\Governance\V20210120\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetEnrolledAccountRequest extends Model
+class GetAccountFactoryBaselineRequest extends Model
 {
     /**
-     * @description The account ID.
+     * @description The baseline ID.
      *
-     * @example 19534534552****
+     * @example afb-bp1nf0enuzb89az*****
      *
-     * @var int
+     * @var string
      */
-    public $accountUid;
+    public $baselineId;
 
     /**
      * @description The region ID.
@@ -26,7 +26,7 @@ class GetEnrolledAccountRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'accountUid' => 'AccountUid',
+        'baselineId' => 'BaselineId',
         'regionId'   => 'RegionId',
     ];
 
@@ -37,8 +37,8 @@ class GetEnrolledAccountRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->accountUid) {
-            $res['AccountUid'] = $this->accountUid;
+        if (null !== $this->baselineId) {
+            $res['BaselineId'] = $this->baselineId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -50,13 +50,13 @@ class GetEnrolledAccountRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetEnrolledAccountRequest
+     * @return GetAccountFactoryBaselineRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AccountUid'])) {
-            $model->accountUid = $map['AccountUid'];
+        if (isset($map['BaselineId'])) {
+            $model->baselineId = $map['BaselineId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

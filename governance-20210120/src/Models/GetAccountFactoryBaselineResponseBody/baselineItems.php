@@ -2,16 +2,17 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Governance\V20210120\Models\GetEnrolledAccountResponseBody\inputs;
+namespace AlibabaCloud\SDK\Governance\V20210120\Models\GetAccountFactoryBaselineResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
 class baselineItems extends Model
 {
     /**
-     * @description The configurations of the baseline item.
+     * @description The configuration of the baseline item.
      *
-     * @example {\"Contacts\":[{\"Name\":\"governance\",\"Email\":\"wibud****@gmail.com\",\"Mobile\":\"1234\",\"Position\":\"Other\"}]}
+     * The value is a JSON string.
+     * @example {\"Notifications\":[{\"GroupKey\":\"account_msg\",\"Contacts\":[{\"Name\":\"aa\"}],\"PmsgStatus\":1,\"EmailStatus\":1,\"SmsStatus\":1}]}
      *
      * @var string
      */
@@ -20,20 +21,11 @@ class baselineItems extends Model
     /**
      * @description The name of the baseline item.
      *
-     * @example ACS-BP_ACCOUNT_FACTORY_VPC
+     * @example 1097526274671790
      *
      * @var string
      */
     public $name;
-
-    /**
-     * @description Indicates whether to skip the baseline item.
-     *
-     * @example false
-     *
-     * @var bool
-     */
-    public $skip;
 
     /**
      * @description The version of the baseline item.
@@ -46,7 +38,6 @@ class baselineItems extends Model
     protected $_name = [
         'config'  => 'Config',
         'name'    => 'Name',
-        'skip'    => 'Skip',
         'version' => 'Version',
     ];
 
@@ -62,9 +53,6 @@ class baselineItems extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
-        }
-        if (null !== $this->skip) {
-            $res['Skip'] = $this->skip;
         }
         if (null !== $this->version) {
             $res['Version'] = $this->version;
@@ -86,9 +74,6 @@ class baselineItems extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
-        }
-        if (isset($map['Skip'])) {
-            $model->skip = $map['Skip'];
         }
         if (isset($map['Version'])) {
             $model->version = $map['Version'];

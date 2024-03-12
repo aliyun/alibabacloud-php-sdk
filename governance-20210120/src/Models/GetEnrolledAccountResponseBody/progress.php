@@ -9,14 +9,23 @@ use AlibabaCloud\Tea\Model;
 class progress extends Model
 {
     /**
-     * @description 基线项名称
+     * @description The name of the baseline item.
+     *
+     * @example ACS-BP_ACCOUNT_FACTORY_VPC
      *
      * @var string
      */
     public $name;
 
     /**
-     * @description 基线项实施状态
+     * @description The status of applying the account baseline to the account. Valid values:
+     *
+     *   Pending: The account is waiting to be created.
+     *   Running: The account baseline is being applied to the account.
+     *   Finished: The account baseline is applied to the account.
+     *   Failed: The account baseline failed to be applied to the account.
+     *
+     * @example Running
      *
      * @var string
      */

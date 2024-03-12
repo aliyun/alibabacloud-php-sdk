@@ -10,42 +10,52 @@ use AlibabaCloud\Tea\Model;
 class inputs extends Model
 {
     /**
-     * @description 账号名称前缀
+     * @description The prefix for the account name of the member.
+     *
+     * @example test-account
      *
      * @var string
      */
     public $accountNamePrefix;
 
     /**
-     * @description 账号ID
+     * @description The account ID.
+     *
+     * @example 12868156179*****
      *
      * @var int
      */
     public $accountUid;
 
     /**
-     * @description 基线项配置数组
+     * @description An array that contains baseline items.
      *
      * @var baselineItems[]
      */
     public $baselineItems;
 
     /**
-     * @description 账号展示名称
+     * @description The display name of the account.
+     *
+     * @example test-account
      *
      * @var string
      */
     public $displayName;
 
     /**
-     * @description 父资源夹ID
+     * @description The ID of the parent folder.
+     *
+     * @example fd-5ESoku****
      *
      * @var string
      */
     public $folderId;
 
     /**
-     * @description 结算账号ID
+     * @description The ID of the billing account.
+     *
+     * @example 19534534552*****
      *
      * @var int
      */

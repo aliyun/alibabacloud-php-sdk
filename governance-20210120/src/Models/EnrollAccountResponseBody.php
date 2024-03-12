@@ -9,14 +9,18 @@ use AlibabaCloud\Tea\Model;
 class EnrollAccountResponseBody extends Model
 {
     /**
-     * @description 注册账号ID
+     * @description The account ID.
+     *
+     * @example 143165363236****
      *
      * @var int
      */
     public $accountUid;
 
     /**
-     * @description 请求ID
+     * @description The request ID.
+     *
+     * @example 7071E5FA-515E-5F53-B335-B87D619C6A66
      *
      * @var string
      */

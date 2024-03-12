@@ -8,8 +8,12 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Governance\V20210120\Models\EnrollAccountRequest;
 use AlibabaCloud\SDK\Governance\V20210120\Models\EnrollAccountResponse;
+use AlibabaCloud\SDK\Governance\V20210120\Models\GetAccountFactoryBaselineRequest;
+use AlibabaCloud\SDK\Governance\V20210120\Models\GetAccountFactoryBaselineResponse;
 use AlibabaCloud\SDK\Governance\V20210120\Models\GetEnrolledAccountRequest;
 use AlibabaCloud\SDK\Governance\V20210120\Models\GetEnrolledAccountResponse;
+use AlibabaCloud\SDK\Governance\V20210120\Models\ListAccountFactoryBaselinesRequest;
+use AlibabaCloud\SDK\Governance\V20210120\Models\ListAccountFactoryBaselinesResponse;
 use AlibabaCloud\SDK\Governance\V20210120\Models\ListEnrolledAccountsRequest;
 use AlibabaCloud\SDK\Governance\V20210120\Models\ListEnrolledAccountsResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -52,10 +56,13 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * @param EnrollAccountRequest $request
-     * @param RuntimeOptions       $runtime
+     * You can call this API operation to create a new account or manage an existing account and apply the account baseline to the account.
+     *   * Accounts are created in asynchronous mode. After you create an account, you can apply the account baseline to the account. You can call the [GetEnrolledAccount API](~~GetEnrolledAccount~~) operation to view the details about the account to obtain the result of applying the account baseline to the account.
+     *   *
+     * @param EnrollAccountRequest $request EnrollAccountRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnrollAccountResponse
+     * @return EnrollAccountResponse EnrollAccountResponse
      */
     public function enrollAccountWithOptions($request, $runtime)
     {
@@ -66,6 +73,9 @@ class Governance extends OpenApiClient
         }
         if (!Utils::isUnset($request->accountUid)) {
             $query['AccountUid'] = $request->accountUid;
+        }
+        if (!Utils::isUnset($request->baselineId)) {
+            $query['BaselineId'] = $request->baselineId;
         }
         if (!Utils::isUnset($request->baselineItems)) {
             $query['BaselineItems'] = $request->baselineItems;
@@ -81,6 +91,9 @@ class Governance extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resellAccountType)) {
+            $query['ResellAccountType'] = $request->resellAccountType;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -101,15 +114,64 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * @param EnrollAccountRequest $request
+     * You can call this API operation to create a new account or manage an existing account and apply the account baseline to the account.
+     *   * Accounts are created in asynchronous mode. After you create an account, you can apply the account baseline to the account. You can call the [GetEnrolledAccount API](~~GetEnrolledAccount~~) operation to view the details about the account to obtain the result of applying the account baseline to the account.
+     *   *
+     * @param EnrollAccountRequest $request EnrollAccountRequest
      *
-     * @return EnrollAccountResponse
+     * @return EnrollAccountResponse EnrollAccountResponse
      */
     public function enrollAccount($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->enrollAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetAccountFactoryBaselineRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetAccountFactoryBaselineResponse
+     */
+    public function getAccountFactoryBaselineWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->baselineId)) {
+            $query['BaselineId'] = $request->baselineId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAccountFactoryBaseline',
+            'version'     => '2021-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAccountFactoryBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetAccountFactoryBaselineRequest $request
+     *
+     * @return GetAccountFactoryBaselineResponse
+     */
+    public function getAccountFactoryBaseline($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAccountFactoryBaselineWithOptions($request, $runtime);
     }
 
     /**
@@ -156,6 +218,55 @@ class Governance extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getEnrolledAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListAccountFactoryBaselinesRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListAccountFactoryBaselinesResponse
+     */
+    public function listAccountFactoryBaselinesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAccountFactoryBaselines',
+            'version'     => '2021-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAccountFactoryBaselinesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListAccountFactoryBaselinesRequest $request
+     *
+     * @return ListAccountFactoryBaselinesResponse
+     */
+    public function listAccountFactoryBaselines($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAccountFactoryBaselinesWithOptions($request, $runtime);
     }
 
     /**
