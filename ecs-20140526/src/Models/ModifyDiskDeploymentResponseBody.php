@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyDiskDeploymentResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example D69846D9-F17F-51C0-8AC6-B4B71777****
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyDiskDeploymentResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the disk migration task.
+     *
      * @example t-bp67acfmxazb4p****
      *
      * @var string

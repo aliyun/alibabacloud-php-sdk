@@ -9,9 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyNetworkInterfaceAttributeRequest extends Model
 {
     /**
-     * @description Specifies whether to retain the ENI when the associated instance is released. Valid values:
+     * @description Specifies whether to release the ENI when the associated instance is released. Valid values:
      *
-     * - false
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -38,9 +40,9 @@ class ModifyNetworkInterfaceAttributeRequest extends Model
     public $networkInterfaceId;
 
     /**
-     * @description The name of the ENI. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (\_), and hyphens (-). It must start with a letter and cannot start with [http:// or https:// ](http://https://。、（:）、（\_）（-）。).
+     * @description The name of the ENI. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with http:// or https://. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
      *
-     * This parameter is left empty by default.
+     * This parameter is empty by default.
      * @example eniTestName
      *
      * @var string
@@ -90,19 +92,25 @@ class ModifyNetworkInterfaceAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 8192
+     *
      * @var int
      */
     public $rxQueueSize;
 
     /**
-     * @description The ID of security group N to which the secondary ENI finally belongs. If a security group to which the ENI has belonged is in the ID list, that security group is removed from the list. Valid values of N: 1, 2, 3, 4, and 5.
+     * @description The IDs of the security groups to which to add the secondary ENI. The secondary ENI is added to the specified security groups and are removed from its original security groups.
      *
-     * > After you change the security group, the change takes effect after a short delay.
+     *   The valid value range of N varies based on the number of security groups to which an ENI can be added. For more information, see [Limits](~~25412#SecurityGroupQuota~~).
+     *   The new security groups take effect after a short delay.
+     *
      * @var string[]
      */
     public $securityGroupId;
 
     /**
+     * @example 8192
+     *
      * @var int
      */
     public $txQueueSize;

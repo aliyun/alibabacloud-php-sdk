@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyDiskDeploymentRequest extends Model
 {
     /**
+     * @description The new disk category. The parameter can be used only when you migrate a disk between dedicated block storage clusters. Only ESSDs can be created in dedicated block storage clusters. Set this parameter to cloud_essd.
+     *
+     * This parameter is empty by default, which indicates that the disk category is not changed.
      * @example cloud_essd
      *
      * @var string
@@ -16,6 +19,8 @@ class ModifyDiskDeploymentRequest extends Model
     public $diskCategory;
 
     /**
+     * @description The ID of the disk.
+     *
      * @example d-bp131n0q38u3a4zi****
      *
      * @var string
@@ -23,6 +28,12 @@ class ModifyDiskDeploymentRequest extends Model
     public $diskId;
 
     /**
+     * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+     *
+     *   true: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, service limits, and unavailable ECS resources. If the request fails the dry run, an error message is returned. If the request passes the dry run, the DryRunOperation error code is returned.
+     *   false: performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+     *
+     * Default value: false.
      * @example false
      *
      * @var bool
@@ -40,6 +51,12 @@ class ModifyDiskDeploymentRequest extends Model
     public $ownerId;
 
     /**
+     * @description The new performance level of the ESSD. The parameter can be used only when you migrate data between dedicated block storage clusters. Valid values:
+     *
+     *   PL0: A single ESSD can deliver up to 10000 random read/write IOPS.
+     *   PL1: A single ESSD can deliver up to 50000 random read/write IOPS.
+     *
+     * This parameter is empty by default, which indicates that the performance level is not modified.
      * @example PL1
      *
      * @var string
@@ -57,6 +74,12 @@ class ModifyDiskDeploymentRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the dedicated block storage cluster.
+     *
+     *   When you migrate a disk to a dedicated block storage cluster, the StorageClusterId parameter must be specified.
+     *   When you migrate a disk to a public block storage cluster, the StorageClusterId parameter must be left empty.
+     *
+     * This parameter is empty by default, which indicates that the disk is migrated to a public block storage cluster.
      * @example dbsc-cn-c4d2uea****
      *
      * @var string

@@ -28,9 +28,11 @@ class CreateNetworkInterfaceRequest extends Model
     public $clientToken;
 
     /**
-     * @description Specifies whether to retain the ENI when the associated instance is released. Valid values:
+     * @description Specifies whether to release the ENI when the associated instance is released. Valid values:
      *
-     * - false
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -57,15 +59,17 @@ class CreateNetworkInterfaceRequest extends Model
     public $instanceType;
 
     /**
-     * @description > 该参数正在邀测中，暂未开放使用。
+     * @description IPv4 prefix N to assign to the ENI. Valid values of N: 1 to 10.
      *
+     * >  To assign IPv4 prefixes to the ENI, you must specify the Ipv4Prefix.N or Ipv4PrefixCount parameter, but not both.
      * @var string[]
      */
     public $ipv4Prefix;
 
     /**
-     * @description > 该参数正在邀测中，暂未开放使用。
+     * @description IPv4 prefix N to assign to the ENI. Valid values: 1 to 10.
      *
+     * >  To assign IPv4 prefixes to the ENI, you must specify the Ipv4Prefix.N or Ipv4PrefixCount parameter, but not both.
      * @example hide
      *
      * @var int
@@ -77,7 +81,7 @@ class CreateNetworkInterfaceRequest extends Model
      *
      * Example: Ipv6Address.1=2001:db8:1234:1a00::\*\*\*\*
      *
-     * > To assign IPv6 addresses to the ENI, you must specify `Ipv6Addresses.N` or `Ipv6AddressCount` but not both.
+     * >  To assign IPv6 addresses to the ENI, you must specify the `Ipv6Addresses.N` or `Ipv6AddressCount` parameter, but not both.
      * @example 2001:db8:1234:1a00::****
      *
      * @var string[]
@@ -87,7 +91,7 @@ class CreateNetworkInterfaceRequest extends Model
     /**
      * @description The number of IPv6 addresses to randomly generate for the ENI. Valid values: 1 to 10.
      *
-     * > To assign IPv6 addresses to the ENI, you must specify `Ipv6Addresses.N` or `Ipv6AddressCount` but not both.
+     * >  To assign IPv6 addresses to the ENI, you must specify the `Ipv6Addresses.N` or `Ipv6AddressCount` parameter, but not both.
      * @example 1
      *
      * @var int
@@ -95,15 +99,17 @@ class CreateNetworkInterfaceRequest extends Model
     public $ipv6AddressCount;
 
     /**
-     * @description > 该参数正在邀测中，暂未开放使用。
+     * @description IPv6 prefix N to assign to the ENI. Valid values of N: 1 to 10.
      *
+     * >  To assign IPv6 prefixes to the ENI, you must specify the Ipv6Prefix.N or Ipv6PrefixCount parameter, but not both.
      * @var string[]
      */
     public $ipv6Prefix;
 
     /**
-     * @description > 该参数正在邀测中，暂未开放使用。
+     * @description IPv6 prefix N to assign to the ENI. Valid values: 1 to 10.
      *
+     * >  To assign IPv6 prefixes to the ENI, you must specify the Ipv6Prefix.N or Ipv6PrefixCount parameter, but not both.
      * @example hide
      *
      * @var int
@@ -111,7 +117,7 @@ class CreateNetworkInterfaceRequest extends Model
     public $ipv6PrefixCount;
 
     /**
-     * @description The name of the ENI. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The name of the ENI. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
      *
      * This parameter is empty by default.
      * @example testNetworkInterfaceName
@@ -124,7 +130,7 @@ class CreateNetworkInterfaceRequest extends Model
      * @description The communication model of the ENI. Valid values:
      *
      *   Standard: uses the TCP communication mode.
-     *   HighPerformance: enables Elastic RDMA Interface (ERI) and uses the remote direct memory access (RDMA) communication mode.
+     *   HighPerformance: uses the remote direct memory access (RDMA) communication mode with Elastic RDMA Interface (ERI) enabled.
      *
      * Default value: Standard.
      * @example Standard
@@ -156,7 +162,7 @@ class CreateNetworkInterfaceRequest extends Model
     /**
      * @description Secondary private IP address N to assign to the ENI. This IP address must be an idle IP address within the CIDR block of the vSwitch with which to associate the ENI. Valid values of N: 0 to 10.
      *
-     * > To assign secondary private IP addresses to the ENI, you can specify `PrivateIpAddress.N` and `SecondaryPrivateIpAddressCount` but not both.
+     * >  To assign secondary private IP addresses to the ENI, you can specify the `PrivateIpAddress.N` or `SecondaryPrivateIpAddressCount` parameter, but not both.
      * @example 172.17.**.**
      *
      * @var string[]
@@ -211,6 +217,8 @@ class CreateNetworkInterfaceRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 8192
+     *
      * @var int
      */
     public $rxQueueSize;
@@ -254,6 +262,8 @@ class CreateNetworkInterfaceRequest extends Model
     public $tag;
 
     /**
+     * @example 8192
+     *
      * @var int
      */
     public $txQueueSize;

@@ -24,14 +24,14 @@ class CreateNetworkInterfaceResponseBody extends Model
     public $description;
 
     /**
-     * @description > 该参数正在邀测中，暂未开放使用。
+     * @description The IPv4 prefixes assigned to the ENI.
      *
      * @var ipv4PrefixSets
      */
     public $ipv4PrefixSets;
 
     /**
-     * @description > 该参数正在邀测中，暂未开放使用。
+     * @description The IPv6 prefixes assigned to the ENI.
      *
      * @var ipv6PrefixSets
      */

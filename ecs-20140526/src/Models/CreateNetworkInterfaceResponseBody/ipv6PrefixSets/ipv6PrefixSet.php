@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ipv6PrefixSet extends Model
 {
     /**
-     * @description > 该参数正在邀测中，暂未开放使用。
+     * @description The IPv6 prefix assigned to the ENI.
      *
      * @example hide
      *

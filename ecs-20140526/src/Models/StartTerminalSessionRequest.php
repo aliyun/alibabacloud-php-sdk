@@ -73,6 +73,11 @@ class StartTerminalSessionRequest extends Model
      * @var string
      */
     public $targetServer;
+
+    /**
+     * @var string
+     */
+    public $username;
     protected $_name = [
         'commandLine'          => 'CommandLine',
         'instanceId'           => 'InstanceId',
@@ -83,6 +88,7 @@ class StartTerminalSessionRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'targetServer'         => 'TargetServer',
+        'username'             => 'Username',
     ];
 
     public function validate()
@@ -118,6 +124,9 @@ class StartTerminalSessionRequest extends Model
         }
         if (null !== $this->targetServer) {
             $res['TargetServer'] = $this->targetServer;
+        }
+        if (null !== $this->username) {
+            $res['Username'] = $this->username;
         }
 
         return $res;
@@ -159,6 +168,9 @@ class StartTerminalSessionRequest extends Model
         }
         if (isset($map['TargetServer'])) {
             $model->targetServer = $map['TargetServer'];
+        }
+        if (isset($map['Username'])) {
+            $model->username = $map['Username'];
         }
 
         return $model;
