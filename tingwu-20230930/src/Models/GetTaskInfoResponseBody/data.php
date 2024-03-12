@@ -10,6 +10,16 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var string
+     */
+    public $errorCode;
+
+    /**
+     * @var string
+     */
+    public $errorMessage;
+
+    /**
      * @var result
      */
     public $result;
@@ -35,10 +45,12 @@ class data extends Model
      */
     public $taskStatus;
     protected $_name = [
-        'result'     => 'Result',
-        'taskId'     => 'TaskId',
-        'taskKey'    => 'TaskKey',
-        'taskStatus' => 'TaskStatus',
+        'errorCode'    => 'ErrorCode',
+        'errorMessage' => 'ErrorMessage',
+        'result'       => 'Result',
+        'taskId'       => 'TaskId',
+        'taskKey'      => 'TaskKey',
+        'taskStatus'   => 'TaskStatus',
     ];
 
     public function validate()
@@ -48,6 +60,12 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
+        }
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
         if (null !== $this->result) {
             $res['Result'] = null !== $this->result ? $this->result->toMap() : null;
         }
@@ -72,6 +90,12 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
+        }
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
         if (isset($map['Result'])) {
             $model->result = result::fromMap($map['Result']);
         }

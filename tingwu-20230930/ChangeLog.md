@@ -1,3 +1,8 @@
+2024-03-12 Version: 2.0.3
+- Update API CreateTask: update response param.
+- Update API GetTaskInfo: update response param.
+
+
 2024-01-08 Version: 2.0.2
 - Generated php 2023-09-30 for tingwu.
 

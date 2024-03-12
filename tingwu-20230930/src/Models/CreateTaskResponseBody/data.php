@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var string
+     */
+    public $meetingJoinUrl;
+
+    /**
      * @example c5394c6ee0fb474899d42215a3925c7e
      *
      * @var string
@@ -22,8 +27,9 @@ class data extends Model
      */
     public $taskKey;
     protected $_name = [
-        'taskId'  => 'TaskId',
-        'taskKey' => 'TaskKey',
+        'meetingJoinUrl' => 'MeetingJoinUrl',
+        'taskId'         => 'TaskId',
+        'taskKey'        => 'TaskKey',
     ];
 
     public function validate()
@@ -33,6 +39,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->meetingJoinUrl) {
+            $res['MeetingJoinUrl'] = $this->meetingJoinUrl;
+        }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -51,6 +60,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MeetingJoinUrl'])) {
+            $model->meetingJoinUrl = $map['MeetingJoinUrl'];
+        }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
