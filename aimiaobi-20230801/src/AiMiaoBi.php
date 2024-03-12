@@ -8,6 +8,8 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CancelAsyncTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CancelAsyncTaskResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ClearIntervenesRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ClearIntervenesResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CreateGeneratedContentRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CreateGeneratedContentResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CreateGeneratedContentShrinkRequest;
@@ -15,10 +17,14 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CreateTokenRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CreateTokenResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteGeneratedContentRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteGeneratedContentResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteInterveneRuleRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteInterveneRuleResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteMaterialByIdRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteMaterialByIdResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ExportGeneratedContentRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ExportGeneratedContentResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ExportIntervenesRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ExportIntervenesResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\FeedbackDialogueRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\FeedbackDialogueResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\FeedbackDialogueShrinkRequest;
@@ -39,10 +45,28 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDataSourceOrderConfigRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDataSourceOrderConfigResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetGeneratedContentRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetGeneratedContentResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetInterveneGlobalReplyRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetInterveneGlobalReplyResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetInterveneImportTaskInfoRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetInterveneImportTaskInfoResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetInterveneRuleDetailRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetInterveneRuleDetailResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetInterveneTemplateFileUrlRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetInterveneTemplateFileUrlResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetMaterialByIdRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetMaterialByIdResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPropertiesRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPropertiesResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ImportInterveneFileAsyncRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ImportInterveneFileAsyncResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ImportInterveneFileRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ImportInterveneFileResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\InsertInterveneGlobalReplyRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\InsertInterveneGlobalReplyResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\InsertInterveneGlobalReplyShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\InsertInterveneRuleRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\InsertInterveneRuleResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\InsertInterveneRuleShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListAsyncTasksRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListAsyncTasksResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListAsyncTasksShrinkRequest;
@@ -55,6 +79,14 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListGeneratedContentsResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListHotNewsWithTypeRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListHotNewsWithTypeResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListHotNewsWithTypeShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListInterveneCntRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListInterveneCntResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListInterveneImportTasksRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListInterveneImportTasksResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListInterveneRulesRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListInterveneRulesResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListIntervenesRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListIntervenesResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListMaterialDocumentsRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListMaterialDocumentsResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListMaterialDocumentsShrinkRequest;
@@ -164,6 +196,49 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->cancelAsyncTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ClearIntervenesRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ClearIntervenesResponse
+     */
+    public function clearIntervenesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ClearIntervenes',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ClearIntervenesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ClearIntervenesRequest $request
+     *
+     * @return ClearIntervenesResponse
+     */
+    public function clearIntervenes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->clearIntervenesWithOptions($request, $runtime);
     }
 
     /**
@@ -332,6 +407,54 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
+     * @param DeleteInterveneRuleRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteInterveneRuleResponse
+     */
+    public function deleteInterveneRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->ruleId)) {
+            $body['RuleId'] = $request->ruleId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteInterveneRule',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteInterveneRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteInterveneRuleRequest $request
+     *
+     * @return DeleteInterveneRuleResponse
+     */
+    public function deleteInterveneRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteInterveneRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteMaterialByIdRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -425,6 +548,49 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->exportGeneratedContentWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ExportIntervenesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ExportIntervenesResponse
+     */
+    public function exportIntervenesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ExportIntervenes',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExportIntervenesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ExportIntervenesRequest $request
+     *
+     * @return ExportIntervenesResponse
+     */
+    public function exportIntervenes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->exportIntervenesWithOptions($request, $runtime);
     }
 
     /**
@@ -868,6 +1034,188 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
+     * @param GetInterveneGlobalReplyRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetInterveneGlobalReplyResponse
+     */
+    public function getInterveneGlobalReplyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetInterveneGlobalReply',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetInterveneGlobalReplyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetInterveneGlobalReplyRequest $request
+     *
+     * @return GetInterveneGlobalReplyResponse
+     */
+    public function getInterveneGlobalReply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getInterveneGlobalReplyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetInterveneImportTaskInfoRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetInterveneImportTaskInfoResponse
+     */
+    public function getInterveneImportTaskInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetInterveneImportTaskInfo',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetInterveneImportTaskInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetInterveneImportTaskInfoRequest $request
+     *
+     * @return GetInterveneImportTaskInfoResponse
+     */
+    public function getInterveneImportTaskInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getInterveneImportTaskInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetInterveneRuleDetailRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetInterveneRuleDetailResponse
+     */
+    public function getInterveneRuleDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->ruleId)) {
+            $body['RuleId'] = $request->ruleId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetInterveneRuleDetail',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetInterveneRuleDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetInterveneRuleDetailRequest $request
+     *
+     * @return GetInterveneRuleDetailResponse
+     */
+    public function getInterveneRuleDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getInterveneRuleDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetInterveneTemplateFileUrlRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetInterveneTemplateFileUrlResponse
+     */
+    public function getInterveneTemplateFileUrlWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetInterveneTemplateFileUrl',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetInterveneTemplateFileUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetInterveneTemplateFileUrlRequest $request
+     *
+     * @return GetInterveneTemplateFileUrlResponse
+     */
+    public function getInterveneTemplateFileUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getInterveneTemplateFileUrlWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetMaterialByIdRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -956,6 +1304,220 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getPropertiesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ImportInterveneFileRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ImportInterveneFileResponse
+     */
+    public function importInterveneFileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->docName)) {
+            $body['DocName'] = $request->docName;
+        }
+        if (!Utils::isUnset($request->fileKey)) {
+            $body['FileKey'] = $request->fileKey;
+        }
+        if (!Utils::isUnset($request->fileUrl)) {
+            $body['FileUrl'] = $request->fileUrl;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ImportInterveneFile',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ImportInterveneFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ImportInterveneFileRequest $request
+     *
+     * @return ImportInterveneFileResponse
+     */
+    public function importInterveneFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->importInterveneFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ImportInterveneFileAsyncRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ImportInterveneFileAsyncResponse
+     */
+    public function importInterveneFileAsyncWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->docName)) {
+            $body['DocName'] = $request->docName;
+        }
+        if (!Utils::isUnset($request->fileKey)) {
+            $body['FileKey'] = $request->fileKey;
+        }
+        if (!Utils::isUnset($request->fileUrl)) {
+            $body['FileUrl'] = $request->fileUrl;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ImportInterveneFileAsync',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ImportInterveneFileAsyncResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ImportInterveneFileAsyncRequest $request
+     *
+     * @return ImportInterveneFileAsyncResponse
+     */
+    public function importInterveneFileAsync($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->importInterveneFileAsyncWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param InsertInterveneGlobalReplyRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return InsertInterveneGlobalReplyResponse
+     */
+    public function insertInterveneGlobalReplyWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new InsertInterveneGlobalReplyShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->replyMessagList)) {
+            $request->replyMessagListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->replyMessagList, 'ReplyMessagList', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->replyMessagListShrink)) {
+            $body['ReplyMessagList'] = $request->replyMessagListShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'InsertInterveneGlobalReply',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return InsertInterveneGlobalReplyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param InsertInterveneGlobalReplyRequest $request
+     *
+     * @return InsertInterveneGlobalReplyResponse
+     */
+    public function insertInterveneGlobalReply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->insertInterveneGlobalReplyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param InsertInterveneRuleRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return InsertInterveneRuleResponse
+     */
+    public function insertInterveneRuleWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new InsertInterveneRuleShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->interveneRuleConfig)) {
+            $request->interveneRuleConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->interveneRuleConfig, 'InterveneRuleConfig', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->interveneRuleConfigShrink)) {
+            $body['InterveneRuleConfig'] = $request->interveneRuleConfigShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'InsertInterveneRule',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return InsertInterveneRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param InsertInterveneRuleRequest $request
+     *
+     * @return InsertInterveneRuleResponse
+     */
+    public function insertInterveneRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->insertInterveneRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -1275,6 +1837,219 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listHotNewsWithTypeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListInterveneCntRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListInterveneCntResponse
+     */
+    public function listInterveneCntWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->pageIndex)) {
+            $body['PageIndex'] = $request->pageIndex;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListInterveneCnt',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListInterveneCntResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListInterveneCntRequest $request
+     *
+     * @return ListInterveneCntResponse
+     */
+    public function listInterveneCnt($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listInterveneCntWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListInterveneImportTasksRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListInterveneImportTasksResponse
+     */
+    public function listInterveneImportTasksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->pageIndex)) {
+            $body['PageIndex'] = $request->pageIndex;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListInterveneImportTasks',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListInterveneImportTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListInterveneImportTasksRequest $request
+     *
+     * @return ListInterveneImportTasksResponse
+     */
+    public function listInterveneImportTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listInterveneImportTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListInterveneRulesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListInterveneRulesResponse
+     */
+    public function listInterveneRulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->pageIndex)) {
+            $body['PageIndex'] = $request->pageIndex;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListInterveneRules',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListInterveneRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListInterveneRulesRequest $request
+     *
+     * @return ListInterveneRulesResponse
+     */
+    public function listInterveneRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listInterveneRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListIntervenesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListIntervenesResponse
+     */
+    public function listIntervenesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->interveneType)) {
+            $body['InterveneType'] = $request->interveneType;
+        }
+        if (!Utils::isUnset($request->pageIndex)) {
+            $body['PageIndex'] = $request->pageIndex;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->query)) {
+            $body['Query'] = $request->query;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $body['RuleId'] = $request->ruleId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListIntervenes',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListIntervenesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListIntervenesRequest $request
+     *
+     * @return ListIntervenesResponse
+     */
+    public function listIntervenes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listIntervenesWithOptions($request, $runtime);
     }
 
     /**
