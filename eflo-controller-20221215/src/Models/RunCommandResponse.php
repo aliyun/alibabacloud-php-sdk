@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeRegionsResponse extends Model
+class RunCommandResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class DescribeRegionsResponse extends Model
     public $statusCode;
 
     /**
-     * @var DescribeRegionsResponseBody
+     * @var RunCommandResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class DescribeRegionsResponse extends Model
     /**
      * @param array $map
      *
-     * @return DescribeRegionsResponse
+     * @return RunCommandResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class DescribeRegionsResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = DescribeRegionsResponseBody::fromMap($map['body']);
+            $model->body = RunCommandResponseBody::fromMap($map['body']);
         }
 
         return $model;

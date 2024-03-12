@@ -17,10 +17,14 @@ use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DeleteClusterRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DeleteClusterResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeClusterRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeClusterResponse;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeInvocationsRequest;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeInvocationsResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeNodeRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeNodeResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeRegionsResponse;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeSendFileResultsRequest;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeSendFileResultsResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeTaskRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeTaskResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeZonesRequest;
@@ -42,9 +46,18 @@ use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\RebootNodesShrinkRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ReimageNodesRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ReimageNodesResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ReimageNodesShrinkRequest;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\RunCommandRequest;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\RunCommandResponse;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\RunCommandShrinkRequest;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\SendFileRequest;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\SendFileResponse;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\SendFileShrinkRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ShrinkClusterRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ShrinkClusterResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ShrinkClusterShrinkRequest;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\StopInvocationRequest;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\StopInvocationResponse;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\StopInvocationShrinkRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\UntagResourcesRequest;
@@ -359,6 +372,58 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
+     * @param DescribeInvocationsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeInvocationsResponse
+     */
+    public function describeInvocationsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->contentEncoding)) {
+            $body['ContentEncoding'] = $request->contentEncoding;
+        }
+        if (!Utils::isUnset($request->includeOutput)) {
+            $body['IncludeOutput'] = $request->includeOutput;
+        }
+        if (!Utils::isUnset($request->invokeId)) {
+            $body['InvokeId'] = $request->invokeId;
+        }
+        if (!Utils::isUnset($request->nodeId)) {
+            $body['NodeId'] = $request->nodeId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInvocations',
+            'version'     => '2022-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeInvocationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeInvocationsRequest $request
+     *
+     * @return DescribeInvocationsResponse
+     */
+    public function describeInvocations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInvocationsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeNodeRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -442,6 +507,52 @@ class Eflocontroller extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeRegionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeSendFileResultsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeSendFileResultsResponse
+     */
+    public function describeSendFileResultsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->invokeId)) {
+            $body['InvokeId'] = $request->invokeId;
+        }
+        if (!Utils::isUnset($request->nodeId)) {
+            $body['NodeId'] = $request->nodeId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSendFileResults',
+            'version'     => '2022-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSendFileResultsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSendFileResultsRequest $request
+     *
+     * @return DescribeSendFileResultsResponse
+     */
+    public function describeSendFileResults($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSendFileResultsWithOptions($request, $runtime);
     }
 
     /**
@@ -922,6 +1033,171 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
+     * @param RunCommandRequest $tmpReq
+     * @param RuntimeOptions    $runtime
+     *
+     * @return RunCommandResponse
+     */
+    public function runCommandWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RunCommandShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->nodeIdList)) {
+            $request->nodeIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->nodeIdList, 'NodeIdList', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->parameters)) {
+            $request->parametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->commandContent)) {
+            $body['CommandContent'] = $request->commandContent;
+        }
+        if (!Utils::isUnset($request->contentEncoding)) {
+            $body['ContentEncoding'] = $request->contentEncoding;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->enableParameter)) {
+            $body['EnableParameter'] = $request->enableParameter;
+        }
+        if (!Utils::isUnset($request->frequency)) {
+            $body['Frequency'] = $request->frequency;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->nodeIdListShrink)) {
+            $body['NodeIdList'] = $request->nodeIdListShrink;
+        }
+        if (!Utils::isUnset($request->parametersShrink)) {
+            $body['Parameters'] = $request->parametersShrink;
+        }
+        if (!Utils::isUnset($request->repeatMode)) {
+            $body['RepeatMode'] = $request->repeatMode;
+        }
+        if (!Utils::isUnset($request->timeout)) {
+            $body['Timeout'] = $request->timeout;
+        }
+        if (!Utils::isUnset($request->username)) {
+            $body['Username'] = $request->username;
+        }
+        if (!Utils::isUnset($request->workingDir)) {
+            $body['WorkingDir'] = $request->workingDir;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RunCommand',
+            'version'     => '2022-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RunCommandResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RunCommandRequest $request
+     *
+     * @return RunCommandResponse
+     */
+    public function runCommand($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runCommandWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SendFileRequest $tmpReq
+     * @param RuntimeOptions  $runtime
+     *
+     * @return SendFileResponse
+     */
+    public function sendFileWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SendFileShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->nodeIdList)) {
+            $request->nodeIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->nodeIdList, 'NodeIdList', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->content)) {
+            $body['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->contentType)) {
+            $body['ContentType'] = $request->contentType;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->fileGroup)) {
+            $body['FileGroup'] = $request->fileGroup;
+        }
+        if (!Utils::isUnset($request->fileMode)) {
+            $body['FileMode'] = $request->fileMode;
+        }
+        if (!Utils::isUnset($request->fileOwner)) {
+            $body['FileOwner'] = $request->fileOwner;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->nodeIdListShrink)) {
+            $body['NodeIdList'] = $request->nodeIdListShrink;
+        }
+        if (!Utils::isUnset($request->overwrite)) {
+            $body['Overwrite'] = $request->overwrite;
+        }
+        if (!Utils::isUnset($request->targetDir)) {
+            $body['TargetDir'] = $request->targetDir;
+        }
+        if (!Utils::isUnset($request->timeout)) {
+            $body['Timeout'] = $request->timeout;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SendFile',
+            'version'     => '2022-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SendFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SendFileRequest $request
+     *
+     * @return SendFileResponse
+     */
+    public function sendFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sendFileWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ShrinkClusterRequest $tmpReq
      * @param RuntimeOptions       $runtime
      *
@@ -973,6 +1249,57 @@ class Eflocontroller extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->shrinkClusterWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StopInvocationRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return StopInvocationResponse
+     */
+    public function stopInvocationWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new StopInvocationShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->nodeIdList)) {
+            $request->nodeIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->nodeIdList, 'NodeIdList', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->invokeId)) {
+            $body['InvokeId'] = $request->invokeId;
+        }
+        if (!Utils::isUnset($request->nodeIdListShrink)) {
+            $body['NodeIdList'] = $request->nodeIdListShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'StopInvocation',
+            'version'     => '2022-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StopInvocationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StopInvocationRequest $request
+     *
+     * @return StopInvocationResponse
+     */
+    public function stopInvocation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopInvocationWithOptions($request, $runtime);
     }
 
     /**
