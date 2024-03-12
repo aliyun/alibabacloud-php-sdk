@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Indicates whether the phone number passed the verification.
+     *
      * @example true
      *
      * @var string

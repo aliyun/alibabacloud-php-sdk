@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetPhoneNumberIdentificationUrlRequest extends Model
 {
     /**
+     * @description The authorization code.
+     *
      * @example K***9i7CIe
      *
      * @var string
@@ -16,6 +18,8 @@ class GetPhoneNumberIdentificationUrlRequest extends Model
     public $authCode;
 
     /**
+     * @description The IP address of the subscriber\"s phone.
+     *
      * @example 114.124.***.13
      *
      * @var string
@@ -23,6 +27,8 @@ class GetPhoneNumberIdentificationUrlRequest extends Model
     public $ip;
 
     /**
+     * @description The external ID.
+     *
      * @example 149b03d2-a749-4e6e-8f5b-34******5815
      *
      * @var string
@@ -35,6 +41,8 @@ class GetPhoneNumberIdentificationUrlRequest extends Model
     public $ownerId;
 
     /**
+     * @description The phone number of the subscriber. The phone number is in the Mobile Station International Subscriber Directory Number (MSISDN) format.
+     *
      * @example 628211****113
      *
      * @var string
@@ -42,6 +50,8 @@ class GetPhoneNumberIdentificationUrlRequest extends Model
     public $phoneNumber;
 
     /**
+     * @description Specifies whether to remember the phone number.
+     *
      * @example true
      *
      * @var bool

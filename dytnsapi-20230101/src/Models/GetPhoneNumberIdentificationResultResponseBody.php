@@ -10,6 +10,13 @@ use AlibabaCloud\Tea\Model;
 class GetPhoneNumberIdentificationResultResponseBody extends Model
 {
     /**
+     * @description The return code. Valid values:
+     *
+     *   OK: The request is successful.
+     *   NoIdentificationResult: No verification result is available or the verification failed.
+     *   SessionNotValid: The session is invalid or expired.
+     *   MobileNumberIllegal: The format of the phone number is invalid.
+     *
      * @example OK
      *
      * @var string
@@ -17,11 +24,15 @@ class GetPhoneNumberIdentificationResultResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The description of the return code.
+     *
      * @example OK
      *
      * @var string
@@ -29,6 +40,8 @@ class GetPhoneNumberIdentificationResultResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 68A40250-50CD-034C-B728-0BD******177
      *
      * @var string
