@@ -186,7 +186,7 @@ class item extends Model
     /**
      * @description The code of the service.
      *
-     * >A value is returned only if the **IsGroupByProduct** parameter is set to true.
+     * > A value is returned only if the **IsGroupByProduct** parameter is set to true.
      * @example rds
      *
      * @var string

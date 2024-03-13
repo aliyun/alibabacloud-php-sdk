@@ -183,12 +183,8 @@ use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\RenewInstanceRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\RenewInstanceResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\RenewResourcePackageRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\RenewResourcePackageResponse;
-use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\SaveUserCreditRequest;
-use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\SaveUserCreditResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\SetAllExpirationDayRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\SetAllExpirationDayResponse;
-use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\SetCreditLabelActionRequest;
-use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\SetCreditLabelActionResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\SetRenewalRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\SetRenewalResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\SetResellerUserAlarmThresholdRequest;
@@ -2821,7 +2817,7 @@ class BssOpenApi extends OpenApiClient
     /**
      * 1.  **Check the information about unsubscription and confirm the unsubscription terms and refundable amount. The resource that is unsubscribed cannot be restored.**
      *   * 2.  Refunds are applicable only for the actual paid amount. Vouchers used for the purchase are non-refundable.
-     *   * 3.  For more information, see [Rules for unsubscribing from resources](https://help.aliyun.com/knowledge_detail/116043.html?spm=a2c81.e1d666e.app.2.62ae11271Kd6iM).
+     *   * 3.  For more information, see [Rules for unsubscribing from resources](https://www.alibabacloud.com/help/zh/user-center/user-guide/refund-rules).
      *   *
      * @param InquiryPriceRefundInstanceRequest $request InquiryPriceRefundInstanceRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -2865,7 +2861,7 @@ class BssOpenApi extends OpenApiClient
     /**
      * 1.  **Check the information about unsubscription and confirm the unsubscription terms and refundable amount. The resource that is unsubscribed cannot be restored.**
      *   * 2.  Refunds are applicable only for the actual paid amount. Vouchers used for the purchase are non-refundable.
-     *   * 3.  For more information, see [Rules for unsubscribing from resources](https://help.aliyun.com/knowledge_detail/116043.html?spm=a2c81.e1d666e.app.2.62ae11271Kd6iM).
+     *   * 3.  For more information, see [Rules for unsubscribing from resources](https://www.alibabacloud.com/help/zh/user-center/user-guide/refund-rules).
      *   *
      * @param InquiryPriceRefundInstanceRequest $request InquiryPriceRefundInstanceRequest
      *
@@ -3086,8 +3082,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * ##
-     *   * Before you call this operation, take note of the following items:
+     * Before you call this operation, take note of the following items:
      *   * *   Account bills are summarized based on instance bills. In most cases, the account bills do not include the data generated on the last day of the specified period.
      *   * *   You can query the data generated in June 2020 or later for Cloud Communications services. However, the query results do not include the data of Alibaba Cloud Domains.
      *   *
@@ -3146,8 +3141,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * ##
-     *   * Before you call this operation, take note of the following items:
+     * Before you call this operation, take note of the following items:
      *   * *   Account bills are summarized based on instance bills. In most cases, the account bills do not include the data generated on the last day of the specified period.
      *   * *   You can query the data generated in June 2020 or later for Cloud Communications services. However, the query results do not include the data of Alibaba Cloud Domains.
      *   *
@@ -5218,7 +5212,7 @@ class BssOpenApi extends OpenApiClient
     /**
      * 1.  Refunds are applicable only for the actual paid amount. Vouchers used for the purchase are non-refundable.
      *   * 2.  Check the information about unsubscription and confirm the unsubscription terms and refundable amount. The resource that is unsubscribed cannot be restored.
-     *   * 3.  For more information, see [Rules for unsubscribing from resources](https://help.aliyun.com/knowledge_detail/116043.html?spm=a2c81.e1d666e.app.2.62ae11271Kd6iM).
+     *   * 3.  For more information, see [Rules for unsubscribing from resources](https://www.alibabacloud.com/help/zh/user-center/user-guide/refund-rules).
      *   *
      * @param RefundInstanceRequest $request RefundInstanceRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -5265,7 +5259,7 @@ class BssOpenApi extends OpenApiClient
     /**
      * 1.  Refunds are applicable only for the actual paid amount. Vouchers used for the purchase are non-refundable.
      *   * 2.  Check the information about unsubscription and confirm the unsubscription terms and refundable amount. The resource that is unsubscribed cannot be restored.
-     *   * 3.  For more information, see [Rules for unsubscribing from resources](https://help.aliyun.com/knowledge_detail/116043.html?spm=a2c81.e1d666e.app.2.62ae11271Kd6iM).
+     *   * 3.  For more information, see [Rules for unsubscribing from resources](https://www.alibabacloud.com/help/zh/user-center/user-guide/refund-rules).
      *   *
      * @param RefundInstanceRequest $request RefundInstanceRequest
      *
@@ -5279,8 +5273,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * A value of true indicates that the execution is complete.
-     *   * A value of false indicates that an error occurs during the execution.
+     * This operation is provided for only VNOs to release instances. If a non-specific VNO calls this operation, the request is blocked.
      *   *
      * @param ReleaseInstanceRequest $request ReleaseInstanceRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -5331,8 +5324,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * A value of true indicates that the execution is complete.
-     *   * A value of false indicates that an error occurs during the execution.
+     * This operation is provided for only VNOs to release instances. If a non-specific VNO calls this operation, the request is blocked.
      *   *
      * @param ReleaseInstanceRequest $request ReleaseInstanceRequest
      *
@@ -5575,70 +5567,6 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @param SaveUserCreditRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return SaveUserCreditResponse
-     */
-    public function saveUserCreditWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->avoidExpiration)) {
-            $query['AvoidExpiration'] = $request->avoidExpiration;
-        }
-        if (!Utils::isUnset($request->avoidNotification)) {
-            $query['AvoidNotification'] = $request->avoidNotification;
-        }
-        if (!Utils::isUnset($request->avoidPrepaidExpiration)) {
-            $query['AvoidPrepaidExpiration'] = $request->avoidPrepaidExpiration;
-        }
-        if (!Utils::isUnset($request->avoidPrepaidNotification)) {
-            $query['AvoidPrepaidNotification'] = $request->avoidPrepaidNotification;
-        }
-        if (!Utils::isUnset($request->creditType)) {
-            $query['CreditType'] = $request->creditType;
-        }
-        if (!Utils::isUnset($request->creditValue)) {
-            $query['CreditValue'] = $request->creditValue;
-        }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->operator)) {
-            $query['Operator'] = $request->operator;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SaveUserCredit',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return SaveUserCreditResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param SaveUserCreditRequest $request
-     *
-     * @return SaveUserCreditResponse
-     */
-    public function saveUserCredit($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->saveUserCreditWithOptions($request, $runtime);
-    }
-
-    /**
      * @param SetAllExpirationDayRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -5682,97 +5610,6 @@ class BssOpenApi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setAllExpirationDayWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SetCreditLabelActionRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return SetCreditLabelActionResponse
-     */
-    public function setCreditLabelActionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->actionType)) {
-            $query['ActionType'] = $request->actionType;
-        }
-        if (!Utils::isUnset($request->clearCycle)) {
-            $query['ClearCycle'] = $request->clearCycle;
-        }
-        if (!Utils::isUnset($request->creditAmount)) {
-            $query['CreditAmount'] = $request->creditAmount;
-        }
-        if (!Utils::isUnset($request->currencyCode)) {
-            $query['CurrencyCode'] = $request->currencyCode;
-        }
-        if (!Utils::isUnset($request->dailyCycle)) {
-            $query['DailyCycle'] = $request->dailyCycle;
-        }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->isNeedAddSettleLabel)) {
-            $query['IsNeedAddSettleLabel'] = $request->isNeedAddSettleLabel;
-        }
-        if (!Utils::isUnset($request->isNeedAdjustCreditAccount)) {
-            $query['IsNeedAdjustCreditAccount'] = $request->isNeedAdjustCreditAccount;
-        }
-        if (!Utils::isUnset($request->isNeedSaveNotifyRule)) {
-            $query['IsNeedSaveNotifyRule'] = $request->isNeedSaveNotifyRule;
-        }
-        if (!Utils::isUnset($request->isNeedSetCreditAmount)) {
-            $query['IsNeedSetCreditAmount'] = $request->isNeedSetCreditAmount;
-        }
-        if (!Utils::isUnset($request->needNotice)) {
-            $query['NeedNotice'] = $request->needNotice;
-        }
-        if (!Utils::isUnset($request->newCreateMode)) {
-            $query['NewCreateMode'] = $request->newCreateMode;
-        }
-        if (!Utils::isUnset($request->operator)) {
-            $query['Operator'] = $request->operator;
-        }
-        if (!Utils::isUnset($request->requestId)) {
-            $query['RequestId'] = $request->requestId;
-        }
-        if (!Utils::isUnset($request->siteCode)) {
-            $query['SiteCode'] = $request->siteCode;
-        }
-        if (!Utils::isUnset($request->source)) {
-            $query['Source'] = $request->source;
-        }
-        if (!Utils::isUnset($request->uid)) {
-            $query['Uid'] = $request->uid;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SetCreditLabelAction',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return SetCreditLabelActionResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param SetCreditLabelActionRequest $request
-     *
-     * @return SetCreditLabelActionResponse
-     */
-    public function setCreditLabelAction($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->setCreditLabelActionWithOptions($request, $runtime);
     }
 
     /**

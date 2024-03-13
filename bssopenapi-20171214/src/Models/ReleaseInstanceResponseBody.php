@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ReleaseInstanceResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
      * @example Invalid_Product_Code
      *
      * @var string
@@ -17,11 +19,15 @@ class ReleaseInstanceResponseBody extends Model
     public $code;
 
     /**
+     * @description data
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The description of the execution result.
+     *
      * @example successful
      *
      * @var string
@@ -29,6 +35,8 @@ class ReleaseInstanceResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request, which can be used for troubleshooting.
+     *
      * @example UUID
      *
      * @var string
@@ -36,6 +44,9 @@ class ReleaseInstanceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description A value of true indicates that the execution is complete.
+     *
+     * A value of false indicates that an error occurs during the execution.
      * @example true
      *
      * @var bool

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ReleaseInstanceRequest extends Model
 {
     /**
+     * @description The ID of the instance. Separate multiple IDs with commas (,). A maximum of 100 IDs can be specified.
+     *
      * @example rm-xxxxxxxxxxxx
      *
      * @var string
@@ -21,6 +23,8 @@ class ReleaseInstanceRequest extends Model
     public $ownerId;
 
     /**
+     * @description The code of the service.
+     *
      * @example ecs
      *
      * @var string
@@ -28,6 +32,8 @@ class ReleaseInstanceRequest extends Model
     public $productCode;
 
     /**
+     * @description The type of the service.
+     *
      * @example ecs
      *
      * @var string
@@ -35,6 +41,8 @@ class ReleaseInstanceRequest extends Model
     public $productType;
 
     /**
+     * @description The region in which the instance resides.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -42,6 +50,9 @@ class ReleaseInstanceRequest extends Model
     public $region;
 
     /**
+     * @description The method that is used to renew the instance. Valid values:
+     *
+     * NotRenewal: does not renew the instance.
      * @example AutoRenewal
      *
      * @var string
@@ -49,6 +60,9 @@ class ReleaseInstanceRequest extends Model
     public $renewStatus;
 
     /**
+     * @description The billing method. Valid values:
+     *
+     * PayAsYouGo: the pay-as-you-go billing method.
      * @example PayAsYouGo
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The site of the execution host.
+     *
      * @example cn
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $hostId;
 
     /**
+     * @description Indicates whether the instance is released.
+     *
      * @example true
      *
      * @var bool
