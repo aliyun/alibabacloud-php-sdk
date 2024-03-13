@@ -22,6 +22,8 @@ use AlibabaCloud\SDK\EHPC\V20230701\Models\GetJobResponse;
 use AlibabaCloud\SDK\EHPC\V20230701\Models\ListImagesRequest;
 use AlibabaCloud\SDK\EHPC\V20230701\Models\ListImagesResponse;
 use AlibabaCloud\SDK\EHPC\V20230701\Models\ListImagesShrinkRequest;
+use AlibabaCloud\SDK\EHPC\V20230701\Models\ListJobExecutorsRequest;
+use AlibabaCloud\SDK\EHPC\V20230701\Models\ListJobExecutorsResponse;
 use AlibabaCloud\SDK\EHPC\V20230701\Models\ListJobsRequest;
 use AlibabaCloud\SDK\EHPC\V20230701\Models\ListJobsResponse;
 use AlibabaCloud\SDK\EHPC\V20230701\Models\ListJobsShrinkRequest;
@@ -381,6 +383,58 @@ class EHPC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listImagesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListJobExecutorsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListJobExecutorsResponse
+     */
+    public function listJobExecutorsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->taskName)) {
+            $query['TaskName'] = $request->taskName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListJobExecutors',
+            'version'     => '2023-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListJobExecutorsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListJobExecutorsRequest $request
+     *
+     * @return ListJobExecutorsResponse
+     */
+    public function listJobExecutors($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listJobExecutorsWithOptions($request, $runtime);
     }
 
     /**

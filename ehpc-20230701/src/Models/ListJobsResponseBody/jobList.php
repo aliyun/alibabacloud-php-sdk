@@ -16,6 +16,11 @@ class jobList extends Model
     public $createTime;
 
     /**
+     * @var string
+     */
+    public $endTime;
+
+    /**
      * @example 1
      *
      * @var int
@@ -49,6 +54,11 @@ class jobList extends Model
     public $ownerUid;
 
     /**
+     * @var string
+     */
+    public $startTime;
+
+    /**
      * @example Running
      *
      * @var string
@@ -61,15 +71,23 @@ class jobList extends Model
      * @var int
      */
     public $taskCount;
+
+    /**
+     * @var bool
+     */
+    public $taskSustainable;
     protected $_name = [
-        'createTime'     => 'CreateTime',
-        'executorCount'  => 'ExecutorCount',
-        'jobDescription' => 'JobDescription',
-        'jobId'          => 'JobId',
-        'jobName'        => 'JobName',
-        'ownerUid'       => 'OwnerUid',
-        'status'         => 'Status',
-        'taskCount'      => 'TaskCount',
+        'createTime'      => 'CreateTime',
+        'endTime'         => 'EndTime',
+        'executorCount'   => 'ExecutorCount',
+        'jobDescription'  => 'JobDescription',
+        'jobId'           => 'JobId',
+        'jobName'         => 'JobName',
+        'ownerUid'        => 'OwnerUid',
+        'startTime'       => 'StartTime',
+        'status'          => 'Status',
+        'taskCount'       => 'TaskCount',
+        'taskSustainable' => 'TaskSustainable',
     ];
 
     public function validate()
@@ -81,6 +99,9 @@ class jobList extends Model
         $res = [];
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->executorCount) {
             $res['ExecutorCount'] = $this->executorCount;
@@ -97,11 +118,17 @@ class jobList extends Model
         if (null !== $this->ownerUid) {
             $res['OwnerUid'] = $this->ownerUid;
         }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
         if (null !== $this->taskCount) {
             $res['TaskCount'] = $this->taskCount;
+        }
+        if (null !== $this->taskSustainable) {
+            $res['TaskSustainable'] = $this->taskSustainable;
         }
 
         return $res;
@@ -118,6 +145,9 @@ class jobList extends Model
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
         if (isset($map['ExecutorCount'])) {
             $model->executorCount = $map['ExecutorCount'];
         }
@@ -133,11 +163,17 @@ class jobList extends Model
         if (isset($map['OwnerUid'])) {
             $model->ownerUid = $map['OwnerUid'];
         }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
         if (isset($map['TaskCount'])) {
             $model->taskCount = $map['TaskCount'];
+        }
+        if (isset($map['TaskSustainable'])) {
+            $model->taskSustainable = $map['TaskSustainable'];
         }
 
         return $model;

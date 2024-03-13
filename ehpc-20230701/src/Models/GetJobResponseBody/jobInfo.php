@@ -11,9 +11,19 @@ use AlibabaCloud\Tea\Model;
 class jobInfo extends Model
 {
     /**
+     * @var string
+     */
+    public $createTime;
+
+    /**
      * @var deploymentPolicy
      */
     public $deploymentPolicy;
+
+    /**
+     * @var string
+     */
+    public $endTime;
 
     /**
      * @var string
@@ -35,14 +45,28 @@ class jobInfo extends Model
     public $jobName;
 
     /**
+     * @var string
+     */
+    public $startTime;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
      * @var tasks[]
      */
     public $tasks;
     protected $_name = [
+        'createTime'       => 'CreateTime',
         'deploymentPolicy' => 'DeploymentPolicy',
+        'endTime'          => 'EndTime',
         'jobDescription'   => 'JobDescription',
         'jobId'            => 'JobId',
         'jobName'          => 'JobName',
+        'startTime'        => 'StartTime',
+        'status'           => 'Status',
         'tasks'            => 'Tasks',
     ];
 
@@ -53,8 +77,14 @@ class jobInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
         if (null !== $this->deploymentPolicy) {
             $res['DeploymentPolicy'] = null !== $this->deploymentPolicy ? $this->deploymentPolicy->toMap() : null;
+        }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->jobDescription) {
             $res['JobDescription'] = $this->jobDescription;
@@ -64,6 +94,12 @@ class jobInfo extends Model
         }
         if (null !== $this->jobName) {
             $res['JobName'] = $this->jobName;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->tasks) {
             $res['Tasks'] = [];
@@ -86,8 +122,14 @@ class jobInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
         if (isset($map['DeploymentPolicy'])) {
             $model->deploymentPolicy = deploymentPolicy::fromMap($map['DeploymentPolicy']);
+        }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
         if (isset($map['JobDescription'])) {
             $model->jobDescription = $map['JobDescription'];
@@ -97,6 +139,12 @@ class jobInfo extends Model
         }
         if (isset($map['JobName'])) {
             $model->jobName = $map['JobName'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['Tasks'])) {
             if (!empty($map['Tasks'])) {

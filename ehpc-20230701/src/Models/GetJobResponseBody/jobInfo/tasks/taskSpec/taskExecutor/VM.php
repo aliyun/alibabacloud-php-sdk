@@ -21,9 +21,15 @@ class VM extends Model
      * @var string
      */
     public $prologScript;
+
+    /**
+     * @var string
+     */
+    public $script;
     protected $_name = [
         'image'        => 'Image',
         'prologScript' => 'PrologScript',
+        'script'       => 'Script',
     ];
 
     public function validate()
@@ -38,6 +44,9 @@ class VM extends Model
         }
         if (null !== $this->prologScript) {
             $res['PrologScript'] = $this->prologScript;
+        }
+        if (null !== $this->script) {
+            $res['Script'] = $this->script;
         }
 
         return $res;
@@ -56,6 +65,9 @@ class VM extends Model
         }
         if (isset($map['PrologScript'])) {
             $model->prologScript = $map['PrologScript'];
+        }
+        if (isset($map['Script'])) {
+            $model->script = $map['Script'];
         }
 
         return $model;
