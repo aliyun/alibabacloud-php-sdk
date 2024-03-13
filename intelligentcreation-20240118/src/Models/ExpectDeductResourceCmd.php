@@ -23,6 +23,11 @@ class ExpectDeductResourceCmd extends Model
     public $cost;
 
     /**
+     * @var string
+     */
+    public $deductScene;
+
+    /**
      * @example 12249732894
      *
      * @var string
@@ -57,6 +62,7 @@ class ExpectDeductResourceCmd extends Model
     protected $_name = [
         'accountId'    => 'accountId',
         'cost'         => 'cost',
+        'deductScene'  => 'deductScene',
         'extraInfo'    => 'extraInfo',
         'idempotentId' => 'idempotentId',
         'resourceType' => 'resourceType',
@@ -76,6 +82,9 @@ class ExpectDeductResourceCmd extends Model
         }
         if (null !== $this->cost) {
             $res['cost'] = $this->cost;
+        }
+        if (null !== $this->deductScene) {
+            $res['deductScene'] = $this->deductScene;
         }
         if (null !== $this->extraInfo) {
             $res['extraInfo'] = $this->extraInfo;
@@ -109,6 +118,9 @@ class ExpectDeductResourceCmd extends Model
         }
         if (isset($map['cost'])) {
             $model->cost = $map['cost'];
+        }
+        if (isset($map['deductScene'])) {
+            $model->deductScene = $map['deductScene'];
         }
         if (isset($map['extraInfo'])) {
             $model->extraInfo = $map['extraInfo'];

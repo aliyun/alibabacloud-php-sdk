@@ -15,6 +15,8 @@ use AlibabaCloud\SDK\IntelligentCreation\V20240118\Models\CopywritingQAResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240118\Models\CopywritingQAShrinkRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240118\Models\CopywritingQAV1Request;
 use AlibabaCloud\SDK\IntelligentCreation\V20240118\Models\CopywritingQAV1Response;
+use AlibabaCloud\SDK\IntelligentCreation\V20240118\Models\DeleteDigitalVideoRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240118\Models\DeleteDigitalVideoResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240118\Models\DirectDeductResourceRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240118\Models\DirectDeductResourceResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240118\Models\DirectDeductResourcesRequest;
@@ -265,6 +267,55 @@ class IntelligentCreation extends OpenApiClient
         $headers = [];
 
         return $this->copywritingQAV1WithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param DeleteDigitalVideoRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteDigitalVideoResponse
+     */
+    public function deleteDigitalVideoWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->accountId)) {
+            $body['accountId'] = $request->accountId;
+        }
+        if (!Utils::isUnset($request->videoId)) {
+            $body['videoId'] = $request->videoId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDigitalVideo',
+            'version'     => '2024-01-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/yic/yic-console/openService/v1/digitalHuman/videos',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDigitalVideoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDigitalVideoRequest $request
+     *
+     * @return DeleteDigitalVideoResponse
+     */
+    public function deleteDigitalVideo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteDigitalVideoWithOptions($request, $headers, $runtime);
     }
 
     /**
