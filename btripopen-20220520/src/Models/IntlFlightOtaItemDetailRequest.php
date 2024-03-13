@@ -28,6 +28,11 @@ class IntlFlightOtaItemDetailRequest extends Model
     public $isvName;
 
     /**
+     * @var string
+     */
+    public $language;
+
+    /**
      * @example JIANHANG
      *
      * @var string
@@ -37,6 +42,7 @@ class IntlFlightOtaItemDetailRequest extends Model
         'btripUserId'  => 'btrip_user_id',
         'buyerName'    => 'buyer_name',
         'isvName'      => 'isv_name',
+        'language'     => 'language',
         'supplierCode' => 'supplier_code',
     ];
 
@@ -55,6 +61,9 @@ class IntlFlightOtaItemDetailRequest extends Model
         }
         if (null !== $this->isvName) {
             $res['isv_name'] = $this->isvName;
+        }
+        if (null !== $this->language) {
+            $res['language'] = $this->language;
         }
         if (null !== $this->supplierCode) {
             $res['supplier_code'] = $this->supplierCode;
@@ -79,6 +88,9 @@ class IntlFlightOtaItemDetailRequest extends Model
         }
         if (isset($map['isv_name'])) {
             $model->isvName = $map['isv_name'];
+        }
+        if (isset($map['language'])) {
+            $model->language = $map['language'];
         }
         if (isset($map['supplier_code'])) {
             $model->supplierCode = $map['supplier_code'];

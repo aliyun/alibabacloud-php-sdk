@@ -44,6 +44,11 @@ class IntlFlightListingSearchShrinkRequest extends Model
     public $isvName;
 
     /**
+     * @var string
+     */
+    public $language;
+
+    /**
      * @example true
      *
      * @var bool
@@ -107,6 +112,7 @@ class IntlFlightListingSearchShrinkRequest extends Model
         'cabinType'                 => 'cabin_type',
         'directOnly'                => 'direct_only',
         'isvName'                   => 'isv_name',
+        'language'                  => 'language',
         'needShareFlight'           => 'need_share_flight',
         'outWheelSearch'            => 'out_wheel_search',
         'queryRecordId'             => 'query_record_id',
@@ -139,6 +145,9 @@ class IntlFlightListingSearchShrinkRequest extends Model
         }
         if (null !== $this->isvName) {
             $res['isv_name'] = $this->isvName;
+        }
+        if (null !== $this->language) {
+            $res['language'] = $this->language;
         }
         if (null !== $this->needShareFlight) {
             $res['need_share_flight'] = $this->needShareFlight;
@@ -193,6 +202,9 @@ class IntlFlightListingSearchShrinkRequest extends Model
         }
         if (isset($map['isv_name'])) {
             $model->isvName = $map['isv_name'];
+        }
+        if (isset($map['language'])) {
+            $model->language = $map['language'];
         }
         if (isset($map['need_share_flight'])) {
             $model->needShareFlight = $map['need_share_flight'];

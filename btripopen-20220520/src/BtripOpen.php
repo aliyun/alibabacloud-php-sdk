@@ -7822,6 +7822,9 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->isvName)) {
             $query['isv_name'] = $request->isvName;
         }
+        if (!Utils::isUnset($request->language)) {
+            $query['language'] = $request->language;
+        }
         if (!Utils::isUnset($request->needShareFlight)) {
             $query['need_share_flight'] = $request->needShareFlight;
         }
@@ -7909,6 +7912,9 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->isvName)) {
             $query['isv_name'] = $request->isvName;
         }
+        if (!Utils::isUnset($request->language)) {
+            $query['language'] = $request->language;
+        }
         if (!Utils::isUnset($request->supplierCode)) {
             $query['supplier_code'] = $request->supplierCode;
         }
@@ -7985,6 +7991,9 @@ class BtripOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->isvName)) {
             $query['isv_name'] = $request->isvName;
+        }
+        if (!Utils::isUnset($request->language)) {
+            $query['language'] = $request->language;
         }
         if (!Utils::isUnset($request->needShareFlight)) {
             $query['need_share_flight'] = $request->needShareFlight;
