@@ -10,11 +10,15 @@ use GuzzleHttp\Psr7\Stream;
 class tasks extends Model
 {
     /**
+     * @example /9j/4AAQSkZJRgABAQAAAQABAAD/2****
+     *
      * @var string
      */
     public $imageData;
 
     /**
+     * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/facebody/DeepfakeFace/DeepfakeFace1.jpg
+     *
      * @var Stream
      */
     public $imageURLObject;

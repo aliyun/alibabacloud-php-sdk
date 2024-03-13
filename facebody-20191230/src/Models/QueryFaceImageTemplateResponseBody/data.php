@@ -13,8 +13,14 @@ class data extends Model
      * @var elements[]
      */
     public $elements;
+
+    /**
+     * @var int
+     */
+    public $total;
     protected $_name = [
         'elements' => 'Elements',
+        'total'    => 'Total',
     ];
 
     public function validate()
@@ -32,6 +38,9 @@ class data extends Model
                     $res['Elements'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -53,6 +62,9 @@ class data extends Model
                     $model->elements[$n++] = null !== $item ? elements::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;

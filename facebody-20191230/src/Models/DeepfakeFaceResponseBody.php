@@ -15,6 +15,8 @@ class DeepfakeFaceResponseBody extends Model
     public $data;
 
     /**
+     * @example 8E6F65D5-62A1-1E5B-BC0B-00508034AC92
+     *
      * @var string
      */
     public $requestId;

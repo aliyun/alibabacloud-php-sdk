@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class results extends Model
 {
     /**
+     * @example 36.6455
+     *
      * @var float
      */
     public $confidence;
 
     /**
+     * @example normalface
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @example blurred, occluded or large angle face, please check.
+     *
      * @var string
      */
     public $messageTips;

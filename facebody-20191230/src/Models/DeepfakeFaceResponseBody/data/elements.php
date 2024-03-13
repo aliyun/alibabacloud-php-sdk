@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class elements extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $faceNumber;
 
     /**
+     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/facebody/DeepfakeFace/DeepfakeFace1.jpg
+     *
      * @var string
      */
     public $imageURL;
@@ -25,6 +29,8 @@ class elements extends Model
     public $results;
 
     /**
+     * @example 8E6F65D5-62A1-1E5B-BC0B-00508034AC92
+     *
      * @var string
      */
     public $taskId;
