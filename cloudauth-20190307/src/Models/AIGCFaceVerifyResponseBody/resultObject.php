@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class resultObject extends Model
 {
     /**
+     * @var string
+     */
+    public $certifyId;
+
+    /**
      * @example Y
      *
      * @var string
@@ -22,8 +27,9 @@ class resultObject extends Model
      */
     public $score;
     protected $_name = [
-        'result' => 'Result',
-        'score'  => 'Score',
+        'certifyId' => 'CertifyId',
+        'result'    => 'Result',
+        'score'     => 'Score',
     ];
 
     public function validate()
@@ -33,6 +39,9 @@ class resultObject extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->certifyId) {
+            $res['CertifyId'] = $this->certifyId;
+        }
         if (null !== $this->result) {
             $res['Result'] = $this->result;
         }
@@ -51,6 +60,9 @@ class resultObject extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CertifyId'])) {
+            $model->certifyId = $map['CertifyId'];
+        }
         if (isset($map['Result'])) {
             $model->result = $map['Result'];
         }
