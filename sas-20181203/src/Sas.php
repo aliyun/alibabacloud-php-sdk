@@ -1558,6 +1558,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->cmdline)) {
             $query['Cmdline'] = $request->cmdline;
         }
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
         if (!Utils::isUnset($request->filePath)) {
             $query['FilePath'] = $request->filePath;
         }
@@ -29174,6 +29177,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->cmdline)) {
             $query['Cmdline'] = $request->cmdline;
+        }
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
         }
         if (!Utils::isUnset($request->filePath)) {
             $query['FilePath'] = $request->filePath;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyTagWithUuidResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 70C4B40D-D55E-4B7B-9992-8535E396B2F4
      *
      * @var string

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeExposedInstanceDetailResponseBody extends Model
 {
     /**
-     * @description The list of exposure details of the server.
+     * @description The exposure details about the server.
      *
      * @var exposedChains[]
      */

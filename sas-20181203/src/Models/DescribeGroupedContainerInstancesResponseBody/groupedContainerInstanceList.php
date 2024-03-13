@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class groupedContainerInstanceList extends Model
 {
     /**
-     * @description The number of alerts that are detected from the current pod, application, namespace, or cluster.
+     * @description The number of alerts that are detected for the current pod, application, namespace, or cluster.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class groupedContainerInstanceList extends Model
     public $alarmCount;
 
     /**
-     * @description The application name.
+     * @description The name of the application.
      *
      * @example oss-liveness-probe
      *
@@ -27,7 +27,7 @@ class groupedContainerInstanceList extends Model
     public $appName;
 
     /**
-     * @description The cluster ID.
+     * @description The ID of the cluster.
      *
      * @example cf3824769c85441b4bf3****
      *
@@ -49,7 +49,7 @@ class groupedContainerInstanceList extends Model
      *
      *   **Kubernetes**: dedicated Kubernetes cluster.
      *   **ManagedKubernetes**: standard managed cluster (edge cluster).
-     *   **Ask**: standard serverless cluster.
+     *   **Ask**: serverless Kubernetes (ASK) cluster.
      *
      * @example ManagedKubernetes
      *
@@ -58,7 +58,7 @@ class groupedContainerInstanceList extends Model
     public $clusterType;
 
     /**
-     * @description The timestamp generated when the cluster was created. Unit: milliseconds.
+     * @description The time when the cluster was created. Unit: milliseconds.
      *
      * @example 1600076893000
      *
@@ -72,8 +72,8 @@ class groupedContainerInstanceList extends Model
      *   **running**: The cluster is running.
      *   **stopped**: The cluster is stopped.
      *   **deleted**: The cluster is deleted.
-     *   **delete_failed**: The cluster fails to be deleted.
-     *   **failed**: The cluster fails to be created.
+     *   **delete_failed**: The cluster failed to be deleted.
+     *   **failed**: The cluster failed to be created.
      *
      * @example running
      *
@@ -82,7 +82,7 @@ class groupedContainerInstanceList extends Model
     public $custerState;
 
     /**
-     * @description The number of baseline risks that are detected on the current pod, application, namespace, or cluster.
+     * @description The number of baseline risks that are detected for the current pod, application, namespace, or cluster.
      *
      * @example 20
      *
@@ -100,7 +100,7 @@ class groupedContainerInstanceList extends Model
     public $hostIp;
 
     /**
-     * @description The image of the container.
+     * @description The container image.
      *
      * @example registry-vpc.ap-southeast-5.aliyuncs.com/log-service-release/sls-connector:1.1.77
      *
@@ -154,7 +154,7 @@ class groupedContainerInstanceList extends Model
     public $imageUuid;
 
     /**
-     * @description The number of pods, applications, clusters, or namespaces that is returned.
+     * @description The number of pods, applications, clusters, or namespaces.
      *
      * @example 9
      *
@@ -163,7 +163,7 @@ class groupedContainerInstanceList extends Model
     public $instanceCount;
 
     /**
-     * @description The ID of the server instance.
+     * @description The ID of the server.
      *
      * @example i-8vb9ul5xec4tua4q****
      *
@@ -199,7 +199,7 @@ class groupedContainerInstanceList extends Model
     public $podIp;
 
     /**
-     * @description The ID of the region in which the instance resides.
+     * @description The region ID of the instance.
      *
      * @example cn-hangzhou
      *
@@ -208,7 +208,7 @@ class groupedContainerInstanceList extends Model
     public $regionId;
 
     /**
-     * @description The number of potential risky instances.
+     * @description The number of at-risk instances.
      *
      * @example 1
      *
@@ -242,17 +242,31 @@ class groupedContainerInstanceList extends Model
     public $riskStatus;
 
     /**
+     * @description Indicates whether the synchronization of cluster audit logs is enabled. Valid values:
+     *
+     *   **0**: disabled.
+     *   **1**: enabled.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $syncOpen;
 
     /**
+     * @description The status of the synchronization of cluster audit logs. Valid values:
+     *
+     *   **0**: The synchronization failed.
+     *   **1**: The synchronization is successful.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $syncStatus;
 
     /**
-     * @description The number of vulnerabilities that are detected from the current pod, application, namespace, or cluster.
+     * @description The number of vulnerabilities that are detected for the current pod, application, namespace, or cluster.
      *
      * @example 1
      *

@@ -30,6 +30,15 @@ class userDefineRuleDetail extends Model
     public $cmdline;
 
     /**
+     * @description The domain name.
+     *
+     * @example example.com
+     *
+     * @var string
+     */
+    public $domain;
+
+    /**
      * @description The file path.
      *
      * @example /etc/pam****
@@ -196,6 +205,7 @@ class userDefineRuleDetail extends Model
     protected $_name = [
         'actionType'      => 'ActionType',
         'cmdline'         => 'Cmdline',
+        'domain'          => 'Domain',
         'filePath'        => 'FilePath',
         'gmtCreate'       => 'GmtCreate',
         'gmtModified'     => 'GmtModified',
@@ -227,6 +237,9 @@ class userDefineRuleDetail extends Model
         }
         if (null !== $this->cmdline) {
             $res['Cmdline'] = $this->cmdline;
+        }
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
         }
         if (null !== $this->filePath) {
             $res['FilePath'] = $this->filePath;
@@ -296,6 +309,9 @@ class userDefineRuleDetail extends Model
         }
         if (isset($map['Cmdline'])) {
             $model->cmdline = $map['Cmdline'];
+        }
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
         }
         if (isset($map['FilePath'])) {
             $model->filePath = $map['FilePath'];

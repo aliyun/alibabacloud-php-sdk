@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class exposedChains extends Model
 {
     /**
-     * @description The details of all vulnerabilities on the server.
+     * @description The information about all vulnerabilities on the server.
      *
      * @var allVulList[]
      */
@@ -27,7 +27,7 @@ class exposedChains extends Model
     public $exposureComponent;
 
     /**
-     * @description The IP address that is exposed.
+     * @description The public IP address.
      *
      * @example 47.99.XX.XX
      *
@@ -59,10 +59,10 @@ class exposedChains extends Model
     public $exposureType;
 
     /**
-     * @description The ID of the instance to which the resource belongs. The valid values of this parameter vary based on the ExposureType parameter.
+     * @description The ID of the instance to which the resource belongs. The valid values of this parameter vary based on the value of the ExposureType parameter.
      *
-     *   If the value of the ExposureType parameter is **INTERNET_IP**, this parameter is empty.
-     *   If the value of the ExposureType parameter is **SLB**, the value of this parameter is the ID of the SLB instance.
+     *   If the value of the ExposureType parameter is **INTERNET_IP**, the value of this parameter is an empty string.
+     *   If the value of the ExposureType parameter is **SLB**, the value of this parameter is the ID of the Internet-facing SLB instance.
      *   If the value of the ExposureType parameter is **EIP**, the value of this parameter is the ID of the EIP.
      *   If the value of the ExposureType parameter is **DNAT**, the value of this parameter is the ID of the NAT gateway.
      *
@@ -82,7 +82,7 @@ class exposedChains extends Model
     public $groupNo;
 
     /**
-     * @description The instance ID of the server.
+     * @description The ID of the server.
      *
      * @example i-bp116qem8npvchqc****
      *
@@ -127,7 +127,7 @@ class exposedChains extends Model
     /**
      * @description The region in which the server resides.
      *
-     * > For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
+     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
      * @example cn-hangzhou
      *
      * @var string

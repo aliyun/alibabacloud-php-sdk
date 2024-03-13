@@ -30,6 +30,15 @@ class ModifyClientUserDefineRuleRequest extends Model
     public $cmdline;
 
     /**
+     * @description The domain name.
+     *
+     * @example example.com
+     *
+     * @var string
+     */
+    public $domain;
+
+    /**
      * @description The file path.
      *
      * @example /etc/pam.d/su****
@@ -179,6 +188,7 @@ class ModifyClientUserDefineRuleRequest extends Model
     protected $_name = [
         'actionType'      => 'ActionType',
         'cmdline'         => 'Cmdline',
+        'domain'          => 'Domain',
         'filePath'        => 'FilePath',
         'IP'              => 'IP',
         'id'              => 'Id',
@@ -208,6 +218,9 @@ class ModifyClientUserDefineRuleRequest extends Model
         }
         if (null !== $this->cmdline) {
             $res['Cmdline'] = $this->cmdline;
+        }
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
         }
         if (null !== $this->filePath) {
             $res['FilePath'] = $this->filePath;
@@ -271,6 +284,9 @@ class ModifyClientUserDefineRuleRequest extends Model
         }
         if (isset($map['Cmdline'])) {
             $model->cmdline = $map['Cmdline'];
+        }
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
         }
         if (isset($map['FilePath'])) {
             $model->filePath = $map['FilePath'];

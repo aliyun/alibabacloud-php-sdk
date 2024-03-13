@@ -96,6 +96,11 @@ class DescribeExposedInstanceListRequest extends Model
     public $pageSize;
 
     /**
+     * @description The Alibaba Cloud account ID of the member in the resource directory.
+     *
+     * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to query the account ID.
+     * @example 16670360956*****
+     *
      * @var int
      */
     public $resourceDirectoryAccountId;

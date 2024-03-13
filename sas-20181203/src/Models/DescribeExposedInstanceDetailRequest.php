@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeExposedInstanceDetailRequest extends Model
 {
     /**
+     * @description The Alibaba Cloud account ID of the member in the resource directory.
+     *
+     * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to query the account ID.
+     * @example 1232428423234****
+     *
      * @var int
      */
     public $resourceDirectoryAccountId;
@@ -16,7 +21,7 @@ class DescribeExposedInstanceDetailRequest extends Model
     /**
      * @description The UUID of the server that is exposed on the Internet.
      *
-     * > You can call the [DescribeExposedInstanceList](~~DescribeExposedInstanceList~~) operation to query the UUIDs of servers.
+     * >  You can call the [DescribeExposedInstanceList](~~198153~~) operation to query the UUIDs of servers.
      * @example fc82b966-4d70-4e01-bf4f-aa4076a5****
      *
      * @var string
