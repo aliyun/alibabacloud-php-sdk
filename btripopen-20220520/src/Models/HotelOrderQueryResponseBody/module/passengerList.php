@@ -38,6 +38,11 @@ class passengerList extends Model
     public $itineraryId;
 
     /**
+     * @var int
+     */
+    public $occupantType;
+
+    /**
      * @var string
      */
     public $projectCode;
@@ -97,6 +102,7 @@ class passengerList extends Model
         'costCenterName'        => 'cost_center_name',
         'costCenterNumber'      => 'cost_center_number',
         'itineraryId'           => 'itinerary_id',
+        'occupantType'          => 'occupant_type',
         'projectCode'           => 'project_code',
         'projectId'             => 'project_id',
         'projectTitle'          => 'project_title',
@@ -129,6 +135,9 @@ class passengerList extends Model
         }
         if (null !== $this->itineraryId) {
             $res['itinerary_id'] = $this->itineraryId;
+        }
+        if (null !== $this->occupantType) {
+            $res['occupant_type'] = $this->occupantType;
         }
         if (null !== $this->projectCode) {
             $res['project_code'] = $this->projectCode;
@@ -183,6 +192,9 @@ class passengerList extends Model
         }
         if (isset($map['itinerary_id'])) {
             $model->itineraryId = $map['itinerary_id'];
+        }
+        if (isset($map['occupant_type'])) {
+            $model->occupantType = $map['occupant_type'];
         }
         if (isset($map['project_code'])) {
             $model->projectCode = $map['project_code'];
