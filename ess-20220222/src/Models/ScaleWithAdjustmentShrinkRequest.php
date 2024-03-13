@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ScaleWithAdjustmentShrinkRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $activityMetadata;
+
+    /**
      * @description The type of the scaling policy. Valid values:
      *
      *   QuantityChangeInCapacity: adds the specified number of ECS instances to or removes the specified number of ECS instances from the scaling group.
@@ -42,6 +47,11 @@ class ScaleWithAdjustmentShrinkRequest extends Model
      * @var string
      */
     public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $lifecycleHookContextShrink;
 
     /**
      * @description The minimum number of instances allowed in each adjustment. This parameter takes effect only if you set the `AdjustmentType` parameter to `PercentChangeInCapacity`.
@@ -89,15 +99,17 @@ class ScaleWithAdjustmentShrinkRequest extends Model
      */
     public $syncActivity;
     protected $_name = [
-        'adjustmentType'         => 'AdjustmentType',
-        'adjustmentValue'        => 'AdjustmentValue',
-        'clientToken'            => 'ClientToken',
-        'minAdjustmentMagnitude' => 'MinAdjustmentMagnitude',
-        'overridesShrink'        => 'Overrides',
-        'ownerId'                => 'OwnerId',
-        'resourceOwnerAccount'   => 'ResourceOwnerAccount',
-        'scalingGroupId'         => 'ScalingGroupId',
-        'syncActivity'           => 'SyncActivity',
+        'activityMetadata'           => 'ActivityMetadata',
+        'adjustmentType'             => 'AdjustmentType',
+        'adjustmentValue'            => 'AdjustmentValue',
+        'clientToken'                => 'ClientToken',
+        'lifecycleHookContextShrink' => 'LifecycleHookContext',
+        'minAdjustmentMagnitude'     => 'MinAdjustmentMagnitude',
+        'overridesShrink'            => 'Overrides',
+        'ownerId'                    => 'OwnerId',
+        'resourceOwnerAccount'       => 'ResourceOwnerAccount',
+        'scalingGroupId'             => 'ScalingGroupId',
+        'syncActivity'               => 'SyncActivity',
     ];
 
     public function validate()
@@ -107,6 +119,9 @@ class ScaleWithAdjustmentShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->activityMetadata) {
+            $res['ActivityMetadata'] = $this->activityMetadata;
+        }
         if (null !== $this->adjustmentType) {
             $res['AdjustmentType'] = $this->adjustmentType;
         }
@@ -115,6 +130,9 @@ class ScaleWithAdjustmentShrinkRequest extends Model
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->lifecycleHookContextShrink) {
+            $res['LifecycleHookContext'] = $this->lifecycleHookContextShrink;
         }
         if (null !== $this->minAdjustmentMagnitude) {
             $res['MinAdjustmentMagnitude'] = $this->minAdjustmentMagnitude;
@@ -146,6 +164,9 @@ class ScaleWithAdjustmentShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ActivityMetadata'])) {
+            $model->activityMetadata = $map['ActivityMetadata'];
+        }
         if (isset($map['AdjustmentType'])) {
             $model->adjustmentType = $map['AdjustmentType'];
         }
@@ -154,6 +175,9 @@ class ScaleWithAdjustmentShrinkRequest extends Model
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['LifecycleHookContext'])) {
+            $model->lifecycleHookContextShrink = $map['LifecycleHookContext'];
         }
         if (isset($map['MinAdjustmentMagnitude'])) {
             $model->minAdjustmentMagnitude = $map['MinAdjustmentMagnitude'];

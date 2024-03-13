@@ -6102,10 +6102,16 @@ class Ess extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new ScaleWithAdjustmentShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->lifecycleHookContext)) {
+            $request->lifecycleHookContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->lifecycleHookContext, 'LifecycleHookContext', 'json');
+        }
         if (!Utils::isUnset($tmpReq->overrides)) {
             $request->overridesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->overrides, 'Overrides', 'json');
         }
         $query = [];
+        if (!Utils::isUnset($request->activityMetadata)) {
+            $query['ActivityMetadata'] = $request->activityMetadata;
+        }
         if (!Utils::isUnset($request->adjustmentType)) {
             $query['AdjustmentType'] = $request->adjustmentType;
         }
@@ -6114,6 +6120,9 @@ class Ess extends OpenApiClient
         }
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->lifecycleHookContextShrink)) {
+            $query['LifecycleHookContext'] = $request->lifecycleHookContextShrink;
         }
         if (!Utils::isUnset($request->minAdjustmentMagnitude)) {
             $query['MinAdjustmentMagnitude'] = $request->minAdjustmentMagnitude;

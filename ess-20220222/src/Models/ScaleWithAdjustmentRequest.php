@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models;
 
+use AlibabaCloud\SDK\Ess\V20220222\Models\ScaleWithAdjustmentRequest\lifecycleHookContext;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ScaleWithAdjustmentRequest\overrides;
 use AlibabaCloud\Tea\Model;
 
 class ScaleWithAdjustmentRequest extends Model
 {
+    /**
+     * @var string
+     */
+    public $activityMetadata;
+
     /**
      * @description The type of the scaling policy. Valid values:
      *
@@ -43,6 +49,11 @@ class ScaleWithAdjustmentRequest extends Model
      * @var string
      */
     public $clientToken;
+
+    /**
+     * @var lifecycleHookContext
+     */
+    public $lifecycleHookContext;
 
     /**
      * @description The minimum number of instances allowed in each adjustment. This parameter takes effect only if you set the `AdjustmentType` parameter to `PercentChangeInCapacity`.
@@ -90,9 +101,11 @@ class ScaleWithAdjustmentRequest extends Model
      */
     public $syncActivity;
     protected $_name = [
+        'activityMetadata'       => 'ActivityMetadata',
         'adjustmentType'         => 'AdjustmentType',
         'adjustmentValue'        => 'AdjustmentValue',
         'clientToken'            => 'ClientToken',
+        'lifecycleHookContext'   => 'LifecycleHookContext',
         'minAdjustmentMagnitude' => 'MinAdjustmentMagnitude',
         'overrides'              => 'Overrides',
         'ownerId'                => 'OwnerId',
@@ -108,6 +121,9 @@ class ScaleWithAdjustmentRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->activityMetadata) {
+            $res['ActivityMetadata'] = $this->activityMetadata;
+        }
         if (null !== $this->adjustmentType) {
             $res['AdjustmentType'] = $this->adjustmentType;
         }
@@ -116,6 +132,9 @@ class ScaleWithAdjustmentRequest extends Model
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->lifecycleHookContext) {
+            $res['LifecycleHookContext'] = null !== $this->lifecycleHookContext ? $this->lifecycleHookContext->toMap() : null;
         }
         if (null !== $this->minAdjustmentMagnitude) {
             $res['MinAdjustmentMagnitude'] = $this->minAdjustmentMagnitude;
@@ -147,6 +166,9 @@ class ScaleWithAdjustmentRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ActivityMetadata'])) {
+            $model->activityMetadata = $map['ActivityMetadata'];
+        }
         if (isset($map['AdjustmentType'])) {
             $model->adjustmentType = $map['AdjustmentType'];
         }
@@ -155,6 +177,9 @@ class ScaleWithAdjustmentRequest extends Model
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['LifecycleHookContext'])) {
+            $model->lifecycleHookContext = lifecycleHookContext::fromMap($map['LifecycleHookContext']);
         }
         if (isset($map['MinAdjustmentMagnitude'])) {
             $model->minAdjustmentMagnitude = $map['MinAdjustmentMagnitude'];

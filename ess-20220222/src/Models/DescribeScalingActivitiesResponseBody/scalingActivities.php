@@ -4,10 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingActivitiesResponseBody;
 
+use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingActivitiesResponseBody\scalingActivities\lifecycleHookContext;
 use AlibabaCloud\Tea\Model;
 
 class scalingActivities extends Model
 {
+    /**
+     * @var string
+     */
+    public $activityMetadata;
+
     /**
      * @description The total number of instances that were manually added to the scaling group after the scaling activity was complete.
      *
@@ -111,6 +117,11 @@ class scalingActivities extends Model
      * @var string
      */
     public $errorMessage;
+
+    /**
+     * @var lifecycleHookContext
+     */
+    public $lifecycleHookContext;
 
     /**
      * @description The execution progress of the scaling activity.
@@ -222,7 +233,18 @@ class scalingActivities extends Model
      * @var string
      */
     public $totalCapacity;
+
+    /**
+     * @var string
+     */
+    public $triggerSourceId;
+
+    /**
+     * @var string
+     */
+    public $triggerSourceType;
     protected $_name = [
+        'activityMetadata'      => 'ActivityMetadata',
         'attachedCapacity'      => 'AttachedCapacity',
         'autoCreatedCapacity'   => 'AutoCreatedCapacity',
         'cause'                 => 'Cause',
@@ -235,6 +257,7 @@ class scalingActivities extends Model
         'endTime'               => 'EndTime',
         'errorCode'             => 'ErrorCode',
         'errorMessage'          => 'ErrorMessage',
+        'lifecycleHookContext'  => 'LifecycleHookContext',
         'progress'              => 'Progress',
         'scalingActivityId'     => 'ScalingActivityId',
         'scalingGroupId'        => 'ScalingGroupId',
@@ -247,6 +270,8 @@ class scalingActivities extends Model
         'stoppedCapacity'       => 'StoppedCapacity',
         'stoppedInstances'      => 'StoppedInstances',
         'totalCapacity'         => 'TotalCapacity',
+        'triggerSourceId'       => 'TriggerSourceId',
+        'triggerSourceType'     => 'TriggerSourceType',
     ];
 
     public function validate()
@@ -256,6 +281,9 @@ class scalingActivities extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->activityMetadata) {
+            $res['ActivityMetadata'] = $this->activityMetadata;
+        }
         if (null !== $this->attachedCapacity) {
             $res['AttachedCapacity'] = $this->attachedCapacity;
         }
@@ -291,6 +319,9 @@ class scalingActivities extends Model
         }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
+        }
+        if (null !== $this->lifecycleHookContext) {
+            $res['LifecycleHookContext'] = null !== $this->lifecycleHookContext ? $this->lifecycleHookContext->toMap() : null;
         }
         if (null !== $this->progress) {
             $res['Progress'] = $this->progress;
@@ -328,6 +359,12 @@ class scalingActivities extends Model
         if (null !== $this->totalCapacity) {
             $res['TotalCapacity'] = $this->totalCapacity;
         }
+        if (null !== $this->triggerSourceId) {
+            $res['TriggerSourceId'] = $this->triggerSourceId;
+        }
+        if (null !== $this->triggerSourceType) {
+            $res['TriggerSourceType'] = $this->triggerSourceType;
+        }
 
         return $res;
     }
@@ -340,6 +377,9 @@ class scalingActivities extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ActivityMetadata'])) {
+            $model->activityMetadata = $map['ActivityMetadata'];
+        }
         if (isset($map['AttachedCapacity'])) {
             $model->attachedCapacity = $map['AttachedCapacity'];
         }
@@ -380,6 +420,9 @@ class scalingActivities extends Model
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
+        if (isset($map['LifecycleHookContext'])) {
+            $model->lifecycleHookContext = lifecycleHookContext::fromMap($map['LifecycleHookContext']);
+        }
         if (isset($map['Progress'])) {
             $model->progress = $map['Progress'];
         }
@@ -419,6 +462,12 @@ class scalingActivities extends Model
         }
         if (isset($map['TotalCapacity'])) {
             $model->totalCapacity = $map['TotalCapacity'];
+        }
+        if (isset($map['TriggerSourceId'])) {
+            $model->triggerSourceId = $map['TriggerSourceId'];
+        }
+        if (isset($map['TriggerSourceType'])) {
+            $model->triggerSourceType = $map['TriggerSourceType'];
         }
 
         return $model;
