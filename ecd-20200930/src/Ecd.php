@@ -147,6 +147,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeCloudDriveUsersRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeCloudDriveUsersResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeCustomizedListHeadersRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeCustomizedListHeadersResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopGroupSessionsRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopGroupSessionsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopGroupsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopGroupsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopInfoRequest;
@@ -4901,6 +4903,70 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeCustomizedListHeadersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDesktopGroupSessionsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeDesktopGroupSessionsResponse
+     */
+    public function describeDesktopGroupSessionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->endUserId)) {
+            $query['EndUserId'] = $request->endUserId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->ownType)) {
+            $query['OwnType'] = $request->ownType;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->sessionStatus)) {
+            $query['SessionStatus'] = $request->sessionStatus;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDesktopGroupSessions',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDesktopGroupSessionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDesktopGroupSessionsRequest $request
+     *
+     * @return DescribeDesktopGroupSessionsResponse
+     */
+    public function describeDesktopGroupSessions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDesktopGroupSessionsWithOptions($request, $runtime);
     }
 
     /**
@@ -11547,6 +11613,9 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->desktopGroupId)) {
             $query['DesktopGroupId'] = $request->desktopGroupId;
         }
+        if (!Utils::isUnset($request->desktopGroupIds)) {
+            $query['DesktopGroupIds'] = $request->desktopGroupIds;
+        }
         if (!Utils::isUnset($request->desktopId)) {
             $query['DesktopId'] = $request->desktopId;
         }
@@ -11558,6 +11627,9 @@ class Ecd extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resetScope)) {
+            $query['ResetScope'] = $request->resetScope;
         }
         if (!Utils::isUnset($request->resetType)) {
             $query['ResetType'] = $request->resetType;

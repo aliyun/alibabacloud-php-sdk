@@ -18,6 +18,11 @@ class ResetDesktopsRequest extends Model
     public $desktopGroupId;
 
     /**
+     * @var string[]
+     */
+    public $desktopGroupIds;
+
+    /**
      * @description The IDs of the cloud desktops. You can specify 1 to 100 cloud desktop IDs.
      *
      * @var string[]
@@ -53,6 +58,11 @@ class ResetDesktopsRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resetScope;
+
+    /**
      * @description The type of the disk that you want to reset.
      *
      * @example 1
@@ -61,12 +71,14 @@ class ResetDesktopsRequest extends Model
      */
     public $resetType;
     protected $_name = [
-        'desktopGroupId' => 'DesktopGroupId',
-        'desktopId'      => 'DesktopId',
-        'imageId'        => 'ImageId',
-        'payType'        => 'PayType',
-        'regionId'       => 'RegionId',
-        'resetType'      => 'ResetType',
+        'desktopGroupId'  => 'DesktopGroupId',
+        'desktopGroupIds' => 'DesktopGroupIds',
+        'desktopId'       => 'DesktopId',
+        'imageId'         => 'ImageId',
+        'payType'         => 'PayType',
+        'regionId'        => 'RegionId',
+        'resetScope'      => 'ResetScope',
+        'resetType'       => 'ResetType',
     ];
 
     public function validate()
@@ -79,6 +91,9 @@ class ResetDesktopsRequest extends Model
         if (null !== $this->desktopGroupId) {
             $res['DesktopGroupId'] = $this->desktopGroupId;
         }
+        if (null !== $this->desktopGroupIds) {
+            $res['DesktopGroupIds'] = $this->desktopGroupIds;
+        }
         if (null !== $this->desktopId) {
             $res['DesktopId'] = $this->desktopId;
         }
@@ -90,6 +105,9 @@ class ResetDesktopsRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resetScope) {
+            $res['ResetScope'] = $this->resetScope;
         }
         if (null !== $this->resetType) {
             $res['ResetType'] = $this->resetType;
@@ -109,6 +127,11 @@ class ResetDesktopsRequest extends Model
         if (isset($map['DesktopGroupId'])) {
             $model->desktopGroupId = $map['DesktopGroupId'];
         }
+        if (isset($map['DesktopGroupIds'])) {
+            if (!empty($map['DesktopGroupIds'])) {
+                $model->desktopGroupIds = $map['DesktopGroupIds'];
+            }
+        }
         if (isset($map['DesktopId'])) {
             if (!empty($map['DesktopId'])) {
                 $model->desktopId = $map['DesktopId'];
@@ -122,6 +145,9 @@ class ResetDesktopsRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResetScope'])) {
+            $model->resetScope = $map['ResetScope'];
         }
         if (isset($map['ResetType'])) {
             $model->resetType = $map['ResetType'];

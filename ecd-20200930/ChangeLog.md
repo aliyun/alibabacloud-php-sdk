@@ -1,3 +1,9 @@
+2024-03-14 Version: 3.5.0
+- Support API DescribeDesktopGroupSessions.
+- Update API ResetDesktops: add param DesktopGroupIds.
+- Update API ResetDesktops: add param ResetScope.
+
+
 2024-03-12 Version: 3.4.0
 - Support API DisconnectDesktopSessions.
 - Support API UnbindUserDesktop.
