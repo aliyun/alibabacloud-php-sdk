@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class EnableResourceDirectoryRequest extends Model
 {
     /**
+     * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+     *
+     *   **true**: performs only a dry run.
+     *   **false** (default): performs a dry run and performs the actual request.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;

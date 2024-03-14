@@ -789,6 +789,9 @@ class ResourceDirectoryMaster extends OpenApiClient
         if (!Utils::isUnset($request->displayName)) {
             $query['DisplayName'] = $request->displayName;
         }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
         if (!Utils::isUnset($request->parentFolderId)) {
             $query['ParentFolderId'] = $request->parentFolderId;
         }
@@ -1218,7 +1221,8 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * The ID of the request.
+     * After you disable the Control Policy feature, the system automatically detaches all access control policies that are attached to folders and members. The system does not delete these access control policies, but you cannot attach them to folders or members again.
+     *   * > If you disable the Control Policy feature, the permissions of all folders and members in your resource directory are affected. Therefore, proceed with caution.
      *   *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -1243,7 +1247,8 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * The ID of the request.
+     * After you disable the Control Policy feature, the system automatically detaches all access control policies that are attached to folders and members. The system does not delete these access control policies, but you cannot attach them to folders or members again.
+     *   * > If you disable the Control Policy feature, the permissions of all folders and members in your resource directory are affected. Therefore, proceed with caution.
      *   *
      * @return DisableControlPolicyResponse DisableControlPolicyResponse
      */
@@ -3361,6 +3366,9 @@ class ResourceDirectoryMaster extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->accountId)) {
             $query['AccountId'] = $request->accountId;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
         }
         if (!Utils::isUnset($request->newAccountType)) {
             $query['NewAccountType'] = $request->newAccountType;

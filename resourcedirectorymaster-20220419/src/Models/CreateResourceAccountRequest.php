@@ -34,6 +34,11 @@ class CreateResourceAccountRequest extends Model
     public $displayName;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @description The ID of the parent folder.
      *
      * @example fd-r23M55****
@@ -73,6 +78,7 @@ class CreateResourceAccountRequest extends Model
     protected $_name = [
         'accountNamePrefix' => 'AccountNamePrefix',
         'displayName'       => 'DisplayName',
+        'dryRun'            => 'DryRun',
         'parentFolderId'    => 'ParentFolderId',
         'payerAccountId'    => 'PayerAccountId',
         'resellAccountType' => 'ResellAccountType',
@@ -91,6 +97,9 @@ class CreateResourceAccountRequest extends Model
         }
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
+        }
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
         if (null !== $this->parentFolderId) {
             $res['ParentFolderId'] = $this->parentFolderId;
@@ -127,6 +136,9 @@ class CreateResourceAccountRequest extends Model
         }
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
+        }
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
         if (isset($map['ParentFolderId'])) {
             $model->parentFolderId = $map['ParentFolderId'];

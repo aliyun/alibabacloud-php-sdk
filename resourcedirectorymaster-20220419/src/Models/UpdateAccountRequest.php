@@ -18,6 +18,11 @@ class UpdateAccountRequest extends Model
     public $accountId;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @description The new type of the member. Valid values:
      *
      *   ResourceAccount: resource account
@@ -41,6 +46,7 @@ class UpdateAccountRequest extends Model
     public $newDisplayName;
     protected $_name = [
         'accountId'      => 'AccountId',
+        'dryRun'         => 'DryRun',
         'newAccountType' => 'NewAccountType',
         'newDisplayName' => 'NewDisplayName',
     ];
@@ -54,6 +60,9 @@ class UpdateAccountRequest extends Model
         $res = [];
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
+        }
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
         if (null !== $this->newAccountType) {
             $res['NewAccountType'] = $this->newAccountType;
@@ -75,6 +84,9 @@ class UpdateAccountRequest extends Model
         $model = new self();
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
+        }
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
         if (isset($map['NewAccountType'])) {
             $model->newAccountType = $map['NewAccountType'];

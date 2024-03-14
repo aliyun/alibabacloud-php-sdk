@@ -28,6 +28,11 @@ class account extends Model
     public $accountName;
 
     /**
+     * @var string
+     */
+    public $deletionStatus;
+
+    /**
      * @description The display name of the member.
      *
      * @example admin
@@ -122,6 +127,7 @@ class account extends Model
     protected $_name = [
         'accountId'           => 'AccountId',
         'accountName'         => 'AccountName',
+        'deletionStatus'      => 'DeletionStatus',
         'displayName'         => 'DisplayName',
         'folderId'            => 'FolderId',
         'joinMethod'          => 'JoinMethod',
@@ -145,6 +151,9 @@ class account extends Model
         }
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
+        }
+        if (null !== $this->deletionStatus) {
+            $res['DeletionStatus'] = $this->deletionStatus;
         }
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
@@ -190,6 +199,9 @@ class account extends Model
         }
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
+        }
+        if (isset($map['DeletionStatus'])) {
+            $model->deletionStatus = $map['DeletionStatus'];
         }
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
