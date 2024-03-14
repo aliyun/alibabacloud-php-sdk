@@ -36,6 +36,11 @@ class DescribeDBNodePerformanceRequest extends Model
     public $endTime;
 
     /**
+     * @var string
+     */
+    public $interval;
+
+    /**
      * @description The performance metrics that you want to query. Separate multiple metrics with commas (,). For more information, see [Performance parameters](~~141787~~).
      *
      * >  You can specify a maximum of five performance metrics.
@@ -53,12 +58,19 @@ class DescribeDBNodePerformanceRequest extends Model
      * @var string
      */
     public $startTime;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
         'DBNodeId'    => 'DBNodeId',
         'endTime'     => 'EndTime',
+        'interval'    => 'Interval',
         'key'         => 'Key',
         'startTime'   => 'StartTime',
+        'type'        => 'Type',
     ];
 
     public function validate()
@@ -77,11 +89,17 @@ class DescribeDBNodePerformanceRequest extends Model
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+        if (null !== $this->interval) {
+            $res['Interval'] = $this->interval;
+        }
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -104,11 +122,17 @@ class DescribeDBNodePerformanceRequest extends Model
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+        if (isset($map['Interval'])) {
+            $model->interval = $map['Interval'];
+        }
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

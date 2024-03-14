@@ -52,6 +52,11 @@ class ModifyAccountPasswordRequest extends Model
     /**
      * @var string
      */
+    public $passwordType;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -64,6 +69,7 @@ class ModifyAccountPasswordRequest extends Model
         'newAccountPassword'   => 'NewAccountPassword',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'passwordType'         => 'PasswordType',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
     ];
@@ -89,6 +95,9 @@ class ModifyAccountPasswordRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->passwordType) {
+            $res['PasswordType'] = $this->passwordType;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -122,6 +131,9 @@ class ModifyAccountPasswordRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PasswordType'])) {
+            $model->passwordType = $map['PasswordType'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

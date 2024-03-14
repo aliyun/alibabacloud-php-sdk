@@ -4437,11 +4437,17 @@ class Polardb extends OpenApiClient
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
         }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
         if (!Utils::isUnset($request->key)) {
             $query['Key'] = $request->key;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -4565,11 +4571,17 @@ class Polardb extends OpenApiClient
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
         }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
         if (!Utils::isUnset($request->key)) {
             $query['Key'] = $request->key;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -6758,6 +6770,9 @@ class Polardb extends OpenApiClient
         }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->passwordType)) {
+            $query['PasswordType'] = $request->passwordType;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;

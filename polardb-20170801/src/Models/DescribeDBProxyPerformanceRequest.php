@@ -36,6 +36,11 @@ class DescribeDBProxyPerformanceRequest extends Model
     public $endTime;
 
     /**
+     * @var string
+     */
+    public $interval;
+
+    /**
      * @description The performance metrics that you want to query. Separate multiple indicators with commas (,). For more information, see [Performance parameters](~~141787~~).
      *
      * @example PolarProxy_CpuUsage
@@ -52,12 +57,19 @@ class DescribeDBProxyPerformanceRequest extends Model
      * @var string
      */
     public $startTime;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'DBClusterId'  => 'DBClusterId',
         'DBEndpointId' => 'DBEndpointId',
         'endTime'      => 'EndTime',
+        'interval'     => 'Interval',
         'key'          => 'Key',
         'startTime'    => 'StartTime',
+        'type'         => 'Type',
     ];
 
     public function validate()
@@ -76,11 +88,17 @@ class DescribeDBProxyPerformanceRequest extends Model
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+        if (null !== $this->interval) {
+            $res['Interval'] = $this->interval;
+        }
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -103,11 +121,17 @@ class DescribeDBProxyPerformanceRequest extends Model
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+        if (isset($map['Interval'])) {
+            $model->interval = $map['Interval'];
+        }
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;
