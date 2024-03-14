@@ -77,10 +77,6 @@ class ModifyApiRequest extends Model
     public $backendId;
 
     /**
-     * @description The parameters of API requests sent by API Gateway to the backend service.
-     *
-     * @example [{\"ServiceParameterName\":\"HOST\",\"ConstantValue\":\"uat-cgi.smarket.net.cn\",\"Location\":\"HEAD\",\"Description\":\"\\u540e\\u7aefVPC-HOST\"}]
-     *
      * @var string
      */
     public $constantParameters;
@@ -109,19 +105,11 @@ class ModifyApiRequest extends Model
     public $disableInternet;
 
     /**
-     * @description The returned description of the API.
-     *
-     * @example [{"Code":"400","Message":"Missing the userId","Description":"param invalid"}]
-     *
      * @var string
      */
     public $errorCodeSamples;
 
     /**
-     * @description The sample error codes returned by the backend service.
-     *
-     * @example {"errorCode":"fail","errorMessage":"param invalid"}
-     *
      * @var string
      */
     public $failResultSample;
@@ -168,10 +156,6 @@ class ModifyApiRequest extends Model
     public $requestConfig;
 
     /**
-     * @description System parameter
-     *
-     * @example \[{\\"ParameterName\\": \\"CaAppId\\", \\"Location\\": \\"HEAD\\", \\"ServiceParameterName\\": \\"x-ca-appid\\"}]
-     *
      * @var string
      */
     public $requestParameters;
@@ -187,19 +171,11 @@ class ModifyApiRequest extends Model
     public $resultBodyModel;
 
     /**
-     * @description The configuration items of the third-party OpenID Connect authentication method.
-     *
-     * @example []
-     *
      * @var string
      */
     public $resultDescriptions;
 
     /**
-     * @description The sample error response from the backend service.
-     *
-     * @example 200
-     *
      * @var string
      */
     public $resultSample;
@@ -228,28 +204,16 @@ class ModifyApiRequest extends Model
     public $serviceConfig;
 
     /**
-     * @description The mappings between parameters of requests sent by the consumer to API Gateway and parameters of requests sent by API Gateway to the backend service.
-     *
-     * @example [{"ServiceParameterName":"age","Location":"Head","Type":"Number","ParameterCatalog":"REQUEST"},{"ServiceParameterName":"sex","Location":"Query","Type":"String","ParameterCatalog":"REQUEST"},{"ServiceParameterName":"userId","Location":"Path","Type":"Number","ParameterCatalog":"REQUEST"},{"ServiceParameterName":"clientIp","Location":"Head","Type":"String","ParameterCatalog":"SYSTEM"},{"ServiceParameterName":"constance","Location":"Head","Type":"String","ParameterCatalog":"CONSTANT"}]
-     *
      * @var string
      */
     public $serviceParameters;
 
     /**
-     * @description The format of the response from the backend service. Valid values: JSON, TEXT, BINARY, XML, and HTML. This value is used only to generate documents. It does not affect the returned results.
-     *
-     * @example [{"ServiceParameterName":"age","RequestParameterName":"age"},{"ServiceParameterName":"sex","RequestParameterName":"sex"},{"ServiceParameterName":"userId","RequestParameterName":"userId"},{"ServiceParameterName":"clientIp","RequestParameterName":"CaClientIp"},{"ServiceParameterName":"constance","RequestParameterName":"constance"}]
-     *
      * @var string
      */
     public $serviceParametersMap;
 
     /**
-     * @description Constant parameter
-     *
-     * @example [{\"ParameterName\": \"CaAppId\", \"Location\": \"HEAD\", \"ServiceParameterName\": \"x-ca-appid\"}]
-     *
      * @var string
      */
     public $systemParameters;

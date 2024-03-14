@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class apiImportModelSuccess extends Model
 {
     /**
+     * @description The ID of the API group.
+     *
      * @example b2d552ed90ca435b86f7bf8d45414793
      *
      * @var string
@@ -16,6 +18,8 @@ class apiImportModelSuccess extends Model
     public $groupId;
 
     /**
+     * @description The name of the model.
+     *
      * @example NewInstance
      *
      * @var string
@@ -23,11 +27,17 @@ class apiImportModelSuccess extends Model
     public $modelName;
 
     /**
+     * @description The model operation.
+     *
+     * @example CREATE
+     *
      * @var string
      */
     public $modelOperation;
 
     /**
+     * @description The UID of the model.
+     *
      * @example ec1946e1870d90b2d7519
      *
      * @var string

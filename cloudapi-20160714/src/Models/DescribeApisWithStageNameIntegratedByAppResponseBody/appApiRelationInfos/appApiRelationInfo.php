@@ -72,7 +72,7 @@ class appApiRelationInfo extends Model
     public $groupName;
 
     /**
-     * @description The request HTTP method for the API.
+     * @description The request HTTP method of the API.
      *
      * @example POST
      *
@@ -83,8 +83,8 @@ class appApiRelationInfo extends Model
     /**
      * @description The authorizer. Valid values:
      *
-     *   **PROVIDER:**: the API owner
-     *   **CONSUMER:**: the API caller
+     *   **PROVIDER:** the API owner
+     *   **CONSUMER:** the API caller
      *
      * @example PROVIDER
      *
@@ -93,7 +93,7 @@ class appApiRelationInfo extends Model
     public $operator;
 
     /**
-     * @description The API request path.
+     * @description The request path of the API.
      *
      * @example /api/offline/cacheData
      *

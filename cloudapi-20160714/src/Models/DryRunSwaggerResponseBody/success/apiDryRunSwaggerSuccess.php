@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class apiDryRunSwaggerSuccess extends Model
 {
     /**
+     * @description Specifies whether the operation is CREATE or MODIFY.
+     *
      * @example CREATE
      *
      * @var string
@@ -16,11 +18,17 @@ class apiDryRunSwaggerSuccess extends Model
     public $apiOperation;
 
     /**
+     * @description The API definition that complies with the Swagger specification.
+     *
+     * @example "A Swagger API definition in YAML"
+     *
      * @var string
      */
     public $apiSwagger;
 
     /**
+     * @description The UID of the successfully imported API.
+     *
      * @example 8e274ec61cf6468e83b68371956831cb
      *
      * @var string
@@ -28,6 +36,8 @@ class apiDryRunSwaggerSuccess extends Model
     public $apiUid;
 
     /**
+     * @description The HTTP method configured when the API is created.
+     *
      * @example get
      *
      * @var string
@@ -35,6 +45,8 @@ class apiDryRunSwaggerSuccess extends Model
     public $httpMethod;
 
     /**
+     * @description The request path configured when the API is created.
+     *
      * @example /http/get/mapping
      *
      * @var string

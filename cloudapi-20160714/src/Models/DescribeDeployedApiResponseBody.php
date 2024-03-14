@@ -196,6 +196,8 @@ class DescribeDeployedApiResponseBody extends Model
     /**
      * @description The return description of the API.
      *
+     * @example {}
+     *
      * @var string
      */
     public $resultBodyModel;
@@ -272,8 +274,8 @@ class DescribeDeployedApiResponseBody extends Model
     /**
      * @description Specifies whether to make the API public. Valid values:
      *
-     *   **PUBLIC: Make the API public. If you set this parameter to PUBLIC, this API is displayed on the APIs page for all users after the API is published to the production environment.**
-     *   **PRIVATE: Make the API private. Private APIs are not displayed in the Alibaba Cloud Marketplace after the API group to which they belong is made available.
+     *   **PUBLIC**: Make the API public. If you set this parameter to PUBLIC, this API is displayed on the APIs page for all users after the API is published to the production environment.**
+     *   **PRIVATE**: Make the API private. Private APIs are not displayed in the Alibaba Cloud Marketplace after the API group to which they belong is made available.
      *
      * @example PUBLIC
      *

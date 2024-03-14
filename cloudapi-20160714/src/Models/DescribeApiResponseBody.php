@@ -16,6 +16,7 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiResponseBody\serviceCo
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiResponseBody\serviceParameters;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiResponseBody\serviceParametersMap;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiResponseBody\systemParameters;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiResponseBody\tagList;
 use AlibabaCloud\Tea\Model;
 
 class DescribeApiResponseBody extends Model
@@ -320,6 +321,11 @@ class DescribeApiResponseBody extends Model
     public $systemParameters;
 
     /**
+     * @var tagList
+     */
+    public $tagList;
+
+    /**
      * @description Specifies whether to make the API public. Valid values:
      *
      *   **PUBLIC**: Make the API public. If you set this parameter to PUBLIC, this API is displayed on the APIs page for all users after the API is published to the production environment.
@@ -378,6 +384,7 @@ class DescribeApiResponseBody extends Model
         'serviceParameters'      => 'ServiceParameters',
         'serviceParametersMap'   => 'ServiceParametersMap',
         'systemParameters'       => 'SystemParameters',
+        'tagList'                => 'TagList',
         'visibility'             => 'Visibility',
         'webSocketApiType'       => 'WebSocketApiType',
     ];
@@ -487,6 +494,9 @@ class DescribeApiResponseBody extends Model
         }
         if (null !== $this->systemParameters) {
             $res['SystemParameters'] = null !== $this->systemParameters ? $this->systemParameters->toMap() : null;
+        }
+        if (null !== $this->tagList) {
+            $res['TagList'] = null !== $this->tagList ? $this->tagList->toMap() : null;
         }
         if (null !== $this->visibility) {
             $res['Visibility'] = $this->visibility;
@@ -604,6 +614,9 @@ class DescribeApiResponseBody extends Model
         }
         if (isset($map['SystemParameters'])) {
             $model->systemParameters = systemParameters::fromMap($map['SystemParameters']);
+        }
+        if (isset($map['TagList'])) {
+            $model->tagList = tagList::fromMap($map['TagList']);
         }
         if (isset($map['Visibility'])) {
             $model->visibility = $map['Visibility'];

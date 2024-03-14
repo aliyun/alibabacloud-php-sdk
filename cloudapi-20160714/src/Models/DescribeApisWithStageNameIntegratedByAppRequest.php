@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeApisWithStageNameIntegratedByAppRequest extends Model
 {
     /**
+     * @description The API name.
+     *
      * @example ApiName
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeApisWithStageNameIntegratedByAppRequest extends Model
     public $apiName;
 
     /**
+     * @description The API ID.
+     *
      * @example b19240592b1b4e74961fb8438ed7550c
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeApisWithStageNameIntegratedByAppRequest extends Model
     public $apiUid;
 
     /**
+     * @description The application ID.
+     *
      * @example 2386789
      *
      * @var int
@@ -30,6 +36,8 @@ class DescribeApisWithStageNameIntegratedByAppRequest extends Model
     public $appId;
 
     /**
+     * @description The API description. The description can be up to 200 characters in length.
+     *
      * @example test
      *
      * @var string
@@ -37,6 +45,8 @@ class DescribeApisWithStageNameIntegratedByAppRequest extends Model
     public $description;
 
     /**
+     * @description The request HTTP method of the API.
+     *
      * @example POST
      *
      * @var string
@@ -44,6 +54,8 @@ class DescribeApisWithStageNameIntegratedByAppRequest extends Model
     public $method;
 
     /**
+     * @description The page number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -51,6 +63,8 @@ class DescribeApisWithStageNameIntegratedByAppRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -58,6 +72,8 @@ class DescribeApisWithStageNameIntegratedByAppRequest extends Model
     public $pageSize;
 
     /**
+     * @description The request path of the API.
+     *
      * @example /tt
      *
      * @var string

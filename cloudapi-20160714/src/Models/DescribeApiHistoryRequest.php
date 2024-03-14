@@ -45,7 +45,7 @@ class DescribeApiHistoryRequest extends Model
      *
      *   **RELEASE**
      *   **TEST**: the test environment
-     *   PRE: the pre-release environment
+     *   **PRE**: the pre-release environment
      *
      * @example RELEASE
      *

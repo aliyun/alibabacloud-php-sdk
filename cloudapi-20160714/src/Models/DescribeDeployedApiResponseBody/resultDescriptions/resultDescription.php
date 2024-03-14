@@ -18,6 +18,8 @@ class resultDescription extends Model
     public $description;
 
     /**
+     * @description Specifies whether a subnode exists.
+     *
      * @example false
      *
      * @var bool
@@ -25,11 +27,19 @@ class resultDescription extends Model
     public $hasChild;
 
     /**
+     * @description The ID of the result.
+     *
+     * @example id
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The primary key of the result.
+     *
+     * @example DEMO
+     *
      * @var string
      */
     public $key;
@@ -44,16 +54,28 @@ class resultDescription extends Model
     public $mandatory;
 
     /**
+     * @description The name of the result.
+     *
+     * @example fwqf
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the parent node.
+     *
+     * @example pid
+     *
      * @var string
      */
     public $pid;
 
     /**
+     * @description The type of the result.
+     *
+     * @example String
+     *
      * @var string
      */
     public $type;

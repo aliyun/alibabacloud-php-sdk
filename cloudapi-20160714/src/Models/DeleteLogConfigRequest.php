@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteLogConfigRequest extends Model
 {
     /**
-     * @example PROVIDER
+     * @description The log type. Valid values: **log** and **survey**.
+     *
+     * @example log
      *
      * @var string
      */

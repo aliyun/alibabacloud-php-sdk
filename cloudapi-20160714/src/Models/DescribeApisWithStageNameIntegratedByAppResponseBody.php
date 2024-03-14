@@ -17,6 +17,8 @@ class DescribeApisWithStageNameIntegratedByAppResponseBody extends Model
     public $appApiRelationInfos;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -24,6 +26,8 @@ class DescribeApisWithStageNameIntegratedByAppResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -31,6 +35,8 @@ class DescribeApisWithStageNameIntegratedByAppResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example 6C87A26A-6A18-4B8E-8099-705278381A2C
      *
      * @var string
@@ -38,6 +44,8 @@ class DescribeApisWithStageNameIntegratedByAppResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 2
      *
      * @var int

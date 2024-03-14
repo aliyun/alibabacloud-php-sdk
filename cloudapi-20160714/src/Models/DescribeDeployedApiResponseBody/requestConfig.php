@@ -21,6 +21,8 @@ class requestConfig extends Model
     /**
      * @description The body model.
      *
+     * @example https://apigateway.aliyun.com/models/3a240a127dccXXXXXXXX947b4095/9e2df550e85b4121a79XXXXXxaab
+     *
      * @var string
      */
     public $bodyModel;

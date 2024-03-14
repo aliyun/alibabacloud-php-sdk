@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDatasetListResponseBody extends Model
 {
     /**
+     * @description The returned dataset information. It is an array consisting of datasetinfo.
+     *
      * @var datasetInfoList[]
      */
     public $datasetInfoList;
 
     /**
+     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeDatasetListResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeDatasetListResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example D403C6E6-21B3-5B78-82DA-E3B6********
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeDatasetListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 20
      *
      * @var int

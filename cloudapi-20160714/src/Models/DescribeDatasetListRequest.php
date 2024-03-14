@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDatasetListRequest extends Model
 {
     /**
+     * @description The IDs of the datasets.
+     *
      * @example 4add6a61804e47858266883e********
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeDatasetListRequest extends Model
     public $datasetIds;
 
     /**
+     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -24,6 +28,8 @@ class DescribeDatasetListRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -36,6 +42,8 @@ class DescribeDatasetListRequest extends Model
     public $securityToken;
 
     /**
+     * @description The tag of objects that match the rule. You can specify multiple tags.
+     *
      * @var tag[]
      */
     public $tag;

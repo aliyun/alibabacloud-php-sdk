@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyApiGroupVpcWhitelistResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example F8B9DC8C-D6E2-5065-BD1F-0401866E7F10
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class apiImportModelFailed extends Model
 {
     /**
+     * @description The error message.
+     *
      * @example Not Found
      *
      * @var string
@@ -16,6 +18,8 @@ class apiImportModelFailed extends Model
     public $errorMsg;
 
     /**
+     * @description The ID of the API group.
+     *
      * @example 36d4bcfaec1946e1870d90b2d7519710
      *
      * @var string
@@ -23,6 +27,8 @@ class apiImportModelFailed extends Model
     public $groupId;
 
     /**
+     * @description The name of the model.
+     *
      * @example Region
      *
      * @var string

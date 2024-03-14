@@ -19,7 +19,7 @@ class datasetInfoList extends Model
     public $createdTime;
 
     /**
-     * @description The ID of the dataset.
+     * @description The dataset ID.
      *
      * @example 6304ce6b4ae6453f********
      *
@@ -28,7 +28,7 @@ class datasetInfoList extends Model
     public $datasetId;
 
     /**
-     * @description The name of the dataset.
+     * @description The dataset name.
      *
      * @example DatasetName
      *
@@ -37,10 +37,10 @@ class datasetInfoList extends Model
     public $datasetName;
 
     /**
-     * @description The type of the dataset. Valid values:
+     * @description The dataset type. Valid values:
      *
-     *   JWT_BLOCKING: a JSON Web Token (JWT) blacklist
-     *   IP_WHITELIST_CIDR: an IP address whitelist
+     *   JWT_BLOCKING : a JSON Web Token (JWT) blacklist
+     *   IP_WHITELIST_CIDR : an IP address whitelist
      *   PARAMETER_ACCESS: a list of parameters for parameter-based access control
      *
      * @example IP_WHITELIST_CIDR
@@ -59,6 +59,8 @@ class datasetInfoList extends Model
     public $modifiedTime;
 
     /**
+     * @description The tags of the dataset.
+     *
      * @var tags[]
      */
     public $tags;

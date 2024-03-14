@@ -3528,7 +3528,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   For API callers, the specified API must be a public or authorized private API that has been published to a runtime environment.****************
+     * *   For API callers, the specified API must be a public or authorized private API that has been published to a runtime environment.
      *   * *   When you call this operation as an API caller, the service information, parameter definitions, and other details of the API you specify are returned.
      *   * *   When you call this operation as an API provider, the definition of the specified API running in the specified runtime environment is returned. The returned definition takes effect in the runtime environment, and may be different from the definition of the API you modify.
      *   * *   Before you call this operation as an API provider, ensure that the API to be queried is a public one or that your application has been authorized to call the API, because authentication on API callers is required.
@@ -3573,7 +3573,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   For API callers, the specified API must be a public or authorized private API that has been published to a runtime environment.****************
+     * *   For API callers, the specified API must be a public or authorized private API that has been published to a runtime environment.
      *   * *   When you call this operation as an API caller, the service information, parameter definitions, and other details of the API you specify are returned.
      *   * *   When you call this operation as an API provider, the definition of the specified API running in the specified runtime environment is returned. The returned definition takes effect in the runtime environment, and may be different from the definition of the API you modify.
      *   * *   Before you call this operation as an API provider, ensure that the API to be queried is a public one or that your application has been authorized to call the API, because authentication on API callers is required.
@@ -8435,7 +8435,7 @@ class CloudAPI extends OpenApiClient
      *   * *   You can also specify Tag.N.Key to query the visible keys of a specified key in a region.
      *   * *   At least one of ResourceId.N, Tag.N.Key, and Tag.N.Value exists.
      *   * *   You can query tags of the same type or different types in a single operation.
-     *   * *   You can query all your user tags and visible system tags.
+     *   * *   You can query all your user types and visible system tags.
      *   *
      * @param ListTagResourcesRequest $request ListTagResourcesRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -8485,7 +8485,7 @@ class CloudAPI extends OpenApiClient
      *   * *   You can also specify Tag.N.Key to query the visible keys of a specified key in a region.
      *   * *   At least one of ResourceId.N, Tag.N.Key, and Tag.N.Value exists.
      *   * *   You can query tags of the same type or different types in a single operation.
-     *   * *   You can query all your user tags and visible system tags.
+     *   * *   You can query all your user types and visible system tags.
      *   *
      * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
@@ -8535,20 +8535,11 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->backendId)) {
             $query['BackendId'] = $request->backendId;
         }
-        if (!Utils::isUnset($request->constantParameters)) {
-            $query['ConstantParameters'] = $request->constantParameters;
-        }
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
         }
         if (!Utils::isUnset($request->disableInternet)) {
             $query['DisableInternet'] = $request->disableInternet;
-        }
-        if (!Utils::isUnset($request->errorCodeSamples)) {
-            $query['ErrorCodeSamples'] = $request->errorCodeSamples;
-        }
-        if (!Utils::isUnset($request->failResultSample)) {
-            $query['FailResultSample'] = $request->failResultSample;
         }
         if (!Utils::isUnset($request->forceNonceCheck)) {
             $query['ForceNonceCheck'] = $request->forceNonceCheck;
@@ -8562,17 +8553,8 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->requestConfig)) {
             $query['RequestConfig'] = $request->requestConfig;
         }
-        if (!Utils::isUnset($request->requestParameters)) {
-            $query['RequestParameters'] = $request->requestParameters;
-        }
         if (!Utils::isUnset($request->resultBodyModel)) {
             $query['ResultBodyModel'] = $request->resultBodyModel;
-        }
-        if (!Utils::isUnset($request->resultDescriptions)) {
-            $query['ResultDescriptions'] = $request->resultDescriptions;
-        }
-        if (!Utils::isUnset($request->resultSample)) {
-            $query['ResultSample'] = $request->resultSample;
         }
         if (!Utils::isUnset($request->resultType)) {
             $query['ResultType'] = $request->resultType;
@@ -8583,23 +8565,43 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->serviceConfig)) {
             $query['ServiceConfig'] = $request->serviceConfig;
         }
-        if (!Utils::isUnset($request->serviceParameters)) {
-            $query['ServiceParameters'] = $request->serviceParameters;
-        }
-        if (!Utils::isUnset($request->serviceParametersMap)) {
-            $query['ServiceParametersMap'] = $request->serviceParametersMap;
-        }
-        if (!Utils::isUnset($request->systemParameters)) {
-            $query['SystemParameters'] = $request->systemParameters;
-        }
         if (!Utils::isUnset($request->visibility)) {
             $query['Visibility'] = $request->visibility;
         }
         if (!Utils::isUnset($request->webSocketApiType)) {
             $query['WebSocketApiType'] = $request->webSocketApiType;
         }
+        $body = [];
+        if (!Utils::isUnset($request->constantParameters)) {
+            $body['ConstantParameters'] = $request->constantParameters;
+        }
+        if (!Utils::isUnset($request->errorCodeSamples)) {
+            $body['ErrorCodeSamples'] = $request->errorCodeSamples;
+        }
+        if (!Utils::isUnset($request->failResultSample)) {
+            $body['FailResultSample'] = $request->failResultSample;
+        }
+        if (!Utils::isUnset($request->requestParameters)) {
+            $body['RequestParameters'] = $request->requestParameters;
+        }
+        if (!Utils::isUnset($request->resultDescriptions)) {
+            $body['ResultDescriptions'] = $request->resultDescriptions;
+        }
+        if (!Utils::isUnset($request->resultSample)) {
+            $body['ResultSample'] = $request->resultSample;
+        }
+        if (!Utils::isUnset($request->serviceParameters)) {
+            $body['ServiceParameters'] = $request->serviceParameters;
+        }
+        if (!Utils::isUnset($request->serviceParametersMap)) {
+            $body['ServiceParametersMap'] = $request->serviceParametersMap;
+        }
+        if (!Utils::isUnset($request->systemParameters)) {
+            $body['SystemParameters'] = $request->systemParameters;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ModifyApi',

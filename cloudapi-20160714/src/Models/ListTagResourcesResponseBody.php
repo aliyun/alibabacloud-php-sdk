@@ -12,7 +12,7 @@ class ListTagResourcesResponseBody extends Model
     /**
      * @description The token that determines the start point of the next query.
      *
-     * A NextToken value of \*\*-1\*\* indicates that a next query does not exist.
+     * A NextToken value of -1 indicates that a next query does not exist.
      * @example 1d2db86sca4384811e0b5e8707e68181f
      *
      * @var string

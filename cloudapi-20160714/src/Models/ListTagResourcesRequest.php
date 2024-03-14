@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
-     * @description The token that determines the start point of the query.
+     * @description The token used to start the next query.
      *
      * @example 1d2db86sca4384811e0b5e8707e68181f
      *
@@ -21,7 +21,7 @@ class ListTagResourcesRequest extends Model
     /**
      * @description The ID of the resource.
      *
-     * Valid values of N: `[1, 50]`.
+     * Valid values of N: `[1,50]`.
      * @example 285bb759342649a1b70c2093a772e087
      *
      * @var string[]
@@ -31,7 +31,7 @@ class ListTagResourcesRequest extends Model
     /**
      * @description The type of the resource.
      *
-     * Tags are supported for API groups, plug-ins, and apps. Operations performed on APIs are based on the tags of API groups.
+     * Currently, tags are supported for API groups, plug-ins, and apps. Operations performed on APIs are based on the tags of API groups.
      *
      *   **apiGroup**
      *   **plugin**
@@ -45,7 +45,7 @@ class ListTagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description The tag of objects that match the rule. You can specify multiple tags.
+     * @description The tag of objects that match the lifecycle rule. You can specify multiple tags.
      *
      * @var tag[]
      */
