@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\QueryAllSwimmingLaneResponseBody;
 
 use AlibabaCloud\SDK\Mse\V20190531\Models\QueryAllSwimmingLaneResponseBody\data\entryRules;
+use AlibabaCloud\SDK\Mse\V20190531\Models\QueryAllSwimmingLaneResponseBody\data\gatewaySwimmingLaneRoute;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
@@ -13,6 +14,11 @@ class data extends Model
      * @var entryRules[]
      */
     public $entryRules;
+
+    /**
+     * @var gatewaySwimmingLaneRoute
+     */
+    public $gatewaySwimmingLaneRoute;
 
     /**
      * @var string
@@ -91,20 +97,21 @@ class data extends Model
      */
     public $gmtModified;
     protected $_name = [
-        'entryRules'             => 'EntryRules',
-        'groupId'                => 'GroupId',
-        'id'                     => 'Id',
-        'messageQueueFilterSide' => 'MessageQueueFilterSide',
-        'messageQueueGrayEnable' => 'MessageQueueGrayEnable',
-        'name'                   => 'Name',
-        'namespace'              => 'Namespace',
-        'recordCanaryDetail'     => 'RecordCanaryDetail',
-        'regionId'               => 'RegionId',
-        'tag'                    => 'Tag',
-        'userId'                 => 'UserId',
-        'enableRules'            => 'enableRules',
-        'gmtCreate'              => 'gmtCreate',
-        'gmtModified'            => 'gmtModified',
+        'entryRules'               => 'EntryRules',
+        'gatewaySwimmingLaneRoute' => 'GatewaySwimmingLaneRoute',
+        'groupId'                  => 'GroupId',
+        'id'                       => 'Id',
+        'messageQueueFilterSide'   => 'MessageQueueFilterSide',
+        'messageQueueGrayEnable'   => 'MessageQueueGrayEnable',
+        'name'                     => 'Name',
+        'namespace'                => 'Namespace',
+        'recordCanaryDetail'       => 'RecordCanaryDetail',
+        'regionId'                 => 'RegionId',
+        'tag'                      => 'Tag',
+        'userId'                   => 'UserId',
+        'enableRules'              => 'enableRules',
+        'gmtCreate'                => 'gmtCreate',
+        'gmtModified'              => 'gmtModified',
     ];
 
     public function validate()
@@ -122,6 +129,9 @@ class data extends Model
                     $res['EntryRules'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->gatewaySwimmingLaneRoute) {
+            $res['GatewaySwimmingLaneRoute'] = null !== $this->gatewaySwimmingLaneRoute ? $this->gatewaySwimmingLaneRoute->toMap() : null;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
@@ -182,6 +192,9 @@ class data extends Model
                     $model->entryRules[$n++] = null !== $item ? entryRules::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['GatewaySwimmingLaneRoute'])) {
+            $model->gatewaySwimmingLaneRoute = gatewaySwimmingLaneRoute::fromMap($map['GatewaySwimmingLaneRoute']);
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];

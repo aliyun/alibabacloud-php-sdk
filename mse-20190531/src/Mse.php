@@ -71,6 +71,7 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\CreateNacosServiceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateNacosServiceResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateOrUpdateSwimmingLaneGroupRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateOrUpdateSwimmingLaneGroupResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\CreateOrUpdateSwimmingLaneGroupShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateOrUpdateSwimmingLaneRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateOrUpdateSwimmingLaneResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateOrUpdateSwimmingLaneShrinkRequest;
@@ -2668,20 +2669,31 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param CreateOrUpdateSwimmingLaneGroupRequest $request
+     * @param CreateOrUpdateSwimmingLaneGroupRequest $tmpReq
      * @param RuntimeOptions                         $runtime
      *
      * @return CreateOrUpdateSwimmingLaneGroupResponse
      */
-    public function createOrUpdateSwimmingLaneGroupWithOptions($request, $runtime)
+    public function createOrUpdateSwimmingLaneGroupWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new CreateOrUpdateSwimmingLaneGroupShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->paths)) {
+            $request->pathsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->paths, 'Paths', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->routeIds)) {
+            $request->routeIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->routeIds, 'RouteIds', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->acceptLanguage)) {
             $query['AcceptLanguage'] = $request->acceptLanguage;
         }
         if (!Utils::isUnset($request->appIds)) {
             $query['AppIds'] = $request->appIds;
+        }
+        if (!Utils::isUnset($request->canaryModel)) {
+            $query['CanaryModel'] = $request->canaryModel;
         }
         if (!Utils::isUnset($request->dbGrayEnable)) {
             $query['DbGrayEnable'] = $request->dbGrayEnable;
@@ -2704,11 +2716,17 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->namespace_)) {
             $query['Namespace'] = $request->namespace_;
         }
+        if (!Utils::isUnset($request->pathsShrink)) {
+            $query['Paths'] = $request->pathsShrink;
+        }
         if (!Utils::isUnset($request->recordCanaryDetail)) {
             $query['RecordCanaryDetail'] = $request->recordCanaryDetail;
         }
         if (!Utils::isUnset($request->region)) {
             $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->routeIdsShrink)) {
+            $query['RouteIds'] = $request->routeIdsShrink;
         }
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;

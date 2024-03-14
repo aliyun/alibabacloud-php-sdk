@@ -2,12 +2,12 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Mse\V20190531\Models\CreateOrUpdateSwimmingLaneRequest;
+namespace AlibabaCloud\SDK\Mse\V20190531\Models\QueryAllSwimmingLaneResponseBody\data;
 
-use AlibabaCloud\SDK\Mse\V20190531\Models\CreateOrUpdateSwimmingLaneRequest\gatewaySwimmingLaneRouteJson\conditions;
+use AlibabaCloud\SDK\Mse\V20190531\Models\QueryAllSwimmingLaneResponseBody\data\gatewaySwimmingLaneRoute\conditions;
 use AlibabaCloud\Tea\Model;
 
-class gatewaySwimmingLaneRouteJson extends Model
+class gatewaySwimmingLaneRoute extends Model
 {
     /**
      * @example 0
@@ -17,15 +17,11 @@ class gatewaySwimmingLaneRouteJson extends Model
     public $canaryModel;
 
     /**
-     * @description The matching conditions.
-     *
      * @var conditions[]
      */
     public $conditions;
 
     /**
-     * @description The ID of the gateway.
-     *
      * @example 1
      *
      * @var int
@@ -33,8 +29,6 @@ class gatewaySwimmingLaneRouteJson extends Model
     public $gatewayId;
 
     /**
-     * @description The unique ID of the gateway.
-     *
      * @example gw-84efde2ee1464260bdb17a5b****
      *
      * @var string
@@ -49,8 +43,6 @@ class gatewaySwimmingLaneRouteJson extends Model
     public $percentage;
 
     /**
-     * @description The route IDs.
-     *
      * @var int[]
      */
     public $routeIdList;
@@ -101,7 +93,7 @@ class gatewaySwimmingLaneRouteJson extends Model
     /**
      * @param array $map
      *
-     * @return gatewaySwimmingLaneRouteJson
+     * @return gatewaySwimmingLaneRoute
      */
     public static function fromMap($map = [])
     {

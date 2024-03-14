@@ -16,6 +16,11 @@ class data extends Model
     public $appIds;
 
     /**
+     * @var int
+     */
+    public $canaryModel;
+
+    /**
      * @example true
      *
      * @var string
@@ -61,6 +66,11 @@ class data extends Model
     public $namespace;
 
     /**
+     * @var string
+     */
+    public $paths;
+
+    /**
      * @var bool
      */
     public $recordCanaryDetail;
@@ -80,6 +90,7 @@ class data extends Model
     public $userId;
     protected $_name = [
         'appIds'                 => 'AppIds',
+        'canaryModel'            => 'CanaryModel',
         'dbGrayEnable'           => 'DbGrayEnable',
         'entryApp'               => 'EntryApp',
         'id'                     => 'Id',
@@ -87,6 +98,7 @@ class data extends Model
         'messageQueueGrayEnable' => 'MessageQueueGrayEnable',
         'name'                   => 'Name',
         'namespace'              => 'Namespace',
+        'paths'                  => 'Paths',
         'recordCanaryDetail'     => 'RecordCanaryDetail',
         'region'                 => 'Region',
         'userId'                 => 'UserId',
@@ -101,6 +113,9 @@ class data extends Model
         $res = [];
         if (null !== $this->appIds) {
             $res['AppIds'] = $this->appIds;
+        }
+        if (null !== $this->canaryModel) {
+            $res['CanaryModel'] = $this->canaryModel;
         }
         if (null !== $this->dbGrayEnable) {
             $res['DbGrayEnable'] = $this->dbGrayEnable;
@@ -122,6 +137,9 @@ class data extends Model
         }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
+        }
+        if (null !== $this->paths) {
+            $res['Paths'] = $this->paths;
         }
         if (null !== $this->recordCanaryDetail) {
             $res['RecordCanaryDetail'] = $this->recordCanaryDetail;
@@ -147,6 +165,9 @@ class data extends Model
         if (isset($map['AppIds'])) {
             $model->appIds = $map['AppIds'];
         }
+        if (isset($map['CanaryModel'])) {
+            $model->canaryModel = $map['CanaryModel'];
+        }
         if (isset($map['DbGrayEnable'])) {
             $model->dbGrayEnable = $map['DbGrayEnable'];
         }
@@ -167,6 +188,9 @@ class data extends Model
         }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
+        }
+        if (isset($map['Paths'])) {
+            $model->paths = $map['Paths'];
         }
         if (isset($map['RecordCanaryDetail'])) {
             $model->recordCanaryDetail = $map['RecordCanaryDetail'];
