@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class CreatePolicyRequest extends Model
 {
     /**
-     * @description Specifies whether to perform a dry run for the request. Valid values:
+     * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
      *
-     *   false: The system performs the related operation based on the parameter settings in the request. This is the default value.
-     *   true: The system does not perform the related operation based on the parameter settings in the request but only verifies the parameter settings.
+     *   false (default): performs a dry run and performs the actual request.
+     *   true: performs only a dry run.
      *
      * @example false
      *

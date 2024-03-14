@@ -23,6 +23,8 @@ class key extends Model
     /**
      * @description The description of the tag key.
      *
+     * @example Business team
+     *
      * @var string
      */
     public $description;

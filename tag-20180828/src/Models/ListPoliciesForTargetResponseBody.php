@@ -10,13 +10,18 @@ use AlibabaCloud\Tea\Model;
 class ListPoliciesForTargetResponseBody extends Model
 {
     /**
-     * @description The ID of the tag policy.
+     * @description The tag policies that are attached to the object.
      *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description Indicates whether the next query is required.
+     *
+     *   If the value of this parameter is empty (`"NextToken": ""`), all results are returned, and the next query is not required.
+     *   If the value of this parameter is not empty, the next query is required, and the value is the token used to start the next query.
+     *
      * @example caeba0bbb2be03f84eb48b699f0a****
      *
      * @var string
@@ -24,10 +29,7 @@ class ListPoliciesForTargetResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description Indicates whether the next query is required.
-     *
-     *   If the value of this parameter is empty (`"NextToken": ""`), all results are returned, and the next query is not required.
-     *   If the value of this parameter is not empty, the next query is required, and the value is the token used to start the next query.
+     * @description The ID of the request.
      *
      * @example 8C962146-AB38-516C-818C-695D4E9F2EA2
      *

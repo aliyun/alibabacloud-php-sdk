@@ -52,7 +52,10 @@ class ListTagResourcesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the resources.
+     * @description The region ID.
+     *
+     *   If the resources belong to a service that is centrally deployed, set the value to the region ID of the resources by referring to [Regions supported by tag-related operations on resources of centrally deployed Alibaba Cloud services](~~2579691~~).
+     *   If the resources belong to a service that is not centrally deployed, set the value to the region ID of the resources.
      *
      * @example cn-hangzhou
      *
@@ -61,6 +64,8 @@ class ListTagResourcesRequest extends Model
     public $regionId;
 
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of a resource.
+     *
      * @example arn:acs:ecs:cn-hangzhou:123456789****:instance/i-bp15hr53jws84akg****
      *
      * @var string[]

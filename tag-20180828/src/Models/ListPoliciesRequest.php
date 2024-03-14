@@ -38,11 +38,15 @@ class ListPoliciesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of a tag policy. This parameter specifies a filter condition for the query.
+     *
      * @var string[]
      */
     public $policyIds;
 
     /**
+     * @description The name of a tag policy. This parameter specifies a filter condition for the query.
+     *
      * @var string[]
      */
     public $policyNames;

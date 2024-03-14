@@ -21,7 +21,7 @@ class ListSupportResourceTypesRequest extends Model
     /**
      * @description The token that is used to start the next query.
      *
-     * @example AAAAAYws9fJ0Ur4MGm/5OkDoW/Y3wDNwUdssyKODK+myOlBL
+     * @example AAAAAYws9fJ0Ur4MGm/5OkDoW/Y3wDNwUdssyKODK****
      *
      * @var string
      */
@@ -40,7 +40,7 @@ class ListSupportResourceTypesRequest extends Model
     /**
      * @description The service code. This parameter specifies a filter condition for the query.
      *
-     * For more information about service codes, see [Services that work with Tag](~~171455~~).
+     * This parameter is obtained from the response.
      * @example ecs
      *
      * @var string
@@ -50,7 +50,7 @@ class ListSupportResourceTypesRequest extends Model
     /**
      * @description The region ID.
      *
-     * For more information about the region ID, see [Endpoints](~~170112~~).
+     * For more information about region IDs, see [Endpoints](~~2330902~~).
      * @example cn-hangzhou
      *
      * @var string
@@ -65,7 +65,7 @@ class ListSupportResourceTypesRequest extends Model
     /**
      * @description The resource type. This parameter specifies a filter condition for the query.
      *
-     * For more information about resource types, see [Services that work with Tag](~~171455~~).
+     * This parameter is obtained from the response.
      * @example instance
      *
      * @var string
@@ -87,6 +87,7 @@ class ListSupportResourceTypesRequest extends Model
     /**
      * @description The code of the tag-related capability item. This parameter specifies a filter condition for the query.
      *
+     * For more information, see **Tag-related capability items**.
      * @example TAG_CONSOLE_SUPPORT
      *
      * @var string

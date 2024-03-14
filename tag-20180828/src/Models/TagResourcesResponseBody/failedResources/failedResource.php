@@ -19,7 +19,7 @@ class failedResource extends Model
     public $resourceARN;
 
     /**
-     * @description The information of the error.
+     * @description The information about the error.
      *
      * @var result
      */

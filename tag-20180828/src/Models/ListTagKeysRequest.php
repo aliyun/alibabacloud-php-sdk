@@ -86,7 +86,7 @@ class ListTagKeysRequest extends Model
     /**
      * @description The region ID.
      *
-     * For more information about the region ID, see [Endpoints](~~170112~~).
+     * For more information about region IDs, see [Endpoints](~~2330902~~).
      * @example cn-hangzhou
      *
      * @var string
@@ -99,9 +99,13 @@ class ListTagKeysRequest extends Model
     public $resourceOwnerAccount;
 
     /**
-     * @description The type of the resources. This parameter specifies a filter condition for the query.
+     * @description The resource type. This parameter specifies a filter condition for the query.
      *
-     * For more information about supported resource types, see [Types of resources that support Tag API operations](~~172061~~).
+     * Format: `ALIYUN::${ProductCode}::${ResourceType}`. All letters in the value of this parameter must be in uppercase.
+     *
+     *   `ProductCode`: the service code. You can set this field to a value obtained from the response of the [ListSupportResourceTypes](~~2330915~~) operation.
+     *   `ResourceType`: the resource type. You can set this field to a value obtained from the response of the [ListSupportResourceTypes](~~2330915~~) operation.
+     *
      * @example ALIYUN::ECS::INSTANCE
      *
      * @var string

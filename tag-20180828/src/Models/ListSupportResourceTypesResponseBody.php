@@ -15,7 +15,7 @@ class ListSupportResourceTypesResponseBody extends Model
      *   If the value of this parameter is empty, all results are returned, and the next query is not required.
      *   If the value of this parameter is not empty, the next query is required, and the value is the token used to start the next query.
      *
-     * @example AAAAAYws9fJ0Ur4MGm
+     * @example AAAAAYws9fJ0Ur4MGm****
      *
      * @var string
      */

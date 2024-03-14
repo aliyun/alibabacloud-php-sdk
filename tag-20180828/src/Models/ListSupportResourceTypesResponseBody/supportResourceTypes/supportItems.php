@@ -11,8 +11,8 @@ class supportItems extends Model
     /**
      * @description Indicates whether the tag-related capability item is supported. Valid values:
      *
-     *   true: The tag-related capability item is supported.
-     *   false: The tag-related capability item is not supported.
+     *   true
+     *   false
      *
      * @example true
      *
@@ -28,9 +28,17 @@ class supportItems extends Model
      * @var string
      */
     public $supportCode;
+
+    /**
+     * @description The details of the support for the tag-related capability item.
+     *
+     * @var string[][]
+     */
+    public $supportDetails;
     protected $_name = [
-        'support'     => 'Support',
-        'supportCode' => 'SupportCode',
+        'support'        => 'Support',
+        'supportCode'    => 'SupportCode',
+        'supportDetails' => 'SupportDetails',
     ];
 
     public function validate()
@@ -45,6 +53,9 @@ class supportItems extends Model
         }
         if (null !== $this->supportCode) {
             $res['SupportCode'] = $this->supportCode;
+        }
+        if (null !== $this->supportDetails) {
+            $res['SupportDetails'] = $this->supportDetails;
         }
 
         return $res;
@@ -63,6 +74,11 @@ class supportItems extends Model
         }
         if (isset($map['SupportCode'])) {
             $model->supportCode = $map['SupportCode'];
+        }
+        if (isset($map['SupportDetails'])) {
+            if (!empty($map['SupportDetails'])) {
+                $model->supportDetails = $map['SupportDetails'];
+            }
         }
 
         return $model;

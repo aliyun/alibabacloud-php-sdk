@@ -42,8 +42,8 @@ class data extends Model
     /**
      * @description Indicates whether automatic remediation is enabled. Valid values:
      *
-     *   true: enabled
-     *   false: disabled
+     *   true
+     *   false
      *
      * @example false
      *
@@ -59,6 +59,15 @@ class data extends Model
      * @var string
      */
     public $tagKey;
+
+    /**
+     * @description The tag value for automatic remediation.
+     *
+     * @example Project
+     *
+     * @var string
+     */
+    public $tagValue;
 
     /**
      * @description The ID of the object.
@@ -88,6 +97,7 @@ class data extends Model
         'policyType'   => 'PolicyType',
         'remediation'  => 'Remediation',
         'tagKey'       => 'TagKey',
+        'tagValue'     => 'TagValue',
         'targetId'     => 'TargetId',
         'targetType'   => 'TargetType',
     ];
@@ -113,6 +123,9 @@ class data extends Model
         }
         if (null !== $this->tagKey) {
             $res['TagKey'] = $this->tagKey;
+        }
+        if (null !== $this->tagValue) {
+            $res['TagValue'] = $this->tagValue;
         }
         if (null !== $this->targetId) {
             $res['TargetId'] = $this->targetId;
@@ -146,6 +159,9 @@ class data extends Model
         }
         if (isset($map['TagKey'])) {
             $model->tagKey = $map['TagKey'];
+        }
+        if (isset($map['TagValue'])) {
+            $model->tagValue = $map['TagValue'];
         }
         if (isset($map['TargetId'])) {
             $model->targetId = $map['TargetId'];

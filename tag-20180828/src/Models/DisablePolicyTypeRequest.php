@@ -11,6 +11,11 @@ class DisablePolicyTypeRequest extends Model
     /**
      * @var string
      */
+    public $openType;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -40,6 +45,7 @@ class DisablePolicyTypeRequest extends Model
      */
     public $userType;
     protected $_name = [
+        'openType'             => 'OpenType',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
@@ -55,6 +61,9 @@ class DisablePolicyTypeRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->openType) {
+            $res['OpenType'] = $this->openType;
+        }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
@@ -85,6 +94,9 @@ class DisablePolicyTypeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OpenType'])) {
+            $model->openType = $map['OpenType'];
+        }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }

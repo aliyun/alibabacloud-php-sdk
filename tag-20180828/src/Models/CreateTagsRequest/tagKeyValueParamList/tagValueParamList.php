@@ -9,13 +9,19 @@ use AlibabaCloud\Tea\Model;
 class tagValueParamList extends Model
 {
     /**
+     * @description The description of the value for tag N.
+     *
+     * Valid values of N: 1 to 10.
+     * @example Test environment
+     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The ID of the request.
+     * @description The value of tag N.
      *
+     * Valid values of N: 1 to 10.
      * @example test
      *
      * @var string

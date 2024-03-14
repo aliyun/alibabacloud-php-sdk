@@ -9,12 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The mode of the Tag Policy feature. Valid values:
+     * @description The document of the tag policy.
      *
-     *   USER: single-account mode
-     *   RD: multi-account mode
-     *
-     * For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](~~417434~~).
      * @example {\"tags\":{\"CostCenter\":{\"tag_value\":{\"@@assign\":[\"Beijing\",\"Shanghai\"]},\"tag_key\":{\"@@assign\":\"CostCenter\"}}}}
      *
      * @var string
@@ -22,7 +18,7 @@ class data extends Model
     public $policyContent;
 
     /**
-     * @description The document of the tag policy.
+     * @description The description of the tag policy.
      *
      * @example This is a tag policy example.
      *
@@ -31,7 +27,7 @@ class data extends Model
     public $policyDesc;
 
     /**
-     * @description The name of the tag policy.
+     * @description The ID of the tag policy.
      *
      * @example p-de62a0bf400e4b69****
      *
@@ -40,7 +36,7 @@ class data extends Model
     public $policyId;
 
     /**
-     * @description The description of the tag policy.
+     * @description The name of the tag policy.
      *
      * @example example
      *
@@ -49,8 +45,12 @@ class data extends Model
     public $policyName;
 
     /**
-     * @description The ID of the request.
+     * @description The mode of the Tag Policy feature. Valid values:
      *
+     *   USER: single-account mode
+     *   RD: multi-account mode
+     *
+     * For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](~~417434~~).
      * @example USER
      *
      * @var string

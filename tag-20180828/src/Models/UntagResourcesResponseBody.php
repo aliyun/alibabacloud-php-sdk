@@ -10,11 +10,13 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesResponseBody extends Model
 {
     /**
-     * @description The information of resources from which tags fail to be removed.
+     * @description The information about the resources from which tags fail to be removed.
      *
      * >
+     *
      *   If tags are removed from all resources, the value of FailedResources is empty.
-     *   If tags fail to be removed from some or all resources, the value of FailedResources contains the detailed information of the resources.
+     *
+     *   If tags fail to be removed from some or all resources, the value of FailedResources contains the detailed information about the resources.
      *
      * @var failedResources
      */

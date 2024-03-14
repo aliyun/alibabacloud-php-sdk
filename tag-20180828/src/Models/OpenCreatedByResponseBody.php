@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class OpenCreatedByResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 74F03511-FDFA-54AF-96A4-71575B41E74D
      *
      * @var string

@@ -19,7 +19,10 @@ class TagResourcesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the resources.
+     * @description The region ID.
+     *
+     *   If the resources belong to a service that is centrally deployed, set the value to `cn-hangzhou` or to the region ID of the resources by referring to [Regions supported by tag-related operations on resources of centrally deployed Alibaba Cloud services](~~2579691~~).
+     *   If the resources belong to a service that is not centrally deployed, set the value to the region ID of the resources.
      *
      * @example cn-hangzhou
      *
@@ -28,6 +31,8 @@ class TagResourcesRequest extends Model
     public $regionId;
 
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of a resource.
+     *
      * @example arn:acs:vpc:cn-hangzhou:123456789****:vpc/vpc-bp19dd90tkt6tz7wu****
      *
      * @var string[]

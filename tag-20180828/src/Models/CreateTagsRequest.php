@@ -20,9 +20,9 @@ class CreateTagsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The description of the tag value.
+     * @description The region ID.
      *
-     * Valid values of N: 1 to 10.
+     * > Only `cn-hangzhou` is supported.
      * @example cn-hangzhou
      *
      * @var string
@@ -35,6 +35,8 @@ class CreateTagsRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @description The information about the tags.
+     *
      * @var tagKeyValueParamList[]
      */
     public $tagKeyValueParamList;

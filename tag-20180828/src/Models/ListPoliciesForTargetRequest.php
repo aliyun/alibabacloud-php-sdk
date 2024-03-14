@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListPoliciesForTargetRequest extends Model
 {
     /**
-     * @description The token that is used to start the next query.
+     * @description The number of entries to return on each page.
      *
+     * Default value: 50. Maximum value: 1000.
      * @example 50
      *
      * @var int
@@ -18,7 +19,7 @@ class ListPoliciesForTargetRequest extends Model
     public $maxResult;
 
     /**
-     * @description The ID of the object. This parameter specifies a filter condition for the query.
+     * @description The token that is used to start the next query.
      *
      * @example caeba0bbb2be03f84eb48b699f0a****
      *
@@ -37,9 +38,8 @@ class ListPoliciesForTargetRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The region ID. Set the value to cn-shanghai.
      *
-     * Default value: 50. Maximum value: 1000.
      * @example cn-shanghai
      *
      * @var string
@@ -52,6 +52,15 @@ class ListPoliciesForTargetRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @description The ID of the object. This parameter specifies a filter condition for the query.
+     *
+     * @example 154950938137****
+     *
+     * @var string
+     */
+    public $targetId;
+
+    /**
      * @description The type of the object. This parameter specifies a filter condition for the query. Valid values:
      *
      *   USER: the current logon account. This value is available if you use the Tag Policy feature in single-account mode.
@@ -60,15 +69,6 @@ class ListPoliciesForTargetRequest extends Model
      *   ACCOUNT: a member in a resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
      *
      * >  The value of this parameter is not case-sensitive.
-     * @example 154950938137****
-     *
-     * @var string
-     */
-    public $targetId;
-
-    /**
-     * @description The tag policies that are attached to the object.
-     *
      * @example ACCOUNT
      *
      * @var string

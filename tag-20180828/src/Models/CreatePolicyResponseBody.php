@@ -18,7 +18,16 @@ class CreatePolicyResponseBody extends Model
     public $policyId;
 
     /**
-     * @description The ID of the request.
+     * @description The name of the tag policy.
+     *
+     * @example test
+     *
+     * @var string
+     */
+    public $policyName;
+
+    /**
+     * @description The request ID.
      *
      * @example FDBE270D-C491-5EEC-A5CD-98245422D3F7
      *
@@ -26,8 +35,9 @@ class CreatePolicyResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'policyId'  => 'PolicyId',
-        'requestId' => 'RequestId',
+        'policyId'   => 'PolicyId',
+        'policyName' => 'PolicyName',
+        'requestId'  => 'RequestId',
     ];
 
     public function validate()
@@ -39,6 +49,9 @@ class CreatePolicyResponseBody extends Model
         $res = [];
         if (null !== $this->policyId) {
             $res['PolicyId'] = $this->policyId;
+        }
+        if (null !== $this->policyName) {
+            $res['PolicyName'] = $this->policyName;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -57,6 +70,9 @@ class CreatePolicyResponseBody extends Model
         $model = new self();
         if (isset($map['PolicyId'])) {
             $model->policyId = $map['PolicyId'];
+        }
+        if (isset($map['PolicyName'])) {
+            $model->policyName = $map['PolicyName'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

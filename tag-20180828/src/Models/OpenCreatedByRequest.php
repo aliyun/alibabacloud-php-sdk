@@ -19,6 +19,8 @@ class OpenCreatedByRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID. Set the value to cn-shanghai.
+     *
      * @example cn-shanghai
      *
      * @var string

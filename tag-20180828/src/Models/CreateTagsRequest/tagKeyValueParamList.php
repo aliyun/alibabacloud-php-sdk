@@ -10,12 +10,17 @@ use AlibabaCloud\Tea\Model;
 class tagKeyValueParamList extends Model
 {
     /**
+     * @description The description of the key for tag N.
+     *
+     * Valid values of N: 1 to 10.
+     * @example Business environment
+     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The description of the tag key.
+     * @description The key of tag N.
      *
      * Valid values of N: 1 to 10.
      * @example Environment
@@ -25,6 +30,8 @@ class tagKeyValueParamList extends Model
     public $key;
 
     /**
+     * @description The information about the tag value.
+     *
      * @var tagValueParamList[]
      */
     public $tagValueParamList;
