@@ -6,33 +6,21 @@ namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ReleasePublicNetworkAddressRequest extends Model
+class ModifyActiveOperationTasksRequest extends Model
 {
     /**
+     * @example 11111,22222
+     *
      * @var string
      */
-    public $connectionType;
+    public $ids;
 
     /**
-     * @description The instance ID.
+     * @example 0
      *
-     * >  If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
-     * @example dds-bp2235****
-     *
-     * @var string
+     * @var int
      */
-    public $DBInstanceId;
-
-    /**
-     * @description The ID of the mongos, shard, or Configserver node in the sharded cluster instance.
-     *
-     * > *   This parameter is valid only if you set the **DBInstanceId** parameter to the ID of a sharded cluster instance.
-     * > *   You can call the [DescribeDBInstanceAttribute](~~62010~~) operation to view the ID of the mongos, shard, or Configserver node.
-     * @example s-bp2235****
-     *
-     * @var string
-     */
-    public $nodeId;
+    public $immediateStart;
 
     /**
      * @var string
@@ -53,14 +41,21 @@ class ReleasePublicNetworkAddressRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @example 2019-10-17T18:50:00Z
+     *
+     * @var string
+     */
+    public $switchTime;
     protected $_name = [
-        'connectionType'       => 'ConnectionType',
-        'DBInstanceId'         => 'DBInstanceId',
-        'nodeId'               => 'NodeId',
+        'ids'                  => 'Ids',
+        'immediateStart'       => 'ImmediateStart',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'switchTime'           => 'SwitchTime',
     ];
 
     public function validate()
@@ -70,14 +65,11 @@ class ReleasePublicNetworkAddressRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->connectionType) {
-            $res['ConnectionType'] = $this->connectionType;
+        if (null !== $this->ids) {
+            $res['Ids'] = $this->ids;
         }
-        if (null !== $this->DBInstanceId) {
-            $res['DBInstanceId'] = $this->DBInstanceId;
-        }
-        if (null !== $this->nodeId) {
-            $res['NodeId'] = $this->nodeId;
+        if (null !== $this->immediateStart) {
+            $res['ImmediateStart'] = $this->immediateStart;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -91,6 +83,9 @@ class ReleasePublicNetworkAddressRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+        if (null !== $this->switchTime) {
+            $res['SwitchTime'] = $this->switchTime;
+        }
 
         return $res;
     }
@@ -98,19 +93,16 @@ class ReleasePublicNetworkAddressRequest extends Model
     /**
      * @param array $map
      *
-     * @return ReleasePublicNetworkAddressRequest
+     * @return ModifyActiveOperationTasksRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ConnectionType'])) {
-            $model->connectionType = $map['ConnectionType'];
+        if (isset($map['Ids'])) {
+            $model->ids = $map['Ids'];
         }
-        if (isset($map['DBInstanceId'])) {
-            $model->DBInstanceId = $map['DBInstanceId'];
-        }
-        if (isset($map['NodeId'])) {
-            $model->nodeId = $map['NodeId'];
+        if (isset($map['ImmediateStart'])) {
+            $model->immediateStart = $map['ImmediateStart'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
@@ -123,6 +115,9 @@ class ReleasePublicNetworkAddressRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['SwitchTime'])) {
+            $model->switchTime = $map['SwitchTime'];
         }
 
         return $model;

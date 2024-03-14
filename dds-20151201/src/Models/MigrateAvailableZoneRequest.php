@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class MigrateAvailableZoneRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $category;
+
+    /**
      * @description The ID of the instance.
      *
      * > If the instance is deployed in a VPC, you must specify the **Vswitch** parameter.
@@ -76,6 +81,7 @@ class MigrateAvailableZoneRequest extends Model
      */
     public $zoneId;
     protected $_name = [
+        'category'             => 'Category',
         'DBInstanceId'         => 'DBInstanceId',
         'effectiveTime'        => 'EffectiveTime',
         'ownerAccount'         => 'OwnerAccount',
@@ -93,6 +99,9 @@ class MigrateAvailableZoneRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
+        }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
@@ -129,6 +138,9 @@ class MigrateAvailableZoneRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
+        }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }

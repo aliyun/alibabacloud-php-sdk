@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ReleaseNodePrivateNetworkAddressRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $connectionType;
+
+    /**
      * @description The ID of the sharded cluster instance.
      *
      * @example dds-bp1a7009eb24****
@@ -60,6 +65,7 @@ class ReleaseNodePrivateNetworkAddressRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
+        'connectionType'       => 'ConnectionType',
         'DBInstanceId'         => 'DBInstanceId',
         'networkType'          => 'NetworkType',
         'nodeId'               => 'NodeId',
@@ -76,6 +82,9 @@ class ReleaseNodePrivateNetworkAddressRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->connectionType) {
+            $res['ConnectionType'] = $this->connectionType;
+        }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
@@ -109,6 +118,9 @@ class ReleaseNodePrivateNetworkAddressRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ConnectionType'])) {
+            $model->connectionType = $map['ConnectionType'];
+        }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }

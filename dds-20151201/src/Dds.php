@@ -148,6 +148,8 @@ use AlibabaCloud\SDK\Dds\V20151201\Models\MigrateToOtherZoneRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\MigrateToOtherZoneResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyAccountDescriptionRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyAccountDescriptionResponse;
+use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyActiveOperationTasksRequest;
+use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyActiveOperationTasksResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyAuditLogFilterRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyAuditLogFilterResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyAuditPolicyRequest;
@@ -5169,6 +5171,9 @@ class Dds extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->category)) {
+            $query['Category'] = $request->category;
+        }
         if (!Utils::isUnset($request->DBInstanceId)) {
             $query['DBInstanceId'] = $request->DBInstanceId;
         }
@@ -5358,6 +5363,67 @@ class Dds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyAccountDescriptionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyActiveOperationTasksRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModifyActiveOperationTasksResponse
+     */
+    public function modifyActiveOperationTasksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ids)) {
+            $query['Ids'] = $request->ids;
+        }
+        if (!Utils::isUnset($request->immediateStart)) {
+            $query['ImmediateStart'] = $request->immediateStart;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->switchTime)) {
+            $query['SwitchTime'] = $request->switchTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyActiveOperationTasks',
+            'version'     => '2015-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyActiveOperationTasksRequest $request
+     *
+     * @return ModifyActiveOperationTasksResponse
+     */
+    public function modifyActiveOperationTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyActiveOperationTasksWithOptions($request, $runtime);
     }
 
     /**
@@ -7092,6 +7158,9 @@ class Dds extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->connectionType)) {
+            $query['ConnectionType'] = $request->connectionType;
+        }
         if (!Utils::isUnset($request->DBInstanceId)) {
             $query['DBInstanceId'] = $request->DBInstanceId;
         }
@@ -7156,6 +7225,9 @@ class Dds extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->connectionType)) {
+            $query['ConnectionType'] = $request->connectionType;
+        }
         if (!Utils::isUnset($request->DBInstanceId)) {
             $query['DBInstanceId'] = $request->DBInstanceId;
         }
