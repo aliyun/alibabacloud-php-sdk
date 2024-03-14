@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class paramList extends Model
 {
     /**
-     * @description The format that is used by the event target parameter. For more information, see [Limits.](https://www.alibabacloud.com/help/en/eventbridge/latest/limits)
+     * @description The method that is used to deliver events to the event target. For more information, see [Limits](~~163289~~).
      *
      * @example TEMPLATE
      *
@@ -18,7 +18,7 @@ class paramList extends Model
     public $form;
 
     /**
-     * @description The resource parameter of the event target. For more information, see [Limits.](https://www.alibabacloud.com/help/en/eventbridge/latest/limits)
+     * @description The resource key of the event target. For more information, see [Limits](~~163289~~).
      *
      * @example body
      *
@@ -27,7 +27,7 @@ class paramList extends Model
     public $resourceKey;
 
     /**
-     * @description The template that is used by the event target parameter.
+     * @description The template based on which events are delivered to the event target.
      *
      * @example The value of ${key} is ${value}!
      *
@@ -36,7 +36,7 @@ class paramList extends Model
     public $template;
 
     /**
-     * @description The value of the event target parameter.
+     * @description The event target.
      *
      * @example {\"key\"=\"value\"}
      *

@@ -13,7 +13,7 @@ class PauseEventStreamingResponseBody extends Model
      *
      * @example Success
      *
-     * @var bool
+     * @var string
      */
     public $code;
 

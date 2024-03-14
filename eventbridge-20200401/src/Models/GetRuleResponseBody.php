@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetRuleResponseBody extends Model
 {
     /**
-     * @description The returned response code. The value Success indicates that the request is successful.
+     * @description The response code. The value Success indicates that the request is successful. Other values indicate that the request failed. For a list of error codes, see Error codes.
      *
      * @example Success
      *
@@ -44,7 +44,7 @@ class GetRuleResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the operation is successful. Valid values: true and false.
+     * @description Indicates whether the operation is successful. If the operation is successful, the value true is returned.
      *
      * @example true
      *

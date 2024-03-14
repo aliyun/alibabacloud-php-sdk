@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class deadLetterQueue extends Model
 {
     /**
-     * @description The Alibaba Cloud Resource Name (ARN) of the event source.
+     * @description The Alibaba Cloud Resource Name (ARN) of the dead-letter queue.
      *
      * @example acs:eventbridge:cn-hangzhou:164901546557****:eventbus/my-event-bus/eventsource/myRocketMQ.source
      *
