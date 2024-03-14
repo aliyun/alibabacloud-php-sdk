@@ -47,6 +47,11 @@ class IncreaseNodesRequest extends Model
     public $increaseNodeCount;
 
     /**
+     * @var int
+     */
+    public $minIncreaseNodeCount;
+
+    /**
      * @description The ID of the node group. The target node group to which you want to scale out the cluster.
      *
      * @example ng-869471354ecd****
@@ -84,14 +89,15 @@ class IncreaseNodesRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'applicationConfigs'  => 'ApplicationConfigs',
-        'autoPayOrder'        => 'AutoPayOrder',
-        'clusterId'           => 'ClusterId',
-        'increaseNodeCount'   => 'IncreaseNodeCount',
-        'nodeGroupId'         => 'NodeGroupId',
-        'paymentDuration'     => 'PaymentDuration',
-        'paymentDurationUnit' => 'PaymentDurationUnit',
-        'regionId'            => 'RegionId',
+        'applicationConfigs'   => 'ApplicationConfigs',
+        'autoPayOrder'         => 'AutoPayOrder',
+        'clusterId'            => 'ClusterId',
+        'increaseNodeCount'    => 'IncreaseNodeCount',
+        'minIncreaseNodeCount' => 'MinIncreaseNodeCount',
+        'nodeGroupId'          => 'NodeGroupId',
+        'paymentDuration'      => 'PaymentDuration',
+        'paymentDurationUnit'  => 'PaymentDurationUnit',
+        'regionId'             => 'RegionId',
     ];
 
     public function validate()
@@ -118,6 +124,9 @@ class IncreaseNodesRequest extends Model
         }
         if (null !== $this->increaseNodeCount) {
             $res['IncreaseNodeCount'] = $this->increaseNodeCount;
+        }
+        if (null !== $this->minIncreaseNodeCount) {
+            $res['MinIncreaseNodeCount'] = $this->minIncreaseNodeCount;
         }
         if (null !== $this->nodeGroupId) {
             $res['NodeGroupId'] = $this->nodeGroupId;
@@ -160,6 +169,9 @@ class IncreaseNodesRequest extends Model
         }
         if (isset($map['IncreaseNodeCount'])) {
             $model->increaseNodeCount = $map['IncreaseNodeCount'];
+        }
+        if (isset($map['MinIncreaseNodeCount'])) {
+            $model->minIncreaseNodeCount = $map['MinIncreaseNodeCount'];
         }
         if (isset($map['NodeGroupId'])) {
             $model->nodeGroupId = $map['NodeGroupId'];
