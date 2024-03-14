@@ -53,6 +53,11 @@ class GetTrainingJobResponseBody extends Model
     public $computeResource;
 
     /**
+     * @var int
+     */
+    public $duration;
+
+    /**
      * @var experimentConfig
      */
     public $experimentConfig;
@@ -193,6 +198,7 @@ class GetTrainingJobResponseBody extends Model
         'algorithmSpec'          => 'AlgorithmSpec',
         'algorithmVersion'       => 'AlgorithmVersion',
         'computeResource'        => 'ComputeResource',
+        'duration'               => 'Duration',
         'experimentConfig'       => 'ExperimentConfig',
         'gmtCreateTime'          => 'GmtCreateTime',
         'gmtModifiedTime'        => 'GmtModifiedTime',
@@ -246,6 +252,9 @@ class GetTrainingJobResponseBody extends Model
         }
         if (null !== $this->computeResource) {
             $res['ComputeResource'] = null !== $this->computeResource ? $this->computeResource->toMap() : null;
+        }
+        if (null !== $this->duration) {
+            $res['Duration'] = $this->duration;
         }
         if (null !== $this->experimentConfig) {
             $res['ExperimentConfig'] = null !== $this->experimentConfig ? $this->experimentConfig->toMap() : null;
@@ -399,6 +408,9 @@ class GetTrainingJobResponseBody extends Model
         }
         if (isset($map['ComputeResource'])) {
             $model->computeResource = computeResource::fromMap($map['ComputeResource']);
+        }
+        if (isset($map['Duration'])) {
+            $model->duration = $map['Duration'];
         }
         if (isset($map['ExperimentConfig'])) {
             $model->experimentConfig = experimentConfig::fromMap($map['ExperimentConfig']);
