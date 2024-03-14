@@ -233,6 +233,11 @@ class DescribeEipAddressesRequest extends Model
     public $segmentInstanceId;
 
     /**
+     * @var bool
+     */
+    public $serviceManaged;
+
+    /**
      * @description The state of the EIP. Valid values:
      *
      *   **Associating**
@@ -276,6 +281,7 @@ class DescribeEipAddressesRequest extends Model
         'resourceOwnerId'           => 'ResourceOwnerId',
         'securityProtectionEnabled' => 'SecurityProtectionEnabled',
         'segmentInstanceId'         => 'SegmentInstanceId',
+        'serviceManaged'            => 'ServiceManaged',
         'status'                    => 'Status',
         'tag'                       => 'Tag',
     ];
@@ -358,6 +364,9 @@ class DescribeEipAddressesRequest extends Model
         }
         if (null !== $this->segmentInstanceId) {
             $res['SegmentInstanceId'] = $this->segmentInstanceId;
+        }
+        if (null !== $this->serviceManaged) {
+            $res['ServiceManaged'] = $this->serviceManaged;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -454,6 +463,9 @@ class DescribeEipAddressesRequest extends Model
         }
         if (isset($map['SegmentInstanceId'])) {
             $model->segmentInstanceId = $map['SegmentInstanceId'];
+        }
+        if (isset($map['ServiceManaged'])) {
+            $model->serviceManaged = $map['ServiceManaged'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

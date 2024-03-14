@@ -134,6 +134,11 @@ class ipv6Address extends Model
     public $resourceGroupId;
 
     /**
+     * @var int
+     */
+    public $serviceManaged;
+
+    /**
      * @description The status of the IPv6 address.
      *
      *   **Pending**
@@ -183,6 +188,7 @@ class ipv6Address extends Model
         'networkType'            => 'NetworkType',
         'realBandwidth'          => 'RealBandwidth',
         'resourceGroupId'        => 'ResourceGroupId',
+        'serviceManaged'         => 'ServiceManaged',
         'status'                 => 'Status',
         'tags'                   => 'Tags',
         'vSwitchId'              => 'VSwitchId',
@@ -234,6 +240,9 @@ class ipv6Address extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->serviceManaged) {
+            $res['ServiceManaged'] = $this->serviceManaged;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -297,6 +306,9 @@ class ipv6Address extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['ServiceManaged'])) {
+            $model->serviceManaged = $map['ServiceManaged'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

@@ -19,8 +19,8 @@ class traffic95Summary extends Model
     public $bandwidth;
 
     /**
-     * @description The daily peak bandwidth. Unit: Mbit/s. For more information, see [Daily peak bandwidth](~~89729~~).
-     *
+     * @description The daily peak bandwidth. Unit: Mbit/s.
+     * <props="china"> For more information, see [Daily peak bandwidth](~~89729~~).</props>
      * @example 1064.244837773641
      *
      * @var string

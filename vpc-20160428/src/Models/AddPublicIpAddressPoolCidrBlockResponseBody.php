@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class AddPublicIpAddressPoolCidrBlockResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $cidrBlock;
+
+    /**
      * @description The request ID.
      *
      * @example 4EC47282-1B74-4534-BD0E-403F3EE64CAF
@@ -17,6 +22,7 @@ class AddPublicIpAddressPoolCidrBlockResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
+        'cidrBlock' => 'CidrBlock',
         'requestId' => 'RequestId',
     ];
 
@@ -27,6 +33,9 @@ class AddPublicIpAddressPoolCidrBlockResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->cidrBlock) {
+            $res['CidrBlock'] = $this->cidrBlock;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -42,6 +51,9 @@ class AddPublicIpAddressPoolCidrBlockResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CidrBlock'])) {
+            $model->cidrBlock = $map['CidrBlock'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

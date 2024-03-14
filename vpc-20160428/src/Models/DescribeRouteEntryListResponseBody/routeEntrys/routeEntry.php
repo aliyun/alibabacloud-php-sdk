@@ -28,7 +28,7 @@ class routeEntry extends Model
     public $destinationCidrBlock;
 
     /**
-     * @description The time when the route was modified. Specify the time in the `YYYY-MM-DDThh:mm:ssZ` format. The time must be in UTC.
+     * @description The time when the route was modified. The time follows the ISO 8601 standard in the `YYYY-MM-DDThh:mm:ssZ` format. The time is displayed in UTC.
      *
      * @example 2022-05-09T03:00:07Z
      *
@@ -37,7 +37,7 @@ class routeEntry extends Model
     public $gmtModified;
 
     /**
-     * @description The IP version. Valid values:
+     * @description The IP version. Valid values: Valid values:
      *
      *   **ipv4**
      *   **ipv6**
@@ -77,7 +77,7 @@ class routeEntry extends Model
     public $routeEntryId;
 
     /**
-     * @description The route name.
+     * @description The name of the route.
      *
      * @example aaa
      *
@@ -109,7 +109,7 @@ class routeEntry extends Model
      *
      *   **Pending**
      *   **Available**
-     *   **Modifying**: The Internet Shared Bandwidth instance is being modified.
+     *   **Modifying**
      *
      * @example Available
      *
@@ -120,10 +120,11 @@ class routeEntry extends Model
     /**
      * @description The route type. Valid values:
      *
-     *   **Custom**
-     *   **System**
-     *   **BGP**
-     *   **CEN**
+     *   **Custom**: custom routes.
+     *   **System**: system routes.
+     *   **BGP**: BGP routes.
+     *   **CEN**: CEN routes.
+     *   **ECR**: ECR routes.
      *
      * @example Custom
      *

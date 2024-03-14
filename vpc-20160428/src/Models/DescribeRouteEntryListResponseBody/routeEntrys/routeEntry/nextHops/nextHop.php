@@ -49,16 +49,20 @@ class nextHop extends Model
     public $nextHopRelatedInfo;
 
     /**
-     * @description The type of the next hop. Valid values:
+     * @description The next hop type. Valid values:
      *
-     *   **Instance**: an Elastic Compute Service (ECS) instance
-     *   **HaVip**: a high-availability virtual IP address (HAVIP)
-     *   **VpnGateway**: a VPN gateway
-     *   **NatGateway**: a NAT gateway
-     *   **NetworkInterface**: a secondary elastic network interface (ENI)
-     *   **RouterInterface**: a router interface
-     *   **IPv6Gateway**: an IPv6 gateway
-     *   **Attachment**: a transit router
+     *   **Instance**: an ECS instance.
+     *   **HaVip**: an HAVIP.
+     *   **VpnGateway**: a VPN gateway.
+     *   **NatGateway**: a NAT gateway.
+     *   **NetworkInterface**: a secondary ENI.
+     *   **RouterInterface**: a router interface.
+     *   **IPv6Gateway**: an IPv6 gateway.
+     *   **Attachment**: a transit router.
+     *   **Ipv4Gateway**: an IPv4 gateway.
+     *   **GatewayEndpoint**: a gateway endpoint.
+     *   **CenBasic**: CEN does not support transit routers.
+     *   **Ecr**: ECR.
      *
      * @example Instance
      *

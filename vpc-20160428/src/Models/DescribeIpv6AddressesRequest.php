@@ -147,6 +147,11 @@ class DescribeIpv6AddressesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @var bool
+     */
+    public $serviceManaged;
+
+    /**
      * @description The tag list.
      *
      * @var tag[]
@@ -187,6 +192,7 @@ class DescribeIpv6AddressesRequest extends Model
         'resourceGroupId'         => 'ResourceGroupId',
         'resourceOwnerAccount'    => 'ResourceOwnerAccount',
         'resourceOwnerId'         => 'ResourceOwnerId',
+        'serviceManaged'          => 'ServiceManaged',
         'tag'                     => 'Tag',
         'vSwitchId'               => 'VSwitchId',
         'vpcId'                   => 'VpcId',
@@ -246,6 +252,9 @@ class DescribeIpv6AddressesRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->serviceManaged) {
+            $res['ServiceManaged'] = $this->serviceManaged;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -321,6 +330,9 @@ class DescribeIpv6AddressesRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['ServiceManaged'])) {
+            $model->serviceManaged = $map['ServiceManaged'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

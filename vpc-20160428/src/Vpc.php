@@ -13791,6 +13791,9 @@ class Vpc extends OpenApiClient
         if (!Utils::isUnset($request->segmentInstanceId)) {
             $query['SegmentInstanceId'] = $request->segmentInstanceId;
         }
+        if (!Utils::isUnset($request->serviceManaged)) {
+            $query['ServiceManaged'] = $request->serviceManaged;
+        }
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;
         }
@@ -15241,6 +15244,9 @@ class Vpc extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->serviceManaged)) {
+            $query['ServiceManaged'] = $request->serviceManaged;
         }
         if (!Utils::isUnset($request->tag)) {
             $query['Tag'] = $request->tag;
