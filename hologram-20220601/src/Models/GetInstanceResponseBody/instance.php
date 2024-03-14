@@ -125,6 +125,11 @@ class instance extends Model
     public $enableHiveAccess;
 
     /**
+     * @var bool
+     */
+    public $enableServerless;
+
+    /**
      * @description The list of endpoints.
      *
      * @var endpoints[]
@@ -352,6 +357,7 @@ class instance extends Model
         'creationTime'       => 'CreationTime',
         'disk'               => 'Disk',
         'enableHiveAccess'   => 'EnableHiveAccess',
+        'enableServerless'   => 'EnableServerless',
         'endpoints'          => 'Endpoints',
         'expirationTime'     => 'ExpirationTime',
         'gatewayCount'       => 'GatewayCount',
@@ -404,6 +410,9 @@ class instance extends Model
         }
         if (null !== $this->enableHiveAccess) {
             $res['EnableHiveAccess'] = $this->enableHiveAccess;
+        }
+        if (null !== $this->enableServerless) {
+            $res['EnableServerless'] = $this->enableServerless;
         }
         if (null !== $this->endpoints) {
             $res['Endpoints'] = [];
@@ -512,6 +521,9 @@ class instance extends Model
         }
         if (isset($map['EnableHiveAccess'])) {
             $model->enableHiveAccess = $map['EnableHiveAccess'];
+        }
+        if (isset($map['EnableServerless'])) {
+            $model->enableServerless = $map['EnableServerless'];
         }
         if (isset($map['Endpoints'])) {
             if (!empty($map['Endpoints'])) {
