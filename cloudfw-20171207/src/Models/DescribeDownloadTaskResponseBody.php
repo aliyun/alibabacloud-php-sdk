@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDownloadTaskResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 3F2BED13-F3D0-5984-80D6-D5F298CFEA88
      *
      * @var string
@@ -17,11 +19,15 @@ class DescribeDownloadTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The tasks.
+     *
      * @var tasks[]
      */
     public $tasks;
 
     /**
+     * @description The total number of tasks.
+     *
      * @example 132
      *
      * @var int

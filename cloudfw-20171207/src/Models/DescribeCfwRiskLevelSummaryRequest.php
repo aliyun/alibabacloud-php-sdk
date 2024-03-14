@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeCfwRiskLevelSummaryRequest extends Model
 {
     /**
+     * @description The instance type.
+     *
      * @example EcsEIP
      *
      * @var string
@@ -16,6 +18,13 @@ class DescribeCfwRiskLevelSummaryRequest extends Model
     public $instanceType;
 
     /**
+     * @description The language of the content within the response.
+     *
+     * Valid values:
+     *
+     *   **zh** (default): Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -23,6 +32,9 @@ class DescribeCfwRiskLevelSummaryRequest extends Model
     public $lang;
 
     /**
+     * @description The region ID of your Cloud Firewall.
+     *
+     * >  For more information about Cloud Firewall supported regions, see [Supported regions](~~195657~~).
      * @example cn-shanghai
      *
      * @var string

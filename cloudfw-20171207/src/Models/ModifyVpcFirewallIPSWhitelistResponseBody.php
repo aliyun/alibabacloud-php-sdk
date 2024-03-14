@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyVpcFirewallIPSWhitelistResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example F2E8D49A-E5AA-5FF8-8822-25282DCF4BE8
      *
      * @var string

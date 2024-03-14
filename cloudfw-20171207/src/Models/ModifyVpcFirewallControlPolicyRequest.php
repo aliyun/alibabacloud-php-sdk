@@ -38,7 +38,7 @@ class ModifyVpcFirewallControlPolicyRequest extends Model
      *
      * Valid values:
      *
-     *   ANY
+     *   ANY: all application types
      *   FTP
      *   HTTP
      *   HTTPS
@@ -53,7 +53,6 @@ class ModifyVpcFirewallControlPolicyRequest extends Model
      *   MongoDB
      *   Memcache
      *   SSL
-     *   ANY: all application types
      *
      * @example HTTP
      *

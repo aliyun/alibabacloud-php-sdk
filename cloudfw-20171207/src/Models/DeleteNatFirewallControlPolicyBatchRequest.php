@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DeleteNatFirewallControlPolicyBatchRequest extends Model
 {
     /**
+     * @description The UUIDs of access control policies.
+     *
      * @var string[]
      */
     public $aclUuidList;
 
     /**
+     * @description The direction of the traffic to which the access control policy applies. Valid values:
+     *
+     *   **out**: outbound traffic
+     *
      * @example out
      *
      * @var string
@@ -21,6 +27,11 @@ class DeleteNatFirewallControlPolicyBatchRequest extends Model
     public $direction;
 
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh** (default): Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -28,6 +39,8 @@ class DeleteNatFirewallControlPolicyBatchRequest extends Model
     public $lang;
 
     /**
+     * @description The ID of the NAT gateway.
+     *
      * @example ngw-uf6j0426ap74vd6vrb676
      *
      * @var string

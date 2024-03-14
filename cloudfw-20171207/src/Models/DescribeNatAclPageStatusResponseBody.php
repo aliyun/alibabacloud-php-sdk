@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeNatAclPageStatusResponseBody extends Model
 {
     /**
+     * @description Indicates whether pagination for access control policies for NAT firewalls is supported.
+     *
      * @example True
      *
      * @var bool
@@ -16,6 +18,8 @@ class DescribeNatAclPageStatusResponseBody extends Model
     public $natAclPageEnable;
 
     /**
+     * @description The ID of the request.
+     *
      * @example B97F9AD7-A2DB-5F8F-9206-DF89DE0AC9E8
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ResetNatFirewallRuleHitCountRequest extends Model
 {
     /**
+     * @description The UUID of the access control policy.
+     *
      * @example 3de3aed5-6de7-4ecd-9106-cfe994b9c49f
      *
      * @var string
@@ -16,6 +18,11 @@ class ResetNatFirewallRuleHitCountRequest extends Model
     public $aclUuid;
 
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh** (default): Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -23,6 +30,8 @@ class ResetNatFirewallRuleHitCountRequest extends Model
     public $lang;
 
     /**
+     * @description The ID of the NAT gateway.
+     *
      * @example ngw-zm0h3c1exm5bifuorg8c5
      *
      * @var string

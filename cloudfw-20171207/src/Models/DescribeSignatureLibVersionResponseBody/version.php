@@ -9,6 +9,17 @@ use AlibabaCloud\Tea\Model;
 class version extends Model
 {
     /**
+     * @description The type.
+     *
+     * Valid values:
+     *
+     *   ips
+     *
+     * .
+     *
+     *   intelligence
+     *
+     * <!-- -->
      * @example ips
      *
      * @var string
@@ -16,6 +27,8 @@ class version extends Model
     public $type;
 
     /**
+     * @description The version number.
+     *
      * @example IPS-2307-02
      *
      * @var string

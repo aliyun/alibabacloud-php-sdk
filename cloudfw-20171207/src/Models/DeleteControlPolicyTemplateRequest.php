@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteControlPolicyTemplateRequest extends Model
 {
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh** (default): Chinese
+     *   **en**: English
+     *
      * @example en
      *
      * @var string
@@ -16,6 +21,8 @@ class DeleteControlPolicyTemplateRequest extends Model
     public $lang;
 
     /**
+     * @description The source IP address of the request.
+     *
      * @example 61.178.12.52
      *
      * @var string
@@ -23,6 +30,8 @@ class DeleteControlPolicyTemplateRequest extends Model
     public $sourceIp;
 
     /**
+     * @description The ID of the access control policy template.
+     *
      * @example 719ce620-ae23-4e42-9f93-9191b4400b55
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteDownloadTaskResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 064022A8-F415-572C-B3C1-657152833F11
      *
      * @var string

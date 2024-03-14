@@ -9,11 +9,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeAssetRiskListRequest extends Model
 {
     /**
+     * @description The IP addresses to query. Separate the IP addresses with commas (,). You can specify up to 20 IP addresses at a time.
+     *
+     * >
+     *
+     *   Example of an IPv4 address: 47.97.221.164
+     *
+     *   Example of an IPv6 address: 2001:db8:ffff:ffff:ffff:\*\*\*\*:ffff
+     *
      * @var string[]
      */
     public $ipAddrList;
 
     /**
+     * @description The IP version of the asset that is protected by Cloud Firewall.
+     *
+     * Valid values:
+     *
+     *   **4** (default): IPv4
+     *   **6**: IPv6
+     *
      * @example 4
      *
      * @var int
@@ -21,6 +36,11 @@ class DescribeAssetRiskListRequest extends Model
     public $ipVersion;
 
     /**
+     * @description The language of the content within the response. Valid values:
+     *
+     *   **zh** (default): Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -28,6 +48,8 @@ class DescribeAssetRiskListRequest extends Model
     public $lang;
 
     /**
+     * @description The source IP address of the request.
+     *
      * @example 218.17.141.92
      *
      * @var string

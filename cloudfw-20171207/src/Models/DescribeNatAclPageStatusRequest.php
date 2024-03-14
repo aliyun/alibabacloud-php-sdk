@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeNatAclPageStatusRequest extends Model
 {
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh** (default): Chinese
+     *   **en**: English
+     *
      * @example en
      *
      * @var string

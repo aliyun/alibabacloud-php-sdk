@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyVpcFirewallIPSWhitelistRequest extends Model
 {
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh** (default): Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,11 @@ class ModifyVpcFirewallIPSWhitelistRequest extends Model
     public $lang;
 
     /**
+     * @description The type of the list. Valid values:
+     *
+     *   **1**: user-defined
+     *   **2**: address book
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +33,8 @@ class ModifyVpcFirewallIPSWhitelistRequest extends Model
     public $listType;
 
     /**
+     * @description The entry in the list.
+     *
      * @example 10.130.0.0/20,10.130.17.11/32
      *
      * @var string
@@ -30,6 +42,8 @@ class ModifyVpcFirewallIPSWhitelistRequest extends Model
     public $listValue;
 
     /**
+     * @description The UID of the member that is managed by your Alibaba Cloud account.
+     *
      * @example 1415189284827022
      *
      * @var int
@@ -37,6 +51,8 @@ class ModifyVpcFirewallIPSWhitelistRequest extends Model
     public $memberUid;
 
     /**
+     * @description The instance ID of the VPC firewall.
+     *
      * @example vfw-d7b8ce273791475b9b0b
      *
      * @var string
@@ -44,6 +60,11 @@ class ModifyVpcFirewallIPSWhitelistRequest extends Model
     public $vpcFirewallId;
 
     /**
+     * @description The type of the whitelist. Valid values:
+     *
+     *   **1**: destination
+     *   **2**: source
+     *
      * @example 1
      *
      * @var int

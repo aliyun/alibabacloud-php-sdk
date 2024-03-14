@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcListLiteResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 55E56A55-D93A-5614-AE00-BE2F8077F891
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeVpcListLiteResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about the VPCs.
+     *
      * @var vpcList[]
      */
     public $vpcList;

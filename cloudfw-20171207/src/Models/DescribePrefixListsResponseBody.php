@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribePrefixListsResponseBody extends Model
 {
     /**
+     * @description Details about the prefix lists.
+     *
      * @var prefixList[]
      */
     public $prefixList;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 67FD76C2-C493-5815-8107-643FD7AB77C7
      *
      * @var string

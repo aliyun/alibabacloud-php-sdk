@@ -20,12 +20,16 @@ class CreateTrFirewallV2Request extends Model
     /**
      * @description The description of the firewall.
      *
+     * @example vfw-sz
+     *
      * @var string
      */
     public $firewallDescription;
 
     /**
      * @description The name of the firewall.
+     *
+     * @example cfw_test2
      *
      * @var string
      */
@@ -110,6 +114,8 @@ class CreateTrFirewallV2Request extends Model
     public $trAttachmentMasterCidr;
 
     /**
+     * @description The primary zone for the vSwitch.
+     *
      * @example cn-chengdu-a
      *
      * @var string
@@ -126,6 +132,8 @@ class CreateTrFirewallV2Request extends Model
     public $trAttachmentSlaveCidr;
 
     /**
+     * @description The secondary zone for the vSwitch.
+     *
      * @example cn-chengdu-b
      *
      * @var string

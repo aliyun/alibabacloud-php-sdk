@@ -69,7 +69,7 @@ class DescribeVpcFirewallListRequest extends Model
     /**
      * @description The number of entries to return on each page.
      *
-     * Default value: **10**.**** Maximum value: **50**.
+     * Default value: **10**. Maximum value: **50**.
      * @example 10
      *
      * @var string

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class prefixList extends Model
 {
     /**
+     * @description The IP address family of the prefix list. Valid values:
+     *
+     *   IPv4
+     *   IPv6
+     *
      * @example IPv4
      *
      * @var string
@@ -16,6 +21,8 @@ class prefixList extends Model
     public $addressFamily;
 
     /**
+     * @description The number of associated resources.
+     *
      * @example 2
      *
      * @var int
@@ -23,6 +30,8 @@ class prefixList extends Model
     public $associationCount;
 
     /**
+     * @description The creation time.
+     *
      * @example 2023-10-16T08:31:06Z
      *
      * @var string
@@ -30,6 +39,8 @@ class prefixList extends Model
     public $creationTime;
 
     /**
+     * @description The description.
+     *
      * @example TCP_14900-14911
      *
      * @var string
@@ -37,6 +48,8 @@ class prefixList extends Model
     public $description;
 
     /**
+     * @description The maximum number of entries in the prefix list.
+     *
      * @example 20
      *
      * @var int
@@ -44,6 +57,8 @@ class prefixList extends Model
     public $maxEntries;
 
     /**
+     * @description The ID of the prefix list.
+     *
      * @example pl-uf64nco3ujjqchx6aaji
      *
      * @var string
@@ -51,6 +66,8 @@ class prefixList extends Model
     public $prefixListId;
 
     /**
+     * @description The name of the prefix list.
+     *
      * @example participant-name
      *
      * @var string

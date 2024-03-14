@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribePrefixListsRequest extends Model
 {
     /**
+     * @description The region ID of the instance.
+     *
      * @example cn-shenzhen
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribePrefixListsRequest extends Model
     public $regionNo;
 
     /**
+     * @description The source IP address of the request.
+     *
      * @example 222.221.153.2
      *
      * @var string

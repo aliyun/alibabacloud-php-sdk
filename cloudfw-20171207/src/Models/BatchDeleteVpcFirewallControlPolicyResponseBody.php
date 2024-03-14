@@ -6,12 +6,10 @@ namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ResetNatFirewallRuleHitCountResponseBody extends Model
+class BatchDeleteVpcFirewallControlPolicyResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 5CAA0FFD-4B94-5BB9-8B0A-ECFC86A0E666
+     * @example B2841452-CB8D-4F7D-B247-38E1CF7334F8
      *
      * @var string
      */
@@ -37,7 +35,7 @@ class ResetNatFirewallRuleHitCountResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ResetNatFirewallRuleHitCountResponseBody
+     * @return BatchDeleteVpcFirewallControlPolicyResponseBody
      */
     public static function fromMap($map = [])
     {

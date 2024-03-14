@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class assetList extends Model
 {
     /**
+     * @description The IP address of the server.
+     *
      * @example 39.108.4.107
      *
      * @var string
@@ -16,6 +18,13 @@ class assetList extends Model
     public $ip;
 
     /**
+     * @description The IP version of the asset that is protected by Cloud Firewall.
+     *
+     * Valid values:
+     *
+     *   **4**: IPv4
+     *   **6**: IPv6
+     *
      * @example 4
      *
      * @var int
@@ -23,6 +32,8 @@ class assetList extends Model
     public $ipVersion;
 
     /**
+     * @description The reason for the risk.
+     *
      * @example other
      *
      * @var string
@@ -30,6 +41,12 @@ class assetList extends Model
     public $reason;
 
     /**
+     * @description The risk level. Valid values:
+     *
+     *   **low**
+     *   **middle**
+     *   **high**
+     *
      * @example low
      *
      * @var string

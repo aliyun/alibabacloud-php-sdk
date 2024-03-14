@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class whitelists extends Model
 {
     /**
+     * @description The type of the list. Valid values:
+     *
+     *   **1**: user-defined
+     *   **2**: address book
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +21,8 @@ class whitelists extends Model
     public $listType;
 
     /**
+     * @description The entries in the list.
+     *
      * @example 10.10.200.4/32,10.10.200.25/32
      *
      * @var string
@@ -23,6 +30,8 @@ class whitelists extends Model
     public $listValue;
 
     /**
+     * @description The instance ID of the VPC firewall.
+     *
      * @example vfw-57431e9abe424852a578
      *
      * @var string
@@ -30,11 +39,18 @@ class whitelists extends Model
     public $vpcFirewallId;
 
     /**
+     * @description An array of entries in the list.
+     *
      * @var string[]
      */
     public $whiteListValue;
 
     /**
+     * @description The type of the whitelist. Valid values:
+     *
+     *   **1**: destination
+     *   **2**: source
+     *
      * @example 1
      *
      * @var int

@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcFirewallIPSWhitelistRequest extends Model
 {
     /**
+     * @description The language of the content within the request and response.
+     *
+     * Valid values:
+     *
+     *   **zh** (default): Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +23,8 @@ class DescribeVpcFirewallIPSWhitelistRequest extends Model
     public $lang;
 
     /**
+     * @description The UID of the member in Cloud Firewall.
+     *
      * @example 1766185894104675
      *
      * @var int
@@ -23,6 +32,8 @@ class DescribeVpcFirewallIPSWhitelistRequest extends Model
     public $memberUid;
 
     /**
+     * @description The instance ID of the VPC firewall.
+     *
      * @example vfw-3547deab1c9b4190a53f
      *
      * @var string

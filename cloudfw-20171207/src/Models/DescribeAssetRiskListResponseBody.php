@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeAssetRiskListResponseBody extends Model
 {
     /**
+     * @description The details of the asset.
+     *
      * @var assetList[]
      */
     public $assetList;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 443C5781-1C03-5FCD-8EC5-FB9C0B9AC396
      *
      * @var string
@@ -22,6 +26,8 @@ class DescribeAssetRiskListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 12
      *
      * @var int

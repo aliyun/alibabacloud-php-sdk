@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDownloadTaskTypeRequest extends Model
 {
     /**
+     * @description The page number. Pages start from page 1. Default value: **1**.
+     *
      * @example 1
      *
      * @var string
@@ -16,6 +18,11 @@ class DescribeDownloadTaskTypeRequest extends Model
     public $currentPage;
 
     /**
+     * @description The language of the content within the response. Valid values:
+     *
+     *   **zh** (default): Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -23,6 +30,8 @@ class DescribeDownloadTaskTypeRequest extends Model
     public $lang;
 
     /**
+     * @description The number of entries per page. Default value: 10. Maximum value: 50.
+     *
      * @example 10
      *
      * @var string
@@ -30,6 +39,8 @@ class DescribeDownloadTaskTypeRequest extends Model
     public $pageSize;
 
     /**
+     * @description The type of the task.
+     *
      * @example InternetFirewallAsset
      *
      * @var string

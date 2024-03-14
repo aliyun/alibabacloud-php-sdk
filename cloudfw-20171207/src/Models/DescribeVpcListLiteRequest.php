@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcListLiteRequest extends Model
 {
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh** (default): Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,9 @@ class DescribeVpcListLiteRequest extends Model
     public $lang;
 
     /**
+     * @description The region ID of the VPC.
+     *
+     * >  For more information about Cloud Firewall supported regions, see [Supported regions](~~195657~~).
      * @example cn-shanghai
      *
      * @var string
@@ -23,6 +31,8 @@ class DescribeVpcListLiteRequest extends Model
     public $regionNo;
 
     /**
+     * @description The source IP address of the request.
+     *
      * @example 58.34.174.194
      *
      * @var string
@@ -30,6 +40,8 @@ class DescribeVpcListLiteRequest extends Model
     public $sourceIp;
 
     /**
+     * @description The ID of the VPC.
+     *
      * @example vpc-8vbwbo90rq0anm6t****
      *
      * @var string
@@ -37,6 +49,8 @@ class DescribeVpcListLiteRequest extends Model
     public $vpcId;
 
     /**
+     * @description The name of the VPC.
+     *
      * @example vpc-shanghai
      *
      * @var string

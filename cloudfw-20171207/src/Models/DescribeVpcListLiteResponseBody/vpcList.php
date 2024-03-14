@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class vpcList extends Model
 {
     /**
+     * @description The region ID of the VPC.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -16,6 +18,8 @@ class vpcList extends Model
     public $regionNo;
 
     /**
+     * @description The ID of the VPC.
+     *
      * @example vpc-wz9dqhljd10fk0b4eh885
      *
      * @var string
@@ -23,6 +27,8 @@ class vpcList extends Model
     public $vpcId;
 
     /**
+     * @description The name of the VPC.
+     *
      * @example Cloud_Firewall_VPC
      *
      * @var string

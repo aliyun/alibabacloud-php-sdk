@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeCfwRiskLevelSummaryResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example F1F30435-FA0A-52DA-A5DE-C16FD6C171DA
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeCfwRiskLevelSummaryResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The list of risks.
+     *
      * @var riskList[]
      */
     public $riskList;

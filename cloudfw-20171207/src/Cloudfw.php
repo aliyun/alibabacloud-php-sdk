@@ -14,6 +14,8 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\AddInstanceMembersRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\AddInstanceMembersResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\BatchCopyVpcFirewallControlPolicyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\BatchCopyVpcFirewallControlPolicyResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\BatchDeleteVpcFirewallControlPolicyRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\BatchDeleteVpcFirewallControlPolicyResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateDownloadTaskRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateDownloadTaskResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateNatFirewallControlPolicyRequest;
@@ -97,6 +99,10 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePolicyAdvancedConfigReques
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePolicyAdvancedConfigResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePolicyPriorUsedRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePolicyPriorUsedResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePostpayTrafficDetailRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePostpayTrafficDetailResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePostpayTrafficTotalRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePostpayTrafficTotalResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePrefixListsRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePrefixListsResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeRiskEventGroupRequest;
@@ -551,6 +557,52 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->batchCopyVpcFirewallControlPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param BatchDeleteVpcFirewallControlPolicyRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return BatchDeleteVpcFirewallControlPolicyResponse
+     */
+    public function batchDeleteVpcFirewallControlPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclUuidList)) {
+            $query['AclUuidList'] = $request->aclUuidList;
+        }
+        if (!Utils::isUnset($request->vpcFirewallId)) {
+            $query['VpcFirewallId'] = $request->vpcFirewallId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchDeleteVpcFirewallControlPolicy',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BatchDeleteVpcFirewallControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BatchDeleteVpcFirewallControlPolicyRequest $request
+     *
+     * @return BatchDeleteVpcFirewallControlPolicyResponse
+     */
+    public function batchDeleteVpcFirewallControlPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchDeleteVpcFirewallControlPolicyWithOptions($request, $runtime);
     }
 
     /**
@@ -1315,10 +1367,14 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DeleteDownloadTaskRequest $request
-     * @param RuntimeOptions            $runtime
+     * You can call this operation to delete file download tasks and delete the files.
+     *   * **
+     *   * **Warning** Both tasks and involved files are deleted. You can no longer download the involved files by using the download links. This operation is irreversible. Proceed with caution.
+     *   *
+     * @param DeleteDownloadTaskRequest $request DeleteDownloadTaskRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDownloadTaskResponse
+     * @return DeleteDownloadTaskResponse DeleteDownloadTaskResponse
      */
     public function deleteDownloadTaskWithOptions($request, $runtime)
     {
@@ -1349,9 +1405,13 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DeleteDownloadTaskRequest $request
+     * You can call this operation to delete file download tasks and delete the files.
+     *   * **
+     *   * **Warning** Both tasks and involved files are deleted. You can no longer download the involved files by using the download links. This operation is irreversible. Proceed with caution.
+     *   *
+     * @param DeleteDownloadTaskRequest $request DeleteDownloadTaskRequest
      *
-     * @return DeleteDownloadTaskResponse
+     * @return DeleteDownloadTaskResponse DeleteDownloadTaskResponse
      */
     public function deleteDownloadTask($request)
     {
@@ -1672,7 +1732,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the DeleteVpcFirewallCenConfigure operation to delete a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit. Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](~~342893~~) operation.
+     * You can call the DeleteVpcFirewallConfigure operation to delete a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit. Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](~~342893~~) operation.
      *   * ## Limits
      *   * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
@@ -1713,7 +1773,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the DeleteVpcFirewallCenConfigure operation to delete a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit. Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](~~342893~~) operation.
+     * You can call the DeleteVpcFirewallConfigure operation to delete a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit. Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](~~342893~~) operation.
      *   * ## Limits
      *   * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
@@ -3195,6 +3255,113 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describePolicyPriorUsedWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribePostpayTrafficDetailRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribePostpayTrafficDetailResponse
+     */
+    public function describePostpayTrafficDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->searchItem)) {
+            $query['SearchItem'] = $request->searchItem;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->trafficType)) {
+            $query['TrafficType'] = $request->trafficType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePostpayTrafficDetail',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribePostpayTrafficDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribePostpayTrafficDetailRequest $request
+     *
+     * @return DescribePostpayTrafficDetailResponse
+     */
+    public function describePostpayTrafficDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePostpayTrafficDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribePostpayTrafficTotalRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribePostpayTrafficTotalResponse
+     */
+    public function describePostpayTrafficTotalWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePostpayTrafficTotal',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribePostpayTrafficTotalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribePostpayTrafficTotalRequest $request
+     *
+     * @return DescribePostpayTrafficTotalResponse
+     */
+    public function describePostpayTrafficTotal($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePostpayTrafficTotalWithOptions($request, $runtime);
     }
 
     /**
@@ -5588,7 +5755,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the ModifyVpcFirewallCenConfigure operation to modify the configurations of a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit. Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](~~342893~~) operation.
+     * You can call the ModifyVpcFirewallConfigure operation to modify the configurations of a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit. Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](~~342893~~) operation.
      *   * ## Limits
      *   * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
@@ -5638,7 +5805,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the ModifyVpcFirewallCenConfigure operation to modify the configurations of a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit. Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](~~342893~~) operation.
+     * You can call the ModifyVpcFirewallConfigure operation to modify the configurations of a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit. Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](~~342893~~) operation.
      *   * ## Limits
      *   * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *

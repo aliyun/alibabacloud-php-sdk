@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDownloadTaskResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example E7F333E0-7B70-54DA-A307-4B2B49DEE923
      *
      * @var string
@@ -16,6 +18,9 @@ class CreateDownloadTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The status of the task. Valid values:
+     *
+     * expire: The task file is invalid and cannot be downloaded.
      * @example start
      *
      * @var string
@@ -23,6 +28,8 @@ class CreateDownloadTaskResponseBody extends Model
     public $status;
 
     /**
+     * @description The unique ID of the task.
+     *
      * @example 132
      *
      * @var int
@@ -30,6 +37,10 @@ class CreateDownloadTaskResponseBody extends Model
     public $taskId;
 
     /**
+     * @description The name of the file download task.
+     *
+     * @example Internet Boundary Firewall Assets - IPv4
+     *
      * @var string
      */
     public $taskName;

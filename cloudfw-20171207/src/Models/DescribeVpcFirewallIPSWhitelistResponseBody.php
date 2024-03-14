@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcFirewallIPSWhitelistResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example B5EE02F9-4F21-56CA-AA49-F9F8D69483C1
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeVpcFirewallIPSWhitelistResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The details of the IPS whitelist of the VPC firewall.
+     *
      * @var whitelists[]
      */
     public $whitelists;

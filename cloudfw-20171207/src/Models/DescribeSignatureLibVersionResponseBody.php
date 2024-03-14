@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSignatureLibVersionResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 9C50C2A9-4BBB-5504-8ADA-C41A79B8C946
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeSignatureLibVersionResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 132
      *
      * @var int
@@ -24,6 +28,8 @@ class DescribeSignatureLibVersionResponseBody extends Model
     public $totalCount;
 
     /**
+     * @description The information about the versions.
+     *
      * @var version[]
      */
     public $version;

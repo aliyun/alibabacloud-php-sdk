@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class taskTypeArray extends Model
 {
     /**
+     * @description The name of the task type.
+     *
+     * @example Internet Boundary Firewall Assets
+     *
      * @var string
      */
     public $taskName;
 
     /**
+     * @description The type of the task.
+     *
      * @example InternetFirewallAsset
      *
      * @var string

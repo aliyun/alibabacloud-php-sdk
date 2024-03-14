@@ -6,18 +6,16 @@ namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ResetNatFirewallRuleHitCountResponseBody extends Model
+class DescribePostpayTrafficTotalRequest extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 5CAA0FFD-4B94-5BB9-8B0A-ECFC86A0E666
+     * @example zh
      *
      * @var string
      */
-    public $requestId;
+    public $lang;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'lang' => 'Lang',
     ];
 
     public function validate()
@@ -27,8 +25,8 @@ class ResetNatFirewallRuleHitCountResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
 
         return $res;
@@ -37,13 +35,13 @@ class ResetNatFirewallRuleHitCountResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ResetNatFirewallRuleHitCountResponseBody
+     * @return DescribePostpayTrafficTotalRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
 
         return $model;

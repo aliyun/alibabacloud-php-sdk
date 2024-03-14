@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteDownloadTaskRequest extends Model
 {
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh** (default): Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,8 @@ class DeleteDownloadTaskRequest extends Model
     public $lang;
 
     /**
+     * @description The ID of the file download task.
+     *
      * @example 4376
      *
      * @var string

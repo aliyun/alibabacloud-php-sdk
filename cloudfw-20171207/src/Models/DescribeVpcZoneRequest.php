@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcZoneRequest extends Model
 {
     /**
+     * @description The environment. Valid values:
+     *
+     *   **VPC**
+     *   **TransitRouter**
+     *
      * @example VPC
      *
      * @var string
@@ -16,6 +21,11 @@ class DescribeVpcZoneRequest extends Model
     public $environment;
 
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh** (default): Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -23,6 +33,8 @@ class DescribeVpcZoneRequest extends Model
     public $lang;
 
     /**
+     * @description The UID of the member in Cloud Firewall.
+     *
      * @example 1415189284827022
      *
      * @var string
@@ -30,6 +42,8 @@ class DescribeVpcZoneRequest extends Model
     public $memberUid;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-shanghai
      *
      * @var string

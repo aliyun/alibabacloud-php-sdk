@@ -49,7 +49,7 @@ class ModifyControlPolicyRequest extends Model
      *   **Memcache**
      *   **SSL**
      *
-     * >  The value ANY** indicates all types of applications.
+     * >  The value *ANY* indicates all types of applications.
      * @example HTTP
      *
      * @var string
@@ -172,7 +172,7 @@ class ModifyControlPolicyRequest extends Model
      *   **UDP**
      *   **ICMP**
      *
-     * >  The value ANY** indicates all types of applications.
+     * >  The value *ANY* indicates all types of applications.
      * @example TCP
      *
      * @var string

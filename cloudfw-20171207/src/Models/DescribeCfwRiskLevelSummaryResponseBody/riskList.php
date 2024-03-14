@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class riskList extends Model
 {
     /**
+     * @description The risk levels. Valid values:
+     *
+     *   **medium**
+     *
      * @example medium
      *
      * @var string
@@ -16,6 +20,8 @@ class riskList extends Model
     public $level;
 
     /**
+     * @description The number of at-risk Elastic Compute Service (ECS) instances.
+     *
      * @example 50
      *
      * @var string
@@ -23,6 +29,8 @@ class riskList extends Model
     public $num;
 
     /**
+     * @description The type.
+     *
      * @example ResourceNotProtected
      *
      * @var string
