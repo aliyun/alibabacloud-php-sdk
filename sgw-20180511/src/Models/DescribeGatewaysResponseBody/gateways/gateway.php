@@ -129,6 +129,11 @@ class gateway extends Model
     public $gatewayVersion;
 
     /**
+     * @var bool
+     */
+    public $highAvailability;
+
+    /**
      * @example 172.16.0.21
      *
      * @var string
@@ -228,6 +233,11 @@ class gateway extends Model
     public $type;
 
     /**
+     * @var string
+     */
+    public $untrustedEnvInstanceType;
+
+    /**
      * @example vsw-bp1krhkgnahkb9stp0***
      *
      * @var string
@@ -260,6 +270,7 @@ class gateway extends Model
         'gatewayRegionId'          => 'GatewayRegionId',
         'gatewayType'              => 'GatewayType',
         'gatewayVersion'           => 'GatewayVersion',
+        'highAvailability'         => 'HighAvailability',
         'innerIp'                  => 'InnerIp',
         'innerIpv6Ip'              => 'InnerIpv6Ip',
         'ip'                       => 'Ip',
@@ -275,6 +286,7 @@ class gateway extends Model
         'storageBundleId'          => 'StorageBundleId',
         'taskId'                   => 'TaskId',
         'type'                     => 'Type',
+        'untrustedEnvInstanceType' => 'UntrustedEnvInstanceType',
         'vSwitchId'                => 'VSwitchId',
         'vpcId'                    => 'VpcId',
     ];
@@ -343,6 +355,9 @@ class gateway extends Model
         if (null !== $this->gatewayVersion) {
             $res['GatewayVersion'] = $this->gatewayVersion;
         }
+        if (null !== $this->highAvailability) {
+            $res['HighAvailability'] = $this->highAvailability;
+        }
         if (null !== $this->innerIp) {
             $res['InnerIp'] = $this->innerIp;
         }
@@ -387,6 +402,9 @@ class gateway extends Model
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
+        }
+        if (null !== $this->untrustedEnvInstanceType) {
+            $res['UntrustedEnvInstanceType'] = $this->untrustedEnvInstanceType;
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
@@ -463,6 +481,9 @@ class gateway extends Model
         if (isset($map['GatewayVersion'])) {
             $model->gatewayVersion = $map['GatewayVersion'];
         }
+        if (isset($map['HighAvailability'])) {
+            $model->highAvailability = $map['HighAvailability'];
+        }
         if (isset($map['InnerIp'])) {
             $model->innerIp = $map['InnerIp'];
         }
@@ -507,6 +528,9 @@ class gateway extends Model
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
+        }
+        if (isset($map['UntrustedEnvInstanceType'])) {
+            $model->untrustedEnvInstanceType = $map['UntrustedEnvInstanceType'];
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];

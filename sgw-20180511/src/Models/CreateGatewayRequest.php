@@ -65,6 +65,11 @@ class CreateGatewayRequest extends Model
     /**
      * @var string
      */
+    public $secondaryVSwitchId;
+
+    /**
+     * @var string
+     */
     public $securityToken;
 
     /**
@@ -82,24 +87,37 @@ class CreateGatewayRequest extends Model
     public $type;
 
     /**
+     * @var string
+     */
+    public $untrustedEnvId;
+
+    /**
+     * @var string
+     */
+    public $untrustedEnvInstanceType;
+
+    /**
      * @example vsw-bp1krhkglx3nahkb9s***
      *
      * @var string
      */
     public $vSwitchId;
     protected $_name = [
-        'description'            => 'Description',
-        'gatewayClass'           => 'GatewayClass',
-        'location'               => 'Location',
-        'name'                   => 'Name',
-        'postPaid'               => 'PostPaid',
-        'publicNetworkBandwidth' => 'PublicNetworkBandwidth',
-        'releaseAfterExpiration' => 'ReleaseAfterExpiration',
-        'resourceRegionId'       => 'ResourceRegionId',
-        'securityToken'          => 'SecurityToken',
-        'storageBundleId'        => 'StorageBundleId',
-        'type'                   => 'Type',
-        'vSwitchId'              => 'VSwitchId',
+        'description'              => 'Description',
+        'gatewayClass'             => 'GatewayClass',
+        'location'                 => 'Location',
+        'name'                     => 'Name',
+        'postPaid'                 => 'PostPaid',
+        'publicNetworkBandwidth'   => 'PublicNetworkBandwidth',
+        'releaseAfterExpiration'   => 'ReleaseAfterExpiration',
+        'resourceRegionId'         => 'ResourceRegionId',
+        'secondaryVSwitchId'       => 'SecondaryVSwitchId',
+        'securityToken'            => 'SecurityToken',
+        'storageBundleId'          => 'StorageBundleId',
+        'type'                     => 'Type',
+        'untrustedEnvId'           => 'UntrustedEnvId',
+        'untrustedEnvInstanceType' => 'UntrustedEnvInstanceType',
+        'vSwitchId'                => 'VSwitchId',
     ];
 
     public function validate()
@@ -133,6 +151,9 @@ class CreateGatewayRequest extends Model
         if (null !== $this->resourceRegionId) {
             $res['ResourceRegionId'] = $this->resourceRegionId;
         }
+        if (null !== $this->secondaryVSwitchId) {
+            $res['SecondaryVSwitchId'] = $this->secondaryVSwitchId;
+        }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -141,6 +162,12 @@ class CreateGatewayRequest extends Model
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
+        }
+        if (null !== $this->untrustedEnvId) {
+            $res['UntrustedEnvId'] = $this->untrustedEnvId;
+        }
+        if (null !== $this->untrustedEnvInstanceType) {
+            $res['UntrustedEnvInstanceType'] = $this->untrustedEnvInstanceType;
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
@@ -181,6 +208,9 @@ class CreateGatewayRequest extends Model
         if (isset($map['ResourceRegionId'])) {
             $model->resourceRegionId = $map['ResourceRegionId'];
         }
+        if (isset($map['SecondaryVSwitchId'])) {
+            $model->secondaryVSwitchId = $map['SecondaryVSwitchId'];
+        }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }
@@ -189,6 +219,12 @@ class CreateGatewayRequest extends Model
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
+        }
+        if (isset($map['UntrustedEnvId'])) {
+            $model->untrustedEnvId = $map['UntrustedEnvId'];
+        }
+        if (isset($map['UntrustedEnvInstanceType'])) {
+            $model->untrustedEnvInstanceType = $map['UntrustedEnvInstanceType'];
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];

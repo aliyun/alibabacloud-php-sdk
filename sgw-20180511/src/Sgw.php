@@ -1076,6 +1076,9 @@ class Sgw extends OpenApiClient
         if (!Utils::isUnset($request->resourceRegionId)) {
             $query['ResourceRegionId'] = $request->resourceRegionId;
         }
+        if (!Utils::isUnset($request->secondaryVSwitchId)) {
+            $query['SecondaryVSwitchId'] = $request->secondaryVSwitchId;
+        }
         if (!Utils::isUnset($request->securityToken)) {
             $query['SecurityToken'] = $request->securityToken;
         }
@@ -1084,6 +1087,12 @@ class Sgw extends OpenApiClient
         }
         if (!Utils::isUnset($request->type)) {
             $query['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->untrustedEnvId)) {
+            $query['UntrustedEnvId'] = $request->untrustedEnvId;
+        }
+        if (!Utils::isUnset($request->untrustedEnvInstanceType)) {
+            $query['UntrustedEnvInstanceType'] = $request->untrustedEnvInstanceType;
         }
         if (!Utils::isUnset($request->vSwitchId)) {
             $query['VSwitchId'] = $request->vSwitchId;
@@ -1221,6 +1230,9 @@ class Sgw extends OpenApiClient
         }
         if (!Utils::isUnset($request->gatewayId)) {
             $query['GatewayId'] = $request->gatewayId;
+        }
+        if (!Utils::isUnset($request->performanceLevel)) {
+            $query['PerformanceLevel'] = $request->performanceLevel;
         }
         if (!Utils::isUnset($request->securityToken)) {
             $query['SecurityToken'] = $request->securityToken;

@@ -144,6 +144,11 @@ class DescribeGatewayResponseBody extends Model
     public $gatewayVersion;
 
     /**
+     * @var bool
+     */
+    public $highAvailability;
+
+    /**
      * @example 172.19.55.65
      *
      * @var string
@@ -270,6 +275,16 @@ class DescribeGatewayResponseBody extends Model
     public $type;
 
     /**
+     * @var string
+     */
+    public $untrustedEnvInstanceType;
+
+    /**
+     * @var string
+     */
+    public $untrustedEnvOssEndpoint;
+
+    /**
      * @example vsw-bp1b3mvml55ziekq7e***
      *
      * @var string
@@ -303,6 +318,7 @@ class DescribeGatewayResponseBody extends Model
         'gatewayRegionId'          => 'GatewayRegionId',
         'gatewayType'              => 'GatewayType',
         'gatewayVersion'           => 'GatewayVersion',
+        'highAvailability'         => 'HighAvailability',
         'innerIp'                  => 'InnerIp',
         'innerIpv6Ip'              => 'InnerIpv6Ip',
         'ip'                       => 'Ip',
@@ -321,6 +337,8 @@ class DescribeGatewayResponseBody extends Model
         'success'                  => 'Success',
         'taskId'                   => 'TaskId',
         'type'                     => 'Type',
+        'untrustedEnvInstanceType' => 'UntrustedEnvInstanceType',
+        'untrustedEnvOssEndpoint'  => 'UntrustedEnvOssEndpoint',
         'vSwitchId'                => 'VSwitchId',
         'vpcId'                    => 'VpcId',
     ];
@@ -392,6 +410,9 @@ class DescribeGatewayResponseBody extends Model
         if (null !== $this->gatewayVersion) {
             $res['GatewayVersion'] = $this->gatewayVersion;
         }
+        if (null !== $this->highAvailability) {
+            $res['HighAvailability'] = $this->highAvailability;
+        }
         if (null !== $this->innerIp) {
             $res['InnerIp'] = $this->innerIp;
         }
@@ -445,6 +466,12 @@ class DescribeGatewayResponseBody extends Model
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
+        }
+        if (null !== $this->untrustedEnvInstanceType) {
+            $res['UntrustedEnvInstanceType'] = $this->untrustedEnvInstanceType;
+        }
+        if (null !== $this->untrustedEnvOssEndpoint) {
+            $res['UntrustedEnvOssEndpoint'] = $this->untrustedEnvOssEndpoint;
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
@@ -524,6 +551,9 @@ class DescribeGatewayResponseBody extends Model
         if (isset($map['GatewayVersion'])) {
             $model->gatewayVersion = $map['GatewayVersion'];
         }
+        if (isset($map['HighAvailability'])) {
+            $model->highAvailability = $map['HighAvailability'];
+        }
         if (isset($map['InnerIp'])) {
             $model->innerIp = $map['InnerIp'];
         }
@@ -577,6 +607,12 @@ class DescribeGatewayResponseBody extends Model
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
+        }
+        if (isset($map['UntrustedEnvInstanceType'])) {
+            $model->untrustedEnvInstanceType = $map['UntrustedEnvInstanceType'];
+        }
+        if (isset($map['UntrustedEnvOssEndpoint'])) {
+            $model->untrustedEnvOssEndpoint = $map['UntrustedEnvOssEndpoint'];
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];

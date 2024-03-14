@@ -32,11 +32,17 @@ class CreateGatewayCacheDiskRequest extends Model
     /**
      * @var string
      */
+    public $performanceLevel;
+
+    /**
+     * @var string
+     */
     public $securityToken;
     protected $_name = [
         'cacheDiskCategory' => 'CacheDiskCategory',
         'cacheDiskSizeInGB' => 'CacheDiskSizeInGB',
         'gatewayId'         => 'GatewayId',
+        'performanceLevel'  => 'PerformanceLevel',
         'securityToken'     => 'SecurityToken',
     ];
 
@@ -55,6 +61,9 @@ class CreateGatewayCacheDiskRequest extends Model
         }
         if (null !== $this->gatewayId) {
             $res['GatewayId'] = $this->gatewayId;
+        }
+        if (null !== $this->performanceLevel) {
+            $res['PerformanceLevel'] = $this->performanceLevel;
         }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
@@ -79,6 +88,9 @@ class CreateGatewayCacheDiskRequest extends Model
         }
         if (isset($map['GatewayId'])) {
             $model->gatewayId = $map['GatewayId'];
+        }
+        if (isset($map['PerformanceLevel'])) {
+            $model->performanceLevel = $map['PerformanceLevel'];
         }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
