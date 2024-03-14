@@ -54,6 +54,11 @@ class order extends Model
     public $currency;
 
     /**
+     * @var string[]
+     */
+    public $extendInfos;
+
+    /**
      * @description The instance IDs.
      *
      * @example ["rm-bp1a2vsr018313t6o"]
@@ -274,6 +279,7 @@ class order extends Model
         'config'            => 'Config',
         'createTime'        => 'CreateTime',
         'currency'          => 'Currency',
+        'extendInfos'       => 'ExtendInfos',
         'instanceIDs'       => 'InstanceIDs',
         'operator'          => 'Operator',
         'orderId'           => 'OrderId',
@@ -319,6 +325,9 @@ class order extends Model
         }
         if (null !== $this->currency) {
             $res['Currency'] = $this->currency;
+        }
+        if (null !== $this->extendInfos) {
+            $res['ExtendInfos'] = $this->extendInfos;
         }
         if (null !== $this->instanceIDs) {
             $res['InstanceIDs'] = $this->instanceIDs;
@@ -412,6 +421,9 @@ class order extends Model
         }
         if (isset($map['Currency'])) {
             $model->currency = $map['Currency'];
+        }
+        if (isset($map['ExtendInfos'])) {
+            $model->extendInfos = $map['ExtendInfos'];
         }
         if (isset($map['InstanceIDs'])) {
             $model->instanceIDs = $map['InstanceIDs'];
