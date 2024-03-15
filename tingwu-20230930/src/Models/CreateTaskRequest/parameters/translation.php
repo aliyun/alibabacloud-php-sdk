@@ -11,6 +11,11 @@ class translation extends Model
     /**
      * @var int
      */
+    public $additionalStreamOutputLevel;
+
+    /**
+     * @var int
+     */
     public $outputLevel;
 
     /**
@@ -18,8 +23,9 @@ class translation extends Model
      */
     public $targetLanguages;
     protected $_name = [
-        'outputLevel'     => 'OutputLevel',
-        'targetLanguages' => 'TargetLanguages',
+        'additionalStreamOutputLevel' => 'AdditionalStreamOutputLevel',
+        'outputLevel'                 => 'OutputLevel',
+        'targetLanguages'             => 'TargetLanguages',
     ];
 
     public function validate()
@@ -29,6 +35,9 @@ class translation extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->additionalStreamOutputLevel) {
+            $res['AdditionalStreamOutputLevel'] = $this->additionalStreamOutputLevel;
+        }
         if (null !== $this->outputLevel) {
             $res['OutputLevel'] = $this->outputLevel;
         }
@@ -47,6 +56,9 @@ class translation extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AdditionalStreamOutputLevel'])) {
+            $model->additionalStreamOutputLevel = $map['AdditionalStreamOutputLevel'];
+        }
         if (isset($map['OutputLevel'])) {
             $model->outputLevel = $map['OutputLevel'];
         }

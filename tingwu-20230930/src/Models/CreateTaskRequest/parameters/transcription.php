@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class transcription extends Model
 {
     /**
+     * @var int
+     */
+    public $additionalStreamOutputLevel;
+
+    /**
      * @example false
      *
      * @var bool
@@ -38,11 +43,12 @@ class transcription extends Model
      */
     public $phraseId;
     protected $_name = [
-        'audioEventDetectionEnabled' => 'AudioEventDetectionEnabled',
-        'diarization'                => 'Diarization',
-        'diarizationEnabled'         => 'DiarizationEnabled',
-        'outputLevel'                => 'OutputLevel',
-        'phraseId'                   => 'PhraseId',
+        'additionalStreamOutputLevel' => 'AdditionalStreamOutputLevel',
+        'audioEventDetectionEnabled'  => 'AudioEventDetectionEnabled',
+        'diarization'                 => 'Diarization',
+        'diarizationEnabled'          => 'DiarizationEnabled',
+        'outputLevel'                 => 'OutputLevel',
+        'phraseId'                    => 'PhraseId',
     ];
 
     public function validate()
@@ -52,6 +58,9 @@ class transcription extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->additionalStreamOutputLevel) {
+            $res['AdditionalStreamOutputLevel'] = $this->additionalStreamOutputLevel;
+        }
         if (null !== $this->audioEventDetectionEnabled) {
             $res['AudioEventDetectionEnabled'] = $this->audioEventDetectionEnabled;
         }
@@ -79,6 +88,9 @@ class transcription extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AdditionalStreamOutputLevel'])) {
+            $model->additionalStreamOutputLevel = $map['AdditionalStreamOutputLevel'];
+        }
         if (isset($map['AudioEventDetectionEnabled'])) {
             $model->audioEventDetectionEnabled = $map['AudioEventDetectionEnabled'];
         }
