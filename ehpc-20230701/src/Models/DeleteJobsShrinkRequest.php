@@ -11,9 +11,15 @@ class DeleteJobsShrinkRequest extends Model
     /**
      * @var string
      */
+    public $executorIdsShrink;
+
+    /**
+     * @var string
+     */
     public $jobSpecShrink;
     protected $_name = [
-        'jobSpecShrink' => 'JobSpec',
+        'executorIdsShrink' => 'ExecutorIds',
+        'jobSpecShrink'     => 'JobSpec',
     ];
 
     public function validate()
@@ -23,6 +29,9 @@ class DeleteJobsShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->executorIdsShrink) {
+            $res['ExecutorIds'] = $this->executorIdsShrink;
+        }
         if (null !== $this->jobSpecShrink) {
             $res['JobSpec'] = $this->jobSpecShrink;
         }
@@ -38,6 +47,9 @@ class DeleteJobsShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ExecutorIds'])) {
+            $model->executorIdsShrink = $map['ExecutorIds'];
+        }
         if (isset($map['JobSpec'])) {
             $model->jobSpecShrink = $map['JobSpec'];
         }

@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DeleteJobsRequest extends Model
 {
     /**
+     * @var string[]
+     */
+    public $executorIds;
+
+    /**
      * @var jobSpec[]
      */
     public $jobSpec;
     protected $_name = [
-        'jobSpec' => 'JobSpec',
+        'executorIds' => 'ExecutorIds',
+        'jobSpec'     => 'JobSpec',
     ];
 
     public function validate()
@@ -24,6 +30,9 @@ class DeleteJobsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->executorIds) {
+            $res['ExecutorIds'] = $this->executorIds;
+        }
         if (null !== $this->jobSpec) {
             $res['JobSpec'] = [];
             if (null !== $this->jobSpec && \is_array($this->jobSpec)) {
@@ -45,6 +54,11 @@ class DeleteJobsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ExecutorIds'])) {
+            if (!empty($map['ExecutorIds'])) {
+                $model->executorIds = $map['ExecutorIds'];
+            }
+        }
         if (isset($map['JobSpec'])) {
             if (!empty($map['JobSpec'])) {
                 $model->jobSpec = [];

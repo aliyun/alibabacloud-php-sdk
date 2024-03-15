@@ -19,6 +19,9 @@ use AlibabaCloud\SDK\EHPC\V20230701\Models\GetImageRequest;
 use AlibabaCloud\SDK\EHPC\V20230701\Models\GetImageResponse;
 use AlibabaCloud\SDK\EHPC\V20230701\Models\GetJobRequest;
 use AlibabaCloud\SDK\EHPC\V20230701\Models\GetJobResponse;
+use AlibabaCloud\SDK\EHPC\V20230701\Models\ListExecutorsRequest;
+use AlibabaCloud\SDK\EHPC\V20230701\Models\ListExecutorsResponse;
+use AlibabaCloud\SDK\EHPC\V20230701\Models\ListExecutorsShrinkRequest;
 use AlibabaCloud\SDK\EHPC\V20230701\Models\ListImagesRequest;
 use AlibabaCloud\SDK\EHPC\V20230701\Models\ListImagesResponse;
 use AlibabaCloud\SDK\EHPC\V20230701\Models\ListImagesShrinkRequest;
@@ -202,10 +205,16 @@ class EHPC extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new DeleteJobsShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->executorIds)) {
+            $request->executorIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->executorIds, 'ExecutorIds', 'json');
+        }
         if (!Utils::isUnset($tmpReq->jobSpec)) {
             $request->jobSpecShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->jobSpec, 'JobSpec', 'json');
         }
         $query = [];
+        if (!Utils::isUnset($request->executorIdsShrink)) {
+            $query['ExecutorIds'] = $request->executorIdsShrink;
+        }
         if (!Utils::isUnset($request->jobSpecShrink)) {
             $query['JobSpec'] = $request->jobSpecShrink;
         }
@@ -323,6 +332,60 @@ class EHPC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListExecutorsRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListExecutorsResponse
+     */
+    public function listExecutorsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListExecutorsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->filter)) {
+            $request->filterShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->filter, 'Filter', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->filterShrink)) {
+            $query['Filter'] = $request->filterShrink;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListExecutors',
+            'version'     => '2023-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListExecutorsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListExecutorsRequest $request
+     *
+     * @return ListExecutorsResponse
+     */
+    public function listExecutors($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listExecutorsWithOptions($request, $runtime);
     }
 
     /**
