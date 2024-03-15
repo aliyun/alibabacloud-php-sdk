@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateTopicConfigResponseBody extends Model
 {
     /**
+     * @description The HTTP status code. If the request is successful, 200 is returned.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +18,8 @@ class UpdateTopicConfigResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned data.
+     *
      * @example []
      *
      * @var string
@@ -23,6 +27,8 @@ class UpdateTopicConfigResponseBody extends Model
     public $data;
 
     /**
+     * @description The returned message.
+     *
      * @example operation success.
      *
      * @var string
@@ -30,7 +36,7 @@ class UpdateTopicConfigResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 0178A3A7-E87B-5E50-A16F-3E62F534****
      *
@@ -39,6 +45,8 @@ class UpdateTopicConfigResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example True
      *
      * @var bool

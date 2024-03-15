@@ -9,12 +9,12 @@ use AlibabaCloud\Tea\Model;
 class CreateAclRequest extends Model
 {
     /**
-     * @description The type of operation allowed by the ACL. Valid values:
+     * @description The operation type. Valid values:
      *
-     *   **Write**: data writes.
-     *   **Read**: data reads.
-     *   **Describe**: reads of **transaction IDs**.
-     *   **IdempotentWrite**: idempotent data writes to **clusters**.
+     *   **Write**: data writes
+     *   **Read**: data reads
+     *   **Describe**: reads of transaction IDs****
+     *   **IdempotentWrite**: idempotent data writes to clusters****
      *
      * @example Read
      *
@@ -49,9 +49,9 @@ class CreateAclRequest extends Model
     /**
      * @description The resource type. Valid values:
      *
-     *   **Topic**: topic
-     *   **Group**: consumer group
-     *   **Cluster**: cluster
+     *   **Topic**
+     *   **Group**
+     *   **Cluster**
      *   **TransactionalId**: transaction
      *
      * @example Group

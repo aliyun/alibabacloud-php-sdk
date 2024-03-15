@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteAclRequest extends Model
 {
     /**
-     * @description The type of operation allowed by the ACL. Valid values:
+     * @description The operation type. Valid values:
      *
      *   **Write**
      *   **Read**

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryMessageRequest extends Model
 {
     /**
+     * @description The beginning of the time range to query. The value of this parameter is a UNIX timestamp in milliseconds.
+     *
      * @example 1672410180000
      *
      * @var int
@@ -16,6 +18,8 @@ class QueryMessageRequest extends Model
     public $beginTime;
 
     /**
+     * @description The instance ID.
+     *
      * @example alikafka_pre-cn-mp919o4v****
      *
      * @var string
@@ -23,6 +27,8 @@ class QueryMessageRequest extends Model
     public $instanceId;
 
     /**
+     * @description The consumer offset of the partition.
+     *
      * @example 100
      *
      * @var string
@@ -30,6 +36,8 @@ class QueryMessageRequest extends Model
     public $offset;
 
     /**
+     * @description The partition ID.
+     *
      * @example 0
      *
      * @var string
@@ -37,6 +45,11 @@ class QueryMessageRequest extends Model
     public $partition;
 
     /**
+     * @description The query type. Valid values:
+     *
+     *   byOffset: queries messages by offset. If you select this value, you must configure Partition and Offset.
+     *   byTimestamp: queries messages by time. If you select this value, you must configure BeginTime.
+     *
      * @example byTimestamp
      *
      * @var string
@@ -44,6 +57,8 @@ class QueryMessageRequest extends Model
     public $queryType;
 
     /**
+     * @description The ID of the region where the resource resides.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -51,6 +66,8 @@ class QueryMessageRequest extends Model
     public $regionId;
 
     /**
+     * @description The topic name.
+     *
      * @example testkafka
      *
      * @var string

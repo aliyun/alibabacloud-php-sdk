@@ -185,6 +185,16 @@ class instanceVO extends Model
     public $regionId;
 
     /**
+     * @var int
+     */
+    public $reservedPublishCapacity;
+
+    /**
+     * @var int
+     */
+    public $reservedSubscribeCapacity;
+
+    /**
      * @description The resource group ID.
      *
      * @example rg-ac***********7q
@@ -362,41 +372,43 @@ class instanceVO extends Model
      */
     public $zoneId;
     protected $_name = [
-        'allConfig'                => 'AllConfig',
-        'confluentConfig'          => 'ConfluentConfig',
-        'createTime'               => 'CreateTime',
-        'deployType'               => 'DeployType',
-        'diskSize'                 => 'DiskSize',
-        'diskType'                 => 'DiskType',
-        'domainEndpoint'           => 'DomainEndpoint',
-        'eipMax'                   => 'EipMax',
-        'endPoint'                 => 'EndPoint',
-        'expiredTime'              => 'ExpiredTime',
-        'instanceId'               => 'InstanceId',
-        'ioMax'                    => 'IoMax',
-        'ioMaxSpec'                => 'IoMaxSpec',
-        'kmsKeyId'                 => 'KmsKeyId',
-        'msgRetain'                => 'MsgRetain',
-        'name'                     => 'Name',
-        'paidType'                 => 'PaidType',
-        'regionId'                 => 'RegionId',
-        'resourceGroupId'          => 'ResourceGroupId',
-        'saslDomainEndpoint'       => 'SaslDomainEndpoint',
-        'securityGroup'            => 'SecurityGroup',
-        'serviceStatus'            => 'ServiceStatus',
-        'specType'                 => 'SpecType',
-        'sslDomainEndpoint'        => 'SslDomainEndpoint',
-        'sslEndPoint'              => 'SslEndPoint',
-        'standardZoneId'           => 'StandardZoneId',
-        'tags'                     => 'Tags',
-        'topicNumLimit'            => 'TopicNumLimit',
-        'upgradeServiceDetailInfo' => 'UpgradeServiceDetailInfo',
-        'usedGroupCount'           => 'UsedGroupCount',
-        'usedPartitionCount'       => 'UsedPartitionCount',
-        'usedTopicCount'           => 'UsedTopicCount',
-        'vSwitchId'                => 'VSwitchId',
-        'vpcId'                    => 'VpcId',
-        'zoneId'                   => 'ZoneId',
+        'allConfig'                 => 'AllConfig',
+        'confluentConfig'           => 'ConfluentConfig',
+        'createTime'                => 'CreateTime',
+        'deployType'                => 'DeployType',
+        'diskSize'                  => 'DiskSize',
+        'diskType'                  => 'DiskType',
+        'domainEndpoint'            => 'DomainEndpoint',
+        'eipMax'                    => 'EipMax',
+        'endPoint'                  => 'EndPoint',
+        'expiredTime'               => 'ExpiredTime',
+        'instanceId'                => 'InstanceId',
+        'ioMax'                     => 'IoMax',
+        'ioMaxSpec'                 => 'IoMaxSpec',
+        'kmsKeyId'                  => 'KmsKeyId',
+        'msgRetain'                 => 'MsgRetain',
+        'name'                      => 'Name',
+        'paidType'                  => 'PaidType',
+        'regionId'                  => 'RegionId',
+        'reservedPublishCapacity'   => 'ReservedPublishCapacity',
+        'reservedSubscribeCapacity' => 'ReservedSubscribeCapacity',
+        'resourceGroupId'           => 'ResourceGroupId',
+        'saslDomainEndpoint'        => 'SaslDomainEndpoint',
+        'securityGroup'             => 'SecurityGroup',
+        'serviceStatus'             => 'ServiceStatus',
+        'specType'                  => 'SpecType',
+        'sslDomainEndpoint'         => 'SslDomainEndpoint',
+        'sslEndPoint'               => 'SslEndPoint',
+        'standardZoneId'            => 'StandardZoneId',
+        'tags'                      => 'Tags',
+        'topicNumLimit'             => 'TopicNumLimit',
+        'upgradeServiceDetailInfo'  => 'UpgradeServiceDetailInfo',
+        'usedGroupCount'            => 'UsedGroupCount',
+        'usedPartitionCount'        => 'UsedPartitionCount',
+        'usedTopicCount'            => 'UsedTopicCount',
+        'vSwitchId'                 => 'VSwitchId',
+        'vpcId'                     => 'VpcId',
+        'zoneId'                    => 'ZoneId',
     ];
 
     public function validate()
@@ -459,6 +471,12 @@ class instanceVO extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->reservedPublishCapacity) {
+            $res['ReservedPublishCapacity'] = $this->reservedPublishCapacity;
+        }
+        if (null !== $this->reservedSubscribeCapacity) {
+            $res['ReservedSubscribeCapacity'] = $this->reservedSubscribeCapacity;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -576,6 +594,12 @@ class instanceVO extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ReservedPublishCapacity'])) {
+            $model->reservedPublishCapacity = $map['ReservedPublishCapacity'];
+        }
+        if (isset($map['ReservedSubscribeCapacity'])) {
+            $model->reservedSubscribeCapacity = $map['ReservedSubscribeCapacity'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];

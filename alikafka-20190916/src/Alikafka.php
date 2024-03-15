@@ -71,8 +71,12 @@ use AlibabaCloud\SDK\Alikafka\V20190916\Models\QueryMessageRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\QueryMessageResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\ReleaseInstanceRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\ReleaseInstanceResponse;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\ReopenInstanceRequest;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\ReopenInstanceResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\StartInstanceRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\StartInstanceResponse;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\StopInstanceRequest;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\StopInstanceResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\UntagResourcesRequest;
@@ -1856,6 +1860,52 @@ class Alikafka extends OpenApiClient
     }
 
     /**
+     * @param ReopenInstanceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ReopenInstanceResponse
+     */
+    public function reopenInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ReopenInstance',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ReopenInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ReopenInstanceRequest $request
+     *
+     * @return ReopenInstanceResponse
+     */
+    public function reopenInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->reopenInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * >  You can call this operation up to twice per second.
      *   *
      * @param StartInstanceRequest $request StartInstanceRequest
@@ -1960,6 +2010,52 @@ class Alikafka extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->startInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StopInstanceRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return StopInstanceResponse
+     */
+    public function stopInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopInstance',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StopInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StopInstanceRequest $request
+     *
+     * @return StopInstanceResponse
+     */
+    public function stopInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -2134,7 +2230,7 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * You can call this operation to reset the consumer offsets of the subscribed topics of a consumer group. You can specify a timestamp or an offset to reset a consumer offset. You can implement the following features by configuring a combination of different parameters:
+     * You can call this operation to reset the consumer offset of a specific consumer group. You can use the timestamp or offset parameter to reset the consumer offset of a consumer group. You can implement the following features by configuring a combination of different parameters:
      *   * *   Reset the consumer offsets of one or all subscribed topics of a consumer group to the latest offset. This way, you can consume messages in the topics from the latest offset.
      *   * *   Reset the consumer offsets of one or all subscribed topics of a consumer group to a specific point in time. This way, you can consume messages in the topics from the specified point in time.
      *   * *   Reset the consumer offset of one subscribed topic of a consumer group to a specific offset in a specific partition. This way, you can consume messages from the specified offset in the specified partition.
@@ -2193,7 +2289,7 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * You can call this operation to reset the consumer offsets of the subscribed topics of a consumer group. You can specify a timestamp or an offset to reset a consumer offset. You can implement the following features by configuring a combination of different parameters:
+     * You can call this operation to reset the consumer offset of a specific consumer group. You can use the timestamp or offset parameter to reset the consumer offset of a consumer group. You can implement the following features by configuring a combination of different parameters:
      *   * *   Reset the consumer offsets of one or all subscribed topics of a consumer group to the latest offset. This way, you can consume messages in the topics from the latest offset.
      *   * *   Reset the consumer offsets of one or all subscribed topics of a consumer group to a specific point in time. This way, you can consume messages in the topics from the specified point in time.
      *   * *   Reset the consumer offset of one subscribed topic of a consumer group to a specific offset in a specific partition. This way, you can consume messages from the specified offset in the specified partition.

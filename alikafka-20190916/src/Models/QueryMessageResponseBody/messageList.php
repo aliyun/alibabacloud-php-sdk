@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class messageList extends Model
 {
     /**
+     * @description The check value of the chaincode.
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +18,8 @@ class messageList extends Model
     public $checksum;
 
     /**
+     * @description The message key.
+     *
      * @example this is key
      *
      * @var string
@@ -23,6 +27,8 @@ class messageList extends Model
     public $key;
 
     /**
+     * @description Indicates whether the key is truncated.
+     *
      * @example false
      *
      * @var bool
@@ -30,6 +36,8 @@ class messageList extends Model
     public $keyTruncated;
 
     /**
+     * @description The consumer offset of the partition.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +45,8 @@ class messageList extends Model
     public $offset;
 
     /**
+     * @description The partition ID.
+     *
      * @example 0
      *
      * @var int
@@ -44,6 +54,8 @@ class messageList extends Model
     public $partition;
 
     /**
+     * @description The size of the key after serialization. Unit: bytes.
+     *
      * @example 11
      *
      * @var int
@@ -51,6 +63,8 @@ class messageList extends Model
     public $serializedKeySize;
 
     /**
+     * @description The size of the value after serialization. Unit: bytes.
+     *
      * @example 20
      *
      * @var int
@@ -58,6 +72,8 @@ class messageList extends Model
     public $serializedValueSize;
 
     /**
+     * @description The time when the message was created. The value of this parameter is a UNIX timestamp in milliseconds.
+     *
      * @example 1705482172640
      *
      * @var int
@@ -65,6 +81,8 @@ class messageList extends Model
     public $timestamp;
 
     /**
+     * @description The time type.
+     *
      * @example CreateTime
      *
      * @var string
@@ -72,6 +90,8 @@ class messageList extends Model
     public $timestampType;
 
     /**
+     * @description The topic name.
+     *
      * @example dqc_test2
      *
      * @var string
@@ -79,6 +99,10 @@ class messageList extends Model
     public $topic;
 
     /**
+     * @description The truncated size of the message key. Unit: bytes.
+     *
+     *   A message is truncated only if the message exceeds 10 MB in size.
+     *
      * @example 0
      *
      * @var int
@@ -86,6 +110,10 @@ class messageList extends Model
     public $truncatedKeySize;
 
     /**
+     * @description The truncated size of the message value. Unit: bytes.
+     *
+     *   A message is truncated only if the message exceeds 10 MB in size.
+     *
      * @example 0
      *
      * @var int
@@ -93,6 +121,8 @@ class messageList extends Model
     public $truncatedValueSize;
 
     /**
+     * @description The message value.
+     *
      * @example Welcome to Ali kafka
      *
      * @var string
@@ -100,6 +130,8 @@ class messageList extends Model
     public $value;
 
     /**
+     * @description Indicates whether the value is truncated.
+     *
      * @example false
      *
      * @var bool

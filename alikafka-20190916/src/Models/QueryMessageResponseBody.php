@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryMessageResponseBody extends Model
 {
     /**
+     * @description The returned HTTP status code. If the request is successful, 200 is returned.
+     *
      * @example 200
      *
      * @var int
@@ -17,6 +19,8 @@ class QueryMessageResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned message.
+     *
      * @example operation success.
      *
      * @var string
@@ -24,11 +28,15 @@ class QueryMessageResponseBody extends Model
     public $message;
 
     /**
+     * @description The messages.
+     *
      * @var messageList[]
      */
     public $messageList;
 
     /**
+     * @description The request ID.
+     *
      * @example ABA4A7FD-E10F-45C7-9774-A5236015****
      *
      * @var string
@@ -36,6 +44,11 @@ class QueryMessageResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

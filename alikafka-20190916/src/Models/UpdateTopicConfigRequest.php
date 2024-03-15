@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class UpdateTopicConfigRequest extends Model
 {
     /**
+     * @description The key of the topic configuration.
+     *
+     *   Valid values: retention.hours, max.message.bytes, and replications.
+     *   retention.hours specifies the message retention period.
+     *   max.message.bytes specifies the maximum size of a sent message.
+     *   replications specifies the number of topic replicas.
+     *
      * @example replications
      *
      * @var string
@@ -16,6 +23,8 @@ class UpdateTopicConfigRequest extends Model
     public $config;
 
     /**
+     * @description The instance ID.
+     *
      * @example alikafka_post-cn-v0h1fgs2****
      *
      * @var string
@@ -23,6 +32,8 @@ class UpdateTopicConfigRequest extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the region where the instance resides.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -30,6 +41,8 @@ class UpdateTopicConfigRequest extends Model
     public $regionId;
 
     /**
+     * @description The topic name.
+     *
      * @example dqc_test2
      *
      * @var string
@@ -37,6 +50,12 @@ class UpdateTopicConfigRequest extends Model
     public $topic;
 
     /**
+     * @description The value of the topic configuration.
+     *
+     *   retention.hours specifies the message retention period. The value is a string. Valid values: 24 to 8760.
+     *   max.message.bytes specifies the maximum size of a sent message. The value is a string. Valid values: 1048576 to 10485760.
+     *   replications specifies the number of topic replicas. The value is a string. Valid values: 1 to 3.
+     *
      * @example 3
      *
      * @var string

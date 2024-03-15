@@ -6,11 +6,9 @@ namespace AlibabaCloud\SDK\Alikafka\V20190916\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteTopicResponseBody extends Model
+class ReopenInstanceResponseBody extends Model
 {
     /**
-     * @description The HTTP status code. The status code 200 indicates that the request is successful.
-     *
      * @example 200
      *
      * @var int
@@ -18,8 +16,6 @@ class DeleteTopicResponseBody extends Model
     public $code;
 
     /**
-     * @description The returned message.
-     *
      * @example operation success.
      *
      * @var string
@@ -27,17 +23,13 @@ class DeleteTopicResponseBody extends Model
     public $message;
 
     /**
-     * @description The request ID.
-     *
-     * @example 06084011-E093-46F3-A51F-4B19A8AD****
+     * @example 252820E1-A2E6-45F2-B4C9-1056B8CE****
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful.
-     *
      * @example true
      *
      * @var bool
@@ -76,7 +68,7 @@ class DeleteTopicResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DeleteTopicResponseBody
+     * @return ReopenInstanceResponseBody
      */
     public static function fromMap($map = [])
     {
