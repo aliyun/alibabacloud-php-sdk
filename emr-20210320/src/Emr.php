@@ -519,12 +519,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 获取弹性伸缩策略信息。
-     *   *
-     * @param GetAutoScalingPolicyRequest $request GetAutoScalingPolicyRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param GetAutoScalingPolicyRequest $request
+     * @param RuntimeOptions              $runtime
      *
-     * @return GetAutoScalingPolicyResponse GetAutoScalingPolicyResponse
+     * @return GetAutoScalingPolicyResponse
      */
     public function getAutoScalingPolicyWithOptions($request, $runtime)
     {
@@ -558,11 +556,9 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 获取弹性伸缩策略信息。
-     *   *
-     * @param GetAutoScalingPolicyRequest $request GetAutoScalingPolicyRequest
+     * @param GetAutoScalingPolicyRequest $request
      *
-     * @return GetAutoScalingPolicyResponse GetAutoScalingPolicyResponse
+     * @return GetAutoScalingPolicyResponse
      */
     public function getAutoScalingPolicy($request)
     {

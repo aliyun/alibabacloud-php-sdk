@@ -48,6 +48,11 @@ class scalingRules extends Model
     public $metricsTrigger;
 
     /**
+     * @var int
+     */
+    public $minAdjustmentValue;
+
+    /**
      * @description The name of the auto scaling rule.
      *
      * @example scaling-out-memory
@@ -75,13 +80,14 @@ class scalingRules extends Model
      */
     public $triggerType;
     protected $_name = [
-        'activityType'    => 'ActivityType',
-        'adjustmentType'  => 'AdjustmentType',
-        'adjustmentValue' => 'AdjustmentValue',
-        'metricsTrigger'  => 'MetricsTrigger',
-        'ruleName'        => 'RuleName',
-        'timeTrigger'     => 'TimeTrigger',
-        'triggerType'     => 'TriggerType',
+        'activityType'       => 'ActivityType',
+        'adjustmentType'     => 'AdjustmentType',
+        'adjustmentValue'    => 'AdjustmentValue',
+        'metricsTrigger'     => 'MetricsTrigger',
+        'minAdjustmentValue' => 'MinAdjustmentValue',
+        'ruleName'           => 'RuleName',
+        'timeTrigger'        => 'TimeTrigger',
+        'triggerType'        => 'TriggerType',
     ];
 
     public function validate()
@@ -102,6 +108,9 @@ class scalingRules extends Model
         }
         if (null !== $this->metricsTrigger) {
             $res['MetricsTrigger'] = null !== $this->metricsTrigger ? $this->metricsTrigger->toMap() : null;
+        }
+        if (null !== $this->minAdjustmentValue) {
+            $res['MinAdjustmentValue'] = $this->minAdjustmentValue;
         }
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
@@ -135,6 +144,9 @@ class scalingRules extends Model
         }
         if (isset($map['MetricsTrigger'])) {
             $model->metricsTrigger = MetricsTrigger::fromMap($map['MetricsTrigger']);
+        }
+        if (isset($map['MinAdjustmentValue'])) {
+            $model->minAdjustmentValue = $map['MinAdjustmentValue'];
         }
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
