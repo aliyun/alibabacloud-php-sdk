@@ -19,6 +19,11 @@ class VerifyVATInvoiceRequest extends Model
     public $invoiceDate;
 
     /**
+     * @var int
+     */
+    public $invoiceKind;
+
+    /**
      * @var string
      */
     public $invoiceNo;
@@ -35,6 +40,7 @@ class VerifyVATInvoiceRequest extends Model
     protected $_name = [
         'invoiceCode' => 'InvoiceCode',
         'invoiceDate' => 'InvoiceDate',
+        'invoiceKind' => 'InvoiceKind',
         'invoiceNo'   => 'InvoiceNo',
         'invoiceSum'  => 'InvoiceSum',
         'verifyCode'  => 'VerifyCode',
@@ -52,6 +58,9 @@ class VerifyVATInvoiceRequest extends Model
         }
         if (null !== $this->invoiceDate) {
             $res['InvoiceDate'] = $this->invoiceDate;
+        }
+        if (null !== $this->invoiceKind) {
+            $res['InvoiceKind'] = $this->invoiceKind;
         }
         if (null !== $this->invoiceNo) {
             $res['InvoiceNo'] = $this->invoiceNo;
@@ -79,6 +88,9 @@ class VerifyVATInvoiceRequest extends Model
         }
         if (isset($map['InvoiceDate'])) {
             $model->invoiceDate = $map['InvoiceDate'];
+        }
+        if (isset($map['InvoiceKind'])) {
+            $model->invoiceKind = $map['InvoiceKind'];
         }
         if (isset($map['InvoiceNo'])) {
             $model->invoiceNo = $map['InvoiceNo'];

@@ -3777,6 +3777,9 @@ class Ocrapi extends OpenApiClient
         if (!Utils::isUnset($request->invoiceDate)) {
             $query['InvoiceDate'] = $request->invoiceDate;
         }
+        if (!Utils::isUnset($request->invoiceKind)) {
+            $query['InvoiceKind'] = $request->invoiceKind;
+        }
         if (!Utils::isUnset($request->invoiceNo)) {
             $query['InvoiceNo'] = $request->invoiceNo;
         }
