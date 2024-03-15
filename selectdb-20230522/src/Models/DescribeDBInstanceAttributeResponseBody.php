@@ -128,6 +128,11 @@ class DescribeDBInstanceAttributeResponseBody extends Model
     public $resourceCpu;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @example ACTIVATION
      *
      * @var string
@@ -166,6 +171,7 @@ class DescribeDBInstanceAttributeResponseBody extends Model
         'objectStoreSize'    => 'ObjectStoreSize',
         'requestId'          => 'RequestId',
         'resourceCpu'        => 'ResourceCpu',
+        'resourceGroupId'    => 'ResourceGroupId',
         'status'             => 'Status',
         'storageSize'        => 'StorageSize',
         'subDomain'          => 'SubDomain',
@@ -237,6 +243,9 @@ class DescribeDBInstanceAttributeResponseBody extends Model
         }
         if (null !== $this->resourceCpu) {
             $res['ResourceCpu'] = $this->resourceCpu;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -320,6 +329,9 @@ class DescribeDBInstanceAttributeResponseBody extends Model
         }
         if (isset($map['ResourceCpu'])) {
             $model->resourceCpu = $map['ResourceCpu'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
