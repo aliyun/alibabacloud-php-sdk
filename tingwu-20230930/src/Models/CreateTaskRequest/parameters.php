@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest;
 
+use AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest\parameters\extraParams;
 use AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest\parameters\meetingAssistance;
 use AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest\parameters\summarization;
 use AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest\parameters\transcoding;
@@ -19,6 +20,11 @@ class parameters extends Model
      * @var bool
      */
     public $autoChaptersEnabled;
+
+    /**
+     * @var extraParams
+     */
+    public $extraParams;
 
     /**
      * @var meetingAssistance
@@ -77,6 +83,7 @@ class parameters extends Model
     public $translationEnabled;
     protected $_name = [
         'autoChaptersEnabled'      => 'AutoChaptersEnabled',
+        'extraParams'              => 'ExtraParams',
         'meetingAssistance'        => 'MeetingAssistance',
         'meetingAssistanceEnabled' => 'MeetingAssistanceEnabled',
         'pptExtractionEnabled'     => 'PptExtractionEnabled',
@@ -98,6 +105,9 @@ class parameters extends Model
         $res = [];
         if (null !== $this->autoChaptersEnabled) {
             $res['AutoChaptersEnabled'] = $this->autoChaptersEnabled;
+        }
+        if (null !== $this->extraParams) {
+            $res['ExtraParams'] = null !== $this->extraParams ? $this->extraParams->toMap() : null;
         }
         if (null !== $this->meetingAssistance) {
             $res['MeetingAssistance'] = null !== $this->meetingAssistance ? $this->meetingAssistance->toMap() : null;
@@ -143,6 +153,9 @@ class parameters extends Model
         $model = new self();
         if (isset($map['AutoChaptersEnabled'])) {
             $model->autoChaptersEnabled = $map['AutoChaptersEnabled'];
+        }
+        if (isset($map['ExtraParams'])) {
+            $model->extraParams = extraParams::fromMap($map['ExtraParams']);
         }
         if (isset($map['MeetingAssistance'])) {
             $model->meetingAssistance = meetingAssistance::fromMap($map['MeetingAssistance']);

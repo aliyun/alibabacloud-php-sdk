@@ -26,10 +26,16 @@ class data extends Model
      * @var string
      */
     public $taskKey;
+
+    /**
+     * @var string
+     */
+    public $taskStatus;
     protected $_name = [
         'meetingJoinUrl' => 'MeetingJoinUrl',
         'taskId'         => 'TaskId',
         'taskKey'        => 'TaskKey',
+        'taskStatus'     => 'TaskStatus',
     ];
 
     public function validate()
@@ -47,6 +53,9 @@ class data extends Model
         }
         if (null !== $this->taskKey) {
             $res['TaskKey'] = $this->taskKey;
+        }
+        if (null !== $this->taskStatus) {
+            $res['TaskStatus'] = $this->taskStatus;
         }
 
         return $res;
@@ -68,6 +77,9 @@ class data extends Model
         }
         if (isset($map['TaskKey'])) {
             $model->taskKey = $map['TaskKey'];
+        }
+        if (isset($map['TaskStatus'])) {
+            $model->taskStatus = $map['TaskStatus'];
         }
 
         return $model;
