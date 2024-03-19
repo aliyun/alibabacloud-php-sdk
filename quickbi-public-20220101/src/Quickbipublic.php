@@ -78,6 +78,9 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListDataLevelPermissionWhite
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListDataLevelPermissionWhiteListResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListFavoriteReportsRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListFavoriteReportsResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListOrganizationRolesResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListOrganizationRoleUsersRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListOrganizationRoleUsersResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListPortalMenuAuthorizationRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListPortalMenuAuthorizationResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListPortalMenusRequest;
@@ -88,6 +91,10 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListSharedReportsRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListSharedReportsResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListUserGroupsByUserIdRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListUserGroupsByUserIdResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListWorkspaceRolesRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListWorkspaceRolesResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListWorkspaceRoleUsersRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListWorkspaceRoleUsersResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ModifyApiDatasourceParametersRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ModifyApiDatasourceParametersResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryComponentPerformanceRequest;
@@ -109,6 +116,8 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryDatasetSwitchInfoRespon
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryEmbeddedInfoResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryEmbeddedStatusRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryEmbeddedStatusResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryOrganizationRoleConfigRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryOrganizationRoleConfigResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryOrganizationWorkspaceListRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryOrganizationWorkspaceListResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryReadableResourcesListByUserIdRequest;
@@ -142,6 +151,8 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryWorksByOrganizationRequ
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryWorksByOrganizationResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryWorksByWorkspaceRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryWorksByWorkspaceResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryWorkspaceRoleConfigRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryWorkspaceRoleConfigResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryWorkspaceUserListRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryWorkspaceUserListResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryWorksRequest;
@@ -1972,6 +1983,91 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * @param ListOrganizationRoleUsersRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListOrganizationRoleUsersResponse
+     */
+    public function listOrganizationRoleUsersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->roleId)) {
+            $query['RoleId'] = $request->roleId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListOrganizationRoleUsers',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListOrganizationRoleUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListOrganizationRoleUsersRequest $request
+     *
+     * @return ListOrganizationRoleUsersResponse
+     */
+    public function listOrganizationRoleUsers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listOrganizationRoleUsersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListOrganizationRolesResponse
+     */
+    public function listOrganizationRolesWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'ListOrganizationRoles',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListOrganizationRolesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return ListOrganizationRolesResponse
+     */
+    public function listOrganizationRoles()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listOrganizationRolesWithOptions($runtime);
+    }
+
+    /**
      * @param ListPortalMenuAuthorizationRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -2211,6 +2307,104 @@ class Quickbipublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listUserGroupsByUserIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListWorkspaceRoleUsersRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListWorkspaceRoleUsersResponse
+     */
+    public function listWorkspaceRoleUsersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->roleId)) {
+            $query['RoleId'] = $request->roleId;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListWorkspaceRoleUsers',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListWorkspaceRoleUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListWorkspaceRoleUsersRequest $request
+     *
+     * @return ListWorkspaceRoleUsersResponse
+     */
+    public function listWorkspaceRoleUsers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listWorkspaceRoleUsersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListWorkspaceRolesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListWorkspaceRolesResponse
+     */
+    public function listWorkspaceRolesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListWorkspaceRoles',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListWorkspaceRolesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListWorkspaceRolesRequest $request
+     *
+     * @return ListWorkspaceRolesResponse
+     */
+    public function listWorkspaceRoles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listWorkspaceRolesWithOptions($request, $runtime);
     }
 
     /**
@@ -2742,6 +2936,49 @@ class Quickbipublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryEmbeddedStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryOrganizationRoleConfigRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return QueryOrganizationRoleConfigResponse
+     */
+    public function queryOrganizationRoleConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->roleId)) {
+            $query['RoleId'] = $request->roleId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryOrganizationRoleConfig',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryOrganizationRoleConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryOrganizationRoleConfigRequest $request
+     *
+     * @return QueryOrganizationRoleConfigResponse
+     */
+    public function queryOrganizationRoleConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryOrganizationRoleConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -3563,6 +3800,49 @@ class Quickbipublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryWorksByWorkspaceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryWorkspaceRoleConfigRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return QueryWorkspaceRoleConfigResponse
+     */
+    public function queryWorkspaceRoleConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->roleId)) {
+            $query['RoleId'] = $request->roleId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryWorkspaceRoleConfig',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryWorkspaceRoleConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryWorkspaceRoleConfigRequest $request
+     *
+     * @return QueryWorkspaceRoleConfigResponse
+     */
+    public function queryWorkspaceRoleConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryWorkspaceRoleConfigWithOptions($request, $runtime);
     }
 
     /**
