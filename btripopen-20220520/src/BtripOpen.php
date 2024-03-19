@@ -341,10 +341,31 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InsureOrderUrlDetailResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InsureRefundDetailHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InsureRefundDetailRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InsureRefundDetailResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightCreateOrderHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightCreateOrderRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightCreateOrderResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightCreateOrderShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightInventoryPriceCheckHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightInventoryPriceCheckRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightInventoryPriceCheckResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightInventoryPriceCheckShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightListingSearchHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightListingSearchRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightListingSearchResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightListingSearchShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOrderCancelHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOrderCancelRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOrderCancelResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOrderDetailHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOrderDetailRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOrderDetailResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOrderPayCheckHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOrderPayCheckRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOrderPayCheckResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOrderPayHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOrderPayRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOrderPayResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOrderPayShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOtaItemDetailHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOtaItemDetailRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOtaItemDetailResponse;
@@ -352,6 +373,9 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOtaSearchHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOtaSearchRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOtaSearchResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOtaSearchShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightSegmentAvailableCertHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightSegmentAvailableCertRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightSegmentAvailableCertResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InvoiceAddHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InvoiceAddRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InvoiceAddResponse;
@@ -384,6 +408,9 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IsvUserSaveHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IsvUserSaveRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IsvUserSaveResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IsvUserSaveShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MealBillSettlementQueryHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MealBillSettlementQueryRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MealBillSettlementQueryResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MonthBillConfirmHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MonthBillConfirmRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MonthBillConfirmResponse;
@@ -7789,6 +7816,188 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * @param IntlFlightCreateOrderRequest $tmpReq
+     * @param IntlFlightCreateOrderHeaders $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return IntlFlightCreateOrderResponse
+     */
+    public function intlFlightCreateOrderWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new IntlFlightCreateOrderShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->contactInfo)) {
+            $request->contactInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->contactInfo, 'contact_info', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->costCenter)) {
+            $request->costCenterShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->costCenter, 'cost_center', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->extraInfo)) {
+            $request->extraInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extraInfo, 'extra_info', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->passengerList)) {
+            $request->passengerListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->passengerList, 'passenger_list', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->asyncCreateOrderKey)) {
+            $query['async_create_order_key'] = $request->asyncCreateOrderKey;
+        }
+        if (!Utils::isUnset($request->asyncCreateOrderMode)) {
+            $query['async_create_order_mode'] = $request->asyncCreateOrderMode;
+        }
+        if (!Utils::isUnset($request->contactInfoShrink)) {
+            $query['contact_info'] = $request->contactInfoShrink;
+        }
+        if (!Utils::isUnset($request->costCenterShrink)) {
+            $query['cost_center'] = $request->costCenterShrink;
+        }
+        if (!Utils::isUnset($request->extraInfoShrink)) {
+            $query['extra_info'] = $request->extraInfoShrink;
+        }
+        if (!Utils::isUnset($request->isvName)) {
+            $query['isv_name'] = $request->isvName;
+        }
+        if (!Utils::isUnset($request->language)) {
+            $query['language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->otaItemId)) {
+            $query['ota_item_id'] = $request->otaItemId;
+        }
+        if (!Utils::isUnset($request->outOrderId)) {
+            $query['out_order_id'] = $request->outOrderId;
+        }
+        if (!Utils::isUnset($request->passengerListShrink)) {
+            $query['passenger_list'] = $request->passengerListShrink;
+        }
+        if (!Utils::isUnset($request->renderKey)) {
+            $query['render_key'] = $request->renderKey;
+        }
+        if (!Utils::isUnset($request->totalPriceCent)) {
+            $query['total_price_cent'] = $request->totalPriceCent;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['user_id'] = $request->userId;
+        }
+        if (!Utils::isUnset($request->userName)) {
+            $query['user_name'] = $request->userName;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'IntlFlightCreateOrder',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/intl-flight/v1/order/action/create',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return IntlFlightCreateOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param IntlFlightCreateOrderRequest $request
+     *
+     * @return IntlFlightCreateOrderResponse
+     */
+    public function intlFlightCreateOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new IntlFlightCreateOrderHeaders([]);
+
+        return $this->intlFlightCreateOrderWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param IntlFlightInventoryPriceCheckRequest $tmpReq
+     * @param IntlFlightInventoryPriceCheckHeaders $headers
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return IntlFlightInventoryPriceCheckResponse
+     */
+    public function intlFlightInventoryPriceCheckWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new IntlFlightInventoryPriceCheckShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->passengerList)) {
+            $request->passengerListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->passengerList, 'passenger_list', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->isvName)) {
+            $query['isv_name'] = $request->isvName;
+        }
+        if (!Utils::isUnset($request->language)) {
+            $query['language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->orderPrice)) {
+            $query['order_price'] = $request->orderPrice;
+        }
+        if (!Utils::isUnset($request->otaItemId)) {
+            $query['ota_item_id'] = $request->otaItemId;
+        }
+        if (!Utils::isUnset($request->passengerListShrink)) {
+            $query['passenger_list'] = $request->passengerListShrink;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['user_id'] = $request->userId;
+        }
+        if (!Utils::isUnset($request->userName)) {
+            $query['user_name'] = $request->userName;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'IntlFlightInventoryPriceCheck',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/intl-flight/v1/flights/action/inventory-price-check',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return IntlFlightInventoryPriceCheckResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param IntlFlightInventoryPriceCheckRequest $request
+     *
+     * @return IntlFlightInventoryPriceCheckResponse
+     */
+    public function intlFlightInventoryPriceCheck($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new IntlFlightInventoryPriceCheckHeaders([]);
+
+        return $this->intlFlightInventoryPriceCheckWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param IntlFlightListingSearchRequest $tmpReq
      * @param IntlFlightListingSearchHeaders $headers
      * @param RuntimeOptions                 $runtime
@@ -7889,6 +8098,256 @@ class BtripOpen extends OpenApiClient
         $headers = new IntlFlightListingSearchHeaders([]);
 
         return $this->intlFlightListingSearchWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param IntlFlightOrderCancelRequest $request
+     * @param IntlFlightOrderCancelHeaders $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return IntlFlightOrderCancelResponse
+     */
+    public function intlFlightOrderCancelWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->isvName)) {
+            $query['isv_name'] = $request->isvName;
+        }
+        if (!Utils::isUnset($request->memo)) {
+            $query['memo'] = $request->memo;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $query['order_id'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->outOrderId)) {
+            $query['out_order_id'] = $request->outOrderId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'IntlFlightOrderCancel',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/intl-flight/v1/order/action/cancel',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return IntlFlightOrderCancelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param IntlFlightOrderCancelRequest $request
+     *
+     * @return IntlFlightOrderCancelResponse
+     */
+    public function intlFlightOrderCancel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new IntlFlightOrderCancelHeaders([]);
+
+        return $this->intlFlightOrderCancelWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param IntlFlightOrderDetailRequest $request
+     * @param IntlFlightOrderDetailHeaders $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return IntlFlightOrderDetailResponse
+     */
+    public function intlFlightOrderDetailWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->isvName)) {
+            $query['isv_name'] = $request->isvName;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $query['order_id'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->outOrderId)) {
+            $query['out_order_id'] = $request->outOrderId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'IntlFlightOrderDetail',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/intl-flight/v1/order/action/detail',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return IntlFlightOrderDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param IntlFlightOrderDetailRequest $request
+     *
+     * @return IntlFlightOrderDetailResponse
+     */
+    public function intlFlightOrderDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new IntlFlightOrderDetailHeaders([]);
+
+        return $this->intlFlightOrderDetailWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param IntlFlightOrderPayRequest $tmpReq
+     * @param IntlFlightOrderPayHeaders $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return IntlFlightOrderPayResponse
+     */
+    public function intlFlightOrderPayWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new IntlFlightOrderPayShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->extParams)) {
+            $request->extParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extParams, 'ext_params', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->extParamsShrink)) {
+            $query['ext_params'] = $request->extParamsShrink;
+        }
+        if (!Utils::isUnset($request->isvName)) {
+            $query['isv_name'] = $request->isvName;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $query['order_id'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->outOrderId)) {
+            $query['out_order_id'] = $request->outOrderId;
+        }
+        if (!Utils::isUnset($request->totalPrice)) {
+            $query['total_price'] = $request->totalPrice;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'IntlFlightOrderPay',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/intl-flight/v1/order/action/pay',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return IntlFlightOrderPayResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param IntlFlightOrderPayRequest $request
+     *
+     * @return IntlFlightOrderPayResponse
+     */
+    public function intlFlightOrderPay($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new IntlFlightOrderPayHeaders([]);
+
+        return $this->intlFlightOrderPayWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param IntlFlightOrderPayCheckRequest $request
+     * @param IntlFlightOrderPayCheckHeaders $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return IntlFlightOrderPayCheckResponse
+     */
+    public function intlFlightOrderPayCheckWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->isvName)) {
+            $query['isv_name'] = $request->isvName;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $query['order_id'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->outOrderId)) {
+            $query['out_order_id'] = $request->outOrderId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'IntlFlightOrderPayCheck',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/intl-flight/v1/order/action/pay-check',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return IntlFlightOrderPayCheckResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param IntlFlightOrderPayCheckRequest $request
+     *
+     * @return IntlFlightOrderPayCheckResponse
+     */
+    public function intlFlightOrderPayCheck($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new IntlFlightOrderPayCheckHeaders([]);
+
+        return $this->intlFlightOrderPayCheckWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -8047,6 +8506,70 @@ class BtripOpen extends OpenApiClient
         $headers = new IntlFlightOtaSearchHeaders([]);
 
         return $this->intlFlightOtaSearchWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                                $otaItemId
+     * @param IntlFlightSegmentAvailableCertRequest $request
+     * @param IntlFlightSegmentAvailableCertHeaders $headers
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return IntlFlightSegmentAvailableCertResponse
+     */
+    public function intlFlightSegmentAvailableCertWithOptions($otaItemId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->isvName)) {
+            $query['isv_name'] = $request->isvName;
+        }
+        if (!Utils::isUnset($request->language)) {
+            $query['language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['user_id'] = $request->userId;
+        }
+        if (!Utils::isUnset($request->userName)) {
+            $query['user_name'] = $request->userName;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'IntlFlightSegmentAvailableCert',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/intl-flight/v1/items/' . OpenApiUtilClient::getEncodeParam($otaItemId) . '/action/segment-available-cert',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return IntlFlightSegmentAvailableCertResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                                $otaItemId
+     * @param IntlFlightSegmentAvailableCertRequest $request
+     *
+     * @return IntlFlightSegmentAvailableCertResponse
+     */
+    public function intlFlightSegmentAvailableCert($otaItemId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new IntlFlightSegmentAvailableCertHeaders([]);
+
+        return $this->intlFlightSegmentAvailableCertWithOptions($otaItemId, $request, $headers, $runtime);
     }
 
     /**
@@ -8633,6 +9156,68 @@ class BtripOpen extends OpenApiClient
         $headers = new IsvUserSaveHeaders([]);
 
         return $this->isvUserSaveWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param MealBillSettlementQueryRequest $request
+     * @param MealBillSettlementQueryHeaders $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return MealBillSettlementQueryResponse
+     */
+    public function mealBillSettlementQueryWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['page_no'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['page_size'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->periodEnd)) {
+            $query['period_end'] = $request->periodEnd;
+        }
+        if (!Utils::isUnset($request->periodStart)) {
+            $query['period_start'] = $request->periodStart;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'MealBillSettlementQuery',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/meal/v1/bill-settlement',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return MealBillSettlementQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param MealBillSettlementQueryRequest $request
+     *
+     * @return MealBillSettlementQueryResponse
+     */
+    public function mealBillSettlementQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new MealBillSettlementQueryHeaders([]);
+
+        return $this->mealBillSettlementQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
