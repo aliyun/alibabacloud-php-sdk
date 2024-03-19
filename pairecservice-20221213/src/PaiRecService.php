@@ -181,6 +181,8 @@ use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateSceneRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateSceneResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateTableMetaRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateTableMetaResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UploadRecommendationDataRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UploadRecommendationDataResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -5295,5 +5297,59 @@ class PaiRecService extends OpenApiClient
         $headers = [];
 
         return $this->updateTableMetaWithOptions($TableMetaId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param UploadRecommendationDataRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UploadRecommendationDataResponse
+     */
+    public function uploadRecommendationDataWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->content)) {
+            $body['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->dataType)) {
+            $body['DataType'] = $request->dataType;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UploadRecommendationData',
+            'version'     => '2022-12-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/recommendationdata/action/upload',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UploadRecommendationDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UploadRecommendationDataRequest $request
+     *
+     * @return UploadRecommendationDataResponse
+     */
+    public function uploadRecommendationData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->uploadRecommendationDataWithOptions($request, $headers, $runtime);
     }
 }
