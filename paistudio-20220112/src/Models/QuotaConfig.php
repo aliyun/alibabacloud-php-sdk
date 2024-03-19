@@ -28,6 +28,11 @@ class QuotaConfig extends Model
     public $defaultGPUDriver;
 
     /**
+     * @var WorkspaceSpecs[]
+     */
+    public $resourceSpecs;
+
+    /**
      * @var string[]
      */
     public $supportGPUDrivers;
@@ -47,6 +52,7 @@ class QuotaConfig extends Model
         'ACS'               => 'ACS',
         'clusterId'         => 'ClusterId',
         'defaultGPUDriver'  => 'DefaultGPUDriver',
+        'resourceSpecs'     => 'ResourceSpecs',
         'supportGPUDrivers' => 'SupportGPUDrivers',
         'supportRDMA'       => 'SupportRDMA',
         'userVpc'           => 'UserVpc',
@@ -67,6 +73,15 @@ class QuotaConfig extends Model
         }
         if (null !== $this->defaultGPUDriver) {
             $res['DefaultGPUDriver'] = $this->defaultGPUDriver;
+        }
+        if (null !== $this->resourceSpecs) {
+            $res['ResourceSpecs'] = [];
+            if (null !== $this->resourceSpecs && \is_array($this->resourceSpecs)) {
+                $n = 0;
+                foreach ($this->resourceSpecs as $item) {
+                    $res['ResourceSpecs'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->supportGPUDrivers) {
             $res['SupportGPUDrivers'] = $this->supportGPUDrivers;
@@ -97,6 +112,15 @@ class QuotaConfig extends Model
         }
         if (isset($map['DefaultGPUDriver'])) {
             $model->defaultGPUDriver = $map['DefaultGPUDriver'];
+        }
+        if (isset($map['ResourceSpecs'])) {
+            if (!empty($map['ResourceSpecs'])) {
+                $model->resourceSpecs = [];
+                $n                    = 0;
+                foreach ($map['ResourceSpecs'] as $item) {
+                    $model->resourceSpecs[$n++] = null !== $item ? WorkspaceSpecs::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['SupportGPUDrivers'])) {
             if (!empty($map['SupportGPUDrivers'])) {
