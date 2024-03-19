@@ -54,6 +54,13 @@ class DataIngestion extends Model
     public $phase;
 
     /**
+     * @example AliyunIMMBatchTriggerRole
+     *
+     * @var string
+     */
+    public $serviceRole;
+
+    /**
      * @var string
      */
     public $state;
@@ -81,6 +88,7 @@ class DataIngestion extends Model
         'marker'       => 'Marker',
         'notification' => 'Notification',
         'phase'        => 'Phase',
+        'serviceRole'  => 'ServiceRole',
         'state'        => 'State',
         'statistic'    => 'Statistic',
         'tags'         => 'Tags',
@@ -123,6 +131,9 @@ class DataIngestion extends Model
         }
         if (null !== $this->phase) {
             $res['Phase'] = $this->phase;
+        }
+        if (null !== $this->serviceRole) {
+            $res['ServiceRole'] = $this->serviceRole;
         }
         if (null !== $this->state) {
             $res['State'] = $this->state;
@@ -177,6 +188,9 @@ class DataIngestion extends Model
         }
         if (isset($map['Phase'])) {
             $model->phase = $map['Phase'];
+        }
+        if (isset($map['ServiceRole'])) {
+            $model->serviceRole = $map['ServiceRole'];
         }
         if (isset($map['State'])) {
             $model->state = $map['State'];

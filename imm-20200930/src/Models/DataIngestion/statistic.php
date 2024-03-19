@@ -11,6 +11,11 @@ class statistic extends Model
     /**
      * @var int
      */
+    public $skipFiles;
+
+    /**
+     * @var int
+     */
     public $submitFailure;
 
     /**
@@ -18,6 +23,7 @@ class statistic extends Model
      */
     public $submitSuccess;
     protected $_name = [
+        'skipFiles'     => 'SkipFiles',
         'submitFailure' => 'SubmitFailure',
         'submitSuccess' => 'SubmitSuccess',
     ];
@@ -29,6 +35,9 @@ class statistic extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->skipFiles) {
+            $res['SkipFiles'] = $this->skipFiles;
+        }
         if (null !== $this->submitFailure) {
             $res['SubmitFailure'] = $this->submitFailure;
         }
@@ -47,6 +56,9 @@ class statistic extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SkipFiles'])) {
+            $model->skipFiles = $map['SkipFiles'];
+        }
         if (isset($map['SubmitFailure'])) {
             $model->submitFailure = $map['SubmitFailure'];
         }
