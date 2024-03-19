@@ -2,31 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\CS\V20151215\Models;
+namespace AlibabaCloud\SDK\CS\V20151215\Models\DeleteAlertContactResponse;
 
-use AlibabaCloud\SDK\CS\V20151215\Models\DeleteAlertContactGroupResponse\body;
 use AlibabaCloud\Tea\Model;
 
-class DeleteAlertContactGroupResponse extends Model
+class body extends Model
 {
     /**
-     * @var string[]
-     */
-    public $headers;
-
-    /**
-     * @var int
-     */
-    public $statusCode;
-
-    /**
-     * @var body[]
+     * @var \AlibabaCloud\SDK\CS\V20151215\Models\DeleteAlertContactResponse\body\body[]
      */
     public $body;
     protected $_name = [
-        'headers'    => 'headers',
-        'statusCode' => 'statusCode',
-        'body'       => 'body',
+        'body' => 'body',
     ];
 
     public function validate()
@@ -36,12 +23,6 @@ class DeleteAlertContactGroupResponse extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
-        }
-        if (null !== $this->statusCode) {
-            $res['statusCode'] = $this->statusCode;
-        }
         if (null !== $this->body) {
             $res['body'] = [];
             if (null !== $this->body && \is_array($this->body)) {
@@ -58,23 +39,17 @@ class DeleteAlertContactGroupResponse extends Model
     /**
      * @param array $map
      *
-     * @return DeleteAlertContactGroupResponse
+     * @return body
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
-        }
-        if (isset($map['statusCode'])) {
-            $model->statusCode = $map['statusCode'];
-        }
         if (isset($map['body'])) {
             if (!empty($map['body'])) {
                 $model->body = [];
                 $n           = 0;
                 foreach ($map['body'] as $item) {
-                    $model->body[$n++] = null !== $item ? body::fromMap($item) : $item;
+                    $model->body[$n++] = null !== $item ? \AlibabaCloud\SDK\CS\V20151215\Models\DeleteAlertContactResponse\body\body::fromMap($item) : $item;
                 }
             }
         }

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
+use AlibabaCloud\SDK\CS\V20151215\Models\UpgradeClusterNodepoolRequest\rollingPolicy;
 use AlibabaCloud\Tea\Model;
 
 class UpgradeClusterNodepoolRequest extends Model
@@ -25,6 +26,16 @@ class UpgradeClusterNodepoolRequest extends Model
      * @var string
      */
     public $kubernetesVersion;
+
+    /**
+     * @var string[]
+     */
+    public $nodeNames;
+
+    /**
+     * @var rollingPolicy
+     */
+    public $rollingPolicy;
 
     /**
      * @description The runtime type. Valid values: containerd and docker.
@@ -51,6 +62,8 @@ class UpgradeClusterNodepoolRequest extends Model
     protected $_name = [
         'imageId'           => 'image_id',
         'kubernetesVersion' => 'kubernetes_version',
+        'nodeNames'         => 'node_names',
+        'rollingPolicy'     => 'rolling_policy',
         'runtimeType'       => 'runtime_type',
         'runtimeVersion'    => 'runtime_version',
         'useReplace'        => 'use_replace',
@@ -68,6 +81,12 @@ class UpgradeClusterNodepoolRequest extends Model
         }
         if (null !== $this->kubernetesVersion) {
             $res['kubernetes_version'] = $this->kubernetesVersion;
+        }
+        if (null !== $this->nodeNames) {
+            $res['node_names'] = $this->nodeNames;
+        }
+        if (null !== $this->rollingPolicy) {
+            $res['rolling_policy'] = null !== $this->rollingPolicy ? $this->rollingPolicy->toMap() : null;
         }
         if (null !== $this->runtimeType) {
             $res['runtime_type'] = $this->runtimeType;
@@ -95,6 +114,14 @@ class UpgradeClusterNodepoolRequest extends Model
         }
         if (isset($map['kubernetes_version'])) {
             $model->kubernetesVersion = $map['kubernetes_version'];
+        }
+        if (isset($map['node_names'])) {
+            if (!empty($map['node_names'])) {
+                $model->nodeNames = $map['node_names'];
+            }
+        }
+        if (isset($map['rolling_policy'])) {
+            $model->rollingPolicy = rollingPolicy::fromMap($map['rolling_policy']);
         }
         if (isset($map['runtime_type'])) {
             $model->runtimeType = $map['runtime_type'];

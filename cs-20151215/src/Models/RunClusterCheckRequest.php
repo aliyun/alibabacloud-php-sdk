@@ -16,6 +16,11 @@ class RunClusterCheckRequest extends Model
     public $options;
 
     /**
+     * @var string
+     */
+    public $target;
+
+    /**
      * @description The check method.
      *
      * @example ClusterUpgrade
@@ -25,6 +30,7 @@ class RunClusterCheckRequest extends Model
     public $type;
     protected $_name = [
         'options' => 'options',
+        'target'  => 'target',
         'type'    => 'type',
     ];
 
@@ -37,6 +43,9 @@ class RunClusterCheckRequest extends Model
         $res = [];
         if (null !== $this->options) {
             $res['options'] = $this->options;
+        }
+        if (null !== $this->target) {
+            $res['target'] = $this->target;
         }
         if (null !== $this->type) {
             $res['type'] = $this->type;
@@ -55,6 +64,9 @@ class RunClusterCheckRequest extends Model
         $model = new self();
         if (isset($map['options'])) {
             $model->options = $map['options'];
+        }
+        if (isset($map['target'])) {
+            $model->target = $map['target'];
         }
         if (isset($map['type'])) {
             $model->type = $map['type'];

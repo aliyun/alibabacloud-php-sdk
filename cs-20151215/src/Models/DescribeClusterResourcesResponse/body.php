@@ -4,6 +4,8 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterResourcesResponse;
 
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterResourcesResponse\body\associatedObject;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterResourcesResponse\body\deleteBehavior;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterResourcesResponse\body\dependencies;
 use AlibabaCloud\Tea\Model;
 
@@ -88,15 +90,39 @@ class body extends Model
      * @var dependencies[]
      */
     public $dependencies;
+
+    /**
+     * @var associatedObject
+     */
+    public $associatedObject;
+
+    /**
+     * @var deleteBehavior
+     */
+    public $deleteBehavior;
+
+    /**
+     * @var string
+     */
+    public $creatorType;
+
+    /**
+     * @var mixed[]
+     */
+    public $extraInfo;
     protected $_name = [
-        'clusterId'    => 'cluster_id',
-        'created'      => 'created',
-        'instanceId'   => 'instance_id',
-        'resourceInfo' => 'resource_info',
-        'resourceType' => 'resource_type',
-        'state'        => 'state',
-        'autoCreate'   => 'auto_create',
-        'dependencies' => 'dependencies',
+        'clusterId'        => 'cluster_id',
+        'created'          => 'created',
+        'instanceId'       => 'instance_id',
+        'resourceInfo'     => 'resource_info',
+        'resourceType'     => 'resource_type',
+        'state'            => 'state',
+        'autoCreate'       => 'auto_create',
+        'dependencies'     => 'dependencies',
+        'associatedObject' => 'associated_object',
+        'deleteBehavior'   => 'delete_behavior',
+        'creatorType'      => 'creator_type',
+        'extraInfo'        => 'extra_info',
     ];
 
     public function validate()
@@ -135,6 +161,18 @@ class body extends Model
                     $res['dependencies'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->associatedObject) {
+            $res['associated_object'] = null !== $this->associatedObject ? $this->associatedObject->toMap() : null;
+        }
+        if (null !== $this->deleteBehavior) {
+            $res['delete_behavior'] = null !== $this->deleteBehavior ? $this->deleteBehavior->toMap() : null;
+        }
+        if (null !== $this->creatorType) {
+            $res['creator_type'] = $this->creatorType;
+        }
+        if (null !== $this->extraInfo) {
+            $res['extra_info'] = $this->extraInfo;
         }
 
         return $res;
@@ -177,6 +215,18 @@ class body extends Model
                     $model->dependencies[$n++] = null !== $item ? dependencies::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['associated_object'])) {
+            $model->associatedObject = associatedObject::fromMap($map['associated_object']);
+        }
+        if (isset($map['delete_behavior'])) {
+            $model->deleteBehavior = deleteBehavior::fromMap($map['delete_behavior']);
+        }
+        if (isset($map['creator_type'])) {
+            $model->creatorType = $map['creator_type'];
+        }
+        if (isset($map['extra_info'])) {
+            $model->extraInfo = $map['extra_info'];
         }
 
         return $model;

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
+use AlibabaCloud\SDK\CS\V20151215\Models\DeleteAlertContactResponse\body;
 use AlibabaCloud\Tea\Model;
 
 class DeleteAlertContactResponse extends Model
@@ -17,9 +18,15 @@ class DeleteAlertContactResponse extends Model
      * @var int
      */
     public $statusCode;
+
+    /**
+     * @var body
+     */
+    public $body;
     protected $_name = [
         'headers'    => 'headers',
         'statusCode' => 'statusCode',
+        'body'       => 'body',
     ];
 
     public function validate()
@@ -34,6 +41,9 @@ class DeleteAlertContactResponse extends Model
         }
         if (null !== $this->statusCode) {
             $res['statusCode'] = $this->statusCode;
+        }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -52,6 +62,9 @@ class DeleteAlertContactResponse extends Model
         }
         if (isset($map['statusCode'])) {
             $model->statusCode = $map['statusCode'];
+        }
+        if (isset($map['body'])) {
+            $model->body = body::fromMap($map['body']);
         }
 
         return $model;

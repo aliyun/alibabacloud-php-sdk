@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\SDK\CS\V20151215\Models\DeleteAlertContactGroupResponse\body;
 use AlibabaCloud\Tea\Model;
 
-class DeleteAlertContactGroupResponse extends Model
+class UpdateUserPermissionsResponse extends Model
 {
     /**
      * @var string[]
@@ -18,15 +17,9 @@ class DeleteAlertContactGroupResponse extends Model
      * @var int
      */
     public $statusCode;
-
-    /**
-     * @var body[]
-     */
-    public $body;
     protected $_name = [
         'headers'    => 'headers',
         'statusCode' => 'statusCode',
-        'body'       => 'body',
     ];
 
     public function validate()
@@ -42,15 +35,6 @@ class DeleteAlertContactGroupResponse extends Model
         if (null !== $this->statusCode) {
             $res['statusCode'] = $this->statusCode;
         }
-        if (null !== $this->body) {
-            $res['body'] = [];
-            if (null !== $this->body && \is_array($this->body)) {
-                $n = 0;
-                foreach ($this->body as $item) {
-                    $res['body'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
 
         return $res;
     }
@@ -58,7 +42,7 @@ class DeleteAlertContactGroupResponse extends Model
     /**
      * @param array $map
      *
-     * @return DeleteAlertContactGroupResponse
+     * @return UpdateUserPermissionsResponse
      */
     public static function fromMap($map = [])
     {
@@ -68,15 +52,6 @@ class DeleteAlertContactGroupResponse extends Model
         }
         if (isset($map['statusCode'])) {
             $model->statusCode = $map['statusCode'];
-        }
-        if (isset($map['body'])) {
-            if (!empty($map['body'])) {
-                $model->body = [];
-                $n           = 0;
-                foreach ($map['body'] as $item) {
-                    $model->body[$n++] = null !== $item ? body::fromMap($item) : $item;
-                }
-            }
         }
 
         return $model;

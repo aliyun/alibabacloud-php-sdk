@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListClusterChecksRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $target;
+
+    /**
      * @description The check method.
      *
      * @example ClusterUpgrade
@@ -17,7 +22,8 @@ class ListClusterChecksRequest extends Model
      */
     public $type;
     protected $_name = [
-        'type' => 'type',
+        'target' => 'target',
+        'type'   => 'type',
     ];
 
     public function validate()
@@ -27,6 +33,9 @@ class ListClusterChecksRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->target) {
+            $res['target'] = $this->target;
+        }
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -42,6 +51,9 @@ class ListClusterChecksRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['target'])) {
+            $model->target = $map['target'];
+        }
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

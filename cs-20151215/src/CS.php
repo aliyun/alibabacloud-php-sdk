@@ -31,8 +31,12 @@ use AlibabaCloud\SDK\CS\V20151215\Models\CreateTemplateRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateTemplateResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateTriggerRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateTriggerResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\DeleteAlertContactGroupRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteAlertContactGroupResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\DeleteAlertContactGroupShrinkRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\DeleteAlertContactRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteAlertContactResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\DeleteAlertContactShrinkRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteClusterNodepoolRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteClusterNodepoolResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteClusterNodesRequest;
@@ -71,6 +75,7 @@ use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolDetailResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodesResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterResourcesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterResourcesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClustersRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClustersResponse;
@@ -179,9 +184,11 @@ use AlibabaCloud\SDK\CS\V20151215\Models\ScaleClusterResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ScaleOutClusterRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ScaleOutClusterResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ScanClusterVulsResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\StartAlertRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\StartAlertResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\StartWorkflowRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\StartWorkflowResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\StopAlertRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\StopAlertResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\SyncClusterNodePoolResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\TagResourcesRequest;
@@ -198,6 +205,8 @@ use AlibabaCloud\SDK\CS\V20151215\Models\UpdateK8sClusterUserConfigExpireRequest
 use AlibabaCloud\SDK\CS\V20151215\Models\UpdateK8sClusterUserConfigExpireResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpdateTemplateRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpdateTemplateResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\UpdateUserPermissionsRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\UpdateUserPermissionsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpgradeClusterAddonsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpgradeClusterAddonsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpgradeClusterNodepoolRequest;
@@ -1394,15 +1403,27 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param DeleteAlertContactRequest $tmpReq
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
      *
      * @return DeleteAlertContactResponse
      */
-    public function deleteAlertContactWithOptions($headers, $runtime)
+    public function deleteAlertContactWithOptions($tmpReq, $headers, $runtime)
     {
+        Utils::validateModel($tmpReq);
+        $request = new DeleteAlertContactShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->contactIds)) {
+            $request->contactIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->contactIds, 'contact_ids', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->contactIdsShrink)) {
+            $query['contact_ids'] = $request->contactIdsShrink;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteAlertContact',
@@ -1413,33 +1434,47 @@ class CS extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType'    => 'array',
         ]);
 
         return DeleteAlertContactResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param DeleteAlertContactRequest $request
+     *
      * @return DeleteAlertContactResponse
      */
-    public function deleteAlertContact()
+    public function deleteAlertContact($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteAlertContactWithOptions($headers, $runtime);
+        return $this->deleteAlertContactWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param DeleteAlertContactGroupRequest $tmpReq
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
      *
      * @return DeleteAlertContactGroupResponse
      */
-    public function deleteAlertContactGroupWithOptions($headers, $runtime)
+    public function deleteAlertContactGroupWithOptions($tmpReq, $headers, $runtime)
     {
+        Utils::validateModel($tmpReq);
+        $request = new DeleteAlertContactGroupShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->contactGroupIds)) {
+            $request->contactGroupIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->contactGroupIds, 'contact_group_ids', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->contactGroupIdsShrink)) {
+            $query['contact_group_ids'] = $request->contactGroupIdsShrink;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteAlertContactGroup',
@@ -1450,21 +1485,23 @@ class CS extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType'    => 'array',
         ]);
 
         return DeleteAlertContactGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param DeleteAlertContactGroupRequest $request
+     *
      * @return DeleteAlertContactGroupResponse
      */
-    public function deleteAlertContactGroup()
+    public function deleteAlertContactGroup($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteAlertContactGroupWithOptions($headers, $runtime);
+        return $this->deleteAlertContactGroupWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2685,16 +2722,23 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string         $ClusterId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                          $ClusterId
+     * @param DescribeClusterResourcesRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
      *
      * @return DescribeClusterResourcesResponse
      */
-    public function describeClusterResourcesWithOptions($ClusterId, $headers, $runtime)
+    public function describeClusterResourcesWithOptions($ClusterId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->withAddonResources)) {
+            $query['with_addon_resources'] = $request->withAddonResources;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeClusterResources',
@@ -2712,16 +2756,17 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string $ClusterId
+     * @param string                          $ClusterId
+     * @param DescribeClusterResourcesRequest $request
      *
      * @return DescribeClusterResourcesResponse
      */
-    public function describeClusterResources($ClusterId)
+    public function describeClusterResources($ClusterId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeClusterResourcesWithOptions($ClusterId, $headers, $runtime);
+        return $this->describeClusterResourcesWithOptions($ClusterId, $request, $headers, $runtime);
     }
 
     /**
@@ -4586,6 +4631,9 @@ class CS extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->target)) {
+            $query['target'] = $request->target;
+        }
         if (!Utils::isUnset($request->type)) {
             $query['type'] = $request->type;
         }
@@ -5781,6 +5829,9 @@ class CS extends OpenApiClient
         if (!Utils::isUnset($request->options)) {
             $body['options'] = $request->options;
         }
+        if (!Utils::isUnset($request->target)) {
+            $body['target'] = $request->target;
+        }
         if (!Utils::isUnset($request->type)) {
             $body['type'] = $request->type;
         }
@@ -6132,16 +6183,26 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string         $ClusterId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string            $ClusterId
+     * @param StartAlertRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
      *
      * @return StartAlertResponse
      */
-    public function startAlertWithOptions($ClusterId, $headers, $runtime)
+    public function startAlertWithOptions($ClusterId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->alertRuleGroupName)) {
+            $body['alert_rule_group_name'] = $request->alertRuleGroupName;
+        }
+        if (!Utils::isUnset($request->alertRuleName)) {
+            $body['alert_rule_name'] = $request->alertRuleName;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'StartAlert',
@@ -6159,16 +6220,17 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string $ClusterId
+     * @param string            $ClusterId
+     * @param StartAlertRequest $request
      *
      * @return StartAlertResponse
      */
-    public function startAlert($ClusterId)
+    public function startAlert($ClusterId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->startAlertWithOptions($ClusterId, $headers, $runtime);
+        return $this->startAlertWithOptions($ClusterId, $request, $headers, $runtime);
     }
 
     /**
@@ -6272,16 +6334,26 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string         $ClusterId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string           $ClusterId
+     * @param StopAlertRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
      *
      * @return StopAlertResponse
      */
-    public function stopAlertWithOptions($ClusterId, $headers, $runtime)
+    public function stopAlertWithOptions($ClusterId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->alertRuleGroupName)) {
+            $body['alert_rule_group_name'] = $request->alertRuleGroupName;
+        }
+        if (!Utils::isUnset($request->alertRuleName)) {
+            $body['alert_rule_name'] = $request->alertRuleName;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'StopAlert',
@@ -6299,16 +6371,17 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string $ClusterId
+     * @param string           $ClusterId
+     * @param StopAlertRequest $request
      *
      * @return StopAlertResponse
      */
-    public function stopAlert($ClusterId)
+    public function stopAlert($ClusterId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->stopAlertWithOptions($ClusterId, $headers, $runtime);
+        return $this->stopAlertWithOptions($ClusterId, $request, $headers, $runtime);
     }
 
     /**
@@ -6733,6 +6806,55 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @param string                       $uid
+     * @param UpdateUserPermissionsRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateUserPermissionsResponse
+     */
+    public function updateUserPermissionsWithOptions($uid, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->mode)) {
+            $query['mode'] = $request->mode;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => Utils::toArray($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateUserPermissions',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/permissions/users/' . OpenApiUtilClient::getEncodeParam($uid) . '/update',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return UpdateUserPermissionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                       $uid
+     * @param UpdateUserPermissionsRequest $request
+     *
+     * @return UpdateUserPermissionsResponse
+     */
+    public function updateUserPermissions($uid, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateUserPermissionsWithOptions($uid, $request, $headers, $runtime);
+    }
+
+    /**
      * @param string                $ClusterId
      * @param UpgradeClusterRequest $request
      * @param string[]              $headers
@@ -6853,6 +6975,12 @@ class CS extends OpenApiClient
         }
         if (!Utils::isUnset($request->kubernetesVersion)) {
             $body['kubernetes_version'] = $request->kubernetesVersion;
+        }
+        if (!Utils::isUnset($request->nodeNames)) {
+            $body['node_names'] = $request->nodeNames;
+        }
+        if (!Utils::isUnset($request->rollingPolicy)) {
+            $body['rolling_policy'] = $request->rollingPolicy;
         }
         if (!Utils::isUnset($request->runtimeType)) {
             $body['runtime_type'] = $request->runtimeType;

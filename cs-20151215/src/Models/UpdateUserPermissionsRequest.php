@@ -4,29 +4,25 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\SDK\CS\V20151215\Models\DeleteAlertContactGroupResponse\body;
+use AlibabaCloud\SDK\CS\V20151215\Models\UpdateUserPermissionsRequest\body;
 use AlibabaCloud\Tea\Model;
 
-class DeleteAlertContactGroupResponse extends Model
+class UpdateUserPermissionsRequest extends Model
 {
-    /**
-     * @var string[]
-     */
-    public $headers;
-
-    /**
-     * @var int
-     */
-    public $statusCode;
-
     /**
      * @var body[]
      */
     public $body;
+
+    /**
+     * @example apply
+     *
+     * @var string
+     */
+    public $mode;
     protected $_name = [
-        'headers'    => 'headers',
-        'statusCode' => 'statusCode',
-        'body'       => 'body',
+        'body' => 'body',
+        'mode' => 'mode',
     ];
 
     public function validate()
@@ -36,12 +32,6 @@ class DeleteAlertContactGroupResponse extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
-        }
-        if (null !== $this->statusCode) {
-            $res['statusCode'] = $this->statusCode;
-        }
         if (null !== $this->body) {
             $res['body'] = [];
             if (null !== $this->body && \is_array($this->body)) {
@@ -51,6 +41,9 @@ class DeleteAlertContactGroupResponse extends Model
                 }
             }
         }
+        if (null !== $this->mode) {
+            $res['mode'] = $this->mode;
+        }
 
         return $res;
     }
@@ -58,17 +51,11 @@ class DeleteAlertContactGroupResponse extends Model
     /**
      * @param array $map
      *
-     * @return DeleteAlertContactGroupResponse
+     * @return UpdateUserPermissionsRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
-        }
-        if (isset($map['statusCode'])) {
-            $model->statusCode = $map['statusCode'];
-        }
         if (isset($map['body'])) {
             if (!empty($map['body'])) {
                 $model->body = [];
@@ -77,6 +64,9 @@ class DeleteAlertContactGroupResponse extends Model
                     $model->body[$n++] = null !== $item ? body::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['mode'])) {
+            $model->mode = $map['mode'];
         }
 
         return $model;
