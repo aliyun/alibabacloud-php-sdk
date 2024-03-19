@@ -10,6 +10,11 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeBasicRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $needRotate;
+
+    /**
      * @example https://img.alicdn.com/tfs/TB1Wo7eXAvoK1RjSZFDXXXY3pXa-2512-3509.jpg
      *
      * @var string
@@ -21,8 +26,9 @@ class RecognizeBasicRequest extends Model
      */
     public $body;
     protected $_name = [
-        'url'  => 'Url',
-        'body' => 'body',
+        'needRotate' => 'NeedRotate',
+        'url'        => 'Url',
+        'body'       => 'body',
     ];
 
     public function validate()
@@ -32,6 +38,9 @@ class RecognizeBasicRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->needRotate) {
+            $res['NeedRotate'] = $this->needRotate;
+        }
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -50,6 +59,9 @@ class RecognizeBasicRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['NeedRotate'])) {
+            $model->needRotate = $map['NeedRotate'];
+        }
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

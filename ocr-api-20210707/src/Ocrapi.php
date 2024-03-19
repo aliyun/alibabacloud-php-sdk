@@ -564,6 +564,9 @@ class Ocrapi extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->needRotate)) {
+            $query['NeedRotate'] = $request->needRotate;
+        }
         if (!Utils::isUnset($request->url)) {
             $query['Url'] = $request->url;
         }
