@@ -44,8 +44,6 @@ use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\EnableExpressConnectR
 use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\EnableExpressConnectRouterRouteEntriesResponse;
 use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\ForceDeleteExpressConnectRouterRequest;
 use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\ForceDeleteExpressConnectRouterResponse;
-use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\GetExpressConnectRouterRequest;
-use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\GetExpressConnectRouterResponse;
 use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\GrantInstanceToExpressConnectRouterRequest;
 use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\GrantInstanceToExpressConnectRouterResponse;
 use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\ListExpressConnectRouterSupportedRegionRequest;
@@ -1217,55 +1215,6 @@ class ExpressConnectRouter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->forceDeleteExpressConnectRouterWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetExpressConnectRouterRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return GetExpressConnectRouterResponse
-     */
-    public function getExpressConnectRouterWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
-        }
-        if (!Utils::isUnset($request->dryRun)) {
-            $body['DryRun'] = $request->dryRun;
-        }
-        if (!Utils::isUnset($request->ecrId)) {
-            $body['EcrId'] = $request->ecrId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'GetExpressConnectRouter',
-            'version'     => '2023-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetExpressConnectRouterResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetExpressConnectRouterRequest $request
-     *
-     * @return GetExpressConnectRouterResponse
-     */
-    public function getExpressConnectRouter($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getExpressConnectRouterWithOptions($request, $runtime);
     }
 
     /**
