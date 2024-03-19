@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetMultipleTraceRequest extends Model
 {
     /**
+     * @description The time when the trace ends. The value is a timestamp. Unit: milliseconds.
+     *
      * @example 1663999380000
      *
      * @var int
@@ -16,6 +18,8 @@ class GetMultipleTraceRequest extends Model
     public $endTime;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -23,6 +27,8 @@ class GetMultipleTraceRequest extends Model
     public $regionId;
 
     /**
+     * @description The start time of the trace. The value is a timestamp. Unit: milliseconds.
+     *
      * @example 1657692507000
      *
      * @var int
@@ -30,6 +36,8 @@ class GetMultipleTraceRequest extends Model
     public $startTime;
 
     /**
+     * @description The trace IDs.
+     *
      * @example ac1400a115951745017447033d****
      *
      * @var string[]

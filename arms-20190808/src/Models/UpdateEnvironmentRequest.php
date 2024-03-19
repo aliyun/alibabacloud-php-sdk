@@ -36,6 +36,11 @@ class UpdateEnvironmentRequest extends Model
     public $environmentName;
 
     /**
+     * @var string
+     */
+    public $feePackage;
+
+    /**
      * @description The region ID.
      *
      * @example cn-hangzhou
@@ -47,6 +52,7 @@ class UpdateEnvironmentRequest extends Model
         'aliyunLang'      => 'AliyunLang',
         'environmentId'   => 'EnvironmentId',
         'environmentName' => 'EnvironmentName',
+        'feePackage'      => 'FeePackage',
         'regionId'        => 'RegionId',
     ];
 
@@ -65,6 +71,9 @@ class UpdateEnvironmentRequest extends Model
         }
         if (null !== $this->environmentName) {
             $res['EnvironmentName'] = $this->environmentName;
+        }
+        if (null !== $this->feePackage) {
+            $res['FeePackage'] = $this->feePackage;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -89,6 +98,9 @@ class UpdateEnvironmentRequest extends Model
         }
         if (isset($map['EnvironmentName'])) {
             $model->environmentName = $map['EnvironmentName'];
+        }
+        if (isset($map['FeePackage'])) {
+            $model->feePackage = $map['FeePackage'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

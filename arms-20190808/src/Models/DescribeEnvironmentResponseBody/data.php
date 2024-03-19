@@ -109,6 +109,11 @@ class data extends Model
     public $environmentType;
 
     /**
+     * @var string
+     */
+    public $feePackage;
+
+    /**
      * @description The name of the Grafana data source.
      *
      * @example datasource1
@@ -234,6 +239,7 @@ class data extends Model
         'environmentName'           => 'EnvironmentName',
         'environmentSubType'        => 'EnvironmentSubType',
         'environmentType'           => 'EnvironmentType',
+        'feePackage'                => 'FeePackage',
         'grafaDataSourceName'       => 'GrafaDataSourceName',
         'grafanaDatasourceUid'      => 'GrafanaDatasourceUid',
         'grafanaFolderTitle'        => 'GrafanaFolderTitle',
@@ -288,6 +294,9 @@ class data extends Model
         }
         if (null !== $this->environmentType) {
             $res['EnvironmentType'] = $this->environmentType;
+        }
+        if (null !== $this->feePackage) {
+            $res['FeePackage'] = $this->feePackage;
         }
         if (null !== $this->grafaDataSourceName) {
             $res['GrafaDataSourceName'] = $this->grafaDataSourceName;
@@ -378,6 +387,9 @@ class data extends Model
         }
         if (isset($map['EnvironmentType'])) {
             $model->environmentType = $map['EnvironmentType'];
+        }
+        if (isset($map['FeePackage'])) {
+            $model->feePackage = $map['FeePackage'];
         }
         if (isset($map['GrafaDataSourceName'])) {
             $model->grafaDataSourceName = $map['GrafaDataSourceName'];

@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class spans extends Model
 {
     /**
+     * @description The amount of time consumed by the trace. Unit: milliseconds.
+     *
      * @example 11
      *
      * @var int
@@ -18,6 +20,11 @@ class spans extends Model
     public $duration;
 
     /**
+     * @description Indicates whether a method stack was provided.
+     *
+     *   `true`: A method stack was provided.
+     *   `false`: No method stack was provided.
+     *
      * @example true
      *
      * @var bool
@@ -25,11 +32,15 @@ class spans extends Model
     public $haveStack;
 
     /**
+     * @description The log events in the trace.
+     *
      * @var logEventList[]
      */
     public $logEventList;
 
     /**
+     * @description The name of the traced span.
+     *
      * @example /demo/queryNotExistDB/11
      *
      * @var string
@@ -37,6 +48,8 @@ class spans extends Model
     public $operationName;
 
     /**
+     * @description The ID of the parent span.
+     *
      * @example 18
      *
      * @var string
@@ -44,6 +57,8 @@ class spans extends Model
     public $parentSpanId;
 
     /**
+     * @description The status code returned.
+     *
      * @example 1
      *
      * @var string
@@ -51,6 +66,8 @@ class spans extends Model
     public $resultCode;
 
     /**
+     * @description RPC ID
+     *
      * @example 0.1
      *
      * @var string
@@ -58,6 +75,31 @@ class spans extends Model
     public $rpcId;
 
     /**
+     * @description The type of the remote procedure call (RPC) mode.
+     *
+     *   0: HTTP entry
+     *   25: HTTP call
+     *   1: High-speed Service Framework (HSF) call
+     *   2: HSF provision
+     *   40: on-premises API call
+     *   60: MySQL call
+     *   62: Oracle call
+     *   63: PostgreSQL call
+     *   70: Redis call
+     *   4: Taobao Distributed Data Layer (TDDL) call
+     *   5: Tair call
+     *   13: MetaQ message sending
+     *   252: MetaQ message receiving
+     *   3: notification sending
+     *   254: notification receiving
+     *   7: Apache Dubbo call
+     *   8: Apache Dubbo provision
+     *   19: SOFARPC call
+     *   18: SOFARPC provision
+     *   11: Distributed Service Framework (DSF) call
+     *   12: DSF provision
+     *   \-1: unknown call
+     *
      * @example 0
      *
      * @var int
@@ -65,6 +107,8 @@ class spans extends Model
     public $rpcType;
 
     /**
+     * @description The IP address of the host where the application resides.
+     *
      * @example 172.20.XX.XX
      *
      * @var string
@@ -72,6 +116,8 @@ class spans extends Model
     public $serviceIp;
 
     /**
+     * @description The name of the application.
+     *
      * @example arms-k8s-demo-subcomponent
      *
      * @var string
@@ -79,6 +125,8 @@ class spans extends Model
     public $serviceName;
 
     /**
+     * @description The span ID.
+     *
      * @example 1234
      *
      * @var string
@@ -86,11 +134,15 @@ class spans extends Model
     public $spanId;
 
     /**
+     * @description The tags of the trace.
+     *
      * @var tagEntryList[]
      */
     public $tagEntryList;
 
     /**
+     * @description The timestamp.
+     *
      * @example 1595174501747
      *
      * @var int
@@ -98,6 +150,8 @@ class spans extends Model
     public $timestamp;
 
     /**
+     * @description The trace ID.
+     *
      * @example ac1400a115951745017447033d****
      *
      * @var string

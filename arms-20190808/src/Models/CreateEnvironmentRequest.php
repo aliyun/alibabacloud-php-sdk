@@ -63,6 +63,11 @@ class CreateEnvironmentRequest extends Model
     public $environmentType;
 
     /**
+     * @var string
+     */
+    public $feePackage;
+
+    /**
      * @description type of managed:
      * - agent-exproter: maanged agent and exporter. default of prometheus for Cloud.
      * @example none
@@ -110,6 +115,7 @@ class CreateEnvironmentRequest extends Model
         'environmentName'      => 'EnvironmentName',
         'environmentSubType'   => 'EnvironmentSubType',
         'environmentType'      => 'EnvironmentType',
+        'feePackage'           => 'FeePackage',
         'managedType'          => 'ManagedType',
         'prometheusInstanceId' => 'PrometheusInstanceId',
         'regionId'             => 'RegionId',
@@ -138,6 +144,9 @@ class CreateEnvironmentRequest extends Model
         }
         if (null !== $this->environmentType) {
             $res['EnvironmentType'] = $this->environmentType;
+        }
+        if (null !== $this->feePackage) {
+            $res['FeePackage'] = $this->feePackage;
         }
         if (null !== $this->managedType) {
             $res['ManagedType'] = $this->managedType;
@@ -186,6 +195,9 @@ class CreateEnvironmentRequest extends Model
         }
         if (isset($map['EnvironmentType'])) {
             $model->environmentType = $map['EnvironmentType'];
+        }
+        if (isset($map['FeePackage'])) {
+            $model->feePackage = $map['FeePackage'];
         }
         if (isset($map['ManagedType'])) {
             $model->managedType = $map['ManagedType'];

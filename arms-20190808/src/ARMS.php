@@ -2027,6 +2027,9 @@ class ARMS extends OpenApiClient
         if (!Utils::isUnset($request->environmentType)) {
             $query['EnvironmentType'] = $request->environmentType;
         }
+        if (!Utils::isUnset($request->feePackage)) {
+            $query['FeePackage'] = $request->feePackage;
+        }
         if (!Utils::isUnset($request->managedType)) {
             $query['ManagedType'] = $request->managedType;
         }
@@ -12286,6 +12289,9 @@ class ARMS extends OpenApiClient
         }
         if (!Utils::isUnset($request->environmentName)) {
             $query['EnvironmentName'] = $request->environmentName;
+        }
+        if (!Utils::isUnset($request->feePackage)) {
+            $query['FeePackage'] = $request->feePackage;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;

@@ -29,6 +29,11 @@ class apiHTTP extends Model
     public $method;
 
     /**
+     * @var int
+     */
+    public $protocolAlpnProtocol;
+
+    /**
      * @var requestBody
      */
     public $requestBody;
@@ -52,13 +57,14 @@ class apiHTTP extends Model
      */
     public $timeout;
     protected $_name = [
-        'checkCert'      => 'CheckCert',
-        'connectTimeout' => 'ConnectTimeout',
-        'method'         => 'Method',
-        'requestBody'    => 'RequestBody',
-        'requestHeaders' => 'RequestHeaders',
-        'targetUrl'      => 'TargetUrl',
-        'timeout'        => 'Timeout',
+        'checkCert'            => 'CheckCert',
+        'connectTimeout'       => 'ConnectTimeout',
+        'method'               => 'Method',
+        'protocolAlpnProtocol' => 'ProtocolAlpnProtocol',
+        'requestBody'          => 'RequestBody',
+        'requestHeaders'       => 'RequestHeaders',
+        'targetUrl'            => 'TargetUrl',
+        'timeout'              => 'Timeout',
     ];
 
     public function validate()
@@ -76,6 +82,9 @@ class apiHTTP extends Model
         }
         if (null !== $this->method) {
             $res['Method'] = $this->method;
+        }
+        if (null !== $this->protocolAlpnProtocol) {
+            $res['ProtocolAlpnProtocol'] = $this->protocolAlpnProtocol;
         }
         if (null !== $this->requestBody) {
             $res['RequestBody'] = null !== $this->requestBody ? $this->requestBody->toMap() : null;
@@ -109,6 +118,9 @@ class apiHTTP extends Model
         }
         if (isset($map['Method'])) {
             $model->method = $map['Method'];
+        }
+        if (isset($map['ProtocolAlpnProtocol'])) {
+            $model->protocolAlpnProtocol = $map['ProtocolAlpnProtocol'];
         }
         if (isset($map['RequestBody'])) {
             $model->requestBody = requestBody::fromMap($map['RequestBody']);

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class multiCallChainInfos extends Model
 {
     /**
+     * @description The details of the trace.
+     *
      * @var spans[]
      */
     public $spans;
 
     /**
+     * @description The trace ID.
+     *
      * @example ac1400a115951745017447033d****
      *
      * @var string
