@@ -123,7 +123,7 @@ class disk extends Model
     public $encrypted;
 
     /**
-     * @description IOPS。
+     * @description IOPS.
      *
      * @example 46800
      *

@@ -123,7 +123,7 @@ class data extends Model
     public $encrypted;
 
     /**
-     * @description IOPS。
+     * @description IOPS.
      *
      * @example 26800
      *

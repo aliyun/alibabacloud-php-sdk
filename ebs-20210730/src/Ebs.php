@@ -80,6 +80,8 @@ use AlibabaCloud\SDK\Ebs\V20210730\Models\ModifyDiskReplicaGroupRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\ModifyDiskReplicaGroupResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\ModifyDiskReplicaPairRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\ModifyDiskReplicaPairResponse;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\QueryDedicatedBlockStorageClusterDiskThroughputStatusRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\QueryDedicatedBlockStorageClusterDiskThroughputStatusResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\QueryDedicatedBlockStorageClusterInventoryDataRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\QueryDedicatedBlockStorageClusterInventoryDataResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\RemoveDiskReplicaPairRequest;
@@ -88,6 +90,8 @@ use AlibabaCloud\SDK\Ebs\V20210730\Models\ReprotectDiskReplicaGroupRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\ReprotectDiskReplicaGroupResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\ReprotectDiskReplicaPairRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\ReprotectDiskReplicaPairResponse;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\SetDedicatedBlockStorageClusterDiskThroughputRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\SetDedicatedBlockStorageClusterDiskThroughputResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\StartDiskReplicaGroupRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\StartDiskReplicaGroupResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\StartDiskReplicaPairRequest;
@@ -2539,6 +2543,57 @@ class Ebs extends OpenApiClient
     }
 
     /**
+     * @param QueryDedicatedBlockStorageClusterDiskThroughputStatusRequest $request
+     * @param RuntimeOptions                                               $runtime
+     *
+     * @return QueryDedicatedBlockStorageClusterDiskThroughputStatusResponse
+     */
+    public function queryDedicatedBlockStorageClusterDiskThroughputStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->qosRequestId)) {
+            $body['QosRequestId'] = $request->qosRequestId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDedicatedBlockStorageClusterDiskThroughputStatus',
+            'version'     => '2021-07-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryDedicatedBlockStorageClusterDiskThroughputStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryDedicatedBlockStorageClusterDiskThroughputStatusRequest $request
+     *
+     * @return QueryDedicatedBlockStorageClusterDiskThroughputStatusResponse
+     */
+    public function queryDedicatedBlockStorageClusterDiskThroughputStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryDedicatedBlockStorageClusterDiskThroughputStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * Period is the time interval between data retrieval points. When set to 60 (minute interval), a maximum of 1440 data points can be returned; when set to 3600 (hour interval), a maximum of 744 data points can be returned; and when set to 86400 (day interval), a maximum of 366 data points can be returned.
      *   *
      * @param QueryDedicatedBlockStorageClusterInventoryDataRequest $request QueryDedicatedBlockStorageClusterInventoryDataRequest
@@ -2792,6 +2847,60 @@ class Ebs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->reprotectDiskReplicaPairWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetDedicatedBlockStorageClusterDiskThroughputRequest $request
+     * @param RuntimeOptions                                       $runtime
+     *
+     * @return SetDedicatedBlockStorageClusterDiskThroughputResponse
+     */
+    public function setDedicatedBlockStorageClusterDiskThroughputWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->bps)) {
+            $body['Bps'] = $request->bps;
+        }
+        if (!Utils::isUnset($request->diskId)) {
+            $body['DiskId'] = $request->diskId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SetDedicatedBlockStorageClusterDiskThroughput',
+            'version'     => '2021-07-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetDedicatedBlockStorageClusterDiskThroughputResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SetDedicatedBlockStorageClusterDiskThroughputRequest $request
+     *
+     * @return SetDedicatedBlockStorageClusterDiskThroughputResponse
+     */
+    public function setDedicatedBlockStorageClusterDiskThroughput($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setDedicatedBlockStorageClusterDiskThroughputWithOptions($request, $runtime);
     }
 
     /**
