@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyClusterOfflineConfigResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The ID of the request
      *
      * @example E7B7D598-B080-5C8E-AA35-D43EC0D5F886
      *
@@ -18,7 +18,7 @@ class ModifyClusterOfflineConfigResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The result of the request.
+     * @description The result
      *
      * @example {}
      *

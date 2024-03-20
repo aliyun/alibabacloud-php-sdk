@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The configuration information
+     *
      * @example {\"specItems\":[{\"specKey\":\"YQ_KEYWORD_NUMBER_PLUS\",\"value\":\"1\"}]}
      *
      * @var string
@@ -16,6 +18,8 @@ class result extends Model
     public $config;
 
     /**
+     * @description The name of the index
+     *
      * @example generation
      *
      * @var string

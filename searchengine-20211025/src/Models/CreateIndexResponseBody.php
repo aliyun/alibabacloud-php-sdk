@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateIndexResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description id of request
      *
      * @example 407BFD91-DE7D-50BA-8F88-CDE52A3B5E46
      *
@@ -18,7 +18,7 @@ class CreateIndexResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information about the index.
+     * @description The information about the index
      *
      * @example {}
      *

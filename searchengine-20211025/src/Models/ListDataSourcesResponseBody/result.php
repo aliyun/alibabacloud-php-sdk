@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description The data sources deployed in offline mode.
+     * @description The data center where the data source is deployed in offline mode.
      *
      * @example test
      *
@@ -18,14 +18,14 @@ class result extends Model
     public $domain;
 
     /**
-     * @description The indexes.
+     * @description The information about indexes.
      *
      * @var string[]
      */
     public $indexes;
 
     /**
-     * @description The time when the full data of the data source was last queried.
+     * @description The time when an index for full data was last built.
      *
      * @var int
      */
@@ -41,7 +41,7 @@ class result extends Model
     public $name;
 
     /**
-     * @description The status of the data source.
+     * @description The state of the data source.
      *
      * @example new
      *

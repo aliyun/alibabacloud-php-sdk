@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ListIndexesRequest extends Model
 {
     /**
+     * @description 是否为新版本控制台页面
+     *
+     * @example true
+     *
      * @var bool
      */
     public $newMode;

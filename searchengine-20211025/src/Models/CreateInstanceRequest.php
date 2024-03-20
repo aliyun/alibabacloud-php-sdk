@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceRequest extends Model
 {
     /**
-     * @description The billing method of the instance. Valid values: PREPAY and POSTPAY. PREPAY: subscription. If you set this parameter to PREPAY, make sure that your Alibaba Cloud account supports balance payment or credit payment. Otherwise, the system returns the InvalidPayMethod error message. In addition, you must specify the paymentInfo parameter. POSTPAY: pay-as-you-go. This billing method is not supported.
+     * @description The billing method of the instance. Valid values: PREPAY and POSTPAY. PREPAY indicates the instance is a subscription instance. When you set this parameter to PREPAY, make sure that your Alibaba Cloud account supports balance payment or credit card payment. Otherwise, the system returns the InvalidPayMethod error message. If you set this parameter to PREPAY, you must also specify the paymentInfo parameter. POSTPAY indicates that the instance is a pay-as-you-go instance. This billing method is not supported.
      *
      * @example ""
      *
@@ -20,14 +20,14 @@ class CreateInstanceRequest extends Model
     public $chargeType;
 
     /**
-     * @description The specifications of the instance.
+     * @description A list of instance-related specifications.
      *
      * @var components[]
      */
     public $components;
 
     /**
-     * @description The information about billing.
+     * @description The billing information.
      *
      * @var order
      */

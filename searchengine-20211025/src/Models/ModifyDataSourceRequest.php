@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyDataSourceRequest extends Model
 {
     /**
-     * @description The information about the index
+     * @description The request body.
      *
      * @example {}
      *
@@ -18,7 +18,7 @@ class ModifyDataSourceRequest extends Model
     public $body;
 
     /**
-     * @description The ID of the request
+     * @description Specifies whether the data source is created by using the dryRun feature. This parameter only checks whether the data source is valid. Valid values: true and false. true indicates that the data source is created by using the dryRun feature, and false indicates that the data source is not created by using the dryRun feature.
      *
      * @example true
      *

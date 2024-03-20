@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class versions extends Model
 {
     /**
-     * @description The description of the version.
+     * @description The description.
      *
      * @example close alarm, by 3.9.2 hotfix workflow
      *
@@ -19,7 +19,7 @@ class versions extends Model
     public $desc;
 
     /**
-     * @description The information about the files.
+     * @description The list of file names.
      *
      * @var files[]
      */
@@ -35,7 +35,7 @@ class versions extends Model
     public $name;
 
     /**
-     * @description The status of the version. Valid values: drafting, used, unused, and trash.
+     * @description The state of the version. Valid values: drafting, used, unused and trash. drafting indicates that the version is a draft, used indicates that the version is used online, unused indicates that the version is not used, and trash indicates that the version is being deleted.
      *
      * @example 2
      *
@@ -44,7 +44,7 @@ class versions extends Model
     public $status;
 
     /**
-     * @description The last time when the version was updated.
+     * @description The time when the version was updated.
      *
      * @example " "
      *
@@ -53,7 +53,7 @@ class versions extends Model
     public $updateTime;
 
     /**
-     * @description The ID of the version. The value is null for an edit version.
+     * @description The ID of the version. The value of this parameter is null for the edit version.
      *
      * @example 1
      *

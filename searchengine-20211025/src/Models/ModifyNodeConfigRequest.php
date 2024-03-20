@@ -26,6 +26,11 @@ class ModifyNodeConfigRequest extends Model
     /**
      * @var int
      */
+    public $flowRatio;
+
+    /**
+     * @var int
+     */
     public $minServicePercent;
 
     /**
@@ -34,7 +39,7 @@ class ModifyNodeConfigRequest extends Model
     public $published;
 
     /**
-     * @description The ID of the cluster.
+     * @description The name of the cluster.
      *
      * @example vpc_sh_domain_2
      *
@@ -43,7 +48,7 @@ class ModifyNodeConfigRequest extends Model
     public $clusterName;
 
     /**
-     * @description The parameters in the request body.
+     * @description The name of the data source. Valid values: search and not_search. search indicates to search data. not_search indicates not to search data.
      *
      * @example ha-cn-2r42ostoc01_0704
      *
@@ -52,7 +57,7 @@ class ModifyNodeConfigRequest extends Model
     public $dataSourceName;
 
     /**
-     * @description The name of the cluster.
+     * @description The original name of the node.
      *
      * @example ha-cn-zvp2iv9a401_qrs
      *
@@ -61,7 +66,13 @@ class ModifyNodeConfigRequest extends Model
     public $name;
 
     /**
-     * @description The original name of the node.
+     * @description The type of the algorithm. Valid values: pop, cp, hot, hint, and suggest.
+     *
+     *   pop indicates the popularity model.
+     *   cp indicates the category prediction model.
+     *   hot indicates the top search model.
+     *   hint indicates the hint model.
+     *   suggest indicates the drop-down suggestion model.
      *
      * @example " "
      *
@@ -72,6 +83,7 @@ class ModifyNodeConfigRequest extends Model
         'active'              => 'active',
         'dataDuplicateNumber' => 'dataDuplicateNumber',
         'dataFragmentNumber'  => 'dataFragmentNumber',
+        'flowRatio'           => 'flowRatio',
         'minServicePercent'   => 'minServicePercent',
         'published'           => 'published',
         'clusterName'         => 'clusterName',
@@ -95,6 +107,9 @@ class ModifyNodeConfigRequest extends Model
         }
         if (null !== $this->dataFragmentNumber) {
             $res['dataFragmentNumber'] = $this->dataFragmentNumber;
+        }
+        if (null !== $this->flowRatio) {
+            $res['flowRatio'] = $this->flowRatio;
         }
         if (null !== $this->minServicePercent) {
             $res['minServicePercent'] = $this->minServicePercent;
@@ -134,6 +149,9 @@ class ModifyNodeConfigRequest extends Model
         }
         if (isset($map['dataFragmentNumber'])) {
             $model->dataFragmentNumber = $map['dataFragmentNumber'];
+        }
+        if (isset($map['flowRatio'])) {
+            $model->flowRatio = $map['flowRatio'];
         }
         if (isset($map['minServicePercent'])) {
             $model->minServicePercent = $map['minServicePercent'];

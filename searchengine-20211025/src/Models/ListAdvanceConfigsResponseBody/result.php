@@ -10,20 +10,18 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description 配置内容 http，git 请求时不为空
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @description 配置内容的类型 (FILE, GIT, HTTP, ODPS)
-     *
      * @var string
      */
     public $contentType;
 
     /**
+     * @description The description.
+     *
      * @example test
      *
      * @var string
@@ -31,11 +29,15 @@ class result extends Model
     public $desc;
 
     /**
+     * @description The list of file names.
+     *
      * @var files[]
      */
     public $files;
 
     /**
+     * @description The name of the advanced configuration.
+     *
      * @example my_index
      *
      * @var string
@@ -43,6 +45,8 @@ class result extends Model
     public $name;
 
     /**
+     * @description The state of the advanced configuration. Valid values: drafting, used, unused, and trash. drafting indicates that the advanced configuration is a draft. used indicates that the advanced configuration is in use. unused indicates that the advanced configuration is unused. trash indicates that the advanced configuration is being deleted.
+     *
      * @example drafting
      *
      * @var string
@@ -50,6 +54,8 @@ class result extends Model
     public $status;
 
     /**
+     * @description The update time.
+     *
      * @example 1631070464000
      *
      * @var int

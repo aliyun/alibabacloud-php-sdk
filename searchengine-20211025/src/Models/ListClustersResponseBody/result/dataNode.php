@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dataNode extends Model
 {
     /**
+     * @description The name of the node.
+     *
      * @example ha-cn-8ed2k7brm05_qrs
      *
      * @var string
@@ -16,6 +18,8 @@ class dataNode extends Model
     public $name;
 
     /**
+     * @description The number of nodes.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class dataNode extends Model
     public $number;
 
     /**
+     * @description The partition ID of the node.
+     *
      * @example dt=20220216
      *
      * @var int

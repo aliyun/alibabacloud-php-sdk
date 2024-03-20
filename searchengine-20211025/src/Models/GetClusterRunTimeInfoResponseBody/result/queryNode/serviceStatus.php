@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class serviceStatus extends Model
 {
     /**
-     * @description donePercent
+     * @description The progress.
      *
      * @example 100
      *
@@ -18,7 +18,7 @@ class serviceStatus extends Model
     public $donePercent;
 
     /**
-     * @description doneSize
+     * @description The number of nodes that are configured.
      *
      * @example 100
      *
@@ -36,7 +36,7 @@ class serviceStatus extends Model
     public $name;
 
     /**
-     * @description totalSize
+     * @description The total number of nodes that you specify when you create the cluster.
      *
      * @example 100
      *

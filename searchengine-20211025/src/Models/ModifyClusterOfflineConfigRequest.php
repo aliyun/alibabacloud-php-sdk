@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyClusterOfflineConfigRequest extends Model
 {
     /**
-     * @description The reindexing method. Valid values: api: API data source. indexRecover: data recovery through indexing.
+     * @description The mode of reindexing. Valid values: api and indexRecover. api indicates to push incremental data to a data source by calling the API operations. indexRecover indicates that the data source is restored from the index.
      *
      * @example indexRecover
      *
@@ -25,21 +25,25 @@ class ModifyClusterOfflineConfigRequest extends Model
     public $config;
 
     /**
+     * @description The name of the data source.
+     *
+     * @example test1
+     *
      * @var string
      */
     public $dataSourceName;
 
     /**
-     * @description The type of the data source. Valid values: odps: MaxCompute. swift: Swift. unKnow: unknown type.
+     * @description The type of the data source. Valid values: odps, swift, saro, and unKnow.
      *
-     * @example odps
+     * @example maxComputer
      *
      * @var string
      */
     public $dataSourceType;
 
     /**
-     * @description This parameter is required if the API data source experiences full indexing.
+     * @description This parameter is required when index building by using API data sources is triggered.
      *
      * @example 1640867288
      *
@@ -48,7 +52,7 @@ class ModifyClusterOfflineConfigRequest extends Model
     public $dataTimeSec;
 
     /**
-     * @description The domain in which the data source is deployed.
+     * @description The domain where the data source is deployed.
      *
      * @example vpc_hz_domain_1
      *
@@ -57,7 +61,7 @@ class ModifyClusterOfflineConfigRequest extends Model
     public $domain;
 
     /**
-     * @description The ID of the backward data delivery.
+     * @description The data restoration version.
      *
      * @example 160142641
      *
@@ -66,7 +70,7 @@ class ModifyClusterOfflineConfigRequest extends Model
     public $generation;
 
     /**
-     * @description This parameter is required if the MaxCompute data source experiences full indexing.
+     * @description This parameter is required when index building for full data in a MaxCompute data source is triggered.
      *
      * @example 20211202
      *

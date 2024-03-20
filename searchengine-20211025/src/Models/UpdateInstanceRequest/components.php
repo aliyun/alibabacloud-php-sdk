@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class components extends Model
 {
     /**
-     * @description The name of the specification. The value must be the same as the name of a parameter on the buy page.
+     * @description The specification code, which must be consistent with the values of the corresponding module parameters.
      *
      * @example 200
      *

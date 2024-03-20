@@ -19,6 +19,8 @@ class GetAdvanceConfigFileResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The result
+     *
      * @var result
      */
     public $result;

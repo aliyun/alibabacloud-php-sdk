@@ -18,7 +18,7 @@ class order extends Model
     public $autoRenew;
 
     /**
-     * @description The billing cycle. Valid values: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, and 12.
+     * @description The billing duration. Valid values: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, and 12.
      *
      * @example 29
      *
@@ -27,7 +27,7 @@ class order extends Model
     public $duration;
 
     /**
-     * @description The unit of the billing cycle. Valid values: Month and Year.
+     * @description The unit of the billing duration. Valid values: Month and Year.
      *
      * @example ""
      *

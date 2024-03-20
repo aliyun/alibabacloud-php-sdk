@@ -19,7 +19,7 @@ class GetClusterRunTimeInfoResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The configuration progress. Unit: percentage.
+     * @description The result set.
      *
      * @var result[]
      */

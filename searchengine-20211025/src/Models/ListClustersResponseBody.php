@@ -19,6 +19,8 @@ class ListClustersResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The list of clusters.
+     *
      * @var result[]
      */
     public $result;

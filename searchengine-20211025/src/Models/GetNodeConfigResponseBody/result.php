@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description Indicates whether the expression is the default one.
+     *
+     * @example 1
+     *
      * @var bool
      */
     public $active;
 
     /**
+     * @description The number of data replicas.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $dataDuplicateNumber;
 
     /**
+     * @description The number of data shards.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $dataFragmentNumber;
@@ -26,9 +38,22 @@ class result extends Model
     /**
      * @var int
      */
+    public $flowRatio;
+
+    /**
+     * @description The minimum service ratio.
+     *
+     * @example 100
+     *
+     * @var int
+     */
     public $minServicePercent;
 
     /**
+     * @description Indicates whether the node is associated with the cluster.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $published;
@@ -36,6 +61,7 @@ class result extends Model
         'active'              => 'active',
         'dataDuplicateNumber' => 'dataDuplicateNumber',
         'dataFragmentNumber'  => 'dataFragmentNumber',
+        'flowRatio'           => 'flowRatio',
         'minServicePercent'   => 'minServicePercent',
         'published'           => 'published',
     ];
@@ -55,6 +81,9 @@ class result extends Model
         }
         if (null !== $this->dataFragmentNumber) {
             $res['dataFragmentNumber'] = $this->dataFragmentNumber;
+        }
+        if (null !== $this->flowRatio) {
+            $res['flowRatio'] = $this->flowRatio;
         }
         if (null !== $this->minServicePercent) {
             $res['minServicePercent'] = $this->minServicePercent;
@@ -82,6 +111,9 @@ class result extends Model
         }
         if (isset($map['dataFragmentNumber'])) {
             $model->dataFragmentNumber = $map['dataFragmentNumber'];
+        }
+        if (isset($map['flowRatio'])) {
+            $model->flowRatio = $map['flowRatio'];
         }
         if (isset($map['minServicePercent'])) {
             $model->minServicePercent = $map['minServicePercent'];

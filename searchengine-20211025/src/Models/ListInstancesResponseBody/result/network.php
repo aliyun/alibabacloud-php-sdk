@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class network extends Model
 {
     /**
-     * @description 353490
+     * @description The access point of the gateway
      *
      * @example ""
      *
@@ -18,15 +18,8 @@ class network extends Model
     public $endpoint;
 
     /**
-     * @description ### Sample responses
+     * @description The ID of the virtual switch
      *
-     **Sample success responses**
-     *
-     * }
-     *
-     **Sample error responses**
-     *
-     * }
      * @example vsw-bp11ldcf59q2nbwkqgj6z
      *
      * @var string
@@ -34,7 +27,7 @@ class network extends Model
     public $vSwitchId;
 
     /**
-     * @description Queries instances.
+     * @description The ID of the Virtual Private Cloud (VPC) network
      *
      * @example vpc-wz9axk41d9vffoc79x0oe
      *

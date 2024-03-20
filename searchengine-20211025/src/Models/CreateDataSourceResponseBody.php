@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDataSourceResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 10D5E615-69F7-5F49-B850-00169ADE513C
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The name of the absolute path.
+     *
      * @example "/path/wpd/nae"
      *
      * @var string
@@ -16,6 +18,8 @@ class result extends Model
     public $fullPathName;
 
     /**
+     * @description Indicates whether it is a directory. Valid values: true and false. true indicates that it is a directory, and false indicates that it is not a directory.
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +27,8 @@ class result extends Model
     public $isDir;
 
     /**
+     * @description Indicates whether it is a template. Valid values: **true** and **false**. true indicates that it is a template, and false indicates that it is not a template.
+     *
      * @example true
      *
      * @var bool
@@ -30,6 +36,8 @@ class result extends Model
     public $isTemplate;
 
     /**
+     * @description The name of the cluster.
+     *
      * @example file_name_1
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListQueryResultResponseBody extends Model
 {
     /**
+     * @description The ID of the request
+     *
      * @example 9E5BCFAA-98B3-51D0-9188-B1BC07589337
      *
      * @var string

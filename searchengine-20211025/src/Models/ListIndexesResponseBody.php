@@ -19,7 +19,7 @@ class ListIndexesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information about the indexes.
+     * @description The index list.
      *
      * @var result[]
      */

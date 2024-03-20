@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The time when the configuration was updated.
+     *
      * @example " "
      *
      * @var string
@@ -18,6 +20,8 @@ class result extends Model
     public $configUpdateTime;
 
     /**
+     * @description The effective advanced version.
+     *
      * @example " "
      *
      * @var string
@@ -32,6 +36,8 @@ class result extends Model
     public $currentOfflineDictConfigVersion;
 
     /**
+     * @description The effective online configuration version.
+     *
      * @example " "
      *
      * @var string
@@ -46,11 +52,15 @@ class result extends Model
     public $currentOnlineQueryConfigVersion;
 
     /**
+     * @description The information about the node in the cluster.
+     *
      * @var dataNode
      */
     public $dataNode;
 
     /**
+     * @description The description of the cluster.
+     *
      * @example fzz_test
      *
      * @var string
@@ -58,6 +68,8 @@ class result extends Model
     public $description;
 
     /**
+     * @description The latest advanced configuration version.
+     *
      * @example " "
      *
      * @var string
@@ -72,6 +84,8 @@ class result extends Model
     public $latestOfflineDictConfigVersion;
 
     /**
+     * @description The latest online configuration version.
+     *
      * @example " "
      *
      * @var string
@@ -86,6 +100,8 @@ class result extends Model
     public $latestOnlineQueryConfigVersion;
 
     /**
+     * @description The name of the cluster.
+     *
      * @example ha-cn-7pp2pcna701_qrs
      *
      * @var string
@@ -93,11 +109,15 @@ class result extends Model
     public $name;
 
     /**
+     * @description The query node of the cluster.
+     *
      * @var queryNode
      */
     public $queryNode;
 
     /**
+     * @description The status of the cluster. Valid values: running, starting, stopping, and stopped. running indicates the cluster is running, starting indicates the cluster is starting, stopping indicates the cluster is stopping, and stopped indicates the cluster has stopped.
+     *
      * @example "starting"
      *
      * @var string

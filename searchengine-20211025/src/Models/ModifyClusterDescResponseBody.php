@@ -20,6 +20,8 @@ class ModifyClusterDescResponseBody extends Model
     /**
      * @description Map
      *
+     * @example {}
+     *
      * @var mixed[]
      */
     public $result;

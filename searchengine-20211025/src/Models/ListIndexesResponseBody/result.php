@@ -11,7 +11,9 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description The content of the index.
+     * @description schema JSON
+     *
+     * @example {"summarys":{"parameter":{"file_compressor":"zstd"},"summary_fields":["id"]},"file_compress":[{"name":"file_compressor","type":"zstd"},{"name":"no_compressor","type":""}],"indexs":[{"index_fields":"name","index_name":"ids","index_type":"STRING"},{"has_primary_key_attribute":true,"index_fields":"id","is_primary_key_sorted":false,"index_name":"id","index_type":"PRIMARYKEY64"}],"attributes":[{"file_compress":"no_compressor","field_name":"id"}],"fields":[{"user_defined_param":{},"compress_type":"uniq","field_type":"STRING","field_name":"id"},{"compress_type":"uniq","field_type":"STRING","field_name":"name"}],"table_name":"api"}
      *
      * @var string
      */
@@ -27,21 +29,23 @@ class result extends Model
     public $dataSource;
 
     /**
-     * @description The information about the data source.
+     * @description 数据源相关信息
      *
      * @var dataSourceInfo
      */
     public $dataSourceInfo;
 
     /**
-     * @description The remarks.
+     * @description 备注
+     *
+     * @example 备注
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description The deployment name of the index.
+     * @description The name of the data center where the data source is deployed.
      *
      * @example test
      *
@@ -50,35 +54,43 @@ class result extends Model
     public $domain;
 
     /**
-     * @description The last time when full data in the index was updated.
+     * @description 全量切换时间
+     *
+     * @example 2023-07-05 10:40:38
      *
      * @var string
      */
     public $fullUpdateTime;
 
     /**
-     * @description The version of the data.
+     * @description 全量版本  即：索引版本
+     *
+     * @example 1688523414
      *
      * @var int
      */
     public $fullVersion;
 
     /**
-     * @description The last time when incremental data in the index was updated.
+     * @description 增量更新时间
+     *
+     * @example 2023-07-05 10:58:33
      *
      * @var string
      */
     public $incUpdateTime;
 
     /**
-     * @description The index size.
+     * @description 索引大小
+     *
+     * @example 4689
      *
      * @var int
      */
     public $indexSize;
 
     /**
-     * @description The status of the index. Valid values: NEW and PUBLISH.
+     * @description NEW, PUBLISH
      *
      * @example " "
      *
@@ -96,14 +108,16 @@ class result extends Model
     public $name;
 
     /**
-     * @description The number of shards.
+     * @description 数据分片
+     *
+     * @example 2
      *
      * @var int
      */
     public $partition;
 
     /**
-     * @description The information about the versions.
+     * @description The list of version information.
      *
      * @var versions[]
      */

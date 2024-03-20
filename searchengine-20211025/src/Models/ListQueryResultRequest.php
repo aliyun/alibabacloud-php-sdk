@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListQueryResultRequest extends Model
 {
     /**
-     * @description 353490
+     * @description The query statement
      *
      * @example query%3D1%26%26config%3Dstart%3A0%2Chit%3A10%2Cformat%3Ajson%26%26cluster%3Dgeneral
      *
@@ -18,6 +18,8 @@ class ListQueryResultRequest extends Model
     public $query;
 
     /**
+     * @description The SQL statement that is executed in the query
+     *
      * @example query%3Dselect%20max(content_id)%20from%20generation
      *
      * @var string

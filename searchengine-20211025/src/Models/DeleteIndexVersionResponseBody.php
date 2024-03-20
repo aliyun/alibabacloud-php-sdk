@@ -18,6 +18,8 @@ class DeleteIndexVersionResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The result
+     *
      * @example {}
      *
      * @var mixed[]

@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class configStatusList extends Model
 {
     /**
+     * @description The time when the cluster was updated.
+     *
+     * @example ""
+     *
      * @var string
      */
     public $configUpdateTime;
 
     /**
+     * @description The overall progress.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $donePercent;
 
     /**
+     * @description The number of nodes that are configured.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $doneSize;
 
     /**
+     * @description The name of the cluster.
+     *
+     * @example test_0704
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The total number of nodes that you specify when you create the cluster.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $totalSize;

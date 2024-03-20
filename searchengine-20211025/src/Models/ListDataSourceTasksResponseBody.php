@@ -19,7 +19,7 @@ class ListDataSourceTasksResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The date when the task was completed.
+     * @description The information about the index.
      *
      * @var result[]
      */

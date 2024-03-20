@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteIndexRequest extends Model
 {
     /**
+     * @description The data source
+     *
      * @example ha-cn-pl32rf0js04_test
      *
      * @var string

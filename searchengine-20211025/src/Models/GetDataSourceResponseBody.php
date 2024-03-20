@@ -19,7 +19,7 @@ class GetDataSourceResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information about the data source.
+     * @description The list of information about the data source
      *
      * @var result
      */

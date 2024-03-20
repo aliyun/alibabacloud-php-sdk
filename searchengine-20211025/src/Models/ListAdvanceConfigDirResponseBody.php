@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListAdvanceConfigDirResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 2AE63638-5420-56DC-BF59-37D8174039A0
      *
      * @var string
@@ -17,6 +19,8 @@ class ListAdvanceConfigDirResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The file list in the advanced configuration directory.
+     *
      * @var result[]
      */
     public $result;

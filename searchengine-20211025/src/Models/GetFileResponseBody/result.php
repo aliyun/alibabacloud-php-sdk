@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The content of the file.
+     *
      * @example None
      *
      * @var string
@@ -16,6 +18,8 @@ class result extends Model
     public $content;
 
     /**
+     * @description The data source.
+     *
      * @example ha-cn-2r42p5oi202_xijie_test
      *
      * @var string
@@ -23,6 +27,8 @@ class result extends Model
     public $dataSource;
 
     /**
+     * @description The name of the full path.
+     *
      * @example ""
      *
      * @var string
@@ -30,6 +36,8 @@ class result extends Model
     public $fullPathName;
 
     /**
+     * @description Indicates whether it is a directory.
+     *
      * @example True
      *
      * @var bool
@@ -37,6 +45,8 @@ class result extends Model
     public $isDir;
 
     /**
+     * @description The name of the file.
+     *
      * @example ha-cn-2r42ostoc01_qrs
      *
      * @var string
@@ -44,6 +54,8 @@ class result extends Model
     public $name;
 
     /**
+     * @description The number of shards.
+     *
      * @example ds=20210828
      *
      * @var int

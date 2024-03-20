@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class serviceStatus extends Model
 {
     /**
+     * @description The overall progress.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $donePercent;
 
     /**
+     * @description The number of nodes being processed in the cluster.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $doneSize;
 
     /**
+     * @description The name.
+     *
+     * @example ha-cn-0ju2s170b03_qrs
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The total number of nodes in the cluster.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $totalSize;

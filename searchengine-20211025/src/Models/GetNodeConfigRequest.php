@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetNodeConfigRequest extends Model
 {
     /**
+     * @description The name of the cluster
+     *
      * @example vpc_sh_domain_2
      *
      * @var string
@@ -16,6 +18,8 @@ class GetNodeConfigRequest extends Model
     public $clusterName;
 
     /**
+     * @description The name of the cluster.
+     *
      * @example ha-cn-30174dhoz53_qrs
      *
      * @var string
@@ -23,6 +27,8 @@ class GetNodeConfigRequest extends Model
     public $name;
 
     /**
+     * @description The type of the node. Valid values: qrs, search, index, and cluster. qrs indicates a query node, search indicates a data node, index indicates an index node, and cluster indicates a cluster node.
+     *
      * @example index
      *
      * @var string

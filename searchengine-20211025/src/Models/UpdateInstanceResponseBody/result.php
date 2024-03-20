@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description The billing method of the instance.
+     * @description The billing method
      *
      * @example PrePaid
      *
@@ -18,7 +18,7 @@ class result extends Model
     public $chargeType;
 
     /**
-     * @description The service code.
+     * @description The product code
      *
      * @example ha3-code
      *
@@ -27,7 +27,7 @@ class result extends Model
     public $commodityCode;
 
     /**
-     * @description The time when the instance was created.
+     * @description The time when the instance was created
      *
      * @example 2018-12-06T11:17:49.0
      *
@@ -36,7 +36,7 @@ class result extends Model
     public $createTime;
 
     /**
-     * @description The description of the instance.
+     * @description The description of the instance
      *
      * @example Test instance
      *
@@ -45,7 +45,7 @@ class result extends Model
     public $description;
 
     /**
-     * @description The time when the instance expires.
+     * @description The time when the instance expires
      *
      * @example 2019-01-06T16:00:00.0
      *
@@ -54,7 +54,7 @@ class result extends Model
     public $expiredTime;
 
     /**
-     * @description Indicates whether an overdue payment is involved.
+     * @description Indicates whether an overdue payment is involved
      *
      * @example false
      *
@@ -63,7 +63,7 @@ class result extends Model
     public $inDebt;
 
     /**
-     * @description The ID of the instance.
+     * @description The ID of the resource
      *
      * @example ha-cn-0ju2s170b03
      *
@@ -72,7 +72,7 @@ class result extends Model
     public $instanceId;
 
     /**
-     * @description The lock mode of the instance.
+     * @description The lock status
      *
      * @example Unlock
      *
@@ -81,7 +81,7 @@ class result extends Model
     public $lockMode;
 
     /**
-     * @description The ID of the resource group.
+     * @description The ID of the resource group
      *
      * @example rg-aeky6hthboewpuy
      *
@@ -90,7 +90,7 @@ class result extends Model
     public $resourceGroupId;
 
     /**
-     * @description The state of the instance.
+     * @description The status of the instance
      *
      * @example Running
      *
@@ -99,7 +99,7 @@ class result extends Model
     public $status;
 
     /**
-     * @description The time when the instance was last updated.
+     * @description The time when the instance was last updated
      *
      * @example 2018-12-06T11:17:49.0
      *

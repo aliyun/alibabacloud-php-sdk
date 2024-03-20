@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetFileRequest extends Model
 {
     /**
+     * @description The name of the file in full path
+     *
      * @example /schemas/automobile_vector_schema.json
      *
      * @var string

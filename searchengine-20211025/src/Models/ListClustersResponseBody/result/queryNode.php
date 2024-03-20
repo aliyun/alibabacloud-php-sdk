@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class queryNode extends Model
 {
     /**
+     * @description The name of the node.
+     *
      * @example test_0704
      *
      * @var string
@@ -16,6 +18,8 @@ class queryNode extends Model
     public $name;
 
     /**
+     * @description The number of nodes.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class queryNode extends Model
     public $number;
 
     /**
+     * @description The number o replicas.
+     *
      * @example dt=20211216
      *
      * @var int

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ForceSwitchResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description id of request
      *
      * @example 0B1FF998-BB8D-5182-BFC0-E471AA77095A
      *
@@ -18,7 +18,7 @@ class ForceSwitchResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The index information.
+     * @description The information about the index
      *
      * @example {}
      *

@@ -19,6 +19,8 @@ class ListAdvanceConfigsRequest extends Model
     public $indexName;
 
     /**
+     * @description The type of the advanced configurations. Valid values: online and offline. - online The default value is offline.
+     *
      * @example online
      *
      * @var string

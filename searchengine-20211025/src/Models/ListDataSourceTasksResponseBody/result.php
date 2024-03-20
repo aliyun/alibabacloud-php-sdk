@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The additional attributes of the card.
+     *
      * @example ""
      *
      * @var string
@@ -18,6 +20,8 @@ class result extends Model
     public $extraAttribute;
 
     /**
+     * @description The field3 field that is passed through when you create a state machine.
+     *
      * @example ""
      *
      * @var string
@@ -34,9 +38,8 @@ class result extends Model
     public $fsmId;
 
     /**
-     * @description ### Method
+     * @description Indicates whether the change is a data source task change or a cluster task change.
      *
-     * ```
      * @example " "
      *
      * @var string
@@ -44,7 +47,7 @@ class result extends Model
     public $groupType;
 
     /**
-     * @description Displays data source tasks.
+     * @description The task name on the card.
      *
      * @example general
      *
@@ -53,6 +56,8 @@ class result extends Model
     public $name;
 
     /**
+     * @description The overall status of FSM.
+     *
      * @example 2
      *
      * @var string
@@ -60,16 +65,22 @@ class result extends Model
     public $status;
 
     /**
+     * @description The status tag of the progress bar chart.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description The information about the task.
+     *
      * @var taskNodes[]
      */
     public $taskNodes;
 
     /**
+     * @description The timestamp of the task on the card.
+     *
      * @example 1646279473
      *
      * @var string
@@ -77,6 +88,8 @@ class result extends Model
     public $time;
 
     /**
+     * @description The type of the task on the card.
+     *
      * @example search
      *
      * @var string
@@ -84,6 +97,8 @@ class result extends Model
     public $type;
 
     /**
+     * @description The user who triggered the finite-state machine (FSM) process.
+     *
      * @example ""
      *
      * @var string

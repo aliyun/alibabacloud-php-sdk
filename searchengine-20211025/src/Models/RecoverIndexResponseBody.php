@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RecoverIndexResponseBody extends Model
 {
     /**
-     * @description id of request
+     * @description The ID of the request.
      *
      * @example 10D5E615-69F7-5F49-B850-00169ADE513C
      *
@@ -18,7 +18,7 @@ class RecoverIndexResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Map
+     * @description The result returned by data search.
      *
      * @example {}
      *

@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description The ID of the resource group to which the instance belongs.
+     * @description The billing method
      *
      * @example PrePaid
      *
@@ -20,7 +20,7 @@ class result extends Model
     public $chargeType;
 
     /**
-     * @description The total number of entries returned
+     * @description The product code
      *
      * @example ""
      *
@@ -29,7 +29,7 @@ class result extends Model
     public $commodityCode;
 
     /**
-     * @description Havenask instance
+     * @description The time when the instance was created
      *
      * @example 2022-06-04T02:03:21Z
      *
@@ -38,16 +38,16 @@ class result extends Model
     public $createTime;
 
     /**
-     * @description The ID of the virtual switch
+     * @description The description of the instance
      *
-     * @example The billing method
+     * @example Emergency test
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description The ID of the Virtual Private Cloud (VPC) network
+     * @description The expiration time
      *
      * @example 1634885083
      *
@@ -56,7 +56,7 @@ class result extends Model
     public $expiredTime;
 
     /**
-     * @description The ID of the request
+     * @description Indicates whether an overdue payment is involved
      *
      * @example false
      *
@@ -65,7 +65,7 @@ class result extends Model
     public $inDebt;
 
     /**
-     * @description The access point of the gateway
+     * @description The ID of the resource
      *
      * @example ha-cn-2r42n8oh001
      *
@@ -74,7 +74,7 @@ class result extends Model
     public $instanceId;
 
     /**
-     * @description Emergency test
+     * @description The lock status
      *
      * @example Unlock
      *
@@ -83,14 +83,14 @@ class result extends Model
     public $lockMode;
 
     /**
-     * @description The lock status
+     * @description Information about the instance of the network search engine
      *
      * @var network
      */
     public $network;
 
     /**
-     * @description The number of entries to return on each page. Valid values: 1 to 50. Default value: 10.
+     * @description The ID of the resource group
      *
      * @example rg-aekzgpiswzbksdi
      *
@@ -99,7 +99,7 @@ class result extends Model
     public $resourceGroupId;
 
     /**
-     * @description The expiration time
+     * @description The status of the instance
      *
      * @example 2
      *
@@ -108,6 +108,8 @@ class result extends Model
     public $status;
 
     /**
+     * @description The result returned.
+     *
      * @var tags[]
      */
     public $tags;

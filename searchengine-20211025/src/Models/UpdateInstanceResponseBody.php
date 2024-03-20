@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateInstanceResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The ID of the request
      *
      * @example 90D6B8F5-FE97-4509-9AAB-367836C51818
      *
@@ -19,7 +19,7 @@ class UpdateInstanceResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The result returned.
+     * @description The result returned
      *
      * @var result
      */

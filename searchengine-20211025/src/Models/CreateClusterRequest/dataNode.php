@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class dataNode extends Model
 {
     /**
-     * @description The number of Searcher workers.
+     * @description The number of data nodes
      *
      * @example 2
      *

@@ -11,81 +11,135 @@ use AlibabaCloud\Tea\Model;
 class dataStatusList extends Model
 {
     /**
+     * @description The information about advanced configurations.
+     *
      * @var advanceConfigInfo
      */
     public $advanceConfigInfo;
 
     /**
+     * @description The name of the worker that failed because of a deployment failure.
+     *
      * @var string[]
      */
     public $deployFailedWorker;
 
     /**
+     * @description The storage capacity. Unit: GB.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $docSize;
 
     /**
+     * @description The overall progress.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $donePercent;
 
     /**
+     * @description The number of nodes that are configured.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $doneSize;
 
     /**
+     * @description The error message.
+     *
+     * @example 0A3B1C48006A6C0905F6375F4821EB50
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @description The time when the full data was updated.
+     *
+     * @example " "
+     *
      * @var string
      */
     public $fullUpdateTime;
 
     /**
+     * @description The full version.
+     *
+     * @example 123423
+     *
      * @var int
      */
     public $fullVersion;
 
     /**
+     * @description The time when the incremental data was updated.
+     *
+     * @example ""
+     *
      * @var string
      */
     public $incUpdateTime;
 
     /**
+     * @description The incremental version.
+     *
+     * @example 123423
+     *
      * @var int
      */
     public $incVersion;
 
     /**
+     * @description The configuration information of the index.
+     *
      * @var indexConfigInfo
      */
     public $indexConfigInfo;
 
     /**
+     * @description The size of the index.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $indexSize;
 
     /**
+     * @description The name of the worker that failed because of insufficient disk space.
+     *
      * @var string[]
      */
     public $lackDiskWorker;
 
     /**
+     * @description The name of the worker that failed because of insufficient memory.
+     *
      * @var string[]
      */
     public $lackMemWorker;
 
     /**
+     * @description The name of the node.
+     *
+     * @example ha-cn-c4d2rq7nt04_qrs
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The total number of nodes that you specify when you create the cluster.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalSize;

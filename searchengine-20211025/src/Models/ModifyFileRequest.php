@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyFileRequest extends Model
 {
     /**
-     * @description The parameters in the request body
+     * @description The content of the file.
      *
      * @example ""
      *
@@ -18,7 +18,7 @@ class ModifyFileRequest extends Model
     public $content;
 
     /**
-     * @description auditing
+     * @description The data partition. This parameter is required if the dataSourceType parameter is set to odps.
      *
      * @example 1
      *
@@ -27,7 +27,7 @@ class ModifyFileRequest extends Model
     public $partition;
 
     /**
-     * @description ha-cn-tl32m2c4u01@ha-cn-tl32m2c4u01_00@bj_vpc_domain_1@automobile_vector@index_config_edit
+     * @description The name of the file in the full path
      *
      * @example /schemas/generation_schema.json
      *

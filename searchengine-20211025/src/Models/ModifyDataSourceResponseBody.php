@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyDataSourceResponseBody extends Model
 {
     /**
-     * @description id of request
+     * @description The ID of the request
      *
      * @example 2AE63638-5420-56DC-BF59-37D8174039A0
      *
@@ -18,7 +18,7 @@ class ModifyDataSourceResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The schema information.
+     * @description The result returned
      *
      * @example {}
      *

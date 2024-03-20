@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The name of the cluster
+     *
      * @example ayoss-cn-zhangjiakou-b
      *
      * @var string
@@ -17,6 +19,8 @@ class result extends Model
     public $cluster;
 
     /**
+     * @description The time when the cluster was updated
+     *
      * @var indexVersions[]
      */
     public $indexVersions;

@@ -19,6 +19,8 @@ class GetIndexVersionResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The list of cluster details
+     *
      * @var result
      */
     public $result;

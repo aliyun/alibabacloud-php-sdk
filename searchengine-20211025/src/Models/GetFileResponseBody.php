@@ -19,6 +19,8 @@ class GetFileResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about the index.
+     *
      * @var result
      */
     public $result;

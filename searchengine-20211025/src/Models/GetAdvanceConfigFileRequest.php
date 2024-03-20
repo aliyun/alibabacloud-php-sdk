@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetAdvanceConfigFileRequest extends Model
 {
     /**
+     * @description The name of the file
+     *
      * @example /intervene_dict/chn_ecommerce_general.dict
      *
      * @var string

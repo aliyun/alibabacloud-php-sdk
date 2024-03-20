@@ -19,7 +19,7 @@ class CreateIndexRequest extends Model
     public $content;
 
     /**
-     * @description Optional. The data source, which can be MaxCompute, Message Service (MNS), Realtime Compute for Apache Flink, or StreamCompute.
+     * @description The data source type. Valid values: odps, mns, flink, and streaming. This parameter can be ignored.
      *
      * @example test1
      *
@@ -28,12 +28,14 @@ class CreateIndexRequest extends Model
     public $dataSource;
 
     /**
+     * @description 数据源相关信息 （向量检索版新版本必填）
+     *
      * @var dataSourceInfo
      */
     public $dataSourceInfo;
 
     /**
-     * @description The data center in which the data source resides.
+     * @description The data center where the data source is deployed.
      *
      * @example vpc_hz_domain_1
      *
@@ -42,6 +44,8 @@ class CreateIndexRequest extends Model
     public $domain;
 
     /**
+     * @description 字段配置的扩展的内容
+     * 需embeding字段(embeding)
      * @var mixed[]
      */
     public $extend;
@@ -58,13 +62,17 @@ class CreateIndexRequest extends Model
     /**
      * @description The data partition.
      *
-     * @example 2
+     * @example 20211202
      *
      * @var int
      */
     public $partition;
 
     /**
+     * @description 是否dryRun创建（仅校验数据源是否合法）。取值：-true 是 -false 否
+     *
+     * @example true
+     *
      * @var bool
      */
     public $dryRun;

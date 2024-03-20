@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class indexConfigInfo extends Model
 {
     /**
+     * @description The name of the index configuration.
+     *
+     * @example index_meta_name
+     *
      * @var string
      */
     public $configMetaName;
 
     /**
+     * @description The version of the index template.
+     *
+     * @example 1.0.0
+     *
      * @var int
      */
     public $version;

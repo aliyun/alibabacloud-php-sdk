@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListInstancesResponseBody extends Model
 {
     /**
+     * @description The ID of the request
+     *
      * @example 89B968E6-1E41-58DF-BB25-5F98ECC759CE
      *
      * @var string
@@ -24,6 +26,8 @@ class ListInstancesResponseBody extends Model
     public $result;
 
     /**
+     * @description The total number of entries returned
+     *
      * @example 5
      *
      * @var int

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description 付费类型
+     * @description The billing method.
      *
      * @example POSYPAY
      *
@@ -19,7 +19,7 @@ class result extends Model
     public $chargeType;
 
     /**
-     * @description 商品code
+     * @description The product code.
      *
      * @example commodityCode
      *
@@ -28,7 +28,7 @@ class result extends Model
     public $commodityCode;
 
     /**
-     * @description 代表创建时间的资源属性字段
+     * @description The time when the instance was created.
      *
      * @example 2022-06-17T02:01:26Z
      *
@@ -37,7 +37,7 @@ class result extends Model
     public $createTime;
 
     /**
-     * @description The ID of the request.
+     * @description The description of the instance.
      *
      * @example ha3_test
      *
@@ -46,7 +46,7 @@ class result extends Model
     public $description;
 
     /**
-     * @description WB01240825
+     * @description The expiration time.
      *
      * @example 1634609702
      *
@@ -55,7 +55,7 @@ class result extends Model
     public $expiredTime;
 
     /**
-     * @description 是否欠费
+     * @description Indicates whether an overdue payment is involved.
      *
      * @example false
      *
@@ -64,7 +64,7 @@ class result extends Model
     public $inDebt;
 
     /**
-     * @description 代表资源一级ID的资源属性字段
+     * @description The ID of the resource.
      *
      * @example ha-cn-7mz2qsgq301
      *
@@ -73,7 +73,7 @@ class result extends Model
     public $instanceId;
 
     /**
-     * @description 锁定状态
+     * @description The lock status.
      *
      * @example Unlock
      *
@@ -82,15 +82,8 @@ class result extends Model
     public $lockMode;
 
     /**
-     * @description ### Sample responses
+     * @description The ID of the resource group.
      *
-     **Sample success responses**
-     *
-     * }
-     *
-     **Sample error responses**
-     *
-     * }
      * @example rg-aekzjvw24el5lma
      *
      * @var string
@@ -98,6 +91,13 @@ class result extends Model
     public $resourceGroupId;
 
     /**
+     * @description The status of the instance. Valid values:
+     *
+     *   INIT: being initialized
+     *   WAIT_CONFIG: to be configured
+     *   CONFIG_UPDATING: configuration taking effect
+     *   READY: normal
+     *
      * @example INIT
      *
      * @var string
@@ -105,12 +105,14 @@ class result extends Model
     public $status;
 
     /**
+     * @description 标签。
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
-     * @description 更新时间
+     * @description The time when the instance was last updated.
      *
      * @example 1634609702
      *

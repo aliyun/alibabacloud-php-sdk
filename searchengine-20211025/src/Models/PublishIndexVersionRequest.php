@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class PublishIndexVersionRequest extends Model
 {
     /**
+     * @description The query result
+     *
      * @example {}
      *
      * @var mixed[]

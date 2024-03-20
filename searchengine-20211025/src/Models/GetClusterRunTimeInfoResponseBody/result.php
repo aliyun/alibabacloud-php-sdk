@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description The name of the cluster
+     * @description The name of the cluster.
      *
      * @example vpc_hz_domain_1
      *
@@ -20,16 +20,14 @@ class result extends Model
     public $clusterName;
 
     /**
-     * @description dataNodes
-     *
-     * @example {}
+     * @description The information about the data node.
      *
      * @var dataNodes[]
      */
     public $dataNodes;
 
     /**
-     * @description The specifications of the query node.
+     * @description The information about the query node.
      *
      * @var queryNode
      */

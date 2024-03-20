@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListAdvanceConfigsResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 4FB0325E-8C37-5525-96AC-0333523170A3
      *
      * @var string
@@ -17,6 +19,8 @@ class ListAdvanceConfigsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The list of advanced configurations.
+     *
      * @var result[]
      */
     public $result;

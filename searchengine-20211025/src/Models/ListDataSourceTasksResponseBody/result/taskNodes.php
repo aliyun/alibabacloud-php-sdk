@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class taskNodes extends Model
 {
     /**
+     * @description The date when the task was completed.
+     *
      * @example ""
      *
      * @var string
@@ -16,6 +18,8 @@ class taskNodes extends Model
     public $finishDate;
 
     /**
+     * @description The sequence number of the task.
+     *
      * @example 100
      *
      * @var int
@@ -23,6 +27,8 @@ class taskNodes extends Model
     public $index;
 
     /**
+     * @description The name of the task.
+     *
      * @example ha-cn-7pp2ngv4s02_qrs
      *
      * @var string
@@ -30,6 +36,8 @@ class taskNodes extends Model
     public $name;
 
     /**
+     * @description The status of the task.
+     *
      * @example onlyPublished
      *
      * @var string

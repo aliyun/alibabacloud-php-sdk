@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListOnlineConfigsRequest extends Model
 {
     /**
+     * @description The name of the domain
+     *
      * @example sz_vpc_domain_1
      *
      * @var string

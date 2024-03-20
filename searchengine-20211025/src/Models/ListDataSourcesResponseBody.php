@@ -10,9 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListDataSourcesResponseBody extends Model
 {
     /**
-     * @description ## Method
+     * @description The ID of the request.
      *
-     * `/openapi/ha3/instances/{instanceId}/data-sources`
      * @example 93A9E542-8CF8-5BA6-99AB-94C0FE520429
      *
      * @var string
@@ -20,7 +19,7 @@ class ListDataSourcesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The returned results.
+     * @description The result returned.
      *
      * @var result[]
      */

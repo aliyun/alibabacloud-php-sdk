@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListAdvanceConfigDirRequest extends Model
 {
     /**
+     * @description The name of the directory
+     *
      * @example /zones/general
      *
      * @var string

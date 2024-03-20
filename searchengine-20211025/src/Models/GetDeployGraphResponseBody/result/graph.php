@@ -13,31 +13,43 @@ use AlibabaCloud\Tea\Model;
 class graph extends Model
 {
     /**
+     * @description 索引元信息
+     *
      * @var indexMetas[]
      */
     public $indexMetas;
 
     /**
+     * @description 在线集群元信息
+     *
      * @var onlineMaster[]
      */
     public $onlineMaster;
 
     /**
+     * @description 数据源和索引关联关系
+     *
      * @var string[][]
      */
     public $tableIndexRelation;
 
     /**
+     * @description 数据源元信息
+     *
      * @var tableMetas[]
      */
     public $tableMetas;
 
     /**
+     * @description zone和索引关联关系
+     *
      * @var string[][]
      */
     public $zoneIndexRelation;
 
     /**
+     * @description zone元信息
+     *
      * @var zoneMetas[]
      */
     public $zoneMetas;

@@ -19,6 +19,8 @@ class GetDeployGraphResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The result returned
+     *
      * @example {}
      *
      * @var result

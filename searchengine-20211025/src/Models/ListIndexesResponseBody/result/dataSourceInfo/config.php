@@ -9,60 +9,90 @@ use AlibabaCloud\Tea\Model;
 class config extends Model
 {
     /**
+     * @description odps数据源ak
+     *
+     * @example root
+     *
      * @var string
      */
     public $accessKey;
 
     /**
+     * @description odps数据源ak secret
+     *
+     * @example root123
+     *
      * @var string
      */
     public $accessSecret;
 
     /**
+     * @description oss命名空间
+     *
+     * @example ha3test-oss
+     *
      * @var string
      */
     public $bucket;
 
     /**
-     * @description A parameter related to MaxCompute.
+     * @description odps相关
+     *
+     * @example http://service.cn-hangzhou.maxcompute.aliyun-inc.com/api
      *
      * @var string
      */
     public $endpoint;
 
     /**
-     * @description A parameter related to SARO.
+     * @description saro相关
+     *
+     * @example TEST_dump_demo_sj_na61hunbu2_share_holo
      *
      * @var string
      */
     public $namespace;
 
     /**
-     * @description A parameter related to OSS.
+     * @description oss数据源相关
+     *
+     * @example /test_opensearch/sift_oss_test.data
      *
      * @var string
      */
     public $ossPath;
 
     /**
+     * @description 数据分片
+     *
+     * @example ds=12345
+     *
      * @var string
      */
     public $partition;
 
     /**
-     * @description A parameter related to Apsara File Storage for HDFS.
+     * @description hdfs相关
+     *
+     * @example http://test_opensearch/sift_oss_test.data
      *
      * @var string
      */
     public $path;
 
     /**
+     * @description odps数据源项目名称
+     *
+     * @example tisplus_dev
+     *
      * @var string
      */
     public $project;
 
     /**
-     * @description A parameter related to SARO and MaxCompute.
+     * @description saro、odps相关
+     *
+     * @example dump_odps_demo
      *
      * @var string
      */

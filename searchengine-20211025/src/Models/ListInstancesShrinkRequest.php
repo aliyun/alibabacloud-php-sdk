@@ -9,16 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ListInstancesShrinkRequest extends Model
 {
     /**
-     * @description The description of the instance
+     * @description The description of the instance. You can use this description to filter instances. Fuzzy match is supported.
      *
-     * @example The product code
+     * @example Havenask instance
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description 实例类型，vector(向量索引版)，engine(召回引擎版)
+     * @description The Instance type, vector (vector index version),engine (recall engine version)
      *
      * @example vector
      *
@@ -27,7 +27,7 @@ class ListInstancesShrinkRequest extends Model
     public $edition;
 
     /**
-     * @description The time when the instance was created
+     * @description The ID of the instance.
      *
      * @example ha-cn-83570439y0n
      *
@@ -36,7 +36,7 @@ class ListInstancesShrinkRequest extends Model
     public $instanceId;
 
     /**
-     * @description The status of the instance
+     * @description The number of the page to return. Default value: 1.
      *
      * @example 1
      *
@@ -45,7 +45,7 @@ class ListInstancesShrinkRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The description of the instance. You can use this description to filter instances. Fuzzy match is supported.
+     * @description The number of entries to return on each page. Valid values: 1 to 50. Default value: 10.
      *
      * @example 10
      *
@@ -54,7 +54,7 @@ class ListInstancesShrinkRequest extends Model
     public $pageSize;
 
     /**
-     * @description The number of the page to return. Default value: 1.
+     * @description The ID of the resource group to which the instance belongs.
      *
      * @example rg-aekzgpiswzbksdi
      *
@@ -63,6 +63,8 @@ class ListInstancesShrinkRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The tag dictionary.
+     *
      * @var string
      */
     public $tagsShrink;

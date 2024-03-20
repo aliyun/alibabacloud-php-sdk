@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class CreateClusterRequest extends Model
 {
     /**
-     * @description Specifies whether to automatically balance the load between QRS workers.
+     * @description The remarks of the query node
      *
      * @example true
      *
@@ -20,14 +20,14 @@ class CreateClusterRequest extends Model
     public $autoLoad;
 
     /**
-     * @description The information about Searcher workers.
+     * @description The description of the data node
      *
      * @var dataNode
      */
     public $dataNode;
 
     /**
-     * @description The description of the cluster.
+     * @description The description of the cluster
      *
      * @example "ha-tets"
      *
@@ -36,7 +36,7 @@ class CreateClusterRequest extends Model
     public $description;
 
     /**
-     * @description The name of the cluster.
+     * @description The name of the node
      *
      * @example ha-cn-zvp2qr1sk01_qrs
      *
@@ -45,7 +45,7 @@ class CreateClusterRequest extends Model
     public $name;
 
     /**
-     * @description The information about Query Result Searcher (QRS) workers.
+     * @description The description of the query node
      *
      * @var queryNode
      */

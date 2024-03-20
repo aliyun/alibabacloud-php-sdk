@@ -18,7 +18,7 @@ class ModifyNodeConfigResponseBody extends Model
     public $requestId;
 
     /**
-     * @description auditing
+     * @description The information about the index
      *
      * @example {}
      *

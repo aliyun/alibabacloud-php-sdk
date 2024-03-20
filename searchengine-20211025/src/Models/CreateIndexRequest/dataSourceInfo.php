@@ -5,16 +5,23 @@
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models\CreateIndexRequest;
 
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\CreateIndexRequest\dataSourceInfo\config;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\CreateIndexRequest\dataSourceInfo\saroConfig;
 use AlibabaCloud\Tea\Model;
 
 class dataSourceInfo extends Model
 {
     /**
+     * @description 是否开启自动全量
+     *
+     * @example true
+     *
      * @var bool
      */
     public $autoBuildIndex;
 
     /**
+     * @description odps相关
+     *
      * @var config
      */
     public $config;
@@ -22,16 +29,48 @@ class dataSourceInfo extends Model
     /**
      * @var int
      */
+    public $dataTimeSec;
+
+    /**
+     * @var string
+     */
+    public $domain;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @description 数据更新资源数
+     *
+     * @example 4
+     *
+     * @var int
+     */
     public $processPartitionCount;
 
     /**
+     * @var saroConfig
+     */
+    public $saroConfig;
+
+    /**
+     * @description 数据源类型
+     * oss
+     * @example odps
+     *
      * @var string
      */
     public $type;
     protected $_name = [
         'autoBuildIndex'        => 'autoBuildIndex',
         'config'                => 'config',
+        'dataTimeSec'           => 'dataTimeSec',
+        'domain'                => 'domain',
+        'name'                  => 'name',
         'processPartitionCount' => 'processPartitionCount',
+        'saroConfig'            => 'saroConfig',
         'type'                  => 'type',
     ];
 
@@ -48,8 +87,20 @@ class dataSourceInfo extends Model
         if (null !== $this->config) {
             $res['config'] = null !== $this->config ? $this->config->toMap() : null;
         }
+        if (null !== $this->dataTimeSec) {
+            $res['dataTimeSec'] = $this->dataTimeSec;
+        }
+        if (null !== $this->domain) {
+            $res['domain'] = $this->domain;
+        }
+        if (null !== $this->name) {
+            $res['name'] = $this->name;
+        }
         if (null !== $this->processPartitionCount) {
             $res['processPartitionCount'] = $this->processPartitionCount;
+        }
+        if (null !== $this->saroConfig) {
+            $res['saroConfig'] = null !== $this->saroConfig ? $this->saroConfig->toMap() : null;
         }
         if (null !== $this->type) {
             $res['type'] = $this->type;
@@ -72,8 +123,20 @@ class dataSourceInfo extends Model
         if (isset($map['config'])) {
             $model->config = config::fromMap($map['config']);
         }
+        if (isset($map['dataTimeSec'])) {
+            $model->dataTimeSec = $map['dataTimeSec'];
+        }
+        if (isset($map['domain'])) {
+            $model->domain = $map['domain'];
+        }
+        if (isset($map['name'])) {
+            $model->name = $map['name'];
+        }
         if (isset($map['processPartitionCount'])) {
             $model->processPartitionCount = $map['processPartitionCount'];
+        }
+        if (isset($map['saroConfig'])) {
+            $model->saroConfig = saroConfig::fromMap($map['saroConfig']);
         }
         if (isset($map['type'])) {
             $model->type = $map['type'];
