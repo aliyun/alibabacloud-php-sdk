@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetTopicSubscribeStatusResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -17,6 +19,8 @@ class GetTopicSubscribeStatusResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned message.
+     *
      * @example operation success
      *
      * @var string
@@ -24,7 +28,7 @@ class GetTopicSubscribeStatusResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 06084011-E093-46F3-A51F-4B19A8AD****
      *
@@ -33,6 +37,8 @@ class GetTopicSubscribeStatusResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool
@@ -40,6 +46,8 @@ class GetTopicSubscribeStatusResponseBody extends Model
     public $success;
 
     /**
+     * @description The subscription details.
+     *
      * @var topicSubscribeStatus
      */
     public $topicSubscribeStatus;

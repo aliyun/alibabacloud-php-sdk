@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class EnableAutoGroupCreationResponseBody extends Model
 {
     /**
+     * @description The returned HTTP status code.
+     *
+     * If the value **200** is returned, the request is successful.
      * @example 200
      *
      * @var int
@@ -16,6 +19,8 @@ class EnableAutoGroupCreationResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned message.
+     *
      * @example operation success
      *
      * @var string
@@ -23,6 +28,8 @@ class EnableAutoGroupCreationResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example A421CCD7-5BC5-4B32-8DD8-64668A8FCB56
      *
      * @var string
@@ -30,6 +37,8 @@ class EnableAutoGroupCreationResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

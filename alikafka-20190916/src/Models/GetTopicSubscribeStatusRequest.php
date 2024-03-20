@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetTopicSubscribeStatusRequest extends Model
 {
     /**
+     * @description The instance ID.
+     *
+     * You can call the [GetInstanceList](~~437663~~) operation to query instances.
      * @example alikafka_pre-cn-v0h1cng0***
      *
      * @var string
@@ -16,6 +19,8 @@ class GetTopicSubscribeStatusRequest extends Model
     public $instanceId;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -23,6 +28,9 @@ class GetTopicSubscribeStatusRequest extends Model
     public $regionId;
 
     /**
+     * @description The topic name.
+     *
+     * You can call the [GetTopicList](~~437677~~) operation to query topics.
      * @example topic_name
      *
      * @var string

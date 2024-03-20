@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class serverlessConfig extends Model
 {
     /**
+     * @example 50
+     *
      * @var int
      */
     public $reservedPublishCapacity;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $reservedSubscribeCapacity;

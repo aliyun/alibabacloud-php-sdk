@@ -26,6 +26,11 @@ class GetConsumerListResponseBody extends Model
     public $consumerList;
 
     /**
+     * @var int
+     */
+    public $currentPage;
+
+    /**
      * @description The returned message.
      *
      * @example operation success.
@@ -33,6 +38,11 @@ class GetConsumerListResponseBody extends Model
      * @var string
      */
     public $message;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @description The ID of the request.
@@ -51,12 +61,20 @@ class GetConsumerListResponseBody extends Model
      * @var bool
      */
     public $success;
+
+    /**
+     * @var int
+     */
+    public $total;
     protected $_name = [
         'code'         => 'Code',
         'consumerList' => 'ConsumerList',
+        'currentPage'  => 'CurrentPage',
         'message'      => 'Message',
+        'pageSize'     => 'PageSize',
         'requestId'    => 'RequestId',
         'success'      => 'Success',
+        'total'        => 'Total',
     ];
 
     public function validate()
@@ -72,14 +90,23 @@ class GetConsumerListResponseBody extends Model
         if (null !== $this->consumerList) {
             $res['ConsumerList'] = null !== $this->consumerList ? $this->consumerList->toMap() : null;
         }
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -99,14 +126,23 @@ class GetConsumerListResponseBody extends Model
         if (isset($map['ConsumerList'])) {
             $model->consumerList = consumerList::fromMap($map['ConsumerList']);
         }
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;

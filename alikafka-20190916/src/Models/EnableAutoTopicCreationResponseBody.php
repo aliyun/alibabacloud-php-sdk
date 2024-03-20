@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class EnableAutoTopicCreationResponseBody extends Model
 {
     /**
+     * @description The returned status code. If the request is successful, 200 is returned.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +18,8 @@ class EnableAutoTopicCreationResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned message.
+     *
      * @example operation success.
      *
      * @var string
@@ -23,6 +27,8 @@ class EnableAutoTopicCreationResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 9E3B3592-5994-4F65-A61E-E62A77A7***
      *
      * @var string
@@ -30,6 +36,8 @@ class EnableAutoTopicCreationResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

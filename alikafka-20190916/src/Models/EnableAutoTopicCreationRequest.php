@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class EnableAutoTopicCreationRequest extends Model
 {
     /**
+     * @description The instance ID.
+     *
      * @example alikafka_post-cn-v0h1fgs2****
      *
      * @var string
@@ -16,6 +18,12 @@ class EnableAutoTopicCreationRequest extends Model
     public $instanceId;
 
     /**
+     * @description The operation that you want to perform. Valid values:
+     *
+     *   enable: enables the automatic topic creation feature.
+     *   disable: disables the automatic topic creation feature.
+     *   updatePartition: changes the number of partitions in topics that are automatically created.
+     *
      * @example enable
      *
      * @var string
@@ -23,6 +31,9 @@ class EnableAutoTopicCreationRequest extends Model
     public $operate;
 
     /**
+     * @description The changed number of partitions in topics that are automatically created.
+     *
+     * This parameter takes effect only if you set Operate to updatePartition.
      * @example 12
      *
      * @var int
@@ -30,6 +41,8 @@ class EnableAutoTopicCreationRequest extends Model
     public $partitionNum;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string

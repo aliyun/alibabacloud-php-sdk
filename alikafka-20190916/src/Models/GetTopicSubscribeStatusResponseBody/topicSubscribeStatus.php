@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class topicSubscribeStatus extends Model
 {
     /**
+     * @description The groups that subscribe to the topic.
+     *
      * @var string[]
      */
     public $consumerGroups;
 
     /**
+     * @description The topic name.
+     *
      * @example topic_api_1681624879908
      *
      * @var string

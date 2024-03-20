@@ -37,8 +37,8 @@ class instanceVO extends Model
     /**
      * @description The type of the network in which the instance is deployed. Valid values:
      *
-     *   **4**: the Internet and VPCs
-     *   **5**: VPCs
+     *   **4**: Internet and VPC
+     *   **5**: VPC
      *
      * @example 5
      *
@@ -47,7 +47,7 @@ class instanceVO extends Model
     public $deployType;
 
     /**
-     * @description The disk size of the instance. Unit: GB
+     * @description The disk size. Unit: GB.
      *
      * @example 3600
      *
@@ -137,7 +137,7 @@ class instanceVO extends Model
     public $ioMaxSpec;
 
     /**
-     * @description The ID of the key that is used for disk encryption in the region where the instance resides.
+     * @description The ID of the key that is used for disk encryption in the region where the instance is deployed.
      *
      * @example 0d24xxxx-da7b-4786-b981-9a164dxxxxxx
      *
@@ -146,7 +146,7 @@ class instanceVO extends Model
     public $kmsKeyId;
 
     /**
-     * @description The retention period of messages on the instance. Unit: hours.
+     * @description The retention period of messages in the instance. Unit: hours.
      *
      * @example 72
      *
@@ -166,8 +166,8 @@ class instanceVO extends Model
     /**
      * @description The billing method of the instance. Valid values:
      *
-     *   **0**: the subscription billing method
-     *   **1**: the pay-as-you-go billing method
+     *   **0**: subscription
+     *   **1**: pay-as-you-go
      *
      * @example 1
      *
@@ -216,10 +216,10 @@ class instanceVO extends Model
     public $saslDomainEndpoint;
 
     /**
-     * @description The security group to which the instance belongs.
+     * @description The security group of the instance.
      *
      *   If the instance is deployed by using the ApsaraMQ for Kafka console or calling the [StartInstance](~~157786~~) operation without a security group configured, no value is returned.
-     *   If the instance is deployed by calling the [StartInstance](~~157786~~) operation with a security group configured, the return value is the configured security group.
+     *   If the instance is deployed by calling the [StartInstance](~~157786~~) operation with a security group configured, the returned value is the configured security group.
      *
      * @example sg-bp13wfx7kz9pkow****
      *
@@ -228,7 +228,7 @@ class instanceVO extends Model
     public $securityGroup;
 
     /**
-     * @description The status of the instance. Valid values:
+     * @description The instance status. Valid values:
      *
      *   **0**: pending
      *   **1**: preparing hardware resources
@@ -303,7 +303,7 @@ class instanceVO extends Model
     public $tags;
 
     /**
-     * @description The maximum number of topics that can be created on the instance.
+     * @description The maximum number of topics on the instance.
      *
      * @example 180
      *
@@ -319,7 +319,7 @@ class instanceVO extends Model
     public $upgradeServiceDetailInfo;
 
     /**
-     * @description The number of used consumer groups.
+     * @description The number of used groups.
      *
      * @example 10
      *
@@ -355,7 +355,7 @@ class instanceVO extends Model
     public $vSwitchId;
 
     /**
-     * @description The ID of the virtual private cloud (VPC) in which the instance is deployed.
+     * @description The virtual private cloud (VPC) ID.
      *
      * @example vpc-bp1ojac7bv448nifj****
      *

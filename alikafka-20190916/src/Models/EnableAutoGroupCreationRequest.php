@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class EnableAutoGroupCreationRequest extends Model
 {
     /**
+     * @description Specify whether to enable the flexible group creation feature. Valid values:
+     *
+     *   **true**: enables the flexible group creation feature.
+     *   **false**: disabled the flexible group creation feature.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,9 @@ class EnableAutoGroupCreationRequest extends Model
     public $enable;
 
     /**
+     * @description The instance ID.
+     *
+     * You can call the [GetInstanceList](~~437663~~) operation to query instances.
      * @example alikafka_post-cn-mp919o4v****
      *
      * @var string
@@ -23,6 +31,8 @@ class EnableAutoGroupCreationRequest extends Model
     public $instanceId;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string

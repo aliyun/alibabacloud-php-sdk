@@ -461,6 +461,9 @@ class Alikafka extends OpenApiClient
         if (!Utils::isUnset($request->diskType)) {
             $query['DiskType'] = $request->diskType;
         }
+        if (!Utils::isUnset($request->duration)) {
+            $query['Duration'] = $request->duration;
+        }
         if (!Utils::isUnset($request->eipMax)) {
             $query['EipMax'] = $request->eipMax;
         }
@@ -469,6 +472,9 @@ class Alikafka extends OpenApiClient
         }
         if (!Utils::isUnset($request->ioMaxSpec)) {
             $query['IoMaxSpec'] = $request->ioMaxSpec;
+        }
+        if (!Utils::isUnset($request->paidType)) {
+            $query['PaidType'] = $request->paidType;
         }
         if (!Utils::isUnset($request->partitionNum)) {
             $query['PartitionNum'] = $request->partitionNum;
@@ -1219,8 +1225,14 @@ class Alikafka extends OpenApiClient
         if (!Utils::isUnset($request->consumerId)) {
             $query['ConsumerId'] = $request->consumerId;
         }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;

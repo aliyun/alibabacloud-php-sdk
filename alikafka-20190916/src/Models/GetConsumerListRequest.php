@@ -18,6 +18,11 @@ class GetConsumerListRequest extends Model
     public $consumerId;
 
     /**
+     * @var int
+     */
+    public $currentPage;
+
+    /**
      * @description The ID of the instance to which the consumer group belongs.
      *
      * @example alikafka_post-cn-v0h18sav****
@@ -25,6 +30,11 @@ class GetConsumerListRequest extends Model
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @description The region ID of the instance to which the consumer group belongs.
@@ -35,9 +45,11 @@ class GetConsumerListRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'consumerId' => 'ConsumerId',
-        'instanceId' => 'InstanceId',
-        'regionId'   => 'RegionId',
+        'consumerId'  => 'ConsumerId',
+        'currentPage' => 'CurrentPage',
+        'instanceId'  => 'InstanceId',
+        'pageSize'    => 'PageSize',
+        'regionId'    => 'RegionId',
     ];
 
     public function validate()
@@ -50,8 +62,14 @@ class GetConsumerListRequest extends Model
         if (null !== $this->consumerId) {
             $res['ConsumerId'] = $this->consumerId;
         }
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -71,8 +89,14 @@ class GetConsumerListRequest extends Model
         if (isset($map['ConsumerId'])) {
             $model->consumerId = $map['ConsumerId'];
         }
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

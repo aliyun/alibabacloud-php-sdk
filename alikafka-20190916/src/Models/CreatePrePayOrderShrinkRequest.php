@@ -49,6 +49,11 @@ class CreatePrePayOrderShrinkRequest extends Model
     public $diskType;
 
     /**
+     * @var int
+     */
+    public $duration;
+
+    /**
      * @description The Internet traffic for the instance.
      *
      *   This parameter is required if the **DeployType** parameter is set to **4**.
@@ -83,6 +88,11 @@ class CreatePrePayOrderShrinkRequest extends Model
      * @var string
      */
     public $ioMaxSpec;
+
+    /**
+     * @var int
+     */
+    public $paidType;
 
     /**
      * @description The number of partitions. We recommend that you configure this parameter.
@@ -155,9 +165,11 @@ class CreatePrePayOrderShrinkRequest extends Model
         'deployType'            => 'DeployType',
         'diskSize'              => 'DiskSize',
         'diskType'              => 'DiskType',
+        'duration'              => 'Duration',
         'eipMax'                => 'EipMax',
         'ioMax'                 => 'IoMax',
         'ioMaxSpec'             => 'IoMaxSpec',
+        'paidType'              => 'PaidType',
         'partitionNum'          => 'PartitionNum',
         'regionId'              => 'RegionId',
         'resourceGroupId'       => 'ResourceGroupId',
@@ -185,6 +197,9 @@ class CreatePrePayOrderShrinkRequest extends Model
         if (null !== $this->diskType) {
             $res['DiskType'] = $this->diskType;
         }
+        if (null !== $this->duration) {
+            $res['Duration'] = $this->duration;
+        }
         if (null !== $this->eipMax) {
             $res['EipMax'] = $this->eipMax;
         }
@@ -193,6 +208,9 @@ class CreatePrePayOrderShrinkRequest extends Model
         }
         if (null !== $this->ioMaxSpec) {
             $res['IoMaxSpec'] = $this->ioMaxSpec;
+        }
+        if (null !== $this->paidType) {
+            $res['PaidType'] = $this->paidType;
         }
         if (null !== $this->partitionNum) {
             $res['PartitionNum'] = $this->partitionNum;
@@ -242,6 +260,9 @@ class CreatePrePayOrderShrinkRequest extends Model
         if (isset($map['DiskType'])) {
             $model->diskType = $map['DiskType'];
         }
+        if (isset($map['Duration'])) {
+            $model->duration = $map['Duration'];
+        }
         if (isset($map['EipMax'])) {
             $model->eipMax = $map['EipMax'];
         }
@@ -250,6 +271,9 @@ class CreatePrePayOrderShrinkRequest extends Model
         }
         if (isset($map['IoMaxSpec'])) {
             $model->ioMaxSpec = $map['IoMaxSpec'];
+        }
+        if (isset($map['PaidType'])) {
+            $model->paidType = $map['PaidType'];
         }
         if (isset($map['PartitionNum'])) {
             $model->partitionNum = $map['PartitionNum'];
