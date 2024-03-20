@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class QueryDomainListRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $ccompany;
+
+    /**
      * @example 123456
      *
      * @var string
@@ -119,6 +124,7 @@ class QueryDomainListRequest extends Model
      */
     public $userClientIp;
     protected $_name = [
+        'ccompany'              => 'Ccompany',
         'domainGroupId'         => 'DomainGroupId',
         'domainName'            => 'DomainName',
         'endExpirationDate'     => 'EndExpirationDate',
@@ -144,6 +150,9 @@ class QueryDomainListRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ccompany) {
+            $res['Ccompany'] = $this->ccompany;
+        }
         if (null !== $this->domainGroupId) {
             $res['DomainGroupId'] = $this->domainGroupId;
         }
@@ -210,6 +219,9 @@ class QueryDomainListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Ccompany'])) {
+            $model->ccompany = $map['Ccompany'];
+        }
         if (isset($map['DomainGroupId'])) {
             $model->domainGroupId = $map['DomainGroupId'];
         }

@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class domain extends Model
 {
     /**
+     * @var string
+     */
+    public $ccompany;
+
+    /**
      * @example FAILED
      *
      * @var string
@@ -134,6 +139,7 @@ class domain extends Model
      */
     public $tag;
     protected $_name = [
+        'ccompany'               => 'Ccompany',
         'domainAuditStatus'      => 'DomainAuditStatus',
         'domainGroupId'          => 'DomainGroupId',
         'domainGroupName'        => 'DomainGroupName',
@@ -162,6 +168,9 @@ class domain extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ccompany) {
+            $res['Ccompany'] = $this->ccompany;
+        }
         if (null !== $this->domainAuditStatus) {
             $res['DomainAuditStatus'] = $this->domainAuditStatus;
         }
@@ -231,6 +240,9 @@ class domain extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Ccompany'])) {
+            $model->ccompany = $map['Ccompany'];
+        }
         if (isset($map['DomainAuditStatus'])) {
             $model->domainAuditStatus = $map['DomainAuditStatus'];
         }

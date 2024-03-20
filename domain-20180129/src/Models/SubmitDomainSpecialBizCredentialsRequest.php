@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SubmitDomainSpecialBizCredentialsRequest extends Model
 {
     /**
+     * @description The business ID.
+     *
      * @example 219
      *
      * @var int
@@ -16,6 +18,8 @@ class SubmitDomainSpecialBizCredentialsRequest extends Model
     public $bizId;
 
     /**
+     * @description The certificate information.
+     *
      * @example [{"credentialType":"SHSQB",""credentialUrl":"11212121/1212d**\/sqb.jpg"},{"credentialType":"SFZZM",""credentialUrl":"11212121/1212d**\/sfzzm.jpg"}]
      *
      * @var string
@@ -23,6 +27,8 @@ class SubmitDomainSpecialBizCredentialsRequest extends Model
     public $credentials;
 
     /**
+     * @description The extended information.
+     *
      * @example {\"addTransferLock\":true}
      *
      * @var string
@@ -30,6 +36,8 @@ class SubmitDomainSpecialBizCredentialsRequest extends Model
     public $extend;
 
     /**
+     * @description The IP address of the client.
+     *
      * @example 127.0.0.1
      *
      * @var string

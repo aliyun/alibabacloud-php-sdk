@@ -14,11 +14,15 @@ class SaveBatchTaskForGenerateDomainCertificateShrinkRequest extends Model
     public $domainNamesShrink;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

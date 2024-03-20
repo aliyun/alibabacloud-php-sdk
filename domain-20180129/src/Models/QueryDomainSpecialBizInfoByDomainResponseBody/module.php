@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class module extends Model
 {
     /**
+     * @description The review information.
+     *
      * @var string
      */
     public $auditMsg;
 
     /**
+     * @description The business name.
+     *
      * @var string
      */
     public $bizName;
 
     /**
+     * @description The business ID.
+     *
      * @example A83E1D74-E46B-505C-947A-8C6B7E41C012
      *
      * @var string
@@ -28,6 +34,8 @@ class module extends Model
     public $bizNo;
 
     /**
+     * @description The business status.
+     *
      * @example REGISTRANT_VSP_AUDIT_SUCCESS
      *
      * @var string
@@ -35,6 +43,8 @@ class module extends Model
     public $bizStatus;
 
     /**
+     * @description The business type.
+     *
      * @example govRegister
      *
      * @var string
@@ -42,6 +52,8 @@ class module extends Model
     public $bizType;
 
     /**
+     * @description The time when the business was created.
+     *
      * @example 2023-01-17 11:31:10
      *
      * @var int
@@ -49,6 +61,8 @@ class module extends Model
     public $createTime;
 
     /**
+     * @description The domain name.
+     *
      * @example test003.cn
      *
      * @var string
@@ -56,16 +70,22 @@ class module extends Model
     public $domainName;
 
     /**
+     * @description The contact information.
+     *
      * @var domainSpecialBizContact
      */
     public $domainSpecialBizContact;
 
     /**
+     * @description The certificate information.
+     *
      * @var domainSpecialBizCredentials[]
      */
     public $domainSpecialBizCredentials;
 
     /**
+     * @description The time when the business was created.
+     *
      * @example 2023-03-21 15:10:04.0
      *
      * @var string
@@ -73,6 +93,8 @@ class module extends Model
     public $gmtCreate;
 
     /**
+     * @description The time when the business was modified.
+     *
      * @example 2023-03-21 15:10:04.0
      *
      * @var string
@@ -80,6 +102,8 @@ class module extends Model
     public $gmtModified;
 
     /**
+     * @description The primary key.
+     *
      * @example 34083
      *
      * @var int
@@ -87,6 +111,8 @@ class module extends Model
     public $id;
 
     /**
+     * @description The order ID.
+     *
      * @example 123
      *
      * @var string
@@ -94,6 +120,8 @@ class module extends Model
     public $orderId;
 
     /**
+     * @description The service ID.
+     *
      * @example 1
      *
      * @var string
@@ -101,6 +129,8 @@ class module extends Model
     public $productId;
 
     /**
+     * @description The instance ID.
+     *
      * @example S20172315BJ37809
      *
      * @var string
@@ -108,6 +138,8 @@ class module extends Model
     public $saleId;
 
     /**
+     * @description The business status.
+     *
      * @example 1
      *
      * @var int
@@ -115,11 +147,15 @@ class module extends Model
     public $status;
 
     /**
+     * @description The description of business status.
+     *
      * @var string
      */
     public $statusDesc;
 
     /**
+     * @description The time when the business was updated.
+     *
      * @example 2020-11-17 18:11:15
      *
      * @var int
@@ -127,6 +163,8 @@ class module extends Model
     public $updateTime;
 
     /**
+     * @description The user ID.
+     *
      * @example 121000000****
      *
      * @var string

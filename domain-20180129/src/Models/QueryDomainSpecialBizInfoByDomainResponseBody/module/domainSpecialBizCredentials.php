@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class domainSpecialBizCredentials extends Model
 {
     /**
+     * @description The ID of the associated workflow.
+     *
      * @example T20220831150014000001
      *
      * @var int
@@ -16,6 +18,8 @@ class domainSpecialBizCredentials extends Model
     public $bizId;
 
     /**
+     * @description The certificate number.
+     *
      * @example 4111111111111110**
      *
      * @var string
@@ -23,6 +27,8 @@ class domainSpecialBizCredentials extends Model
     public $credentialNo;
 
     /**
+     * @description The certificate type.
+     *
      * @example SFZ
      *
      * @var string
@@ -30,6 +36,8 @@ class domainSpecialBizCredentials extends Model
     public $credentialType;
 
     /**
+     * @description The certificate URL.
+     *
      * @example http://test.oss-cn-hangzhou.aliyuncs.com/20170522/1219541161213057_070445190.jpg
      *
      * @var string
@@ -37,6 +45,8 @@ class domainSpecialBizCredentials extends Model
     public $credentialUrl;
 
     /**
+     * @description The domain name.
+     *
      * @example test003.cn
      *
      * @var string
@@ -44,6 +54,8 @@ class domainSpecialBizCredentials extends Model
     public $domainName;
 
     /**
+     * @description Indicates whether the certificate belongs to the registrant.
+     *
      * @example 1
      *
      * @var int
@@ -51,6 +63,8 @@ class domainSpecialBizCredentials extends Model
     public $holderCert;
 
     /**
+     * @description The instance ID.
+     *
      * @example S20172315BJ37809
      *
      * @var string

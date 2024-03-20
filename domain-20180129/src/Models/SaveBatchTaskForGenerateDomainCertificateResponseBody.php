@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SaveBatchTaskForGenerateDomainCertificateResponseBody extends Model
 {
     /**
+     * @example 40F46D3D-F4F3-4CCB-AC30-2DD20E32E528
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 8b1cd755-4928-4b02-adee-e5d41d7b1939
+     *
      * @var string
      */
     public $taskNo;

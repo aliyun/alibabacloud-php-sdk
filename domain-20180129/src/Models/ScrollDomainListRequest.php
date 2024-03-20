@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ScrollDomainListRequest extends Model
 {
     /**
+     * @description The ID of the domain name group. You can call the [QueryDomainGroupList](https://help.aliyun.com/document_detail/69362.html) operation to obtain the ID of the domain name group.
+     *
      * @example 123456
      *
      * @var int
@@ -16,6 +18,18 @@ class ScrollDomainListRequest extends Model
     public $domainGroupId;
 
     /**
+     * @description The status of the domain name. Valid values:
+     *
+     *   **0**: All.
+     *   **1**: The domain name needs to be renewed.
+     *   **2**: The domain name needs to be redeemed.
+     *   **3**: The domain name is normal.
+     *   **4**: The domain name is being transferred from Alibaba Cloud.
+     *   **5**: The information about the domain name registrant is being modified.
+     *   **6**: Real-name verification is not performed on the domain name.
+     *   **7**: Real-name verification for the domain name fails. Real-name reverification is required.
+     *   **8**: The domain name is being reviewed.
+     *
      * @example 0
      *
      * @var int
@@ -23,6 +37,8 @@ class ScrollDomainListRequest extends Model
     public $domainStatus;
 
     /**
+     * @description The end of the time range to query domain names based on expiration dates. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1541520000000
      *
      * @var int
@@ -30,6 +46,8 @@ class ScrollDomainListRequest extends Model
     public $endExpirationDate;
 
     /**
+     * @description The end of domain name length to query.
+     *
      * @example 3
      *
      * @var int
@@ -37,6 +55,8 @@ class ScrollDomainListRequest extends Model
     public $endLength;
 
     /**
+     * @description The end of the time range to query domain names based on registration dates. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1541520000000
      *
      * @var int
@@ -44,6 +64,8 @@ class ScrollDomainListRequest extends Model
     public $endRegistrationDate;
 
     /**
+     * @description The keyword that is used to exclude domain names.
+     *
      * @example test
      *
      * @var string
@@ -51,6 +73,8 @@ class ScrollDomainListRequest extends Model
     public $excluded;
 
     /**
+     * @description Specifies whether to exclude the prefix keyword.
+     *
      * @example false
      *
      * @var bool
@@ -58,6 +82,8 @@ class ScrollDomainListRequest extends Model
     public $excludedPrefix;
 
     /**
+     * @description Specifies whether to exclude the suffix keyword.
+     *
      * @example true
      *
      * @var bool
@@ -65,6 +91,8 @@ class ScrollDomainListRequest extends Model
     public $excludedSuffix;
 
     /**
+     * @description The composition of the domain name.
+     *
      * @example 1
      *
      * @var int
@@ -72,6 +100,8 @@ class ScrollDomainListRequest extends Model
     public $form;
 
     /**
+     * @description The keyword.
+     *
      * @example test
      *
      * @var string
@@ -79,6 +109,8 @@ class ScrollDomainListRequest extends Model
     public $keyWord;
 
     /**
+     * @description Specifies whether the keyword is the prefix.
+     *
      * @example true
      *
      * @var bool
@@ -86,6 +118,8 @@ class ScrollDomainListRequest extends Model
     public $keyWordPrefix;
 
     /**
+     * @description Specifies whether the keyword is the suffix.
+     *
      * @example false
      *
      * @var bool
@@ -93,6 +127,12 @@ class ScrollDomainListRequest extends Model
     public $keyWordSuffix;
 
     /**
+     * @description The language of the error message to return if the request fails. Valid values:
+     *
+     *   **zh**: Chinese.
+     *   **en**: English.
+     *
+     * Default value: **en**.
      * @example en
      *
      * @var string
@@ -100,6 +140,8 @@ class ScrollDomainListRequest extends Model
     public $lang;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 50
      *
      * @var int
@@ -107,6 +149,13 @@ class ScrollDomainListRequest extends Model
     public $pageSize;
 
     /**
+     * @description The type of the domain name. Valid values:
+     *
+     *   **New gTLD**
+     *   **gTLD**
+     *   **ccTLD**
+     *   **other**
+     *
      * @example gTLD
      *
      * @var string
@@ -114,6 +163,8 @@ class ScrollDomainListRequest extends Model
     public $productDomainType;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfmw6bpc6n7zai
      *
      * @var string
@@ -121,6 +172,8 @@ class ScrollDomainListRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The scroll ID. This parameter is a technical parameter.
+     *
      * @example test
      *
      * @var string
@@ -128,6 +181,8 @@ class ScrollDomainListRequest extends Model
     public $scrollId;
 
     /**
+     * @description The beginning of the time range to query domain names based on expiration dates. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1541520000000
      *
      * @var int
@@ -135,6 +190,8 @@ class ScrollDomainListRequest extends Model
     public $startExpirationDate;
 
     /**
+     * @description The start of the domain name length to query.
+     *
      * @example 0
      *
      * @var int
@@ -142,6 +199,8 @@ class ScrollDomainListRequest extends Model
     public $startLength;
 
     /**
+     * @description The beginning of the time range to query domain names based on registration dates. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1541520000000
      *
      * @var int
@@ -149,6 +208,8 @@ class ScrollDomainListRequest extends Model
     public $startRegistrationDate;
 
     /**
+     * @description The suffixes of domain names to be queried. Separate multiple suffixes with commas (,).
+     *
      * @example com
      *
      * @var string
@@ -156,6 +217,14 @@ class ScrollDomainListRequest extends Model
     public $suffixs;
 
     /**
+     * @description The publishing status of the domain name. Valid values:
+     *
+     *   **2**: The domain name is published at a fixed price.
+     *   **3**: The domain name is published with the price negotiable.
+     *   **4**: The domain name is published for bidding.
+     *   **6**: The domain name is published with price push.
+     *   **-1**: The domain name is not published.
+     *
      * @example -1
      *
      * @var int
@@ -163,6 +232,8 @@ class ScrollDomainListRequest extends Model
     public $tradeType;
 
     /**
+     * @description The IP address of the client. Set the value to **127.0.0.1**.
+     *
      * @example 127.0.0.1
      *
      * @var string

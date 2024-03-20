@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class QueryDomainByDomainNameResponseBody extends Model
 {
     /**
+     * @description The Domain Name System (DNS) servers of the domain name.
+     *
      * @var dnsList
      */
     public $dnsList;
 
     /**
+     * @description The ID of the domain name group. You can call the [QueryDomainGroupList](~~69362~~) operation to query the ID of the domain name group.
+     *
      * @example 123456
      *
      * @var int
@@ -23,11 +27,15 @@ class QueryDomainByDomainNameResponseBody extends Model
     public $domainGroupId;
 
     /**
+     * @description The name of the domain name group.
+     *
      * @var string
      */
     public $domainGroupName;
 
     /**
+     * @description The domain name.
+     *
      * @example example.com
      *
      * @var string
@@ -35,6 +43,8 @@ class QueryDomainByDomainNameResponseBody extends Model
     public $domainName;
 
     /**
+     * @description Indicates whether privacy protection is enabled for the domain name.
+     *
      * @example false
      *
      * @var bool
@@ -42,6 +52,13 @@ class QueryDomainByDomainNameResponseBody extends Model
     public $domainNameProxyService;
 
     /**
+     * @description The status of name auditing for the domain name. Valid values:
+     *
+     *   **NONAUDIT**: The name auditing for the domain name is not performed.
+     *   **SUCCEED**: The name auditing for the domain name is successful.
+     *   **FAILED**: The name auditing for the domain name fails.
+     *   **AUDITING**: The name auditing for the domain name is in progress.
+     *
      * @example SUCCEED
      *
      * @var string
@@ -49,6 +66,12 @@ class QueryDomainByDomainNameResponseBody extends Model
     public $domainNameVerificationStatus;
 
     /**
+     * @description The status of the domain name. Valid values:
+     *
+     *   1: The domain name needs to be renewed.
+     *   2: The domain name needs to be redeemed.
+     *   3: The domain name is normal.
+     *
      * @example 3
      *
      * @var string
@@ -56,6 +79,12 @@ class QueryDomainByDomainNameResponseBody extends Model
     public $domainStatus;
 
     /**
+     * @description The type of the domain name. Valid values:
+     *
+     *   New gTLD
+     *   gTLD
+     *   ccTLD
+     *
      * @example gTLD
      *
      * @var string
@@ -63,6 +92,8 @@ class QueryDomainByDomainNameResponseBody extends Model
     public $domainType;
 
     /**
+     * @description The email address of the domain name registrant.
+     *
      * @example username@example.com
      *
      * @var string
@@ -70,6 +101,8 @@ class QueryDomainByDomainNameResponseBody extends Model
     public $email;
 
     /**
+     * @description Indicates whether the domain name is in the ClientHold state.
+     *
      * @example false
      *
      * @var bool
@@ -77,6 +110,11 @@ class QueryDomainByDomainNameResponseBody extends Model
     public $emailVerificationClientHold;
 
     /**
+     * @description Indicates whether the email address passes verification. Valid values:
+     *
+     *   **0**: The email address fails the verification.
+     *   **1**: The email address passes the verification.
+     *
      * @example 1
      *
      * @var int
@@ -84,6 +122,8 @@ class QueryDomainByDomainNameResponseBody extends Model
     public $emailVerificationStatus;
 
     /**
+     * @description The number of days from the expiration date of the domain name to the current date.
+     *
      * @example 356
      *
      * @var int
@@ -91,6 +131,8 @@ class QueryDomainByDomainNameResponseBody extends Model
     public $expirationCurrDateDiff;
 
     /**
+     * @description The expiration date.
+     *
      * @example 2019-12-07 17:02:13
      *
      * @var string
@@ -98,6 +140,8 @@ class QueryDomainByDomainNameResponseBody extends Model
     public $expirationDate;
 
     /**
+     * @description The timestamp generated when the domain name expired.
+     *
      * @example 1625111915000
      *
      * @var int
@@ -105,6 +149,11 @@ class QueryDomainByDomainNameResponseBody extends Model
     public $expirationDateLong;
 
     /**
+     * @description Indicates whether the domain name expires. Valid values:
+     *
+     *   **1**: The domain name does not expire.
+     *   **2**: The domain name expires.
+     *
      * @example 1
      *
      * @var string
@@ -112,6 +161,8 @@ class QueryDomainByDomainNameResponseBody extends Model
     public $expirationDateStatus;
 
     /**
+     * @description The instance ID of the domain name.
+     *
      * @example S20179H1BBI9****
      *
      * @var string
@@ -119,6 +170,8 @@ class QueryDomainByDomainNameResponseBody extends Model
     public $instanceId;
 
     /**
+     * @description Indicates whether the domain name is a premium domain name.
+     *
      * @example false
      *
      * @var bool
@@ -126,6 +179,13 @@ class QueryDomainByDomainNameResponseBody extends Model
     public $premium;
 
     /**
+     * @description The status of real-name verification for the domain name. Valid values:
+     *
+     *   **NONAUDIT**: The real-name verification is not performed.
+     *   **SUCCEED**: The real-name verification is successful.
+     *   **FAILED**: The real-name verification fails.
+     *   **AUDITING**: The real-name verification is in progress.
+     *
      * @example NONAUDIT
      *
      * @var string
@@ -133,6 +193,8 @@ class QueryDomainByDomainNameResponseBody extends Model
     public $realNameStatus;
 
     /**
+     * @description The name of the contact.
+     *
      * @example Test litm
      *
      * @var string
@@ -140,6 +202,8 @@ class QueryDomainByDomainNameResponseBody extends Model
     public $registrantName;
 
     /**
+     * @description The registrant of the domain name.
+     *
      * @example Test litm
      *
      * @var string
@@ -147,6 +211,11 @@ class QueryDomainByDomainNameResponseBody extends Model
     public $registrantOrganization;
 
     /**
+     * @description The type of contact who registers the domain name. Valid values:
+     *
+     *   **1**: individual.
+     *   **2**: enterprise.
+     *
      * @example 1
      *
      * @var string
@@ -154,6 +223,11 @@ class QueryDomainByDomainNameResponseBody extends Model
     public $registrantType;
 
     /**
+     * @description The status of the information about the domain name registrant. Valid values:
+     *
+     *   **PENDING**: The information about the domain name registrant is being modified.
+     *   **NORMAL**: normal.
+     *
      * @example NORMAL
      *
      * @var string
@@ -161,6 +235,8 @@ class QueryDomainByDomainNameResponseBody extends Model
     public $registrantUpdatingStatus;
 
     /**
+     * @description The time when the domain name was registered.
+     *
      * @example 2017-12-07 17:02:13
      *
      * @var string
@@ -168,6 +244,8 @@ class QueryDomainByDomainNameResponseBody extends Model
     public $registrationDate;
 
     /**
+     * @description The timestamp generated when the domain name was registered.
+     *
      * @example 1584675448000
      *
      * @var int
@@ -175,11 +253,15 @@ class QueryDomainByDomainNameResponseBody extends Model
     public $registrationDateLong;
 
     /**
+     * @description The remarks on the domain name.
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @description The request ID.
+     *
      * @example 44101664-3E70-4F0E-89E5-CCB74BF*****
      *
      * @var string
@@ -187,6 +269,8 @@ class QueryDomainByDomainNameResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfmw6bpc6n7zai
      *
      * @var string
@@ -194,11 +278,18 @@ class QueryDomainByDomainNameResponseBody extends Model
     public $resourceGroupId;
 
     /**
+     * @description The tags.
+     *
      * @var tag
      */
     public $tag;
 
     /**
+     * @description The transfer status of the domain name. Valid values:
+     *
+     *   **NORMAL**: The domain name is normal.
+     *   **PENDING**: The domain name is being transferred out from Alibaba Cloud.
+     *
      * @example NORMAL
      *
      * @var string
@@ -206,6 +297,12 @@ class QueryDomainByDomainNameResponseBody extends Model
     public $transferOutStatus;
 
     /**
+     * @description The status of the transfer lock for the domain name. Valid values:
+     *
+     *   **NONE_SETTING**: No transfer lock is configured.
+     *   **OPEN**: The transfer lock is enabled.
+     *   **CLOSE**: The transfer lock is disabled.
+     *
      * @example CLOSE
      *
      * @var string
@@ -213,6 +310,12 @@ class QueryDomainByDomainNameResponseBody extends Model
     public $transferProhibitionLock;
 
     /**
+     * @description The status of the security lock for the domain name. Valid values:
+     *
+     *   **NONE_SETTING**: No security lock is configured.
+     *   **OPEN**: The security lock is enabled.
+     *   **CLOSE**: The security lock is disabled.
+     *
      * @example CLOSE
      *
      * @var string
@@ -220,6 +323,8 @@ class QueryDomainByDomainNameResponseBody extends Model
     public $updateProhibitionLock;
 
     /**
+     * @description The user ID.
+     *
      * @example 121000000****
      *
      * @var string
@@ -227,11 +332,15 @@ class QueryDomainByDomainNameResponseBody extends Model
     public $userId;
 
     /**
+     * @description The Chinese name of the domain name contact.
+     *
      * @var string
      */
     public $zhRegistrantName;
 
     /**
+     * @description The Chinese name of the domain name registrant.
+     *
      * @var string
      */
     public $zhRegistrantOrganization;

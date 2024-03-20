@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SubmitDomainSpecialBizCredentialsResponseBody extends Model
 {
     /**
+     * @description Indicates whether retries are allowed.
+     *
      * @example False
      *
      * @var bool
@@ -16,6 +18,8 @@ class SubmitDomainSpecialBizCredentialsResponseBody extends Model
     public $allowRetry;
 
     /**
+     * @description The name of the application for which the error code is returned.
+     *
      * @example test-com
      *
      * @var string
@@ -23,6 +27,8 @@ class SubmitDomainSpecialBizCredentialsResponseBody extends Model
     public $appName;
 
     /**
+     * @description The dynamic error code.
+     *
      * @example -
      *
      * @var string
@@ -30,6 +36,8 @@ class SubmitDomainSpecialBizCredentialsResponseBody extends Model
     public $dynamicCode;
 
     /**
+     * @description The dynamic error message.
+     *
      * @example -
      *
      * @var string
@@ -37,16 +45,22 @@ class SubmitDomainSpecialBizCredentialsResponseBody extends Model
     public $dynamicMessage;
 
     /**
+     * @description The array of error parameters that are returned.
+     *
      * @var mixed[]
      */
     public $errorArgs;
 
     /**
+     * @description The error code.
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
      * @example 110001
      *
      * @var string
@@ -54,6 +68,8 @@ class SubmitDomainSpecialBizCredentialsResponseBody extends Model
     public $errorMsg;
 
     /**
+     * @description The HTTP status code that is directly returned.
+     *
      * @example 200
      *
      * @var int
@@ -61,6 +77,8 @@ class SubmitDomainSpecialBizCredentialsResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The returned data.
+     *
      * @example -
      *
      * @var mixed
@@ -68,6 +86,8 @@ class SubmitDomainSpecialBizCredentialsResponseBody extends Model
     public $module;
 
     /**
+     * @description The request ID.
+     *
      * @example A83E1D74-E46B-505C-947A-8C6B7E41C011
      *
      * @var string
@@ -75,6 +95,11 @@ class SubmitDomainSpecialBizCredentialsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example True
      *
      * @var bool
@@ -82,6 +107,8 @@ class SubmitDomainSpecialBizCredentialsResponseBody extends Model
     public $success;
 
     /**
+     * @description Indicates whether to perform synchronous processing.
+     *
      * @example True
      *
      * @var bool

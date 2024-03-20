@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ScrollDomainListResponseBody extends Model
 {
     /**
+     * @description The domain names.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 50
      *
      * @var int
@@ -22,6 +26,8 @@ class ScrollDomainListResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example 722AB7F5-61F0-408C-A012-4784AFD34083
      *
      * @var string
@@ -29,6 +35,8 @@ class ScrollDomainListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The scroll ID.
+     *
      * @example test
      *
      * @var string
@@ -36,6 +44,8 @@ class ScrollDomainListResponseBody extends Model
     public $scrollId;
 
     /**
+     * @description The number of remaining domain names to be queried.
+     *
      * @example 200
      *
      * @var int

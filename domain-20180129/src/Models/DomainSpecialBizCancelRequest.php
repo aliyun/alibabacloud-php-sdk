@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DomainSpecialBizCancelRequest extends Model
 {
     /**
+     * @description The business ID.
+     *
      * @example 3666
      *
      * @var int
@@ -16,6 +18,8 @@ class DomainSpecialBizCancelRequest extends Model
     public $bizId;
 
     /**
+     * @description The IP address of the client.
+     *
      * @example 127.0.0.1
      *
      * @var string

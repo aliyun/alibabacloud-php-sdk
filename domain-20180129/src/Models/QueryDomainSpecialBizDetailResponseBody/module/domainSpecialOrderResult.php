@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class domainSpecialOrderResult extends Model
 {
     /**
+     * @description The cost type.
+     *
      * @example activate
      *
      * @var string
@@ -16,6 +18,8 @@ class domainSpecialOrderResult extends Model
     public $actionType;
 
     /**
+     * @description The amount of the order.
+     *
      * @example 0.0
      *
      * @var float
@@ -23,6 +27,8 @@ class domainSpecialOrderResult extends Model
     public $orderAmount;
 
     /**
+     * @description The currency.
+     *
      * @example CNY
      *
      * @var string
@@ -30,6 +36,8 @@ class domainSpecialOrderResult extends Model
     public $orderCurrency;
 
     /**
+     * @description The order ID.
+     *
      * @example S201601060123456
      *
      * @var string
@@ -37,6 +45,8 @@ class domainSpecialOrderResult extends Model
     public $orderId;
 
     /**
+     * @description The order status.
+     *
      * @example ORDER_WAIT_PAY
      *
      * @var string
@@ -44,6 +54,8 @@ class domainSpecialOrderResult extends Model
     public $orderStatus;
 
     /**
+     * @description The time when the order was placed.
+     *
      * @example 2023-09-19T14:28Z
      *
      * @var string
@@ -51,6 +63,8 @@ class domainSpecialOrderResult extends Model
     public $orderTime;
 
     /**
+     * @description The validity period.
+     *
      * @example 1
      *
      * @var int
@@ -58,6 +72,8 @@ class domainSpecialOrderResult extends Model
     public $orderYear;
 
     /**
+     * @description The instance ID.
+     *
      * @example S201601063418719
      *
      * @var string
@@ -65,6 +81,8 @@ class domainSpecialOrderResult extends Model
     public $saleId;
 
     /**
+     * @description The suborder ID.
+     *
      * @example S201601061234567
      *
      * @var string

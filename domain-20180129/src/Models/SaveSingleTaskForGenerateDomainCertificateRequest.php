@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class SaveSingleTaskForGenerateDomainCertificateRequest extends Model
 {
     /**
+     * @example test.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;

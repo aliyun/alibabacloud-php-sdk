@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class domainSpecialBizContact extends Model
 {
     /**
+     * @description The business ID.
+     *
      * @example 258
      *
      * @var int
@@ -16,16 +18,22 @@ class domainSpecialBizContact extends Model
     public $bizId;
 
     /**
+     * @description The city.
+     *
      * @var string
      */
     public $CCity;
 
     /**
+     * @description The organization name.
+     *
      * @var string
      */
     public $CCompany;
 
     /**
+     * @description The country code.
+     *
      * @example CN
      *
      * @var string
@@ -33,21 +41,29 @@ class domainSpecialBizContact extends Model
     public $CCountry;
 
     /**
+     * @description The contact name.
+     *
      * @var string
      */
     public $CName;
 
     /**
+     * @description The province.
+     *
      * @var string
      */
     public $CProvince;
 
     /**
+     * @description The address.
+     *
      * @var string
      */
     public $CVenu;
 
     /**
+     * @description The city in English.
+     *
      * @example an shan Shi
      *
      * @var string
@@ -55,6 +71,8 @@ class domainSpecialBizContact extends Model
     public $ECity;
 
     /**
+     * @description The organization name in English.
+     *
      * @example hebeihuiheguandaozhizaoyouxiangongsi
      *
      * @var string
@@ -62,6 +80,8 @@ class domainSpecialBizContact extends Model
     public $ECompany;
 
     /**
+     * @description The contact name in English.
+     *
      * @example tong da wei
      *
      * @var string
@@ -69,6 +89,8 @@ class domainSpecialBizContact extends Model
     public $EName;
 
     /**
+     * @description The province in English.
+     *
      * @example liao ning
      *
      * @var string
@@ -76,6 +98,8 @@ class domainSpecialBizContact extends Model
     public $EProvince;
 
     /**
+     * @description The address in English.
+     *
      * @example tie xi qu xin kai jie 59-4 hao
      *
      * @var string
@@ -83,6 +107,8 @@ class domainSpecialBizContact extends Model
     public $EVenu;
 
     /**
+     * @description The email address.
+     *
      * @example username@example.com
      *
      * @var string
@@ -90,6 +116,8 @@ class domainSpecialBizContact extends Model
     public $email;
 
     /**
+     * @description The extended information.
+     *
      * @example -
      *
      * @var string
@@ -97,6 +125,8 @@ class domainSpecialBizContact extends Model
     public $extend;
 
     /**
+     * @description The fax country code.
+     *
      * @example 86
      *
      * @var string
@@ -104,6 +134,8 @@ class domainSpecialBizContact extends Model
     public $faxArea;
 
     /**
+     * @description The fax extension number.
+     *
      * @example 61284565
      *
      * @var string
@@ -111,6 +143,8 @@ class domainSpecialBizContact extends Model
     public $faxExt;
 
     /**
+     * @description The fax number with an area code or mobile number.
+     *
      * @example 16604121234
      *
      * @var string
@@ -118,6 +152,8 @@ class domainSpecialBizContact extends Model
     public $faxMain;
 
     /**
+     * @description The mobile number.
+     *
      * @example 156********
      *
      * @var string
@@ -125,6 +161,8 @@ class domainSpecialBizContact extends Model
     public $mobile;
 
     /**
+     * @description The zip code.
+     *
      * @example 100000
      *
      * @var string
@@ -132,6 +170,8 @@ class domainSpecialBizContact extends Model
     public $postalcode;
 
     /**
+     * @description The contact type. Valid values: 1: individual. 2: enterprise.
+     *
      * @example 1
      *
      * @var int
@@ -139,6 +179,8 @@ class domainSpecialBizContact extends Model
     public $regType;
 
     /**
+     * @description The registrant ID.
+     *
      * @example 121000002****
      *
      * @var string
@@ -146,6 +188,8 @@ class domainSpecialBizContact extends Model
     public $registrantId;
 
     /**
+     * @description The calling code of the country or region where the domain name contact is located.
+     *
      * @example 86
      *
      * @var string
@@ -153,6 +197,8 @@ class domainSpecialBizContact extends Model
     public $telArea;
 
     /**
+     * @description The telephone extension number.
+     *
      * @example 61284565
      *
      * @var string
@@ -160,6 +206,8 @@ class domainSpecialBizContact extends Model
     public $telExt;
 
     /**
+     * @description The landline number with an area code or mobile number.
+     *
      * @example 16604121234
      *
      * @var string
@@ -167,6 +215,8 @@ class domainSpecialBizContact extends Model
     public $telMain;
 
     /**
+     * @description The VSP contact ID.
+     *
      * @example 121000001****
      *
      * @var string

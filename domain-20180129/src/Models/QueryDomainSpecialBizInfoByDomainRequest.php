@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryDomainSpecialBizInfoByDomainRequest extends Model
 {
     /**
+     * @description The business type.
+     *
      * @example govRegister
      *
      * @var string
@@ -16,6 +18,8 @@ class QueryDomainSpecialBizInfoByDomainRequest extends Model
     public $bizType;
 
     /**
+     * @description The domain name.
+     *
      * @example test003.cn
      *
      * @var string
@@ -23,6 +27,8 @@ class QueryDomainSpecialBizInfoByDomainRequest extends Model
     public $domainName;
 
     /**
+     * @description The IP address of the client.
+     *
      * @example 127.0.0.1
      *
      * @var string

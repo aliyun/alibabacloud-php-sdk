@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class CancelDomainVerificationRequest extends Model
 {
     /**
+     * @description The action type. Valid values:
+     *
+     *   **DOMAINAUDIT**: review a domain name review.
+     *   **AUDITCONTACT**: review a contact.
+     *
+     * @example AUDITCONTACT
+     *
      * @var string
      */
     public $actionType;
 
     /**
+     * @description Thee instance ID of the domain name. You can call the [QueryDomainList](~~67712~~) operation to query the instance ID.
+     *
      * @example S2019270W570xxxx
      *
      * @var string
@@ -21,6 +30,12 @@ class CancelDomainVerificationRequest extends Model
     public $instanceId;
 
     /**
+     * @description The language of the error message to return if the request fails. Valid values:
+     *
+     *   **zh**: Chinese.
+     *   **en**: English.
+     *
+     * Default value: **en**.
      * @example en
      *
      * @var string
@@ -28,6 +43,8 @@ class CancelDomainVerificationRequest extends Model
     public $lang;
 
     /**
+     * @description The IP address of the client. Set the value to **127.0.0.1**.
+     *
      * @example 127.0.0.1
      *
      * @var string

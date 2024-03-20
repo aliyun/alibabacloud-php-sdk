@@ -2235,6 +2235,9 @@ class Domain extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->ccompany)) {
+            $query['Ccompany'] = $request->ccompany;
+        }
         if (!Utils::isUnset($request->domainGroupId)) {
             $query['DomainGroupId'] = $request->domainGroupId;
         }
@@ -6599,10 +6602,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param ScrollDomainListRequest $request
-     * @param RuntimeOptions          $runtime
+     * If you have a large number of domain names, a slow response may occur when you call an API operation to query domain names. In this case, you can call this operation to query domain names more quickly. When you call this operation for the first time, specify the request parameters except ScrollId. A scroll ID is returned without other data. In the second request, use the scroll ID obtained from the previous response. In subsequent requests, the newly specified request parameters do not take effect, and the request parameters that are specified in the first request prevail.
+     *   *
+     * @param ScrollDomainListRequest $request ScrollDomainListRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ScrollDomainListResponse
+     * @return ScrollDomainListResponse ScrollDomainListResponse
      */
     public function scrollDomainListWithOptions($request, $runtime)
     {
@@ -6696,9 +6701,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param ScrollDomainListRequest $request
+     * If you have a large number of domain names, a slow response may occur when you call an API operation to query domain names. In this case, you can call this operation to query domain names more quickly. When you call this operation for the first time, specify the request parameters except ScrollId. A scroll ID is returned without other data. In the second request, use the scroll ID obtained from the previous response. In subsequent requests, the newly specified request parameters do not take effect, and the request parameters that are specified in the first request prevail.
+     *   *
+     * @param ScrollDomainListRequest $request ScrollDomainListRequest
      *
-     * @return ScrollDomainListResponse
+     * @return ScrollDomainListResponse ScrollDomainListResponse
      */
     public function scrollDomainList($request)
     {
