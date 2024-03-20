@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsRes
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsResponseBody\scalingConfigurations\customPriorities;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsResponseBody\scalingConfigurations\dataDisks;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsResponseBody\scalingConfigurations\instancePatternInfos;
+use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsResponseBody\scalingConfigurations\networkInterfaces;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsResponseBody\scalingConfigurations\schedulerOptions;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsResponseBody\scalingConfigurations\spotPriceLimits;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsResponseBody\scalingConfigurations\tags;
@@ -305,6 +306,11 @@ class scalingConfigurations extends Model
      * @var int
      */
     public $memory;
+
+    /**
+     * @var networkInterfaces[]
+     */
+    public $networkInterfaces;
 
     /**
      * @description Indicates whether the password preconfigured in the image is used.
@@ -658,6 +664,7 @@ class scalingConfigurations extends Model
         'lifecycleState'                   => 'LifecycleState',
         'loadBalancerWeight'               => 'LoadBalancerWeight',
         'memory'                           => 'Memory',
+        'networkInterfaces'                => 'NetworkInterfaces',
         'passwordInherit'                  => 'PasswordInherit',
         'privatePoolOptions_id'            => 'PrivatePoolOptions.Id',
         'privatePoolOptions_matchCriteria' => 'PrivatePoolOptions.MatchCriteria',
@@ -812,6 +819,15 @@ class scalingConfigurations extends Model
         }
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
+        }
+        if (null !== $this->networkInterfaces) {
+            $res['NetworkInterfaces'] = [];
+            if (null !== $this->networkInterfaces && \is_array($this->networkInterfaces)) {
+                $n = 0;
+                foreach ($this->networkInterfaces as $item) {
+                    $res['NetworkInterfaces'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->passwordInherit) {
             $res['PasswordInherit'] = $this->passwordInherit;
@@ -1054,6 +1070,15 @@ class scalingConfigurations extends Model
         }
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];
+        }
+        if (isset($map['NetworkInterfaces'])) {
+            if (!empty($map['NetworkInterfaces'])) {
+                $model->networkInterfaces = [];
+                $n                        = 0;
+                foreach ($map['NetworkInterfaces'] as $item) {
+                    $model->networkInterfaces[$n++] = null !== $item ? networkInterfaces::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['PasswordInherit'])) {
             $model->passwordInherit = $map['PasswordInherit'];

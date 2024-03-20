@@ -1510,6 +1510,9 @@ class Ess extends OpenApiClient
         if (!Utils::isUnset($request->memory)) {
             $query['Memory'] = $request->memory;
         }
+        if (!Utils::isUnset($request->networkInterfaces)) {
+            $query['NetworkInterfaces'] = $request->networkInterfaces;
+        }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
         }
@@ -5345,6 +5348,9 @@ class Ess extends OpenApiClient
         }
         if (!Utils::isUnset($request->memory)) {
             $query['Memory'] = $request->memory;
+        }
+        if (!Utils::isUnset($request->networkInterfaces)) {
+            $query['NetworkInterfaces'] = $request->networkInterfaces;
         }
         if (!Utils::isUnset($request->override)) {
             $query['Override'] = $request->override;

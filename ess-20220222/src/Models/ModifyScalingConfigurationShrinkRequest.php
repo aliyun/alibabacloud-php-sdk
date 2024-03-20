@@ -9,6 +9,7 @@ use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyScalingConfigurationShrinkReques
 use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyScalingConfigurationShrinkRequest\imageOptions;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyScalingConfigurationShrinkRequest\instancePatternInfos;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyScalingConfigurationShrinkRequest\instanceTypeOverrides;
+use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyScalingConfigurationShrinkRequest\networkInterfaces;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyScalingConfigurationShrinkRequest\privatePoolOptions;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyScalingConfigurationShrinkRequest\spotPriceLimits;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyScalingConfigurationShrinkRequest\systemDisk;
@@ -268,6 +269,11 @@ class ModifyScalingConfigurationShrinkRequest extends Model
     public $memory;
 
     /**
+     * @var networkInterfaces[]
+     */
+    public $networkInterfaces;
+
+    /**
      * @description Specifies whether to overwrite existing data. Valid values:
      *
      *   true
@@ -499,6 +505,7 @@ class ModifyScalingConfigurationShrinkRequest extends Model
         'keyPairName'               => 'KeyPairName',
         'loadBalancerWeight'        => 'LoadBalancerWeight',
         'memory'                    => 'Memory',
+        'networkInterfaces'         => 'NetworkInterfaces',
         'override'                  => 'Override',
         'ownerAccount'              => 'OwnerAccount',
         'ownerId'                   => 'OwnerId',
@@ -638,6 +645,15 @@ class ModifyScalingConfigurationShrinkRequest extends Model
         }
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
+        }
+        if (null !== $this->networkInterfaces) {
+            $res['NetworkInterfaces'] = [];
+            if (null !== $this->networkInterfaces && \is_array($this->networkInterfaces)) {
+                $n = 0;
+                foreach ($this->networkInterfaces as $item) {
+                    $res['NetworkInterfaces'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->override) {
             $res['Override'] = $this->override;
@@ -835,6 +851,15 @@ class ModifyScalingConfigurationShrinkRequest extends Model
         }
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];
+        }
+        if (isset($map['NetworkInterfaces'])) {
+            if (!empty($map['NetworkInterfaces'])) {
+                $model->networkInterfaces = [];
+                $n                        = 0;
+                foreach ($map['NetworkInterfaces'] as $item) {
+                    $model->networkInterfaces[$n++] = null !== $item ? networkInterfaces::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Override'])) {
             $model->override = $map['Override'];

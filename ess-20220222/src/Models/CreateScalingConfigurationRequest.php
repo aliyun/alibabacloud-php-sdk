@@ -9,6 +9,7 @@ use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingConfigurationRequest\data
 use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingConfigurationRequest\imageOptions;
 use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingConfigurationRequest\instancePatternInfos;
 use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingConfigurationRequest\instanceTypeOverrides;
+use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingConfigurationRequest\networkInterfaces;
 use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingConfigurationRequest\privatePoolOptions;
 use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingConfigurationRequest\spotPriceLimits;
 use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingConfigurationRequest\systemDisk;
@@ -297,6 +298,11 @@ class CreateScalingConfigurationRequest extends Model
     public $memory;
 
     /**
+     * @var networkInterfaces[]
+     */
+    public $networkInterfaces;
+
+    /**
      * @var string
      */
     public $ownerAccount;
@@ -550,6 +556,7 @@ class CreateScalingConfigurationRequest extends Model
         'keyPairName'                 => 'KeyPairName',
         'loadBalancerWeight'          => 'LoadBalancerWeight',
         'memory'                      => 'Memory',
+        'networkInterfaces'           => 'NetworkInterfaces',
         'ownerAccount'                => 'OwnerAccount',
         'ownerId'                     => 'OwnerId',
         'password'                    => 'Password',
@@ -699,6 +706,15 @@ class CreateScalingConfigurationRequest extends Model
         }
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
+        }
+        if (null !== $this->networkInterfaces) {
+            $res['NetworkInterfaces'] = [];
+            if (null !== $this->networkInterfaces && \is_array($this->networkInterfaces)) {
+                $n = 0;
+                foreach ($this->networkInterfaces as $item) {
+                    $res['NetworkInterfaces'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -908,6 +924,15 @@ class CreateScalingConfigurationRequest extends Model
         }
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];
+        }
+        if (isset($map['NetworkInterfaces'])) {
+            if (!empty($map['NetworkInterfaces'])) {
+                $model->networkInterfaces = [];
+                $n                        = 0;
+                foreach ($map['NetworkInterfaces'] as $item) {
+                    $model->networkInterfaces[$n++] = null !== $item ? networkInterfaces::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
