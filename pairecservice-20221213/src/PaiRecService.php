@@ -896,6 +896,9 @@ class PaiRecService extends OpenApiClient
         if (!Utils::isUnset($request->crowdId)) {
             $body['CrowdId'] = $request->crowdId;
         }
+        if (!Utils::isUnset($request->crowdTargetType)) {
+            $body['CrowdTargetType'] = $request->crowdTargetType;
+        }
         if (!Utils::isUnset($request->debugCrowdId)) {
             $body['DebugCrowdId'] = $request->debugCrowdId;
         }
@@ -925,6 +928,9 @@ class PaiRecService extends OpenApiClient
         }
         if (!Utils::isUnset($request->needAA)) {
             $body['NeedAA'] = $request->needAA;
+        }
+        if (!Utils::isUnset($request->randomFlow)) {
+            $body['RandomFlow'] = $request->randomFlow;
         }
         if (!Utils::isUnset($request->reservedBuckets)) {
             $body['ReservedBuckets'] = $request->reservedBuckets;
@@ -3153,6 +3159,9 @@ class PaiRecService extends OpenApiClient
         if (!Utils::isUnset($request->layerId)) {
             $query['LayerId'] = $request->layerId;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;
         }
@@ -4733,6 +4742,9 @@ class PaiRecService extends OpenApiClient
         if (!Utils::isUnset($request->crowdId)) {
             $body['CrowdId'] = $request->crowdId;
         }
+        if (!Utils::isUnset($request->crowdTargetType)) {
+            $body['CrowdTargetType'] = $request->crowdTargetType;
+        }
         if (!Utils::isUnset($request->debugCrowdId)) {
             $body['DebugCrowdId'] = $request->debugCrowdId;
         }
@@ -4762,6 +4774,9 @@ class PaiRecService extends OpenApiClient
         }
         if (!Utils::isUnset($request->needAA)) {
             $body['NeedAA'] = $request->needAA;
+        }
+        if (!Utils::isUnset($request->randomFlow)) {
+            $body['RandomFlow'] = $request->randomFlow;
         }
         if (!Utils::isUnset($request->reservcedBuckets)) {
             $body['ReservcedBuckets'] = $request->reservcedBuckets;

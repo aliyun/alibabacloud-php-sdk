@@ -16,6 +16,11 @@ class GetLayerResponseBody extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $gmtCreateTime;
+
+    /**
      * @example 3
      *
      * @var string
@@ -39,17 +44,24 @@ class GetLayerResponseBody extends Model
     public $requestId;
 
     /**
+     * @var int
+     */
+    public $residualFlow;
+
+    /**
      * @example 4
      *
      * @var string
      */
     public $sceneId;
     protected $_name = [
-        'description'  => 'Description',
-        'laboratoryId' => 'LaboratoryId',
-        'name'         => 'Name',
-        'requestId'    => 'RequestId',
-        'sceneId'      => 'SceneId',
+        'description'   => 'Description',
+        'gmtCreateTime' => 'GmtCreateTime',
+        'laboratoryId'  => 'LaboratoryId',
+        'name'          => 'Name',
+        'requestId'     => 'RequestId',
+        'residualFlow'  => 'ResidualFlow',
+        'sceneId'       => 'SceneId',
     ];
 
     public function validate()
@@ -62,6 +74,9 @@ class GetLayerResponseBody extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+        if (null !== $this->gmtCreateTime) {
+            $res['GmtCreateTime'] = $this->gmtCreateTime;
+        }
         if (null !== $this->laboratoryId) {
             $res['LaboratoryId'] = $this->laboratoryId;
         }
@@ -70,6 +85,9 @@ class GetLayerResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->residualFlow) {
+            $res['ResidualFlow'] = $this->residualFlow;
         }
         if (null !== $this->sceneId) {
             $res['SceneId'] = $this->sceneId;
@@ -89,6 +107,9 @@ class GetLayerResponseBody extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+        if (isset($map['GmtCreateTime'])) {
+            $model->gmtCreateTime = $map['GmtCreateTime'];
+        }
         if (isset($map['LaboratoryId'])) {
             $model->laboratoryId = $map['LaboratoryId'];
         }
@@ -97,6 +118,9 @@ class GetLayerResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ResidualFlow'])) {
+            $model->residualFlow = $map['ResidualFlow'];
         }
         if (isset($map['SceneId'])) {
             $model->sceneId = $map['SceneId'];

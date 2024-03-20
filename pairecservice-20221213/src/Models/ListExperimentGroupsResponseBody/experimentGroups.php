@@ -23,6 +23,11 @@ class experimentGroups extends Model
     public $crowdId;
 
     /**
+     * @var string
+     */
+    public $crowdTargetType;
+
+    /**
      * @example 4
      *
      * @var string
@@ -72,6 +77,11 @@ class experimentGroups extends Model
     public $filter;
 
     /**
+     * @var string
+     */
+    public $holdingBuckets;
+
+    /**
      * @example 4
      *
      * @var string
@@ -107,6 +117,11 @@ class experimentGroups extends Model
     public $owner;
 
     /**
+     * @var int
+     */
+    public $randomFlow;
+
+    /**
      * @example 1,2,3,4
      *
      * @var string
@@ -129,6 +144,7 @@ class experimentGroups extends Model
     protected $_name = [
         'config'                   => 'Config',
         'crowdId'                  => 'CrowdId',
+        'crowdTargetType'          => 'CrowdTargetType',
         'debugCrowdId'             => 'DebugCrowdId',
         'debugUsers'               => 'DebugUsers',
         'description'              => 'Description',
@@ -136,11 +152,13 @@ class experimentGroups extends Model
         'distributionType'         => 'DistributionType',
         'experimentGroupId'        => 'ExperimentGroupId',
         'filter'                   => 'Filter',
+        'holdingBuckets'           => 'HoldingBuckets',
         'laboratoryId'             => 'LaboratoryId',
         'layerId'                  => 'LayerId',
         'name'                     => 'Name',
         'needAA'                   => 'NeedAA',
         'owner'                    => 'Owner',
+        'randomFlow'               => 'RandomFlow',
         'reservedBuckets'          => 'ReservedBuckets',
         'sceneId'                  => 'SceneId',
         'status'                   => 'Status',
@@ -158,6 +176,9 @@ class experimentGroups extends Model
         }
         if (null !== $this->crowdId) {
             $res['CrowdId'] = $this->crowdId;
+        }
+        if (null !== $this->crowdTargetType) {
+            $res['CrowdTargetType'] = $this->crowdTargetType;
         }
         if (null !== $this->debugCrowdId) {
             $res['DebugCrowdId'] = $this->debugCrowdId;
@@ -180,6 +201,9 @@ class experimentGroups extends Model
         if (null !== $this->filter) {
             $res['Filter'] = $this->filter;
         }
+        if (null !== $this->holdingBuckets) {
+            $res['HoldingBuckets'] = $this->holdingBuckets;
+        }
         if (null !== $this->laboratoryId) {
             $res['LaboratoryId'] = $this->laboratoryId;
         }
@@ -194,6 +218,9 @@ class experimentGroups extends Model
         }
         if (null !== $this->owner) {
             $res['Owner'] = $this->owner;
+        }
+        if (null !== $this->randomFlow) {
+            $res['RandomFlow'] = $this->randomFlow;
         }
         if (null !== $this->reservedBuckets) {
             $res['ReservedBuckets'] = $this->reservedBuckets;
@@ -222,6 +249,9 @@ class experimentGroups extends Model
         if (isset($map['CrowdId'])) {
             $model->crowdId = $map['CrowdId'];
         }
+        if (isset($map['CrowdTargetType'])) {
+            $model->crowdTargetType = $map['CrowdTargetType'];
+        }
         if (isset($map['DebugCrowdId'])) {
             $model->debugCrowdId = $map['DebugCrowdId'];
         }
@@ -243,6 +273,9 @@ class experimentGroups extends Model
         if (isset($map['Filter'])) {
             $model->filter = $map['Filter'];
         }
+        if (isset($map['HoldingBuckets'])) {
+            $model->holdingBuckets = $map['HoldingBuckets'];
+        }
         if (isset($map['LaboratoryId'])) {
             $model->laboratoryId = $map['LaboratoryId'];
         }
@@ -257,6 +290,9 @@ class experimentGroups extends Model
         }
         if (isset($map['Owner'])) {
             $model->owner = $map['Owner'];
+        }
+        if (isset($map['RandomFlow'])) {
+            $model->randomFlow = $map['RandomFlow'];
         }
         if (isset($map['ReservedBuckets'])) {
             $model->reservedBuckets = $map['ReservedBuckets'];

@@ -23,6 +23,11 @@ class CreateExperimentGroupRequest extends Model
     public $crowdId;
 
     /**
+     * @var string
+     */
+    public $crowdTargetType;
+
+    /**
      * @example 3
      *
      * @var string
@@ -93,6 +98,11 @@ class CreateExperimentGroupRequest extends Model
     public $needAA;
 
     /**
+     * @var int
+     */
+    public $randomFlow;
+
+    /**
      * @example 1,2,3
      *
      * @var string
@@ -101,6 +111,7 @@ class CreateExperimentGroupRequest extends Model
     protected $_name = [
         'config'                   => 'Config',
         'crowdId'                  => 'CrowdId',
+        'crowdTargetType'          => 'CrowdTargetType',
         'debugCrowdId'             => 'DebugCrowdId',
         'debugUsers'               => 'DebugUsers',
         'description'              => 'Description',
@@ -111,6 +122,7 @@ class CreateExperimentGroupRequest extends Model
         'layerId'                  => 'LayerId',
         'name'                     => 'Name',
         'needAA'                   => 'NeedAA',
+        'randomFlow'               => 'RandomFlow',
         'reservedBuckets'          => 'ReservedBuckets',
     ];
 
@@ -126,6 +138,9 @@ class CreateExperimentGroupRequest extends Model
         }
         if (null !== $this->crowdId) {
             $res['CrowdId'] = $this->crowdId;
+        }
+        if (null !== $this->crowdTargetType) {
+            $res['CrowdTargetType'] = $this->crowdTargetType;
         }
         if (null !== $this->debugCrowdId) {
             $res['DebugCrowdId'] = $this->debugCrowdId;
@@ -157,6 +172,9 @@ class CreateExperimentGroupRequest extends Model
         if (null !== $this->needAA) {
             $res['NeedAA'] = $this->needAA;
         }
+        if (null !== $this->randomFlow) {
+            $res['RandomFlow'] = $this->randomFlow;
+        }
         if (null !== $this->reservedBuckets) {
             $res['ReservedBuckets'] = $this->reservedBuckets;
         }
@@ -177,6 +195,9 @@ class CreateExperimentGroupRequest extends Model
         }
         if (isset($map['CrowdId'])) {
             $model->crowdId = $map['CrowdId'];
+        }
+        if (isset($map['CrowdTargetType'])) {
+            $model->crowdTargetType = $map['CrowdTargetType'];
         }
         if (isset($map['DebugCrowdId'])) {
             $model->debugCrowdId = $map['DebugCrowdId'];
@@ -207,6 +228,9 @@ class CreateExperimentGroupRequest extends Model
         }
         if (isset($map['NeedAA'])) {
             $model->needAA = $map['NeedAA'];
+        }
+        if (isset($map['RandomFlow'])) {
+            $model->randomFlow = $map['RandomFlow'];
         }
         if (isset($map['ReservedBuckets'])) {
             $model->reservedBuckets = $map['ReservedBuckets'];

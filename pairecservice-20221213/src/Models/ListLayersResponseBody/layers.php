@@ -16,6 +16,11 @@ class layers extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $gmtCreateTime;
+
+    /**
      * @example 3
      *
      * @var string
@@ -37,17 +42,24 @@ class layers extends Model
     public $name;
 
     /**
+     * @var int
+     */
+    public $residualFlow;
+
+    /**
      * @example 3
      *
      * @var string
      */
     public $sceneId;
     protected $_name = [
-        'description'  => 'Description',
-        'laboratoryId' => 'LaboratoryId',
-        'layerId'      => 'LayerId',
-        'name'         => 'Name',
-        'sceneId'      => 'SceneId',
+        'description'   => 'Description',
+        'gmtCreateTime' => 'GmtCreateTime',
+        'laboratoryId'  => 'LaboratoryId',
+        'layerId'       => 'LayerId',
+        'name'          => 'Name',
+        'residualFlow'  => 'ResidualFlow',
+        'sceneId'       => 'SceneId',
     ];
 
     public function validate()
@@ -60,6 +72,9 @@ class layers extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+        if (null !== $this->gmtCreateTime) {
+            $res['GmtCreateTime'] = $this->gmtCreateTime;
+        }
         if (null !== $this->laboratoryId) {
             $res['LaboratoryId'] = $this->laboratoryId;
         }
@@ -68,6 +83,9 @@ class layers extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->residualFlow) {
+            $res['ResidualFlow'] = $this->residualFlow;
         }
         if (null !== $this->sceneId) {
             $res['SceneId'] = $this->sceneId;
@@ -87,6 +105,9 @@ class layers extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+        if (isset($map['GmtCreateTime'])) {
+            $model->gmtCreateTime = $map['GmtCreateTime'];
+        }
         if (isset($map['LaboratoryId'])) {
             $model->laboratoryId = $map['LaboratoryId'];
         }
@@ -95,6 +116,9 @@ class layers extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['ResidualFlow'])) {
+            $model->residualFlow = $map['ResidualFlow'];
         }
         if (isset($map['SceneId'])) {
             $model->sceneId = $map['SceneId'];

@@ -23,6 +23,11 @@ class ListExperimentGroupsRequest extends Model
     public $layerId;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @example Online
      *
      * @var string
@@ -31,6 +36,7 @@ class ListExperimentGroupsRequest extends Model
     protected $_name = [
         'instanceId' => 'InstanceId',
         'layerId'    => 'LayerId',
+        'regionId'   => 'RegionId',
         'status'     => 'Status',
     ];
 
@@ -46,6 +52,9 @@ class ListExperimentGroupsRequest extends Model
         }
         if (null !== $this->layerId) {
             $res['LayerId'] = $this->layerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -67,6 +76,9 @@ class ListExperimentGroupsRequest extends Model
         }
         if (isset($map['LayerId'])) {
             $model->layerId = $map['LayerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
