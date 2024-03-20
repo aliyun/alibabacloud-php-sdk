@@ -37,7 +37,7 @@ class DescribeDBInstancePerformanceResponseBody extends Model
     public $engine;
 
     /**
-     * @description An array that consists of performance metrics.
+     * @description Details of the performance metrics.
      *
      * @var performanceKeys
      */

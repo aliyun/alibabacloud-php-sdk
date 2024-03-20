@@ -61,7 +61,7 @@ class CreateDBInstanceRequest extends Model
      *   **masterUsername**: The username of the administrator account. The username can contain lowercase letters, digits, and underscores (\_). It must start with a letter and end with a letter or digit. It can be up to 63 characters in length and cannot start with pg.
      *   **masterUserPassword**: The password of the administrator account. The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. It must be 8 to 32 characters in length. The password can contain any of the following characters: `! @ # $ % ^ & * ( ) _ + - =`.
      *
-     * > : This parameter applies only to ApsaraDB RDS for PostgreSQL instances. For more information about Babelfish for ApsaraDB RDS for PostgreSQL, see [Introduction to Babelfish](~~428613~~).
+     * > This parameter applies only to ApsaraDB RDS for PostgreSQL instances. For more information about Babelfish for ApsaraDB RDS for PostgreSQL, see [Introduction to Babelfish](~~428613~~).
      * @example {"babelfishEnabled":"true","migrationMode":"single-db","masterUsername":"babelfish_user","masterUserPassword":"Babelfish123!"}
      *
      * @var string
@@ -78,7 +78,7 @@ class CreateDBInstanceRequest extends Model
     public $bpeEnabled;
 
     /**
-     * @description A reserved parameter. You do not need to specify this parameter.
+     * @description An invalid parameter. You do not need to specify this parameter.
      *
      * @example false
      *
@@ -172,7 +172,7 @@ class CreateDBInstanceRequest extends Model
     public $createStrategy;
 
     /**
-     * @description The instance type of the instance. For more information, see [Primary ApsaraDB RDS instance types](~~26312~~).
+     * @description The instance type of the instance. You can specify a standard instance type or an economy instance type. For more information, see [Primary ApsaraDB RDS instance types](~~26312~~).
      *
      * To create a serverless instance, set this parameter to one of the following values:
      *
@@ -345,14 +345,14 @@ class CreateDBInstanceRequest extends Model
     public $engine;
 
     /**
-     * @description The database engine version of the instance.
+     * @description The database engine version of the instance. Valid values:
      *
      *   Regular instance
      *
      *   Valid values when you set Engine to MySQL: **5.5**, **5.6**, **5.7**, and **8.0**
-     *   Valid values if you set Engine to SQLServer: **08r2\_ent_ha** (cloud disks, discontinued), **2008r2** (local disks, discontinued), **2012** (SQL Server EE Basic), **2012\_ent_ha**, **2012\_std_ha**, **2012\_web**, **2014\_ent_ha**, **2014\_std_ha**, **2016\_ent_ha**, **2016\_std_ha**, **2016\_web**, **2017\_ent**, **2017\_std_ha**, **2017\_web**, **2019\_ent**, **2019\_std_ha**, **2019\_web**, **2022\_ent**, **2022\_std_ha**, and **2022\_web**
+     *   Valid values when you set Engine to SQLServer: **08r2\_ent_ha** (cloud disks, discontinued), **2008r2** (local disks, discontinued), **2012** (SQL Server EE Basic), **2012\_ent_ha**, **2012\_std_ha**, **2012\_web**, **2014\_ent_ha**, **2014\_std_ha**, **2016\_ent_ha**, **2016\_std_ha**, **2016\_web**, **2017\_ent**, **2017\_std_ha**, **2017\_web**, **2019\_ent**, **2019\_std_ha**, **2019\_web**, **2022\_ent**, **2022\_std_ha**, and **2022\_web**
      *   Valid values when you set Engine to PostgreSQL: **10.0**, **11.0**, **12.0**, **13.0**, **14.0**, **15.0**, and **16.0**
-     *   Valid values when you set the Engine parameter to MariaDB: **10.3**
+     *   Valid value if you set the Engine parameter to MariaDB: **10.3**
      *
      *   Serverless instance
      *
@@ -364,7 +364,7 @@ class CreateDBInstanceRequest extends Model
      *
      *   ApsaraDB RDS for MariaDB does not support serverless instances.
      *
-     *   RDS instances that run SQL Server, `_ent` specifies SQL Server EE (Always On), `_ent_ha` specifies SQL Server EE, `_std_ha` specifies SQL Server SE, and `_web` specifies SQL Server Web.
+     *   RDS instances that run SQL Server: `_ent` specifies SQL Server EE (Always On), `_ent_ha` specifies SQL Server EE, `_std_ha` specifies SQL Server SE, and `_web` specifies SQL Server Web.
      *
      *   RDS instances that run SQL Server 2014 are not available for purchase on the international site (alibabacloud.com).
      *
@@ -392,8 +392,12 @@ class CreateDBInstanceRequest extends Model
     public $instanceNetworkType;
 
     /**
-     * @description A reserved parameter. You do not need to specify this parameter.
+     * @description Specifies whether to enable the I/O acceleration feature. Valid values:
      *
+     *   1: The feature is enabled.
+     *   0: The feature is disabled.
+     *
+     * >  For more information about the I/O acceleration feature of general enhanced SSDs (ESSDs), see [Introduction](~~2527067~~).
      * @example 0
      *
      * @var string

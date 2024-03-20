@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeParameterGroupsRequest extends Model
 {
     /**
+     * @description Specifies whether to return the parameter overview.
+     *
+     *   **false** (default): The parameter overview is returned.
+     *   **true**: The parameter overview is not returned.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enableDetail;

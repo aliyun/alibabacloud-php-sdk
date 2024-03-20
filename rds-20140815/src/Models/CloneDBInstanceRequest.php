@@ -56,7 +56,7 @@ class CloneDBInstanceRequest extends Model
     public $bpeEnabled;
 
     /**
-     * @description This parameter is reserved. You do not need to specify this parameter.
+     * @description An invalid parameter. You do not need to specify this parameter.
      *
      * @example false
      *

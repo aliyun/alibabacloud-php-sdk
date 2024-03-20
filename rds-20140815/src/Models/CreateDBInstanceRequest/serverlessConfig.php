@@ -38,7 +38,7 @@ class serverlessConfig extends Model
     /**
      * @description The minimum value of RCUs. Valid values:
      *
-     *   Serverless ApsaraDB RDS for MySQL instances: **0.5 to 32**. Only integers are supported.
+     *   Serverless ApsaraDB RDS for MySQL instances: **0.5 to 32**.
      *   Serverless ApsaraDB RDS for SQL Server instances: **2 to 8**. Only integers are supported.
      *   Serverless ApsaraDB RDS for PostgreSQL instances: **0.5 to 14**
      *
@@ -55,12 +55,8 @@ class serverlessConfig extends Model
      *   **true**
      *   **false** (default)
      *
-     * >
-     *
-     *   This parameter is required only for serverless instances that run MySQL and PostgreSQL. If you set this parameter to true, a service interruption that lasts approximately 30 to 120 seconds occurs during forced scaling. Process with caution.
-     *
-     *   The RCU scaling for a serverless instance immediately takes effect. In some cases, such as the execution of large transactions, the scaling does not immediately take effect. In this case, you can enable this feature to forcefully scale the RCUs of the instance.
-     *
+     * > *   This parameter is required only for serverless instances that run MySQL and PostgreSQL. If you set this parameter to true, a service interruption that lasts approximately 30 to 120 seconds occurs during forced scaling. Process with caution.
+     * > *   The RCU scaling for a serverless instance immediately takes effect. In some cases, such as the execution of large transactions, the scaling does not immediately take effect. In this case, you can enable this feature to forcefully scale the RCUs of the instance.
      * @example false
      *
      * @var bool

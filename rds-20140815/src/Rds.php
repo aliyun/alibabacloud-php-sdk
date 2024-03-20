@@ -3100,10 +3100,10 @@ class Rds extends OpenApiClient
 
     /**
      * ### [](#)Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
+     *   * *   MySQL
+     *   * *   PostgreSQL
      *   * ### [](#)References
-     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
      *   * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for MySQL instance](~~184921~~)
      *   * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for PostgreSQL instance](~~418274~~).
      *   *
@@ -3169,10 +3169,10 @@ class Rds extends OpenApiClient
 
     /**
      * ### [](#)Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
+     *   * *   MySQL
+     *   * *   PostgreSQL
      *   * ### [](#)References
-     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
      *   * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for MySQL instance](~~184921~~)
      *   * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for PostgreSQL instance](~~418274~~).
      *   *

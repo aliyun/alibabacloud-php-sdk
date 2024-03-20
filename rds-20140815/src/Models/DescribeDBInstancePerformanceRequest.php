@@ -30,7 +30,7 @@ class DescribeDBInstancePerformanceRequest extends Model
     /**
      * @description The performance metrics that you want to query. Separate multiple values with commas (,). You can specify up to 30 values. For more information, see [Performance parameters](~~26316~~).
      *
-     * >  If you set **Key** to **MySQL_SpaceUsage** or **SQLServer_SpaceUsage**, you can only query the monitoring data within one day.
+     * >  If you set **Key** to **MySQL_SpaceUsage** or **SQLServer_SpaceUsage**, you can query the monitoring data within only one day.
      * @example MySQL_Sessions
      *
      * @var string

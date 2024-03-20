@@ -147,6 +147,8 @@ class DescribeBackupPolicyResponseBody extends Model
     public $enableIncrementDataBackup;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $enablePitrProtection;
@@ -213,6 +215,8 @@ class DescribeBackupPolicyResponseBody extends Model
     public $logBackupRetentionPeriod;
 
     /**
+     * @example 7
+     *
      * @var int
      */
     public $pitrRetentionPeriod;

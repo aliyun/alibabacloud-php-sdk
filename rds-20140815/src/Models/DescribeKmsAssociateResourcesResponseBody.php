@@ -4,10 +4,16 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeKmsAssociateResourcesResponseBody\associateDBInstances;
 use AlibabaCloud\Tea\Model;
 
 class DescribeKmsAssociateResourcesResponseBody extends Model
 {
+    /**
+     * @var associateDBInstances[]
+     */
+    public $associateDBInstances;
+
     /**
      * @example true
      *
@@ -22,8 +28,9 @@ class DescribeKmsAssociateResourcesResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'associateStatus' => 'AssociateStatus',
-        'requestId'       => 'RequestId',
+        'associateDBInstances' => 'AssociateDBInstances',
+        'associateStatus'      => 'AssociateStatus',
+        'requestId'            => 'RequestId',
     ];
 
     public function validate()
@@ -33,6 +40,15 @@ class DescribeKmsAssociateResourcesResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->associateDBInstances) {
+            $res['AssociateDBInstances'] = [];
+            if (null !== $this->associateDBInstances && \is_array($this->associateDBInstances)) {
+                $n = 0;
+                foreach ($this->associateDBInstances as $item) {
+                    $res['AssociateDBInstances'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->associateStatus) {
             $res['AssociateStatus'] = $this->associateStatus;
         }
@@ -51,6 +67,15 @@ class DescribeKmsAssociateResourcesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AssociateDBInstances'])) {
+            if (!empty($map['AssociateDBInstances'])) {
+                $model->associateDBInstances = [];
+                $n                           = 0;
+                foreach ($map['AssociateDBInstances'] as $item) {
+                    $model->associateDBInstances[$n++] = null !== $item ? associateDBInstances::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['AssociateStatus'])) {
             $model->associateStatus = $map['AssociateStatus'];
         }

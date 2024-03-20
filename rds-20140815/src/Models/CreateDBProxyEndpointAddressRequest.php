@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateDBProxyEndpointAddressRequest extends Model
 {
     /**
-     * @description The prefix of the proxy endpoint. Enter a custom prefix.
+     * @description The prefix of the proxy endpoint Enter a custom prefix.
      *
      * @example test1234
      *
@@ -89,7 +89,7 @@ class CreateDBProxyEndpointAddressRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The ID of the VPC to which the proxy endpoint belongs. You can call the DescribeDBInstanceAttribute operation to query the VPC ID.
+     * @description The ID of the VPC to which the proxy endpoint belongs. You can call the DescribeDBInstanceAttribute operation to query the information.
      *
      * >  This parameter must be specified when **DBProxyConnectStringNetType** is set to **VPC**.
      * @example vpc-bpxxxxxx
