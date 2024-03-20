@@ -23,6 +23,13 @@ class EcsSpec extends Model
     public $cpu;
 
     /**
+     * @example 470.199.02
+     *
+     * @var string
+     */
+    public $defaultGPUDriver;
+
+    /**
      * @example 1
      *
      * @var int
@@ -58,20 +65,49 @@ class EcsSpec extends Model
     public $memory;
 
     /**
+     * @example 0.1
+     *
+     * @var float
+     */
+    public $nonProtectSpotDiscount;
+
+    /**
+     * @var string[]
+     */
+    public $paymentTypes;
+
+    /**
      * @example ECS
      *
      * @var string
      */
     public $resourceType;
+
+    /**
+     * @example WithStock
+     *
+     * @var string
+     */
+    public $spotStockStatus;
+
+    /**
+     * @var string[]
+     */
+    public $supportedGPUDrivers;
     protected $_name = [
-        'acceleratorType' => 'AcceleratorType',
-        'cpu'             => 'Cpu',
-        'gpu'             => 'Gpu',
-        'gpuType'         => 'GpuType',
-        'instanceType'    => 'InstanceType',
-        'isAvailable'     => 'IsAvailable',
-        'memory'          => 'Memory',
-        'resourceType'    => 'ResourceType',
+        'acceleratorType'        => 'AcceleratorType',
+        'cpu'                    => 'Cpu',
+        'defaultGPUDriver'       => 'DefaultGPUDriver',
+        'gpu'                    => 'Gpu',
+        'gpuType'                => 'GpuType',
+        'instanceType'           => 'InstanceType',
+        'isAvailable'            => 'IsAvailable',
+        'memory'                 => 'Memory',
+        'nonProtectSpotDiscount' => 'NonProtectSpotDiscount',
+        'paymentTypes'           => 'PaymentTypes',
+        'resourceType'           => 'ResourceType',
+        'spotStockStatus'        => 'SpotStockStatus',
+        'supportedGPUDrivers'    => 'SupportedGPUDrivers',
     ];
 
     public function validate()
@@ -86,6 +122,9 @@ class EcsSpec extends Model
         }
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
+        }
+        if (null !== $this->defaultGPUDriver) {
+            $res['DefaultGPUDriver'] = $this->defaultGPUDriver;
         }
         if (null !== $this->gpu) {
             $res['Gpu'] = $this->gpu;
@@ -102,8 +141,20 @@ class EcsSpec extends Model
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
         }
+        if (null !== $this->nonProtectSpotDiscount) {
+            $res['NonProtectSpotDiscount'] = $this->nonProtectSpotDiscount;
+        }
+        if (null !== $this->paymentTypes) {
+            $res['PaymentTypes'] = $this->paymentTypes;
+        }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
+        }
+        if (null !== $this->spotStockStatus) {
+            $res['SpotStockStatus'] = $this->spotStockStatus;
+        }
+        if (null !== $this->supportedGPUDrivers) {
+            $res['SupportedGPUDrivers'] = $this->supportedGPUDrivers;
         }
 
         return $res;
@@ -123,6 +174,9 @@ class EcsSpec extends Model
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
         }
+        if (isset($map['DefaultGPUDriver'])) {
+            $model->defaultGPUDriver = $map['DefaultGPUDriver'];
+        }
         if (isset($map['Gpu'])) {
             $model->gpu = $map['Gpu'];
         }
@@ -138,8 +192,24 @@ class EcsSpec extends Model
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];
         }
+        if (isset($map['NonProtectSpotDiscount'])) {
+            $model->nonProtectSpotDiscount = $map['NonProtectSpotDiscount'];
+        }
+        if (isset($map['PaymentTypes'])) {
+            if (!empty($map['PaymentTypes'])) {
+                $model->paymentTypes = $map['PaymentTypes'];
+            }
+        }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
+        }
+        if (isset($map['SpotStockStatus'])) {
+            $model->spotStockStatus = $map['SpotStockStatus'];
+        }
+        if (isset($map['SupportedGPUDrivers'])) {
+            if (!empty($map['SupportedGPUDrivers'])) {
+                $model->supportedGPUDrivers = $map['SupportedGPUDrivers'];
+            }
         }
 
         return $model;

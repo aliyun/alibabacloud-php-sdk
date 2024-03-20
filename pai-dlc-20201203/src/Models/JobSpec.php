@@ -45,6 +45,11 @@ class JobSpec extends Model
     public $resourceConfig;
 
     /**
+     * @var SpotSpec
+     */
+    public $spotSpec;
+
+    /**
      * @example Worker
      *
      * @var string
@@ -64,6 +69,7 @@ class JobSpec extends Model
         'imageConfig'     => 'ImageConfig',
         'podCount'        => 'PodCount',
         'resourceConfig'  => 'ResourceConfig',
+        'spotSpec'        => 'SpotSpec',
         'type'            => 'Type',
         'useSpotInstance' => 'UseSpotInstance',
     ];
@@ -92,6 +98,9 @@ class JobSpec extends Model
         }
         if (null !== $this->resourceConfig) {
             $res['ResourceConfig'] = null !== $this->resourceConfig ? $this->resourceConfig->toMap() : null;
+        }
+        if (null !== $this->spotSpec) {
+            $res['SpotSpec'] = null !== $this->spotSpec ? $this->spotSpec->toMap() : null;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -128,6 +137,9 @@ class JobSpec extends Model
         }
         if (isset($map['ResourceConfig'])) {
             $model->resourceConfig = ResourceConfig::fromMap($map['ResourceConfig']);
+        }
+        if (isset($map['SpotSpec'])) {
+            $model->spotSpec = SpotSpec::fromMap($map['SpotSpec']);
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

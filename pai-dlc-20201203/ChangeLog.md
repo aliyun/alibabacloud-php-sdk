@@ -1,3 +1,8 @@
+2024-03-20 Version: 1.4.3
+- Update API GetJobSanityCheckResult: update param JobId.
+- Update API ListJobSanityCheckResults: update param JobId.
+
+
 2024-01-24 Version: 1.4.2
 - Generated php 2020-12-03 for pai-dlc.
 
