@@ -10,35 +10,53 @@ use AlibabaCloud\Tea\Model;
 class QueryMqttTraceMessageOfClientResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @var string
+     * @description The returned messages.
+     *
+     * @var messageOfClientList[]
      */
-    public $requestId;
+    public $messageOfClientList;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The request ID. You can use the ID to troubleshoot issues. This parameter is a common parameter.
+     *
+     * @example B096B9D6-62F3-4567-BB59-58D1362E****
+     *
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @description The total number of messages returned.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $total;
-
-    /**
-     * @var messageOfClientList[]
-     */
-    public $messageOfClientList;
     protected $_name = [
         'currentPage'         => 'CurrentPage',
-        'requestId'           => 'RequestId',
-        'pageSize'            => 'PageSize',
-        'total'               => 'Total',
         'messageOfClientList' => 'MessageOfClientList',
+        'pageSize'            => 'PageSize',
+        'requestId'           => 'RequestId',
+        'total'               => 'Total',
     ];
 
     public function validate()
@@ -51,15 +69,6 @@ class QueryMqttTraceMessageOfClientResponseBody extends Model
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
-        }
         if (null !== $this->messageOfClientList) {
             $res['MessageOfClientList'] = [];
             if (null !== $this->messageOfClientList && \is_array($this->messageOfClientList)) {
@@ -68,6 +77,15 @@ class QueryMqttTraceMessageOfClientResponseBody extends Model
                     $res['MessageOfClientList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -84,15 +102,6 @@ class QueryMqttTraceMessageOfClientResponseBody extends Model
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
-        }
         if (isset($map['MessageOfClientList'])) {
             if (!empty($map['MessageOfClientList'])) {
                 $model->messageOfClientList = [];
@@ -101,6 +110,15 @@ class QueryMqttTraceMessageOfClientResponseBody extends Model
                     $model->messageOfClientList[$n++] = null !== $item ? messageOfClientList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class SendMessageResponseBody extends Model
 {
     /**
+     * @description The unique message ID that is returned by the ApsaraMQ for MQTT broker after the message is sent.
+     *
+     * @example 0B736D997B7F45FF54E61C1C1B58****
+     *
      * @var string
      */
     public $msgId;
 
     /**
+     * @description The unique ID that the system generates for the request. This parameter is a common parameter.
+     *
+     * @example 020F6A43-19E6-4B6E-B846-44EB31DF****
+     *
      * @var string
      */
     public $requestId;

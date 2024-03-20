@@ -9,41 +9,65 @@ use AlibabaCloud\Tea\Model;
 class deviceCredential extends Model
 {
     /**
-     * @var int
-     */
-    public $updateTime;
-
-    /**
+     * @description The client ID of the device.
+     *
+     * @example GID_test@@@test
+     *
      * @var string
      */
-    public $deviceAccessKeyId;
+    public $clientId;
 
     /**
+     * @description The timestamp that indicates when the access credential of the device was created. Unit: milliseconds.
+     *
+     * @example 1605541382000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @description The AccessKey ID of the device.
+     *
+     * @example DC.Z5fXh9sRRVufyLi6wo****
+     *
      * @var string
      */
-    public $instanceId;
+    public $deviceAccessKeyId;
 
     /**
+     * @description The AccessKey secret of the device.
+     *
+     * @example DC.BJMkn4eMQJK2vaApTS****
+     *
      * @var string
      */
     public $deviceAccessKeySecret;
 
     /**
+     * @description The ID of the ApsaraMQ for MQTT instance.
+     *
+     * @example post-cn-0pp12gl****
+     *
      * @var string
      */
-    public $clientId;
+    public $instanceId;
+
+    /**
+     * @description The timestamp that indicates when the access credential of the device was last updated. Unit: milliseconds.
+     *
+     * @example 1605541382000
+     *
+     * @var int
+     */
+    public $updateTime;
     protected $_name = [
-        'updateTime'            => 'UpdateTime',
-        'deviceAccessKeyId'     => 'DeviceAccessKeyId',
-        'createTime'            => 'CreateTime',
-        'instanceId'            => 'InstanceId',
-        'deviceAccessKeySecret' => 'DeviceAccessKeySecret',
         'clientId'              => 'ClientId',
+        'createTime'            => 'CreateTime',
+        'deviceAccessKeyId'     => 'DeviceAccessKeyId',
+        'deviceAccessKeySecret' => 'DeviceAccessKeySecret',
+        'instanceId'            => 'InstanceId',
+        'updateTime'            => 'UpdateTime',
     ];
 
     public function validate()
@@ -53,23 +77,23 @@ class deviceCredential extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->updateTime) {
-            $res['UpdateTime'] = $this->updateTime;
-        }
-        if (null !== $this->deviceAccessKeyId) {
-            $res['DeviceAccessKeyId'] = $this->deviceAccessKeyId;
+        if (null !== $this->clientId) {
+            $res['ClientId'] = $this->clientId;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->deviceAccessKeyId) {
+            $res['DeviceAccessKeyId'] = $this->deviceAccessKeyId;
         }
         if (null !== $this->deviceAccessKeySecret) {
             $res['DeviceAccessKeySecret'] = $this->deviceAccessKeySecret;
         }
-        if (null !== $this->clientId) {
-            $res['ClientId'] = $this->clientId;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
         }
 
         return $res;
@@ -83,23 +107,23 @@ class deviceCredential extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UpdateTime'])) {
-            $model->updateTime = $map['UpdateTime'];
-        }
-        if (isset($map['DeviceAccessKeyId'])) {
-            $model->deviceAccessKeyId = $map['DeviceAccessKeyId'];
+        if (isset($map['ClientId'])) {
+            $model->clientId = $map['ClientId'];
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['DeviceAccessKeyId'])) {
+            $model->deviceAccessKeyId = $map['DeviceAccessKeyId'];
         }
         if (isset($map['DeviceAccessKeySecret'])) {
             $model->deviceAccessKeySecret = $map['DeviceAccessKeySecret'];
         }
-        if (isset($map['ClientId'])) {
-            $model->clientId = $map['ClientId'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
         }
 
         return $model;

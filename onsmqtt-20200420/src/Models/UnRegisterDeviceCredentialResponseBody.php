@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class UnRegisterDeviceCredentialResponseBody extends Model
 {
     /**
+     * @description The unique ID that the system generates for the request. This parameter is a common parameter.
+     *
+     * @example E4581CCD-62AF-44D9-B5B4-D1DBDC0E****
+     *
      * @var string
      */
     public $requestId;

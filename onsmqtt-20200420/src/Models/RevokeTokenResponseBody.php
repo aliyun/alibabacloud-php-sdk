@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class RevokeTokenResponseBody extends Model
 {
     /**
+     * @description The request ID. This parameter is a common parameter.
+     *
+     * @example 833EDFCB-C447-4CE3-B21F-3A4C2D1B****
+     *
      * @var string
      */
     public $requestId;

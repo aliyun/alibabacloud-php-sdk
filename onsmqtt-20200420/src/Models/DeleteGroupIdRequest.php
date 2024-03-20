@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteGroupIdRequest extends Model
 {
     /**
+     * @description The ID of the group that you want to delete.
+     *
+     * @example GID_test
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The ID of the ApsaraMQ for MQTT instance from which you want to delete a group.
+     *
+     * @example mqtt-cn-0pp1ldu****
+     *
      * @var string
      */
     public $instanceId;

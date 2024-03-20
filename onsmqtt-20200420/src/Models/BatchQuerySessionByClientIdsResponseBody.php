@@ -10,17 +10,23 @@ use AlibabaCloud\Tea\Model;
 class BatchQuerySessionByClientIdsResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
+     * @description The status list of all queried ApsaraMQ for MQTT clients.
+     *
      * @var onlineStatusList[]
      */
     public $onlineStatusList;
+
+    /**
+     * @description The request ID. This parameter is a common parameter.
+     *
+     * @example 63309FDB-ED6C-46AE-B31C-A172FBA0****
+     *
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'        => 'RequestId',
         'onlineStatusList' => 'OnlineStatusList',
+        'requestId'        => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +36,6 @@ class BatchQuerySessionByClientIdsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->onlineStatusList) {
             $res['OnlineStatusList'] = [];
             if (null !== $this->onlineStatusList && \is_array($this->onlineStatusList)) {
@@ -41,6 +44,9 @@ class BatchQuerySessionByClientIdsResponseBody extends Model
                     $res['OnlineStatusList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +60,6 @@ class BatchQuerySessionByClientIdsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['OnlineStatusList'])) {
             if (!empty($map['OnlineStatusList'])) {
                 $model->onlineStatusList = [];
@@ -65,6 +68,9 @@ class BatchQuerySessionByClientIdsResponseBody extends Model
                     $model->onlineStatusList[$n++] = null !== $item ? onlineStatusList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

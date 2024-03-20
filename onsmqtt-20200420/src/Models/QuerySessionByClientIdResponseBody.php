@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class QuerySessionByClientIdResponseBody extends Model
 {
     /**
+     * @description Indicates whether the ApsaraMQ for MQTT client is connected to the ApsaraMQ for MQTT broker. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $onlineStatus;
 
     /**
+     * @description The request ID. This parameter is a common parameter.
+     *
+     * @example E4581CCF-62AF-44D9-B5B4-D1DBBC0E****
+     *
      * @var string
      */
     public $requestId;

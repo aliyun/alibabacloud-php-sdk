@@ -9,22 +9,34 @@ use AlibabaCloud\Tea\Model;
 class SendMessageRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $mqttTopic;
-
-    /**
+     * @description The ID of the ApsaraMQ for MQTT instance. The ID must be consistent with the ID of the instance that the ApsaraMQ for MQTT client uses. You can view the instance ID in the **Basic Information** section on the **Instance Details** page that corresponds to the instance in the [ApsaraMQ for MQTT console](https://mqtt.console.aliyun.com).
+     *
+     * @example post-cn-0pp12gl****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The topic to which you want to send a message on the ApsaraMQ for MQTT instance.
+     *
+     * @example TopicA
+     *
+     * @var string
+     */
+    public $mqttTopic;
+
+    /**
+     * @description The message content, which is the payload of the message. We recommend that you encode the content in Base64 to prevent non-printable characters from being transmitted.
+     *
+     * @example test
+     *
      * @var string
      */
     public $payload;
     protected $_name = [
-        'mqttTopic'  => 'MqttTopic',
         'instanceId' => 'InstanceId',
+        'mqttTopic'  => 'MqttTopic',
         'payload'    => 'Payload',
     ];
 
@@ -35,11 +47,11 @@ class SendMessageRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->mqttTopic) {
-            $res['MqttTopic'] = $this->mqttTopic;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->mqttTopic) {
+            $res['MqttTopic'] = $this->mqttTopic;
         }
         if (null !== $this->payload) {
             $res['Payload'] = $this->payload;
@@ -56,11 +68,11 @@ class SendMessageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MqttTopic'])) {
-            $model->mqttTopic = $map['MqttTopic'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['MqttTopic'])) {
+            $model->mqttTopic = $map['MqttTopic'];
         }
         if (isset($map['Payload'])) {
             $model->payload = $map['Payload'];

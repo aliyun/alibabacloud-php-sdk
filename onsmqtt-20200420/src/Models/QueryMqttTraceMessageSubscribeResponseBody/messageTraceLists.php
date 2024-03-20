@@ -9,41 +9,74 @@ use AlibabaCloud\Tea\Model;
 class messageTraceLists extends Model
 {
     /**
-     * @var string
-     */
-    public $time;
-
-    /**
+     * @description The action on the message. Valid values:
+     *
+     *   **sub**: The ApsaraMQ for MQTT client subscribes to the message.
+     *   **push_offline**: The ApsaraMQ for MQTT broker pushes the offline message to the ApsaraMQ for MQTT client.
+     *
+     * @example sub
+     *
      * @var string
      */
     public $action;
 
     /**
+     * @description The code returned for the action on the message. Valid values:
+     *
+     *   **mqtt.trace.action.msg.sub**: The value that is returned if the value of Action is **sub**.
+     *   **mqtt.trace.action.msg.push.offline**: The value that is returned if the value of Action is **push_offline**.
+     *
+     * @example mqtt.trace.action.msg.sub
+     *
      * @var string
      */
     public $actionCode;
 
     /**
+     * @description The returned information for the action on the message. Valid values:
+     *
+     *   **Push To Mqtt Client**: The value that is returned if the value of Action is **sub**.
+     *   **Push Offline Msg To Mqtt Client**: The value that is returned if the value of Action is **push_offline**.
+     *
+     * @example Push To Mqtt Client
+     *
      * @var string
      */
     public $actionInfo;
 
     /**
+     * @description The ID of the client that subscribes to the message.
+     *
+     * @example GID_test@@@consumer
+     *
+     * @var string
+     */
+    public $clientId;
+
+    /**
+     * @description The message ID.
+     *
+     * @example AC1EC1B33D5978308DB17F3245E4****
+     *
      * @var string
      */
     public $msgId;
 
     /**
+     * @description The time when the message was delivered.
+     *
+     * @example 2021-05-25 16:46:41.274
+     *
      * @var string
      */
-    public $clientId;
+    public $time;
     protected $_name = [
-        'time'       => 'Time',
         'action'     => 'Action',
         'actionCode' => 'ActionCode',
         'actionInfo' => 'ActionInfo',
-        'msgId'      => 'MsgId',
         'clientId'   => 'ClientId',
+        'msgId'      => 'MsgId',
+        'time'       => 'Time',
     ];
 
     public function validate()
@@ -53,9 +86,6 @@ class messageTraceLists extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->time) {
-            $res['Time'] = $this->time;
-        }
         if (null !== $this->action) {
             $res['Action'] = $this->action;
         }
@@ -65,11 +95,14 @@ class messageTraceLists extends Model
         if (null !== $this->actionInfo) {
             $res['ActionInfo'] = $this->actionInfo;
         }
+        if (null !== $this->clientId) {
+            $res['ClientId'] = $this->clientId;
+        }
         if (null !== $this->msgId) {
             $res['MsgId'] = $this->msgId;
         }
-        if (null !== $this->clientId) {
-            $res['ClientId'] = $this->clientId;
+        if (null !== $this->time) {
+            $res['Time'] = $this->time;
         }
 
         return $res;
@@ -83,9 +116,6 @@ class messageTraceLists extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Time'])) {
-            $model->time = $map['Time'];
-        }
         if (isset($map['Action'])) {
             $model->action = $map['Action'];
         }
@@ -95,11 +125,14 @@ class messageTraceLists extends Model
         if (isset($map['ActionInfo'])) {
             $model->actionInfo = $map['ActionInfo'];
         }
+        if (isset($map['ClientId'])) {
+            $model->clientId = $map['ClientId'];
+        }
         if (isset($map['MsgId'])) {
             $model->msgId = $map['MsgId'];
         }
-        if (isset($map['ClientId'])) {
-            $model->clientId = $map['ClientId'];
+        if (isset($map['Time'])) {
+            $model->time = $map['Time'];
         }
 
         return $model;

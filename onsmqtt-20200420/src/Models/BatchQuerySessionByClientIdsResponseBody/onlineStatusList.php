@@ -9,17 +9,28 @@ use AlibabaCloud\Tea\Model;
 class onlineStatusList extends Model
 {
     /**
-     * @var bool
-     */
-    public $onlineStatus;
-
-    /**
+     * @description The ID of the ApsaraMQ for MQTT client. For more information about client IDs, see [Terms](~~42420~~).
+     *
+     * @example GID_test@0001
+     *
      * @var string
      */
     public $clientId;
+
+    /**
+     * @description Indicates whether the ApsaraMQ for MQTT client is online. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
+     * @var bool
+     */
+    public $onlineStatus;
     protected $_name = [
-        'onlineStatus' => 'OnlineStatus',
         'clientId'     => 'ClientId',
+        'onlineStatus' => 'OnlineStatus',
     ];
 
     public function validate()
@@ -29,11 +40,11 @@ class onlineStatusList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->onlineStatus) {
-            $res['OnlineStatus'] = $this->onlineStatus;
-        }
         if (null !== $this->clientId) {
             $res['ClientId'] = $this->clientId;
+        }
+        if (null !== $this->onlineStatus) {
+            $res['OnlineStatus'] = $this->onlineStatus;
         }
 
         return $res;
@@ -47,11 +58,11 @@ class onlineStatusList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OnlineStatus'])) {
-            $model->onlineStatus = $map['OnlineStatus'];
-        }
         if (isset($map['ClientId'])) {
             $model->clientId = $map['ClientId'];
+        }
+        if (isset($map['OnlineStatus'])) {
+            $model->onlineStatus = $map['OnlineStatus'];
         }
 
         return $model;

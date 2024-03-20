@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class UnRegisterDeviceCredentialRequest extends Model
 {
     /**
+     * @description The client ID of the device whose access credential you want to deregister.
+     *
+     * @example GID_test@@@test
+     *
      * @var string
      */
     public $clientId;
 
     /**
+     * @description The ID of the ApsaraMQ for MQTT instance. The ID must be consistent with the ID of the instance that the ApsaraMQ for MQTT client uses. You can obtain the instance ID on the **Instance Details** page that corresponds to the instance in the ApsaraMQ for MQTT console.
+     *
+     * @example post-cn-0pp12gl****
+     *
      * @var string
      */
     public $instanceId;

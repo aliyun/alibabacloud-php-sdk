@@ -10,17 +10,23 @@ use AlibabaCloud\Tea\Model;
 class QueryMqttTraceMessagePublishResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
+     * @description The message traces.
+     *
      * @var messageTraceLists[]
      */
     public $messageTraceLists;
+
+    /**
+     * @description The request ID. You can use the ID to troubleshoot issues. This parameter is a common parameter.
+     *
+     * @example 69AD5550-BF22-438A-9202-A6E89185****
+     *
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'         => 'RequestId',
         'messageTraceLists' => 'MessageTraceLists',
+        'requestId'         => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +36,6 @@ class QueryMqttTraceMessagePublishResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->messageTraceLists) {
             $res['MessageTraceLists'] = [];
             if (null !== $this->messageTraceLists && \is_array($this->messageTraceLists)) {
@@ -41,6 +44,9 @@ class QueryMqttTraceMessagePublishResponseBody extends Model
                     $res['MessageTraceLists'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +60,6 @@ class QueryMqttTraceMessagePublishResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['MessageTraceLists'])) {
             if (!empty($map['MessageTraceLists'])) {
                 $model->messageTraceLists = [];
@@ -65,6 +68,9 @@ class QueryMqttTraceMessagePublishResponseBody extends Model
                     $model->messageTraceLists[$n++] = null !== $item ? messageTraceLists::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

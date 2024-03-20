@@ -5,16 +5,43 @@
 namespace AlibabaCloud\SDK\OnsMqtt\V20200420;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ActiveCaCertificateRequest;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ActiveCaCertificateResponse;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ActiveDeviceCertificateRequest;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ActiveDeviceCertificateResponse;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ApplyTokenRequest;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ApplyTokenResponse;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\BatchQuerySessionByClientIdsRequest;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\BatchQuerySessionByClientIdsResponse;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\CreateGroupIdRequest;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\CreateGroupIdResponse;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\DeleteCaCertificateRequest;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\DeleteCaCertificateResponse;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\DeleteDeviceCertificateRequest;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\DeleteDeviceCertificateResponse;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\DeleteGroupIdRequest;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\DeleteGroupIdResponse;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\GetCaCertificateRequest;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\GetCaCertificateResponse;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\GetDeviceCertificateRequest;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\GetDeviceCertificateResponse;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\GetDeviceCredentialRequest;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\GetDeviceCredentialResponse;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\GetRegisterCodeRequest;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\GetRegisterCodeResponse;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\InactivateCaCertificateRequest;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\InactivateCaCertificateResponse;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\InactivateDeviceCertificateRequest;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\InactivateDeviceCertificateResponse;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ListCaCertificateRequest;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ListCaCertificateResponse;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ListDeviceCertificateByCaSnRequest;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ListDeviceCertificateByCaSnResponse;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ListDeviceCertificateRequest;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ListDeviceCertificateResponse;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ListDeviceCredentialClientIdRequest;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ListDeviceCredentialClientIdResponse;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ListGroupIdRequest;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ListGroupIdResponse;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\QueryMqttTraceDeviceRequest;
@@ -31,6 +58,8 @@ use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\QueryTokenRequest;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\QueryTokenResponse;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\RefreshDeviceCredentialRequest;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\RefreshDeviceCredentialResponse;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\RegisterCaCertificateRequest;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\RegisterCaCertificateResponse;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\RegisterDeviceCredentialRequest;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\RegisterDeviceCredentialResponse;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\RevokeTokenRequest;
@@ -42,6 +71,7 @@ use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\UnRegisterDeviceCredentialResponse
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class OnsMqtt extends OpenApiClient
@@ -78,25 +108,150 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param ApplyTokenRequest $request
-     * @param RuntimeOptions    $runtime
+     * @param ActiveCaCertificateRequest $request
+     * @param RuntimeOptions             $runtime
      *
-     * @return ApplyTokenResponse
+     * @return ActiveCaCertificateResponse
+     */
+    public function activeCaCertificateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->mqttInstanceId)) {
+            $query['MqttInstanceId'] = $request->mqttInstanceId;
+        }
+        if (!Utils::isUnset($request->sn)) {
+            $query['Sn'] = $request->sn;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ActiveCaCertificate',
+            'version'     => '2020-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ActiveCaCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ActiveCaCertificateRequest $request
+     *
+     * @return ActiveCaCertificateResponse
+     */
+    public function activeCaCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->activeCaCertificateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ActiveDeviceCertificateRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ActiveDeviceCertificateResponse
+     */
+    public function activeDeviceCertificateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->caSn)) {
+            $query['CaSn'] = $request->caSn;
+        }
+        if (!Utils::isUnset($request->deviceSn)) {
+            $query['DeviceSn'] = $request->deviceSn;
+        }
+        if (!Utils::isUnset($request->mqttInstanceId)) {
+            $query['MqttInstanceId'] = $request->mqttInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ActiveDeviceCertificate',
+            'version'     => '2020-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ActiveDeviceCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ActiveDeviceCertificateRequest $request
+     *
+     * @return ActiveDeviceCertificateResponse
+     */
+    public function activeDeviceCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->activeDeviceCertificateWithOptions($request, $runtime);
+    }
+
+    /**
+     * *   You can call this operation up to 100 times per second per account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
+     *   * *   Each successful call to the **ApplyToken** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
+     *   *
+     * @param ApplyTokenRequest $request ApplyTokenRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ApplyTokenResponse ApplyTokenResponse
      */
     public function applyTokenWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->actions)) {
+            $query['Actions'] = $request->actions;
+        }
+        if (!Utils::isUnset($request->expireTime)) {
+            $query['ExpireTime'] = $request->expireTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->resources)) {
+            $query['Resources'] = $request->resources;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ApplyToken',
+            'version'     => '2020-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ApplyTokenResponse::fromMap($this->doRPCRequest('ApplyToken', '2020-04-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ApplyTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ApplyTokenRequest $request
+     * *   You can call this operation up to 100 times per second per account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
+     *   * *   Each successful call to the **ApplyToken** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
+     *   *
+     * @param ApplyTokenRequest $request ApplyTokenRequest
      *
-     * @return ApplyTokenResponse
+     * @return ApplyTokenResponse ApplyTokenResponse
      */
     public function applyToken($request)
     {
@@ -106,25 +261,51 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param BatchQuerySessionByClientIdsRequest $request
-     * @param RuntimeOptions                      $runtime
+     * *   You can call the **BatchQuerySessionByClientIds** operation up to 100 times per second. For more information, see [Limits on QPS](~~163047~~).
+     *   * *   You can call the **BatchQuerySessionByClientIds** operation to query the status of up to 10 ApsaraMQ for MQTT clients in a single query.
+     *   * *   Each successful call to the **BatchQuerySessionByClientIds** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
+     *   *
+     * @param BatchQuerySessionByClientIdsRequest $request BatchQuerySessionByClientIdsRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchQuerySessionByClientIdsResponse
+     * @return BatchQuerySessionByClientIdsResponse BatchQuerySessionByClientIdsResponse
      */
     public function batchQuerySessionByClientIdsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientIdList)) {
+            $query['ClientIdList'] = $request->clientIdList;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchQuerySessionByClientIds',
+            'version'     => '2020-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchQuerySessionByClientIdsResponse::fromMap($this->doRPCRequest('BatchQuerySessionByClientIds', '2020-04-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchQuerySessionByClientIdsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param BatchQuerySessionByClientIdsRequest $request
+     * *   You can call the **BatchQuerySessionByClientIds** operation up to 100 times per second. For more information, see [Limits on QPS](~~163047~~).
+     *   * *   You can call the **BatchQuerySessionByClientIds** operation to query the status of up to 10 ApsaraMQ for MQTT clients in a single query.
+     *   * *   Each successful call to the **BatchQuerySessionByClientIds** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
+     *   *
+     * @param BatchQuerySessionByClientIdsRequest $request BatchQuerySessionByClientIdsRequest
      *
-     * @return BatchQuerySessionByClientIdsResponse
+     * @return BatchQuerySessionByClientIdsResponse BatchQuerySessionByClientIdsResponse
      */
     public function batchQuerySessionByClientIds($request)
     {
@@ -134,25 +315,47 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param CreateGroupIdRequest $request
-     * @param RuntimeOptions       $runtime
+     * Each successful call to the **CreateGroupId** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
+     *   *
+     * @param CreateGroupIdRequest $request CreateGroupIdRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateGroupIdResponse
+     * @return CreateGroupIdResponse CreateGroupIdResponse
      */
     public function createGroupIdWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateGroupId',
+            'version'     => '2020-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateGroupIdResponse::fromMap($this->doRPCRequest('CreateGroupId', '2020-04-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateGroupIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CreateGroupIdRequest $request
+     * Each successful call to the **CreateGroupId** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
+     *   *
+     * @param CreateGroupIdRequest $request CreateGroupIdRequest
      *
-     * @return CreateGroupIdResponse
+     * @return CreateGroupIdResponse CreateGroupIdResponse
      */
     public function createGroupId($request)
     {
@@ -162,25 +365,142 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param DeleteGroupIdRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param DeleteCaCertificateRequest $request
+     * @param RuntimeOptions             $runtime
      *
-     * @return DeleteGroupIdResponse
+     * @return DeleteCaCertificateResponse
+     */
+    public function deleteCaCertificateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->mqttInstanceId)) {
+            $query['MqttInstanceId'] = $request->mqttInstanceId;
+        }
+        if (!Utils::isUnset($request->sn)) {
+            $query['Sn'] = $request->sn;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCaCertificate',
+            'version'     => '2020-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteCaCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteCaCertificateRequest $request
+     *
+     * @return DeleteCaCertificateResponse
+     */
+    public function deleteCaCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCaCertificateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteDeviceCertificateRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteDeviceCertificateResponse
+     */
+    public function deleteDeviceCertificateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->caSn)) {
+            $query['CaSn'] = $request->caSn;
+        }
+        if (!Utils::isUnset($request->deviceSn)) {
+            $query['DeviceSn'] = $request->deviceSn;
+        }
+        if (!Utils::isUnset($request->mqttInstanceId)) {
+            $query['MqttInstanceId'] = $request->mqttInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDeviceCertificate',
+            'version'     => '2020-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDeviceCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDeviceCertificateRequest $request
+     *
+     * @return DeleteDeviceCertificateResponse
+     */
+    public function deleteDeviceCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDeviceCertificateWithOptions($request, $runtime);
+    }
+
+    /**
+     * Each successful call to the **DeleteGroupId** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
+     *   *
+     * @param DeleteGroupIdRequest $request DeleteGroupIdRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteGroupIdResponse DeleteGroupIdResponse
      */
     public function deleteGroupIdWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteGroupId',
+            'version'     => '2020-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteGroupIdResponse::fromMap($this->doRPCRequest('DeleteGroupId', '2020-04-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteGroupIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteGroupIdRequest $request
+     * Each successful call to the **DeleteGroupId** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
+     *   *
+     * @param DeleteGroupIdRequest $request DeleteGroupIdRequest
      *
-     * @return DeleteGroupIdResponse
+     * @return DeleteGroupIdResponse DeleteGroupIdResponse
      */
     public function deleteGroupId($request)
     {
@@ -190,25 +510,129 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param GetDeviceCredentialRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param GetCaCertificateRequest $request
+     * @param RuntimeOptions          $runtime
      *
-     * @return GetDeviceCredentialResponse
+     * @return GetCaCertificateResponse
+     */
+    public function getCaCertificateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCaCertificate',
+            'version'     => '2020-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCaCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetCaCertificateRequest $request
+     *
+     * @return GetCaCertificateResponse
+     */
+    public function getCaCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCaCertificateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetDeviceCertificateRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetDeviceCertificateResponse
+     */
+    public function getDeviceCertificateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDeviceCertificate',
+            'version'     => '2020-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDeviceCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetDeviceCertificateRequest $request
+     *
+     * @return GetDeviceCertificateResponse
+     */
+    public function getDeviceCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDeviceCertificateWithOptions($request, $runtime);
+    }
+
+    /**
+     * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](~~163047~~).
+     *   * *   Each successful call to the **GetDeviceCredential** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
+     *   *
+     * @param GetDeviceCredentialRequest $request GetDeviceCredentialRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetDeviceCredentialResponse GetDeviceCredentialResponse
      */
     public function getDeviceCredentialWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientId)) {
+            $query['ClientId'] = $request->clientId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDeviceCredential',
+            'version'     => '2020-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetDeviceCredentialResponse::fromMap($this->doRPCRequest('GetDeviceCredential', '2020-04-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetDeviceCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param GetDeviceCredentialRequest $request
+     * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](~~163047~~).
+     *   * *   Each successful call to the **GetDeviceCredential** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
+     *   *
+     * @param GetDeviceCredentialRequest $request GetDeviceCredentialRequest
      *
-     * @return GetDeviceCredentialResponse
+     * @return GetDeviceCredentialResponse GetDeviceCredentialResponse
      */
     public function getDeviceCredential($request)
     {
@@ -218,25 +642,354 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param ListGroupIdRequest $request
-     * @param RuntimeOptions     $runtime
+     * @param GetRegisterCodeRequest $request
+     * @param RuntimeOptions         $runtime
      *
-     * @return ListGroupIdResponse
+     * @return GetRegisterCodeResponse
+     */
+    public function getRegisterCodeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetRegisterCode',
+            'version'     => '2020-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetRegisterCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetRegisterCodeRequest $request
+     *
+     * @return GetRegisterCodeResponse
+     */
+    public function getRegisterCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRegisterCodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param InactivateCaCertificateRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return InactivateCaCertificateResponse
+     */
+    public function inactivateCaCertificateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->mqttInstanceId)) {
+            $query['MqttInstanceId'] = $request->mqttInstanceId;
+        }
+        if (!Utils::isUnset($request->sn)) {
+            $query['Sn'] = $request->sn;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'InactivateCaCertificate',
+            'version'     => '2020-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return InactivateCaCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param InactivateCaCertificateRequest $request
+     *
+     * @return InactivateCaCertificateResponse
+     */
+    public function inactivateCaCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->inactivateCaCertificateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param InactivateDeviceCertificateRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return InactivateDeviceCertificateResponse
+     */
+    public function inactivateDeviceCertificateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->caSn)) {
+            $query['CaSn'] = $request->caSn;
+        }
+        if (!Utils::isUnset($request->deviceSn)) {
+            $query['DeviceSn'] = $request->deviceSn;
+        }
+        if (!Utils::isUnset($request->mqttInstanceId)) {
+            $query['MqttInstanceId'] = $request->mqttInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'InactivateDeviceCertificate',
+            'version'     => '2020-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return InactivateDeviceCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param InactivateDeviceCertificateRequest $request
+     *
+     * @return InactivateDeviceCertificateResponse
+     */
+    public function inactivateDeviceCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->inactivateDeviceCertificateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListCaCertificateRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListCaCertificateResponse
+     */
+    public function listCaCertificateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCaCertificate',
+            'version'     => '2020-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCaCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCaCertificateRequest $request
+     *
+     * @return ListCaCertificateResponse
+     */
+    public function listCaCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCaCertificateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDeviceCertificateRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListDeviceCertificateResponse
+     */
+    public function listDeviceCertificateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDeviceCertificate',
+            'version'     => '2020-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDeviceCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDeviceCertificateRequest $request
+     *
+     * @return ListDeviceCertificateResponse
+     */
+    public function listDeviceCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDeviceCertificateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDeviceCertificateByCaSnRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListDeviceCertificateByCaSnResponse
+     */
+    public function listDeviceCertificateByCaSnWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDeviceCertificateByCaSn',
+            'version'     => '2020-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDeviceCertificateByCaSnResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDeviceCertificateByCaSnRequest $request
+     *
+     * @return ListDeviceCertificateByCaSnResponse
+     */
+    public function listDeviceCertificateByCaSn($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDeviceCertificateByCaSnWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDeviceCredentialClientIdRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListDeviceCredentialClientIdResponse
+     */
+    public function listDeviceCredentialClientIdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDeviceCredentialClientId',
+            'version'     => '2020-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDeviceCredentialClientIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDeviceCredentialClientIdRequest $request
+     *
+     * @return ListDeviceCredentialClientIdResponse
+     */
+    public function listDeviceCredentialClientId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDeviceCredentialClientIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * Each successful call to the **ListGroupId** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
+     *   *
+     * @param ListGroupIdRequest $request ListGroupIdRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListGroupIdResponse ListGroupIdResponse
      */
     public function listGroupIdWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListGroupId',
+            'version'     => '2020-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListGroupIdResponse::fromMap($this->doRPCRequest('ListGroupId', '2020-04-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListGroupIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ListGroupIdRequest $request
+     * Each successful call to the **ListGroupId** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
+     *   *
+     * @param ListGroupIdRequest $request ListGroupIdRequest
      *
-     * @return ListGroupIdResponse
+     * @return ListGroupIdResponse ListGroupIdResponse
      */
     public function listGroupId($request)
     {
@@ -246,25 +999,67 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param QueryMqttTraceDeviceRequest $request
-     * @param RuntimeOptions              $runtime
+     * *   Each successful call to the **QueryMqttTraceDevice** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
+     *   * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](~~163047~~).
+     *   *
+     * @param QueryMqttTraceDeviceRequest $request QueryMqttTraceDeviceRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryMqttTraceDeviceResponse
+     * @return QueryMqttTraceDeviceResponse QueryMqttTraceDeviceResponse
      */
     public function queryMqttTraceDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->beginTime)) {
+            $query['BeginTime'] = $request->beginTime;
+        }
+        if (!Utils::isUnset($request->clientId)) {
+            $query['ClientId'] = $request->clientId;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->mqttRegionId)) {
+            $query['MqttRegionId'] = $request->mqttRegionId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->reverse)) {
+            $query['Reverse'] = $request->reverse;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryMqttTraceDevice',
+            'version'     => '2020-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryMqttTraceDeviceResponse::fromMap($this->doRPCRequest('QueryMqttTraceDevice', '2020-04-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryMqttTraceDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryMqttTraceDeviceRequest $request
+     * *   Each successful call to the **QueryMqttTraceDevice** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
+     *   * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](~~163047~~).
+     *   *
+     * @param QueryMqttTraceDeviceRequest $request QueryMqttTraceDeviceRequest
      *
-     * @return QueryMqttTraceDeviceResponse
+     * @return QueryMqttTraceDeviceResponse QueryMqttTraceDeviceResponse
      */
     public function queryMqttTraceDevice($request)
     {
@@ -274,25 +1069,67 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param QueryMqttTraceMessageOfClientRequest $request
-     * @param RuntimeOptions                       $runtime
+     * *   Each successful call to the **QueryMqttTraceMessageOfClient** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
+     *   * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](~~163047~~).
+     *   *
+     * @param QueryMqttTraceMessageOfClientRequest $request QueryMqttTraceMessageOfClientRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryMqttTraceMessageOfClientResponse
+     * @return QueryMqttTraceMessageOfClientResponse QueryMqttTraceMessageOfClientResponse
      */
     public function queryMqttTraceMessageOfClientWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->beginTime)) {
+            $query['BeginTime'] = $request->beginTime;
+        }
+        if (!Utils::isUnset($request->clientId)) {
+            $query['ClientId'] = $request->clientId;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->mqttRegionId)) {
+            $query['MqttRegionId'] = $request->mqttRegionId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->reverse)) {
+            $query['Reverse'] = $request->reverse;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryMqttTraceMessageOfClient',
+            'version'     => '2020-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryMqttTraceMessageOfClientResponse::fromMap($this->doRPCRequest('QueryMqttTraceMessageOfClient', '2020-04-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryMqttTraceMessageOfClientResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryMqttTraceMessageOfClientRequest $request
+     * *   Each successful call to the **QueryMqttTraceMessageOfClient** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
+     *   * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](~~163047~~).
+     *   *
+     * @param QueryMqttTraceMessageOfClientRequest $request QueryMqttTraceMessageOfClientRequest
      *
-     * @return QueryMqttTraceMessageOfClientResponse
+     * @return QueryMqttTraceMessageOfClientResponse QueryMqttTraceMessageOfClientResponse
      */
     public function queryMqttTraceMessageOfClient($request)
     {
@@ -302,25 +1139,58 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param QueryMqttTraceMessagePublishRequest $request
-     * @param RuntimeOptions                      $runtime
+     * *   Each successful call to the **QueryMqttTraceMessagePublish** operation increases the messaging transactions per second (TPS). This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
+     *   * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](~~163047~~).
+     *   *
+     * @param QueryMqttTraceMessagePublishRequest $request QueryMqttTraceMessagePublishRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryMqttTraceMessagePublishResponse
+     * @return QueryMqttTraceMessagePublishResponse QueryMqttTraceMessagePublishResponse
      */
     public function queryMqttTraceMessagePublishWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->beginTime)) {
+            $query['BeginTime'] = $request->beginTime;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->mqttRegionId)) {
+            $query['MqttRegionId'] = $request->mqttRegionId;
+        }
+        if (!Utils::isUnset($request->msgId)) {
+            $query['MsgId'] = $request->msgId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryMqttTraceMessagePublish',
+            'version'     => '2020-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryMqttTraceMessagePublishResponse::fromMap($this->doRPCRequest('QueryMqttTraceMessagePublish', '2020-04-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryMqttTraceMessagePublishResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryMqttTraceMessagePublishRequest $request
+     * *   Each successful call to the **QueryMqttTraceMessagePublish** operation increases the messaging transactions per second (TPS). This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
+     *   * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](~~163047~~).
+     *   *
+     * @param QueryMqttTraceMessagePublishRequest $request QueryMqttTraceMessagePublishRequest
      *
-     * @return QueryMqttTraceMessagePublishResponse
+     * @return QueryMqttTraceMessagePublishResponse QueryMqttTraceMessagePublishResponse
      */
     public function queryMqttTraceMessagePublish($request)
     {
@@ -330,25 +1200,70 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param QueryMqttTraceMessageSubscribeRequest $request
-     * @param RuntimeOptions                        $runtime
+     * *   Each successful call to the **QueryMqttTraceMessageSubscribe** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
+     *   * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](~~163047~~).
+     *   *
+     * @param QueryMqttTraceMessageSubscribeRequest $request QueryMqttTraceMessageSubscribeRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryMqttTraceMessageSubscribeResponse
+     * @return QueryMqttTraceMessageSubscribeResponse QueryMqttTraceMessageSubscribeResponse
      */
     public function queryMqttTraceMessageSubscribeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->beginTime)) {
+            $query['BeginTime'] = $request->beginTime;
+        }
+        if (!Utils::isUnset($request->clientId)) {
+            $query['ClientId'] = $request->clientId;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->mqttRegionId)) {
+            $query['MqttRegionId'] = $request->mqttRegionId;
+        }
+        if (!Utils::isUnset($request->msgId)) {
+            $query['MsgId'] = $request->msgId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->reverse)) {
+            $query['Reverse'] = $request->reverse;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryMqttTraceMessageSubscribe',
+            'version'     => '2020-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryMqttTraceMessageSubscribeResponse::fromMap($this->doRPCRequest('QueryMqttTraceMessageSubscribe', '2020-04-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryMqttTraceMessageSubscribeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryMqttTraceMessageSubscribeRequest $request
+     * *   Each successful call to the **QueryMqttTraceMessageSubscribe** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
+     *   * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](~~163047~~).
+     *   *
+     * @param QueryMqttTraceMessageSubscribeRequest $request QueryMqttTraceMessageSubscribeRequest
      *
-     * @return QueryMqttTraceMessageSubscribeResponse
+     * @return QueryMqttTraceMessageSubscribeResponse QueryMqttTraceMessageSubscribeResponse
      */
     public function queryMqttTraceMessageSubscribe($request)
     {
@@ -358,25 +1273,49 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param QuerySessionByClientIdRequest $request
-     * @param RuntimeOptions                $runtime
+     * *   You can call this operation up to 500 times per second.**** For more information, see [Limits on QPS](~~163047~~).
+     *   * *   Each successful call to the **QuerySessionByClientId** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
+     *   *
+     * @param QuerySessionByClientIdRequest $request QuerySessionByClientIdRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return QuerySessionByClientIdResponse
+     * @return QuerySessionByClientIdResponse QuerySessionByClientIdResponse
      */
     public function querySessionByClientIdWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientId)) {
+            $query['ClientId'] = $request->clientId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QuerySessionByClientId',
+            'version'     => '2020-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QuerySessionByClientIdResponse::fromMap($this->doRPCRequest('QuerySessionByClientId', '2020-04-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QuerySessionByClientIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QuerySessionByClientIdRequest $request
+     * *   You can call this operation up to 500 times per second.**** For more information, see [Limits on QPS](~~163047~~).
+     *   * *   Each successful call to the **QuerySessionByClientId** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
+     *   *
+     * @param QuerySessionByClientIdRequest $request QuerySessionByClientIdRequest
      *
-     * @return QuerySessionByClientIdResponse
+     * @return QuerySessionByClientIdResponse QuerySessionByClientIdResponse
      */
     public function querySessionByClientId($request)
     {
@@ -386,25 +1325,49 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param QueryTokenRequest $request
-     * @param RuntimeOptions    $runtime
+     * *   You can call this operation up to 100 times per second per account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
+     *   * *   Each successful call to the **QueryToken** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
+     *   *
+     * @param QueryTokenRequest $request QueryTokenRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryTokenResponse
+     * @return QueryTokenResponse QueryTokenResponse
      */
     public function queryTokenWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->token)) {
+            $query['Token'] = $request->token;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryToken',
+            'version'     => '2020-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryTokenResponse::fromMap($this->doRPCRequest('QueryToken', '2020-04-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryTokenRequest $request
+     * *   You can call this operation up to 100 times per second per account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
+     *   * *   Each successful call to the **QueryToken** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
+     *   *
+     * @param QueryTokenRequest $request QueryTokenRequest
      *
-     * @return QueryTokenResponse
+     * @return QueryTokenResponse QueryTokenResponse
      */
     public function queryToken($request)
     {
@@ -414,25 +1377,51 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param RefreshDeviceCredentialRequest $request
-     * @param RuntimeOptions                 $runtime
+     * ## [](#)Limits
+     *   * You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](~~163047~~).
+     *   * >  Each successful call to the **RefreshDeviceCredential** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
+     *   *
+     * @param RefreshDeviceCredentialRequest $request RefreshDeviceCredentialRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return RefreshDeviceCredentialResponse
+     * @return RefreshDeviceCredentialResponse RefreshDeviceCredentialResponse
      */
     public function refreshDeviceCredentialWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientId)) {
+            $query['ClientId'] = $request->clientId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RefreshDeviceCredential',
+            'version'     => '2020-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RefreshDeviceCredentialResponse::fromMap($this->doRPCRequest('RefreshDeviceCredential', '2020-04-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RefreshDeviceCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param RefreshDeviceCredentialRequest $request
+     * ## [](#)Limits
+     *   * You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](~~163047~~).
+     *   * >  Each successful call to the **RefreshDeviceCredential** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
+     *   *
+     * @param RefreshDeviceCredentialRequest $request RefreshDeviceCredentialRequest
      *
-     * @return RefreshDeviceCredentialResponse
+     * @return RefreshDeviceCredentialResponse RefreshDeviceCredentialResponse
      */
     public function refreshDeviceCredential($request)
     {
@@ -442,25 +1431,101 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param RegisterDeviceCredentialRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param RegisterCaCertificateRequest $request
+     * @param RuntimeOptions               $runtime
      *
-     * @return RegisterDeviceCredentialResponse
+     * @return RegisterCaCertificateResponse
+     */
+    public function registerCaCertificateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->caContent)) {
+            $query['CaContent'] = $request->caContent;
+        }
+        if (!Utils::isUnset($request->caName)) {
+            $query['CaName'] = $request->caName;
+        }
+        if (!Utils::isUnset($request->mqttInstanceId)) {
+            $query['MqttInstanceId'] = $request->mqttInstanceId;
+        }
+        if (!Utils::isUnset($request->verificationContent)) {
+            $query['VerificationContent'] = $request->verificationContent;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RegisterCaCertificate',
+            'version'     => '2020-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RegisterCaCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RegisterCaCertificateRequest $request
+     *
+     * @return RegisterCaCertificateResponse
+     */
+    public function registerCaCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->registerCaCertificateWithOptions($request, $runtime);
+    }
+
+    /**
+     * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](~~163047~~).
+     *   * *   Each successful call to the **RegisterDeviceCredential** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
+     *   *
+     * @param RegisterDeviceCredentialRequest $request RegisterDeviceCredentialRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RegisterDeviceCredentialResponse RegisterDeviceCredentialResponse
      */
     public function registerDeviceCredentialWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientId)) {
+            $query['ClientId'] = $request->clientId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RegisterDeviceCredential',
+            'version'     => '2020-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RegisterDeviceCredentialResponse::fromMap($this->doRPCRequest('RegisterDeviceCredential', '2020-04-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RegisterDeviceCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param RegisterDeviceCredentialRequest $request
+     * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](~~163047~~).
+     *   * *   Each successful call to the **RegisterDeviceCredential** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
+     *   *
+     * @param RegisterDeviceCredentialRequest $request RegisterDeviceCredentialRequest
      *
-     * @return RegisterDeviceCredentialResponse
+     * @return RegisterDeviceCredentialResponse RegisterDeviceCredentialResponse
      */
     public function registerDeviceCredential($request)
     {
@@ -470,25 +1535,49 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param RevokeTokenRequest $request
-     * @param RuntimeOptions     $runtime
+     * *   You can call this operation up to 5 times per second per account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
+     *   * *   Each successful call to the **RevokeToken** operation increases the messaging transactions per second (TPS). This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
+     *   *
+     * @param RevokeTokenRequest $request RevokeTokenRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return RevokeTokenResponse
+     * @return RevokeTokenResponse RevokeTokenResponse
      */
     public function revokeTokenWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->token)) {
+            $query['Token'] = $request->token;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RevokeToken',
+            'version'     => '2020-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RevokeTokenResponse::fromMap($this->doRPCRequest('RevokeToken', '2020-04-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RevokeTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param RevokeTokenRequest $request
+     * *   You can call this operation up to 5 times per second per account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
+     *   * *   Each successful call to the **RevokeToken** operation increases the messaging transactions per second (TPS). This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
+     *   *
+     * @param RevokeTokenRequest $request RevokeTokenRequest
      *
-     * @return RevokeTokenResponse
+     * @return RevokeTokenResponse RevokeTokenResponse
      */
     public function revokeToken($request)
     {
@@ -498,25 +1587,56 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param SendMessageRequest $request
-     * @param RuntimeOptions     $runtime
+     * *   The **SendMessage** operation is called by applications on cloud servers. It is complementary to the operation that is called by ApsaraMQ for MQTT clients to send messages. For information about the differences between the scenarios of sending messages from applications on cloud servers and the scenarios of sending messages from ApsaraMQ for MQTT clients, see [Developer guide](~~179160~~).
+     *   * *   Before you call the **SendMessage** operation, make sure that the kernel version of your ApsaraMQ for MQTT instance is 3.3.0 or later. You can obtain the information about the kernel version on the [Instance Details](https://mqtt.console.aliyun.com) page that corresponds to the instance in the **ApsaraMQ for MQTT console**.
+     *   * *   Messages that are sent by calling the **SendMessage** operation cannot be forwarded to ApsaraMQ for RocketMQ. If you want to use an ApsaraMQ for MQTT to forward messages to ApsaraMQ for RocketMQ, send the messages by using an SDK. For more information, see [Export data from ApsaraMQ for MQTT to other Alibaba Cloud services](~~174527~~). You can call the **SendMessage** operation up to 1,000 times per second. For more information, see [Limits on QPS](~~163047~~).
+     *   * *   Each successful call to the **SendMessage** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For information about the billing details, see [Billing rules](~~52819~~).
+     *   *
+     * @param SendMessageRequest $request SendMessageRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return SendMessageResponse
+     * @return SendMessageResponse SendMessageResponse
      */
     public function sendMessageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->mqttTopic)) {
+            $query['MqttTopic'] = $request->mqttTopic;
+        }
+        if (!Utils::isUnset($request->payload)) {
+            $query['Payload'] = $request->payload;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SendMessage',
+            'version'     => '2020-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SendMessageResponse::fromMap($this->doRPCRequest('SendMessage', '2020-04-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SendMessageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param SendMessageRequest $request
+     * *   The **SendMessage** operation is called by applications on cloud servers. It is complementary to the operation that is called by ApsaraMQ for MQTT clients to send messages. For information about the differences between the scenarios of sending messages from applications on cloud servers and the scenarios of sending messages from ApsaraMQ for MQTT clients, see [Developer guide](~~179160~~).
+     *   * *   Before you call the **SendMessage** operation, make sure that the kernel version of your ApsaraMQ for MQTT instance is 3.3.0 or later. You can obtain the information about the kernel version on the [Instance Details](https://mqtt.console.aliyun.com) page that corresponds to the instance in the **ApsaraMQ for MQTT console**.
+     *   * *   Messages that are sent by calling the **SendMessage** operation cannot be forwarded to ApsaraMQ for RocketMQ. If you want to use an ApsaraMQ for MQTT to forward messages to ApsaraMQ for RocketMQ, send the messages by using an SDK. For more information, see [Export data from ApsaraMQ for MQTT to other Alibaba Cloud services](~~174527~~). You can call the **SendMessage** operation up to 1,000 times per second. For more information, see [Limits on QPS](~~163047~~).
+     *   * *   Each successful call to the **SendMessage** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For information about the billing details, see [Billing rules](~~52819~~).
+     *   *
+     * @param SendMessageRequest $request SendMessageRequest
      *
-     * @return SendMessageResponse
+     * @return SendMessageResponse SendMessageResponse
      */
     public function sendMessage($request)
     {
@@ -526,25 +1646,49 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @param UnRegisterDeviceCredentialRequest $request
-     * @param RuntimeOptions                    $runtime
+     * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](~~163047~~).
+     *   * *   Each successful call to the **UnRegisterDeviceCredential** operation increases the number of transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
+     *   *
+     * @param UnRegisterDeviceCredentialRequest $request UnRegisterDeviceCredentialRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnRegisterDeviceCredentialResponse
+     * @return UnRegisterDeviceCredentialResponse UnRegisterDeviceCredentialResponse
      */
     public function unRegisterDeviceCredentialWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientId)) {
+            $query['ClientId'] = $request->clientId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UnRegisterDeviceCredential',
+            'version'     => '2020-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UnRegisterDeviceCredentialResponse::fromMap($this->doRPCRequest('UnRegisterDeviceCredential', '2020-04-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UnRegisterDeviceCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param UnRegisterDeviceCredentialRequest $request
+     * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](~~163047~~).
+     *   * *   Each successful call to the **UnRegisterDeviceCredential** operation increases the number of transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
+     *   *
+     * @param UnRegisterDeviceCredentialRequest $request UnRegisterDeviceCredentialRequest
      *
-     * @return UnRegisterDeviceCredentialResponse
+     * @return UnRegisterDeviceCredentialResponse UnRegisterDeviceCredentialResponse
      */
     public function unRegisterDeviceCredential($request)
     {

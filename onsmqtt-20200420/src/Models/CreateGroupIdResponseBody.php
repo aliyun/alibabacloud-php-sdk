@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class CreateGroupIdResponseBody extends Model
 {
     /**
+     * @description The request ID. This parameter is a common parameter.
+     *
+     * @example 2C7D722D-0F3D-4415-A9CD-A464D82C****
+     *
      * @var string
      */
     public $requestId;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ListGroupIdRequest extends Model
 {
     /**
+     * @description The ID of the ApsaraMQ for MQTT instance whose groups you want to query.
+     *
+     * @example mqtt-cn-0pp1ldu****
+     *
      * @var string
      */
     public $instanceId;
