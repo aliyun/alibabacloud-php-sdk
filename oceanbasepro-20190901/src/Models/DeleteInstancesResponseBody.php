@@ -17,7 +17,7 @@ class DeleteInstancesResponseBody extends Model
     public $data;
 
     /**
-     * @description The request ID.
+     * @description The ID of the request.
      *
      * @example 473469C7-****-****-B3DB-A3DC0DE3C83E
      *

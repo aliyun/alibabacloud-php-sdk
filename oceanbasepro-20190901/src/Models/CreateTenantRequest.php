@@ -10,7 +10,7 @@ class CreateTenantRequest extends Model
 {
     /**
      * @description The character set.
-     * For more information, see DescribeCharset.
+     * For more information, see [DescribeCharset](https://www.alibabacloud.com/help/en/apsaradb-for-oceanbase/latest/api-oceanbasepro-2019-09-01-describecharset).
      * @example utf8mb4
      *
      * @var string
@@ -84,7 +84,7 @@ class CreateTenantRequest extends Model
 
     /**
      * @description The tenant mode.
-     * For more information, see [DescribeInstanceTenantModes](~~410354~~).
+     * For more information, see [DescribeInstanceTenantModes](https://www.alibabacloud.com/help/en/apsaradb-for-oceanbase/latest/api-oceanbasepro-2019-09-01-describeinstancetenantmodes).
      * @example Oracle
      *
      * @var string

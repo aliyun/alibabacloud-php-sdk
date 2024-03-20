@@ -14,6 +14,11 @@ class ListProjectsRequest extends Model
     public $labelIds;
 
     /**
+     * @var bool
+     */
+    public $needRelatedInfo;
+
+    /**
      * @example descend
      *
      * @var string
@@ -78,6 +83,7 @@ class ListProjectsRequest extends Model
     public $visibleSubProject;
     protected $_name = [
         'labelIds'            => 'LabelIds',
+        'needRelatedInfo'     => 'NeedRelatedInfo',
         'order'               => 'Order',
         'pageNumber'          => 'PageNumber',
         'pageSize'            => 'PageSize',
@@ -99,6 +105,9 @@ class ListProjectsRequest extends Model
         $res = [];
         if (null !== $this->labelIds) {
             $res['LabelIds'] = $this->labelIds;
+        }
+        if (null !== $this->needRelatedInfo) {
+            $res['NeedRelatedInfo'] = $this->needRelatedInfo;
         }
         if (null !== $this->order) {
             $res['Order'] = $this->order;
@@ -146,6 +155,9 @@ class ListProjectsRequest extends Model
             if (!empty($map['LabelIds'])) {
                 $model->labelIds = $map['LabelIds'];
             }
+        }
+        if (isset($map['NeedRelatedInfo'])) {
+            $model->needRelatedInfo = $map['NeedRelatedInfo'];
         }
         if (isset($map['Order'])) {
             $model->order = $map['Order'];

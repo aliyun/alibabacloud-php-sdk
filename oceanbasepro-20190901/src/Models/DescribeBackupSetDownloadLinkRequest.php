@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupSetDownloadLinkRequest extends Model
 {
     /**
+     * @description The ID of the download task corresponding to the target backup set.
+     *
      * @example 1000002
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeBackupSetDownloadLinkRequest extends Model
     public $downloadTaskId;
 
     /**
+     * @description The ID of the OceanBase cluster.
+     *
      * @example ob317v4uif****
      *
      * @var string

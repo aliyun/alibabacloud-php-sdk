@@ -17,7 +17,7 @@ class DescribeAvailableMemResourceResponseBody extends Model
     public $data;
 
     /**
-     * @description The request ID.
+     * @description The ID of the request.
      *
      * @example EE205C00-30E4-****-****-87E3A8A2AA0C
      *

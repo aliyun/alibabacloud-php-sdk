@@ -29,7 +29,7 @@ class securityConfigs extends Model
     /**
      * @description The name of the specific check item.
      *
-     * @example aaa
+     * @example xxx
      *
      * @var string
      */
@@ -47,7 +47,7 @@ class securityConfigs extends Model
     /**
      * @description Security recommendations.
      *
-     * @example aaa
+     * @example xxx
      *
      * @var string
      */

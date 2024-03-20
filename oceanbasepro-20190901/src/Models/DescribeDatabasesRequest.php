@@ -18,7 +18,7 @@ class DescribeDatabasesRequest extends Model
     public $databaseName;
 
     /**
-     * @description Instance ID.
+     * @description The ID of the cluster.
      *
      * @example ob****n0abo9uo
      *
@@ -63,8 +63,8 @@ class DescribeDatabasesRequest extends Model
     public $tenantId;
 
     /**
-     * @description Specifies whether to return the information of tables in the database.
-     * Default value: false.
+     * @description Specifies whether to return the information about tables in the database.
+     * > The operation may time out if the database contains a large number of tables.
      * @example true
      *
      * @var bool

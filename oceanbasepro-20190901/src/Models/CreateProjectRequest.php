@@ -59,6 +59,11 @@ class CreateProjectRequest extends Model
     public $fullTransferConfig;
 
     /**
+     * @var string
+     */
+    public $id;
+
+    /**
      * @var incrTransferConfig
      */
     public $incrTransferConfig;
@@ -134,6 +139,7 @@ class CreateProjectRequest extends Model
         'enableReverseIncrTransfer' => 'EnableReverseIncrTransfer',
         'enableStructTransfer'      => 'EnableStructTransfer',
         'fullTransferConfig'        => 'FullTransferConfig',
+        'id'                        => 'Id',
         'incrTransferConfig'        => 'IncrTransferConfig',
         'labelIds'                  => 'LabelIds',
         'name'                      => 'Name',
@@ -174,6 +180,9 @@ class CreateProjectRequest extends Model
         }
         if (null !== $this->fullTransferConfig) {
             $res['FullTransferConfig'] = null !== $this->fullTransferConfig ? $this->fullTransferConfig->toMap() : null;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->incrTransferConfig) {
             $res['IncrTransferConfig'] = null !== $this->incrTransferConfig ? $this->incrTransferConfig->toMap() : null;
@@ -240,6 +249,9 @@ class CreateProjectRequest extends Model
         }
         if (isset($map['FullTransferConfig'])) {
             $model->fullTransferConfig = fullTransferConfig::fromMap($map['FullTransferConfig']);
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['IncrTransferConfig'])) {
             $model->incrTransferConfig = incrTransferConfig::fromMap($map['IncrTransferConfig']);

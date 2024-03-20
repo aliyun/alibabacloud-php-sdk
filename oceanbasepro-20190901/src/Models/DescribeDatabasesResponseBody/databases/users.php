@@ -36,8 +36,8 @@ class users extends Model
     public $userName;
 
     /**
-     * @description The type of the account. Valid values:  - Admin: the super administrator account. - Normal: a general account.
-     *
+     * @description The type of the account. Valid values:
+     * - Normal: a general account.
      * @example Normal
      *
      * @var string

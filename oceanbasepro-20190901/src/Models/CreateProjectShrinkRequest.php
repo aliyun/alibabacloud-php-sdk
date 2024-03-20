@@ -56,6 +56,11 @@ class CreateProjectShrinkRequest extends Model
     /**
      * @var string
      */
+    public $id;
+
+    /**
+     * @var string
+     */
     public $incrTransferConfigShrink;
 
     /**
@@ -129,6 +134,7 @@ class CreateProjectShrinkRequest extends Model
         'enableReverseIncrTransfer'  => 'EnableReverseIncrTransfer',
         'enableStructTransfer'       => 'EnableStructTransfer',
         'fullTransferConfigShrink'   => 'FullTransferConfig',
+        'id'                         => 'Id',
         'incrTransferConfigShrink'   => 'IncrTransferConfig',
         'labelIdsShrink'             => 'LabelIds',
         'name'                       => 'Name',
@@ -169,6 +175,9 @@ class CreateProjectShrinkRequest extends Model
         }
         if (null !== $this->fullTransferConfigShrink) {
             $res['FullTransferConfig'] = $this->fullTransferConfigShrink;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->incrTransferConfigShrink) {
             $res['IncrTransferConfig'] = $this->incrTransferConfigShrink;
@@ -235,6 +244,9 @@ class CreateProjectShrinkRequest extends Model
         }
         if (isset($map['FullTransferConfig'])) {
             $model->fullTransferConfigShrink = $map['FullTransferConfig'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['IncrTransferConfig'])) {
             $model->incrTransferConfigShrink = $map['IncrTransferConfig'];

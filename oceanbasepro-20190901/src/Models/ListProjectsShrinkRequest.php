@@ -14,6 +14,11 @@ class ListProjectsShrinkRequest extends Model
     public $labelIdsShrink;
 
     /**
+     * @var bool
+     */
+    public $needRelatedInfo;
+
+    /**
      * @example descend
      *
      * @var string
@@ -78,6 +83,7 @@ class ListProjectsShrinkRequest extends Model
     public $visibleSubProject;
     protected $_name = [
         'labelIdsShrink'            => 'LabelIds',
+        'needRelatedInfo'           => 'NeedRelatedInfo',
         'order'                     => 'Order',
         'pageNumber'                => 'PageNumber',
         'pageSize'                  => 'PageSize',
@@ -99,6 +105,9 @@ class ListProjectsShrinkRequest extends Model
         $res = [];
         if (null !== $this->labelIdsShrink) {
             $res['LabelIds'] = $this->labelIdsShrink;
+        }
+        if (null !== $this->needRelatedInfo) {
+            $res['NeedRelatedInfo'] = $this->needRelatedInfo;
         }
         if (null !== $this->order) {
             $res['Order'] = $this->order;
@@ -144,6 +153,9 @@ class ListProjectsShrinkRequest extends Model
         $model = new self();
         if (isset($map['LabelIds'])) {
             $model->labelIdsShrink = $map['LabelIds'];
+        }
+        if (isset($map['NeedRelatedInfo'])) {
+            $model->needRelatedInfo = $map['NeedRelatedInfo'];
         }
         if (isset($map['Order'])) {
             $model->order = $map['Order'];

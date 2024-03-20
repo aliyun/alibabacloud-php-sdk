@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The restorable time of the backup set.
+     *
      * @example yyyy-MM-dd HH:mm:ss
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $backupRestorableTime;
 
     /**
+     * @description The ID of the target backup set.
+     *
      * @example bak-4n****gacpa8
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $backupSetId;
 
     /**
+     * @description The time when the download task corresponding to the target backup set was created.
+     *
      * @example 2020-05-22T17:04:18
      *
      * @var string
@@ -30,6 +36,8 @@ class data extends Model
     public $downloadTaskCreateTime;
 
     /**
+     * @description The ID of the download task corresponding to the target backup set.
+     *
      * @example 1000002
      *
      * @var int
@@ -37,6 +45,8 @@ class data extends Model
     public $downloadTaskId;
 
     /**
+     * @description The status of the download task corresponding to the target backup set.
+     *
      * @example RUNNING
      *
      * @var string
@@ -44,6 +54,8 @@ class data extends Model
     public $downloadTaskStatus;
 
     /**
+     * @description The internal URL.
+     *
      * @example http://bucket.oss-region-internal.aliyuncs.com/xxxxx
      *
      * @var string
@@ -51,6 +63,8 @@ class data extends Model
     public $internalUrl;
 
     /**
+     * @description The validity period of the URL, in seconds.
+     *
      * @example 3600
      *
      * @var int
@@ -58,6 +72,8 @@ class data extends Model
     public $urlAliveTime;
 
     /**
+     * @description The expiration time of the URL.
+     *
      * @example 2024-01-04 17:39:49
      *
      * @var string

@@ -15,6 +15,7 @@ use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProjectResponseBody\d
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProjectResponseBody\data\steps;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProjectResponseBody\data\structTransferConfig;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProjectResponseBody\data\transferMapping;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProjectResponseBody\data\workerGradeInfo;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
@@ -234,6 +235,11 @@ class data extends Model
      * @var string
      */
     public $workerGradeId;
+
+    /**
+     * @var workerGradeInfo
+     */
+    public $workerGradeInfo;
     protected $_name = [
         'alarmStats'                => 'AlarmStats',
         'commonTransferConfig'      => 'CommonTransferConfig',
@@ -269,6 +275,7 @@ class data extends Model
         'transferMapping'           => 'TransferMapping',
         'type'                      => 'Type',
         'workerGradeId'             => 'WorkerGradeId',
+        'workerGradeInfo'           => 'WorkerGradeInfo',
     ];
 
     public function validate()
@@ -391,6 +398,9 @@ class data extends Model
         }
         if (null !== $this->workerGradeId) {
             $res['WorkerGradeId'] = $this->workerGradeId;
+        }
+        if (null !== $this->workerGradeInfo) {
+            $res['WorkerGradeInfo'] = null !== $this->workerGradeInfo ? $this->workerGradeInfo->toMap() : null;
         }
 
         return $res;
@@ -517,6 +527,9 @@ class data extends Model
         }
         if (isset($map['WorkerGradeId'])) {
             $model->workerGradeId = $map['WorkerGradeId'];
+        }
+        if (isset($map['WorkerGradeInfo'])) {
+            $model->workerGradeInfo = workerGradeInfo::fromMap($map['WorkerGradeInfo']);
         }
 
         return $model;

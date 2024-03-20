@@ -30,7 +30,7 @@ class databases extends Model
 
     /**
      * @description The actual data size, in GB.
-     *
+     * ><notice>This parameter is no longer used in later versions. RequiredSize is used instead.></notice>
      * @example 5.67 GB
      *
      * @var float
@@ -74,7 +74,7 @@ class databases extends Model
     public $encoding;
 
     /**
-     * @description The ID of the cluster.
+     * @description The ID of the cluster to which the tenant belongs.
      *
      * @example obsdh2f****
      *
@@ -85,7 +85,7 @@ class databases extends Model
     /**
      * @description The storage space required, in GB.
      *
-     * @example 0.00 GB
+     * @example 5.67 GB
      *
      * @var float
      */
@@ -101,7 +101,7 @@ class databases extends Model
     public $status;
 
     /**
-     * @description The information about the database tables.
+     * @description The list of database tables.
      *
      * @var tables[]
      */
@@ -117,7 +117,7 @@ class databases extends Model
     public $tenantId;
 
     /**
-     * @description Tenant name.
+     * @description The name of the tenant.
      *
      * @example tenantABC
      *
@@ -126,7 +126,7 @@ class databases extends Model
     public $tenantName;
 
     /**
-     * @description The accounts that have privileges on the database.
+     * @description The list of accounts that are granted privileges on this database.
      *
      * @var users[]
      */
