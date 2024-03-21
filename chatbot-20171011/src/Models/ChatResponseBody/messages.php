@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Chatbot\V20171011\Models\ChatResponseBody;
 use AlibabaCloud\SDK\Chatbot\V20171011\Models\ChatResponseBody\messages\knowledge;
 use AlibabaCloud\SDK\Chatbot\V20171011\Models\ChatResponseBody\messages\recommends;
 use AlibabaCloud\SDK\Chatbot\V20171011\Models\ChatResponseBody\messages\text;
+use AlibabaCloud\SDK\Chatbot\V20171011\Models\ChatResponseBody\messages\voiceStrategy;
 use AlibabaCloud\Tea\Model;
 
 class messages extends Model
@@ -51,18 +52,24 @@ class messages extends Model
     public $type;
 
     /**
+     * @var voiceStrategy
+     */
+    public $voiceStrategy;
+
+    /**
      * @var string
      */
     public $voiceTitle;
     protected $_name = [
-        'answerSource' => 'AnswerSource',
-        'answerType'   => 'AnswerType',
-        'knowledge'    => 'Knowledge',
-        'recommends'   => 'Recommends',
-        'text'         => 'Text',
-        'title'        => 'Title',
-        'type'         => 'Type',
-        'voiceTitle'   => 'VoiceTitle',
+        'answerSource'  => 'AnswerSource',
+        'answerType'    => 'AnswerType',
+        'knowledge'     => 'Knowledge',
+        'recommends'    => 'Recommends',
+        'text'          => 'Text',
+        'title'         => 'Title',
+        'type'          => 'Type',
+        'voiceStrategy' => 'VoiceStrategy',
+        'voiceTitle'    => 'VoiceTitle',
     ];
 
     public function validate()
@@ -98,6 +105,9 @@ class messages extends Model
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
+        }
+        if (null !== $this->voiceStrategy) {
+            $res['VoiceStrategy'] = null !== $this->voiceStrategy ? $this->voiceStrategy->toMap() : null;
         }
         if (null !== $this->voiceTitle) {
             $res['VoiceTitle'] = $this->voiceTitle;
@@ -140,6 +150,9 @@ class messages extends Model
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
+        }
+        if (isset($map['VoiceStrategy'])) {
+            $model->voiceStrategy = voiceStrategy::fromMap($map['VoiceStrategy']);
         }
         if (isset($map['VoiceTitle'])) {
             $model->voiceTitle = $map['VoiceTitle'];
