@@ -78,6 +78,11 @@ class authorizedApp extends Model
     public $operator;
 
     /**
+     * @var string
+     */
+    public $stageAlias;
+
+    /**
      * @description The name of the runtime environment. Valid values:
      *
      *   **RELEASE**
@@ -96,6 +101,7 @@ class authorizedApp extends Model
         'authorizedTime'      => 'AuthorizedTime',
         'description'         => 'Description',
         'operator'            => 'Operator',
+        'stageAlias'          => 'StageAlias',
         'stageName'           => 'StageName',
     ];
 
@@ -126,6 +132,9 @@ class authorizedApp extends Model
         }
         if (null !== $this->operator) {
             $res['Operator'] = $this->operator;
+        }
+        if (null !== $this->stageAlias) {
+            $res['StageAlias'] = $this->stageAlias;
         }
         if (null !== $this->stageName) {
             $res['StageName'] = $this->stageName;
@@ -162,6 +171,9 @@ class authorizedApp extends Model
         }
         if (isset($map['Operator'])) {
             $model->operator = $map['Operator'];
+        }
+        if (isset($map['StageAlias'])) {
+            $model->stageAlias = $map['StageAlias'];
         }
         if (isset($map['StageName'])) {
             $model->stageName = $map['StageName'];

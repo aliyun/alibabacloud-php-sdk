@@ -93,6 +93,11 @@ class appApiRelationInfo extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $stageAlias;
+
+    /**
      * @example RELEASE
      *
      * @var string
@@ -111,6 +116,7 @@ class appApiRelationInfo extends Model
         'operator'            => 'Operator',
         'path'                => 'Path',
         'regionId'            => 'RegionId',
+        'stageAlias'          => 'StageAlias',
         'stageName'           => 'StageName',
     ];
 
@@ -156,6 +162,9 @@ class appApiRelationInfo extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->stageAlias) {
+            $res['StageAlias'] = $this->stageAlias;
         }
         if (null !== $this->stageName) {
             $res['StageName'] = $this->stageName;
@@ -207,6 +216,9 @@ class appApiRelationInfo extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['StageAlias'])) {
+            $model->stageAlias = $map['StageAlias'];
         }
         if (isset($map['StageName'])) {
             $model->stageName = $map['StageName'];

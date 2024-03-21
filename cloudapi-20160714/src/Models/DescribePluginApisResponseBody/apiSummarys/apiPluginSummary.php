@@ -63,6 +63,11 @@ class apiPluginSummary extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $stageAlias;
+
+    /**
      * @example RELEASE
      *
      * @var string
@@ -77,6 +82,7 @@ class apiPluginSummary extends Model
         'method'      => 'Method',
         'path'        => 'Path',
         'regionId'    => 'RegionId',
+        'stageAlias'  => 'StageAlias',
         'stageName'   => 'StageName',
     ];
 
@@ -110,6 +116,9 @@ class apiPluginSummary extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->stageAlias) {
+            $res['StageAlias'] = $this->stageAlias;
         }
         if (null !== $this->stageName) {
             $res['StageName'] = $this->stageName;
@@ -149,6 +158,9 @@ class apiPluginSummary extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['StageAlias'])) {
+            $model->stageAlias = $map['StageAlias'];
         }
         if (isset($map['StageName'])) {
             $model->stageName = $map['StageName'];

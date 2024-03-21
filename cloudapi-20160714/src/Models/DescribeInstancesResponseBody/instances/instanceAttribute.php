@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstancesResponseBo
 
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstancesResponseBody\instances\instanceAttribute\instanceSpecAttributes;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstancesResponseBody\instances\instanceAttribute\networkInterfaceAttributes;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstancesResponseBody\instances\instanceAttribute\privateDnsList;
 use AlibabaCloud\Tea\Model;
 
 class instanceAttribute extends Model
@@ -215,6 +216,11 @@ class instanceAttribute extends Model
     public $networkInterfaceAttributes;
 
     /**
+     * @var privateDnsList
+     */
+    public $privateDnsList;
+
+    /**
      * @example cn-beijing
      *
      * @var string
@@ -317,6 +323,7 @@ class instanceAttribute extends Model
         'maintainEndTime'            => 'MaintainEndTime',
         'maintainStartTime'          => 'MaintainStartTime',
         'networkInterfaceAttributes' => 'NetworkInterfaceAttributes',
+        'privateDnsList'             => 'PrivateDnsList',
         'regionId'                   => 'RegionId',
         'status'                     => 'Status',
         'supportIpv6'                => 'SupportIpv6',
@@ -426,6 +433,9 @@ class instanceAttribute extends Model
         }
         if (null !== $this->networkInterfaceAttributes) {
             $res['NetworkInterfaceAttributes'] = null !== $this->networkInterfaceAttributes ? $this->networkInterfaceAttributes->toMap() : null;
+        }
+        if (null !== $this->privateDnsList) {
+            $res['PrivateDnsList'] = null !== $this->privateDnsList ? $this->privateDnsList->toMap() : null;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -561,6 +571,9 @@ class instanceAttribute extends Model
         }
         if (isset($map['NetworkInterfaceAttributes'])) {
             $model->networkInterfaceAttributes = networkInterfaceAttributes::fromMap($map['NetworkInterfaceAttributes']);
+        }
+        if (isset($map['PrivateDnsList'])) {
+            $model->privateDnsList = privateDnsList::fromMap($map['PrivateDnsList']);
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

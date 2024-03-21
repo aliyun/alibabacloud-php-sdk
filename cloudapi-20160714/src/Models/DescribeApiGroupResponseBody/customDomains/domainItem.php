@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class domainItem extends Model
 {
     /**
+     * @var string
+     */
+    public $bindStageAlias;
+
+    /**
      * @description The environment in which the associated API group runs.
      *
      * @example TEST
@@ -143,6 +148,7 @@ class domainItem extends Model
      */
     public $wildcardDomainPatterns;
     protected $_name = [
+        'bindStageAlias'         => 'BindStageAlias',
         'bindStageName'          => 'BindStageName',
         'certificateId'          => 'CertificateId',
         'certificateName'        => 'CertificateName',
@@ -166,6 +172,9 @@ class domainItem extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bindStageAlias) {
+            $res['BindStageAlias'] = $this->bindStageAlias;
+        }
         if (null !== $this->bindStageName) {
             $res['BindStageName'] = $this->bindStageName;
         }
@@ -220,6 +229,9 @@ class domainItem extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BindStageAlias'])) {
+            $model->bindStageAlias = $map['BindStageAlias'];
+        }
         if (isset($map['BindStageName'])) {
             $model->bindStageName = $map['BindStageName'];
         }
