@@ -11,7 +11,7 @@ class data extends Model
     /**
      * @description The access point of Alibaba Cloud.
      *
-     * > This parameter is valid only when the value of **InstanceId** is the instance ID of an Anycast elastic IP address (EIP).
+     * >  This parameter is valid only if you set **InstanceId** to the instance ID of an Anycast elastic IP address (EIP).
      * @example cn-hongkong-pop
      *
      * @var string
@@ -82,7 +82,7 @@ class data extends Model
     public $cloudPort;
 
     /**
-     * @description The product code of the instance to which the local IP address belongs.
+     * @description The service code of the instance to which the local IP address belongs.
      *
      * @example EIP
      *
@@ -100,10 +100,11 @@ class data extends Model
     public $cloudProvince;
 
     /**
-     * @description The direction of the Internet traffic. Valid values:
+     * @description The direction of Internet traffic. Valid values:
      *
-     * - **in**: inbound
-     * - **out**: outbound
+     *   **in**: inbound
+     *   **out**: outbound
+     *
      * @example in
      *
      * @var string
@@ -147,7 +148,7 @@ class data extends Model
     public $inRetranCount;
 
     /**
-     * @description The instance ID to which the local IP address belongs.
+     * @description The ID of the instance to which the local IP address belongs.
      *
      * @example eip-sample*
      *
@@ -156,7 +157,7 @@ class data extends Model
     public $instanceId;
 
     /**
-     * @description The remote city. In most cases, this parameter is empty if the value of **OtherCountry** is not China.
+     * @description The remote city. In most cases, this parameter is empty if you set **OtherCountry** to a country except China.
      *
      * @example Austin
      *
@@ -201,7 +202,7 @@ class data extends Model
     public $otherPort;
 
     /**
-     * @description The product code of the instance to which the remote IP address belongs. If the IP address is not in the cloud, this parameter is empty.
+     * @description The service code of the instance to which the remote IP address belongs. If the IP address is not on the cloud, this parameter is empty.
      *
      * @example ECS
      *
@@ -210,7 +211,7 @@ class data extends Model
     public $otherProduct;
 
     /**
-     * @description The remote province. In most cases, this parameter is empty if the value of **OtherCountry** is not China.
+     * @description The remote province. In most cases, this parameter is empty if you set **OtherCountry** to a country except China.
      *
      * @example Texas
      *
@@ -282,6 +283,10 @@ class data extends Model
     public $protocol;
 
     /**
+     * @description The retransmission rate of TCP packets.
+     *
+     * @example 0.1
+     *
      * @var float
      */
     public $retransmitRate;

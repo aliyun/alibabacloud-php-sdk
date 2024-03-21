@@ -72,7 +72,7 @@ class transitRouterFlowTopN extends Model
     public $otherPort;
 
     /**
-     * @description The remote region where the remote IP address resides.
+     * @description The remote region where the **remote IP address** resides.
      *
      * @example ap-southeast-2
      *
@@ -126,7 +126,7 @@ class transitRouterFlowTopN extends Model
     public $thisPort;
 
     /**
-     * @description The local region where the local IP address resides.
+     * @description The local region where the **local IP address** resides.
      *
      * @example cn-shanghai
      *

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteNetworkReachableAnalysisResponseBody extends Model
 {
     /**
+     * @var bool
+     */
+    public $data;
+
+    /**
      * @description The request ID.
      *
      * @example 4838F3F2-30E1-5D82-B25A-B9FE33BC3E25
@@ -17,6 +22,7 @@ class DeleteNetworkReachableAnalysisResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
+        'data'      => 'Data',
         'requestId' => 'RequestId',
     ];
 
@@ -27,6 +33,9 @@ class DeleteNetworkReachableAnalysisResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->data) {
+            $res['Data'] = $this->data;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -42,6 +51,9 @@ class DeleteNetworkReachableAnalysisResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Data'])) {
+            $model->data = $map['Data'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -50,6 +50,10 @@ class CreateNetworkPathRequest extends Model
     public $regionId;
 
     /**
+     * @description The resource group ID.
+     *
+     * @example rg-acfm27qsxjj****
+     *
      * @var string
      */
     public $resourceGroupId;

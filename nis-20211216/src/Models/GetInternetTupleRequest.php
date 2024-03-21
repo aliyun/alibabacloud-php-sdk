@@ -36,7 +36,7 @@ class GetInternetTupleRequest extends Model
     /**
      * @description The local Internet service provider (ISP).
      *
-     * > In most cases, the value is Alibaba or Alibaba Cloud.
+     * >  In most cases, the value is Alibaba or Alibaba Cloud.
      * @example Alibaba
      *
      * @var string
@@ -46,7 +46,7 @@ class GetInternetTupleRequest extends Model
     /**
      * @description The local port.
      *
-     * >  This parameter is required only if you set the **TupleType** parameter to **5**.
+     * >  This parameter is required only if you set GroupBy to CloudPort.
      * @example 443
      *
      * @var string
@@ -91,7 +91,27 @@ class GetInternetTupleRequest extends Model
     public $instanceList;
 
     /**
-     * @description The metric for data ranking. Default value: **ByteCount**. This value specifies that data is ranked by traffic volume.
+     * @description The metric for data ranking. Default value: **ByteCount**. This value indicates that Internet traffic data is ranked by traffic volume.
+     *
+     * Valid values:
+     *
+     *   Rtt
+     *   ByteCount
+     *   PacketCount
+     *   InByteCount
+     *   OutByteCount
+     *   InPacketCount
+     *   OutPacketCount
+     *   InRetranCount
+     *   OutRetranCount
+     *   InDupAckCount
+     *   OutDupAckCount
+     *   InOutOrderCount
+     *   OutOutOrderCount
+     *   RetranCount
+     *   OutOrderCount
+     *   DupAckCount
+     *   RetransmitRate
      *
      * @example ByteCount
      *
@@ -102,7 +122,7 @@ class GetInternetTupleRequest extends Model
     /**
      * @description The remote city.
      *
-     * > This parameter is required only if you set **TupleType** to **5**.
+     * >  This parameter is required only if you set **TupleType** to **2** or **5**.
      * @example Hangzhou
      *
      * @var string
@@ -112,7 +132,7 @@ class GetInternetTupleRequest extends Model
     /**
      * @description The remote country.
      *
-     * > This parameter is required only if you set **TupleType** to **5**.
+     * >  This parameter is required only if you set **TupleType** to **2** or **5**.
      * @example China
      *
      * @var string
@@ -181,7 +201,7 @@ class GetInternetTupleRequest extends Model
     public $sort;
 
     /**
-     * @description Specifies top-N traffic data to display. Default value: **10**. This value specifies to display top-10 traffic data by default.
+     * @description Specifies top-N traffic data to display. Default value: **10**. This value specifies to display top-10 traffic data by default. Max value: **100**.
      *
      * @example 10
      *
@@ -205,7 +225,7 @@ class GetInternetTupleRequest extends Model
     /**
      * @description Specifies whether to enable the multi-account management feature. Default value: **false**. This value specifies that the multi-account management feature is disabled.
      *
-     * >  By default, the multi-account management feature is not available. If you want to use this feature, contact your customer business manager to apply for permissions.
+     * >  By default, the multi-account management feature is not available. If you want to use this feature, contact your account manager to apply for permissions.
      * @example false
      *
      * @var bool

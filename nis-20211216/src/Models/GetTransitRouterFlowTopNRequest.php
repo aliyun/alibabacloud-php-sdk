@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetTransitRouterFlowTopNRequest extends Model
 {
     /**
-     * @description The IDs of member accounts.
+     * @description The IDs of the member accounts.
      *
      * @var int[]
      */
@@ -45,8 +45,8 @@ class GetTransitRouterFlowTopNRequest extends Model
     /**
      * @description The direction of the inter-region traffic in the local regions or for the local IP addresses. Valid values:
      *
-     *   in: inbound traffic
-     *   out: outbound traffic
+     *   **in**: inbound traffic
+     *   **out**: outbound traffic
      *
      * @example in
      *
@@ -66,13 +66,13 @@ class GetTransitRouterFlowTopNRequest extends Model
     /**
      * @description The dimension for ranking inter-region traffic data. The value of this parameter is case-sensitive. Valid values:
      *
-     *   1Tuple: queries the rankings of inter-region traffic data for the local regions, Cloud Enterprise Network (CEN) instances, and IP addresses.
-     *   2Tuple: queries the rankings of inter-region traffic data for the local and remote regions, and the local and remote IP addresses.
-     *   5Tuple: queries the rankings of inter-region traffic data for the local and remote IP addresses, local and remote ports, and protocols in use.
-     *   Cen: queries the rankings of inter-region traffic data for CEN instances.
-     *   RegionPair: queries the rankings of inter-region traffic data for the local and remote regions.
-     *   Port: queries the rankings of inter-region traffic data for the local and remote ports.
-     *   Protocol: queries the rankings of inter-region traffic data for the protocols in use.
+     *   **1Tuple**: queries the rankings of inter-region traffic data for the local regions, Cloud Enterprise Network (CEN) instances, and IP addresses.
+     *   **2Tuple**: queries the rankings of inter-region traffic data for the local and remote regions, and the local and remote IP addresses.
+     *   **5Tuple**: queries the rankings of inter-region traffic data for the local and remote IP addresses, local and remote ports, and protocols.
+     *   **Cen**: queries the rankings of inter-region traffic data for CEN instances.
+     *   **RegionPair**: queries the rankings of inter-region traffic data for the local and remote regions.
+     *   **Port**: queries the rankings of inter-region traffic data for the local and remote ports.
+     *   **Protocol**: queries the rankings of inter-region traffic data for the protocols.
      *
      * @example 1Tuple
      *
@@ -119,7 +119,7 @@ class GetTransitRouterFlowTopNRequest extends Model
     /**
      * @description The protocol number.
      *
-     * >  All protocols are supported. This parameter is required only if you set GroupBy to 5Tuple or Protocol.
+     * >  All protocols are supported. This parameter is required only if you set **GroupBy** to **5Tuple** or **Protocol**.
      * @example 6
      *
      * @var string
@@ -129,8 +129,8 @@ class GetTransitRouterFlowTopNRequest extends Model
     /**
      * @description The order for ranking inter-region traffic data. Valid values:
      *
-     *   desc: descending order
-     *   asc: ascending order
+     *   **desc**: descending order
+     *   **asc**: ascending order
      *
      * @example desc
      *

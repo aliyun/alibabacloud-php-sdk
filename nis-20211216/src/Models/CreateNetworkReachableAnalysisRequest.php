@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateNetworkReachableAnalysisRequest extends Model
 {
     /**
-     * @description The ID of the network path. You can call the **CreateNetworkPath** operation to obtain the ID of the network path.
+     * @description The ID of the network path. You can call the [CreateNetworkPath](~~2366522~~) operation to obtain the ID of the network path.
      *
      * @example np-b2f618ceb2c84057****
      *

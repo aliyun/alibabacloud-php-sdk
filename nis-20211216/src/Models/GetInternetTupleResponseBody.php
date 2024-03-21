@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetInternetTupleResponseBody extends Model
 {
     /**
-     * @description The ranking result of instances by Internet traffic.
+     * @description The ranking result of Internet traffic data.
      *
      * @var data[]
      */

@@ -54,7 +54,7 @@ class GetVbrFlowTopNShrinkRequest extends Model
     /**
      * @description The local port.
      *
-     * >  This parameter is required only if you set GroupBy to CloudPort.
+     * >  This parameter is required only if you set **GroupBy** to **CloudPort**.
      * @example 443
      *
      * @var string
@@ -64,8 +64,8 @@ class GetVbrFlowTopNShrinkRequest extends Model
     /**
      * @description The direction of the hybrid cloud traffic in the local regions or for the local IP addresses. Valid values:
      *
-     *   in: traffic from a data center to Alibaba Cloud
-     *   out: traffic from Alibaba Cloud to a data center
+     *   **in**: traffic from a data center to Alibaba Cloud
+     *   **out**: traffic from Alibaba Cloud to a data center
      *
      * @example in
      *
@@ -85,12 +85,12 @@ class GetVbrFlowTopNShrinkRequest extends Model
     /**
      * @description The dimension for ranking hybrid cloud traffic data. The value of this parameter is case-sensitive. Valid values:
      *
-     *   1Tuple: queries the rankings of hybrid cloud traffic data for the Cloud Enterprise Network (CEN) instances, CEN connections, virtual border routers (VBRs), and IP addresses.
-     *   2Tuple: queries the rankings of hybrid cloud traffic data for the local and remote IP addresses.
-     *   5Tuple: queries the rankings of hybrid cloud traffic data for the local and remote IP addresses, local and remote ports, and protocols.
-     *   CloudPort: queries the rankings of hybrid cloud traffic data for the local ports.
-     *   OtherPort: queries the rankings of hybrid cloud traffic data for the remote ports.
-     *   Protocol: queries the rankings of hybrid cloud traffic data for the protocols.
+     *   **1Tuple**: queries the rankings of hybrid cloud traffic data for the Cloud Enterprise Network (CEN) instances, CEN connections, virtual border routers (VBRs), and IP addresses.
+     *   **2Tuple**: queries the rankings of hybrid cloud traffic data for the local and remote IP addresses.
+     *   **5Tuple**: queries the rankings of hybrid cloud traffic data for the local and remote IP addresses, local and remote ports, and protocols.
+     *   **CloudPort**: queries the rankings of hybrid cloud traffic data for the local ports.
+     *   **OtherPort**: queries the rankings of hybrid cloud traffic data for the remote ports.
+     *   **Protocol**: queries the rankings of hybrid cloud traffic data for the protocols.
      *
      * @example 1Tuple
      *
@@ -119,7 +119,7 @@ class GetVbrFlowTopNShrinkRequest extends Model
     /**
      * @description The remote port.
      *
-     * >  This parameter is required only if you set GroupBy to OtherPort.
+     * >  This parameter is required only if you set **GroupBy** to **OtherPort**.
      * @example 40002
      *
      * @var string
@@ -129,7 +129,7 @@ class GetVbrFlowTopNShrinkRequest extends Model
     /**
      * @description The protocol number.
      *
-     * >  All protocols are supported. This parameter is required only if you set GroupBy to 5Tuple or Protocol.
+     * >  All protocols are supported. This parameter is required only if you set **GroupBy** to **5Tuple** or **Protocol**.
      * @example 6
      *
      * @var string
@@ -148,8 +148,8 @@ class GetVbrFlowTopNShrinkRequest extends Model
     /**
      * @description The order for ranking hybrid cloud traffic data. Valid values:
      *
-     *   desc: descending order
-     *   asc: ascending order
+     *   **desc**: descending order
+     *   **asc**: ascending order
      *
      * @example desc
      *
