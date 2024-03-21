@@ -9,11 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDirectoriesRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
+     * @example 54c17e1d-2d72-4b87-aa33-25f3b3f2****
+     *
      * @var string
      */
     public $clientId;
@@ -22,29 +19,34 @@ class DescribeDirectoriesRequest extends Model
      * @var string[]
      */
     public $directoryId;
+
+    /**
+     * @example cn-hangzhou
+     *
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId'    => 'RegionId',
         'clientId'    => 'ClientId',
         'directoryId' => 'DirectoryId',
+        'regionId'    => 'RegionId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('clientId', $this->clientId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->clientId) {
             $res['ClientId'] = $this->clientId;
         }
         if (null !== $this->directoryId) {
             $res['DirectoryId'] = $this->directoryId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -58,9 +60,6 @@ class DescribeDirectoriesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['ClientId'])) {
             $model->clientId = $map['ClientId'];
         }
@@ -68,6 +67,9 @@ class DescribeDirectoriesRequest extends Model
             if (!empty($map['DirectoryId'])) {
                 $model->directoryId = $map['DirectoryId'];
             }
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

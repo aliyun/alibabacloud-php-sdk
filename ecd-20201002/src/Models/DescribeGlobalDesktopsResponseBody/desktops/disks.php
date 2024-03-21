@@ -2,23 +2,29 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Ecd\V20201002\Models\DescribeDesktopsResponse\desktops;
+namespace AlibabaCloud\SDK\Ecd\V20201002\Models\DescribeGlobalDesktopsResponseBody\desktops;
 
 use AlibabaCloud\Tea\Model;
 
 class disks extends Model
 {
     /**
+     * @example d-jedbpr4sl9l37****
+     *
      * @var string
      */
     public $diskId;
 
     /**
+     * @example 80
+     *
      * @var int
      */
     public $diskSize;
 
     /**
+     * @example SYSTEM
+     *
      * @var string
      */
     public $diskType;
@@ -30,9 +36,6 @@ class disks extends Model
 
     public function validate()
     {
-        Model::validateRequired('diskId', $this->diskId, true);
-        Model::validateRequired('diskSize', $this->diskSize, true);
-        Model::validateRequired('diskType', $this->diskType, true);
     }
 
     public function toMap()

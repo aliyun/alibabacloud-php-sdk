@@ -4,45 +4,45 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20201002\Models;
 
-use AlibabaCloud\SDK\Ecd\V20201002\Models\DescribeDirectoriesResponse\directories;
 use AlibabaCloud\Tea\Model;
 
 class DescribeDirectoriesResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var directories[]
+     * @var int
      */
-    public $directories;
+    public $statusCode;
+
+    /**
+     * @var DescribeDirectoriesResponseBody
+     */
+    public $body;
     protected $_name = [
-        'requestId'   => 'RequestId',
-        'directories' => 'Directories',
+        'headers'    => 'headers',
+        'statusCode' => 'statusCode',
+        'body'       => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('directories', $this->directories, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->directories) {
-            $res['Directories'] = [];
-            if (null !== $this->directories && \is_array($this->directories)) {
-                $n = 0;
-                foreach ($this->directories as $item) {
-                    $res['Directories'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->statusCode) {
+            $res['statusCode'] = $this->statusCode;
+        }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -56,17 +56,14 @@ class DescribeDirectoriesResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['Directories'])) {
-            if (!empty($map['Directories'])) {
-                $model->directories = [];
-                $n                  = 0;
-                foreach ($map['Directories'] as $item) {
-                    $model->directories[$n++] = null !== $item ? directories::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['statusCode'])) {
+            $model->statusCode = $map['statusCode'];
+        }
+        if (isset($map['body'])) {
+            $model->body = DescribeDirectoriesResponseBody::fromMap($map['body']);
         }
 
         return $model;

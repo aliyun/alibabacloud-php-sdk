@@ -4,47 +4,42 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20201002\Models;
 
-use AlibabaCloud\SDK\Ecd\V20201002\Models\DescribeDesktopsResponse\desktops;
+use AlibabaCloud\SDK\Ecd\V20201002\Models\DescribeGlobalDesktopsResponseBody\desktops;
 use AlibabaCloud\Tea\Model;
 
-class DescribeDesktopsResponse extends Model
+class DescribeGlobalDesktopsResponseBody extends Model
 {
     /**
-     * @var string
+     * @var desktops[]
      */
-    public $requestId;
+    public $desktops;
 
     /**
+     * @example eyJkZWZhdWx0IjpbIjIwMjItMDgtMTdUM****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @var desktops[]
+     * @example 4686A731-D601-548C-83E2-4CB6371E****
+     *
+     * @var string
      */
-    public $desktops;
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'nextToken' => 'NextToken',
         'desktops'  => 'Desktops',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('nextToken', $this->nextToken, true);
-        Model::validateRequired('desktops', $this->desktops, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
         if (null !== $this->desktops) {
             $res['Desktops'] = [];
             if (null !== $this->desktops && \is_array($this->desktops)) {
@@ -54,6 +49,12 @@ class DescribeDesktopsResponse extends Model
                 }
             }
         }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
 
         return $res;
     }
@@ -61,17 +62,11 @@ class DescribeDesktopsResponse extends Model
     /**
      * @param array $map
      *
-     * @return DescribeDesktopsResponse
+     * @return DescribeGlobalDesktopsResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
         if (isset($map['Desktops'])) {
             if (!empty($map['Desktops'])) {
                 $model->desktops = [];
@@ -80,6 +75,12 @@ class DescribeDesktopsResponse extends Model
                     $model->desktops[$n++] = null !== $item ? desktops::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;
