@@ -16,13 +16,6 @@ class panes extends Model
     public $paneId;
 
     /**
-     * @example 1811****
-     *
-     * @var string
-     */
-    public $source;
-
-    /**
      * @example Video
      *
      * @var string
@@ -30,7 +23,6 @@ class panes extends Model
     public $sourceType;
     protected $_name = [
         'paneId'     => 'PaneId',
-        'source'     => 'Source',
         'sourceType' => 'SourceType',
     ];
 
@@ -43,9 +35,6 @@ class panes extends Model
         $res = [];
         if (null !== $this->paneId) {
             $res['PaneId'] = $this->paneId;
-        }
-        if (null !== $this->source) {
-            $res['Source'] = $this->source;
         }
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
@@ -64,9 +53,6 @@ class panes extends Model
         $model = new self();
         if (isset($map['PaneId'])) {
             $model->paneId = $map['PaneId'];
-        }
-        if (isset($map['Source'])) {
-            $model->source = $map['Source'];
         }
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];
