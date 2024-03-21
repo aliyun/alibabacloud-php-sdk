@@ -29,6 +29,14 @@ class AddDcdnDomainRequest extends Model
     public $domainName;
 
     /**
+     * @description Computing service type. Valid values:
+     *
+     *   **routine**
+     *   **image**
+     *   **cloudFunction**
+     *
+     * @example routine
+     *
      * @var string
      */
     public $functionType;
@@ -53,6 +61,15 @@ class AddDcdnDomainRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The Acceleration scen. Supported:
+     *
+     * apiscene:API acceleration.
+     * webservicescene: accelerate website business.
+     * staticscene: video and graphic acceleration.
+     * (Empty): no scene.
+     *
+     * @example apiscene
+     *
      * @var string
      */
     public $scene;

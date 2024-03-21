@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDdosSpecInfoResponseBody extends Model
 {
     /**
+     * @description The bandwidth limit of a single instance.
+     *
      * @example 40Gbps
      *
      * @var string
@@ -17,6 +19,14 @@ class DescribeDcdnDdosSpecInfoResponseBody extends Model
     public $bandwidthLimit;
 
     /**
+     * @description The version. Valid values:
+     *
+     * **poc**: POC Edition
+     * **basic**: Basic Edition
+     * **insurance**: Insurance Edition
+     * **unlimited**: Unlimited Edition
+     * **port_enhancement**: Special Port Enhanced Edition
+     *
      * @example insurance
      *
      * @var string
@@ -24,6 +34,11 @@ class DescribeDcdnDdosSpecInfoResponseBody extends Model
     public $edition;
 
     /**
+     * @description Specifies whether to enable DDoS mitigation. Valid values:
+     *
+     *   **on:**
+     *   **off**.
+     *
      * @example on
      *
      * @var string
@@ -31,11 +46,24 @@ class DescribeDcdnDdosSpecInfoResponseBody extends Model
     public $enable;
 
     /**
+     * @description Specifies whether custom ports are supported. Valid values:
+     *
+     *   **yes**
+     *   **no**
+     *
+     * @example no
+     *
      * @var string
      */
     public $isSpecialPort;
 
     /**
+     * @description Protected region. Valid values:
+     *
+     * **global**: global
+     * **chinese_mainland**: Chinese mainland
+     * **global_excluding_the_chinese_mainland**: outside the Chinese mainland
+     *
      * @example global
      *
      * @var string
@@ -43,6 +71,8 @@ class DescribeDcdnDdosSpecInfoResponseBody extends Model
     public $protectedArea;
 
     /**
+     * @description The QPS limit.
+     *
      * @example 100
      *
      * @var string
@@ -50,6 +80,8 @@ class DescribeDcdnDdosSpecInfoResponseBody extends Model
     public $qpsLimit;
 
     /**
+     * @description The ID of the request.
+     *
      * @example DEA8E7BE-33C6-56F5-AC56-74D50547CF34
      *
      * @var string
@@ -57,6 +89,8 @@ class DescribeDcdnDdosSpecInfoResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The code and configurations of the security rules.
+     *
      * @var specInfos[]
      */
     public $specInfos;

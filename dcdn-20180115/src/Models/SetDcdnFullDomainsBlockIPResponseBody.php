@@ -11,6 +11,7 @@ class SetDcdnFullDomainsBlockIPResponseBody extends Model
     /**
      * @description The response code.
      *
+     * If the value of Code is not 0, specific required parameters are missing or the parameter format is invalid.
      * @example 0
      *
      * @var int
@@ -18,7 +19,7 @@ class SetDcdnFullDomainsBlockIPResponseBody extends Model
     public $code;
 
     /**
-     * @description The status code that indicates the result.
+     * @description The response message.
      *
      * @example OK
      *
@@ -27,7 +28,7 @@ class SetDcdnFullDomainsBlockIPResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example CB1A380B-09F0-41BB-802B-72F8FD6DA2FE
      *

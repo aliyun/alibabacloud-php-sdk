@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class kvList extends Model
 {
     /**
+     * @description The expiration time. The value is a timestamp in seconds. The expiration time cannot be earlier than the current time. If you specify Expiration and ExpirationTtl, only ExpirationTtl takes effect.
+     *
      * @example 1690081381
      *
      * @var int
@@ -16,6 +18,8 @@ class kvList extends Model
     public $expiration;
 
     /**
+     * @description The relative expiration time. Unit: seconds. If you specify Expiration and ExpirationTtl, only ExpirationTtl takes effect.
+     *
      * @example 3600
      *
      * @var int
@@ -23,6 +27,8 @@ class kvList extends Model
     public $expirationTtl;
 
     /**
+     * @description The key. The key can be up to 512 characters in length and cannot contain spaces.
+     *
      * @example testkey
      *
      * @var string
@@ -30,6 +36,8 @@ class kvList extends Model
     public $key;
 
     /**
+     * @description The value.
+     *
      * @example testValue
      *
      * @var string

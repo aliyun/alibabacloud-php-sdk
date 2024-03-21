@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class BatchPutDcdnKvShrinkRequest extends Model
 {
     /**
+     * @description The key-value pairs. The key-value pairs can be up to 2 MB in size.
+     *
      * @var string
      */
     public $kvListShrink;
 
     /**
+     * @description The name of the namespace.
+     *
      * @example ns1
      *
      * @var string

@@ -537,11 +537,10 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * >
-     *   * *   Dynamic Content Delivery Network (DCDN) is activated.
-     *   * *   Internet content provider (ICP) filing is complete for the accelerated domain name.
-     *   * *   If the content of the origin server is not stored on Alibaba Cloud, the content must be reviewed. After you submit the request, the review is complete by the end of the following business day.
-     *   * *   You can call this operation up to 30 times per second per account.
+     * > *   Dynamic Content Delivery Network (DCDN) is activated.
+     *   * > *   Internet content provider (ICP) filing is complete for the accelerated domain name.
+     *   * > *   If the content of the origin server is not stored on Alibaba Cloud, the content must be reviewed. After you submit the request, the review is complete by the end of the following business day.
+     *   * > *   You can call this operation up to 30 times per second per account.
      *   *
      * @param AddDcdnDomainRequest $request AddDcdnDomainRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -607,11 +606,10 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * >
-     *   * *   Dynamic Content Delivery Network (DCDN) is activated.
-     *   * *   Internet content provider (ICP) filing is complete for the accelerated domain name.
-     *   * *   If the content of the origin server is not stored on Alibaba Cloud, the content must be reviewed. After you submit the request, the review is complete by the end of the following business day.
-     *   * *   You can call this operation up to 30 times per second per account.
+     * > *   Dynamic Content Delivery Network (DCDN) is activated.
+     *   * > *   Internet content provider (ICP) filing is complete for the accelerated domain name.
+     *   * > *   If the content of the origin server is not stored on Alibaba Cloud, the content must be reviewed. After you submit the request, the review is complete by the end of the following business day.
+     *   * > *   You can call this operation up to 30 times per second per account.
      *   *
      * @param AddDcdnDomainRequest $request AddDcdnDomainRequest
      *
@@ -6452,10 +6450,12 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @param DescribeDcdnIpaDomainCidrRequest $request
-     * @param RuntimeOptions                   $runtime
+     * >  This operation can be called globally up to 50 times per second. This operation can be called up to 10 times per second per account.
+     *   *
+     * @param DescribeDcdnIpaDomainCidrRequest $request DescribeDcdnIpaDomainCidrRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDcdnIpaDomainCidrResponse
+     * @return DescribeDcdnIpaDomainCidrResponse DescribeDcdnIpaDomainCidrResponse
      */
     public function describeDcdnIpaDomainCidrWithOptions($request, $runtime)
     {
@@ -6483,9 +6483,11 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @param DescribeDcdnIpaDomainCidrRequest $request
+     * >  This operation can be called globally up to 50 times per second. This operation can be called up to 10 times per second per account.
+     *   *
+     * @param DescribeDcdnIpaDomainCidrRequest $request DescribeDcdnIpaDomainCidrRequest
      *
-     * @return DescribeDcdnIpaDomainCidrResponse
+     * @return DescribeDcdnIpaDomainCidrResponse DescribeDcdnIpaDomainCidrResponse
      */
     public function describeDcdnIpaDomainCidr($request)
     {
@@ -9859,10 +9861,17 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @param DescribeKvUsageDataRequest $request
-     * @param RuntimeOptions             $runtime
+     * * You can call this operation up to 5 times per second per account.
+     *   * * The usage data indicates the number of requests.
+     *   * **Time granularity:** This operation supports only the time granularity of 1 hour.
+     *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
+     *   * |---|---|---|---|
+     *   * |1 hour|31 days|90 days|3 to 4 hours|.
+     *   *
+     * @param DescribeKvUsageDataRequest $request DescribeKvUsageDataRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeKvUsageDataResponse
+     * @return DescribeKvUsageDataResponse DescribeKvUsageDataResponse
      */
     public function describeKvUsageDataWithOptions($request, $runtime)
     {
@@ -9908,9 +9917,16 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @param DescribeKvUsageDataRequest $request
+     * * You can call this operation up to 5 times per second per account.
+     *   * * The usage data indicates the number of requests.
+     *   * **Time granularity:** This operation supports only the time granularity of 1 hour.
+     *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
+     *   * |---|---|---|---|
+     *   * |1 hour|31 days|90 days|3 to 4 hours|.
+     *   *
+     * @param DescribeKvUsageDataRequest $request DescribeKvUsageDataRequest
      *
-     * @return DescribeKvUsageDataResponse
+     * @return DescribeKvUsageDataResponse DescribeKvUsageDataResponse
      */
     public function describeKvUsageData($request)
     {
@@ -11431,10 +11447,17 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @param RefreshErObjectCachesRequest $request
-     * @param RuntimeOptions               $runtime
+     * *   DCDN supports POST requests in which parameters are sent as a form.
+     *   * *   Related operation: such as [RefreshDcdnObjectCaches](~~130620~~).
+     *   * *   By default, each Alibaba Cloud account can refresh content from a maximum of 10,000 URLs and 100 directories including subdirectories per day.
+     *   * *   You can specify up to 1,000 URLs or 100 directories that you want to refresh in each request.
+     *   * *   You can refresh a maximum of 1,000 URLs per minute for each domain name.
+     *   * *   You can call this operation up to 30 times per second per account.
+     *   *
+     * @param RefreshErObjectCachesRequest $request RefreshErObjectCachesRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return RefreshErObjectCachesResponse
+     * @return RefreshErObjectCachesResponse RefreshErObjectCachesResponse
      */
     public function refreshErObjectCachesWithOptions($request, $runtime)
     {
@@ -11474,9 +11497,16 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @param RefreshErObjectCachesRequest $request
+     * *   DCDN supports POST requests in which parameters are sent as a form.
+     *   * *   Related operation: such as [RefreshDcdnObjectCaches](~~130620~~).
+     *   * *   By default, each Alibaba Cloud account can refresh content from a maximum of 10,000 URLs and 100 directories including subdirectories per day.
+     *   * *   You can specify up to 1,000 URLs or 100 directories that you want to refresh in each request.
+     *   * *   You can refresh a maximum of 1,000 URLs per minute for each domain name.
+     *   * *   You can call this operation up to 30 times per second per account.
+     *   *
+     * @param RefreshErObjectCachesRequest $request RefreshErObjectCachesRequest
      *
-     * @return RefreshErObjectCachesResponse
+     * @return RefreshErObjectCachesResponse RefreshErObjectCachesResponse
      */
     public function refreshErObjectCaches($request)
     {
@@ -11841,7 +11871,7 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * > You can call this operation up to 10 times per second per account.
+     * >  You can call this operation to block or unblock a large number of IP addresses or CIDR blocks. You can block or unblock up to 1,000 IP addresses or CIDR blocks in a request.
      *   *
      * @param SetDcdnFullDomainsBlockIPRequest $request SetDcdnFullDomainsBlockIPRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -11883,7 +11913,7 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * > You can call this operation up to 10 times per second per account.
+     * >  You can call this operation to block or unblock a large number of IP addresses or CIDR blocks. You can block or unblock up to 1,000 IP addresses or CIDR blocks in a request.
      *   *
      * @param SetDcdnFullDomainsBlockIPRequest $request SetDcdnFullDomainsBlockIPRequest
      *

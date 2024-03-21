@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class domainInfo extends Model
 {
     /**
+     * @description The information about the domain names.
+     *
      * @var domainList[]
      */
     public $domainList;
 
     /**
+     * @description The origin server.
+     *
      * @example example.com
      *
      * @var string

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeHighlightInfoResponseBody extends Model
 {
     /**
+     * @description The model of the highlighted data.
+     *
      * @var dataModule[]
      */
     public $dataModule;
 
     /**
+     * @description The request ID.
+     *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
      *
      * @var string

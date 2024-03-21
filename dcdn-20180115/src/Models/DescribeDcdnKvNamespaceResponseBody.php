@@ -36,6 +36,11 @@ class DescribeDcdnKvNamespaceResponseBody extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $mode;
+
+    /**
      * @description The name of the namespace.
      *
      * @example ns1
@@ -79,6 +84,7 @@ class DescribeDcdnKvNamespaceResponseBody extends Model
         'capacityString'     => 'CapacityString',
         'capacityUsedString' => 'CapacityUsedString',
         'description'        => 'Description',
+        'mode'               => 'Mode',
         'namespace'          => 'Namespace',
         'namespaceId'        => 'NamespaceId',
         'requestId'          => 'RequestId',
@@ -100,6 +106,9 @@ class DescribeDcdnKvNamespaceResponseBody extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->mode) {
+            $res['Mode'] = $this->mode;
         }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
@@ -133,6 +142,9 @@ class DescribeDcdnKvNamespaceResponseBody extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['Mode'])) {
+            $model->mode = $map['Mode'];
         }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class regexp extends Model
 {
     /**
-     * @description The error message returned because no items match the regular expression.
+     * @description The error message returned when no items match the regular expression.
      *
      * @example Specify this field.
      *

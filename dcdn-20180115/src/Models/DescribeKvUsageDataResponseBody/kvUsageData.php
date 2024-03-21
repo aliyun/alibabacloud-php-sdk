@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class kvUsageData extends Model
 {
     /**
+     * @description The number of visits.
+     *
      * @example 1340000
      *
      * @var int
@@ -16,6 +18,8 @@ class kvUsageData extends Model
     public $acc;
 
     /**
+     * @description The request method. This parameter is returned only if **SplitBy** is set to **type**.
+     *
      * @example get
      *
      * @var string
@@ -23,6 +27,8 @@ class kvUsageData extends Model
     public $accessType;
 
     /**
+     * @description The ID of the namespace. This parameter is returned only if **SplitBy** is set to **namespace**.
+     *
      * @example 534167033424646144
      *
      * @var string
@@ -30,6 +36,8 @@ class kvUsageData extends Model
     public $namespaceId;
 
     /**
+     * @description The timestamp of the data returned.
+     *
      * @example 2022-11-14T15:00:03Z
      *
      * @var string

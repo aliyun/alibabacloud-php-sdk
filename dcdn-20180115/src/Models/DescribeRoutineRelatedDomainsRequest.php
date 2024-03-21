@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeRoutineRelatedDomainsRequest extends Model
 {
     /**
+     * @description The name of the routine. The name is unique in the same account.
+     *
      * @example routine_test
      *
      * @var string

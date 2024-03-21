@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class business extends Model
 {
     /**
+     * @description The type of real-time logs. Valid values:
+     *
+     *   **dcdn_log_access_l1**: access logs.
+     *   **dcdn_log_er**: EdgeRoutine logs
+     *   **dcdn_log_waf**: WAF interception logs
+     *
      * @example dcdn_log_access_l1
      *
      * @var string
@@ -16,6 +22,10 @@ class business extends Model
     public $businessType;
 
     /**
+     * @description The description of the real-time log type.
+     *
+     * @example product_U8JE
+     *
      * @var string
      */
     public $desc;

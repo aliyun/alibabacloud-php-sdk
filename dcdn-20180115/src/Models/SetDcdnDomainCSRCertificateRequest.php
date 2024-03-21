@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetDcdnDomainCSRCertificateRequest extends Model
 {
     /**
+     * @description The domain name that is secured by the certificate. The domain name uses HTTPS acceleration.
+     *
      * @example example.com
      *
      * @var string
@@ -16,6 +18,8 @@ class SetDcdnDomainCSRCertificateRequest extends Model
     public $domainName;
 
     /**
+     * @description The content of the certificate. The certificate must match the certificate signing request (CSR) created by calling the [CreateDcdnCertificateSigningRequest](~~144478~~) operation. Make sure that the certificate is in PEM format and its content is Base64-encoded and then encoded by encodeURIComponent.
+     *
      * @example test
      *
      * @var string

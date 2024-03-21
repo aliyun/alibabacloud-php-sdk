@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetDcdnFullDomainsBlockIPRequest extends Model
 {
     /**
-     * @description The blocking period. Unit: seconds.
+     * @description The duration for which IP addresses or CIDR blocks are blocked. Unit: seconds. The value **0** specifies that IP addresses or CIDR blocks are permanently blocked. This parameter is available only if you set **OperationType** to **block**.
      *
-     * > If you set the **OperationType** parameter to **unblock**, you do not need to set this parameter.
      * @example 3000
      *
      * @var int
@@ -19,16 +18,16 @@ class SetDcdnFullDomainsBlockIPRequest extends Model
     public $blockInterval;
 
     /**
-     * @description The IP addresses that are blocked or unblocked. Separate multiple IP addresses with commas (,). You can specify up to 1,000 IP addresses.
+     * @description The IP addresses that you want to block or unblock. Separate multiple IP addresses with commas (,). You can specify up to 1,000 IP addresses.
      *
-     * @example 192.168.0.1,10.10.10.10,172.16.0.1
+     * @example 1.XXX.XXX.1,2.XXX.XXX.2
      *
      * @var string
      */
     public $IPList;
 
     /**
-     * @description The action. Valid values:
+     * @description The action that you want to perform. Valid values:
      *
      *   **block**
      *   **unblock**
@@ -40,6 +39,14 @@ class SetDcdnFullDomainsBlockIPRequest extends Model
     public $operationType;
 
     /**
+     * @description The type of the blocking duration. This parameter is available only if you set **OperationType** to **block**. Valid values:
+     *
+     *   **cover**: the blocking duration that is specified in the request takes effect.
+     *   **uncover**: the longer one of the blocking duration that is specified in the request and the remaining blocking duration takes effect.
+     *   Default value: cover.
+     *
+     * @example cover
+     *
      * @var string
      */
     public $updateType;

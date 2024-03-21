@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDdosAllEventListResponseBody extends Model
 {
     /**
+     * @description The list of events.
+     *
      * @var dataList[]
      */
     public $dataList;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeDdosAllEventListResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned on each page. Default value: **10**. Valid values: 5, 10, and 20.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeDdosAllEventListResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example D73A4243-CFBD-5110-876F-09237E77ECBD
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeDdosAllEventListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 20
      *
      * @var int

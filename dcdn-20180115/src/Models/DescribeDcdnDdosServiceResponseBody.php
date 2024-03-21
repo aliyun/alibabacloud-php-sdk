@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDdosServiceResponseBody extends Model
 {
     /**
+     * @description The time when the renewed service takes effect. The time is displayed in UTC.
+     *
      * @example 2018-03-31T16:00:00Z
      *
      * @var string
@@ -16,6 +18,12 @@ class DescribeDcdnDdosServiceResponseBody extends Model
     public $changingAffectTime;
 
     /**
+     * @description The metering method after the configuration changes Valid values:
+     *
+     *   **PayByBandwidth**
+     *   **PayByTraffic**
+     *   **PayByBandwidth95**
+     *
      * @example PayByBandwidth
      *
      * @var string
@@ -23,6 +31,8 @@ class DescribeDcdnDdosServiceResponseBody extends Model
     public $changingChargeType;
 
     /**
+     * @description The number of protected domain names.
+     *
      * @example 30
      *
      * @var int
@@ -30,6 +40,13 @@ class DescribeDcdnDdosServiceResponseBody extends Model
     public $changingDomianNum;
 
     /**
+     * @description The protection edition for which the configuration changes take effect. Valid values:
+     *
+     *   **poc**: POC Edition
+     *   **basic**: Basic Edition
+     *   **insurance**: Insurance Edition
+     *   **unlimited**: Unlimited Edition
+     *
      * @example basic
      *
      * @var string
@@ -37,6 +54,8 @@ class DescribeDcdnDdosServiceResponseBody extends Model
     public $changingEdition;
 
     /**
+     * @description The number of mitigation sessions with configuration changes.
+     *
      * @example 100
      *
      * @var int
@@ -44,6 +63,12 @@ class DescribeDcdnDdosServiceResponseBody extends Model
     public $changingProtectNum;
 
     /**
+     * @description The billing method. Valid values:
+     *
+     *   **PayByBandwidth**
+     *   **PayByTraffic**
+     *   **PayByBandwidth95**
+     *
      * @example PayByTraffic
      *
      * @var string
@@ -51,6 +76,8 @@ class DescribeDcdnDdosServiceResponseBody extends Model
     public $chargeType;
 
     /**
+     * @description The number of protected domain names.
+     *
      * @example 20
      *
      * @var int
@@ -58,6 +85,13 @@ class DescribeDcdnDdosServiceResponseBody extends Model
     public $domianNum;
 
     /**
+     * @description The protection edition. Valid values:
+     *
+     *   **poc**: POC Edition
+     *   **basic**: Basic Edition
+     *   **insurance**: Insurance Edition
+     *   **unlimited**: Unlimited Edition
+     *
      * @example poc
      *
      * @var string
@@ -65,6 +99,11 @@ class DescribeDcdnDdosServiceResponseBody extends Model
     public $edition;
 
     /**
+     * @description The activation status of the service. Valid values:
+     *
+     *   **on**
+     *   **off**
+     *
      * @example on
      *
      * @var string
@@ -72,6 +111,8 @@ class DescribeDcdnDdosServiceResponseBody extends Model
     public $enabled;
 
     /**
+     * @description The service expiration time.
+     *
      * @example 2023-09-26T16:00:00Z
      *
      * @var string
@@ -79,6 +120,8 @@ class DescribeDcdnDdosServiceResponseBody extends Model
     public $endingTime;
 
     /**
+     * @description The instance ID.
+     *
      * @example xxx-12345
      *
      * @var string
@@ -86,6 +129,8 @@ class DescribeDcdnDdosServiceResponseBody extends Model
     public $instanceId;
 
     /**
+     * @description The time when the service was enabled.
+     *
      * @example 2021-09-26T16:00:00Z
      *
      * @var string
@@ -93,6 +138,8 @@ class DescribeDcdnDdosServiceResponseBody extends Model
     public $openingTime;
 
     /**
+     * @description The number of mitigation sessions.
+     *
      * @example 100
      *
      * @var int
@@ -100,6 +147,8 @@ class DescribeDcdnDdosServiceResponseBody extends Model
     public $protectNum;
 
     /**
+     * @description The request ID.
+     *
      * @example C370DAF1-C838-4288-A1A0-9A87633D248E
      *
      * @var string
@@ -107,6 +156,13 @@ class DescribeDcdnDdosServiceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The status of the service. Valid values:
+     *
+     *   **Normal**
+     *   **WaitForExpire**
+     *   **expired**
+     *   **Released**
+     *
      * @example Normal
      *
      * @var string

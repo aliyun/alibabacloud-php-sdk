@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainsBySourceRequest extends Model
 {
     /**
+     * @description The list of origin servers. Separate origin servers with commas (,). You can specify a maximum of 20 origin servers. Fuzzy match is not supported.
+     *
      * @example example.org
      *
      * @var string

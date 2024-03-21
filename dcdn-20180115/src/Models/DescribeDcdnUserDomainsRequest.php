@@ -138,6 +138,8 @@ class DescribeDcdnUserDomainsRequest extends Model
     public $tag;
 
     /**
+     * @example computing_routine
+     *
      * @var string
      */
     public $webSiteType;

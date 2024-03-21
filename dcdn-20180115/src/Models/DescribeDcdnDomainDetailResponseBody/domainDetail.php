@@ -53,6 +53,14 @@ class domainDetail extends Model
     public $domainStatus;
 
     /**
+     * @description Computing service type. Valid values:
+     *
+     *   **routine**
+     *   **image**
+     *   **cloudFunction**
+     *
+     * @example routine
+     *
      * @var string
      */
     public $functionType;
@@ -106,6 +114,15 @@ class domainDetail extends Model
     public $SSLPub;
 
     /**
+     * @description Acceleration scenario. Valid values:
+     *
+     *   **apiscene**: API acceleration.
+     *   **webservicescene**: website acceleration.
+     *   **staticscene**: video, image, and text acceleration.
+     *   **an empty string**: no acceleration scenario is used.
+     *
+     * @example apiscene
+     *
      * @var string
      */
     public $scene;

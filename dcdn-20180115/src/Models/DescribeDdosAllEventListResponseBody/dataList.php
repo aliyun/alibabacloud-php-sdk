@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dataList extends Model
 {
     /**
+     * @description The peak attack traffic of volumetric attacks. Unit: bit/s.
+     *
      * @example 800
      *
      * @var int
@@ -16,6 +18,8 @@ class dataList extends Model
     public $bps;
 
     /**
+     * @description The peak of connection flood attacks. Unit: connections per seconds (CPS).
+     *
      * @example 50
      *
      * @var int
@@ -23,6 +27,8 @@ class dataList extends Model
     public $cps;
 
     /**
+     * @description The end of the time range during which data was queried. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2022-11-26T15:59:00Z
      *
      * @var string
@@ -30,6 +36,8 @@ class dataList extends Model
     public $endTime;
 
     /**
+     * @description The event ID.
+     *
      * @example 28069
      *
      * @var string
@@ -37,6 +45,13 @@ class dataList extends Model
     public $eventId;
 
     /**
+     * @description The type of the DDoS attack event that was queried. Valid values:
+     *
+     *   **web-cc**: web resource exhaustion attacks
+     *   **cc**: connection flood attacks
+     *   **traffic**: volumetric attacks
+     *   If you do not configure this parameter, DDoS attack events of all types are queried.
+     *
      * @example web-cc
      *
      * @var string
@@ -44,6 +59,8 @@ class dataList extends Model
     public $eventType;
 
     /**
+     * @description The peak attack traffic of volumetric attacks. Unit: packets per second (PPS).
+     *
      * @example 12000
      *
      * @var int
@@ -51,6 +68,8 @@ class dataList extends Model
     public $pps;
 
     /**
+     * @description The peak of web resource exhaustion attacks. Unit: queries per second (QPS).
+     *
      * @example 7692
      *
      * @var int
@@ -58,6 +77,8 @@ class dataList extends Model
     public $qps;
 
     /**
+     * @description The beginning of the time range during which data was queried. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2022-10-09T10:03:31Z
      *
      * @var string
@@ -65,6 +86,8 @@ class dataList extends Model
     public $startTime;
 
     /**
+     * @description The attack target.
+     *
      * @example example.com
      *
      * @var string

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class certificateListModel extends Model
 {
     /**
+     * @description Details about each certificate.
+     *
      * @var certList
      */
     public $certList;
 
     /**
+     * @description The number of certificates.
+     *
      * @example 2
      *
      * @var int
@@ -22,6 +26,8 @@ class certificateListModel extends Model
     public $count;
 
     /**
+     * @description The page number. Pages start from page 1. Default value: 1.
+     *
      * @example 2
      *
      * @var int
@@ -29,6 +35,8 @@ class certificateListModel extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values: an integer from 1 to 1000.
+     *
      * @example 20
      *
      * @var int

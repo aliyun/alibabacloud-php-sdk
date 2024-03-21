@@ -10,11 +10,19 @@ use AlibabaCloud\Tea\Model;
 class specInfos extends Model
 {
     /**
+     * @description The configurations of the version rule.
+     *
      * @var configs[]
      */
     public $configs;
 
     /**
+     * @description The version rule. Valid values:
+     *
+     *   **version_defense_num**: the rule for the number of version mitigation sessions
+     *   **domain_num**: the rule for the limit on the number of domain names
+     *   **defence_package_num**: the rule for extra mitigation session plans
+     *
      * @example version_defense_num
      *
      * @var string

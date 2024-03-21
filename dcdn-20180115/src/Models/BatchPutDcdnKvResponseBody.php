@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class BatchPutDcdnKvResponseBody extends Model
 {
     /**
+     * @description The keys that failed to be written.
+     *
      * @var string[]
      */
     public $failKeys;
 
     /**
+     * @description The request ID.
+     *
      * @example 156A6B-677B1A-4297B7-9187B7-2B44792
      *
      * @var string
@@ -21,6 +25,8 @@ class BatchPutDcdnKvResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The keys that were written.
+     *
      * @var string[]
      */
     public $successKeys;

@@ -19,7 +19,7 @@ class fields extends Model
     public $extendField;
 
     /**
-     * @description The logical operator.
+     * @description The information about the logical symbol.
      *
      * @var logicalSymbol[]
      */

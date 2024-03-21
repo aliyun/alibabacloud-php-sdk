@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDcdnCertificateSigningRequestResponseBody extends Model
 {
     /**
+     * @description The Common Name of the certificate.
+     *
      * @example example.com
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateDcdnCertificateSigningRequestResponseBody extends Model
     public $commonName;
 
     /**
+     * @description The content of the CSR file.
+     *
      * @example -----BEGIN CERTIFICATE REQUEST-----\nMIIC/zCCAecCAQAwZTELMAkGA1UEBhMCQ04xCzAJBgNVBAgTAlpKMQswCQYDVQQH
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateDcdnCertificateSigningRequestResponseBody extends Model
     public $csr;
 
     /**
+     * @description The MD5 hash value of the certificate public key.
+     *
      * @example 629bf4fd8104eda171135bcb0f77a10b
      *
      * @var string
@@ -30,6 +36,8 @@ class CreateDcdnCertificateSigningRequestResponseBody extends Model
     public $pubMd5;
 
     /**
+     * @description The request ID.
+     *
      * @example 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
      *
      * @var string

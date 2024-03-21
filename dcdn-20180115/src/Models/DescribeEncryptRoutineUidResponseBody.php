@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeEncryptRoutineUidResponseBody extends Model
 {
     /**
+     * @description The returned ciphertext, which contains the Alibaba Cloud account ID, timestamp, and time to live (TTL).
+     *
      * @example XXXXXj20p4UB/xgdOH5LtXXXXXX
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeEncryptRoutineUidResponseBody extends Model
     public $content;
 
     /**
+     * @description The request ID.
+     *
      * @example 4DBA68F5-04A9-406B-B1E4-F2CB635E103F
      *
      * @var string

@@ -10,6 +10,13 @@ use AlibabaCloud\Tea\Model;
 class logicalSymbol extends Model
 {
     /**
+     * @description The configurable attributes, which are bit-field variables that are shown in the following list.\
+     * For example, 1(00000001) indicates that case sensitivity can be enabled and stream match cannot be enabled, and 3(00000011) indicates that case sensitivity and stream match can be enabled.
+     *
+     *   Bit (low to high) - Description
+     *   1 - Case sensitivity
+     *   2 - Stream match
+     *
      * @example 1
      *
      * @var int
@@ -26,9 +33,9 @@ class logicalSymbol extends Model
     public $description;
 
     /**
-     * @description The maximum number of match contents that can be returned. The value of this parameter varies based on the value of the Type parameter. Valid values:
+     * @description The maximum number of match items that can be returned. The value of this parameter varies based on the value of the Type parameter. Valid values:
      *
-     *   If **multi** is returned for the Type parameter, the value of this parameter indicates the maximum number of match contents.
+     *   If **multi** is returned for the Type parameter, the value of this parameter indicates the maximum number of match items.
      *   If **single** is returned for the Type parameter, the value of this parameter is 1.
      *   If **none** is returned for the Type parameter, the value of this parameter is 0.
      *
@@ -39,7 +46,7 @@ class logicalSymbol extends Model
     public $maxLength;
 
     /**
-     * @description The regular expression.
+     * @description The information about the regular expression.
      *
      * @var regexp
      */
@@ -55,7 +62,7 @@ class logicalSymbol extends Model
     public $symbol;
 
     /**
-     * @description The tips that are displayed in the match content.
+     * @description The tips that are displayed in the match item.
      *
      * @example You can enter up to 50 tips. Press the Enter key.
      *
@@ -64,11 +71,11 @@ class logicalSymbol extends Model
     public $tip;
 
     /**
-     * @description The number of match contents. Valid values:
+     * @description The number of match items. Valid values:
      *
-     *   multi: multiple match contents
-     *   single: one match content
-     *   none: no match contents
+     *   multi: You can specify multiple match items.
+     *   single: You can specify only a match item.
+     *   none: no match items.
      *
      * @example multi
      *

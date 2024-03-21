@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class cert extends Model
 {
     /**
+     * @description The ID of the certificate.
+     *
      * @example 7428244
      *
      * @var int
@@ -16,6 +18,8 @@ class cert extends Model
     public $certId;
 
     /**
+     * @description The name of the certificate.
+     *
      * @example yourCertName
      *
      * @var string
@@ -23,6 +27,8 @@ class cert extends Model
     public $certName;
 
     /**
+     * @description The region ID of the certificate. Valid values: **cn-hangzhou** and **ap-southeast-1**. Default value: **cn-hangzhou**.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -30,6 +36,8 @@ class cert extends Model
     public $certRegion;
 
     /**
+     * @description The Common Name (CN) attribute of the certificate. In most cases, the CN is a domain name.
+     *
      * @example example.com
      *
      * @var string
@@ -37,6 +45,8 @@ class cert extends Model
     public $common;
 
     /**
+     * @description The fingerprint of the certificate.
+     *
      * @example 4278e3b81ab5bc678d253e74c17ffb88
      *
      * @var string
@@ -44,6 +54,8 @@ class cert extends Model
     public $fingerprint;
 
     /**
+     * @description The certificate authority (CA) that issued the certificate.
+     *
      * @example yourCertIssuer
      *
      * @var string
@@ -51,6 +63,8 @@ class cert extends Model
     public $issuer;
 
     /**
+     * @description The time when the certificate was last modified. Unit: milliseconds.
+     *
      * @example 1548065550
      *
      * @var int

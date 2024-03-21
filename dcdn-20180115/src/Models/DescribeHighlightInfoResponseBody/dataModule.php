@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dataModule extends Model
 {
     /**
+     * @description The highlighted data.
+     *
      * @example [\"data:image/php;base64\"]
      *
      * @var string
@@ -16,6 +18,8 @@ class dataModule extends Model
     public $hit;
 
     /**
+     * @description The type of the highlight data.
+     *
      * @example URL
      *
      * @var string
@@ -23,6 +27,8 @@ class dataModule extends Model
     public $key;
 
     /**
+     * @description Complete data.
+     *
      * @example data:image/php;base64,PD9waHAXXXXXXanVzdHR0dHXXXXXB0ZXN0Ijs/Pg==
      *
      * @var string

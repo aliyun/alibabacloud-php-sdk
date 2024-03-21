@@ -47,7 +47,7 @@ class source extends Model
     /**
      * @description The type of the origin server. Valid values:
      *
-     *   **ipaddr**: an origin IP address
+     *   **ipaddr**: an IP address
      *   **domain**: an origin domain name
      *   **oss**: the domain name of an Object Storage Service (OSS) bucket
      *
@@ -58,7 +58,7 @@ class source extends Model
     public $type;
 
     /**
-     * @description The weight of the origin server if multiple origin servers have been specified.
+     * @description The weight of the origin server if multiple origin servers are specified.
      *
      * @example 20
      *

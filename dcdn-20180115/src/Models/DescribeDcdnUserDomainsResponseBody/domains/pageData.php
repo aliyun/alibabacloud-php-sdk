@@ -62,6 +62,8 @@ class pageData extends Model
     public $domainStatus;
 
     /**
+     * @example routine
+     *
      * @var string
      */
     public $functionType;
@@ -115,11 +117,6 @@ class pageData extends Model
     public $sandbox;
 
     /**
-     * @description 场景。支持：
-     * - **apiscene**：API加速。
-     * - **webservicescene**：网站业务加速。
-     * - **staticscene**：视频、图文类加速。
-     * - **（空）**：没有场景。
      * @example apiscene
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnIpaDomainCidrResponseBody extends Model
 {
     /**
+     * @description The back-to-origin IPv4 and IPv6 CIDR blocks.
+     *
      * @example ["1.1.1.0/24","2.2.2.0/24","1111:2222:3333:4444:5555:0:0:0/80"]
      *
      * @var string[]
@@ -16,6 +18,8 @@ class DescribeDcdnIpaDomainCidrResponseBody extends Model
     public $cidr;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
      *
      * @var string

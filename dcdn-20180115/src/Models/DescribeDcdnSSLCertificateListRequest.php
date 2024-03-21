@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnSSLCertificateListRequest extends Model
 {
     /**
+     * @description The accelerated domain secured by the SSL certificate. HTTPS secure acceleration is enabled for the accelerated domain name.
+     *
      * @example www.example.com
      *
      * @var string
@@ -21,6 +23,8 @@ class DescribeDcdnSSLCertificateListRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -28,6 +32,8 @@ class DescribeDcdnSSLCertificateListRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The maximum number of entries to return on each page. Valid values: **1 to 1000**.
+     *
      * @example 10
      *
      * @var int
@@ -35,6 +41,8 @@ class DescribeDcdnSSLCertificateListRequest extends Model
     public $pageSize;
 
     /**
+     * @description The keyword that is used to query the certificate.
+     *
      * @example taobao
      *
      * @var string

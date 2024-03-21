@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeHighlightInfoRequest extends Model
 {
     /**
+     * @description The end of the time range to query. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2023-04-10T02:43:34Z
      *
      * @var string
@@ -16,6 +18,11 @@ class DescribeHighlightInfoRequest extends Model
     public $endTime;
 
     /**
+     * @description The access language. Valid values:
+     *
+     *   **en-US** (default): English
+     *   **zh-CN**: Chinese
+     *
      * @example en_US
      *
      * @var string
@@ -23,6 +30,8 @@ class DescribeHighlightInfoRequest extends Model
     public $lang;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
      * @example 2023-02-19T16:00:00Z
      *
      * @var string
@@ -30,6 +39,8 @@ class DescribeHighlightInfoRequest extends Model
     public $startTime;
 
     /**
+     * @description The ID of the trace.
+     *
      * @example 800e749616838513398137319e
      *
      * @var string

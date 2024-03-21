@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDdosAllEventListRequest extends Model
 {
     /**
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. The end time must be later than the start time. The maximum time range is 31 days.
+     *
      * @example 2023-04-25T15:59:59Z
      *
      * @var string
@@ -16,11 +18,11 @@ class DescribeDdosAllEventListRequest extends Model
     public $endTime;
 
     /**
-     * @description The type of the DDoS attack event that was queried. Valid values:
+     * @description The type of the DDoS attack event to be queried. Valid values:
      *
-     *   *   **web-cc**: web resource exhaustion attacks
-     *   *   **cc**: connection flood attacks
-     *   *   **traffic**: volumetric attacks
+     *   **web-cc**: resource exhaustion attacks
+     *   **cc**: connection flood attacks
+     *   **traffic**: volumetric attacks
      *
      * If you do not configure this parameter, DDoS attack events of all types are queried.
      * @example web-cc
@@ -30,6 +32,8 @@ class DescribeDdosAllEventListRequest extends Model
     public $eventType;
 
     /**
+     * @description The page number. Default value: 1. Value range: 1 to 10,000.
+     *
      * @example 1
      *
      * @var int
@@ -46,6 +50,8 @@ class DescribeDdosAllEventListRequest extends Model
     public $pageSize;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
      * @example 2023-03-27T16:00:00Z
      *
      * @var string

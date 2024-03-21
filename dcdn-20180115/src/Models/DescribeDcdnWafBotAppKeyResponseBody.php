@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnWafBotAppKeyResponseBody extends Model
 {
     /**
+     * @description The SDK authentication key for the Alibaba Cloud account.
+     *
      * @example examp1eapp_key_xxxiuMWTX4Gw
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeDcdnWafBotAppKeyResponseBody extends Model
     public $appKey;
 
     /**
+     * @description The request ID.
+     *
      * @example F2542B96-B535-5BF9-8EEE-1CF11B20CCA8
      *
      * @var string

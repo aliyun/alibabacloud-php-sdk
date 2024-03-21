@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class domainList extends Model
 {
     /**
+     * @description The creation time.
+     *
      * @example 2021-08-21T03:05:20+08:00
      *
      * @var string
@@ -16,7 +18,7 @@ class domainList extends Model
     public $createTime;
 
     /**
-     * @description CNAME。
+     * @description The CNAME record assigned to the domain name.
      *
      * @example example.org.alikunlun.com
      *
@@ -25,6 +27,8 @@ class domainList extends Model
     public $domainCname;
 
     /**
+     * @description The accelerated domain name.
+     *
      * @example example.org
      *
      * @var string
@@ -32,6 +36,11 @@ class domainList extends Model
     public $domainName;
 
     /**
+     * @description The workload type of the accelerated domain name. Valid value:
+     *
+     *   **ipa**: layer 4 acceleration
+     *   **dynamic**: layer 7 acceleration
+     *
      * @example dynamic
      *
      * @var string
@@ -39,6 +48,15 @@ class domainList extends Model
     public $domainType;
 
     /**
+     * @description The status of the domain name. Valid value:
+     *
+     *   **applying**: The domain name is under review.
+     *   **configuring**: The domain name is being configured.
+     *   **online**: The domain name is working as expected.
+     *   **stopping**: The domain name is being stopped.
+     *   **offline**: The domain name is disabled.
+     *   **disabling**: The domain name is being removed.
+     *
      * @example online
      *
      * @var string
@@ -46,6 +64,8 @@ class domainList extends Model
     public $status;
 
     /**
+     * @description The time when the domain name was updated.
+     *
      * @example 2022-12-01T03:26:55+08:00
      *
      * @var string

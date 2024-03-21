@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeKvUsageDataResponseBody extends Model
 {
     /**
+     * @description The end of the time range during which data was queried.
+     *
      * @example 2022-11-18T15:59:59Z
      *
      * @var string
@@ -17,11 +19,15 @@ class DescribeKvUsageDataResponseBody extends Model
     public $endTime;
 
     /**
+     * @description The detailed usage data.
+     *
      * @var kvUsageData[]
      */
     public $kvUsageData;
 
     /**
+     * @description The request ID.
+     *
      * @example 9732E117-8A37-49FD-A36F-ABBB87556CA7
      *
      * @var string
@@ -29,6 +35,8 @@ class DescribeKvUsageDataResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The beginning of the time range during which data was queried.
+     *
      * @example 2022-11-06T16:00:00Z
      *
      * @var string

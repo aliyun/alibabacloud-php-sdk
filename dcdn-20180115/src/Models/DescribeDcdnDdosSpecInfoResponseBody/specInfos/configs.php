@@ -9,6 +9,15 @@ use AlibabaCloud\Tea\Model;
 class configs extends Model
 {
     /**
+     * @description The configuration code of the version rule. Valid values:
+     *
+     *   **total_defense_num**: the total number of mitigation sessions of the version.
+     *   **consume_defense_num**: the number of used mitigation sessions of the version.
+     *   **max_domain_num**: the limit on the number of added domain names.
+     *   **emain_domain_num**: the number of added domain names.
+     *   **defence_package_num**: the total number of purchased additional mitigation sessions.
+     *   **consume_defence_package_num**: the number of used additional mitigation sessions.
+     *
      * @example total_defense_num
      *
      * @var string
@@ -16,6 +25,8 @@ class configs extends Model
     public $config;
 
     /**
+     * @description The configuration expression of the version rule.
+     *
      * @example equal
      *
      * @var string
@@ -23,6 +34,8 @@ class configs extends Model
     public $expr;
 
     /**
+     * @description The value of the configuration expression of the version rule.
+     *
      * @example 1
      *
      * @var string

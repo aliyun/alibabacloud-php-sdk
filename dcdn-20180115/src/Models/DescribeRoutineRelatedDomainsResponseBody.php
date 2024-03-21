@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeRoutineRelatedDomainsResponseBody extends Model
 {
     /**
+     * @description The list of domain names associated with the routine.
+     *
      * @example "Domains": [
      * ]
      * @var mixed[]
@@ -16,6 +18,8 @@ class DescribeRoutineRelatedDomainsResponseBody extends Model
     public $content;
 
     /**
+     * @description The ID of the request.
+     *
      * @example FC0E34AC-0239-44A7-AB0E-800DE522C8DA
      *
      * @var string

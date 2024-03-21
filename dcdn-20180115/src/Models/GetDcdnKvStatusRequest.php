@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDcdnKvStatusRequest extends Model
 {
     /**
+     * @description The name of the key that you want to query.
+     *
      * @example key1
      *
      * @var string
@@ -16,6 +18,8 @@ class GetDcdnKvStatusRequest extends Model
     public $key;
 
     /**
+     * @description The name of the namespace.
+     *
      * @example ns1
      *
      * @var string

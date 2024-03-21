@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDcdnCertificateSigningRequestRequest extends Model
 {
     /**
+     * @description The city. Default value: Hangzhou.
+     *
      * @example Hangzhou
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateDcdnCertificateSigningRequestRequest extends Model
     public $city;
 
     /**
+     * @description The Common Name of the certificate.
+     *
      * @example testName
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateDcdnCertificateSigningRequestRequest extends Model
     public $commonName;
 
     /**
+     * @description The country or region in which the organization is located. Default value: CN.
+     *
      * @example CN
      *
      * @var string
@@ -30,6 +36,8 @@ class CreateDcdnCertificateSigningRequestRequest extends Model
     public $country;
 
     /**
+     * @description The email address.
+     *
      * @example test@aliyundoc.com
      *
      * @var string
@@ -37,6 +45,8 @@ class CreateDcdnCertificateSigningRequestRequest extends Model
     public $email;
 
     /**
+     * @description The name of the organization. Default value: Alibaba Inc.
+     *
      * @example Alibaba Inc
      *
      * @var string
@@ -44,6 +54,8 @@ class CreateDcdnCertificateSigningRequestRequest extends Model
     public $organization;
 
     /**
+     * @description The name of the department. Default value: Aliyun CDN.
+     *
      * @example Aliyun CDN
      *
      * @var string
@@ -51,6 +63,8 @@ class CreateDcdnCertificateSigningRequestRequest extends Model
     public $organizationUnit;
 
     /**
+     * @description The Subject Alternative Name (SAN) extension that allows multiple domain names to be associated with the certificate. Separate multiple domain names with commas (,).
+     *
      * @example example.com,example.org
      *
      * @var string
@@ -58,6 +72,8 @@ class CreateDcdnCertificateSigningRequestRequest extends Model
     public $SANs;
 
     /**
+     * @description The provincial district. Default value: Zhejiang.
+     *
      * @example Zhejiang
      *
      * @var string

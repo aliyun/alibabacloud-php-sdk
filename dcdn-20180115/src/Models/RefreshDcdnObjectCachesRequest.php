@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class RefreshDcdnObjectCachesRequest extends Model
 {
     /**
+     * @description Specifies whether to refresh resources in a directory if the resources are different from the resources in the same directory in the origin server. Default value: false.
+     *
+     *   **true**: refresh all resources in the directory.
+     *   **false**: refresh the changed resources in the directory.
+     *
      * @example false
      *
      * @var bool
