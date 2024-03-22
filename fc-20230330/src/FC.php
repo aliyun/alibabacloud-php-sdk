@@ -71,6 +71,9 @@ use AlibabaCloud\SDK\FC\V20230330\Models\ListProvisionConfigsRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\ListProvisionConfigsResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\ListTaggedResourcesRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\ListTaggedResourcesResponse;
+use AlibabaCloud\SDK\FC\V20230330\Models\ListTagResourcesRequest;
+use AlibabaCloud\SDK\FC\V20230330\Models\ListTagResourcesResponse;
+use AlibabaCloud\SDK\FC\V20230330\Models\ListTagResourcesShrinkRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\ListTriggersRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\ListTriggersResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\ListVpcBindingsResponse;
@@ -86,8 +89,13 @@ use AlibabaCloud\SDK\FC\V20230330\Models\PutProvisionConfigRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\PutProvisionConfigResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\TagResourceRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\TagResourceResponse;
+use AlibabaCloud\SDK\FC\V20230330\Models\TagResourcesRequest;
+use AlibabaCloud\SDK\FC\V20230330\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\UntagResourceRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\UntagResourceResponse;
+use AlibabaCloud\SDK\FC\V20230330\Models\UntagResourcesRequest;
+use AlibabaCloud\SDK\FC\V20230330\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\FC\V20230330\Models\UntagResourcesShrinkRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\UpdateAliasRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\UpdateAliasResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\UpdateCustomDomainRequest;
@@ -1916,6 +1924,72 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @param ListTagResourcesRequest $tmpReq
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResourcesWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListTagResourcesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->resourceId)) {
+            $request->resourceIdShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceId, 'ResourceId', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tag)) {
+            $request->tagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->resourceIdShrink)) {
+            $query['ResourceId'] = $request->resourceIdShrink;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tagShrink)) {
+            $query['Tag'] = $request->tagShrink;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagResources',
+            'version'     => '2023-03-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2023-03-30/tags-v2',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listTagResourcesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @deprecated
      *   *
      * Deprecated
@@ -2354,6 +2428,48 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @param TagResourcesRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResourcesWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'TagResources',
+            'version'     => '2023-03-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2023-03-30/tags-v2',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->tagResourcesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @deprecated
      *   *
      * Deprecated
@@ -2411,6 +2527,69 @@ class FC extends OpenApiClient
         $headers = [];
 
         return $this->untagResourceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param UntagResourcesRequest $tmpReq
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResourcesWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UntagResourcesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->resourceId)) {
+            $request->resourceIdShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceId, 'ResourceId', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tagKey)) {
+            $request->tagKeyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tagKey, 'TagKey', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
+        }
+        if (!Utils::isUnset($request->resourceIdShrink)) {
+            $query['ResourceId'] = $request->resourceIdShrink;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tagKeyShrink)) {
+            $query['TagKey'] = $request->tagKeyShrink;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UntagResources',
+            'version'     => '2023-03-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2023-03-30/tags-v2',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->untagResourcesWithOptions($request, $headers, $runtime);
     }
 
     /**
