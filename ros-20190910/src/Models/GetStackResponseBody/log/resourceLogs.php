@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class resourceLogs extends Model
 {
     /**
-     * @description The logs of all resources.
+     * @description All the logs that are associated with the resources.
      *
      * @var logs[]
      */

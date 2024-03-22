@@ -14,9 +14,9 @@ use AlibabaCloud\Tea\Model;
 class GetStackResponseBody extends Model
 {
     /**
-     * @description The number of resources on which drift detection is performed.
+     * @description The number of resources on which drift detection was performed.
      *
-     * >  This parameter is returned only if the drift detection on the stack is successful.
+     * >  This parameter is returned only if the most recent drift detection on the stack was successful.
      * @example 1
      *
      * @var int
@@ -36,9 +36,9 @@ class GetStackResponseBody extends Model
      * @description Indicates whether deletion protection is enabled for the stack. Valid values:
      *
      *   Enabled: Deletion protection is enabled for the stack.
-     *   Disabled: Deletion protection is disabled for the stack. You can delete the stack in the Resource Orchestration Service (ROS) console or by calling the DeleteStack operation.
+     *   Disabled: Deletion protection is disabled for the stack. You can delete the stack by using the ROS console or by calling the DeleteStack operation.
      *
-     * >  Deletion protection of a nested stack works in the same way as that of the root stack.
+     * >  Deletion protection of a nested stack is the same as deletion protection of its root stack.
      * @example Disabled
      *
      * @var string
@@ -57,8 +57,8 @@ class GetStackResponseBody extends Model
     /**
      * @description Indicates whether rollback is disabled when the stack fails to be created. Valid values:
      *
-     *   true: Rollback is disabled when the stack fails to be created.
-     *   false: Rollback is enabled when the stack fails to be created. This is the default value.
+     *   true
+     *   false (default)
      *
      * @example false
      *
@@ -67,7 +67,7 @@ class GetStackResponseBody extends Model
     public $disableRollback;
 
     /**
-     * @description The time when the last successful drift detection operation was performed.
+     * @description The time when the most recent successful drift detection was performed on the stack.
      *
      * @example 2020-09-16T09:21:40
      *
@@ -76,7 +76,7 @@ class GetStackResponseBody extends Model
     public $driftDetectionTime;
 
     /**
-     * @description The description of the web UI in the ROS console.
+     * @description The description of the console user interface (UI).
      *
      * @example {}
      *
@@ -85,16 +85,16 @@ class GetStackResponseBody extends Model
     public $interface;
 
     /**
-     * @description The logs of the stack.
+     * @description The log of the stack.
      *
      * @var log
      */
     public $log;
 
     /**
-     * @description The number of resources on which drift detection is not performed.
+     * @description The number of resources on which drift detection was not performed.
      *
-     * >  This parameter is returned only if the drift detection on the stack is successful.
+     * >  This parameter is returned only if the most recent drift detection on the stack was successful.
      * @example 1
      *
      * @var int
@@ -102,31 +102,30 @@ class GetStackResponseBody extends Model
     public $notCheckedStackResourceCount;
 
     /**
-     * @description The callback URLs that are used to receive stack events.
+     * @description The callback URLs for receiving stack events.
      *
      * @var string[]
      */
     public $notificationURLs;
 
     /**
-     * @description The additional information that is displayed when an error occurs on a stack operation.
+     * @description The supplementary information that is returned if an error occurs on a stack operation.
      *
-     * >  This property is returned in specific conditions. At least one sub-property is returned. For example, an error is reported when you call the API of another cloud service.
+     * >  This parameter is returned together with at least one sub-parameter and only under specific conditions. For example, the supplementary information is returned when an API operation of another Alibaba Cloud service fails to be called.
      * @var operationInfo
      */
     public $operationInfo;
 
     /**
-     * @description The ID of the order. This parameter is returned only if you set the ChargeType parameter to PrePaid.
+     * @description The order IDs. This parameter is returned only if you configured manual payment when you created a subscription stack.
      *
      * @var string[]
      */
     public $orderIds;
 
     /**
-     * @description The output parameters of the stack.
+     * @description The outputs of the stack.
      *
-     * >  This parameter is returned if the OutputOption parameter is set to Enabled.
      * @var mixed[][]
      */
     public $outputs;
@@ -148,9 +147,8 @@ class GetStackResponseBody extends Model
     public $parentStackId;
 
     /**
-     * @description The name of the RAM role. ROS assumes the RAM role to create the stack and uses credentials of the role to call the APIs of Alibaba Cloud services.
-     *
-     * The name of the RAM role can be up to 64 bytes in length.
+     * @description The name of the Resource Access Management (RAM) role. ROS assumes the RAM role to create the stack and uses the credentials of the role to call the APIs of Alibaba Cloud services.\
+     * The RAM role name can be up to 64 characters in length.
      * @example test-role
      *
      * @var string
@@ -158,7 +156,7 @@ class GetStackResponseBody extends Model
     public $ramRoleName;
 
     /**
-     * @description The ID of the region in which the stack is deployed. You can call the [DescribeRegions](~~131035~~) operation to query the most recent list of Alibaba Cloud regions.
+     * @description The region ID of the stack. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -167,7 +165,7 @@ class GetStackResponseBody extends Model
     public $regionId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example B288A0BE-D927-4888-B0F7-B35EF84B6E6F
      *
@@ -176,7 +174,7 @@ class GetStackResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the resource group to which the instances belong.
+     * @description The ID of the resource group.
      *
      * @example rg-acfmxazb4ph6aiy****
      *
@@ -185,13 +183,17 @@ class GetStackResponseBody extends Model
     public $resourceGroupId;
 
     /**
-     * @description The creation progress of resources.
+     * @description The resource creation progress.
      *
      * @var resourceProgress
      */
     public $resourceProgress;
 
     /**
+     * @description 当资源栈状态为回滚失败时，该字段展示导致回滚的前一阶段执行失败的原因。
+     *
+     * @example Resource UPDATE failed: Exception: resources.FailToCreate: FailToCreate: reason
+     *
      * @var string
      */
     public $rollbackFailedRootReason;
@@ -208,7 +210,9 @@ class GetStackResponseBody extends Model
     /**
      * @description Indicates whether the stack is a managed stack. Valid values:
      *
-     * - false
+     *   true
+     *   false
+     *
      * @example false
      *
      * @var bool
@@ -225,7 +229,7 @@ class GetStackResponseBody extends Model
     public $serviceName;
 
     /**
-     * @description The status of the stack in the last successful drift detection. Valid values:
+     * @description The state of the stack on which the most recent successful drift detection was performed. Valid values:
      *
      *   DRIFTED: The stack has drifted.
      *   NOT_CHECKED: No successful drift detection is performed on the stack.
@@ -238,7 +242,7 @@ class GetStackResponseBody extends Model
     public $stackDriftStatus;
 
     /**
-     * @description The ID of the stack.
+     * @description The stack ID.
      *
      * @example c754d2a4-28f1-46df-b557-9586173a****
      *
@@ -247,9 +251,8 @@ class GetStackResponseBody extends Model
     public $stackId;
 
     /**
-     * @description The name of the stack.
-     *
-     * The name can be up to 255 characters in length, and can contain digits, letters, hyphens (-), and underscores (\_). It must start with a digit or letter.
+     * @description The stack name.\
+     * The name can be up to 255 characters in length, and can contain digits, letters, hyphens (-), and underscores (\_). The name must start with a digit or letter.
      * @example MyStack
      *
      * @var string
@@ -257,10 +260,10 @@ class GetStackResponseBody extends Model
     public $stackName;
 
     /**
-     * @description The type of the stack. Valid values:
+     * @description The stack type. Valid values:
      *
-     *   ROS: The ROS stack, which is created by using an ROS template.
-     *   Terraform: The Terraform stack, which is created by using a Terraform template.
+     *   ROS: ROS stack. The stack is created by using a ROS template.
+     *   Terraform: Terraform stack. The stack is created by using a Terraform template.
      *
      * @example ROS
      *
@@ -272,35 +275,35 @@ class GetStackResponseBody extends Model
      * @description The state of the stack. Valid values:
      *
      *   CREATE_IN_PROGRESS: The stack is being created.
-     *   CREATE_FAILED: The stack fails to be created.
+     *   CREATE_FAILED: The stack failed to be created.
      *   CREATE_COMPLETE: The stack is created.
      *   UPDATE_IN_PROGRESS: The stack is being updated.
-     *   UPDATE_FAILED: The stack fails to be updated.
+     *   UPDATE_FAILED: The stack failed to be updated.
      *   UPDATE_COMPLETE: The stack is updated.
      *   DELETE_IN_PROGRESS: The stack is being deleted.
-     *   DELETE_FAILED: The stack fails to be deleted.
-     *   CREATE_ROLLBACK_IN_PROGRESS: The stack is being rolled back after the stack fails to be created.
-     *   CREATE_ROLLBACK_FAILED: The stack fails to be rolled back after the stack fails to be created.
-     *   CREATE_ROLLBACK_COMPLETE: The stack is rolled back after the stack fails to be created.
-     *   ROLLBACK_IN_PROGRESS: The resources in the stack are being rolled back.
-     *   ROLLBACK_FAILED: The resources in the stack fail to be rolled back.
-     *   ROLLBACK_COMPLETE: The resources in the stack are rolled back.
+     *   DELETE_FAILED: The stack failed to be deleted.
+     *   CREATE_ROLLBACK_IN_PROGRESS: The resources are being rolled back after the stack failed to be created.
+     *   CREATE_ROLLBACK_FAILED: The resources failed to be rolled back after the stack failed to be created.
+     *   CREATE_ROLLBACK_COMPLETE: The resources are rolled back after the stack failed to be created.
+     *   ROLLBACK_IN_PROGRESS: The resources of the stack are being rolled back.
+     *   ROLLBACK_FAILED: The resources of the stack failed to be rolled back.
+     *   ROLLBACK_COMPLETE: The resources of the stack are rolled back.
      *   CHECK_IN_PROGRESS: The stack is being validated.
-     *   CHECK_FAILED: The stack fails to be validated.
+     *   CHECK_FAILED: The stack failed to be validated.
      *   CHECK_COMPLETE: The stack is validated.
      *   REVIEW_IN_PROGRESS: The stack is being reviewed.
      *   IMPORT_CREATE_IN_PROGRESS: The stack is being created by using imported resources.
-     *   IMPORT_CREATE_FAILED: The stack fails to be created by using imported resources.
+     *   IMPORT_CREATE_FAILED: The stack failed to be created by using imported resources.
      *   IMPORT_CREATE_COMPLETE: The stack is created by using imported resources.
-     *   IMPORT_CREATE_ROLLBACK_IN_PROGRESS: The resources are being rolled back after the stack fails to be created by using imported resources.
-     *   IMPORT_CREATE_ROLLBACK_FAILED: The resources fail to be rolled back after the stack fails to be created by using imported resources.
-     *   IMPORT_CREATE_ROLLBACK_COMPLETE: The resources are rolled back after the stack fails to be created by using imported resources.
+     *   IMPORT_CREATE_ROLLBACK_IN_PROGRESS: The resources are being rolled back after the stack failed to be created by using imported resources.
+     *   IMPORT_CREATE_ROLLBACK_FAILED: The resources failed to be rolled back after the stack failed to be created by using imported resources.
+     *   IMPORT_CREATE_ROLLBACK_COMPLETE: The resources are rolled back after the stack failed to be created by using imported resources.
      *   IMPORT_UPDATE_IN_PROGRESS: The stack is being updated by using imported resources.
-     *   IMPORT_UPDATE_FAILED: The stack fails to be updated by using imported resources.
+     *   IMPORT_UPDATE_FAILED: The stack failed to be updated by using imported resources.
      *   IMPORT_UPDATE_COMPLETE: The stack is updated by using imported resources.
-     *   IMPORT_UPDATE_ROLLBACK_IN_PROGRESS: The resources are being rolled back after the stack fails to be updated by using imported resources.
-     *   IMPORT_UPDATE_ROLLBACK_FAILED: The resources fail to be rolled back after the stack fails to be updated by using imported resources.
-     *   IMPORT_UPDATE_ROLLBACK_COMPLETE: The resources are rolled back after the stack fails to be updated by using imported resources.
+     *   IMPORT_UPDATE_ROLLBACK_IN_PROGRESS: The resources are being rolled back after the stack failed to be updated by using imported resources.
+     *   IMPORT_UPDATE_ROLLBACK_FAILED: The resources failed to be rolled back after the stack failed to be updated by using imported resources.
+     *   IMPORT_UPDATE_ROLLBACK_COMPLETE: The resources are rolled back after the stack failed to be updated by using imported resources.
      *
      * @example CREATE_COMPLETE
      *
@@ -334,9 +337,9 @@ class GetStackResponseBody extends Model
     public $templateDescription;
 
     /**
-     * @description The ID of the template. This parameter is returned only if the current template of the stack is a custom template or a shared template.
+     * @description The template ID. This parameter is returned only if the current stack template is a custom template or shared template.
      *
-     * If the template is a shared template, the value of this parameter is the same as the value of the TemplateARN parameter.
+     * If the template is a shared template, the value of this parameter is the same as the value of TemplateARN.
      * @example a52f81be-496f-4e1c-a286-8852ab54****
      *
      * @var string
@@ -344,7 +347,7 @@ class GetStackResponseBody extends Model
     public $templateId;
 
     /**
-     * @description The ID of the scenario. This parameter is returned only if the current template of the stack is generated from a scenario.
+     * @description The ID of the resource scenario. This parameter is returned only if the current template of the stack is generated from a resource scenario.
      *
      * @example ts-7f7a704cf71c49a6****
      *
@@ -353,7 +356,7 @@ class GetStackResponseBody extends Model
     public $templateScratchId;
 
     /**
-     * @description The URL of the file that contains the template body. This parameter is returned only if the current template of the stack is from a URL. The URL can point to a template that is located on an HTTP or HTTPS web server or in an Alibaba Cloud Object Storage Service (OSS) bucket.
+     * @description The URL of the file that contains the template body. This parameter is returned only if the current template of the stack is from a URL. The URL can point to a template that is located on an HTTP or HTTPS web server or in an Object Storage Service (OSS) bucket.
      *
      * @example oss://ros/template/demo
      *
@@ -362,7 +365,7 @@ class GetStackResponseBody extends Model
     public $templateURL;
 
     /**
-     * @description The version of the template. This parameter is returned only if the current template of the stack is a custom template or a shared template.
+     * @description The version of the template. This parameter is returned only if the current stack template is a custom template or shared template.
      *
      * Valid values: v1 to v100.
      * @example v1
@@ -372,7 +375,7 @@ class GetStackResponseBody extends Model
     public $templateVersion;
 
     /**
-     * @description The timeout period within which the stack can be created. Unit: minutes.
+     * @description The timeout period for creating the stack. Unit: minutes.
      *
      * @example 10
      *

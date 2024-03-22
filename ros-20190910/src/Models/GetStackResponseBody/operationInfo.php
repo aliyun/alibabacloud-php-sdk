@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class operationInfo extends Model
 {
     /**
-     * @description The name of the API of another cloud service.
+     * @description The name of the API operation that belongs to another Alibaba Cloud service.
      *
      * @example DeleteSecurityGroup
      *
@@ -18,7 +18,7 @@ class operationInfo extends Model
     public $action;
 
     /**
-     * @description The error code returned.
+     * @description The error code.
      *
      * @example DependencyViolation
      *
@@ -27,7 +27,7 @@ class operationInfo extends Model
     public $code;
 
     /**
-     * @description The logical ID of the resource on which the operation error occurred.
+     * @description The logical ID of the resource on which the operation error occurs.
      *
      * @example EcsSecurityGroup
      *
@@ -36,7 +36,7 @@ class operationInfo extends Model
     public $logicalResourceId;
 
     /**
-     * @description The error message returned.
+     * @description The error message.
      *
      * @example There is still instance(s) in the specified security group.
      *
@@ -45,7 +45,7 @@ class operationInfo extends Model
     public $message;
 
     /**
-     * @description The ID of the request to call the API of another cloud service.
+     * @description The ID of the request that is initiated to call the API operation of another Alibaba Cloud service.
      *
      * @example 071D6166-3F6B-5C7B-A1F0-0113FBB643A8
      *
@@ -54,7 +54,7 @@ class operationInfo extends Model
     public $requestId;
 
     /**
-     * @description The type of the resource on which the operation error occurred.
+     * @description The type of the resource on which the operation error occurs.
      *
      * @example ALIYUN::ECS::SecurityGroup
      *

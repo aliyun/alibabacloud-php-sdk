@@ -551,6 +551,9 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($request->diagnosticType)) {
             $query['DiagnosticType'] = $request->diagnosticType;
         }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         if (!Utils::isUnset($request->product)) {
             $query['Product'] = $request->product;
         }
@@ -2215,7 +2218,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this topic, the information about a stack whose ID is `c754d2a4-28f1-46df-b557-9586173a****` is queried. The stack is deployed in the China (Hangzhou) region.
+     * In this example, the information about a stack whose ID is `c754d2a4-28f1-46df-b557-9586173a****` in the China (Hangzhou) region is queried.
      *   *
      * @param GetStackRequest $request GetStackRequest
      * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
@@ -2263,7 +2266,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this topic, the information about a stack whose ID is `c754d2a4-28f1-46df-b557-9586173a****` is queried. The stack is deployed in the China (Hangzhou) region.
+     * In this example, the information about a stack whose ID is `c754d2a4-28f1-46df-b557-9586173a****` in the China (Hangzhou) region is queried.
      *   *
      * @param GetStackRequest $request GetStackRequest
      *

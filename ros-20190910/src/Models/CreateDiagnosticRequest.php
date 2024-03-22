@@ -27,6 +27,13 @@ class CreateDiagnosticRequest extends Model
     public $diagnosticType;
 
     /**
+     * @example zh-cn
+     *
+     * @var string
+     */
+    public $lang;
+
+    /**
      * @description The name of the product that is diagonosed.
      *
      * @example ros
@@ -37,6 +44,7 @@ class CreateDiagnosticRequest extends Model
     protected $_name = [
         'diagnosticKey'  => 'DiagnosticKey',
         'diagnosticType' => 'DiagnosticType',
+        'lang'           => 'Lang',
         'product'        => 'Product',
     ];
 
@@ -52,6 +60,9 @@ class CreateDiagnosticRequest extends Model
         }
         if (null !== $this->diagnosticType) {
             $res['DiagnosticType'] = $this->diagnosticType;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
         if (null !== $this->product) {
             $res['Product'] = $this->product;
@@ -73,6 +84,9 @@ class CreateDiagnosticRequest extends Model
         }
         if (isset($map['DiagnosticType'])) {
             $model->diagnosticType = $map['DiagnosticType'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
         if (isset($map['Product'])) {
             $model->product = $map['Product'];

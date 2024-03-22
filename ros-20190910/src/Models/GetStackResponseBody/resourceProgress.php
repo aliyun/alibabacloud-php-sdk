@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class resourceProgress extends Model
 {
     /**
-     * @description The number of resources that fail to be created.
+     * @description The number of resources that failed to be created.
      *
+     * >  This parameter is returned only if `ShowResourceProgress` is set to `EnabledIfCreateStack`.
      * @example 0
      *
      * @var int
@@ -21,6 +22,7 @@ class resourceProgress extends Model
     /**
      * @description The number of resources that are being created.
      *
+     * >  This parameter is returned only if `ShowResourceProgress` is set to `EnabledIfCreateStack`.
      * @example 1
      *
      * @var int
@@ -30,6 +32,7 @@ class resourceProgress extends Model
     /**
      * @description The progress details of resources that are being created.
      *
+     * >  This parameter is returned only if `ShowResourceProgress` is set to `EnabledIfCreateStack`.
      * @var inProgressResourceDetails[]
      */
     public $inProgressResourceDetails;
@@ -37,6 +40,7 @@ class resourceProgress extends Model
     /**
      * @description The number of resources to be created.
      *
+     * >  This parameter is returned only if `ShowResourceProgress` is set to `EnabledIfCreateStack`.
      * @example 0
      *
      * @var int
@@ -44,6 +48,9 @@ class resourceProgress extends Model
     public $pendingResourceCount;
 
     /**
+     * @description The creation or rollback progress of the stack, in percentage. Valid values: 0 to 100.
+     *
+     * >  This parameter is returned only if `ShowResourceProgress` is set to `PercentageOnly`.
      * @example 100
      *
      * @var float
@@ -51,6 +58,9 @@ class resourceProgress extends Model
     public $stackActionProgress;
 
     /**
+     * @description The overall creation progress of the stack, in percentage. Valid values: 0 to 100.
+     *
+     * >  This parameter is returned only if `ShowResourceProgress` is set to `PercentageOnly`.
      * @example 100
      *
      * @var float
@@ -60,6 +70,7 @@ class resourceProgress extends Model
     /**
      * @description The number of resources that are created.
      *
+     * >  This parameter is returned only if `ShowResourceProgress` is set to `EnabledIfCreateStack`.
      * @example 1
      *
      * @var int
@@ -69,6 +80,7 @@ class resourceProgress extends Model
     /**
      * @description The total number of resources.
      *
+     * >  This parameter is returned only if `ShowResourceProgress` is set to `EnabledIfCreateStack`.
      * @example 2
      *
      * @var int
