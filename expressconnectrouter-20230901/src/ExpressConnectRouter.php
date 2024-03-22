@@ -574,8 +574,8 @@ class ExpressConnectRouter extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
-        if (!Utils::isUnset($request->associatonId)) {
-            $body['AssociatonId'] = $request->associatonId;
+        if (!Utils::isUnset($request->associationId)) {
+            $body['AssociationId'] = $request->associationId;
         }
         if (!Utils::isUnset($request->clientToken)) {
             $body['ClientToken'] = $request->clientToken;

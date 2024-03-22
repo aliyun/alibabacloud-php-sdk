@@ -9,11 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeExpressConnectRouterAllowedPrefixHistoryRequest extends Model
 {
     /**
-     * @example ecr-assoc-9p2qxx5phpca2m****
-     *
      * @var string
      */
-    public $associatonId;
+    public $associationId;
 
     /**
      * @example FF9nMec/RZ6H9oqFn1pvyir/SLRlxCCyHJonbGzqL01hiM6Jb3wJowdHvjCfog7ww1b9rSHMRFJnrUBfVba68TJg==
@@ -50,12 +48,12 @@ class DescribeExpressConnectRouterAllowedPrefixHistoryRequest extends Model
      */
     public $instanceType;
     protected $_name = [
-        'associatonId' => 'AssociatonId',
-        'clientToken'  => 'ClientToken',
-        'dryRun'       => 'DryRun',
-        'ecrId'        => 'EcrId',
-        'instanceId'   => 'InstanceId',
-        'instanceType' => 'InstanceType',
+        'associationId' => 'AssociationId',
+        'clientToken'   => 'ClientToken',
+        'dryRun'        => 'DryRun',
+        'ecrId'         => 'EcrId',
+        'instanceId'    => 'InstanceId',
+        'instanceType'  => 'InstanceType',
     ];
 
     public function validate()
@@ -65,8 +63,8 @@ class DescribeExpressConnectRouterAllowedPrefixHistoryRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->associatonId) {
-            $res['AssociatonId'] = $this->associatonId;
+        if (null !== $this->associationId) {
+            $res['AssociationId'] = $this->associationId;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
@@ -95,8 +93,8 @@ class DescribeExpressConnectRouterAllowedPrefixHistoryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AssociatonId'])) {
-            $model->associatonId = $map['AssociatonId'];
+        if (isset($map['AssociationId'])) {
+            $model->associationId = $map['AssociationId'];
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
