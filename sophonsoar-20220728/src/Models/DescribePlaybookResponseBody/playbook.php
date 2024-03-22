@@ -149,6 +149,11 @@ class playbook extends Model
      * @var string
      */
     public $taskflow;
+
+    /**
+     * @var string
+     */
+    public $taskflowType;
     protected $_name = [
         'creator'                  => 'Creator',
         'description'              => 'Description',
@@ -165,6 +170,7 @@ class playbook extends Model
         'playbookUuid'             => 'PlaybookUuid',
         'successExeNum'            => 'SuccessExeNum',
         'taskflow'                 => 'Taskflow',
+        'taskflowType'             => 'TaskflowType',
     ];
 
     public function validate()
@@ -218,6 +224,9 @@ class playbook extends Model
         }
         if (null !== $this->taskflow) {
             $res['Taskflow'] = $this->taskflow;
+        }
+        if (null !== $this->taskflowType) {
+            $res['TaskflowType'] = $this->taskflowType;
         }
 
         return $res;
@@ -275,6 +284,9 @@ class playbook extends Model
         }
         if (isset($map['Taskflow'])) {
             $model->taskflow = $map['Taskflow'];
+        }
+        if (isset($map['TaskflowType'])) {
+            $model->taskflowType = $map['TaskflowType'];
         }
 
         return $model;

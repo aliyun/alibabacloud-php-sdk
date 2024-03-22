@@ -151,6 +151,21 @@ class processTasks extends Model
      * @var string
      */
     public $yunCode;
+
+    /**
+     * @var string
+     */
+    public $errCode;
+
+    /**
+     * @var string
+     */
+    public $errMsg;
+
+    /**
+     * @var string
+     */
+    public $errTip;
     protected $_name = [
         'creator'             => 'Creator',
         'entityName'          => 'EntityName',
@@ -168,6 +183,9 @@ class processTasks extends Model
         'taskId'              => 'TaskId',
         'taskStatus'          => 'TaskStatus',
         'yunCode'             => 'YunCode',
+        'errCode'             => 'errCode',
+        'errMsg'              => 'errMsg',
+        'errTip'              => 'errTip',
     ];
 
     public function validate()
@@ -224,6 +242,15 @@ class processTasks extends Model
         }
         if (null !== $this->yunCode) {
             $res['YunCode'] = $this->yunCode;
+        }
+        if (null !== $this->errCode) {
+            $res['errCode'] = $this->errCode;
+        }
+        if (null !== $this->errMsg) {
+            $res['errMsg'] = $this->errMsg;
+        }
+        if (null !== $this->errTip) {
+            $res['errTip'] = $this->errTip;
         }
 
         return $res;
@@ -284,6 +311,15 @@ class processTasks extends Model
         }
         if (isset($map['YunCode'])) {
             $model->yunCode = $map['YunCode'];
+        }
+        if (isset($map['errCode'])) {
+            $model->errCode = $map['errCode'];
+        }
+        if (isset($map['errMsg'])) {
+            $model->errMsg = $map['errMsg'];
+        }
+        if (isset($map['errTip'])) {
+            $model->errTip = $map['errTip'];
         }
 
         return $model;

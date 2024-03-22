@@ -9,6 +9,18 @@ use AlibabaCloud\Tea\Model;
 class DescribeExecutePlaybooksRequest extends Model
 {
     /**
+     * @description The entity type of the script input parameter. When you want to query multiple entity types, separate them with commas.
+     * - **ip**: IP entity.
+     * - **file**: file entity.
+     * - **process**: process entity.
+     * - **incident**: incident entity.
+     * @example ip,file,process,host
+     *
+     * @var string
+     */
+    public $inputMode;
+
+    /**
      * @description The language of the content within the request and the response. Valid values:
      *
      *   **zh**: Chinese (default)
@@ -53,6 +65,7 @@ class DescribeExecutePlaybooksRequest extends Model
      */
     public $uuid;
     protected $_name = [
+        'inputMode'    => 'InputMode',
         'lang'         => 'Lang',
         'paramType'    => 'ParamType',
         'playbookName' => 'PlaybookName',
@@ -66,6 +79,9 @@ class DescribeExecutePlaybooksRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->inputMode) {
+            $res['InputMode'] = $this->inputMode;
+        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -90,6 +106,9 @@ class DescribeExecutePlaybooksRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['InputMode'])) {
+            $model->inputMode = $map['InputMode'];
+        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }

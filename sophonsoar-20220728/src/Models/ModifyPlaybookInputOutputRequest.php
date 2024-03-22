@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class ModifyPlaybookInputOutputRequest extends Model
 {
     /**
+     * @description The executed mode of a playbook. The value is a JSON array.
+     *
+     * @example {
+     * "executeMode":"mul",
+     * "cron":"0 0 1 *\/1 * ?"
+     * }
      * @var string
      */
     public $exeConfig;
