@@ -125,6 +125,12 @@ use AlibabaCloud\SDK\Alinlp\V20200629\Models\ImportServiceDataShrinkRequest;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\InsertCustomRequest;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\InsertCustomResponse;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\OpenAlinlpServiceResponse;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\PostISConvRewriterRequest;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\PostISConvRewriterResponse;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\PostISConvRewriterShrinkRequest;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\PostISRetrieveRouterRequest;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\PostISRetrieveRouterResponse;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\PostISRetrieveRouterShrinkRequest;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\PostMSConvSearchTokenGeneratedResponse;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\PostMSDataProcessingCountRequest;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\PostMSDataProcessingCountResponse;
@@ -3046,6 +3052,134 @@ class Alinlp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->openAlinlpServiceWithOptions($runtime);
+    }
+
+    /**
+     * @param PostISConvRewriterRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return PostISConvRewriterResponse
+     */
+    public function postISConvRewriterWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new PostISConvRewriterShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->input)) {
+            $request->inputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->parameters)) {
+            $request->parametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->algorithm)) {
+            $body['Algorithm'] = $request->algorithm;
+        }
+        if (!Utils::isUnset($request->debug)) {
+            $body['Debug'] = $request->debug;
+        }
+        if (!Utils::isUnset($request->inputShrink)) {
+            $body['Input'] = $request->inputShrink;
+        }
+        if (!Utils::isUnset($request->parametersShrink)) {
+            $body['Parameters'] = $request->parametersShrink;
+        }
+        if (!Utils::isUnset($request->version)) {
+            $body['Version'] = $request->version;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'PostISConvRewriter',
+            'version'     => '2020-06-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PostISConvRewriterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param PostISConvRewriterRequest $request
+     *
+     * @return PostISConvRewriterResponse
+     */
+    public function postISConvRewriter($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->postISConvRewriterWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param PostISRetrieveRouterRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return PostISRetrieveRouterResponse
+     */
+    public function postISRetrieveRouterWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new PostISRetrieveRouterShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->input)) {
+            $request->inputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->parameters)) {
+            $request->parametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->debug)) {
+            $query['Debug'] = $request->debug;
+        }
+        if (!Utils::isUnset($request->inputShrink)) {
+            $query['Input'] = $request->inputShrink;
+        }
+        if (!Utils::isUnset($request->parametersShrink)) {
+            $query['Parameters'] = $request->parametersShrink;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->algorithm)) {
+            $body['Algorithm'] = $request->algorithm;
+        }
+        if (!Utils::isUnset($request->version)) {
+            $body['Version'] = $request->version;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'PostISRetrieveRouter',
+            'version'     => '2020-06-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PostISRetrieveRouterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param PostISRetrieveRouterRequest $request
+     *
+     * @return PostISRetrieveRouterResponse
+     */
+    public function postISRetrieveRouter($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->postISRetrieveRouterWithOptions($request, $runtime);
     }
 
     /**
