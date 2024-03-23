@@ -36,6 +36,13 @@ class ModifyDBResourceGroupRequest extends Model
     public $DBClusterId;
 
     /**
+     * @description Specifies whether to enable the preemptible instance feature for the resource group. This feature can be enabled only for job resource groups. Valid values:
+     *
+     *   **True**
+     *   **False**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableSpot;

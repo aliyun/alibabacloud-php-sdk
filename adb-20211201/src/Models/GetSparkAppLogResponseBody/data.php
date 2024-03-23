@@ -27,6 +27,10 @@ class data extends Model
     public $logContent;
 
     /**
+     * @description The number of log entries. A value of 0 indicates that no valid logs are returned.
+     *
+     * @example 3517972480
+     *
      * @var int
      */
     public $logSize;

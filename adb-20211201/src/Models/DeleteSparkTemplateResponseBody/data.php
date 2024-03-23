@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description Indicates whether the template is deleted. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   **true**: The template is deleted.
-     *   **false**: The template fails to be deleted.
+     *   **True**
+     *   **False**
      *
      * @example True
      *

@@ -88,6 +88,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBClusterHealthStatusRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBClusterHealthStatusResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBClusterPerformanceRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBClusterPerformanceResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBClusterSpaceSummaryRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBClusterSpaceSummaryResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBClustersRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBClustersResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBClusterStatusRequest;
@@ -2543,6 +2545,64 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDBClusterPerformanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDBClusterSpaceSummaryRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeDBClusterSpaceSummaryResponse
+     */
+    public function describeDBClusterSpaceSummaryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDBClusterSpaceSummary',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDBClusterSpaceSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDBClusterSpaceSummaryRequest $request
+     *
+     * @return DescribeDBClusterSpaceSummaryResponse
+     */
+    public function describeDBClusterSpaceSummary($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBClusterSpaceSummaryWithOptions($request, $runtime);
     }
 
     /**

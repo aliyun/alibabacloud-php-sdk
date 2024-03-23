@@ -29,7 +29,7 @@ class data extends Model
     /**
      * @description The cluster ID.
      *
-     * @example amv-clusterxxx
+     * @example amv-bp1c3em7b2e****
      *
      * @var string
      */

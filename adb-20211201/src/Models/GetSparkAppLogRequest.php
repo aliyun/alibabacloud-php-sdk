@@ -38,6 +38,8 @@ class GetSparkAppLogRequest extends Model
     public $logLength;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -45,6 +47,8 @@ class GetSparkAppLogRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 500
      *
      * @var int

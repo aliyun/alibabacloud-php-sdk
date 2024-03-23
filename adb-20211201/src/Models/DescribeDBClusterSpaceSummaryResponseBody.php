@@ -4,21 +4,17 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
-use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteSparkTemplateResponseBody\data;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBClusterSpaceSummaryResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class DeleteSparkTemplateResponseBody extends Model
+class DescribeDBClusterSpaceSummaryResponseBody extends Model
 {
     /**
-     * @description The returned result.
-     *
      * @var data
      */
     public $data;
 
     /**
-     * @description The request ID.
-     *
      * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
      *
      * @var string
@@ -49,7 +45,7 @@ class DeleteSparkTemplateResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DeleteSparkTemplateResponseBody
+     * @return DescribeDBClusterSpaceSummaryResponseBody
      */
     public static function fromMap($map = [])
     {
