@@ -65,6 +65,11 @@ class ListDatasetsRequest extends Model
     public $properties;
 
     /**
+     * @var string
+     */
+    public $provider;
+
+    /**
      * @example d-rbvg5wzljzjhc9ks92
      *
      * @var string
@@ -93,6 +98,7 @@ class ListDatasetsRequest extends Model
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
         'properties'      => 'Properties',
+        'provider'        => 'Provider',
         'sourceId'        => 'SourceId',
         'sourceTypes'     => 'SourceTypes',
         'workspaceId'     => 'WorkspaceId',
@@ -128,6 +134,9 @@ class ListDatasetsRequest extends Model
         }
         if (null !== $this->properties) {
             $res['Properties'] = $this->properties;
+        }
+        if (null !== $this->provider) {
+            $res['Provider'] = $this->provider;
         }
         if (null !== $this->sourceId) {
             $res['SourceId'] = $this->sourceId;
@@ -173,6 +182,9 @@ class ListDatasetsRequest extends Model
         }
         if (isset($map['Properties'])) {
             $model->properties = $map['Properties'];
+        }
+        if (isset($map['Provider'])) {
+            $model->provider = $map['Provider'];
         }
         if (isset($map['SourceId'])) {
             $model->sourceId = $map['SourceId'];

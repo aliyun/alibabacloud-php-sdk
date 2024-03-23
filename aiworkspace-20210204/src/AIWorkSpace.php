@@ -411,6 +411,9 @@ class AIWorkSpace extends OpenApiClient
         if (!Utils::isUnset($request->property)) {
             $body['Property'] = $request->property;
         }
+        if (!Utils::isUnset($request->provider)) {
+            $body['Provider'] = $request->provider;
+        }
         if (!Utils::isUnset($request->providerType)) {
             $body['ProviderType'] = $request->providerType;
         }
@@ -1761,6 +1764,9 @@ class AIWorkSpace extends OpenApiClient
         if (!Utils::isUnset($request->creator)) {
             $query['Creator'] = $request->creator;
         }
+        if (!Utils::isUnset($request->resource)) {
+            $query['Resource'] = $request->resource;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
@@ -1978,6 +1984,9 @@ class AIWorkSpace extends OpenApiClient
         }
         if (!Utils::isUnset($request->properties)) {
             $query['Properties'] = $request->properties;
+        }
+        if (!Utils::isUnset($request->provider)) {
+            $query['Provider'] = $request->provider;
         }
         if (!Utils::isUnset($request->sourceId)) {
             $query['SourceId'] = $request->sourceId;

@@ -21,9 +21,15 @@ class GetPermissionRequest extends Model
      * @var string
      */
     public $creator;
+
+    /**
+     * @var string
+     */
+    public $resource;
     protected $_name = [
         'accessibility' => 'Accessibility',
         'creator'       => 'Creator',
+        'resource'      => 'Resource',
     ];
 
     public function validate()
@@ -38,6 +44,9 @@ class GetPermissionRequest extends Model
         }
         if (null !== $this->creator) {
             $res['Creator'] = $this->creator;
+        }
+        if (null !== $this->resource) {
+            $res['Resource'] = $this->resource;
         }
 
         return $res;
@@ -56,6 +65,9 @@ class GetPermissionRequest extends Model
         }
         if (isset($map['Creator'])) {
             $model->creator = $map['Creator'];
+        }
+        if (isset($map['Resource'])) {
+            $model->resource = $map['Resource'];
         }
 
         return $model;

@@ -61,6 +61,11 @@ class CreateDatasetRequest extends Model
     public $property;
 
     /**
+     * @var string
+     */
+    public $provider;
+
+    /**
      * @example Ecs
      *
      * @var string
@@ -103,6 +108,7 @@ class CreateDatasetRequest extends Model
         'name'           => 'Name',
         'options'        => 'Options',
         'property'       => 'Property',
+        'provider'       => 'Provider',
         'providerType'   => 'ProviderType',
         'sourceId'       => 'SourceId',
         'sourceType'     => 'SourceType',
@@ -146,6 +152,9 @@ class CreateDatasetRequest extends Model
         }
         if (null !== $this->property) {
             $res['Property'] = $this->property;
+        }
+        if (null !== $this->provider) {
+            $res['Provider'] = $this->provider;
         }
         if (null !== $this->providerType) {
             $res['ProviderType'] = $this->providerType;
@@ -203,6 +212,9 @@ class CreateDatasetRequest extends Model
         }
         if (isset($map['Property'])) {
             $model->property = $map['Property'];
+        }
+        if (isset($map['Provider'])) {
+            $model->provider = $map['Provider'];
         }
         if (isset($map['ProviderType'])) {
             $model->providerType = $map['ProviderType'];
