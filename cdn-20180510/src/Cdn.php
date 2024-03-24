@@ -299,6 +299,8 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\PublishStagingConfigToProductionReques
 use AlibabaCloud\SDK\Cdn\V20180510\Models\PublishStagingConfigToProductionResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\PushObjectCacheRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\PushObjectCacheResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\RefreshObjectCacheByCacheTagRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\RefreshObjectCacheByCacheTagResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\RefreshObjectCachesRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\RefreshObjectCachesResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\RollbackStagingConfigRequest;
@@ -8893,6 +8895,55 @@ class Cdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->pushObjectCacheWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RefreshObjectCacheByCacheTagRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return RefreshObjectCacheByCacheTagResponse
+     */
+    public function refreshObjectCacheByCacheTagWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cacheTag)) {
+            $query['CacheTag'] = $request->cacheTag;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->force)) {
+            $query['Force'] = $request->force;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RefreshObjectCacheByCacheTag',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RefreshObjectCacheByCacheTagResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RefreshObjectCacheByCacheTagRequest $request
+     *
+     * @return RefreshObjectCacheByCacheTagResponse
+     */
+    public function refreshObjectCacheByCacheTag($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->refreshObjectCacheByCacheTagWithOptions($request, $runtime);
     }
 
     /**
