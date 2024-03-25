@@ -26,10 +26,16 @@ class sceneViewList extends Model
      * @var string
      */
     public $sceneName;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
         'createTime' => 'CreateTime',
         'sceneId'    => 'SceneId',
         'sceneName'  => 'SceneName',
+        'status'     => 'Status',
     ];
 
     public function validate()
@@ -47,6 +53,9 @@ class sceneViewList extends Model
         }
         if (null !== $this->sceneName) {
             $res['SceneName'] = $this->sceneName;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -68,6 +77,9 @@ class sceneViewList extends Model
         }
         if (isset($map['SceneName'])) {
             $model->sceneName = $map['SceneName'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;
