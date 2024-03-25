@@ -156,6 +156,14 @@ class DescribeEventsRequest extends Model
     public $userName;
 
     /**
+     * @description The risk level of the alert that is triggered. Valid values:
+     *
+     *   **1**: low
+     *   **2**: medium
+     *   **3**: high
+     *
+     * @example 1
+     *
      * @var int
      */
     public $warnLevel;

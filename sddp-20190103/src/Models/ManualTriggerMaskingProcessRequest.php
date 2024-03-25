@@ -19,12 +19,12 @@ class ManualTriggerMaskingProcessRequest extends Model
     public $id;
 
     /**
-     * @description The language of the content within the request and response. Valid values:
+     * @description The language of the content within the request and response, default value zh_cn. Valid values:
      *
-     *   **zh**: Chinese
-     *   **en**: English
+     *   **zh_cn**: Chinese
+     *   **en_us**: English
      *
-     * @example zh
+     * @example zh_cn
      *
      * @var string
      */

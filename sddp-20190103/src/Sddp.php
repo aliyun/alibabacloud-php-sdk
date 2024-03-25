@@ -68,6 +68,8 @@ use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeOssObjectsRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeOssObjectsResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribePackagesRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribePackagesResponse;
+use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeParentInstanceRequest;
+use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeParentInstanceResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeRiskLevelsRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeRiskLevelsResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeRulesRequest;
@@ -2261,6 +2263,79 @@ class Sddp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describePackagesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeParentInstanceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeParentInstanceResponse
+     */
+    public function describeParentInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->authStatus)) {
+            $query['AuthStatus'] = $request->authStatus;
+        }
+        if (!Utils::isUnset($request->checkStatus)) {
+            $query['CheckStatus'] = $request->checkStatus;
+        }
+        if (!Utils::isUnset($request->clusterStatus)) {
+            $query['ClusterStatus'] = $request->clusterStatus;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->engineType)) {
+            $query['EngineType'] = $request->engineType;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->serviceRegionId)) {
+            $query['ServiceRegionId'] = $request->serviceRegionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeParentInstance',
+            'version'     => '2019-01-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeParentInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeParentInstanceRequest $request
+     *
+     * @return DescribeParentInstanceResponse
+     */
+    public function describeParentInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeParentInstanceWithOptions($request, $runtime);
     }
 
     /**
