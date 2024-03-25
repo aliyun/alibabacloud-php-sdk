@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DisconnectDesktopSessionsResponseBody extends Model
 {
     /**
+     * @description The list of invalid sessions.
+     *
      * @var invalidSessions[]
      */
     public $invalidSessions;
 
     /**
+     * @description The request ID.
+     *
      * @example 2507CFA8-FEAB-5208-98F5-5E028C50XXXX
      *
      * @var string

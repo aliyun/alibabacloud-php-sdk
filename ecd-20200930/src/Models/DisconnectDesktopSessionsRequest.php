@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DisconnectDesktopSessionsRequest extends Model
 {
     /**
+     * @description Specifies whether to perform precheck. If you perform precheck, the system does not disconnect from desktop sessions. Only the sessions that do not meet specific conditions are returned.
+     *
      * @example true
      *
      * @var bool
@@ -17,6 +19,8 @@ class DisconnectDesktopSessionsRequest extends Model
     public $preCheck;
 
     /**
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -24,6 +28,8 @@ class DisconnectDesktopSessionsRequest extends Model
     public $regionId;
 
     /**
+     * @description The session details.
+     *
      * @var sessions[]
      */
     public $sessions;

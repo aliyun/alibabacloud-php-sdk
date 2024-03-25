@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class sessions extends Model
 {
     /**
+     * @description The cloud desktop ID.
+     *
      * @example ecd-90g15fkhsxxxn0unj
      *
      * @var string
@@ -16,6 +18,8 @@ class sessions extends Model
     public $desktopId;
 
     /**
+     * @description The end user ID.
+     *
      * @example wy01
      *
      * @var string

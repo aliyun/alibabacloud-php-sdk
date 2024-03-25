@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class AddDevicesResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $code;
+
+    /**
+     * @var string
+     */
+    public $message;
+
+    /**
      * @description The ID of the request.
      *
      * @example A87DBB05-653A-5E4B-B72B-5F4A1E07****
@@ -17,6 +27,8 @@ class AddDevicesResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
+        'code'      => 'Code',
+        'message'   => 'Message',
         'requestId' => 'RequestId',
     ];
 
@@ -27,6 +39,12 @@ class AddDevicesResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -42,6 +60,12 @@ class AddDevicesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

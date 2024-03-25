@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class MigrateImageProtocolRequest extends Model
 {
     /**
+     * @description The image IDs.
+     *
      * @var string[]
      */
     public $imageId;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -21,6 +25,8 @@ class MigrateImageProtocolRequest extends Model
     public $regionId;
 
     /**
+     * @description The protocol of the image. Valid value: ASP.
+     *
      * @example ASP
      *
      * @var string
