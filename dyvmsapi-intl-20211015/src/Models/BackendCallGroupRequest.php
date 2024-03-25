@@ -9,11 +9,16 @@ use AlibabaCloud\Tea\Model;
 class BackendCallGroupRequest extends Model
 {
     /**
+     * @description The called numbers. You can specify up to 50,000 phone numbers.
+     *
      * @var string[]
      */
     public $calledNumber;
 
     /**
+     * @description The calling number.
+     *
+     * If you do not specify this parameter, the system uses a local random number as the display number. If you use a dedicated number for outbound calls, you must specify the purchased number. You can specify only one number. You can log on to the VMS console and choose Number Management to view the purchased phone numbers.
      * @example 852****1111
      *
      * @var string
@@ -21,6 +26,8 @@ class BackendCallGroupRequest extends Model
     public $callerIdNumber;
 
     /**
+     * @description The ISO2 country code.
+     *
      * @example HK
      *
      * @var string
@@ -28,6 +35,11 @@ class BackendCallGroupRequest extends Model
     public $countryId;
 
     /**
+     * @description The ID reserved for the caller. This ID is returned to the caller in a receipt message.
+     *
+     * The value must be of the STRING type and 1 to 15 bytes in length.
+     * @example 22596****
+     *
      * @var string
      */
     public $outId;
@@ -38,6 +50,8 @@ class BackendCallGroupRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of times the audio file is played. Valid values: 1 to 3.
+     *
      * @example 1
      *
      * @var int
@@ -55,6 +69,9 @@ class BackendCallGroupRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The delivery type. Valid values: 1 and 2.
+     *
+     * 2: The audio file is delivered at a scheduled time. If you specify SendType as 2, you must specify TimingStart.
      * @example 2
      *
      * @var int
@@ -62,6 +79,9 @@ class BackendCallGroupRequest extends Model
     public $sendType;
 
     /**
+     * @description The playback speed. Valid values: -500 to 500.
+     *
+     * You must specify this parameter when the audio type is text-to-speech (TTS). You do not need to specify this parameter when you use recordings.
      * @example 0
      *
      * @var int
@@ -69,11 +89,15 @@ class BackendCallGroupRequest extends Model
     public $speed;
 
     /**
+     * @description The task name.
+     *
      * @var string
      */
     public $taskName;
 
     /**
+     * @description The time when the audio file is scheduled to be delivered.
+     *
      * @example 2022-05-01T08:00:00+08:00
      *
      * @var string
@@ -81,6 +105,9 @@ class BackendCallGroupRequest extends Model
     public $timingStart;
 
     /**
+     * @description The voice template ID of the audio file.
+     *
+     * You must specify either TtsCode or VoiceCode. You can specify TtsCode to use the audio file as the call content. Alternatively, you can specify VoiceCode to use preset text as the call content.
      * @example 100001
      *
      * @var string
@@ -88,6 +115,9 @@ class BackendCallGroupRequest extends Model
     public $ttsCode;
 
     /**
+     * @description The TTS template ID.
+     *
+     * You must specify either TtsCode or VoiceCode. You can specify TtsCode to use the audio file as the call content. Alternatively, you can specify VoiceCode to use preset text as the call content.
      * @example 200001
      *
      * @var string
@@ -95,6 +125,8 @@ class BackendCallGroupRequest extends Model
     public $voiceCode;
 
     /**
+     * @description The playback volume of the audio file. Valid values: 0 to 100. Default value: 100.
+     *
      * @example 100
      *
      * @var int

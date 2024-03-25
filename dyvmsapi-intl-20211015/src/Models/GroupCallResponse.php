@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Dyvmsapiintl\V20211015\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class BackendCallSignalResponse extends Model
+class GroupCallResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class BackendCallSignalResponse extends Model
     public $statusCode;
 
     /**
-     * @var BackendCallSignalResponseBody
+     * @var GroupCallResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class BackendCallSignalResponse extends Model
     /**
      * @param array $map
      *
-     * @return BackendCallSignalResponse
+     * @return GroupCallResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class BackendCallSignalResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = BackendCallSignalResponseBody::fromMap($map['body']);
+            $model->body = GroupCallResponseBody::fromMap($map['body']);
         }
 
         return $model;
