@@ -355,6 +355,11 @@ class instanceVO extends Model
     public $vSwitchId;
 
     /**
+     * @var int
+     */
+    public $viewInstanceStatusCode;
+
+    /**
      * @description The virtual private cloud (VPC) ID.
      *
      * @example vpc-bp1ojac7bv448nifj****
@@ -407,6 +412,7 @@ class instanceVO extends Model
         'usedPartitionCount'        => 'UsedPartitionCount',
         'usedTopicCount'            => 'UsedTopicCount',
         'vSwitchId'                 => 'VSwitchId',
+        'viewInstanceStatusCode'    => 'ViewInstanceStatusCode',
         'vpcId'                     => 'VpcId',
         'zoneId'                    => 'ZoneId',
     ];
@@ -522,6 +528,9 @@ class instanceVO extends Model
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
+        }
+        if (null !== $this->viewInstanceStatusCode) {
+            $res['ViewInstanceStatusCode'] = $this->viewInstanceStatusCode;
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
@@ -645,6 +654,9 @@ class instanceVO extends Model
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
+        }
+        if (isset($map['ViewInstanceStatusCode'])) {
+            $model->viewInstanceStatusCode = $map['ViewInstanceStatusCode'];
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
