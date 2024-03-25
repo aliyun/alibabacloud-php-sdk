@@ -1,3 +1,6 @@
+2024-03-25 Version: 3.0.1
+- Generated php 2019-09-01 for OceanBasePro.
+
 2024-03-20 Version: 3.0.0
 - Support API DescribeBackupSetDownloadLink.
 - Delete API CreateOmsOpenAPIProject.
