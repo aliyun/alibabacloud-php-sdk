@@ -54,6 +54,11 @@ class data extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $email;
+
+    /**
      * @example 13300000000
      *
      * @var string
@@ -131,6 +136,7 @@ class data extends Model
         'demandDomain'        => 'DemandDomain',
         'demandPrice'         => 'DemandPrice',
         'description'         => 'Description',
+        'email'               => 'Email',
         'mobile'              => 'Mobile',
         'orderType'           => 'OrderType',
         'partnerDomain'       => 'PartnerDomain',
@@ -171,6 +177,9 @@ class data extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->email) {
+            $res['Email'] = $this->email;
         }
         if (null !== $this->mobile) {
             $res['Mobile'] = $this->mobile;
@@ -237,6 +246,9 @@ class data extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['Email'])) {
+            $model->email = $map['Email'];
         }
         if (isset($map['Mobile'])) {
             $model->mobile = $map['Mobile'];
