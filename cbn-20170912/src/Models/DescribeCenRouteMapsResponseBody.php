@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCenRouteMapsResponseBody extends Model
 {
     /**
-     * @description The community set on which actions are performed.
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -19,9 +19,8 @@ class DescribeCenRouteMapsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The IDs of the destination route tables to which the routes belong. You can enter at most 32 route table IDs.
+     * @description The number of entries returned per page.
      *
-     * >  The destination route table IDs are valid only when the routing policy is applied to scenarios where routes are advertised from the gateway in the current region to route tables in the current region.
      * @example 10
      *
      * @var int
@@ -29,7 +28,7 @@ class DescribeCenRouteMapsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The number of entries to return on each page. Default value: **10**.
+     * @description The request ID.
      *
      * @example 24CE1987-D1D1-5324-9BAD-2750B60E6ABB
      *
@@ -38,17 +37,14 @@ class DescribeCenRouteMapsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the CEN instance.
+     * @description The information about the routing policy.
      *
      * @var routeMaps
      */
     public $routeMaps;
 
     /**
-     * @description Indicates whether the source network instance IDs are excluded.
-     *
-     *   **false** (default): A route is a match if its source network instance ID is in the list specified by **SourceInstanceIds.N**.
-     *   **true**: A route is match if its source network instance ID is not in the list specified by **SourceInstanceIds.N**.
+     * @description The total number of entries returned.
      *
      * @example 1
      *

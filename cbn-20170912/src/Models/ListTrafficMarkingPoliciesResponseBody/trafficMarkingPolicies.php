@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class trafficMarkingPolicies extends Model
 {
     /**
+     * @description The differentiated services code point (DSCP) value of the traffic marking policy.
+     *
      * @example 5
      *
      * @var int
@@ -17,6 +19,9 @@ class trafficMarkingPolicies extends Model
     public $markingDscp;
 
     /**
+     * @description The priority of the traffic marking policy.
+     *
+     * A smaller value indicates a higher priority.
      * @example 5
      *
      * @var int
@@ -24,6 +29,8 @@ class trafficMarkingPolicies extends Model
     public $priority;
 
     /**
+     * @description The description of the traffic marking policy.
+     *
      * @example desctest
      *
      * @var string
@@ -31,6 +38,8 @@ class trafficMarkingPolicies extends Model
     public $trafficMarkingPolicyDescription;
 
     /**
+     * @description The ID of the traffic marking policy.
+     *
      * @example tm-iz5egnyitxiroq****
      *
      * @var string
@@ -38,6 +47,8 @@ class trafficMarkingPolicies extends Model
     public $trafficMarkingPolicyId;
 
     /**
+     * @description The name of the traffic marking policy.
+     *
      * @example nametest
      *
      * @var string
@@ -45,6 +56,14 @@ class trafficMarkingPolicies extends Model
     public $trafficMarkingPolicyName;
 
     /**
+     * @description The status of the traffic marking policy. Valid values:
+     *
+     *   **Creating**: The policy is being created.
+     *   **Active**: The policy is available.
+     *   **Modifying**: The policy is being modified
+     *   **Deleting**: The policy is being deleted.
+     *   **Deleted**: The policy is deleted.
+     *
      * @example Creating
      *
      * @var string
@@ -52,11 +71,15 @@ class trafficMarkingPolicies extends Model
     public $trafficMarkingPolicyStatus;
 
     /**
+     * @description The list of traffic classification rules.
+     *
      * @var trafficMatchRules[]
      */
     public $trafficMatchRules;
 
     /**
+     * @description The ID of the transit router.
+     *
      * @example tr-ccni***
      *
      * @var string

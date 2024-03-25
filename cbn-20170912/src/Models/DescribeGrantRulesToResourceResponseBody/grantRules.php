@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class grantRules extends Model
 {
     /**
-     * @description The CEN instance ID.
+     * @description The ID of the CEN instance.
      *
      * @example cen-44m0p68spvlrqq****
      *
@@ -27,6 +27,10 @@ class grantRules extends Model
     public $cenOwnerId;
 
     /**
+     * @description The timestamp when the permissions were granted. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+     *
+     * @example 2024-01-24T16:46Z
+     *
      * @var string
      */
     public $createTime;

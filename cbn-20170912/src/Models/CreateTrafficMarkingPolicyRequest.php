@@ -76,7 +76,7 @@ class CreateTrafficMarkingPolicyRequest extends Model
     /**
      * @description The description of the traffic marking policy.
      *
-     * The description must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The description must start with a letter.
+     * This parameter is optional. If you enter a description, it must be 1 to 256 characters in length, and cannot start with http:// or https://.
      * @example desctest
      *
      * @var string
@@ -86,7 +86,7 @@ class CreateTrafficMarkingPolicyRequest extends Model
     /**
      * @description The name of the traffic marking policy.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
+     * The name can be empty or 1 to 128 characters in length, and cannot start with http:// or https://.
      * @example nametest
      *
      * @var string
@@ -96,7 +96,7 @@ class CreateTrafficMarkingPolicyRequest extends Model
     /**
      * @description The traffic classification rules in the traffic marking policy.
      *
-     * You can specify at most 50 traffic classification rules.
+     * You can create up to 50 traffic classification rules.
      * @var trafficMatchRules[]
      */
     public $trafficMatchRules;

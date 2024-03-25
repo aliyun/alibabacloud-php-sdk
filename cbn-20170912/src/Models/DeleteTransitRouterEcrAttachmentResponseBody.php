@@ -6,27 +6,15 @@ namespace AlibabaCloud\SDK\Cbn\V20170912\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateCenResponseBody extends Model
+class DeleteTransitRouterEcrAttachmentResponseBody extends Model
 {
     /**
-     * @description The CEN instance ID.
-     *
-     * @example cen-dc4vwznpwbobrl****
-     *
-     * @var string
-     */
-    public $cenId;
-
-    /**
-     * @description The request ID.
-     *
-     * @example 0C2EE7A8-74D4-4081-8236-CEBDE3BBCF50
+     * @example F7DDDC17-FA06-4AC2-8F35-59D2470FCFC1
      *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'cenId'     => 'CenId',
         'requestId' => 'RequestId',
     ];
 
@@ -37,9 +25,6 @@ class CreateCenResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->cenId) {
-            $res['CenId'] = $this->cenId;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,14 +35,11 @@ class CreateCenResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateCenResponseBody
+     * @return DeleteTransitRouterEcrAttachmentResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CenId'])) {
-            $model->cenId = $map['CenId'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

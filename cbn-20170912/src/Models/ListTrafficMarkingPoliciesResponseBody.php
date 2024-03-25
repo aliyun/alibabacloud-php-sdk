@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListTrafficMarkingPoliciesResponseBody extends Model
 {
     /**
+     * @description The number of entries returned on each page.
+     *
      * @example 20
      *
      * @var int
@@ -17,6 +19,11 @@ class ListTrafficMarkingPoliciesResponseBody extends Model
     public $maxResults;
 
     /**
+     * @description The token that determines the start point of the query.
+     *
+     *   If **NextToken** was not returned in the previous query, it indicates that no additional results exist.
+     *   If **NextToken** was returned in the previous query, specify the value to obtain the next set of results.
+     *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
@@ -24,6 +31,8 @@ class ListTrafficMarkingPoliciesResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 699989E4-64A0-5F78-8B93-CDB32D98971F
      *
      * @var string
@@ -31,6 +40,8 @@ class ListTrafficMarkingPoliciesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The number of entries returned.
+     *
      * @example 1
      *
      * @var int
@@ -38,6 +49,8 @@ class ListTrafficMarkingPoliciesResponseBody extends Model
     public $totalCount;
 
     /**
+     * @description The list of traffic marking policies.
+     *
      * @var trafficMarkingPolicies[]
      */
     public $trafficMarkingPolicies;

@@ -88,9 +88,9 @@ class ListTransitRouterRouteEntriesRequest extends Model
     public $transitRouterRouteEntryIds;
 
     /**
-     * @description The route name.
+     * @description The name of the route.
      *
-     * >  You can use this parameter to query only static routes in the specified route table. This parameter is incompatible with query conditions other than TransitRouterRouteEntryIds.
+     * >  You can use this parameter to query only static routes in the specified route table. This parameter conflicts with other query conditions except for TransitRouterRouteEntryIds.
      * @example testname
      *
      * @var string[]

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class grantRule extends Model
 {
     /**
-     * @description The CEN instance ID.
+     * @description The ID of the CEN instance.
      *
      * @example cen-nye53d7p3hzyu4****
      *
@@ -27,7 +27,7 @@ class grantRule extends Model
     public $cenOwnerId;
 
     /**
-     * @description The network instance ID.
+     * @description The ID of the network instance.
      *
      * @example vpc-bp1rgeww9mdstuuar****
      *
@@ -56,10 +56,10 @@ class grantRule extends Model
     /**
      * @description The type of the network instance. Valid values:
      *
-     *   **VPC**
-     *   **VBR**
-     *   **CCN**
-     *   **VPN**
+     *   **VPC**: VPC
+     *   **VBR**: VBR
+     *   **CCN**: CCN instance
+     *   **VPN**: IPsec-VPN connection
      *
      * @example VPC
      *
@@ -68,6 +68,11 @@ class grantRule extends Model
     public $childInstanceType;
 
     /**
+     * @description The time when the permissions were granted to the CEN instance.
+     *
+     * The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+     * @example 2024-01-24T16:27Z
+     *
      * @var int
      */
     public $createTime;

@@ -18,6 +18,11 @@ class EnableCenVbrHealthCheckRequest extends Model
     public $cenId;
 
     /**
+     * @description The description of the health check.
+     *
+     * The description must be 1 to 256 characters in length, and cannot start with `http://` or `https://`.
+     * @example testdesc
+     *
      * @var string
      */
     public $description;

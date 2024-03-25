@@ -60,8 +60,8 @@ class publishedRouteEntry extends Model
      *   **VPC**: VPC
      *   **local**: system route. No next hop is specified.
      *   **TR**: transit router
-     *   \*\*BlackHole\*\*: blackhole route. No next hop is specified.
-     *   \*\*EcRouterInterface\*\*: router interface for Express Connect
+     *   **BlackHole**: blackhole route. No next hop is specified.
+     *   **EcRouterInterface**: router interface for Express Connect
      *   **HealthCheck**: health check
      *   **AS**: access gateway for CCN
      *   **classicLink**: classic network-type instance

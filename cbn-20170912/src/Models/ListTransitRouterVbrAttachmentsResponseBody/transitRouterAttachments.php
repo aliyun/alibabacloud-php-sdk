@@ -10,10 +10,10 @@ use AlibabaCloud\Tea\Model;
 class transitRouterAttachments extends Model
 {
     /**
-     * @description Indicates whether the Enterprise Edition transit router automatically advertises routes to the VBR. Valid values:
+     * @description Indicates whether the Enterprise Edition transit router is allowed to automatically advertise routes to the VBR. Valid values:
      *
-     *   **false** (default): no
-     *   **true**: yes
+     *   **false** (default)
+     *   **true**
      *
      * @example false
      *
@@ -31,9 +31,9 @@ class transitRouterAttachments extends Model
     public $cenId;
 
     /**
-     * @description The time when the VBR connection was established.
+     * @description The time when the VBR connection was created.
      *
-     * The time follows the ISO8601 standard in the YYYY-MM-DDThh:mmZ format. The time is displayed in UTC.
+     * The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
      * @example 2021-06-15T15:20Z
      *
      * @var string
@@ -41,6 +41,13 @@ class transitRouterAttachments extends Model
     public $creationTime;
 
     /**
+     * @description The entity that pays the fees of the network instance. Valid values:
+     *
+     *   **PayByCenOwner**: the Alibaba Cloud account that owns the CEN instance.
+     *   **PayByResourceOwner**: the Alibaba Cloud account that owns the network instance.
+     *
+     * @example PayByCenOwner
+     *
      * @var string
      */
     public $orderType;
@@ -48,10 +55,10 @@ class transitRouterAttachments extends Model
     /**
      * @description The type of resource to which the transit router is connected. Valid values:
      *
-     *   **VPC**: VPC
-     *   **CCN**: Cloud Connect Network (CCN) instance
-     *   **VBR**: VBR
-     *   **TR**: transit router
+     *   **VPC**
+     *   **CCN**
+     *   **VBR**
+     *   **TR**
      *
      * @example VBR
      *
@@ -62,10 +69,10 @@ class transitRouterAttachments extends Model
     /**
      * @description The status of the VBR connection. Valid values:
      *
-     *   **Attached**: The VBR connection is created on the transit router.
-     *   **Attaching**: The VBR connection is being created on the transit router.
-     *   **Detaching**: The VBR connection is being deleted from the transit router.
-     *   **Detached**: The VBR connection is deleted from the transit router.
+     *   **Attached**
+     *   **Attaching**
+     *   **Detaching**
+     *   **Detached**
      *
      * @example Attached
      *
@@ -74,7 +81,7 @@ class transitRouterAttachments extends Model
     public $status;
 
     /**
-     * @description The tags.
+     * @description A list of tags.
      *
      * @var tags[]
      */
@@ -108,7 +115,7 @@ class transitRouterAttachments extends Model
     public $transitRouterAttachmentName;
 
     /**
-     * @description The ID of the Enterprise Edition transit router.
+     * @description The description of the Enterprise Edition transit router.
      *
      * @example tr-bp1su1ytdxtataupl****
      *
@@ -126,7 +133,7 @@ class transitRouterAttachments extends Model
     public $vbrId;
 
     /**
-     * @description The ID of the account to which the VBR belongs.
+     * @description The ID of the Alibaba Cloud account to which the VBR belongs.
      *
      * @example 1688111111111111
      *

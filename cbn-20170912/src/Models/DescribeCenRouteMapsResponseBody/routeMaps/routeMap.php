@@ -22,7 +22,10 @@ use AlibabaCloud\Tea\Model;
 class routeMap extends Model
 {
     /**
-     * @description The IDs of the source route tables to which the routes belong.
+     * @description The match method that is used to match routes based on the AS path.
+     *
+     *   **Include**: fuzzy match. A route is a match if the AS path of the route overlaps with the AS path specified in the match condition.
+     *   **Complete**: exact match. A route is a match only if the AS path of the route is the same as an AS path specified in the match condition.
      *
      * @example Include
      *
@@ -31,7 +34,7 @@ class routeMap extends Model
     public $asPathMatchMode;
 
     /**
-     * @description The number of entries returned.
+     * @description The CEN instance ID.
      *
      * @example cen-wx12mmlt17ld82****
      *
@@ -40,7 +43,7 @@ class routeMap extends Model
     public $cenId;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The region ID of the routing policy.
      *
      * @example cn-hangzhou
      *
@@ -49,11 +52,15 @@ class routeMap extends Model
     public $cenRegionId;
 
     /**
-     * @description The action performed on a route that meets the match conditions.
+     * @description The match method that is used to evaluate routes based on the prefix. Valid values:
      *
-     *   **Permit**: the route is permitted.
-     *   **Deny**: the route is denied.
+     *   **Include**: fuzzy match. A route is a match if the route prefix is included in the match conditions.
      *
+     * For example, if you set the match condition to 10.10.0.0/16 and fuzzy match is applied, the route whose prefix is 10.10.1.0/24 meets the match condition.
+     *
+     *   **Complete**: exact match. A route is a match only if the route prefix is the same as the prefix specified in the match condition.
+     *
+     * For example, if you set the match condition to 10.10.0.0/16 and exact match is enabled, a route is a match only if the prefix is 10.10.0.0/16.
      * @example Include
      *
      * @var string
@@ -61,15 +68,11 @@ class routeMap extends Model
     public $cidrMatchMode;
 
     /**
-     * @description The direction in which the routing policy is applied. Valid values:
+     * @description The match method that is used to match routes against the community.
      *
-     *   **RegionIn**: Routes are advertised to the gateways in the regions that are connected by the CEN instance.
+     *   **Include**: fuzzy match. A route is a match if the community of the route overlaps with the community specified in the match condition.
+     *   **Complete**: exact match. A route meets the match condition only if the community of the route is the same as the community specified in the match condition.
      *
-     * For example, routes are advertised from network instances deployed in the current region or other regions to the gateway deployed in the current region.
-     *
-     *   **RegionOut**: Routes are advertised from the gateways in the regions that are connected by the CEN instance.
-     *
-     * For example, routes are advertised from the gateway deployed in the current region to network instances deployed in the current region, or to gateways deployed in other regions.
      * @example Include
      *
      * @var string
@@ -77,8 +80,12 @@ class routeMap extends Model
     public $communityMatchMode;
 
     /**
-     * @description The information about the routing policy.
+     * @description The action that is performed on the community of the route.
      *
+     *   **Additive**: adds the community to the route.
+     *   **Replace**: replaces the original community of the route.
+     *
+     * This parameter specifies the action to be performed when a route meets the match condition.
      * @example Additive
      *
      * @var string
@@ -86,7 +93,7 @@ class routeMap extends Model
     public $communityOperateMode;
 
     /**
-     * @description The AS paths based on which the routes are compared.
+     * @description The description of the routing policy.
      *
      * @example desctest
      *
@@ -95,24 +102,38 @@ class routeMap extends Model
     public $description;
 
     /**
+     * @description The types of destination network instances to which the routes belong.
+     *
+     *   **VPC**
+     *   **VBR**
+     *   **CCN**
+     *   **VPN**
+     *
+     * >  The destination route tables take effect only if the routing policy is applied to the egress gateway direction, and the type of the destination route tables is the same as that of the network instance in the current region.
      * @var destinationChildInstanceTypes
      */
     public $destinationChildInstanceTypes;
 
     /**
-     * @description The number of the returned page.
+     * @description The prefixes of the routes.
      *
      * @var destinationCidrBlocks
      */
     public $destinationCidrBlocks;
 
     /**
+     * @description The IDs of the destination network instances to which the routes point.
+     *
+     * >  The destination route tables take effect only if the routing policy is applied to the egress gateway direction, and the ID the destination instance is the same as that of the network instance in the current region.
      * @var destinationInstanceIds
      */
     public $destinationInstanceIds;
 
     /**
-     * @description The description of the routing policy.
+     * @description Indicates whether the destination network instance IDs are excluded.
+     *
+     *   **false** (default): A route is a match if its destination network instance ID is in the list specified by **DestinationInstanceIds.N**.
+     *   **true**: A route is a match if its destination network instance ID is not in the list specified by **DestinationInstanceIds.N**.
      *
      * @example false
      *
@@ -121,89 +142,24 @@ class routeMap extends Model
     public $destinationInstanceIdsReverseMatch;
 
     /**
-     * @description The types of source network instance to which the routes belong.
+     * @description The IDs of the destination route tables to which the routes belong. You can enter at most 32 route table IDs.
      *
-     *   **VPC**: virtual private cloud (VPC)
-     *   **VBR**: virtual border router (VBR)
-     *   **CCN**: Cloud Connect Network (CCN) instance
-     *   **VPN**: IPsec-VPN connection
-     *
+     * >  The destination route tables take effect only if the routing policy is applied to the egress gateway direction, and the destination route table IDs are in the current region.
      * @var destinationRouteTableIds
      */
     public $destinationRouteTableIds;
 
     /**
-     * @description The ID of the region where the routing policy is applied.
+     * @description The action performed on a route that meets the match conditions.
      *
-     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
+     *   **Permit**: the route is permitted.
+     *   **Deny**: the route is denied.
+     *
      * @example Deny
      *
      * @var string
      */
     public $mapResult;
-
-    /**
-     * @description The IDs of the source network instances to which the routes belong.
-     *
-     * @example IPv4
-     *
-     * @var string
-     */
-    public $matchAddressType;
-
-    /**
-     * @var matchAsns
-     */
-    public $matchAsns;
-
-    /**
-     * @var matchCommunitySet
-     */
-    public $matchCommunitySet;
-
-    /**
-     * @description The match method that is used to match routes based on the prefix. Valid values:
-     *
-     *   **Include**: fuzzy match. A route is a match if the route prefix is included in the match conditions.
-     *
-     * For example, if you set the match condition to 10.10.0.0/16 and fuzzy match is enabled, the route whose prefix is 10.10.1.0/24 is a match.
-     *
-     *   **Complete**: exact match. A route is a match only if the route prefix is the same as the prefix specified in the match condition.
-     *
-     * For example, if you set the match condition to 10.10.0.0/16 and exact match is enabled, a route is a match only if the prefix is 10.10.0.0/16.
-     * @example 33
-     *
-     * @var int
-     */
-    public $nextPriority;
-
-    /**
-     * @var operateCommunitySet
-     */
-    public $operateCommunitySet;
-
-    /**
-     * @description The prefixes of the routes.
-     *
-     * @example 20
-     *
-     * @var int
-     */
-    public $preference;
-
-    /**
-     * @var prependAsPath
-     */
-    public $prependAsPath;
-
-    /**
-     * @description The ID of the region where the routing policy is applied.
-     *
-     * @example 5000
-     *
-     * @var int
-     */
-    public $priority;
 
     /**
      * @description The type of IP address to be matched against the match condition. Valid values:
@@ -212,6 +168,72 @@ class routeMap extends Model
      *   **IPv6**: IPv6 addresses
      *   If no value is returned, both IPv4 and IPv6 addresses are matched against the match condition.
      *
+     * @example IPv4
+     *
+     * @var string
+     */
+    public $matchAddressType;
+
+    /**
+     * @description The AS paths against which routes are matched.
+     *
+     * @var matchAsns
+     */
+    public $matchAsns;
+
+    /**
+     * @description The community set against which routes are matched.
+     *
+     * @var matchCommunitySet
+     */
+    public $matchCommunitySet;
+
+    /**
+     * @description The priority of the routing policy that you want to associate with the current one.
+     *
+     * @example 33
+     *
+     * @var int
+     */
+    public $nextPriority;
+
+    /**
+     * @description The community set on which actions are performed.
+     *
+     * @var operateCommunitySet
+     */
+    public $operateCommunitySet;
+
+    /**
+     * @description The new priority of the route.
+     *
+     * This parameter indicates the action to be performed when a route meets the match condition.
+     * @example 20
+     *
+     * @var int
+     */
+    public $preference;
+
+    /**
+     * @description The AS paths that are prepended by using an action statement when regional gateways receive or advertise routes.
+     *
+     * This parameter indicates the action to be performed when a route meets the match condition.
+     * @var prependAsPath
+     */
+    public $prependAsPath;
+
+    /**
+     * @description The priority of the routing policy. A smaller value indicates a higher priority.
+     *
+     * @example 5000
+     *
+     * @var int
+     */
+    public $priority;
+
+    /**
+     * @description The routing policy ID.
+     *
      * @example cenrmap-y40mxdvf7joc12****
      *
      * @var string
@@ -219,26 +241,40 @@ class routeMap extends Model
     public $routeMapId;
 
     /**
+     * @description The type of route that is compared. Valid values:
+     *
+     *   **System**: system routes that are automatically generated by the system.
+     *   **Custom**: custom routes that are manually added.
+     *   **BGP**: routes that are advertised over BGP.
+     *
      * @var routeTypes
      */
     public $routeTypes;
 
     /**
-     * @description The community set based on which the routes are compared.
+     * @description The types of source network instances to which the routes belong.
+     *
+     *   **VPC**
+     *   **VBR**
+     *   **CCN**
+     *   **VPN**
      *
      * @var sourceChildInstanceTypes
      */
     public $sourceChildInstanceTypes;
 
     /**
-     * @description The direction in which the routing policy is applied.
+     * @description The IDs of the source network instances to which the routes belong.
      *
      * @var sourceInstanceIds
      */
     public $sourceInstanceIds;
 
     /**
-     * @description The ID of the routing policy.
+     * @description Indicates whether the source network instance IDs are excluded.
+     *
+     *   **false** (default): A route is a match if its source network instance ID is in the list specified by **SourceInstanceIds.N**.
+     *   **true**: A route is match if its source network instance ID is not in the list specified by **SourceInstanceIds.N**.
      *
      * @example false
      *
@@ -247,27 +283,26 @@ class routeMap extends Model
     public $sourceInstanceIdsReverseMatch;
 
     /**
-     * @description The status of the routing policy. Valid values:
-     *
-     *   **Creating**: The routing policy is being created.
-     *   **Active**: The routing policy is available.
-     *   **Deleting**: The routing policy is being deleted.
+     * @description The IDs of the source regions to which the routes belong.
      *
      * @var sourceRegionIds
      */
     public $sourceRegionIds;
 
     /**
-     * @description Queries the routing policies of a Cloud Enterprise Network (CEN) instance.
+     * @description The IDs of the source route tables to which the routes belong.
      *
      * @var sourceRouteTableIds
      */
     public $sourceRouteTableIds;
 
     /**
-     * @description The new priority of the route.
+     * @description The status of the routing policy. Valid values:
      *
-     * This parameter indicates the action to be performed when a route meets the match condition.
+     *   **Creating**
+     *   **Active**
+     *   **Deleting**
+     *
      * @example Active
      *
      * @var string
@@ -275,12 +310,8 @@ class routeMap extends Model
     public $status;
 
     /**
-     * @description The action that is performed on the community of the route.
+     * @description The route table ID of the transit router with which the routing policy is associated.
      *
-     *   **Additive**: adds the community to the route.
-     *   **Replace**: replaces the original community of the route.
-     *
-     * This parameter indicates the action to be performed when a route meets the match condition.
      * @example vtb-gw8nx3515m1mbd1z1****
      *
      * @var string
@@ -288,7 +319,7 @@ class routeMap extends Model
     public $transitRouterRouteTableId;
 
     /**
-     * @description The ID of the routing policy.
+     * @description The direction in which the routing policy is applied.
      *
      * @example RegionOut
      *

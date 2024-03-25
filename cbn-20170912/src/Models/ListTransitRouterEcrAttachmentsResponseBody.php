@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models;
 
-use AlibabaCloud\SDK\Cbn\V20170912\Models\ListTransitRouterVbrAttachmentsResponseBody\transitRouterAttachments;
+use AlibabaCloud\SDK\Cbn\V20170912\Models\ListTransitRouterEcrAttachmentsResponseBody\transitRouterAttachments;
 use AlibabaCloud\Tea\Model;
 
-class ListTransitRouterVbrAttachmentsResponseBody extends Model
+class ListTransitRouterEcrAttachmentsResponseBody extends Model
 {
     /**
-     * @description The number of entries returned per page.
-     *
      * @example 20
      *
      * @var int
@@ -19,35 +17,27 @@ class ListTransitRouterVbrAttachmentsResponseBody extends Model
     public $maxResults;
 
     /**
-     * @description The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results.
-     *
-     * @example dd20****
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The request ID.
-     *
-     * @example F42D9616-29EB-4E75-8CA8-9654D4E07501
+     * @example 461EC1B5-04A8-4706-8764-8F5BCEF48A6F
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 1
+     * @example 4
      *
      * @var int
      */
     public $totalCount;
 
     /**
-     * @description A list of VBR connections.
-     *
      * @var transitRouterAttachments[]
      */
     public $transitRouterAttachments;
@@ -94,7 +84,7 @@ class ListTransitRouterVbrAttachmentsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ListTransitRouterVbrAttachmentsResponseBody
+     * @return ListTransitRouterEcrAttachmentsResponseBody
      */
     public static function fromMap($map = [])
     {

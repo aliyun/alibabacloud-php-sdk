@@ -6,28 +6,24 @@ namespace AlibabaCloud\SDK\Cbn\V20170912\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateCenResponseBody extends Model
+class CreateTransitRouterEcrAttachmentResponseBody extends Model
 {
     /**
-     * @description The CEN instance ID.
-     *
-     * @example cen-dc4vwznpwbobrl****
-     *
-     * @var string
-     */
-    public $cenId;
-
-    /**
-     * @description The request ID.
-     *
-     * @example 0C2EE7A8-74D4-4081-8236-CEBDE3BBCF50
+     * @example C0245BEF-52AC-44A8-A776-EF96FD26A5CA
      *
      * @var string
      */
     public $requestId;
+
+    /**
+     * @example tr-attach-qieks13jnt1cchy***
+     *
+     * @var string
+     */
+    public $transitRouterAttachmentId;
     protected $_name = [
-        'cenId'     => 'CenId',
-        'requestId' => 'RequestId',
+        'requestId'                 => 'RequestId',
+        'transitRouterAttachmentId' => 'TransitRouterAttachmentId',
     ];
 
     public function validate()
@@ -37,11 +33,11 @@ class CreateCenResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->cenId) {
-            $res['CenId'] = $this->cenId;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->transitRouterAttachmentId) {
+            $res['TransitRouterAttachmentId'] = $this->transitRouterAttachmentId;
         }
 
         return $res;
@@ -50,16 +46,16 @@ class CreateCenResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateCenResponseBody
+     * @return CreateTransitRouterEcrAttachmentResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CenId'])) {
-            $model->cenId = $map['CenId'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TransitRouterAttachmentId'])) {
+            $model->transitRouterAttachmentId = $map['TransitRouterAttachmentId'];
         }
 
         return $model;

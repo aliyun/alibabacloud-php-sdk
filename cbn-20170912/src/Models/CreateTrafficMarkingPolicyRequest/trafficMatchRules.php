@@ -11,7 +11,7 @@ class trafficMatchRules extends Model
     /**
      * @description The destination CIDR block that is used to match packets.
      *
-     * You can create up to 50 traffic classification rules in each call. You can specify a destination CIDR block for each traffic classification rule.
+     * You can create up to 50 traffic classification rules in each call You can specify a destination CIDR block for each traffic classification rule.
      * @example 10.10.10.0/24
      *
      * @var string
@@ -21,11 +21,11 @@ class trafficMatchRules extends Model
     /**
      * @description The destination port range that is used to match packets. Valid values: **-1** and **1** to **65535**.
      *
-     * You can specify at most two ports. Take note of the following rules:
+     * You can enter up to two port numbers. Take note of the following rules:
      *
-     *   If you enter only one port number such as 1, the system matches the packets whose destination port is port 1.
-     *   If you enter two port numbers such as 1 and 200, the system matches the packets whose destination ports fall between 1 and 200.
-     *   If you enter two port numbers and one of them is -1, the other port number must also be -1. In this case, packets with all destination ports are matched.
+     *   If you enter only one port number, such as 1, packets whose destination port is 1 meet the traffic classification rule.
+     *   If you enter two port numbers, such as 1 and 200, packets whose destination ports fall into 1 and 200 meet the traffic classification rule.
+     *   If you enter two port numbers and one of them is -1, the other port number must also be -1. In this case, all packets meet the traffic classification rule.
      *
      * You can create up to 50 traffic classification rules in each call. You can specify a destination port range for each traffic classification rule.
      * @var int[]
@@ -45,7 +45,22 @@ class trafficMatchRules extends Model
     /**
      * @description The protocol that is used to match packets.
      *
-     * Valid values: **HTTP**, **HTTPS**, **TCP**, **UDP**, **SSH**, and **Telnet**. For more information, log on to the [Cloud Enterprise Network (CEN) console](https://cen.console.aliyun.com/cen/list).
+     * Traffic classification rules support the following protocols: **HTTP**, **HTTPS**, **TCP**, **UDP**, **SSH**, and **Telnet**. For more information, log on to the [CEN console](https://cen.console.aliyun.com/cen/list).
+     *
+     **Some protocols use a fixed port. Click to view protocols and ports.**
+     *
+     *   If the protocol is **ICMP**, the destination port must be **-1**.
+     *   If the protocol is **GRE**, the destination port must be **1**.
+     *   If the protocol is **SSH**, the destination port must be **22**.
+     *   If the protocol is **Telnet**, the destination port must be **23**.
+     *   If the protocol is **HTTP**, the destination port must be **80**.
+     *   If the protocol is **HTTPS**, the destination port must be **443**.
+     *   If the protocol is **MS SQL**, the destination port must be **1443**.
+     *   If the protocol is **Oracle**, the destination port must be **1521**.
+     *   If the protocol is **Mysql**, the destination port must be **3306**.
+     *   If the protocol is **RDP**, the destination port must be **3389**.
+     *   If the protocol is **Postgre SQL**, the destination port must be **5432**.
+     *   If the protocol is **Redis**, the destination port must be **6379**.
      *
      * You can create up to 50 traffic classification rules in each call. You can specify a protocol for each traffic classification rule.
      * @example HTTP
@@ -67,11 +82,11 @@ class trafficMatchRules extends Model
     /**
      * @description The source port range that is used to match packets. Valid values: **-1** and **1** to **65535**.
      *
-     * You can specify at most two ports. Take note of the following rules:
+     * You can enter up to two port numbers. Take note of the following rules:
      *
-     *   If you enter only one port number such as 1, the system matches the packets whose source port is 1.
-     *   If you enter two port numbers such as 1 and 200, the system matches the packets whose source ports fall between 1 and 200.
-     *   If you enter two port numbers and one of them is -1, the other port number must also be -1. In this case, packets with all source ports are matched.
+     *   If you enter only one port number, such as 1, packets whose source port is 1 meet the traffic classification rule.
+     *   If you enter two port numbers, such as 1 and 200, packets whose source ports fall into 1 and 200 meet the traffic classification rule.
+     *   If you enter two port numbers and one of them is -1, the other port number must also be -1. In this case, all packets meet the traffic classification rule.
      *
      * You can create up to 50 traffic classification rules in each call. You can specify a source port range for each traffic classification rule.
      * @var int[]
@@ -81,7 +96,7 @@ class trafficMatchRules extends Model
     /**
      * @description The description of the traffic classification rule.
      *
-     * The description must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The description must start with a letter.
+     * This parameter is optional. If you enter a description, it must be 1 to 256 characters in length, and cannot start with http:// or https://.
      * @example desctest
      *
      * @var string
@@ -91,7 +106,7 @@ class trafficMatchRules extends Model
     /**
      * @description The name of the traffic classification rule.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). It must start with a letter.
+     * The name can be empty or 1 to 128 characters in length, and cannot start with http:// or https://.
      * @example nametest
      *
      * @var string

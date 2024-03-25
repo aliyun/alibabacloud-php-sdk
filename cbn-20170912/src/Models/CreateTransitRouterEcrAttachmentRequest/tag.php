@@ -2,16 +2,13 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Cbn\V20170912\Models\CreateCenRequest;
+namespace AlibabaCloud\SDK\Cbn\V20170912\Models\CreateTransitRouterEcrAttachmentRequest;
 
 use AlibabaCloud\Tea\Model;
 
 class tag extends Model
 {
     /**
-     * @description The tag key.
-     *
-     * You can specify up to 20 tag keys.
      * @example tagtest
      *
      * @var string
@@ -19,9 +16,6 @@ class tag extends Model
     public $key;
 
     /**
-     * @description The tag value.
-     *
-     * Each tag key must have a unique tag value. You can specify up to 20 tag values in each call.
      * @example tagtest
      *
      * @var string

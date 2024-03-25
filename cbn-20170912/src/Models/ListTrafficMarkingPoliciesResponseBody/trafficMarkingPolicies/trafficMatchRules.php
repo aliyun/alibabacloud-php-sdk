@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class trafficMatchRules extends Model
 {
     /**
+     * @description The destination CIDR block used to match data packets.
+     *
      * @example 192.168.120.0/24
      *
      * @var string
@@ -16,11 +18,15 @@ class trafficMatchRules extends Model
     public $dstCidr;
 
     /**
+     * @description The destination port range used to match data packets.
+     *
      * @var int[]
      */
     public $dstPortRange;
 
     /**
+     * @description The DSCP value used to match data packets.
+     *
      * @example 6
      *
      * @var int
@@ -28,6 +34,9 @@ class trafficMatchRules extends Model
     public $matchDscp;
 
     /**
+     * @description The protocol used to match data packets.
+     *
+     * > Traffic marking policies support multiple protocols. For more information, see the documentation of CEN.
      * @example HTTP
      *
      * @var string
@@ -35,6 +44,8 @@ class trafficMatchRules extends Model
     public $protocol;
 
     /**
+     * @description The source CIDR block used to match data packets.
+     *
      * @example 192.168.10.0/24
      *
      * @var string
@@ -42,11 +53,15 @@ class trafficMatchRules extends Model
     public $srcCidr;
 
     /**
+     * @description The source port range used to match data packets.
+     *
      * @var int[]
      */
     public $srcPortRange;
 
     /**
+     * @description The description of the traffic classification rule.
+     *
      * @example desctest
      *
      * @var string
@@ -54,6 +69,8 @@ class trafficMatchRules extends Model
     public $trafficMatchRuleDescription;
 
     /**
+     * @description The ID of the traffic classification rule.
+     *
      * @example tm-rule-fa9kgq1e90rmhc****
      *
      * @var string
@@ -61,6 +78,8 @@ class trafficMatchRules extends Model
     public $trafficMatchRuleId;
 
     /**
+     * @description The name of the traffic classification rule.
+     *
      * @example nametest
      *
      * @var string
@@ -68,6 +87,13 @@ class trafficMatchRules extends Model
     public $trafficMatchRuleName;
 
     /**
+     * @description The status of the traffic classification rule. Valid values:
+     *
+     *   **Creating**: The rule is being created.
+     *   **Active**: The rule is available.
+     *   **Deleting**: The rule is being deleted.
+     *   **Deleted**: The rule is deleted.
+     *
      * @example Creating
      *
      * @var string

@@ -6,26 +6,16 @@ namespace AlibabaCloud\SDK\Cbn\V20170912\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ReplaceTransitRouterRouteTableAssociationRequest extends Model
+class UpdateTransitRouterEcrAttachmentAttributeRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request.
-     *
-     * You can use the client to generate the value, but you must make sure that it is unique among all requests. The client token can contain only ASCII characters.
-     *
-     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
-     * @example 123e4567-e89b-12d3-a456-426655****
+     * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description Specifies whether only to precheck the API request. Valid values:
-     *
-     *   **true**: prechecks the request but does not associate the network instance connection with another route table. The system checks whether the required parameters are set, whether the formats of the values are valid, and the service limits. If the request fails to pass the precheck, the corresponding error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
-     *   **false**: sends the request. After the request passes the authentication, the network instance connection is associated with the specified route table. This is the default value.
-     *
      * @example false
      *
      * @var bool
@@ -53,31 +43,35 @@ class ReplaceTransitRouterRouteTableAssociationRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the network instance connection.
+     * @example desctest
      *
-     * @example tr-attach-071g5j5tefg4x6****
+     * @var string
+     */
+    public $transitRouterAttachmentDescription;
+
+    /**
+     * @example tr-attach-r6g0m3epjehw57****
      *
      * @var string
      */
     public $transitRouterAttachmentId;
 
     /**
-     * @description The ID of the route table with which you want to associate the network instance connection.
-     *
-     * @example vtb-bp1cprmc6xmzjd66i****
+     * @example nametest
      *
      * @var string
      */
-    public $transitRouterRouteTableId;
+    public $transitRouterAttachmentName;
     protected $_name = [
-        'clientToken'               => 'ClientToken',
-        'dryRun'                    => 'DryRun',
-        'ownerAccount'              => 'OwnerAccount',
-        'ownerId'                   => 'OwnerId',
-        'resourceOwnerAccount'      => 'ResourceOwnerAccount',
-        'resourceOwnerId'           => 'ResourceOwnerId',
-        'transitRouterAttachmentId' => 'TransitRouterAttachmentId',
-        'transitRouterRouteTableId' => 'TransitRouterRouteTableId',
+        'clientToken'                        => 'ClientToken',
+        'dryRun'                             => 'DryRun',
+        'ownerAccount'                       => 'OwnerAccount',
+        'ownerId'                            => 'OwnerId',
+        'resourceOwnerAccount'               => 'ResourceOwnerAccount',
+        'resourceOwnerId'                    => 'ResourceOwnerId',
+        'transitRouterAttachmentDescription' => 'TransitRouterAttachmentDescription',
+        'transitRouterAttachmentId'          => 'TransitRouterAttachmentId',
+        'transitRouterAttachmentName'        => 'TransitRouterAttachmentName',
     ];
 
     public function validate()
@@ -105,11 +99,14 @@ class ReplaceTransitRouterRouteTableAssociationRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+        if (null !== $this->transitRouterAttachmentDescription) {
+            $res['TransitRouterAttachmentDescription'] = $this->transitRouterAttachmentDescription;
+        }
         if (null !== $this->transitRouterAttachmentId) {
             $res['TransitRouterAttachmentId'] = $this->transitRouterAttachmentId;
         }
-        if (null !== $this->transitRouterRouteTableId) {
-            $res['TransitRouterRouteTableId'] = $this->transitRouterRouteTableId;
+        if (null !== $this->transitRouterAttachmentName) {
+            $res['TransitRouterAttachmentName'] = $this->transitRouterAttachmentName;
         }
 
         return $res;
@@ -118,7 +115,7 @@ class ReplaceTransitRouterRouteTableAssociationRequest extends Model
     /**
      * @param array $map
      *
-     * @return ReplaceTransitRouterRouteTableAssociationRequest
+     * @return UpdateTransitRouterEcrAttachmentAttributeRequest
      */
     public static function fromMap($map = [])
     {
@@ -141,11 +138,14 @@ class ReplaceTransitRouterRouteTableAssociationRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+        if (isset($map['TransitRouterAttachmentDescription'])) {
+            $model->transitRouterAttachmentDescription = $map['TransitRouterAttachmentDescription'];
+        }
         if (isset($map['TransitRouterAttachmentId'])) {
             $model->transitRouterAttachmentId = $map['TransitRouterAttachmentId'];
         }
-        if (isset($map['TransitRouterRouteTableId'])) {
-            $model->transitRouterRouteTableId = $map['TransitRouterRouteTableId'];
+        if (isset($map['TransitRouterAttachmentName'])) {
+            $model->transitRouterAttachmentName = $map['TransitRouterAttachmentName'];
         }
 
         return $model;

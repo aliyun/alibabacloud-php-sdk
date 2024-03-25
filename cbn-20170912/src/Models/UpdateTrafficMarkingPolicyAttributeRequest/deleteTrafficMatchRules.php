@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class deleteTrafficMatchRules extends Model
 {
     /**
-     * @description The destination CIDR block that is used to match data packets.
+     * @description The destination CIDR block that is used to match packets.
      *
      * @example 192.168.200.3/32
      *
@@ -18,7 +18,7 @@ class deleteTrafficMatchRules extends Model
     public $dstCidr;
 
     /**
-     * @description The destination port range that is used to match packets. Valid values: **-1** and **1** to **65535**.
+     * @description The destination port range that is used to match packets.
      *
      * @var int[]
      */
@@ -36,7 +36,7 @@ class deleteTrafficMatchRules extends Model
     /**
      * @description The protocol that is used to match packets.
      *
-     * Valid values: **HTTP**, **HTTPS**, **TCP**, **UDP**, **SSH**, and **Telnet**. For more information, log on to the [Cloud Enterprise Network (CEN) console](https://cen.console.aliyun.com/cen/list).
+     * You can call the [ListTrafficMarkingPolicies](~~468322~~) operation to query the details about a traffic classification rule.
      * @example TCP
      *
      * @var string
@@ -53,7 +53,7 @@ class deleteTrafficMatchRules extends Model
     public $srcCidr;
 
     /**
-     * @description The source port range that is used to match packets. Valid values: **-1** and **1** to **65535**.
+     * @description The source port range that is used to match packets.
      *
      * @var int[]
      */
@@ -62,6 +62,7 @@ class deleteTrafficMatchRules extends Model
     /**
      * @description The description of the traffic classification rule.
      *
+     * This parameter is optional. If you enter a description, it must be 1 to 256 characters in length, and cannot start with http:// or https://.
      * @example Hangzhou-to-Qingdao CAT
      *
      * @var string
@@ -71,6 +72,7 @@ class deleteTrafficMatchRules extends Model
     /**
      * @description The name of the traffic classification rule.
      *
+     * The name can be empty or 1 to 128 characters in length, and cannot start with http:// or https://.
      * @example test
      *
      * @var string

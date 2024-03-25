@@ -30,6 +30,7 @@ class UpdateTrafficMarkingPolicyAttributeRequest extends Model
     /**
      * @description The traffic classification rules to be deleted from the traffic marking policy.
      *
+     * >  Specify detailed information about the traffic classification rule, such as the source CIDR block, destination CIDR block, source port, destination port, and DSCP value. If you do not specify sufficient information, the system may fail to match the traffic classification rule that you want to delete.
      * @var deleteTrafficMatchRules[]
      */
     public $deleteTrafficMatchRules;

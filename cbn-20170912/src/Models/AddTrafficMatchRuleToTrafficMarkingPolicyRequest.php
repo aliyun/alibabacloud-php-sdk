@@ -65,7 +65,7 @@ class AddTrafficMatchRuleToTrafficMarkingPolicyRequest extends Model
     /**
      * @description The traffic classification rules.
      *
-     * You can specify up to 50 traffic classification rules at a time.
+     * You can add at most 50 traffic classification rules in each call.
      * @var trafficMatchRules[]
      */
     public $trafficMatchRules;

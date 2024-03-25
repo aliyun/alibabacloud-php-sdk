@@ -41,9 +41,8 @@ class RegisterTransitRouterMulticastGroupSourcesRequest extends Model
     public $groupIpAddress;
 
     /**
-     * @description The IDs of ENIs.
+     * @description The IDs of the ENIs.
      *
-     * >  This parameter is required.
      * @var string[]
      */
     public $networkInterfaceIds;

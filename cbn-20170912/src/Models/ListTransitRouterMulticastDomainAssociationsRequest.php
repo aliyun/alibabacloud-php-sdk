@@ -97,9 +97,8 @@ class ListTransitRouterMulticastDomainAssociationsRequest extends Model
     public $transitRouterMulticastDomainId;
 
     /**
-     * @description The vSwitch IDs.
+     * @description The IDs of vSwitches.
      *
-     * You can specify at most 20 IDs.
      * @var string[]
      */
     public $vSwitchIds;

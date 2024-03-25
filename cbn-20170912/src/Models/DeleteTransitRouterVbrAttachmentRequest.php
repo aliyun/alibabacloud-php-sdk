@@ -35,8 +35,8 @@ class DeleteTransitRouterVbrAttachmentRequest extends Model
     /**
      * @description Specifies whether to forcibly delete the VBR connection. Valid values:
      *
-     *   **false** (default): checks for resources related to the VBR connection, such as associated forwarding and route learning policies. If such resources exist, the VBR connection is not deleted and an error message is returned.
-     *   **true**: deletes the VBR connection and related resources.
+     *   **false** (default): checks for dependency resources, such as associated forwarding correlations and route learning policies before the VBR connection is deleted. If such resources exist, the VBR connection is not deleted and an error message is returned.
+     *   **true**: deletes all dependency resources along with the VBR connection.
      *
      * @example false
      *

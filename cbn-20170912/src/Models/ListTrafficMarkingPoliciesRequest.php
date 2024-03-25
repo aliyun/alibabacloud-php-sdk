@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListTrafficMarkingPoliciesRequest extends Model
 {
     /**
+     * @description The number of entries to return on each page. Valid values: **1** to **100**. Default value: **20**.
+     *
      * @example 20
      *
      * @var int
@@ -16,6 +18,11 @@ class ListTrafficMarkingPoliciesRequest extends Model
     public $maxResults;
 
     /**
+     * @description The token that determines the start point of the query. Valid values:
+     *
+     *   If this is your first query or no subsequent query is to be sent, ignore this parameter.
+     *   If a next query is to be sent, set the value to the value of **NextToken** that is returned from the last call.
+     *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
@@ -43,6 +50,9 @@ class ListTrafficMarkingPoliciesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The description of the traffic marking policy.
+     *
+     * The description must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The description must start with a letter.
      * @example desctest
      *
      * @var string
@@ -50,6 +60,8 @@ class ListTrafficMarkingPoliciesRequest extends Model
     public $trafficMarkingPolicyDescription;
 
     /**
+     * @description The ID of the traffic marking policy.
+     *
      * @example tm-iz5egnyitxiroq****
      *
      * @var string
@@ -57,6 +69,9 @@ class ListTrafficMarkingPoliciesRequest extends Model
     public $trafficMarkingPolicyId;
 
     /**
+     * @description The name of the traffic marking policy.
+     *
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
      * @example nametest
      *
      * @var string
@@ -64,6 +79,8 @@ class ListTrafficMarkingPoliciesRequest extends Model
     public $trafficMarkingPolicyName;
 
     /**
+     * @description The ID of the transit router.
+     *
      * @example tr-bp1rmwxnk221e3fas****
      *
      * @var string

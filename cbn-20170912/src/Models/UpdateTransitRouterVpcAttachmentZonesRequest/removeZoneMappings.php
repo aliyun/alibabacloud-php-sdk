@@ -21,7 +21,6 @@ class removeZoneMappings extends Model
     /**
      * @description The ID of the zone where the vSwitch that you want to remove from the VPC connection is deployed.
      *
-     * You can remove at most 10 vSwitches from a VPC in each call.
      * @example cn-hangzhou-i
      *
      * @var string
