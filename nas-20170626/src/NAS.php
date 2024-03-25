@@ -30,6 +30,8 @@ use AlibabaCloud\SDK\NAS\V20170626\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\CreateAccessGroupRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\CreateAccessGroupResponse;
+use AlibabaCloud\SDK\NAS\V20170626\Models\CreateAccessPointRequest;
+use AlibabaCloud\SDK\NAS\V20170626\Models\CreateAccessPointResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\CreateAccessRuleRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\CreateAccessRuleResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\CreateAutoSnapshotPolicyRequest;
@@ -38,6 +40,8 @@ use AlibabaCloud\SDK\NAS\V20170626\Models\CreateDataFlowRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\CreateDataFlowResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\CreateDataFlowTaskRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\CreateDataFlowTaskResponse;
+use AlibabaCloud\SDK\NAS\V20170626\Models\CreateDirRequest;
+use AlibabaCloud\SDK\NAS\V20170626\Models\CreateDirResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\CreateFileRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\CreateFileResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\CreateFilesetRequest;
@@ -66,6 +70,8 @@ use AlibabaCloud\SDK\NAS\V20170626\Models\CreateSnapshotRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\CreateSnapshotResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DeleteAccessGroupRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DeleteAccessGroupResponse;
+use AlibabaCloud\SDK\NAS\V20170626\Models\DeleteAccessPointRequest;
+use AlibabaCloud\SDK\NAS\V20170626\Models\DeleteAccessPointResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DeleteAccessRuleRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DeleteAccessRuleResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DeleteAutoSnapshotPolicyRequest;
@@ -92,6 +98,10 @@ use AlibabaCloud\SDK\NAS\V20170626\Models\DeleteSnapshotRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DeleteSnapshotResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeAccessGroupsRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeAccessGroupsResponse;
+use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeAccessPointRequest;
+use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeAccessPointResponse;
+use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeAccessPointsRequest;
+use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeAccessPointsResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeAccessRulesRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeAccessRulesResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeAutoSnapshotPoliciesRequest;
@@ -166,6 +176,8 @@ use AlibabaCloud\SDK\NAS\V20170626\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\ModifyAccessGroupRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\ModifyAccessGroupResponse;
+use AlibabaCloud\SDK\NAS\V20170626\Models\ModifyAccessPointRequest;
+use AlibabaCloud\SDK\NAS\V20170626\Models\ModifyAccessPointResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\ModifyAccessRuleRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\ModifyAccessRuleResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\ModifyAutoSnapshotPolicyRequest;
@@ -957,6 +969,85 @@ class NAS extends OpenApiClient
     }
 
     /**
+     * @param CreateAccessPointRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateAccessPointResponse
+     */
+    public function createAccessPointWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessGroup)) {
+            $query['AccessGroup'] = $request->accessGroup;
+        }
+        if (!Utils::isUnset($request->accessPointName)) {
+            $query['AccessPointName'] = $request->accessPointName;
+        }
+        if (!Utils::isUnset($request->enabledRam)) {
+            $query['EnabledRam'] = $request->enabledRam;
+        }
+        if (!Utils::isUnset($request->fileSystemId)) {
+            $query['FileSystemId'] = $request->fileSystemId;
+        }
+        if (!Utils::isUnset($request->ownerGroupId)) {
+            $query['OwnerGroupId'] = $request->ownerGroupId;
+        }
+        if (!Utils::isUnset($request->ownerUserId)) {
+            $query['OwnerUserId'] = $request->ownerUserId;
+        }
+        if (!Utils::isUnset($request->permission)) {
+            $query['Permission'] = $request->permission;
+        }
+        if (!Utils::isUnset($request->posixGroupId)) {
+            $query['PosixGroupId'] = $request->posixGroupId;
+        }
+        if (!Utils::isUnset($request->posixSecondaryGroupIds)) {
+            $query['PosixSecondaryGroupIds'] = $request->posixSecondaryGroupIds;
+        }
+        if (!Utils::isUnset($request->posixUserId)) {
+            $query['PosixUserId'] = $request->posixUserId;
+        }
+        if (!Utils::isUnset($request->rootDirectory)) {
+            $query['RootDirectory'] = $request->rootDirectory;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        if (!Utils::isUnset($request->vswId)) {
+            $query['VswId'] = $request->vswId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAccessPoint',
+            'version'     => '2017-06-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAccessPointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateAccessPointRequest $request
+     *
+     * @return CreateAccessPointResponse
+     */
+    public function createAccessPoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAccessPointWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateAccessRuleRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -1328,6 +1419,64 @@ class NAS extends OpenApiClient
     }
 
     /**
+     * @param CreateDirRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return CreateDirResponse
+     */
+    public function createDirWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->fileSystemId)) {
+            $query['FileSystemId'] = $request->fileSystemId;
+        }
+        if (!Utils::isUnset($request->ownerGroupId)) {
+            $query['OwnerGroupId'] = $request->ownerGroupId;
+        }
+        if (!Utils::isUnset($request->ownerUserId)) {
+            $query['OwnerUserId'] = $request->ownerUserId;
+        }
+        if (!Utils::isUnset($request->permission)) {
+            $query['Permission'] = $request->permission;
+        }
+        if (!Utils::isUnset($request->recursion)) {
+            $query['Recursion'] = $request->recursion;
+        }
+        if (!Utils::isUnset($request->rootDirectory)) {
+            $query['RootDirectory'] = $request->rootDirectory;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDir',
+            'version'     => '2017-06-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDirResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDirRequest $request
+     *
+     * @return CreateDirResponse
+     */
+    public function createDir($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDirWithOptions($request, $runtime);
+    }
+
+    /**
      * *   This operation is only available to some users.
      *   * *   This operation supports only General-purpose NAS file systems that use the Server Message Block (SMB) protocol and have Resource Access Management (RAM) enabled.
      *   *
@@ -1690,6 +1839,9 @@ class NAS extends OpenApiClient
         }
         if (!Utils::isUnset($request->paths)) {
             $query['Paths'] = $request->paths;
+        }
+        if (!Utils::isUnset($request->storageType)) {
+            $query['StorageType'] = $request->storageType;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -2241,6 +2393,52 @@ class NAS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteAccessGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteAccessPointRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteAccessPointResponse
+     */
+    public function deleteAccessPointWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessPointId)) {
+            $query['AccessPointId'] = $request->accessPointId;
+        }
+        if (!Utils::isUnset($request->fileSystemId)) {
+            $query['FileSystemId'] = $request->fileSystemId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAccessPoint',
+            'version'     => '2017-06-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteAccessPointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteAccessPointRequest $request
+     *
+     * @return DeleteAccessPointResponse
+     */
+    public function deleteAccessPoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAccessPointWithOptions($request, $runtime);
     }
 
     /**
@@ -2926,6 +3124,104 @@ class NAS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAccessGroupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeAccessPointRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeAccessPointResponse
+     */
+    public function describeAccessPointWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessPointId)) {
+            $query['AccessPointId'] = $request->accessPointId;
+        }
+        if (!Utils::isUnset($request->fileSystemId)) {
+            $query['FileSystemId'] = $request->fileSystemId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAccessPoint',
+            'version'     => '2017-06-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAccessPointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAccessPointRequest $request
+     *
+     * @return DescribeAccessPointResponse
+     */
+    public function describeAccessPoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAccessPointWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeAccessPointsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeAccessPointsResponse
+     */
+    public function describeAccessPointsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessGroup)) {
+            $query['AccessGroup'] = $request->accessGroup;
+        }
+        if (!Utils::isUnset($request->fileSystemId)) {
+            $query['FileSystemId'] = $request->fileSystemId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAccessPoints',
+            'version'     => '2017-06-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAccessPointsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAccessPointsRequest $request
+     *
+     * @return DescribeAccessPointsResponse
+     */
+    public function describeAccessPoints($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAccessPointsWithOptions($request, $runtime);
     }
 
     /**
@@ -4589,6 +4885,9 @@ class NAS extends OpenApiClient
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;
         }
+        if (!Utils::isUnset($request->storageType)) {
+            $query['StorageType'] = $request->storageType;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -4858,6 +5157,61 @@ class NAS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyAccessGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyAccessPointRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ModifyAccessPointResponse
+     */
+    public function modifyAccessPointWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessGroup)) {
+            $query['AccessGroup'] = $request->accessGroup;
+        }
+        if (!Utils::isUnset($request->accessPointId)) {
+            $query['AccessPointId'] = $request->accessPointId;
+        }
+        if (!Utils::isUnset($request->accessPointName)) {
+            $query['AccessPointName'] = $request->accessPointName;
+        }
+        if (!Utils::isUnset($request->enabledRam)) {
+            $query['EnabledRam'] = $request->enabledRam;
+        }
+        if (!Utils::isUnset($request->fileSystemId)) {
+            $query['FileSystemId'] = $request->fileSystemId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyAccessPoint',
+            'version'     => '2017-06-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyAccessPointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyAccessPointRequest $request
+     *
+     * @return ModifyAccessPointResponse
+     */
+    public function modifyAccessPoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAccessPointWithOptions($request, $runtime);
     }
 
     /**

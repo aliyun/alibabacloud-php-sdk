@@ -138,6 +138,11 @@ class fileSystem extends Model
     public $ldap;
 
     /**
+     * @var int
+     */
+    public $meteredArchiveSize;
+
+    /**
      * @description The storage usage of the Infrequent Access (IA) storage medium.
      *
      * Unit: bytes.
@@ -266,31 +271,32 @@ class fileSystem extends Model
      */
     public $zoneId;
     protected $_name = [
-        'accessPointCount'  => 'AccessPointCount',
-        'bandwidth'         => 'Bandwidth',
-        'capacity'          => 'Capacity',
-        'chargeType'        => 'ChargeType',
-        'createTime'        => 'CreateTime',
-        'description'       => 'Description',
-        'encryptType'       => 'EncryptType',
-        'expiredTime'       => 'ExpiredTime',
-        'fileSystemId'      => 'FileSystemId',
-        'fileSystemType'    => 'FileSystemType',
-        'KMSKeyId'          => 'KMSKeyId',
-        'ldap'              => 'Ldap',
-        'meteredIASize'     => 'MeteredIASize',
-        'meteredSize'       => 'MeteredSize',
-        'mountTargets'      => 'MountTargets',
-        'packages'          => 'Packages',
-        'protocolType'      => 'ProtocolType',
-        'regionId'          => 'RegionId',
-        'resourceGroupId'   => 'ResourceGroupId',
-        'status'            => 'Status',
-        'storageType'       => 'StorageType',
-        'supportedFeatures' => 'SupportedFeatures',
-        'tags'              => 'Tags',
-        'version'           => 'Version',
-        'zoneId'            => 'ZoneId',
+        'accessPointCount'   => 'AccessPointCount',
+        'bandwidth'          => 'Bandwidth',
+        'capacity'           => 'Capacity',
+        'chargeType'         => 'ChargeType',
+        'createTime'         => 'CreateTime',
+        'description'        => 'Description',
+        'encryptType'        => 'EncryptType',
+        'expiredTime'        => 'ExpiredTime',
+        'fileSystemId'       => 'FileSystemId',
+        'fileSystemType'     => 'FileSystemType',
+        'KMSKeyId'           => 'KMSKeyId',
+        'ldap'               => 'Ldap',
+        'meteredArchiveSize' => 'MeteredArchiveSize',
+        'meteredIASize'      => 'MeteredIASize',
+        'meteredSize'        => 'MeteredSize',
+        'mountTargets'       => 'MountTargets',
+        'packages'           => 'Packages',
+        'protocolType'       => 'ProtocolType',
+        'regionId'           => 'RegionId',
+        'resourceGroupId'    => 'ResourceGroupId',
+        'status'             => 'Status',
+        'storageType'        => 'StorageType',
+        'supportedFeatures'  => 'SupportedFeatures',
+        'tags'               => 'Tags',
+        'version'            => 'Version',
+        'zoneId'             => 'ZoneId',
     ];
 
     public function validate()
@@ -335,6 +341,9 @@ class fileSystem extends Model
         }
         if (null !== $this->ldap) {
             $res['Ldap'] = null !== $this->ldap ? $this->ldap->toMap() : null;
+        }
+        if (null !== $this->meteredArchiveSize) {
+            $res['MeteredArchiveSize'] = $this->meteredArchiveSize;
         }
         if (null !== $this->meteredIASize) {
             $res['MeteredIASize'] = $this->meteredIASize;
@@ -422,6 +431,9 @@ class fileSystem extends Model
         }
         if (isset($map['Ldap'])) {
             $model->ldap = ldap::fromMap($map['Ldap']);
+        }
+        if (isset($map['MeteredArchiveSize'])) {
+            $model->meteredArchiveSize = $map['MeteredArchiveSize'];
         }
         if (isset($map['MeteredIASize'])) {
             $model->meteredIASize = $map['MeteredIASize'];

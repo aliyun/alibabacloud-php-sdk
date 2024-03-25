@@ -38,6 +38,11 @@ class entries extends Model
     public $fileId;
 
     /**
+     * @var string
+     */
+    public $hasArchiveFile;
+
+    /**
      * @description Indicates whether the directory contains files stored in the IA storage medium.
      *
      * Valid values:
@@ -138,6 +143,7 @@ class entries extends Model
         'atime'                   => 'Atime',
         'ctime'                   => 'Ctime',
         'fileId'                  => 'FileId',
+        'hasArchiveFile'          => 'HasArchiveFile',
         'hasInfrequentAccessFile' => 'HasInfrequentAccessFile',
         'inode'                   => 'Inode',
         'mtime'                   => 'Mtime',
@@ -164,6 +170,9 @@ class entries extends Model
         }
         if (null !== $this->fileId) {
             $res['FileId'] = $this->fileId;
+        }
+        if (null !== $this->hasArchiveFile) {
+            $res['HasArchiveFile'] = $this->hasArchiveFile;
         }
         if (null !== $this->hasInfrequentAccessFile) {
             $res['HasInfrequentAccessFile'] = $this->hasInfrequentAccessFile;
@@ -212,6 +221,9 @@ class entries extends Model
         }
         if (isset($map['FileId'])) {
             $model->fileId = $map['FileId'];
+        }
+        if (isset($map['HasArchiveFile'])) {
+            $model->hasArchiveFile = $map['HasArchiveFile'];
         }
         if (isset($map['HasInfrequentAccessFile'])) {
             $model->hasInfrequentAccessFile = $map['HasInfrequentAccessFile'];

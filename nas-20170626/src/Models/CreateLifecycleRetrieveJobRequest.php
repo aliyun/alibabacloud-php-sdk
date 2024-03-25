@@ -25,9 +25,15 @@ class CreateLifecycleRetrieveJobRequest extends Model
      * @var string[]
      */
     public $paths;
+
+    /**
+     * @var string
+     */
+    public $storageType;
     protected $_name = [
         'fileSystemId' => 'FileSystemId',
         'paths'        => 'Paths',
+        'storageType'  => 'StorageType',
     ];
 
     public function validate()
@@ -42,6 +48,9 @@ class CreateLifecycleRetrieveJobRequest extends Model
         }
         if (null !== $this->paths) {
             $res['Paths'] = $this->paths;
+        }
+        if (null !== $this->storageType) {
+            $res['StorageType'] = $this->storageType;
         }
 
         return $res;
@@ -62,6 +71,9 @@ class CreateLifecycleRetrieveJobRequest extends Model
             if (!empty($map['Paths'])) {
                 $model->paths = $map['Paths'];
             }
+        }
+        if (isset($map['StorageType'])) {
+            $model->storageType = $map['StorageType'];
         }
 
         return $model;

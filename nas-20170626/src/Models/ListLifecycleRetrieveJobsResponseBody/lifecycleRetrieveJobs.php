@@ -74,6 +74,11 @@ class lifecycleRetrieveJobs extends Model
     public $status;
 
     /**
+     * @var string
+     */
+    public $storageType;
+
+    /**
      * @description The time when the task was updated.
      *
      * The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format.
@@ -90,6 +95,7 @@ class lifecycleRetrieveJobs extends Model
         'paths'               => 'Paths',
         'retrievedFileCount'  => 'RetrievedFileCount',
         'status'              => 'Status',
+        'storageType'         => 'StorageType',
         'updateTime'          => 'UpdateTime',
     ];
 
@@ -120,6 +126,9 @@ class lifecycleRetrieveJobs extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->storageType) {
+            $res['StorageType'] = $this->storageType;
         }
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
@@ -158,6 +167,9 @@ class lifecycleRetrieveJobs extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['StorageType'])) {
+            $model->storageType = $map['StorageType'];
         }
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];

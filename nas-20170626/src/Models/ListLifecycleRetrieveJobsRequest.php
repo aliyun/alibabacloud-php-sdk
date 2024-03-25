@@ -50,11 +50,17 @@ class ListLifecycleRetrieveJobsRequest extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $storageType;
     protected $_name = [
         'fileSystemId' => 'FileSystemId',
         'pageNumber'   => 'PageNumber',
         'pageSize'     => 'PageSize',
         'status'       => 'Status',
+        'storageType'  => 'StorageType',
     ];
 
     public function validate()
@@ -75,6 +81,9 @@ class ListLifecycleRetrieveJobsRequest extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->storageType) {
+            $res['StorageType'] = $this->storageType;
         }
 
         return $res;
@@ -99,6 +108,9 @@ class ListLifecycleRetrieveJobsRequest extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['StorageType'])) {
+            $model->storageType = $map['StorageType'];
         }
 
         return $model;

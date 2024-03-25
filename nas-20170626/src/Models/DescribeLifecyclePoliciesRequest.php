@@ -46,11 +46,17 @@ class DescribeLifecyclePoliciesRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $storageType;
     protected $_name = [
         'fileSystemId'        => 'FileSystemId',
         'lifecyclePolicyName' => 'LifecyclePolicyName',
         'pageNumber'          => 'PageNumber',
         'pageSize'            => 'PageSize',
+        'storageType'         => 'StorageType',
     ];
 
     public function validate()
@@ -71,6 +77,9 @@ class DescribeLifecyclePoliciesRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->storageType) {
+            $res['StorageType'] = $this->storageType;
         }
 
         return $res;
@@ -95,6 +104,9 @@ class DescribeLifecyclePoliciesRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['StorageType'])) {
+            $model->storageType = $map['StorageType'];
         }
 
         return $model;
