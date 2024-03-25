@@ -18,7 +18,7 @@ class RenewDBInstanceResponseBody extends Model
     public $orderId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example B118EF45-9633-4EE3-8405-42ED4373721B
      *

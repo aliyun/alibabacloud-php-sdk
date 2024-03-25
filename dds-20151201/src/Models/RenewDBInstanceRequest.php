@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class RenewDBInstanceRequest extends Model
 {
     /**
-     * @description Specifies whether to enable automatic payment for the instance. Valid values:
+     * @description Specifies whether to enable automatic payment. Valid values:
      *
      *   **true**: enables automatic payment. Make sure that you have sufficient balance within your account.
-     *   **false**: disables automatic payment. You must perform the following operations to pay for the instance: Payment instructions: Log on to the console. In the upper-right corner, click **Billing Management** and select **Billing Management** from the drop-down list. The Billing Management page appears. In the left-side navigation pane, click **Bills**. On the Unpaid tab, click Make a Payment in the Actions column corresponding to the bill you want to pay.
+     *   **false**: disables automatic payment. You must perform the following operations to pay for the instance: Log on to the ApsaraDB for MongoDB console. In the upper-right corner, click **Expenses** and select **User Center** from the drop-down list. The User Center page appears. In the left-side navigation pane, choose **Order Management** > Renew. On the Renewal tab, find the bill that you want to pay and then click Renew in the Actions column.
      *
      * Default value: **true**.
      * @example true
@@ -22,6 +22,14 @@ class RenewDBInstanceRequest extends Model
     public $autoPay;
 
     /**
+     * @description Specifies whether to enable auto-renewal. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * Default value: **false**.
+     * @example true
+     *
      * @var bool
      */
     public $autoRenew;
@@ -36,7 +44,7 @@ class RenewDBInstanceRequest extends Model
     public $businessInfo;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
      *
      * @example ETnLKlblzczshOTUbOCzxxxxxxxxxx
      *
@@ -45,7 +53,10 @@ class RenewDBInstanceRequest extends Model
     public $clientToken;
 
     /**
-     * @description The coupon code. Default value: **youhuiquan_promotion_option_id_for_blank**.
+     * @description Specifies whether to use coupons. Default value: null. Valid values:
+     *
+     *   **default** or **null**: uses coupons.
+     *   **youhuiquan_promotion_option_id_for_blank**: does not use coupons.
      *
      * @example 1111111111111111
      *
@@ -54,7 +65,7 @@ class RenewDBInstanceRequest extends Model
     public $couponNo;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example dds-bpxxxxxxxx
      *
@@ -73,7 +84,7 @@ class RenewDBInstanceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The period you set for the instance to implement payment renewal. Unit: months. Valid values: **1-9, 12, 24, and 36**.
+     * @description The subscription period of the instance. Unit: month. Valid values: **1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, and 36**.
      *
      * @example 1
      *
