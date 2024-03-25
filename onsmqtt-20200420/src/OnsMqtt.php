@@ -10,6 +10,12 @@ use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ActiveCaCertificateRequest;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ActiveCaCertificateResponse;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ActiveDeviceCertificateRequest;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ActiveDeviceCertificateResponse;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\AddCustomAuthConnectBlackRequest;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\AddCustomAuthConnectBlackResponse;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\AddCustomAuthIdentityRequest;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\AddCustomAuthIdentityResponse;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\AddCustomAuthPermissionRequest;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\AddCustomAuthPermissionResponse;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ApplyTokenRequest;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ApplyTokenResponse;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\BatchQuerySessionByClientIdsRequest;
@@ -18,6 +24,12 @@ use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\CreateGroupIdRequest;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\CreateGroupIdResponse;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\DeleteCaCertificateRequest;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\DeleteCaCertificateResponse;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\DeleteCustomAuthConnectBlackRequest;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\DeleteCustomAuthConnectBlackResponse;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\DeleteCustomAuthIdentityRequest;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\DeleteCustomAuthIdentityResponse;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\DeleteCustomAuthPermissionRequest;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\DeleteCustomAuthPermissionResponse;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\DeleteDeviceCertificateRequest;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\DeleteDeviceCertificateResponse;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\DeleteGroupIdRequest;
@@ -44,6 +56,12 @@ use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ListDeviceCredentialClientIdReques
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ListDeviceCredentialClientIdResponse;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ListGroupIdRequest;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ListGroupIdResponse;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\QueryCustomAuthConnectBlackRequest;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\QueryCustomAuthConnectBlackResponse;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\QueryCustomAuthIdentityRequest;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\QueryCustomAuthIdentityResponse;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\QueryCustomAuthPermissionRequest;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\QueryCustomAuthPermissionResponse;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\QueryMqttTraceDeviceRequest;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\QueryMqttTraceDeviceResponse;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\QueryMqttTraceMessageOfClientRequest;
@@ -68,6 +86,10 @@ use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\SendMessageRequest;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\SendMessageResponse;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\UnRegisterDeviceCredentialRequest;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\UnRegisterDeviceCredentialResponse;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\UpdateCustomAuthIdentityRequest;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\UpdateCustomAuthIdentityResponse;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\UpdateCustomAuthPermissionRequest;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\UpdateCustomAuthPermissionResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -200,6 +222,168 @@ class OnsMqtt extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->activeDeviceCertificateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddCustomAuthConnectBlackRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return AddCustomAuthConnectBlackResponse
+     */
+    public function addCustomAuthConnectBlackWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->clientId)) {
+            $body['ClientId'] = $request->clientId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AddCustomAuthConnectBlack',
+            'version'     => '2020-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddCustomAuthConnectBlackResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddCustomAuthConnectBlackRequest $request
+     *
+     * @return AddCustomAuthConnectBlackResponse
+     */
+    public function addCustomAuthConnectBlack($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addCustomAuthConnectBlackWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddCustomAuthIdentityRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return AddCustomAuthIdentityResponse
+     */
+    public function addCustomAuthIdentityWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->clientId)) {
+            $body['ClientId'] = $request->clientId;
+        }
+        if (!Utils::isUnset($request->identityType)) {
+            $body['IdentityType'] = $request->identityType;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->secret)) {
+            $body['Secret'] = $request->secret;
+        }
+        if (!Utils::isUnset($request->signMode)) {
+            $body['SignMode'] = $request->signMode;
+        }
+        if (!Utils::isUnset($request->username)) {
+            $body['Username'] = $request->username;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AddCustomAuthIdentity',
+            'version'     => '2020-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddCustomAuthIdentityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddCustomAuthIdentityRequest $request
+     *
+     * @return AddCustomAuthIdentityResponse
+     */
+    public function addCustomAuthIdentity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addCustomAuthIdentityWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddCustomAuthPermissionRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return AddCustomAuthPermissionResponse
+     */
+    public function addCustomAuthPermissionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->effect)) {
+            $body['Effect'] = $request->effect;
+        }
+        if (!Utils::isUnset($request->identity)) {
+            $body['Identity'] = $request->identity;
+        }
+        if (!Utils::isUnset($request->identityType)) {
+            $body['IdentityType'] = $request->identityType;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->permitAction)) {
+            $body['PermitAction'] = $request->permitAction;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $body['Topic'] = $request->topic;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AddCustomAuthPermission',
+            'version'     => '2020-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddCustomAuthPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddCustomAuthPermissionRequest $request
+     *
+     * @return AddCustomAuthPermissionResponse
+     */
+    public function addCustomAuthPermission($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addCustomAuthPermissionWithOptions($request, $runtime);
     }
 
     /**
@@ -408,6 +592,156 @@ class OnsMqtt extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteCaCertificateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteCustomAuthConnectBlackRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DeleteCustomAuthConnectBlackResponse
+     */
+    public function deleteCustomAuthConnectBlackWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->clientId)) {
+            $body['ClientId'] = $request->clientId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCustomAuthConnectBlack',
+            'version'     => '2020-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteCustomAuthConnectBlackResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteCustomAuthConnectBlackRequest $request
+     *
+     * @return DeleteCustomAuthConnectBlackResponse
+     */
+    public function deleteCustomAuthConnectBlack($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCustomAuthConnectBlackWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteCustomAuthIdentityRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteCustomAuthIdentityResponse
+     */
+    public function deleteCustomAuthIdentityWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->clientId)) {
+            $body['ClientId'] = $request->clientId;
+        }
+        if (!Utils::isUnset($request->identityType)) {
+            $body['IdentityType'] = $request->identityType;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->username)) {
+            $body['Username'] = $request->username;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCustomAuthIdentity',
+            'version'     => '2020-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteCustomAuthIdentityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteCustomAuthIdentityRequest $request
+     *
+     * @return DeleteCustomAuthIdentityResponse
+     */
+    public function deleteCustomAuthIdentity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCustomAuthIdentityWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteCustomAuthPermissionRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DeleteCustomAuthPermissionResponse
+     */
+    public function deleteCustomAuthPermissionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->identity)) {
+            $body['Identity'] = $request->identity;
+        }
+        if (!Utils::isUnset($request->identityType)) {
+            $body['IdentityType'] = $request->identityType;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $body['Topic'] = $request->topic;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCustomAuthPermission',
+            'version'     => '2020-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteCustomAuthPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteCustomAuthPermissionRequest $request
+     *
+     * @return DeleteCustomAuthPermissionResponse
+     */
+    public function deleteCustomAuthPermission($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCustomAuthPermissionWithOptions($request, $runtime);
     }
 
     /**
@@ -996,6 +1330,126 @@ class OnsMqtt extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listGroupIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryCustomAuthConnectBlackRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return QueryCustomAuthConnectBlackResponse
+     */
+    public function queryCustomAuthConnectBlackWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryCustomAuthConnectBlack',
+            'version'     => '2020-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryCustomAuthConnectBlackResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryCustomAuthConnectBlackRequest $request
+     *
+     * @return QueryCustomAuthConnectBlackResponse
+     */
+    public function queryCustomAuthConnectBlack($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryCustomAuthConnectBlackWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryCustomAuthIdentityRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return QueryCustomAuthIdentityResponse
+     */
+    public function queryCustomAuthIdentityWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryCustomAuthIdentity',
+            'version'     => '2020-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryCustomAuthIdentityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryCustomAuthIdentityRequest $request
+     *
+     * @return QueryCustomAuthIdentityResponse
+     */
+    public function queryCustomAuthIdentity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryCustomAuthIdentityWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryCustomAuthPermissionRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return QueryCustomAuthPermissionResponse
+     */
+    public function queryCustomAuthPermissionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryCustomAuthPermission',
+            'version'     => '2020-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryCustomAuthPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryCustomAuthPermissionRequest $request
+     *
+     * @return QueryCustomAuthPermissionResponse
+     */
+    public function queryCustomAuthPermission($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryCustomAuthPermissionWithOptions($request, $runtime);
     }
 
     /**
@@ -1695,5 +2149,121 @@ class OnsMqtt extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->unRegisterDeviceCredentialWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateCustomAuthIdentityRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateCustomAuthIdentityResponse
+     */
+    public function updateCustomAuthIdentityWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->clientId)) {
+            $body['ClientId'] = $request->clientId;
+        }
+        if (!Utils::isUnset($request->identityType)) {
+            $body['IdentityType'] = $request->identityType;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->secret)) {
+            $body['Secret'] = $request->secret;
+        }
+        if (!Utils::isUnset($request->signMode)) {
+            $body['SignMode'] = $request->signMode;
+        }
+        if (!Utils::isUnset($request->username)) {
+            $body['Username'] = $request->username;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCustomAuthIdentity',
+            'version'     => '2020-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateCustomAuthIdentityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateCustomAuthIdentityRequest $request
+     *
+     * @return UpdateCustomAuthIdentityResponse
+     */
+    public function updateCustomAuthIdentity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCustomAuthIdentityWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateCustomAuthPermissionRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UpdateCustomAuthPermissionResponse
+     */
+    public function updateCustomAuthPermissionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->effect)) {
+            $body['Effect'] = $request->effect;
+        }
+        if (!Utils::isUnset($request->identity)) {
+            $body['Identity'] = $request->identity;
+        }
+        if (!Utils::isUnset($request->identityType)) {
+            $body['IdentityType'] = $request->identityType;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->permitAction)) {
+            $body['PermitAction'] = $request->permitAction;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $body['Topic'] = $request->topic;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCustomAuthPermission',
+            'version'     => '2020-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateCustomAuthPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateCustomAuthPermissionRequest $request
+     *
+     * @return UpdateCustomAuthPermissionResponse
+     */
+    public function updateCustomAuthPermission($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCustomAuthPermissionWithOptions($request, $runtime);
     }
 }
