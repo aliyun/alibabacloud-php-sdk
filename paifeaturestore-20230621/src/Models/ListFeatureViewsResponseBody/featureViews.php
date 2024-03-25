@@ -98,6 +98,11 @@ class featureViews extends Model
      * @var string
      */
     public $type;
+
+    /**
+     * @var bool
+     */
+    public $writeToFeatureDB;
     protected $_name = [
         'featureEntityName'      => 'FeatureEntityName',
         'featureViewId'          => 'FeatureViewId',
@@ -112,6 +117,7 @@ class featureViews extends Model
         'registerTable'          => 'RegisterTable',
         'TTL'                    => 'TTL',
         'type'                   => 'Type',
+        'writeToFeatureDB'       => 'WriteToFeatureDB',
     ];
 
     public function validate()
@@ -159,6 +165,9 @@ class featureViews extends Model
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
+        }
+        if (null !== $this->writeToFeatureDB) {
+            $res['WriteToFeatureDB'] = $this->writeToFeatureDB;
         }
 
         return $res;
@@ -210,6 +219,9 @@ class featureViews extends Model
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
+        }
+        if (isset($map['WriteToFeatureDB'])) {
+            $model->writeToFeatureDB = $map['WriteToFeatureDB'];
         }
 
         return $model;

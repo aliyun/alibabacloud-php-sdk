@@ -165,6 +165,11 @@ class GetFeatureViewResponseBody extends Model
      * @var string
      */
     public $writeMethod;
+
+    /**
+     * @var bool
+     */
+    public $writeToFeatureDB;
     protected $_name = [
         'config'                 => 'Config',
         'featureEntityId'        => 'FeatureEntityId',
@@ -189,6 +194,7 @@ class GetFeatureViewResponseBody extends Model
         'tags'                   => 'Tags',
         'type'                   => 'Type',
         'writeMethod'            => 'WriteMethod',
+        'writeToFeatureDB'       => 'WriteToFeatureDB',
     ];
 
     public function validate()
@@ -272,6 +278,9 @@ class GetFeatureViewResponseBody extends Model
         }
         if (null !== $this->writeMethod) {
             $res['WriteMethod'] = $this->writeMethod;
+        }
+        if (null !== $this->writeToFeatureDB) {
+            $res['WriteToFeatureDB'] = $this->writeToFeatureDB;
         }
 
         return $res;
@@ -361,6 +370,9 @@ class GetFeatureViewResponseBody extends Model
         }
         if (isset($map['WriteMethod'])) {
             $model->writeMethod = $map['WriteMethod'];
+        }
+        if (isset($map['WriteToFeatureDB'])) {
+            $model->writeToFeatureDB = $map['WriteToFeatureDB'];
         }
 
         return $model;

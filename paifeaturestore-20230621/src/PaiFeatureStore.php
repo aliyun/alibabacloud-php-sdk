@@ -411,6 +411,9 @@ class PaiFeatureStore extends OpenApiClient
         if (!Utils::isUnset($request->writeMethod)) {
             $body['WriteMethod'] = $request->writeMethod;
         }
+        if (!Utils::isUnset($request->writeToFeatureDB)) {
+            $body['WriteToFeatureDB'] = $request->writeToFeatureDB;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
