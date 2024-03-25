@@ -2,6 +2,10 @@
 - Update API DescribeBackups: update response param.
 
 
+2024-03-25 Version: 6.3.1
+- Update API DescribeBackups: update response param.
+
+
 2024-03-14 Version: 6.3.0
 - Support API DescribeBackupStorage.
 - Support API DescribeBackupTasks.
