@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBResourceGroupResponseBody;
 
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBResourceGroupResponseBody\groupsInfo\rules;
 use AlibabaCloud\Tea\Model;
 
 class groupsInfo extends Model
@@ -117,6 +118,11 @@ class groupsInfo extends Model
     public $minComputeResource;
 
     /**
+     * @var rules[]
+     */
+    public $rules;
+
+    /**
      * @description A reserved parameter.
      *
      * @example N/A
@@ -159,6 +165,7 @@ class groupsInfo extends Model
         'maxComputeResource'        => 'MaxComputeResource',
         'minClusterCount'           => 'MinClusterCount',
         'minComputeResource'        => 'MinComputeResource',
+        'rules'                     => 'Rules',
         'runningClusterCount'       => 'RunningClusterCount',
         'status'                    => 'Status',
         'updateTime'                => 'UpdateTime',
@@ -206,6 +213,15 @@ class groupsInfo extends Model
         }
         if (null !== $this->minComputeResource) {
             $res['MinComputeResource'] = $this->minComputeResource;
+        }
+        if (null !== $this->rules) {
+            $res['Rules'] = [];
+            if (null !== $this->rules && \is_array($this->rules)) {
+                $n = 0;
+                foreach ($this->rules as $item) {
+                    $res['Rules'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->runningClusterCount) {
             $res['RunningClusterCount'] = $this->runningClusterCount;
@@ -263,6 +279,15 @@ class groupsInfo extends Model
         }
         if (isset($map['MinComputeResource'])) {
             $model->minComputeResource = $map['MinComputeResource'];
+        }
+        if (isset($map['Rules'])) {
+            if (!empty($map['Rules'])) {
+                $model->rules = [];
+                $n            = 0;
+                foreach ($map['Rules'] as $item) {
+                    $model->rules[$n++] = null !== $item ? rules::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['RunningClusterCount'])) {
             $model->runningClusterCount = $map['RunningClusterCount'];

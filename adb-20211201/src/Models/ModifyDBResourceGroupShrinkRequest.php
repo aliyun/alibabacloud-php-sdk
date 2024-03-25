@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
-use AlibabaCloud\SDK\Adb\V20211201\Models\CreateDBResourceGroupRequest\rules;
 use AlibabaCloud\Tea\Model;
 
-class CreateDBResourceGroupRequest extends Model
+class ModifyDBResourceGroupShrinkRequest extends Model
 {
     /**
      * @description A reserved parameter.
@@ -30,13 +29,20 @@ class CreateDBResourceGroupRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *
-     * @example amv-bp11q28kvl688****
+     * @example amv-bp1r053byu48p****
      *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description Specifies whether to enable the preemptible instance feature for the resource group. This feature can be enabled only for job resource groups. Valid values:
+     *
+     *   **True**
+     *   **False**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableSpot;
@@ -44,11 +50,8 @@ class CreateDBResourceGroupRequest extends Model
     /**
      * @description The name of the resource group.
      *
-     *   The name can be up to 255 characters in length.
-     *   The name must start with a letter or a digit.
-     *   The name can contain letters, digits, hyphens (\_), and underscores (\_).
-     *
-     * @example test_group
+     * > You can call the [DescribeDBResourceGroup](~~459446~~) operation to query the name of a resource group in a cluster.
+     * @example test
      *
      * @var string
      */
@@ -61,7 +64,7 @@ class CreateDBResourceGroupRequest extends Model
      *   **Job**
      *
      * > For information about resource groups of Data Lakehouse Edition, see [Resource groups](~~428610~~).
-     * @example Job
+     * @example Interactive
      *
      * @var string
      */
@@ -77,12 +80,12 @@ class CreateDBResourceGroupRequest extends Model
     public $maxClusterCount;
 
     /**
-     * @description The maximum reserved computing resources. Unit: ACU.
+     * @description The maximum amount of reserved computing resources. Unit: ACU.
      *
      *   If GroupType is set to Interactive, the maximum amount of reserved computing resources refers to the amount of resources that are not allocated in the cluster. Set this parameter to a value in increments of 16 ACUs.
      *   If GroupType is set to Job, the maximum amount of reserved computing resources refers to the amount of resources that are not allocated in the cluster. Set this parameter to a value in increments of 8 ACUs.
      *
-     * @example 48
+     * @example 48ACU
      *
      * @var string
      */
@@ -98,12 +101,12 @@ class CreateDBResourceGroupRequest extends Model
     public $minClusterCount;
 
     /**
-     * @description The minimum reserved computing resources. Unit: AnalyticDB Compute Units (ACUs).
+     * @description The minimum amount of reserved computing resources. Unit: AnalyticDB compute units (ACUs).
      *
-     *   When GroupType is set to Interactive, set this parameter to 16 ACUs.
-     *   When GroupType is set to Job, set this parameter to 0 ACUs.
+     *   If the GroupType parameter is set to Interactive, set the value to 16ACU.
+     *   If GroupType is set to Job, set the value to 0ACU.
      *
-     * @example 0
+     * @example 0ACU
      *
      * @var string
      */
@@ -112,7 +115,7 @@ class CreateDBResourceGroupRequest extends Model
     /**
      * @description The region ID of the cluster.
      *
-     * >  You can call the [DescribeRegions](~~612393~~) operation to query the most recent region list.
+     * >  You can call the [DescribeRegions](~~454314~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -120,9 +123,9 @@ class CreateDBResourceGroupRequest extends Model
     public $regionId;
 
     /**
-     * @var rules[]
+     * @var string
      */
-    public $rules;
+    public $rulesShrink;
     protected $_name = [
         'clusterMode'         => 'ClusterMode',
         'clusterSizeResource' => 'ClusterSizeResource',
@@ -135,7 +138,7 @@ class CreateDBResourceGroupRequest extends Model
         'minClusterCount'     => 'MinClusterCount',
         'minComputeResource'  => 'MinComputeResource',
         'regionId'            => 'RegionId',
-        'rules'               => 'Rules',
+        'rulesShrink'         => 'Rules',
     ];
 
     public function validate()
@@ -178,14 +181,8 @@ class CreateDBResourceGroupRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->rules) {
-            $res['Rules'] = [];
-            if (null !== $this->rules && \is_array($this->rules)) {
-                $n = 0;
-                foreach ($this->rules as $item) {
-                    $res['Rules'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->rulesShrink) {
+            $res['Rules'] = $this->rulesShrink;
         }
 
         return $res;
@@ -194,7 +191,7 @@ class CreateDBResourceGroupRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateDBResourceGroupRequest
+     * @return ModifyDBResourceGroupShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -233,13 +230,7 @@ class CreateDBResourceGroupRequest extends Model
             $model->regionId = $map['RegionId'];
         }
         if (isset($map['Rules'])) {
-            if (!empty($map['Rules'])) {
-                $model->rules = [];
-                $n            = 0;
-                foreach ($map['Rules'] as $item) {
-                    $model->rules[$n++] = null !== $item ? rules::fromMap($item) : $item;
-                }
-            }
+            $model->rulesShrink = $map['Rules'];
         }
 
         return $model;

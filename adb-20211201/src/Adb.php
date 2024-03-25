@@ -24,6 +24,7 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\CreateDBClusterRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateDBClusterResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateDBResourceGroupRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateDBResourceGroupResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\CreateDBResourceGroupShrinkRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateElasticPlanRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateElasticPlanResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateOssSubDirectoryRequest;
@@ -227,6 +228,7 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyDBClusterRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyDBClusterResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyDBResourceGroupRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyDBResourceGroupResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyDBResourceGroupShrinkRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyElasticPlanRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyElasticPlanResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\PreloadSparkAppMetricsRequest;
@@ -765,14 +767,19 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param CreateDBResourceGroupRequest $request
+     * @param CreateDBResourceGroupRequest $tmpReq
      * @param RuntimeOptions               $runtime
      *
      * @return CreateDBResourceGroupResponse
      */
-    public function createDBResourceGroupWithOptions($request, $runtime)
+    public function createDBResourceGroupWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new CreateDBResourceGroupShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->rules)) {
+            $request->rulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->rules, 'Rules', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->clusterMode)) {
             $query['ClusterMode'] = $request->clusterMode;
@@ -806,6 +813,9 @@ class Adb extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->rulesShrink)) {
+            $query['Rules'] = $request->rulesShrink;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -6146,14 +6156,19 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBResourceGroupRequest $request
+     * @param ModifyDBResourceGroupRequest $tmpReq
      * @param RuntimeOptions               $runtime
      *
      * @return ModifyDBResourceGroupResponse
      */
-    public function modifyDBResourceGroupWithOptions($request, $runtime)
+    public function modifyDBResourceGroupWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new ModifyDBResourceGroupShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->rules)) {
+            $request->rulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->rules, 'Rules', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->clusterMode)) {
             $query['ClusterMode'] = $request->clusterMode;
@@ -6187,6 +6202,9 @@ class Adb extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->rulesShrink)) {
+            $query['Rules'] = $request->rulesShrink;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

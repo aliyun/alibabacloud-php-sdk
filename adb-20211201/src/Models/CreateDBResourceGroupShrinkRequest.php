@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
-use AlibabaCloud\SDK\Adb\V20211201\Models\CreateDBResourceGroupRequest\rules;
 use AlibabaCloud\Tea\Model;
 
-class CreateDBResourceGroupRequest extends Model
+class CreateDBResourceGroupShrinkRequest extends Model
 {
     /**
      * @description A reserved parameter.
@@ -120,9 +119,9 @@ class CreateDBResourceGroupRequest extends Model
     public $regionId;
 
     /**
-     * @var rules[]
+     * @var string
      */
-    public $rules;
+    public $rulesShrink;
     protected $_name = [
         'clusterMode'         => 'ClusterMode',
         'clusterSizeResource' => 'ClusterSizeResource',
@@ -135,7 +134,7 @@ class CreateDBResourceGroupRequest extends Model
         'minClusterCount'     => 'MinClusterCount',
         'minComputeResource'  => 'MinComputeResource',
         'regionId'            => 'RegionId',
-        'rules'               => 'Rules',
+        'rulesShrink'         => 'Rules',
     ];
 
     public function validate()
@@ -178,14 +177,8 @@ class CreateDBResourceGroupRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->rules) {
-            $res['Rules'] = [];
-            if (null !== $this->rules && \is_array($this->rules)) {
-                $n = 0;
-                foreach ($this->rules as $item) {
-                    $res['Rules'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->rulesShrink) {
+            $res['Rules'] = $this->rulesShrink;
         }
 
         return $res;
@@ -194,7 +187,7 @@ class CreateDBResourceGroupRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateDBResourceGroupRequest
+     * @return CreateDBResourceGroupShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -233,13 +226,7 @@ class CreateDBResourceGroupRequest extends Model
             $model->regionId = $map['RegionId'];
         }
         if (isset($map['Rules'])) {
-            if (!empty($map['Rules'])) {
-                $model->rules = [];
-                $n            = 0;
-                foreach ($map['Rules'] as $item) {
-                    $model->rules[$n++] = null !== $item ? rules::fromMap($item) : $item;
-                }
-            }
+            $model->rulesShrink = $map['Rules'];
         }
 
         return $model;
