@@ -489,6 +489,9 @@ class XrEngine extends OpenApiClient
         if (!Utils::isUnset($request->content)) {
             $body['Content'] = $request->content;
         }
+        if (!Utils::isUnset($request->customParams)) {
+            $body['CustomParams'] = $request->customParams;
+        }
         if (!Utils::isUnset($request->imageId)) {
             $body['ImageId'] = $request->imageId;
         }

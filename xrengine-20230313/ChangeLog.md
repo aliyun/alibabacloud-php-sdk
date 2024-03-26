@@ -1,3 +1,9 @@
+2024-03-26 Version: 1.4.2
+- Update API CreateLivePortraitProject: add param CustomParams.
+- Update API CreateLivePortraitProject: update param LightModel.
+- Update API ListDigitalHumanMaterials: update response param.
+
+
 2024-02-29 Version: 1.4.1
 - Update API ListDigitalHumanMaterials: update response param.
 

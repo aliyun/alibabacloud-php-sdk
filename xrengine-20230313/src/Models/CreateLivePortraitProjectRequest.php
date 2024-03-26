@@ -26,6 +26,11 @@ class CreateLivePortraitProjectRequest extends Model
     /**
      * @var string
      */
+    public $customParams;
+
+    /**
+     * @var string
+     */
     public $imageId;
 
     /**
@@ -44,6 +49,8 @@ class CreateLivePortraitProjectRequest extends Model
     public $jwtToken;
 
     /**
+     * @deprecated
+     *
      * @var bool
      */
     public $lightModel;
@@ -81,6 +88,7 @@ class CreateLivePortraitProjectRequest extends Model
         'audioId'           => 'AudioId',
         'audioUrl'          => 'AudioUrl',
         'content'           => 'Content',
+        'customParams'      => 'CustomParams',
         'imageId'           => 'ImageId',
         'imageUrl'          => 'ImageUrl',
         'intro'             => 'Intro',
@@ -109,6 +117,9 @@ class CreateLivePortraitProjectRequest extends Model
         }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
+        }
+        if (null !== $this->customParams) {
+            $res['CustomParams'] = $this->customParams;
         }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
@@ -163,6 +174,9 @@ class CreateLivePortraitProjectRequest extends Model
         }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
+        }
+        if (isset($map['CustomParams'])) {
+            $model->customParams = $map['CustomParams'];
         }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
