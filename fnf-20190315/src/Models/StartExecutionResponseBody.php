@@ -18,7 +18,7 @@ class StartExecutionResponseBody extends Model
     public $flowDefinition;
 
     /**
-     * @description The name of the flow.
+     * @description The name of the workflow.
      *
      * @example flow
      *
@@ -72,8 +72,9 @@ class StartExecutionResponseBody extends Model
     public $startedTime;
 
     /**
-     * @description The execution state. Valid values:
+     * @description The execution status. Valid values:
      *
+     *   **Starting**
      *   **Running**
      *   **Stopped**
      *   **Succeeded**

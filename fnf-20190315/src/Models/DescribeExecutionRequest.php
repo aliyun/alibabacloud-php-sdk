@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeExecutionRequest extends Model
 {
     /**
-     * @description The name of the execution, which is unique within a flow. Configure this parameter based on the following rules:
+     * @description The name of the execution, which is unique within a flow. Set this parameter based on the following rules:
      *
      *   The name can contain letters, digits, underscores (\_), and hyphens (-).
      *   The name must start with a letter or an underscore (\_).
@@ -23,7 +23,7 @@ class DescribeExecutionRequest extends Model
     public $executionName;
 
     /**
-     * @description The name of the flow. The name is unique within the region and cannot be modified after the flow is created. Configure this parameter based on the following rules:
+     * @description The name of the flow. The name is unique within the region and cannot be modified after the flow is created. Set this parameter based on the following rules:
      *
      *   The name can contain letters, digits, underscores (\_), and hyphens (-).
      *   The name must start with a letter or an underscore (\_).
@@ -35,15 +35,6 @@ class DescribeExecutionRequest extends Model
      * @var string
      */
     public $flowName;
-
-    /**
-     * @description The request ID. If you specify this parameter, the system uses this value as the ID of the request. If you do not specify this parameter, the system generates a value at random.
-     *
-     * @example testRequestId
-     *
-     * @var string
-     */
-    public $requestId;
 
     /**
      * @description The maximum period of time for long polling waits. Valid values: 0 to 60. Unit: seconds. Configure this parameter based on the following rules:
@@ -59,7 +50,6 @@ class DescribeExecutionRequest extends Model
     protected $_name = [
         'executionName'   => 'ExecutionName',
         'flowName'        => 'FlowName',
-        'requestId'       => 'RequestId',
         'waitTimeSeconds' => 'WaitTimeSeconds',
     ];
 
@@ -75,9 +65,6 @@ class DescribeExecutionRequest extends Model
         }
         if (null !== $this->flowName) {
             $res['FlowName'] = $this->flowName;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->waitTimeSeconds) {
             $res['WaitTimeSeconds'] = $this->waitTimeSeconds;
@@ -99,9 +86,6 @@ class DescribeExecutionRequest extends Model
         }
         if (isset($map['FlowName'])) {
             $model->flowName = $map['FlowName'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
         if (isset($map['WaitTimeSeconds'])) {
             $model->waitTimeSeconds = $map['WaitTimeSeconds'];

@@ -18,7 +18,7 @@ class StartExecutionRequest extends Model
     public $callbackFnFTaskToken;
 
     /**
-     * @description The name of the execution, which is unique within a flow. Configure this parameter based on the following rules:
+     * @description The name of the execution. The execution name is unique within a workflow. Configure this parameter based on the following rules:
      *
      *   The name can contain letters, digits, underscores (\_), and hyphens (-).
      *   The name must start with a letter or an underscore (\_).
@@ -32,7 +32,7 @@ class StartExecutionRequest extends Model
     public $executionName;
 
     /**
-     * @description The name of the flow you want to start to execute. The name is unique within the region and cannot be modified after the flow is created. Configure this parameter based on the following rules:
+     * @description The name of the workflow to be executed. The name is unique within a region and cannot be modified after the workflow is created. Configure this parameter based on the following rules:
      *
      *   The name can contain letters, digits, underscores (\_), and hyphens (-).
      *   The name must start with a letter or an underscore (\_).
@@ -53,21 +53,11 @@ class StartExecutionRequest extends Model
      * @var string
      */
     public $input;
-
-    /**
-     * @description The request ID. If you specify this parameter, the system uses this value as the ID of the request. If you do not specify this parameter, the system generates a value at random.
-     *
-     * @example testRequestId
-     *
-     * @var string
-     */
-    public $requestId;
     protected $_name = [
         'callbackFnFTaskToken' => 'CallbackFnFTaskToken',
         'executionName'        => 'ExecutionName',
         'flowName'             => 'FlowName',
         'input'                => 'Input',
-        'requestId'            => 'RequestId',
     ];
 
     public function validate()
@@ -88,9 +78,6 @@ class StartExecutionRequest extends Model
         }
         if (null !== $this->input) {
             $res['Input'] = $this->input;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -115,9 +102,6 @@ class StartExecutionRequest extends Model
         }
         if (isset($map['Input'])) {
             $model->input = $map['Input'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
 
         return $model;

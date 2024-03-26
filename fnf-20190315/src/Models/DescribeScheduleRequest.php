@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeScheduleRequest extends Model
 {
     /**
-     * @description The name of the flow that is associated with the time-based schedule. The name is unique within the region and cannot be modified after the time-based schedule is created. Configure this parameter based on the following rules:
+     * @description The name of the flow that is associated with the time-based schedule. The name must be unique within the region and cannot be modified after the time-based schedule is created. The name must meet the following conventions:
      *
      *   The name can contain letters, digits, underscores (\_), and hyphens (-).
      *   The name must start with a letter or an underscore (\_).
@@ -23,16 +23,7 @@ class DescribeScheduleRequest extends Model
     public $flowName;
 
     /**
-     * @description The request ID. If you specify this parameter, the system uses this value as the ID of the request. If you do not specify this parameter, the system generates a value at random.
-     *
-     * @example testRequestId
-     *
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @description The name of the time-based schedule. Configure this parameter based on the following rules:
+     * @description The name of the time-based schedule. The name must meet the following conventions:
      *
      *   The name can contain letters, digits, underscores (\_), and hyphens (-).
      *   The name must start with a letter or an underscore (\_).
@@ -46,7 +37,6 @@ class DescribeScheduleRequest extends Model
     public $scheduleName;
     protected $_name = [
         'flowName'     => 'FlowName',
-        'requestId'    => 'RequestId',
         'scheduleName' => 'ScheduleName',
     ];
 
@@ -59,9 +49,6 @@ class DescribeScheduleRequest extends Model
         $res = [];
         if (null !== $this->flowName) {
             $res['FlowName'] = $this->flowName;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->scheduleName) {
             $res['ScheduleName'] = $this->scheduleName;
@@ -80,9 +67,6 @@ class DescribeScheduleRequest extends Model
         $model = new self();
         if (isset($map['FlowName'])) {
             $model->flowName = $map['FlowName'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
         if (isset($map['ScheduleName'])) {
             $model->scheduleName = $map['ScheduleName'];

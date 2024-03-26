@@ -18,7 +18,7 @@ class CreateFlowResponseBody extends Model
     public $createdTime;
 
     /**
-     * @description The definition of the flow.
+     * @description Considering compatibility, the system supports two flow definition specifications.
      *
      * @example version: v1.0\ntype: flow\nname: test\nsteps:\n - type: pass\n name: mypass
      *
@@ -36,7 +36,9 @@ class CreateFlowResponseBody extends Model
     public $description;
 
     /**
-     * @description The execution mode or the enumeration type. Valid values: Express and Standard. The value Standard indicates an empty string.
+     * @description The execution mode. Valid values: Express and Standard. Considering compatibility, an empty string is equivalent to the Standard execution mode.
+     *
+     * @example Standard
      *
      * @var string
      */
@@ -79,7 +81,7 @@ class CreateFlowResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ARN of the RAM role.
+     * @description The Alibaba Cloud resource name (ARN) of the authorized role on which the execution of the flow relies. During the execution of the flow, CloudFlow assumes the role to call API operations of relevant services.
      *
      * @example acs:ram:${region}:${accountID}:${role}
      *
@@ -90,6 +92,11 @@ class CreateFlowResponseBody extends Model
     /**
      * @description The type of the flow.
      *
+     * Valid value:
+     *
+     *   FDL
+     *
+     * <!-- -->
      * @example FDL
      *
      * @var string

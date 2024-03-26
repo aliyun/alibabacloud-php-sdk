@@ -36,7 +36,9 @@ class flows extends Model
     public $description;
 
     /**
-     * @description The execution mode or the enumeration type. Valid values: Express and Standard. The value Standard indicates an empty string.
+     * @description The execution mode or the enumeration type. Valid values: Express and Standard. A value of Standard indicates an empty string.
+     *
+     * @example Standard
      *
      * @var string
      */
@@ -70,7 +72,7 @@ class flows extends Model
     public $name;
 
     /**
-     * @description The Alibaba Cloud Resource Name (ARN) of the Resource Access Management (RAM) role.
+     * @description The Alibaba Cloud resource name (ARN) of the specified Resource Access Management (RAM) role that Serverless Workflow assumes to invoke resources when the flow is executed.
      *
      * @example acs:ram::${accountID}:${role}
      *

@@ -72,8 +72,9 @@ class DescribeExecutionResponseBody extends Model
     public $startedTime;
 
     /**
-     * @description The execution state. Valid values:
+     * @description The execution status. Valid values:
      *
+     *   **Starting**
      *   **Running**
      *   **Stopped**
      *   **Succeeded**

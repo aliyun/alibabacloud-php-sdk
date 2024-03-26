@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateFlowRequest extends Model
 {
     /**
-     * @description The definition of the flow. The definition must comply with the Flow Definition Language (FDL) syntax.
+     * @description The flow definition, which follows the flow definition language (FDL) syntax standard. Considering compatibility, the system supports the two flow definition specifications.
      *
      * @example version: v1.0\ntype: flow\nname: test\nsteps:\n  - type: pass\n    name: mypass
      *
@@ -27,7 +27,7 @@ class UpdateFlowRequest extends Model
     public $description;
 
     /**
-     * @description The name of the flow. The name is unique within the region and cannot be modified after the time-based schedule is created. Configure this parameter based on the following rules:
+     * @description The name of the flow. The name must be unique within the region and cannot be modified after the flow is created. The name must meet the following conventions:
      *
      *   The name can contain letters, digits, underscores (\_), and hyphens (-).
      *   The name must start with a letter or an underscore (\_).
@@ -41,16 +41,7 @@ class UpdateFlowRequest extends Model
     public $name;
 
     /**
-     * @description The request ID. If you specify this parameter, the system uses this value as the ID of the request. If you do not specify this parameter, the system generates a value at random.
-     *
-     * @example testRequestId
-     *
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @description The Alibaba Cloud resource name (ARN) of the specified Resource Access Management (RAM) role that Serverless Workflow assumes to invoke resources when the task is executed.
+     * @description The Alibaba Cloud resource name (ARN) of the authorized role on which the execution of the flow relies. During the execution of the flow, the flow execution engine assumes the role to call API operations of relevant services.
      *
      * @example acs:ram::${accountID}:${role}
      *
@@ -70,7 +61,6 @@ class UpdateFlowRequest extends Model
         'definition'  => 'Definition',
         'description' => 'Description',
         'name'        => 'Name',
-        'requestId'   => 'RequestId',
         'roleArn'     => 'RoleArn',
         'type'        => 'Type',
     ];
@@ -90,9 +80,6 @@ class UpdateFlowRequest extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->roleArn) {
             $res['RoleArn'] = $this->roleArn;
@@ -120,9 +107,6 @@ class UpdateFlowRequest extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
         if (isset($map['RoleArn'])) {
             $model->roleArn = $map['RoleArn'];

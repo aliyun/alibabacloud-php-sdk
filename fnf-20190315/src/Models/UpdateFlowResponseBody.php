@@ -18,7 +18,7 @@ class UpdateFlowResponseBody extends Model
     public $createdTime;
 
     /**
-     * @description The definition of the flow.
+     * @description The flow definition, which follows the FDL syntax standard. Considering compatibility, the system supports the two flow definition specifications.
      *
      * @example version: v1.0\ntype: flow\nname: test\nsteps:\n  - type: pass\n    name: mypass
      *
@@ -81,7 +81,7 @@ class UpdateFlowResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ARN of the RAM role.
+     * @description The Alibaba Cloud resource name (ARN) of the authorized role on which the execution of the flow relies. During the execution of the flow, the flow execution engine assumes the role to call API operations of relevant services.
      *
      * @example acs:ram::${accountID}:${role}
      *

@@ -101,10 +101,6 @@ class Fnf extends OpenApiClient
     public function createFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->requestId)) {
-            $query['RequestId'] = $request->requestId;
-        }
         $body = [];
         if (!Utils::isUnset($request->definition)) {
             $body['Definition'] = $request->definition;
@@ -128,8 +124,7 @@ class Fnf extends OpenApiClient
             $body['Type'] = $request->type;
         }
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateFlow',
@@ -172,8 +167,8 @@ class Fnf extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->requestId)) {
-            $query['RequestId'] = $request->requestId;
+        if (!Utils::isUnset($request->signatureVersion)) {
+            $query['SignatureVersion'] = $request->signatureVersion;
         }
         $body = [];
         if (!Utils::isUnset($request->cronExpression)) {
@@ -237,8 +232,11 @@ class Fnf extends OpenApiClient
     public function deleteFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -246,7 +244,7 @@ class Fnf extends OpenApiClient
             'version'     => '2019-03-15',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -280,8 +278,14 @@ class Fnf extends OpenApiClient
     public function deleteScheduleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->flowName)) {
+            $query['FlowName'] = $request->flowName;
+        }
+        if (!Utils::isUnset($request->scheduleName)) {
+            $query['ScheduleName'] = $request->scheduleName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -289,7 +293,7 @@ class Fnf extends OpenApiClient
             'version'     => '2019-03-15',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -599,7 +603,8 @@ class Fnf extends OpenApiClient
 
     /**
      * ## [](#)Usage notes
-     *   * You can use this operation to call back the task step of `pattern: waitForCallback`, which indicates that the current task fails to be executed.
+     *   * In the old version of CloudFlow, the task step that ReportTaskFailed is used to call back `pattern: waitForCallback` indicates that the current task fails to be executed.
+     *   * In the new version of CloudFlow, the task step that ReportTaskFailed is used to call back `TaskMode: WaitForCustomCallback` indicates that the current task fails to be executed.
      *   *
      * @param ReportTaskFailedRequest $request ReportTaskFailedRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -610,9 +615,6 @@ class Fnf extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->requestId)) {
-            $query['RequestId'] = $request->requestId;
-        }
         if (!Utils::isUnset($request->taskToken)) {
             $query['TaskToken'] = $request->taskToken;
         }
@@ -644,7 +646,8 @@ class Fnf extends OpenApiClient
 
     /**
      * ## [](#)Usage notes
-     *   * You can use this operation to call back the task step of `pattern: waitForCallback`, which indicates that the current task fails to be executed.
+     *   * In the old version of CloudFlow, the task step that ReportTaskFailed is used to call back `pattern: waitForCallback` indicates that the current task fails to be executed.
+     *   * In the new version of CloudFlow, the task step that ReportTaskFailed is used to call back `TaskMode: WaitForCustomCallback` indicates that the current task fails to be executed.
      *   *
      * @param ReportTaskFailedRequest $request ReportTaskFailedRequest
      *
@@ -659,7 +662,8 @@ class Fnf extends OpenApiClient
 
     /**
      * ## [](#)Usage notes
-     *   * You can use this operation to call back the task step of `pattern: waitForCallback`, which indicates that the current task is successfully executed.
+     *   * In the old version of CloudFlow, the task step that ReportTaskSucceeded is used to call back pattern: waitForCallback indicates that the current task is successfully executed.
+     *   * In the new version of CloudFlow, the task step that ReportTaskSucceeded is used to call back TaskMode: WaitForCustomCallback indicates that the current task is successfully executed.
      *   *
      * @param ReportTaskSucceededRequest $request ReportTaskSucceededRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -670,9 +674,6 @@ class Fnf extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->requestId)) {
-            $query['RequestId'] = $request->requestId;
-        }
         if (!Utils::isUnset($request->taskToken)) {
             $query['TaskToken'] = $request->taskToken;
         }
@@ -701,7 +702,8 @@ class Fnf extends OpenApiClient
 
     /**
      * ## [](#)Usage notes
-     *   * You can use this operation to call back the task step of `pattern: waitForCallback`, which indicates that the current task is successfully executed.
+     *   * In the old version of CloudFlow, the task step that ReportTaskSucceeded is used to call back pattern: waitForCallback indicates that the current task is successfully executed.
+     *   * In the new version of CloudFlow, the task step that ReportTaskSucceeded is used to call back TaskMode: WaitForCustomCallback indicates that the current task is successfully executed.
      *   *
      * @param ReportTaskSucceededRequest $request ReportTaskSucceededRequest
      *
@@ -716,10 +718,10 @@ class Fnf extends OpenApiClient
 
     /**
      * ## [](#)Usage notes
-     *   * *   The flow is created.
+     *   * *   The flow is created. A flow only in standard mode is supported.
      *   * *   If you do not specify an execution, the system automatically generates an execution and starts the execution.
      *   * *   If an ongoing execution has the same name as that of the execution to be started, the system directly returns the ongoing execution.
-     *   * *   If the ongoing execution with the same name has ended (succeeded or failed), the `ExecutionAlreadyExists` error is returned.
+     *   * *   If the ongoing execution with the same name has ended (succeeded or failed), `ExecutionAlreadyExists` is returned.
      *   * *   If no execution with the same name exists, the system starts a new execution.
      *   *
      * @param StartExecutionRequest $request StartExecutionRequest
@@ -730,10 +732,6 @@ class Fnf extends OpenApiClient
     public function startExecutionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->requestId)) {
-            $query['RequestId'] = $request->requestId;
-        }
         $body = [];
         if (!Utils::isUnset($request->callbackFnFTaskToken)) {
             $body['CallbackFnFTaskToken'] = $request->callbackFnFTaskToken;
@@ -748,8 +746,7 @@ class Fnf extends OpenApiClient
             $body['Input'] = $request->input;
         }
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'StartExecution',
@@ -768,10 +765,10 @@ class Fnf extends OpenApiClient
 
     /**
      * ## [](#)Usage notes
-     *   * *   The flow is created.
+     *   * *   The flow is created. A flow only in standard mode is supported.
      *   * *   If you do not specify an execution, the system automatically generates an execution and starts the execution.
      *   * *   If an ongoing execution has the same name as that of the execution to be started, the system directly returns the ongoing execution.
-     *   * *   If the ongoing execution with the same name has ended (succeeded or failed), the `ExecutionAlreadyExists` error is returned.
+     *   * *   If the ongoing execution with the same name has ended (succeeded or failed), `ExecutionAlreadyExists` is returned.
      *   * *   If no execution with the same name exists, the system starts a new execution.
      *   *
      * @param StartExecutionRequest $request StartExecutionRequest
@@ -786,18 +783,16 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * @param StartSyncExecutionRequest $request
-     * @param RuntimeOptions            $runtime
+     * *   Only flows of the express execution mode are supported.
+     *   *
+     * @param StartSyncExecutionRequest $request StartSyncExecutionRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartSyncExecutionResponse
+     * @return StartSyncExecutionResponse StartSyncExecutionResponse
      */
     public function startSyncExecutionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->requestId)) {
-            $query['RequestId'] = $request->requestId;
-        }
         $body = [];
         if (!Utils::isUnset($request->executionName)) {
             $body['ExecutionName'] = $request->executionName;
@@ -809,8 +804,7 @@ class Fnf extends OpenApiClient
             $body['Input'] = $request->input;
         }
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'StartSyncExecution',
@@ -828,9 +822,11 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * @param StartSyncExecutionRequest $request
+     * *   Only flows of the express execution mode are supported.
+     *   *
+     * @param StartSyncExecutionRequest $request StartSyncExecutionRequest
      *
-     * @return StartSyncExecutionResponse
+     * @return StartSyncExecutionResponse StartSyncExecutionResponse
      */
     public function startSyncExecution($request)
     {
@@ -851,10 +847,6 @@ class Fnf extends OpenApiClient
     public function stopExecutionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->requestId)) {
-            $query['RequestId'] = $request->requestId;
-        }
         $body = [];
         if (!Utils::isUnset($request->cause)) {
             $body['Cause'] = $request->cause;
@@ -869,8 +861,7 @@ class Fnf extends OpenApiClient
             $body['FlowName'] = $request->flowName;
         }
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'StopExecution',
@@ -911,10 +902,6 @@ class Fnf extends OpenApiClient
     public function updateFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->requestId)) {
-            $query['RequestId'] = $request->requestId;
-        }
         $body = [];
         if (!Utils::isUnset($request->definition)) {
             $body['Definition'] = $request->definition;
@@ -932,8 +919,7 @@ class Fnf extends OpenApiClient
             $body['Type'] = $request->type;
         }
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateFlow',
@@ -971,10 +957,6 @@ class Fnf extends OpenApiClient
     public function updateScheduleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->requestId)) {
-            $query['RequestId'] = $request->requestId;
-        }
         $body = [];
         if (!Utils::isUnset($request->cronExpression)) {
             $body['CronExpression'] = $request->cronExpression;
@@ -995,8 +977,7 @@ class Fnf extends OpenApiClient
             $body['ScheduleName'] = $request->scheduleName;
         }
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateSchedule',

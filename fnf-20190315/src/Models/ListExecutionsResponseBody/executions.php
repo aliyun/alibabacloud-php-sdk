@@ -45,7 +45,7 @@ class executions extends Model
     public $name;
 
     /**
-     * @description The execution result, which is in the JSON format.
+     * @description The output of the execution, which is in the JSON format
      *
      * @example {"key":"value"}
      *
@@ -63,7 +63,7 @@ class executions extends Model
     public $startedTime;
 
     /**
-     * @description The state of the execution.
+     * @description The status of the execution.
      *
      * @example Succeeded
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StartSyncExecutionResponseBody extends Model
 {
     /**
+     * @description The error code that is returned if the execution failed.
+     *
      * @example ActionNotSupported
      *
      * @var string
@@ -16,6 +18,8 @@ class StartSyncExecutionResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message that indicates the execution timed out.
+     *
      * @example Standard execution is not supported
      *
      * @var string
@@ -23,6 +27,8 @@ class StartSyncExecutionResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The name of the flow.
+     *
      * @example my_flow_name
      *
      * @var string
@@ -30,6 +36,8 @@ class StartSyncExecutionResponseBody extends Model
     public $flowName;
 
     /**
+     * @description The name of the execution.
+     *
      * @example my_exec_name:{UUID}
      *
      * @var string
@@ -37,6 +45,8 @@ class StartSyncExecutionResponseBody extends Model
     public $name;
 
     /**
+     * @description The output of the execution, which is in the JSON format.
+     *
      * @example {"key":"value"}
      *
      * @var string
@@ -44,6 +54,8 @@ class StartSyncExecutionResponseBody extends Model
     public $output;
 
     /**
+     * @description The request ID.
+     *
      * @example testRequestId
      *
      * @var string
@@ -51,6 +63,8 @@ class StartSyncExecutionResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The time when the execution started.
+     *
      * @example 2019-01-01T01:01:01.001Z
      *
      * @var string
@@ -58,6 +72,15 @@ class StartSyncExecutionResponseBody extends Model
     public $startedTime;
 
     /**
+     * @description The status of the execution. Valid values:
+     *
+     *   **Starting**
+     *   **Running**
+     *   **Stopped**
+     *   **Succeeded**
+     *   **Failed**
+     *   **TimedOut**
+     *
      * @example Succeeded
      *
      * @var string
@@ -65,6 +88,8 @@ class StartSyncExecutionResponseBody extends Model
     public $status;
 
     /**
+     * @description The time when the execution stopped.
+     *
      * @example 2019-01-01T01:01:01.001Z
      *
      * @var string

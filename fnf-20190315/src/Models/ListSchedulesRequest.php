@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListSchedulesRequest extends Model
 {
     /**
-     * @description The name of the flow that is associated with the time-based schedule. The name is unique within the region and cannot be modified after the time-based schedule is created. Configure this parameter based on the following rules:
+     * @description The name of the flow that is associated with the time-based schedules. The name is unique within the region and cannot be modified after the flow is created. The name must meet the following conventions:
      *
      *   The name can contain letters, digits, underscores (\_), and hyphens (-).
      *   The name must start with a letter or an underscore (\_).
@@ -39,20 +39,10 @@ class ListSchedulesRequest extends Model
      * @var string
      */
     public $nextToken;
-
-    /**
-     * @description The request ID. If you specify this parameter, the system uses this value as the ID of the request. If you do not specify this parameter, the system generates a value at random.
-     *
-     * @example testRequestId
-     *
-     * @var string
-     */
-    public $requestId;
     protected $_name = [
         'flowName'  => 'FlowName',
         'limit'     => 'Limit',
         'nextToken' => 'NextToken',
-        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -70,9 +60,6 @@ class ListSchedulesRequest extends Model
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -94,9 +81,6 @@ class ListSchedulesRequest extends Model
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
 
         return $model;

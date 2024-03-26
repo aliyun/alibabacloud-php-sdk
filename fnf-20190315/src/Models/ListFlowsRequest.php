@@ -25,19 +25,9 @@ class ListFlowsRequest extends Model
      * @var string
      */
     public $nextToken;
-
-    /**
-     * @description The request ID. If you specify this parameter, the system uses this value as the ID of the request. If you do not specify this parameter, the system generates a value at random.
-     *
-     * @example testRequestId
-     *
-     * @var string
-     */
-    public $requestId;
     protected $_name = [
         'limit'     => 'Limit',
         'nextToken' => 'NextToken',
-        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -52,9 +42,6 @@ class ListFlowsRequest extends Model
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -73,9 +60,6 @@ class ListFlowsRequest extends Model
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
 
         return $model;

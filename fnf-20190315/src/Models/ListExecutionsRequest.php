@@ -18,7 +18,7 @@ class ListExecutionsRequest extends Model
     public $executionNamePrefix;
 
     /**
-     * @description The name of the flow. The name is unique within the region and cannot be modified after the flow is created. Configure this parameter based on the following rules:
+     * @description The name of the flow. The name must be unique within the region and cannot be modified after the flow is created. The name must meet the following conventions:
      *
      *   The name can contain letters, digits, underscores (\_), and hyphens (-).
      *   The name must start with a letter or an underscore (\_).
@@ -50,15 +50,6 @@ class ListExecutionsRequest extends Model
     public $nextToken;
 
     /**
-     * @description The request ID. If you specify this parameter, the system uses this value as the ID of the request. If you do not specify this parameter, the system generates a value at random.
-     *
-     * @example testRequestId
-     *
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @description The beginning of the time range to query executions. Specify the value in the UTC RFC3339 format.
      *
      * @example 2020-12-02T02:39:20.402Z
@@ -77,8 +68,9 @@ class ListExecutionsRequest extends Model
     public $startedTimeEnd;
 
     /**
-     * @description The state of the execution that you want to filter. Valid values:
+     * @description The status of the execution that you want to filter. Valid values:
      *
+     *   **Starting**
      *   **Running**
      *   **Stopped**
      *   **Succeeded**
@@ -95,7 +87,6 @@ class ListExecutionsRequest extends Model
         'flowName'            => 'FlowName',
         'limit'               => 'Limit',
         'nextToken'           => 'NextToken',
-        'requestId'           => 'RequestId',
         'startedTimeBegin'    => 'StartedTimeBegin',
         'startedTimeEnd'      => 'StartedTimeEnd',
         'status'              => 'Status',
@@ -119,9 +110,6 @@ class ListExecutionsRequest extends Model
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->startedTimeBegin) {
             $res['StartedTimeBegin'] = $this->startedTimeBegin;
@@ -155,9 +143,6 @@ class ListExecutionsRequest extends Model
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
         if (isset($map['StartedTimeBegin'])) {
             $model->startedTimeBegin = $map['StartedTimeBegin'];

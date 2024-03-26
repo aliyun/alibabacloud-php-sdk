@@ -18,7 +18,7 @@ class schedules extends Model
     public $createdTime;
 
     /**
-     * @description The CRON expression of the scheduled task.
+     * @description The cron expression of the scheduled task.
      *
      * @example 0 * * * * *
      *

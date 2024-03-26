@@ -27,15 +27,6 @@ class ReportTaskFailedRequest extends Model
     public $error;
 
     /**
-     * @description The request ID. If you specify this parameter, the system uses this value as the ID of the request. If you do not specify this parameter, the system generates a value at random.
-     *
-     * @example testRequestId
-     *
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @description The token of the specified task that you want to report. If this parameter appears in **waitforCallback** mode, the parameter is passed to the called service, such as Message Service (MNS) or Function Compute. For MNS, the value of this parameter can be obtained from a message. For Function Compute, the value of this parameter can be obtained from an event.
      *
      * @example emptyString
@@ -46,7 +37,6 @@ class ReportTaskFailedRequest extends Model
     protected $_name = [
         'cause'     => 'Cause',
         'error'     => 'Error',
-        'requestId' => 'RequestId',
         'taskToken' => 'TaskToken',
     ];
 
@@ -62,9 +52,6 @@ class ReportTaskFailedRequest extends Model
         }
         if (null !== $this->error) {
             $res['Error'] = $this->error;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->taskToken) {
             $res['TaskToken'] = $this->taskToken;
@@ -86,9 +73,6 @@ class ReportTaskFailedRequest extends Model
         }
         if (isset($map['Error'])) {
             $model->error = $map['Error'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
         if (isset($map['TaskToken'])) {
             $model->taskToken = $map['TaskToken'];

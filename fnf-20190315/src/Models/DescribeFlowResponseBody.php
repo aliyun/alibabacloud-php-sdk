@@ -18,7 +18,7 @@ class DescribeFlowResponseBody extends Model
     public $createdTime;
 
     /**
-     * @description The definition of the flow. The definition must comply with the Flow Definition Language (FDL) syntax.
+     * @description The flow definition, which follows the flow definition language (FDL) syntax standard. Considering compatibility, the system supports the two flow definition specifications.
      *
      * @example version: v1.0\ntype: flow\nname: test\nsteps:\n - type: pass\n name: mypass
      *
@@ -36,7 +36,9 @@ class DescribeFlowResponseBody extends Model
     public $description;
 
     /**
-     * @description The execution mode or the enumeration type. Valid values: Express and Standard. The value Standard indicates an empty string.
+     * @description The execution mode or the enumeration type. Valid values: Express and Standard. A value of Standard indicates an empty string.
+     *
+     * @example Standard
      *
      * @var string
      */
@@ -79,7 +81,7 @@ class DescribeFlowResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The Alibaba Cloud Resource Name (ARN) of the RAM role.
+     * @description The Alibaba Cloud resource name (ARN) of the authorized role on which the execution of the flow relies. During the execution of the flow, CloudFlow assumes the role to call API operations of relevant services.
      *
      * @example acs:ram::${accountID}:${role}
      *

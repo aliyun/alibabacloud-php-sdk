@@ -57,15 +57,6 @@ class CreateScheduleRequest extends Model
     public $payload;
 
     /**
-     * @description The request ID. If you specify this parameter, the system uses this value as the ID of the request. If you do not specify this parameter, the system generates a value at random.
-     *
-     * @example testRequestId
-     *
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @description The name of the time-based schedule. Configure this parameter based on the following rules:
      *
      *   The name can contain letters, digits, underscores (\_), and hyphens (-).
@@ -78,14 +69,19 @@ class CreateScheduleRequest extends Model
      * @var string
      */
     public $scheduleName;
+
+    /**
+     * @var string
+     */
+    public $signatureVersion;
     protected $_name = [
-        'cronExpression' => 'CronExpression',
-        'description'    => 'Description',
-        'enable'         => 'Enable',
-        'flowName'       => 'FlowName',
-        'payload'        => 'Payload',
-        'requestId'      => 'RequestId',
-        'scheduleName'   => 'ScheduleName',
+        'cronExpression'   => 'CronExpression',
+        'description'      => 'Description',
+        'enable'           => 'Enable',
+        'flowName'         => 'FlowName',
+        'payload'          => 'Payload',
+        'scheduleName'     => 'ScheduleName',
+        'signatureVersion' => 'SignatureVersion',
     ];
 
     public function validate()
@@ -110,11 +106,11 @@ class CreateScheduleRequest extends Model
         if (null !== $this->payload) {
             $res['Payload'] = $this->payload;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->scheduleName) {
             $res['ScheduleName'] = $this->scheduleName;
+        }
+        if (null !== $this->signatureVersion) {
+            $res['SignatureVersion'] = $this->signatureVersion;
         }
 
         return $res;
@@ -143,11 +139,11 @@ class CreateScheduleRequest extends Model
         if (isset($map['Payload'])) {
             $model->payload = $map['Payload'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ScheduleName'])) {
             $model->scheduleName = $map['ScheduleName'];
+        }
+        if (isset($map['SignatureVersion'])) {
+            $model->signatureVersion = $map['SignatureVersion'];
         }
 
         return $model;

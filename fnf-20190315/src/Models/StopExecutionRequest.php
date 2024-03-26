@@ -27,7 +27,7 @@ class StopExecutionRequest extends Model
     public $error;
 
     /**
-     * @description The name of the execution that you want to stop. You can call the **ListExecutions** operation to obtain the value of this parameter. The name is unique in a flow. Configure this parameter based on the following rules:
+     * @description The name of the execution that you want to stop. You can call the **ListExecutions** operation to obtain the value of this parameter. The name is unique in a flow. Set this parameter based on the following rules:
      *
      *   The name can contain letters, digits, underscores (\_), and hyphens (-).
      *   The name must start with a letter or an underscore (\_).
@@ -41,7 +41,7 @@ class StopExecutionRequest extends Model
     public $executionName;
 
     /**
-     * @description The name of the flow that you want to stop. You can call the **ListFlows** operation to obtain the value of this parameter. The name is unique within the region and cannot be modified after the flow is created. Configure this parameter based on the following rules:
+     * @description The name of the flow in which that you want to stop the execution. You can call the **ListFlows** operation to obtain the value of this parameter. The name is unique within the same region and cannot be modified after the flow is created. Set this parameter based on the following rules:
      *
      *   The name can contain letters, digits, underscores (\_), and hyphens (-).
      *   The name must start with a letter or an underscore (\_).
@@ -53,21 +53,11 @@ class StopExecutionRequest extends Model
      * @var string
      */
     public $flowName;
-
-    /**
-     * @description The request ID. If you specify this parameter, the system uses this value as the ID of the request. If you do not specify this parameter, the system generates a value at random.
-     *
-     * @example testRequestId
-     *
-     * @var string
-     */
-    public $requestId;
     protected $_name = [
         'cause'         => 'Cause',
         'error'         => 'Error',
         'executionName' => 'ExecutionName',
         'flowName'      => 'FlowName',
-        'requestId'     => 'RequestId',
     ];
 
     public function validate()
@@ -88,9 +78,6 @@ class StopExecutionRequest extends Model
         }
         if (null !== $this->flowName) {
             $res['FlowName'] = $this->flowName;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -115,9 +102,6 @@ class StopExecutionRequest extends Model
         }
         if (isset($map['FlowName'])) {
             $model->flowName = $map['FlowName'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
 
         return $model;

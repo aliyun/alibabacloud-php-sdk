@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetExecutionHistoryRequest extends Model
 {
     /**
-     * @description The name of the execution, which is unique within a flow. Configure this parameter based on the following rules:
+     * @description The name of the execution, which is unique within a flow. The name must meet the following conventions:
      *
      *   The name can contain letters, digits, underscores (\_), and hyphens (-).
      *   The name must start with a letter or an underscore (\_).
@@ -23,7 +23,7 @@ class GetExecutionHistoryRequest extends Model
     public $executionName;
 
     /**
-     * @description The name of the flow. The name is unique within the region and cannot be modified after the flow is created. Configure this parameter based on the following rules:
+     * @description The name of the flow. The name must be unique within the region and cannot be modified after the flow is created. The name must meet the following conventions:
      *
      *   The name can contain letters, digits, underscores (\_), and hyphens (-).
      *   The name must start with a letter or an underscore (\_).
@@ -53,21 +53,11 @@ class GetExecutionHistoryRequest extends Model
      * @var string
      */
     public $nextToken;
-
-    /**
-     * @description The request ID. If you specify this parameter, the system uses this value as the ID of the request. If you do not specify this parameter, the system generates a value at random.
-     *
-     * @example testRequestId
-     *
-     * @var string
-     */
-    public $requestId;
     protected $_name = [
         'executionName' => 'ExecutionName',
         'flowName'      => 'FlowName',
         'limit'         => 'Limit',
         'nextToken'     => 'NextToken',
-        'requestId'     => 'RequestId',
     ];
 
     public function validate()
@@ -88,9 +78,6 @@ class GetExecutionHistoryRequest extends Model
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -115,9 +102,6 @@ class GetExecutionHistoryRequest extends Model
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
 
         return $model;

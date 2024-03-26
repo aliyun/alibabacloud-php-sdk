@@ -39,7 +39,7 @@ class UpdateScheduleRequest extends Model
     public $enable;
 
     /**
-     * @description The name of the flow that is associated with the time-based schedule. The name is unique within the region and cannot be modified after the time-based schedule is created. Configure this parameter based on the following rules:
+     * @description The name of the flow that is associated with the time-based schedule. The name must be unique within the region and cannot be modified after the time-based schedule is created. The name must meet the following conventions:
      *
      *   The name can contain letters, digits, underscores (\_), and hyphens (-).
      *   The name must start with a letter or an underscore (\_).
@@ -62,16 +62,7 @@ class UpdateScheduleRequest extends Model
     public $payload;
 
     /**
-     * @description The request ID. If you specify this parameter, the system uses this value as the ID of the request. If you do not specify this parameter, the system generates a value at random.
-     *
-     * @example testRequestId
-     *
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @description The name of the time-based schedule. Configure this parameter based on the following rules:
+     * @description The name of the time-based schedule. The name must meet the following conventions:
      *
      *   The name can contain letters, digits, underscores (\_), and hyphens (-).
      *   The name must start with a letter or an underscore (\_).
@@ -89,7 +80,6 @@ class UpdateScheduleRequest extends Model
         'enable'         => 'Enable',
         'flowName'       => 'FlowName',
         'payload'        => 'Payload',
-        'requestId'      => 'RequestId',
         'scheduleName'   => 'ScheduleName',
     ];
 
@@ -114,9 +104,6 @@ class UpdateScheduleRequest extends Model
         }
         if (null !== $this->payload) {
             $res['Payload'] = $this->payload;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->scheduleName) {
             $res['ScheduleName'] = $this->scheduleName;
@@ -147,9 +134,6 @@ class UpdateScheduleRequest extends Model
         }
         if (isset($map['Payload'])) {
             $model->payload = $map['Payload'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
         if (isset($map['ScheduleName'])) {
             $model->scheduleName = $map['ScheduleName'];

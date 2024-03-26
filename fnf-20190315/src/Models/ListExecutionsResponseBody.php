@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListExecutionsResponseBody extends Model
 {
     /**
-     * @description The queried executions.
+     * @description The information about executions.
      *
      * @var executions[]
      */
