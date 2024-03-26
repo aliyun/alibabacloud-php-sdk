@@ -232,12 +232,12 @@ class Fnf extends OpenApiClient
     public function deleteFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
+        $body = [];
         if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+            $body['Name'] = $request->name;
         }
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteFlow',
@@ -278,15 +278,15 @@ class Fnf extends OpenApiClient
     public function deleteScheduleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
+        $body = [];
         if (!Utils::isUnset($request->flowName)) {
-            $query['FlowName'] = $request->flowName;
+            $body['FlowName'] = $request->flowName;
         }
         if (!Utils::isUnset($request->scheduleName)) {
-            $query['ScheduleName'] = $request->scheduleName;
+            $body['ScheduleName'] = $request->scheduleName;
         }
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteSchedule',

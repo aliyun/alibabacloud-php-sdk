@@ -9,10 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DeleteFlowRequest extends Model
 {
     /**
-     * @description The name of the flow. The name can contain only letters, digits, underscores (\_), and hyphens (-). It cannot start with a digit or a hyphen (-). It must be 1 to 128 characters in length.
-     *
-     * @example flow
-     *
      * @var string
      */
     public $name;
