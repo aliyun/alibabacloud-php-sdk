@@ -33,11 +33,17 @@ class data extends Model
      * @var string
      */
     public $liveId;
+
+    /**
+     * @var string
+     */
+    public $taskId;
     protected $_name = [
         'audioResult' => 'AudioResult',
         'dataId'      => 'DataId',
         'frameResult' => 'FrameResult',
         'liveId'      => 'LiveId',
+        'taskId'      => 'TaskId',
     ];
 
     public function validate()
@@ -58,6 +64,9 @@ class data extends Model
         }
         if (null !== $this->liveId) {
             $res['LiveId'] = $this->liveId;
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -82,6 +91,9 @@ class data extends Model
         }
         if (isset($map['LiveId'])) {
             $model->liveId = $map['LiveId'];
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

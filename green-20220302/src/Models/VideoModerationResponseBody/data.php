@@ -9,12 +9,18 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var string
+     */
+    public $dataId;
+
+    /**
      * @example xxxxx-xxxxx
      *
      * @var string
      */
     public $taskId;
     protected $_name = [
+        'dataId' => 'DataId',
         'taskId' => 'TaskId',
     ];
 
@@ -25,6 +31,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dataId) {
+            $res['DataId'] = $this->dataId;
+        }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -40,6 +49,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DataId'])) {
+            $model->dataId = $map['DataId'];
+        }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

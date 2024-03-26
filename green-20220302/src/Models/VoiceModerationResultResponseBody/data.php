@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var string
+     */
+    public $dataId;
+
+    /**
      * @example liveId
      *
      * @var string
@@ -33,6 +38,7 @@ class data extends Model
      */
     public $url;
     protected $_name = [
+        'dataId'       => 'DataId',
         'liveId'       => 'LiveId',
         'sliceDetails' => 'SliceDetails',
         'taskId'       => 'TaskId',
@@ -46,6 +52,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dataId) {
+            $res['DataId'] = $this->dataId;
+        }
         if (null !== $this->liveId) {
             $res['LiveId'] = $this->liveId;
         }
@@ -76,6 +85,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DataId'])) {
+            $model->dataId = $map['DataId'];
+        }
         if (isset($map['LiveId'])) {
             $model->liveId = $map['LiveId'];
         }
