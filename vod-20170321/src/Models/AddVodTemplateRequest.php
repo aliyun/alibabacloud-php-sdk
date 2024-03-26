@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AddVodTemplateRequest extends Model
 {
     /**
-     * @description The ID of the application. Default value: **app-1000000**. For more information, see [Overview](~~113600~~).
+     * @description The ID of the application. Default value: **app-1000000**. For more information, see [Multi-application service](~~113600~~).
      *
      * @example app-****
      *
@@ -20,7 +20,7 @@ class AddVodTemplateRequest extends Model
     /**
      * @description The name of the template.
      *
-     *   The name can be up to 128 bytes in length.
+     *   The name cannot exceed 128 bytes.
      *   The value must be encoded in UTF-8.
      *
      * @example test
@@ -30,7 +30,7 @@ class AddVodTemplateRequest extends Model
     public $name;
 
     /**
-     * @description The configurations of the snapshot template. The value is a JSON-formatted string. For more information about the data structure, see the "SnapshotTemplateConfig" section of the [Media processing parameters](~~98618~~) topic.
+     * @description The configurations of the snapshot template. The value must be a JSON string. For more information about the data structure, see [SnapshotTemplateConfig](~~98618~~).
      *
      * @example {"SnapshotConfig":{"Count":10,"SpecifiedOffsetTime":0,"Interval":1},"SnapshotType":"NormalSnapshot"}
      *

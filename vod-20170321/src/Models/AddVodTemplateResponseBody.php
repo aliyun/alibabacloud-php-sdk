@@ -18,7 +18,7 @@ class AddVodTemplateResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the snapshot template. You can call the [SubmitSnapshotJob](~~72213~~) operation to take snapshots.
+     * @description The ID of the snapshot template. You can call the [SubmitSnapshotJob](~~72213~~) operation to submit snapshot jobs.
      *
      * @example f5b228fe6930e*****0d6bf55bd87789
      *

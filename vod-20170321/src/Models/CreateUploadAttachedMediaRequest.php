@@ -118,6 +118,8 @@ class CreateUploadAttachedMediaRequest extends Model
      *   The title can be up to 128 bytes in length.
      *   The value must be encoded in UTF-8.
      *
+     * @example testTitle
+     *
      * @var string
      */
     public $title;

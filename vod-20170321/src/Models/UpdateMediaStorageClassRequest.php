@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class UpdateMediaStorageClassRequest extends Model
 {
     /**
+     * @description Specifies whether to change the storage class of a media asset that is stored for less than the minimum storage duration. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * >  If you forcibly change the storage class of a media asset that is stored for less than the minimum storage duration, additional data retrieval fees are incurred.
+     * @example false
+     *
      * @var bool
      */
     public $allowUpdateWithoutTimeLimit;
@@ -52,7 +60,7 @@ class UpdateMediaStorageClassRequest extends Model
     public $scope;
 
     /**
-     * @description The storage class to which you want to modify. Valid values:
+     * @description The storage class. Valid values:
      *
      *   **Standard**
      *   **IA**

@@ -27,7 +27,7 @@ class audio extends Model
     public $audioId;
 
     /**
-     * @description The category ID of the audio file.
+     * @description The ID of the category.
      *
      * @example 10000123
      *
@@ -54,7 +54,7 @@ class audio extends Model
     public $coverURL;
 
     /**
-     * @description The time when the audio file was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the audio stream was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2018-07-19T03:45:25Z
      *
@@ -93,12 +93,12 @@ class audio extends Model
     public $duration;
 
     /**
-     * @description The source. Valid values:
+     * @description The source of the audio file. Valid values:
      *
      *   **general**: The audio file is uploaded by using ApsaraVideo VOD.
      *   **short_video**: The audio file is uploaded to ApsaraVideo VOD by using the short video SDK. For more information, see [Introduction](~~53407~~).
      *   **editing**: The audio file is uploaded to ApsaraVideo VOD after online editing and production. For more information, see [ProduceEditingProjectVideo](~~68536~~).
-     *   **live**: The audio stream is recorded and uploaded as a file to ApsaraVideo VOD.
+     *   **live**: The audio file is recorded and uploaded as a file to ApsaraVideo VOD.
      *
      * @example general
      *
@@ -107,7 +107,7 @@ class audio extends Model
     public $mediaSource;
 
     /**
-     * @description The time when the audio file was updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the audio file was updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2018-07-19T03:48:25Z
      *
@@ -161,14 +161,14 @@ class audio extends Model
     public $size;
 
     /**
-     * @description The list of automatic snapshots.
+     * @description The automatic snapshots.
      *
      * @var string[]
      */
     public $snapshots;
 
     /**
-     * @description The list of sprite snapshots.
+     * @description The sprite snapshots.
      *
      * @var string[]
      */
@@ -195,9 +195,9 @@ class audio extends Model
      *   **IA**: All media resources are stored as IA objects.
      *   **Archive**: All media resources are stored as Archive objects.
      *   **ColdArchive**: All media resources are stored as Cold Archive objects.
-     *   **SourceIA**: Only the source files are IA objects.
-     *   **SourceArchive**: Only the source files are Archive objects.
-     *   **SourceColdArchive**: Only the source files are Cold Archive objects.
+     *   **SourceIA**: Only the source file is stored as an IA object.
+     *   **SourceArchive**: Only the source file is stored as an Archive object.
+     *   **SourceColdArchive**: Only the source file is stored as a Cold Archive object.
      *   **Changing**: The storage class is being modified.
      *
      * @example Standard
@@ -207,7 +207,7 @@ class audio extends Model
     public $storageClass;
 
     /**
-     * @description The endpoint of the OSS bucket in which the audio file is stored.
+     * @description The region in which the audio is stored.
      *
      * @example outin-aaa*****aa.oss-cn-shanghai.aliyuncs.com
      *
@@ -225,7 +225,7 @@ class audio extends Model
     public $tags;
 
     /**
-     * @description The title of the audio file.
+     * @description The title of the audio file
      *
      * @example audio
      *
@@ -234,7 +234,7 @@ class audio extends Model
     public $title;
 
     /**
-     * @description The transcoding mode. Default value: FastTranscode. Valid values:
+     * @description The transcoding mode. Valid values:
      *
      *   **FastTranscode**: The audio file is immediately transcoded after it is uploaded. You cannot play the file before it is transcoded.
      *   **NoTranscode**: The audio file can be played without being transcoded. You can immediately play the file after it is uploaded.

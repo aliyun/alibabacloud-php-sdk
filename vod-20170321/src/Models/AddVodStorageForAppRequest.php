@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AddVodStorageForAppRequest extends Model
 {
     /**
-     * @description The ID of the application. You can obtain the application ID from the response to the [CreateAppInfo](https://help.aliyun.com/zh/vod/developer-reference/api-vod-2017-03-21-createappinfo) or [ListAppInfo](https://help.aliyun.com/zh/vod/developer-reference/api-vod-2017-03-21-listappinfo) operation.
+     * @description The IDs of applications. You can obtain the application ID from the `AppId` parameter in the response to the [CreateAppInfo](~~CreateAppInfo~~) or [ListAppInfo](~~ListAppInfo~~) operation.
      *
      * @example app-****
      *
@@ -27,7 +27,7 @@ class AddVodStorageForAppRequest extends Model
     public $storageLocation;
 
     /**
-     * @description The storage type. Default value: vod_oss_bucket.
+     * @description The storage class. Default value: **vod_oss_bucket**.
      *
      * @example vod_oss_bucket
      *

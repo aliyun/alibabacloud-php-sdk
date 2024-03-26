@@ -18,7 +18,7 @@ class SubmitSnapshotJobShrinkRequest extends Model
     public $count;
 
     /**
-     * @description The height of each snapshot. Valid values: `[8,4096]`. By default, the height of the video mezzanine file is used. Unit: pixel.
+     * @description The height of each snapshot. Valid values: `[8,4096]`. By default, the height of the video source is used. Unit: pixels.
      *
      * @example 720
      *
@@ -27,7 +27,11 @@ class SubmitSnapshotJobShrinkRequest extends Model
     public $height;
 
     /**
-     * @description The snapshot interval. The value must be **greater than or equal to 0**. Unit: seconds. If you set this parameter to **0**, snapshots are taken at even intervals based on the video duration divided by the value of the Count parameter. Default value: **1**.
+     * @description The snapshot interval. The value must be **greater than or equal to 0**.
+     *
+     *   Unit: seconds.
+     *   Default value: **1**.
+     *   If you set this parameter to **0**, snapshots are captured at even intervals based on the video duration divided by the value of the Count parameter.
      *
      * @example 1
      *
@@ -38,9 +42,8 @@ class SubmitSnapshotJobShrinkRequest extends Model
     /**
      * @description The ID of the snapshot template.
      *
-     *   We recommend that you create a snapshot template before you specify the ID of the snapshot template.
+     *   We recommend that you create a snapshot template before you specify the template ID. For more information about how to create a snapshot template, see [AddVodTemplate](~~99406~~).
      *   If you set the SnapshotTemplateId parameter, all the other request parameters except the Action and VideoId parameters are ignored.
-     *   For more information about how to create a snapshot template, see [AddVodTemplate](~~99406~~).
      *
      * @example f5b228fe693bf55bd87b789****
      *
@@ -49,7 +52,7 @@ class SubmitSnapshotJobShrinkRequest extends Model
     public $snapshotTemplateId;
 
     /**
-     * @description The start time of the specified snapshot time period.
+     * @description The point in time when the first snapshot is captured.
      *
      *   Unit: milliseconds.
      *   Default value: **0**.
@@ -61,6 +64,8 @@ class SubmitSnapshotJobShrinkRequest extends Model
     public $specifiedOffsetTime;
 
     /**
+     * @description The playback positions at which you want to capture snapshots. Unit: milliseconds. You can specify up to 30 playback positions in a request.
+     *
      * @var string
      */
     public $specifiedOffsetTimesShrink;
@@ -75,12 +80,9 @@ class SubmitSnapshotJobShrinkRequest extends Model
     public $spriteSnapshotConfig;
 
     /**
-     * @description The custom configurations, including the configuration of transparent data transmission and callback configurations. The value is a JSON-formatted string. For more information, see [UserData](~~86952~~).
+     * @description The custom configurations including the configuration of transparent data transmission and callback configurations. The value must be a JSON string. For more information, see [UserData](~~86952~~).
      *
-     **
-     *
-     **Note** The callback configurations take effect only when you specify the HTTP callback URL and select the specific callback events in the ApsaraVideo VOD console.
-     *
+     * >  To use the message callback feature, you must specify an HTTP callback URL and the callback events in the ApsaraVideo VOD console. Otherwise, the callback settings do not take effect.
      * @example {"MessageCallback":{"CallbackURL":"http://.example.aliyundoc.com"},"Extend":{"localId":"xxx","example":"www"}}
      *
      * @var string
@@ -88,7 +90,11 @@ class SubmitSnapshotJobShrinkRequest extends Model
     public $userData;
 
     /**
-     * @description The ID of the video.
+     * @description The ID of the video. You can use one of the following methods to obtain the ID:
+     *
+     *   After you upload a video in the ApsaraVideo VOD console, you can log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com) and choose **Media Files** > **Audio/Video** to view the ID of the video.
+     *   Obtain the video ID from the response to the [CreateUploadVideo](~~55407~~) operation that you called to obtain the upload URL and credential.
+     *   Obtain the video ID from the response to the [SearchMedia](~~86044~~) operation that you called to query media information after the audio or video file is uploaded.
      *
      * @example d3e680e618708efbf2cae7cc9312****
      *
@@ -97,7 +103,7 @@ class SubmitSnapshotJobShrinkRequest extends Model
     public $videoId;
 
     /**
-     * @description The width of each snapshot. Valid values: `[8,4096]`. By default, the width of the video mezzanine file is used. Unit: pixel.
+     * @description The width of each snapshot. Valid values: `[8,4096]`. By default, the width of the video source is used. Unit: pixels.
      *
      * @example 1280
      *

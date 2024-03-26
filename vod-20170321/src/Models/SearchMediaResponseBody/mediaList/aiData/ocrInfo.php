@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ocrInfo extends Model
 {
     /**
-     * @description The text.
+     * @description The text content.
      *
      * @example I\"m Jane.
      *

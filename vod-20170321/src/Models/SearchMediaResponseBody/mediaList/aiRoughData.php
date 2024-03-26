@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class aiRoughData extends Model
 {
     /**
-     * @description The AI type.
+     * @description The AI category.
      *
      * @example TV series
      *
@@ -36,7 +36,7 @@ class aiRoughData extends Model
     public $saveType;
 
     /**
-     * @description The status of the data.
+     * @description The data status.
      *
      * @example SaveSuccess
      *

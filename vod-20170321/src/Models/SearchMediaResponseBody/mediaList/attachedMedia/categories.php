@@ -36,7 +36,7 @@ class categories extends Model
     public $level;
 
     /**
-     * @description The ID of the parent category.
+     * @description The ID of the parent node.
      *
      * @example -1
      *

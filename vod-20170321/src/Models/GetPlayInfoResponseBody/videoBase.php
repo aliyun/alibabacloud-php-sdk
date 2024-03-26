@@ -66,6 +66,18 @@ class videoBase extends Model
     public $status;
 
     /**
+     * @description The storage class of the audio or video file. Valid values:
+     *
+     *   **Standard**: All media resources are stored as Standard objects.
+     *   **IA**: All media resources are stored as IA objects.
+     *   **Archive**: All media resources are stored as Archive objects.
+     *   **ColdArchive**: All media resources are stored as Cold Archive objects.
+     *   **SourceIA**: Only the source files are IA objects.
+     *   **SourceArchive**: Only the source files are Archive objects.
+     *   **SourceColdArchive**: Only the source files are Cold Archive objects.
+     *   **Changing**: The storage class of the audio or video file is being changed.
+     *   **SourceChanging**: The storage class of the source file is being changed.
+     *
      * @example Standard
      *
      * @var string

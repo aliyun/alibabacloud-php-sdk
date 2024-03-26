@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class SearchMediaResponseBody extends Model
 {
     /**
-     * @description The AI type.
+     * @description The information about the media assets.
      *
      * @var mediaList[]
      */

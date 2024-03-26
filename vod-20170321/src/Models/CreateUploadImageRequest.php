@@ -36,6 +36,8 @@ class CreateUploadImageRequest extends Model
      *   The description can be up to 1,024 characters in length.
      *   The value must be encoded in UTF-8.
      *
+     * @example The description of the image
+     *
      * @var string
      */
     public $description;
@@ -94,6 +96,8 @@ class CreateUploadImageRequest extends Model
      *   You can specify a maximum of 16 tags for an image.
      *   Separate multiple tags with commas (,).
      *   The value must be encoded in UTF-8.
+     *
+     * @example test
      *
      * @var string
      */

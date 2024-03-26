@@ -64,11 +64,10 @@ class DescribeVodDomainUsageDataResponseBody extends Model
     public $startTime;
 
     /**
-     * @description The type of content returned. Valid values:
+     * @description The type of the data. Valid values:
      *
-     *   **static**: static content
-     *   **dynamic**: dynamic requests
-     *   **all**: all content
+     *   **bps**: bandwidth
+     *   **traf**: traffic
      *
      * @example static
      *

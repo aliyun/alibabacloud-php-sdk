@@ -18,7 +18,7 @@ class video extends Model
     public $appId;
 
     /**
-     * @description The category ID of the video file.
+     * @description The ID of the category.
      *
      * @example 10000123
      *
@@ -45,7 +45,7 @@ class video extends Model
     public $coverURL;
 
     /**
-     * @description The time when the video file was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the video file was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2018-07-19T03:45:25Z
      *
@@ -84,7 +84,7 @@ class video extends Model
     public $duration;
 
     /**
-     * @description The source. Valid values:
+     * @description The source of the video file. Valid values:
      *
      *   **general**: The video file is uploaded by using ApsaraVideo VOD.
      *   **short_video**: The video file is uploaded by using the short video SDK.
@@ -98,7 +98,7 @@ class video extends Model
     public $mediaSource;
 
     /**
-     * @description The time when the video file was updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the video file was updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2018-07-19T03:48:25Z
      *
@@ -152,21 +152,21 @@ class video extends Model
     public $size;
 
     /**
-     * @description The list of automatic snapshots.
+     * @description The automatic snapshots.
      *
      * @var string[]
      */
     public $snapshots;
 
     /**
-     * @description The list of sprite snapshots.
+     * @description The sprite snapshots.
      *
      * @var string[]
      */
     public $spriteSnapshots;
 
     /**
-     * @description The status of the video file. Valid values:
+     * @description The status of the file. Valid values:
      *
      *   **Uploading**
      *   **UploadFail**
@@ -189,10 +189,11 @@ class video extends Model
      *   **IA**: All media resources are stored as IA objects.
      *   **Archive**: All media resources are stored as Archive objects.
      *   **ColdArchive**: All media resources are stored as Cold Archive objects.
-     *   **SourceIA**: Only the source files are IA objects.
-     *   **SourceArchive**: Only the source files are Archive objects.
-     *   **SourceColdArchive**: Only the source files are Cold Archive objects.
-     *   **Changing**: The storage class is being modified.
+     *   **SourceIA**: Only the source file is stored as an IA object.
+     *   **SourceArchive**: Only the source file is stored as an Archive object.
+     *   **SourceColdArchive**: Only the source file is stored as a Cold Archive object.
+     *   **Changing**: The storage class of the video file is being changed.
+     *   **SourceChanging**: The storage class of the source file is being changed.
      *
      * @example Standard
      *
@@ -201,7 +202,7 @@ class video extends Model
     public $storageClass;
 
     /**
-     * @description The endpoint of the OSS bucket in which the video file is stored.
+     * @description The region in which the video is stored.
      *
      * @example outin-bfefbb90a47c******163e1c7426.oss-cn-shanghai.aliyuncs.com
      *
@@ -219,7 +220,7 @@ class video extends Model
     public $tags;
 
     /**
-     * @description The title of the video file.
+     * @description The title of the video.
      *
      * @example ceshi
      *
@@ -228,7 +229,7 @@ class video extends Model
     public $title;
 
     /**
-     * @description The transcoding mode. Default value: FastTranscode. Valid values:
+     * @description The transcoding mode. Valid values:
      *
      *   **FastTranscode**: The video file is immediately transcoded after it is uploaded. You cannot play the file before it is transcoded.
      *   **NoTranscode**: The video file can be played without being transcoded. You can immediately play the file after it is uploaded.

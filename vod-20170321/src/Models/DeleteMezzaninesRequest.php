@@ -9,9 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DeleteMezzaninesRequest extends Model
 {
     /**
-     * @description Specifies whether to forcibly delete the mezzanine file. Default value: **false**.
+     * @description Specifies whether to forcibly delete the source file. Valid values:
      *
-     * > If a video is delivered without transcoding or is asynchronously transcoded, the mezzanine file of the video is used for original-quality playback. By default, the mezzanine file of the video cannot be deleted. To forcibly delete the mezzanine file, set this parameter to **true**.
+     *   **false** (default)
+     *   **true**
+     *
+     * >  If a video is uploaded without transcoding or is asynchronously transcoded, the source file of the video is used for original-quality playback. By default, the source file of the video cannot be deleted. To forcibly delete the mezzanine file, set this parameter to **true**.
      * @example false
      *
      * @var bool
@@ -19,7 +22,11 @@ class DeleteMezzaninesRequest extends Model
     public $force;
 
     /**
-     * @description The list of video IDs. A maximum of 20 video IDs can be specified at a time. Separate multiple IDs with commas (,).
+     * @description The IDs of audio or video files whose source files that you want to delete. You can specify up to 20 IDs. Separate multiple IDs with commas (,). You can use one of the following methods to obtain the ID:
+     *
+     *   After you upload a video in the [ApsaraVideo VOD console](https://vod.console.aliyun.com), you can log on to the ApsaraVideo VOD console and choose **Media Files** > **Audio/Video** to view the ID of the video.
+     *   Obtain the value of VideoId from the response to the [CreateUploadVideo](~~55407~~) operation that you called to obtain the upload URL and credential.
+     *   Obtain the value of VideoId from the response to the [SearchMedia](~~86044~~) operation that you called to query media information after the audio or video file is uploaded.
      *
      * @example 23ab850b4f654b6e91d24d8157****,93ab850b4f6f4b6e91d24d81d4****
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class registeredMediaList extends Model
 {
     /**
-     * @description The OSS URL of the media file.
+     * @description The URL of the media file.
      *
      * @example http://****.oss-cn-shanghai.aliyuncs.com/vod_sample_01.mp4
      *
@@ -18,7 +18,7 @@ class registeredMediaList extends Model
     public $fileURL;
 
     /**
-     * @description The ID of the media file that is registered with ApsaraVideo VOD. If the registered media file is an audio or video file, the value of the VideoId parameter returned by ApsaraVideo VOD takes effect.
+     * @description The ID of the media file that is registered with ApsaraVideo VOD. If the registered media file is an audio or video file, the value of this parameter is the same as that of the VideoId parameter.
      *
      * @example d97af32828084d1896683b1aa38****
      *
@@ -28,8 +28,10 @@ class registeredMediaList extends Model
 
     /**
      * @description Indicates whether the media file is newly registered or repeatedly registered. Valid values:
-     * - **true**: The media file is newly registered.
-     * - **false**: The media file is repeatedly registered.
+     *
+     *   **true**: The media file is newly registered.
+     *   **false**: The media file is repeatedly registered.
+     *
      * @example false
      *
      * @var bool

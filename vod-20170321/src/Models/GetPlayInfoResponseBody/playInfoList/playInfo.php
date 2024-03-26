@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class playInfo extends Model
 {
     /**
-     * @description The color depth. This value must be an integer.
+     * @description The color depth. This value is an integer.
      *
      * @example 8
      *
@@ -27,7 +27,7 @@ class playInfo extends Model
     public $bitrate;
 
     /**
-     * @description The time when the audio or video stream was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the audio or video stream was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2022-04-18T07:37:15Z
      *
@@ -56,7 +56,7 @@ class playInfo extends Model
     public $definition;
 
     /**
-     * @description The duration of the media stream. Unit: seconds.
+     * @description The duration of the media stream. Unit: seconds. 86,400 seconds is equivalent to 24 hours.
      *
      * @example 9.0464
      *
@@ -166,7 +166,7 @@ class playInfo extends Model
     public $jobType;
 
     /**
-     * @description The update time. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the audio or video file was updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2022-04-20T06:32:19Z
      *

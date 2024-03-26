@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GenerateDownloadSecretKeyResponseBody extends Model
 {
     /**
+     * @description The key file for secure download.
+     *
      * @example ***
      *
      * @var string
@@ -16,6 +18,8 @@ class GenerateDownloadSecretKeyResponseBody extends Model
     public $appEncryptKey;
 
     /**
+     * @description The ID of the request.
+     *
      * @example E99B9BAD-7F9D-552B-A689-B72E92EA040E
      *
      * @var string

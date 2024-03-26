@@ -18,7 +18,7 @@ class image extends Model
     public $appId;
 
     /**
-     * @description The category ID of the image file.
+     * @description The ID of the category.
      *
      * @example 1000123
      *
@@ -36,7 +36,7 @@ class image extends Model
     public $cateName;
 
     /**
-     * @description The time when the image file was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the image was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2018-07-19T03:45:25Z
      *
@@ -63,7 +63,7 @@ class image extends Model
     public $imageId;
 
     /**
-     * @description The time when the image file was updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the image file was updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2018-07-19T03:48:25Z
      *
@@ -74,9 +74,9 @@ class image extends Model
     /**
      * @description The status of the image file.
      *
-     *   **Uploading**: The image file is being uploaded. This is the initial status.
-     *   **Normal**: The image file is uploaded.
-     *   **UploadFail**: The image file fails to be uploaded.
+     *   **Uploading**
+     *   **Normal**
+     *   **UploadFail**
      *
      * @example Uploading
      *
@@ -85,7 +85,7 @@ class image extends Model
     public $status;
 
     /**
-     * @description The endpoint of the OSS bucket in which the image file is stored.
+     * @description The region in which the image is stored.
      *
      * @example outin-bfefbb90a47c******163e1c7426.oss-cn-shanghai.aliyuncs.com
      *

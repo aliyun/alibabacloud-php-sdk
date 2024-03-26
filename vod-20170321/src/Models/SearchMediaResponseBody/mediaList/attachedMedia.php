@@ -39,7 +39,7 @@ class attachedMedia extends Model
     public $categories;
 
     /**
-     * @description The time when the auxiliary media asset was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the auxiliary media asset was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2018-07-19T03:45:25Z
      *
@@ -66,7 +66,7 @@ class attachedMedia extends Model
     public $mediaId;
 
     /**
-     * @description The time when the auxiliary media asset was updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the auxiliary media asset was updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2018-07-19T03:48:25Z
      *
@@ -77,9 +77,9 @@ class attachedMedia extends Model
     /**
      * @description The status of the auxiliary media asset. Valid values:
      *
-     *   **Uploading**: The auxiliary media asset is being uploaded. This is the initial status.
-     *   **Normal**: The auxiliary media asset is uploaded.
-     *   **UploadFail**: The auxiliary media asset fails to be uploaded.
+     *   **Uploading**
+     *   **Normal**
+     *   **UploadFail**
      *
      * @example Normal
      *
@@ -88,7 +88,7 @@ class attachedMedia extends Model
     public $status;
 
     /**
-     * @description The endpoint of the OSS bucket in which the auxiliary media asset is stored.
+     * @description The region in which the auxiliary media asset is stored.
      *
      * @example outin-bfefbb90a47c11*****7426.oss-cn-shanghai.aliyuncs.com
      *

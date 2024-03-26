@@ -27,6 +27,11 @@ class DeleteVodSpecificConfigRequest extends Model
     public $domainName;
 
     /**
+     * @description The environment of configuration.
+     *
+     * gray: simulation environment
+     * @example online
+     *
      * @var string
      */
     public $env;
