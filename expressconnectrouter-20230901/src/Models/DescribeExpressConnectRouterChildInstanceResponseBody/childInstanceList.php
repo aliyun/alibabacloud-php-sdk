@@ -44,6 +44,11 @@ class childInstanceList extends Model
     public $childInstanceType;
 
     /**
+     * @var string
+     */
+    public $ecrId;
+
+    /**
      * @example 2024-01-09T12:18:23Z
      *
      * @var string
@@ -83,6 +88,7 @@ class childInstanceList extends Model
         'childInstanceOwnerId'  => 'ChildInstanceOwnerId',
         'childInstanceRegionId' => 'ChildInstanceRegionId',
         'childInstanceType'     => 'ChildInstanceType',
+        'ecrId'                 => 'EcrId',
         'gmtCreate'             => 'GmtCreate',
         'gmtModified'           => 'GmtModified',
         'ownerId'               => 'OwnerId',
@@ -111,6 +117,9 @@ class childInstanceList extends Model
         }
         if (null !== $this->childInstanceType) {
             $res['ChildInstanceType'] = $this->childInstanceType;
+        }
+        if (null !== $this->ecrId) {
+            $res['EcrId'] = $this->ecrId;
         }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
@@ -153,6 +162,9 @@ class childInstanceList extends Model
         }
         if (isset($map['ChildInstanceType'])) {
             $model->childInstanceType = $map['ChildInstanceType'];
+        }
+        if (isset($map['EcrId'])) {
+            $model->ecrId = $map['EcrId'];
         }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
