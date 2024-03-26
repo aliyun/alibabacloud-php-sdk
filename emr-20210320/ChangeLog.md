@@ -1,3 +1,6 @@
+2024-03-26 Version: 1.3.2
+- Generated php 2021-03-20 for Emr.
+
 2024-03-15 Version: 1.3.1
 - Update API GetAutoScalingPolicy: update response param.
 

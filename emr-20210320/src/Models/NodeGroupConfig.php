@@ -18,6 +18,11 @@ class NodeGroupConfig extends Model
     public $additionalSecurityGroupIds;
 
     /**
+     * @var string[]
+     */
+    public $componentTags;
+
+    /**
      * @description 成本优化模式配置。
      *
      * @var CostOptimizedConfig
@@ -161,6 +166,7 @@ class NodeGroupConfig extends Model
     public $withPublicIp;
     protected $_name = [
         'additionalSecurityGroupIds' => 'AdditionalSecurityGroupIds',
+        'componentTags'              => 'ComponentTags',
         'costOptimizedConfig'        => 'CostOptimizedConfig',
         'dataDisks'                  => 'DataDisks',
         'deploymentSetStrategy'      => 'DeploymentSetStrategy',
@@ -189,6 +195,9 @@ class NodeGroupConfig extends Model
         $res = [];
         if (null !== $this->additionalSecurityGroupIds) {
             $res['AdditionalSecurityGroupIds'] = $this->additionalSecurityGroupIds;
+        }
+        if (null !== $this->componentTags) {
+            $res['ComponentTags'] = $this->componentTags;
         }
         if (null !== $this->costOptimizedConfig) {
             $res['CostOptimizedConfig'] = null !== $this->costOptimizedConfig ? $this->costOptimizedConfig->toMap() : null;
@@ -268,6 +277,11 @@ class NodeGroupConfig extends Model
         if (isset($map['AdditionalSecurityGroupIds'])) {
             if (!empty($map['AdditionalSecurityGroupIds'])) {
                 $model->additionalSecurityGroupIds = $map['AdditionalSecurityGroupIds'];
+            }
+        }
+        if (isset($map['ComponentTags'])) {
+            if (!empty($map['ComponentTags'])) {
+                $model->componentTags = $map['ComponentTags'];
             }
         }
         if (isset($map['CostOptimizedConfig'])) {
