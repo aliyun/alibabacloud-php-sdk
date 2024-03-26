@@ -21,7 +21,7 @@ class resources extends Model
     public $acwCookieStatus;
 
     /**
-     * @description The status of the secure attribute of the tracking cookie.
+     * @description The status of the secure attribute in the tracking cookie.
      *
      *   **0:** disabled.
      *   **1:** enabled.
@@ -33,7 +33,7 @@ class resources extends Model
     public $acwSecureStatus;
 
     /**
-     * @description The status of the secure attribute of the slider verification cookie.
+     * @description The status of the slider CAPTCHA cookie.
      *
      *   **0:** disabled.
      *   **1:** enabled.
@@ -45,7 +45,7 @@ class resources extends Model
     public $acwV3SecureStatus;
 
     /**
-     * @description The custom XFF headers that are used to identify the originating IP addresses of clients. If the value of XffStatus is 1 and CustomHeaders is left empty, the first IP address in the XFF header is the originating IP address of the client.
+     * @description The custom XFF headers that are used to identify the originating IP addresses of clients. If the value of XffStatus is 1 and CustomHeaders is left empty, the first IP addresses in the XFF headers are used as the originating IP addresses of clients.
      *
      * @var string[]
      */
@@ -61,14 +61,14 @@ class resources extends Model
     public $description;
 
     /**
-     * @description The details of the protected object. Different key-value pairs in a map indicate different properties of the protected object.
+     * @description The details of the protected object. Different key-value pairs indicate different attributes of the protected object.
      *
      * @var mixed[]
      */
     public $detail;
 
     /**
-     * @description The creation time of the protected object. Unit: seconds.
+     * @description The time when the protected object was created. Unit: milliseconds.
      *
      * @example 1652149203187
      *
@@ -77,7 +77,7 @@ class resources extends Model
     public $gmtCreate;
 
     /**
-     * @description The most recent modification time of the protected object. Unit: seconds.
+     * @description The time when the protected object was modified. Unit: milliseconds.
      *
      * @example 1665633032000
      *
@@ -86,7 +86,12 @@ class resources extends Model
     public $gmtModified;
 
     /**
-     * @description The protection pattern.
+     * @var string
+     */
+    public $ownerUserId;
+
+    /**
+     * @description The pattern in which the protected object is protected.
      *
      * @example domain
      *
@@ -122,7 +127,7 @@ class resources extends Model
     public $resourceGroup;
 
     /**
-     * @description The ID of the resource group.
+     * @description The ID of the Alibaba Cloud resource group.
      *
      * @example rg-acfm***q
      *
@@ -140,7 +145,7 @@ class resources extends Model
     public $resourceOrigin;
 
     /**
-     * @description Indicates whether the X-Forwarded-For (XFF) header is used.
+     * @description Indicates whether the X-Forwarded-For (XFF) proxy feature is enabled for the protected object.
      *
      * @example 1
      *
@@ -156,6 +161,7 @@ class resources extends Model
         'detail'                         => 'Detail',
         'gmtCreate'                      => 'GmtCreate',
         'gmtModified'                    => 'GmtModified',
+        'ownerUserId'                    => 'OwnerUserId',
         'pattern'                        => 'Pattern',
         'product'                        => 'Product',
         'resource'                       => 'Resource',
@@ -195,6 +201,9 @@ class resources extends Model
         }
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
+        }
+        if (null !== $this->ownerUserId) {
+            $res['OwnerUserId'] = $this->ownerUserId;
         }
         if (null !== $this->pattern) {
             $res['Pattern'] = $this->pattern;
@@ -254,6 +263,9 @@ class resources extends Model
         }
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
+        }
+        if (isset($map['OwnerUserId'])) {
+            $model->ownerUserId = $map['OwnerUserId'];
         }
         if (isset($map['Pattern'])) {
             $model->pattern = $map['Pattern'];

@@ -9,17 +9,27 @@ use AlibabaCloud\Tea\Model;
 class groups extends Model
 {
     /**
+     * @description The back-to-origin mark of the protected cluster. The value is in the {ISP name}-{Continent name}-{City name}-{Back-to-origin identifier} format. The back-to-origin identifier is optional.
+     *
+     * >  For more information about ISP names, continent names, city names, and back-to-origin identifiers, see the following sections.
+     * @example aliyun-asiapacific-beijing-12345678
+     *
      * @var string
      */
     public $backSourceMark;
 
     /**
+     * @description The continent code of the protected cluster.
+     *
+     * >  For more information about continent codes, see Continent codes in this topic.
+     * @example 410
+     *
      * @var int
      */
     public $continentsValue;
 
     /**
-     * @description The ID of the hybrid cloud node group.
+     * @description The ID of the node group.
      *
      * @example 123
      *
@@ -28,7 +38,7 @@ class groups extends Model
     public $groupId;
 
     /**
-     * @description The name of the hybrid cloud node group.
+     * @description The name of the node group.
      *
      * @example StorageGroup
      *
@@ -37,7 +47,7 @@ class groups extends Model
     public $groupName;
 
     /**
-     * @description The type of the hybrid cloud node group. Valid values:
+     * @description The type of the node group. Valid values:
      *
      *   **protect**
      *   **control**
@@ -51,7 +61,7 @@ class groups extends Model
     public $groupType;
 
     /**
-     * @description The IP address of the server for load balancing.
+     * @description The IP address of the server used for load balancing.
      *
      * @example 1.1.XX.XX
      *
@@ -69,6 +79,11 @@ class groups extends Model
     public $locationId;
 
     /**
+     * @description The ISP code of the protected cluster.
+     *
+     * >  For more information about ISP codes, see ISP codes in this topic.
+     * @example 0
+     *
      * @var int
      */
     public $operatorValue;
@@ -83,12 +98,19 @@ class groups extends Model
     public $ports;
 
     /**
+     * @description The city code of the protected cluster.
+     *
+     * >  For more information about city codes, see City codes in this topic.
+     * @example 0
+     *
      * @var int
      */
     public $regionCodeValue;
 
     /**
-     * @description The description of the hybrid cloud node group.
+     * @description The description of the node group.
+     *
+     * @example test
      *
      * @var string
      */

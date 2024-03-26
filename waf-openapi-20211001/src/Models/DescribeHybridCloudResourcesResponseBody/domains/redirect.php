@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class redirect extends Model
 {
     /**
-     * @description The back-to-origin IP addresses or domain names.
+     * @description The IP addresses or domain names of the origin server.
      *
      * @var string[]
      */
@@ -29,7 +29,7 @@ class redirect extends Model
     public $cnameEnabled;
 
     /**
-     * @description The connection timeout period. Unit: seconds. Valid values: 5 to 120.
+     * @description The timeout period for connections. Unit: seconds. Valid values: 5 to 120.
      *
      * @example 120
      *
@@ -64,7 +64,7 @@ class redirect extends Model
     /**
      * @description The number of reused persistent connections. Valid values: 60 to 1000.
      *
-     * > This parameter indicates the number of reused persistent connections after you enable the persistent connection feature.
+     * >  This parameter indicates the number of reused persistent connections after the persistent connection feature is enabled.
      * @example 1000
      *
      * @var int
@@ -72,9 +72,9 @@ class redirect extends Model
     public $keepaliveRequests;
 
     /**
-     * @description The timeout period of persistent connections that are in the Idle state. Unit: seconds. Valid values: 1 to 60. Default value: 15.
+     * @description The timeout period for persistent connections that are in the Idle state. Unit: seconds. Valid values: 1 to 60. Default value: 15.
      *
-     * > This parameter indicates the period of time during which a reused persistent connection is allowed to remain in the Idle state before the persistent connection is released.
+     * >  This parameter indicates the period of time during which a reused persistent connection can remain in the Idle state before the persistent connection is released.
      * @example 15
      *
      * @var int
@@ -82,9 +82,9 @@ class redirect extends Model
     public $keepaliveTimeout;
 
     /**
-     * @description The load balancing algorithm that WAF uses to forward requests to the origin server. Valid values:
+     * @description The load balancing algorithm that is used to forward requests to the origin server. Valid values:
      *
-     *   **ip_hash**
+     *   **iphash**
      *   **roundRobin**
      *   **leastTime**
      *
@@ -95,7 +95,7 @@ class redirect extends Model
     public $loadbalance;
 
     /**
-     * @description The read timeout period. Unit: seconds. Valid values: 5 to 1800.
+     * @description The timeout period for read connections. Unit: seconds. Valid values: 5 to 1800.
      *
      * @example 200
      *
@@ -104,14 +104,14 @@ class redirect extends Model
     public $readTimeout;
 
     /**
-     * @description The key-value pair that is used to mark the requests that pass through the WAF instance.
+     * @description The key-value pair that is used to label requests that pass through WAF.
      *
      * @var requestHeaders[]
      */
     public $requestHeaders;
 
     /**
-     * @description Indicates whether WAF retries to forward requests when requests fail to be forwarded to the origin server. Valid values:
+     * @description Indicates whether WAF retries forwarding requests if requests fail to be forwarded to the origin server. Valid values:
      *
      *   **true**
      *   **false**
@@ -123,11 +123,11 @@ class redirect extends Model
     public $retry;
 
     /**
-     * @description The forwarding rules that you configured for the domain name that you added to WAF in hybrid cloud mode. The value is a string that consists of JSON arrays. Each element in a JSON array is a JSON struct that contains the following fields:
+     * @description The forwarding rules that are configured for the domain name. This parameter is a string that consists of JSON arrays. Each element in a JSON array is a JSON struct that contains the following fields:
      *
-     *   **rs:** The back-to-origin IP addresses or CNAMEs. The value is of the ARRAY type.
-     *   **location:** The name of the protection node. The value is of the STRING type.
-     *   **locationId:** The ID of the protection node. The value is of the LONG type.
+     *   **rs**: the back-to-origin IP addresses or CNAMEs. The value is of the ARRAY type.
+     *   **location**: the name of the protection node. The value is of the STRING type.
+     *   **locationId**: the ID of the protection node. The value is of the LONG type.
      *
      * @example [
      * ]
@@ -148,9 +148,9 @@ class redirect extends Model
     public $sniEnabled;
 
     /**
-     * @description The value of the custom Server Name Indication (SNI) field. If the parameter is left empty, the value of the **Host** field in the request header is automatically used as the value of the SNI field.
+     * @description The value of the custom SNI field. If the parameter is left empty, the value of the **Host** field in the request header is automatically used as the value of the SNI field.
      *
-     * > This parameter is returned only if the value of **SniEnabled** is **true**.
+     * >  This parameter is returned only if the value of **SniEnabled** is **true**.
      * @example www.aliyundoc.com
      *
      * @var string
@@ -158,7 +158,7 @@ class redirect extends Model
     public $sniHost;
 
     /**
-     * @description The write timeout period. Unit: seconds. Valid values: 5 to 1800.
+     * @description The timeout period for write connections. Unit: seconds. Valid values: 5 to 1800.
      *
      * @example 200
      *

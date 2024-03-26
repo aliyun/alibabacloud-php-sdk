@@ -28,6 +28,10 @@ class DescribeRuleHitsTopRuleIdRequest extends Model
     public $instanceId;
 
     /**
+     * @description Specifies whether protected objects that trigger protection rules are returned in the response. Valid values
+     *
+     * - **true**: returns only the number of times each protection rule is triggered. If you set IsGroupResource to true, Resource is left empty.
+     * - **false**: returns the number of times each protection rule is triggered by each protected object.
      * @example true
      *
      * @var string

@@ -69,15 +69,6 @@ class DescribeDefenseResourcesRequest extends Model
     public $resourceManagerResourceGroupId;
 
     /**
-     * @description The source IP address of the request. The value of this parameter is specified by the system.
-     *
-     * @example 0.0.XX.XX
-     *
-     * @var string
-     */
-    public $sourceIp;
-
-    /**
      * @description The tags of the resources that you want to query. You can specify up to 20 tags.
      *
      * @var tag[]
@@ -90,7 +81,6 @@ class DescribeDefenseResourcesRequest extends Model
         'query'                          => 'Query',
         'regionId'                       => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'sourceIp'                       => 'SourceIp',
         'tag'                            => 'Tag',
     ];
 
@@ -118,9 +108,6 @@ class DescribeDefenseResourcesRequest extends Model
         }
         if (null !== $this->resourceManagerResourceGroupId) {
             $res['ResourceManagerResourceGroupId'] = $this->resourceManagerResourceGroupId;
-        }
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -160,9 +147,6 @@ class DescribeDefenseResourcesRequest extends Model
         }
         if (isset($map['ResourceManagerResourceGroupId'])) {
             $model->resourceManagerResourceGroupId = $map['ResourceManagerResourceGroupId'];
-        }
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

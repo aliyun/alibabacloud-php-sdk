@@ -142,6 +142,13 @@ class redirect extends Model
     public $writeTimeout;
 
     /**
+     * @description Indicates whether the X-Forward-For-Proto header is used to identify the protocol used by WAF to forward requests to the origin server. Valid values:
+     *
+     *   **true** (default)
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $xffProto;

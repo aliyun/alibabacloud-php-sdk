@@ -124,16 +124,34 @@ class listen extends Model
     public $protectionResource;
 
     /**
+     * @description Indicates whether only SM certificate-based clients can access the domain name. This parameter is returned only if the value of SM2Enabled is true. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var bool
      */
     public $SM2AccessOnly;
 
     /**
+     * @description The ID of the SM certificate that is added. This parameter is returned only if the value of SM2Enabled is true.
+     *
+     * @example 123-cn-hangzhou
+     *
      * @var bool
      */
     public $SM2CertId;
 
     /**
+     * @description Indicates whether SM certificate-based verification is enabled. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $SM2Enabled;

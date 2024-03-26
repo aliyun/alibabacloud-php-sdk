@@ -73,15 +73,6 @@ class CreateDomainShrinkRequest extends Model
      * @var string
      */
     public $resourceManagerResourceGroupId;
-
-    /**
-     * @description The source IP address of the request. You do not need to specify this parameter. It is automatically obtained by the system.
-     *
-     * @example 0.0.0.0
-     *
-     * @var string
-     */
-    public $sourceIp;
     protected $_name = [
         'accessType'                     => 'AccessType',
         'domain'                         => 'Domain',
@@ -90,7 +81,6 @@ class CreateDomainShrinkRequest extends Model
         'redirectShrink'                 => 'Redirect',
         'regionId'                       => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'sourceIp'                       => 'SourceIp',
     ];
 
     public function validate()
@@ -120,9 +110,6 @@ class CreateDomainShrinkRequest extends Model
         }
         if (null !== $this->resourceManagerResourceGroupId) {
             $res['ResourceManagerResourceGroupId'] = $this->resourceManagerResourceGroupId;
-        }
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -156,9 +143,6 @@ class CreateDomainShrinkRequest extends Model
         }
         if (isset($map['ResourceManagerResourceGroupId'])) {
             $model->resourceManagerResourceGroupId = $map['ResourceManagerResourceGroupId'];
-        }
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

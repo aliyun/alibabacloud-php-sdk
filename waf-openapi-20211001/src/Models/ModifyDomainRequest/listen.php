@@ -124,9 +124,11 @@ class listen extends Model
     public $protectionResource;
 
     /**
-     * @description 是否仅客端访问。仅SM2Enable取值为true时，使用该参数。
+     * @description Specifies whether to allow access only from SM certificate-based clients. This parameter is available only if you set SM2Enabled to true.
      *
-     * - false：国密和非国密均可以访问。
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -134,7 +136,7 @@ class listen extends Model
     public $SM2AccessOnly;
 
     /**
-     * @description 要添加的国密证书的ID。仅SM2Enable取值为true时，使用该参数。
+     * @description The ID of the SM certificate that you want to add. This parameter is available only if you set SM2Enabled to true.
      *
      * @example 123-cn-hangzhou
      *
@@ -143,7 +145,10 @@ class listen extends Model
     public $SM2CertId;
 
     /**
-     * @description 是否开启国密证书
+     * @description Indicates whether SM certificate-based verification is enabled. Valid values:
+     *
+     *   **true**
+     *   **false**
      *
      * @example true
      *

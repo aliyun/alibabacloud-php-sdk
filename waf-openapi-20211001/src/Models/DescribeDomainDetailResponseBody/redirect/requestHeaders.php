@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class requestHeaders extends Model
 {
     /**
-     * @description The key of the custom header field.
+     * @description The custom header field.
      *
      * @example aaa
      *

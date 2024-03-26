@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeHybridCloudGroupsResponseBody extends Model
 {
     /**
-     * @description The hybrid cloud node groups.
+     * @description The node groups.
      *
      * @var groups[]
      */
@@ -19,7 +19,7 @@ class DescribeHybridCloudGroupsResponseBody extends Model
     /**
      * @description The ID of the request.
      *
-     * @example 045660E7-C4C6-5CD7-8182-7B337D95ADF4
+     * @example 045660E7-C4C6-5CD7-8182-7B337D95****
      *
      * @var string
      */

@@ -86,15 +86,6 @@ class DescribeHybridCloudResourcesRequest extends Model
      * @var string
      */
     public $resourceManagerResourceGroupId;
-
-    /**
-     * @description The source IP address of the request. The system specifies this parameter.
-     *
-     * @example 0.0.XX.XX
-     *
-     * @var string
-     */
-    public $sourceIp;
     protected $_name = [
         'backend'                        => 'Backend',
         'cnameEnabled'                   => 'CnameEnabled',
@@ -104,7 +95,6 @@ class DescribeHybridCloudResourcesRequest extends Model
         'pageSize'                       => 'PageSize',
         'regionId'                       => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'sourceIp'                       => 'SourceIp',
     ];
 
     public function validate()
@@ -137,9 +127,6 @@ class DescribeHybridCloudResourcesRequest extends Model
         }
         if (null !== $this->resourceManagerResourceGroupId) {
             $res['ResourceManagerResourceGroupId'] = $this->resourceManagerResourceGroupId;
-        }
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -176,9 +163,6 @@ class DescribeHybridCloudResourcesRequest extends Model
         }
         if (isset($map['ResourceManagerResourceGroupId'])) {
             $model->resourceManagerResourceGroupId = $map['ResourceManagerResourceGroupId'];
-        }
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

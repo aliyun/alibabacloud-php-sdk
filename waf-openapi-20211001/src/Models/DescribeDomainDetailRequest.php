@@ -38,20 +38,10 @@ class DescribeDomainDetailRequest extends Model
      * @var string
      */
     public $regionId;
-
-    /**
-     * @description The source IP address of the request. The value of this parameter is specified by the system.
-     *
-     * @example 0.0.XX.XX
-     *
-     * @var string
-     */
-    public $sourceIp;
     protected $_name = [
         'domain'     => 'Domain',
         'instanceId' => 'InstanceId',
         'regionId'   => 'RegionId',
-        'sourceIp'   => 'SourceIp',
     ];
 
     public function validate()
@@ -69,9 +59,6 @@ class DescribeDomainDetailRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -93,9 +80,6 @@ class DescribeDomainDetailRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

@@ -76,15 +76,6 @@ class DescribeDomainsRequest extends Model
     public $resourceManagerResourceGroupId;
 
     /**
-     * @description The source IP address. The value of this parameter is specified by the system.
-     *
-     * @example 1.1.X.X
-     *
-     * @var string
-     */
-    public $sourceIp;
-
-    /**
      * @description The tag of the resource. You can specify up to 20 tags.
      *
      * @var tag[]
@@ -98,7 +89,6 @@ class DescribeDomainsRequest extends Model
         'pageSize'                       => 'PageSize',
         'regionId'                       => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'sourceIp'                       => 'SourceIp',
         'tag'                            => 'Tag',
     ];
 
@@ -129,9 +119,6 @@ class DescribeDomainsRequest extends Model
         }
         if (null !== $this->resourceManagerResourceGroupId) {
             $res['ResourceManagerResourceGroupId'] = $this->resourceManagerResourceGroupId;
-        }
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -174,9 +161,6 @@ class DescribeDomainsRequest extends Model
         }
         if (isset($map['ResourceManagerResourceGroupId'])) {
             $model->resourceManagerResourceGroupId = $map['ResourceManagerResourceGroupId'];
-        }
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

@@ -30,7 +30,7 @@ class DescribeHybridCloudGroupsRequest extends Model
     public $clusterProxyType;
 
     /**
-     * @description The name of the hybrid cloud node group that you want to query.
+     * @description The name of the node group that you want to query.
      *
      * @example groupName1
      *

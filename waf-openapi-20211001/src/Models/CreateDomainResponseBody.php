@@ -19,7 +19,7 @@ class CreateDomainResponseBody extends Model
     /**
      * @description The ID of the request.
      *
-     * @example D7861F61-5B61-46CE-A47C-6B19160D5EB0
+     * @example D7861F61-5B61-46CE-A47C-6B19160D****
      *
      * @var string
      */

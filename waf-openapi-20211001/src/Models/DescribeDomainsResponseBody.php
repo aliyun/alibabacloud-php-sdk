@@ -17,6 +17,8 @@ class DescribeDomainsResponseBody extends Model
     public $domains;
 
     /**
+     * @description The ID of the request.
+     *
      * @example ABF68BB3-2C48-5FA4-9750-D5FE55700E36
      *
      * @var string
@@ -24,6 +26,8 @@ class DescribeDomainsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of returned entries.
+     *
      * @example 146
      *
      * @var int

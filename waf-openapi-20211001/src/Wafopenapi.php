@@ -19,6 +19,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateDomainResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateDomainShrinkRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateMajorProtectionBlackIpRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateMajorProtectionBlackIpResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateMemberAccountsRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateMemberAccountsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteDefenseResourceGroupRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteDefenseResourceGroupResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteDefenseRuleRequest;
@@ -29,16 +31,24 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteDomainRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteDomainResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteMajorProtectionBlackIpRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteMajorProtectionBlackIpResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteMemberAccountRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteMemberAccountResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAccountDelegatedStatusRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAccountDelegatedStatusResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseResourceGroupRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseResourceGroupResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseResourcesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseResourcesResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseResourceTemplatesRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseResourceTemplatesResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseRuleRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseRuleResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseRulesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseRulesResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseTemplateRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseTemplateResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseTemplatesRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseTemplatesResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDomainDetailRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDomainDetailResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDomainsRequest;
@@ -59,8 +69,12 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeInstanceRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeInstanceResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeMajorProtectionBlackIpsRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeMajorProtectionBlackIpsResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeMemberAccountsRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeMemberAccountsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribePeakTrendRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribePeakTrendResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeResourceInstanceCertsRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeResourceInstanceCertsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeResourceLogStatusRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeResourceLogStatusResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeResourcePortRequest;
@@ -81,8 +95,18 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeRuleHitsTopUaRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeRuleHitsTopUaResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeRuleHitsTopUrlRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeRuleHitsTopUrlResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSlsAuthStatusRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSlsAuthStatusResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSlsLogStoreRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSlsLogStoreResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSlsLogStoreStatusRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSlsLogStoreStatusResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeTemplateResourcesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeTemplateResourcesResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeUserSlsLogRegionsRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeUserSlsLogRegionsResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeUserWafLogStatusRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeUserWafLogStatusResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeVisitTopIpRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeVisitTopIpResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeVisitUasRequest;
@@ -106,6 +130,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyHybridCloudClusterBypassS
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyHybridCloudClusterBypassStatusResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyMajorProtectionBlackIpRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyMajorProtectionBlackIpResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyMemberAccountRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyMemberAccountResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyResourceLogStatusRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyResourceLogStatusResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyTemplateResourcesRequest;
@@ -452,9 +478,6 @@ class Wafopenapi extends OpenApiClient
         if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
             $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -551,6 +574,61 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createMajorProtectionBlackIpWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateMemberAccountsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateMemberAccountsResponse
+     */
+    public function createMemberAccountsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->memberAccountIds)) {
+            $query['MemberAccountIds'] = $request->memberAccountIds;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateMemberAccounts',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateMemberAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateMemberAccountsRequest $request
+     *
+     * @return CreateMemberAccountsResponse
+     */
+    public function createMemberAccounts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createMemberAccountsWithOptions($request, $runtime);
     }
 
     /**
@@ -737,9 +815,6 @@ class Wafopenapi extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -829,6 +904,110 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * @param DeleteMemberAccountRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteMemberAccountResponse
+     */
+    public function deleteMemberAccountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->memberAccountId)) {
+            $query['MemberAccountId'] = $request->memberAccountId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteMemberAccount',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteMemberAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteMemberAccountRequest $request
+     *
+     * @return DeleteMemberAccountResponse
+     */
+    public function deleteMemberAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteMemberAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeAccountDelegatedStatusRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeAccountDelegatedStatusResponse
+     */
+    public function describeAccountDelegatedStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAccountDelegatedStatus',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAccountDelegatedStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAccountDelegatedStatusRequest $request
+     *
+     * @return DescribeAccountDelegatedStatusResponse
+     */
+    public function describeAccountDelegatedStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAccountDelegatedStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDefenseResourceGroupRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -881,6 +1060,67 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * @param DescribeDefenseResourceTemplatesRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeDefenseResourceTemplatesResponse
+     */
+    public function describeDefenseResourceTemplatesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resource)) {
+            $query['Resource'] = $request->resource;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->ruleType)) {
+            $query['RuleType'] = $request->ruleType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDefenseResourceTemplates',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDefenseResourceTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDefenseResourceTemplatesRequest $request
+     *
+     * @return DescribeDefenseResourceTemplatesResponse
+     */
+    public function describeDefenseResourceTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDefenseResourceTemplatesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDefenseResourcesRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -907,9 +1147,6 @@ class Wafopenapi extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
             $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
-        }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
         }
         if (!Utils::isUnset($request->tag)) {
             $query['Tag'] = $request->tag;
@@ -1113,6 +1350,79 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * @param DescribeDefenseTemplatesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeDefenseTemplatesResponse
+     */
+    public function describeDefenseTemplatesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->defenseScene)) {
+            $query['DefenseScene'] = $request->defenseScene;
+        }
+        if (!Utils::isUnset($request->defenseSubScene)) {
+            $query['DefenseSubScene'] = $request->defenseSubScene;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resource)) {
+            $query['Resource'] = $request->resource;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->templateType)) {
+            $query['TemplateType'] = $request->templateType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDefenseTemplates',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDefenseTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDefenseTemplatesRequest $request
+     *
+     * @return DescribeDefenseTemplatesResponse
+     */
+    public function describeDefenseTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDefenseTemplatesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDomainDetailRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -1130,9 +1440,6 @@ class Wafopenapi extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1194,9 +1501,6 @@ class Wafopenapi extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
             $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
-        }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
         }
         if (!Utils::isUnset($request->tag)) {
             $query['Tag'] = $request->tag;
@@ -1506,9 +1810,6 @@ class Wafopenapi extends OpenApiClient
         if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
             $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -1702,6 +2003,61 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * @param DescribeMemberAccountsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeMemberAccountsResponse
+     */
+    public function describeMemberAccountsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountStatus)) {
+            $query['AccountStatus'] = $request->accountStatus;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeMemberAccounts',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeMemberAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeMemberAccountsRequest $request
+     *
+     * @return DescribeMemberAccountsResponse
+     */
+    public function describeMemberAccounts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeMemberAccountsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribePeakTrendRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -1760,6 +2116,64 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describePeakTrendWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeResourceInstanceCertsRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeResourceInstanceCertsResponse
+     */
+    public function describeResourceInstanceCertsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceInstanceId)) {
+            $query['ResourceInstanceId'] = $request->resourceInstanceId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeResourceInstanceCerts',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeResourceInstanceCertsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeResourceInstanceCertsRequest $request
+     *
+     * @return DescribeResourceInstanceCertsResponse
+     */
+    public function describeResourceInstanceCerts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeResourceInstanceCertsWithOptions($request, $runtime);
     }
 
     /**
@@ -2349,6 +2763,153 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * @param DescribeSlsAuthStatusRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeSlsAuthStatusResponse
+     */
+    public function describeSlsAuthStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSlsAuthStatus',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSlsAuthStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSlsAuthStatusRequest $request
+     *
+     * @return DescribeSlsAuthStatusResponse
+     */
+    public function describeSlsAuthStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSlsAuthStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeSlsLogStoreRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeSlsLogStoreResponse
+     */
+    public function describeSlsLogStoreWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSlsLogStore',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSlsLogStoreResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSlsLogStoreRequest $request
+     *
+     * @return DescribeSlsLogStoreResponse
+     */
+    public function describeSlsLogStore($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSlsLogStoreWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeSlsLogStoreStatusRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeSlsLogStoreStatusResponse
+     */
+    public function describeSlsLogStoreStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSlsLogStoreStatus',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSlsLogStoreStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSlsLogStoreStatusRequest $request
+     *
+     * @return DescribeSlsLogStoreStatusResponse
+     */
+    public function describeSlsLogStoreStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSlsLogStoreStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeTemplateResourcesRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -2401,6 +2962,104 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeTemplateResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeUserSlsLogRegionsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeUserSlsLogRegionsResponse
+     */
+    public function describeUserSlsLogRegionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUserSlsLogRegions',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeUserSlsLogRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeUserSlsLogRegionsRequest $request
+     *
+     * @return DescribeUserSlsLogRegionsResponse
+     */
+    public function describeUserSlsLogRegions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUserSlsLogRegionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeUserWafLogStatusRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeUserWafLogStatusResponse
+     */
+    public function describeUserWafLogStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUserWafLogStatus',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeUserWafLogStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeUserWafLogStatusRequest $request
+     *
+     * @return DescribeUserWafLogStatusResponse
+     */
+    public function describeUserWafLogStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUserWafLogStatusWithOptions($request, $runtime);
     }
 
     /**
@@ -2891,9 +3550,6 @@ class Wafopenapi extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -3035,6 +3691,64 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyMajorProtectionBlackIpWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyMemberAccountRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ModifyMemberAccountResponse
+     */
+    public function modifyMemberAccountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->memberAccountId)) {
+            $query['MemberAccountId'] = $request->memberAccountId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyMemberAccount',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyMemberAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyMemberAccountRequest $request
+     *
+     * @return ModifyMemberAccountResponse
+     */
+    public function modifyMemberAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyMemberAccountWithOptions($request, $runtime);
     }
 
     /**

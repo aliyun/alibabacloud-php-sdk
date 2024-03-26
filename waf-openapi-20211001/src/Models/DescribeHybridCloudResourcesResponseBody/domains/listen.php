@@ -33,7 +33,7 @@ class listen extends Model
     /**
      * @description The custom cipher suites.
      *
-     * > This parameter is returned only if the value of **CipherSuite** is **99**.
+     * >  This parameter is returned only if the value of **CipherSuite** is **99**.
      * @var string[]
      */
     public $customCiphers;
@@ -101,6 +101,13 @@ class listen extends Model
     public $httpsPorts;
 
     /**
+     * @description Specifies whether to enable IPv6. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example false
+     *
      * @var bool
      */
     public $IPv6Enabled;
@@ -133,9 +140,9 @@ class listen extends Model
     /**
      * @description The method that is used to obtain the actual IP address of a client. Valid values:
      *
-     *   **0:** No Layer 7 proxies are deployed in front of WAF.
-     *   **1:** WAF reads the first value of the X-Forwarded-For (XFF) header field as the actual IP address of the client.
-     *   **2:** WAF reads the value of a custom header field as the actual IP address of the client.
+     *   **0**: No Layer 7 proxies are deployed in front of WAF.
+     *   **1**: WAF reads the first value of the X-Forwarded-For (XFF) header field as the actual IP address of the client.
+     *   **2**: WAF reads the value of a custom header field as the actual IP address of the client.
      *
      * @example 0
      *
@@ -144,9 +151,9 @@ class listen extends Model
     public $xffHeaderMode;
 
     /**
-     * @description The custom header fields that are used to obtain the actual IP address of a client. The value is in the \["header1","header2",...] format.
+     * @description The custom header fields that are used to obtain the actual IP addresses of clients. The value is in the \["header1","header2",...] format.
      *
-     * > This parameter is returned only if the value of **XffHeaderMode** is 2.
+     * >  This parameter is returned only if the value of **XffHeaderMode** is 2.
      * @var string[]
      */
     public $xffHeaders;

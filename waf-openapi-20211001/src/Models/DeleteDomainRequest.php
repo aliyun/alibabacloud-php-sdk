@@ -59,22 +59,12 @@ class DeleteDomainRequest extends Model
      * @var string
      */
     public $regionId;
-
-    /**
-     * @description The source IP address of the request. The value of this parameter is specified by the system.
-     *
-     * @example 0.0.XX.XX
-     *
-     * @var string
-     */
-    public $sourceIp;
     protected $_name = [
         'accessType' => 'AccessType',
         'domain'     => 'Domain',
         'domainId'   => 'DomainId',
         'instanceId' => 'InstanceId',
         'regionId'   => 'RegionId',
-        'sourceIp'   => 'SourceIp',
     ];
 
     public function validate()
@@ -98,9 +88,6 @@ class DeleteDomainRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -128,9 +115,6 @@ class DeleteDomainRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;
