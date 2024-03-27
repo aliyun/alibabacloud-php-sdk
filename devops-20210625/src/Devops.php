@@ -220,6 +220,7 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\ListGroupRepositoriesRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListGroupRepositoriesResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListHostGroupsRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListHostGroupsResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListJoinedOrganizationsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListMergeRequestCommentsRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListMergeRequestCommentsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListMergeRequestFilesReadsRequest;
@@ -7023,6 +7024,43 @@ class Devops extends OpenApiClient
         $headers = [];
 
         return $this->listHostGroupsWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListJoinedOrganizationsResponse
+     */
+    public function listJoinedOrganizationsWithOptions($headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'ListJoinedOrganizations',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/users/joinedOrgs',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListJoinedOrganizationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return ListJoinedOrganizationsResponse
+     */
+    public function listJoinedOrganizations()
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listJoinedOrganizationsWithOptions($headers, $runtime);
     }
 
     /**
