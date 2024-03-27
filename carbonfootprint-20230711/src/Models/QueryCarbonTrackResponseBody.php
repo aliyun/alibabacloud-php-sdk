@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class QueryCarbonTrackResponseBody extends Model
 {
     /**
+     * @description The data records.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example B9AA726D-92A2-5F37-8D42-6C0AA3C67C0F
      *
      * @var string

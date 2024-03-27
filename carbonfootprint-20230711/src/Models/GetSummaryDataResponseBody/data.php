@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Converted aircraft carbon emissions.
+     *
+     * @example 2.5
+     *
      * @var string
      */
     public $aircraftConsumptionConversion;
 
     /**
+     * @description Converted car carbon emissions.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $carConsumptionConversion;
 
     /**
+     * @description The carbon emissions in the previous month, in kgCO₂e.
+     *
      * @example 301.83
      *
      * @var string
@@ -26,6 +36,8 @@ class data extends Model
     public $lastMonthConsumptionConversion;
 
     /**
+     * @description The carbon emissions in the same month of the previous year, in kgCO₂e.
+     *
      * @example 1074.53
      *
      * @var string
@@ -33,6 +45,8 @@ class data extends Model
     public $lastYearConsumptionConversion;
 
     /**
+     * @description The carbon emissions of the previous year, in kgCO₂e.
+     *
      * @example 2844.58
      *
      * @var string
@@ -40,6 +54,8 @@ class data extends Model
     public $lastYearConsumptionConversionSum;
 
     /**
+     * @description The point in time at which the data is last updated.
+     *
      * @example 2023-06-01 00:00:00
      *
      * @var string
@@ -47,6 +63,8 @@ class data extends Model
     public $latestDataTime;
 
     /**
+     * @description The carbon emissions in this month, in kgCO₂e.
+     *
      * @example 193.47
      *
      * @var string
@@ -54,6 +72,8 @@ class data extends Model
     public $thisMonthConsumptionConversion;
 
     /**
+     * @description The carbon emissions in the year of this month, in kgCO₂e.
+     *
      * @example 1621.06
      *
      * @var string
@@ -61,6 +81,8 @@ class data extends Model
     public $thisYearConsumptionConversion;
 
     /**
+     * @description The total carbon emissions within the specified time range, in kgCO₂e.
+     *
      * @example 1621.06
      *
      * @var string
@@ -68,6 +90,10 @@ class data extends Model
     public $totalCarbonConsumptionConversion;
 
     /**
+     * @description Converted tree carbon absorption.
+     *
+     * @example 686.4
+     *
      * @var string
      */
     public $treeConsumptionConversion;

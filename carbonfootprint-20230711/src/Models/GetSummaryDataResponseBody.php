@@ -10,12 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetSummaryDataResponseBody extends Model
 {
     /**
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 88FC75E3-BFFD-50B3-988D-C08E6B795CFD
      *

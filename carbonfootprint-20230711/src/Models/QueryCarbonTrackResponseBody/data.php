@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The service code.
+     *
      * @example ecs
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $productCode;
 
     /**
+     * @description The carbon emissions within the specified time range, in kgCO₂e.
+     *
      * @example 1.23
      *
      * @var float
@@ -23,6 +27,8 @@ class data extends Model
     public $quotaValue;
 
     /**
+     * @description The region in which the cloud service resides.
+     *
      * @example cn-beijing
      *
      * @var string
@@ -30,6 +36,8 @@ class data extends Model
     public $region;
 
     /**
+     * @description The date when the statistics are collected, which is a timestamp in milliseconds.
+     *
      * @example 1672502400000
      *
      * @var int
@@ -37,6 +45,8 @@ class data extends Model
     public $statisticsDate;
 
     /**
+     * @description The ID of the RAM user.
+     *
      * @example 251538859557084260
      *
      * @var string
@@ -44,6 +54,8 @@ class data extends Model
     public $subUid;
 
     /**
+     * @description The ID of the Alibaba Cloud account.
+     *
      * @example 1665635164411336
      *
      * @var string
