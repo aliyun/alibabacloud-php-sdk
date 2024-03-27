@@ -27,7 +27,7 @@ class ListCustomizeRuleTestResultRequest extends Model
     public $id;
 
     /**
-     * @description The number of entries per page. Maximum value: 100.
+     * @description The number of entries per page. Valid values: 1 to 100.
      *
      * @example 10
      *

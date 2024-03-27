@@ -19,7 +19,7 @@ class ListCloudSiemCustomizeRulesResponseBody extends Model
     public $code;
 
     /**
-     * @description The data returned.
+     * @description The returned data.
      *
      * @example 123456
      *
@@ -48,8 +48,8 @@ class ListCloudSiemCustomizeRulesResponseBody extends Model
     /**
      * @description Indicates whether the request was successful. Valid values:
      *
-     *   true
-     *   false
+     *   **true**
+     *   **false**
      *
      * @example true
      *

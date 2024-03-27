@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetStorageRequest extends Model
 {
     /**
-     * @description The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the region where your assets reside. Valid values:
+     * @description The data management center of the threat analysis feature. Specify this parameter based on the region where your assets reside. Valid values:
      *
-     *   cn-hangzhou: Your assets reside in regions inside the Chinese mainland or in the China (Hong Kong) region.
-     *   ap-southeast-1: Your assets reside in regions outside the Chinese mainland, excluding the China (Hong Kong) region.
+     *   cn-hangzhou: Your assets reside in regions in China.
+     *   ap-southeast-1: Your assets reside in regions outside China.
      *
      * @example cn-hangzhou
      *

@@ -57,7 +57,7 @@ class supportOperators extends Model
     public $operatorDescEn;
 
     /**
-     * @description The display name of the operator.
+     * @description The name of the operator.
      *
      * @example <=
      *
@@ -66,7 +66,7 @@ class supportOperators extends Model
     public $operatorName;
 
     /**
-     * @description The data types that are supported by the current operator. The data types are separated by commas (,).
+     * @description The data types that are supported by the operator. The data types are separated by commas (,).
      *
      * @example varchar
      *
@@ -75,7 +75,7 @@ class supportOperators extends Model
     public $supportDataType;
 
     /**
-     * @description The scenarios that are supported by the operator. Multiple scenarios are separated by commas (,), such as aggregation scenarios. This parameter is empty by default.
+     * @description The scenarios that are supported by the operator. Multiple scenarios are separated by commas (,), such as aggregation scenarios. By default, this parameter is empty.
      *
      * @example [AGGREGATE]
      *

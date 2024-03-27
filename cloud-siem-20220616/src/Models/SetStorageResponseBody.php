@@ -11,8 +11,8 @@ class SetStorageResponseBody extends Model
     /**
      * @description Indicates whether the settings are saved. Valid values:
      *
-     *   true
-     *   false
+     *   true:
+     *   false:
      *
      * @example true
      *

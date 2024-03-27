@@ -27,7 +27,7 @@ class DescribeEventDisposeRequest extends Model
     public $incidentUuid;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: 100.
+     * @description The number of entries to return on each page. Maximum value: 500.
      *
      * @example 10
      *

@@ -55,7 +55,7 @@ class responseData extends Model
     public $opcodeMap;
 
     /**
-     * @description An array consisting of the codes of playbooks that are recommended for entity handling.
+     * @description The codes of the playbooks that are recommended for entity handling.
      *
      * @example [1,3]
      *
@@ -73,7 +73,7 @@ class responseData extends Model
     public $playbookList;
 
     /**
-     * @description An array consisting of the IDs of the users who can handle objects.
+     * @description The IDs of the users who can handle objects.
      *
      * @example 176618589410****
      *

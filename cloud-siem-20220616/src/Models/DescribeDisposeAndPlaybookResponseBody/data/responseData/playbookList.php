@@ -57,6 +57,8 @@ class playbookList extends Model
     public $opLevel;
 
     /**
+     * @description The playbook parameters and the corresponding properties.
+     *
      * @var mixed[]
      */
     public $paramConfig;

@@ -26,9 +26,9 @@ class DescribeDataSourceParametersRequest extends Model
     /**
      * @description The type of the data source. Valid values:
      *
-     *   ckafka: Tencent Cloud Kafka (CKafka)
-     *   obs: Huawei Cloud Object Storage Service (OBS)
-     *   wafApi: download API of Tencent Cloud Web Application Firewall (WAF)
+     *   **ckafka**: Tencent Cloud TDMQ for CKafka
+     *   **obs**: Huawei Cloud Object Storage Service (OBS)
+     *   **wafApi**: download API of Tencent Cloud Web Application Firewall (WAF)
      *
      * @example obs
      *

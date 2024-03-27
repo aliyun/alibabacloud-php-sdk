@@ -20,9 +20,9 @@ class DescribeDisposeAndPlaybookRequest extends Model
     /**
      * @description The entity type. Valid values:
      *
-     *   ip: IP address
-     *   process: process
-     *   file: file
+     *   ip
+     *   process
+     *   file
      *
      * @example ip
      *

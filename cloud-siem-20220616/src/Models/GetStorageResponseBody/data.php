@@ -33,8 +33,9 @@ class data extends Model
     public $displayRegion;
 
     /**
-     * @description The region in which the logs are stored. Default value: cn-shanghai. Valid values: cn-shanghai for the China site and ap-southeast-1 for the international site.
+     * @description The region where the data is stored.
      *
+     * If the data management center is **cn-hangzhou**, the default value of **Region** is cn-shanghai, which specifies the China (Shanghai) region. If the data management center is **ap-southeast-1**, the default value of **Region** is ap-southeast-1, which specifies the Singapore region.
      * @example cn-shanghai
      *
      * @var string

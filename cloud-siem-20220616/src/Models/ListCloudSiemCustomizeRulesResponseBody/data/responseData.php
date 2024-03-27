@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class responseData extends Model
 {
     /**
-     * @description The type of the risk.
+     * @description The threat type.
      *
      * @example WEBSHELL
      *
@@ -18,7 +18,7 @@ class responseData extends Model
     public $alertType;
 
     /**
-     * @description The internal code of the risk type.
+     * @description The internal code of the threat type.
      *
      * @example ${siem_rule_type_process_abnormal_command}
      *
@@ -36,7 +36,7 @@ class responseData extends Model
     public $aliuid;
 
     /**
-     * @description The extended information about event generation. If the value of eventTransferType is allToSingle, the value of this parameter indicates the length and unit of the alert aggregation window. The HTML escape characters are reversed.
+     * @description The extended information about event generation. If the value of **eventTransferType** is **allToSingle**, the value of this parameter indicates the length and unit of the alert aggregation window. The HTML escape characters are reversed.
      *
      * @example {&quot;time&quot;:&quot;1&quot;,&quot;unit&quot;:&quot;MINUTE&quot;}
      *
@@ -47,8 +47,8 @@ class responseData extends Model
     /**
      * @description Indicates whether the system generates an event for the alert. Valid values:
      *
-     *   0: no.
-     *   1: yes.
+     *   **0**: no.
+     *   **1**: yes.
      *
      * @example 1
      *
@@ -57,11 +57,11 @@ class responseData extends Model
     public $eventTransferSwitch;
 
     /**
-     * @description The event generation method. Valid values:
+     * @description The method that is used to generate an event. Valid values:
      *
-     *   default: The default method is used.
-     *   singleToSingle: The system generates an event for each alert.
-     *   allToSingle: The system generates an event for alerts within a period of time.
+     *   **default**: The default method is used.
+     *   **singleToSingle**: The system generates an event for each alert.
+     *   **allToSingle**: The system generates an event for alerts within a period of time.
      *
      * @example allToSingle
      *
@@ -142,7 +142,7 @@ class responseData extends Model
     public $queryCycle;
 
     /**
-     * @description The query condition of the rule in the JSON format. The HTML escape characters are reversed.
+     * @description The query condition of the rule. The value is in the JSON format. The HTML escape characters are reversed.
      *
      * @example [[{&quot;not&quot;:false,&quot;left&quot;:&quot;alert_name&quot;,&quot;operator&quot;:&quot;=&quot;,&quot;right&quot;:&quot;WEBSHELL&quot;}]]
      *
@@ -160,7 +160,7 @@ class responseData extends Model
     public $ruleDesc;
 
     /**
-     * @description The log aggregation field of the rule. The value is a JSON string. The HTML escape characters are reversed.
+     * @description The log aggregation field. The value is in the JSON format. The HTML escape characters are reversed.
      *
      * @example [&quot;asset_id&quot;]
      *
@@ -189,8 +189,8 @@ class responseData extends Model
     /**
      * @description The type of the rule. Valid values:
      *
-     *   predefine
-     *   customize
+     *   **predefine**
+     *   **customize**
      *
      * @example customize
      *
@@ -199,13 +199,13 @@ class responseData extends Model
     public $ruleType;
 
     /**
-     * @description The rule status. Valid values:
+     * @description The status of the rule. Valid values:
      *
-     *   0: The rule is in the initial state.
-     *   10: The simulation data is tested.
-     *   15: The business data is being tested.
-     *   20: The business data test ends.
-     *   100: The rule takes effect.
+     *   **0**: The rule is in the initial state.
+     *   **10**: The simulation data is tested.
+     *   **15**: The business data is being tested.
+     *   **20**: The business data test is complete.
+     *   **100**: The rule is in effect.
      *
      * @example 0
      *
@@ -216,9 +216,9 @@ class responseData extends Model
     /**
      * @description The threat level. Valid values:
      *
-     *   serious: high
-     *   suspicious: medium
-     *   remind: low
+     *   **serious**: high-risk.
+     *   **suspicious**: medium-risk.
+     *   **remind**: low-risk.
      *
      * @example remind
      *

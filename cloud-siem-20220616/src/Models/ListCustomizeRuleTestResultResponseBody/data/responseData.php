@@ -63,7 +63,7 @@ class responseData extends Model
     public $eventName;
 
     /**
-     * @description The risk type, which indicates the alert type.
+     * @description The threat type, which indicates the alert type.
      *
      * @example WEBSHELL
      *
@@ -72,11 +72,11 @@ class responseData extends Model
     public $eventType;
 
     /**
-     * @description The risk level. Valid values:
+     * @description The threat level. Valid values:
      *
-     *   serious: high
-     *   suspicious: medium
-     *   remind: low
+     *   serious: high.
+     *   suspicious: medium.
+     *   remind: low.
      *
      * @example remind
      *
@@ -123,8 +123,8 @@ class responseData extends Model
     /**
      * @description The status of the alert data. Valid values:
      *
-     *   test: business test data
-     *   online: online data
+     *   test: business test data.
+     *   online: online data.
      *
      * @example test
      *
