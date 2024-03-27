@@ -32,6 +32,8 @@ use AlibabaCloud\SDK\IntelligentCreation\V20240118\Models\SubmitBulletQuestionsR
 use AlibabaCloud\SDK\IntelligentCreation\V20240118\Models\SubmitBulletQuestionsShrinkRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240118\Models\SubmitBulletQuestionsV1Request;
 use AlibabaCloud\SDK\IntelligentCreation\V20240118\Models\SubmitBulletQuestionsV1Response;
+use AlibabaCloud\SDK\IntelligentCreation\V20240118\Models\SyncDigitalVideoRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240118\Models\SyncDigitalVideoResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -638,5 +640,47 @@ class IntelligentCreation extends OpenApiClient
         $headers = [];
 
         return $this->submitBulletQuestionsV1WithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param SyncDigitalVideoRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return SyncDigitalVideoResponse
+     */
+    public function syncDigitalVideoWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'SyncDigitalVideo',
+            'version'     => '2024-01-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/yic/yic-console/openService/v1/digitalHuman/videos/commands/syncDigitalVideo',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return SyncDigitalVideoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SyncDigitalVideoRequest $request
+     *
+     * @return SyncDigitalVideoResponse
+     */
+    public function syncDigitalVideo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->syncDigitalVideoWithOptions($request, $headers, $runtime);
     }
 }
