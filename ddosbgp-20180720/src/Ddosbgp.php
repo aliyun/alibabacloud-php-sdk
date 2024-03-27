@@ -31,6 +31,8 @@ use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeAssetGroupToInstanceReques
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeAssetGroupToInstanceResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeDdosEventRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeDdosEventResponse;
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeDdosOriginInstanceBillRequest;
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeDdosOriginInstanceBillResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeExcpetionCountRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeExcpetionCountResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeInstanceListRequest;
@@ -64,6 +66,8 @@ use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ModifyRemarkRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ModifyRemarkResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\QuerySchedruleOnDemandRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\QuerySchedruleOnDemandResponse;
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ReleaseDdosOriginInstanceRequest;
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ReleaseDdosOriginInstanceResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\SetInstanceModeOnDemandRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\SetInstanceModeOnDemandResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\TagResourcesRequest;
@@ -839,6 +843,58 @@ class Ddosbgp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDdosEventWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDdosOriginInstanceBillRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeDdosOriginInstanceBillResponse
+     */
+    public function describeDdosOriginInstanceBillWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->isShowList)) {
+            $query['IsShowList'] = $request->isShowList;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDdosOriginInstanceBill',
+            'version'     => '2018-07-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDdosOriginInstanceBillResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDdosOriginInstanceBillRequest $request
+     *
+     * @return DescribeDdosOriginInstanceBillResponse
+     */
+    public function describeDdosOriginInstanceBill($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDdosOriginInstanceBillWithOptions($request, $runtime);
     }
 
     /**
@@ -1782,6 +1838,49 @@ class Ddosbgp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->querySchedruleOnDemandWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ReleaseDdosOriginInstanceRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ReleaseDdosOriginInstanceResponse
+     */
+    public function releaseDdosOriginInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ReleaseDdosOriginInstance',
+            'version'     => '2018-07-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ReleaseDdosOriginInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ReleaseDdosOriginInstanceRequest $request
+     *
+     * @return ReleaseDdosOriginInstanceResponse
+     */
+    public function releaseDdosOriginInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->releaseDdosOriginInstanceWithOptions($request, $runtime);
     }
 
     /**
