@@ -122,6 +122,9 @@ use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetWsCustomizedSeaGeneralResponse;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\ImportServiceDataRequest;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\ImportServiceDataResponse;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\ImportServiceDataShrinkRequest;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\ImportServiceDataV2Request;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\ImportServiceDataV2Response;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\ImportServiceDataV2ShrinkRequest;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\InsertCustomRequest;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\InsertCustomResponse;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\OpenAlinlpServiceResponse;
@@ -2961,6 +2964,60 @@ class Alinlp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->importServiceDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ImportServiceDataV2Request $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ImportServiceDataV2Response
+     */
+    public function importServiceDataV2WithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ImportServiceDataV2ShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->documents)) {
+            $request->documentsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->documents, 'Documents', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->dataType)) {
+            $body['DataType'] = $request->dataType;
+        }
+        if (!Utils::isUnset($request->documentsShrink)) {
+            $body['Documents'] = $request->documentsShrink;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $body['ServiceId'] = $request->serviceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ImportServiceDataV2',
+            'version'     => '2020-06-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ImportServiceDataV2Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ImportServiceDataV2Request $request
+     *
+     * @return ImportServiceDataV2Response
+     */
+    public function importServiceDataV2($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->importServiceDataV2WithOptions($request, $runtime);
     }
 
     /**
