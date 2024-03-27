@@ -25,7 +25,7 @@ class ListCloudVendorRegionsRequest extends Model
      *
      *   **Tencent**, **HUAWEICLOUD**, **Azure**, and **AWS**: other service providers of cloud assets.
      *
-     * @example 3
+     * @example Tencent
      *
      * @var string
      */

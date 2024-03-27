@@ -12,12 +12,14 @@ use AlibabaCloud\Tea\Model;
 class GetCheckSummaryResponseBody extends Model
 {
     /**
+     * @description The statistics of the check items.
+     *
      * @var overallItemStatistic
      */
     public $overallItemStatistic;
 
     /**
-     * @description overall risk statistics of check items.
+     * @description The overall risk statistics.
      *
      * @var overallStatistic
      */
@@ -33,7 +35,7 @@ class GetCheckSummaryResponseBody extends Model
     public $requestId;
 
     /**
-     * @description An array that consists of the summary information about the configuration checks on cloud services.
+     * @description The summary information about the configuration checks on cloud services.
      *
      * @var summarys[]
      */

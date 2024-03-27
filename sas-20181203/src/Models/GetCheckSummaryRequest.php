@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetCheckSummaryRequest extends Model
 {
     /**
+     * @description Specifies whether to return the statistics of the check items, including the number of check items supported by the system and the number of check items available to you.
+     *
      * @var bool
      */
     public $isItemStatistic;
@@ -35,7 +37,7 @@ class GetCheckSummaryRequest extends Model
     public $resourceDirectoryAccountId;
 
     /**
-     * @description The service provider (SP) of the cloud asset.
+     * @description The cloud service providers.
      *
      * @var string[]
      */

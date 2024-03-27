@@ -18,6 +18,11 @@ class rpmEntityList extends Model
     public $containerName;
 
     /**
+     * @var string
+     */
+    public $extendField;
+
+    /**
      * @description The complete version number.
      *
      * @example 3.10.0-693.2.2.el7
@@ -97,6 +102,7 @@ class rpmEntityList extends Model
     public $version;
     protected $_name = [
         'containerName' => 'ContainerName',
+        'extendField'   => 'ExtendField',
         'fullVersion'   => 'FullVersion',
         'imageName'     => 'ImageName',
         'matchDetail'   => 'MatchDetail',
@@ -117,6 +123,9 @@ class rpmEntityList extends Model
         $res = [];
         if (null !== $this->containerName) {
             $res['ContainerName'] = $this->containerName;
+        }
+        if (null !== $this->extendField) {
+            $res['ExtendField'] = $this->extendField;
         }
         if (null !== $this->fullVersion) {
             $res['FullVersion'] = $this->fullVersion;
@@ -159,6 +168,9 @@ class rpmEntityList extends Model
         $model = new self();
         if (isset($map['ContainerName'])) {
             $model->containerName = $map['ContainerName'];
+        }
+        if (isset($map['ExtendField'])) {
+            $model->extendField = $map['ExtendField'];
         }
         if (isset($map['FullVersion'])) {
             $model->fullVersion = $map['FullVersion'];

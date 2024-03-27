@@ -49,7 +49,7 @@ class summarys extends Model
     public $type;
 
     /**
-     * @description Risk statistics of check items within the same type.
+     * @description The risk statistics by type.
      *
      * @var typeStatistic
      */

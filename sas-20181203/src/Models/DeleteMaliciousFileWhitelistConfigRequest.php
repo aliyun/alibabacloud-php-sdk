@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteMaliciousFileWhitelistConfigRequest extends Model
 {
     /**
-     * @description The ID of the whitelist rule. You can call the [ListMaliciousFileWhitelistConfigs](~~ListMaliciousFileWhitelistConfigs~~) operation to query the IDs of whitelist rules.
+     * @description The ID of the alert whitelist rule of sensitive files that are detected by using the agentless detection feature. You can call the [ListMaliciousFileWhitelistConfigs](~~ListMaliciousFileWhitelistConfigs~~) operation to query the IDs of alert whitelist rules.
      *
      * @example 1
      *

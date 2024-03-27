@@ -81,7 +81,7 @@ class standardStatistic extends Model
     public $notPassMediumCount;
 
     /**
-     * @description The number of check items that passed the check.
+     * @description The number of check items that pass the check.
      *
      * @example 3
      *
@@ -90,7 +90,7 @@ class standardStatistic extends Model
     public $passCount;
 
     /**
-     * @description The number off high-risk check items that passed the check.
+     * @description The number of high-risk check items that pass the check.
      *
      * @example 1
      *
@@ -99,7 +99,7 @@ class standardStatistic extends Model
     public $passHighCount;
 
     /**
-     * @description The number off low-risk check items that passed the check.
+     * @description The number of low-risk check items that pass the check.
      *
      * @example 1
      *
@@ -108,7 +108,7 @@ class standardStatistic extends Model
     public $passLowCount;
 
     /**
-     * @description The number off medium-risk check items that passed the check.
+     * @description The number of medium-risk check items that pass the check.
      *
      * @example 1
      *

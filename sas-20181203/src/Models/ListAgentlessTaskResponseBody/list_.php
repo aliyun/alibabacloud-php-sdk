@@ -45,6 +45,10 @@ class list_ extends Model
     public $intranetIp;
 
     /**
+     * @description The volume of detection data, in MB.
+     *
+     * @example 154.11
+     *
      * @var int
      */
     public $measureSpace;
@@ -59,16 +63,34 @@ class list_ extends Model
     public $progress;
 
     /**
+     * @description The execution progress of the inspection items.
+     *
+     * @example "{\"scaVul\":100,\"binary\":100,\"baseline\":100,\"vul\":100,\"webshell\":100,\"script\":100,\"sensitiveInfo\":100}"
+     *
      * @var string
      */
     public $progressByProject;
 
     /**
+     * @description The download link for the report.
+     *
+     * @example http://newsas-oss-bucket.oss-cn-hangzhou.aliyuncs.com/agent_less_single_report****
+     *
      * @var string
      */
     public $reportDownloadUrl;
 
     /**
+     * @description The status of the report. Possible values:
+     *
+     *   **PREPARED**: In preparation.
+     *   **RUNNING**: In progress.
+     *   **SUCCESS**: Successful.
+     *   **TIMEOUT**: Timeout.
+     *   **FAILED**: Failed.
+     *
+     * @example SUCCESS
+     *
      * @var string
      */
     public $reportStatus;

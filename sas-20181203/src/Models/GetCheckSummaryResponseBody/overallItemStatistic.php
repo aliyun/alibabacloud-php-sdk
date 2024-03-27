@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class overallItemStatistic extends Model
 {
     /**
+     * @description The number of check items supported by the system.
+     *
+     * @example 620
+     *
      * @var int
      */
     public $releaseCount;
 
     /**
+     * @description The number of check items available to you.
+     *
+     * @example 25
+     *
      * @var int
      */
     public $resultCount;

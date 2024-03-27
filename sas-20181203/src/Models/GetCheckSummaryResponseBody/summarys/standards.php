@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class standards extends Model
 {
     /**
-     * @description The number of risk items.
+     * @description The number of check items that failed to pass the check.
      *
      * @example 1
      *
@@ -28,7 +28,7 @@ class standards extends Model
     public $id;
 
     /**
-     * @description The number of check items that passed the check.
+     * @description The number of check items that pass the check.
      *
      * @example 1
      *
@@ -73,7 +73,7 @@ class standards extends Model
     public $showName;
 
     /**
-     * @description Risk statistics of check items within the same standard.
+     * @description The standard statistics of the check items.
      *
      * @var standardStatistic
      */

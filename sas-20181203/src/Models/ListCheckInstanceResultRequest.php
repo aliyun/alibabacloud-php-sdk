@@ -64,7 +64,7 @@ class ListCheckInstanceResultRequest extends Model
     public $lang;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries to return on each page. Maximum value : 100.
      *
      * @example 20
      *

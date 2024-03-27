@@ -43,6 +43,11 @@ class checkItems extends Model
     public $description;
 
     /**
+     * @var int
+     */
+    public $estimatedCount;
+
+    /**
      * @description The asset subtype of the cloud service. Valid value:
      *
      *   If **InstanceType** is set to **ECS**, this parameter supports the following valid values:
@@ -148,6 +153,7 @@ class checkItems extends Model
         'checkShowName'   => 'CheckShowName',
         'customConfigs'   => 'CustomConfigs',
         'description'     => 'Description',
+        'estimatedCount'  => 'EstimatedCount',
         'instanceSubType' => 'InstanceSubType',
         'instanceType'    => 'InstanceType',
         'riskLevel'       => 'RiskLevel',
@@ -179,6 +185,9 @@ class checkItems extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = null !== $this->description ? $this->description->toMap() : null;
+        }
+        if (null !== $this->estimatedCount) {
+            $res['EstimatedCount'] = $this->estimatedCount;
         }
         if (null !== $this->instanceSubType) {
             $res['InstanceSubType'] = $this->instanceSubType;
@@ -224,6 +233,9 @@ class checkItems extends Model
         }
         if (isset($map['Description'])) {
             $model->description = description::fromMap($map['Description']);
+        }
+        if (isset($map['EstimatedCount'])) {
+            $model->estimatedCount = $map['EstimatedCount'];
         }
         if (isset($map['InstanceSubType'])) {
             $model->instanceSubType = $map['InstanceSubType'];
