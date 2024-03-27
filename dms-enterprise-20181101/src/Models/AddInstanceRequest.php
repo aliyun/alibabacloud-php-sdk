@@ -194,6 +194,11 @@ class AddInstanceRequest extends Model
     public $useDsql;
 
     /**
+     * @var int
+     */
+    public $useSsl;
+
+    /**
      * @example vpc-2zef4o1hu7ljd****
      *
      * @var string
@@ -227,6 +232,7 @@ class AddInstanceRequest extends Model
         'templateType'     => 'TemplateType',
         'tid'              => 'Tid',
         'useDsql'          => 'UseDsql',
+        'useSsl'           => 'UseSsl',
         'vpcId'            => 'VpcId',
     ];
 
@@ -317,6 +323,9 @@ class AddInstanceRequest extends Model
         }
         if (null !== $this->useDsql) {
             $res['UseDsql'] = $this->useDsql;
+        }
+        if (null !== $this->useSsl) {
+            $res['UseSsl'] = $this->useSsl;
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
@@ -413,6 +422,9 @@ class AddInstanceRequest extends Model
         }
         if (isset($map['UseDsql'])) {
             $model->useDsql = $map['UseDsql'];
+        }
+        if (isset($map['UseSsl'])) {
+            $model->useSsl = $map['UseSsl'];
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];

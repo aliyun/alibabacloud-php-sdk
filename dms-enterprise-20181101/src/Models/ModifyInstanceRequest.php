@@ -203,6 +203,11 @@ class ModifyInstanceRequest extends Model
     public $useDsql;
 
     /**
+     * @var int
+     */
+    public $useSsl;
+
+    /**
      * @example vpc-bp10wnlcmor****
      *
      * @var string
@@ -237,6 +242,7 @@ class ModifyInstanceRequest extends Model
         'templateType'     => 'TemplateType',
         'tid'              => 'Tid',
         'useDsql'          => 'UseDsql',
+        'useSsl'           => 'UseSsl',
         'vpcId'            => 'VpcId',
     ];
 
@@ -330,6 +336,9 @@ class ModifyInstanceRequest extends Model
         }
         if (null !== $this->useDsql) {
             $res['UseDsql'] = $this->useDsql;
+        }
+        if (null !== $this->useSsl) {
+            $res['UseSsl'] = $this->useSsl;
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
@@ -429,6 +438,9 @@ class ModifyInstanceRequest extends Model
         }
         if (isset($map['UseDsql'])) {
             $model->useDsql = $map['UseDsql'];
+        }
+        if (isset($map['UseSsl'])) {
+            $model->useSsl = $map['UseSsl'];
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];

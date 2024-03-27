@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class PauseDataCorrectSQLJobResponseBody extends Model
 {
     /**
-     * @description The error code returned.
+     * @description The error code that is returned.
      *
      * @example UnknownError
      *
@@ -18,7 +18,7 @@ class PauseDataCorrectSQLJobResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned.
+     * @description The error message that is returned.
      *
      * @example UnknownError
      *
@@ -27,7 +27,7 @@ class PauseDataCorrectSQLJobResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 335C5BC8-490C-56EF-BDDE-94A4B53FEB72
      *
@@ -36,10 +36,10 @@ class PauseDataCorrectSQLJobResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   **true**: The request is successful.
-     *   **false**: The request fails.
+     *   **true**
+     *   **false**
      *
      * @example true
      *

@@ -20,7 +20,7 @@ class preCheckSQLList extends Model
     /**
      * @description The SQL statement.
      *
-     * @example CheckSQL": "OPTIMIZE TABLE `Text_TableNames`
+     * @example OPTIMIZE TABLE `Text_TableNames`
      *
      * @var string
      */

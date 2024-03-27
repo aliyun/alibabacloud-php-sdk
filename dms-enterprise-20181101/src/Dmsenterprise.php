@@ -674,6 +674,9 @@ class Dmsenterprise extends OpenApiClient
         if (!Utils::isUnset($request->useDsql)) {
             $query['UseDsql'] = $request->useDsql;
         }
+        if (!Utils::isUnset($request->useSsl)) {
+            $query['UseSsl'] = $request->useSsl;
+        }
         if (!Utils::isUnset($request->vpcId)) {
             $query['VpcId'] = $request->vpcId;
         }
@@ -2407,7 +2410,8 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * For more information about the SQL review feature, see [SQL review](~~60374~~).
+     * You can call this operation only for database instances that are managed in Security Collaboration mode.
+     *   * For more information about the SQL review feature, see [SQL review](~~60374~~).
      *   *
      * @param CreateSQLReviewOrderRequest $tmpReq  CreateSQLReviewOrderRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -2457,7 +2461,8 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * For more information about the SQL review feature, see [SQL review](~~60374~~).
+     * You can call this operation only for database instances that are managed in Security Collaboration mode.
+     *   * For more information about the SQL review feature, see [SQL review](~~60374~~).
      *   *
      * @param CreateSQLReviewOrderRequest $request CreateSQLReviewOrderRequest
      *
@@ -9979,6 +9984,9 @@ class Dmsenterprise extends OpenApiClient
         if (!Utils::isUnset($request->useDsql)) {
             $query['UseDsql'] = $request->useDsql;
         }
+        if (!Utils::isUnset($request->useSsl)) {
+            $query['UseSsl'] = $request->useSsl;
+        }
         if (!Utils::isUnset($request->vpcId)) {
             $query['VpcId'] = $request->vpcId;
         }
@@ -10108,10 +10116,12 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param PauseDataCorrectSQLJobRequest $request
-     * @param RuntimeOptions                $runtime
+     * You can call this operation only for database instances that are managed in Security Collaboration mode.
+     *   *
+     * @param PauseDataCorrectSQLJobRequest $request PauseDataCorrectSQLJobRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return PauseDataCorrectSQLJobResponse
+     * @return PauseDataCorrectSQLJobResponse PauseDataCorrectSQLJobResponse
      */
     public function pauseDataCorrectSQLJobWithOptions($request, $runtime)
     {
@@ -10148,9 +10158,11 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param PauseDataCorrectSQLJobRequest $request
+     * You can call this operation only for database instances that are managed in Security Collaboration mode.
+     *   *
+     * @param PauseDataCorrectSQLJobRequest $request PauseDataCorrectSQLJobRequest
      *
-     * @return PauseDataCorrectSQLJobResponse
+     * @return PauseDataCorrectSQLJobResponse PauseDataCorrectSQLJobResponse
      */
     public function pauseDataCorrectSQLJob($request)
     {
