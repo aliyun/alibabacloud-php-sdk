@@ -257,6 +257,9 @@ class Dysmsapi extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
         if (!Utils::isUnset($request->from)) {
             $query['From'] = $request->from;
         }
@@ -320,6 +323,9 @@ class Dysmsapi extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
         if (!Utils::isUnset($request->from)) {
             $query['From'] = $request->from;
         }

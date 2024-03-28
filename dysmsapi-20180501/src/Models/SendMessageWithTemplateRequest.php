@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SendMessageWithTemplateRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $channelId;
+
+    /**
      * @description The signature. To query the signature, log on to the [Short Message Service (SMS) console](https://sms-intl.console.aliyun.com/overview) and navigate to the **Signatures** tab of the **Go China** page.
      *
      * @example Alicloud321
@@ -63,6 +68,7 @@ class SendMessageWithTemplateRequest extends Model
      */
     public $validityPeriod;
     protected $_name = [
+        'channelId'       => 'ChannelId',
         'from'            => 'From',
         'smsUpExtendCode' => 'SmsUpExtendCode',
         'templateCode'    => 'TemplateCode',
@@ -78,6 +84,9 @@ class SendMessageWithTemplateRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->channelId) {
+            $res['ChannelId'] = $this->channelId;
+        }
         if (null !== $this->from) {
             $res['From'] = $this->from;
         }
@@ -108,6 +117,9 @@ class SendMessageWithTemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ChannelId'])) {
+            $model->channelId = $map['ChannelId'];
+        }
         if (isset($map['From'])) {
             $model->from = $map['From'];
         }
