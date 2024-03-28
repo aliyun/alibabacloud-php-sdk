@@ -21,6 +21,11 @@ class ListRepositoriesRequest extends Model
     public $archived;
 
     /**
+     * @var int
+     */
+    public $minAccessLevel;
+
+    /**
      * @example created_at
      *
      * @var string
@@ -62,6 +67,7 @@ class ListRepositoriesRequest extends Model
     protected $_name = [
         'accessToken'    => 'accessToken',
         'archived'       => 'archived',
+        'minAccessLevel' => 'minAccessLevel',
         'orderBy'        => 'orderBy',
         'organizationId' => 'organizationId',
         'page'           => 'page',
@@ -82,6 +88,9 @@ class ListRepositoriesRequest extends Model
         }
         if (null !== $this->archived) {
             $res['archived'] = $this->archived;
+        }
+        if (null !== $this->minAccessLevel) {
+            $res['minAccessLevel'] = $this->minAccessLevel;
         }
         if (null !== $this->orderBy) {
             $res['orderBy'] = $this->orderBy;
@@ -118,6 +127,9 @@ class ListRepositoriesRequest extends Model
         }
         if (isset($map['archived'])) {
             $model->archived = $map['archived'];
+        }
+        if (isset($map['minAccessLevel'])) {
+            $model->minAccessLevel = $map['minAccessLevel'];
         }
         if (isset($map['orderBy'])) {
             $model->orderBy = $map['orderBy'];

@@ -22,8 +22,12 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\CreateBranchRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateBranchResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateCheckRunRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateCheckRunResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateCommentRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateCommentResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateCommitStatusRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateCommitStatusResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateCommitWithMultipleFilesRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateCommitWithMultipleFilesResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateDeployKeyRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateDeployKeyResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateFileRequest;
@@ -944,6 +948,87 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @param CreateCommentRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateCommentResponse
+     */
+    public function createCommentWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->localId)) {
+            $query['localId'] = $request->localId;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        if (!Utils::isUnset($request->repositoryIdentity)) {
+            $query['repositoryIdentity'] = $request->repositoryIdentity;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->commentType)) {
+            $body['commentType'] = $request->commentType;
+        }
+        if (!Utils::isUnset($request->content)) {
+            $body['content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->draft)) {
+            $body['draft'] = $request->draft;
+        }
+        if (!Utils::isUnset($request->filePath)) {
+            $body['filePath'] = $request->filePath;
+        }
+        if (!Utils::isUnset($request->lineNumber)) {
+            $body['lineNumber'] = $request->lineNumber;
+        }
+        if (!Utils::isUnset($request->parentCommentBizId)) {
+            $body['parentCommentBizId'] = $request->parentCommentBizId;
+        }
+        if (!Utils::isUnset($request->patchSetBizId)) {
+            $body['patchSetBizId'] = $request->patchSetBizId;
+        }
+        if (!Utils::isUnset($request->resolved)) {
+            $body['resolved'] = $request->resolved;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateComment',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v4/projects/code_reviews/comments/create_comment',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateCommentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateCommentRequest $request
+     *
+     * @return CreateCommentResponse
+     */
+    public function createComment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createCommentWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param CreateCommitStatusRequest $request
      * @param string[]                  $headers
      * @param RuntimeOptions            $runtime
@@ -1010,6 +1095,69 @@ class Devops extends OpenApiClient
         $headers = [];
 
         return $this->createCommitStatusWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param CreateCommitWithMultipleFilesRequest $request
+     * @param string[]                             $headers
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return CreateCommitWithMultipleFilesResponse
+     */
+    public function createCommitWithMultipleFilesWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        if (!Utils::isUnset($request->repositoryIdentity)) {
+            $query['repositoryIdentity'] = $request->repositoryIdentity;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->actions)) {
+            $body['actions'] = $request->actions;
+        }
+        if (!Utils::isUnset($request->branch)) {
+            $body['branch'] = $request->branch;
+        }
+        if (!Utils::isUnset($request->commitMessage)) {
+            $body['commitMessage'] = $request->commitMessage;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCommitWithMultipleFiles',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v4/projects/repository/commits/files',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateCommitWithMultipleFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateCommitWithMultipleFilesRequest $request
+     *
+     * @return CreateCommitWithMultipleFilesResponse
+     */
+    public function createCommitWithMultipleFiles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createCommitWithMultipleFilesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -8341,6 +8489,9 @@ class Devops extends OpenApiClient
         }
         if (!Utils::isUnset($request->archived)) {
             $query['archived'] = $request->archived;
+        }
+        if (!Utils::isUnset($request->minAccessLevel)) {
+            $query['minAccessLevel'] = $request->minAccessLevel;
         }
         if (!Utils::isUnset($request->orderBy)) {
             $query['orderBy'] = $request->orderBy;
