@@ -23,18 +23,16 @@ class data extends Model
     public $defaultDomain;
 
     /**
+     * @var string
+     */
+    public $errorHttpStatus;
+
+    /**
      * @example error.html
      *
      * @var string
      */
     public $errorPath;
-
-    /**
-     * @example /
-     *
-     * @var string
-     */
-    public $historyModePath;
 
     /**
      * @example index.html
@@ -52,8 +50,8 @@ class data extends Model
     protected $_name = [
         'allowedIps'      => 'AllowedIps',
         'defaultDomain'   => 'DefaultDomain',
+        'errorHttpStatus' => 'ErrorHttpStatus',
         'errorPath'       => 'ErrorPath',
-        'historyModePath' => 'HistoryModePath',
         'indexPath'       => 'IndexPath',
         'spaceId'         => 'SpaceId',
     ];
@@ -71,11 +69,11 @@ class data extends Model
         if (null !== $this->defaultDomain) {
             $res['DefaultDomain'] = $this->defaultDomain;
         }
+        if (null !== $this->errorHttpStatus) {
+            $res['ErrorHttpStatus'] = $this->errorHttpStatus;
+        }
         if (null !== $this->errorPath) {
             $res['ErrorPath'] = $this->errorPath;
-        }
-        if (null !== $this->historyModePath) {
-            $res['HistoryModePath'] = $this->historyModePath;
         }
         if (null !== $this->indexPath) {
             $res['IndexPath'] = $this->indexPath;
@@ -101,11 +99,11 @@ class data extends Model
         if (isset($map['DefaultDomain'])) {
             $model->defaultDomain = $map['DefaultDomain'];
         }
+        if (isset($map['ErrorHttpStatus'])) {
+            $model->errorHttpStatus = $map['ErrorHttpStatus'];
+        }
         if (isset($map['ErrorPath'])) {
             $model->errorPath = $map['ErrorPath'];
-        }
-        if (isset($map['HistoryModePath'])) {
-            $model->historyModePath = $map['HistoryModePath'];
         }
         if (isset($map['IndexPath'])) {
             $model->indexPath = $map['IndexPath'];

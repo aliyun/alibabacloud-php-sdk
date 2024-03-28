@@ -16,18 +16,16 @@ class ModifyWebHostingConfigRequest extends Model
     public $allowedIps;
 
     /**
+     * @var string
+     */
+    public $errorHttpStatus;
+
+    /**
      * @example error.html
      *
      * @var string
      */
     public $errorPath;
-
-    /**
-     * @example /
-     *
-     * @var string
-     */
-    public $historyModePath;
 
     /**
      * @example index.html
@@ -44,8 +42,8 @@ class ModifyWebHostingConfigRequest extends Model
     public $spaceId;
     protected $_name = [
         'allowedIps'      => 'AllowedIps',
+        'errorHttpStatus' => 'ErrorHttpStatus',
         'errorPath'       => 'ErrorPath',
-        'historyModePath' => 'HistoryModePath',
         'indexPath'       => 'IndexPath',
         'spaceId'         => 'SpaceId',
     ];
@@ -60,11 +58,11 @@ class ModifyWebHostingConfigRequest extends Model
         if (null !== $this->allowedIps) {
             $res['AllowedIps'] = $this->allowedIps;
         }
+        if (null !== $this->errorHttpStatus) {
+            $res['ErrorHttpStatus'] = $this->errorHttpStatus;
+        }
         if (null !== $this->errorPath) {
             $res['ErrorPath'] = $this->errorPath;
-        }
-        if (null !== $this->historyModePath) {
-            $res['HistoryModePath'] = $this->historyModePath;
         }
         if (null !== $this->indexPath) {
             $res['IndexPath'] = $this->indexPath;
@@ -87,11 +85,11 @@ class ModifyWebHostingConfigRequest extends Model
         if (isset($map['AllowedIps'])) {
             $model->allowedIps = $map['AllowedIps'];
         }
+        if (isset($map['ErrorHttpStatus'])) {
+            $model->errorHttpStatus = $map['ErrorHttpStatus'];
+        }
         if (isset($map['ErrorPath'])) {
             $model->errorPath = $map['ErrorPath'];
-        }
-        if (isset($map['HistoryModePath'])) {
-            $model->historyModePath = $map['HistoryModePath'];
         }
         if (isset($map['IndexPath'])) {
             $model->indexPath = $map['IndexPath'];

@@ -88,8 +88,6 @@ use AlibabaCloud\SDK\MPServerless\V20190615\Models\GetWebHostingStatusRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\GetWebHostingStatusResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\GetWebHostingUploadCredentialRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\GetWebHostingUploadCredentialResponse;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\ListAvailableCertificatesRequest;
-use AlibabaCloud\SDK\MPServerless\V20190615\Models\ListAvailableCertificatesResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\ListCorsDomainsRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\ListCorsDomainsResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\ListDingtalkOpenPlatformConfigsRequest;
@@ -2174,52 +2172,6 @@ class MPServerless extends OpenApiClient
     }
 
     /**
-     * @param ListAvailableCertificatesRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return ListAvailableCertificatesResponse
-     */
-    public function listAvailableCertificatesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->domain)) {
-            $body['Domain'] = $request->domain;
-        }
-        if (!Utils::isUnset($request->spaceId)) {
-            $body['SpaceId'] = $request->spaceId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ListAvailableCertificates',
-            'version'     => '2019-06-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListAvailableCertificatesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListAvailableCertificatesRequest $request
-     *
-     * @return ListAvailableCertificatesResponse
-     */
-    public function listAvailableCertificates($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listAvailableCertificatesWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListCorsDomainsRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -2799,11 +2751,11 @@ class MPServerless extends OpenApiClient
         if (!Utils::isUnset($request->allowedIps)) {
             $body['AllowedIps'] = $request->allowedIps;
         }
+        if (!Utils::isUnset($request->errorHttpStatus)) {
+            $body['ErrorHttpStatus'] = $request->errorHttpStatus;
+        }
         if (!Utils::isUnset($request->errorPath)) {
             $body['ErrorPath'] = $request->errorPath;
-        }
-        if (!Utils::isUnset($request->historyModePath)) {
-            $body['HistoryModePath'] = $request->historyModePath;
         }
         if (!Utils::isUnset($request->indexPath)) {
             $body['IndexPath'] = $request->indexPath;
