@@ -21,6 +21,7 @@ use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetConsumerGroupResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetTopicResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListAvailableZonesResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListConsumerConnectionsResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListConsumerGroupsRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListConsumerGroupsResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListConsumerGroupSubscriptionsResponse;
@@ -30,6 +31,7 @@ use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListRegionsResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListTopicsRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListTopicsResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListTopicsShrinkRequest;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListTopicSubscriptionsResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ResetConsumeOffsetRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ResetConsumeOffsetResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\UpdateConsumerGroupRequest;
@@ -656,6 +658,48 @@ class RocketMQ extends OpenApiClient
      * @param string[]       $headers
      * @param RuntimeOptions $runtime
      *
+     * @return ListConsumerConnectionsResponse
+     */
+    public function listConsumerConnectionsWithOptions($instanceId, $consumerGroupId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'ListConsumerConnections',
+            'version'     => '2022-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/consumerGroups/' . OpenApiUtilClient::getEncodeParam($consumerGroupId) . '/connections',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListConsumerConnectionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $instanceId
+     * @param string $consumerGroupId
+     *
+     * @return ListConsumerConnectionsResponse
+     */
+    public function listConsumerConnections($instanceId, $consumerGroupId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listConsumerConnectionsWithOptions($instanceId, $consumerGroupId, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $instanceId
+     * @param string         $consumerGroupId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
      * @return ListConsumerGroupSubscriptionsResponse
      */
     public function listConsumerGroupSubscriptionsWithOptions($instanceId, $consumerGroupId, $headers, $runtime)
@@ -847,6 +891,48 @@ class RocketMQ extends OpenApiClient
         $headers = [];
 
         return $this->listRegionsWithOptions($headers, $runtime);
+    }
+
+    /**
+     * @param string         $instanceId
+     * @param string         $topicName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListTopicSubscriptionsResponse
+     */
+    public function listTopicSubscriptionsWithOptions($instanceId, $topicName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'ListTopicSubscriptions',
+            'version'     => '2022-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/topics/' . OpenApiUtilClient::getEncodeParam($topicName) . '/subscriptions',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTopicSubscriptionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $instanceId
+     * @param string $topicName
+     *
+     * @return ListTopicSubscriptionsResponse
+     */
+    public function listTopicSubscriptions($instanceId, $topicName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listTopicSubscriptionsWithOptions($instanceId, $topicName, $headers, $runtime);
     }
 
     /**
