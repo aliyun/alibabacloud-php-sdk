@@ -38,11 +38,26 @@ class instanceList extends Model
     public $enableCompute;
 
     /**
+     * @var bool
+     */
+    public $enableLts;
+
+    /**
+     * @var bool
+     */
+    public $enableMessage;
+
+    /**
      * @example true
      *
      * @var bool
      */
     public $enableStream;
+
+    /**
+     * @var bool
+     */
+    public $enableVector;
 
     /**
      * @example 15
@@ -151,7 +166,10 @@ class instanceList extends Model
         'createMilliseconds'  => 'CreateMilliseconds',
         'createTime'          => 'CreateTime',
         'enableCompute'       => 'EnableCompute',
+        'enableLts'           => 'EnableLts',
+        'enableMessage'       => 'EnableMessage',
         'enableStream'        => 'EnableStream',
+        'enableVector'        => 'EnableVector',
         'engineType'          => 'EngineType',
         'expireTime'          => 'ExpireTime',
         'expiredMilliseconds' => 'ExpiredMilliseconds',
@@ -188,8 +206,17 @@ class instanceList extends Model
         if (null !== $this->enableCompute) {
             $res['EnableCompute'] = $this->enableCompute;
         }
+        if (null !== $this->enableLts) {
+            $res['EnableLts'] = $this->enableLts;
+        }
+        if (null !== $this->enableMessage) {
+            $res['EnableMessage'] = $this->enableMessage;
+        }
         if (null !== $this->enableStream) {
             $res['EnableStream'] = $this->enableStream;
+        }
+        if (null !== $this->enableVector) {
+            $res['EnableVector'] = $this->enableVector;
         }
         if (null !== $this->engineType) {
             $res['EngineType'] = $this->engineType;
@@ -266,8 +293,17 @@ class instanceList extends Model
         if (isset($map['EnableCompute'])) {
             $model->enableCompute = $map['EnableCompute'];
         }
+        if (isset($map['EnableLts'])) {
+            $model->enableLts = $map['EnableLts'];
+        }
+        if (isset($map['EnableMessage'])) {
+            $model->enableMessage = $map['EnableMessage'];
+        }
         if (isset($map['EnableStream'])) {
             $model->enableStream = $map['EnableStream'];
+        }
+        if (isset($map['EnableVector'])) {
+            $model->enableVector = $map['EnableVector'];
         }
         if (isset($map['EngineType'])) {
             $model->engineType = $map['EngineType'];
