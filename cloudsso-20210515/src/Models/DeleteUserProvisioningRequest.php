@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DeleteUserProvisioningRequest extends Model
 {
     /**
+     * @description The deletion policy. The policy is used to manage synchronized users when you delete the RAM user provisioning. Valid values:
+     *
+     *   Delete: When you delete the RAM user provisioning, the system deletes the synchronized users.
+     *   Keep: When you delete the RAM user provisioning, the system retains the synchronized users.
+     *
+     * >  If you do not specify this parameter, the deletion policy that is configured when you create the RAM user provisioning is used.
      * @example Delete
      *
      * @var string
@@ -16,6 +22,8 @@ class DeleteUserProvisioningRequest extends Model
     public $deletionStrategy;
 
     /**
+     * @description The ID of the resource directory.
+     *
      * @example d-003qew84****
      *
      * @var string
@@ -23,6 +31,8 @@ class DeleteUserProvisioningRequest extends Model
     public $directoryId;
 
     /**
+     * @description The ID of the RAM user provisioning.
+     *
      * @example up-002axzhapcbz6e63****
      *
      * @var string

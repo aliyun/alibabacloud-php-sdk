@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class userProvisioningStatistics extends Model
 {
     /**
+     * @description The ID of the resource directory.
+     *
      * @example d-003qew84****
      *
      * @var string
@@ -16,6 +18,8 @@ class userProvisioningStatistics extends Model
     public $directoryId;
 
     /**
+     * @description The entity ID, which is the ID of the RAM user provisioning.
+     *
      * @example up-002axzhapcbz6e63****
      *
      * @var string
@@ -23,6 +27,8 @@ class userProvisioningStatistics extends Model
     public $entityId;
 
     /**
+     * @description The number of failed RAM user provisioning events that are associated with the RAM user provisioning.
+     *
      * @example 3
      *
      * @var int
@@ -30,6 +36,8 @@ class userProvisioningStatistics extends Model
     public $failedEventCount;
 
     /**
+     * @description The time when the RAM user provisioning was last performed.
+     *
      * @example 2022-11-28T03:55:42Z
      *
      * @var string
@@ -37,6 +45,8 @@ class userProvisioningStatistics extends Model
     public $latestAsyncTime;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the resource directory belongs.
+     *
      * @example 139665787317****
      *
      * @var string
@@ -44,6 +54,8 @@ class userProvisioningStatistics extends Model
     public $ownerPk;
 
     /**
+     * @description The entity type. The value is fixed as `User Provisioning`.
+     *
      * @example User Provisioning
      *
      * @var string

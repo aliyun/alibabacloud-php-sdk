@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListUserProvisioningsResponseBody extends Model
 {
     /**
+     * @description Indicates whether the queried entries are truncated. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -17,6 +22,9 @@ class ListUserProvisioningsResponseBody extends Model
     public $isTruncated;
 
     /**
+     * @description The maximum number of entries per page.
+     *
+     * Default value: 10.
      * @example 100
      *
      * @var int
@@ -24,6 +32,9 @@ class ListUserProvisioningsResponseBody extends Model
     public $maxResults;
 
     /**
+     * @description The token that is used to initiate the next request.
+     *
+     * >  This parameter is returned only when the `IsTruncated` parameter is set to `true`.
      * @example 27EbL9j4ZgZjsMZFqbZFgbwQ1VXFU1Khcpx9e2vrW1zwzTBmTGWaM7ixHhRin8SCsxaJdazYVCzeKc2UF2QkyGb83cPhr8ZxrzoaiTd****
      *
      * @var string
@@ -31,6 +42,8 @@ class ListUserProvisioningsResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
      * @example F76AF4FC-****-****-B7CB-74F3********
      *
      * @var string
@@ -38,6 +51,8 @@ class ListUserProvisioningsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 110
      *
      * @var int
@@ -45,6 +60,8 @@ class ListUserProvisioningsResponseBody extends Model
     public $totalCounts;
 
     /**
+     * @description The RAM user provisionings.
+     *
      * @var userProvisionings[]
      */
     public $userProvisionings;

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class loginPreference extends Model
 {
     /**
+     * @description The IP address whitelist. CloudSSO users can log on to the CloudSSO user portal only by using the IP addresses in the whitelist.
+     *
+     * If the return value of this parameter is empty, no IP address whitelists are configured.
      * @example 192.168.0.0/16;10.0.0.0/8
      *
      * @var string

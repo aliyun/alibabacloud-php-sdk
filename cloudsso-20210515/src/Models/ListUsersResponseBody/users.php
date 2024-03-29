@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cloudsso\V20210515\Models\ListUsersResponseBody;
 
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\ListUsersResponseBody\users\externalId;
 use AlibabaCloud\Tea\Model;
 
 class users extends Model
@@ -43,6 +44,11 @@ class users extends Model
      * @var string
      */
     public $email;
+
+    /**
+     * @var externalId
+     */
+    public $externalId;
 
     /**
      * @description The first name of the user.
@@ -117,6 +123,7 @@ class users extends Model
         'description'   => 'Description',
         'displayName'   => 'DisplayName',
         'email'         => 'Email',
+        'externalId'    => 'ExternalId',
         'firstName'     => 'FirstName',
         'lastName'      => 'LastName',
         'provisionType' => 'ProvisionType',
@@ -144,6 +151,9 @@ class users extends Model
         }
         if (null !== $this->email) {
             $res['Email'] = $this->email;
+        }
+        if (null !== $this->externalId) {
+            $res['ExternalId'] = null !== $this->externalId ? $this->externalId->toMap() : null;
         }
         if (null !== $this->firstName) {
             $res['FirstName'] = $this->firstName;
@@ -189,6 +199,9 @@ class users extends Model
         }
         if (isset($map['Email'])) {
             $model->email = $map['Email'];
+        }
+        if (isset($map['ExternalId'])) {
+            $model->externalId = externalId::fromMap($map['ExternalId']);
         }
         if (isset($map['FirstName'])) {
             $model->firstName = $map['FirstName'];

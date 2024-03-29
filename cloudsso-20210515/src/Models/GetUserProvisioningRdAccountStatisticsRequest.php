@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetUserProvisioningRdAccountStatisticsRequest extends Model
 {
     /**
+     * @description The ID of the resource directory.
+     *
      * @example d-003qew84****
      *
      * @var string
@@ -16,6 +18,8 @@ class GetUserProvisioningRdAccountStatisticsRequest extends Model
     public $directoryId;
 
     /**
+     * @description The ID of the member in the resource directory.
+     *
      * @example 1743382******
      *
      * @var string

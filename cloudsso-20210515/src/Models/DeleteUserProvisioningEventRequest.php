@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteUserProvisioningEventRequest extends Model
 {
     /**
+     * @description The ID of the resource directory.
+     *
      * @example d-003qew84****
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteUserProvisioningEventRequest extends Model
     public $directoryId;
 
     /**
+     * @description The ID of the RAM user provisioning event.
+     *
      * @example upe-wjKyNDmZvyZOiRcJ****
      *
      * @var string
@@ -23,6 +27,8 @@ class DeleteUserProvisioningEventRequest extends Model
     public $eventId;
 
     /**
+     * @description The ID of the RAM user provisioning.
+     *
      * @example up-002axzhapcbz6e63****
      *
      * @var string

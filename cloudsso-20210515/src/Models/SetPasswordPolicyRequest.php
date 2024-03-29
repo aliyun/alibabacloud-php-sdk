@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetPasswordPolicyRequest extends Model
 {
     /**
+     * @description The ID of the directory.
+     *
      * @example d-00fc2p61****
      *
      * @var string
@@ -16,6 +18,9 @@ class SetPasswordPolicyRequest extends Model
     public $directoryId;
 
     /**
+     * @description The number of password retries.
+     *
+     * Valid values: 0 to 32. The value 0 specifies that the number of password retries is not limited.
      * @example 5
      *
      * @var int
@@ -23,6 +28,9 @@ class SetPasswordPolicyRequest extends Model
     public $maxLoginAttempts;
 
     /**
+     * @description The validity period of a password.
+     *
+     * Valid values: 1 to 120. Unit: days.
      * @example 90
      *
      * @var int
@@ -30,6 +38,9 @@ class SetPasswordPolicyRequest extends Model
     public $maxPasswordAge;
 
     /**
+     * @description The minimum number of unique characters in a password.
+     *
+     * The minimum value is 0, which specifies that the minimum number of unique characters in a password is not limited. The maximum value is the value of the `MinPasswordLength` parameter.
      * @example 8
      *
      * @var int
@@ -37,6 +48,9 @@ class SetPasswordPolicyRequest extends Model
     public $minPasswordDifferentChars;
 
     /**
+     * @description The minimum password length.
+     *
+     * Valid values: 8 to 32 characters.
      * @example 8
      *
      * @var int
@@ -44,6 +58,11 @@ class SetPasswordPolicyRequest extends Model
     public $minPasswordLength;
 
     /**
+     * @description Specifies whether a password can contain the username. Valid value:
+     *
+     *   true: A password cannot contain the username.
+     *   false: A password can contain the username.
+     *
      * @example true
      *
      * @var bool
@@ -51,6 +70,9 @@ class SetPasswordPolicyRequest extends Model
     public $passwordNotContainUsername;
 
     /**
+     * @description The policy for password history check.
+     *
+     * >  Passwords that are generated before January 5, 2024 are not counted as historical passwords.
      * @example 1
      *
      * @var int

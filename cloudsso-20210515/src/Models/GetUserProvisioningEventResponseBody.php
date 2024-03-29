@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetUserProvisioningEventResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example B801715C-97EA-3067-AC97-EF1EBECBB39C
      *
      * @var string
@@ -17,6 +19,8 @@ class GetUserProvisioningEventResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The RAM user provisioning event.
+     *
      * @var userProvisioningEvent
      */
     public $userProvisioningEvent;

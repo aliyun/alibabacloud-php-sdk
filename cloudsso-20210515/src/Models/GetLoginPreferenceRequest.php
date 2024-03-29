@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetLoginPreferenceRequest extends Model
 {
     /**
+     * @description The ID of the directory.
+     *
      * @example d-00fc2p61****
      *
      * @var string

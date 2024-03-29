@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteUserProvisioningEventResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example A9287DA5-FD59-32A0-A810-1962E8B58ABB
      *
      * @var string

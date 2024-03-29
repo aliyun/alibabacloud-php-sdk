@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetUserProvisioningEventRequest extends Model
 {
     /**
+     * @description The ID of the resource directory.
+     *
      * @example d-003qew84****
      *
      * @var string
@@ -16,6 +18,8 @@ class GetUserProvisioningEventRequest extends Model
     public $directoryId;
 
     /**
+     * @description The ID of the RAM user provisioning event.
+     *
      * @example upe-wjKyNDmZvyZOiRcJ****
      *
      * @var string

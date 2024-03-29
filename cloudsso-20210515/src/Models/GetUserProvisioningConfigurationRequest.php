@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetUserProvisioningConfigurationRequest extends Model
 {
     /**
+     * @description The ID of the resource directory.
+     *
      * @example d-00fc2p61****
      *
      * @var string

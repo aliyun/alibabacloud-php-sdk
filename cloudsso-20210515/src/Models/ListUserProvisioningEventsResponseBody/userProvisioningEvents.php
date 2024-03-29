@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class userProvisioningEvents extends Model
 {
     /**
+     * @description The creation time.
+     *
      * @example 2022-11-28T03:55:55Z
      *
      * @var string
@@ -16,6 +18,11 @@ class userProvisioningEvents extends Model
     public $createTime;
 
     /**
+     * @description The deletion policy. The policy is used to manage synchronized users when you delete the RAM user provisioning. Valid values:
+     *
+     *   Delete: When you delete the RAM user provisioning, the system deletes the synchronized users.
+     *   Keep: When you delete the RAM user provisioning, the system retains the synchronized users.
+     *
      * @example Keep
      *
      * @var string
@@ -23,6 +30,8 @@ class userProvisioningEvents extends Model
     public $deletionStrategy;
 
     /**
+     * @description The ID of the resource directory.
+     *
      * @example d-003qew84****
      *
      * @var string
@@ -30,6 +39,11 @@ class userProvisioningEvents extends Model
     public $directoryId;
 
     /**
+     * @description The conflict handling policy. The policy is used when a RAM user has the same username as the CloudSSO user who is synchronized to RAM. Valid values:
+     *
+     *   KeepBoth: When a CloudSSO user is synchronized to RAM, if a RAM user who has the same username as the CloudSSO user exists, the system creates a RAM user whose username is the username of the CloudSSO user plus the suffix `_sso`.
+     *   TakeOver: When a CloudSSO user is synchronized to RAM, if a RAM user who has the same username as the CloudSSO user exists, the system replaces the RAM user with the CloudSSO user.
+     *
      * @example KeepBoth
      *
      * @var string
@@ -37,6 +51,8 @@ class userProvisioningEvents extends Model
     public $duplicationStrategy;
 
     /**
+     * @description The number of execution failures.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +60,8 @@ class userProvisioningEvents extends Model
     public $errorCount;
 
     /**
+     * @description The error message that is displayed when the last execution of the RAM user provisioning event failed.
+     *
      * @example OperationConflict.UserProvisioning.Process.fail.ImsUserExists
      *
      * @var string
@@ -51,6 +69,8 @@ class userProvisioningEvents extends Model
     public $errorInfo;
 
     /**
+     * @description The ID of the RAM user provisioning event.
+     *
      * @example upe-wjKyNDmZvyZOiRcJ****
      *
      * @var string
@@ -58,6 +78,8 @@ class userProvisioningEvents extends Model
     public $eventId;
 
     /**
+     * @description The time at which the RAM user provisioning event was last executed.
+     *
      * @example 2022-11-28T03:55:55Z
      *
      * @var string
@@ -65,6 +87,11 @@ class userProvisioningEvents extends Model
     public $latestAsyncTime;
 
     /**
+     * @description The identity ID of the RAM user provisioning. Valid values:
+     *
+     *   If `Group` is returned for the `PrincipalType` parameter, the value of this parameter is the ID of a CloudSSO user group (g-\*\*\*\*\*\*\*\*).
+     *   If `User` is returned for the `PrincipalType` parameter, the value of this parameter is the ID of a CloudSSO user (u-\*\*\*\*\*\*\*\*).
+     *
      * @example g-02ha881d*****
      *
      * @var string
@@ -72,6 +99,11 @@ class userProvisioningEvents extends Model
     public $principalId;
 
     /**
+     * @description The identity name of the RAM user provisioning. Valid values:
+     *
+     *   If `Group` is returned for the `PrincipalType` parameter, the value of this parameter is the name of a CloudSSO user group.
+     *   If `User` is returned for the `PrincipalType` parameter, the value of this parameter is the name of a CloudSSO user.
+     *
      * @example exampleGroupName
      *
      * @var string
@@ -79,6 +111,11 @@ class userProvisioningEvents extends Model
     public $principalName;
 
     /**
+     * @description The identity type of the RAM user provisioning. Valid values:
+     *
+     *   User: The identity of the RAM user provisioning is a CloudSSO user.
+     *   Group: The identity of the RAM user provisioning is a CloudSSO user group.
+     *
      * @example Group
      *
      * @var string
@@ -86,6 +123,14 @@ class userProvisioningEvents extends Model
     public $principalType;
 
     /**
+     * @description The type of the source operation. Valid values:
+     *
+     *   StartProvisioning: enables the RAM user provisioning.
+     *   DeleteProvisioning: deletes the RAM user provisioning.
+     *   AddUserToGroup: adds a user to a user group.
+     *   RemoveUserFromGroup: removes a user from a user group.
+     *   UserProvisioningDeletionClearing: deletes the RAM user provisioning and clears resources in the background.
+     *
      * @example StartProvisioning
      *
      * @var string
@@ -93,6 +138,9 @@ class userProvisioningEvents extends Model
     public $sourceType;
 
     /**
+     * @description The ID of the object for which you create the RAM user provisioning.
+     *
+     * The value is fixed as the ID of the account in the resource directory.````
      * @example 153218*******
      *
      * @var string
@@ -100,6 +148,9 @@ class userProvisioningEvents extends Model
     public $targetId;
 
     /**
+     * @description The name of the object for which you create the RAM user provisioning.
+     *
+     * If `RD-Account` is returned, the value of this parameter is the name of the account that is used to access the instance.``
      * @example exampleRdMember
      *
      * @var string
@@ -107,6 +158,8 @@ class userProvisioningEvents extends Model
     public $targetName;
 
     /**
+     * @description The path of the resource directory in which you create the RAM user provisioning for the object.
+     *
      * @example rd-******\/root/test**
      *
      * @var string
@@ -114,6 +167,8 @@ class userProvisioningEvents extends Model
     public $targetPath;
 
     /**
+     * @description The object for which you create the RAM user provisioning. The value is fixed as `RD-Account`.
+     *
      * @example RD-Account
      *
      * @var string
@@ -121,6 +176,8 @@ class userProvisioningEvents extends Model
     public $targetType;
 
     /**
+     * @description The modification time.
+     *
      * @example 2022-11-28T03:55:55Z
      *
      * @var string
@@ -128,6 +185,8 @@ class userProvisioningEvents extends Model
     public $updateTime;
 
     /**
+     * @description The ID of the RAM user provisioning.
+     *
      * @example up-002axzhapcbz6e63****
      *
      * @var string

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class passwordPolicy extends Model
 {
     /**
+     * @description Indicates whether to disable logon after a password expires. Valid values:
+     *
+     *   true: disables logon after a password expires.
+     *   false: does not disable logon after a password expires.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,9 @@ class passwordPolicy extends Model
     public $hardExpire;
 
     /**
+     * @description The number of password retries.
+     *
+     * Valid values: 0 to 32. The value 0 indicates that the number of password retries is not limited.
      * @example 5
      *
      * @var int
@@ -23,6 +31,9 @@ class passwordPolicy extends Model
     public $maxLoginAttempts;
 
     /**
+     * @description The validity period of a password.
+     *
+     * Valid values: 1 to 120. Unit: days.
      * @example 90
      *
      * @var int
@@ -30,6 +41,8 @@ class passwordPolicy extends Model
     public $maxPasswordAge;
 
     /**
+     * @description The maximum password length.
+     *
      * @example 32
      *
      * @var int
@@ -37,6 +50,9 @@ class passwordPolicy extends Model
     public $maxPasswordLength;
 
     /**
+     * @description The minimum number of different characters in a password.
+     *
+     * The minimum value is 0, which indicates that the minimum number of different characters in a password is not limited. The maximum value is the value of the `MinPasswordLength` parameter.
      * @example 8
      *
      * @var int
@@ -44,6 +60,9 @@ class passwordPolicy extends Model
     public $minPasswordDifferentChars;
 
     /**
+     * @description The minimum password length.
+     *
+     * Valid values: 8 to 32 characters.
      * @example 8
      *
      * @var int
@@ -51,6 +70,11 @@ class passwordPolicy extends Model
     public $minPasswordLength;
 
     /**
+     * @description Indicates whether to exclude the username from the password. Valid values:
+     *
+     *   true: A password cannot contain the username.
+     *   false: A password can contain the username.
+     *
      * @example true
      *
      * @var bool
@@ -58,6 +82,9 @@ class passwordPolicy extends Model
     public $passwordNotContainUsername;
 
     /**
+     * @description The policy for password history check.
+     *
+     * >  Passwords that are generated before January 5, 2024 are not counted as historical passwords.
      * @example 1
      *
      * @var int
@@ -65,6 +92,11 @@ class passwordPolicy extends Model
     public $passwordReusePrevention;
 
     /**
+     * @description Indicates whether lowercase letters are required in a password. Valid values:
+     *
+     *   true: Lowercase letters are required in a password.
+     *   false: Lowercase letters are not required in a password.
+     *
      * @example true
      *
      * @var bool
@@ -72,6 +104,11 @@ class passwordPolicy extends Model
     public $requireLowerCaseChars;
 
     /**
+     * @description Indicates whether digits are required in a password. Valid values:
+     *
+     *   true: Digits are required in a password.
+     *   false: Digits are not required in a password.
+     *
      * @example true
      *
      * @var bool
@@ -79,6 +116,11 @@ class passwordPolicy extends Model
     public $requireNumbers;
 
     /**
+     * @description Indicates whether special characters are required in a password. Valid values:
+     *
+     *   true: Special characters are required in a password.
+     *   false: Special characters are not required in a password.
+     *
      * @example true
      *
      * @var bool
@@ -86,6 +128,11 @@ class passwordPolicy extends Model
     public $requireSymbols;
 
     /**
+     * @description Indicates whether uppercase letters are required in a password. Valid values:
+     *
+     *   true: Uppercase letters are required in a password.
+     *   false: Uppercase letters are not required in a password.
+     *
      * @example true
      *
      * @var bool

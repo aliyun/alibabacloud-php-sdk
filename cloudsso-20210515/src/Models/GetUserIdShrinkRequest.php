@@ -6,18 +6,22 @@ namespace AlibabaCloud\SDK\Cloudsso\V20210515\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetPasswordPolicyRequest extends Model
+class GetUserIdShrinkRequest extends Model
 {
     /**
-     * @description The ID of the directory.
-     *
      * @example d-00fc2p61****
      *
      * @var string
      */
     public $directoryId;
+
+    /**
+     * @var string
+     */
+    public $externalIdShrink;
     protected $_name = [
-        'directoryId' => 'DirectoryId',
+        'directoryId'      => 'DirectoryId',
+        'externalIdShrink' => 'ExternalId',
     ];
 
     public function validate()
@@ -30,6 +34,9 @@ class GetPasswordPolicyRequest extends Model
         if (null !== $this->directoryId) {
             $res['DirectoryId'] = $this->directoryId;
         }
+        if (null !== $this->externalIdShrink) {
+            $res['ExternalId'] = $this->externalIdShrink;
+        }
 
         return $res;
     }
@@ -37,13 +44,16 @@ class GetPasswordPolicyRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetPasswordPolicyRequest
+     * @return GetUserIdShrinkRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DirectoryId'])) {
             $model->directoryId = $map['DirectoryId'];
+        }
+        if (isset($map['ExternalId'])) {
+            $model->externalIdShrink = $map['ExternalId'];
         }
 
         return $model;

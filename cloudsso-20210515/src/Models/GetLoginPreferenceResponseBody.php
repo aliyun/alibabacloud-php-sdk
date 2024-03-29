@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetLoginPreferenceResponseBody extends Model
 {
     /**
+     * @description The logon preference.
+     *
      * @var loginPreference
      */
     public $loginPreference;
 
     /**
+     * @description The request ID.
+     *
      * @example 8CE8B990-193D-50CE-A604-69F3E7DCE740
      *
      * @var string

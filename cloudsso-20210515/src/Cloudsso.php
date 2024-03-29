@@ -79,6 +79,9 @@ use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetTaskRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetTaskResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetTaskStatusRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetTaskStatusResponse;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetUserIdRequest;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetUserIdResponse;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetUserIdShrinkRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetUserMFAAuthenticationSettingsRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetUserMFAAuthenticationSettingsResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetUserProvisioningConfigurationRequest;
@@ -2237,6 +2240,57 @@ class Cloudsso extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetUserIdRequest $tmpReq
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetUserIdResponse
+     */
+    public function getUserIdWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetUserIdShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->externalId)) {
+            $request->externalIdShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->externalId, 'ExternalId', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->externalIdShrink)) {
+            $query['ExternalId'] = $request->externalIdShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetUserId',
+            'version'     => '2021-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetUserIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetUserIdRequest $request
+     *
+     * @return GetUserIdResponse
+     */
+    public function getUserId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getUserIdWithOptions($request, $runtime);
     }
 
     /**

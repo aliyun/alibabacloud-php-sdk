@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetPasswordPolicyResponseBody extends Model
 {
     /**
+     * @description The password policy.
+     *
      * @var passwordPolicy
      */
     public $passwordPolicy;
 
     /**
+     * @description The request ID.
+     *
      * @example B7C6E839-FB65-59BE-B753-003AA8AF7DF7
      *
      * @var string

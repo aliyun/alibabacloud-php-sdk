@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class userProvisioning extends Model
 {
     /**
+     * @description The creation time.
+     *
      * @example 2022-11-28T03:55:42Z
      *
      * @var string
@@ -16,6 +18,11 @@ class userProvisioning extends Model
     public $createTime;
 
     /**
+     * @description The deletion policy. The policy is used to manage synchronized users when you delete the RAM user provisioning. Valid values:
+     *
+     *   Delete: When you delete the RAM user provisioning, the system deletes the synchronized users.
+     *   Keep: When you delete the RAM user provisioning, the system retains the synchronized users.
+     *
      * @example Delete
      *
      * @var string
@@ -23,6 +30,8 @@ class userProvisioning extends Model
     public $deletionStrategy;
 
     /**
+     * @description The description.
+     *
      * @example This is a user provisioning.
      *
      * @var string
@@ -30,6 +39,8 @@ class userProvisioning extends Model
     public $description;
 
     /**
+     * @description The ID of the resource directory.
+     *
      * @example d-003qew84****
      *
      * @var string
@@ -37,6 +48,11 @@ class userProvisioning extends Model
     public $directoryId;
 
     /**
+     * @description The conflict handling policy. The policy is used when a RAM user has the same username as the CloudSSO user who is synchronized to RAM. Valid values:
+     *
+     *   KeepBoth: When a CloudSSO user is synchronized to RAM, if a RAM user who has the same username as the CloudSSO user exists, the system creates a RAM user whose username is the username of the CloudSSO user plus the suffix `_sso`.
+     *   TakeOver: When a CloudSSO user is synchronized to RAM, if a RAM user who has the same username as the CloudSSO user exists, the system replaces the RAM user with the CloudSSO user.
+     *
      * @example KeepBoth
      *
      * @var string
@@ -44,6 +60,8 @@ class userProvisioning extends Model
     public $duplicationStrategy;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the resource directory belongs.
+     *
      * @example 1639738******
      *
      * @var string
@@ -51,6 +69,11 @@ class userProvisioning extends Model
     public $ownerPk;
 
     /**
+     * @description The identity ID of the RAM user provisioning. Valid values:
+     *
+     *   If `Group` is returned for the `PrincipalType` parameter, the value of this parameter is the ID of a CloudSSO user group (g-\*\*\*\*\*\*\*\*).
+     *   If `User` is returned for the `PrincipalType` parameter, the value of this parameter is the ID of a CloudSSO user (u-\*\*\*\*\*\*\*\*).
+     *
      * @example g-02ha881d*****
      *
      * @var string
@@ -58,6 +81,11 @@ class userProvisioning extends Model
     public $principalId;
 
     /**
+     * @description The identity name of the RAM user provisioning. Valid values:
+     *
+     *   If `Group` is returned for the `PrincipalType` parameter, the value of this parameter is the name of a CloudSSO user group.
+     *   If `User` is returned for the `PrincipalType` parameter, the value of this parameter is the name of a CloudSSO user.
+     *
      * @example testGroupName
      *
      * @var string
@@ -65,6 +93,11 @@ class userProvisioning extends Model
     public $principalName;
 
     /**
+     * @description The identity type of the RAM user provisioning. Valid values:
+     *
+     *   User: indicates that the identity of the RAM user provisioning is a CloudSSO user.
+     *   Group: indicates that the identity of the RAM user provisioning is a CloudSSO user group.
+     *
      * @example Group
      *
      * @var string
@@ -72,6 +105,11 @@ class userProvisioning extends Model
     public $principalType;
 
     /**
+     * @description The status of the RAM user provisioning. Valid values:
+     *
+     *   Enabled
+     *   Disabled
+     *
      * @example Enabled
      *
      * @var string
@@ -79,6 +117,8 @@ class userProvisioning extends Model
     public $status;
 
     /**
+     * @description The ID of the object for which you create the RAM user provisioning. The value is fixed as the ID of the member in the resource directory.
+     *
      * @example 1743382******
      *
      * @var string
@@ -86,6 +126,8 @@ class userProvisioning extends Model
     public $targetId;
 
     /**
+     * @description The name of the object for which you create the RAM user provisioning. The value is fixed as the name of the member in the resource directory.
+     *
      * @example testRdMember
      *
      * @var string
@@ -93,6 +135,8 @@ class userProvisioning extends Model
     public $targetName;
 
     /**
+     * @description The path of the resource directory in which you create the RAM user provisioning for the member.
+     *
      * @example rd-******\/root/test**
      *
      * @var string
@@ -100,6 +144,8 @@ class userProvisioning extends Model
     public $targetPath;
 
     /**
+     * @description The object for which you create the RAM user provisioning. The value is fixed as `RD-Account`.
+     *
      * @example RD-Account
      *
      * @var string
@@ -107,6 +153,8 @@ class userProvisioning extends Model
     public $targetType;
 
     /**
+     * @description The modification time.
+     *
      * @example 2022-11-28T03:55:42Z
      *
      * @var string
@@ -114,6 +162,8 @@ class userProvisioning extends Model
     public $updateTime;
 
     /**
+     * @description The ID of the RAM user provisioning.
+     *
      * @example up-002axzhapcbz6e63****
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class userProvisioningConfiguration extends Model
 {
     /**
+     * @description The creation time.
+     *
      * @example 2022-11-28T03:55:42Z
      *
      * @var string
@@ -16,6 +18,9 @@ class userProvisioningConfiguration extends Model
     public $createTime;
 
     /**
+     * @description The default URL for a CloudSSO user who logs on to the Alibaba Cloud Management Console.
+     *
+     * Default value: https://homenew.console.aliyun.com.
      * @example https://homenew.console.aliyun.com
      *
      * @var string
@@ -23,6 +28,8 @@ class userProvisioningConfiguration extends Model
     public $defaultLandingPage;
 
     /**
+     * @description The ID of the resource directory.
+     *
      * @example d-003qew84****
      *
      * @var string
@@ -30,6 +37,9 @@ class userProvisioningConfiguration extends Model
     public $directoryId;
 
     /**
+     * @description The duration of the logon session.
+     *
+     * Default value: 6.
      * @example 6
      *
      * @var int
@@ -37,6 +47,8 @@ class userProvisioningConfiguration extends Model
     public $sessionDuration;
 
     /**
+     * @description The modification time.
+     *
      * @example 2022-11-28T03:55:42Z
      *
      * @var string

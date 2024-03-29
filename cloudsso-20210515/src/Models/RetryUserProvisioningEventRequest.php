@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RetryUserProvisioningEventRequest extends Model
 {
     /**
+     * @description The ID of the resource directory.
+     *
      * @example d-003qew84****
      *
      * @var string
@@ -16,6 +18,11 @@ class RetryUserProvisioningEventRequest extends Model
     public $directoryId;
 
     /**
+     * @description The conflict handling policy. The policy is used when a RAM user has the same username as the CloudSSO user who is synchronized to RAM. Valid values:
+     *
+     *   KeepBoth: When a CloudSSO user is synchronized to RAM, if a RAM user who has the same username as the CloudSSO user exists, the system creates a RAM user whose username is the username of the CloudSSO user plus the suffix `_sso`.
+     *   TakeOver: When a CloudSSO user is synchronized to RAM, if a RAM user who has the same username as the CloudSSO user exists, the system replaces the RAM user with the CloudSSO user.
+     *
      * @example KeepBoth
      *
      * @var string
@@ -23,6 +30,8 @@ class RetryUserProvisioningEventRequest extends Model
     public $duplicationStrategy;
 
     /**
+     * @description The ID of the RAM user provisioning event.
+     *
      * @example upe-wjKyNDmZvyZOiRcJ****
      *
      * @var string

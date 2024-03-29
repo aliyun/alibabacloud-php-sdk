@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetUserProvisioningConfigurationResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 66898413-EB80-556D-9429-06FE3548F672
      *
      * @var string
@@ -17,6 +19,8 @@ class GetUserProvisioningConfigurationResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The global configurations of the RAM user provisioning.
+     *
      * @var userProvisioningConfiguration
      */
     public $userProvisioningConfiguration;

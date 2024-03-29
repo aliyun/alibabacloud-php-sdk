@@ -4,20 +4,25 @@
 
 namespace AlibabaCloud\SDK\Cloudsso\V20210515\Models;
 
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetUserIdRequest\externalId;
 use AlibabaCloud\Tea\Model;
 
-class GetPasswordPolicyRequest extends Model
+class GetUserIdRequest extends Model
 {
     /**
-     * @description The ID of the directory.
-     *
      * @example d-00fc2p61****
      *
      * @var string
      */
     public $directoryId;
+
+    /**
+     * @var externalId
+     */
+    public $externalId;
     protected $_name = [
         'directoryId' => 'DirectoryId',
+        'externalId'  => 'ExternalId',
     ];
 
     public function validate()
@@ -30,6 +35,9 @@ class GetPasswordPolicyRequest extends Model
         if (null !== $this->directoryId) {
             $res['DirectoryId'] = $this->directoryId;
         }
+        if (null !== $this->externalId) {
+            $res['ExternalId'] = null !== $this->externalId ? $this->externalId->toMap() : null;
+        }
 
         return $res;
     }
@@ -37,13 +45,16 @@ class GetPasswordPolicyRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetPasswordPolicyRequest
+     * @return GetUserIdRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DirectoryId'])) {
             $model->directoryId = $map['DirectoryId'];
+        }
+        if (isset($map['ExternalId'])) {
+            $model->externalId = externalId::fromMap($map['ExternalId']);
         }
 
         return $model;
