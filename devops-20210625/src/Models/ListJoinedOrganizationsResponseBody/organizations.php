@@ -16,12 +16,18 @@ class organizations extends Model
     public $id;
 
     /**
+     * @var bool
+     */
+    public $isOrgAdmin;
+
+    /**
      * @var string
      */
     public $name;
     protected $_name = [
-        'id'   => 'id',
-        'name' => 'name',
+        'id'         => 'id',
+        'isOrgAdmin' => 'isOrgAdmin',
+        'name'       => 'name',
     ];
 
     public function validate()
@@ -33,6 +39,9 @@ class organizations extends Model
         $res = [];
         if (null !== $this->id) {
             $res['id'] = $this->id;
+        }
+        if (null !== $this->isOrgAdmin) {
+            $res['isOrgAdmin'] = $this->isOrgAdmin;
         }
         if (null !== $this->name) {
             $res['name'] = $this->name;
@@ -51,6 +60,9 @@ class organizations extends Model
         $model = new self();
         if (isset($map['id'])) {
             $model->id = $map['id'];
+        }
+        if (isset($map['isOrgAdmin'])) {
+            $model->isOrgAdmin = $map['isOrgAdmin'];
         }
         if (isset($map['name'])) {
             $model->name = $map['name'];
