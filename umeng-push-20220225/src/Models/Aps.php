@@ -14,7 +14,9 @@ class Aps extends Model
     public $alert;
 
     /**
-     * @var int
+     * @example +1(自增)，-1(自减)，4(设置数字)
+     *
+     * @var string
      */
     public $badge;
 
@@ -37,6 +39,11 @@ class Aps extends Model
      * @var string
      */
     public $sound;
+
+    /**
+     * @var string
+     */
+    public $threadID;
     protected $_name = [
         'alert'             => 'alert',
         'badge'             => 'badge',
@@ -44,6 +51,7 @@ class Aps extends Model
         'contentAvailable'  => 'contentAvailable',
         'interruptionLevel' => 'interruptionLevel',
         'sound'             => 'sound',
+        'threadID'          => 'threadID',
     ];
 
     public function validate()
@@ -70,6 +78,9 @@ class Aps extends Model
         }
         if (null !== $this->sound) {
             $res['sound'] = $this->sound;
+        }
+        if (null !== $this->threadID) {
+            $res['threadID'] = $this->threadID;
         }
 
         return $res;
@@ -100,6 +111,9 @@ class Aps extends Model
         }
         if (isset($map['sound'])) {
             $model->sound = $map['sound'];
+        }
+        if (isset($map['threadID'])) {
+            $model->threadID = $map['threadID'];
         }
 
         return $model;

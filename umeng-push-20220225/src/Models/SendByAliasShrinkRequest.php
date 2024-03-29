@@ -63,6 +63,11 @@ class SendByAliasShrinkRequest extends Model
      * @var string
      */
     public $receiptUrl;
+
+    /**
+     * @var string
+     */
+    public $thirdPartyId;
     protected $_name = [
         'alias'                   => 'Alias',
         'aliasType'               => 'AliasType',
@@ -74,6 +79,7 @@ class SendByAliasShrinkRequest extends Model
         'productionMode'          => 'ProductionMode',
         'receiptType'             => 'ReceiptType',
         'receiptUrl'              => 'ReceiptUrl',
+        'thirdPartyId'            => 'ThirdPartyId',
     ];
 
     public function validate()
@@ -112,6 +118,9 @@ class SendByAliasShrinkRequest extends Model
         }
         if (null !== $this->receiptUrl) {
             $res['ReceiptUrl'] = $this->receiptUrl;
+        }
+        if (null !== $this->thirdPartyId) {
+            $res['ThirdPartyId'] = $this->thirdPartyId;
         }
 
         return $res;
@@ -154,6 +163,9 @@ class SendByAliasShrinkRequest extends Model
         }
         if (isset($map['ReceiptUrl'])) {
             $model->receiptUrl = $map['ReceiptUrl'];
+        }
+        if (isset($map['ThirdPartyId'])) {
+            $model->thirdPartyId = $map['ThirdPartyId'];
         }
 
         return $model;
