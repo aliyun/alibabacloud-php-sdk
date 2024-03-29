@@ -4,12 +4,18 @@
 
 namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models;
 
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\UpdateInstanceRequest\aclInfo;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\UpdateInstanceRequest\networkInfo;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\UpdateInstanceRequest\productInfo;
 use AlibabaCloud\Tea\Model;
 
 class UpdateInstanceRequest extends Model
 {
+    /**
+     * @var aclInfo
+     */
+    public $aclInfo;
+
     /**
      * @description The updated name of the instance.
      *
@@ -42,6 +48,7 @@ class UpdateInstanceRequest extends Model
      */
     public $remark;
     protected $_name = [
+        'aclInfo'      => 'aclInfo',
         'instanceName' => 'instanceName',
         'networkInfo'  => 'networkInfo',
         'productInfo'  => 'productInfo',
@@ -55,6 +62,9 @@ class UpdateInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->aclInfo) {
+            $res['aclInfo'] = null !== $this->aclInfo ? $this->aclInfo->toMap() : null;
+        }
         if (null !== $this->instanceName) {
             $res['instanceName'] = $this->instanceName;
         }
@@ -79,6 +89,9 @@ class UpdateInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['aclInfo'])) {
+            $model->aclInfo = aclInfo::fromMap($map['aclInfo']);
+        }
         if (isset($map['instanceName'])) {
             $model->instanceName = $map['instanceName'];
         }

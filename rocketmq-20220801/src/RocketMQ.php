@@ -1126,6 +1126,9 @@ class RocketMQ extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->aclInfo)) {
+            $body['aclInfo'] = $request->aclInfo;
+        }
         if (!Utils::isUnset($request->instanceName)) {
             $body['instanceName'] = $request->instanceName;
         }

@@ -69,6 +69,8 @@ class data extends Model
     /**
      * @description The extended configurations. We recommend you configure the productInfo, internetInfo, or aclInfo parameter instead of this parameter.
      *
+     * @deprecated
+     *
      * @var extConfig
      */
     public $extConfig;
