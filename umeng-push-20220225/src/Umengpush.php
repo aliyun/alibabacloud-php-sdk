@@ -306,6 +306,9 @@ class Umengpush extends OpenApiClient
         if (!Utils::isUnset($request->receiptUrl)) {
             $body['ReceiptUrl'] = $request->receiptUrl;
         }
+        if (!Utils::isUnset($request->thirdPartyId)) {
+            $body['ThirdPartyId'] = $request->thirdPartyId;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
@@ -386,6 +389,9 @@ class Umengpush extends OpenApiClient
         }
         if (!Utils::isUnset($request->receiptUrl)) {
             $body['ReceiptUrl'] = $request->receiptUrl;
+        }
+        if (!Utils::isUnset($request->thirdPartyId)) {
+            $body['ThirdPartyId'] = $request->thirdPartyId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -558,6 +564,9 @@ class Umengpush extends OpenApiClient
         if (!Utils::isUnset($request->receiptUrl)) {
             $body['ReceiptUrl'] = $request->receiptUrl;
         }
+        if (!Utils::isUnset($request->thirdPartyId)) {
+            $body['ThirdPartyId'] = $request->thirdPartyId;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
@@ -641,6 +650,9 @@ class Umengpush extends OpenApiClient
         }
         if (!Utils::isUnset($request->receiptUrl)) {
             $body['ReceiptUrl'] = $request->receiptUrl;
+        }
+        if (!Utils::isUnset($request->thirdPartyId)) {
+            $body['ThirdPartyId'] = $request->thirdPartyId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
