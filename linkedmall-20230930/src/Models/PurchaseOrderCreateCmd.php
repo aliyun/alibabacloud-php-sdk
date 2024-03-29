@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class PurchaseOrderCreateCmd extends Model
 {
     /**
-     * @example 买家id
+     * @example buyer2138237
      *
      * @var string
      */
