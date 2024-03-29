@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateAccessGroupRequest extends Model
 {
     /**
+     * @example my-online-cluster-policy
+     *
      * @var string
      */
     public $accessGroupName;
@@ -19,11 +21,15 @@ class CreateAccessGroupRequest extends Model
     public $description;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $inputRegionId;
 
     /**
+     * @example VPC
+     *
      * @var string
      */
     public $networkType;

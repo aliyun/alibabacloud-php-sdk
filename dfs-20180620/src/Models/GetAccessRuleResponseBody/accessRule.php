@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class accessRule extends Model
 {
     /**
+     * @example acg-e3755fb0-358d-4286-9942-8d461048****
+     *
      * @var string
      */
     public $accessGroupId;
 
     /**
+     * @example acr-c38028f0-f313-4385-9456-3501b1f5****
+     *
      * @var string
      */
     public $accessRuleId;
@@ -29,21 +33,29 @@ class accessRule extends Model
     public $description;
 
     /**
+     * @example 192.0.2.0/24
+     *
      * @var string
      */
     public $networkSegment;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @example RDWR
+     *
      * @var string
      */
     public $RWAccessType;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

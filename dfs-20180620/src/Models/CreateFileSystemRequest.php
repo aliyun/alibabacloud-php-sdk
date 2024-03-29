@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateFileSystemRequest extends Model
 {
     /**
+     * @example LRS
+     *
      * @var string
      */
     public $dataRedundancyType;
@@ -19,51 +21,71 @@ class CreateFileSystemRequest extends Model
     public $description;
 
     /**
+     * @example MyFirstHDFS
+     *
      * @var string
      */
     public $fileSystemName;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $inputRegionId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $partitionNumber;
 
     /**
+     * @example HDFS
+     *
      * @var string
      */
     public $protocolType;
 
     /**
+     * @example 1024
+     *
      * @var int
      */
     public $provisionedThroughputInMiBps;
 
     /**
+     * @example 1024
+     *
      * @var int
      */
     public $spaceCapacity;
 
     /**
+     * @example AligroupStorageSet
+     *
      * @var string
      */
     public $storageSetName;
 
     /**
+     * @example STANDARD
+     *
      * @var string
      */
     public $storageType;
 
     /**
+     * @example Standard
+     *
      * @var string
      */
     public $throughputMode;
 
     /**
+     * @example cn-hangzhou-b
+     *
      * @var string
      */
     public $zoneId;

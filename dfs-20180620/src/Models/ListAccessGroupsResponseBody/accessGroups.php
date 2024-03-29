@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class accessGroups extends Model
 {
     /**
+     * @example acg-e3755fb0-358d-4286-9942-8d461048****
+     *
      * @var string
      */
     public $accessGroupId;
 
     /**
+     * @example test-cluster-policy
+     *
      * @var string
      */
     public $accessGroupName;
@@ -29,26 +33,36 @@ class accessGroups extends Model
     public $description;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isDefault;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $mountPointCount;
 
     /**
+     * @example VPC
+     *
      * @var string
      */
     public $networkType;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $ruleCount;

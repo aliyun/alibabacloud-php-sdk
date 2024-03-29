@@ -19,26 +19,36 @@ class ModifyFileSystemRequest extends Model
     public $fileSystemId;
 
     /**
+     * @example MyFirstModDFS
+     *
      * @var string
      */
     public $fileSystemName;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $inputRegionId;
 
     /**
+     * @example 1024
+     *
      * @var int
      */
     public $provisionedThroughputInMiBps;
 
     /**
+     * @example 1024
+     *
      * @var int
      */
     public $spaceCapacity;
 
     /**
+     * @example Standard
+     *
      * @var string
      */
     public $throughputMode;

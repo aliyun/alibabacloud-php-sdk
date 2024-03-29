@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyAccessRuleRequest extends Model
 {
     /**
+     * @example acg-e3755fb0-358d-4286-9942-8d461048****
+     *
      * @var string
      */
     public $accessGroupId;
 
     /**
+     * @example acr-c38028f0-f313-4385-9456-3501b1f5****
+     *
      * @var string
      */
     public $accessRuleId;
@@ -24,16 +28,22 @@ class ModifyAccessRuleRequest extends Model
     public $description;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $inputRegionId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @example RDWR
+     *
      * @var string
      */
     public $RWAccessType;

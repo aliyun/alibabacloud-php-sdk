@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListFileSystemsRequest extends Model
 {
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $inputRegionId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $limit;
 
     /**
+     * @example CreateTime
+     *
      * @var string
      */
     public $orderBy;
 
     /**
+     * @example ASC
+     *
      * @var string
      */
     public $orderType;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $startOffset;

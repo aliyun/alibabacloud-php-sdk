@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateUserGroupsMappingShrinkRequest extends Model
 {
     /**
+     * @example 55C5FFD6-BF99-41BD-9C66-FFF39189****
+     *
      * @var string
      */
     public $fileSystemId;
 
     /**
+     * @example ["group1","group2"]
+     *
      * @var string
      */
     public $groupNamesShrink;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $inputRegionId;
 
     /**
+     * @example user1
+     *
      * @var string
      */
     public $userName;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class options extends Model
 {
     /**
+     * @example HDFS
+     *
      * @var string
      */
     public $protocolType;
 
     /**
+     * @example STANDARD
+     *
      * @var string
      */
     public $storageType;

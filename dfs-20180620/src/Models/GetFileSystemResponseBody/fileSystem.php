@@ -24,76 +24,106 @@ class fileSystem extends Model
     public $fileSystemId;
 
     /**
+     * @example MyFirstHDFS
+     *
      * @var string
      */
     public $fileSystemName;
 
     /**
+     * @example 107374182400
+     *
      * @var float
      */
     public $meteringSpaceSize;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $mountPointCount;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $numberOfDirectories;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $numberOfFiles;
 
     /**
+     * @example HDFS
+     *
      * @var string
      */
     public $protocolType;
 
     /**
+     * @example 1024
+     *
      * @var int
      */
     public $provisionedThroughputInMiBps;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 1024
+     *
      * @var int
      */
     public $spaceCapacity;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $storagePackageId;
 
     /**
+     * @example STANDARD
+     *
      * @var string
      */
     public $storageType;
 
     /**
+     * @example Standard
+     *
      * @var string
      */
     public $throughputMode;
 
     /**
+     * @example 100
+     *
      * @var float
      */
     public $usedSpaceSize;
 
     /**
+     * @example 1.0.0
+     *
      * @var string
      */
     public $version;
 
     /**
+     * @example cn-hangzhou-b
+     *
      * @var string
      */
     public $zoneId;

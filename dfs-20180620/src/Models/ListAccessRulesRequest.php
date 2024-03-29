@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListAccessRulesRequest extends Model
 {
     /**
+     * @example acg-e3755fb0-358d-4286-9942-8d461048****
+     *
      * @var string
      */
     public $accessGroupId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $inputRegionId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $limit;
 
     /**
+     * @example Priority
+     *
      * @var string
      */
     public $orderBy;
 
     /**
+     * @example ASC
+     *
      * @var string
      */
     public $orderType;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $startOffset;

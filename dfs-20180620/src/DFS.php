@@ -6,6 +6,11 @@ namespace AlibabaCloud\SDK\DFS\V20180620;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\DFS\V20180620\Models\AttachVscMountPointRequest;
+use AlibabaCloud\SDK\DFS\V20180620\Models\AttachVscMountPointResponse;
+use AlibabaCloud\SDK\DFS\V20180620\Models\AttachVscMountPointShrinkRequest;
+use AlibabaCloud\SDK\DFS\V20180620\Models\BindVscMountPointAliasRequest;
+use AlibabaCloud\SDK\DFS\V20180620\Models\BindVscMountPointAliasResponse;
 use AlibabaCloud\SDK\DFS\V20180620\Models\CreateAccessGroupRequest;
 use AlibabaCloud\SDK\DFS\V20180620\Models\CreateAccessGroupResponse;
 use AlibabaCloud\SDK\DFS\V20180620\Models\CreateAccessRuleRequest;
@@ -17,6 +22,9 @@ use AlibabaCloud\SDK\DFS\V20180620\Models\CreateMountPointResponse;
 use AlibabaCloud\SDK\DFS\V20180620\Models\CreateUserGroupsMappingRequest;
 use AlibabaCloud\SDK\DFS\V20180620\Models\CreateUserGroupsMappingResponse;
 use AlibabaCloud\SDK\DFS\V20180620\Models\CreateUserGroupsMappingShrinkRequest;
+use AlibabaCloud\SDK\DFS\V20180620\Models\CreateVscMountPointRequest;
+use AlibabaCloud\SDK\DFS\V20180620\Models\CreateVscMountPointResponse;
+use AlibabaCloud\SDK\DFS\V20180620\Models\CreateVscMountPointShrinkRequest;
 use AlibabaCloud\SDK\DFS\V20180620\Models\DeleteAccessGroupRequest;
 use AlibabaCloud\SDK\DFS\V20180620\Models\DeleteAccessGroupResponse;
 use AlibabaCloud\SDK\DFS\V20180620\Models\DeleteAccessRuleRequest;
@@ -28,8 +36,15 @@ use AlibabaCloud\SDK\DFS\V20180620\Models\DeleteMountPointResponse;
 use AlibabaCloud\SDK\DFS\V20180620\Models\DeleteUserGroupsMappingRequest;
 use AlibabaCloud\SDK\DFS\V20180620\Models\DeleteUserGroupsMappingResponse;
 use AlibabaCloud\SDK\DFS\V20180620\Models\DeleteUserGroupsMappingShrinkRequest;
+use AlibabaCloud\SDK\DFS\V20180620\Models\DeleteVscMountPointRequest;
+use AlibabaCloud\SDK\DFS\V20180620\Models\DeleteVscMountPointResponse;
 use AlibabaCloud\SDK\DFS\V20180620\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\DFS\V20180620\Models\DescribeRegionsResponse;
+use AlibabaCloud\SDK\DFS\V20180620\Models\DescribeVscMountPointsRequest;
+use AlibabaCloud\SDK\DFS\V20180620\Models\DescribeVscMountPointsResponse;
+use AlibabaCloud\SDK\DFS\V20180620\Models\DetachVscMountPointRequest;
+use AlibabaCloud\SDK\DFS\V20180620\Models\DetachVscMountPointResponse;
+use AlibabaCloud\SDK\DFS\V20180620\Models\DetachVscMountPointShrinkRequest;
 use AlibabaCloud\SDK\DFS\V20180620\Models\GetAccessGroupRequest;
 use AlibabaCloud\SDK\DFS\V20180620\Models\GetAccessGroupResponse;
 use AlibabaCloud\SDK\DFS\V20180620\Models\GetAccessRuleRequest;
@@ -95,6 +110,131 @@ class DFS extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * ****
+     *   *
+     * @param AttachVscMountPointRequest $tmpReq  AttachVscMountPointRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AttachVscMountPointResponse AttachVscMountPointResponse
+     */
+    public function attachVscMountPointWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new AttachVscMountPointShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->instanceIds)) {
+            $request->instanceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->vscIds)) {
+            $request->vscIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->vscIds, 'VscIds', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->fileSystemId)) {
+            $query['FileSystemId'] = $request->fileSystemId;
+        }
+        if (!Utils::isUnset($request->inputRegionId)) {
+            $query['InputRegionId'] = $request->inputRegionId;
+        }
+        if (!Utils::isUnset($request->instanceIdsShrink)) {
+            $query['InstanceIds'] = $request->instanceIdsShrink;
+        }
+        if (!Utils::isUnset($request->mountPointId)) {
+            $query['MountPointId'] = $request->mountPointId;
+        }
+        if (!Utils::isUnset($request->vscIdsShrink)) {
+            $query['VscIds'] = $request->vscIdsShrink;
+        }
+        if (!Utils::isUnset($request->vscType)) {
+            $query['VscType'] = $request->vscType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AttachVscMountPoint',
+            'version'     => '2018-06-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AttachVscMountPointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ****
+     *   *
+     * @param AttachVscMountPointRequest $request AttachVscMountPointRequest
+     *
+     * @return AttachVscMountPointResponse AttachVscMountPointResponse
+     */
+    public function attachVscMountPoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->attachVscMountPointWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param BindVscMountPointAliasRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return BindVscMountPointAliasResponse
+     */
+    public function bindVscMountPointAliasWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliasPrefix)) {
+            $query['AliasPrefix'] = $request->aliasPrefix;
+        }
+        if (!Utils::isUnset($request->fileSystemId)) {
+            $query['FileSystemId'] = $request->fileSystemId;
+        }
+        if (!Utils::isUnset($request->inputRegionId)) {
+            $query['InputRegionId'] = $request->inputRegionId;
+        }
+        if (!Utils::isUnset($request->mountPointId)) {
+            $query['MountPointId'] = $request->mountPointId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BindVscMountPointAlias',
+            'version'     => '2018-06-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BindVscMountPointAliasResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BindVscMountPointAliasRequest $request
+     *
+     * @return BindVscMountPointAliasResponse
+     */
+    public function bindVscMountPointAlias($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->bindVscMountPointAliasWithOptions($request, $runtime);
     }
 
     /**
@@ -390,6 +530,63 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * @param CreateVscMountPointRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateVscMountPointResponse
+     */
+    public function createVscMountPointWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateVscMountPointShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->instanceIds)) {
+            $request->instanceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->fileSystemId)) {
+            $query['FileSystemId'] = $request->fileSystemId;
+        }
+        if (!Utils::isUnset($request->inputRegionId)) {
+            $query['InputRegionId'] = $request->inputRegionId;
+        }
+        if (!Utils::isUnset($request->instanceIdsShrink)) {
+            $query['InstanceIds'] = $request->instanceIdsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateVscMountPoint',
+            'version'     => '2018-06-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateVscMountPointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateVscMountPointRequest $request
+     *
+     * @return CreateVscMountPointResponse
+     */
+    public function createVscMountPoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createVscMountPointWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteAccessGroupRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -625,6 +822,55 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * @param DeleteVscMountPointRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteVscMountPointResponse
+     */
+    public function deleteVscMountPointWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->fileSystemId)) {
+            $query['FileSystemId'] = $request->fileSystemId;
+        }
+        if (!Utils::isUnset($request->inputRegionId)) {
+            $query['InputRegionId'] = $request->inputRegionId;
+        }
+        if (!Utils::isUnset($request->mountPointId)) {
+            $query['MountPointId'] = $request->mountPointId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteVscMountPoint',
+            'version'     => '2018-06-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteVscMountPointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteVscMountPointRequest $request
+     *
+     * @return DeleteVscMountPointResponse
+     */
+    public function deleteVscMountPoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteVscMountPointWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeRegionsRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -668,6 +914,130 @@ class DFS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeRegionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeVscMountPointsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeVscMountPointsResponse
+     */
+    public function describeVscMountPointsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->fileSystemId)) {
+            $query['FileSystemId'] = $request->fileSystemId;
+        }
+        if (!Utils::isUnset($request->inputRegionId)) {
+            $query['InputRegionId'] = $request->inputRegionId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->mountPointId)) {
+            $query['MountPointId'] = $request->mountPointId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->vscId)) {
+            $query['VscId'] = $request->vscId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVscMountPoints',
+            'version'     => '2018-06-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeVscMountPointsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVscMountPointsRequest $request
+     *
+     * @return DescribeVscMountPointsResponse
+     */
+    public function describeVscMountPoints($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVscMountPointsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DetachVscMountPointRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DetachVscMountPointResponse
+     */
+    public function detachVscMountPointWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DetachVscMountPointShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->instanceIds)) {
+            $request->instanceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->vscIds)) {
+            $request->vscIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->vscIds, 'VscIds', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->fileSystemId)) {
+            $query['FileSystemId'] = $request->fileSystemId;
+        }
+        if (!Utils::isUnset($request->inputRegionId)) {
+            $query['InputRegionId'] = $request->inputRegionId;
+        }
+        if (!Utils::isUnset($request->instanceIdsShrink)) {
+            $query['InstanceIds'] = $request->instanceIdsShrink;
+        }
+        if (!Utils::isUnset($request->mountPointId)) {
+            $query['MountPointId'] = $request->mountPointId;
+        }
+        if (!Utils::isUnset($request->vscIdsShrink)) {
+            $query['VscIds'] = $request->vscIdsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DetachVscMountPoint',
+            'version'     => '2018-06-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DetachVscMountPointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DetachVscMountPointRequest $request
+     *
+     * @return DetachVscMountPointResponse
+     */
+    public function detachVscMountPoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detachVscMountPointWithOptions($request, $runtime);
     }
 
     /**

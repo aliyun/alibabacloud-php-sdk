@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateAccessGroupResponseBody extends Model
 {
     /**
+     * @example acg-e3755fb0-358d-4286-9942-8d461048****
+     *
      * @var string
      */
     public $accessGroupId;
 
     /**
+     * @example 55C5FFD6-BF99-41BD-9C66-FFF39189****
+     *
      * @var string
      */
     public $requestId;

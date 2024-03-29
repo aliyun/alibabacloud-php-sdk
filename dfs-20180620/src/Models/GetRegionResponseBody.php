@@ -15,6 +15,8 @@ class GetRegionResponseBody extends Model
     public $availableZones;
 
     /**
+     * @example AEC07154-5A4C-4B34-BB74-0893C6E9****
+     *
      * @var string
      */
     public $requestId;

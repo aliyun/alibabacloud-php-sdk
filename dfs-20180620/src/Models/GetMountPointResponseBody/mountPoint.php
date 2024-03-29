@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class mountPoint extends Model
 {
     /**
+     * @example acg-e3755fb0-358d-4286-9942-8d461048****
+     *
      * @var string
      */
     public $accessGroupId;
@@ -39,26 +41,36 @@ class mountPoint extends Model
     public $mountPointId;
 
     /**
+     * @example VPC
+     *
      * @var string
      */
     public $networkType;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example Inactive
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example vsw-iq8fymi327krd14mt****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @example vpc-iq8hhsk3ymzv9m4wn****
+     *
      * @var string
      */
     public $vpcId;

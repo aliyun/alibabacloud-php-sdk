@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateMountPointRequest extends Model
 {
     /**
+     * @example acg-e3755fb0-358d-4286-9942-8d461048****
+     *
      * @var string
      */
     public $accessGroupId;
@@ -24,21 +26,29 @@ class CreateMountPointRequest extends Model
     public $fileSystemId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $inputRegionId;
 
     /**
+     * @example VPC
+     *
      * @var string
      */
     public $networkType;
 
     /**
+     * @example vsw-iq8fymi327krd14mt****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @example vpc-iq8hhsk3ymzv9m4wn****
+     *
      * @var string
      */
     public $vpcId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyMountPointRequest extends Model
 {
     /**
+     * @example acg-e3755fb0-358d-4286-9942-8d461048****
+     *
      * @var string
      */
     public $accessGroupId;
@@ -24,6 +26,8 @@ class ModifyMountPointRequest extends Model
     public $fileSystemId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $inputRegionId;
@@ -34,6 +38,8 @@ class ModifyMountPointRequest extends Model
     public $mountPointId;
 
     /**
+     * @example Inactive
+     *
      * @var string
      */
     public $status;

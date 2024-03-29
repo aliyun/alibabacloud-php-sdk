@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListUserGroupsMappingsRequest extends Model
 {
     /**
+     * @example 55C5FFD6-BF99-41BD-9C66-FFF39189****
+     *
      * @var string
      */
     public $filesystemId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $inputRegionId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $limit;
 
     /**
+     * @example user1
+     *
      * @var string
      */
     public $nextToken;

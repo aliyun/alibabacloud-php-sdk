@@ -14,6 +14,8 @@ class DeleteMountPointRequest extends Model
     public $fileSystemId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $inputRegionId;

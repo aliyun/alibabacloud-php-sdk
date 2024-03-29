@@ -15,11 +15,15 @@ class ListFileSystemsResponseBody extends Model
     public $fileSystems;
 
     /**
+     * @example 55C5FFD6-BF99-41BD-9C66-FFF39189****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

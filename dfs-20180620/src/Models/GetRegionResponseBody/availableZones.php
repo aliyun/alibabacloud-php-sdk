@@ -15,6 +15,8 @@ class availableZones extends Model
     public $options;
 
     /**
+     * @example cn-hangzhou-b
+     *
      * @var string
      */
     public $zoneId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyAccessGroupRequest extends Model
 {
     /**
+     * @example acg-e3755fb0-358d-4286-9942-8d461048****
+     *
      * @var string
      */
     public $accessGroupId;
 
     /**
+     * @example my-online-cluster-policy
+     *
      * @var string
      */
     public $accessGroupName;
@@ -24,6 +28,8 @@ class ModifyAccessGroupRequest extends Model
     public $description;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $inputRegionId;

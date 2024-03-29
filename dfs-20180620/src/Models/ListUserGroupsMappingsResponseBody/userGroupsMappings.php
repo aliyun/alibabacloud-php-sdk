@@ -14,6 +14,8 @@ class userGroupsMappings extends Model
     public $groupNames;
 
     /**
+     * @example user1
+     *
      * @var string
      */
     public $userName;

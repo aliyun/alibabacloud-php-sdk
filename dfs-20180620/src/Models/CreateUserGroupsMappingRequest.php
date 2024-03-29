@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateUserGroupsMappingRequest extends Model
 {
     /**
+     * @example 55C5FFD6-BF99-41BD-9C66-FFF39189****
+     *
      * @var string
      */
     public $fileSystemId;
 
     /**
-     * @var mixed[]
+     * @example ["group1","group2"]
+     *
+     * @var string[]
      */
     public $groupNames;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $inputRegionId;
 
     /**
+     * @example user1
+     *
      * @var string
      */
     public $userName;
@@ -69,7 +77,9 @@ class CreateUserGroupsMappingRequest extends Model
             $model->fileSystemId = $map['FileSystemId'];
         }
         if (isset($map['GroupNames'])) {
-            $model->groupNames = $map['GroupNames'];
+            if (!empty($map['GroupNames'])) {
+                $model->groupNames = $map['GroupNames'];
+            }
         }
         if (isset($map['InputRegionId'])) {
             $model->inputRegionId = $map['InputRegionId'];
