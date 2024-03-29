@@ -38,6 +38,11 @@ class WhiteIpListRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The ID of the region where the source instance resides. For more information, see [List of supported regions](~~141033~~).
      *
      * >  If the source instance is a self-managed database with a public IP address or a third-party cloud database, you can set the parameter to **cn-hangzhou** or the ID of the closest region.
@@ -46,11 +51,18 @@ class WhiteIpListRequest extends Model
      * @var string
      */
     public $type;
+
+    /**
+     * @var bool
+     */
+    public $zeroEtlJob;
     protected $_name = [
         'destinationRegion' => 'DestinationRegion',
         'region'            => 'Region',
         'regionId'          => 'RegionId',
+        'resourceGroupId'   => 'ResourceGroupId',
         'type'              => 'Type',
+        'zeroEtlJob'        => 'ZeroEtlJob',
     ];
 
     public function validate()
@@ -69,8 +81,14 @@ class WhiteIpListRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
+        }
+        if (null !== $this->zeroEtlJob) {
+            $res['ZeroEtlJob'] = $this->zeroEtlJob;
         }
 
         return $res;
@@ -93,8 +111,14 @@ class WhiteIpListRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
+        }
+        if (isset($map['ZeroEtlJob'])) {
+            $model->zeroEtlJob = $map['ZeroEtlJob'];
         }
 
         return $model;

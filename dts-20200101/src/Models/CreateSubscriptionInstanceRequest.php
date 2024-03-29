@@ -77,6 +77,11 @@ class CreateSubscriptionInstanceRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The subscription length.
      *
      *   If the billing cycle is **Year**, the value range is **1 to 5**.
@@ -89,15 +94,16 @@ class CreateSubscriptionInstanceRequest extends Model
      */
     public $usedTime;
     protected $_name = [
-        'sourceEndpoint' => 'SourceEndpoint',
-        'accountId'      => 'AccountId',
-        'clientToken'    => 'ClientToken',
-        'ownerId'        => 'OwnerId',
-        'payType'        => 'PayType',
-        'period'         => 'Period',
-        'region'         => 'Region',
-        'regionId'       => 'RegionId',
-        'usedTime'       => 'UsedTime',
+        'sourceEndpoint'  => 'SourceEndpoint',
+        'accountId'       => 'AccountId',
+        'clientToken'     => 'ClientToken',
+        'ownerId'         => 'OwnerId',
+        'payType'         => 'PayType',
+        'period'          => 'Period',
+        'region'          => 'Region',
+        'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'usedTime'        => 'UsedTime',
     ];
 
     public function validate()
@@ -130,6 +136,9 @@ class CreateSubscriptionInstanceRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->usedTime) {
             $res['UsedTime'] = $this->usedTime;
@@ -169,6 +178,9 @@ class CreateSubscriptionInstanceRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['UsedTime'])) {
             $model->usedTime = $map['UsedTime'];

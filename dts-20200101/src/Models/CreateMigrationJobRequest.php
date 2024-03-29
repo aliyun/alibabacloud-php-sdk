@@ -61,6 +61,11 @@ class CreateMigrationJobRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
         'accountId'         => 'AccountId',
         'clientToken'       => 'ClientToken',
@@ -68,6 +73,7 @@ class CreateMigrationJobRequest extends Model
         'ownerId'           => 'OwnerId',
         'region'            => 'Region',
         'regionId'          => 'RegionId',
+        'resourceGroupId'   => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -94,6 +100,9 @@ class CreateMigrationJobRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -124,6 +133,9 @@ class CreateMigrationJobRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

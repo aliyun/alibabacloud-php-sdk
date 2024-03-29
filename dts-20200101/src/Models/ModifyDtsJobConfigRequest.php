@@ -33,11 +33,17 @@ class ModifyDtsJobConfigRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
-        'dtsJobId'   => 'DtsJobId',
-        'ownerId'    => 'OwnerId',
-        'parameters' => 'Parameters',
-        'regionId'   => 'RegionId',
+        'dtsJobId'        => 'DtsJobId',
+        'ownerId'         => 'OwnerId',
+        'parameters'      => 'Parameters',
+        'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -58,6 +64,9 @@ class ModifyDtsJobConfigRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -82,6 +91,9 @@ class ModifyDtsJobConfigRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

@@ -41,6 +41,11 @@ class DescribeSynchronizationObjectModifyStatusRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The task ID, which is returned after you call the [ModifySynchronizationObject](~~49451~~) operation to modify the objects to be synchronized.
      *
      * @example k71r16fj13g****
@@ -49,11 +54,12 @@ class DescribeSynchronizationObjectModifyStatusRequest extends Model
      */
     public $taskId;
     protected $_name = [
-        'accountId'   => 'AccountId',
-        'clientToken' => 'ClientToken',
-        'ownerId'     => 'OwnerId',
-        'regionId'    => 'RegionId',
-        'taskId'      => 'TaskId',
+        'accountId'       => 'AccountId',
+        'clientToken'     => 'ClientToken',
+        'ownerId'         => 'OwnerId',
+        'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'taskId'          => 'TaskId',
     ];
 
     public function validate()
@@ -74,6 +80,9 @@ class DescribeSynchronizationObjectModifyStatusRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
@@ -101,6 +110,9 @@ class DescribeSynchronizationObjectModifyStatusRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];

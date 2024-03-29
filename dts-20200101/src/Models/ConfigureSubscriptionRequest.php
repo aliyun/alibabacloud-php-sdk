@@ -156,6 +156,11 @@ class ConfigureSubscriptionRequest extends Model
     public $reserve;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The name of the source database.
      *
      * @example dtstestdata
@@ -354,6 +359,7 @@ class ConfigureSubscriptionRequest extends Model
         'minDu'                           => 'MinDu',
         'regionId'                        => 'RegionId',
         'reserve'                         => 'Reserve',
+        'resourceGroupId'                 => 'ResourceGroupId',
         'sourceEndpointDatabaseName'      => 'SourceEndpointDatabaseName',
         'sourceEndpointEngineName'        => 'SourceEndpointEngineName',
         'sourceEndpointIP'                => 'SourceEndpointIP',
@@ -427,6 +433,9 @@ class ConfigureSubscriptionRequest extends Model
         }
         if (null !== $this->reserve) {
             $res['Reserve'] = $this->reserve;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->sourceEndpointDatabaseName) {
             $res['SourceEndpointDatabaseName'] = $this->sourceEndpointDatabaseName;
@@ -538,6 +547,9 @@ class ConfigureSubscriptionRequest extends Model
         }
         if (isset($map['Reserve'])) {
             $model->reserve = $map['Reserve'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SourceEndpointDatabaseName'])) {
             $model->sourceEndpointDatabaseName = $map['SourceEndpointDatabaseName'];

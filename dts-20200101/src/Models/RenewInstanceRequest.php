@@ -58,12 +58,18 @@ class RenewInstanceRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
-        'buyCount'   => 'BuyCount',
-        'chargeType' => 'ChargeType',
-        'dtsJobId'   => 'DtsJobId',
-        'period'     => 'Period',
-        'regionId'   => 'RegionId',
+        'buyCount'        => 'BuyCount',
+        'chargeType'      => 'ChargeType',
+        'dtsJobId'        => 'DtsJobId',
+        'period'          => 'Period',
+        'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -87,6 +93,9 @@ class RenewInstanceRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -114,6 +123,9 @@ class RenewInstanceRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

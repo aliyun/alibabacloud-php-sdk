@@ -28,10 +28,16 @@ class ReverseTwoWayDirectionRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
         'dtsInstanceId'     => 'DtsInstanceId',
         'ignoreErrorSubJob' => 'IgnoreErrorSubJob',
         'regionId'          => 'RegionId',
+        'resourceGroupId'   => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -49,6 +55,9 @@ class ReverseTwoWayDirectionRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -70,6 +79,9 @@ class ReverseTwoWayDirectionRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

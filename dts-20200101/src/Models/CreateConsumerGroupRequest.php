@@ -59,6 +59,11 @@ class CreateConsumerGroupRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The ID of the change tracking instance. You can call the DescribeSubscriptionInstances operation to query the instance ID.
      *
      * @example dtsg2m10r1x15a****
@@ -73,6 +78,7 @@ class CreateConsumerGroupRequest extends Model
         'consumerGroupUserName'  => 'ConsumerGroupUserName',
         'ownerId'                => 'OwnerId',
         'regionId'               => 'RegionId',
+        'resourceGroupId'        => 'ResourceGroupId',
         'subscriptionInstanceId' => 'SubscriptionInstanceId',
     ];
 
@@ -100,6 +106,9 @@ class CreateConsumerGroupRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->subscriptionInstanceId) {
             $res['SubscriptionInstanceId'] = $this->subscriptionInstanceId;
@@ -133,6 +142,9 @@ class CreateConsumerGroupRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SubscriptionInstanceId'])) {
             $model->subscriptionInstanceId = $map['SubscriptionInstanceId'];

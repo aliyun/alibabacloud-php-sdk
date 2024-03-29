@@ -72,6 +72,11 @@ class CreateJobMonitorRuleRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description Specifies whether to enable the alert rule. Valid values:
      *
      *   **Y**: enables the alert rule.
@@ -107,15 +112,16 @@ class CreateJobMonitorRuleRequest extends Model
      */
     public $type;
     protected $_name = [
-        'delayRuleTime' => 'DelayRuleTime',
-        'dtsJobId'      => 'DtsJobId',
-        'noticeValue'   => 'NoticeValue',
-        'period'        => 'Period',
-        'phone'         => 'Phone',
-        'regionId'      => 'RegionId',
-        'state'         => 'State',
-        'times'         => 'Times',
-        'type'          => 'Type',
+        'delayRuleTime'   => 'DelayRuleTime',
+        'dtsJobId'        => 'DtsJobId',
+        'noticeValue'     => 'NoticeValue',
+        'period'          => 'Period',
+        'phone'           => 'Phone',
+        'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'state'           => 'State',
+        'times'           => 'Times',
+        'type'            => 'Type',
     ];
 
     public function validate()
@@ -142,6 +148,9 @@ class CreateJobMonitorRuleRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->state) {
             $res['State'] = $this->state;
@@ -181,6 +190,9 @@ class CreateJobMonitorRuleRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['State'])) {
             $model->state = $map['State'];

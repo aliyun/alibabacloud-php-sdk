@@ -65,6 +65,11 @@ class DescribeSynchronizationJobsRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The tag key. You can call the [ListTagResources](~~191187~~) operation to query the tag key.
      *
      * >
@@ -86,6 +91,7 @@ class DescribeSynchronizationJobsRequest extends Model
         'pageNum'                => 'PageNum',
         'pageSize'               => 'PageSize',
         'regionId'               => 'RegionId',
+        'resourceGroupId'        => 'ResourceGroupId',
         'synchronizationJobName' => 'SynchronizationJobName',
         'tag'                    => 'Tag',
     ];
@@ -114,6 +120,9 @@ class DescribeSynchronizationJobsRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->synchronizationJobName) {
             $res['SynchronizationJobName'] = $this->synchronizationJobName;
@@ -156,6 +165,9 @@ class DescribeSynchronizationJobsRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SynchronizationJobName'])) {
             $model->synchronizationJobName = $map['SynchronizationJobName'];

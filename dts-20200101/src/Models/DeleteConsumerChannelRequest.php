@@ -45,11 +45,17 @@ class DeleteConsumerChannelRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
         'consumerGroupId' => 'ConsumerGroupId',
         'dtsInstanceId'   => 'DtsInstanceId',
         'dtsJobId'        => 'DtsJobId',
         'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -70,6 +76,9 @@ class DeleteConsumerChannelRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -94,6 +103,9 @@ class DeleteConsumerChannelRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

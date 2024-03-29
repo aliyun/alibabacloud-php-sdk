@@ -52,12 +52,18 @@ class DescribeDtsEtlJobVersionInfoRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
-        'dtsInstanceId' => 'DtsInstanceId',
-        'dtsJobId'      => 'DtsJobId',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
-        'regionId'      => 'RegionId',
+        'dtsInstanceId'   => 'DtsInstanceId',
+        'dtsJobId'        => 'DtsJobId',
+        'pageNumber'      => 'PageNumber',
+        'pageSize'        => 'PageSize',
+        'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -81,6 +87,9 @@ class DescribeDtsEtlJobVersionInfoRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -108,6 +117,9 @@ class DescribeDtsEtlJobVersionInfoRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

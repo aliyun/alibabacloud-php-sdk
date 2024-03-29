@@ -50,11 +50,17 @@ class TransferInstanceClassRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
-        'dtsJobId'      => 'DtsJobId',
-        'instanceClass' => 'InstanceClass',
-        'orderType'     => 'OrderType',
-        'regionId'      => 'RegionId',
+        'dtsJobId'        => 'DtsJobId',
+        'instanceClass'   => 'InstanceClass',
+        'orderType'       => 'OrderType',
+        'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -75,6 +81,9 @@ class TransferInstanceClassRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -99,6 +108,9 @@ class TransferInstanceClassRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

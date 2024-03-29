@@ -19,6 +19,11 @@ class TagResourcesRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @example dtsntk10k6r12v****
      *
      * @var string[]
@@ -39,10 +44,11 @@ class TagResourcesRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'regionId'     => 'RegionId',
-        'resourceId'   => 'ResourceId',
-        'resourceType' => 'ResourceType',
-        'tag'          => 'Tag',
+        'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceId'      => 'ResourceId',
+        'resourceType'    => 'ResourceType',
+        'tag'             => 'Tag',
     ];
 
     public function validate()
@@ -54,6 +60,9 @@ class TagResourcesRequest extends Model
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
@@ -84,6 +93,9 @@ class TagResourcesRequest extends Model
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ResourceId'])) {
             if (!empty($map['ResourceId'])) {

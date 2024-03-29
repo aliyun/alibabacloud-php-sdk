@@ -93,6 +93,11 @@ class ModifyDtsJobEndpointRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @example ram-for-dts
      *
      * @var string
@@ -139,6 +144,7 @@ class ModifyDtsJobEndpointRequest extends Model
         'endpointPort'             => 'EndpointPort',
         'password'                 => 'Password',
         'regionId'                 => 'RegionId',
+        'resourceGroupId'          => 'ResourceGroupId',
         'roleName'                 => 'RoleName',
         'shardPassword'            => 'ShardPassword',
         'shardUsername'            => 'ShardUsername',
@@ -188,6 +194,9 @@ class ModifyDtsJobEndpointRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->roleName) {
             $res['RoleName'] = $this->roleName;
@@ -251,6 +260,9 @@ class ModifyDtsJobEndpointRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['RoleName'])) {
             $model->roleName = $map['RoleName'];

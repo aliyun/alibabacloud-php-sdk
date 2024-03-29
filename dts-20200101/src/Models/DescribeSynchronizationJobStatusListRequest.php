@@ -37,6 +37,11 @@ class DescribeSynchronizationJobStatusListRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The IDs of the data synchronization instances. The value is a JSON array. You can call the [DescribeSynchronizationJobs](~~49454~~) operation to query the instance IDs.
      *
      * @example ["dtsexjk1alb116****","dtskfq1149w254****"]
@@ -49,6 +54,7 @@ class DescribeSynchronizationJobStatusListRequest extends Model
         'clientToken'                     => 'ClientToken',
         'ownerId'                         => 'OwnerId',
         'regionId'                        => 'RegionId',
+        'resourceGroupId'                 => 'ResourceGroupId',
         'synchronizationJobIdListJsonStr' => 'SynchronizationJobIdListJsonStr',
     ];
 
@@ -70,6 +76,9 @@ class DescribeSynchronizationJobStatusListRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->synchronizationJobIdListJsonStr) {
             $res['SynchronizationJobIdListJsonStr'] = $this->synchronizationJobIdListJsonStr;
@@ -97,6 +106,9 @@ class DescribeSynchronizationJobStatusListRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SynchronizationJobIdListJsonStr'])) {
             $model->synchronizationJobIdListJsonStr = $map['SynchronizationJobIdListJsonStr'];

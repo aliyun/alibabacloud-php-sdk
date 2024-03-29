@@ -147,6 +147,11 @@ class DescribeConnectionStatusRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description You must specify this parameter only if the **SourceEndpointEngineName** parameter is set to **Oracle**. Valid values:
      *
      *   **SID**: non-RAC architecture
@@ -280,6 +285,7 @@ class DescribeConnectionStatusRequest extends Model
         'destinationEndpointRegion'       => 'DestinationEndpointRegion',
         'destinationEndpointUserName'     => 'DestinationEndpointUserName',
         'regionId'                        => 'RegionId',
+        'resourceGroupId'                 => 'ResourceGroupId',
         'sourceEndpointArchitecture'      => 'SourceEndpointArchitecture',
         'sourceEndpointDatabaseName'      => 'SourceEndpointDatabaseName',
         'sourceEndpointEngineName'        => 'SourceEndpointEngineName',
@@ -335,6 +341,9 @@ class DescribeConnectionStatusRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->sourceEndpointArchitecture) {
             $res['SourceEndpointArchitecture'] = $this->sourceEndpointArchitecture;
@@ -416,6 +425,9 @@ class DescribeConnectionStatusRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SourceEndpointArchitecture'])) {
             $model->sourceEndpointArchitecture = $map['SourceEndpointArchitecture'];

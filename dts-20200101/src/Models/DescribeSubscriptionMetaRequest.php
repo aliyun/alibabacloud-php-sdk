@@ -27,6 +27,11 @@ class DescribeSubscriptionMetaRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The ID of the consumer group.
      *
      * @example z38m91gg2******
@@ -57,6 +62,7 @@ class DescribeSubscriptionMetaRequest extends Model
     protected $_name = [
         'dtsInstanceId'      => 'DtsInstanceId',
         'regionId'           => 'RegionId',
+        'resourceGroupId'    => 'ResourceGroupId',
         'sid'                => 'Sid',
         'subMigrationJobIds' => 'SubMigrationJobIds',
         'topics'             => 'Topics',
@@ -74,6 +80,9 @@ class DescribeSubscriptionMetaRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->sid) {
             $res['Sid'] = $this->sid;
@@ -101,6 +110,9 @@ class DescribeSubscriptionMetaRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Sid'])) {
             $model->sid = $map['Sid'];

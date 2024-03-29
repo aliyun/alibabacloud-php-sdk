@@ -39,6 +39,11 @@ class DescribeDataCheckReportUrlRequest extends Model
     public $dtsJobId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The name of the table verified in the source database.
      *
      * @example student
@@ -47,10 +52,11 @@ class DescribeDataCheckReportUrlRequest extends Model
      */
     public $tbName;
     protected $_name = [
-        'checkType' => 'CheckType',
-        'dbName'    => 'DbName',
-        'dtsJobId'  => 'DtsJobId',
-        'tbName'    => 'TbName',
+        'checkType'       => 'CheckType',
+        'dbName'          => 'DbName',
+        'dtsJobId'        => 'DtsJobId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'tbName'          => 'TbName',
     ];
 
     public function validate()
@@ -68,6 +74,9 @@ class DescribeDataCheckReportUrlRequest extends Model
         }
         if (null !== $this->dtsJobId) {
             $res['DtsJobId'] = $this->dtsJobId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->tbName) {
             $res['TbName'] = $this->tbName;
@@ -92,6 +101,9 @@ class DescribeDataCheckReportUrlRequest extends Model
         }
         if (isset($map['DtsJobId'])) {
             $model->dtsJobId = $map['DtsJobId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['TbName'])) {
             $model->tbName = $map['TbName'];

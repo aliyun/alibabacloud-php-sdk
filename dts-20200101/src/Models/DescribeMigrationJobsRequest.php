@@ -59,6 +59,11 @@ class DescribeMigrationJobsRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @var tag[]
      */
     public $tag;
@@ -69,6 +74,7 @@ class DescribeMigrationJobsRequest extends Model
         'pageNum'          => 'PageNum',
         'pageSize'         => 'PageSize',
         'regionId'         => 'RegionId',
+        'resourceGroupId'  => 'ResourceGroupId',
         'tag'              => 'Tag',
     ];
 
@@ -96,6 +102,9 @@ class DescribeMigrationJobsRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -135,6 +144,9 @@ class DescribeMigrationJobsRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

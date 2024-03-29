@@ -50,12 +50,18 @@ class StopDedicatedClusterRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
         'dedicatedClusterId'   => 'DedicatedClusterId',
         'dedicatedClusterName' => 'DedicatedClusterName',
         'instanceId'           => 'InstanceId',
         'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
+        'resourceGroupId'      => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -79,6 +85,9 @@ class StopDedicatedClusterRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -106,6 +115,9 @@ class StopDedicatedClusterRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

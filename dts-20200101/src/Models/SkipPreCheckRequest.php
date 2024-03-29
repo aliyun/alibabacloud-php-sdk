@@ -36,6 +36,11 @@ class SkipPreCheckRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description Specifies whether to skip the precheck item. Valid values:
      *
      *   **true**: skips the precheck item.
@@ -95,6 +100,7 @@ class SkipPreCheckRequest extends Model
         'dtsJobId'          => 'DtsJobId',
         'jobId'             => 'JobId',
         'regionId'          => 'RegionId',
+        'resourceGroupId'   => 'ResourceGroupId',
         'skip'              => 'Skip',
         'skipPreCheckItems' => 'SkipPreCheckItems',
         'skipPreCheckNames' => 'SkipPreCheckNames',
@@ -115,6 +121,9 @@ class SkipPreCheckRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->skip) {
             $res['Skip'] = $this->skip;
@@ -145,6 +154,9 @@ class SkipPreCheckRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Skip'])) {
             $model->skip = $map['Skip'];

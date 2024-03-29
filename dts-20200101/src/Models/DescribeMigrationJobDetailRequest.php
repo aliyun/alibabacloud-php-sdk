@@ -72,15 +72,21 @@ class DescribeMigrationJobDetailRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
-        'migrationMode'  => 'MigrationMode',
-        'accountId'      => 'AccountId',
-        'clientToken'    => 'ClientToken',
-        'migrationJobId' => 'MigrationJobId',
-        'ownerId'        => 'OwnerId',
-        'pageNum'        => 'PageNum',
-        'pageSize'       => 'PageSize',
-        'regionId'       => 'RegionId',
+        'migrationMode'   => 'MigrationMode',
+        'accountId'       => 'AccountId',
+        'clientToken'     => 'ClientToken',
+        'migrationJobId'  => 'MigrationJobId',
+        'ownerId'         => 'OwnerId',
+        'pageNum'         => 'PageNum',
+        'pageSize'        => 'PageSize',
+        'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -113,6 +119,9 @@ class DescribeMigrationJobDetailRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -149,6 +158,9 @@ class DescribeMigrationJobDetailRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

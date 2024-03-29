@@ -93,6 +93,11 @@ class CreateSynchronizationJobRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The ID of the region where the source database resides. For more information, see [List of supported regions](~~141033~~).
      *
      * @example cn-hangzhou
@@ -159,6 +164,7 @@ class CreateSynchronizationJobRequest extends Model
         'payType'                 => 'PayType',
         'period'                  => 'Period',
         'regionId'                => 'RegionId',
+        'resourceGroupId'         => 'ResourceGroupId',
         'sourceRegion'            => 'SourceRegion',
         'synchronizationJobClass' => 'SynchronizationJobClass',
         'topology'                => 'Topology',
@@ -202,6 +208,9 @@ class CreateSynchronizationJobRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->sourceRegion) {
             $res['SourceRegion'] = $this->sourceRegion;
@@ -259,6 +268,9 @@ class CreateSynchronizationJobRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SourceRegion'])) {
             $model->sourceRegion = $map['SourceRegion'];

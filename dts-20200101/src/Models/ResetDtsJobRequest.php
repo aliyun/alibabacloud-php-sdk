@@ -32,6 +32,11 @@ class ResetDtsJobRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The synchronization direction. Valid values:
      *
      *   **Forward**
@@ -50,6 +55,7 @@ class ResetDtsJobRequest extends Model
         'dtsInstanceId'            => 'DtsInstanceId',
         'dtsJobId'                 => 'DtsJobId',
         'regionId'                 => 'RegionId',
+        'resourceGroupId'          => 'ResourceGroupId',
         'synchronizationDirection' => 'SynchronizationDirection',
     ];
 
@@ -68,6 +74,9 @@ class ResetDtsJobRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->synchronizationDirection) {
             $res['SynchronizationDirection'] = $this->synchronizationDirection;
@@ -92,6 +101,9 @@ class ResetDtsJobRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SynchronizationDirection'])) {
             $model->synchronizationDirection = $map['SynchronizationDirection'];

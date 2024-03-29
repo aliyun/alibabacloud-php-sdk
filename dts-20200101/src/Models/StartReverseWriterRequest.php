@@ -26,9 +26,15 @@ class StartReverseWriterRequest extends Model
      * @var string
      */
     public $dtsJobId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
-        'checkPoint' => 'CheckPoint',
-        'dtsJobId'   => 'DtsJobId',
+        'checkPoint'      => 'CheckPoint',
+        'dtsJobId'        => 'DtsJobId',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class StartReverseWriterRequest extends Model
         }
         if (null !== $this->dtsJobId) {
             $res['DtsJobId'] = $this->dtsJobId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -61,6 +70,9 @@ class StartReverseWriterRequest extends Model
         }
         if (isset($map['DtsJobId'])) {
             $model->dtsJobId = $map['DtsJobId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

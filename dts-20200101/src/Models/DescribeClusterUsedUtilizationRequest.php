@@ -82,6 +82,11 @@ class DescribeClusterUsedUtilizationRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $securityToken;
     protected $_name = [
         'accountId'          => 'AccountId',
@@ -92,6 +97,7 @@ class DescribeClusterUsedUtilizationRequest extends Model
         'metricType'         => 'MetricType',
         'ownerID'            => 'OwnerID',
         'regionId'           => 'RegionId',
+        'resourceGroupId'    => 'ResourceGroupId',
         'securityToken'      => 'SecurityToken',
     ];
 
@@ -125,6 +131,9 @@ class DescribeClusterUsedUtilizationRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
@@ -164,6 +173,9 @@ class DescribeClusterUsedUtilizationRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];

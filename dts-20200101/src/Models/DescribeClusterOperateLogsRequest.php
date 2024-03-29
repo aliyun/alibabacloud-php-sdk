@@ -77,6 +77,11 @@ class DescribeClusterOperateLogsRequest extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The beginning of the time range to query. The value must be in the UNIX timestamp format. Unit: milliseconds. If you do not specify this parameter, the data within the last seven days is returned by default.
      *
      * @example 1650866955000
@@ -93,6 +98,7 @@ class DescribeClusterOperateLogsRequest extends Model
         'ownerID'            => 'OwnerID',
         'pageNumber'         => 'PageNumber',
         'pageSize'           => 'PageSize',
+        'resourceGroupId'    => 'ResourceGroupId',
         'startTime'          => 'StartTime',
     ];
 
@@ -126,6 +132,9 @@ class DescribeClusterOperateLogsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -165,6 +174,9 @@ class DescribeClusterOperateLogsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

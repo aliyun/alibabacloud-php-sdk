@@ -44,12 +44,18 @@ class StopMigrationJobRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
-        'accountId'      => 'AccountId',
-        'clientToken'    => 'ClientToken',
-        'migrationJobId' => 'MigrationJobId',
-        'ownerId'        => 'OwnerId',
-        'regionId'       => 'RegionId',
+        'accountId'       => 'AccountId',
+        'clientToken'     => 'ClientToken',
+        'migrationJobId'  => 'MigrationJobId',
+        'ownerId'         => 'OwnerId',
+        'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -73,6 +79,9 @@ class StopMigrationJobRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -100,6 +109,9 @@ class StopMigrationJobRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

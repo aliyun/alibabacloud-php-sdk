@@ -129,6 +129,11 @@ class ModifyDtsJobRequest extends Model
     public $reserved;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description Specifies whether to perform schema migration or synchronization. Valid values:
      *
      *   **true**
@@ -155,6 +160,11 @@ class ModifyDtsJobRequest extends Model
      * @var string
      */
     public $synchronizationDirection;
+
+    /**
+     * @var bool
+     */
+    public $zeroEtlJob;
     protected $_name = [
         'clientToken'                => 'ClientToken',
         'dataInitialization'         => 'DataInitialization',
@@ -168,8 +178,10 @@ class ModifyDtsJobRequest extends Model
         'modifyTypeEnum'             => 'ModifyTypeEnum',
         'regionId'                   => 'RegionId',
         'reserved'                   => 'Reserved',
+        'resourceGroupId'            => 'ResourceGroupId',
         'structureInitialization'    => 'StructureInitialization',
         'synchronizationDirection'   => 'SynchronizationDirection',
+        'zeroEtlJob'                 => 'ZeroEtlJob',
     ];
 
     public function validate()
@@ -215,11 +227,17 @@ class ModifyDtsJobRequest extends Model
         if (null !== $this->reserved) {
             $res['Reserved'] = $this->reserved;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->structureInitialization) {
             $res['StructureInitialization'] = $this->structureInitialization;
         }
         if (null !== $this->synchronizationDirection) {
             $res['SynchronizationDirection'] = $this->synchronizationDirection;
+        }
+        if (null !== $this->zeroEtlJob) {
+            $res['ZeroEtlJob'] = $this->zeroEtlJob;
         }
 
         return $res;
@@ -269,11 +287,17 @@ class ModifyDtsJobRequest extends Model
         if (isset($map['Reserved'])) {
             $model->reserved = $map['Reserved'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['StructureInitialization'])) {
             $model->structureInitialization = $map['StructureInitialization'];
         }
         if (isset($map['SynchronizationDirection'])) {
             $model->synchronizationDirection = $map['SynchronizationDirection'];
+        }
+        if (isset($map['ZeroEtlJob'])) {
+            $model->zeroEtlJob = $map['ZeroEtlJob'];
         }
 
         return $model;

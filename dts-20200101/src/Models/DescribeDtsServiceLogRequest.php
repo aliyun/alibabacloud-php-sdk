@@ -66,6 +66,11 @@ class DescribeDtsServiceLogRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The beginning of the time range to query.
      *
      * > *   To obtain the logs that are generated for Data Transmission Service (DTS) subtasks within a specific period of time, you can call the [DescribePreCheckStatus](~~209718~~) operation to query the execution time of the subtasks.
@@ -101,16 +106,23 @@ class DescribeDtsServiceLogRequest extends Model
      * @var string
      */
     public $subJobType;
+
+    /**
+     * @var bool
+     */
+    public $zeroEtlJob;
     protected $_name = [
-        'dtsJobId'   => 'DtsJobId',
-        'endTime'    => 'EndTime',
-        'keyword'    => 'Keyword',
-        'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'regionId'   => 'RegionId',
-        'startTime'  => 'StartTime',
-        'status'     => 'Status',
-        'subJobType' => 'SubJobType',
+        'dtsJobId'        => 'DtsJobId',
+        'endTime'         => 'EndTime',
+        'keyword'         => 'Keyword',
+        'pageNumber'      => 'PageNumber',
+        'pageSize'        => 'PageSize',
+        'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'startTime'       => 'StartTime',
+        'status'          => 'Status',
+        'subJobType'      => 'SubJobType',
+        'zeroEtlJob'      => 'ZeroEtlJob',
     ];
 
     public function validate()
@@ -138,6 +150,9 @@ class DescribeDtsServiceLogRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -146,6 +161,9 @@ class DescribeDtsServiceLogRequest extends Model
         }
         if (null !== $this->subJobType) {
             $res['SubJobType'] = $this->subJobType;
+        }
+        if (null !== $this->zeroEtlJob) {
+            $res['ZeroEtlJob'] = $this->zeroEtlJob;
         }
 
         return $res;
@@ -177,6 +195,9 @@ class DescribeDtsServiceLogRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
@@ -185,6 +206,9 @@ class DescribeDtsServiceLogRequest extends Model
         }
         if (isset($map['SubJobType'])) {
             $model->subJobType = $map['SubJobType'];
+        }
+        if (isset($map['ZeroEtlJob'])) {
+            $model->zeroEtlJob = $map['ZeroEtlJob'];
         }
 
         return $model;

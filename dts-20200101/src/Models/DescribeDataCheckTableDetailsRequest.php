@@ -48,6 +48,11 @@ class DescribeDataCheckTableDetailsRequest extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The name of the schema whose data is verified in the source database.
      *
      * @example dtstest
@@ -77,13 +82,14 @@ class DescribeDataCheckTableDetailsRequest extends Model
      */
     public $tableName;
     protected $_name = [
-        'checkType'  => 'CheckType',
-        'dtsJobId'   => 'DtsJobId',
-        'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'schemaName' => 'SchemaName',
-        'status'     => 'Status',
-        'tableName'  => 'TableName',
+        'checkType'       => 'CheckType',
+        'dtsJobId'        => 'DtsJobId',
+        'pageNumber'      => 'PageNumber',
+        'pageSize'        => 'PageSize',
+        'resourceGroupId' => 'ResourceGroupId',
+        'schemaName'      => 'SchemaName',
+        'status'          => 'Status',
+        'tableName'       => 'TableName',
     ];
 
     public function validate()
@@ -104,6 +110,9 @@ class DescribeDataCheckTableDetailsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->schemaName) {
             $res['SchemaName'] = $this->schemaName;
@@ -137,6 +146,9 @@ class DescribeDataCheckTableDetailsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SchemaName'])) {
             $model->schemaName = $map['SchemaName'];

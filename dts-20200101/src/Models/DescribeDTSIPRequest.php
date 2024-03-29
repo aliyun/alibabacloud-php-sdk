@@ -24,6 +24,11 @@ class DescribeDTSIPRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The ID of the region where the source instance resides. For more information, see [List of supported regions](~~141033~~).
      *
      * >  If the source instance is a self-managed database with a public IP address, you can set the parameter to **cn-hangzhou** or the ID of the closest region.
@@ -35,6 +40,7 @@ class DescribeDTSIPRequest extends Model
     protected $_name = [
         'destinationEndpointRegion' => 'DestinationEndpointRegion',
         'regionId'                  => 'RegionId',
+        'resourceGroupId'           => 'ResourceGroupId',
         'sourceEndpointRegion'      => 'SourceEndpointRegion',
     ];
 
@@ -50,6 +56,9 @@ class DescribeDTSIPRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->sourceEndpointRegion) {
             $res['SourceEndpointRegion'] = $this->sourceEndpointRegion;
@@ -71,6 +80,9 @@ class DescribeDTSIPRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SourceEndpointRegion'])) {
             $model->sourceEndpointRegion = $map['SourceEndpointRegion'];

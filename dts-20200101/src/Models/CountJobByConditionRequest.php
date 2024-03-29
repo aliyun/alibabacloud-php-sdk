@@ -67,6 +67,11 @@ class CountJobByConditionRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The type of the source database.
      *
      * @example MongoDB
@@ -149,15 +154,16 @@ class CountJobByConditionRequest extends Model
      */
     public $type;
     protected $_name = [
-        'destDbType' => 'DestDbType',
-        'groupId'    => 'GroupId',
-        'jobType'    => 'JobType',
-        'params'     => 'Params',
-        'region'     => 'Region',
-        'regionId'   => 'RegionId',
-        'srcDbType'  => 'SrcDbType',
-        'status'     => 'Status',
-        'type'       => 'Type',
+        'destDbType'      => 'DestDbType',
+        'groupId'         => 'GroupId',
+        'jobType'         => 'JobType',
+        'params'          => 'Params',
+        'region'          => 'Region',
+        'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'srcDbType'       => 'SrcDbType',
+        'status'          => 'Status',
+        'type'            => 'Type',
     ];
 
     public function validate()
@@ -184,6 +190,9 @@ class CountJobByConditionRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->srcDbType) {
             $res['SrcDbType'] = $this->srcDbType;
@@ -223,6 +232,9 @@ class CountJobByConditionRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SrcDbType'])) {
             $model->srcDbType = $map['SrcDbType'];

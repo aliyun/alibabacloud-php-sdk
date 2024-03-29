@@ -46,6 +46,11 @@ class ModifySubscriptionRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description Specifies whether to retrieve data definition language (DDL) statements. Valid values:
      *
      *   **true**: yes
@@ -73,6 +78,7 @@ class ModifySubscriptionRequest extends Model
         'dtsInstanceId'           => 'DtsInstanceId',
         'dtsJobId'                => 'DtsJobId',
         'regionId'                => 'RegionId',
+        'resourceGroupId'         => 'ResourceGroupId',
         'subscriptionDataTypeDDL' => 'SubscriptionDataTypeDDL',
         'subscriptionDataTypeDML' => 'SubscriptionDataTypeDML',
     ];
@@ -95,6 +101,9 @@ class ModifySubscriptionRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->subscriptionDataTypeDDL) {
             $res['SubscriptionDataTypeDDL'] = $this->subscriptionDataTypeDDL;
@@ -125,6 +134,9 @@ class ModifySubscriptionRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SubscriptionDataTypeDDL'])) {
             $model->subscriptionDataTypeDDL = $map['SubscriptionDataTypeDDL'];

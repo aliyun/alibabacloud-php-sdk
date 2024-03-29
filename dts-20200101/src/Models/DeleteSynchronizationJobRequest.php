@@ -28,6 +28,11 @@ class DeleteSynchronizationJobRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The ID of the data synchronization instance. You can call the DescribeSynchronizationJobs operation to query the instance ID.
      *
      * @example dtshn6107ve264****
@@ -39,6 +44,7 @@ class DeleteSynchronizationJobRequest extends Model
         'accountId'            => 'AccountId',
         'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
+        'resourceGroupId'      => 'ResourceGroupId',
         'synchronizationJobId' => 'SynchronizationJobId',
     ];
 
@@ -57,6 +63,9 @@ class DeleteSynchronizationJobRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->synchronizationJobId) {
             $res['SynchronizationJobId'] = $this->synchronizationJobId;
@@ -81,6 +90,9 @@ class DeleteSynchronizationJobRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SynchronizationJobId'])) {
             $model->synchronizationJobId = $map['SynchronizationJobId'];

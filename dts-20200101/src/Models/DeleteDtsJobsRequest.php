@@ -27,9 +27,21 @@ class DeleteDtsJobsRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @var bool
+     */
+    public $zeroEtlJob;
     protected $_name = [
-        'dtsJobIds' => 'DtsJobIds',
-        'regionId'  => 'RegionId',
+        'dtsJobIds'       => 'DtsJobIds',
+        'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'zeroEtlJob'      => 'ZeroEtlJob',
     ];
 
     public function validate()
@@ -44,6 +56,12 @@ class DeleteDtsJobsRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->zeroEtlJob) {
+            $res['ZeroEtlJob'] = $this->zeroEtlJob;
         }
 
         return $res;
@@ -62,6 +80,12 @@ class DeleteDtsJobsRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['ZeroEtlJob'])) {
+            $model->zeroEtlJob = $map['ZeroEtlJob'];
         }
 
         return $model;

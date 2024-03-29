@@ -32,12 +32,18 @@ class DescribeCheckJobsRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
-        'checkType'  => 'CheckType',
-        'instanceId' => 'InstanceId',
-        'jobName'    => 'JobName',
-        'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'checkType'       => 'CheckType',
+        'instanceId'      => 'InstanceId',
+        'jobName'         => 'JobName',
+        'pageNumber'      => 'PageNumber',
+        'pageSize'        => 'PageSize',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -61,6 +67,9 @@ class DescribeCheckJobsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -88,6 +97,9 @@ class DescribeCheckJobsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

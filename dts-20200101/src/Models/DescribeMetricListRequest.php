@@ -104,6 +104,11 @@ class DescribeMetricListRequest extends Model
     public $period;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The timestamp that indicates the beginning of the time range to query. Unit: milliseconds.
      *
      * @example 1642476144000
@@ -112,17 +117,18 @@ class DescribeMetricListRequest extends Model
      */
     public $startTime;
     protected $_name = [
-        'accountId'   => 'AccountId',
-        'clientToken' => 'ClientToken',
-        'dtsJobId'    => 'DtsJobId',
-        'endTime'     => 'EndTime',
-        'env'         => 'Env',
-        'metricName'  => 'MetricName',
-        'metricType'  => 'MetricType',
-        'ownerID'     => 'OwnerID',
-        'param'       => 'Param',
-        'period'      => 'Period',
-        'startTime'   => 'StartTime',
+        'accountId'       => 'AccountId',
+        'clientToken'     => 'ClientToken',
+        'dtsJobId'        => 'DtsJobId',
+        'endTime'         => 'EndTime',
+        'env'             => 'Env',
+        'metricName'      => 'MetricName',
+        'metricType'      => 'MetricType',
+        'ownerID'         => 'OwnerID',
+        'param'           => 'Param',
+        'period'          => 'Period',
+        'resourceGroupId' => 'ResourceGroupId',
+        'startTime'       => 'StartTime',
     ];
 
     public function validate()
@@ -161,6 +167,9 @@ class DescribeMetricListRequest extends Model
         }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -206,6 +215,9 @@ class DescribeMetricListRequest extends Model
         }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

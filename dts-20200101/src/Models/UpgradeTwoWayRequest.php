@@ -35,10 +35,16 @@ class UpgradeTwoWayRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
-        'instanceClass' => 'InstanceClass',
-        'instanceId'    => 'InstanceId',
-        'regionId'      => 'RegionId',
+        'instanceClass'   => 'InstanceClass',
+        'instanceId'      => 'InstanceId',
+        'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -56,6 +62,9 @@ class UpgradeTwoWayRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -77,6 +86,9 @@ class UpgradeTwoWayRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

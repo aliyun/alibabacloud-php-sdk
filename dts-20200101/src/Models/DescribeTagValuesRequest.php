@@ -59,6 +59,11 @@ class DescribeTagValuesRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The ID of the data migration, data synchronization, or change tracking instance. You can call the [DescribeDtsJobs](~~209702~~) operation to query the instance ID.
      *
      * >  If this parameter is left empty, the values of all tag keys of the current user are returned.
@@ -77,13 +82,14 @@ class DescribeTagValuesRequest extends Model
      */
     public $resourceType;
     protected $_name = [
-        'category'     => 'Category',
-        'key'          => 'Key',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'regionId'     => 'RegionId',
-        'resourceId'   => 'ResourceId',
-        'resourceType' => 'ResourceType',
+        'category'        => 'Category',
+        'key'             => 'Key',
+        'pageNumber'      => 'PageNumber',
+        'pageSize'        => 'PageSize',
+        'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceId'      => 'ResourceId',
+        'resourceType'    => 'ResourceType',
     ];
 
     public function validate()
@@ -107,6 +113,9 @@ class DescribeTagValuesRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
@@ -140,6 +149,9 @@ class DescribeTagValuesRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];

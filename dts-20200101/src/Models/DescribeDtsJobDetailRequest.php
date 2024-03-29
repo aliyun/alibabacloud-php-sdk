@@ -56,6 +56,11 @@ class DescribeDtsJobDetailRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @example 默认为false，返回最近的一个同步子任务
      *
      * @var bool
@@ -70,12 +75,19 @@ class DescribeDtsJobDetailRequest extends Model
      * @var string
      */
     public $synchronizationDirection;
+
+    /**
+     * @var bool
+     */
+    public $zeroEtlJob;
     protected $_name = [
         'dtsInstanceID'            => 'DtsInstanceID',
         'dtsJobId'                 => 'DtsJobId',
         'regionId'                 => 'RegionId',
+        'resourceGroupId'          => 'ResourceGroupId',
         'syncSubJobHistory'        => 'SyncSubJobHistory',
         'synchronizationDirection' => 'SynchronizationDirection',
+        'zeroEtlJob'               => 'ZeroEtlJob',
     ];
 
     public function validate()
@@ -94,11 +106,17 @@ class DescribeDtsJobDetailRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->syncSubJobHistory) {
             $res['SyncSubJobHistory'] = $this->syncSubJobHistory;
         }
         if (null !== $this->synchronizationDirection) {
             $res['SynchronizationDirection'] = $this->synchronizationDirection;
+        }
+        if (null !== $this->zeroEtlJob) {
+            $res['ZeroEtlJob'] = $this->zeroEtlJob;
         }
 
         return $res;
@@ -121,11 +139,17 @@ class DescribeDtsJobDetailRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['SyncSubJobHistory'])) {
             $model->syncSubJobHistory = $map['SyncSubJobHistory'];
         }
         if (isset($map['SynchronizationDirection'])) {
             $model->synchronizationDirection = $map['SynchronizationDirection'];
+        }
+        if (isset($map['ZeroEtlJob'])) {
+            $model->zeroEtlJob = $map['ZeroEtlJob'];
         }
 
         return $model;

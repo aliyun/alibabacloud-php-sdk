@@ -57,6 +57,16 @@ class DescribeDtsJobsRequest extends Model
     public $groupId;
 
     /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $instanceType;
+
+    /**
      * @description The type of the DTS task. Valid values:
      *
      *   **MIGRATION**: data migration. This is the default value.
@@ -249,12 +259,19 @@ class DescribeDtsJobsRequest extends Model
      * @var bool
      */
     public $withoutDbList;
+
+    /**
+     * @var bool
+     */
+    public $zeroEtlJob;
     protected $_name = [
         'dedicatedClusterId' => 'DedicatedClusterId',
         'dtsBisLabel'        => 'DtsBisLabel',
         'dtsInstanceId'      => 'DtsInstanceId',
         'dtsJobId'           => 'DtsJobId',
         'groupId'            => 'GroupId',
+        'instanceId'         => 'InstanceId',
+        'instanceType'       => 'InstanceType',
         'jobType'            => 'JobType',
         'orderColumn'        => 'OrderColumn',
         'orderDirection'     => 'OrderDirection',
@@ -269,6 +286,7 @@ class DescribeDtsJobsRequest extends Model
         'tags'               => 'Tags',
         'type'               => 'Type',
         'withoutDbList'      => 'WithoutDbList',
+        'zeroEtlJob'         => 'ZeroEtlJob',
     ];
 
     public function validate()
@@ -292,6 +310,12 @@ class DescribeDtsJobsRequest extends Model
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
         }
         if (null !== $this->jobType) {
             $res['JobType'] = $this->jobType;
@@ -335,6 +359,9 @@ class DescribeDtsJobsRequest extends Model
         if (null !== $this->withoutDbList) {
             $res['WithoutDbList'] = $this->withoutDbList;
         }
+        if (null !== $this->zeroEtlJob) {
+            $res['ZeroEtlJob'] = $this->zeroEtlJob;
+        }
 
         return $res;
     }
@@ -361,6 +388,12 @@ class DescribeDtsJobsRequest extends Model
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = $map['InstanceType'];
         }
         if (isset($map['JobType'])) {
             $model->jobType = $map['JobType'];
@@ -403,6 +436,9 @@ class DescribeDtsJobsRequest extends Model
         }
         if (isset($map['WithoutDbList'])) {
             $model->withoutDbList = $map['WithoutDbList'];
+        }
+        if (isset($map['ZeroEtlJob'])) {
+            $model->zeroEtlJob = $map['ZeroEtlJob'];
         }
 
         return $model;

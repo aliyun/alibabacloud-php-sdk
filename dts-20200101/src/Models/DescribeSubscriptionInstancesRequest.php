@@ -60,6 +60,11 @@ class DescribeSubscriptionInstancesRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The name of the change tracking instance.
      *
      * >  If you specify this parameter, DTS returns all the change tracking instances that match the specified name.
@@ -78,6 +83,7 @@ class DescribeSubscriptionInstancesRequest extends Model
         'pageNum'                  => 'PageNum',
         'pageSize'                 => 'PageSize',
         'regionId'                 => 'RegionId',
+        'resourceGroupId'          => 'ResourceGroupId',
         'subscriptionInstanceName' => 'SubscriptionInstanceName',
         'tag'                      => 'Tag',
     ];
@@ -106,6 +112,9 @@ class DescribeSubscriptionInstancesRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->subscriptionInstanceName) {
             $res['SubscriptionInstanceName'] = $this->subscriptionInstanceName;
@@ -148,6 +157,9 @@ class DescribeSubscriptionInstancesRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SubscriptionInstanceName'])) {
             $model->subscriptionInstanceName = $map['SubscriptionInstanceName'];

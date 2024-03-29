@@ -28,6 +28,11 @@ class ModifySubscriptionObjectRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The ID of the change tracking instance. You can call the [DescribeSubscriptionInstances](~~49442~~) operation to query the instance ID.
      *
      * @example dtsl8zl9ek6292****
@@ -48,6 +53,7 @@ class ModifySubscriptionObjectRequest extends Model
         'accountId'              => 'AccountId',
         'ownerId'                => 'OwnerId',
         'regionId'               => 'RegionId',
+        'resourceGroupId'        => 'ResourceGroupId',
         'subscriptionInstanceId' => 'SubscriptionInstanceId',
         'subscriptionObject'     => 'SubscriptionObject',
     ];
@@ -67,6 +73,9 @@ class ModifySubscriptionObjectRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->subscriptionInstanceId) {
             $res['SubscriptionInstanceId'] = $this->subscriptionInstanceId;
@@ -94,6 +103,9 @@ class ModifySubscriptionObjectRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SubscriptionInstanceId'])) {
             $model->subscriptionInstanceId = $map['SubscriptionInstanceId'];

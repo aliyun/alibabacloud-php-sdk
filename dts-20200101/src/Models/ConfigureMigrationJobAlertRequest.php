@@ -104,6 +104,11 @@ class ConfigureMigrationJobAlertRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
         'accountId'        => 'AccountId',
         'delayAlertPhone'  => 'DelayAlertPhone',
@@ -114,6 +119,7 @@ class ConfigureMigrationJobAlertRequest extends Model
         'migrationJobId'   => 'MigrationJobId',
         'ownerId'          => 'OwnerId',
         'regionId'         => 'RegionId',
+        'resourceGroupId'  => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -149,6 +155,9 @@ class ConfigureMigrationJobAlertRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -188,6 +197,9 @@ class ConfigureMigrationJobAlertRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

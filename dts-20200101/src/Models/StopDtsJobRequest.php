@@ -32,6 +32,11 @@ class StopDtsJobRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The synchronization direction. Valid values:
      *
      *   **Forward**
@@ -46,11 +51,18 @@ class StopDtsJobRequest extends Model
      * @var string
      */
     public $synchronizationDirection;
+
+    /**
+     * @var bool
+     */
+    public $zeroEtlJob;
     protected $_name = [
         'dtsInstanceId'            => 'DtsInstanceId',
         'dtsJobId'                 => 'DtsJobId',
         'regionId'                 => 'RegionId',
+        'resourceGroupId'          => 'ResourceGroupId',
         'synchronizationDirection' => 'SynchronizationDirection',
+        'zeroEtlJob'               => 'ZeroEtlJob',
     ];
 
     public function validate()
@@ -69,8 +81,14 @@ class StopDtsJobRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->synchronizationDirection) {
             $res['SynchronizationDirection'] = $this->synchronizationDirection;
+        }
+        if (null !== $this->zeroEtlJob) {
+            $res['ZeroEtlJob'] = $this->zeroEtlJob;
         }
 
         return $res;
@@ -93,8 +111,14 @@ class StopDtsJobRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['SynchronizationDirection'])) {
             $model->synchronizationDirection = $map['SynchronizationDirection'];
+        }
+        if (isset($map['ZeroEtlJob'])) {
+            $model->zeroEtlJob = $map['ZeroEtlJob'];
         }
 
         return $model;

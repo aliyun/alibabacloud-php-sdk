@@ -40,6 +40,11 @@ class SwitchSynchronizationEndpointRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The synchronization direction. Valid values:
      *
      *   **Forward**
@@ -68,6 +73,7 @@ class SwitchSynchronizationEndpointRequest extends Model
         'accountId'                => 'AccountId',
         'ownerId'                  => 'OwnerId',
         'regionId'                 => 'RegionId',
+        'resourceGroupId'          => 'ResourceGroupId',
         'synchronizationDirection' => 'SynchronizationDirection',
         'synchronizationJobId'     => 'SynchronizationJobId',
     ];
@@ -93,6 +99,9 @@ class SwitchSynchronizationEndpointRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->synchronizationDirection) {
             $res['SynchronizationDirection'] = $this->synchronizationDirection;
@@ -126,6 +135,9 @@ class SwitchSynchronizationEndpointRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SynchronizationDirection'])) {
             $model->synchronizationDirection = $map['SynchronizationDirection'];

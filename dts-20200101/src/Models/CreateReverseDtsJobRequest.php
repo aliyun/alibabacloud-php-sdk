@@ -14,8 +14,14 @@ class CreateReverseDtsJobRequest extends Model
      * @var string
      */
     public $dtsJobId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
-        'dtsJobId' => 'DtsJobId',
+        'dtsJobId'        => 'DtsJobId',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -27,6 +33,9 @@ class CreateReverseDtsJobRequest extends Model
         $res = [];
         if (null !== $this->dtsJobId) {
             $res['DtsJobId'] = $this->dtsJobId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -42,6 +51,9 @@ class CreateReverseDtsJobRequest extends Model
         $model = new self();
         if (isset($map['DtsJobId'])) {
             $model->dtsJobId = $map['DtsJobId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

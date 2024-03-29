@@ -68,6 +68,11 @@ class DescribePreCheckStatusRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The filter item used to filter tables, views, and functions during schema migration.
      *
      * @example View
@@ -87,15 +92,22 @@ class DescribePreCheckStatusRequest extends Model
      * @var string
      */
     public $structType;
+
+    /**
+     * @var bool
+     */
+    public $zeroEtlJob;
     protected $_name = [
-        'dtsJobId'    => 'DtsJobId',
-        'jobCode'     => 'JobCode',
-        'name'        => 'Name',
-        'pageNo'      => 'PageNo',
-        'pageSize'    => 'PageSize',
-        'regionId'    => 'RegionId',
-        'structPhase' => 'StructPhase',
-        'structType'  => 'StructType',
+        'dtsJobId'        => 'DtsJobId',
+        'jobCode'         => 'JobCode',
+        'name'            => 'Name',
+        'pageNo'          => 'PageNo',
+        'pageSize'        => 'PageSize',
+        'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'structPhase'     => 'StructPhase',
+        'structType'      => 'StructType',
+        'zeroEtlJob'      => 'ZeroEtlJob',
     ];
 
     public function validate()
@@ -123,11 +135,17 @@ class DescribePreCheckStatusRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->structPhase) {
             $res['StructPhase'] = $this->structPhase;
         }
         if (null !== $this->structType) {
             $res['StructType'] = $this->structType;
+        }
+        if (null !== $this->zeroEtlJob) {
+            $res['ZeroEtlJob'] = $this->zeroEtlJob;
         }
 
         return $res;
@@ -159,11 +177,17 @@ class DescribePreCheckStatusRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['StructPhase'])) {
             $model->structPhase = $map['StructPhase'];
         }
         if (isset($map['StructType'])) {
             $model->structType = $map['StructType'];
+        }
+        if (isset($map['ZeroEtlJob'])) {
+            $model->zeroEtlJob = $map['ZeroEtlJob'];
         }
 
         return $model;

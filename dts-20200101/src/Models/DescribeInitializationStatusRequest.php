@@ -46,6 +46,11 @@ class DescribeInitializationStatusRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The ID of the data synchronization instance. You can call the [DescribeSynchronizationJobs](~~49454~~) operation to query the instance ID.
      *
      * @example dtsi76118o3w92****
@@ -59,6 +64,7 @@ class DescribeInitializationStatusRequest extends Model
         'pageNum'              => 'PageNum',
         'pageSize'             => 'PageSize',
         'regionId'             => 'RegionId',
+        'resourceGroupId'      => 'ResourceGroupId',
         'synchronizationJobId' => 'SynchronizationJobId',
     ];
 
@@ -83,6 +89,9 @@ class DescribeInitializationStatusRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->synchronizationJobId) {
             $res['SynchronizationJobId'] = $this->synchronizationJobId;
@@ -113,6 +122,9 @@ class DescribeInitializationStatusRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SynchronizationJobId'])) {
             $model->synchronizationJobId = $map['SynchronizationJobId'];

@@ -37,6 +37,11 @@ class DescribeEndpointSwitchStatusRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The task ID, which is returned after you call the [SwitchSynchronizationEndpoint](~~201858~~) operation.
      *
      * @example 11****
@@ -45,11 +50,12 @@ class DescribeEndpointSwitchStatusRequest extends Model
      */
     public $taskId;
     protected $_name = [
-        'accountId'   => 'AccountId',
-        'clientToken' => 'ClientToken',
-        'ownerId'     => 'OwnerId',
-        'regionId'    => 'RegionId',
-        'taskId'      => 'TaskId',
+        'accountId'       => 'AccountId',
+        'clientToken'     => 'ClientToken',
+        'ownerId'         => 'OwnerId',
+        'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'taskId'          => 'TaskId',
     ];
 
     public function validate()
@@ -70,6 +76,9 @@ class DescribeEndpointSwitchStatusRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
@@ -97,6 +106,9 @@ class DescribeEndpointSwitchStatusRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];

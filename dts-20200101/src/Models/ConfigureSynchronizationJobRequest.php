@@ -78,6 +78,11 @@ class ConfigureSynchronizationJobRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description Specifies whether to perform initial schema synchronization. Valid values:
      *
      *   **true**: yes
@@ -141,6 +146,7 @@ class ConfigureSynchronizationJobRequest extends Model
         'migrationReserved'        => 'MigrationReserved',
         'ownerId'                  => 'OwnerId',
         'regionId'                 => 'RegionId',
+        'resourceGroupId'          => 'ResourceGroupId',
         'structureInitialization'  => 'StructureInitialization',
         'synchronizationDirection' => 'SynchronizationDirection',
         'synchronizationJobId'     => 'SynchronizationJobId',
@@ -181,6 +187,9 @@ class ConfigureSynchronizationJobRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->structureInitialization) {
             $res['StructureInitialization'] = $this->structureInitialization;
@@ -235,6 +244,9 @@ class ConfigureSynchronizationJobRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['StructureInitialization'])) {
             $model->structureInitialization = $map['StructureInitialization'];

@@ -50,6 +50,11 @@ class ModifyDtsJobPasswordRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The account of the source or destination database.
      *
      * >  This parameter must be specified.
@@ -58,12 +63,19 @@ class ModifyDtsJobPasswordRequest extends Model
      * @var string
      */
     public $userName;
+
+    /**
+     * @var bool
+     */
+    public $zeroEtlJob;
     protected $_name = [
-        'dtsJobId' => 'DtsJobId',
-        'endpoint' => 'Endpoint',
-        'password' => 'Password',
-        'regionId' => 'RegionId',
-        'userName' => 'UserName',
+        'dtsJobId'        => 'DtsJobId',
+        'endpoint'        => 'Endpoint',
+        'password'        => 'Password',
+        'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'userName'        => 'UserName',
+        'zeroEtlJob'      => 'ZeroEtlJob',
     ];
 
     public function validate()
@@ -85,8 +97,14 @@ class ModifyDtsJobPasswordRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
+        }
+        if (null !== $this->zeroEtlJob) {
+            $res['ZeroEtlJob'] = $this->zeroEtlJob;
         }
 
         return $res;
@@ -112,8 +130,14 @@ class ModifyDtsJobPasswordRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];
+        }
+        if (isset($map['ZeroEtlJob'])) {
+            $model->zeroEtlJob = $map['ZeroEtlJob'];
         }
 
         return $model;

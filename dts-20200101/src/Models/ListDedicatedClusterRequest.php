@@ -75,6 +75,11 @@ class ListDedicatedClusterRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The status of the cluster. Valid values:
      *
      *   **init**: The cluster is being initialized.
@@ -106,15 +111,16 @@ class ListDedicatedClusterRequest extends Model
      */
     public $type;
     protected $_name = [
-        'orderColumn'    => 'OrderColumn',
-        'orderDirection' => 'OrderDirection',
-        'ownerId'        => 'OwnerId',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'params'         => 'Params',
-        'regionId'       => 'RegionId',
-        'state'          => 'State',
-        'type'           => 'Type',
+        'orderColumn'     => 'OrderColumn',
+        'orderDirection'  => 'OrderDirection',
+        'ownerId'         => 'OwnerId',
+        'pageNumber'      => 'PageNumber',
+        'pageSize'        => 'PageSize',
+        'params'          => 'Params',
+        'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'state'           => 'State',
+        'type'            => 'Type',
     ];
 
     public function validate()
@@ -144,6 +150,9 @@ class ListDedicatedClusterRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->state) {
             $res['State'] = $this->state;
@@ -183,6 +192,9 @@ class ListDedicatedClusterRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['State'])) {
             $model->state = $map['State'];

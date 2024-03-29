@@ -26,11 +26,17 @@ class SwitchPhysicalDtsJobToCloudRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $synchronizationDirection;
     protected $_name = [
         'dtsInstanceId'            => 'DtsInstanceId',
         'dtsJobId'                 => 'DtsJobId',
         'regionId'                 => 'RegionId',
+        'resourceGroupId'          => 'ResourceGroupId',
         'synchronizationDirection' => 'SynchronizationDirection',
     ];
 
@@ -49,6 +55,9 @@ class SwitchPhysicalDtsJobToCloudRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->synchronizationDirection) {
             $res['SynchronizationDirection'] = $this->synchronizationDirection;
@@ -73,6 +82,9 @@ class SwitchPhysicalDtsJobToCloudRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SynchronizationDirection'])) {
             $model->synchronizationDirection = $map['SynchronizationDirection'];

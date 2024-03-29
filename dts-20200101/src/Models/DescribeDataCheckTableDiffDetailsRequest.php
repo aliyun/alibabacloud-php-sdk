@@ -44,18 +44,24 @@ class DescribeDataCheckTableDiffDetailsRequest extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @example test_person
      *
      * @var string
      */
     public $tbName;
     protected $_name = [
-        'checkType'  => 'CheckType',
-        'dbName'     => 'DbName',
-        'dtsJobId'   => 'DtsJobId',
-        'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'tbName'     => 'TbName',
+        'checkType'       => 'CheckType',
+        'dbName'          => 'DbName',
+        'dtsJobId'        => 'DtsJobId',
+        'pageNumber'      => 'PageNumber',
+        'pageSize'        => 'PageSize',
+        'resourceGroupId' => 'ResourceGroupId',
+        'tbName'          => 'TbName',
     ];
 
     public function validate()
@@ -79,6 +85,9 @@ class DescribeDataCheckTableDiffDetailsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->tbName) {
             $res['TbName'] = $this->tbName;
@@ -109,6 +118,9 @@ class DescribeDataCheckTableDiffDetailsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['TbName'])) {
             $model->tbName = $map['TbName'];

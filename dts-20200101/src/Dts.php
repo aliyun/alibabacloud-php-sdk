@@ -455,6 +455,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->sourceEndpointDatabaseName)) {
             $query['SourceEndpointDatabaseName'] = $request->sourceEndpointDatabaseName;
         }
@@ -658,6 +661,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->destinationEndpoint)) {
             $query['DestinationEndpoint'] = $request->destinationEndpoint;
         }
@@ -741,6 +747,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -829,6 +838,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->reserve)) {
             $query['Reserve'] = $request->reserve;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->sourceEndpointDatabaseName)) {
             $query['SourceEndpointDatabaseName'] = $request->sourceEndpointDatabaseName;
@@ -932,6 +944,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->subscriptionInstanceId)) {
             $query['SubscriptionInstanceId'] = $request->subscriptionInstanceId;
         }
@@ -1021,6 +1036,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->subscriptionInstanceId)) {
             $query['SubscriptionInstanceId'] = $request->subscriptionInstanceId;
         }
@@ -1086,6 +1104,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->structureInitialization)) {
             $query['StructureInitialization'] = $request->structureInitialization;
@@ -1182,6 +1203,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->synchronizationDirection)) {
             $query['SynchronizationDirection'] = $request->synchronizationDirection;
         }
@@ -1242,6 +1266,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->synchronizationDirection)) {
             $query['SynchronizationDirection'] = $request->synchronizationDirection;
@@ -1313,6 +1340,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->srcDbType)) {
             $query['SrcDbType'] = $request->srcDbType;
         }
@@ -1380,6 +1410,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -1437,6 +1470,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->subscriptionInstanceId)) {
             $query['SubscriptionInstanceId'] = $request->subscriptionInstanceId;
@@ -1510,6 +1546,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1686,6 +1725,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->state)) {
             $query['State'] = $request->state;
         }
@@ -1762,6 +1804,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -1808,6 +1853,9 @@ class Dts extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->dtsJobId)) {
             $query['DtsJobId'] = $request->dtsJobId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1871,6 +1919,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->usedTime)) {
             $query['UsedTime'] = $request->usedTime;
@@ -1946,6 +1997,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->sourceRegion)) {
             $query['SourceRegion'] = $request->sourceRegion;
@@ -2023,6 +2077,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -2074,6 +2131,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->subscriptionInstanceId)) {
             $query['SubscriptionInstanceId'] = $request->subscriptionInstanceId;
@@ -2130,8 +2190,14 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->synchronizationDirection)) {
             $query['SynchronizationDirection'] = $request->synchronizationDirection;
+        }
+        if (!Utils::isUnset($request->zeroEtlJob)) {
+            $query['ZeroEtlJob'] = $request->zeroEtlJob;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -2178,6 +2244,12 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->zeroEtlJob)) {
+            $query['ZeroEtlJob'] = $request->zeroEtlJob;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -2233,6 +2305,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -2285,6 +2360,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->subscriptionInstanceId)) {
             $query['SubscriptionInstanceId'] = $request->subscriptionInstanceId;
@@ -2341,6 +2419,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->synchronizationJobId)) {
             $query['SynchronizationJobId'] = $request->synchronizationJobId;
@@ -2463,6 +2544,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -2502,6 +2586,10 @@ class Dts extends OpenApiClient
     public function describeClusterOperateLogsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $body = [];
         if (!Utils::isUnset($request->accountId)) {
             $body['AccountId'] = $request->accountId;
@@ -2531,7 +2619,8 @@ class Dts extends OpenApiClient
             $body['StartTime'] = $request->startTime;
         }
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DescribeClusterOperateLogs',
@@ -2569,6 +2658,10 @@ class Dts extends OpenApiClient
     public function describeClusterUsedUtilizationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $body = [];
         if (!Utils::isUnset($request->accountId)) {
             $body['AccountId'] = $request->accountId;
@@ -2598,7 +2691,8 @@ class Dts extends OpenApiClient
             $body['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DescribeClusterUsedUtilization',
@@ -2672,6 +2766,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->sourceEndpointArchitecture)) {
             $query['SourceEndpointArchitecture'] = $request->sourceEndpointArchitecture;
@@ -2764,6 +2861,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -2819,6 +2919,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->subscriptionInstanceId)) {
             $query['SubscriptionInstanceId'] = $request->subscriptionInstanceId;
         }
@@ -2870,6 +2973,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->sourceEndpointRegion)) {
             $query['SourceEndpointRegion'] = $request->sourceEndpointRegion;
@@ -2926,6 +3032,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->dtsJobId)) {
             $query['DtsJobId'] = $request->dtsJobId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->tbName)) {
             $query['TbName'] = $request->tbName;
         }
@@ -2980,6 +3089,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->schemaName)) {
             $query['SchemaName'] = $request->schemaName;
@@ -3045,6 +3157,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->tbName)) {
             $query['TbName'] = $request->tbName;
         }
@@ -3097,6 +3212,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -3145,6 +3263,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -3201,6 +3322,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -3250,11 +3374,17 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->syncSubJobHistory)) {
             $query['SyncSubJobHistory'] = $request->syncSubJobHistory;
         }
         if (!Utils::isUnset($request->synchronizationDirection)) {
             $query['SynchronizationDirection'] = $request->synchronizationDirection;
+        }
+        if (!Utils::isUnset($request->zeroEtlJob)) {
+            $query['ZeroEtlJob'] = $request->zeroEtlJob;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -3314,6 +3444,12 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
         }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
         if (!Utils::isUnset($request->jobType)) {
             $query['JobType'] = $request->jobType;
         }
@@ -3355,6 +3491,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->withoutDbList)) {
             $query['WithoutDbList'] = $request->withoutDbList;
+        }
+        if (!Utils::isUnset($request->zeroEtlJob)) {
+            $query['ZeroEtlJob'] = $request->zeroEtlJob;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -3417,6 +3556,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -3425,6 +3567,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->subJobType)) {
             $query['SubJobType'] = $request->subJobType;
+        }
+        if (!Utils::isUnset($request->zeroEtlJob)) {
+            $query['ZeroEtlJob'] = $request->zeroEtlJob;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -3480,6 +3625,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->taskId)) {
             $query['TaskId'] = $request->taskId;
         }
@@ -3530,6 +3678,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -3586,6 +3737,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->synchronizationJobId)) {
             $query['SynchronizationJobId'] = $request->synchronizationJobId;
         }
@@ -3635,6 +3789,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -3674,6 +3831,10 @@ class Dts extends OpenApiClient
     public function describeMetricListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $body = [];
         if (!Utils::isUnset($request->accountId)) {
             $body['AccountId'] = $request->accountId;
@@ -3709,7 +3870,8 @@ class Dts extends OpenApiClient
             $body['StartTime'] = $request->startTime;
         }
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DescribeMetricList',
@@ -3762,6 +3924,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -3826,6 +3991,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->migrationMode)) {
             $query['MigrationMode'] = $request->migrationMode;
         }
@@ -3886,6 +4054,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -3943,6 +4114,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->tag)) {
             $query['Tag'] = $request->tag;
@@ -4005,11 +4179,17 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->structPhase)) {
             $query['StructPhase'] = $request->structPhase;
         }
         if (!Utils::isUnset($request->structType)) {
             $query['StructType'] = $request->structType;
+        }
+        if (!Utils::isUnset($request->zeroEtlJob)) {
+            $query['ZeroEtlJob'] = $request->zeroEtlJob;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -4063,6 +4243,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->subscriptionInstanceId)) {
             $query['SubscriptionInstanceId'] = $request->subscriptionInstanceId;
         }
@@ -4114,6 +4297,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->subscriptionInstanceId)) {
             $query['SubscriptionInstanceId'] = $request->subscriptionInstanceId;
@@ -4175,6 +4361,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->subscriptionInstanceName)) {
             $query['SubscriptionInstanceName'] = $request->subscriptionInstanceName;
@@ -4238,6 +4427,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->sid)) {
             $query['Sid'] = $request->sid;
@@ -4303,6 +4495,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->synchronizationDirection)) {
             $query['SynchronizationDirection'] = $request->synchronizationDirection;
         }
@@ -4360,6 +4555,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->synchronizationDirection)) {
             $query['SynchronizationDirection'] = $request->synchronizationDirection;
@@ -4419,6 +4617,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->synchronizationDirection)) {
             $query['SynchronizationDirection'] = $request->synchronizationDirection;
         }
@@ -4476,6 +4677,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->synchronizationJobIdListJsonStr)) {
             $query['SynchronizationJobIdListJsonStr'] = $request->synchronizationJobIdListJsonStr;
@@ -4538,6 +4742,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->synchronizationJobName)) {
             $query['SynchronizationJobName'] = $request->synchronizationJobName;
         }
@@ -4598,6 +4805,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->taskId)) {
             $query['TaskId'] = $request->taskId;
         }
@@ -4654,6 +4864,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->resourceId)) {
             $query['ResourceId'] = $request->resourceId;
@@ -4715,6 +4928,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->resourceId)) {
             $query['ResourceId'] = $request->resourceId;
@@ -4783,6 +4999,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -4847,6 +5066,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->state)) {
             $query['State'] = $request->state;
         }
@@ -4900,6 +5122,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->resourceId)) {
             $query['ResourceId'] = $request->resourceId;
@@ -4973,6 +5198,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -5037,6 +5265,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->subscriptionInstanceId)) {
             $query['SubscriptionInstanceId'] = $request->subscriptionInstanceId;
@@ -5105,6 +5336,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->subscriptionInstanceId)) {
             $query['SubscriptionInstanceId'] = $request->subscriptionInstanceId;
         }
@@ -5172,6 +5406,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -5243,11 +5480,17 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->structureInitialization)) {
             $query['StructureInitialization'] = $request->structureInitialization;
         }
         if (!Utils::isUnset($request->synchronizationDirection)) {
             $query['SynchronizationDirection'] = $request->synchronizationDirection;
+        }
+        if (!Utils::isUnset($request->zeroEtlJob)) {
+            $query['ZeroEtlJob'] = $request->zeroEtlJob;
         }
         $body = [];
         if (!Utils::isUnset($request->dbListShrink)) {
@@ -5398,6 +5641,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -5449,6 +5695,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -5504,6 +5753,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -5584,6 +5836,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->roleName)) {
             $query['RoleName'] = $request->roleName;
         }
@@ -5648,6 +5903,12 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->zeroEtlJob)) {
+            $query['ZeroEtlJob'] = $request->zeroEtlJob;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -5700,8 +5961,14 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->userName)) {
             $query['UserName'] = $request->userName;
+        }
+        if (!Utils::isUnset($request->zeroEtlJob)) {
+            $query['ZeroEtlJob'] = $request->zeroEtlJob;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -5758,6 +6025,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -5809,6 +6079,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->subscriptionDataTypeDDL)) {
             $query['SubscriptionDataTypeDDL'] = $request->subscriptionDataTypeDDL;
@@ -5869,6 +6142,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->subscriptionInstanceId)) {
             $query['SubscriptionInstanceId'] = $request->subscriptionInstanceId;
@@ -5931,6 +6207,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->synchronizationDirection)) {
             $query['SynchronizationDirection'] = $request->synchronizationDirection;
@@ -6000,6 +6279,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -6050,6 +6332,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->synchronizationDirection)) {
             $query['SynchronizationDirection'] = $request->synchronizationDirection;
@@ -6106,6 +6391,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->synchronizationDirection)) {
             $query['SynchronizationDirection'] = $request->synchronizationDirection;
@@ -6164,6 +6452,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -6215,6 +6506,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -6265,6 +6559,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->skip)) {
             $query['Skip'] = $request->skip;
@@ -6324,8 +6621,14 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->synchronizationDirection)) {
             $query['SynchronizationDirection'] = $request->synchronizationDirection;
+        }
+        if (!Utils::isUnset($request->zeroEtlJob)) {
+            $query['ZeroEtlJob'] = $request->zeroEtlJob;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -6372,6 +6675,12 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->zeroEtlJob)) {
+            $query['ZeroEtlJob'] = $request->zeroEtlJob;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -6427,6 +6736,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -6476,6 +6788,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->dtsJobId)) {
             $query['DtsJobId'] = $request->dtsJobId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -6530,6 +6845,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->subscriptionInstanceId)) {
             $query['SubscriptionInstanceId'] = $request->subscriptionInstanceId;
         }
@@ -6566,14 +6884,10 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * >
-     *   * *   Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/data-transmission-service) of Data Transmission Service (DTS).
-     *   * *   When you call this operation, the data synchronization task must be in the NotStarted, Failed, or Suspending state. If you call this operation to start a task that is in the NotStarted state, the task will be prechecked.
-     *   *
-     * @param StartSynchronizationJobRequest $request StartSynchronizationJobRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param StartSynchronizationJobRequest $request
+     * @param RuntimeOptions                 $runtime
      *
-     * @return StartSynchronizationJobResponse StartSynchronizationJobResponse
+     * @return StartSynchronizationJobResponse
      */
     public function startSynchronizationJobWithOptions($request, $runtime)
     {
@@ -6587,6 +6901,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->synchronizationDirection)) {
             $query['SynchronizationDirection'] = $request->synchronizationDirection;
@@ -6613,13 +6930,9 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * >
-     *   * *   Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/data-transmission-service) of Data Transmission Service (DTS).
-     *   * *   When you call this operation, the data synchronization task must be in the NotStarted, Failed, or Suspending state. If you call this operation to start a task that is in the NotStarted state, the task will be prechecked.
-     *   *
-     * @param StartSynchronizationJobRequest $request StartSynchronizationJobRequest
+     * @param StartSynchronizationJobRequest $request
      *
-     * @return StartSynchronizationJobResponse StartSynchronizationJobResponse
+     * @return StartSynchronizationJobResponse
      */
     public function startSynchronizationJob($request)
     {
@@ -6652,6 +6965,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -6702,8 +7018,14 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->synchronizationDirection)) {
             $query['SynchronizationDirection'] = $request->synchronizationDirection;
+        }
+        if (!Utils::isUnset($request->zeroEtlJob)) {
+            $query['ZeroEtlJob'] = $request->zeroEtlJob;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -6750,6 +7072,12 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->zeroEtlJob)) {
+            $query['ZeroEtlJob'] = $request->zeroEtlJob;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -6808,6 +7136,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -6862,11 +7193,17 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->structType)) {
             $query['StructType'] = $request->structType;
         }
         if (!Utils::isUnset($request->synchronizationDirection)) {
             $query['SynchronizationDirection'] = $request->synchronizationDirection;
+        }
+        if (!Utils::isUnset($request->zeroEtlJob)) {
+            $query['ZeroEtlJob'] = $request->zeroEtlJob;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -6919,8 +7256,14 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->synchronizationDirection)) {
             $query['SynchronizationDirection'] = $request->synchronizationDirection;
+        }
+        if (!Utils::isUnset($request->zeroEtlJob)) {
+            $query['ZeroEtlJob'] = $request->zeroEtlJob;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -6969,6 +7312,12 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->zeroEtlJob)) {
+            $query['ZeroEtlJob'] = $request->zeroEtlJob;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -7029,6 +7378,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -7086,6 +7438,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->synchronizationDirection)) {
             $query['SynchronizationDirection'] = $request->synchronizationDirection;
@@ -7147,6 +7502,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->synchronizationDirection)) {
             $query['SynchronizationDirection'] = $request->synchronizationDirection;
         }
@@ -7203,6 +7561,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->synchronizationDirection)) {
             $query['SynchronizationDirection'] = $request->synchronizationDirection;
@@ -7270,6 +7631,9 @@ class Dts extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->resourceId)) {
             $query['ResourceId'] = $request->resourceId;
@@ -7339,6 +7703,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -7399,6 +7766,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -7451,6 +7821,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->resourceId)) {
             $query['ResourceId'] = $request->resourceId;
@@ -7519,6 +7892,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -7577,8 +7953,14 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->type)) {
             $query['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->zeroEtlJob)) {
+            $query['ZeroEtlJob'] = $request->zeroEtlJob;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
