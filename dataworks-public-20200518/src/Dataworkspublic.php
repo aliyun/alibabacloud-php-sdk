@@ -73,6 +73,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreatePermissionApplyOrder
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreatePermissionApplyOrderResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateProjectMemberRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateProjectMemberResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateProjectRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateProjectResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateProjectShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateQualityEntityRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateQualityEntityResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateQualityFollowerRequest;
@@ -2701,6 +2704,78 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createPermissionApplyOrderWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateProjectRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateProjectResponse
+     */
+    public function createProjectWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateProjectShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->disableDevelopment)) {
+            $query['DisableDevelopment'] = $request->disableDevelopment;
+        }
+        if (!Utils::isUnset($request->isAllowDownload)) {
+            $query['IsAllowDownload'] = $request->isAllowDownload;
+        }
+        if (!Utils::isUnset($request->projectDescription)) {
+            $query['ProjectDescription'] = $request->projectDescription;
+        }
+        if (!Utils::isUnset($request->projectIdentifier)) {
+            $query['ProjectIdentifier'] = $request->projectIdentifier;
+        }
+        if (!Utils::isUnset($request->projectMode)) {
+            $query['ProjectMode'] = $request->projectMode;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateProject',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateProjectRequest $request
+     *
+     * @return CreateProjectResponse
+     */
+    public function createProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createProjectWithOptions($request, $runtime);
     }
 
     /**
