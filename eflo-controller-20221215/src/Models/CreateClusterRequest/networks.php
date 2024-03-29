@@ -29,6 +29,11 @@ class networks extends Model
     /**
      * @var string
      */
+    public $tailIpVersion;
+
+    /**
+     * @var string
+     */
     public $vSwitchId;
 
     /**
@@ -51,6 +56,7 @@ class networks extends Model
         'ipAllocationPolicy' => 'IpAllocationPolicy',
         'newVpdInfo'         => 'NewVpdInfo',
         'securityGroupId'    => 'SecurityGroupId',
+        'tailIpVersion'      => 'TailIpVersion',
         'vSwitchId'          => 'VSwitchId',
         'vSwitchZoneId'      => 'VSwitchZoneId',
         'vpcId'              => 'VpcId',
@@ -78,6 +84,9 @@ class networks extends Model
         }
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
+        }
+        if (null !== $this->tailIpVersion) {
+            $res['TailIpVersion'] = $this->tailIpVersion;
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
@@ -117,6 +126,9 @@ class networks extends Model
         }
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
+        }
+        if (isset($map['TailIpVersion'])) {
+            $model->tailIpVersion = $map['TailIpVersion'];
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
