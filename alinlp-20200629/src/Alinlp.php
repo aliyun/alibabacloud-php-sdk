@@ -141,6 +141,9 @@ use AlibabaCloud\SDK\Alinlp\V20200629\Models\PostMSDataProcessingCountShrinkRequ
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\PostMSSearchEnhanceRequest;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\PostMSSearchEnhanceResponse;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\PostMSSearchEnhanceShrinkRequest;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\PostMSServiceDataImportRequest;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\PostMSServiceDataImportResponse;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\PostMSServiceDataImportShrinkRequest;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\RequestTableQAOnlineRequest;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\RequestTableQAOnlineResponse;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\RequestTableQARequest;
@@ -3417,6 +3420,60 @@ class Alinlp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->postMSSearchEnhanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param PostMSServiceDataImportRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return PostMSServiceDataImportResponse
+     */
+    public function postMSServiceDataImportWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new PostMSServiceDataImportShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->documents)) {
+            $request->documentsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->documents, 'Documents', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->dataType)) {
+            $body['DataType'] = $request->dataType;
+        }
+        if (!Utils::isUnset($request->documentsShrink)) {
+            $body['Documents'] = $request->documentsShrink;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $body['ServiceId'] = $request->serviceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'PostMSServiceDataImport',
+            'version'     => '2020-06-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PostMSServiceDataImportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param PostMSServiceDataImportRequest $request
+     *
+     * @return PostMSServiceDataImportResponse
+     */
+    public function postMSServiceDataImport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->postMSServiceDataImportWithOptions($request, $runtime);
     }
 
     /**
