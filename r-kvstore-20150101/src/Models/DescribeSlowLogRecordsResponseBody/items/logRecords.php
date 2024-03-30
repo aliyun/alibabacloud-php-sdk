@@ -36,7 +36,7 @@ class logRecords extends Model
     public $command;
 
     /**
-     * @description The name of the database.
+     * @description The database name.
      *
      * @example -1
      *
@@ -45,7 +45,7 @@ class logRecords extends Model
     public $DBName;
 
     /**
-     * @description The name of the database, which serves the same purpose as the **DBName** parameter. We recommend that you use the value of the **DBName** parameter.
+     * @description The database name. This parameter serves the same purpose as the **DBName** parameter. We recommend that you use the **DBName** parameter.
      *
      * @example -1
      *

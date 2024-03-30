@@ -14,13 +14,6 @@ class RestartInstanceRequest extends Model
      *   **Immediately**: immediately restarts the instance.
      *   **MaintainTime**: restarts the instance during the maintenance window.
      *
-     * Enumeration values:
-     *
-     *   0
-     *   1
-     *   Immediately
-     *   MaintainTime
-     *
      * @example Immediately
      *
      * @var string
@@ -28,7 +21,7 @@ class RestartInstanceRequest extends Model
     public $effectiveTime;
 
     /**
-     * @description The operation that you want to perform. Set the value to **RestartInstance**.
+     * @description The ID of the instance.
      *
      * @example r-bp1zxszhcgatnx****
      *
@@ -62,7 +55,7 @@ class RestartInstanceRequest extends Model
     public $securityToken;
 
     /**
-     * @description Specifies whether to update the instance to the latest minor version when the instance is restarted. Valid values:
+     * @description Specifies whether to update to the latest minor version when the instance is restarted. Valid values:
      *
      *   **true**: updates the minor version.
      *   **false**: does not update the minor version.

@@ -366,6 +366,8 @@ class CreateInstanceRequest extends Model
     public $secondaryZoneId;
 
     /**
+     * @description 系统自动生成的安全 Token，无需传入
+     *
      * @var string
      */
     public $securityToken;

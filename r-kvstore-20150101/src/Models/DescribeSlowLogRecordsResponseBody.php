@@ -28,7 +28,7 @@ class DescribeSlowLogRecordsResponseBody extends Model
     public $instanceId;
 
     /**
-     * @description The slow log entries.
+     * @description The slow query log entries.
      *
      * @var items
      */

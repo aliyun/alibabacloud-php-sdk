@@ -14,6 +14,11 @@ use AlibabaCloud\Tea\Model;
 class subOrder extends Model
 {
     /**
+     * @var bool
+     */
+    public $contractActivity;
+
+    /**
      * @var depreciateInfo
      */
     public $depreciateInfo;
@@ -91,6 +96,7 @@ class subOrder extends Model
      */
     public $tradeAmount;
     protected $_name = [
+        'contractActivity'   => 'ContractActivity',
         'depreciateInfo'     => 'DepreciateInfo',
         'discountAmount'     => 'DiscountAmount',
         'instanceId'         => 'InstanceId',
@@ -112,6 +118,9 @@ class subOrder extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->contractActivity) {
+            $res['ContractActivity'] = $this->contractActivity;
+        }
         if (null !== $this->depreciateInfo) {
             $res['DepreciateInfo'] = null !== $this->depreciateInfo ? $this->depreciateInfo->toMap() : null;
         }
@@ -160,6 +169,9 @@ class subOrder extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ContractActivity'])) {
+            $model->contractActivity = $map['ContractActivity'];
+        }
         if (isset($map['DepreciateInfo'])) {
             $model->depreciateInfo = depreciateInfo::fromMap($map['DepreciateInfo']);
         }

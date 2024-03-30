@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribePriceResponseBody\subOrders\subOrder;
 
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribePriceResponseBody\subOrders\subOrder\depreciateInfo\contractActivity;
 use AlibabaCloud\Tea\Model;
 
 class depreciateInfo extends Model
@@ -17,6 +18,11 @@ class depreciateInfo extends Model
      * @var int
      */
     public $cheapStandAmount;
+
+    /**
+     * @var contractActivity
+     */
+    public $contractActivity;
 
     /**
      * @var int
@@ -50,6 +56,7 @@ class depreciateInfo extends Model
     protected $_name = [
         'cheapRate'           => 'CheapRate',
         'cheapStandAmount'    => 'CheapStandAmount',
+        'contractActivity'    => 'ContractActivity',
         'differential'        => 'Differential',
         'differentialName'    => 'DifferentialName',
         'isContractActivity'  => 'IsContractActivity',
@@ -70,6 +77,9 @@ class depreciateInfo extends Model
         }
         if (null !== $this->cheapStandAmount) {
             $res['CheapStandAmount'] = $this->cheapStandAmount;
+        }
+        if (null !== $this->contractActivity) {
+            $res['ContractActivity'] = null !== $this->contractActivity ? $this->contractActivity->toMap() : null;
         }
         if (null !== $this->differential) {
             $res['Differential'] = $this->differential;
@@ -106,6 +116,9 @@ class depreciateInfo extends Model
         }
         if (isset($map['CheapStandAmount'])) {
             $model->cheapStandAmount = $map['CheapStandAmount'];
+        }
+        if (isset($map['ContractActivity'])) {
+            $model->contractActivity = contractActivity::fromMap($map['ContractActivity']);
         }
         if (isset($map['Differential'])) {
             $model->differential = $map['Differential'];

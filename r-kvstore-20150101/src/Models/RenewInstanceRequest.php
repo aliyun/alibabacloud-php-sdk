@@ -22,6 +22,8 @@ class RenewInstanceRequest extends Model
     public $autoPay;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoRenew;

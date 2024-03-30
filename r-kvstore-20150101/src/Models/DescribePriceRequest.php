@@ -61,7 +61,7 @@ class DescribePriceRequest extends Model
     public $forceUpgrade;
 
     /**
-     * @description The instance type.****
+     * @description The instance type.
      *
      **To view the instance type, perform the following steps:**
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class extraInfo extends Model
 {
     /**
+     * @description The engine version.
+     *
      * @example 5.0
      *
      * @var string

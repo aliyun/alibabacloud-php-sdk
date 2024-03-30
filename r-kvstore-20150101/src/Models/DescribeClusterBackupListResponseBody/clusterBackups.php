@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class clusterBackups extends Model
 {
     /**
+     * @description The backup sets of all nodes in the instance.
+     *
      * @var backups[]
      */
     public $backups;
 
     /**
+     * @description The end time of the backup.
+     *
      * @example 2024-01-10T17:21:55Z
      *
      * @var string
@@ -22,6 +26,8 @@ class clusterBackups extends Model
     public $clusterBackupEndTime;
 
     /**
+     * @description The ID of the backup set.
+     *
      * @example cb-zmdqj2m3xyxjtdt0
      *
      * @var string
@@ -29,6 +35,8 @@ class clusterBackups extends Model
     public $clusterBackupId;
 
     /**
+     * @description The backup mode.
+     *
      * @example Automated
      *
      * @var string
@@ -36,6 +44,8 @@ class clusterBackups extends Model
     public $clusterBackupMode;
 
     /**
+     * @description The size of the backup set.
+     *
      * @example 2048
      *
      * @var string
@@ -43,6 +53,8 @@ class clusterBackups extends Model
     public $clusterBackupSize;
 
     /**
+     * @description The start time of the backup.
+     *
      * @example 2024-01-10T17:21:25Z
      *
      * @var string
@@ -50,6 +62,12 @@ class clusterBackups extends Model
     public $clusterBackupStartTime;
 
     /**
+     * @description The status of the backup set.
+     *
+     *   OK
+     *   RUNNING
+     *   Failed
+     *
      * @example OK
      *
      * @var string
@@ -57,6 +75,8 @@ class clusterBackups extends Model
     public $clusterBackupStatus;
 
     /**
+     * @description Indicates whether the backup set is valid. A value of 0 indicates that node-level backups failed or have not been completed.
+     *
      * @example 1
      *
      * @var int
@@ -64,6 +84,8 @@ class clusterBackups extends Model
     public $isAvail;
 
     /**
+     * @description The backup progress. The system displays only the progress of running backup tasks.
+     *
      * @example 100%
      *
      * @var string
@@ -71,6 +93,8 @@ class clusterBackups extends Model
     public $progress;
 
     /**
+     * @description The memory size of a single node during a full backup. Unit: MB.
+     *
      * @example 1024
      *
      * @var int

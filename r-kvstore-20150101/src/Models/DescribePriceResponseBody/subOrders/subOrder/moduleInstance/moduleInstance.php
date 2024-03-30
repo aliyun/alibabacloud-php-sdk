@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class moduleInstance extends Model
 {
     /**
+     * @var bool
+     */
+    public $contractActivity;
+
+    /**
      * @var float
      */
     public $discountFee;
@@ -59,16 +64,17 @@ class moduleInstance extends Model
      */
     public $totalProductFee;
     protected $_name = [
-        'discountFee'     => 'DiscountFee',
-        'moduleAttrs'     => 'ModuleAttrs',
-        'moduleCode'      => 'ModuleCode',
-        'moduleId'        => 'ModuleId',
-        'moduleName'      => 'ModuleName',
-        'needOrderPay'    => 'NeedOrderPay',
-        'payFee'          => 'PayFee',
-        'pricingModule'   => 'PricingModule',
-        'standPrice'      => 'StandPrice',
-        'totalProductFee' => 'TotalProductFee',
+        'contractActivity' => 'ContractActivity',
+        'discountFee'      => 'DiscountFee',
+        'moduleAttrs'      => 'ModuleAttrs',
+        'moduleCode'       => 'ModuleCode',
+        'moduleId'         => 'ModuleId',
+        'moduleName'       => 'ModuleName',
+        'needOrderPay'     => 'NeedOrderPay',
+        'payFee'           => 'PayFee',
+        'pricingModule'    => 'PricingModule',
+        'standPrice'       => 'StandPrice',
+        'totalProductFee'  => 'TotalProductFee',
     ];
 
     public function validate()
@@ -78,6 +84,9 @@ class moduleInstance extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->contractActivity) {
+            $res['ContractActivity'] = $this->contractActivity;
+        }
         if (null !== $this->discountFee) {
             $res['DiscountFee'] = $this->discountFee;
         }
@@ -120,6 +129,9 @@ class moduleInstance extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ContractActivity'])) {
+            $model->contractActivity = $map['ContractActivity'];
+        }
         if (isset($map['DiscountFee'])) {
             $model->discountFee = $map['DiscountFee'];
         }

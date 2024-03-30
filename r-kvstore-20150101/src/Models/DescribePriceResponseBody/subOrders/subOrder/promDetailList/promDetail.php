@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class promDetail extends Model
 {
     /**
+     * @var mixed[]
+     */
+    public $activityExtInfo;
+
+    /**
+     * @var string
+     */
+    public $derivedPromType;
+
+    /**
      * @var float
      */
     public $finalPromFee;
@@ -24,6 +34,11 @@ class promDetail extends Model
     public $promType;
 
     /**
+     * @var string
+     */
+    public $promotionCode;
+
+    /**
      * @var int
      */
     public $promotionId;
@@ -33,11 +48,14 @@ class promDetail extends Model
      */
     public $promotionName;
     protected $_name = [
-        'finalPromFee'  => 'FinalPromFee',
-        'optionCode'    => 'OptionCode',
-        'promType'      => 'PromType',
-        'promotionId'   => 'PromotionId',
-        'promotionName' => 'PromotionName',
+        'activityExtInfo' => 'ActivityExtInfo',
+        'derivedPromType' => 'DerivedPromType',
+        'finalPromFee'    => 'FinalPromFee',
+        'optionCode'      => 'OptionCode',
+        'promType'        => 'PromType',
+        'promotionCode'   => 'PromotionCode',
+        'promotionId'     => 'PromotionId',
+        'promotionName'   => 'PromotionName',
     ];
 
     public function validate()
@@ -47,6 +65,12 @@ class promDetail extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->activityExtInfo) {
+            $res['ActivityExtInfo'] = $this->activityExtInfo;
+        }
+        if (null !== $this->derivedPromType) {
+            $res['DerivedPromType'] = $this->derivedPromType;
+        }
         if (null !== $this->finalPromFee) {
             $res['FinalPromFee'] = $this->finalPromFee;
         }
@@ -55,6 +79,9 @@ class promDetail extends Model
         }
         if (null !== $this->promType) {
             $res['PromType'] = $this->promType;
+        }
+        if (null !== $this->promotionCode) {
+            $res['PromotionCode'] = $this->promotionCode;
         }
         if (null !== $this->promotionId) {
             $res['PromotionId'] = $this->promotionId;
@@ -74,6 +101,12 @@ class promDetail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ActivityExtInfo'])) {
+            $model->activityExtInfo = $map['ActivityExtInfo'];
+        }
+        if (isset($map['DerivedPromType'])) {
+            $model->derivedPromType = $map['DerivedPromType'];
+        }
         if (isset($map['FinalPromFee'])) {
             $model->finalPromFee = $map['FinalPromFee'];
         }
@@ -82,6 +115,9 @@ class promDetail extends Model
         }
         if (isset($map['PromType'])) {
             $model->promType = $map['PromType'];
+        }
+        if (isset($map['PromotionCode'])) {
+            $model->promotionCode = $map['PromotionCode'];
         }
         if (isset($map['PromotionId'])) {
             $model->promotionId = $map['PromotionId'];

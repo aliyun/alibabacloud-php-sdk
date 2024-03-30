@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class backups extends Model
 {
     /**
+     * @description The public download URL of the backup file.
+     *
      * @example http://rdsbakbucket-huhehaote-v2.oss-cn-huhehaote.aliyuncs.com/custins424747958/hins100322105_data_20240110012135.rdb
      *
      * @var string
@@ -17,6 +19,8 @@ class backups extends Model
     public $backupDownloadURL;
 
     /**
+     * @description The end time of the backup. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
      * @example 2024-01-09T17:21:57
      *
      * @var string
@@ -24,6 +28,8 @@ class backups extends Model
     public $backupEndTime;
 
     /**
+     * @description The ID of the backup file.
+     *
      * @example 514645788
      *
      * @var string
@@ -31,6 +37,9 @@ class backups extends Model
     public $backupId;
 
     /**
+     * @description The internal download URL of the backup file.
+     *
+     * >  You can use this URL to download the backup file from an Elastic Compute Service (ECS) instance that is connected to the ApsaraDB for Redis instance. The ECS instance must belong to the same classic network or reside in the same virtual private cloud (VPC) as the ApsaraDB for Redis instance.
      * @example http://rdsbakbucket-huhehaote-v2.oss-cn-huhehaote-internal.aliyuncs.com/custins424747958/hins100322105_data_20240110012135.rdb
      *
      * @var string
@@ -38,6 +47,8 @@ class backups extends Model
     public $backupIntranetDownloadURL;
 
     /**
+     * @description The backup name.
+     *
      * @example hins100322105_data_20240110012135.rdb
      *
      * @var string
@@ -45,6 +56,8 @@ class backups extends Model
     public $backupName;
 
     /**
+     * @description The size of the backup file. Unit: bytes.
+     *
      * @example 1024
      *
      * @var string
@@ -52,6 +65,8 @@ class backups extends Model
     public $backupSize;
 
     /**
+     * @description The start time of the backup. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
      * @example 2024-01-09T17:21:30Z
      *
      * @var string
@@ -59,6 +74,11 @@ class backups extends Model
     public $backupStartTime;
 
     /**
+     * @description The status of the backup. Valid values:
+     *
+     *   **OK**
+     *   **ERROR**
+     *
      * @example OK
      *
      * @var string
@@ -66,6 +86,8 @@ class backups extends Model
     public $backupStatus;
 
     /**
+     * @description The database engine. The return value is **redis**.
+     *
      * @example redis
      *
      * @var string
@@ -73,11 +95,15 @@ class backups extends Model
     public $engine;
 
     /**
+     * @description The additional information.
+     *
      * @var extraInfo
      */
     public $extraInfo;
 
     /**
+     * @description The name of the instance.
+     *
      * @example hins100322105_data_20240108012127.rdb
      *
      * @var string
@@ -85,6 +111,11 @@ class backups extends Model
     public $instanceName;
 
     /**
+     * @description Indicates whether the backup set is available. Valid values:
+     *
+     *   **0**: unavailable
+     *   **1**: available
+     *
      * @example 1
      *
      * @var string

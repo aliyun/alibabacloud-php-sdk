@@ -9,10 +9,14 @@ use AlibabaCloud\Tea\Model;
 class SwitchNetworkRequest extends Model
 {
     /**
-     * @description The retention period of the endpoint for the classic network. Valid values: **14**, **30**, **60**, and **120**. Unit: days.
+     * @description The retention period of the classic network endpoint. Valid values: **14**, **30**, **60**, and **120**. Unit: days.
      *
-     * > *   This parameter is required when **RetainClassic** is set to **True**.
-     * > *   After you complete the switchover operation, you can also call the [ModifyInstanceNetExpireTime](~~ModifyInstanceNetExpireTime~~) operation to modify the retention period of the endpoint for the classic network.
+     * >
+     *
+     *   This parameter is available and required only when the **RetainClassic** parameter is set to **True**.
+     *
+     *   After you complete the switchover operation, you can also call the [ModifyInstanceNetExpireTime](~~61010~~) operation to modify the retention period of the classic network endpoint.
+     *
      * @example 30
      *
      * @var string
@@ -20,7 +24,7 @@ class SwitchNetworkRequest extends Model
     public $classicExpiredDays;
 
     /**
-     * @description The ID of the instance. You can call the [DescribeInstances](~~DescribeInstances~~) operation to query instance IDs.
+     * @description The ID of the instance. You can call the [DescribeInstances](~~60933~~) operation to query the ID of the instance.
      *
      * @example r-bp1zxszhcgatnx****
      *
@@ -49,12 +53,12 @@ class SwitchNetworkRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description Specifies whether to retain the original endpoint for the classic network after you switch the instance from classic network to VPC. Valid values:
+     * @description Specifies whether to retain the original classic network endpoint after you switch the instance from classic network to VPC. Default value: False. Valid values:
      *
-     *   **True**: retains the original endpoint.
-     *   **False**: does not retain the original endpoint. This is the default value.
+     *   **True**: retains the classic network endpoint.
+     *   **False**: does not retain the classic network endpoint.
      *
-     * >  This parameter can be used only when the network type of the instance is classic network.
+     * > This parameter is available only when the network type of the instance is classic network.
      * @example True
      *
      * @var string
@@ -76,9 +80,9 @@ class SwitchNetworkRequest extends Model
     public $targetNetworkType;
 
     /**
-     * @description The ID of the vSwitch that belongs to the VPC to which you want to switch. You can call the [DescribeVpcs](~~35739~~) operation to query vSwitch IDs.
+     * @description The ID of the vSwitch that belongs to the VPC to which you want to switch. You can call the [DescribeVpcs](~~35739~~) operation to query the VPC ID.
      *
-     * >  The vSwitch and the ApsaraDB for Redis instance must belong to the same zone.
+     * > The vSwitch and the ApsaraDB for Redis instance must be deployed in the same zone.
      * @example vsw-bp1e7clcw529l773d****
      *
      * @var string
@@ -86,10 +90,14 @@ class SwitchNetworkRequest extends Model
     public $vSwitchId;
 
     /**
-     * @description The ID of the VPC to which you want to switch. You can call the [DescribeVpcs](~~35739~~) operation to query VPC IDs.
+     * @description The ID of the VPC to which you want to switch. You can call the [DescribeVpcs](~~35739~~) operation to query the VPC ID.
      *
-     * > *   The VPC and the ApsaraDB for Redis instance must be deployed in the same region.
-     * > *   After you set this parameter, you must also set the **VSwitchId** parameter.
+     * >
+     *
+     *   The VPC and the ApsaraDB for Redis instance must be deployed in the same region.
+     *
+     *   After you set this parameter, you must also set the **VSwitchId** parameter.
+     *
      * @example vpc-bp1nme44gek34slfc****
      *
      * @var string

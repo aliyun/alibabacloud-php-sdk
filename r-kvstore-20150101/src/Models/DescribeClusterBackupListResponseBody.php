@@ -10,21 +10,37 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterBackupListResponseBody extends Model
 {
     /**
+     * @description The backup sets of the instance. An instance backup contains the backup sets of all nodes in the instance.
+     *
      * @var clusterBackups[]
      */
     public $clusterBackups;
 
     /**
+     * @description This parameter does not take effect. Ignore this parameter.
+     *
+     * @example 100000
+     *
      * @var int
      */
     public $freeSize;
 
     /**
+     * @description The size of the full backup file of the instance. Unit: bytes. Full backups originate from scheduled backups, manual backups, and backups generated during cache analysis.
+     *
+     * >  The value of this parameter is independent of the number and size of returned backup sets. Instead, it represents the size of all valid full backups of the instance.
+     * @example 1000
+     *
      * @var int
      */
     public $fullStorageSize;
 
     /**
+     * @description The size of the log backup file of the instance. Unit: bytes. This parameter is valid only when flashback is enabled.
+     *
+     * >  The value of this parameter is independent of the number and size of returned backup sets. Instead, it represents the size of all valid log backups of the instance.
+     * @example 5000
+     *
      * @var int
      */
     public $logStorageSize;

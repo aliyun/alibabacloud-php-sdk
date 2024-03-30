@@ -93,7 +93,7 @@ class CreateTairInstanceRequest extends Model
     public $clientToken;
 
     /**
-     * @description 集群备份集ID。
+     * @description The backup set ID.
      *
      * @example cb-hyxdof5x9kqb****
      *

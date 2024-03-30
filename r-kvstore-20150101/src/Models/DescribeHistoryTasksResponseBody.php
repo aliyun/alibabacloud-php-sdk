@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeHistoryTasksResponseBody extends Model
 {
     /**
-     * @description The request source. Valid values: System and User.
+     * @description The queried task objects.
      *
      * @var items[]
      */
     public $items;
 
     /**
-     * @description The page number. Pages start from page 1. Default value: 1.
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeHistoryTasksResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries per page. Valid values: 10 to 100. Default value: 10.
+     * @description The maximum number of entries returned per page.
      *
      * @example 10
      *
@@ -35,7 +35,7 @@ class DescribeHistoryTasksResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The unique ID of the request. If the request fails, provide this ID for technical support to troubleshoot the failure.
+     * @description The request ID.
      *
      * @example 5D622714-AEDD-4609-9167-F5DDD3D1****
      *

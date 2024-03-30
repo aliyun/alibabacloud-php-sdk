@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description A set of allowed actions that can be taken on the task. The system matches the current step name and status of the task to the available actions specified by ActionInfo. If no matching action is found, the current status of the task does not support any action. Example:
+     *
+     * The system may support the following actions:
+     *
+     *   **retry**
+     *   **cancel**
+     *   **modifySwitchTime**: changes the switching or restoration time.
+     *
      * @example {\"steps\":[{\"action_info\":{\"Waiting\":[\"modifySwitchTime\"]},\"step_name\":\"exec_task\"}]}
      *
      * @var string
@@ -16,6 +24,8 @@ class items extends Model
     public $actionInfo;
 
     /**
+     * @description The ID of the user who made the request. If CallerSource is set to User, CallerUid indicates the unique ID (UID) of the user.
+     *
      * @example 141345906006****
      *
      * @var string
@@ -23,6 +33,11 @@ class items extends Model
     public $callerSource;
 
     /**
+     * @description The request source. Valid values:
+     *
+     *   **System**
+     *   **User**
+     *
      * @example User
      *
      * @var string
@@ -30,6 +45,8 @@ class items extends Model
     public $callerUid;
 
     /**
+     * @description The name of the current step. If this parameter is left empty, the task is not started.
+     *
      * @example exec_task
      *
      * @var string
@@ -37,6 +54,8 @@ class items extends Model
     public $currentStepName;
 
     /**
+     * @description The database type. The return value is redis.
+     *
      * @example redis
      *
      * @var string
@@ -44,6 +63,8 @@ class items extends Model
     public $dbType;
 
     /**
+     * @description The end time of the task. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2022-02-03T12:06:17Z
      *
      * @var string
@@ -51,6 +72,8 @@ class items extends Model
     public $endTime;
 
     /**
+     * @description The instance ID.
+     *
      * @example r-bp1zxszhcgatnx****
      *
      * @var string
@@ -58,6 +81,8 @@ class items extends Model
     public $instanceId;
 
     /**
+     * @description The instance name.
+     *
      * @example dba-tair-test-qcloud
      *
      * @var string
@@ -65,6 +90,8 @@ class items extends Model
     public $instanceName;
 
     /**
+     * @description The instance type. The return value is Instance.
+     *
      * @example Instance
      *
      * @var string
@@ -72,6 +99,8 @@ class items extends Model
     public $instanceType;
 
     /**
+     * @description The product. The return value is kvstore.
+     *
      * @example kvstore
      *
      * @var string
@@ -79,6 +108,8 @@ class items extends Model
     public $product;
 
     /**
+     * @description The task progress. Valid values: 0 to 100.
+     *
      * @example 79.0
      *
      * @var float
@@ -86,11 +117,15 @@ class items extends Model
     public $progress;
 
     /**
+     * @description The reason why the current task was initiated.
+     *
      * @var string
      */
     public $reasonCode;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -98,6 +133,8 @@ class items extends Model
     public $regionId;
 
     /**
+     * @description The estimated amount of time remaining to complete the task. Unit: seconds. A value of 0 indicates that the task is completed.
+     *
      * @example 1000
      *
      * @var int
@@ -105,6 +142,8 @@ class items extends Model
     public $remainTime;
 
     /**
+     * @description The start time of the task. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2022-02-03T11:31:03Z
      *
      * @var string
@@ -112,6 +151,16 @@ class items extends Model
     public $startTime;
 
     /**
+     * @description The task status.
+     *
+     *   **Scheduled**
+     *   **Running**
+     *   **Succeed**
+     *   **Failed**
+     *   **Cancelling**
+     *   **Canceled**
+     *   **Waiting**
+     *
      * @example Running
      *
      * @var int
@@ -119,6 +168,8 @@ class items extends Model
     public $status;
 
     /**
+     * @description The task details. The details vary based on the task type.
+     *
      * @example {\"callerUid\":\"test\"}
      *
      * @var string
@@ -126,6 +177,8 @@ class items extends Model
     public $taskDetail;
 
     /**
+     * @description The task ID.
+     *
      * @example t-83br18hloy3faf****
      *
      * @var string
@@ -133,6 +186,16 @@ class items extends Model
     public $taskId;
 
     /**
+     * @description The task type.
+     *
+     *   **ModifyInsSpec**
+     *   **DeleteInsNode**
+     *   **AddInsNode**
+     *   **HaSwitch**
+     *   **RestartIns**
+     *   **CreateIns**
+     *   **ModifyInsConfig**
+     *
      * @example ModifyInsSpec
      *
      * @var string
@@ -140,6 +203,8 @@ class items extends Model
     public $taskType;
 
     /**
+     * @description The ID of the user to which the resources belong.
+     *
      * @example 141345906006****
      *
      * @var string

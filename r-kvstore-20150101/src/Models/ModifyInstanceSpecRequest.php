@@ -112,6 +112,11 @@ class ModifyInstanceSpecRequest extends Model
     public $majorVersion;
 
     /**
+     * @var string
+     */
+    public $nodeType;
+
+    /**
      * @description The change type. This parameter is required when you change the configurations of a subscription instance. Default value: UPGRADE. Valid values:
      *
      *   **UPGRADE**: upgrades the configurations of a subscription instance.
@@ -136,7 +141,10 @@ class ModifyInstanceSpecRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of read-only nodes. This parameter is available only for read/write splitting instances that use cloud disks. Valid values: 1 to 5.
+     * @description The number of read replicas. Valid values: 0 to 5. This parameter applies only to the following scenarios:
+     *
+     *   If the instance is a standard instance that uses cloud disks, you can set this parameter to a value greater than 0 to enable the read/write splitting architecture.
+     *   If the instance is a read/write splitting instance that uses cloud disks, you can use this parameter to customize the number of read replicas. You can also set this parameter to 0 to disable the read/write splitting architecture and switch the instance to the standard architecture.
      *
      * @example 5
      *
@@ -178,6 +186,8 @@ class ModifyInstanceSpecRequest extends Model
     public $shardCount;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $slaveReadOnlyCount;
@@ -201,6 +211,7 @@ class ModifyInstanceSpecRequest extends Model
         'instanceClass'        => 'InstanceClass',
         'instanceId'           => 'InstanceId',
         'majorVersion'         => 'MajorVersion',
+        'nodeType'             => 'NodeType',
         'orderType'            => 'OrderType',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
@@ -250,6 +261,9 @@ class ModifyInstanceSpecRequest extends Model
         }
         if (null !== $this->majorVersion) {
             $res['MajorVersion'] = $this->majorVersion;
+        }
+        if (null !== $this->nodeType) {
+            $res['NodeType'] = $this->nodeType;
         }
         if (null !== $this->orderType) {
             $res['OrderType'] = $this->orderType;
@@ -325,6 +339,9 @@ class ModifyInstanceSpecRequest extends Model
         }
         if (isset($map['MajorVersion'])) {
             $model->majorVersion = $map['MajorVersion'];
+        }
+        if (isset($map['NodeType'])) {
+            $model->nodeType = $map['NodeType'];
         }
         if (isset($map['OrderType'])) {
             $model->orderType = $map['OrderType'];

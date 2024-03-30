@@ -58,7 +58,7 @@ class DescribeParameterTemplatesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the resource group to which the instance belongs. You can call the [ListResourceGroups](~~ListResourceGroups~~) operation to query the IDs of resource groups.
+     * @description The ID of the resource group to which the instance belongs. You can call the [ListResourceGroups](~~158855~~) operation to query the IDs of resource groups.
      *
      * >  You can also query the ID of a resource group in the Resource Management console. For more information, see [View the basic information of a resource group](~~151181~~).
      * @example rg-acfmyiu4ekp****
