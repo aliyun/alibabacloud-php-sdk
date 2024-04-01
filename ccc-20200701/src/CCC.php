@@ -171,6 +171,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\ListAttemptsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListAttemptsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListAudioFilesRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListAudioFilesResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListBlacklistCallTaggingsRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListBlacklistCallTaggingsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListBriefSkillGroupsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListBriefSkillGroupsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListCallDetailRecordsRequest;
@@ -1138,11 +1140,23 @@ class CCC extends OpenApiClient
         if (!Utils::isUnset($request->jobId)) {
             $query['JobId'] = $request->jobId;
         }
+        if (!Utils::isUnset($request->queuingOverflowThreshold)) {
+            $query['QueuingOverflowThreshold'] = $request->queuingOverflowThreshold;
+        }
+        if (!Utils::isUnset($request->queuingTimeoutSeconds)) {
+            $query['QueuingTimeoutSeconds'] = $request->queuingTimeoutSeconds;
+        }
+        if (!Utils::isUnset($request->routingType)) {
+            $query['RoutingType'] = $request->routingType;
+        }
         if (!Utils::isUnset($request->strategyName)) {
             $query['StrategyName'] = $request->strategyName;
         }
         if (!Utils::isUnset($request->strategyParams)) {
             $query['StrategyParams'] = $request->strategyParams;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
         }
         if (!Utils::isUnset($request->timeoutSeconds)) {
             $query['TimeoutSeconds'] = $request->timeoutSeconds;
@@ -4098,17 +4112,32 @@ class CCC extends OpenApiClient
         if (!Utils::isUnset($request->jobId)) {
             $query['JobId'] = $request->jobId;
         }
+        if (!Utils::isUnset($request->queuingOverflowThreshold)) {
+            $query['QueuingOverflowThreshold'] = $request->queuingOverflowThreshold;
+        }
+        if (!Utils::isUnset($request->queuingTimeoutSeconds)) {
+            $query['QueuingTimeoutSeconds'] = $request->queuingTimeoutSeconds;
+        }
+        if (!Utils::isUnset($request->routingType)) {
+            $query['RoutingType'] = $request->routingType;
+        }
         if (!Utils::isUnset($request->strategyName)) {
             $query['StrategyName'] = $request->strategyName;
         }
         if (!Utils::isUnset($request->strategyParams)) {
             $query['StrategyParams'] = $request->strategyParams;
         }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
         if (!Utils::isUnset($request->timeoutSeconds)) {
             $query['TimeoutSeconds'] = $request->timeoutSeconds;
         }
         if (!Utils::isUnset($request->transferee)) {
             $query['Transferee'] = $request->transferee;
+        }
+        if (!Utils::isUnset($request->transfereeType)) {
+            $query['TransfereeType'] = $request->transfereeType;
         }
         if (!Utils::isUnset($request->transferor)) {
             $query['Transferor'] = $request->transferor;
@@ -4588,6 +4617,52 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listAudioFilesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListBlacklistCallTaggingsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListBlacklistCallTaggingsResponse
+     */
+    public function listBlacklistCallTaggingsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->numberList)) {
+            $query['NumberList'] = $request->numberList;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListBlacklistCallTaggings',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListBlacklistCallTaggingsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListBlacklistCallTaggingsRequest $request
+     *
+     * @return ListBlacklistCallTaggingsResponse
+     */
+    public function listBlacklistCallTaggings($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBlacklistCallTaggingsWithOptions($request, $runtime);
     }
 
     /**
