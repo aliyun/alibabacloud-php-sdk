@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class EvaluateResourceRequest extends Model
 {
     /**
-     * @description The stype of the instance.
+     * @description The type of the instance.
      *
      * > This parameter is required when you check whether resources are sufficient for creating or upgrading a replica set instance. For more information about instance types, see [Instance types](~~57141~~).
      * @example dds.mongo.mid
@@ -39,11 +39,21 @@ class EvaluateResourceRequest extends Model
     /**
      * @description The version of the database engine. Valid values:
      *
+     *   **7.0**
+     *   **6.0**
      *   **5.0**
      *   **4.4**
      *   **4.2**
      *   **4.0**
-     *   **3.4**
+     *
+     * <!---->
+     *
+     *   3.4
+     *   4.0
+     *   4.2
+     *   4.4
+     *   5.0
+     *   6.0
      *
      * @example 4.0
      *

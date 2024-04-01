@@ -11,13 +11,17 @@ class CreateNodeRequest extends Model
     /**
      * @description The username of the account. The username must meet the following requirements:
      *
-     * The username starts with a lowercase letter.
-     * The username contains lowercase letters, digits, and underscores (\_).
-     * The username is 4 to 16 characters in length.
+     *   The username starts with a lowercase letter.
+     *   The username can contain lowercase letters, digits, and underscores (\_).
+     *   The username must be 4 to 16 characters in length.
      *
-     * > * Keywords cannot be used as account usernames.
-     * > * The permissions of this account are fixed at read-only.
-     * > * The username and password are required to be set only when you apply for an endpoint for the shard node for the first time.
+     * >
+     *
+     *   Keywords cannot be used as accounts.
+     *
+     *   This account is granted the read-only permissions.
+     *   The username and password need to be set if you apply for an endpoint for the shard node for the first time.
+     *
      * @example ceshi
      *
      * @var string
@@ -27,11 +31,11 @@ class CreateNodeRequest extends Model
     /**
      * @description The password of the account. The password must meet the following requirements:
      *
-     * The password contains at least three of the following character types: uppercase letters, lowercase letters, digits, and specific special characters.
-     * These special characters include ! @ # $ % ^ & \* ( ) \_ + - =
-     * The password is 8 to 32 characters in length.
+     *   The password contains at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
+     *   These special characters include ! @ # $ % ^ & \* ( ) \_ + - =
+     *   The password is 8 to 32 characters in length.
      *
-     * >  The account password of the shard node cannot be reset.
+     * >  ApsaraDB for MongoDB does not allow you to reset the password of an account.
      * @example 123+abc
      *
      * @var string
@@ -39,12 +43,12 @@ class CreateNodeRequest extends Model
     public $accountPassword;
 
     /**
-     * @description Specifies whether to enable automatic payment. Default value: true. Valid values:
+     * @description Specifies whether to enable automatic payment. Valid values:
      *
-     *   **true**: enables automatic payment. Make sure that you have sufficient balance within your account.
-     *   **false**: disables automatic payment. You can perform the following operations to pay for the instance: Log on to the ApsaraDB for MongoDB console. In the upper-right corner of the page, choose **Expenses** > **Orders**. On the **Orders** page, find the order and complete the payment.********
+     *   **true** (default): enables automatic payment. Make sure that you have sufficient balance within your account.
+     *   **false**: disables automatic payment. You can perform the following operations to pay for the instance: Log on to the ApsaraDB for MongoDB console. In the upper-right corner of the page, choose **Expenses** > Orders. On the **Orders** page, find the order that you want to pay for and complete the payment.
      *
-     * >  This parameter is required when the billing method of the instance is subscription.
+     * >  This parameter is required only when the billing method of the instance is subscription.
      * @example true
      *
      * @var bool
@@ -61,7 +65,7 @@ class CreateNodeRequest extends Model
     public $businessInfo;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the generated token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
      *
      * @example ETnLKlblzczshOTUbOCz****
      *
@@ -70,7 +74,7 @@ class CreateNodeRequest extends Model
     public $clientToken;
 
     /**
-     * @description The coupon code. Default value: **youhuiquan\_promotion\_option\_id\_for\_blank**.
+     * @description The coupon code. Default value: **youhuiquan_promotion_option_id_for_blank**.
      *
      * @example youhuiquan_promotion_option_id_for_blank
      *
@@ -88,7 +92,7 @@ class CreateNodeRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The specifications of the shard or mongos node. For more information, see [Instance types](~~57141~~).
+     * @description The instance type of the shard or mongos node. For more information, see [Instance types](~~57141~~).
      *
      * @example dds.shard.mid
      *
@@ -99,9 +103,9 @@ class CreateNodeRequest extends Model
     /**
      * @description The disk capacity of the node. Unit: GB.
      *
-     * Valid values: **10** to **2000**. The value must be a multiple of 10. Unit: GB.
+     * Valid values: **10** to **2000**. The value must be a multiple of 10.
      *
-     * >  This parameter is required if the NodeType parameter is set to **shard**.
+     * >  This parameter is required only when the NodeType parameter is set to **shard**.
      * @example 10
      *
      * @var int
@@ -133,7 +137,7 @@ class CreateNodeRequest extends Model
     /**
      * @description The number of read-only nodes in the shard node.
      *
-     * Valid values: **0** to **5**. The value must be an integer. Default value: **0**.
+     * Valid values: **0**, 1, 2, 3, 4, and **5**. Default value: **0**.
      *
      * >  This parameter is available only for ApsaraDB for MongoDB instances that are purchased on the China site (aliyun.com).
      * @example 5
@@ -153,10 +157,10 @@ class CreateNodeRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description Specifies whether to apply for an endpoint for the shard node. Default value: false. Valid values:
+     * @description Specifies whether to apply for an endpoint for the shard node. Valid values:
      *
      *   **true**: applies for an endpoint for the shard node.
-     *   **false** : does not apply for an endpoint for the shard node.
+     *   **false** (default): does not apply for an endpoint for the shard node.
      *
      * @example false
      *

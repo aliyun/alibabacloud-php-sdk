@@ -6,36 +6,22 @@ namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateNodeResponseBody extends Model
+class ModifyDBInstanceDiskTypeResponseBody extends Model
 {
     /**
-     * @description The node ID.
-     *
-     * @example d-bp1b234bf7a4****
-     *
-     * @var string
-     */
-    public $nodeId;
-
-    /**
-     * @description The order ID.
-     *
-     * @example 20951063702****
+     * @example 21012719476****
      *
      * @var string
      */
     public $orderId;
 
     /**
-     * @description The request ID.
-     *
-     * @example 7D48FB19-20CA-4725-A870-3D8F5CE6****
+     * @example D8F1D721-6439-4257-A89C-F1E8E9C9****
      *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'nodeId'    => 'NodeId',
         'orderId'   => 'OrderId',
         'requestId' => 'RequestId',
     ];
@@ -47,9 +33,6 @@ class CreateNodeResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nodeId) {
-            $res['NodeId'] = $this->nodeId;
-        }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
@@ -63,14 +46,11 @@ class CreateNodeResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateNodeResponseBody
+     * @return ModifyDBInstanceDiskTypeResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NodeId'])) {
-            $model->nodeId = $map['NodeId'];
-        }
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }

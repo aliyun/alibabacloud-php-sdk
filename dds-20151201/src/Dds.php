@@ -160,6 +160,8 @@ use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyDBInstanceConnectionStringReques
 use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyDBInstanceConnectionStringResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyDBInstanceDescriptionRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyDBInstanceDescriptionResponse;
+use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyDBInstanceDiskTypeRequest;
+use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyDBInstanceDiskTypeResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyDBInstanceMaintainTimeRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyDBInstanceMaintainTimeResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyDBInstanceMonitorRequest;
@@ -952,8 +954,8 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
-     *   * This operation is applicable only to sharded cluster instances.
+     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
+     *   * This operation applies only to sharded cluster instances.
      *   *
      * @param CreateNodeRequest $request CreateNodeRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -1031,8 +1033,8 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
-     *   * This operation is applicable only to sharded cluster instances.
+     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
+     *   * This operation applies only to sharded cluster instances.
      *   *
      * @param CreateNodeRequest $request CreateNodeRequest
      *
@@ -5779,6 +5781,76 @@ class Dds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyDBInstanceDescriptionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyDBInstanceDiskTypeRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ModifyDBInstanceDiskTypeResponse
+     */
+    public function modifyDBInstanceDiskTypeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
+        }
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
+        }
+        if (!Utils::isUnset($request->businessInfo)) {
+            $query['BusinessInfo'] = $request->businessInfo;
+        }
+        if (!Utils::isUnset($request->couponNo)) {
+            $query['CouponNo'] = $request->couponNo;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->dbInstanceStorageType)) {
+            $query['DbInstanceStorageType'] = $request->dbInstanceStorageType;
+        }
+        if (!Utils::isUnset($request->extraParam)) {
+            $query['ExtraParam'] = $request->extraParam;
+        }
+        if (!Utils::isUnset($request->orderType)) {
+            $query['OrderType'] = $request->orderType;
+        }
+        if (!Utils::isUnset($request->provisionedIops)) {
+            $query['ProvisionedIops'] = $request->provisionedIops;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDBInstanceDiskType',
+            'version'     => '2015-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDBInstanceDiskTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDBInstanceDiskTypeRequest $request
+     *
+     * @return ModifyDBInstanceDiskTypeResponse
+     */
+    public function modifyDBInstanceDiskType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDBInstanceDiskTypeWithOptions($request, $runtime);
     }
 
     /**

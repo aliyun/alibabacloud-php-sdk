@@ -20,8 +20,8 @@ class typeList extends Model
     /**
      * @description The type of the task. Valid values:
      *
-     *   \*\*rds_apsaradb_transfer\*\*: data migration
-     *   \*\*rds_apsaradb_upgrade\*\*: minor version update
+     *   **rds_apsaradb_transfer**: data migration
+     *   **rds_apsaradb_upgrade**: minor version update
      *
      * @example rds_apsaradb_upgrade
      *
