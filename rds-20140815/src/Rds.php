@@ -389,8 +389,6 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\GrantAccountPrivilegeRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\GrantAccountPrivilegeResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\GrantOperatorPermissionRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\GrantOperatorPermissionResponse;
-use AlibabaCloud\SDK\Rds\V20140815\Models\ImportDatabaseBetweenInstancesRequest;
-use AlibabaCloud\SDK\Rds\V20140815\Models\ImportDatabaseBetweenInstancesResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ImportUserBackupFileRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ImportUserBackupFileResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ListClassesRequest;
@@ -15289,97 +15287,6 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engine
-     *   * *   SQL Server
-     *   * ### [](#)Description
-     *   * We recommend that you use Data Transmission Service (DTS). DTS provides data migration, subscription, and synchronization features that allow you to establish stable, secure transmission links. For more information, see [DTS API overview](~~49456~~).
-     *   * ### [](#)Precautions
-     *   * *   During the migration, the source instance is in the **Migrating** state, and the destination instance is in the **Importing** state.
-     *   * *   Before you call this operation, **make sure that the following conditions are met**:
-     *   *     *   The source and destination instances must run SQL Server and belong to the dedicated or dedicated host instance family. For more information about the supported instance types, see [Primary instance types](~~26312~~).
-     *   *     *   The source and destination instances must be created by using the same user.
-     *   *     *   The instance is in the Running state.
-     *   *     *   The source and destination databases must be in the Running state.
-     *   *     *   The remaining storage of the destination instance must be greater than the storage capacity of the source instance.
-     *   * > *   This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
-     *   * > *   You can migrate the data of multiple databases at a time.
-     *   *
-     * @param ImportDatabaseBetweenInstancesRequest $request ImportDatabaseBetweenInstancesRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
-     *
-     * @return ImportDatabaseBetweenInstancesResponse ImportDatabaseBetweenInstancesResponse
-     */
-    public function importDatabaseBetweenInstancesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->DBInfo)) {
-            $query['DBInfo'] = $request->DBInfo;
-        }
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
-        }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->sourceDBInstanceId)) {
-            $query['SourceDBInstanceId'] = $request->sourceDBInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ImportDatabaseBetweenInstances',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ImportDatabaseBetweenInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * ### [](#)Supported database engine
-     *   * *   SQL Server
-     *   * ### [](#)Description
-     *   * We recommend that you use Data Transmission Service (DTS). DTS provides data migration, subscription, and synchronization features that allow you to establish stable, secure transmission links. For more information, see [DTS API overview](~~49456~~).
-     *   * ### [](#)Precautions
-     *   * *   During the migration, the source instance is in the **Migrating** state, and the destination instance is in the **Importing** state.
-     *   * *   Before you call this operation, **make sure that the following conditions are met**:
-     *   *     *   The source and destination instances must run SQL Server and belong to the dedicated or dedicated host instance family. For more information about the supported instance types, see [Primary instance types](~~26312~~).
-     *   *     *   The source and destination instances must be created by using the same user.
-     *   *     *   The instance is in the Running state.
-     *   *     *   The source and destination databases must be in the Running state.
-     *   *     *   The remaining storage of the destination instance must be greater than the storage capacity of the source instance.
-     *   * > *   This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
-     *   * > *   You can migrate the data of multiple databases at a time.
-     *   *
-     * @param ImportDatabaseBetweenInstancesRequest $request ImportDatabaseBetweenInstancesRequest
-     *
-     * @return ImportDatabaseBetweenInstancesResponse ImportDatabaseBetweenInstancesResponse
-     */
-    public function importDatabaseBetweenInstances($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->importDatabaseBetweenInstancesWithOptions($request, $runtime);
-    }
-
-    /**
      * ### [](#)Supported database engines
      *   * *   MySQL
      *   * ### [](#)Description
@@ -16580,7 +16487,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * > This operation is phased out.
+     * ### [](#)Supported database engines
+     *   * RDS SQL Server
+     *   * ### [](#)References
+     *   * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+     *   * [Change the character set collation and the time zone of system databases](~~95700~~).
      *   *
      * @param ModifyCollationTimeZoneRequest $request ModifyCollationTimeZoneRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -16628,7 +16539,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * > This operation is phased out.
+     * ### [](#)Supported database engines
+     *   * RDS SQL Server
+     *   * ### [](#)References
+     *   * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+     *   * [Change the character set collation and the time zone of system databases](~~95700~~).
      *   *
      * @param ModifyCollationTimeZoneRequest $request ModifyCollationTimeZoneRequest
      *

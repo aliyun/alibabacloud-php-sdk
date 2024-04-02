@@ -67,7 +67,7 @@ class MigrateToOtherZoneRequest extends Model
     public $effectiveTime;
 
     /**
-     * @description A reserved parameter. You do not need to specify this parameter.
+     * @description A reserved parameter.
      *
      * @example 0
      *

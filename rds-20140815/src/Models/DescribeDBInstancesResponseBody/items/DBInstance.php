@@ -48,6 +48,8 @@ class DBInstance extends Model
     public $category;
 
     /**
+     * @description A reserved parameter.
+     *
      * @example false
      *
      * @var bool
@@ -94,6 +96,11 @@ class DBInstance extends Model
     public $DBInstanceClass;
 
     /**
+     * @var string
+     */
+    public $DBInstanceCpuCores;
+
+    /**
      * @description The instance description.
      *
      * @example Test database
@@ -110,6 +117,11 @@ class DBInstance extends Model
      * @var string
      */
     public $DBInstanceId;
+
+    /**
+     * @var string
+     */
+    public $DBInstanceMemory;
 
     /**
      * @description The type of the network connection to the instance. Valid values:
@@ -334,6 +346,9 @@ class DBInstance extends Model
     public $instanceNetworkType;
 
     /**
+     * @description Whether IO acceleration is enabled. The value has the following meanings:
+     *
+     * - 0: not enabled
      * @example 0
      *
      * @var string
@@ -519,8 +534,10 @@ class DBInstance extends Model
         'connectionString'             => 'ConnectionString',
         'createTime'                   => 'CreateTime',
         'DBInstanceClass'              => 'DBInstanceClass',
+        'DBInstanceCpuCores'           => 'DBInstanceCpuCores',
         'DBInstanceDescription'        => 'DBInstanceDescription',
         'DBInstanceId'                 => 'DBInstanceId',
+        'DBInstanceMemory'             => 'DBInstanceMemory',
         'DBInstanceNetType'            => 'DBInstanceNetType',
         'DBInstanceStatus'             => 'DBInstanceStatus',
         'DBInstanceStorageType'        => 'DBInstanceStorageType',
@@ -595,11 +612,17 @@ class DBInstance extends Model
         if (null !== $this->DBInstanceClass) {
             $res['DBInstanceClass'] = $this->DBInstanceClass;
         }
+        if (null !== $this->DBInstanceCpuCores) {
+            $res['DBInstanceCpuCores'] = $this->DBInstanceCpuCores;
+        }
         if (null !== $this->DBInstanceDescription) {
             $res['DBInstanceDescription'] = $this->DBInstanceDescription;
         }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->DBInstanceMemory) {
+            $res['DBInstanceMemory'] = $this->DBInstanceMemory;
         }
         if (null !== $this->DBInstanceNetType) {
             $res['DBInstanceNetType'] = $this->DBInstanceNetType;
@@ -760,11 +783,17 @@ class DBInstance extends Model
         if (isset($map['DBInstanceClass'])) {
             $model->DBInstanceClass = $map['DBInstanceClass'];
         }
+        if (isset($map['DBInstanceCpuCores'])) {
+            $model->DBInstanceCpuCores = $map['DBInstanceCpuCores'];
+        }
         if (isset($map['DBInstanceDescription'])) {
             $model->DBInstanceDescription = $map['DBInstanceDescription'];
         }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['DBInstanceMemory'])) {
+            $model->DBInstanceMemory = $map['DBInstanceMemory'];
         }
         if (isset($map['DBInstanceNetType'])) {
             $model->DBInstanceNetType = $map['DBInstanceNetType'];

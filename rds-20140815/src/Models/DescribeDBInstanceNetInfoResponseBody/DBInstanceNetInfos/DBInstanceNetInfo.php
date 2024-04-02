@@ -13,7 +13,7 @@ class DBInstanceNetInfo extends Model
     /**
      * @description The Tabular Data Stream (TDS) port of the instance for which Babelfish is enabled.
      *
-     * > This parameter applies only to ApsaraDB RDS for PostgreSQL instances. For more information about Babelfish for ApsaraDB RDS for PostgreSQL, see [Introduction to Babelfish](~~428613~~).
+     * >  This parameter applies only to ApsaraDB RDS for PostgreSQL instances. For more information about Babelfish for ApsaraDB RDS for PostgreSQL, see [Introduction to Babelfish](~~428613~~).
      * @example 1433
      *
      * @var string
@@ -21,7 +21,7 @@ class DBInstanceNetInfo extends Model
     public $babelfishPort;
 
     /**
-     * @description The endpoints of the instance.
+     * @description The endpoint of the instance.
      *
      * @example rm-uf6w*****.mysql.rds.aliyuncs.com
      *
@@ -30,10 +30,10 @@ class DBInstanceNetInfo extends Model
     public $connectionString;
 
     /**
-     * @description The types of the endpoints. Valid values:
+     * @description The type of the endpoint. Valid values:
      *
-     *   **Normal**: regular endpoints
-     *   **ReadWriteSplitting**: read/write splitting endpoints
+     *   **Normal**: a regular endpoint
+     *   **ReadWriteSplitting**: a read/write splitting endpoint
      *
      * @example Normal
      *
@@ -44,7 +44,7 @@ class DBInstanceNetInfo extends Model
     /**
      * @description The information about the instance weight.
      *
-     * > This parameter is returned only for instances that have read/write splitting endpoints.
+     * >  This parameter is returned only when the read/write splitting feature is enabled for the instance.
      * @var DBInstanceWeights
      */
     public $DBInstanceWeights;
@@ -52,8 +52,8 @@ class DBInstanceNetInfo extends Model
     /**
      * @description The policy that is used to assign read weights. This parameter is returned only for a read/write splitting endpoint. Valid values:
      *
-     *   **Standard**: The system automatically assigns read weights to the instance and its read-only instances based on the specifications of these instances.
-     *   **Custom**: You must manually assign read weights to the instance and its read-only instances.
+     *   **Standard**: The system automatically allocates read weights to the instance and its read-only instances based on the specifications of the instances.
+     *   **Custom**: You must manually allocate read weights to the instance and its read-only instances.
      *
      * @example Standard
      *
@@ -84,13 +84,13 @@ class DBInstanceNetInfo extends Model
      *
      *   Valid values when the instance resides in the classic network:
      *
-     *   **Inner:**: internal network
-     *   **Public**: Internet
+     *   **Inner**
+     *   **Public**
      *
      *   Valid values when the instance resides in a virtual private cloud (VPC):
      *
-     *   **Private**: internal network
-     *   **Public**: Internet
+     *   **Private**
+     *   **Public**
      *
      * @example Public
      *
@@ -101,7 +101,7 @@ class DBInstanceNetInfo extends Model
     /**
      * @description The latency threshold. This parameter is returned only for a read/write splitting endpoint. Unit: seconds.
      *
-     * > If the latency on a read-only instance exceeds the specified threshold, the system no longer forwards read requests to the read-only instance.
+     * >  If the latency on a read-only instance exceeds the specified threshold, ApsaraDB RDS no longer forwards read requests to the read-only instance.
      * @example 12
      *
      * @var string
@@ -111,7 +111,7 @@ class DBInstanceNetInfo extends Model
     /**
      * @description The PgBouncer port.
      *
-     * > This parameter is returned only when PgBouncer is enabled for the instance that runs PostgreSQL.
+     * >  This parameter is returned only when PgBouncer is enabled for the instance that runs PostgreSQL.
      * @example 6432
      *
      * @var string
@@ -128,7 +128,7 @@ class DBInstanceNetInfo extends Model
     public $port;
 
     /**
-     * @description The details of the IP address whitelist.
+     * @description The IP addresses in the whitelist for the instance.
      *
      * @var securityIPGroups
      */
@@ -137,10 +137,10 @@ class DBInstanceNetInfo extends Model
     /**
      * @description Indicates whether the IP version can be updated. Valid values:
      *
-     *   **Enable**: The IP version can be updated.
-     *   **Disabled**: The IP version cannot be updated.
+     *   **Enable**
+     *   **Disabled**
      *
-     * > The IP version can be updated from IPv4 to IPv6.
+     * >  The IP version can be updated from IPv4 to IPv6.
      * @example Disabled
      *
      * @var string
@@ -148,7 +148,7 @@ class DBInstanceNetInfo extends Model
     public $upgradeable;
 
     /**
-     * @description The VPC ID.
+     * @description The VPC ID of the instance.
      *
      * @example vpc-uf6f7l4fg90*****
      *

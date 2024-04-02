@@ -65,7 +65,7 @@ class DBInstanceAttribute extends Model
     public $babelfishConfig;
 
     /**
-     * @description An invalid parameter. You can ignore this parameter.
+     * @description A deprecated parameter. You do not need to specify this parameter.
      *
      * @example false
      *
@@ -74,7 +74,7 @@ class DBInstanceAttribute extends Model
     public $bpeEnabled;
 
     /**
-     * @description An invalid parameter. You can ignore this parameter.
+     * @description An invalid parameter. You do not need to specify this parameter.
      *
      * @example false
      *
@@ -99,7 +99,7 @@ class DBInstanceAttribute extends Model
     public $category;
 
     /**
-     * @description A reserved parameter.
+     * @description A reserved parameter. You do not need to specify this parameter.
      *
      * @example None
      *
@@ -544,6 +544,7 @@ class DBInstanceAttribute extends Model
      *
      *   **Postpaid**: pay-as-you-go
      *   **Prepaid**: subscription
+     *   **SERVERLESS**
      *
      * @example Postpaid
      *

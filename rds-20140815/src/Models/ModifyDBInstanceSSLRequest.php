@@ -12,7 +12,7 @@ class ModifyDBInstanceSSLRequest extends Model
      * @description The method that is used to verify the identities of clients. This parameter is supported only when the instance runs PostgreSQL with cloud disks. In addition, this parameter is available only when the public key of the CA that issues client certificates is enabled. Valid values:
      *
      *   **cert**
-     *   **perfer**
+     *   **prefer**
      *   **verify-ca**
      *   **verify-full** (supported only when the instance runs PostgreSQL 12 or later)
      *
@@ -35,6 +35,11 @@ class ModifyDBInstanceSSLRequest extends Model
     public $CAType;
 
     /**
+     * @description User-defined certificate. The custom certificate is in pfx format.
+     *
+     * - Intranet address: `oss-<region ID>-internal.aliyuncs.com:<Bucket name >:< certificate file name (with file suffix)>`
+     * @example oss-cn-beijing-internal.aliyuncs.com:zhttest:test.pfx
+     *
      * @var string
      */
     public $certificate;
@@ -122,15 +127,19 @@ class ModifyDBInstanceSSLRequest extends Model
     public $ownerId;
 
     /**
+     * @description The password of the certificate.
+     *
+     * @example zht123456
+     *
      * @var string
      */
     public $passWord;
 
     /**
-     * @description The method that is used to verify the replication permission. This parameter is supported only when the instance runs PostgreSQL with cloud disks. In addition, this parameter is available only when the public key of the CA that issues client certificates is enabled. Valid values:
+     * @description The method that is used to verify the replication permissions. This parameter is supported only when the instance runs PostgreSQL with cloud disks. In addition, this parameter is available only when the public key of the CA that issues client certificates is enabled. Valid values:
      *
      *   **cert**
-     *   **perfer**
+     *   **prefer**
      *   **verify-ca**
      *   **verify-full** (supported only when the instance runs PostgreSQL 12 or later)
      *

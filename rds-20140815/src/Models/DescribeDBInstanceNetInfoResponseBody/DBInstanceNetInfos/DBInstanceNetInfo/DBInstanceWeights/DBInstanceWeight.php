@@ -30,7 +30,7 @@ class DBInstanceWeight extends Model
     public $DBInstanceId;
 
     /**
-     * @description The role of the instance. Valid values:
+     * @description The type of the instance. Valid values:
      *
      *   **Master**: primary instance
      *   **Readonly**: read-only instance

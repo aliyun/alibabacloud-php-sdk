@@ -391,12 +391,8 @@ class CreateDBInstanceShrinkRequest extends Model
     public $instanceNetworkType;
 
     /**
-     * @description Specifies whether to enable the I/O acceleration feature. Valid values:
+     * @description A reserved parameter.
      *
-     *   1: The feature is enabled.
-     *   0: The feature is disabled.
-     *
-     * >  For more information about the I/O acceleration feature of general enhanced SSDs (ESSDs), see [Introduction](~~2527067~~).
      * @example 0
      *
      * @var string

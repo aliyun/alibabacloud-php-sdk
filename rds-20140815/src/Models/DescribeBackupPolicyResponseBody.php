@@ -147,6 +147,9 @@ class DescribeBackupPolicyResponseBody extends Model
     public $enableIncrementDataBackup;
 
     /**
+     * @description Whether PITR recovery is enabled at any point in time (the upgraded version of the original log backup). Return value:
+     *
+     * > Only MySQL instances return this parameter.
      * @example True
      *
      * @var bool
@@ -215,6 +218,8 @@ class DescribeBackupPolicyResponseBody extends Model
     public $logBackupRetentionPeriod;
 
     /**
+     * @description The number of days to restore at any point in time.
+     *
      * @example 7
      *
      * @var int
