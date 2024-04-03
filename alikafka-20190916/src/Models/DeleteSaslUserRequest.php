@@ -18,6 +18,11 @@ class DeleteSaslUserRequest extends Model
     public $instanceId;
 
     /**
+     * @var string
+     */
+    public $mechanism;
+
+    /**
      * @description The ID of the region.
      *
      * @example cn-hangzhou
@@ -49,6 +54,7 @@ class DeleteSaslUserRequest extends Model
     public $username;
     protected $_name = [
         'instanceId' => 'InstanceId',
+        'mechanism'  => 'Mechanism',
         'regionId'   => 'RegionId',
         'type'       => 'Type',
         'username'   => 'Username',
@@ -63,6 +69,9 @@ class DeleteSaslUserRequest extends Model
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->mechanism) {
+            $res['Mechanism'] = $this->mechanism;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -87,6 +96,9 @@ class DeleteSaslUserRequest extends Model
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['Mechanism'])) {
+            $model->mechanism = $map['Mechanism'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

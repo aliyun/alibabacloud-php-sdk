@@ -21,6 +21,16 @@ class DeleteAclRequest extends Model
     public $aclOperationType;
 
     /**
+     * @var string
+     */
+    public $aclOperationTypes;
+
+    /**
+     * @var string
+     */
+    public $aclPermissionType;
+
+    /**
      * @description The name of the resource.
      *
      *   The value can be the name of a topic or consumer group.
@@ -57,6 +67,11 @@ class DeleteAclRequest extends Model
     public $aclResourceType;
 
     /**
+     * @var string
+     */
+    public $host;
+
+    /**
      * @description The ID of the instance.
      *
      * @example alikafka_pre-cn-v0h1cng0****
@@ -84,9 +99,12 @@ class DeleteAclRequest extends Model
     public $username;
     protected $_name = [
         'aclOperationType'       => 'AclOperationType',
+        'aclOperationTypes'      => 'AclOperationTypes',
+        'aclPermissionType'      => 'AclPermissionType',
         'aclResourceName'        => 'AclResourceName',
         'aclResourcePatternType' => 'AclResourcePatternType',
         'aclResourceType'        => 'AclResourceType',
+        'host'                   => 'Host',
         'instanceId'             => 'InstanceId',
         'regionId'               => 'RegionId',
         'username'               => 'Username',
@@ -102,6 +120,12 @@ class DeleteAclRequest extends Model
         if (null !== $this->aclOperationType) {
             $res['AclOperationType'] = $this->aclOperationType;
         }
+        if (null !== $this->aclOperationTypes) {
+            $res['AclOperationTypes'] = $this->aclOperationTypes;
+        }
+        if (null !== $this->aclPermissionType) {
+            $res['AclPermissionType'] = $this->aclPermissionType;
+        }
         if (null !== $this->aclResourceName) {
             $res['AclResourceName'] = $this->aclResourceName;
         }
@@ -110,6 +134,9 @@ class DeleteAclRequest extends Model
         }
         if (null !== $this->aclResourceType) {
             $res['AclResourceType'] = $this->aclResourceType;
+        }
+        if (null !== $this->host) {
+            $res['Host'] = $this->host;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -135,6 +162,12 @@ class DeleteAclRequest extends Model
         if (isset($map['AclOperationType'])) {
             $model->aclOperationType = $map['AclOperationType'];
         }
+        if (isset($map['AclOperationTypes'])) {
+            $model->aclOperationTypes = $map['AclOperationTypes'];
+        }
+        if (isset($map['AclPermissionType'])) {
+            $model->aclPermissionType = $map['AclPermissionType'];
+        }
         if (isset($map['AclResourceName'])) {
             $model->aclResourceName = $map['AclResourceName'];
         }
@@ -143,6 +176,9 @@ class DeleteAclRequest extends Model
         }
         if (isset($map['AclResourceType'])) {
             $model->aclResourceType = $map['AclResourceType'];
+        }
+        if (isset($map['Host'])) {
+            $model->host = $map['Host'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

@@ -21,6 +21,11 @@ class kafkaAclVO extends Model
     public $aclOperationType;
 
     /**
+     * @var string
+     */
+    public $aclPermissionType;
+
+    /**
      * @description The name of the resource.
      *
      *   The value can be the name of a topic or a consumer group.
@@ -75,6 +80,7 @@ class kafkaAclVO extends Model
     public $username;
     protected $_name = [
         'aclOperationType'       => 'AclOperationType',
+        'aclPermissionType'      => 'AclPermissionType',
         'aclResourceName'        => 'AclResourceName',
         'aclResourcePatternType' => 'AclResourcePatternType',
         'aclResourceType'        => 'AclResourceType',
@@ -91,6 +97,9 @@ class kafkaAclVO extends Model
         $res = [];
         if (null !== $this->aclOperationType) {
             $res['AclOperationType'] = $this->aclOperationType;
+        }
+        if (null !== $this->aclPermissionType) {
+            $res['AclPermissionType'] = $this->aclPermissionType;
         }
         if (null !== $this->aclResourceName) {
             $res['AclResourceName'] = $this->aclResourceName;
@@ -121,6 +130,9 @@ class kafkaAclVO extends Model
         $model = new self();
         if (isset($map['AclOperationType'])) {
             $model->aclOperationType = $map['AclOperationType'];
+        }
+        if (isset($map['AclPermissionType'])) {
+            $model->aclPermissionType = $map['AclPermissionType'];
         }
         if (isset($map['AclResourceName'])) {
             $model->aclResourceName = $map['AclResourceName'];

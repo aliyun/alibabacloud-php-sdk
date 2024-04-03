@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class saslUserVO extends Model
 {
     /**
+     * @var string
+     */
+    public $mechanism;
+
+    /**
      * @description The password that is used to access the Elasticsearch cluster.
      *
      * @example ******
@@ -39,9 +44,10 @@ class saslUserVO extends Model
      */
     public $username;
     protected $_name = [
-        'password' => 'Password',
-        'type'     => 'Type',
-        'username' => 'Username',
+        'mechanism' => 'Mechanism',
+        'password'  => 'Password',
+        'type'      => 'Type',
+        'username'  => 'Username',
     ];
 
     public function validate()
@@ -51,6 +57,9 @@ class saslUserVO extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->mechanism) {
+            $res['Mechanism'] = $this->mechanism;
+        }
         if (null !== $this->password) {
             $res['Password'] = $this->password;
         }
@@ -72,6 +81,9 @@ class saslUserVO extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Mechanism'])) {
+            $model->mechanism = $map['Mechanism'];
+        }
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
         }

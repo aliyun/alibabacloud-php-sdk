@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models\GetConsumerProgressResponseBody;
 
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetConsumerProgressResponseBody\consumerProgress\rebalanceInfoList;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetConsumerProgressResponseBody\consumerProgress\topicList;
 use AlibabaCloud\Tea\Model;
 
@@ -17,6 +18,11 @@ class consumerProgress extends Model
      * @var int
      */
     public $lastTimestamp;
+
+    /**
+     * @var rebalanceInfoList
+     */
+    public $rebalanceInfoList;
 
     /**
      * @description The consumption progress of each topic to which the consumer group is subscribed.
@@ -34,9 +40,10 @@ class consumerProgress extends Model
      */
     public $totalDiff;
     protected $_name = [
-        'lastTimestamp' => 'LastTimestamp',
-        'topicList'     => 'TopicList',
-        'totalDiff'     => 'TotalDiff',
+        'lastTimestamp'     => 'LastTimestamp',
+        'rebalanceInfoList' => 'RebalanceInfoList',
+        'topicList'         => 'TopicList',
+        'totalDiff'         => 'TotalDiff',
     ];
 
     public function validate()
@@ -48,6 +55,9 @@ class consumerProgress extends Model
         $res = [];
         if (null !== $this->lastTimestamp) {
             $res['LastTimestamp'] = $this->lastTimestamp;
+        }
+        if (null !== $this->rebalanceInfoList) {
+            $res['RebalanceInfoList'] = null !== $this->rebalanceInfoList ? $this->rebalanceInfoList->toMap() : null;
         }
         if (null !== $this->topicList) {
             $res['TopicList'] = null !== $this->topicList ? $this->topicList->toMap() : null;
@@ -69,6 +79,9 @@ class consumerProgress extends Model
         $model = new self();
         if (isset($map['LastTimestamp'])) {
             $model->lastTimestamp = $map['LastTimestamp'];
+        }
+        if (isset($map['RebalanceInfoList'])) {
+            $model->rebalanceInfoList = rebalanceInfoList::fromMap($map['RebalanceInfoList']);
         }
         if (isset($map['TopicList'])) {
             $model->topicList = topicList::fromMap($map['TopicList']);

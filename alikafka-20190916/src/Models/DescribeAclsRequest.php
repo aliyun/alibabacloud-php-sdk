@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeAclsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $aclOperationType;
+
+    /**
+     * @var string
+     */
+    public $aclPermissionType;
+
+    /**
      * @description The name or ID of the resource.
      *
      *   The value can be the name of a topic or a consumer group.
@@ -45,6 +55,11 @@ class DescribeAclsRequest extends Model
     public $aclResourceType;
 
     /**
+     * @var string
+     */
+    public $host;
+
+    /**
      * @description The ID of the instance.
      *
      * @example alikafka_pre-cn-v0h1cng****
@@ -71,9 +86,12 @@ class DescribeAclsRequest extends Model
      */
     public $username;
     protected $_name = [
+        'aclOperationType'       => 'AclOperationType',
+        'aclPermissionType'      => 'AclPermissionType',
         'aclResourceName'        => 'AclResourceName',
         'aclResourcePatternType' => 'AclResourcePatternType',
         'aclResourceType'        => 'AclResourceType',
+        'host'                   => 'Host',
         'instanceId'             => 'InstanceId',
         'regionId'               => 'RegionId',
         'username'               => 'Username',
@@ -86,6 +104,12 @@ class DescribeAclsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->aclOperationType) {
+            $res['AclOperationType'] = $this->aclOperationType;
+        }
+        if (null !== $this->aclPermissionType) {
+            $res['AclPermissionType'] = $this->aclPermissionType;
+        }
         if (null !== $this->aclResourceName) {
             $res['AclResourceName'] = $this->aclResourceName;
         }
@@ -94,6 +118,9 @@ class DescribeAclsRequest extends Model
         }
         if (null !== $this->aclResourceType) {
             $res['AclResourceType'] = $this->aclResourceType;
+        }
+        if (null !== $this->host) {
+            $res['Host'] = $this->host;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -116,6 +143,12 @@ class DescribeAclsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AclOperationType'])) {
+            $model->aclOperationType = $map['AclOperationType'];
+        }
+        if (isset($map['AclPermissionType'])) {
+            $model->aclPermissionType = $map['AclPermissionType'];
+        }
         if (isset($map['AclResourceName'])) {
             $model->aclResourceName = $map['AclResourceName'];
         }
@@ -124,6 +157,9 @@ class DescribeAclsRequest extends Model
         }
         if (isset($map['AclResourceType'])) {
             $model->aclResourceType = $map['AclResourceType'];
+        }
+        if (isset($map['Host'])) {
+            $model->host = $map['Host'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

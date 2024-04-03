@@ -18,6 +18,11 @@ class CreateSaslUserRequest extends Model
     public $instanceId;
 
     /**
+     * @var string
+     */
+    public $mechanism;
+
+    /**
      * @description The password of the SASL user.
      *
      * @example 12***
@@ -58,6 +63,7 @@ class CreateSaslUserRequest extends Model
     public $username;
     protected $_name = [
         'instanceId' => 'InstanceId',
+        'mechanism'  => 'Mechanism',
         'password'   => 'Password',
         'regionId'   => 'RegionId',
         'type'       => 'Type',
@@ -73,6 +79,9 @@ class CreateSaslUserRequest extends Model
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->mechanism) {
+            $res['Mechanism'] = $this->mechanism;
         }
         if (null !== $this->password) {
             $res['Password'] = $this->password;
@@ -100,6 +109,9 @@ class CreateSaslUserRequest extends Model
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['Mechanism'])) {
+            $model->mechanism = $map['Mechanism'];
         }
         if (isset($map['Password'])) {
             $model->password = $map['Password'];

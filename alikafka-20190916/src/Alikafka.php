@@ -248,6 +248,12 @@ class Alikafka extends OpenApiClient
         if (!Utils::isUnset($request->aclOperationType)) {
             $query['AclOperationType'] = $request->aclOperationType;
         }
+        if (!Utils::isUnset($request->aclOperationTypes)) {
+            $query['AclOperationTypes'] = $request->aclOperationTypes;
+        }
+        if (!Utils::isUnset($request->aclPermissionType)) {
+            $query['AclPermissionType'] = $request->aclPermissionType;
+        }
         if (!Utils::isUnset($request->aclResourceName)) {
             $query['AclResourceName'] = $request->aclResourceName;
         }
@@ -256,6 +262,9 @@ class Alikafka extends OpenApiClient
         }
         if (!Utils::isUnset($request->aclResourceType)) {
             $query['AclResourceType'] = $request->aclResourceType;
+        }
+        if (!Utils::isUnset($request->host)) {
+            $query['Host'] = $request->host;
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
@@ -540,6 +549,9 @@ class Alikafka extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
+        if (!Utils::isUnset($request->mechanism)) {
+            $query['Mechanism'] = $request->mechanism;
+        }
         if (!Utils::isUnset($request->password)) {
             $query['Password'] = $request->password;
         }
@@ -674,6 +686,12 @@ class Alikafka extends OpenApiClient
         if (!Utils::isUnset($request->aclOperationType)) {
             $query['AclOperationType'] = $request->aclOperationType;
         }
+        if (!Utils::isUnset($request->aclOperationTypes)) {
+            $query['AclOperationTypes'] = $request->aclOperationTypes;
+        }
+        if (!Utils::isUnset($request->aclPermissionType)) {
+            $query['AclPermissionType'] = $request->aclPermissionType;
+        }
         if (!Utils::isUnset($request->aclResourceName)) {
             $query['AclResourceName'] = $request->aclResourceName;
         }
@@ -682,6 +700,9 @@ class Alikafka extends OpenApiClient
         }
         if (!Utils::isUnset($request->aclResourceType)) {
             $query['AclResourceType'] = $request->aclResourceType;
+        }
+        if (!Utils::isUnset($request->host)) {
+            $query['Host'] = $request->host;
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
@@ -830,6 +851,9 @@ class Alikafka extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
+        if (!Utils::isUnset($request->mechanism)) {
+            $query['Mechanism'] = $request->mechanism;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -928,6 +952,12 @@ class Alikafka extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->aclOperationType)) {
+            $query['AclOperationType'] = $request->aclOperationType;
+        }
+        if (!Utils::isUnset($request->aclPermissionType)) {
+            $query['AclPermissionType'] = $request->aclPermissionType;
+        }
         if (!Utils::isUnset($request->aclResourceName)) {
             $query['AclResourceName'] = $request->aclResourceName;
         }
@@ -936,6 +966,9 @@ class Alikafka extends OpenApiClient
         }
         if (!Utils::isUnset($request->aclResourceType)) {
             $query['AclResourceType'] = $request->aclResourceType;
+        }
+        if (!Utils::isUnset($request->host)) {
+            $query['Host'] = $request->host;
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
