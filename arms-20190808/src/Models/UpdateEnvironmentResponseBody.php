@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateEnvironmentResponseBody extends Model
 {
     /**
-     * @description The status code or error code.
+     * @description The HTTP status code. The status code 200 indicates that the request was successful.
      *
      * @example 200
      *
@@ -18,7 +18,7 @@ class UpdateEnvironmentResponseBody extends Model
     public $code;
 
     /**
-     * @description The data returned.
+     * @description The result of the operation.
      *
      * @example success
      *
@@ -27,7 +27,7 @@ class UpdateEnvironmentResponseBody extends Model
     public $data;
 
     /**
-     * @description The message returned.
+     * @description The returned message.
      *
      * @example message
      *
@@ -36,7 +36,7 @@ class UpdateEnvironmentResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 70675725-8F11-4817-8106-CFE0AD71****
      *

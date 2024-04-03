@@ -11,7 +11,7 @@ class GetRetcodeShareUrlResponseBody extends Model
     /**
      * @description The request ID.
      *
-     * @example 01FF8DD9-A09C-47A1-895A-B6E321BE77B6
+     * @example 01FF8DD9-A09C-47A1-895A-B6E321******
      *
      * @var string
      */

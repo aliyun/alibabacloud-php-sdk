@@ -22,6 +22,11 @@ class ListDashboardsResponseBody extends Model
     public $environmentId;
 
     /**
+     * @var string
+     */
+    public $grafanaServiceOpened;
+
+    /**
      * @description The indicators of whether the Prometheus service has been activated.
      *
      * @example true
@@ -41,6 +46,7 @@ class ListDashboardsResponseBody extends Model
     protected $_name = [
         'dashboardVos'            => 'DashboardVos',
         'environmentId'           => 'EnvironmentId',
+        'grafanaServiceOpened'    => 'GrafanaServiceOpened',
         'prometheusServiceOpened' => 'PrometheusServiceOpened',
         'requestId'               => 'RequestId',
     ];
@@ -63,6 +69,9 @@ class ListDashboardsResponseBody extends Model
         }
         if (null !== $this->environmentId) {
             $res['EnvironmentId'] = $this->environmentId;
+        }
+        if (null !== $this->grafanaServiceOpened) {
+            $res['GrafanaServiceOpened'] = $this->grafanaServiceOpened;
         }
         if (null !== $this->prometheusServiceOpened) {
             $res['PrometheusServiceOpened'] = $this->prometheusServiceOpened;
@@ -93,6 +102,9 @@ class ListDashboardsResponseBody extends Model
         }
         if (isset($map['EnvironmentId'])) {
             $model->environmentId = $map['EnvironmentId'];
+        }
+        if (isset($map['GrafanaServiceOpened'])) {
+            $model->grafanaServiceOpened = $map['GrafanaServiceOpened'];
         }
         if (isset($map['PrometheusServiceOpened'])) {
             $model->prometheusServiceOpened = $map['PrometheusServiceOpened'];

@@ -7505,6 +7505,9 @@ class ARMS extends OpenApiClient
         if (!Utils::isUnset($request->aliyunLang)) {
             $query['AliyunLang'] = $request->aliyunLang;
         }
+        if (!Utils::isUnset($request->createAuthToken)) {
+            $query['CreateAuthToken'] = $request->createAuthToken;
+        }
         if (!Utils::isUnset($request->environmentId)) {
             $query['EnvironmentId'] = $request->environmentId;
         }

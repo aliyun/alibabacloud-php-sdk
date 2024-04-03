@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ListSilencePoliciesRequest extends Model
 {
     /**
-     * @description The operation that you want to perform. Set the value to **ListSilencePolicies**.
+     * @description Specifies whether to query the details of a silence policy. Valid values:
+     *
+     *   `true`: Details of the silence policy are queried.
+     *   `false`: Details about notification policies are not queried.
      *
      * @example true
      *
@@ -18,7 +21,7 @@ class ListSilencePoliciesRequest extends Model
     public $isDetail;
 
     /**
-     * @description An array of matching condition objects.
+     * @description The name of the silence policy.
      *
      * @example silencepolicy_test
      *
@@ -27,7 +30,7 @@ class ListSilencePoliciesRequest extends Model
     public $name;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of the page to return.
      *
      * @example 1
      *
@@ -36,12 +39,16 @@ class ListSilencePoliciesRequest extends Model
     public $page;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The ID of the silence policy.
+     * @description The number of entries to return on each page.
      *
      * @example 20
      *

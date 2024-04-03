@@ -17,7 +17,15 @@ class TagResourcesRequest extends Model
     public $resourceId;
 
     /**
-     * @description The type of the ARMS resources for which you want to modify tags. Valid values: WEB: Browser Monitoring APPLICATION: Application Monitoring PROMETHEUS: Managed Service for Prometheus SYNTHETICTASK: Synthetic Monitoring ALERTRULE: Application Monitoring alert rules PROMETHEUSALERTRULE: Prometheus alert rules
+     * @description The type of the ARMS resources for which you want to modify tags. Valid values:
+     *
+     *   WEB: Browser Monitoring
+     *   APPLICATION: Application Monitoring
+     *   PROMETHEUS: Managed Service for Prometheus
+     *   SYNTHETICTASK: Synthetic Monitoring
+     *   ALERTRULE: Application Monitoring alert rule
+     *   PROMETHEUSALERTRULE: Managed Service for Prometheus alert rule
+     *   XTRACEAPP: Managed Service for OpenTelemetry
      *
      * @example PROMETHEUS
      *

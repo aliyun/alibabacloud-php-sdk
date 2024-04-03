@@ -40,6 +40,10 @@ class CreateOrUpdateSilencePolicyRequest extends Model
     public $name;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

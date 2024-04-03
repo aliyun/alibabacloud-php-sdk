@@ -67,8 +67,7 @@ class CreateOrUpdateIMRobotRequest extends Model
 
     /**
      * @description The ID of the IM chatbot.
-     *
-     * - If you specify this parameter, the specified IM chatbot is modified.
+     * > If you do not specify the parameter, a new IM chatbot is created.
      * @example 123
      *
      * @var int

@@ -18,6 +18,11 @@ class InitEnvironmentRequest extends Model
     public $aliyunLang;
 
     /**
+     * @var bool
+     */
+    public $createAuthToken;
+
+    /**
      * @description The ID of the environment instance.
      *
      * @example env-xxx
@@ -44,10 +49,11 @@ class InitEnvironmentRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'aliyunLang'    => 'AliyunLang',
-        'environmentId' => 'EnvironmentId',
-        'managedType'   => 'ManagedType',
-        'regionId'      => 'RegionId',
+        'aliyunLang'      => 'AliyunLang',
+        'createAuthToken' => 'CreateAuthToken',
+        'environmentId'   => 'EnvironmentId',
+        'managedType'     => 'ManagedType',
+        'regionId'        => 'RegionId',
     ];
 
     public function validate()
@@ -59,6 +65,9 @@ class InitEnvironmentRequest extends Model
         $res = [];
         if (null !== $this->aliyunLang) {
             $res['AliyunLang'] = $this->aliyunLang;
+        }
+        if (null !== $this->createAuthToken) {
+            $res['CreateAuthToken'] = $this->createAuthToken;
         }
         if (null !== $this->environmentId) {
             $res['EnvironmentId'] = $this->environmentId;
@@ -83,6 +92,9 @@ class InitEnvironmentRequest extends Model
         $model = new self();
         if (isset($map['AliyunLang'])) {
             $model->aliyunLang = $map['AliyunLang'];
+        }
+        if (isset($map['CreateAuthToken'])) {
+            $model->createAuthToken = $map['CreateAuthToken'];
         }
         if (isset($map['EnvironmentId'])) {
             $model->environmentId = $map['EnvironmentId'];

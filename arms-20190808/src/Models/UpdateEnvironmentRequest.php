@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateEnvironmentRequest extends Model
 {
     /**
-     * @description Locale, the default is Chinese zh | en.
+     * @description The language. Valid values: zh and en. Default value: zh.
      *
      * @example zh
      *
@@ -18,7 +18,7 @@ class UpdateEnvironmentRequest extends Model
     public $aliyunLang;
 
     /**
-     * @description Environment ID.
+     * @description The environment ID.
      *
      * @example env-xxxxx
      *
@@ -27,7 +27,7 @@ class UpdateEnvironmentRequest extends Model
     public $environmentId;
 
     /**
-     * @description Environment name.
+     * @description The environment name.
      *
      * @example env1
      *
@@ -36,6 +36,12 @@ class UpdateEnvironmentRequest extends Model
     public $environmentName;
 
     /**
+     * @description Fee package.
+     * When the EnvironmentType is CS: it can be specified as CS_Basic (default) or CS-Pro.
+     * When the EnvironmentType is a different value, please enter a null value.
+     *
+     * @example CS_Basic
+     *
      * @var string
      */
     public $feePackage;

@@ -10,21 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListSilencePoliciesResponseBody extends Model
 {
     /**
-     * @description The value of the matching condition.
+     * @description The objects that were returned.
      *
      * @var pageBean
      */
     public $pageBean;
 
     /**
-     * @description The logical operator of the matching condition. Valid values:
-     *
-     *   `eq`: equal to.
-     *   `neq`: not equal to.
-     *   `in`: contains.
-     *   `nin`: does not contain.
-     *   `re`: regular expression match.
-     *   `nre`: regular expression mismatch.
+     * @description The request ID.
      *
      * @example 78901766-3806-4E96-8E47-CFEF59E4****
      *

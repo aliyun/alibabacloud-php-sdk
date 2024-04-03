@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class silencePolicies extends Model
 {
     /**
-     * @description The name of the silence policy.
+     * @description The ID of the silence policy.
      *
      * @example 123
      *
@@ -19,17 +19,14 @@ class silencePolicies extends Model
     public $id;
 
     /**
-     * @description Specifies whether to query the details of a silence policy. Valid values:
-     *
-     *   `true`: Details of the silence policy are queried.
-     *   `false`: Details of the silence policy are not queried.
+     * @description An array of matching rule objects.
      *
      * @var matchingRules[]
      */
     public $matchingRules;
 
     /**
-     * @description An array of returned objects.
+     * @description The name of the silence policy.
      *
      * @example silencepolicy_test
      *

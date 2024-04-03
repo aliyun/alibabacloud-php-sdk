@@ -17,7 +17,7 @@ class data extends Model
     public $dashboards;
 
     /**
-     * @description Totle of the dashboards.
+     * @description Total of the dashboards.
      *
      * @example 1
      *
