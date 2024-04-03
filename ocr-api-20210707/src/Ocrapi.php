@@ -2544,6 +2544,9 @@ class Ocrapi extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->mergePdfPages)) {
+            $query['MergePdfPages'] = $request->mergePdfPages;
+        }
         if (!Utils::isUnset($request->pageNo)) {
             $query['PageNo'] = $request->pageNo;
         }

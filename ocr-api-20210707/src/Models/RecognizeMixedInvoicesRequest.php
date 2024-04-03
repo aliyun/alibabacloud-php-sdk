@@ -10,6 +10,11 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeMixedInvoicesRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $mergePdfPages;
+
+    /**
      * @var int
      */
     public $pageNo;
@@ -26,9 +31,10 @@ class RecognizeMixedInvoicesRequest extends Model
      */
     public $body;
     protected $_name = [
-        'pageNo' => 'PageNo',
-        'url'    => 'Url',
-        'body'   => 'body',
+        'mergePdfPages' => 'MergePdfPages',
+        'pageNo'        => 'PageNo',
+        'url'           => 'Url',
+        'body'          => 'body',
     ];
 
     public function validate()
@@ -38,6 +44,9 @@ class RecognizeMixedInvoicesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->mergePdfPages) {
+            $res['MergePdfPages'] = $this->mergePdfPages;
+        }
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
         }
@@ -59,6 +68,9 @@ class RecognizeMixedInvoicesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MergePdfPages'])) {
+            $model->mergePdfPages = $map['MergePdfPages'];
+        }
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
         }
