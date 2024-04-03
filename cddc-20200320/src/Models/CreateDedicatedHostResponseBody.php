@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class CreateDedicatedHostResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $clusterName;
+
+    /**
      * @description The created hosts.
      *
      * @var dedicateHostList
@@ -34,6 +39,7 @@ class CreateDedicatedHostResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
+        'clusterName'      => 'ClusterName',
         'dedicateHostList' => 'DedicateHostList',
         'orderId'          => 'OrderId',
         'requestId'        => 'RequestId',
@@ -46,6 +52,9 @@ class CreateDedicatedHostResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clusterName) {
+            $res['ClusterName'] = $this->clusterName;
+        }
         if (null !== $this->dedicateHostList) {
             $res['DedicateHostList'] = null !== $this->dedicateHostList ? $this->dedicateHostList->toMap() : null;
         }
@@ -67,6 +76,9 @@ class CreateDedicatedHostResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClusterName'])) {
+            $model->clusterName = $map['ClusterName'];
+        }
         if (isset($map['DedicateHostList'])) {
             $model->dedicateHostList = dedicateHostList::fromMap($map['DedicateHostList']);
         }

@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\Cddc\V20200320\Models;
 
-use AlibabaCloud\SDK\Cddc\V20200320\Models\CreateDedicatedHostRequest\myBaseEcsClass;
 use AlibabaCloud\Tea\Model;
 
-class CreateDedicatedHostRequest extends Model
+class CreateDedicatedHostShrinkRequest extends Model
 {
     /**
      * @description Specifies whether to enable the auto-renewal feature. Valid values:
@@ -37,9 +36,9 @@ class CreateDedicatedHostRequest extends Model
     public $clusterAlias;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $clusterServices;
+    public $clusterServicesShrink;
 
     /**
      * @var string
@@ -112,9 +111,9 @@ class CreateDedicatedHostRequest extends Model
     public $imageCategory;
 
     /**
-     * @var myBaseEcsClass
+     * @var string
      */
-    public $myBaseEcsClass;
+    public $myBaseEcsClassShrink;
 
     /**
      * @description The password of the host. You can specify a password only when you create a host in a **Proprietary MyBase** dedicated cluster.
@@ -209,28 +208,28 @@ class CreateDedicatedHostRequest extends Model
      */
     public $zoneId;
     protected $_name = [
-        'autoRenew'            => 'AutoRenew',
-        'clientToken'          => 'ClientToken',
-        'clusterAlias'         => 'ClusterAlias',
-        'clusterServices'      => 'ClusterServices',
-        'clusterType'          => 'ClusterType',
-        'dedicatedHostGroupId' => 'DedicatedHostGroupId',
-        'hostClass'            => 'HostClass',
-        'hostStorage'          => 'HostStorage',
-        'hostStorageType'      => 'HostStorageType',
-        'imageCategory'        => 'ImageCategory',
-        'myBaseEcsClass'       => 'MyBaseEcsClass',
-        'osPassword'           => 'OsPassword',
-        'ownerId'              => 'OwnerId',
-        'payType'              => 'PayType',
-        'period'               => 'Period',
-        'regionId'             => 'RegionId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'usedTime'             => 'UsedTime',
-        'vSwitchId'            => 'VSwitchId',
-        'vpcID'                => 'VpcID',
-        'zoneId'               => 'ZoneId',
+        'autoRenew'             => 'AutoRenew',
+        'clientToken'           => 'ClientToken',
+        'clusterAlias'          => 'ClusterAlias',
+        'clusterServicesShrink' => 'ClusterServices',
+        'clusterType'           => 'ClusterType',
+        'dedicatedHostGroupId'  => 'DedicatedHostGroupId',
+        'hostClass'             => 'HostClass',
+        'hostStorage'           => 'HostStorage',
+        'hostStorageType'       => 'HostStorageType',
+        'imageCategory'         => 'ImageCategory',
+        'myBaseEcsClassShrink'  => 'MyBaseEcsClass',
+        'osPassword'            => 'OsPassword',
+        'ownerId'               => 'OwnerId',
+        'payType'               => 'PayType',
+        'period'                => 'Period',
+        'regionId'              => 'RegionId',
+        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
+        'resourceOwnerId'       => 'ResourceOwnerId',
+        'usedTime'              => 'UsedTime',
+        'vSwitchId'             => 'VSwitchId',
+        'vpcID'                 => 'VpcID',
+        'zoneId'                => 'ZoneId',
     ];
 
     public function validate()
@@ -249,8 +248,8 @@ class CreateDedicatedHostRequest extends Model
         if (null !== $this->clusterAlias) {
             $res['ClusterAlias'] = $this->clusterAlias;
         }
-        if (null !== $this->clusterServices) {
-            $res['ClusterServices'] = $this->clusterServices;
+        if (null !== $this->clusterServicesShrink) {
+            $res['ClusterServices'] = $this->clusterServicesShrink;
         }
         if (null !== $this->clusterType) {
             $res['ClusterType'] = $this->clusterType;
@@ -270,8 +269,8 @@ class CreateDedicatedHostRequest extends Model
         if (null !== $this->imageCategory) {
             $res['ImageCategory'] = $this->imageCategory;
         }
-        if (null !== $this->myBaseEcsClass) {
-            $res['MyBaseEcsClass'] = null !== $this->myBaseEcsClass ? $this->myBaseEcsClass->toMap() : null;
+        if (null !== $this->myBaseEcsClassShrink) {
+            $res['MyBaseEcsClass'] = $this->myBaseEcsClassShrink;
         }
         if (null !== $this->osPassword) {
             $res['OsPassword'] = $this->osPassword;
@@ -313,7 +312,7 @@ class CreateDedicatedHostRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateDedicatedHostRequest
+     * @return CreateDedicatedHostShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -328,9 +327,7 @@ class CreateDedicatedHostRequest extends Model
             $model->clusterAlias = $map['ClusterAlias'];
         }
         if (isset($map['ClusterServices'])) {
-            if (!empty($map['ClusterServices'])) {
-                $model->clusterServices = $map['ClusterServices'];
-            }
+            $model->clusterServicesShrink = $map['ClusterServices'];
         }
         if (isset($map['ClusterType'])) {
             $model->clusterType = $map['ClusterType'];
@@ -351,7 +348,7 @@ class CreateDedicatedHostRequest extends Model
             $model->imageCategory = $map['ImageCategory'];
         }
         if (isset($map['MyBaseEcsClass'])) {
-            $model->myBaseEcsClass = myBaseEcsClass::fromMap($map['MyBaseEcsClass']);
+            $model->myBaseEcsClassShrink = $map['MyBaseEcsClass'];
         }
         if (isset($map['OsPassword'])) {
             $model->osPassword = $map['OsPassword'];

@@ -12,6 +12,7 @@ use AlibabaCloud\SDK\Cddc\V20200320\Models\CreateDedicatedHostGroupRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\CreateDedicatedHostGroupResponse;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\CreateDedicatedHostRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\CreateDedicatedHostResponse;
+use AlibabaCloud\SDK\Cddc\V20200320\Models\CreateDedicatedHostShrinkRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\CreateMyBaseRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\CreateMyBaseResponse;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\CreateMyBaseShrinkRequest;
@@ -97,20 +98,37 @@ class Cddc extends OpenApiClient
     }
 
     /**
-     * @param CreateDedicatedHostRequest $request
+     * @param CreateDedicatedHostRequest $tmpReq
      * @param RuntimeOptions             $runtime
      *
      * @return CreateDedicatedHostResponse
      */
-    public function createDedicatedHostWithOptions($request, $runtime)
+    public function createDedicatedHostWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new CreateDedicatedHostShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->clusterServices)) {
+            $request->clusterServicesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->clusterServices, 'ClusterServices', 'simple');
+        }
+        if (!Utils::isUnset($tmpReq->myBaseEcsClass)) {
+            $request->myBaseEcsClassShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->myBaseEcsClass, 'MyBaseEcsClass', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->autoRenew)) {
             $query['AutoRenew'] = $request->autoRenew;
         }
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->clusterAlias)) {
+            $query['ClusterAlias'] = $request->clusterAlias;
+        }
+        if (!Utils::isUnset($request->clusterServicesShrink)) {
+            $query['ClusterServices'] = $request->clusterServicesShrink;
+        }
+        if (!Utils::isUnset($request->clusterType)) {
+            $query['ClusterType'] = $request->clusterType;
         }
         if (!Utils::isUnset($request->dedicatedHostGroupId)) {
             $query['DedicatedHostGroupId'] = $request->dedicatedHostGroupId;
@@ -126,6 +144,9 @@ class Cddc extends OpenApiClient
         }
         if (!Utils::isUnset($request->imageCategory)) {
             $query['ImageCategory'] = $request->imageCategory;
+        }
+        if (!Utils::isUnset($request->myBaseEcsClassShrink)) {
+            $query['MyBaseEcsClass'] = $request->myBaseEcsClassShrink;
         }
         if (!Utils::isUnset($request->osPassword)) {
             $query['OsPassword'] = $request->osPassword;
@@ -153,6 +174,9 @@ class Cddc extends OpenApiClient
         }
         if (!Utils::isUnset($request->vSwitchId)) {
             $query['VSwitchId'] = $request->vSwitchId;
+        }
+        if (!Utils::isUnset($request->vpcID)) {
+            $query['VpcID'] = $request->vpcID;
         }
         if (!Utils::isUnset($request->zoneId)) {
             $query['ZoneId'] = $request->zoneId;
