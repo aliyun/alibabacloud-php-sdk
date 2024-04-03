@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDeviceInfoRequest extends Model
 {
     /**
+     * @description The ID of the device.
+     *
      * @example pn_69873
      *
      * @var string
@@ -16,6 +18,8 @@ class GetDeviceInfoRequest extends Model
     public $deviceId;
 
     /**
+     * @description The date on which the statistics are collected.
+     *
      * @example 2022-07-26
      *
      * @var string
@@ -23,6 +27,8 @@ class GetDeviceInfoRequest extends Model
     public $ds;
 
     /**
+     * @description The ID of the site.
+     *
      * @example pn_95
      *
      * @var string

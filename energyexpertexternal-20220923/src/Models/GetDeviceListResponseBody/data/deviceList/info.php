@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class info extends Model
 {
     /**
+     * @description The rated capacity.
+     *
      * @example 100
      *
      * @var int
@@ -16,6 +18,8 @@ class info extends Model
     public $constKva;
 
     /**
+     * @description The transformation ratio of current.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class info extends Model
     public $ct;
 
     /**
+     * @description The magnification ratio.
+     *
      * @example 80
      *
      * @var int
@@ -30,6 +36,8 @@ class info extends Model
     public $magnification;
 
     /**
+     * @description The high and low voltage.
+     *
      * @example 0
      *
      * @var int
@@ -37,6 +45,8 @@ class info extends Model
     public $pressure;
 
     /**
+     * @description The transformation ratio of voltage.
+     *
      * @example 80
      *
      * @var int

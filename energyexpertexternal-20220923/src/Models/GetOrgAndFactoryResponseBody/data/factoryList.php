@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class factoryList extends Model
 {
     /**
+     * @description The ID of the site.
+     *
      * @example pn_95
      *
      * @var string
@@ -16,6 +18,10 @@ class factoryList extends Model
     public $factoryId;
 
     /**
+     * @description The name of the site.
+     *
+     * @example Ledi Industrial Park 1
+     *
      * @var string
      */
     public $factoryName;

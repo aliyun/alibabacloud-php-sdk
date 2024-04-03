@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The code returned for the request.
+     *
      * @example Success
      *
      * @var string
@@ -17,11 +19,15 @@ class data extends Model
     public $code;
 
     /**
+     * @description The devices.
+     *
      * @var deviceList[]
      */
     public $deviceList;
 
     /**
+     * @description The ID of the site.
+     *
      * @example pn_95
      *
      * @var string
@@ -29,6 +35,8 @@ class data extends Model
     public $factoryId;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -36,6 +44,10 @@ class data extends Model
     public $httpCode;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     * @example True
+     *
      * @var bool
      */
     public $success;

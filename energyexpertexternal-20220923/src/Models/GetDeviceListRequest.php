@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDeviceListRequest extends Model
 {
     /**
+     * @description The ID of the site.
+     *
      * @example pn_95
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the device.
+     *
      * @example pn_69873
      *
      * @var string
@@ -17,21 +19,35 @@ class data extends Model
     public $deviceId;
 
     /**
+     * @description The name of the device.
+     *
+     * @example Main transformer 4#
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @description The level 1 meter type.
+     *
+     * @example Electric meter
+     *
      * @var string
      */
     public $firstTypeName;
 
     /**
+     * @description The device parameters.
+     *
      * @var recordList[]
      */
     public $recordList;
 
     /**
+     * @description The level 2 meter type.
+     *
+     * @example Gateway meter
+     *
      * @var string
      */
     public $secondTypeName;

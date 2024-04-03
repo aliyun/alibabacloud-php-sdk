@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class recordList extends Model
 {
     /**
+     * @description The identifier of the device.
+     *
      * @example Ia
      *
      * @var string
@@ -16,11 +18,17 @@ class recordList extends Model
     public $identifier;
 
     /**
+     * @description The name of the parameter.
+     *
+     * @example Phase A current
+     *
      * @var string
      */
     public $paramName;
 
     /**
+     * @description The date on which the statistics were collected.
+     *
      * @example 2022-07-26 00:00:00
      *
      * @var string
@@ -28,6 +36,8 @@ class recordList extends Model
     public $statisticsDate;
 
     /**
+     * @description The type of the measuring point.
+     *
      * @example DOUBLE
      *
      * @var string
@@ -35,6 +45,8 @@ class recordList extends Model
     public $type;
 
     /**
+     * @description The unit of the parameter value.
+     *
      * @example A
      *
      * @var string
@@ -42,6 +54,8 @@ class recordList extends Model
     public $unit;
 
     /**
+     * @description The value of the measuring point.
+     *
      * @example 20.00
      *
      * @var float

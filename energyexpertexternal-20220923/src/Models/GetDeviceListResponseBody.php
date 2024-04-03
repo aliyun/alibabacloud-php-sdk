@@ -10,21 +10,33 @@ use AlibabaCloud\Tea\Model;
 class GetDeviceListResponseBody extends Model
 {
     /**
+     * @description The code returned for the request.
+     *
+     * @example Success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The HTTP status code.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpCode;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 83A5A7DD-8974-5769-952E-590A97BEA34E
      *
      * @var string
@@ -32,6 +44,10 @@ class GetDeviceListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

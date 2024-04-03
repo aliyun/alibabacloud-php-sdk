@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetDeviceInfoResponseBody extends Model
 {
     /**
+     * @description The code returned for the request. A value of Success indicates that the request was successful. Other values indicate that the request failed. You can troubleshoot the error by viewing the error message returned.
+     *
      * @example Success
      *
      * @var string
@@ -17,11 +19,15 @@ class GetDeviceInfoResponseBody extends Model
     public $code;
 
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -29,6 +35,8 @@ class GetDeviceInfoResponseBody extends Model
     public $httpCode;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 83A5A7DD-8974-5769-952E-590A97BEA34E
      *
      * @var string
@@ -36,6 +44,10 @@ class GetDeviceInfoResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     * @example True
+     *
      * @var bool
      */
     public $success;

@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account.
+     *
+     * @example 1319617584664960
+     *
      * @var string
      */
     public $aliyunPk;
 
     /**
+     * @description The sites.
+     *
      * @var factoryList[]
      */
     public $factoryList;
 
     /**
+     * @description The ID of the organization.
+     *
+     * @example 6265f42XXXX2fec150
+     *
      * @var string
      */
     public $organizationId;
 
     /**
+     * @description The name of the organization.
+     *
+     * @example Ledi Industrial Park
+     *
      * @var string
      */
     public $organizationName;
