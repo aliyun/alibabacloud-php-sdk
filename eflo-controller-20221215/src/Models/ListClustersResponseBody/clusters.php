@@ -42,6 +42,11 @@ class clusters extends Model
     public $components;
 
     /**
+     * @var string
+     */
+    public $computingIpVersion;
+
+    /**
      * @example 1672134938
      *
      * @var string
@@ -105,6 +110,7 @@ class clusters extends Model
         'clusterName'        => 'ClusterName',
         'clusterType'        => 'ClusterType',
         'components'         => 'Components',
+        'computingIpVersion' => 'ComputingIpVersion',
         'createTime'         => 'CreateTime',
         'hpnZone'            => 'HpnZone',
         'nodeCount'          => 'NodeCount',
@@ -137,6 +143,9 @@ class clusters extends Model
         }
         if (null !== $this->components) {
             $res['Components'] = $this->components;
+        }
+        if (null !== $this->computingIpVersion) {
+            $res['ComputingIpVersion'] = $this->computingIpVersion;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
@@ -191,6 +200,9 @@ class clusters extends Model
         }
         if (isset($map['Components'])) {
             $model->components = $map['Components'];
+        }
+        if (isset($map['ComputingIpVersion'])) {
+            $model->computingIpVersion = $map['ComputingIpVersion'];
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];

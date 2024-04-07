@@ -42,6 +42,11 @@ class DescribeClusterResponseBody extends Model
     public $components;
 
     /**
+     * @var string
+     */
+    public $computingIpVersion;
+
+    /**
      * @example 2022-06-08T07:05:11Z
      *
      * @var string
@@ -117,6 +122,7 @@ class DescribeClusterResponseBody extends Model
         'clusterName'        => 'ClusterName',
         'clusterType'        => 'ClusterType',
         'components'         => 'Components',
+        'computingIpVersion' => 'ComputingIpVersion',
         'createTime'         => 'CreateTime',
         'hpnZone'            => 'HpnZone',
         'networks'           => 'Networks',
@@ -157,6 +163,9 @@ class DescribeClusterResponseBody extends Model
                     $res['Components'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->computingIpVersion) {
+            $res['ComputingIpVersion'] = $this->computingIpVersion;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
@@ -229,6 +238,9 @@ class DescribeClusterResponseBody extends Model
                     $model->components[$n++] = null !== $item ? components::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ComputingIpVersion'])) {
+            $model->computingIpVersion = $map['ComputingIpVersion'];
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
