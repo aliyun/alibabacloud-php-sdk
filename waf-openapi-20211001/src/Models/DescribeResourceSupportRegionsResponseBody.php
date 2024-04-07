@@ -6,18 +6,26 @@ namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateMajorProtectionBlackIpResponseBody extends Model
+class DescribeResourceSupportRegionsResponseBody extends Model
 {
     /**
      * @description The ID of the request.
      *
-     * @example D7861F61-5B61-46CE-A47C-6B19160D****
+     * @example 58FDF266-3D56-5DE8-91E0-96A26B****DD
      *
      * @var string
      */
     public $requestId;
+
+    /**
+     * @description The region IDs.
+     *
+     * @var string[]
+     */
+    public $supportRegions;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'requestId'      => 'RequestId',
+        'supportRegions' => 'SupportRegions',
     ];
 
     public function validate()
@@ -30,6 +38,9 @@ class CreateMajorProtectionBlackIpResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->supportRegions) {
+            $res['SupportRegions'] = $this->supportRegions;
+        }
 
         return $res;
     }
@@ -37,13 +48,18 @@ class CreateMajorProtectionBlackIpResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateMajorProtectionBlackIpResponseBody
+     * @return DescribeResourceSupportRegionsResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SupportRegions'])) {
+            if (!empty($map['SupportRegions'])) {
+                $model->supportRegions = $map['SupportRegions'];
+            }
         }
 
         return $model;

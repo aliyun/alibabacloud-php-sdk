@@ -12,7 +12,7 @@ class DescribeRuleHitsTopTuleTypeResponseBody extends Model
     /**
      * @description The ID of the request.
      *
-     * @example 45E377CE-0B04-578E-B653-EEA63CFE8DE0
+     * @example 45E377CE-0B04-578E-B653-EEA63CFE****
      *
      * @var string
      */

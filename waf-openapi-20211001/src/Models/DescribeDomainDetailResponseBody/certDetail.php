@@ -20,7 +20,7 @@ class certDetail extends Model
     /**
      * @description The end of the validity period of the SSL certificate. The value is in the UNIX timestamp format. Unit: milliseconds.
      *
-     * @example 1665590400000
+     * @example 1685590400000
      *
      * @var int
      */
@@ -54,7 +54,7 @@ class certDetail extends Model
     /**
      * @description The beginning of the validity period of the SSL certificate. The value is in the UNIX timestamp format. Unit: milliseconds.
      *
-     * @example 1677772800
+     * @example 1677772800000
      *
      * @var int
      */

@@ -29,7 +29,7 @@ class ruleHitsTopTuleType extends Model
      *   **scene:** bot management rules.
      *   **dlp:** data leakage prevention rules.
      *
-     * @example major_protection
+     * @example cc_system
      *
      * @var string
      */

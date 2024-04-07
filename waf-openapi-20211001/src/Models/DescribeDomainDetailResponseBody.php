@@ -54,7 +54,7 @@ class DescribeDomainDetailResponseBody extends Model
     /**
      * @description The ID of the request.
      *
-     * @example BAEF9CA9-66A0-533E-BD09-5D5D7AA8ADE7
+     * @example BAEF9CA9-66A0-533E-BD09-5D5D7AA8****
      *
      * @var string
      */

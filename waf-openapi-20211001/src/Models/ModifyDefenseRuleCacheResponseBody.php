@@ -6,12 +6,12 @@ namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateMajorProtectionBlackIpResponseBody extends Model
+class ModifyDefenseRuleCacheResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
-     * @example D7861F61-5B61-46CE-A47C-6B19160D****
+     * @example A0F2B994-8645-5270-A05D-9DAD8C****B6
      *
      * @var string
      */
@@ -37,7 +37,7 @@ class CreateMajorProtectionBlackIpResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateMajorProtectionBlackIpResponseBody
+     * @return ModifyDefenseRuleCacheResponseBody
      */
     public static function fromMap($map = [])
     {

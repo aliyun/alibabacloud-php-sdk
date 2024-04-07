@@ -86,6 +86,10 @@ class resources extends Model
     public $gmtModified;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the resource belongs.
+     *
+     * @example 135*********46
+     *
      * @var string
      */
     public $ownerUserId;
