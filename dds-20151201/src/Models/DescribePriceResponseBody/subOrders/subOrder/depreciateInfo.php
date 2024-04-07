@@ -58,6 +58,11 @@ class depreciateInfo extends Model
      * @var float
      */
     public $originalStandAmount;
+
+    /**
+     * @var string
+     */
+    public $startTime;
     protected $_name = [
         'cheapRate'           => 'CheapRate',
         'cheapStandAmount'    => 'CheapStandAmount',
@@ -69,6 +74,7 @@ class depreciateInfo extends Model
         'listPrice'           => 'ListPrice',
         'monthPrice'          => 'MonthPrice',
         'originalStandAmount' => 'OriginalStandAmount',
+        'startTime'           => 'StartTime',
     ];
 
     public function validate()
@@ -107,6 +113,9 @@ class depreciateInfo extends Model
         }
         if (null !== $this->originalStandAmount) {
             $res['OriginalStandAmount'] = $this->originalStandAmount;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -149,6 +158,9 @@ class depreciateInfo extends Model
         }
         if (isset($map['OriginalStandAmount'])) {
             $model->originalStandAmount = $map['OriginalStandAmount'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

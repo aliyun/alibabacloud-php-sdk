@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
-     * @description None
+     * @description N/A
      *
      * @example ***
      *
@@ -18,10 +18,10 @@ class items extends Model
     public $allowCancel;
 
     /**
-     * @description Indicates whether the change is allowed.
+     * @description Indicates whether the modification operation is allowed.
      *
-     *   **0**: The change is not allowed.
-     *   **1**: The change is allowed.
+     *   **0**: The modification operation is not allowed.
+     *   **1**: The modification operation is allowed.
      *
      * @example 0
      *
@@ -39,7 +39,7 @@ class items extends Model
     public $changeLevel;
 
     /**
-     * @description None
+     * @description N/A
      *
      * @example ***
      *
@@ -66,7 +66,7 @@ class items extends Model
     public $createdTime;
 
     /**
-     * @description None
+     * @description N/A
      *
      * @example ***
      *
@@ -111,7 +111,7 @@ class items extends Model
     public $id;
 
     /**
-     * @description None
+     * @description N/A
      *
      * @example ***
      *
@@ -120,7 +120,7 @@ class items extends Model
     public $impactEn;
 
     /**
-     * @description None
+     * @description N/A
      *
      * @example ***
      *
@@ -138,7 +138,7 @@ class items extends Model
     public $insComment;
 
     /**
-     * @description The node ID.
+     * @description The ID of the node.
      *
      * @example ***
      *
@@ -147,7 +147,7 @@ class items extends Model
     public $insName;
 
     /**
-     * @description The time when the O\&M task was modified. The time follows the ISO 8601 standard in the *yyyy-mm-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the task is modified. The time follows the ISO 8601 standard in the *yyyy-mm-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2022-12-24T09:48:01Z
      *
@@ -183,7 +183,7 @@ class items extends Model
     public $resultInfo;
 
     /**
-     * @description The time when the O\&M task started to run. The time follows the ISO 8601 standard in the *yyyy-mm-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+     * @description The start time of the task. The time follows the ISO 8601 standard in the *yyyy-mm-dd* T*hh:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2022-12-24T06:01:05Z
      *
@@ -192,7 +192,7 @@ class items extends Model
     public $startTime;
 
     /**
-     * @description None
+     * @description N/A
      *
      * @example ***
      *
@@ -208,7 +208,7 @@ class items extends Model
     public $subInsNames;
 
     /**
-     * @description The point in time when the switchover is performed. The time follows the ISO 8601 standard in the *yyyy-mm-dd*T*hh:mm:ss*Z format. The time is displayed in UTC. Service interruptions may occur during switchover.
+     * @description The switchover point in time in which disconnection may occur. The time follows the ISO 8601 standard in the *yyyy-mm-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2022-11-24T11:20:00Z
      *
@@ -226,7 +226,7 @@ class items extends Model
     public $taskType;
 
     /**
-     * @description None
+     * @description N/A
      *
      * @example ***
      *

@@ -35,7 +35,7 @@ class DescribeActiveOperationTasksResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 111E7B16-0A87-4CBA-B271-F34AD61E099F
      *

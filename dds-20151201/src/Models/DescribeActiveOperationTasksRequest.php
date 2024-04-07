@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeActiveOperationTasksRequest extends Model
 {
     /**
-     * @description Specifies whether the task can be canceled. Valid values: -**0**: The task cannot be canceled. -**1**: The task can be canceled.
+     * @description Specifies whether to allow the cancellation operation. Valid values:
+     *
+     *   **0**: The cancellation operation is not allowed.
+     *   **1**: The cancellation operation is allowed.
      *
      * @example ***
      *
@@ -18,7 +21,10 @@ class DescribeActiveOperationTasksRequest extends Model
     public $allowCancel;
 
     /**
-     * @description Specifies whether the time can be modified. Valid values: -**0**: The time cannot be modified. -**1**: The time can be modified.
+     * @description Specifies whether to allow the modification operation. Valid values:
+     *
+     *   **0**: The modification operation is not allowed.
+     *   **1**: The modification operation is allowed.
      *
      * @example -1
      *
@@ -27,7 +33,11 @@ class DescribeActiveOperationTasksRequest extends Model
     public $allowChange;
 
     /**
-     * @description The type of configuration change. Valid values: -**all** (default): All O\&M tasks are returned. -**S0**: O\&M tasks that are executed for exception fixing are returned. -**S1**: O\&M tasks that are executed for regular O\&M are returned.
+     * @description The type of task configuration change. Valid values:
+     *
+     *   **all** (default): The configurations of all O\&M tasks are changed.
+     *   **S0**: The configurations of tasks initiated to fix exceptions are changed.
+     *   **S1**: The configurations of system O\&M tasks are changed.
      *
      * @example ***
      *
@@ -91,8 +101,9 @@ class DescribeActiveOperationTasksRequest extends Model
     public $productId;
 
     /**
-     * @description The region of the instance. If you set the Region parameter to all, all tasks created within your Alibaba Cloud account are queried. In this case, you must also set the TaskType parameter to all.
+     * @description The region ID of the instance.
      *
+     * >  If you set the Region parameter to **all**, all tasks created within your Alibaba Cloud account are queried. In this case, you must set the **taskType** parameter to **all**.
      * @example cn-beijing
      *
      * @var string
@@ -110,7 +121,12 @@ class DescribeActiveOperationTasksRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description Specifies the status of the task. Valid values: **0**: The task is waiting to be run. **1**: The task is running. **2**: The task is run. **3**: The task failed to be run.
+     * @description The status of the task. Valid values:
+     *
+     *   **0**: waiting for execution
+     *   **1**: being executed
+     *   **2**: successful
+     *   **3**: failed
      *
      * @example 0
      *
