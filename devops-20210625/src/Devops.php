@@ -7631,6 +7631,9 @@ class Devops extends OpenApiClient
         if (!Utils::isUnset($request->accessLevel)) {
             $query['accessLevel'] = $request->accessLevel;
         }
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
         if (!Utils::isUnset($request->minAccessLevel)) {
             $query['minAccessLevel'] = $request->minAccessLevel;
         }

@@ -16,6 +16,11 @@ class ListOrganizationsRequest extends Model
     public $accessLevel;
 
     /**
+     * @var string
+     */
+    public $accessToken;
+
+    /**
      * @example 60
      *
      * @var int
@@ -23,6 +28,7 @@ class ListOrganizationsRequest extends Model
     public $minAccessLevel;
     protected $_name = [
         'accessLevel'    => 'accessLevel',
+        'accessToken'    => 'accessToken',
         'minAccessLevel' => 'minAccessLevel',
     ];
 
@@ -35,6 +41,9 @@ class ListOrganizationsRequest extends Model
         $res = [];
         if (null !== $this->accessLevel) {
             $res['accessLevel'] = $this->accessLevel;
+        }
+        if (null !== $this->accessToken) {
+            $res['accessToken'] = $this->accessToken;
         }
         if (null !== $this->minAccessLevel) {
             $res['minAccessLevel'] = $this->minAccessLevel;
@@ -53,6 +62,9 @@ class ListOrganizationsRequest extends Model
         $model = new self();
         if (isset($map['accessLevel'])) {
             $model->accessLevel = $map['accessLevel'];
+        }
+        if (isset($map['accessToken'])) {
+            $model->accessToken = $map['accessToken'];
         }
         if (isset($map['minAccessLevel'])) {
             $model->minAccessLevel = $map['minAccessLevel'];
