@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ValuateApplicationRequest extends Model
 {
     /**
-     * @description The ID of the application.
+     * @description The operation that you want to perform. Set the value to ValuateApplication.
      *
      * @example 02S7UU41WKJL7ERR
      *
@@ -18,7 +18,16 @@ class ValuateApplicationRequest extends Model
     public $applicationId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The ID of the resource group to which the application you want to query belongs.
+     *
+     * @example 1600765710019
+     *
+     * @var string
+     */
+    public $clientToken;
+
+    /**
+     * @description The ID of the application.
      *
      * @example rg-acfmyjt3c5om3hi
      *
@@ -27,6 +36,7 @@ class ValuateApplicationRequest extends Model
     public $resourceGroupId;
     protected $_name = [
         'applicationId'   => 'ApplicationId',
+        'clientToken'     => 'ClientToken',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 
@@ -39,6 +49,9 @@ class ValuateApplicationRequest extends Model
         $res = [];
         if (null !== $this->applicationId) {
             $res['ApplicationId'] = $this->applicationId;
+        }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -57,6 +70,9 @@ class ValuateApplicationRequest extends Model
         $model = new self();
         if (isset($map['ApplicationId'])) {
             $model->applicationId = $map['ApplicationId'];
+        }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];

@@ -6,11 +6,9 @@ namespace AlibabaCloud\SDK\BPStudio\V20210931\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ValuateApplicationResponseBody extends Model
+class ExecuteOperationSyncResponseBody extends Model
 {
     /**
-     * @description The code of the query task.
-     *
      * @example 200
      *
      * @var int
@@ -18,27 +16,21 @@ class ValuateApplicationResponseBody extends Model
     public $code;
 
     /**
-     * @description The ID of the request.
+     * @example op_xxxxxxxxxxxxxxxxxx_dds_modifyInstanceType_BYSOQGWUV6PME412_ERMEZLXNN3K9N3OL
      *
-     * @example 123
-     *
-     * @var int
+     * @var string
      */
     public $data;
 
     /**
-     * @description Idempotent notation
-     *
-     * @example Success
+     * @example Access key ID cannot be null.
      *
      * @var string
      */
     public $message;
 
     /**
-     * @description The returned message.
-     *
-     * @example A07FFDF2-78FA-1B48-9E38-88E833A93187
+     * @example FDC73B05-5331-57AA-BA93-4C9882792FF5
      *
      * @var string
      */
@@ -76,7 +68,7 @@ class ValuateApplicationResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ValuateApplicationResponseBody
+     * @return ExecuteOperationSyncResponseBody
      */
     public static function fromMap($map = [])
     {

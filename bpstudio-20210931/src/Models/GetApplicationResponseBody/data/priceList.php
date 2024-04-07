@@ -108,7 +108,7 @@ class priceList extends Model
     public $remark;
 
     /**
-     * @description The service code.
+     * @description Product code
      *
      * @example ecs
      *

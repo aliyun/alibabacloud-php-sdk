@@ -22,6 +22,9 @@ use AlibabaCloud\SDK\BPStudio\V20210931\Models\DeployApplicationResponse;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\ExecuteOperationASyncRequest;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\ExecuteOperationASyncResponse;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\ExecuteOperationASyncShrinkRequest;
+use AlibabaCloud\SDK\BPStudio\V20210931\Models\ExecuteOperationSyncRequest;
+use AlibabaCloud\SDK\BPStudio\V20210931\Models\ExecuteOperationSyncResponse;
+use AlibabaCloud\SDK\BPStudio\V20210931\Models\ExecuteOperationSyncShrinkRequest;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetApplicationRequest;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetApplicationResponse;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetExecuteOperationResultRequest;
@@ -369,6 +372,9 @@ class BPStudio extends OpenApiClient
             $query['ApplicationId'] = $request->applicationId;
         }
         $body = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
+        }
         if (!Utils::isUnset($request->resourceGroupId)) {
             $body['ResourceGroupId'] = $request->resourceGroupId;
         }
@@ -424,6 +430,9 @@ class BPStudio extends OpenApiClient
         if (!Utils::isUnset($request->attributesShrink)) {
             $body['Attributes'] = $request->attributesShrink;
         }
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
+        }
         if (!Utils::isUnset($request->operation)) {
             $body['Operation'] = $request->operation;
         }
@@ -461,6 +470,69 @@ class BPStudio extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->executeOperationASyncWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ExecuteOperationSyncRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ExecuteOperationSyncResponse
+     */
+    public function executeOperationSyncWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ExecuteOperationSyncShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->attributes)) {
+            $request->attributesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->attributes, 'Attributes', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->applicationId)) {
+            $body['ApplicationId'] = $request->applicationId;
+        }
+        if (!Utils::isUnset($request->attributesShrink)) {
+            $body['Attributes'] = $request->attributesShrink;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->operation)) {
+            $body['Operation'] = $request->operation;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $body['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->serviceType)) {
+            $body['ServiceType'] = $request->serviceType;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ExecuteOperationSync',
+            'version'     => '2021-09-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExecuteOperationSyncResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ExecuteOperationSyncRequest $request
+     *
+     * @return ExecuteOperationSyncResponse
+     */
+    public function executeOperationSync($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->executeOperationSyncWithOptions($request, $runtime);
     }
 
     /**
@@ -1020,6 +1092,9 @@ class BPStudio extends OpenApiClient
         if (!Utils::isUnset($request->applicationId)) {
             $body['ApplicationId'] = $request->applicationId;
         }
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
+        }
         if (!Utils::isUnset($request->resourceGroupId)) {
             $body['ResourceGroupId'] = $request->resourceGroupId;
         }
@@ -1067,6 +1142,9 @@ class BPStudio extends OpenApiClient
             $query['ApplicationId'] = $request->applicationId;
         }
         $body = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
+        }
         if (!Utils::isUnset($request->resourceGroupId)) {
             $body['ResourceGroupId'] = $request->resourceGroupId;
         }
@@ -1113,6 +1191,9 @@ class BPStudio extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->applicationId)) {
             $body['ApplicationId'] = $request->applicationId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->resourceGroupId)) {
             $body['ResourceGroupId'] = $request->resourceGroupId;

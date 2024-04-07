@@ -12,7 +12,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The description of the application.
+     * @description App ID
      *
      * @example VVK605ZH00OA4MRT
      *
@@ -28,7 +28,7 @@ class data extends Model
     public $checklist;
 
     /**
-     * @description The URL of the application topology image.
+     * @description The time when the app was created
      *
      * @example 2021-08-09 14:37:16
      *
@@ -37,7 +37,7 @@ class data extends Model
     public $createTime;
 
     /**
-     * @description The message returned for the request.
+     * @description Application description
      *
      * @example remark
      *
@@ -64,7 +64,7 @@ class data extends Model
     public $imageURL;
 
     /**
-     * @description The URL of the image in the database.
+     * @description App name
      *
      * @example 1411182597819805/sr-8DWU4RUS49NIDII0.png
      *
@@ -80,7 +80,7 @@ class data extends Model
     public $priceList;
 
     /**
-     * @description 1411182597819805/topo-MCEXDI5EL2OM10NY.json
+     * @description The ID of the resource group to which the app belongs
      *
      * @example rg-aekzhfgmw4e6fwq
      *
@@ -105,7 +105,7 @@ class data extends Model
     public $status;
 
     /**
-     * @description CADT application
+     * @description The ID of the template associated with the application
      *
      * @example FYS9VZ535U20V7HT
      *

@@ -26,32 +26,7 @@ class GetApplicationResponseBody extends Model
     public $data;
 
     /**
-     * @description Possible application states:
-     *
-     *   Creating: The application is being created.
-     *   Modified: The application has been modified.
-     *   Verifying: The application is being verified.
-     *   Verified_Failure: The application failed to pass the verification.
-     *   Verified_Success: The application has passed the verification.
-     *   Valuating: Fees are being calculated for the application.
-     *   Valuating_Failure: Fees failed to be calculated for the application.
-     *   Valuating_Success: Fees are calculated for the application.
-     *   Deploying: The application is being deployed.
-     *   Deployed_Failure: The application failed to be deployed.
-     *   Partially_Deployed_Success: Some resources of the application are deployed.
-     *   Deployed_Success: The application is deployed.
-     *   Destroying: The application is being released.
-     *   Delayed_Destroy: The application release is delayed.
-     *   Destroyed_Failure: The application failed to be released.
-     *   Partially_Destroyed_Success: Some resources of the application are released.
-     *   Destroyed_Success: The application is released.
-     *   Revised: The application architecture is adjusted.
-     *   Verifying_In_Revision: The application resources are being verified during architecture adjustment.
-     *   Verified_Failure_In_Revision: The application resources failed to pass the verification during architecture adjustment.
-     *   Verified_Success_In_Revision: The application resources are verified during architecture adjustment.
-     *   Valuating_In_Revision: Fees are being calculated for the application during architecture adjustment.
-     *   Valuating_Failure_In_Revision: Fees failed to be calculated for the application during architecture adjustment.
-     *   Valuating_Success_In_Revision: Fees are calculated for the application during architecture adjustment.
+     * @description Reason for the request failure
      *
      * @example Success
      *
@@ -60,7 +35,7 @@ class GetApplicationResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the application.
+     * @description Request ID
      *
      * @example A07FFDF2-78FA-1B48-9E38-88E833A93187
      *

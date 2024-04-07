@@ -62,7 +62,7 @@ class ListTemplateRequest extends Model
     /**
      * @description The tag that you want to use to query templates.
      *
-     * @example Best practice
+     * @example 1
      *
      * @var int
      */
@@ -71,7 +71,7 @@ class ListTemplateRequest extends Model
     /**
      * @description The type of the templates to be returned. Valid values: public and private
      *
-     * @example Valid values: public and private.
+     * @example public
      *
      * @var string
      */

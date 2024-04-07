@@ -36,6 +36,15 @@ class ExecuteOperationASyncShrinkRequest extends Model
     public $attributesShrink;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * @example 1600765710019
+     *
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @description This operation type is the operation type of modifying the product, some operation types are generic, and some are used alone. The following is an example of ECS deployment:
      * - Paid type for ecs: modifyPayType
      * @example queryTopo
@@ -64,6 +73,7 @@ class ExecuteOperationASyncShrinkRequest extends Model
     protected $_name = [
         'applicationId'    => 'ApplicationId',
         'attributesShrink' => 'Attributes',
+        'clientToken'      => 'ClientToken',
         'operation'        => 'Operation',
         'resourceGroupId'  => 'ResourceGroupId',
         'serviceType'      => 'ServiceType',
@@ -81,6 +91,9 @@ class ExecuteOperationASyncShrinkRequest extends Model
         }
         if (null !== $this->attributesShrink) {
             $res['Attributes'] = $this->attributesShrink;
+        }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->operation) {
             $res['Operation'] = $this->operation;
@@ -108,6 +121,9 @@ class ExecuteOperationASyncShrinkRequest extends Model
         }
         if (isset($map['Attributes'])) {
             $model->attributesShrink = $map['Attributes'];
+        }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['Operation'])) {
             $model->operation = $map['Operation'];

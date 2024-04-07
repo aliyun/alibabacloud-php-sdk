@@ -18,7 +18,7 @@ class ListApplicationRequest extends Model
     public $keyword;
 
     /**
-     * @description The HTTP status code.
+     * @description The pagination size of the resulting value cannot be less than the minimum value of 1 and cannot be greater than the maximum value of 50.
      *
      * @example 10
      *
@@ -27,7 +27,7 @@ class ListApplicationRequest extends Model
     public $maxResults;
 
     /**
-     * @description The ID of the resource group to which the application belongs.
+     * @description The pagination page number of the resulting value cannot be less than the minimum value of 1 and cannot be greater than the maximum value of 10000.
      *
      * @example 1
      *
@@ -54,6 +54,10 @@ class ListApplicationRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description Resource Id
+     *
+     * @example vsw-xxxxxxxxxxxx
+     *
      * @var string
      */
     public $resourceId;
@@ -68,6 +72,10 @@ class ListApplicationRequest extends Model
     public $status;
 
     /**
+     * @description Template Id
+     *
+     * @example 0KSXXX6SJU03TXXX
+     *
      * @var string
      */
     public $templateId;
