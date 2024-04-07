@@ -71,7 +71,7 @@ class SwitchNetworkRequest extends Model
     public $securityToken;
 
     /**
-     * @description The network type to which you want to switch. Set the value to **VPC**.
+     * @description The network type to which you want to switch. If you want to switch to VPC network, Set the value to **VPC**.
      *
      * @example VPC
      *
