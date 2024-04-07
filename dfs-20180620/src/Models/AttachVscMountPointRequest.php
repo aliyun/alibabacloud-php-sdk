@@ -30,7 +30,7 @@ class AttachVscMountPointRequest extends Model
     /**
      * @example ["ecs-instance1", "ecs-instance2"]
      *
-     * @var mixed[]
+     * @var string[]
      */
     public $instanceIds;
 
@@ -110,7 +110,9 @@ class AttachVscMountPointRequest extends Model
             $model->inputRegionId = $map['InputRegionId'];
         }
         if (isset($map['InstanceIds'])) {
-            $model->instanceIds = $map['InstanceIds'];
+            if (!empty($map['InstanceIds'])) {
+                $model->instanceIds = $map['InstanceIds'];
+            }
         }
         if (isset($map['MountPointId'])) {
             $model->mountPointId = $map['MountPointId'];

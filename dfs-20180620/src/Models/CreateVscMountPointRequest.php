@@ -32,7 +32,7 @@ class CreateVscMountPointRequest extends Model
      * "i-bp1g6zv0ce8oghu7****",
      * "i-bp1g6zv0ce8oghu1****"
      * ]
-     * @var mixed[]
+     * @var string[]
      */
     public $instanceIds;
     protected $_name = [
@@ -83,7 +83,9 @@ class CreateVscMountPointRequest extends Model
             $model->inputRegionId = $map['InputRegionId'];
         }
         if (isset($map['InstanceIds'])) {
-            $model->instanceIds = $map['InstanceIds'];
+            if (!empty($map['InstanceIds'])) {
+                $model->instanceIds = $map['InstanceIds'];
+            }
         }
 
         return $model;
