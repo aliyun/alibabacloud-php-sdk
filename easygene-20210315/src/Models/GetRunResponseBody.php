@@ -24,6 +24,11 @@ class GetRunResponseBody extends Model
     public $appRevision;
 
     /**
+     * @var string[]
+     */
+    public $billingInstanceIds;
+
+    /**
      * @example {}
      *
      * @var string
@@ -194,33 +199,34 @@ class GetRunResponseBody extends Model
      */
     public $workspace;
     protected $_name = [
-        'appName'          => 'AppName',
-        'appRevision'      => 'AppRevision',
-        'calls'            => 'Calls',
-        'createTime'       => 'CreateTime',
-        'defaultRuntime'   => 'DefaultRuntime',
-        'description'      => 'Description',
-        'endTime'          => 'EndTime',
-        'entityName'       => 'EntityName',
-        'entityType'       => 'EntityType',
-        'executeDirectory' => 'ExecuteDirectory',
-        'executeOptions'   => 'ExecuteOptions',
-        'failures'         => 'Failures',
-        'hostId'           => 'HostId',
-        'inputs'           => 'Inputs',
-        'labels'           => 'Labels',
-        'outputFolder'     => 'OutputFolder',
-        'outputs'          => 'Outputs',
-        'requestId'        => 'RequestId',
-        'runId'            => 'RunId',
-        'runName'          => 'RunName',
-        'source'           => 'Source',
-        'startTime'        => 'StartTime',
-        'status'           => 'Status',
-        'submissionId'     => 'SubmissionId',
-        'timing'           => 'Timing',
-        'user'             => 'User',
-        'workspace'        => 'Workspace',
+        'appName'            => 'AppName',
+        'appRevision'        => 'AppRevision',
+        'billingInstanceIds' => 'BillingInstanceIds',
+        'calls'              => 'Calls',
+        'createTime'         => 'CreateTime',
+        'defaultRuntime'     => 'DefaultRuntime',
+        'description'        => 'Description',
+        'endTime'            => 'EndTime',
+        'entityName'         => 'EntityName',
+        'entityType'         => 'EntityType',
+        'executeDirectory'   => 'ExecuteDirectory',
+        'executeOptions'     => 'ExecuteOptions',
+        'failures'           => 'Failures',
+        'hostId'             => 'HostId',
+        'inputs'             => 'Inputs',
+        'labels'             => 'Labels',
+        'outputFolder'       => 'OutputFolder',
+        'outputs'            => 'Outputs',
+        'requestId'          => 'RequestId',
+        'runId'              => 'RunId',
+        'runName'            => 'RunName',
+        'source'             => 'Source',
+        'startTime'          => 'StartTime',
+        'status'             => 'Status',
+        'submissionId'       => 'SubmissionId',
+        'timing'             => 'Timing',
+        'user'               => 'User',
+        'workspace'          => 'Workspace',
     ];
 
     public function validate()
@@ -235,6 +241,9 @@ class GetRunResponseBody extends Model
         }
         if (null !== $this->appRevision) {
             $res['AppRevision'] = $this->appRevision;
+        }
+        if (null !== $this->billingInstanceIds) {
+            $res['BillingInstanceIds'] = $this->billingInstanceIds;
         }
         if (null !== $this->calls) {
             $res['Calls'] = $this->calls;
@@ -328,6 +337,11 @@ class GetRunResponseBody extends Model
         }
         if (isset($map['AppRevision'])) {
             $model->appRevision = $map['AppRevision'];
+        }
+        if (isset($map['BillingInstanceIds'])) {
+            if (!empty($map['BillingInstanceIds'])) {
+                $model->billingInstanceIds = $map['BillingInstanceIds'];
+            }
         }
         if (isset($map['Calls'])) {
             $model->calls = $map['Calls'];

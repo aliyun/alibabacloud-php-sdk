@@ -2457,7 +2457,7 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @deprecated
+     * @deprecated : UpdateEntity is deprecated, please use EasyGene::2021-03-15::UpdateEntityItems instead.
      *   *
      * Deprecated
      *
@@ -2505,7 +2505,7 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @deprecated
+     * @deprecated : UpdateEntity is deprecated, please use EasyGene::2021-03-15::UpdateEntityItems instead.
      *   *
      * Deprecated
      *
