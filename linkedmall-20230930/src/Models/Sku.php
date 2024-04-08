@@ -79,6 +79,13 @@ class Sku extends Model
     public $quantity;
 
     /**
+     * @example 3
+     *
+     * @var int
+     */
+    public $rankValue;
+
+    /**
      * @example 21000017
      *
      * @var string
@@ -128,6 +135,7 @@ class Sku extends Model
         'price'         => 'price',
         'productId'     => 'productId',
         'quantity'      => 'quantity',
+        'rankValue'     => 'rankValue',
         'shopId'        => 'shopId',
         'skuId'         => 'skuId',
         'skuSpecs'      => 'skuSpecs',
@@ -172,6 +180,9 @@ class Sku extends Model
         }
         if (null !== $this->quantity) {
             $res['quantity'] = $this->quantity;
+        }
+        if (null !== $this->rankValue) {
+            $res['rankValue'] = $this->rankValue;
         }
         if (null !== $this->shopId) {
             $res['shopId'] = $this->shopId;
@@ -238,6 +249,9 @@ class Sku extends Model
         }
         if (isset($map['quantity'])) {
             $model->quantity = $map['quantity'];
+        }
+        if (isset($map['rankValue'])) {
+            $model->rankValue = $map['rankValue'];
         }
         if (isset($map['shopId'])) {
             $model->shopId = $map['shopId'];

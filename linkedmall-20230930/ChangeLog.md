@@ -1,3 +1,6 @@
+2024-04-08 Version: 2.1.3
+- Generated php 2023-09-30 for linkedmall.
+
 2024-03-29 Version: 2.1.2
 - Update API GetSelectionProduct: update param divisionCode.
 
