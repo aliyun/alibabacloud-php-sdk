@@ -411,6 +411,12 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IsvUserSaveShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MealBillSettlementQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MealBillSettlementQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MealBillSettlementQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MealOrderDetailQueryHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MealOrderDetailQueryRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MealOrderDetailQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MealOrderListQueryHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MealOrderListQueryRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MealOrderListQueryResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MonthBillConfirmHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MonthBillConfirmRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MonthBillConfirmResponse;
@@ -684,8 +690,14 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->taobaoCallbackUrl)) {
             $query['taobao_callback_url'] = $request->taobaoCallbackUrl;
         }
+        if (!Utils::isUnset($request->travelerId)) {
+            $query['traveler_id'] = $request->travelerId;
+        }
         if (!Utils::isUnset($request->type)) {
             $query['type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->useBookingProxy)) {
+            $query['use_booking_proxy'] = $request->useBookingProxy;
         }
         if (!Utils::isUnset($request->userId)) {
             $query['user_id'] = $request->userId;
@@ -9218,6 +9230,114 @@ class BtripOpen extends OpenApiClient
         $headers = new MealBillSettlementQueryHeaders([]);
 
         return $this->mealBillSettlementQueryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                      $orderId
+     * @param MealOrderDetailQueryRequest $request
+     * @param MealOrderDetailQueryHeaders $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return MealOrderDetailQueryResponse
+     */
+    public function mealOrderDetailQueryWithOptions($orderId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->userId)) {
+            $query['user_id'] = $request->userId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'MealOrderDetailQuery',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/meal/v1/orders/' . OpenApiUtilClient::getEncodeParam($orderId) . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return MealOrderDetailQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                      $orderId
+     * @param MealOrderDetailQueryRequest $request
+     *
+     * @return MealOrderDetailQueryResponse
+     */
+    public function mealOrderDetailQuery($orderId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new MealOrderDetailQueryHeaders([]);
+
+        return $this->mealOrderDetailQueryWithOptions($orderId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param MealOrderListQueryRequest $request
+     * @param MealOrderListQueryHeaders $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return MealOrderListQueryResponse
+     */
+    public function mealOrderListQueryWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->userId)) {
+            $query['user_id'] = $request->userId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'MealOrderListQuery',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/meal/v1/orders',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return MealOrderListQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param MealOrderListQueryRequest $request
+     *
+     * @return MealOrderListQueryResponse
+     */
+    public function mealOrderListQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new MealOrderListQueryHeaders([]);
+
+        return $this->mealOrderListQueryWithOptions($request, $headers, $runtime);
     }
 
     /**

@@ -91,6 +91,11 @@ class invoiceTaskList extends Model
     public $mailProvince;
 
     /**
+     * @var string
+     */
+    public $mealNormalInvoiceFee;
+
+    /**
      * @example 0
      *
      * @var string
@@ -144,6 +149,7 @@ class invoiceTaskList extends Model
         'mailCity'                      => 'mail_city',
         'mailFullAddress'               => 'mail_full_address',
         'mailProvince'                  => 'mail_province',
+        'mealNormalInvoiceFee'          => 'meal_normal_invoice_fee',
         'penaltyFee'                    => 'penalty_fee',
         'remark'                        => 'remark',
         'serviceFee'                    => 'service_fee',
@@ -200,6 +206,9 @@ class invoiceTaskList extends Model
         }
         if (null !== $this->mailProvince) {
             $res['mail_province'] = $this->mailProvince;
+        }
+        if (null !== $this->mealNormalInvoiceFee) {
+            $res['meal_normal_invoice_fee'] = $this->mealNormalInvoiceFee;
         }
         if (null !== $this->penaltyFee) {
             $res['penalty_fee'] = $this->penaltyFee;
@@ -272,6 +281,9 @@ class invoiceTaskList extends Model
         }
         if (isset($map['mail_province'])) {
             $model->mailProvince = $map['mail_province'];
+        }
+        if (isset($map['meal_normal_invoice_fee'])) {
+            $model->mealNormalInvoiceFee = $map['meal_normal_invoice_fee'];
         }
         if (isset($map['penalty_fee'])) {
             $model->penaltyFee = $map['penalty_fee'];

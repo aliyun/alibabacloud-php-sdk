@@ -68,6 +68,21 @@ class items extends Model
     /**
      * @var string
      */
+    public $consumeReportAddress;
+
+    /**
+     * @var string
+     */
+    public $consumeReportCity;
+
+    /**
+     * @var string
+     */
+    public $consumeReportCityCode;
+
+    /**
+     * @var string
+     */
     public $consumerScene;
 
     /**
@@ -335,6 +350,9 @@ class items extends Model
         'bookerName'             => 'booker_name',
         'capitalDirection'       => 'capital_direction',
         'cascadeDepartment'      => 'cascade_department',
+        'consumeReportAddress'   => 'consume_report_address',
+        'consumeReportCity'      => 'consume_report_city',
+        'consumeReportCityCode'  => 'consume_report_city_code',
         'consumerScene'          => 'consumer_scene',
         'corpSettleFee'          => 'corp_settle_fee',
         'costCenter'             => 'cost_center',
@@ -411,6 +429,15 @@ class items extends Model
         }
         if (null !== $this->cascadeDepartment) {
             $res['cascade_department'] = $this->cascadeDepartment;
+        }
+        if (null !== $this->consumeReportAddress) {
+            $res['consume_report_address'] = $this->consumeReportAddress;
+        }
+        if (null !== $this->consumeReportCity) {
+            $res['consume_report_city'] = $this->consumeReportCity;
+        }
+        if (null !== $this->consumeReportCityCode) {
+            $res['consume_report_city_code'] = $this->consumeReportCityCode;
         }
         if (null !== $this->consumerScene) {
             $res['consumer_scene'] = $this->consumerScene;
@@ -573,6 +600,15 @@ class items extends Model
         }
         if (isset($map['cascade_department'])) {
             $model->cascadeDepartment = $map['cascade_department'];
+        }
+        if (isset($map['consume_report_address'])) {
+            $model->consumeReportAddress = $map['consume_report_address'];
+        }
+        if (isset($map['consume_report_city'])) {
+            $model->consumeReportCity = $map['consume_report_city'];
+        }
+        if (isset($map['consume_report_city_code'])) {
+            $model->consumeReportCityCode = $map['consume_report_city_code'];
         }
         if (isset($map['consumer_scene'])) {
             $model->consumerScene = $map['consumer_scene'];

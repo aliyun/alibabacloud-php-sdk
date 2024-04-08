@@ -4,12 +4,18 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelRoomInfoResponseBody;
 
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelRoomInfoResponseBody\module\bedInfoGroupList;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelRoomInfoResponseBody\module\bedInfos;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelRoomInfoResponseBody\module\roomImages;
 use AlibabaCloud\Tea\Model;
 
 class module extends Model
 {
+    /**
+     * @var bedInfoGroupList[]
+     */
+    public $bedInfoGroupList;
+
     /**
      * @var bedInfos[]
      */
@@ -107,6 +113,11 @@ class module extends Model
     public $rooms;
 
     /**
+     * @var string
+     */
+    public $smoke;
+
+    /**
      * @example 2
      *
      * @var string
@@ -127,6 +138,7 @@ class module extends Model
      */
     public $windowView;
     protected $_name = [
+        'bedInfoGroupList' => 'bed_info_group_list',
         'bedInfos'         => 'bed_infos',
         'extraBed'         => 'extra_bed',
         'extraBedDesc'     => 'extra_bed_desc',
@@ -143,6 +155,7 @@ class module extends Model
         'roomType'         => 'room_type',
         'roomarea'         => 'roomarea',
         'rooms'            => 'rooms',
+        'smoke'            => 'smoke',
         'window'           => 'window',
         'windowBad'        => 'window_bad',
         'windowView'       => 'window_view',
@@ -155,6 +168,15 @@ class module extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bedInfoGroupList) {
+            $res['bed_info_group_list'] = [];
+            if (null !== $this->bedInfoGroupList && \is_array($this->bedInfoGroupList)) {
+                $n = 0;
+                foreach ($this->bedInfoGroupList as $item) {
+                    $res['bed_info_group_list'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->bedInfos) {
             $res['bed_infos'] = [];
             if (null !== $this->bedInfos && \is_array($this->bedInfos)) {
@@ -215,6 +237,9 @@ class module extends Model
         if (null !== $this->rooms) {
             $res['rooms'] = $this->rooms;
         }
+        if (null !== $this->smoke) {
+            $res['smoke'] = $this->smoke;
+        }
         if (null !== $this->window) {
             $res['window'] = $this->window;
         }
@@ -236,6 +261,15 @@ class module extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['bed_info_group_list'])) {
+            if (!empty($map['bed_info_group_list'])) {
+                $model->bedInfoGroupList = [];
+                $n                       = 0;
+                foreach ($map['bed_info_group_list'] as $item) {
+                    $model->bedInfoGroupList[$n++] = null !== $item ? bedInfoGroupList::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['bed_infos'])) {
             if (!empty($map['bed_infos'])) {
                 $model->bedInfos = [];
@@ -297,6 +331,9 @@ class module extends Model
         }
         if (isset($map['rooms'])) {
             $model->rooms = $map['rooms'];
+        }
+        if (isset($map['smoke'])) {
+            $model->smoke = $map['smoke'];
         }
         if (isset($map['window'])) {
             $model->window = $map['window'];

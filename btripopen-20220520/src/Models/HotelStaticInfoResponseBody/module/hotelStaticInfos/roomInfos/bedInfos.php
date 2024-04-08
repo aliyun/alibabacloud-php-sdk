@@ -33,11 +33,23 @@ class bedInfos extends Model
      * @var string
      */
     public $bedType;
+
+    /**
+     * @var string
+     */
+    public $length;
+
+    /**
+     * @var string
+     */
+    public $width;
     protected $_name = [
         'bedDesc' => 'bed_desc',
         'bedNum'  => 'bed_num',
         'bedSize' => 'bed_size',
         'bedType' => 'bed_type',
+        'length'  => 'length',
+        'width'   => 'width',
     ];
 
     public function validate()
@@ -58,6 +70,12 @@ class bedInfos extends Model
         }
         if (null !== $this->bedType) {
             $res['bed_type'] = $this->bedType;
+        }
+        if (null !== $this->length) {
+            $res['length'] = $this->length;
+        }
+        if (null !== $this->width) {
+            $res['width'] = $this->width;
         }
 
         return $res;
@@ -82,6 +100,12 @@ class bedInfos extends Model
         }
         if (isset($map['bed_type'])) {
             $model->bedType = $map['bed_type'];
+        }
+        if (isset($map['length'])) {
+            $model->length = $map['length'];
+        }
+        if (isset($map['width'])) {
+            $model->width = $map['width'];
         }
 
         return $model;

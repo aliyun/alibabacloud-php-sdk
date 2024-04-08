@@ -75,11 +75,21 @@ class AddressGetRequest extends Model
     public $taobaoCallbackUrl;
 
     /**
+     * @var string
+     */
+    public $travelerId;
+
+    /**
      * @example 1
      *
      * @var int
      */
     public $type;
+
+    /**
+     * @var int
+     */
+    public $useBookingProxy;
 
     /**
      * @var string
@@ -98,7 +108,9 @@ class AddressGetRequest extends Model
         'phone'             => 'phone',
         'subCorpId'         => 'sub_corp_id',
         'taobaoCallbackUrl' => 'taobao_callback_url',
+        'travelerId'        => 'traveler_id',
         'type'              => 'type',
+        'useBookingProxy'   => 'use_booking_proxy',
         'userId'            => 'user_id',
     ];
 
@@ -145,8 +157,14 @@ class AddressGetRequest extends Model
         if (null !== $this->taobaoCallbackUrl) {
             $res['taobao_callback_url'] = $this->taobaoCallbackUrl;
         }
+        if (null !== $this->travelerId) {
+            $res['traveler_id'] = $this->travelerId;
+        }
         if (null !== $this->type) {
             $res['type'] = $this->type;
+        }
+        if (null !== $this->useBookingProxy) {
+            $res['use_booking_proxy'] = $this->useBookingProxy;
         }
         if (null !== $this->userId) {
             $res['user_id'] = $this->userId;
@@ -199,8 +217,14 @@ class AddressGetRequest extends Model
         if (isset($map['taobao_callback_url'])) {
             $model->taobaoCallbackUrl = $map['taobao_callback_url'];
         }
+        if (isset($map['traveler_id'])) {
+            $model->travelerId = $map['traveler_id'];
+        }
         if (isset($map['type'])) {
             $model->type = $map['type'];
+        }
+        if (isset($map['use_booking_proxy'])) {
+            $model->useBookingProxy = $map['use_booking_proxy'];
         }
         if (isset($map['user_id'])) {
             $model->userId = $map['user_id'];

@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelRoomInfoResponseBody\module;
+namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelRoomInfoResponseBody\module\bedInfoGroupList;
 
 use AlibabaCloud\Tea\Model;
 
@@ -14,22 +14,16 @@ class bedInfos extends Model
     public $bedDesc;
 
     /**
-     * @example 2
-     *
      * @var int
      */
     public $bedNum;
 
     /**
-     * @example 1.8*2.0m
-     *
      * @var string
      */
     public $bedSize;
 
     /**
-     * @example 1
-     *
      * @var string
      */
     public $bedType;

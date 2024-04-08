@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelStaticInfoResponseBody\module\hotelStaticInfos;
 
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelStaticInfoResponseBody\module\hotelStaticInfos\roomInfos\bedInfoGroupList;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelStaticInfoResponseBody\module\hotelStaticInfos\roomInfos\bedInfos;
 use AlibabaCloud\Tea\Model;
 
 class roomInfos extends Model
 {
+    /**
+     * @var bedInfoGroupList[]
+     */
+    public $bedInfoGroupList;
+
     /**
      * @var bedInfos[]
      */
@@ -117,6 +123,7 @@ class roomInfos extends Model
      */
     public $windowView;
     protected $_name = [
+        'bedInfoGroupList' => 'bed_info_group_list',
         'bedInfos'         => 'bed_infos',
         'extraBed'         => 'extra_bed',
         'extraBedDesc'     => 'extra_bed_desc',
@@ -144,6 +151,15 @@ class roomInfos extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bedInfoGroupList) {
+            $res['bed_info_group_list'] = [];
+            if (null !== $this->bedInfoGroupList && \is_array($this->bedInfoGroupList)) {
+                $n = 0;
+                foreach ($this->bedInfoGroupList as $item) {
+                    $res['bed_info_group_list'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->bedInfos) {
             $res['bed_infos'] = [];
             if (null !== $this->bedInfos && \is_array($this->bedInfos)) {
@@ -216,6 +232,15 @@ class roomInfos extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['bed_info_group_list'])) {
+            if (!empty($map['bed_info_group_list'])) {
+                $model->bedInfoGroupList = [];
+                $n                       = 0;
+                foreach ($map['bed_info_group_list'] as $item) {
+                    $model->bedInfoGroupList[$n++] = null !== $item ? bedInfoGroupList::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['bed_infos'])) {
             if (!empty($map['bed_infos'])) {
                 $model->bedInfos = [];
