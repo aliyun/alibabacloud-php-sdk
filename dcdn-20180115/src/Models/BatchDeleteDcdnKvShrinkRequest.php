@@ -6,24 +6,22 @@ namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class BatchPutDcdnKvShrinkRequest extends Model
+class BatchDeleteDcdnKvShrinkRequest extends Model
 {
     /**
      * @var string
      */
-    public $kvListShrink;
+    public $keysShrink;
 
     /**
-     * @description The name of the namespace.
-     *
-     * @example ns1
+     * @example test_namespace
      *
      * @var string
      */
     public $namespace;
     protected $_name = [
-        'kvListShrink' => 'KvList',
-        'namespace'    => 'Namespace',
+        'keysShrink' => 'Keys',
+        'namespace'  => 'Namespace',
     ];
 
     public function validate()
@@ -33,8 +31,8 @@ class BatchPutDcdnKvShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->kvListShrink) {
-            $res['KvList'] = $this->kvListShrink;
+        if (null !== $this->keysShrink) {
+            $res['Keys'] = $this->keysShrink;
         }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
@@ -46,13 +44,13 @@ class BatchPutDcdnKvShrinkRequest extends Model
     /**
      * @param array $map
      *
-     * @return BatchPutDcdnKvShrinkRequest
+     * @return BatchDeleteDcdnKvShrinkRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['KvList'])) {
-            $model->kvListShrink = $map['KvList'];
+        if (isset($map['Keys'])) {
+            $model->keysShrink = $map['Keys'];
         }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];

@@ -16,6 +16,11 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchCreateDcdnWafRulesRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchCreateDcdnWafRulesResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchDeleteDcdnDomainConfigsRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchDeleteDcdnDomainConfigsResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchDeleteDcdnKvRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchDeleteDcdnKvResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchDeleteDcdnKvShrinkRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchDeleteDcdnKvWithHighCapacityRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchDeleteDcdnKvWithHighCapacityResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchDeleteDcdnWafRulesRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchDeleteDcdnWafRulesResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchModifyDcdnWafRulesRequest;
@@ -23,6 +28,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchModifyDcdnWafRulesResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchPutDcdnKvRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchPutDcdnKvResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchPutDcdnKvShrinkRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchPutDcdnKvWithHighCapacityRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchPutDcdnKvWithHighCapacityResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchSetDcdnDomainCertificateRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchSetDcdnDomainCertificateResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchSetDcdnDomainConfigsRequest;
@@ -388,6 +395,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\PutDcdnKvNamespaceRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\PutDcdnKvNamespaceResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\PutDcdnKvRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\PutDcdnKvResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\PutDcdnKvWithHighCapacityRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\PutDcdnKvWithHighCapacityResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\RefreshDcdnObjectCachesRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\RefreshDcdnObjectCachesResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\RefreshErObjectCachesRequest;
@@ -897,6 +906,105 @@ class Dcdn extends OpenApiClient
     }
 
     /**
+     * @param BatchDeleteDcdnKvRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return BatchDeleteDcdnKvResponse
+     */
+    public function batchDeleteDcdnKvWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new BatchDeleteDcdnKvShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->keys)) {
+            $request->keysShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->keys, 'Keys', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->keysShrink)) {
+            $body['Keys'] = $request->keysShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchDeleteDcdnKv',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BatchDeleteDcdnKvResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BatchDeleteDcdnKvRequest $request
+     *
+     * @return BatchDeleteDcdnKvResponse
+     */
+    public function batchDeleteDcdnKv($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchDeleteDcdnKvWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param BatchDeleteDcdnKvWithHighCapacityRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return BatchDeleteDcdnKvWithHighCapacityResponse
+     */
+    public function batchDeleteDcdnKvWithHighCapacityWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchDeleteDcdnKvWithHighCapacity',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BatchDeleteDcdnKvWithHighCapacityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BatchDeleteDcdnKvWithHighCapacityRequest $request
+     *
+     * @return BatchDeleteDcdnKvWithHighCapacityResponse
+     */
+    public function batchDeleteDcdnKvWithHighCapacity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchDeleteDcdnKvWithHighCapacityWithOptions($request, $runtime);
+    }
+
+    /**
      * *   You can call this operation up to 20 times per second per account.
      *   * *   Alibaba Cloud Dynamic Content Delivery Network (DCDN) supports POST requests.
      *   *
@@ -1010,14 +1118,16 @@ class Dcdn extends OpenApiClient
             $request->kvListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->kvList, 'KvList', 'json');
         }
         $query = [];
-        if (!Utils::isUnset($request->kvListShrink)) {
-            $query['KvList'] = $request->kvListShrink;
-        }
         if (!Utils::isUnset($request->namespace_)) {
             $query['Namespace'] = $request->namespace_;
         }
+        $body = [];
+        if (!Utils::isUnset($request->kvListShrink)) {
+            $body['KvList'] = $request->kvListShrink;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'BatchPutDcdnKv',
@@ -1044,6 +1154,52 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->batchPutDcdnKvWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param BatchPutDcdnKvWithHighCapacityRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return BatchPutDcdnKvWithHighCapacityResponse
+     */
+    public function batchPutDcdnKvWithHighCapacityWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchPutDcdnKvWithHighCapacity',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BatchPutDcdnKvWithHighCapacityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BatchPutDcdnKvWithHighCapacityRequest $request
+     *
+     * @return BatchPutDcdnKvWithHighCapacityResponse
+     */
+    public function batchPutDcdnKvWithHighCapacity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchPutDcdnKvWithHighCapacityWithOptions($request, $runtime);
     }
 
     /**
@@ -11367,6 +11523,55 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->putDcdnKvNamespaceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param PutDcdnKvWithHighCapacityRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return PutDcdnKvWithHighCapacityResponse
+     */
+    public function putDcdnKvWithHighCapacityWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->key)) {
+            $query['Key'] = $request->key;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PutDcdnKvWithHighCapacity',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PutDcdnKvWithHighCapacityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param PutDcdnKvWithHighCapacityRequest $request
+     *
+     * @return PutDcdnKvWithHighCapacityResponse
+     */
+    public function putDcdnKvWithHighCapacity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->putDcdnKvWithHighCapacityWithOptions($request, $runtime);
     }
 
     /**
