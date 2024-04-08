@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class diskSize extends Model
 {
     /**
+     * @description The original size of the disk.
+     *
      * @example 200
      *
      * @var int
@@ -16,7 +18,7 @@ class diskSize extends Model
     public $originalTotalDiskSize;
 
     /**
-     * @description The request ID.
+     * @description The total storage space of the cluster, in GB.
      *
      * @example 200
      *
@@ -25,7 +27,7 @@ class diskSize extends Model
     public $totalDiskSize;
 
     /**
-     * @description Example 1
+     * @description The storage space of each replica node in the cluster, in GB.
      *
      * @example 200
      *
@@ -34,7 +36,7 @@ class diskSize extends Model
     public $unitDiskSize;
 
     /**
-     * @description $.parameters[7].schema.example
+     * @description The size of used storage space of the cluster, in GB.
      *
      * @example 100
      *

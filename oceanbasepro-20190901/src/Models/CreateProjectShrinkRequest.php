@@ -83,6 +83,11 @@ class CreateProjectShrinkRequest extends Model
     public $ossKey;
 
     /**
+     * @var string
+     */
+    public $reverseIncrTransferConfigShrink;
+
+    /**
      * @example e_4j0cz****
      *
      * @var string
@@ -127,25 +132,26 @@ class CreateProjectShrinkRequest extends Model
      */
     public $workerGradeId;
     protected $_name = [
-        'commonTransferConfigShrink' => 'CommonTransferConfig',
-        'enableFullTransfer'         => 'EnableFullTransfer',
-        'enableFullVerify'           => 'EnableFullVerify',
-        'enableIncrTransfer'         => 'EnableIncrTransfer',
-        'enableReverseIncrTransfer'  => 'EnableReverseIncrTransfer',
-        'enableStructTransfer'       => 'EnableStructTransfer',
-        'fullTransferConfigShrink'   => 'FullTransferConfig',
-        'id'                         => 'Id',
-        'incrTransferConfigShrink'   => 'IncrTransferConfig',
-        'labelIdsShrink'             => 'LabelIds',
-        'name'                       => 'Name',
-        'ossKey'                     => 'OssKey',
-        'sinkEndpointId'             => 'SinkEndpointId',
-        'sourceEndpointId'           => 'SourceEndpointId',
-        'structTransferConfigShrink' => 'StructTransferConfig',
-        'transferMappingShrink'      => 'TransferMapping',
-        'type'                       => 'Type',
-        'useOss'                     => 'UseOss',
-        'workerGradeId'              => 'WorkerGradeId',
+        'commonTransferConfigShrink'      => 'CommonTransferConfig',
+        'enableFullTransfer'              => 'EnableFullTransfer',
+        'enableFullVerify'                => 'EnableFullVerify',
+        'enableIncrTransfer'              => 'EnableIncrTransfer',
+        'enableReverseIncrTransfer'       => 'EnableReverseIncrTransfer',
+        'enableStructTransfer'            => 'EnableStructTransfer',
+        'fullTransferConfigShrink'        => 'FullTransferConfig',
+        'id'                              => 'Id',
+        'incrTransferConfigShrink'        => 'IncrTransferConfig',
+        'labelIdsShrink'                  => 'LabelIds',
+        'name'                            => 'Name',
+        'ossKey'                          => 'OssKey',
+        'reverseIncrTransferConfigShrink' => 'ReverseIncrTransferConfig',
+        'sinkEndpointId'                  => 'SinkEndpointId',
+        'sourceEndpointId'                => 'SourceEndpointId',
+        'structTransferConfigShrink'      => 'StructTransferConfig',
+        'transferMappingShrink'           => 'TransferMapping',
+        'type'                            => 'Type',
+        'useOss'                          => 'UseOss',
+        'workerGradeId'                   => 'WorkerGradeId',
     ];
 
     public function validate()
@@ -190,6 +196,9 @@ class CreateProjectShrinkRequest extends Model
         }
         if (null !== $this->ossKey) {
             $res['OssKey'] = $this->ossKey;
+        }
+        if (null !== $this->reverseIncrTransferConfigShrink) {
+            $res['ReverseIncrTransferConfig'] = $this->reverseIncrTransferConfigShrink;
         }
         if (null !== $this->sinkEndpointId) {
             $res['SinkEndpointId'] = $this->sinkEndpointId;
@@ -259,6 +268,9 @@ class CreateProjectShrinkRequest extends Model
         }
         if (isset($map['OssKey'])) {
             $model->ossKey = $map['OssKey'];
+        }
+        if (isset($map['ReverseIncrTransferConfig'])) {
+            $model->reverseIncrTransferConfigShrink = $map['ReverseIncrTransferConfig'];
         }
         if (isset($map['SinkEndpointId'])) {
             $model->sinkEndpointId = $map['SinkEndpointId'];

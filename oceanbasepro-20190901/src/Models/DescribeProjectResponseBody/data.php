@@ -10,6 +10,7 @@ use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProjectResponseBody\d
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProjectResponseBody\data\fullTransferConfig;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProjectResponseBody\data\incrTransferConfig;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProjectResponseBody\data\labels;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProjectResponseBody\data\reverseIncrTransferConfig;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProjectResponseBody\data\sinkConnectInfo;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProjectResponseBody\data\sourceConnectInfo;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProjectResponseBody\data\steps;
@@ -177,6 +178,11 @@ class data extends Model
     public $owner;
 
     /**
+     * @var reverseIncrTransferConfig
+     */
+    public $reverseIncrTransferConfig;
+
+    /**
      * @var sinkConnectInfo
      */
     public $sinkConnectInfo;
@@ -265,6 +271,7 @@ class data extends Model
         'labels'                    => 'Labels',
         'name'                      => 'Name',
         'owner'                     => 'Owner',
+        'reverseIncrTransferConfig' => 'ReverseIncrTransferConfig',
         'sinkConnectInfo'           => 'SinkConnectInfo',
         'sinkEndpointType'          => 'SinkEndpointType',
         'sourceConnectInfo'         => 'SourceConnectInfo',
@@ -362,6 +369,9 @@ class data extends Model
         }
         if (null !== $this->owner) {
             $res['Owner'] = $this->owner;
+        }
+        if (null !== $this->reverseIncrTransferConfig) {
+            $res['ReverseIncrTransferConfig'] = null !== $this->reverseIncrTransferConfig ? $this->reverseIncrTransferConfig->toMap() : null;
         }
         if (null !== $this->sinkConnectInfo) {
             $res['SinkConnectInfo'] = null !== $this->sinkConnectInfo ? $this->sinkConnectInfo->toMap() : null;
@@ -491,6 +501,9 @@ class data extends Model
         }
         if (isset($map['Owner'])) {
             $model->owner = $map['Owner'];
+        }
+        if (isset($map['ReverseIncrTransferConfig'])) {
+            $model->reverseIncrTransferConfig = reverseIncrTransferConfig::fromMap($map['ReverseIncrTransferConfig']);
         }
         if (isset($map['SinkConnectInfo'])) {
             $model->sinkConnectInfo = sinkConnectInfo::fromMap($map['SinkConnectInfo']);

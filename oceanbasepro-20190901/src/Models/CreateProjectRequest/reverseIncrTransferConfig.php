@@ -6,25 +6,19 @@ namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateProjectRequest;
 
 use AlibabaCloud\Tea\Model;
 
-class incrTransferConfig extends Model
+class reverseIncrTransferConfig extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $enableIncrSyncStatistics;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $enableSequencingWithinTxn;
 
     /**
-     * @example 64
-     *
      * @var int
      */
     public $incrSyncConcurrency;
@@ -35,15 +29,11 @@ class incrTransferConfig extends Model
     public $recordTypeWhiteList;
 
     /**
-     * @example 1689201369
-     *
      * @var string
      */
     public $startTimestamp;
 
     /**
-     * @example 24
-     *
      * @var int
      */
     public $storeLogKeptHour;
@@ -115,7 +105,7 @@ class incrTransferConfig extends Model
     /**
      * @param array $map
      *
-     * @return incrTransferConfig
+     * @return reverseIncrTransferConfig
      */
     public static function fromMap($map = [])
     {

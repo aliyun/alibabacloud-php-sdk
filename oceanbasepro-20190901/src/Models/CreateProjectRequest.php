@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateProjectRequest\commonTransferConfig;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateProjectRequest\fullTransferConfig;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateProjectRequest\incrTransferConfig;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateProjectRequest\reverseIncrTransferConfig;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateProjectRequest\structTransferConfig;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateProjectRequest\transferMapping;
 use AlibabaCloud\Tea\Model;
@@ -88,6 +89,11 @@ class CreateProjectRequest extends Model
     public $ossKey;
 
     /**
+     * @var reverseIncrTransferConfig
+     */
+    public $reverseIncrTransferConfig;
+
+    /**
      * @example e_4j0cz****
      *
      * @var string
@@ -144,6 +150,7 @@ class CreateProjectRequest extends Model
         'labelIds'                  => 'LabelIds',
         'name'                      => 'Name',
         'ossKey'                    => 'OssKey',
+        'reverseIncrTransferConfig' => 'ReverseIncrTransferConfig',
         'sinkEndpointId'            => 'SinkEndpointId',
         'sourceEndpointId'          => 'SourceEndpointId',
         'structTransferConfig'      => 'StructTransferConfig',
@@ -195,6 +202,9 @@ class CreateProjectRequest extends Model
         }
         if (null !== $this->ossKey) {
             $res['OssKey'] = $this->ossKey;
+        }
+        if (null !== $this->reverseIncrTransferConfig) {
+            $res['ReverseIncrTransferConfig'] = null !== $this->reverseIncrTransferConfig ? $this->reverseIncrTransferConfig->toMap() : null;
         }
         if (null !== $this->sinkEndpointId) {
             $res['SinkEndpointId'] = $this->sinkEndpointId;
@@ -266,6 +276,9 @@ class CreateProjectRequest extends Model
         }
         if (isset($map['OssKey'])) {
             $model->ossKey = $map['OssKey'];
+        }
+        if (isset($map['ReverseIncrTransferConfig'])) {
+            $model->reverseIncrTransferConfig = reverseIncrTransferConfig::fromMap($map['ReverseIncrTransferConfig']);
         }
         if (isset($map['SinkEndpointId'])) {
             $model->sinkEndpointId = $map['SinkEndpointId'];

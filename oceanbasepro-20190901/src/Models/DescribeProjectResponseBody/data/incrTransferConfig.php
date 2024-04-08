@@ -47,6 +47,21 @@ class incrTransferConfig extends Model
      * @var int
      */
     public $storeLogKeptHour;
+
+    /**
+     * @var string[]
+     */
+    public $supportDDLTypes;
+
+    /**
+     * @var int
+     */
+    public $throttleIOPS;
+
+    /**
+     * @var int
+     */
+    public $throttleRps;
     protected $_name = [
         'enableIncrSyncStatistics'  => 'EnableIncrSyncStatistics',
         'enableSequencingWithinTxn' => 'EnableSequencingWithinTxn',
@@ -54,6 +69,9 @@ class incrTransferConfig extends Model
         'recordTypeWhiteList'       => 'RecordTypeWhiteList',
         'startTimestamp'            => 'StartTimestamp',
         'storeLogKeptHour'          => 'StoreLogKeptHour',
+        'supportDDLTypes'           => 'SupportDDLTypes',
+        'throttleIOPS'              => 'ThrottleIOPS',
+        'throttleRps'               => 'ThrottleRps',
     ];
 
     public function validate()
@@ -80,6 +98,15 @@ class incrTransferConfig extends Model
         }
         if (null !== $this->storeLogKeptHour) {
             $res['StoreLogKeptHour'] = $this->storeLogKeptHour;
+        }
+        if (null !== $this->supportDDLTypes) {
+            $res['SupportDDLTypes'] = $this->supportDDLTypes;
+        }
+        if (null !== $this->throttleIOPS) {
+            $res['ThrottleIOPS'] = $this->throttleIOPS;
+        }
+        if (null !== $this->throttleRps) {
+            $res['ThrottleRps'] = $this->throttleRps;
         }
 
         return $res;
@@ -112,6 +139,17 @@ class incrTransferConfig extends Model
         }
         if (isset($map['StoreLogKeptHour'])) {
             $model->storeLogKeptHour = $map['StoreLogKeptHour'];
+        }
+        if (isset($map['SupportDDLTypes'])) {
+            if (!empty($map['SupportDDLTypes'])) {
+                $model->supportDDLTypes = $map['SupportDDLTypes'];
+            }
+        }
+        if (isset($map['ThrottleIOPS'])) {
+            $model->throttleIOPS = $map['ThrottleIOPS'];
+        }
+        if (isset($map['ThrottleRps'])) {
+            $model->throttleRps = $map['ThrottleRps'];
         }
 
         return $model;

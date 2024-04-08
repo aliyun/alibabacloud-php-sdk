@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class capacityUnit extends Model
 {
     /**
+     * @description The maximum number of capacity units.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $maxCapacityUnit;
 
     /**
+     * @description The minimum number of capacity units.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $minCapacityUnit;
 
     /**
+     * @description The number of used capacity units.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $usedCapacityUnit;

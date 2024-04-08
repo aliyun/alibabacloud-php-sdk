@@ -35,11 +35,35 @@ class fullTransferConfig extends Model
      * @var bool
      */
     public $nonePkUkTruncateDstTable;
+
+    /**
+     * @var int
+     */
+    public $readWorkerNum;
+
+    /**
+     * @var int
+     */
+    public $throttleIOPS;
+
+    /**
+     * @var int
+     */
+    public $throttleRps;
+
+    /**
+     * @var int
+     */
+    public $writeWorkerNum;
     protected $_name = [
         'allowDestTableNotEmpty'   => 'AllowDestTableNotEmpty',
         'fullTransferSpeedMode'    => 'FullTransferSpeedMode',
         'fullVerifySpeedMode'      => 'FullVerifySpeedMode',
         'nonePkUkTruncateDstTable' => 'NonePkUkTruncateDstTable',
+        'readWorkerNum'            => 'ReadWorkerNum',
+        'throttleIOPS'             => 'ThrottleIOPS',
+        'throttleRps'              => 'ThrottleRps',
+        'writeWorkerNum'           => 'WriteWorkerNum',
     ];
 
     public function validate()
@@ -60,6 +84,18 @@ class fullTransferConfig extends Model
         }
         if (null !== $this->nonePkUkTruncateDstTable) {
             $res['NonePkUkTruncateDstTable'] = $this->nonePkUkTruncateDstTable;
+        }
+        if (null !== $this->readWorkerNum) {
+            $res['ReadWorkerNum'] = $this->readWorkerNum;
+        }
+        if (null !== $this->throttleIOPS) {
+            $res['ThrottleIOPS'] = $this->throttleIOPS;
+        }
+        if (null !== $this->throttleRps) {
+            $res['ThrottleRps'] = $this->throttleRps;
+        }
+        if (null !== $this->writeWorkerNum) {
+            $res['WriteWorkerNum'] = $this->writeWorkerNum;
         }
 
         return $res;
@@ -84,6 +120,18 @@ class fullTransferConfig extends Model
         }
         if (isset($map['NonePkUkTruncateDstTable'])) {
             $model->nonePkUkTruncateDstTable = $map['NonePkUkTruncateDstTable'];
+        }
+        if (isset($map['ReadWorkerNum'])) {
+            $model->readWorkerNum = $map['ReadWorkerNum'];
+        }
+        if (isset($map['ThrottleIOPS'])) {
+            $model->throttleIOPS = $map['ThrottleIOPS'];
+        }
+        if (isset($map['ThrottleRps'])) {
+            $model->throttleRps = $map['ThrottleRps'];
+        }
+        if (isset($map['WriteWorkerNum'])) {
+            $model->writeWorkerNum = $map['WriteWorkerNum'];
         }
 
         return $model;

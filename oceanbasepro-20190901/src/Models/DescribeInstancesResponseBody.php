@@ -10,13 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstancesResponseBody extends Model
 {
     /**
-     * @description The total storage space of the cluster, in GB.
+     * @description The information of the OceanBase cluster.
      *
      * @var instances[]
      */
     public $instances;
 
     /**
+     * @description The request ID.
+     *
      * @example EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
      *
      * @var string
@@ -24,6 +26,8 @@ class DescribeInstancesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The number of OceanBase clusters queried.
+     *
      * @example 2
      *
      * @var int

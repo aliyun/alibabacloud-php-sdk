@@ -830,6 +830,9 @@ class OceanBasePro extends OpenApiClient
         if (!Utils::isUnset($tmpReq->labelIds)) {
             $request->labelIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->labelIds, 'LabelIds', 'json');
         }
+        if (!Utils::isUnset($tmpReq->reverseIncrTransferConfig)) {
+            $request->reverseIncrTransferConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->reverseIncrTransferConfig, 'ReverseIncrTransferConfig', 'json');
+        }
         if (!Utils::isUnset($tmpReq->structTransferConfig)) {
             $request->structTransferConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->structTransferConfig, 'StructTransferConfig', 'json');
         }
@@ -872,6 +875,9 @@ class OceanBasePro extends OpenApiClient
         }
         if (!Utils::isUnset($request->ossKey)) {
             $body['OssKey'] = $request->ossKey;
+        }
+        if (!Utils::isUnset($request->reverseIncrTransferConfigShrink)) {
+            $body['ReverseIncrTransferConfig'] = $request->reverseIncrTransferConfigShrink;
         }
         if (!Utils::isUnset($request->sinkEndpointId)) {
             $body['SinkEndpointId'] = $request->sinkEndpointId;

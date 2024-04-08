@@ -9,41 +9,73 @@ use AlibabaCloud\Tea\Model;
 class dataDiskAutoScaleConfig extends Model
 {
     /**
+     * @description Specifies whether to enable the automatic scaling of the data disk.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $autoScale;
 
     /**
+     * @description The maximum size of the disk, in GB.
+     *
+     * @example 80000
+     *
      * @var int
      */
     public $maxDiskSize;
 
     /**
+     * @description The size of scaling step during a major compaction.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $scaleStepInMerge;
 
     /**
+     * @description The size of scaling step during daily use.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $scaleStepInNormal;
 
     /**
+     * @description The maximum usage of the data disk, in percentage, that triggers the scaling of the data disk for major compactions.
+     *
+     * @example 90
+     *
      * @var int
      */
     public $upperMergeThreshold;
 
     /**
+     * @description The scale-out strategy. Valid values: RAW and PERCENTAGE.
+     *
+     * @example RAW
+     *
      * @var string
      */
     public $upperScaleStrategy;
 
     /**
+     * @description The maximum usage of the data disk, in percentage, that triggers the scaling of the data disk for daily use.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $upperThreshold;
 
     /**
+     * @description The maximum space, in GB, to which the data disk can be scaled.
+     *
+     * @example 16
+     *
      * @var int
      */
     public $upperbound;
