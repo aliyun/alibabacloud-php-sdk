@@ -18,7 +18,7 @@ class data extends Model
     /**
      * @example 10.3
      *
-     * @var int
+     * @var float
      */
     public $affectedUserRate;
 
@@ -32,7 +32,7 @@ class data extends Model
     /**
      * @example 25.6
      *
-     * @var int
+     * @var float
      */
     public $errorRate;
 
