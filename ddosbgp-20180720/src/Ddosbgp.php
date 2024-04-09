@@ -8,6 +8,9 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\AddIpRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\AddIpResponse;
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\AddRdMemberListRequest;
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\AddRdMemberListResponse;
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\AddRdMemberListShrinkRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\AttachAssetGroupToInstanceRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\AttachAssetGroupToInstanceResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\AttachAssetGroupToInstanceShrinkRequest;
@@ -23,6 +26,9 @@ use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DeleteBlackholeRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DeleteBlackholeResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DeleteIpRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DeleteIpResponse;
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DeleteRdMemberListRequest;
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DeleteRdMemberListResponse;
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DeleteRdMemberListShrinkRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DeleteSchedruleOnDemandRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DeleteSchedruleOnDemandResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeAssetGroupRequest;
@@ -47,6 +53,9 @@ use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeOpEntitiesRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeOpEntitiesResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribePackIpListRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribePackIpListResponse;
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeRdMemberListRequest;
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeRdMemberListResponse;
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeRdStatusResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeTrafficRequest;
@@ -185,6 +194,54 @@ class Ddosbgp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addIpWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddRdMemberListRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return AddRdMemberListResponse
+     */
+    public function addRdMemberListWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new AddRdMemberListShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->memberList)) {
+            $request->memberListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->memberList, 'MemberList', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->memberListShrink)) {
+            $query['MemberList'] = $request->memberListShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddRdMemberList',
+            'version'     => '2018-07-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddRdMemberListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddRdMemberListRequest $request
+     *
+     * @return AddRdMemberListResponse
+     */
+    public function addRdMemberList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addRdMemberListWithOptions($request, $runtime);
     }
 
     /**
@@ -606,6 +663,54 @@ class Ddosbgp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteIpWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteRdMemberListRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteRdMemberListResponse
+     */
+    public function deleteRdMemberListWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DeleteRdMemberListShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->memberList)) {
+            $request->memberListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->memberList, 'MemberList', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->memberListShrink)) {
+            $query['MemberList'] = $request->memberListShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteRdMemberList',
+            'version'     => '2018-07-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteRdMemberListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteRdMemberListRequest $request
+     *
+     * @return DeleteRdMemberListResponse
+     */
+    public function deleteRdMemberList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRdMemberListWithOptions($request, $runtime);
     }
 
     /**
@@ -1340,6 +1445,88 @@ class Ddosbgp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describePackIpListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeRdMemberListRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeRdMemberListResponse
+     */
+    public function describeRdMemberListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceDirectoryId)) {
+            $query['ResourceDirectoryId'] = $request->resourceDirectoryId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRdMemberList',
+            'version'     => '2018-07-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeRdMemberListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRdMemberListRequest $request
+     *
+     * @return DescribeRdMemberListResponse
+     */
+    public function describeRdMemberList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRdMemberListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeRdStatusResponse
+     */
+    public function describeRdStatusWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeRdStatus',
+            'version'     => '2018-07-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeRdStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return DescribeRdStatusResponse
+     */
+    public function describeRdStatus()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRdStatusWithOptions($runtime);
     }
 
     /**
