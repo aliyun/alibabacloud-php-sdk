@@ -1,3 +1,6 @@
+2024-04-09 Version: 1.0.5
+- Generated php 2018-06-12 for VoiceNavigator.
+
 2024-02-04 Version: 1.0.4
 - Update API AuditTTSVoiceadd AccessKey param.
 add AppKey param.
