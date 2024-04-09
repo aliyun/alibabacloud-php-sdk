@@ -77,8 +77,9 @@ class DescribeDBClustersRequest extends Model
     public $DBVersion;
 
     /**
-     * @description 查询方式，当取值为Simple时，将返回简略版参数
+     * @description The query mode of the list. The value Simple indicates that the simple mode is used. In this mode, only the basic metadata information of the cluster is returned.
      *
+     * > If you do not specify this parameter, the detailed mode is used by default. Detailed information about the cluster is returned.
      * @example Simple
      *
      * @var string

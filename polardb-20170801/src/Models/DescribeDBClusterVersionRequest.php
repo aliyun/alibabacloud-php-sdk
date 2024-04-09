@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterVersionRequest extends Model
 {
     /**
-     * @description The revision version of the database engine.
+     * @description The ID of the cluster.
      *
-     * >  For a cluster of the PolarDB for MySQL 5.6, the DBRevisionVersion parameter returns the revision version information only if the `Revision Version` is released later than August 31, 2020. Otherwise, this parameter returns an empty value. For more information about the kernel version of a cluster that runs the PolarDB for MySQL, see [PolarDB for MySQL](~~423884~~).
      * @example pc-****************
      *
      * @var string
@@ -19,8 +18,9 @@ class DescribeDBClusterVersionRequest extends Model
     public $DBClusterId;
 
     /**
-     * @description The ID of the request.
+     * @description Specify to return the latest version information or a list of upgradeable versions.Valid values:
      *
+     * - LATEST_VERSION
      * @example LATEST_VERSION
      *
      * @var string

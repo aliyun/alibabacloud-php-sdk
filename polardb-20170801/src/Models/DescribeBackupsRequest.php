@@ -89,7 +89,7 @@ class DescribeBackupsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries per page. Valid values:
+     * @description The number of entries to return on each page. Valid values:
      *
      *   **30**
      *   **50**

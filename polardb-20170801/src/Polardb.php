@@ -4045,12 +4045,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * The release note of the kernel version.
-     *   *
-     * @param DescribeDBClusterVersionRequest $request DescribeDBClusterVersionRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param DescribeDBClusterVersionRequest $request
+     * @param RuntimeOptions                  $runtime
      *
-     * @return DescribeDBClusterVersionResponse DescribeDBClusterVersionResponse
+     * @return DescribeDBClusterVersionResponse
      */
     public function describeDBClusterVersionWithOptions($request, $runtime)
     {
@@ -4093,11 +4091,9 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * The release note of the kernel version.
-     *   *
-     * @param DescribeDBClusterVersionRequest $request DescribeDBClusterVersionRequest
+     * @param DescribeDBClusterVersionRequest $request
      *
-     * @return DescribeDBClusterVersionResponse DescribeDBClusterVersionResponse
+     * @return DescribeDBClusterVersionResponse
      */
     public function describeDBClusterVersion($request)
     {

@@ -29,7 +29,7 @@ class vSwitchs extends Model
     /**
      * @description The descriptions of the vSwitch.
      *
-     * @example VSwitchDescription
+     * @example vSwitchDescription
      *
      * @var string
      */

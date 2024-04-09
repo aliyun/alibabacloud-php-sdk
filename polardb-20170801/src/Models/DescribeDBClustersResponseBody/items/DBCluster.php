@@ -13,22 +13,9 @@ class DBCluster extends Model
     /**
      * @description The type of the AI node. Valid values:
      *
-     *   SearchNode: Search node
-     *   DLNode: ai node
+     *   SearchNode: search node.
+     *   DLNode: AI node.
      *
-     * Enumeration values:
-     *
-     *   SearchNode | DLNode
-     *
-     * .
-     *
-     *   DLNode
-     *
-     * .
-     *
-     *   DLNode
-     *
-     * .
      * @example SearchNode
      *
      * @var string
@@ -48,6 +35,11 @@ class DBCluster extends Model
      * @var string
      */
     public $category;
+
+    /**
+     * @var string
+     */
+    public $cpuCores;
 
     /**
      * @description The time when the cluster was created.
@@ -143,7 +135,7 @@ class DBCluster extends Model
      *   **0**: The cluster is not locked.
      *   **1**: The cluster is locked.
      *
-     * > If the cluster is locked, you cannot delete the cluster.
+     * > You cannot delete clusters that are locked.
      * @example 0
      *
      * @var int
@@ -183,7 +175,7 @@ class DBCluster extends Model
     public $expired;
 
     /**
-     * @description The lock status of the cluster. Valid values:
+     * @description The lock state of the cluster. Valid values:
      *
      *   **Unlock**: The cluster is not locked.
      *   **ManualLock**: The cluster is manually locked.
@@ -196,10 +188,15 @@ class DBCluster extends Model
     public $lockMode;
 
     /**
+     * @var string
+     */
+    public $memorySize;
+
+    /**
      * @description The billing method of the cluster. Valid values:
      *
-     *   **Postpaid**: pay-as-you-go.
-     *   **Prepaid**: subscription.
+     *   **Postpaid**: pay-as-you-go
+     *   **Prepaid**: subscription
      *
      * @example Prepaid
      *
@@ -215,6 +212,11 @@ class DBCluster extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $remoteMemorySize;
 
     /**
      * @description The ID of the resource group.
@@ -237,8 +239,8 @@ class DBCluster extends Model
     /**
      * @description The billing method of the storage space. Valid values:
      *
-     *   **Postpaid**: pay-as-you-go.
-     *   **Prepaid**: subscription.
+     *   **Postpaid**: pay-as-you-go
+     *   **Prepaid**: subscription
      *
      * @example Prepaid
      *
@@ -247,7 +249,7 @@ class DBCluster extends Model
     public $storagePayType;
 
     /**
-     * @description The storage space that is billed based on the subscription billing method. Unit: bytes.
+     * @description The storage capacity that is billed based on the subscription billing method. Unit: byte.
      *
      * @example 50
      *
@@ -275,6 +277,11 @@ class DBCluster extends Model
      * @var string
      */
     public $strictConsistency;
+
+    /**
+     * @var string
+     */
+    public $subCategory;
 
     /**
      * @description The tags of the cluster.
@@ -312,6 +319,7 @@ class DBCluster extends Model
     protected $_name = [
         'aiType'               => 'AiType',
         'category'             => 'Category',
+        'cpuCores'             => 'CpuCores',
         'createTime'           => 'CreateTime',
         'DBClusterDescription' => 'DBClusterDescription',
         'DBClusterId'          => 'DBClusterId',
@@ -327,14 +335,17 @@ class DBCluster extends Model
         'expireTime'           => 'ExpireTime',
         'expired'              => 'Expired',
         'lockMode'             => 'LockMode',
+        'memorySize'           => 'MemorySize',
         'payType'              => 'PayType',
         'regionId'             => 'RegionId',
+        'remoteMemorySize'     => 'RemoteMemorySize',
         'resourceGroupId'      => 'ResourceGroupId',
         'serverlessType'       => 'ServerlessType',
         'storagePayType'       => 'StoragePayType',
         'storageSpace'         => 'StorageSpace',
         'storageUsed'          => 'StorageUsed',
         'strictConsistency'    => 'StrictConsistency',
+        'subCategory'          => 'SubCategory',
         'tags'                 => 'Tags',
         'vpcId'                => 'VpcId',
         'vswitchId'            => 'VswitchId',
@@ -353,6 +364,9 @@ class DBCluster extends Model
         }
         if (null !== $this->category) {
             $res['Category'] = $this->category;
+        }
+        if (null !== $this->cpuCores) {
+            $res['CpuCores'] = $this->cpuCores;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
@@ -399,11 +413,17 @@ class DBCluster extends Model
         if (null !== $this->lockMode) {
             $res['LockMode'] = $this->lockMode;
         }
+        if (null !== $this->memorySize) {
+            $res['MemorySize'] = $this->memorySize;
+        }
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->remoteMemorySize) {
+            $res['RemoteMemorySize'] = $this->remoteMemorySize;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -422,6 +442,9 @@ class DBCluster extends Model
         }
         if (null !== $this->strictConsistency) {
             $res['StrictConsistency'] = $this->strictConsistency;
+        }
+        if (null !== $this->subCategory) {
+            $res['SubCategory'] = $this->subCategory;
         }
         if (null !== $this->tags) {
             $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
@@ -452,6 +475,9 @@ class DBCluster extends Model
         }
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
+        }
+        if (isset($map['CpuCores'])) {
+            $model->cpuCores = $map['CpuCores'];
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
@@ -498,11 +524,17 @@ class DBCluster extends Model
         if (isset($map['LockMode'])) {
             $model->lockMode = $map['LockMode'];
         }
+        if (isset($map['MemorySize'])) {
+            $model->memorySize = $map['MemorySize'];
+        }
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RemoteMemorySize'])) {
+            $model->remoteMemorySize = $map['RemoteMemorySize'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
@@ -521,6 +553,9 @@ class DBCluster extends Model
         }
         if (isset($map['StrictConsistency'])) {
             $model->strictConsistency = $map['StrictConsistency'];
+        }
+        if (isset($map['SubCategory'])) {
+            $model->subCategory = $map['SubCategory'];
         }
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);

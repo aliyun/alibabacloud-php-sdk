@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBNodeClassResponseBody extends Model
 {
     /**
-     * @description The ID of the PolarDB cluster.
+     * @description The cluster ID.
      *
      * @example pc-*************
      *
@@ -18,7 +18,7 @@ class ModifyDBNodeClassResponseBody extends Model
     public $DBClusterId;
 
     /**
-     * @description The ID of the order.
+     * @description The order ID.
      *
      * @example 2035629******
      *
@@ -27,7 +27,7 @@ class ModifyDBNodeClassResponseBody extends Model
     public $orderId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 685F028C-4FCD-407D-A559-072D63******
      *

@@ -39,6 +39,7 @@ class CreateDBNodesRequest extends Model
      *
      *   RO
      *   STANDBY
+     *   DLNode
      *
      * @example RO
      *

@@ -18,9 +18,12 @@ class UpgradeDBClusterVersionRequest extends Model
     public $DBClusterId;
 
     /**
-     * @description Specifies whether to immediately run the task to modify parameters and restart the cluster. Valid values:
+     * @description Specifies whether to immediately run the kernel upgrade task. Valid values:
      *
-     * > No need to use this parameter when calling this interface
+     *   **false** (default)
+     *   **true**
+     *
+     * >  This parameter is not required when you call the operation.
      * @example false
      *
      * @var bool
@@ -79,8 +82,10 @@ class UpgradeDBClusterVersionRequest extends Model
     public $targetDBRevisionVersionCode;
 
     /**
-     * @description Kernel version upgrade label. The value is fixed as INNOVATE.
-     * > this parameter is passed in, UpgradePolicy must pass COLD.
+     * @description The upgrade tag. The value is fixed as **INNOVATE**.
+     *
+     * > *   This parameter is applicable only when you upgrade PolarDB for MySQL 8.0.1 to PolarDB for MySQL 8.0.2.
+     * >*   If you specify this parameter, you must set `UpgradePolicy` to **COLD**.
      * @example INNOVATE
      *
      * @var string
@@ -88,9 +93,11 @@ class UpgradeDBClusterVersionRequest extends Model
     public $upgradeLabel;
 
     /**
-     * @description Kernel version upgrade strategy. Value:
+     * @description The upgrade policy. Valid values:
      *
-     * - COLD: Cold upgrade. Currently, only PolarDB MySQL version 8.0 cluster version supports this upgrade method.
+     *   **HOT**: hot upgrade.
+     *   **COLD**: cold upgrade. Only PolarDB for MySQL Cluster Edition that runs MySQL 8.0 supports this upgrade method.
+     *
      * @example HOT
      *
      * @var string
@@ -98,9 +105,12 @@ class UpgradeDBClusterVersionRequest extends Model
     public $upgradePolicy;
 
     /**
-     * @description There is no need to use this parameter to upgrade the type when calling this interface. Value:
+     * @description The update type. Valid values:
      *
-     * - ALL (default): Upgrade both database proxy and kernel engine simultaneously
+     *   **PROXY**: specifies to upgrade PloarProxy.
+     *   **DB**: specifies to upgrade the kernel version.
+     *   **ALL**: specifies to upgrade both PloarProxy and kernel version.
+     *
      * @example PROXY
      *
      * @var string

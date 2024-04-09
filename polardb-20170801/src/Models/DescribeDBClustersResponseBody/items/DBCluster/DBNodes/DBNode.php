@@ -30,7 +30,7 @@ class DBNode extends Model
      * @description The role of the node. Valid values:
      *
      *   **Writer**: The node is the primary node.
-     *   **Reader**: The node is a read-only node.
+     *   **Reader**: The node is the read-only node.
      *
      * @example Reader
      *
@@ -72,7 +72,10 @@ class DBNode extends Model
     public $regionId;
 
     /**
-     * @description Indicates whether the serverless feature is enabled for the current node. **ON** indicates that the serverless feature is enabled. An empty value indicates that the serverless feature is disabled.
+     * @description Indicates whether the serverless feature is enabled for the current node.
+     *
+     *   **ON** indicates that the serverless feature is enabled.
+     *   An empty value indicates that the serverless feature is disabled.
      *
      * @example ON
      *
