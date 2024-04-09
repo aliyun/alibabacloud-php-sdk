@@ -11,7 +11,7 @@ class UnbindAccountRequest extends Model
     /**
      * @description The name of the database account.
      *
-     * > You can call the [DescribeAccounts](~~612430~~) operation to view the information about a database account in a cluster, including the name of the database account.
+     * >  You can call the [DescribeAccounts](~~612430~~) operation to query the information about database accounts of an AnalyticDB for MySQL cluster, including database account names.
      * @example test_accout
      *
      * @var string

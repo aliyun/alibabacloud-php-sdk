@@ -37,6 +37,8 @@ class CreateDBResourceGroupRequest extends Model
     public $DBClusterId;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $enableSpot;

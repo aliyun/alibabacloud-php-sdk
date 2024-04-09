@@ -21,7 +21,7 @@ class ModifyClusterConnectionStringRequest extends Model
     public $connectionStringPrefix;
 
     /**
-     * @description The current public endpoint of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+     * @description The public endpoint of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *
      * @example amv-bp11q28kvl688****.ads.aliyuncs.com
      *
@@ -39,7 +39,7 @@ class ModifyClusterConnectionStringRequest extends Model
     public $DBClusterId;
 
     /**
-     * @description The port number that is used to connect to the cluster. Set the value to **3306**.
+     * @description The port number. Set the value to **3306**.
      *
      * @example 3306
      *

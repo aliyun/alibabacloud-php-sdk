@@ -36,6 +36,8 @@ class CreateDBResourceGroupShrinkRequest extends Model
     public $DBClusterId;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $enableSpot;

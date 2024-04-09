@@ -27,6 +27,14 @@ class resourceGroupList extends Model
     public $clusterSizeResource;
 
     /**
+     * @description Indicates whether the preemptible instance feature is enabled for the resource group. After the preemptible instance feature is enabled, you are charged for resources at a lower unit price but the resources are probably released. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * The True value is returned only for job resource groups.
+     * @example true
+     *
      * @var bool
      */
     public $enableSpot;
@@ -113,7 +121,7 @@ class resourceGroupList extends Model
     public $runningClusterCount;
 
     /**
-     * @description The state of the resource group. Valid values:
+     * @description The status of the resource group. Valid values:
      *
      *   **running**
      *   **deleting**

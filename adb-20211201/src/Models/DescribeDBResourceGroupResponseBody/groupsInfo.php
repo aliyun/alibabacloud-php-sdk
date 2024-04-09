@@ -37,7 +37,7 @@ class groupsInfo extends Model
     public $createTime;
 
     /**
-     * @description The minimum amount of elastic computing resources. Unit: ACUs.
+     * @description The minimum amount of elastic computing resources. Unit: ACU.
      *
      * @example 16ACU
      *
@@ -46,6 +46,8 @@ class groupsInfo extends Model
     public $elasticMinComputeResource;
 
     /**
+     * @example True
+     *
      * @var string
      */
     public $enableSpot;
@@ -73,7 +75,7 @@ class groupsInfo extends Model
     public $groupType;
 
     /**
-     * @description The Resource Access Management (RAM) user with which the resource group is associated.
+     * @description The Resource Access Management (RAM) user that is associated with the resource group.
      *
      * @example testb,testc
      *
@@ -91,7 +93,7 @@ class groupsInfo extends Model
     public $maxClusterCount;
 
     /**
-     * @description The maximum amount of reserved computing resources. Unit: ACUs.
+     * @description The maximum amount of reserved computing resources. Unit: ACU.
      *
      * @example 512ACU
      *
@@ -109,7 +111,7 @@ class groupsInfo extends Model
     public $minClusterCount;
 
     /**
-     * @description The minimum amount of reserved computing resources. Unit: AnalyticDB compute units (ACUs).
+     * @description The minimum amount of reserved computing resources. Unit: AnalyticDB compute unit (ACU).
      *
      * @example 0ACU
      *
@@ -132,7 +134,7 @@ class groupsInfo extends Model
     public $runningClusterCount;
 
     /**
-     * @description The state of the resource group. Valid values:
+     * @description The status of the resource group. Valid values:
      *
      *   **creating**: The resource group is being created.
      *   **ok**: The resource group is created.

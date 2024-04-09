@@ -36,7 +36,7 @@ class data extends Model
     public $logContent;
 
     /**
-     * @description The number of entries per page. A value of 0 indicates that no valid logs are returned.
+     * @description The number of log entries. A value of 0 indicates that no valid logs are returned.
      *
      * @example 775946240
      *
