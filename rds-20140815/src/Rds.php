@@ -81,9 +81,6 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\CreateMigrateTaskRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateMigrateTaskResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateOnlineDatabaseTaskRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateOnlineDatabaseTaskResponse;
-use AlibabaCloud\SDK\Rds\V20140815\Models\CreateOrderForCreateDBNodesRequest;
-use AlibabaCloud\SDK\Rds\V20140815\Models\CreateOrderForCreateDBNodesResponse;
-use AlibabaCloud\SDK\Rds\V20140815\Models\CreateOrderForCreateDBNodesShrinkRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateOrderForDeleteDBNodesRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateOrderForDeleteDBNodesResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateOrderForDeleteDBNodesShrinkRequest;
@@ -518,9 +515,6 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyTaskInfoRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyTaskInfoResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyWhitelistTemplateRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyWhitelistTemplateResponse;
-use AlibabaCloud\SDK\Rds\V20140815\Models\PreCheckCreateOrderForCreateDBNodesRequest;
-use AlibabaCloud\SDK\Rds\V20140815\Models\PreCheckCreateOrderForCreateDBNodesResponse;
-use AlibabaCloud\SDK\Rds\V20140815\Models\PreCheckCreateOrderForCreateDBNodesShrinkRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\PreCheckCreateOrderForDeleteDBNodesRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\PreCheckCreateOrderForDeleteDBNodesResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\PreCheckCreateOrderForDeleteDBNodesShrinkRequest;
@@ -3811,111 +3805,6 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createOnlineDatabaseTaskWithOptions($request, $runtime);
-    }
-
-    /**
-     * ### [](#)Supported database engines
-     *   * MySQL
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [Add a node to an ApsaraDB RDS for MySQL cluster](~~464129~~).
-     *   *
-     * @param CreateOrderForCreateDBNodesRequest $tmpReq  CreateOrderForCreateDBNodesRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
-     *
-     * @return CreateOrderForCreateDBNodesResponse CreateOrderForCreateDBNodesResponse
-     */
-    public function createOrderForCreateDBNodesWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new CreateOrderForCreateDBNodesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->DBNode)) {
-            $request->DBNodeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->DBNode, 'DBNode', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->autoPay)) {
-            $query['AutoPay'] = $request->autoPay;
-        }
-        if (!Utils::isUnset($request->businessInfo)) {
-            $query['BusinessInfo'] = $request->businessInfo;
-        }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
-        }
-        if (!Utils::isUnset($request->commodityCode)) {
-            $query['CommodityCode'] = $request->commodityCode;
-        }
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
-        }
-        if (!Utils::isUnset($request->DBNodeShrink)) {
-            $query['DBNode'] = $request->DBNodeShrink;
-        }
-        if (!Utils::isUnset($request->engineVersion)) {
-            $query['EngineVersion'] = $request->engineVersion;
-        }
-        if (!Utils::isUnset($request->nodeType)) {
-            $query['NodeType'] = $request->nodeType;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->promotionCode)) {
-            $query['PromotionCode'] = $request->promotionCode;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resource)) {
-            $query['Resource'] = $request->resource;
-        }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateOrderForCreateDBNodes',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateOrderForCreateDBNodesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * ### [](#)Supported database engines
-     *   * MySQL
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [Add a node to an ApsaraDB RDS for MySQL cluster](~~464129~~).
-     *   *
-     * @param CreateOrderForCreateDBNodesRequest $request CreateOrderForCreateDBNodesRequest
-     *
-     * @return CreateOrderForCreateDBNodesResponse CreateOrderForCreateDBNodesResponse
-     */
-    public function createOrderForCreateDBNodes($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createOrderForCreateDBNodesWithOptions($request, $runtime);
     }
 
     /**
@@ -20463,96 +20352,6 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyWhitelistTemplateWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param PreCheckCreateOrderForCreateDBNodesRequest $tmpReq
-     * @param RuntimeOptions                             $runtime
-     *
-     * @return PreCheckCreateOrderForCreateDBNodesResponse
-     */
-    public function preCheckCreateOrderForCreateDBNodesWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new PreCheckCreateOrderForCreateDBNodesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->DBNode)) {
-            $request->DBNodeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->DBNode, 'DBNode', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->autoPay)) {
-            $query['AutoPay'] = $request->autoPay;
-        }
-        if (!Utils::isUnset($request->businessInfo)) {
-            $query['BusinessInfo'] = $request->businessInfo;
-        }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
-        }
-        if (!Utils::isUnset($request->commodityCode)) {
-            $query['CommodityCode'] = $request->commodityCode;
-        }
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
-        }
-        if (!Utils::isUnset($request->DBNodeShrink)) {
-            $query['DBNode'] = $request->DBNodeShrink;
-        }
-        if (!Utils::isUnset($request->engineVersion)) {
-            $query['EngineVersion'] = $request->engineVersion;
-        }
-        if (!Utils::isUnset($request->nodeType)) {
-            $query['NodeType'] = $request->nodeType;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->promotionCode)) {
-            $query['PromotionCode'] = $request->promotionCode;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resource)) {
-            $query['Resource'] = $request->resource;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'PreCheckCreateOrderForCreateDBNodes',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return PreCheckCreateOrderForCreateDBNodesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param PreCheckCreateOrderForCreateDBNodesRequest $request
-     *
-     * @return PreCheckCreateOrderForCreateDBNodesResponse
-     */
-    public function preCheckCreateOrderForCreateDBNodes($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->preCheckCreateOrderForCreateDBNodesWithOptions($request, $runtime);
     }
 
     /**
