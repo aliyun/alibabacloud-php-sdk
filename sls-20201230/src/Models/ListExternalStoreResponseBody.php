@@ -20,7 +20,7 @@ class ListExternalStoreResponseBody extends Model
     /**
      * @description The names of the external stores.
      *
-     * @var ExternalStore[]
+     * @var string[]
      */
     public $externalstores;
 
@@ -49,13 +49,7 @@ class ListExternalStoreResponseBody extends Model
             $res['count'] = $this->count;
         }
         if (null !== $this->externalstores) {
-            $res['externalstores'] = [];
-            if (null !== $this->externalstores && \is_array($this->externalstores)) {
-                $n = 0;
-                foreach ($this->externalstores as $item) {
-                    $res['externalstores'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['externalstores'] = $this->externalstores;
         }
         if (null !== $this->total) {
             $res['total'] = $this->total;
@@ -77,11 +71,7 @@ class ListExternalStoreResponseBody extends Model
         }
         if (isset($map['externalstores'])) {
             if (!empty($map['externalstores'])) {
-                $model->externalstores = [];
-                $n                     = 0;
-                foreach ($map['externalstores'] as $item) {
-                    $model->externalstores[$n++] = null !== $item ? ExternalStore::fromMap($item) : $item;
-                }
+                $model->externalstores = $map['externalstores'];
             }
         }
         if (isset($map['total'])) {

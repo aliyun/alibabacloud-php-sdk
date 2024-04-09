@@ -35,7 +35,7 @@ class sink extends Model
     public $compressionType;
 
     /**
-     * @var string
+     * @var mixed[]
      */
     public $contentDetail;
 

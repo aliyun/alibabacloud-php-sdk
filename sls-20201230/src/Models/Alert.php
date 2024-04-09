@@ -50,7 +50,7 @@ class Alert extends Model
     public $schedule;
 
     /**
-     * @example Enabled/Disabled
+     * @example ENABLED/DISABLED
      *
      * @var string
      */

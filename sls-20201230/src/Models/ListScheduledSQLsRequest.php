@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListScheduledSQLsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $logstore;
+
+    /**
      * @example 0
      *
      * @var int
@@ -22,8 +27,9 @@ class ListScheduledSQLsRequest extends Model
      */
     public $size;
     protected $_name = [
-        'offset' => 'offset',
-        'size'   => 'size',
+        'logstore' => 'logstore',
+        'offset'   => 'offset',
+        'size'     => 'size',
     ];
 
     public function validate()
@@ -33,6 +39,9 @@ class ListScheduledSQLsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->logstore) {
+            $res['logstore'] = $this->logstore;
+        }
         if (null !== $this->offset) {
             $res['offset'] = $this->offset;
         }
@@ -51,6 +60,9 @@ class ListScheduledSQLsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['logstore'])) {
+            $model->logstore = $map['logstore'];
+        }
         if (isset($map['offset'])) {
             $model->offset = $map['offset'];
         }

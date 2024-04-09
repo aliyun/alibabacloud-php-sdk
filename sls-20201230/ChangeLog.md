@@ -1,3 +1,77 @@
+2024-04-09 Version: 4.1.0
+- Support API CreateETL.
+- Support API CreateOSSExport.
+- Support API CreateOSSHDFSExport.
+- Support API CreateOSSIngestion.
+- Support API CreateScheduledSQL.
+- Support API CreateSqlInstance.
+- Support API DeleteETL.
+- Support API DeleteOSSExport.
+- Support API DeleteOSSHDFSExport.
+- Support API DeleteOSSIngestion.
+- Support API DeleteScheduledSQL.
+- Support API GetETL.
+- Support API GetOSSExport.
+- Support API GetOSSHDFSExport.
+- Support API GetOSSIngestion.
+- Support API GetScheduledSQL.
+- Support API GetSlsService.
+- Support API GetSqlInstance.
+- Support API ListETLs.
+- Support API ListOSSExports.
+- Support API ListOSSHDFSExports.
+- Support API ListOSSIngestions.
+- Support API ListScheduledSQLs.
+- Support API MergeShard.
+- Support API OpenSlsService.
+- Support API RefreshToken.
+- Support API StartETL.
+- Support API StartOSSExport.
+- Support API StartOSSHDFSExport.
+- Support API StartOSSIngestion.
+- Support API StopETL.
+- Support API StopOSSExport.
+- Support API StopOSSHDFSExport.
+- Support API StopOSSIngestion.
+- Support API UpdateETL.
+- Support API UpdateOSSExport.
+- Support API UpdateOSSHDFSExport.
+- Support API UpdateOSSIngestion.
+- Support API UpdateScheduledSQL.
+- Support API UpdateSqlInstance.
+- Update API CreateAlert: add param body.
+- Update API CreateAlert: update param project.
+- Update API CreateAlert: update param body.
+- Update API CreateAlert: update response param.
+- Update API CreateTicket: add param accessTokenExpirationTime.
+- Update API CreateTicket: add param expirationTime.
+- Update API DeleteAlert: update param project.
+- Update API DeleteAlert: update param alertName.
+- Update API DeleteAlert: update response param.
+- Update API DisableAlert: update param project.
+- Update API DisableAlert: update param alertName.
+- Update API DisableAlert: update response param.
+- Update API EnableAlert: update param project.
+- Update API EnableAlert: update param alertName.
+- Update API EnableAlert: update response param.
+- Update API GetAlert: update param project.
+- Update API GetAlert: update param alertName.
+- Update API GetAlert: update response param.
+- Update API GetLogsV2: update param project.
+- Update API GetLogsV2: update param logstore.
+- Update API GetLogsV2: update param Accept-Encoding.
+- Update API GetLogsV2: update param body.
+- Update API GetLogsV2: update response param.
+- Update API ListAlerts: update response param.
+- Update API ListCollectionPolicies: update param pageNum.
+- Update API ListExternalStore: update response param.
+- Update API UpdateAlert: add param body.
+- Update API UpdateAlert: update param project.
+- Update API UpdateAlert: update param alertName.
+- Update API UpdateAlert: update param body.
+- Update API UpdateAlert: update response param.
+
+
 2024-02-07 Version: 4.0.1
 - Generated php 2020-12-30 for Sls.
 

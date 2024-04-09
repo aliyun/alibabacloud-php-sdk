@@ -11,7 +11,7 @@ class GroupConfiguration extends Model
     /**
      * @var string[]
      */
-    public $fileds;
+    public $fields;
 
     /**
      * @example custom
@@ -20,7 +20,7 @@ class GroupConfiguration extends Model
      */
     public $type;
     protected $_name = [
-        'fileds' => 'fileds',
+        'fields' => 'fields',
         'type'   => 'type',
     ];
 
@@ -31,8 +31,8 @@ class GroupConfiguration extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->fileds) {
-            $res['fileds'] = $this->fileds;
+        if (null !== $this->fields) {
+            $res['fields'] = $this->fields;
         }
         if (null !== $this->type) {
             $res['type'] = $this->type;
@@ -49,9 +49,9 @@ class GroupConfiguration extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['fileds'])) {
-            if (!empty($map['fileds'])) {
-                $model->fileds = $map['fileds'];
+        if (isset($map['fields'])) {
+            if (!empty($map['fields'])) {
+                $model->fields = $map['fields'];
             }
         }
         if (isset($map['type'])) {

@@ -52,6 +52,9 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\CreateSavedSearchRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateSavedSearchResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateScheduledSQLRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateScheduledSQLResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateSqlInstanceRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateSqlInstanceResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateTicketRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateTicketResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteAlertResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteAnnotationDataResponse;
@@ -126,6 +129,8 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\GetSavedSearchResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetScheduledSQLResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetShipperStatusRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetShipperStatusResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetSlsServiceResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetSqlInstanceResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListAlertsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListAlertsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListAnnotationDataRequest;
@@ -174,6 +179,7 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListTagResourcesShrinkRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\MergeShardResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\OpenSlsServiceResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\PutAnnotationDataRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\PutAnnotationDataResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\PutProjectPolicyRequest;
@@ -184,6 +190,8 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\PutWebtrackingRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\PutWebtrackingResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\QueryMLServiceResultsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\QueryMLServiceResultsResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\RefreshTokenRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\RefreshTokenResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\RemoveConfigFromMachineGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\SplitShardRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\SplitShardResponse;
@@ -243,6 +251,8 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateSavedSearchRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateSavedSearchResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateScheduledSQLRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateScheduledSQLResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateSqlInstanceRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateSqlInstanceResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpsertCollectionPolicyRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpsertCollectionPolicyResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -259,9 +269,10 @@ class Sls extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_client       = new DarabonbaGatewaySlsClient();
-        $this->_spi          = $this->_client;
-        $this->_endpointRule = 'central';
+        $this->_client             = new DarabonbaGatewaySlsClient();
+        $this->_spi                = $this->_client;
+        $this->_signatureAlgorithm = 'v2';
+        $this->_endpointRule       = 'central';
     }
 
     /**
@@ -1754,15 +1765,79 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                   $project
+     * @param CreateSqlInstanceRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateSqlInstanceResponse
+     */
+    public function createSqlInstanceWithOptions($project, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $body               = [];
+        if (!Utils::isUnset($request->cu)) {
+            $body['cu'] = $request->cu;
+        }
+        if (!Utils::isUnset($request->useAsDefault)) {
+            $body['useAsDefault'] = $request->useAsDefault;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSqlInstance',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/sqlinstance',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return CreateSqlInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                   $project
+     * @param CreateSqlInstanceRequest $request
+     *
+     * @return CreateSqlInstanceResponse
+     */
+    public function createSqlInstance($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createSqlInstanceWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param CreateTicketRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
      *
      * @return CreateTicketResponse
      */
-    public function createTicketWithOptions($headers, $runtime)
+    public function createTicketWithOptions($request, $headers, $runtime)
     {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessTokenExpirationTime)) {
+            $query['accessTokenExpirationTime'] = $request->accessTokenExpirationTime;
+        }
+        if (!Utils::isUnset($request->expirationTime)) {
+            $query['expirationTime'] = $request->expirationTime;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateTicket',
@@ -1780,14 +1855,16 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * @param CreateTicketRequest $request
+     *
      * @return CreateTicketResponse
      */
-    public function createTicket()
+    public function createTicket($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createTicketWithOptions($headers, $runtime);
+        return $this->createTicketWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4247,9 +4324,6 @@ class Sls extends OpenApiClient
         if (!Utils::isUnset($request->session)) {
             $body['session'] = $request->session;
         }
-        if (!Utils::isUnset($request->shard)) {
-            $body['shard'] = $request->shard;
-        }
         if (!Utils::isUnset($request->to)) {
             $body['to'] = $request->to;
         }
@@ -4926,6 +5000,86 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetSlsServiceResponse
+     */
+    public function getSlsServiceWithOptions($headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetSlsService',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/slsservice',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetSlsServiceResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @return GetSlsServiceResponse
+     */
+    public function getSlsService()
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getSlsServiceWithOptions($headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetSqlInstanceResponse
+     */
+    public function getSqlInstanceWithOptions($project, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetSqlInstance',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/sqlinstance',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'array',
+        ]);
+
+        return GetSqlInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     *
+     * @return GetSqlInstanceResponse
+     */
+    public function getSqlInstance($project)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getSqlInstanceWithOptions($project, $headers, $runtime);
+    }
+
+    /**
      * @param string            $project
      * @param ListAlertsRequest $request
      * @param string[]          $headers
@@ -5466,6 +5620,9 @@ class Sls extends OpenApiClient
         $hostMap            = [];
         $hostMap['project'] = $project;
         $query              = [];
+        if (!Utils::isUnset($request->logstore)) {
+            $query['logstore'] = $request->logstore;
+        }
         if (!Utils::isUnset($request->offset)) {
             $query['offset'] = $request->offset;
         }
@@ -5851,6 +6008,9 @@ class Sls extends OpenApiClient
         $hostMap            = [];
         $hostMap['project'] = $project;
         $query              = [];
+        if (!Utils::isUnset($request->logstore)) {
+            $query['logstore'] = $request->logstore;
+        }
         if (!Utils::isUnset($request->offset)) {
             $query['offset'] = $request->offset;
         }
@@ -5905,6 +6065,9 @@ class Sls extends OpenApiClient
         $hostMap            = [];
         $hostMap['project'] = $project;
         $query              = [];
+        if (!Utils::isUnset($request->logstore)) {
+            $query['logstore'] = $request->logstore;
+        }
         if (!Utils::isUnset($request->offset)) {
             $query['offset'] = $request->offset;
         }
@@ -5959,6 +6122,9 @@ class Sls extends OpenApiClient
         $hostMap            = [];
         $hostMap['project'] = $project;
         $query              = [];
+        if (!Utils::isUnset($request->logstore)) {
+            $query['logstore'] = $request->logstore;
+        }
         if (!Utils::isUnset($request->offset)) {
             $query['offset'] = $request->offset;
         }
@@ -6134,6 +6300,9 @@ class Sls extends OpenApiClient
         $hostMap            = [];
         $hostMap['project'] = $project;
         $query              = [];
+        if (!Utils::isUnset($request->logstore)) {
+            $query['logstore'] = $request->logstore;
+        }
         if (!Utils::isUnset($request->offset)) {
             $query['offset'] = $request->offset;
         }
@@ -6388,6 +6557,43 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return OpenSlsServiceResponse
+     */
+    public function openSlsServiceWithOptions($headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'OpenSlsService',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/slsservice',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return OpenSlsServiceResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @return OpenSlsServiceResponse
+     */
+    public function openSlsService()
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->openSlsServiceWithOptions($headers, $runtime);
+    }
+
+    /**
      * @param string                   $datasetId
      * @param PutAnnotationDataRequest $request
      * @param string[]                 $headers
@@ -6602,7 +6808,7 @@ class Sls extends OpenApiClient
             'protocol'    => 'HTTPS',
             'pathname'    => '/logstores/' . $logstoreName . '/track',
             'method'      => 'POST',
-            'authType'    => 'AK',
+            'authType'    => 'Anonymous',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'none',
@@ -6690,6 +6896,55 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->queryMLServiceResultsWithOptions($serviceName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param RefreshTokenRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return RefreshTokenResponse
+     */
+    public function refreshTokenWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessTokenExpirationTime)) {
+            $query['accessTokenExpirationTime'] = $request->accessTokenExpirationTime;
+        }
+        if (!Utils::isUnset($request->ticket)) {
+            $query['ticket'] = $request->ticket;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RefreshToken',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/token/refresh',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return RefreshTokenResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param RefreshTokenRequest $request
+     *
+     * @return RefreshTokenResponse
+     */
+    public function refreshToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->refreshTokenWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -8673,6 +8928,60 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->updateScheduledSQLWithOptions($project, $scheduledSQLName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                   $project
+     * @param UpdateSqlInstanceRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateSqlInstanceResponse
+     */
+    public function updateSqlInstanceWithOptions($project, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $body               = [];
+        if (!Utils::isUnset($request->cu)) {
+            $body['cu'] = $request->cu;
+        }
+        if (!Utils::isUnset($request->useAsDefault)) {
+            $body['useAsDefault'] = $request->useAsDefault;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateSqlInstance',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/sqlinstance',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return UpdateSqlInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                   $project
+     * @param UpdateSqlInstanceRequest $request
+     *
+     * @return UpdateSqlInstanceResponse
+     */
+    public function updateSqlInstance($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateSqlInstanceWithOptions($project, $request, $headers, $runtime);
     }
 
     /**

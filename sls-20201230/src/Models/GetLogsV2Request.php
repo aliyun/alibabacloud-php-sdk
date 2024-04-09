@@ -91,15 +91,6 @@ class GetLogsV2Request extends Model
     public $session;
 
     /**
-     * @description The ID of the shard.
-     *
-     * @example 0
-     *
-     * @var int
-     */
-    public $shard;
-
-    /**
      * @description The end of the time range to query. The value is the log time that is specified when log data is written.
      *
      * The time range that is specified in this operation is a left-closed, right-open interval. The interval includes the start time specified by the from parameter, but does not include the end time specified by the to parameter. If you specify the same value for the from and to parameters, the interval is invalid, and an error message is returned. The value is a UNIX timestamp representing the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC.
@@ -127,7 +118,6 @@ class GetLogsV2Request extends Model
         'query'     => 'query',
         'reverse'   => 'reverse',
         'session'   => 'session',
-        'shard'     => 'shard',
         'to'        => 'to',
         'topic'     => 'topic',
     ];
@@ -165,9 +155,6 @@ class GetLogsV2Request extends Model
         }
         if (null !== $this->session) {
             $res['session'] = $this->session;
-        }
-        if (null !== $this->shard) {
-            $res['shard'] = $this->shard;
         }
         if (null !== $this->to) {
             $res['to'] = $this->to;
@@ -213,9 +200,6 @@ class GetLogsV2Request extends Model
         }
         if (isset($map['session'])) {
             $model->session = $map['session'];
-        }
-        if (isset($map['shard'])) {
-            $model->shard = $map['shard'];
         }
         if (isset($map['to'])) {
             $model->to = $map['to'];

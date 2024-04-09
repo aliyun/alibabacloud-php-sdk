@@ -58,6 +58,13 @@ class Ticket extends Model
     public $number;
 
     /**
+     * @example {"type":"aliyun","ids":[1,2]}
+     *
+     * @var string
+     */
+    public $sharingTo;
+
+    /**
      * @example xxxxx
      *
      * @var string
@@ -92,6 +99,7 @@ class Ticket extends Model
         'extra'          => 'extra',
         'name'           => 'name',
         'number'         => 'number',
+        'sharingTo'      => 'sharingTo',
         'ticket'         => 'ticket',
         'ticketId'       => 'ticketId',
         'usedNumber'     => 'usedNumber',
@@ -125,6 +133,9 @@ class Ticket extends Model
         }
         if (null !== $this->number) {
             $res['number'] = $this->number;
+        }
+        if (null !== $this->sharingTo) {
+            $res['sharingTo'] = $this->sharingTo;
         }
         if (null !== $this->ticket) {
             $res['ticket'] = $this->ticket;
@@ -170,6 +181,9 @@ class Ticket extends Model
         }
         if (isset($map['number'])) {
             $model->number = $map['number'];
+        }
+        if (isset($map['sharingTo'])) {
+            $model->sharingTo = $map['sharingTo'];
         }
         if (isset($map['ticket'])) {
             $model->ticket = $map['ticket'];
