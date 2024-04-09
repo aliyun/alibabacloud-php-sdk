@@ -22,10 +22,16 @@ class sourcePrometheusParameters extends Model
      * @var string
      */
     public $labels;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'clusterId' => 'ClusterId',
         'dataType'  => 'DataType',
         'labels'    => 'Labels',
+        'regionId'  => 'RegionId',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class sourcePrometheusParameters extends Model
         }
         if (null !== $this->labels) {
             $res['Labels'] = $this->labels;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -64,6 +73,9 @@ class sourcePrometheusParameters extends Model
         }
         if (isset($map['Labels'])) {
             $model->labels = $map['Labels'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

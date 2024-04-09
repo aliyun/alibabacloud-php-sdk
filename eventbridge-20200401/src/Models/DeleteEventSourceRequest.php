@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteEventSourceRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $eventBusName;
+
+    /**
      * @description The name of the event source.
      *
      * @example myrabbitmq.source
@@ -17,6 +22,7 @@ class DeleteEventSourceRequest extends Model
      */
     public $eventSourceName;
     protected $_name = [
+        'eventBusName'    => 'EventBusName',
         'eventSourceName' => 'EventSourceName',
     ];
 
@@ -27,6 +33,9 @@ class DeleteEventSourceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->eventBusName) {
+            $res['EventBusName'] = $this->eventBusName;
+        }
         if (null !== $this->eventSourceName) {
             $res['EventSourceName'] = $this->eventSourceName;
         }
@@ -42,6 +51,9 @@ class DeleteEventSourceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EventBusName'])) {
+            $model->eventBusName = $map['EventBusName'];
+        }
         if (isset($map['EventSourceName'])) {
             $model->eventSourceName = $map['EventSourceName'];
         }

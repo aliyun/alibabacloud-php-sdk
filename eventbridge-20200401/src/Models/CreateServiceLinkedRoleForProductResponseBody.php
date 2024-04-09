@@ -18,6 +18,11 @@ class CreateServiceLinkedRoleForProductResponseBody extends Model
     public $code;
 
     /**
+     * @var int
+     */
+    public $httpCode;
+
+    /**
      * @description The returned message. If the request is successful, success is returned.
      *
      * @example success
@@ -45,6 +50,7 @@ class CreateServiceLinkedRoleForProductResponseBody extends Model
     public $success;
     protected $_name = [
         'code'      => 'Code',
+        'httpCode'  => 'HttpCode',
         'message'   => 'Message',
         'requestId' => 'RequestId',
         'success'   => 'Success',
@@ -59,6 +65,9 @@ class CreateServiceLinkedRoleForProductResponseBody extends Model
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+        if (null !== $this->httpCode) {
+            $res['HttpCode'] = $this->httpCode;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -83,6 +92,9 @@ class CreateServiceLinkedRoleForProductResponseBody extends Model
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
+        }
+        if (isset($map['HttpCode'])) {
+            $model->httpCode = $map['HttpCode'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

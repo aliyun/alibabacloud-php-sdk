@@ -759,6 +759,9 @@ class Eventbridge extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->eventBusName)) {
+            $body['EventBusName'] = $request->eventBusName;
+        }
         if (!Utils::isUnset($request->eventSourceName)) {
             $body['EventSourceName'] = $request->eventSourceName;
         }
