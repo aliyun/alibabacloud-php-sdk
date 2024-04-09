@@ -8,6 +8,8 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\AuthDiagnosisRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\AuthDiagnosisResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\GenerateCopilotResponseRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\GenerateCopilotResponseResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetDiagnosisResultRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetDiagnosisResultResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\InvokeDiagnosisRequest;
@@ -95,6 +97,52 @@ class SysOM extends OpenApiClient
         $headers = [];
 
         return $this->authDiagnosisWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param GenerateCopilotResponseRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GenerateCopilotResponseResponse
+     */
+    public function generateCopilotResponseWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->llmParamString)) {
+            $body['llmParamString'] = $request->llmParamString;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GenerateCopilotResponse',
+            'version'     => '2023-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/copilot/generate_copilot_response',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GenerateCopilotResponseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GenerateCopilotResponseRequest $request
+     *
+     * @return GenerateCopilotResponseResponse
+     */
+    public function generateCopilotResponse($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->generateCopilotResponseWithOptions($request, $headers, $runtime);
     }
 
     /**
