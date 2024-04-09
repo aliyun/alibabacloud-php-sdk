@@ -30,8 +30,6 @@ class ListServicesRequest extends Model
     public $label;
 
     /**
-     * @description 所属的group。
-     *
      * @example asc
      *
      * @var string
@@ -55,18 +53,20 @@ class ListServicesRequest extends Model
     public $pageSize;
 
     /**
+     * @example eas-m-ijafy3c8cxxxx
+     *
      * @var string
      */
     public $parentServiceUid;
 
     /**
+     * @example quota12345
+     *
      * @var string
      */
     public $quotaId;
 
     /**
-     * @description 服务所属的资源组名称或ID。
-     *
      * @example eas-r-hd0qwy8cxxxx
      *
      * @var string
@@ -74,8 +74,6 @@ class ListServicesRequest extends Model
     public $resourceName;
 
     /**
-     * @description 服务名。
-     *
      * @example echo_test
      *
      * @var string
@@ -83,8 +81,6 @@ class ListServicesRequest extends Model
     public $serviceName;
 
     /**
-     * @description 服务运行的状态。
-     *
      * @example Running
      *
      * @var string
@@ -92,6 +88,8 @@ class ListServicesRequest extends Model
     public $serviceStatus;
 
     /**
+     * @example Standard
+     *
      * @var string
      */
     public $serviceType;
@@ -104,8 +102,6 @@ class ListServicesRequest extends Model
     public $serviceUid;
 
     /**
-     * @description 服务的类型定义。
-     *
      * @example CreateTime
      *
      * @var string
@@ -113,6 +109,8 @@ class ListServicesRequest extends Model
     public $sort;
 
     /**
+     * @example 123456
+     *
      * @var string
      */
     public $workspaceId;

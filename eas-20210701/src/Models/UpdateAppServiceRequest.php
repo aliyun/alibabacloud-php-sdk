@@ -31,7 +31,7 @@ class UpdateAppServiceRequest extends Model
      *
      * Valid values:
      *
-     *   LLM
+     *   LLM: the large language model (LLM) application
      *
      * <!-- -->
      * @example LLM
@@ -50,14 +50,14 @@ class UpdateAppServiceRequest extends Model
     public $appVersion;
 
     /**
-     * @description Additional configurations that are required for the service deployment.
+     * @description The additional configurations that are required for service deployment.
      *
      * @var mixed[]
      */
     public $config;
 
     /**
-     * @description The number of instances.
+     * @description The number of instances. This value must be greater than 0.
      *
      * @example 1
      *
@@ -66,7 +66,18 @@ class UpdateAppServiceRequest extends Model
     public $replicas;
 
     /**
-     * @description The service specifications.
+     * @description The service specifications. Valid values:
+     *
+     *   llama\_7b_fp16
+     *   llama\_7b_int8
+     *   llama\_13b_fp16
+     *   llama\_7b_int8
+     *   chatglm\_6b_fp16
+     *   chatglm\_6b_int8
+     *   chatglm2\_6b_fp16
+     *   baichuan\_7b_int8
+     *   baichuan\_13b_fp16
+     *   baichuan\_7b_fp16
      *
      * @example llama_7b_fp16
      *

@@ -38,6 +38,8 @@ class ListServiceVersionsResponseBody extends Model
     public $totalCount;
 
     /**
+     * @description The versions of the service.
+     *
      * @var versions[]
      */
     public $versions;

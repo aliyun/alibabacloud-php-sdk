@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Eas\V20210701;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Eas\V20210701\Models\CloneServiceRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\CloneServiceResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CommitServiceResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateAppServiceRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateAppServiceResponse;
@@ -178,6 +180,52 @@ class Eas extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param string              $ClusterId
+     * @param string              $ServiceName
+     * @param CloneServiceRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CloneServiceResponse
+     */
+    public function cloneServiceWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'CloneService',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/clone',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CloneServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string              $ClusterId
+     * @param string              $ServiceName
+     * @param CloneServiceRequest $request
+     *
+     * @return CloneServiceResponse
+     */
+    public function cloneService($ClusterId, $ServiceName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->cloneServiceWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime);
     }
 
     /**
@@ -447,11 +495,13 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param CreateResourceRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * **Before you call this operation, make sure that you are familiar with the [billing](~~144261~~) of Elastic Algorithm Service (EAS).
+     *   *
+     * @param CreateResourceRequest $request CreateResourceRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateResourceResponse
+     * @return CreateResourceResponse CreateResourceResponse
      */
     public function createResourceWithOptions($request, $headers, $runtime)
     {
@@ -501,9 +551,11 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param CreateResourceRequest $request
+     * **Before you call this operation, make sure that you are familiar with the [billing](~~144261~~) of Elastic Algorithm Service (EAS).
+     *   *
+     * @param CreateResourceRequest $request CreateResourceRequest
      *
-     * @return CreateResourceResponse
+     * @return CreateResourceResponse CreateResourceResponse
      */
     public function createResource($request)
     {

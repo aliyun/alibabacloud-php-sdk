@@ -58,8 +58,6 @@ class CreateResourceRequest extends Model
     public $resourceType;
 
     /**
-     * @description 自运维资源组配置选项
-     *
      * @var selfManagedResourceOptions
      */
     public $selfManagedResourceOptions;

@@ -15,6 +15,19 @@ class UpdateServiceSafetyLockRequest extends Model
      *   dangerous: locks high-risk operations such as delete and stop operations.
      *   none: locks no operations.
      *
+     * Enumerated values:
+     *
+     *   all
+     *
+     * <!-- -->
+     *
+     *   dangerous
+     *
+     * <!-- -->
+     *
+     *   none
+     *
+     * <!-- -->
      * @example dangerous
      *
      * @var string

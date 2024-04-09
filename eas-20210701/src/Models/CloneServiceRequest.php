@@ -6,21 +6,16 @@ namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UpdateServiceInstanceRequest extends Model
+class CloneServiceRequest extends Model
 {
     /**
-     * @description Specifies whether to isolate the service instance. Valid values:
+     * @example {   "name": "foo",   "model_path": "http://path/to/model.tar.gz",   "processor": "tensorflow_cpu",   "metadata": {     "instance": 2,     "memory": 7000,     "cpu": 4   } }
      *
-     *   true
-     *   false
-     *
-     * @example true
-     *
-     * @var bool
+     * @var string
      */
-    public $isolate;
+    public $body;
     protected $_name = [
-        'isolate' => 'Isolate',
+        'body' => 'body',
     ];
 
     public function validate()
@@ -30,8 +25,8 @@ class UpdateServiceInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->isolate) {
-            $res['Isolate'] = $this->isolate;
+        if (null !== $this->body) {
+            $res['body'] = $this->body;
         }
 
         return $res;
@@ -40,13 +35,13 @@ class UpdateServiceInstanceRequest extends Model
     /**
      * @param array $map
      *
-     * @return UpdateServiceInstanceRequest
+     * @return CloneServiceRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Isolate'])) {
-            $model->isolate = $map['Isolate'];
+        if (isset($map['body'])) {
+            $model->body = $map['body'];
         }
 
         return $model;

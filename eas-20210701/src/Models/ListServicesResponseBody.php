@@ -23,8 +23,6 @@ class ListServicesResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description 请求ID。
-     *
      * @example 40325405-579C-4D82****
      *
      * @var string
@@ -32,15 +30,11 @@ class ListServicesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description 服务列表。
-     *
      * @var Service[]
      */
     public $services;
 
     /**
-     * @description 服务总数。
-     *
      * @example 2
      *
      * @var int

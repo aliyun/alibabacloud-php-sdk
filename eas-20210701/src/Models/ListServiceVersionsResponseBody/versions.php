@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class versions extends Model
 {
     /**
+     * @description The time when the service version was created. The time is displayed in UTC.
+     *
      * @example 2022-08-29T22:02:14Z
      *
      * @var string
@@ -16,6 +18,12 @@ class versions extends Model
     public $buildTime;
 
     /**
+     * @description Indicates whether the image is available. Valid values:
+     *
+     *   true: The image is available.
+     *   false: The image is unavailable.
+     *   unknown: The availability of the image is unknown.
+     *
      * @example true
      *
      * @var string
@@ -23,6 +31,8 @@ class versions extends Model
     public $imageAvailable;
 
     /**
+     * @description The ID of the image.
+     *
      * @example 4
      *
      * @var int
@@ -30,6 +40,8 @@ class versions extends Model
     public $imageId;
 
     /**
+     * @description The returned message.
+     *
      * @example Service is Running
      *
      * @var string
@@ -37,11 +49,21 @@ class versions extends Model
     public $message;
 
     /**
+     * @description The service deployment configurations. This parameter is returned only if the service is deployed by using a custom image.
+     *
+     * @example {
+     * }
      * @var string
      */
     public $serviceConfig;
 
     /**
+     * @description Indicates whether EAS is enabled. Valid values:
+     *
+     *   true: EAS is enabled.
+     *   false: EAS is not enabled.
+     *   unknown: The enabling status of EAS is unknown.
+     *
      * @example true
      *
      * @var string
