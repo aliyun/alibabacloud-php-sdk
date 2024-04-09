@@ -18,7 +18,7 @@ class DescribeAvailableRecoveryTimeResponseBody extends Model
     public $crossBackupId;
 
     /**
-     * @description The start time to which data can be restored. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description The start time from which data can be restored. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2019-06-12T05:22:29Z
      *

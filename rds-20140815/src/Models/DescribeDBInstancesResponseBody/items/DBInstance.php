@@ -87,6 +87,11 @@ class DBInstance extends Model
     public $createTime;
 
     /**
+     * @var string
+     */
+    public $DBInstanceCPU;
+
+    /**
      * @description The instance type of the instance. For information, see [Primary ApsaraDB RDS instance types](~~26312~~).
      *
      * @example rds.mys2.small
@@ -94,11 +99,6 @@ class DBInstance extends Model
      * @var string
      */
     public $DBInstanceClass;
-
-    /**
-     * @var string
-     */
-    public $DBInstanceCpuCores;
 
     /**
      * @description The instance description.
@@ -119,7 +119,7 @@ class DBInstance extends Model
     public $DBInstanceId;
 
     /**
-     * @var string
+     * @var int
      */
     public $DBInstanceMemory;
 
@@ -533,8 +533,8 @@ class DBInstance extends Model
         'connectionMode'               => 'ConnectionMode',
         'connectionString'             => 'ConnectionString',
         'createTime'                   => 'CreateTime',
+        'DBInstanceCPU'                => 'DBInstanceCPU',
         'DBInstanceClass'              => 'DBInstanceClass',
-        'DBInstanceCpuCores'           => 'DBInstanceCpuCores',
         'DBInstanceDescription'        => 'DBInstanceDescription',
         'DBInstanceId'                 => 'DBInstanceId',
         'DBInstanceMemory'             => 'DBInstanceMemory',
@@ -609,11 +609,11 @@ class DBInstance extends Model
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+        if (null !== $this->DBInstanceCPU) {
+            $res['DBInstanceCPU'] = $this->DBInstanceCPU;
+        }
         if (null !== $this->DBInstanceClass) {
             $res['DBInstanceClass'] = $this->DBInstanceClass;
-        }
-        if (null !== $this->DBInstanceCpuCores) {
-            $res['DBInstanceCpuCores'] = $this->DBInstanceCpuCores;
         }
         if (null !== $this->DBInstanceDescription) {
             $res['DBInstanceDescription'] = $this->DBInstanceDescription;
@@ -780,11 +780,11 @@ class DBInstance extends Model
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+        if (isset($map['DBInstanceCPU'])) {
+            $model->DBInstanceCPU = $map['DBInstanceCPU'];
+        }
         if (isset($map['DBInstanceClass'])) {
             $model->DBInstanceClass = $map['DBInstanceClass'];
-        }
-        if (isset($map['DBInstanceCpuCores'])) {
-            $model->DBInstanceCpuCores = $map['DBInstanceCpuCores'];
         }
         if (isset($map['DBInstanceDescription'])) {
             $model->DBInstanceDescription = $map['DBInstanceDescription'];

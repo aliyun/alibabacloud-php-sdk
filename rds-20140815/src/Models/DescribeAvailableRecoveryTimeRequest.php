@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeAvailableRecoveryTimeRequest extends Model
 {
     /**
-     * @description The ID of the cross-region backup file. You can call the DescribeCrossRegionBackups operation to query the backup file ID.
+     * @description The ID of the cross-region data backup file. You can call the DescribeCrossRegionBackups operation to query the backup file ID.
      *
      * @example 14***
      *

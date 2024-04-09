@@ -73,7 +73,7 @@ class DescribeKmsAssociateResourcesRequest extends Model
     public $resourceOwnerAccount;
 
     /**
-     * @var string
+     * @var int
      */
     public $resourceOwnerId;
     protected $_name = [

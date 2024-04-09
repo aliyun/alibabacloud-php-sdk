@@ -113,8 +113,8 @@ class DescribeBackupPolicyResponseBody extends Model
      *   **0**: Backup data is not compressed.
      *   **1**: Backup data is compressed by using zlib.
      *   **2**: Backup data is compressed by using zlib that invokes more than one thread in parallel for each backup.
-     *   **4**: Backup data is compressed by using QuickLZ and can be used to restore individual databases and tables.
-     *   **8**: Backup data is compressed by using QuickLZ but cannot be used to restore individual databases or tables. This value is available only when the instance runs MySQL 8.0.
+     *   **4**: Backup data is compressed by using QuickLZ and can be used to restore individual databases or tables.
+     *   **8**: Backup data is compressed by using QuickLZ but cannot be used to restore individual databases or tables.
      *
      * @example 1
      *
@@ -125,8 +125,8 @@ class DescribeBackupPolicyResponseBody extends Model
     /**
      * @description Indicates whether the log backup feature is enabled. Valid values:
      *
-     *   **1**: The log backup feature is enabled.
-     *   **0**: The log backup feature is disabled.
+     *   **1**: enabled
+     *   **0**: disabled
      *
      * @example 1
      *
@@ -147,9 +147,12 @@ class DescribeBackupPolicyResponseBody extends Model
     public $enableIncrementDataBackup;
 
     /**
-     * @description Whether PITR recovery is enabled at any point in time (the upgraded version of the original log backup). Return value:
+     * @description Indicates whether the point-in-time restoration (PITR) feature is enabled. The PITR feature is an enhancement of the log backup feature. Valid values:
      *
-     * > Only MySQL instances return this parameter.
+     *   **True**
+     *   **False**
+     *
+     * >  This parameter is returned only when the instance runs MySQL. For more information, see [Configure the PITR feature](~~2666046~~).
      * @example True
      *
      * @var bool
@@ -192,7 +195,7 @@ class DescribeBackupPolicyResponseBody extends Model
      *   **LogInterval**: Log backups are performed every 30 minutes.
      *   Default value: same as the value of the **PreferredBackupPeriod** parameter.
      *
-     * > The **LogBackupFrequency** parameter is supported only when the instance runs **SQL Server**.
+     * >  This parameter is returned only when the instance runs SQL Server.
      * @example LogInterval
      *
      * @var string
@@ -218,7 +221,7 @@ class DescribeBackupPolicyResponseBody extends Model
     public $logBackupRetentionPeriod;
 
     /**
-     * @description The number of days to restore at any point in time.
+     * @description The number of days during which you can restore data of the instance to any point in time.
      *
      * @example 7
      *
@@ -310,7 +313,7 @@ class DescribeBackupPolicyResponseBody extends Model
      *   **1**: The instance supports snapshot backups.
      *   **0**: The instance does not support snapshot backups.
      *
-     * > This parameter is returned only when the instance runs SQL Server.
+     * >  This parameter is returned only when the instance runs SQL Server.
      * @example 1
      *
      * @var int
