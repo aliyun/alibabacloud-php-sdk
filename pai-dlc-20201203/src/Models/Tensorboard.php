@@ -86,11 +86,21 @@ class Tensorboard extends Model
     public $summaryPath;
 
     /**
+     * @var TensorboardDataSourceSpec[]
+     */
+    public $tensorboardDataSources;
+
+    /**
      * @example tensorboard-xxx
      *
      * @var string
      */
     public $tensorboardId;
+
+    /**
+     * @var TensorboardSpec
+     */
+    public $tensorboardSpec;
 
     /**
      * @example http://xxxxxx
@@ -106,20 +116,22 @@ class Tensorboard extends Model
      */
     public $userId;
     protected $_name = [
-        'dataSourceId'   => 'DataSourceId',
-        'displayName'    => 'DisplayName',
-        'duration'       => 'Duration',
-        'gmtCreateTime'  => 'GmtCreateTime',
-        'gmtModifyTime'  => 'GmtModifyTime',
-        'jobId'          => 'JobId',
-        'reasonCode'     => 'ReasonCode',
-        'reasonMessage'  => 'ReasonMessage',
-        'requestId'      => 'RequestId',
-        'status'         => 'Status',
-        'summaryPath'    => 'SummaryPath',
-        'tensorboardId'  => 'TensorboardId',
-        'tensorboardUrl' => 'TensorboardUrl',
-        'userId'         => 'UserId',
+        'dataSourceId'           => 'DataSourceId',
+        'displayName'            => 'DisplayName',
+        'duration'               => 'Duration',
+        'gmtCreateTime'          => 'GmtCreateTime',
+        'gmtModifyTime'          => 'GmtModifyTime',
+        'jobId'                  => 'JobId',
+        'reasonCode'             => 'ReasonCode',
+        'reasonMessage'          => 'ReasonMessage',
+        'requestId'              => 'RequestId',
+        'status'                 => 'Status',
+        'summaryPath'            => 'SummaryPath',
+        'tensorboardDataSources' => 'TensorboardDataSources',
+        'tensorboardId'          => 'TensorboardId',
+        'tensorboardSpec'        => 'TensorboardSpec',
+        'tensorboardUrl'         => 'TensorboardUrl',
+        'userId'                 => 'UserId',
     ];
 
     public function validate()
@@ -162,8 +174,20 @@ class Tensorboard extends Model
         if (null !== $this->summaryPath) {
             $res['SummaryPath'] = $this->summaryPath;
         }
+        if (null !== $this->tensorboardDataSources) {
+            $res['TensorboardDataSources'] = [];
+            if (null !== $this->tensorboardDataSources && \is_array($this->tensorboardDataSources)) {
+                $n = 0;
+                foreach ($this->tensorboardDataSources as $item) {
+                    $res['TensorboardDataSources'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->tensorboardId) {
             $res['TensorboardId'] = $this->tensorboardId;
+        }
+        if (null !== $this->tensorboardSpec) {
+            $res['TensorboardSpec'] = null !== $this->tensorboardSpec ? $this->tensorboardSpec->toMap() : null;
         }
         if (null !== $this->tensorboardUrl) {
             $res['TensorboardUrl'] = $this->tensorboardUrl;
@@ -216,8 +240,20 @@ class Tensorboard extends Model
         if (isset($map['SummaryPath'])) {
             $model->summaryPath = $map['SummaryPath'];
         }
+        if (isset($map['TensorboardDataSources'])) {
+            if (!empty($map['TensorboardDataSources'])) {
+                $model->tensorboardDataSources = [];
+                $n                             = 0;
+                foreach ($map['TensorboardDataSources'] as $item) {
+                    $model->tensorboardDataSources[$n++] = null !== $item ? TensorboardDataSourceSpec::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['TensorboardId'])) {
             $model->tensorboardId = $map['TensorboardId'];
+        }
+        if (isset($map['TensorboardSpec'])) {
+            $model->tensorboardSpec = TensorboardSpec::fromMap($map['TensorboardSpec']);
         }
         if (isset($map['TensorboardUrl'])) {
             $model->tensorboardUrl = $map['TensorboardUrl'];

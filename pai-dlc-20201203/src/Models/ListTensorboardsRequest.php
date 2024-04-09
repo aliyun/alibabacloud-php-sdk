@@ -51,6 +51,11 @@ class ListTensorboardsRequest extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $paymentType;
+
+    /**
      * @var bool
      */
     public $showOwn;
@@ -117,6 +122,7 @@ class ListTensorboardsRequest extends Model
         'order'         => 'Order',
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
+        'paymentType'   => 'PaymentType',
         'showOwn'       => 'ShowOwn',
         'sortBy'        => 'SortBy',
         'sourceId'      => 'SourceId',
@@ -152,6 +158,9 @@ class ListTensorboardsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->paymentType) {
+            $res['PaymentType'] = $this->paymentType;
         }
         if (null !== $this->showOwn) {
             $res['ShowOwn'] = $this->showOwn;
@@ -209,6 +218,9 @@ class ListTensorboardsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['PaymentType'])) {
+            $model->paymentType = $map['PaymentType'];
         }
         if (isset($map['ShowOwn'])) {
             $model->showOwn = $map['ShowOwn'];

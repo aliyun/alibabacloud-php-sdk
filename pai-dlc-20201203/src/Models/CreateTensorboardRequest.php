@@ -96,6 +96,16 @@ class CreateTensorboardRequest extends Model
     public $summaryRelativePath;
 
     /**
+     * @var TensorboardDataSourceSpec[]
+     */
+    public $tensorboardDataSources;
+
+    /**
+     * @var TensorboardSpec
+     */
+    public $tensorboardSpec;
+
+    /**
      * @example oss://.oss-cn-shanghai-finance-1.aliyuncs.com/
      *
      * @var string
@@ -109,21 +119,23 @@ class CreateTensorboardRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
-        'cpu'                   => 'Cpu',
-        'dataSourceId'          => 'DataSourceId',
-        'dataSourceType'        => 'DataSourceType',
-        'dataSources'           => 'DataSources',
-        'displayName'           => 'DisplayName',
-        'jobId'                 => 'JobId',
-        'maxRunningTimeMinutes' => 'MaxRunningTimeMinutes',
-        'memory'                => 'Memory',
-        'options'               => 'Options',
-        'sourceId'              => 'SourceId',
-        'sourceType'            => 'SourceType',
-        'summaryPath'           => 'SummaryPath',
-        'summaryRelativePath'   => 'SummaryRelativePath',
-        'uri'                   => 'Uri',
-        'workspaceId'           => 'WorkspaceId',
+        'cpu'                    => 'Cpu',
+        'dataSourceId'           => 'DataSourceId',
+        'dataSourceType'         => 'DataSourceType',
+        'dataSources'            => 'DataSources',
+        'displayName'            => 'DisplayName',
+        'jobId'                  => 'JobId',
+        'maxRunningTimeMinutes'  => 'MaxRunningTimeMinutes',
+        'memory'                 => 'Memory',
+        'options'                => 'Options',
+        'sourceId'               => 'SourceId',
+        'sourceType'             => 'SourceType',
+        'summaryPath'            => 'SummaryPath',
+        'summaryRelativePath'    => 'SummaryRelativePath',
+        'tensorboardDataSources' => 'TensorboardDataSources',
+        'tensorboardSpec'        => 'TensorboardSpec',
+        'uri'                    => 'Uri',
+        'workspaceId'            => 'WorkspaceId',
     ];
 
     public function validate()
@@ -177,6 +189,18 @@ class CreateTensorboardRequest extends Model
         }
         if (null !== $this->summaryRelativePath) {
             $res['SummaryRelativePath'] = $this->summaryRelativePath;
+        }
+        if (null !== $this->tensorboardDataSources) {
+            $res['TensorboardDataSources'] = [];
+            if (null !== $this->tensorboardDataSources && \is_array($this->tensorboardDataSources)) {
+                $n = 0;
+                foreach ($this->tensorboardDataSources as $item) {
+                    $res['TensorboardDataSources'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->tensorboardSpec) {
+            $res['TensorboardSpec'] = null !== $this->tensorboardSpec ? $this->tensorboardSpec->toMap() : null;
         }
         if (null !== $this->uri) {
             $res['Uri'] = $this->uri;
@@ -240,6 +264,18 @@ class CreateTensorboardRequest extends Model
         }
         if (isset($map['SummaryRelativePath'])) {
             $model->summaryRelativePath = $map['SummaryRelativePath'];
+        }
+        if (isset($map['TensorboardDataSources'])) {
+            if (!empty($map['TensorboardDataSources'])) {
+                $model->tensorboardDataSources = [];
+                $n                             = 0;
+                foreach ($map['TensorboardDataSources'] as $item) {
+                    $model->tensorboardDataSources[$n++] = null !== $item ? TensorboardDataSourceSpec::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['TensorboardSpec'])) {
+            $model->tensorboardSpec = TensorboardSpec::fromMap($map['TensorboardSpec']);
         }
         if (isset($map['Uri'])) {
             $model->uri = $map['Uri'];

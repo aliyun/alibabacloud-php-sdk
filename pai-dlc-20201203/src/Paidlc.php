@@ -292,6 +292,12 @@ class Paidlc extends OpenApiClient
         if (!Utils::isUnset($request->summaryRelativePath)) {
             $body['SummaryRelativePath'] = $request->summaryRelativePath;
         }
+        if (!Utils::isUnset($request->tensorboardDataSources)) {
+            $body['TensorboardDataSources'] = $request->tensorboardDataSources;
+        }
+        if (!Utils::isUnset($request->tensorboardSpec)) {
+            $body['TensorboardSpec'] = $request->tensorboardSpec;
+        }
         if (!Utils::isUnset($request->uri)) {
             $body['Uri'] = $request->uri;
         }
@@ -1126,6 +1132,9 @@ class Paidlc extends OpenApiClient
         if (!Utils::isUnset($request->resourceId)) {
             $query['ResourceId'] = $request->resourceId;
         }
+        if (!Utils::isUnset($request->resourceQuotaName)) {
+            $query['ResourceQuotaName'] = $request->resourceQuotaName;
+        }
         if (!Utils::isUnset($request->showOwn)) {
             $query['ShowOwn'] = $request->showOwn;
         }
@@ -1210,6 +1219,9 @@ class Paidlc extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->paymentType)) {
+            $query['PaymentType'] = $request->paymentType;
         }
         if (!Utils::isUnset($request->showOwn)) {
             $query['ShowOwn'] = $request->showOwn;
