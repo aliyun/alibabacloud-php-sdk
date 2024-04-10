@@ -18,6 +18,11 @@ class listeners extends Model
     public $ip;
 
     /**
+     * @var string[]
+     */
+    public $labels;
+
+    /**
      * @description The verification string.
      *
      * @example 23sdfdf
@@ -34,10 +39,17 @@ class listeners extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
-        'ip'     => 'Ip',
-        'md5'    => 'Md5',
-        'status' => 'Status',
+        'ip'      => 'Ip',
+        'labels'  => 'Labels',
+        'md5'     => 'Md5',
+        'status'  => 'Status',
+        'version' => 'Version',
     ];
 
     public function validate()
@@ -50,11 +62,17 @@ class listeners extends Model
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
         }
+        if (null !== $this->labels) {
+            $res['Labels'] = $this->labels;
+        }
         if (null !== $this->md5) {
             $res['Md5'] = $this->md5;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -71,11 +89,17 @@ class listeners extends Model
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
         }
+        if (isset($map['Labels'])) {
+            $model->labels = $map['Labels'];
+        }
         if (isset($map['Md5'])) {
             $model->md5 = $map['Md5'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

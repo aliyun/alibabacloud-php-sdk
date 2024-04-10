@@ -34,10 +34,16 @@ class listeners extends Model
      * @var string
      */
     public $md5;
+
+    /**
+     * @var string
+     */
+    public $namespaceId;
     protected $_name = [
-        'dataId' => 'DataId',
-        'group'  => 'Group',
-        'md5'    => 'Md5',
+        'dataId'      => 'DataId',
+        'group'       => 'Group',
+        'md5'         => 'Md5',
+        'namespaceId' => 'NamespaceId',
     ];
 
     public function validate()
@@ -55,6 +61,9 @@ class listeners extends Model
         }
         if (null !== $this->md5) {
             $res['Md5'] = $this->md5;
+        }
+        if (null !== $this->namespaceId) {
+            $res['NamespaceId'] = $this->namespaceId;
         }
 
         return $res;
@@ -76,6 +85,9 @@ class listeners extends Model
         }
         if (isset($map['Md5'])) {
             $model->md5 = $map['Md5'];
+        }
+        if (isset($map['NamespaceId'])) {
+            $model->namespaceId = $map['NamespaceId'];
         }
 
         return $model;
