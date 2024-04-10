@@ -15,11 +15,15 @@ class copyEncryptionConfiguration extends Model
     public $arn;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $encrypted;
 
     /**
+     * @example 0e478b7a-4262-4802-b8cb-00d3fb40826X
+     *
      * @var string
      */
     public $KMSKeyId;

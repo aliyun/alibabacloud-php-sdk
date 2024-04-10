@@ -11,9 +11,14 @@ class dataDisk extends Model
     /**
      * @description The category of data disk N. Valid values of N: 1 to 16. Valid values:
      *
+     *   cloud_efficiency: ultra disk
+     *   cloud_ssd: standard SSD
+     *   cloud_essd: ESSD
+     *   cloud: basic disk
+     *
      * For I/O optimized instances, the default value is cloud_efficiency. For non-I/O optimized instances, the default value is cloud.
      *
-     * If both the LaunchTemplateId and LaunchConfiguration.* parameters are specified, the LaunchTemplateId parameter takes precedence.
+     * When both LaunchTemplateId and LaunchConfiguration.\* parameters are specified, LaunchTemplateId takes precedence.
      * @example cloud_ssd
      *
      * @var string
@@ -21,11 +26,14 @@ class dataDisk extends Model
     public $category;
 
     /**
-     * @description Specifies whether to release the data disk after the instance with which the disk is associated is released. Valid values:
+     * @description Specifies whether to release data disk N when the instance to which the data disk is attached is released. Valid values:
+     *
+     *   true: releases data disk N when the instance is released.
+     *   false: does not release data disk N when the instance is released.
      *
      * Default value: true.
      *
-     * If both the LaunchTemplateId and LaunchConfiguration.* parameters are specified, the LaunchTemplateId parameter takes precedence.
+     * When both LaunchTemplateId and LaunchConfiguration.\* parameters are specified, LaunchTemplateId takes precedence.
      * @example true
      *
      * @var bool
@@ -33,7 +41,7 @@ class dataDisk extends Model
     public $deleteWithInstance;
 
     /**
-     * @description The description of data disk N. The description must be 2 to 256 characters in length. The description can contain letters but cannot start with `http://` or `https://`. If both the LaunchTemplateId and LaunchConfiguration.* parameters are specified, the LaunchTemplateId parameter takes precedence.
+     * @description The description of data disk N. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`. When both LaunchTemplateId and LaunchConfiguration.\* parameters are specified, LaunchTemplateId takes precedence.
      *
      * @example DataDisk_Description
      *
@@ -42,7 +50,7 @@ class dataDisk extends Model
     public $description;
 
     /**
-     * @description The mount target of the data disk. If both the LaunchTemplateId and LaunchConfiguration.* parameters are specified, the LaunchTemplateId parameter takes precedence.
+     * @description The mount point of data disk N. When both LaunchTemplateId and LaunchConfiguration.\* parameters are specified, LaunchTemplateId takes precedence.
      *
      * @example /dev/vd1
      *
@@ -51,11 +59,11 @@ class dataDisk extends Model
     public $device;
 
     /**
-     * @description The name of the data disk. The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), colons (:), underscores (_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
+     * @description The name of data disk N. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, periods (.), colons (:), underscores (\_), and hyphens (-).
      *
      * This parameter is empty by default.
      *
-     * If both the LaunchTemplateId and LaunchConfiguration.* parameters are specified, the LaunchTemplateId parameter takes precedence.
+     * When both LaunchTemplateId and LaunchConfiguration.\* parameters are specified, LaunchTemplateId takes precedence.
      * @example cloud_ssdData
      *
      * @var string
@@ -65,9 +73,12 @@ class dataDisk extends Model
     /**
      * @description Specifies whether to encrypt data disk N. Valid values:
      *
+     *   true
+     *   false
+     *
      * Default value: false.
      *
-     * If both the LaunchTemplateId and LaunchConfiguration.* parameters are specified, the LaunchTemplateId parameter takes precedence.
+     * When both LaunchTemplateId and LaunchConfiguration.\* parameters are specified, LaunchTemplateId takes precedence.
      * @example false
      *
      * @var bool
@@ -75,7 +86,7 @@ class dataDisk extends Model
     public $encrypted;
 
     /**
-     * @description The ID of the Key Management Service (KMS) key to be used for the data disk. If both the LaunchTemplateId and LaunchConfiguration.* parameters are specified, the LaunchTemplateId parameter takes precedence.
+     * @description The ID of the Key Management Service (KMS) key to use for data disk N. When both LaunchTemplateId and LaunchConfiguration.\* parameters are specified, LaunchTemplateId takes precedence.
      *
      * @example 0e478b7a-4262-4802-b8cb-00d3fb40****
      *
@@ -84,16 +95,16 @@ class dataDisk extends Model
     public $kmsKeyId;
 
     /**
-     * @description The performance level of the ESSD. Valid values:
+     * @description The performance level of the enhanced SSD (ESSD) to use as data disk N. The value of N in this parameter must be the same as the value of N in `LaunchConfiguration.DataDisk.N.Category`. Valid values:
      *
      *   PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
-     *   PL1: A single ESSD can deliver up to 50,000 random read/write IOPS.
+     *   PL1 (default): A single ESSD can deliver up to 50,000 random read/write IOPS.
      *   PL2: A single ESSD can deliver up to 100,000 random read/write IOPS.
      *   PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
      *
-     * For more information about ESSD performance levels, see [ESSDs](~~122389~~).
+     * For information about ESSD performance levels, see [ESSDs](~~122389~~).
      *
-     * If both the LaunchTemplateId and LaunchConfiguration.* parameters are specified, the LaunchTemplateId parameter takes precedence.
+     * When both LaunchTemplateId and LaunchConfiguration.\* parameters are specified, LaunchTemplateId takes precedence.
      * @example PL1
      *
      * @var string
@@ -103,9 +114,22 @@ class dataDisk extends Model
     /**
      * @description The size of data disk N. Valid values of N: 1 to 16. Unit: GiB. Valid values:
      *
-     * >The parameter value must be greater than or equal to the size of the snapshot specified by the `LaunchConfiguration.DataDisk.N.SnapshotId` parameter.
+     *   Valid values when LaunchConfiguration.DataDisk.N.Category is set to cloud_efficiency: 20 to 32768.
      *
-     * If both the LaunchTemplateId and LaunchConfiguration.* parameters are specified, the LaunchTemplateId parameter takes precedence.
+     *   Valid values when LaunchConfiguration.DataDisk.N.Category is set to cloud_ssd: 20 to 32768.
+     *
+     *   Valid values when LaunchConfiguration.DataDisk.N.Category is set to cloud_essd: depend on the `LaunchConfiguration.DataDisk.N.PerformanceLevel` value.
+     *
+     *   Valid values when LaunchConfiguration.DataDisk.N.PerformanceLevel is set to PL0: 40 to 32768.
+     *   Valid values when LaunchConfiguration.DataDisk.N.PerformanceLevel is set to PL1: 20 to 32768.
+     *   Valid values when LaunchConfiguration.DataDisk.N.PerformanceLevel is set to PL2: 461 to 32768.
+     *   Valid values when LaunchConfiguration.DataDisk.N.PerformanceLevel is set to PL3: 1261 to 32768.
+     *
+     *   Valid values when LaunchConfiguration.DataDisk.N.Category is set to cloud: 5 to 2000.
+     *
+     * >  The value of this parameter must be greater than or equal to the size of the snapshot specified by `LaunchConfiguration.DataDisk.N.SnapshotId`.
+     *
+     * When both LaunchTemplateId and LaunchConfiguration.\* parameters are specified, LaunchTemplateId takes precedence.
      * @example 20
      *
      * @var int
@@ -113,11 +137,11 @@ class dataDisk extends Model
     public $size;
 
     /**
-     * @description The ID of the snapshot that you want to use to create the data disk. Valid values of N: 1 to 16.
+     * @description The ID of the snapshot to use to create data disk N. Valid values of N: 1 to 16.
      *
-     * After this parameter is specified, the `LaunchConfiguration.DataDisk.N.Size` parameter is ignored. The size of the data disk is the same as that of the snapshot specified by this parameter. Use snapshots created after July 15, 2013. Otherwise, an error is returned and your request is rejected.
+     * After this parameter is specified, `LaunchConfiguration.DataDisk.N.Size` is ignored. The size of data disk N is the same as that of the snapshot specified by this parameter. Use snapshots created on or after July 15, 2013. Otherwise, an error is returned and your request is rejected.
      *
-     * If both the LaunchTemplateId and LaunchConfiguration.* parameters are specified, the LaunchTemplateId parameter takes precedence.
+     * When both LaunchTemplateId and LaunchConfiguration.\* parameters are specified, LaunchTemplateId takes precedence.
      * @example s-bp17441ohwka0yuh****
      *
      * @var string

@@ -18,8 +18,9 @@ class DescribeInstanceVncUrlResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The URL of the VNC management terminal.
+     * @description The VNC logon address.
      *
+     * >  **The address returned is valid only for 15 seconds. If a connection is not established within 15 seconds after a successful call, the address expires and you must recall the operation to obtain a new address.
      * @example wss%3A%2F%2Fhz01-vncproxy.aliyun.com%2Fwebsockify%2F%3Fs%3DDvh%252FIA%252BYc73gWO48cBx2gBxUDVzaAnSKr74pq30mzqUYgeUMcB%252FbkNixDxdEA996
      *
      * @var string

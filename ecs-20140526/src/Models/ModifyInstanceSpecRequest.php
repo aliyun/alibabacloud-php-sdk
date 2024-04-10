@@ -22,14 +22,17 @@ class ModifyInstanceSpecRequest extends Model
     public $temporary;
 
     /**
-     * @description Specifies whether to support cross-cluster instance type upgrades.
+     * @description Specifies whether cross-cluster instance type upgrades are supported.
      *
-     * Instances of the classic network type:
+     *   true
+     *   false
      *
-     *   For [retired instance types](~~55263~~), the private IP address, disk device names, and software authorization codes of a non-I/O optimized instance change when you upgrade the instance to an I/O optimized instance. For Linux instances, basic disks (`cloud`) are identified by the prefix **xvd** such as **xvda and xvdb**. Ultra disks (`cloud_efficiency`) and standard SSDs (`cloud_ssd`) are identified by the prefix **vd** such as **vda and vdb**.
-     *   For instance families that are available for purchase, when the instance type of an instance is changed, the private IP address of the instance is also changed. For more information, see [Overview of instance families](~~25378~~).
+     * Instance that resides in the classic network:
      *
-     * Instances of the Virtual Private Cloud (VPC) type: For [retired instance types](~~55263~~), if a non-I/O-optimized instance is upgraded to an I/O-optimized instance, the disk device names and software authorization codes of the instance change. For Linux instances, basic disks (`cloud`) are identified by the prefix **xvd** such as **xvda and xvdb**. Ultra disks (`cloud_efficiency`) and standard SSDs (`cloud_ssd`) are identified by the prefix **vd** such as **vda and vdb**.
+     *   For [retired instance types](~~55263~~), when a non-I/O optimized instance is upgraded to an I/O optimized instance, the private IP address, disk device names, and software authorization codes of the instance change. For a Linux instance, basic disks (`cloud`) are identified as xvd\* such as **xvda** and **xvdb**, and ultra disks (`cloud_efficiency`) and standard SSDs (`cloud_ssd`) are identified as vd\* such as **vda** and **vdb**.
+     *   For [instance families available for purchase](~~25378~~), when the instance type of an instance is changed, the private IP address of the instance changes.
+     *
+     * Instance that resides in a virtual private cloud (VPC): For [retired instance types](~~55263~~), when a non-I/O optimized instance is upgraded to an I/O optimized instance, the disk device names and software authorization codes of the instance change. For a Linux instance, basic disks (`cloud`) are identified as xvd\* such as **xvda** and **xvdb**, and ultra disks (`cloud_efficiency`) and standard SSDs (`cloud_ssd`) are identified as vd\* such as **vda** and **vdb**.
      * @example false
      *
      * @var bool
@@ -37,7 +40,10 @@ class ModifyInstanceSpecRequest extends Model
     public $allowMigrateAcrossZone;
 
     /**
-     * @description Specifies whether to submit an asynchronous request.
+     * @description Specifies whether to submit an asynchronous request. Valid values:
+     *
+     *   true
+     *   false
      *
      * Default value: false.
      * @example false
@@ -47,7 +53,7 @@ class ModifyInstanceSpecRequest extends Model
     public $async;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **token** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. **The token can contain only ASCII characters and cannot exceed 64 characters in length.** For more information, see [How to ensure idempotence](~~25693~~).
      *
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
      *
@@ -56,13 +62,18 @@ class ModifyInstanceSpecRequest extends Model
     public $clientToken;
 
     /**
-     * @description >该参数暂未开放使用。
-     *
      * @var disk[]
      */
     public $disk;
 
     /**
+     * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+     *
+     *   true: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, service limits, and unavailable ECS resources. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   false (default): performs a dry run and performs the actual request.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
@@ -77,7 +88,7 @@ class ModifyInstanceSpecRequest extends Model
     public $instanceId;
 
     /**
-     * @description The new instance type. For more information, see [Overview of instance families](~~25378~~) or call the [DescribeInstanceTypes](~~25620~~) operation to query the most recent list of instance types.
+     * @description The new instance type. For more information, see [Overview of instance families](~~25378~~) or call the [DescribeInstanceTypes](~~25620~~) operation to query the most recent instance type list.
      *
      * @example ecs.g6.large
      *
@@ -109,8 +120,6 @@ class ModifyInstanceSpecRequest extends Model
     public $internetMaxBandwidthOut;
 
     /**
-     * @description >该参数暂未开放使用。
-     *
      * @example null
      *
      * @var string

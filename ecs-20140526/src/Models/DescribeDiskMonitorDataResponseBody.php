@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiskMonitorDataResponseBody extends Model
 {
     /**
-     * @description The details about the monitoring data of the disk.
+     * @description The monitoring data of the disk.
      *
      * @var monitorData
      */

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeImagesResponseBody extends Model
 {
     /**
-     * @description Details about the images.
+     * @description The information of the images.
      *
      * @var images
      */

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ipv4PrefixSet extends Model
 {
     /**
-     * @description >  This parameter is in invitational preview and unavailable for general users.
+     * @description The IPv4 prefix of the ENI.
      *
      * @example 192.168.**.0/28
      *

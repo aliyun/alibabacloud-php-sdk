@@ -37,6 +37,10 @@ class keyPair extends Model
     public $keyPairName;
 
     /**
+     * @description The content of the public key.
+     *
+     * @example ssh-rsa****
+     *
      * @var string
      */
     public $publicKey;

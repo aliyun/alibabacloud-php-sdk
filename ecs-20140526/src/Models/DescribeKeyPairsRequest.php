@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeKeyPairsRequest extends Model
 {
     /**
+     * @description Specifies whether to include PublicKey in the response. Default value: false.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $includePublicKey;

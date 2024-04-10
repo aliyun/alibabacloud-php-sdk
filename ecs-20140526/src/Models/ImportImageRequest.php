@@ -47,28 +47,9 @@ class ImportImageRequest extends Model
     public $description;
 
     /**
-     * @description The mode that you want to use to check the source image. If you do not specify this parameter, the source image is not checked. Only Linux images can be checked. Set the value to Standard, which indicates standard check mode.
+     * @description The mode in which to check the image. If you do not specify this parameter, the image is not checked. Only the standard check mode is supported.
      *
-     * The following items are checked in standard check mode:
-     *
-     *   Virtio: whether the virtio driver is installed.
-     *   Fstab: whether mounting configurations in the fstab file are correct.
-     *   Grub: whether GRand Unified Bootloader (GRUB) configurations are correct.
-     *   SystemImage: whether the image is valid. Do not import images that are empty or in the ISO format.
-     *   CloudInit: whether cloud-init is installed.
-     *   NVMe: whether the Non-Volatile Memory Express (NVMe) driver is installed.
-     *   Selinux: whether SElinux is enabled.
-     *   OnlineResizeFS: whether the root partition can be automatically resized.
-     *   Dhcp: whether Dynamic Host Configuration Protocol (DHCP) is enabled for network interface controllers (NICs).
-     *   RtcTimeMode: the RTC time mode.
-     *   Platform: the platform. Examples: Linux and Windows.
-     *   OSVersion: the operating system version. Example: Centos 7.9.
-     *   Architecture: the architecture. Examples: ARM and x86\_64.
-     *   BootMode: the boot mode. Examples: UEFI and Legacy.
-     *   KernelVersion: the kernel version.
-     *   CloudAssistant: whether the Cloud Assistant client is installed.
-     *   SecurityCenterAgent: whether the Security Center agent is installed.
-     *
+     * >  This parameter is supported for most Linux and Windows operating system versions. For more information about image check items and operating system limits for image check, see [Overview](~~439819~~) and [Operating system limits for image check](~~475800~~).
      * @example Standard
      *
      * @var string
@@ -76,14 +57,14 @@ class ImportImageRequest extends Model
     public $detectionStrategy;
 
     /**
-     * @description The custom images.
+     * @description The information about the custom image.
      *
      * @var diskDeviceMapping[]
      */
     public $diskDeviceMapping;
 
     /**
-     * @description The name of the custom image. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`. It can contain letters, digits, periods (.), colons (:), underscores (\_), and hyphens (-).
+     * @description The image name. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `acs:` or `aliyun`. The name cannot contain `http://` or `https://`. The name can contain letters, digits, periods (.), colons (:), underscores (\_), and hyphens (-).
      *
      * @example ImageTestName
      *
@@ -126,23 +107,26 @@ class ImportImageRequest extends Model
     /**
      * @description The operating system distribution. Valid values:
      *
-     *   CentOS
-     *   CentOS Stream
-     *   Ubuntu
-     *   SUSE
-     *   openSUSE
-     *   Debian
-     *   CoreOS
      *   Aliyun
      *   Anolis
-     *   AlmaLinux
+     *   CentOS
+     *   Ubuntu
+     *   CoreOS
+     *   SUSE
+     *   Debian
+     *   OpenSUSE
      *   FreeBSD
-     *   Fedora
-     *   Rocky Linux
-     *   UOS
+     *   RedHat
      *   Kylin
-     *   Others Linux
+     *   UOS
+     *   Fedora
+     *   Fedora CoreOS
+     *   CentOS Stream
+     *   AlmaLinux
+     *   Rocky Linux
+     *   Gentoo
      *   Customized Linux
+     *   Others Linux
      *   Windows Server 2022
      *   Windows Server 2019
      *   Windows Server 2016
@@ -195,6 +179,11 @@ class ImportImageRequest extends Model
     public $roleName;
 
     /**
+     * @var string
+     */
+    public $storageLocationArn;
+
+    /**
      * @description The image tags.
      *
      * @var tag[]
@@ -216,6 +205,7 @@ class ImportImageRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'roleName'             => 'RoleName',
+        'storageLocationArn'   => 'StorageLocationArn',
         'tag'                  => 'Tag',
     ];
 
@@ -276,6 +266,9 @@ class ImportImageRequest extends Model
         }
         if (null !== $this->roleName) {
             $res['RoleName'] = $this->roleName;
+        }
+        if (null !== $this->storageLocationArn) {
+            $res['StorageLocationArn'] = $this->storageLocationArn;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -348,6 +341,9 @@ class ImportImageRequest extends Model
         }
         if (isset($map['RoleName'])) {
             $model->roleName = $map['RoleName'];
+        }
+        if (isset($map['StorageLocationArn'])) {
+            $model->storageLocationArn = $map['StorageLocationArn'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

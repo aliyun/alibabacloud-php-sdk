@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceResponseBody extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example i-bp67acfmxazb4p****
      *
@@ -18,7 +18,7 @@ class CreateInstanceResponseBody extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the order. This parameter is returned only when `InstanceChargeType` is set to PrePaid.
+     * @description The order ID. This parameter is returned only if `InstanceChargeType` is set to PrePaid.
      *
      * @example 1234567890
      *
@@ -27,7 +27,7 @@ class CreateInstanceResponseBody extends Model
     public $orderId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
      *

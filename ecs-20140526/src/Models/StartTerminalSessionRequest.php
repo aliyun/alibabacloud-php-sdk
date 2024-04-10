@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class StartTerminalSessionRequest extends Model
 {
     /**
-     * @description If you set this parameter to the IP address of an instance, the PortNumber parameter specifies the port number of the instance.
+     * @description The command to run after the session is initiated. The command length cannot exceed 512 characters.
      *
-     * >If you specify `CommandLine`, you do not need to specify `PortNumber` or `TargetServer`.
+     * >  If you specify the `CommandLine` parameter, you cannot specify the `PortNumber` or `TargetServer` parameter.
      * @example ssh root@192.168.0.246
      *
      * @var string
@@ -36,7 +36,7 @@ class StartTerminalSessionRequest extends Model
     public $ownerId;
 
     /**
-     * @description The port number of the instance. The port is used to forward data. After this parameter is configured, Cloud Assistant Agent forwards data to the specified port for forwarding. Example: 22.
+     * @description The port number of the ECS instance. The port is used to forward data. After this parameter is configured, Cloud Assistant Agent forwards data to the specified port. For example, you can set this parameter to 22 for data forwarding over SSH.
      *
      * This parameter is empty by default, which indicates that no port is configured to forward data.
      * @example 22
@@ -65,9 +65,9 @@ class StartTerminalSessionRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The IP address of the instance.
+     * @description The IP address of the instance. You can use the IP address to access the destination service in a virtual private cloud (VPC).
      *
-     * >If you set this parameter to the IP address of an instance, the `PortNumber` parameter specifies the port number of the instance.
+     * >  If this parameter is not empty, `PortNumber` specifies the port number that is used by the managed instance to access the destination service in the VPC.
      * @example 192.168.0.246
      *
      * @var string
@@ -75,6 +75,10 @@ class StartTerminalSessionRequest extends Model
     public $targetServer;
 
     /**
+     * @description 指定连接时的用户名称。
+     *
+     * @example testUser
+     *
      * @var string
      */
     public $username;

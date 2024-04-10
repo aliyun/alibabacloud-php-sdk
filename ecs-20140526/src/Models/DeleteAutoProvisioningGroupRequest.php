@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteAutoProvisioningGroupRequest extends Model
 {
     /**
-     * @description The ID of the auto provisioning group to be deleted.
+     * @description The ID of the auto provisioning group.
      *
      * @example apg-bpuf6jel2bbl62wh13****
      *
@@ -18,15 +18,11 @@ class DeleteAutoProvisioningGroupRequest extends Model
     public $autoProvisioningGroupId;
 
     /**
-     * @example 123456
-     *
      * @var string
      */
     public $ownerAccount;
 
     /**
-     * @example 123456
-     *
      * @var int
      */
     public $ownerId;
@@ -41,15 +37,11 @@ class DeleteAutoProvisioningGroupRequest extends Model
     public $regionId;
 
     /**
-     * @example 123456
-     *
      * @var string
      */
     public $resourceOwnerAccount;
 
     /**
-     * @example 123456
-     *
      * @var int
      */
     public $resourceOwnerId;
@@ -57,9 +49,10 @@ class DeleteAutoProvisioningGroupRequest extends Model
     /**
      * @description Specifies whether to release instances in the auto provisioning group. Valid values:
      *
-     *   true: releases instances in the auto provisioning group.
-     *   false: retains instances in the auto provisioning group.
+     *   true
+     *   false
      *
+     * >  By default, this parameter inherits the value of `TerminateInstances` that you specified when you call the `CreateAutoProvisioningGroup` operation to create an auto provisioning group. You can also change the value of `TerminateInstances` when you call the DeleteAutoProvisioningGroup operation to delete the auto provisioning group.
      * @example true
      *
      * @var bool

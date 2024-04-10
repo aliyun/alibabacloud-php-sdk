@@ -43,17 +43,17 @@ class CreateInstanceRequest extends Model
     public $affinity;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable.
+     * @description >  This parameter is in invitational preview and is not publicly available.
      *
      * @var arn[]
      */
     public $arn;
 
     /**
-     * @description Specifies whether to enable auto-renewal for the instance. This parameter is valid only when the `InstanceChargeType` parameter is set to `PrePaid`. Default value: false. Valid values:
+     * @description Specifies whether to enable auto-renewal for the instance. This parameter is valid only if `InstanceChargeType` is set to `PrePaid`. Valid values:
      *
-     * true: enables auto-renewal.
-     * false: does not enable auto-renewal.
+     *   true: enables auto-renewal.
+     *   false: does not enable auto-renewal.
      *
      * @example true
      *
@@ -62,9 +62,9 @@ class CreateInstanceRequest extends Model
     public $autoRenew;
 
     /**
-     * @description The auto-renewal cycle of the instance. This parameter is required when AutoRenew is set to true.
+     * @description The auto-renewal period of the instance. This parameter is required if AutoRenew is set to true.
      *
-     * Valid values when PeriodUnit is set to Month: 1, 2, 3, 6, and 12
+     * Valid values if PeriodUnit is set to Month: 1, 2, 3, 6, and 12.
      * @example 2
      *
      * @var int
@@ -72,7 +72,7 @@ class CreateInstanceRequest extends Model
     public $autoRenewPeriod;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.**** For more information, see [How to ensure idempotence](~~25693~~).
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -83,7 +83,7 @@ class CreateInstanceRequest extends Model
     /**
      * @description The ID of the cluster in which to create the instance.
      *
-     * > This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
+     * >  This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
      * @example c-bp67acfmxazb4p****
      *
      * @var string
@@ -93,8 +93,8 @@ class CreateInstanceRequest extends Model
     /**
      * @description The performance mode of the burstable instance. Valid values:
      *
-     *   Standard: the standard mode. For more information, see the "Standard mode" section in [Burstable instances](~~59977~~).
-     *   Unlimited: the unlimited mode. For more information, see the "Unlimited mode" section in [Burstable instances](~~59977~~).
+     *   Standard: standard mode. For more information, see the "Standard mode" section in the [Overview of burstable instances](~~59977~~) topic.
+     *   Unlimited: unlimited mode. For more information, see the "Unlimited mode" section in the [Burstable instances](~~59977~~) topic.
      *
      * @example Standard
      *
@@ -103,7 +103,7 @@ class CreateInstanceRequest extends Model
     public $creditSpecification;
 
     /**
-     * @description The list of data disks.
+     * @description The data disks.
      *
      * @var dataDisk[]
      */
@@ -112,7 +112,7 @@ class CreateInstanceRequest extends Model
     /**
      * @description The ID of the dedicated host on which to create the instance.
      *
-     * If the `DedicatedHostId` parameter is specified, the `SpotStrategy` and `SpotPriceLimit` parameters are ignored. This is because preemptible instances cannot be created on dedicated hosts.
+     * If you specify `DedicatedHostId`, the `SpotStrategy` and `SpotPriceLimit` parameters are ignored. This is because preemptible instances cannot be created on dedicated hosts.
      * @example dh-bp67acfmxazb4p****
      *
      * @var string
@@ -120,10 +120,10 @@ class CreateInstanceRequest extends Model
     public $dedicatedHostId;
 
     /**
-     * @description Specifies whether to enable release protection for the instance. This parameter determines whether you can use the ECS console or call the [DeleteInstance](~~25507~~) operation to release the instance. Default value: false. Valid values:
+     * @description Specifies whether to enable release protection for the instance. This parameter indicates whether you can use the ECS console or call the [DeleteInstance](~~25507~~) operation to release the instance.
      *
      *   true: enables release protection.
-     *   false: disables release protection.
+     *   false (default): disables release protection.
      *
      * >  This parameter is applicable only to pay-as-you-go instances. It can protect instances against manual releases, but not against automatic releases.
      * @example false
@@ -161,10 +161,10 @@ class CreateInstanceRequest extends Model
     public $description;
 
     /**
-     * @description Specifies whether to check the validity of the request without actually making the request. Default value: false. Valid values:
+     * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
      *
-     *   true: The validity of the request is checked but the request is not made. Check items include whether required parameters are specified, the request format, service limits, and available ECS resources. If the check fails, the corresponding error code is returned. If the check succeeds, the `DryRunOperation` error code is returned.
-     *   false: The validity of the request is checked, and the request is made if the check succeeds.
+     *   true: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, service limits, and unavailable ECS resources. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   false (default): performs a dry run and performs the actual request. If the request passes the dry run, the operation is performed.
      *
      * @example false
      *
@@ -175,9 +175,9 @@ class CreateInstanceRequest extends Model
     /**
      * @description The hostname of the instance.
      *
-     * The hostname cannot start or end with a period (.) or hyphen (-). It cannot contain consecutive periods (.) or hyphens (-).
-     * For a Windows instance, the hostname must be 2 to 15 characters in length and cannot contain periods (.) or contain only digits. It can contain letters, digits, and hyphens (-).
-     * For an instance that runs another type of operating system such as Linux, the hostname must be 2 to 64 characters in length. You can use periods (.) to separate the hostname into multiple segments. Each segment can contain letters, digits, and hyphens (-).
+     *   The hostname cannot start or end with a period (.) or hyphen (-). It cannot contain consecutive periods (.) or hyphens (-).
+     *   For a Windows instance, the hostname must be 2 to 15 characters in length and cannot contain periods (.) or contain only digits. It can contain letters, digits, and hyphens (-).
+     *   For an instance that runs another type of operating system such as Linux, the hostname must be 2 to 64 characters in length. You can use periods (.) to separate the hostname into multiple segments. Each segment can contain letters, digits, and hyphens (-).
      *
      * @example LocalHostName
      *
@@ -186,7 +186,7 @@ class CreateInstanceRequest extends Model
     public $hostName;
 
     /**
-     * @description The ID of the HPC cluster to which to assign the instance.
+     * @description The ID of the high performance computing (HPC) cluster to which to assign the instance.
      *
      * @example hpc-bp67acfmxazb4p****
      *
@@ -197,10 +197,10 @@ class CreateInstanceRequest extends Model
     /**
      * @description Specifies whether to enable the access channel for instance metadata. Valid values:
      *
-     *   enabled: enables the access channel for instance metadata.
-     *   disabled: disables the access channel for instance metadata.
+     *   enabled
+     *   disabled
      *
-     * >  For more information about instance metadata, see [Overview of ECS instance metadata](~~49122~~).
+     * >  For more information about instance metadata, see [Overview of instance metadata](~~49122~~).
      * @example enabled
      *
      * @var string
@@ -208,7 +208,7 @@ class CreateInstanceRequest extends Model
     public $httpEndpoint;
 
     /**
-     * @description >  This parameter is currently in invitational preview and unavailable for general users.
+     * @description >  This parameter is in invitational preview and is not publicly available.
      *
      * @example 0
      *
@@ -217,12 +217,12 @@ class CreateInstanceRequest extends Model
     public $httpPutResponseHopLimit;
 
     /**
-     * @description Specifies whether to forcefully use the security-enhanced mode (IMDSv2) to access instance metadata. Valid values:
+     * @description Specifies whether to forcibly use the security hardening mode (IMDSv2) to access instance metadata. Valid values:
      *
-     *   optional: does not forcibly use the security-enhanced mode (IMDSv2).
-     *   required: forcefully uses the security-enhanced mode (IMDSv2). After you set this parameter to required, you cannot access instance metadata in normal mode.
+     *   optional: does not forcefully use the security hardening mode (IMDSv2).
+     *   required: forcefully uses the security hardening mode (IMDSv2). After you set this parameter to required, you cannot access instance metadata in normal mode.
      *
-     * >  For more information about modes of accessing instance metadata, see [Access mode of instance metadata](~~150575~~).
+     * >  For more information about the modes of accessing instance metadata, see [Access mode of instance metadata](~~150575~~).
      * @example optional
      *
      * @var string
@@ -232,8 +232,8 @@ class CreateInstanceRequest extends Model
     /**
      * @description The name of the image family. You can set this parameter to obtain the latest available custom image from the specified image family to create the instance.
      *
-     * ImageFamily must be empty if `ImageId` is specified.
-     * ImageFamily can be specified if `ImageId` is not specified.
+     *   ImageFamily must be empty if `ImageId` is specified.
+     *   ImageFamily can be specified if `ImageId` is not specified.
      *
      * @example hangzhou-daily-update
      *
@@ -242,7 +242,7 @@ class CreateInstanceRequest extends Model
     public $imageFamily;
 
     /**
-     * @description The ID of the image to use to create the instance. To use an Alibaba Cloud Marketplace image, you can view the `image ID` on the product page of the Alibaba Cloud Marketplace image. This parameter is required if you do not specify the `ImageFamily` parameter to obtain the latest available custom image from the specified image family.
+     * @description The ID of the image to use to create the instance. To use an Alibaba Cloud Marketplace image, you can view the `image ID` on the product page of the Alibaba Cloud Marketplace image. This parameter is required if you do not specify `ImageFamily` to obtain the latest available custom image from the specified image family.
      *
      * @example ubuntu_18_04_64_20G_alibase_20190624.vhd
      *
@@ -260,10 +260,10 @@ class CreateInstanceRequest extends Model
     public $innerIpAddress;
 
     /**
-     * @description The billing method of the instance. Default value: PostPaid. Valid values:
+     * @description The billing method of the instance. Valid values:
      *
-     * PrePaid: subscription. If you set this parameter to PrePaid, make sure that you have sufficient balance or credit in your account. Otherwise, an `InvalidPayMethod` error is returned.
-     * PostPaid: pay-as-you-go.
+     *   PrePaid: subscription. If you set this parameter to PrePaid, make sure that you have sufficient balance or credit in your account. Otherwise, an `InvalidPayMethod` error is returned.
+     *   PostPaid (default): pay-as-you-go.
      *
      * @example PrePaid
      *
@@ -283,8 +283,8 @@ class CreateInstanceRequest extends Model
     /**
      * @description The instance type.
      *
-     * Select an instance type. See [Instance families](~~25378~~) or call the [DescribeInstanceTypes](~~25620~~) operation to query the performance data of an instance type, or see [Best practices for instance type selection](~~58291~~) to learn about how to select instance types.
-     * Query available resources. You can call the [DescribeAvailableResource](~~66186~~) operation to query available resources in a specific region or zone.
+     *   Instance type selection: See [Instance families](~~25378~~) or call the [DescribeInstanceTypes](~~25620~~) operation to query the performance data of instance types, or see [Best practices for instance type selection](~~58291~~) to learn about how to select instance types.
+     *   Query of available resources: Call the [DescribeAvailableResource](~~66186~~) operation to query resources available in a specific region or zone.
      *
      * @example ecs.g6.large
      *
@@ -295,10 +295,10 @@ class CreateInstanceRequest extends Model
     /**
      * @description The billing method for network usage. Default value: PayByTraffic. Valid values:
      *
-     * PayByBandwidth: pay-by-bandwidth
-     * PayByTraffic: pay-by-traffic
+     *   PayByBandwidth: pay-by-bandwidth
+     *   PayByTraffic (default): pay-by-traffic
      *
-     * > When the **pay-by-traffic** billing method for network usage is used, the maximum inbound and outbound bandwidth values are used as upper limits of bandwidths instead of guaranteed performance specifications. In scenarios where demand outstrips resource supplies, these maximum bandwidth values may not be reached. If you want guaranteed bandwidths for your instance, use the **pay-by-bandwidth** billing method for network usage.
+     * >  When the **pay-by-traffic** billing method is used for network usage, the maximum inbound and outbound bandwidths are used as the upper limits of bandwidths instead of guaranteed performance specifications. In scenarios where demand outstrips resource supplies, these maximum bandwidth values may be limited. If you want guaranteed bandwidths for your instance, use the **pay-by-bandwidth** billing method for network usage.
      * @example PayByTraffic
      *
      * @var string
@@ -308,8 +308,8 @@ class CreateInstanceRequest extends Model
     /**
      * @description The maximum inbound public bandwidth. Unit: Mbit/s. Valid values:
      *
-     * When the purchased outbound public bandwidth is less than or equal to 10 Mbit/s, the valid values of this parameter are 1 to 10 and the default value is 10.
-     * When the purchased outbound public bandwidth is greater than 10 Mbit/s, the valid values of this parameter are 1 to the `InternetMaxBandwidthOut` value and the default value is the `InternetMaxBandwidthOut` value.
+     *   When the purchased outbound public bandwidth is less than or equal to 10 Mbit/s, the valid values of this parameter are 1 to 10 and the default value is 10.
+     *   When the purchased outbound public bandwidth is greater than 10 Mbit/s, the valid values of this parameter are 1 to the `InternetMaxBandwidthOut` value and the default value is the `InternetMaxBandwidthOut` value.
      *
      * @example 50
      *
@@ -331,7 +331,7 @@ class CreateInstanceRequest extends Model
      * @description Specifies whether the instance is I/O optimized. Valid values:
      *
      *   none: The instance is not I/O optimized.
-     *   optimized: The instance is I/O optimized.
+     *   optimized: The ECS instance is I/O optimized.
      *
      * For other instance types, the default value is optimized.
      * @example optimized
@@ -351,7 +351,7 @@ class CreateInstanceRequest extends Model
     public $keyPairName;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable.
+     * @description >  This parameter is in invitational preview and is not publicly available.
      *
      * @example hide
      *
@@ -370,15 +370,15 @@ class CreateInstanceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The password of the instance. The password must be 8 to 30 characters in length and contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Special characters include:
+     * @description The password of the instance. The password must be 8 to 30 characters in length and contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. The following special characters are supported:
      *
-     * ```plain
      * ( ) ` ~ ! @ # $ % ^ & * - _ + = | { } [ ] : ; \" < > , . ? /
+     *
      * Take note of the following items:
      *
-     * For security reasons, we recommend that you use HTTPS to send requests if the Password parameter is specified.
-     * Passwords of Windows instances cannot start with a forward slash (/).
-     * Passwords cannot be set for instances that run some types of operating systems such as Others Linux and Fedora CoreOS. For these instances, only key pairs can be set.
+     *   For security reasons, we recommend that you use HTTPS to send requests if the Password parameter is specified.
+     *   Passwords of Windows instances cannot start with a forward slash (/).
+     *   Passwords cannot be set for instances that run specific types of operating systems such as Others Linux and Fedora CoreOS. For these instances, only key pairs can be set.
      *
      * @example TestEcs123!
      *
@@ -387,7 +387,7 @@ class CreateInstanceRequest extends Model
     public $password;
 
     /**
-     * @description Specifies whether to use the password preset in the image. When you use this parameter, leave Password empty and make sure that the selected image has a password preset.
+     * @description Specifies whether to use the password preset in the image. When you use this parameter, leave the Password parameter empty and make sure that the selected image has a password preset.
      *
      * @example false
      *
@@ -396,9 +396,9 @@ class CreateInstanceRequest extends Model
     public $passwordInherit;
 
     /**
-     * @description The subscription period of the instance. The unit is specified by the `PeriodUnit` parameter. This parameter is valid and required only when `InstanceChargeType` is set to `PrePaid`. If the `DedicatedHostId` parameter is specified, the value of Period must not exceed the subscription period of the specified dedicated host. Valid values:
+     * @description The subscription period of the instance. The unit is specified by `PeriodUnit`. This parameter is valid and required only when `InstanceChargeType` is set to `PrePaid`. If `DedicatedHostId` is specified, the value of Period must not exceed the subscription period of the specified dedicated host. Valid values:
      *
-     * Valid values when PeriodUnit is set to Month: 1, 2, 3, 6, and 12
+     * Valid values if PeriodUnit is set to Month: 1, 2, 3, 6, and 12.
      * @example 1
      *
      * @var int
@@ -416,7 +416,7 @@ class CreateInstanceRequest extends Model
     public $periodUnit;
 
     /**
-     * @description The private IP address to assign to the instance. The private IP address must be an available IP address within the CIDR block of the specified vSwitch.
+     * @description The private IP address to assign to the instance. The private IP address must be an available IP address in the CIDR block of the specified vSwitch.
      *
      * @example 172.16.236.*
      *
@@ -464,8 +464,8 @@ class CreateInstanceRequest extends Model
     /**
      * @description Specifies whether to enable security hardening. Valid values:
      *
-     *   Active: enables security hardening. This value is applicable only to public images.
-     *   Deactive: does not enable security hardening. This value is applicable to all images.
+     *   Active: enables security hardening. This value applies only to public images.
+     *   Deactive: disables security hardening. This value is applicable to all images.
      *
      * @example Active
      *
@@ -474,7 +474,7 @@ class CreateInstanceRequest extends Model
     public $securityEnhancementStrategy;
 
     /**
-     * @description The ID of the security group to which to assign the instance. Instances in the same security group can communicate with each other.
+     * @description The ID of the security group to which to assign the instance.
      *
      * @example sg-bp15ed6xe1yxeycg****
      *
@@ -483,12 +483,12 @@ class CreateInstanceRequest extends Model
     public $securityGroupId;
 
     /**
-     * @description The protection period of the preemptible instance. Unit: hours. Valid values: 0, 1, 2, 3, 4, 5, and 6.
+     * @description The protection period of the preemptible instance. Unit: hours. Default value: 1. Valid values:
      *
-     *   Protection periods of 2, 3, 4, 5, and 6 hours are in invitational preview. If you want to set this parameter to one of these values, submit a ticket.
-     *   If this parameter is set to 0, no protection period is configured for the preemptible instance.
+     *   1: After a preemptible instance is created, Alibaba Cloud ensures that the instance is not automatically released within 1 hour. After the 1-hour protection period ends, the system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
+     *   0: After a preemptible instance is created, Alibaba Cloud does not ensure that the instance runs for 1 hour. The system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
      *
-     * Default value: 1.
+     * >  This parameter takes effect only if the SpotStrategy parameter is set to SpotWithPriceLimit or SpotAsPriceGo.
      * @example 1
      *
      * @var int
@@ -496,7 +496,7 @@ class CreateInstanceRequest extends Model
     public $spotDuration;
 
     /**
-     * @description The interruption mode of the preemptible instance. Default value: Terminate. Set the value to Terminate, which specifies to release the instance.
+     * @description The interruption mode of the preemptible instance. The value can only be Terminate, which specifies that the instance is released.
      *
      * @example Terminate
      *
@@ -505,7 +505,7 @@ class CreateInstanceRequest extends Model
     public $spotInterruptionBehavior;
 
     /**
-     * @description The maximum hourly price of the instance. The value is accurate to three decimal places. This parameter is valid only when the `SpotStrategy` parameter is set to `SpotWithPriceLimit`.
+     * @description The maximum hourly price of the instance. The value is accurate to three decimal places. This parameter is valid only when `SpotStrategy` is set to `SpotWithPriceLimit`.
      *
      * @example 0.98
      *
@@ -514,11 +514,11 @@ class CreateInstanceRequest extends Model
     public $spotPriceLimit;
 
     /**
-     * @description The bidding policy for the pay-as-you-go instance. This parameter is valid only when the `InstanceChargeType` parameter is set to `PostPaid`. Default value: NoSpot. Valid values:
+     * @description The bidding policy for the pay-as-you-go instance. This parameter is valid only if you set `InstanceChargeType` to `PostPaid`. Valid values:
      *
-     *   NoSpot: The instance is created as a regular pay-as-you-go instance.
-     *   SpotWithPriceLimit: The instance is created as a preemptible instance with a user-defined maximum hourly price.
-     *   SpotAsPriceGo: The instance is created as a preemptible instance for which the market price at the time of purchase is automatically used as the bid price.
+     *   NoSpot (default): The instance is created as a regular pay-as-you-go instance.
+     *   SpotWithPriceLimit: The instance is a preemptible instance for which you specify the maximum hourly price.
+     *   SpotAsPriceGo: The instance is a preemptible instance for which the market price at the time of purchase is automatically used as the bid price. The market price can be up to the pay-as-you-go price.
      *
      * @example NoSpot
      *
@@ -555,7 +555,7 @@ class CreateInstanceRequest extends Model
      * @description Specifies whether to create the instance on a dedicated host. Valid values:
      *
      *   default: creates the instance on a non-dedicated host.
-     *   host: creates the instance on a dedicated host. If you do not specify the `DedicatedHostId` parameter, Alibaba Cloud selects a dedicated host for the instance.
+     *   host: creates the instance on a dedicated host. If you do not specify `DedicatedHostId`, Alibaba Cloud selects a dedicated host for the instance.
      *
      * Default value: default.
      * @example default
@@ -565,7 +565,7 @@ class CreateInstanceRequest extends Model
     public $tenancy;
 
     /**
-     * @description Specifies whether to use the system configurations for virtual machines provided by Alibaba Cloud (Windows: NTP and KMS. Linux: NTP and YUM).
+     * @description Specifies whether to use the system configurations for virtual machines. Alibaba Cloud provides the Network Time Protocol (NTP) and Key Management Service (KMS) system configurations for Windows and the NTP and Yellowdog Updater, Modified (YUM) system configurations for Linux.
      *
      * @example true
      *
@@ -585,7 +585,7 @@ class CreateInstanceRequest extends Model
     /**
      * @description The ID of the vSwitch to which to connect the instance. This parameter is required when you create an instance in a VPC. You can call the [DescribeVSwitches](~~35748~~) operation to query available vSwitches.
      *
-     * >  If the `VSwitchId` parameter is specified, the zone specified by the `ZoneId` parameter must be the zone where the specified vSwitch is located. You can also leave the `ZoneId` parameter empty. Then, the system selects the zone where the specified vSwitch is located.
+     * >  If `VSwitchId` is specified, the zone specified by `ZoneId` must be the zone where the specified vSwitch resides. You can also leave `ZoneId` empty. Then, the system selects the zone where the specified vSwitch resides.
      * @example vsw-bp1s5fnvk4gn2tws0****
      *
      * @var string
@@ -602,7 +602,7 @@ class CreateInstanceRequest extends Model
     public $vlanId;
 
     /**
-     * @description The ID of the zone in which to create the instance. You can call the [DescribeZones](~~25610~~) operation to query the most recent zone list.
+     * @description The ID of the zone in which to create the instance. You can call the [DescribeZones](~~25610~~) operation to query the zones in a specific region.
      *
      * This parameter is empty by default.
      * @example cn-hangzhou-g

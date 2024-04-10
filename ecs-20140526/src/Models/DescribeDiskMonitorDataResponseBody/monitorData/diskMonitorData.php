@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class diskMonitorData extends Model
 {
     /**
-     * @description The read bandwidth of the system disk. Unit: byte/s.
+     * @description The read bandwidth of the disk. Unit: byte/s.
      *
      * @example 0
      *
@@ -18,7 +18,7 @@ class diskMonitorData extends Model
     public $BPSRead;
 
     /**
-     * @description The total read and write bandwidth of the system disk. Unit: byte/s.
+     * @description The total read and write bandwidth of the disk. Unit: byte/s.
      *
      * @example 204
      *
@@ -27,7 +27,7 @@ class diskMonitorData extends Model
     public $BPSTotal;
 
     /**
-     * @description The write bandwidth of the system disk. Unit: byte/s.
+     * @description The write bandwidth of the disk. Unit: byte/s.
      *
      * @example 204
      *
@@ -36,7 +36,7 @@ class diskMonitorData extends Model
     public $BPSWrite;
 
     /**
-     * @description The disk ID.
+     * @description The ID of the disk.
      *
      * @example d-bp1bq5g3dxxo1x4o****
      *
@@ -45,7 +45,7 @@ class diskMonitorData extends Model
     public $diskId;
 
     /**
-     * @description The number of read I/O operations per second on the system disk.
+     * @description The number of read I/O operations per second on the disk.
      *
      * @example 0
      *
@@ -54,7 +54,7 @@ class diskMonitorData extends Model
     public $IOPSRead;
 
     /**
-     * @description The total number of read and write I/O operations per second on the system disk.
+     * @description The total number of read and write I/O operations per second on the disk.
      *
      * @example 0
      *
@@ -63,7 +63,7 @@ class diskMonitorData extends Model
     public $IOPSTotal;
 
     /**
-     * @description The number of write I/O operations per second on the system disk.
+     * @description The number of write I/O operations per second on the disk.
      *
      * @example 0
      *
@@ -90,7 +90,7 @@ class diskMonitorData extends Model
     public $latencyWrite;
 
     /**
-     * @description The timestamp to query the monitoring data. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description The timestamp of the monitoring data. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2014-07-23T12:07:00Z
      *

@@ -13,8 +13,8 @@ class CreateAutoSnapshotPolicyRequest extends Model
     /**
      * @description The retention period of the snapshot copy in the destination region. Unit: days. Valid values:
      *
-     *   \-1: The snapshot copy is permanently retained.
-     *   A value in the range of 1 to 65535: The snapshot copy is retained for the specified number of days.
+     *   \-1: The snapshot copy is retained until it is deleted.
+     *   1 to 65535: The snapshot copy is retained for the specified number of days. After the retention period of the snapshot copy expires, the snapshot copy is automatically deleted.
      *
      * Default value: -1.
      * @example 30
@@ -24,6 +24,8 @@ class CreateAutoSnapshotPolicyRequest extends Model
     public $copiedSnapshotsRetentionDays;
 
     /**
+     * @description The encryption parameters for cross-region snapshot replication.
+     *
      * @var copyEncryptionConfiguration
      */
     public $copyEncryptionConfiguration;
@@ -90,9 +92,9 @@ class CreateAutoSnapshotPolicyRequest extends Model
     public $targetCopyRegions;
 
     /**
-     * @description The name of the automatic snapshot policy. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with [http:// or https://. It can contain letters, digits, colons (.), underscores (\_), and hyphens (-).](http://https://。、（:）、（\_）（-）。)
+     * @description The name of the automatic snapshot policy. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with http:// or https://. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
      *
-     * This parameter is empty by default.
+     * By default, this parameter is left empty.
      * @example TestName
      *
      * @var string
@@ -123,8 +125,8 @@ class CreateAutoSnapshotPolicyRequest extends Model
     /**
      * @description The retention period of the automatic snapshot. Unit: days. Valid values:
      *
-     *   \-1: The snapshot is permanently retained.
-     *   A value in the range of 1 to 65535: The snapshot is retained for the specified number of days.
+     *   \-1: The automatic snapshot is retained until it is deleted.
+     *   1 to 65535: The automatic snapshot is retained for the specified number of days. After the retention period of the automatic snapshot expires, the automatic snapshot is automatically deleted.
      *
      * Default value: -1.
      * @example 30

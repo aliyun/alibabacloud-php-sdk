@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ipv6PrefixSet extends Model
 {
     /**
-     * @description >  This parameter is in invitational preview and unavailable for general users.
+     * @description The IPv6 prefix of the ENI.
      *
      * @example 2001:db8:1234:1a00:****::/80
      *

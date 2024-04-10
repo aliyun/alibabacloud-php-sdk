@@ -20,14 +20,14 @@ class systemDisk extends Model
     /**
      * @description The category of the system disk. Valid values:
      *
-     *   cloud_efficiency: ultra disk
+     *   cloud_efficiency: utra disk
      *   cloud_ssd: standard SSD
-     *   cloud_essd: ESSD
+     *   cloud_essd: enhanced SSD (ESSD)
      *   cloud: basic disk
      *   cloud_auto: ESSD AutoPL disk
      *   cloud_essd_entry: ESSD Entry disk
      *
-     * For non-I/O optimized instances of retired instance types, the default value is cloud. For instances of other instance types, the default value is cloud_efficiency.
+     * For non-I/O optimized instances of retired instance types, the default value is cloud. For other types of instances, the default value is cloud_efficiency.
      * @example cloud_ssd
      *
      * @var string

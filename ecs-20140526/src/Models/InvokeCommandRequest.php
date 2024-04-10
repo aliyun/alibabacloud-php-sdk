@@ -63,7 +63,7 @@ class InvokeCommandRequest extends Model
      *   For information about how to query the version of Cloud Assistant Agent, see [Install Cloud Assistant Agent](~~64921~~).
      *   For information about how to upgrade Cloud Assistant Agent, see [Upgrade or disable upgrades for Cloud Assistant Agent](~~134383~~).
      *
-     *   If you specify this parameter, `Username` that is specified in a request to call this operation and `WorkingDir` that is specified in a request to call the [CreateCommand](~~64844~~) operation do not take effect. You can run the command only in the default working directory of the container by using the default user of the container. For more information, see [Use Cloud Assistant to run commands in containers](~~456641~~).
+     *   If this parameter is specified, the `Username` parameters specified in this interface and the `WorkingDir` parameters specified in [CreateCommand](~~64844~~) do not take effect. You can run the command only in the default working directory of the container by using the default user of the container. For more information, see [Use Cloud Assistant to run commands in containers](~~456641~~).
      *
      *   If you specify this parameter, only shell scripts can be run in Linux containers. You cannot add a command in the format similar to `#!/usr/bin/python` at the beginning of a script to specify a script interpreter. For more information, see [Use Cloud Assistant to run commands in containers](~~456641~~).
      *
@@ -74,33 +74,27 @@ class InvokeCommandRequest extends Model
     public $containerName;
 
     /**
-     * @description The schedule on which to run the command. You can configure a command to run at a fixed interval based on a rate expression, run only once at a specified time, or run at designated times based on a cron expression.
+     * @description The schedule on which the command is run. You can configure a command to run at a fixed interval based on a rate expression, run only once at a specified time, or run at designated times based on a cron expression.
      *
-     *   To run the command at a fixed interval, use a rate expression to specify the interval. You can specify the interval in seconds, minutes, hours, or days. This option is suitable for scenarios in which tasks need to be executed at a fixed interval. Specify the interval in the following format: `rate(<Execution interval value><Execution interval unit>)`. For example, specify `rate(5m)` to run the command every 5 minutes. Take note of the following limits when you set an interval:
+     *   To run the command at a fixed interval, use a rate expression to specify the interval. You can specify the interval in seconds, minutes, hours, or days. This option is suitable for scenarios in which the command needs to be run at a fixed interval. Specify the interval in the following format: `rate(<Execution interval value><Execution interval unit>)`. For example, specify `rate(5m)` to run the command every 5 minutes. When you specify an interval, take note of the following limits:
      *
-     *   The specified interval can be anywhere from 60 seconds to 7 days, but must be longer than the timeout period of the scheduled task.
-     *   The interval is the amount of time that elapsed between two consecutive executions. The interval is irrelevant to the amount of time that is required to run the command once. For example, assume that you set the interval to 5 minutes and that it takes 2 minutes to run the command each time. Each time the command is run, the system waits 3 minutes before it runs the command again.
-     *   A task is not executed immediately after the task is created. For example, assume that you set the interval to 5 minutes for a task. The task begins to be executed 5 minutes after it is created.
+     *   The interval can be anywhere from 60 seconds to 7 days, and must be longer than the timeout period for executions of the command.
+     *   The interval is the amount of time that elapses between two consecutive executions. The interval is irrelevant to the amount of time that is required to run the command once. For example, you set the interval to 5 minutes and the command requires 2 minutes to run once. Each time the command is run, the system waits 3 minutes before it runs the command again.
+     *   A task is not run immediately after it is created. For example, you configure the command to run at an interval of 5 minutes. The command begins to run 5 minutes after it is created.
      *
-     *   To run the command only once at a specified time, specify a point in time and a time zone. Specify the point in time in the `at(yyyy-MM-dd HH:mm:ss <Time zone>)` format, which indicates `at(Year-Month-Day Hour:Minute:Second <Time zone>)`. If you do not specify a time zone, the UTC time zone is used by default. The time zone supports the following forms:
+     *   To run a command only once at a specific time, specify a point in time and a time zone. Specify the point in time in the `at(yyyy-MM-dd HH:mm:ss <Time zone>)` format, which indicates `at(Year-Month-Day Hour:Minute:Second <Time zone>)`. If you do not specify a time zone, the Coordinated Universal Time (UTC) time zone is used by default. You can specify a time zone in the following forms:
      *
      *   The time zone name. Examples: `Asia/Shanghai` and `America/Los_Angeles`.
-     *
      *   The time offset from GMT. Examples: `GMT+8:00` (UTC+8) and `GMT-7:00` (UTC-7). If you use the GMT format, do not add leading zeros to the hour value.
-     *
      *   The time zone abbreviation. Only UTC is supported.
      *
      * For example, to configure a command to run only once at 13:15:30 on June 6, 2022 (Shanghai time), set the time to `at(2022-06-06 13:15:30 Asia/Shanghai)`. To configure a command to run only once at 13:15:30 on June 6, 2022 (UTC-7), set the time to `at(2022-06-06 13:15:30 GMT-7:00)`.
      *
-     *   To run a command at specific times, use a cron expression to define the schedule. Specify a schedule in the `<Cron expression> <Time zone>` format. The cron expression is in the `<seconds> <minutes> <hours> <day of the month> <month> <day of the week> <year (optional)>` format. The system calculates the execution times of the command based on the specified cron expression and time zone and runs the command as scheduled. If you do not specify a time zone, the system time zone of the instance on which you want to run the command is used by default. For more information about cron expressions, see [Cron expressions](~~64769~~). The time zone supports the following forms:
+     *   To run a command at designated times, use a cron expression to define the schedule. Specify a schedule in the `<Cron expression> <Time zone>` format. The cron expression is in the `<seconds> <minutes> <hours> <day of the month> <month> <day of the week> <year (optional)>` format. The system calculates the execution times of the command based on the specified cron expression and time zone and runs the command as scheduled. If you do not specify a time zone, the system time zone of the instance on which you want to run the command is used by default. For information about cron expressions, see [Cron expressions](~~64769~~). You can specify the time zone in the following forms:
      *
      *   The time zone name. Examples: `Asia/Shanghai` and `America/Los_Angeles`.
-     *
      *   The time offset from GMT. Examples: `GMT+8:00` (UTC+8) and `GMT-7:00` (UTC-7). If you use the GMT format, do not add leading zeros to the hour value.
-     *
-     *   The time zone abbreviation. Only UTC is supported.
-     *
-     * For example, to configure a command to run at 10:15:00 every day in 2022 (Shanghai time), set the schedule to `0 15 10 ? * * 2022 Asia/Shanghai`. To configure a command to run every half an hour from 10:00:00 to 11:30:00 every day in 2022 (UTC+8), set the schedule to `0 0/30 10-11 * ? 2022 GMT +8:00`. To configure a command to run every 5 minutes from 14:00:00 to 14:55:00 every October every two years from 2022 in UTC, set the schedule to `0 0/5 14 * 10 ? 2022/2 UTC`.
+     *   The time zone abbreviation. Only UTC is supported. For example, to configure a command to run at 10:15:00 every day in 2022 (Shanghai time), set the schedule to `0 15 10 ? * * 2022 Asia/Shanghai`. To configure a command to run every half an hour from 10:00:00 to 11:30:00 every day in 2022 (UTC+8), set the schedule to `0 0/30 10-11 * * ? 2022 GMT+8:00`. To configure a command to run every 5 minutes from 14:00:00 to 14:55:00 every October every two years from 2022 in UTC, set the schedule to `0 0/5 14 * 10 ? 2022/2 UTC`.
      *
      **
      *
@@ -113,6 +107,8 @@ class InvokeCommandRequest extends Model
     public $frequency;
 
     /**
+     * @description The IDs of the instances on which you want to run the command. You can specify up to 50 instance IDs in each request. Valid values of N: 1 to 50.
+     *
      * @example i-bp185dy2o3o6n****
      *
      * @var string[]
@@ -156,20 +152,20 @@ class InvokeCommandRequest extends Model
     /**
      * @description Specifies how to run the command. Valid values:
      *
-     *   Once: immediately runs the command.
+     *   Once: runs the command immediately.
      *   Period: runs the command on a schedule. If you set this parameter to `Period`, you must specify `Frequency`.
      *   NextRebootOnly: runs the command the next time the instance is started.
      *   EveryReboot: runs the command every time the instance is started.
      *
-     * Default value:
+     * Default values:
      *
      *   If you do not specify `Frequency`, the default value is `Once`.
      *   If you specify `Frequency`, `Period` is used as the value of RepeatMode regardless of whether RepeatMode is set to Period.
      *
      * Take note of the following items:
      *
-     *   You can all the [StopInvocation](~~64838~~) operation to stop the pending or scheduled executions of the command.
-     *   If you set this parameter to `Period` or `EveryReboot`, you can set `IncludeHistory` to true to call the [DescribeInvocationResults](~~64845~~) operation to query the results of historical scheduled executions.
+     *   You can call the [StopInvocation](~~64838~~) operation to stop the pending or scheduled executions of the command.
+     *   If you set this parameter to `Period` or `EveryReboot`, you can call the [DescribeInvocationResults](~~64845~~) operation with `IncludeHistory` set to true to query the results of historical scheduled executions.
      *
      * @example Once
      *
@@ -200,6 +196,8 @@ class InvokeCommandRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The tags that are used to filter instances. You can specify this parameter to run the command on multiple instances that have the specified tags added without the need to specify the InstanceId parameter.
+     *
      * @var resourceTag[]
      */
     public $resourceTag;
@@ -210,7 +208,7 @@ class InvokeCommandRequest extends Model
     public $tag;
 
     /**
-     * @description >  This parameter does not take effect and is no longer used.
+     * @description >  This parameter is no longer used and does not take effect.
      *
      * @example true
      *
@@ -219,10 +217,10 @@ class InvokeCommandRequest extends Model
     public $timed;
 
     /**
-     * @description The timeout period for the command execution. Unit: seconds.
+     * @description The timeout period for the execution of the command. Unit: seconds.
      *
      *   The timeout period cannot be less than 10 seconds.
-     *   A timeout error occurs if the command cannot be run because the process slows down or because a specific module or Cloud Assistant Agent does not exist. When the specified timeout period ends, the command process is forcefully terminated.
+     *   A timeout error occurs if the command cannot be run because the process slows down or because a specific module or Cloud Assistant Agent does not exist. When an execution times out, the command process is forcefully terminated.
      *   If you do not specify this parameter, the timeout period that is specified when the command is created is used.
      *   This timeout period is applicable only to this execution. The timeout period of the command is not modified.
      *
@@ -238,7 +236,7 @@ class InvokeCommandRequest extends Model
      *   For Linux instances, the root username is used by default.
      *   For Windows instances, the System username is used by default.
      *
-     * You can also specify other usernames that already exist in the instances to run the command. For security purposes, we recommend that you run Cloud Assistant commands as a regular user. For more information, see [Configure a regular user to run Cloud Assistant commands](~~203771~~).
+     * You can also specify other usernames that already exist on the instances to run the command. For security purposes, we recommend that you run Cloud Assistant commands as a regular user. For more information, see [Run Cloud Assistant commands as a regular user](~~203771~~).
      * @example test
      *
      * @var string
@@ -248,7 +246,7 @@ class InvokeCommandRequest extends Model
     /**
      * @description The name of the password to use to run the command on Windows instances. The name can be up to 255 characters in length.
      *
-     * >  If you use the root username for Linux instances or the System username for Windows instances to run the command, you do not need to specify WindowsPasswordName.
+     * >  If you use the root username for Linux instances or the System username for Windows instances to run the command, you do not need to specify the WindowsPasswordName parameter.
      * @example axtSecretPassword
      *
      * @var string

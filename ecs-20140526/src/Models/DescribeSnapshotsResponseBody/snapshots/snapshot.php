@@ -24,7 +24,7 @@ class snapshot extends Model
     /**
      * @description The category of the snapshot.
      *
-     * >  This parameter will be removed in the future. We recommend that you use the `InstantAccess` parameter to ensure future compatibility.
+     * >  This parameter will be removed in the future. We recommend that you use `InstantAccess` to ensure future compatibility.
      * @example standard
      *
      * @var string
@@ -59,10 +59,10 @@ class snapshot extends Model
     public $encrypted;
 
     /**
-     * @description Indicates whether the instant access feature was enabled. Valid values:
+     * @description Indicates whether the instant access feature is enabled. Valid values:
      *
-     *   true: The instant access feature was enabled. This feature can be enabled only for enhanced SSDs (ESSDs).
-     *   false: The instant access feature was disabled. The snapshot is a normal snapshot for which the instant access feature is disabled.
+     *   true: The instant access feature is enabled. The instant access feature can be enabled only for enhanced SSDs (ESSDs).
+     *   false: The instant access feature is disabled. The snapshot is a normal snapshot for which the instant access feature is disabled.
      *
      * @example false
      *
@@ -73,7 +73,7 @@ class snapshot extends Model
     /**
      * @description Indicates the validity period of the instant access feature. When the specified period expires, the instant access feature is automatically disabled.
      *
-     * By default, the value of this parameter is the same as that of `RetentionDays`.
+     * By default, the value of this parameter is the same as the value of `RetentionDays`.
      * @example 30
      *
      * @var int
@@ -117,12 +117,16 @@ class snapshot extends Model
     public $progress;
 
     /**
+     * @description The ID of the region to which the snapshot belongs.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The remaining time required to create the snapshot. Unit: seconds.
+     * @description The amount of remaining time required to create the snapshot. Unit: seconds.
      *
      * @example 38
      *
@@ -178,9 +182,9 @@ class snapshot extends Model
     /**
      * @description The type of snapshot. Valid values:
      *
-     *   auto or timer: automatic snapshot.
-     *   user: manually created snapshot.
-     *   all: all snapshot types.
+     *   auto or timer: automatic snapshot
+     *   user: manual snapshot
+     *   all: all snapshot types
      *
      * @example all
      *

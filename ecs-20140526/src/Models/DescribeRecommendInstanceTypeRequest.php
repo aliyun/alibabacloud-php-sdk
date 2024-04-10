@@ -19,7 +19,7 @@ class DescribeRecommendInstanceTypeRequest extends Model
     public $cores;
 
     /**
-     * @description The billing method of the instance. For more information, see [Billing overview](~~25398~~). Valid values:
+     * @description The billing method of the ECS instance. For more information, see [Billing overview](~~25398~~). Valid values:
      *
      *   PrePaid: subscription
      *   PostPaid: pay-as-you-go
@@ -123,7 +123,7 @@ class DescribeRecommendInstanceTypeRequest extends Model
      * @description The policy that is used to recommend instance types. Valid values:
      *
      *   InventoryFirst: recommends instance types in descending order of resource availability.
-     *   PriceFirst: recommends instance types in ascending order of hourly price per vCPU.
+     *   PriceFirst: recommends the most cost-effective instance type. Recommended instance types appear based on the hourly prices of vCPUs in ascending order.
      *   NewProductFirst: recommends the latest instance types first.
      *
      * Default value: InventoryFirst.
@@ -169,8 +169,8 @@ class DescribeRecommendInstanceTypeRequest extends Model
      * @description The bidding policy of preemptible instances. Valid values:
      *
      *   NoSpot: The instance is a pay-as-you-go instance.
-     *   SpotWithPriceLimit: The instance is a preemptible instance with a user-defined maximum hourly price.
-     *   SpotAsPriceGo: The instance is a preemptible instance for which the market price is automatically used as the bid price. The market price can be up to the pay-as-you-go price.
+     *   SpotWithPriceLimit: The instance is a preemptible instance for which you can specify the maximum hourly price.
+     *   SpotAsPriceGo: The instance is a preemptible instance for which the market price at the time of purchase is automatically used as the bid price. The market price can be up to the pay-as-you-go price.
      *
      * Default value: NoSpot.
      * @example NoSpot

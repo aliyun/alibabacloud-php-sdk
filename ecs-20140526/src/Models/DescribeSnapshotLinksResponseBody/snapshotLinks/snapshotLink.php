@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class snapshotLink extends Model
 {
     /**
-     * @description The type of the snapshot.
+     * @description The category of the snapshot.
      *
-     * > This parameter will be removed in the future. We recommend that you configure `InstantAccess` to ensure compatibility.
      * @example standard
      *
      * @var string
@@ -19,7 +18,7 @@ class snapshotLink extends Model
     public $category;
 
     /**
-     * @description The instance ID.
+     * @description The ID of the instance.
      *
      * @example i-bp1h6jmbefj2cyqs****
      *
@@ -42,6 +41,7 @@ class snapshotLink extends Model
      *   true: The instant access feature is enabled. This feature can be enabled only for enhanced SSDs (ESSDs).
      *   false: The instant access feature is disabled. The snapshot is a normal snapshot for which the instant access feature is disabled.
      *
+     * >  This parameter is no longer used. By default, new normal snapshots of ESSDs are upgraded to instant access snapshots free of charge without the need for additional configurations. For more information, see [Use the instant access feature](~~193667~~).
      * @example false
      *
      * @var bool
@@ -49,7 +49,7 @@ class snapshotLink extends Model
     public $instantAccess;
 
     /**
-     * @description The ID of the region where the source disk of the snapshot chain is located.
+     * @description The region ID of the source disk.
      *
      * @example cn-hangzhou
      *
@@ -58,7 +58,7 @@ class snapshotLink extends Model
     public $regionId;
 
     /**
-     * @description The snapshot chain IDs.
+     * @description The ID of the snapshot chain.
      *
      * @example sl-2ze0y1jwzpb1geqx****
      *
@@ -67,7 +67,7 @@ class snapshotLink extends Model
     public $snapshotLinkId;
 
     /**
-     * @description The source disk ID. This parameter is retained even if the source disk is deleted.
+     * @description The ID of the source disk. This parameter is retained even if the source disk is deleted.
      *
      * @example d-bp1d6tsvznfghy7y****
      *
@@ -85,7 +85,7 @@ class snapshotLink extends Model
     public $sourceDiskName;
 
     /**
-     * @description The size of the source disk. Unit: GiB.
+     * @description The capacity of the source disk. Unit: GiB.
      *
      * @example 40
      *
@@ -115,7 +115,7 @@ class snapshotLink extends Model
     public $totalCount;
 
     /**
-     * @description The total size of all snapshots in the snapshot chain. Unit: bytes.
+     * @description The total size of all snapshots in the snapshot chain. Unit: byte.
      *
      * @example 2097152
      *

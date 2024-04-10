@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class launchResult extends Model
 {
     /**
-     * @description The number of instances. Valid values: 1 to 100000.
+     * @description The number of created instances.
      *
      * @example 1
      *
@@ -37,7 +37,7 @@ class launchResult extends Model
     public $errorMsg;
 
     /**
-     * @description The IDs of instances created.
+     * @description The IDs of created instances.
      *
      * @var instanceIds
      */
@@ -55,9 +55,9 @@ class launchResult extends Model
     /**
      * @description The bidding policy for the pay-as-you-go instance. Valid values:
      *
-     *   NoSpot: The instance is created as a regular pay-as-you-go instance.
-     *   SpotWithPriceLimit: The instance is created as a preemptible instance with a user-defined maximum hourly price.
-     *   SpotAsPriceGo: The instance is created as a preemptible instance for which the market price at the time of purchase is automatically used as the bidding price.
+     *   NoSpot: The instance is a regular pay-as-you-go instance.
+     *   SpotWithPriceLimit: The instance is a preemptible instance for which you specify the maximum hourly price.
+     *   SpotAsPriceGo: The instance is a preemptible instance for which the market price at the time of purchase is used as the bid price.
      *
      * @example NoSpot
      *

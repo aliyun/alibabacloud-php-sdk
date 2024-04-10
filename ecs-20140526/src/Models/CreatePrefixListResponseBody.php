@@ -18,7 +18,7 @@ class CreatePrefixListResponseBody extends Model
     public $prefixListId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 38793DB8-A4B2-4AEC-BFD3-111234E9188D
      *

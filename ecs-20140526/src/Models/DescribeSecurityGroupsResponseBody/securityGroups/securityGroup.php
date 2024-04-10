@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class securityGroup extends Model
 {
     /**
-     * @description > This parameter is in invitational preview and is not publicly available.
+     * @description The number of private IP addresses that can be added to the security group. For more information, see the "Security group capacity" section in [Basic security groups and advanced security groups](~~605897#section-kj9-e46-6v5~~).
      *
+     * >  This parameter is deprecated. The returned quantity is provided only for reference. The actual quantity may differ from the returned quantity.
      * @example 0
      *
      * @var int
@@ -37,8 +38,9 @@ class securityGroup extends Model
     public $description;
 
     /**
-     * @description > This parameter is in invitational preview and is not publicly available.
+     * @description The number of private IP addresses that are contained in the security group. For more information, see the "Security group capacity" section in [Basic security groups and advanced security groups](~~605897#section-kj9-e46-6v5~~).
      *
+     * >  This parameter is deprecated. The returned quantity is provided only for reference. The actual quantity may differ from the returned quantity.
      * @example 0
      *
      * @var int
@@ -55,7 +57,7 @@ class securityGroup extends Model
     public $resourceGroupId;
 
     /**
-     * @description The security group ID.
+     * @description The ID of the security group.
      *
      * @example sg-bp67acfmxazb4p****
      *
@@ -103,7 +105,7 @@ class securityGroup extends Model
     public $serviceManaged;
 
     /**
-     * @description The tags of the security groups.
+     * @description The tags of the security group.
      *
      * @var tags
      */

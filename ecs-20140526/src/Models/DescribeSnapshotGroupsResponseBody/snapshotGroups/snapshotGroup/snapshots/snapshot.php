@@ -22,10 +22,10 @@ class snapshot extends Model
     public $available;
 
     /**
-     * @description Indicates whether the instant access feature was enabled. Valid values:
+     * @description Indicates whether the instant access feature is enabled. Valid values:
      *
-     *   true: The instant access feature was enabled. This feature can be enabled only for enhanced SSDs (ESSDs).
-     *   false: The instant access feature was disabled. The snapshot is a normal snapshot for which the instant access feature is disabled.
+     *   true: The instant access feature is enabled. By default, the instant access feature is enabled for ESSDs.
+     *   false: The instant access feature is disabled. The snapshot is a normal snapshot for which the instant access feature is disabled.
      *
      * @example true
      *
@@ -34,8 +34,9 @@ class snapshot extends Model
     public $instantAccess;
 
     /**
-     * @description The validity period of the instant access feature. When the period expires, the instant access snapshot is automatically released.
+     * @description The retention period of the instant access feature. After the retention period ends, the snapshot is automatically released.
      *
+     * >  This parameter is deprecated. The normal snapshots of enhanced SSDs (ESSDs) are upgraded to support the instant access feature by default. No additional configurations are required to enable the feature and you are not charged for the feature. For more information, see [Use the instant access feature](~~193667~~).
      * @example 3
      *
      * @var int
@@ -61,7 +62,7 @@ class snapshot extends Model
     public $snapshotId;
 
     /**
-     * @description The ID of the source disk. This parameter is retained even after the source disk is released.
+     * @description The ID of the source disk. This parameter is retained even after the source disk of the snapshot is released.
      *
      * @example d-j6c3ogynmvpi6wy7****
      *

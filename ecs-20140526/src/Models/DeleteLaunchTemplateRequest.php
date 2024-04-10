@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteLaunchTemplateRequest extends Model
 {
     /**
-     * @description The ID of the instance launch template. For more information, call the [DescribeLaunchTemplates](~~73759~~) operation.
+     * @description The ID of the launch template. For more information, see [DescribeLaunchTemplates](~~73759~~).
      *
-     * You must specify the `LaunchTemplateId` parameter or the `LaunchTemplateName` parameter to determine an instance launch template.
+     * You must specify `LaunchTemplateId` or `LaunchTemplateName` to specify a launch template.
      * @example lt-bp1apo0bbbkuy0rj****
      *
      * @var string
@@ -19,9 +19,9 @@ class DeleteLaunchTemplateRequest extends Model
     public $launchTemplateId;
 
     /**
-     * @description The name of the instance launch template.
+     * @description The name of the launch template.
      *
-     * You must specify the `LaunchTemplateId` parameter or the `LaunchTemplateName` parameter to determine an instance launch template.
+     * You must specify `LaunchTemplateId` or `LaunchTemplateName` to specify a launch template.
      * @example testLaunchTemplateName
      *
      * @var string
@@ -39,7 +39,7 @@ class DeleteLaunchTemplateRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance launch template. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the launch template. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

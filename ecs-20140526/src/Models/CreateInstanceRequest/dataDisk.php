@@ -26,6 +26,9 @@ class dataDisk extends Model
     /**
      * @description Specifies whether to release data disk N when the instance is released.
      *
+     *   true: releases data disk N.
+     *   false: does not release data disk N.
+     *
      * Default value: true.
      * @example true
      *
@@ -45,7 +48,7 @@ class dataDisk extends Model
     /**
      * @description The mount point of data disk N.
      *
-     * >  This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
+     * >  This parameter is applicable to scenarios in which a full image is used to create instances. A full image is an image that contains an operating system, application software, and business data. For these scenarios, you can set this parameter to the mount point of data disk N contained in the full image and modify the `DataDisk.N.Size` and `DataDisk.N.Category` parameters to change the category and size of data disk N created based on the image.
      * @example /dev/xvdb
      *
      * @var string
@@ -62,7 +65,7 @@ class dataDisk extends Model
     public $diskName;
 
     /**
-     * @description The algorithm to use to encrypt data disk N.
+     * @description >  This parameter is not publicly available.
      *
      * @example hide
      *
@@ -73,6 +76,9 @@ class dataDisk extends Model
     /**
      * @description Specifies whether to encrypt data disk N.
      *
+     *   true: encrypts data disk N.
+     *   false: does not encrypt data disk N.
+     *
      * Default value: false.
      * @example false
      *
@@ -81,7 +87,7 @@ class dataDisk extends Model
     public $encrypted;
 
     /**
-     * @description The ID of the Key Management Service (KMS) key to use for data disk N.
+     * @description The ID of the KMS key to use for data disk N.
      *
      * @example 0e478b7a-4262-4802-b8cb-00d****
      *
@@ -90,10 +96,10 @@ class dataDisk extends Model
     public $KMSKeyId;
 
     /**
-     * @description The performance level of the ESSD to use as data disk N. The N value must be the same as that in `DataDisk.N.Category` when DataDisk.N.Category is set to cloud_essd. Default value: PL1. Valid values:
+     * @description The performance level of the ESSD to use as data disk N. The value of N must be the same as that in `DataDisk.N.Category` when DataDisk.N.Category is set to cloud_essd. Valid values:
      *
      *   PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
-     *   PL1: A single ESSD can deliver up to 50,000 random read/write IOPS.
+     *   PL1 (default): A single ESSD can deliver up to 50,000 random read/write IOPS.
      *   PL2: A single ESSD can deliver up to 100,000 random read/write IOPS.
      *   PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
      *
@@ -107,20 +113,20 @@ class dataDisk extends Model
     /**
      * @description The size of data disk N. Valid values of N: 1 to 16. Unit: GiB. Valid values:
      *
-     * Valid values when DataDisk.N.Category is set to cloud_efficiency: 20 to 32768.
+     *   Valid values if DataDisk.N.Category is set to cloud_efficiency: 20 to 32768.
      *
-     * Valid values when DataDisk.N.Category is set to cloud_ssd: 20 to 32768.
+     *   Valid values if DataDisk.N.Category is set to cloud_ssd: 20 to 32768.
      *
-     * Valid values when DataDisk.N.Category is set to cloud_essd: depend on the `DataDisk.N.PerformanceLevel` value.
+     *   Valid values if DataDisk.N.Category is set to cloud_essd: vary based on the `DataDisk.N.PerformanceLevel` value.
      *
-     * Valid values when the DataDisk.N.PerformanceLevel parameter is set to PL0: 40 to 32768.
-     * Valid values when the DataDisk.N.PerformanceLevel parameter is set to PL1: 20 to 32768.
-     * Valid values when the DataDisk.N.PerformanceLevel parameter is set to PL2: 461 to 32768.
-     * Valid values when the DataDisk.N.PerformanceLevel parameter is set to PL3: 1261 to 32768.
+     *   Valid values if DataDisk.N.PerformanceLevel is set to PL0: 40 to 32768.
+     *   Valid values if DataDisk.N.PerformanceLevel is set to PL1: 20 to 32768.
+     *   Valid values if DataDisk.N.PerformanceLevel is set to PL2: 461 to 32768.
+     *   Valid values if DataDisk.N.PerformanceLevel is set to PL3: 1261 to 32768.
      *
-     * Valid values when DataDisk.N.Category is set to cloud: 5 to 2000.
+     *   Valid values if DataDisk.N.Category is set to cloud: 5 to 2000.
      *
-     * The value of this parameter must be greater than or equal to the size of the snapshot specified by the `SnapshotId` parameter.
+     * The value of this parameter must be greater than or equal to the size of the snapshot specified by `SnapshotId`.
      * @example 2000
      *
      * @var int
@@ -130,8 +136,8 @@ class dataDisk extends Model
     /**
      * @description The ID of the snapshot to use to create data disk N. Valid values of N: 1 to 16.
      *
-     *   If the `DataDisk.N.SnapshotId` parameter is specified, the `DataDisk.N.Size` parameter is ignored and the data disk is created with the size of the specified snapshot.
-     *   Use snapshots created after July 15, 2013. Otherwise, an error is returned and your request is rejected.
+     *   If `DataDisk.N.SnapshotId` is specified, `DataDisk.N.Size` is ignored. The data disk is created based on the size of the specified snapshot.
+     *   Use snapshots created on or after July 15, 2013. Otherwise, an error is returned and your request is rejected.
      *
      * @example s-bp17441ohwka0yuh****
      *

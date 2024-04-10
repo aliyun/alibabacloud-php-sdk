@@ -37,7 +37,7 @@ class DescribeSnapshotLinksResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The details about the snapshot chains.
+     * @description The details of the snapshot chains.
      *
      * @var snapshotLinks
      */

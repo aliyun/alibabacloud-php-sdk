@@ -19,7 +19,7 @@ class RevokeSecurityGroupRequest extends Model
     public $clientToken;
 
     /**
-     * @description This parameter is deprecated. Use `Permissions.N.Description` to specify the description of security group rule N.
+     * @description This parameter is deprecated. Use `Permissions.N.Description` to specify the rule description.
      *
      * @example This is description.
      *
@@ -74,7 +74,7 @@ class RevokeSecurityGroupRequest extends Model
     public $ipv6SourceCidrIp;
 
     /**
-     * @description This parameter is deprecated. Use `Permissions.N.NicType` to specify the NIC type.
+     * @description This parameter is deprecated. Use `Permissions.N.NicType` to specify the network interface type.
      *
      * @example intranet
      *
@@ -124,7 +124,7 @@ class RevokeSecurityGroupRequest extends Model
     public $portRange;
 
     /**
-     * @description This parameter is deprecated. Use `Permissions.N.Priority` to specify the priority of the rule.
+     * @description This parameter is deprecated. Use `Permissions.N.Priority` to specify the rule priority.
      *
      * @example 1
      *

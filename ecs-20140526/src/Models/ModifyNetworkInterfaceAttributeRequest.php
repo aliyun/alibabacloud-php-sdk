@@ -92,6 +92,13 @@ class ModifyNetworkInterfaceAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The receive (Rx) queue depth of the ENI.
+     *
+     * Take note of the following items:
+     *
+     *   The Rx queue depth of an ENI must be the same as the transmit (Tx) queue depth of the ENI. Valid values: powers of 2 in the range of 8192 to 16384.
+     *   A larger Rx queue depth yields higher inbound throughput but consumes more memory.
+     *
      * @example 8192
      *
      * @var int
@@ -109,6 +116,13 @@ class ModifyNetworkInterfaceAttributeRequest extends Model
     public $securityGroupId;
 
     /**
+     * @description The Tx queue depth of the ENI.
+     *
+     * Take note of the following items:
+     *
+     *   The Tx queue depth of an ENI must be the same as the Rx queue depth of the ENI. Valid values: powers of 2 in the range of 8192 to 16384.
+     *   A larger Tx queue depth yields higher outbound throughput but consumes more memory.
+     *
      * @example 8192
      *
      * @var int

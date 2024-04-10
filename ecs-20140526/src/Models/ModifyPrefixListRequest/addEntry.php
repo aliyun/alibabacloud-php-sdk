@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class addEntry extends Model
 {
     /**
-     * @description The CIDR block of entry N to be added to the prefix list. Valid values of N: 0 to 200.
+     * @description The CIDR block in entry N to be added to the prefix list. Valid values of N: 0 to 200.
      *
      * Take note of the following items when you add the entries:
      *
-     *   The number of entries in the prefix list cannot be greater than the maximum number of entries allowed for the prefix list. You can call the [DescribePrefixListAttributes](~~205872~~) operation to query the maximum number of entries in a specific prefix list.
+     *   The total number of entries in the prefix list cannot exceed the maximum number of entries you specified for the prefix list. You can call the [DescribePrefixListAttributes](~~205872~~) operation to query the maximum number of entries that the prefix list can contain.
      *   You cannot specify duplicate CIDR blocks.
      *   The CIDR blocks cannot be the same as the `RemoveEntry.N.Cidr` values.
      *

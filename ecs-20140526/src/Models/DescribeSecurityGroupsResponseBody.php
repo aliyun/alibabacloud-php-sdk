@@ -57,7 +57,7 @@ class DescribeSecurityGroupsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The details about the security groups.
+     * @description The information about the security groups.
      *
      * @var securityGroups
      */

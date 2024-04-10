@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeEniMonitorDataResponseBody extends Model
 {
     /**
-     * @description The details about the monitoring data of the secondary ENI.
+     * @description The monitoring data of the secondary ENI.
      *
      * @var monitorData
      */

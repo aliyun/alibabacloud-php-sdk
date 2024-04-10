@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class copyEncryptionConfiguration extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $encrypted;
 
     /**
+     * @example 0e478b7a-4262-4802-b8cb-00d3fb40****
+     *
      * @var string
      */
     public $KMSKeyId;

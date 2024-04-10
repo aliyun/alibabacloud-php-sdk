@@ -11,9 +11,12 @@ class systemDisk extends Model
     /**
      * @description The algorithm to use to encrypt the system disk. Valid values:
      *
-     * - sm4-128
+     *   aes-256
+     *   sm4-128
      *
-     * Default value: aes-256. When both LaunchTemplateId and LaunchConfiguration.* parameters are specified, LaunchTemplateId takes precedence.
+     * Default value: aes-256.
+     *
+     * When both LaunchTemplateId and LaunchConfiguration.\* parameters are specified, LaunchTemplateId takes precedence.
      * @example aes-256
      *
      * @var string
@@ -21,11 +24,14 @@ class systemDisk extends Model
     public $encryptAlgorithm;
 
     /**
-     * @description Specifies whether to encrypt the system disk. Valid values:
+     * @description Specifies whether to encrypt system disk N. Valid values:
      *
-     * - false
+     *   true
+     *   false
      *
-     * Default value: false. When both LaunchTemplateId and LaunchConfiguration.* parameters are specified, LaunchTemplateId takes precedence.
+     * Default value: false.
+     *
+     * When both LaunchTemplateId and LaunchConfiguration.\* parameters are specified, LaunchTemplateId takes precedence.
      * @example false
      *
      * @var string
@@ -33,8 +39,9 @@ class systemDisk extends Model
     public $encrypted;
 
     /**
-     * @description The ID of the KMS key to use for the system disk. When both LaunchTemplateId and LaunchConfiguration.* parameters are specified, LaunchTemplateId takes precedence.
+     * @description The ID of the KMS key to use for the system disk.
      *
+     * When both LaunchTemplateId and LaunchConfiguration.\* parameters are specified, LaunchTemplateId takes precedence.
      * @example 0e478b7a-4262-4802-b8cb-00d3fb40****
      *
      * @var string

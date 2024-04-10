@@ -20,11 +20,11 @@ class launchConfiguration extends Model
     public $arn;
 
     /**
-     * @description The automatic release time of the instance. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * @description The automatic release time of the pay-as-you-go instance. Specify the time in the [ISO 8601](~~25696~~) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in Coordinated Universal Time (UTC).
      *
-     *   If the value of `ss` is not `00`, the time is automatically rounded to the nearest minute based on the value of `mm`.
+     *   If the value of `ss` is not `00`, the start time is automatically rounded down to the nearest minute based on the value of `mm`.
      *   The specified time must be at least 30 minutes later than the current time.
-     *   The specified time can be at most three years from the current time.
+     *   The specified time can be at most three years later than the current time.
      *
      * @example 2018-01-01T12:05:00Z
      *
@@ -35,8 +35,8 @@ class launchConfiguration extends Model
     /**
      * @description The performance mode of the burstable instance. Valid values:
      *
-     *   Standard: the standard mode. For more information, see the "Standard mode" section in [Overview of burstable instances](~~59977~~).
-     *   Unlimited: the unlimited mode. For more information, see the "Unlimited mode" section in [Overview of burstable instances](~~59977~~).
+     *   Standard: the standard mode. For more information, see the "Standard mode" section in the [Overview of burstable instances](~~59977~~) topic.
+     *   Unlimited: the unlimited mode. For more information, see the "Unlimited mode" section in the [Overview of burstable instances](~~59977~~) topic.
      *
      * This parameter is empty by default.
      *
@@ -90,7 +90,7 @@ class launchConfiguration extends Model
     public $hostNames;
 
     /**
-     * @description The name of the image family. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `aliyun` or `acs:`. The name cannot contain `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+     * @description The name of the image family. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `aliyun` or `acs:`. The name cannot contain `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
      *
      * @example hangzhou-daily-update
      *
@@ -117,7 +117,7 @@ class launchConfiguration extends Model
     public $instanceDescription;
 
     /**
-     * @description The instance name. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (\_), periods (.), and hyphens (-). The default value of this parameter is the `InstanceId` value.
+     * @description The instance name. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (\_), periods (.), and hyphens (-).
      *
      * When you batch create instances, you can batch configure sequential names for the instances. For more information, see [Batch configure sequential names or hostnames for multiple instances](~~196048~~).
      *
@@ -267,7 +267,7 @@ class launchConfiguration extends Model
     public $securityGroupIds;
 
     /**
-     * @description The information of the system disk on the instance. If both the LaunchTemplateId and LaunchConfiguration.* parameters are specified, the LaunchTemplateId parameter takes precedence.
+     * @description The information of the system disk on the instance. When both LaunchTemplateId and LaunchConfiguration.\* parameters are specified, LaunchTemplateId takes precedence.
      *
      * @var systemDisk
      */
@@ -301,7 +301,7 @@ class launchConfiguration extends Model
     public $systemDiskDescription;
 
     /**
-     * @description The name of the system disk. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, periods (.), colons (:), underscores (\_), and hyphens (-).
+     * @description The name of the system disk. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, periods (.), colons (:), underscores (\_), and hyphens (-).
      *
      * This parameter is empty by default.
      *

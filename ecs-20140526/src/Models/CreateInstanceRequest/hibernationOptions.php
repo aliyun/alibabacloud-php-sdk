@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class hibernationOptions extends Model
 {
     /**
-     * @description > This parameter is in invitational preview and is unavailable.
+     * @description >  This parameter is in invitational preview and is not publicly available.
      *
      * @example false
      *

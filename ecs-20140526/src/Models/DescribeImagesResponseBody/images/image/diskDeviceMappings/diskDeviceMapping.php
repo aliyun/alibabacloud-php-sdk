@@ -11,7 +11,7 @@ class diskDeviceMapping extends Model
     /**
      * @description The device name of the disk. Example: /dev/xvdb.
      *
-     * > This parameter will be removed in the future. To ensure compatibility, we recommend that you use other parameters.
+     * >  This parameter will be removed in the future. To ensure compatibility, we recommend that you use other parameters.
      * @example /dev/xvda
      *
      * @var string
@@ -19,7 +19,7 @@ class diskDeviceMapping extends Model
     public $device;
 
     /**
-     * @description The image format.
+     * @description The format of the image.
      *
      * @example qcow2
      *
@@ -46,7 +46,7 @@ class diskDeviceMapping extends Model
     public $importOSSObject;
 
     /**
-     * @description The progress of an image copy task.
+     * @description The progress of the image copy task.
      *
      * @example 32%
      *
@@ -55,7 +55,7 @@ class diskDeviceMapping extends Model
     public $progress;
 
     /**
-     * @description The remaining amount of time required for an image copy task. Unit: seconds.
+     * @description The remaining time of the image copy task. Unit: seconds.
      *
      * @example 233
      *
@@ -64,7 +64,7 @@ class diskDeviceMapping extends Model
     public $remainTime;
 
     /**
-     * @description The disk size.
+     * @description The size of the disk. Unit: GiB.
      *
      * @example 60
      *
@@ -73,7 +73,7 @@ class diskDeviceMapping extends Model
     public $size;
 
     /**
-     * @description The snapshot ID.
+     * @description The ID of the snapshot.
      *
      * @example s-bp17ot2q7x72ggtw****
      *
@@ -82,7 +82,7 @@ class diskDeviceMapping extends Model
     public $snapshotId;
 
     /**
-     * @description The image type.
+     * @description The type of the image.
      *
      * @example system
      *

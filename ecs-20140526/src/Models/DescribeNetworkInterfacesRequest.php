@@ -80,8 +80,9 @@ class DescribeNetworkInterfacesRequest extends Model
     public $ownerId;
 
     /**
-     * @description >This parameter is no longer used. We recommend that you specify the MaxResults or NextToken parameter for a paged query.
+     * @description The page number.
      *
+     * >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
      * @example 1
      *
      * @deprecated
@@ -91,8 +92,9 @@ class DescribeNetworkInterfacesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description >This parameter is no longer used. We recommend that you specify the MaxResults or NextToken parameter for a paged query.
+     * @description The number of entries per page.
      *
+     * >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
      * @example 100
      *
      * @deprecated
@@ -215,7 +217,7 @@ class DescribeNetworkInterfacesRequest extends Model
     public $vSwitchId;
 
     /**
-     * @description The ID of the virtual private cloud (VPC) to which the ENI belongs.
+     * @description The ID of the virtual private cloud (VPC) to which the elastic network interface (ENI) belongs.
      *
      * @example vsw-bp16usj2p27htro3****
      *

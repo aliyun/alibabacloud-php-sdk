@@ -47,7 +47,7 @@ class DescribeAutoProvisioningGroupsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number.
      *
      * Default value: 1.
      * @example 1
@@ -57,7 +57,7 @@ class DescribeAutoProvisioningGroupsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page.
      *
      * Default value: 10.
      * @example 2
@@ -76,6 +76,10 @@ class DescribeAutoProvisioningGroupsRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the auto provisioning group belongs.
+     *
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;

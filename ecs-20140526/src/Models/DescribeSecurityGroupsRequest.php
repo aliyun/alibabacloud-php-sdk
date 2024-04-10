@@ -32,8 +32,9 @@ class DescribeSecurityGroupsRequest extends Model
     public $fuzzyQuery;
 
     /**
-     * @description > This parameter is deprecated.
+     * @description Specifies whether to query the capacity of the security group. If you set this parameter to True, the `EcsCount` and `AvailableInstanceAmount` values in the response are valid.
      *
+     * >  This parameter is deprecated.
      * @example null
      *
      * @var bool
@@ -84,7 +85,7 @@ class DescribeSecurityGroupsRequest extends Model
     /**
      * @description The page number.
      *
-     * > This parameter will be deprecated in the future. We recommend that you use NextToken and MaxResults for a paged query.
+     * >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
      * @example 1
      *
      * @var int
@@ -94,7 +95,7 @@ class DescribeSecurityGroupsRequest extends Model
     /**
      * @description The number of entries per page.
      *
-     * > This parameter will be deprecated in the future. We recommend that you use NextToken and MaxResults for a paged query.
+     * >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
      * @example 10
      *
      * @var int
@@ -171,6 +172,13 @@ class DescribeSecurityGroupsRequest extends Model
     public $securityGroupType;
 
     /**
+     * @description Specifies whether to query managed security groups. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example false
+     *
      * @var bool
      */
     public $serviceManaged;

@@ -49,9 +49,11 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
     public $creationTime;
 
     /**
-     * @description Specifies whether to retain the ENI when the associated instance is released. Valid values:
+     * @description Indicates whether to retain the ENI when the associated instance is released. Valid values:
      *
-     * - false
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -78,14 +80,14 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
     public $instanceId;
 
     /**
-     * @description >  This parameter is in invitational preview and unavailable for general users.
+     * @description The IPv4 prefixes of the ENI.
      *
      * @var ipv4PrefixSets
      */
     public $ipv4PrefixSets;
 
     /**
-     * @description >  This parameter is in invitational preview and unavailable for general users.
+     * @description The IPv6 prefixes of the ENI.
      *
      * @var ipv6PrefixSets
      */
@@ -270,6 +272,10 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
     public $tags;
 
     /**
+     * @description >  This parameter is in invitational preview and unavailable for general users.
+     *
+     * @example null
+     *
      * @var string
      */
     public $tcpOptionAddressEnabled;

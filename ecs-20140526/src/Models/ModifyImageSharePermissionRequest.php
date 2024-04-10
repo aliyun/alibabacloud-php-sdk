@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyImageSharePermissionRequest extends Model
 {
     /**
-     * @description The ID of Alibaba Cloud account N with which you want to share the custom image. Valid values of N: 1 to 10. If the value of N is greater than 10, this parameter is ignored.
+     * @description The ID of Alibaba Cloud account N to which you want to share the custom image. Valid values of N: 1 to 10. If you specify more than 10 Alibaba Cloud account IDs, the system processes only the first 10 account IDs. The excess account IDs are ignored.
      *
      * @example 1234567890
      *
@@ -68,7 +68,7 @@ class ModifyImageSharePermissionRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of Alibaba Cloud account N from which you want to unshare the custom image. Valid values of N: 1 to 10. If the value of N is greater than 10, this parameter is ignored.
+     * @description The ID of Alibaba Cloud account N from which you want to unshare the custom image. Valid values of N: 1 to 10. If you specify more than 10 Alibaba Cloud account IDs, the system processes only the first 10 account IDs. The excess account IDs are ignored.
      *
      * @example 1234567890
      *

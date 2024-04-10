@@ -9,15 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DeleteInstanceRequest extends Model
 {
     /**
+     * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+     *
+     *   true: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, service limits, and unavailable ECS resources. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   false (default): performs a dry run and performs the actual request. If the request passes the dry run, the instance is released.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
-     * @description Specifies whether to forcefully release the instance in the `Running` state. Valid values:****
+     * @description Specifies whether to forcefully release the instance in the **Running** (`Running`) state. Valid values:
      *
-     *   true: forcefully releases the instance in the `Running` state.**** This operation is equivalent to performing a hard shut-down. Cache data that is not written to persistent storage will be lost.
-     *   false: normally releases the instance. This value is valid only for instances in the `Stopped` state.****
+     *   true: forcefully releases the instance in the **Running** (`Running`) state. This operation is equivalent to performing a hard shut-down. Cache data that is not written to persistent storage will be lost.
+     *   false: normally releases the instance. This value is valid only for instances in the **Stopped** (`Stopped`) state.
      *
      * Default value: false.
      * @example false
@@ -56,7 +63,10 @@ class DeleteInstanceRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description Specifies whether to release an expired subscription instance.
+     * @description Specifies whether to release the expired subscription instance. Valid values:
+     *
+     *   true
+     *   false
      *
      * Default value: false.
      * @example false

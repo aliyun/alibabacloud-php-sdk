@@ -22,8 +22,12 @@ class DescribeBandwidthLimitationRequest extends Model
     public $instanceChargeType;
 
     /**
-     * @description The instance type. For information about the values, see [Instance families](~~25378~~).
+     * @description The type of the elastic network interface (ENI). Valid values:
      *
+     *   Secondary: secondary ENI.
+     *   Trunk: trunk ENI. This value is in invitational preview.
+     *
+     * Default value: Secondary.
      * @example ecs.g5.large
      *
      * @var string
@@ -55,7 +59,7 @@ class DescribeBandwidthLimitationRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -64,7 +68,7 @@ class DescribeBandwidthLimitationRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource.
+     * @description The resource ID.
      *
      * >  This parameter is required when the OperationType parameter is set to Upgrade or Downgrade.
      * @example i-bp67acfmxazb4ph***
@@ -86,8 +90,8 @@ class DescribeBandwidthLimitationRequest extends Model
     /**
      * @description The bidding policy for the pay-as-you-go instance. Valid values:
      *
-     *   NoSpot: The instance is a regular pay-as-you-go instance.
-     *   SpotWithPriceLimit: The instance is a preemptible instance with user-defined maximum hourly prices.
+     *   NoSpot: The instance is a pay-as-you-go instance.
+     *   SpotWithPriceLimit: The instance is a preemptible instance for which you can specify the maximum hourly price.
      *   SpotAsPriceGo: The instance is a preemptible instance for which the market price at the time of purchase is automatically used as the bid price. The market price can be up to the pay-as-you-go price.
      *
      * >  The SpotStrategy parameter takes effect only when the InstanceChargeType parameter is set to PostPaid.

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class launchTemplateConfig extends Model
 {
     /**
-     * @description The instance type that is specified in the extended configurations.
+     * @description The instance type that is specified in the extended configuration.
      *
      * @example ecs.g5.large
      *
@@ -18,7 +18,7 @@ class launchTemplateConfig extends Model
     public $instanceType;
 
     /**
-     * @description The maximum price of the instance type specified in the extended configurations.
+     * @description The maximum price of the instance type specified in the extended configuration.
      *
      * @example 3
      *
@@ -27,7 +27,7 @@ class launchTemplateConfig extends Model
     public $maxPrice;
 
     /**
-     * @description The priority of the instance type specified in the extended configurations. A value of 0 indicates the highest priority.
+     * @description The priority of the instance type specified in the extended configuration. A value of 0 indicates the highest priority.
      *
      * @example 1
      *
@@ -36,7 +36,7 @@ class launchTemplateConfig extends Model
     public $priority;
 
     /**
-     * @description The ID of the vSwitch specified in the extended configurations.
+     * @description The ID of the vSwitch specified in the extended configuration.
      *
      * @example vsw-sn5bsitu4lfzgc5o7****
      *
@@ -45,7 +45,7 @@ class launchTemplateConfig extends Model
     public $vSwitchId;
 
     /**
-     * @description The weight of the instance type specified in the extended configurations.
+     * @description The weight of the instance type specified in the extended configuration.
      *
      * @example 2
      *

@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyPrefixListRequest extends Model
 {
     /**
-     * @description The entries that to be added to the prefix list.
+     * @description The entries to be added to the prefix list.
      *
      * @var addEntry[]
      */
@@ -46,7 +46,7 @@ class ModifyPrefixListRequest extends Model
     public $prefixListId;
 
     /**
-     * @description The name of the prefix list. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://`, `https://`, `com.aliyun`, or `com.alibabacloud`. It can contain letters, digits, colons (:), underscores (\_), periods (.), and hyphens (-).
+     * @description The name of the prefix list. The name must be 2 to 128 characters in length, and can contain letters, digits, colons (:), underscores (\_), periods (.), and hyphens (-). It must start with a letter and cannot start with `http://`, `https://`, `com.aliyun`, or `com.alibabacloud`.
      *
      * @example PrefixListNameSample
      *
@@ -64,7 +64,7 @@ class ModifyPrefixListRequest extends Model
     public $regionId;
 
     /**
-     * @description The entries that to be deleted from the prefix list.
+     * @description The entries to be deleted from the prefix list.
      *
      * @var removeEntry[]
      */

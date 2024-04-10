@@ -17,14 +17,14 @@ use AlibabaCloud\Tea\Model;
 class networkInterfaceSet extends Model
 {
     /**
-     * @description Details about the EIP that is associated with the secondary private IP address of the ENI.
+     * @description The EIPs that are associated with the secondary private IP addresses of the ENI.
      *
      * @var associatedPublicIp
      */
     public $associatedPublicIp;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable.
+     * @description >  This parameter is in invitational preview and is not publicly available.
      *
      * @var attachment
      */
@@ -40,9 +40,11 @@ class networkInterfaceSet extends Model
     public $creationTime;
 
     /**
-     * @description Specifies whether to retain the ENI when the associated instance is released. Valid values:
+     * @description Indicates whether to retain the ENI when the associated instance is released. Valid values:
      *
-     * - false
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -59,9 +61,9 @@ class networkInterfaceSet extends Model
     public $description;
 
     /**
-     * @description The ID of the instance to which the ENI is attached.
+     * @description The ID of the Elastic Compute Service (ECS) instance to which the ENI is attached.
      *
-     * > If the ENI is managed and controlled by other Alibaba Cloud services, no instance ID is returned.
+     * >  If the ENI is managed by other Alibaba Cloud services, no instance ID is returned.
      * @example i-bp1e2l6djkndyuli****
      *
      * @var string
@@ -69,28 +71,28 @@ class networkInterfaceSet extends Model
     public $instanceId;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable for general users.
+     * @description The IPv4 prefixes of the ENI.
      *
      * @var ipv4PrefixSets
      */
     public $ipv4PrefixSets;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable for general users.
+     * @description The IPv6 prefixes of the ENI.
      *
      * @var ipv6PrefixSets
      */
     public $ipv6PrefixSets;
 
     /**
-     * @description The IPv6 addresses assigned to the ENI.
+     * @description The IPv6 addresses of the ENI.
      *
      * @var ipv6Sets
      */
     public $ipv6Sets;
 
     /**
-     * @description The media access control (MAC) address of the ENI.
+     * @description The MAC address of the ENI.
      *
      * @example 00:16:3e:12:**:**
      *
@@ -99,7 +101,7 @@ class networkInterfaceSet extends Model
     public $macAddress;
 
     /**
-     * @description The ENI ID.
+     * @description The ID of the ENI.
      *
      * @example eni-bp125p95hhdhn3ot****
      *
@@ -119,10 +121,10 @@ class networkInterfaceSet extends Model
     /**
      * @description The communication mode of the ENI. Valid values:
      *
-     *   Standard: uses the TCP communication mode.
-     *   HighPerformance: uses the remote direct memory access (RDMA) communication mode with Elastic RDMA Interface (ERI) enabled.
+     *   Standard: The TCP communication mode is used.
+     *   HighPerformance: The Elastic RDMA Interface (ERI) is enabled and the remote direct memory access (RDMA) communication mode is used.
      *
-     * > The parameter can have a value of HighPerformance only when the ENI is attached to a c7re RDMA-enhanced instance that resides in Beijing Zone K.
+     * >  This parameter can have a value of HighPerformance only when the ENI is attached to a c7re RDMA-enhanced instance that resides in Beijing Zone K.
      * @example Standard
      *
      * @var string
@@ -139,7 +141,7 @@ class networkInterfaceSet extends Model
     public $ownerId;
 
     /**
-     * @description The private IP address of the ENI.
+     * @description The primary private IP address of the ENI.
      *
      * @example 172.17.**.**
      *
@@ -158,7 +160,7 @@ class networkInterfaceSet extends Model
      * @description The number of queues supported by the ENI.
      *
      *   If the ENI is a secondary ENI in the InUse state and the number of queues supported by the ENI has never been modified, the default number of queues per secondary ENI that the instance type supports is returned.
-     *   If the number of queues supported by the secondary ENI has been modified, the new number of queues is returned.
+     *   If the ENI is a secondary ENI and the number of queues supported by the ENI has been modified, the new number of queues is returned.
      *   If the ENI is a secondary ENI in the Available state and the number of queues supported by the ENI has never been modified, an empty value is returned.
      *   If the ENI is a primary ENI, the default number of queues per primary ENI that the instance type supports is returned.
      *
@@ -169,7 +171,7 @@ class networkInterfaceSet extends Model
     public $queueNumber;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable to the public.
+     * @description >  This parameter is in invitational preview and is not publicly available.
      *
      * @example 0
      *
@@ -187,7 +189,7 @@ class networkInterfaceSet extends Model
     public $resourceGroupId;
 
     /**
-     * @description The IDs of the security groups to which the ENI belongs.
+     * @description The security groups to which the ENI belongs.
      *
      * @var securityGroupIds
      */
@@ -237,7 +239,7 @@ class networkInterfaceSet extends Model
     public $type;
 
     /**
-     * @description The ID of the vSwitch with which the ENI is associated.
+     * @description The ID of the vSwitch.
      *
      * @example vsw-bp16usj2p27htro3****
      *

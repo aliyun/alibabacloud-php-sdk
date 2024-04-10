@@ -10,15 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeAutoSnapshotPolicyExResponseBody extends Model
 {
     /**
-     * @description The points in time of the day at which to create automatic snapshots.
+     * @description Details about the returned automatic snapshot policies.
      *
-     * The parameter value is a JSON array that contains up to 24 points in time separated by commas (,). Example: `["0", "1", ... "23"]`.
      * @var autoSnapshotPolicies
      */
     public $autoSnapshotPolicies;
 
     /**
-     * @description The total number of automatic snapshot policies.
+     * @description The page number.
      *
      * @example 1
      *
@@ -27,7 +26,7 @@ class DescribeAutoSnapshotPolicyExResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The ID of the request.
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -36,7 +35,7 @@ class DescribeAutoSnapshotPolicyExResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The page number of the returned page.
+     * @description The request ID.
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
@@ -45,7 +44,7 @@ class DescribeAutoSnapshotPolicyExResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Details about the automatic snapshot policies.
+     * @description The total number of automatic snapshot policies
      *
      * @example 1
      *

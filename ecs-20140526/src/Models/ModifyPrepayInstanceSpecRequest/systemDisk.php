@@ -9,11 +9,12 @@ use AlibabaCloud\Tea\Model;
 class systemDisk extends Model
 {
     /**
-     * @description The new category of the system disk. This parameter is applicable only when you upgrade an instance from a retired instance type to a currently available instance type or when you upgrade a non-I/O optimized instance to an I/O optimized instance. For more information, see [Retired instance types](~~55263~~) and [Instance families](~~25378~~). Valid values:
+     * @description The new category of the system disk. Valid values:
      *
-     *   cloud_efficiency: ultra disk.
-     *   cloud_ssd: standard SSD.
+     *   cloud_efficiency: utra disk
+     *   cloud_ssd: standard SSD
      *
+     * >  This parameter takes effect on an instance only when you change from a [retired instance type](~~55263~~) to an instance type in an [instance family available for purchase](~~25378~~) and upgrade the instance from a non-I/O optimized instance type to an I/O optimized instance type.
      * @example cloud_efficiency
      *
      * @var string

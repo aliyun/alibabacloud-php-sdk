@@ -56,9 +56,9 @@ class DescribeImagesRequest extends Model
     public $filter;
 
     /**
-     * @description The name of the image family. You can specify this parameter to query images of the specified image family.
+     * @description The name of the image family. You can set this parameter to query images of the specified image family.
      *
-     * This parameter is empty by default.
+     * >  For information about image families that are associated with Alibaba Cloud official images, see [Overview of public images](~~108393~~).
      * @example hangzhou-daily-update
      *
      * @var string
@@ -186,7 +186,7 @@ class DescribeImagesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return per page.
+     * @description The number of entries per page.
      *
      * Default value: 10.
      * @example 1
@@ -227,7 +227,7 @@ class DescribeImagesRequest extends Model
     /**
      * @description Specifies whether the subscription image has expired.
      *
-     * > This parameter will be removed in the future. To ensure future compatibility, we recommend that you use other parameters.
+     * >  This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
      * @example false
      *
      * @var bool
@@ -244,14 +244,14 @@ class DescribeImagesRequest extends Model
     public $snapshotId;
 
     /**
-     * @description The status of the image. By default, only images in the Available state are returned if you do not specify this parameter. Valid values:
+     * @description The status of the image. By default, if you do not specify this parameter, only images in the Available state are returned. Valid values:
      *
      *   Creating: The image is being created.
      *   Waiting: The image is waiting to be processed.
      *   Available: The image is available.
      *   UnAvailable: The image is unavailable.
-     *   CreateFailed: The image cannot be created.
-     *   Deprecated: The image is deprecated.
+     *   CreateFailed: The image fails to be created.
+     *   Deprecated: The image is no longer used.
      *
      * Default value: Available. You can specify multiple values for this parameter. Separate the values with commas (,).
      * @example Available

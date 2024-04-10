@@ -80,10 +80,10 @@ class CreateAutoProvisioningGroupRequest extends Model
     public $description;
 
     /**
-     * @description Specifies whether to release the removed instances when the real-time capacity of the auto provisioning group exceeds the target capacity and a scale-in event is triggered. Valid values:
+     * @description Specifies whether to release scaled-in instances when the real-time capacity of the auto provisioning group exceeds the target capacity and the group is triggered to scale in. Valid values:
      *
-     *   termination: releases the removed instances.
-     *   no-termination: only removes the instances from the auto provisioning group but does not release them.
+     *   termination: releases the scaled-in instances in the auto provisioning group.
+     *   no-termination: removes the scaled-in instances from the auto provisioning group but does not release them.
      *
      * Default value: no-termination.
      * @example termination
@@ -171,7 +171,7 @@ class CreateAutoProvisioningGroupRequest extends Model
     public $payAsYouGoAllocationStrategy;
 
     /**
-     * @description The target capacity of pay-as-you-go instances in the auto provisioning group. The value must be smaller than the `TotalTargetCapacity` value.
+     * @description The target capacity of pay-as-you-go instances in the auto provisioning group. The value must be less than or equal to the `TotalTargetCapacity` value.
      *
      * @example 30
      *
@@ -245,7 +245,7 @@ class CreateAutoProvisioningGroupRequest extends Model
     public $spotInstancePoolsToUseCount;
 
     /**
-     * @description The target capacity of preemptible instances in the auto provisioning group. The value must be smaller than the `TotalTargetCapacity` value.
+     * @description The target capacity of preemptible instances in the auto provisioning group. The value must be less than or equal to the `TotalTargetCapacity` value.
      *
      * @example 20
      *

@@ -28,10 +28,9 @@ class image extends Model
     /**
      * @description The boot mode of the image. Valid values:
      *
-     *   BIOS
-     *   UEFI
+     *   BIOS: Basic Input/Output System (BIOS)
+     *   UEFI: Unified Extensible Firmware Interface (UEFI)
      *
-     * > When you use this parameter to change the boot mode of the image, specify a boot mode supported by the image. We recommend that you familiarize yourself with the boot modes supported by the specified image to ensure that instances that use this image can be started as expected.
      * @example BIOS
      *
      * @var string
@@ -39,7 +38,7 @@ class image extends Model
     public $bootMode;
 
     /**
-     * @description The image creation time.
+     * @description The time when the image was created.
      *
      * @example 2019-11-15T06:07:05Z
      *
@@ -48,7 +47,7 @@ class image extends Model
     public $creationTime;
 
     /**
-     * @description The image description.
+     * @description The description of the image.
      *
      * @example Archive log for Oracle
      *
@@ -64,21 +63,21 @@ class image extends Model
     public $detectionOptions;
 
     /**
-     * @description The mappings between the disks and snapshots in the image.
+     * @description The mappings between disks and snapshots in the image.
      *
      * @var diskDeviceMappings
      */
     public $diskDeviceMappings;
 
     /**
-     * @description The image attributes.
+     * @description The attributes of the image.
      *
      * @var features
      */
     public $features;
 
     /**
-     * @description The image family name.
+     * @description The name of the image family.
      *
      * @example hangzhou-daily-update
      *
@@ -87,7 +86,7 @@ class image extends Model
     public $imageFamily;
 
     /**
-     * @description The image ID.
+     * @description The ID of the image.
      *
      * @example m-bp1g7004ksh0oeuc****
      *
@@ -96,7 +95,7 @@ class image extends Model
     public $imageId;
 
     /**
-     * @description The image name.
+     * @description The name of the image.
      *
      * @example testImageName
      *
@@ -105,12 +104,12 @@ class image extends Model
     public $imageName;
 
     /**
-     * @description The image source. Valid values:
+     * @description The source of the image. Valid values:
      *
-     *   system: public images provided by Alibaba Cloud
-     *   self: your custom images
-     *   others: shared images from other Alibaba Cloud accounts, or community images published by other Alibaba Cloud accounts
-     *   marketplace: Alibaba Cloud Marketplace images.
+     *   system: a public image provided by Alibaba Cloud
+     *   self: a custom image that you created
+     *   others: a shared image from another Alibaba Cloud account or a community image published by another Alibaba Cloud account
+     *   marketplace: an Alibaba Cloud Marketplace image
      *
      * @example self
      *
@@ -119,7 +118,7 @@ class image extends Model
     public $imageOwnerAlias;
 
     /**
-     * @description The ID of the Alibaba Cloud account to which the image belongs. This parameter takes effect only when you query shared images or community images.
+     * @description The ID of the Alibaba Cloud account to which the image belongs. This parameter takes effect only if you query shared images or community images.
      *
      * @example 1234567890
      *
@@ -128,7 +127,7 @@ class image extends Model
     public $imageOwnerId;
 
     /**
-     * @description The image version.
+     * @description The version of the image.
      *
      * @example 2
      *
@@ -149,7 +148,7 @@ class image extends Model
      * @description Indicates whether the image is publicly available. Publicly available images include public images provided by Alibaba Cloud and custom images published as community images. Valid values:
      *
      *   true: The image is publicly available.
-     *   false: The image is not publicly available.
+     *   false: The image is publicly unavailable.
      *
      * @example false
      *
@@ -167,7 +166,7 @@ class image extends Model
     public $isSelfShared;
 
     /**
-     * @description Indicates whether the Terms of Service of the image service that corresponds to the product code are accepted.
+     * @description Indicates whether you accepted the Terms of Service of the image service that corresponds to the product code.
      *
      * @example false
      *
@@ -236,7 +235,7 @@ class image extends Model
     public $OSType;
 
     /**
-     * @description The operating system.
+     * @description The operating system platform.
      *
      * @example Windows Server 2016
      *
@@ -245,7 +244,7 @@ class image extends Model
     public $platform;
 
     /**
-     * @description The product code of the Alibaba Cloud Marketplace image.
+     * @description The Alibaba Cloud Marketplace product code of the image.
      *
      * @example test000****
      *
@@ -254,7 +253,7 @@ class image extends Model
     public $productCode;
 
     /**
-     * @description The image creation progress. Unit: percent (%).
+     * @description The creation progress of the image. Unit: percent (%).
      *
      * @example 100%
      *
@@ -272,7 +271,7 @@ class image extends Model
     public $resourceGroupId;
 
     /**
-     * @description The image size. Unit: GiB.
+     * @description The size of the image. Unit: GiB.
      *
      * @example 60
      *
@@ -281,12 +280,12 @@ class image extends Model
     public $size;
 
     /**
-     * @description The image status. Valid values:
+     * @description The state of the image. Valid values:
      *
      *   UnAvailable: The image is unavailable.
      *   Available: The image is available.
      *   Creating: The image is being created.
-     *   CreateFailed: The image cannot be created.
+     *   CreateFailed: The image failed to be created.
      *
      * @example Available
      *
@@ -295,7 +294,7 @@ class image extends Model
     public $status;
 
     /**
-     * @description The name of the provider that published the community image.
+     * @description The name of the supplier that published the community image.
      *
      * @example TestName
      *
@@ -304,7 +303,7 @@ class image extends Model
     public $supplierName;
 
     /**
-     * @description The image tags.
+     * @description The tags of the image.
      *
      * @var tags
      */

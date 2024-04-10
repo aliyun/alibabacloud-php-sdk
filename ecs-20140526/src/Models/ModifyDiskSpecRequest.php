@@ -12,12 +12,15 @@ class ModifyDiskSpecRequest extends Model
     /**
      * @description The new category of the disk. Valid values:
      *
-     *   cloud_essd: ESSD
+     *   cloud_essd: enhanced SSD (ESSD)
      *   cloud_auto: ESSD AutoPL disk
      *   cloud_ssd: standard SSD
      *   cloud_efficiency: ultra disk
      *
-     * >  The preceding values are listed in descending order of disk performance. Subscription disks cannot be downgraded.
+     * >
+     *
+     *   The preceding values are listed in descending order of disk performance. Subscription disks cannot be downgraded.
+     *
      * @example cloud_essd
      *
      * @var string

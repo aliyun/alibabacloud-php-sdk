@@ -19,7 +19,7 @@ class CreateAutoProvisioningGroupResponseBody extends Model
     public $autoProvisioningGroupId;
 
     /**
-     * @description The instances created by the auto provisioning group. The values of parameters in this array are returned only when AutoProvisioningGroupType is set to `instant`.
+     * @description The instances created by the auto provisioning group. The values of the parameters in this array are returned only when AutoProvisioningGroupType is set to `instant`.
      *
      * @var launchResults
      */

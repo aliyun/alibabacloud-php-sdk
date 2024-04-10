@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ipv6Set extends Model
 {
     /**
-     * @description The IPv6 address.
+     * @description The IPv6 address assigned to the ENI.
      *
      * @example 2001:db8:1234:1a00::****
      *

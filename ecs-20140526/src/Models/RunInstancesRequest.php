@@ -515,7 +515,7 @@ class RunInstancesRequest extends Model
     public $minAmount;
 
     /**
-     * @description The information of the ENI.
+     * @description The information of the ENIs.
      *
      * @var networkInterface[]
      */
@@ -601,17 +601,18 @@ class RunInstancesRequest extends Model
     public $periodUnit;
 
     /**
-     * @description The private IP address to assign to the instance. To assign a private IP address to an instance of the VPC type, make sure that the IP address is an idle IP address within the CIDR block of the vSwitch specified by the `VSwitchId` parameter.
+     * @description The private IP address to assign to the instance. To assign a private IP address to an instance that resides in a VPC, make sure that the IP address is an idle IP address within the CIDR block of the vSwitch specified by `VSwitchId`.
      *
      * Take note of the following items:
      *
-     *   If the `PrivateIpAddress` parameter is specified, take note of the following items:
+     *   If `PrivateIpAddress` is specified, take note of the following items:
      *
      *   If `Amount` is set to 1, a single instance is created and the specified private IP address is assigned to the instance.
-     *   If `Amount` is set to a numeric value greater than 1, the specified number of instances are created and consecutive private IP addresses starting from the specified one are assigned to the instances. In this case, you cannot specify parameters that start with `NetworkInterface.N` to bind secondary ENIs to the instances.
+     *   If `Amount` is set to a numeric value greater than 1, the specified number of instances are created and consecutive private IP addresses starting from the specified one are assigned to the instances. In this case, you cannot specify parameters that start with `NetworkInterface.N` to attach secondary ENIs to the instances.
      *
      *   If `NetworkInterface.N.InstanceType` is set to `Primary`, you cannot specify `PrivateIpAddress` but can specify `NetworkInterface.N.PrimaryIpAddress`.
      *
+     * >  The first IP address and last three IP addresses of each vSwitch CIDR block are reserved. You cannot specify the IP addresses. For example, if a vSwitch CIDR block is 192.168.1.0/24, the IP addresses 192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255 are reserved.
      * @example 10.1.**.**
      *
      * @var string
@@ -709,8 +710,13 @@ class RunInstancesRequest extends Model
     public $spotDuration;
 
     /**
-     * @description The interruption mode of the preemptible instance. Default value: Terminate. Set the value to Terminate, which specifies to release the instance.
+     * @description The interruption mode of the preemptible instance. Valid values:
      *
+     *   Terminate: The instance is released.
+     *
+     *   Stop: The instance is stopped in economical mode. To use the economical mode, submit a ticket.
+     *
+     * Default value: Terminate.
      * @example Terminate
      *
      * @var string

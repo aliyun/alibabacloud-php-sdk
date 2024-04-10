@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSnapshotsUsageResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
@@ -27,7 +27,7 @@ class DescribeSnapshotsUsageResponseBody extends Model
     public $snapshotCount;
 
     /**
-     * @description The total size of snapshots stored in the current region. Unit: byte.
+     * @description The total size of snapshots stored in the current region. Unit: bytes.
      *
      * @example 122
      *

@@ -11,8 +11,8 @@ class bandwidth extends Model
     /**
      * @description The billing method for network usage. Valid values:
      *
-     *   PayByBandwidth: pay-by-bandwidth
-     *   PayByTraffic: pay-by-traffic
+     *   PayByBandwidth
+     *   PayByTraffic
      *
      * @example PayByTraffic
      *

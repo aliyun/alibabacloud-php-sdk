@@ -59,7 +59,7 @@ class CreateNetworkInterfaceRequest extends Model
     public $instanceType;
 
     /**
-     * @description IPv4 prefix N to assign to the ENI. Valid values of N: 1 to 10.
+     * @description IPv4 prefixes to assign to the ENI. Valid values of N: 1 to 10.
      *
      * >  To assign IPv4 prefixes to the ENI, you must specify the Ipv4Prefix.N or Ipv4PrefixCount parameter, but not both.
      * @var string[]
@@ -67,7 +67,7 @@ class CreateNetworkInterfaceRequest extends Model
     public $ipv4Prefix;
 
     /**
-     * @description IPv4 prefix N to assign to the ENI. Valid values: 1 to 10.
+     * @description The number of IPv4 prefixes to assign to the ENI. Valid values: 1 to 10.
      *
      * >  To assign IPv4 prefixes to the ENI, you must specify the Ipv4Prefix.N or Ipv4PrefixCount parameter, but not both.
      * @example hide
@@ -77,7 +77,7 @@ class CreateNetworkInterfaceRequest extends Model
     public $ipv4PrefixCount;
 
     /**
-     * @description IPv6 address N to assign to the ENI. Valid values of N: 1 to 10.
+     * @description IPv6 addresses to assign to the ENI. Valid values of N: 1 to 10.
      *
      * Example: Ipv6Address.1=2001:db8:1234:1a00::\*\*\*\*
      *
@@ -99,7 +99,7 @@ class CreateNetworkInterfaceRequest extends Model
     public $ipv6AddressCount;
 
     /**
-     * @description IPv6 prefix N to assign to the ENI. Valid values of N: 1 to 10.
+     * @description IPv6 prefixes to assign to the ENI. Valid values of N: 1 to 10.
      *
      * >  To assign IPv6 prefixes to the ENI, you must specify the Ipv6Prefix.N or Ipv6PrefixCount parameter, but not both.
      * @var string[]
@@ -107,7 +107,7 @@ class CreateNetworkInterfaceRequest extends Model
     public $ipv6Prefix;
 
     /**
-     * @description IPv6 prefix N to assign to the ENI. Valid values: 1 to 10.
+     * @description The number of IPv6 prefixes to assign to the ENI. Valid values: 1 to 10.
      *
      * >  To assign IPv6 prefixes to the ENI, you must specify the Ipv6Prefix.N or Ipv6PrefixCount parameter, but not both.
      * @example hide
@@ -117,7 +117,7 @@ class CreateNetworkInterfaceRequest extends Model
     public $ipv6PrefixCount;
 
     /**
-     * @description The name of the ENI. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The name of the ENI. The name must be 2 to 128 characters in length, and can contain letters, digits, colons (:), underscores (\_), and hyphens (-). It must start with a letter and cannot start with `http://` or `https://`.
      *
      * This parameter is empty by default.
      * @example testNetworkInterfaceName
@@ -127,7 +127,7 @@ class CreateNetworkInterfaceRequest extends Model
     public $networkInterfaceName;
 
     /**
-     * @description The communication model of the ENI. Valid values:
+     * @description The communication mode of the ENI. Valid values:
      *
      *   Standard: uses the TCP communication mode.
      *   HighPerformance: uses the remote direct memory access (RDMA) communication mode with Elastic RDMA Interface (ERI) enabled.
@@ -160,7 +160,7 @@ class CreateNetworkInterfaceRequest extends Model
     public $primaryIpAddress;
 
     /**
-     * @description Secondary private IP address N to assign to the ENI. This IP address must be an idle IP address within the CIDR block of the vSwitch with which to associate the ENI. Valid values of N: 0 to 10.
+     * @description Secondary private IP addresses to assign to the ENI. The IP addresses must be idle IP addresses in the CIDR block of the vSwitch with which to associate the ENI. Valid values of N: 0 to 10.
      *
      * >  To assign secondary private IP addresses to the ENI, you can specify the `PrivateIpAddress.N` or `SecondaryPrivateIpAddressCount` parameter, but not both.
      * @example 172.17.**.**

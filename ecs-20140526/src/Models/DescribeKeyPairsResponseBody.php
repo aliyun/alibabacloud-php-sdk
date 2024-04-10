@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeKeyPairsResponseBody extends Model
 {
     /**
-     * @description Details about the key pairs.
+     * @description The information of the key pairs.
      *
      * @var keyPairs
      */

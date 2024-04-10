@@ -29,7 +29,7 @@ class snapshotGroup extends Model
     public $description;
 
     /**
-     * @description The ID of the instance to which the snapshot-consistent group belongs. This parameter has a value only when all snapshots in the snapshot-consistent group belong to the same instance. If snapshots in the snapshot-consistent group belong to different instances, you can check the response parameters that start with `Snapshots.Snapshot.Tags.` for the ID of the instance to which each snapshot in the snapshot-consistent group belongs.
+     * @description The ID of the instance to which the snapshot-consistent group belongs. This parameter has a value only when all disk snapshots in the snapshot-consistent group belong to the same instance. If disk snapshots in the snapshot-consistent group belong to different instances, you can check the response parameters that start with `Snapshots.Snapshot.Tags.` to determine the ID of the instance to which each snapshot in the snapshot-consistent group belongs.
      *
      * @example i-j6ca469urv8ei629****
      *
@@ -74,7 +74,7 @@ class snapshotGroup extends Model
     public $snapshotGroupId;
 
     /**
-     * @description The snapshots in the snapshot-consistent group.
+     * @description Details of the snapshots in the snapshot-consistent group.
      *
      * @var snapshots
      */

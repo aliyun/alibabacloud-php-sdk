@@ -11,8 +11,8 @@ class features extends Model
     /**
      * @description Indicates whether the image supports the Non-Volatile Memory Express (NVMe) protocol. Valid values:
      *
-     *   supported: The image supports the NVMe protocol. Instances created from this image support NVMe.
-     *   unsupported: The image does not support the NVMe protocol. Instances created from this image do not support the NVMe protocol.
+     *   supported: The image supports the NVMe protocol. Instances created from the image also support the NVMe protocol.
+     *   unsupported: The image does not support the NVMe protocol. Instances created from the image do not support the NVMe protocol.
      *
      * @example supported
      *
