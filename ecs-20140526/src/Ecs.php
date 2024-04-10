@@ -242,6 +242,8 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeCapacityReservationsRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeCapacityReservationsResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeClassicLinkInstancesRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeClassicLinkInstancesResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeCloudAssistantSettingsRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeCloudAssistantSettingsResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeCloudAssistantStatusRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeCloudAssistantStatusResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeClustersRequest;
@@ -428,6 +430,8 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeTaskAttributeRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeTaskAttributeResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeTasksRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeTasksResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeTerminalSessionsRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeTerminalSessionsResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeUserBusinessBehaviorRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeUserBusinessBehaviorResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeUserDataRequest;
@@ -501,6 +505,9 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyBandwidthPackageSpecRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyBandwidthPackageSpecResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyCapacityReservationRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyCapacityReservationResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyCloudAssistantSettingsRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyCloudAssistantSettingsResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyCloudAssistantSettingsShrinkRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyCommandRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyCommandResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyDedicatedHostAttributeRequest;
@@ -10755,6 +10762,64 @@ class Ecs extends OpenApiClient
     }
 
     /**
+     * @param DescribeCloudAssistantSettingsRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeCloudAssistantSettingsResponse
+     */
+    public function describeCloudAssistantSettingsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->settingType)) {
+            $query['SettingType'] = $request->settingType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCloudAssistantSettings',
+            'version'     => '2014-05-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCloudAssistantSettingsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCloudAssistantSettingsRequest $request
+     *
+     * @return DescribeCloudAssistantSettingsResponse
+     */
+    public function describeCloudAssistantSettings($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCloudAssistantSettingsWithOptions($request, $runtime);
+    }
+
+    /**
      * - Before you run commands on or send files to instances, especially new instances, we recommend that you query the status of Cloud Assistant on the instances by calling this operation and checking the return value of CloudAssistantStatus. Run commands on or send files to the instances only when the return value is true.
      *   * - You can use one of the following methods to check the responses:
      *   *   - Method 1: When you call the DescribeCloudAssistantStatus operation to retrieve the first page of results during a paged query, use MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which you can use in the next request to retrieve a new page of results. When you call the DescribeCloudAssistantStatus operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call.
@@ -18414,6 +18479,77 @@ class Ecs extends OpenApiClient
     }
 
     /**
+     * You can query the session records of Session Manager that were generated in the last four weeks.
+     *   *
+     * @param DescribeTerminalSessionsRequest $request DescribeTerminalSessionsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeTerminalSessionsResponse DescribeTerminalSessionsResponse
+     */
+    public function describeTerminalSessionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sessionId)) {
+            $query['SessionId'] = $request->sessionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeTerminalSessions',
+            'version'     => '2014-05-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeTerminalSessionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * You can query the session records of Session Manager that were generated in the last four weeks.
+     *   *
+     * @param DescribeTerminalSessionsRequest $request DescribeTerminalSessionsRequest
+     *
+     * @return DescribeTerminalSessionsResponse DescribeTerminalSessionsResponse
+     */
+    public function describeTerminalSessions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeTerminalSessionsWithOptions($request, $runtime);
+    }
+
+    /**
      * @deprecated
      *   *
      * Deprecated
@@ -21348,6 +21484,84 @@ class Ecs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyCapacityReservationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyCloudAssistantSettingsRequest $tmpReq
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ModifyCloudAssistantSettingsResponse
+     */
+    public function modifyCloudAssistantSettingsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ModifyCloudAssistantSettingsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->agentUpgradeConfig)) {
+            $request->agentUpgradeConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->agentUpgradeConfig, 'AgentUpgradeConfig', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->ossDeliveryConfig)) {
+            $request->ossDeliveryConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ossDeliveryConfig, 'OssDeliveryConfig', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->slsDeliveryConfig)) {
+            $request->slsDeliveryConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->slsDeliveryConfig, 'SlsDeliveryConfig', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->agentUpgradeConfigShrink)) {
+            $query['AgentUpgradeConfig'] = $request->agentUpgradeConfigShrink;
+        }
+        if (!Utils::isUnset($request->ossDeliveryConfigShrink)) {
+            $query['OssDeliveryConfig'] = $request->ossDeliveryConfigShrink;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->settingType)) {
+            $query['SettingType'] = $request->settingType;
+        }
+        if (!Utils::isUnset($request->slsDeliveryConfigShrink)) {
+            $query['SlsDeliveryConfig'] = $request->slsDeliveryConfigShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyCloudAssistantSettings',
+            'version'     => '2014-05-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyCloudAssistantSettingsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyCloudAssistantSettingsRequest $request
+     *
+     * @return ModifyCloudAssistantSettingsResponse
+     */
+    public function modifyCloudAssistantSettings($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyCloudAssistantSettingsWithOptions($request, $runtime);
     }
 
     /**
