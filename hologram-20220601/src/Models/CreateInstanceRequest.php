@@ -94,6 +94,11 @@ class CreateInstanceRequest extends Model
     public $duration;
 
     /**
+     * @var bool
+     */
+    public $enableServerlessComputing;
+
+    /**
      * @description The number of gateways. Valid values: 2 to 50.
      *
      * > This parameter is required only for virtual warehouse instances.
@@ -227,24 +232,25 @@ class CreateInstanceRequest extends Model
      */
     public $zoneId;
     protected $_name = [
-        'autoPay'          => 'autoPay',
-        'autoRenew'        => 'autoRenew',
-        'chargeType'       => 'chargeType',
-        'coldStorageSize'  => 'coldStorageSize',
-        'cpu'              => 'cpu',
-        'duration'         => 'duration',
-        'gatewayCount'     => 'gatewayCount',
-        'initialDatabases' => 'initialDatabases',
-        'instanceName'     => 'instanceName',
-        'instanceType'     => 'instanceType',
-        'leaderInstanceId' => 'leaderInstanceId',
-        'pricingCycle'     => 'pricingCycle',
-        'regionId'         => 'regionId',
-        'resourceGroupId'  => 'resourceGroupId',
-        'storageSize'      => 'storageSize',
-        'vSwitchId'        => 'vSwitchId',
-        'vpcId'            => 'vpcId',
-        'zoneId'           => 'zoneId',
+        'autoPay'                   => 'autoPay',
+        'autoRenew'                 => 'autoRenew',
+        'chargeType'                => 'chargeType',
+        'coldStorageSize'           => 'coldStorageSize',
+        'cpu'                       => 'cpu',
+        'duration'                  => 'duration',
+        'enableServerlessComputing' => 'enableServerlessComputing',
+        'gatewayCount'              => 'gatewayCount',
+        'initialDatabases'          => 'initialDatabases',
+        'instanceName'              => 'instanceName',
+        'instanceType'              => 'instanceType',
+        'leaderInstanceId'          => 'leaderInstanceId',
+        'pricingCycle'              => 'pricingCycle',
+        'regionId'                  => 'regionId',
+        'resourceGroupId'           => 'resourceGroupId',
+        'storageSize'               => 'storageSize',
+        'vSwitchId'                 => 'vSwitchId',
+        'vpcId'                     => 'vpcId',
+        'zoneId'                    => 'zoneId',
     ];
 
     public function validate()
@@ -271,6 +277,9 @@ class CreateInstanceRequest extends Model
         }
         if (null !== $this->duration) {
             $res['duration'] = $this->duration;
+        }
+        if (null !== $this->enableServerlessComputing) {
+            $res['enableServerlessComputing'] = $this->enableServerlessComputing;
         }
         if (null !== $this->gatewayCount) {
             $res['gatewayCount'] = $this->gatewayCount;
@@ -337,6 +346,9 @@ class CreateInstanceRequest extends Model
         }
         if (isset($map['duration'])) {
             $model->duration = $map['duration'];
+        }
+        if (isset($map['enableServerlessComputing'])) {
+            $model->enableServerlessComputing = $map['enableServerlessComputing'];
         }
         if (isset($map['gatewayCount'])) {
             $model->gatewayCount = $map['gatewayCount'];

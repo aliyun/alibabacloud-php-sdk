@@ -46,6 +46,11 @@ class ScaleInstanceRequest extends Model
     public $cpu;
 
     /**
+     * @var bool
+     */
+    public $enableServerlessComputing;
+
+    /**
      * @description The number of gateways. Valid values: 2 to 50.
      *
      * > This parameter is required only for virtual warehouse instances.
@@ -83,11 +88,12 @@ class ScaleInstanceRequest extends Model
      */
     public $storageSize;
     protected $_name = [
-        'coldStorageSize' => 'coldStorageSize',
-        'cpu'             => 'cpu',
-        'gatewayCount'    => 'gatewayCount',
-        'scaleType'       => 'scaleType',
-        'storageSize'     => 'storageSize',
+        'coldStorageSize'           => 'coldStorageSize',
+        'cpu'                       => 'cpu',
+        'enableServerlessComputing' => 'enableServerlessComputing',
+        'gatewayCount'              => 'gatewayCount',
+        'scaleType'                 => 'scaleType',
+        'storageSize'               => 'storageSize',
     ];
 
     public function validate()
@@ -102,6 +108,9 @@ class ScaleInstanceRequest extends Model
         }
         if (null !== $this->cpu) {
             $res['cpu'] = $this->cpu;
+        }
+        if (null !== $this->enableServerlessComputing) {
+            $res['enableServerlessComputing'] = $this->enableServerlessComputing;
         }
         if (null !== $this->gatewayCount) {
             $res['gatewayCount'] = $this->gatewayCount;
@@ -129,6 +138,9 @@ class ScaleInstanceRequest extends Model
         }
         if (isset($map['cpu'])) {
             $model->cpu = $map['cpu'];
+        }
+        if (isset($map['enableServerlessComputing'])) {
+            $model->enableServerlessComputing = $map['enableServerlessComputing'];
         }
         if (isset($map['gatewayCount'])) {
             $model->gatewayCount = $map['gatewayCount'];

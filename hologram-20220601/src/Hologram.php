@@ -169,6 +169,9 @@ class Hologram extends OpenApiClient
         if (!Utils::isUnset($request->duration)) {
             $body['duration'] = $request->duration;
         }
+        if (!Utils::isUnset($request->enableServerlessComputing)) {
+            $body['enableServerlessComputing'] = $request->enableServerlessComputing;
+        }
         if (!Utils::isUnset($request->gatewayCount)) {
             $body['gatewayCount'] = $request->gatewayCount;
         }
@@ -745,6 +748,9 @@ class Hologram extends OpenApiClient
         }
         if (!Utils::isUnset($request->cpu)) {
             $body['cpu'] = $request->cpu;
+        }
+        if (!Utils::isUnset($request->enableServerlessComputing)) {
+            $body['enableServerlessComputing'] = $request->enableServerlessComputing;
         }
         if (!Utils::isUnset($request->gatewayCount)) {
             $body['gatewayCount'] = $request->gatewayCount;
