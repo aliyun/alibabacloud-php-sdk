@@ -31,6 +31,11 @@ class result extends Model
     /**
      * @var string
      */
+    public $textPolish;
+
+    /**
+     * @var string
+     */
     public $transcription;
 
     /**
@@ -42,6 +47,7 @@ class result extends Model
         'meetingAssistance' => 'MeetingAssistance',
         'pptExtraction'     => 'PptExtraction',
         'summarization'     => 'Summarization',
+        'textPolish'        => 'TextPolish',
         'transcription'     => 'Transcription',
         'translation'       => 'Translation',
     ];
@@ -64,6 +70,9 @@ class result extends Model
         }
         if (null !== $this->summarization) {
             $res['Summarization'] = $this->summarization;
+        }
+        if (null !== $this->textPolish) {
+            $res['TextPolish'] = $this->textPolish;
         }
         if (null !== $this->transcription) {
             $res['Transcription'] = $this->transcription;
@@ -94,6 +103,9 @@ class result extends Model
         }
         if (isset($map['Summarization'])) {
             $model->summarization = $map['Summarization'];
+        }
+        if (isset($map['TextPolish'])) {
+            $model->textPolish = $map['TextPolish'];
         }
         if (isset($map['Transcription'])) {
             $model->transcription = $map['Transcription'];
