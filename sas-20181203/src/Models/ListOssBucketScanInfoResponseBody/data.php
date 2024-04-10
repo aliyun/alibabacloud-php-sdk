@@ -30,6 +30,11 @@ class data extends Model
     public $configStatus;
 
     /**
+     * @var int
+     */
+    public $decompressStatus;
+
+    /**
      * @description The number of high-risk objects.
      *
      * @example 0
@@ -162,21 +167,22 @@ class data extends Model
      */
     public $totalObject;
     protected $_name = [
-        'bucketName'      => 'BucketName',
-        'configStatus'    => 'ConfigStatus',
-        'highRisk'        => 'HighRisk',
-        'lastScanEndTime' => 'LastScanEndTime',
-        'lastScanTime'    => 'LastScanTime',
-        'lowRisk'         => 'LowRisk',
-        'mediumRisk'      => 'MediumRisk',
-        'message'         => 'Message',
-        'regionId'        => 'RegionId',
-        'scanObject'      => 'ScanObject',
-        'scanned'         => 'Scanned',
-        'status'          => 'Status',
-        'storageClass'    => 'StorageClass',
-        'support'         => 'Support',
-        'totalObject'     => 'TotalObject',
+        'bucketName'       => 'BucketName',
+        'configStatus'     => 'ConfigStatus',
+        'decompressStatus' => 'DecompressStatus',
+        'highRisk'         => 'HighRisk',
+        'lastScanEndTime'  => 'LastScanEndTime',
+        'lastScanTime'     => 'LastScanTime',
+        'lowRisk'          => 'LowRisk',
+        'mediumRisk'       => 'MediumRisk',
+        'message'          => 'Message',
+        'regionId'         => 'RegionId',
+        'scanObject'       => 'ScanObject',
+        'scanned'          => 'Scanned',
+        'status'           => 'Status',
+        'storageClass'     => 'StorageClass',
+        'support'          => 'Support',
+        'totalObject'      => 'TotalObject',
     ];
 
     public function validate()
@@ -191,6 +197,9 @@ class data extends Model
         }
         if (null !== $this->configStatus) {
             $res['ConfigStatus'] = $this->configStatus;
+        }
+        if (null !== $this->decompressStatus) {
+            $res['DecompressStatus'] = $this->decompressStatus;
         }
         if (null !== $this->highRisk) {
             $res['HighRisk'] = $this->highRisk;
@@ -248,6 +257,9 @@ class data extends Model
         }
         if (isset($map['ConfigStatus'])) {
             $model->configStatus = $map['ConfigStatus'];
+        }
+        if (isset($map['DecompressStatus'])) {
+            $model->decompressStatus = $map['DecompressStatus'];
         }
         if (isset($map['HighRisk'])) {
             $model->highRisk = $map['HighRisk'];

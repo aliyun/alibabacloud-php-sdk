@@ -66,6 +66,11 @@ class BindAuthToMachineRequest extends Model
     public $criteria;
 
     /**
+     * @var int
+     */
+    public $isPreBind;
+
+    /**
      * @description The logical relationship that you want to use to evaluate multiple search conditions. Default value: **OR**. Valid values:
      *
      *   **OR******
@@ -78,6 +83,16 @@ class BindAuthToMachineRequest extends Model
     public $logicalExp;
 
     /**
+     * @var string
+     */
+    public $ntmVersion;
+
+    /**
+     * @var int
+     */
+    public $preBindOrderId;
+
+    /**
      * @description The UUIDs of the servers that you want to unbind from Security Center.
      *
      * >  You must specify at least one of the **Bind** and **UnBind** parameters.
@@ -85,13 +100,16 @@ class BindAuthToMachineRequest extends Model
      */
     public $unBind;
     protected $_name = [
-        'authVersion' => 'AuthVersion',
-        'autoBind'    => 'AutoBind',
-        'bind'        => 'Bind',
-        'bindAll'     => 'BindAll',
-        'criteria'    => 'Criteria',
-        'logicalExp'  => 'LogicalExp',
-        'unBind'      => 'UnBind',
+        'authVersion'    => 'AuthVersion',
+        'autoBind'       => 'AutoBind',
+        'bind'           => 'Bind',
+        'bindAll'        => 'BindAll',
+        'criteria'       => 'Criteria',
+        'isPreBind'      => 'IsPreBind',
+        'logicalExp'     => 'LogicalExp',
+        'ntmVersion'     => 'NtmVersion',
+        'preBindOrderId' => 'PreBindOrderId',
+        'unBind'         => 'UnBind',
     ];
 
     public function validate()
@@ -116,8 +134,17 @@ class BindAuthToMachineRequest extends Model
         if (null !== $this->criteria) {
             $res['Criteria'] = $this->criteria;
         }
+        if (null !== $this->isPreBind) {
+            $res['IsPreBind'] = $this->isPreBind;
+        }
         if (null !== $this->logicalExp) {
             $res['LogicalExp'] = $this->logicalExp;
+        }
+        if (null !== $this->ntmVersion) {
+            $res['NtmVersion'] = $this->ntmVersion;
+        }
+        if (null !== $this->preBindOrderId) {
+            $res['PreBindOrderId'] = $this->preBindOrderId;
         }
         if (null !== $this->unBind) {
             $res['UnBind'] = $this->unBind;
@@ -151,8 +178,17 @@ class BindAuthToMachineRequest extends Model
         if (isset($map['Criteria'])) {
             $model->criteria = $map['Criteria'];
         }
+        if (isset($map['IsPreBind'])) {
+            $model->isPreBind = $map['IsPreBind'];
+        }
         if (isset($map['LogicalExp'])) {
             $model->logicalExp = $map['LogicalExp'];
+        }
+        if (isset($map['NtmVersion'])) {
+            $model->ntmVersion = $map['NtmVersion'];
+        }
+        if (isset($map['PreBindOrderId'])) {
+            $model->preBindOrderId = $map['PreBindOrderId'];
         }
         if (isset($map['UnBind'])) {
             if (!empty($map['UnBind'])) {

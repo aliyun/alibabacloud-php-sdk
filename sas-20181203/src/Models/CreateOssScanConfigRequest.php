@@ -25,6 +25,16 @@ class CreateOssScanConfigRequest extends Model
     public $bucketNameList;
 
     /**
+     * @var int
+     */
+    public $decompressMaxFileCount;
+
+    /**
+     * @var int
+     */
+    public $decompressMaxLayer;
+
+    /**
      * @description Specifies whether to enable the policy. Valid values:
      *
      *   **1**: yes
@@ -84,15 +94,17 @@ class CreateOssScanConfigRequest extends Model
      */
     public $startTime;
     protected $_name = [
-        'allKeyPrefix'   => 'AllKeyPrefix',
-        'bucketNameList' => 'BucketNameList',
-        'enable'         => 'Enable',
-        'endTime'        => 'EndTime',
-        'keyPrefixList'  => 'KeyPrefixList',
-        'keySuffixList'  => 'KeySuffixList',
-        'name'           => 'Name',
-        'scanDayList'    => 'ScanDayList',
-        'startTime'      => 'StartTime',
+        'allKeyPrefix'           => 'AllKeyPrefix',
+        'bucketNameList'         => 'BucketNameList',
+        'decompressMaxFileCount' => 'DecompressMaxFileCount',
+        'decompressMaxLayer'     => 'DecompressMaxLayer',
+        'enable'                 => 'Enable',
+        'endTime'                => 'EndTime',
+        'keyPrefixList'          => 'KeyPrefixList',
+        'keySuffixList'          => 'KeySuffixList',
+        'name'                   => 'Name',
+        'scanDayList'            => 'ScanDayList',
+        'startTime'              => 'StartTime',
     ];
 
     public function validate()
@@ -107,6 +119,12 @@ class CreateOssScanConfigRequest extends Model
         }
         if (null !== $this->bucketNameList) {
             $res['BucketNameList'] = $this->bucketNameList;
+        }
+        if (null !== $this->decompressMaxFileCount) {
+            $res['DecompressMaxFileCount'] = $this->decompressMaxFileCount;
+        }
+        if (null !== $this->decompressMaxLayer) {
+            $res['DecompressMaxLayer'] = $this->decompressMaxLayer;
         }
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
@@ -148,6 +166,12 @@ class CreateOssScanConfigRequest extends Model
             if (!empty($map['BucketNameList'])) {
                 $model->bucketNameList = $map['BucketNameList'];
             }
+        }
+        if (isset($map['DecompressMaxFileCount'])) {
+            $model->decompressMaxFileCount = $map['DecompressMaxFileCount'];
+        }
+        if (isset($map['DecompressMaxLayer'])) {
+            $model->decompressMaxLayer = $map['DecompressMaxLayer'];
         }
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];

@@ -25,6 +25,16 @@ class CreateOssBucketScanTaskRequest extends Model
     public $bucketNameList;
 
     /**
+     * @var int
+     */
+    public $decompressMaxFileCount;
+
+    /**
+     * @var int
+     */
+    public $decompressMaxLayer;
+
+    /**
      * @description The suffixes of the objects that you do not want to check.
      *
      * @var string[]
@@ -57,12 +67,14 @@ class CreateOssBucketScanTaskRequest extends Model
      */
     public $scanMode;
     protected $_name = [
-        'allKeyPrefix'         => 'AllKeyPrefix',
-        'bucketNameList'       => 'BucketNameList',
-        'excludeKeySuffixList' => 'ExcludeKeySuffixList',
-        'keyPrefixList'        => 'KeyPrefixList',
-        'keySuffixList'        => 'KeySuffixList',
-        'scanMode'             => 'ScanMode',
+        'allKeyPrefix'           => 'AllKeyPrefix',
+        'bucketNameList'         => 'BucketNameList',
+        'decompressMaxFileCount' => 'DecompressMaxFileCount',
+        'decompressMaxLayer'     => 'DecompressMaxLayer',
+        'excludeKeySuffixList'   => 'ExcludeKeySuffixList',
+        'keyPrefixList'          => 'KeyPrefixList',
+        'keySuffixList'          => 'KeySuffixList',
+        'scanMode'               => 'ScanMode',
     ];
 
     public function validate()
@@ -77,6 +89,12 @@ class CreateOssBucketScanTaskRequest extends Model
         }
         if (null !== $this->bucketNameList) {
             $res['BucketNameList'] = $this->bucketNameList;
+        }
+        if (null !== $this->decompressMaxFileCount) {
+            $res['DecompressMaxFileCount'] = $this->decompressMaxFileCount;
+        }
+        if (null !== $this->decompressMaxLayer) {
+            $res['DecompressMaxLayer'] = $this->decompressMaxLayer;
         }
         if (null !== $this->excludeKeySuffixList) {
             $res['ExcludeKeySuffixList'] = $this->excludeKeySuffixList;
@@ -109,6 +127,12 @@ class CreateOssBucketScanTaskRequest extends Model
             if (!empty($map['BucketNameList'])) {
                 $model->bucketNameList = $map['BucketNameList'];
             }
+        }
+        if (isset($map['DecompressMaxFileCount'])) {
+            $model->decompressMaxFileCount = $map['DecompressMaxFileCount'];
+        }
+        if (isset($map['DecompressMaxLayer'])) {
+            $model->decompressMaxLayer = $map['DecompressMaxLayer'];
         }
         if (isset($map['ExcludeKeySuffixList'])) {
             if (!empty($map['ExcludeKeySuffixList'])) {

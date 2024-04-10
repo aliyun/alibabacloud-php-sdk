@@ -75,6 +75,11 @@ class ListObjectScanEventRequest extends Model
     public $pageSize;
 
     /**
+     * @var int
+     */
+    public $parentEventId;
+
+    /**
      * @description The risk level of the alert. Valid values:
      *
      *   **high**
@@ -117,17 +122,18 @@ class ListObjectScanEventRequest extends Model
      */
     public $timeStart;
     protected $_name = [
-        'bucketName'  => 'BucketName',
-        'currentPage' => 'CurrentPage',
-        'eventName'   => 'EventName',
-        'lang'        => 'Lang',
-        'md5'         => 'Md5',
-        'ossKey'      => 'OssKey',
-        'pageSize'    => 'PageSize',
-        'riskLevel'   => 'RiskLevel',
-        'source'      => 'Source',
-        'timeEnd'     => 'TimeEnd',
-        'timeStart'   => 'TimeStart',
+        'bucketName'    => 'BucketName',
+        'currentPage'   => 'CurrentPage',
+        'eventName'     => 'EventName',
+        'lang'          => 'Lang',
+        'md5'           => 'Md5',
+        'ossKey'        => 'OssKey',
+        'pageSize'      => 'PageSize',
+        'parentEventId' => 'ParentEventId',
+        'riskLevel'     => 'RiskLevel',
+        'source'        => 'Source',
+        'timeEnd'       => 'TimeEnd',
+        'timeStart'     => 'TimeStart',
     ];
 
     public function validate()
@@ -157,6 +163,9 @@ class ListObjectScanEventRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->parentEventId) {
+            $res['ParentEventId'] = $this->parentEventId;
         }
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
@@ -202,6 +211,9 @@ class ListObjectScanEventRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ParentEventId'])) {
+            $model->parentEventId = $map['ParentEventId'];
         }
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];

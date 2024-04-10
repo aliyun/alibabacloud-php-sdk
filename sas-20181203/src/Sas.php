@@ -2465,8 +2465,17 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->criteria)) {
             $query['Criteria'] = $request->criteria;
         }
+        if (!Utils::isUnset($request->isPreBind)) {
+            $query['IsPreBind'] = $request->isPreBind;
+        }
         if (!Utils::isUnset($request->logicalExp)) {
             $query['LogicalExp'] = $request->logicalExp;
+        }
+        if (!Utils::isUnset($request->ntmVersion)) {
+            $query['NtmVersion'] = $request->ntmVersion;
+        }
+        if (!Utils::isUnset($request->preBindOrderId)) {
+            $query['PreBindOrderId'] = $request->preBindOrderId;
         }
         if (!Utils::isUnset($request->unBind)) {
             $query['UnBind'] = $request->unBind;
@@ -4610,6 +4619,12 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->bucketNameList)) {
             $query['BucketNameList'] = $request->bucketNameList;
         }
+        if (!Utils::isUnset($request->decompressMaxFileCount)) {
+            $query['DecompressMaxFileCount'] = $request->decompressMaxFileCount;
+        }
+        if (!Utils::isUnset($request->decompressMaxLayer)) {
+            $query['DecompressMaxLayer'] = $request->decompressMaxLayer;
+        }
         if (!Utils::isUnset($request->excludeKeySuffixList)) {
             $query['ExcludeKeySuffixList'] = $request->excludeKeySuffixList;
         }
@@ -4667,6 +4682,12 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->bucketNameList)) {
             $query['BucketNameList'] = $request->bucketNameList;
+        }
+        if (!Utils::isUnset($request->decompressMaxFileCount)) {
+            $query['DecompressMaxFileCount'] = $request->decompressMaxFileCount;
+        }
+        if (!Utils::isUnset($request->decompressMaxLayer)) {
+            $query['DecompressMaxLayer'] = $request->decompressMaxLayer;
         }
         if (!Utils::isUnset($request->enable)) {
             $query['Enable'] = $request->enable;
@@ -27264,6 +27285,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
+        if (!Utils::isUnset($request->parentEventId)) {
+            $query['ParentEventId'] = $request->parentEventId;
+        }
         if (!Utils::isUnset($request->riskLevel)) {
             $query['RiskLevel'] = $request->riskLevel;
         }
@@ -36066,6 +36090,12 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->bucketNameList)) {
             $query['BucketNameList'] = $request->bucketNameList;
+        }
+        if (!Utils::isUnset($request->decompressMaxFileCount)) {
+            $query['DecompressMaxFileCount'] = $request->decompressMaxFileCount;
+        }
+        if (!Utils::isUnset($request->decompressMaxLayer)) {
+            $query['DecompressMaxLayer'] = $request->decompressMaxLayer;
         }
         if (!Utils::isUnset($request->enable)) {
             $query['Enable'] = $request->enable;

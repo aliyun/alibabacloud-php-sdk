@@ -74,6 +74,11 @@ class data extends Model
     public $firstTime;
 
     /**
+     * @var bool
+     */
+    public $hasSubEvent;
+
+    /**
      * @description The timestamp at which the alert was last detected.
      *
      * @example 1694576692000
@@ -150,6 +155,7 @@ class data extends Model
         'eventName'            => 'EventName',
         'filePath'             => 'FilePath',
         'firstTime'            => 'FirstTime',
+        'hasSubEvent'          => 'HasSubEvent',
         'lastTime'             => 'LastTime',
         'md5'                  => 'Md5',
         'ossKey'               => 'OssKey',
@@ -192,6 +198,9 @@ class data extends Model
         }
         if (null !== $this->firstTime) {
             $res['FirstTime'] = $this->firstTime;
+        }
+        if (null !== $this->hasSubEvent) {
+            $res['HasSubEvent'] = $this->hasSubEvent;
         }
         if (null !== $this->lastTime) {
             $res['LastTime'] = $this->lastTime;
@@ -252,6 +261,9 @@ class data extends Model
         }
         if (isset($map['FirstTime'])) {
             $model->firstTime = $map['FirstTime'];
+        }
+        if (isset($map['HasSubEvent'])) {
+            $model->hasSubEvent = $map['HasSubEvent'];
         }
         if (isset($map['LastTime'])) {
             $model->lastTime = $map['LastTime'];
