@@ -45,7 +45,7 @@ class CreateChatappTemplateShrinkRequest extends Model
     /**
      * @description The components of the message template.
      *
-     * > If Category is set to AUTHENTICATION, the Type sub-parameter of the Components parameter cannot be set to HEADER. If the Type sub-parameter is set to BODY or FOOTER, the Text sub-parameter of the Components parameter is empty.
+     * >  If Category is set to AUTHENTICATION, the Type sub-parameter of the Components parameter cannot be set to HEADER. If the Type sub-parameter is set to BODY or FOOTER, the Text sub-parameter of the Components parameter must be empty.
      * @var string
      */
     public $componentsShrink;

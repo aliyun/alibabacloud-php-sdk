@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListFlowResponseBody extends Model
 {
     /**
+     * @description If OK is returned, the request was successful.
+     *
      * @example OK
      *
      * @var string
@@ -17,17 +19,21 @@ class ListFlowResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned data.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The error message.
+     *
      * @var string
      */
     public $message;
 
     /**
-     * @description Id of the request。
+     * @description The request ID.
      *
      * @example 1612C226-E271-4CFE-9F18-4066D550F91B
      *

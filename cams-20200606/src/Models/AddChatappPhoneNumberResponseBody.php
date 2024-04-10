@@ -9,11 +9,18 @@ use AlibabaCloud\Tea\Model;
 class AddChatappPhoneNumberResponseBody extends Model
 {
     /**
+     * @description The details about the access denial.
+     *
      * @var string
      */
     public $accessDeniedDetail;
 
     /**
+     * @description The response code.
+     *
+     *   The value OK indicates that the request was successful.
+     *   Other values indicate that the request failed. For more information, see [Error codes](~~196974~~).
+     *
      * @example OK
      *
      * @var string
@@ -21,6 +28,8 @@ class AddChatappPhoneNumberResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message.
+     *
      * @example None
      *
      * @var string
@@ -28,7 +37,7 @@ class AddChatappPhoneNumberResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 90E63D28-E31D-1EB2-8939-A9486641****
      *

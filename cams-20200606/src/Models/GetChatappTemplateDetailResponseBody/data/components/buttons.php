@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class buttons extends Model
 {
     /**
-     * @description Whatsapp模板，Category为Authentication，并且Button Type为ONE_TAP时必填，Whatsap Autofill操作的按钮文本
+     * @description The text of the one-tap autofill button. This parameter is required if Category is set to AUTHENTICATION and the Type sub-parameter of the Buttons parameter is set to ONE_TAP in a WhatsApp message template.
      *
      * @example Autofill
      *
@@ -19,6 +19,8 @@ class buttons extends Model
     public $autofillText;
 
     /**
+     * @description The coupon code.
+     *
      * @example 202039ksjs
      *
      * @var string
@@ -26,24 +28,32 @@ class buttons extends Model
     public $couponCode;
 
     /**
-     * @description 扩展字段
+     * @description The extended fields.
      *
      * @var extendAttrs
      */
     public $extendAttrs;
 
     /**
+     * @description flow 数据事件类型
+     * 取值范围：NAVIGATE/DATA_EXCHANGE
+     * @example NAVIGATE
+     *
      * @var string
      */
     public $flowAction;
 
     /**
+     * @description Flow ID
+     *
+     * @example 3838292983
+     *
      * @var string
      */
     public $flowId;
 
     /**
-     * @description Whatsapp模板，在Category为Marketing,并且Button type为QUICK_REPLY时有效，表示按钮为营销退订按钮，客户如果点击了此按钮，并且在chatapp平台上配置了发送控制操作，则后续Marketing消息则不会发送到客户
+     * @description The unsubscribe button. This parameter is valid if Category is set to MARKETING and the Type sub-parameter of the Buttons parameter is set to QUICK_REPLY in a WhatsApp message template. After you configure message sending in the ChatApp Message Service console, marketing messages will not be sent to customers if they click this button.
      *
      * @example false
      *
@@ -52,12 +62,16 @@ class buttons extends Model
     public $isOptOut;
 
     /**
+     * @description 跳转屏
+     * 在FlowAction=NAVIGATE时必填
+     * @example DETAILS
+     *
      * @var string
      */
     public $navigateScreen;
 
     /**
-     * @description Whatsapp模板，Category为Authentication，并且Button Type为ONE_TAP时必填，表示Whatsapp调起应用的包名
+     * @description The app package name that WhatsApp uses to load your app. This parameter is required if Category is set to AUTHENTICATION and the Type sub-parameter of the Buttons parameter is set to ONE_TAP in a WhatsApp message template.
      *
      * @example com.aliyun
      *
@@ -66,7 +80,7 @@ class buttons extends Model
     public $packageName;
 
     /**
-     * @description The phone number. This parameter is valid only if the returned value of the Type parameter is **PHONE_NUMBER**.
+     * @description The phone number. This parameter is valid only if the Type sub-parameter of the Buttons parameter is set to **PHONE_NUMBER**.
      *
      * @example 861398745****
      *
@@ -75,7 +89,7 @@ class buttons extends Model
     public $phoneNumber;
 
     /**
-     * @description Whatsapp模板，Category为Authentication，并且Button Type为ONE_TAP时必填，表示Whatsapp调起应用的签名Hash值
+     * @description The app signing key hash that WhatsApp uses to load your app. This parameter is required if Category is set to AUTHENTICATION and the Type sub-parameter of the Buttons parameter is set to ONE_TAP in a WhatsApp message template.
      *
      * @example 2993839
      *
@@ -95,17 +109,17 @@ class buttons extends Model
     /**
      * @description The type of the button. Valid values:
      *
-     *   **PHONE_NUMBER**: a phone call button
-     *   **URL**: a URL button
-     *   **QUICK_REPLY**: a quick reply button
+     *   **PHONE_NUMBER**: phone call button
+     *   **URL**: URL button
+     *   **QUICK_REPLY**: quick reply button
      *
      * >
      *
-     *   A quick reply button cannot coexist with a phone call button or a URL button in a message template.
+     *   In a message template, a quick reply button cannot be used together with a phone call button or a URL button.
      *
      *   You can add a combination of two URL buttons or a combination of a URL button and a phone call button to a message template.
      *
-     *   You can add only one button to a Viber message template, and the button must be a URL button.
+     *   You can add only one button to a Viber message template, and you must set the Type sub-parameter of the Buttons parameter to URL.
      *
      * @example PHONE_NUMBER
      *
@@ -114,7 +128,7 @@ class buttons extends Model
     public $type;
 
     /**
-     * @description The URL to be accessed when you click the URL button.
+     * @description The URL to which you are redirected when you click the URL button.
      *
      * @example https://example.com
      *
@@ -125,8 +139,8 @@ class buttons extends Model
     /**
      * @description The type of the URL. Valid values:
      *
-     *   **static**: a static URL
-     *   **dynamic**: a dynamic URL
+     *   **static**
+     *   **dynamic**
      *
      * @example static
      *

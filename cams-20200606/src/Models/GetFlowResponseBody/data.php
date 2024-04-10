@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The categories of the Flow.
+     *
      * @var string[]
      */
     public $categories;
 
     /**
+     * @description The API version.
+     *
      * @example 3.0
      *
      * @var string
@@ -21,7 +25,7 @@ class data extends Model
     public $dataApiVersion;
 
     /**
-     * @description flow ID。
+     * @description The Flow ID.
      *
      * @example flow_id_arms
      *
@@ -30,6 +34,8 @@ class data extends Model
     public $flowId;
 
     /**
+     * @description The name of the Flow.
+     *
      * @example dnjn
      *
      * @var string
@@ -37,6 +43,8 @@ class data extends Model
     public $flowName;
 
     /**
+     * @description The JSON version.
+     *
      * @example 2.1
      *
      * @var string
@@ -44,6 +52,8 @@ class data extends Model
     public $JSONVersion;
 
     /**
+     * @description The temporary preview URL.
+     *
      * @example https://pre-url
      *
      * @var string
@@ -51,6 +61,8 @@ class data extends Model
     public $previewUrl;
 
     /**
+     * @description The time when the preview URL expires. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1700617436633
      *
      * @var int
@@ -58,6 +70,21 @@ class data extends Model
     public $previewUrlExpires;
 
     /**
+     * @description The state of the Flow.
+     *
+     * Valid values:
+     *
+     *   PUBLISHED
+     *
+     * <!-- -->
+     *
+     *   DRAFT
+     *
+     * <!-- -->
+     *
+     *   DEPRECATED
+     *
+     * <!-- -->
      * @example DRAFT
      *
      * @var string

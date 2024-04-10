@@ -19,10 +19,7 @@ class GetChatappPhoneNumberMetricResponseBody extends Model
     public $accessDeniedDetail;
 
     /**
-     * @description The HTTP status code returned.
-     *
-     *   A value of OK indicates that the call is successful.
-     *   Other values indicate that the call fails. For more information, see [Error codes](~~196974~~).
+     * @description The value OK indicates that the request was successful.
      *
      * @example OK
      *
@@ -38,7 +35,7 @@ class GetChatappPhoneNumberMetricResponseBody extends Model
     public $data;
 
     /**
-     * @description The error message returned.
+     * @description The error message.
      *
      * @example None
      *
@@ -47,7 +44,7 @@ class GetChatappPhoneNumberMetricResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 1612C226-E271-4CFE-9F18-4066D******
      *

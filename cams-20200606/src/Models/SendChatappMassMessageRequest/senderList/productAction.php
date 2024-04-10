@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class productAction extends Model
 {
     /**
+     * @description The products. Up to 30 products and 10 categories can be added.
+     *
      * @var sections[]
      */
     public $sections;
 
     /**
+     * @description The retailer ID of the product.
+     *
+     * @example skkks999393
+     *
      * @var string
      */
     public $thumbnailProductRetailerId;

@@ -10,10 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ListChatappTemplateResponseBody extends Model
 {
     /**
-     * @description 访问被拒绝详细信息。
-     *
-     * @example 无
-     *
      * @var string
      */
     public $accessDeniedDetail;
@@ -56,7 +52,7 @@ class ListChatappTemplateResponseBody extends Model
     public $requestId;
 
     /**
-     * @description 总记录条数。
+     * @description The total number of entries returned.
      *
      * @example 1
      *

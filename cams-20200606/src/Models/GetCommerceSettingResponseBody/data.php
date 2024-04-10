@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Indicates whether the shopping cart button is displayed.
+     *
      * @example false
      *
      * @var bool
@@ -16,6 +18,8 @@ class data extends Model
     public $cartEnable;
 
     /**
+     * @description Indicates whether the catalog button is displayed.
+     *
      * @example false
      *
      * @var bool

@@ -9,7 +9,17 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The review status of the WhatsApp Business account.
+     * @description The review state of the WhatsApp Business account (WABA).
+     *
+     * >  Valid values:
+     *
+     *   PENDING: The WABA is to be reviewed.
+     *
+     *   APPROVED: The WABA was approved.
+     *
+     *   REJECTED: The WABA was rejected.
+     *
+     *   DISABLED: The WABA was forbidden.
      *
      * @example APPROVED
      *

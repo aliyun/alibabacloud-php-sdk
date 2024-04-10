@@ -27,7 +27,7 @@ class ListProductRequest extends Model
     public $before;
 
     /**
-     * @description The ID of the product catalog.
+     * @description The catalog ID.
      *
      * @example 29398389292
      *

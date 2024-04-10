@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class page extends Model
 {
     /**
-     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     * @description The page number. Default value: 1.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class page extends Model
     public $index;
 
     /**
-     * @description The number of message templates to return on each page. Default value: 10.
+     * @description The number of entries per page. Default value: 10.
      *
      * @example 10
      *

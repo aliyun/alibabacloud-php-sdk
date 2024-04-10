@@ -33,8 +33,9 @@ class ListChatappTemplateRequest extends Model
     public $custSpaceId;
 
     /**
-     * @description The ID of the WhatsApp account that you register.
+     * @description The WhatsApp Business account (WABA) ID of the user within the independent software vendor (ISV) account.
      *
+     * >  CustWabaId is an obsolete parameter. Use CustSpaceId instead.
      * @example 65921621816****
      *
      * @deprecated
@@ -71,7 +72,7 @@ class ListChatappTemplateRequest extends Model
     public $name;
 
     /**
-     * @description The paging settings.
+     * @description The pagination settings.
      *
      * @example "page": "{\"index\": 1,\"size\": 20}
      *

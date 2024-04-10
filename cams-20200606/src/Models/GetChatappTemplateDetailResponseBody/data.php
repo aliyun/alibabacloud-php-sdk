@@ -73,7 +73,7 @@ class data extends Model
     public $language;
 
     /**
-     * @description Whatsapp中Authentication类型模板发送消息时的消息有效期
+     * @description The validity period of the WhatsApp authentication message.
      *
      * @example 120
      *
@@ -91,7 +91,7 @@ class data extends Model
     public $name;
 
     /**
-     * @description 模板质量
+     * @description The quality of the template.
      *
      * @example GREEN
      *
@@ -100,6 +100,8 @@ class data extends Model
     public $qualityScore;
 
     /**
+     * @description The reason why the template was rejected.
+     *
      * @example None
      *
      * @var string

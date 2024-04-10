@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddChatappPhoneNumberRequest extends Model
 {
     /**
+     * @description The country code.
+     *
      * @example 86
      *
      * @var string
@@ -16,6 +18,8 @@ class AddChatappPhoneNumberRequest extends Model
     public $cc;
 
     /**
+     * @description The space ID of the user within the independent software vendor (ISV) account.
+     *
      * @example 939283893939
      *
      * @var string
@@ -23,6 +27,8 @@ class AddChatappPhoneNumberRequest extends Model
     public $custSpaceId;
 
     /**
+     * @description The phone number without a country code.
+     *
      * @example 13800000000
      *
      * @var string
@@ -30,6 +36,8 @@ class AddChatappPhoneNumberRequest extends Model
     public $phoneNumber;
 
     /**
+     * @description The ID of the pre-registered phone number.
+     *
      * @example 10202020
      *
      * @var string
@@ -37,6 +45,8 @@ class AddChatappPhoneNumberRequest extends Model
     public $preValidateId;
 
     /**
+     * @description The display name of the phone number.
+     *
      * @example Alibaba
      *
      * @var string

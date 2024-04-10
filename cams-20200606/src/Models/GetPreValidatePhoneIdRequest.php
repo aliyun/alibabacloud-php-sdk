@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetPreValidatePhoneIdRequest extends Model
 {
     /**
+     * @description The phone number.
+     *
      * @example 861380000
      *
      * @var string
@@ -16,6 +18,8 @@ class GetPreValidatePhoneIdRequest extends Model
     public $phoneNumber;
 
     /**
+     * @description The verification code provided when you purchased the pre-registered phone number.
+     *
      * @example 208393
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class listTemplate extends Model
 {
     /**
-     * @description The review status of the message template. Valid values:
+     * @description The review state of the message template. Valid values:
      *
      *   **pass**: The message template is approved.
      *   **fail**: The message template is rejected.
@@ -23,11 +23,23 @@ class listTemplate extends Model
     public $auditStatus;
 
     /**
-     * @description The category of the message template. Valid values:
+     * @description The category of the WhatsApp template. Valid values:
      *
-     *   **TRANSACTIONAL**: a transactional template
-     *   **MARKETING**: a marketing template
-     *   **OTP**: a one-time password template
+     *   **UTILITY**: utility template
+     *   **MARKETING**: marketing template
+     *   **AUTHENTICATION**: authentication template
+     *
+     * The category of the Viber template. Valid values:
+     *
+     *   **text**: template that contains only text
+     *   **image**: template that contains only an image
+     *   **text_image_button**: template that contains text, an image, and a button
+     *   **text_button**: template that contains text and a button
+     *   **document**: template that contains only a document
+     *   **video**: template that contains only a video
+     *   **text_video**: template that contains text and a video
+     *   **text_video_button**: template that contains text, a video, and a button
+     *   **text_image**: template that contains text and an image
      *
      * @example TRANSACTIONAL
      *
@@ -45,7 +57,7 @@ class listTemplate extends Model
     public $language;
 
     /**
-     * @description 模板审核被拒的原因
+     * @description The reason for the review failure.
      *
      * @example None
      *

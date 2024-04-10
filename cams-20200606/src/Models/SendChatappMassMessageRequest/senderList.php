@@ -16,26 +16,28 @@ class senderList extends Model
     public $flowAction;
 
     /**
-     * @description payload
+     * @description The payload.
      *
      * @var string[]
      */
     public $payload;
 
     /**
+     * @description The information about the product.
+     *
      * @var productAction
      */
     public $productAction;
 
     /**
-     * @description The parameters of the message template.
+     * @description The parameters of the template.
      *
      * @var string[]
      */
     public $templateParams;
 
     /**
-     * @description The phone number that receives the message.
+     * @description The phone number to which the message is sent.
      *
      * @example 861388988****
      *

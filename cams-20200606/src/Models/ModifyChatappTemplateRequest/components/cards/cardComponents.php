@@ -22,21 +22,21 @@ class cardComponents extends Model
     public $format;
 
     /**
-     * @example body
+     * @example Who is the very powerful team
      *
      * @var string
      */
     public $text;
 
     /**
-     * @example HEADER
+     * @example BODY
      *
      * @var string
      */
     public $type;
 
     /**
-     * @example https://aliyun.com/image.png
+     * @example https://alibaba.com/img.png
      *
      * @var string
      */

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class IsvGetAppIdRequest extends Model
 {
     /**
+     * @description 权限
+     *
      * @var string
      */
     public $permissions;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateFlowRequest extends Model
 {
     /**
+     * @description The categories of the Flow.
+     *
      * @var string[]
      */
     public $categories;
 
     /**
+     * @description The space ID of the user within the independent software vendor (ISV) account.
+     *
      * @example 93994848
      *
      * @var string
@@ -21,6 +25,8 @@ class CreateFlowRequest extends Model
     public $custSpaceId;
 
     /**
+     * @description The name of the Flow.
+     *
      * @example flow_001
      *
      * @var string

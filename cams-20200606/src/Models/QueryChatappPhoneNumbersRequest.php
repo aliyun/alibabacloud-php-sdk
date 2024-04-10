@@ -25,9 +25,17 @@ class QueryChatappPhoneNumbersRequest extends Model
      * @var string
      */
     public $isvCode;
+
+    /**
+     * @example VERIFIED
+     *
+     * @var string
+     */
+    public $status;
     protected $_name = [
         'custSpaceId' => 'CustSpaceId',
         'isvCode'     => 'IsvCode',
+        'status'      => 'Status',
     ];
 
     public function validate()
@@ -42,6 +50,9 @@ class QueryChatappPhoneNumbersRequest extends Model
         }
         if (null !== $this->isvCode) {
             $res['IsvCode'] = $this->isvCode;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -60,6 +71,9 @@ class QueryChatappPhoneNumbersRequest extends Model
         }
         if (isset($map['IsvCode'])) {
             $model->isvCode = $map['IsvCode'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

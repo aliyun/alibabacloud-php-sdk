@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class extendAttrs extends Model
 {
     /**
-     * @description 事件类型
+     * @description The event type.
      *
      * @example nextCard
      *
@@ -18,7 +18,7 @@ class extendAttrs extends Model
     public $action;
 
     /**
-     * @description 意图编码
+     * @description The intent code.
      *
      * @example test
      *
@@ -27,7 +27,7 @@ class extendAttrs extends Model
     public $intentCode;
 
     /**
-     * @description 下一个模板语言
+     * @description The language of the next template.
      *
      * @example en
      *
@@ -36,7 +36,7 @@ class extendAttrs extends Model
     public $nextLanguageCode;
 
     /**
-     * @description 下一个模板编码
+     * @description The code of the next template.
      *
      * @example 20939920093993
      *
@@ -45,7 +45,7 @@ class extendAttrs extends Model
     public $nextTemplateCode;
 
     /**
-     * @description 下一个模板名称
+     * @description The name of the next template.
      *
      * @example abc
      *

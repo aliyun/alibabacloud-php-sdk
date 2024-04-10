@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetPreValidatePhoneIdResponseBody extends Model
 {
     /**
+     * @description The response code. The value OK indicates the request was successful.
+     *
      * @example OK
      *
      * @var string
@@ -17,17 +19,21 @@ class GetPreValidatePhoneIdResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error message.
+     *
      * @var string
      */
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 90E63D28-E31D-1EB2-8939-A9486641****
      *

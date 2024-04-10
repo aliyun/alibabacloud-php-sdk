@@ -39,7 +39,7 @@ class GetWhatsappConnectionCatalogResponseBody extends Model
     public $message;
 
     /**
-     * @description The returned results.
+     * @description The returned data.
      *
      * @example {"id":"200292992"}
      *

@@ -16,21 +16,21 @@ class buttons extends Model
     public $phoneNumber;
 
     /**
-     * @example button 1
+     * @example Call me
      *
      * @var string
      */
     public $text;
 
     /**
-     * @example URL
+     * @example PHONE_NUMBER
      *
      * @var string
      */
     public $type;
 
     /**
-     * @example https://aliyun.com
+     * @example https://alibaba.com/xx
      *
      * @var string
      */

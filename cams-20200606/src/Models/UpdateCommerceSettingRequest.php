@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateCommerceSettingRequest extends Model
 {
     /**
+     * @description Specifies whether to display the shopping cart button.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class UpdateCommerceSettingRequest extends Model
     public $cartEnable;
 
     /**
+     * @description Specifies whether to display the catalog button.
+     *
      * @example false
      *
      * @var bool
@@ -23,6 +27,8 @@ class UpdateCommerceSettingRequest extends Model
     public $catalogVisible;
 
     /**
+     * @description The space ID of the user within the independent software vendor (ISV) account.
+     *
      * @example 293483938849493
      *
      * @var string
@@ -30,7 +36,9 @@ class UpdateCommerceSettingRequest extends Model
     public $custSpaceId;
 
     /**
-     * @example 手机号码
+     * @description The phone number.
+     *
+     * @example 1380000****
      *
      * @var string
      */

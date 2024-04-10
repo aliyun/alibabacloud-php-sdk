@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class buttons extends Model
 {
     /**
+     * @description The phone number.
+     *
      * @example +86138000
      *
      * @var string
@@ -16,13 +18,17 @@ class buttons extends Model
     public $phoneNumber;
 
     /**
-     * @example 按钮文本
+     * @description The button content.
+     *
+     * @example Button text
      *
      * @var string
      */
     public $text;
 
     /**
+     * @description The type of the button in the carousel template. Valid values: URL, PHONE_NUMBER, and QUICK_REQLY.
+     *
      * @example URL
      *
      * @var string
@@ -30,6 +36,8 @@ class buttons extends Model
     public $type;
 
     /**
+     * @description The URL to be accessed when you click the URL button.
+     *
      * @example https://aliyun.com
      *
      * @var string
@@ -37,6 +45,8 @@ class buttons extends Model
     public $url;
 
     /**
+     * @description The type of the URL. Valid values: static and dynamic.
+     *
      * @example static
      *
      * @var string

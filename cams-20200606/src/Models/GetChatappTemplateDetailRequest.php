@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetChatappTemplateDetailRequest extends Model
 {
     /**
-     * @description The space ID of the user under the ISV account.
+     * @description The space ID of the user within the ISV account.
      *
      * @example 28251486512358****
      *
@@ -18,8 +18,9 @@ class GetChatappTemplateDetailRequest extends Model
     public $custSpaceId;
 
     /**
-     * @description The ID of the WhatsApp account that you registered.
+     * @description The WhatsApp Business account (WABA) ID of the user within the independent software vendor (ISV) account.
      *
+     * >  CustWabaId is an obsolete parameter. Use CustSpaceId instead.
      * @example 65921621816****
      *
      * @deprecated
@@ -56,6 +57,13 @@ class GetChatappTemplateDetailRequest extends Model
     public $templateCode;
 
     /**
+     * @example test_name
+     *
+     * @var string
+     */
+    public $templateName;
+
+    /**
      * @description The type of the message template. Valid values:
      *
      *   **WHATSAPP**
@@ -73,6 +81,7 @@ class GetChatappTemplateDetailRequest extends Model
         'isvCode'      => 'IsvCode',
         'language'     => 'Language',
         'templateCode' => 'TemplateCode',
+        'templateName' => 'TemplateName',
         'templateType' => 'TemplateType',
     ];
 
@@ -97,6 +106,9 @@ class GetChatappTemplateDetailRequest extends Model
         }
         if (null !== $this->templateCode) {
             $res['TemplateCode'] = $this->templateCode;
+        }
+        if (null !== $this->templateName) {
+            $res['TemplateName'] = $this->templateName;
         }
         if (null !== $this->templateType) {
             $res['TemplateType'] = $this->templateType;
@@ -127,6 +139,9 @@ class GetChatappTemplateDetailRequest extends Model
         }
         if (isset($map['TemplateCode'])) {
             $model->templateCode = $map['TemplateCode'];
+        }
+        if (isset($map['TemplateName'])) {
+            $model->templateName = $map['TemplateName'];
         }
         if (isset($map['TemplateType'])) {
             $model->templateType = $map['TemplateType'];

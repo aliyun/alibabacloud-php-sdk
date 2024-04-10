@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetChatappPhoneNumberMetricRequest extends Model
 {
     /**
-     * @description The space ID of the user under the ISV account.
+     * @description The space ID of the user within the ISV account.
      *
      * @example 293483938849493
      *
@@ -18,9 +18,8 @@ class GetChatappPhoneNumberMetricRequest extends Model
     public $custSpaceId;
 
     /**
-     * @description The end of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     * @description The end of the time range to query.
      *
-     * >  The end time must be later than the start time. The interval between the start time and the end time cannot exceed 24 hours.
      * @example 1693407714687
      *
      * @var int
@@ -28,9 +27,8 @@ class GetChatappPhoneNumberMetricRequest extends Model
     public $end;
 
     /**
-     * @description Metric granularity. Valid values:
+     * @description The metric granularity.
      *
-     * - HALF_HOUR
      * @example DAILY
      *
      * @var string
@@ -38,7 +36,7 @@ class GetChatappPhoneNumberMetricRequest extends Model
     public $granularity;
 
     /**
-     * @description The ISV verification code, which is used to verify whether the user is authorized by the ISV account.
+     * @description The verification code used to verify whether the RAM user is authorized by the independent software vendor (ISV) account.
      *
      * @example skdi3kksloslikdkkdk
      *
@@ -56,7 +54,7 @@ class GetChatappPhoneNumberMetricRequest extends Model
     public $phoneNumber;
 
     /**
-     * @description The beginning of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     * @description The beginning of the time range to query.
      *
      * @example 1693107714687
      *

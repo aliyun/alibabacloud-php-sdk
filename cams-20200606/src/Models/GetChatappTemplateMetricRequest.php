@@ -18,7 +18,7 @@ class GetChatappTemplateMetricRequest extends Model
     public $custSpaceId;
 
     /**
-     * @description The end of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     * @description The end of the time range to query.
      *
      * @example 1693407714687
      *
@@ -27,9 +27,12 @@ class GetChatappTemplateMetricRequest extends Model
     public $end;
 
     /**
-     * @description Metric granularity. Valid values:
+     * @description The metric granularity.
      *
-     * - DAILY
+     * >  Valid values:
+     *
+     *   DAILY
+     *
      * @example DAILY
      *
      * @var string
@@ -37,7 +40,7 @@ class GetChatappTemplateMetricRequest extends Model
     public $granularity;
 
     /**
-     * @description The independent software vendor (ISV) verification code. This parameter is used to verify whether the user is authorized by the ISV account.
+     * @description The verification code used to verify whether the RAM user is authorized by the independent software vendor (ISV) account.
      *
      * @example skdi3kksloslikdkkdk
      *
@@ -46,7 +49,7 @@ class GetChatappTemplateMetricRequest extends Model
     public $isvCode;
 
     /**
-     * @description The language that is used in the message template. For more information, see [Language codes](~~463420~~).
+     * @description The template language.
      *
      * @example en
      *
@@ -55,7 +58,7 @@ class GetChatappTemplateMetricRequest extends Model
     public $language;
 
     /**
-     * @description The beginning of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     * @description The beginning of the time range to query.
      *
      * @example 1693107714687
      *
@@ -64,7 +67,7 @@ class GetChatappTemplateMetricRequest extends Model
     public $start;
 
     /**
-     * @description The code of the message template.
+     * @description The template code.
      *
      * @example 744c4b5c79c9432497a075bdfca36bf5
      *
@@ -73,9 +76,7 @@ class GetChatappTemplateMetricRequest extends Model
     public $templateCode;
 
     /**
-     * @description The type of the message template. Valid values:
-     *
-     *   **WHATSAPP**
+     * @description The template type. Valid values: WHATSAPP and VIBER. If you do not specify this parameter, WHATSAPP is used by default.
      *
      * @example WHATSAPP
      *

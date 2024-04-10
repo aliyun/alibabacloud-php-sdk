@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class QueryChatappBindWabaResponseBody extends Model
 {
     /**
+     * @description The details about the access denial.
+     *
+     * @example None
+     *
      * @var string
      */
     public $accessDeniedDetail;
@@ -27,7 +31,7 @@ class QueryChatappBindWabaResponseBody extends Model
     public $code;
 
     /**
-     * @description The data returned.
+     * @description The returned data.
      *
      * @var data
      */

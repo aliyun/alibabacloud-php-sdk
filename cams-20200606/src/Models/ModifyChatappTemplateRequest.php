@@ -32,7 +32,7 @@ class ModifyChatappTemplateRequest extends Model
     /**
      * @description The components of the message template.
      *
-     * > If Category is set to AUTHENTICATION, the Type sub-parameter of the Components parameter cannot be set to HEADER. If the Type sub-parameter is set to BODY or FOOTER, the Text sub-parameter of the Components parameter is empty and text in the body or footer is automatically generated.
+     * >  If Category is set to AUTHENTICATION, the Type sub-parameter of the Components parameter cannot be set to HEADER. If the Type sub-parameter is set to BODY or FOOTER, the Text sub-parameter of the Components parameter is empty and text in the body or footer is automatically generated.
      * @var components[]
      */
     public $components;
@@ -103,6 +103,13 @@ class ModifyChatappTemplateRequest extends Model
     public $templateCode;
 
     /**
+     * @example test_name
+     *
+     * @var string
+     */
+    public $templateName;
+
+    /**
      * @description The type of the message template.
      *
      *   **WHATSAPP**
@@ -124,6 +131,7 @@ class ModifyChatappTemplateRequest extends Model
         'language'              => 'Language',
         'messageSendTtlSeconds' => 'MessageSendTtlSeconds',
         'templateCode'          => 'TemplateCode',
+        'templateName'          => 'TemplateName',
         'templateType'          => 'TemplateType',
     ];
 
@@ -166,6 +174,9 @@ class ModifyChatappTemplateRequest extends Model
         }
         if (null !== $this->templateCode) {
             $res['TemplateCode'] = $this->templateCode;
+        }
+        if (null !== $this->templateName) {
+            $res['TemplateName'] = $this->templateName;
         }
         if (null !== $this->templateType) {
             $res['TemplateType'] = $this->templateType;
@@ -214,6 +225,9 @@ class ModifyChatappTemplateRequest extends Model
         }
         if (isset($map['TemplateCode'])) {
             $model->templateCode = $map['TemplateCode'];
+        }
+        if (isset($map['TemplateName'])) {
+            $model->templateName = $map['TemplateName'];
         }
         if (isset($map['TemplateType'])) {
             $model->templateType = $map['TemplateType'];

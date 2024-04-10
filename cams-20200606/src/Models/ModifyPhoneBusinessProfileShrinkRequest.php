@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class ModifyPhoneBusinessProfileShrinkRequest extends Model
 {
     /**
+     * @example business profile
+     *
+     * @var string
+     */
+    public $about;
+
+    /**
      * @description The space ID of the user under the independent software vendor (ISV) account.
      *
      * @example The phone number.
@@ -79,6 +86,7 @@ class ModifyPhoneBusinessProfileShrinkRequest extends Model
      */
     public $websitesShrink;
     protected $_name = [
+        'about'             => 'About',
         'address'           => 'Address',
         'custSpaceId'       => 'CustSpaceId',
         'description'       => 'Description',
@@ -96,6 +104,9 @@ class ModifyPhoneBusinessProfileShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->about) {
+            $res['About'] = $this->about;
+        }
         if (null !== $this->address) {
             $res['Address'] = $this->address;
         }
@@ -132,6 +143,9 @@ class ModifyPhoneBusinessProfileShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['About'])) {
+            $model->about = $map['About'];
+        }
         if (isset($map['Address'])) {
             $model->address = $map['Address'];
         }

@@ -174,10 +174,12 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param AddChatappPhoneNumberRequest $request
-     * @param RuntimeOptions               $runtime
+     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param AddChatappPhoneNumberRequest $request AddChatappPhoneNumberRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddChatappPhoneNumberResponse
+     * @return AddChatappPhoneNumberResponse AddChatappPhoneNumberResponse
      */
     public function addChatappPhoneNumberWithOptions($request, $runtime)
     {
@@ -217,9 +219,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param AddChatappPhoneNumberRequest $request
+     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param AddChatappPhoneNumberRequest $request AddChatappPhoneNumberRequest
      *
-     * @return AddChatappPhoneNumberResponse
+     * @return AddChatappPhoneNumberResponse AddChatappPhoneNumberResponse
      */
     public function addChatappPhoneNumber($request)
     {
@@ -581,10 +585,12 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param ChatappPhoneNumberDeregisterRequest $request
-     * @param RuntimeOptions                      $runtime
+     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param ChatappPhoneNumberDeregisterRequest $request ChatappPhoneNumberDeregisterRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ChatappPhoneNumberDeregisterResponse
+     * @return ChatappPhoneNumberDeregisterResponse ChatappPhoneNumberDeregisterResponse
      */
     public function chatappPhoneNumberDeregisterWithOptions($request, $runtime)
     {
@@ -615,9 +621,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param ChatappPhoneNumberDeregisterRequest $request
+     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param ChatappPhoneNumberDeregisterRequest $request ChatappPhoneNumberDeregisterRequest
      *
-     * @return ChatappPhoneNumberDeregisterResponse
+     * @return ChatappPhoneNumberDeregisterResponse ChatappPhoneNumberDeregisterResponse
      */
     public function chatappPhoneNumberDeregister($request)
     {
@@ -915,10 +923,12 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param CreateFlowRequest $tmpReq
-     * @param RuntimeOptions    $runtime
+     * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param CreateFlowRequest $tmpReq  CreateFlowRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateFlowResponse
+     * @return CreateFlowResponse CreateFlowResponse
      */
     public function createFlowWithOptions($tmpReq, $runtime)
     {
@@ -957,9 +967,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param CreateFlowRequest $request
+     * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param CreateFlowRequest $request CreateFlowRequest
      *
-     * @return CreateFlowResponse
+     * @return CreateFlowResponse CreateFlowResponse
      */
     public function createFlow($request)
     {
@@ -1042,8 +1054,17 @@ class Cams extends OpenApiClient
         if (!Utils::isUnset($request->isvCode)) {
             $query['IsvCode'] = $request->isvCode;
         }
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
+        }
         if (!Utils::isUnset($request->templateCode)) {
             $query['TemplateCode'] = $request->templateCode;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
+        if (!Utils::isUnset($request->templateType)) {
+            $query['TemplateType'] = $request->templateType;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1079,10 +1100,12 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param DeleteFlowRequest $request
-     * @param RuntimeOptions    $runtime
+     * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DeleteFlowRequest $request DeleteFlowRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteFlowResponse
+     * @return DeleteFlowResponse DeleteFlowResponse
      */
     public function deleteFlowWithOptions($request, $runtime)
     {
@@ -1113,9 +1136,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param DeleteFlowRequest $request
+     * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DeleteFlowRequest $request DeleteFlowRequest
      *
-     * @return DeleteFlowResponse
+     * @return DeleteFlowResponse DeleteFlowResponse
      */
     public function deleteFlow($request)
     {
@@ -1220,10 +1245,12 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param EnableWhatsappROIMetricRequest $request
-     * @param RuntimeOptions                 $runtime
+     * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param EnableWhatsappROIMetricRequest $request EnableWhatsappROIMetricRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableWhatsappROIMetricResponse
+     * @return EnableWhatsappROIMetricResponse EnableWhatsappROIMetricResponse
      */
     public function enableWhatsappROIMetricWithOptions($request, $runtime)
     {
@@ -1254,9 +1281,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param EnableWhatsappROIMetricRequest $request
+     * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param EnableWhatsappROIMetricRequest $request EnableWhatsappROIMetricRequest
      *
-     * @return EnableWhatsappROIMetricResponse
+     * @return EnableWhatsappROIMetricResponse EnableWhatsappROIMetricResponse
      */
     public function enableWhatsappROIMetric($request)
     {
@@ -1266,10 +1295,12 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param GetChatappPhoneNumberMetricRequest $request
-     * @param RuntimeOptions                     $runtime
+     * You can call this operation up to 50 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param GetChatappPhoneNumberMetricRequest $request GetChatappPhoneNumberMetricRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetChatappPhoneNumberMetricResponse
+     * @return GetChatappPhoneNumberMetricResponse GetChatappPhoneNumberMetricResponse
      */
     public function getChatappPhoneNumberMetricWithOptions($request, $runtime)
     {
@@ -1312,9 +1343,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param GetChatappPhoneNumberMetricRequest $request
+     * You can call this operation up to 50 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param GetChatappPhoneNumberMetricRequest $request GetChatappPhoneNumberMetricRequest
      *
-     * @return GetChatappPhoneNumberMetricResponse
+     * @return GetChatappPhoneNumberMetricResponse GetChatappPhoneNumberMetricResponse
      */
     public function getChatappPhoneNumberMetric($request)
     {
@@ -1350,6 +1383,9 @@ class Cams extends OpenApiClient
         }
         if (!Utils::isUnset($request->templateCode)) {
             $query['TemplateCode'] = $request->templateCode;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
         }
         if (!Utils::isUnset($request->templateType)) {
             $query['TemplateType'] = $request->templateType;
@@ -1388,10 +1424,12 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param GetChatappTemplateMetricRequest $request
-     * @param RuntimeOptions                  $runtime
+     * You can call this operation up to 50 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param GetChatappTemplateMetricRequest $request GetChatappTemplateMetricRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetChatappTemplateMetricResponse
+     * @return GetChatappTemplateMetricResponse GetChatappTemplateMetricResponse
      */
     public function getChatappTemplateMetricWithOptions($request, $runtime)
     {
@@ -1440,9 +1478,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param GetChatappTemplateMetricRequest $request
+     * You can call this operation up to 50 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param GetChatappTemplateMetricRequest $request GetChatappTemplateMetricRequest
      *
-     * @return GetChatappTemplateMetricResponse
+     * @return GetChatappTemplateMetricResponse GetChatappTemplateMetricResponse
      */
     public function getChatappTemplateMetric($request)
     {
@@ -1555,10 +1595,12 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param GetCommerceSettingRequest $request
-     * @param RuntimeOptions            $runtime
+     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param GetCommerceSettingRequest $request GetCommerceSettingRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetCommerceSettingResponse
+     * @return GetCommerceSettingResponse GetCommerceSettingResponse
      */
     public function getCommerceSettingWithOptions($request, $runtime)
     {
@@ -1589,9 +1631,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param GetCommerceSettingRequest $request
+     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param GetCommerceSettingRequest $request GetCommerceSettingRequest
      *
-     * @return GetCommerceSettingResponse
+     * @return GetCommerceSettingResponse GetCommerceSettingResponse
      */
     public function getCommerceSetting($request)
     {
@@ -1601,10 +1645,12 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param GetFlowRequest $request
-     * @param RuntimeOptions $runtime
+     * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param GetFlowRequest $request GetFlowRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetFlowResponse
+     * @return GetFlowResponse GetFlowResponse
      */
     public function getFlowWithOptions($request, $runtime)
     {
@@ -1635,9 +1681,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param GetFlowRequest $request
+     * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param GetFlowRequest $request GetFlowRequest
      *
-     * @return GetFlowResponse
+     * @return GetFlowResponse GetFlowResponse
      */
     public function getFlow($request)
     {
@@ -1693,10 +1741,12 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param GetFlowPreviewUrlRequest $request
-     * @param RuntimeOptions           $runtime
+     * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param GetFlowPreviewUrlRequest $request GetFlowPreviewUrlRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetFlowPreviewUrlResponse
+     * @return GetFlowPreviewUrlResponse GetFlowPreviewUrlResponse
      */
     public function getFlowPreviewUrlWithOptions($request, $runtime)
     {
@@ -1727,9 +1777,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param GetFlowPreviewUrlRequest $request
+     * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param GetFlowPreviewUrlRequest $request GetFlowPreviewUrlRequest
      *
-     * @return GetFlowPreviewUrlResponse
+     * @return GetFlowPreviewUrlResponse GetFlowPreviewUrlResponse
      */
     public function getFlowPreviewUrl($request)
     {
@@ -1945,10 +1997,12 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param GetPreValidatePhoneIdRequest $request
-     * @param RuntimeOptions               $runtime
+     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param GetPreValidatePhoneIdRequest $request GetPreValidatePhoneIdRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPreValidatePhoneIdResponse
+     * @return GetPreValidatePhoneIdResponse GetPreValidatePhoneIdResponse
      */
     public function getPreValidatePhoneIdWithOptions($request, $runtime)
     {
@@ -1979,9 +2033,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param GetPreValidatePhoneIdRequest $request
+     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param GetPreValidatePhoneIdRequest $request GetPreValidatePhoneIdRequest
      *
-     * @return GetPreValidatePhoneIdResponse
+     * @return GetPreValidatePhoneIdResponse GetPreValidatePhoneIdResponse
      */
     public function getPreValidatePhoneId($request)
     {
@@ -2175,10 +2231,12 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param ListFlowRequest $tmpReq
-     * @param RuntimeOptions  $runtime
+     * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param ListFlowRequest $tmpReq  ListFlowRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListFlowResponse
+     * @return ListFlowResponse ListFlowResponse
      */
     public function listFlowWithOptions($tmpReq, $runtime)
     {
@@ -2217,9 +2275,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param ListFlowRequest $request
+     * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param ListFlowRequest $request ListFlowRequest
      *
-     * @return ListFlowResponse
+     * @return ListFlowResponse ListFlowResponse
      */
     public function listFlow($request)
     {
@@ -2466,6 +2526,9 @@ class Cams extends OpenApiClient
         if (!Utils::isUnset($request->templateCode)) {
             $body['TemplateCode'] = $request->templateCode;
         }
+        if (!Utils::isUnset($request->templateName)) {
+            $body['TemplateName'] = $request->templateName;
+        }
         if (!Utils::isUnset($request->templateType)) {
             $body['TemplateType'] = $request->templateType;
         }
@@ -2502,10 +2565,12 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param ModifyFlowRequest $tmpReq
-     * @param RuntimeOptions    $runtime
+     * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param ModifyFlowRequest $tmpReq  ModifyFlowRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyFlowResponse
+     * @return ModifyFlowResponse ModifyFlowResponse
      */
     public function modifyFlowWithOptions($tmpReq, $runtime)
     {
@@ -2547,9 +2612,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param ModifyFlowRequest $request
+     * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param ModifyFlowRequest $request ModifyFlowRequest
      *
-     * @return ModifyFlowResponse
+     * @return ModifyFlowResponse ModifyFlowResponse
      */
     public function modifyFlow($request)
     {
@@ -2575,6 +2642,9 @@ class Cams extends OpenApiClient
             $request->websitesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->websites, 'Websites', 'json');
         }
         $query = [];
+        if (!Utils::isUnset($request->about)) {
+            $query['About'] = $request->about;
+        }
         if (!Utils::isUnset($request->address)) {
             $query['Address'] = $request->address;
         }
@@ -2632,10 +2702,12 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param PublishFlowRequest $request
-     * @param RuntimeOptions     $runtime
+     * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param PublishFlowRequest $request PublishFlowRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return PublishFlowResponse
+     * @return PublishFlowResponse PublishFlowResponse
      */
     public function publishFlowWithOptions($request, $runtime)
     {
@@ -2666,9 +2738,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param PublishFlowRequest $request
+     * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param PublishFlowRequest $request PublishFlowRequest
      *
-     * @return PublishFlowResponse
+     * @return PublishFlowResponse PublishFlowResponse
      */
     public function publishFlow($request)
     {
@@ -2744,6 +2818,9 @@ class Cams extends OpenApiClient
         }
         if (!Utils::isUnset($request->isvCode)) {
             $query['IsvCode'] = $request->isvCode;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -2940,6 +3017,9 @@ class Cams extends OpenApiClient
         if (!Utils::isUnset($request->templateCode)) {
             $body['TemplateCode'] = $request->templateCode;
         }
+        if (!Utils::isUnset($request->templateName)) {
+            $body['TemplateName'] = $request->templateName;
+        }
         if (!Utils::isUnset($request->ttl)) {
             $body['Ttl'] = $request->ttl;
         }
@@ -3062,6 +3142,9 @@ class Cams extends OpenApiClient
         }
         if (!Utils::isUnset($request->templateCode)) {
             $body['TemplateCode'] = $request->templateCode;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $body['TemplateName'] = $request->templateName;
         }
         if (!Utils::isUnset($request->templateParamsShrink)) {
             $body['TemplateParams'] = $request->templateParamsShrink;
@@ -3233,10 +3316,12 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param UpdateCommerceSettingRequest $request
-     * @param RuntimeOptions               $runtime
+     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param UpdateCommerceSettingRequest $request UpdateCommerceSettingRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateCommerceSettingResponse
+     * @return UpdateCommerceSettingResponse UpdateCommerceSettingResponse
      */
     public function updateCommerceSettingWithOptions($request, $runtime)
     {
@@ -3273,9 +3358,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @param UpdateCommerceSettingRequest $request
+     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param UpdateCommerceSettingRequest $request UpdateCommerceSettingRequest
      *
-     * @return UpdateCommerceSettingResponse
+     * @return UpdateCommerceSettingResponse UpdateCommerceSettingResponse
      */
     public function updateCommerceSetting($request)
     {

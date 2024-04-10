@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class components extends Model
 {
     /**
-     * @description The note indicating that customers cannot share verification codes with others. The note is displayed in the message body. This parameter is valid if Category is set to AUTHENTICATION and the Type sub-parameter of the Components parameter is set to BODY in a WhatsApp message template.
+     * @description The note indicating that customers cannot share verification codes with others. The note is displayed in the message body. This parameter is valid only if Category is set to AUTHENTICATION and the Type sub-parameter of the Components parameter is set to BODY for a WhatsApp message template.
      *
      * @example true
      *
@@ -20,7 +20,17 @@ class components extends Model
     public $addSecretRecommendation;
 
     /**
-     * @description The buttons. This parameter applies only to **BUTTONS** components.
+     * @description The buttons. Specify this parameter only if you set the Type sub-parameter of the Components parameter to **BUTTONS**.
+     *
+     * >  The following section describes the limits on the number of buttons in a WhatsApp message.
+     *
+     *   A marketing or utility WhatsApp message template supports up to 10 buttons.
+     *
+     *   A WhatsApp message template can contain only one phone call button.
+     *
+     *   A WhatsApp message template can contain up to two URL buttons.
+     *
+     *   In a WhatsApp message template, the quick reply button cannot be used together with the phone call button or the URL button.
      *
      * @var buttons[]
      */
@@ -91,6 +101,8 @@ class components extends Model
     public $format;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $hasExpiration;
@@ -98,7 +110,7 @@ class components extends Model
     /**
      * @description The text of the message that you want to send.
      *
-     * > If Category is set to AUTHENTICATION, the Text sub-parameter of the Components parameter is empty.
+     * >  If Category is set to AUTHENTICATION, the Text sub-parameter of the Components parameter is empty.
      * @example hello whatsapp
      *
      * @var string
@@ -128,7 +140,7 @@ class components extends Model
      *
      *   **FOOTER** components are not supported in Viber message templates.
      *
-     *   In a Viber message template, media resources, such as images, videos, or documents, are placed in the **HEADER** component. If a Viber message contains text and an image, the image is placed under the text in the message received on a device.
+     *   In Viber message templates, media resources such as images, videos, and documents are placed in the **HEADER** component. If a Viber message contains both text and an image, the image is placed below the text in the message received on a device.
      *
      * @example BODY
      *
@@ -139,7 +151,7 @@ class components extends Model
     /**
      * @description The URL of the media resource.
      *
-     * > We recommend that the resolution of the image is 800 × 800 in a Viber message template.
+     * >  We recommend that you use 800 × 800 images in Viber message templates.
      * @example https://image.developer.aliyundoc.com
      *
      * @var string

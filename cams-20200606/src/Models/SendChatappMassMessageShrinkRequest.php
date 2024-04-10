@@ -47,8 +47,6 @@ class SendChatappMassMessageShrinkRequest extends Model
     public $fallBackContent;
 
     /**
-     * @description 消息在指定时间内没有返回已到达回执时回落, 不填代表不根据此时间判断回落，只有发送失败和有失败的状态报告时才会回落。时间单位为秒 最小值为60，最大值43200
-     *
      * @example 120
      *
      * @var int
@@ -65,6 +63,14 @@ class SendChatappMassMessageShrinkRequest extends Model
     public $fallBackId;
 
     /**
+     * @description The fallback rule.
+     *
+     * >  Valid values:
+     *
+     *   undelivered: A fallback is triggered if the WhatsApp message is not delivered to clients. When the WhatsApp message is being sent, the template parameters are verified. If the parameters fail to pass the verification, the message fails to be sent. Whether the template and phone number are prohibited is not verified. By default, this value is used when FallBackRule is left empty.
+     *
+     *   sentfailed: A fallback is triggered even if the template parameters including variables fail to pass the verification. If the channelType, type, messageType, to, and from parameters fail to pass the verification, a fallback is not triggered.
+     *
      * @example undelivered
      *
      * @var string
@@ -108,7 +114,7 @@ class SendChatappMassMessageShrinkRequest extends Model
     public $language;
 
     /**
-     * @description The list of phone numbers that receive the message.
+     * @description The phone numbers to which the message is sent.
      *
      * @var string
      */
@@ -142,6 +148,13 @@ class SendChatappMassMessageShrinkRequest extends Model
     public $templateCode;
 
     /**
+     * @example test_name
+     *
+     * @var string
+     */
+    public $templateName;
+
+    /**
      * @description The timeout period for sending messages when the ChannelType parameter is set to viber. Valid values: 30 to 1209600. Unit: seconds.
      *
      * @example 50
@@ -165,6 +178,7 @@ class SendChatappMassMessageShrinkRequest extends Model
         'tag'              => 'Tag',
         'taskId'           => 'TaskId',
         'templateCode'     => 'TemplateCode',
+        'templateName'     => 'TemplateName',
         'ttl'              => 'Ttl',
     ];
 
@@ -219,6 +233,9 @@ class SendChatappMassMessageShrinkRequest extends Model
         }
         if (null !== $this->templateCode) {
             $res['TemplateCode'] = $this->templateCode;
+        }
+        if (null !== $this->templateName) {
+            $res['TemplateName'] = $this->templateName;
         }
         if (null !== $this->ttl) {
             $res['Ttl'] = $this->ttl;
@@ -279,6 +296,9 @@ class SendChatappMassMessageShrinkRequest extends Model
         }
         if (isset($map['TemplateCode'])) {
             $model->templateCode = $map['TemplateCode'];
+        }
+        if (isset($map['TemplateName'])) {
+            $model->templateName = $map['TemplateName'];
         }
         if (isset($map['Ttl'])) {
             $model->ttl = $map['Ttl'];

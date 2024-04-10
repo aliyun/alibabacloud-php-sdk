@@ -95,6 +95,8 @@ class SendChatappMessageRequest extends Model
     public $fallBackContent;
 
     /**
+     * @description Specifies the period of time after which the fallback Short Message Service (SMS) message is sent if the message receipt that indicates the message is delivered to customers is not received. If this parameter is left empty, the fallback SMS message is sent only when the **message fails to be sent** or **the message receipt that indicates the message is not delivered to customers** is received. Valid values: 60 to 43200. Unit: seconds.
+     *
      * @example 120
      *
      * @var int
@@ -111,6 +113,9 @@ class SendChatappMessageRequest extends Model
     public $fallBackId;
 
     /**
+     * @description 回落规则。
+     *
+     * </props>
      * @example undelivered
      *
      * @var string
@@ -118,6 +123,8 @@ class SendChatappMessageRequest extends Model
     public $fallBackRule;
 
     /**
+     * @description Flow发送数据
+     *
      * @var flowAction
      */
     public $flowAction;
@@ -238,6 +245,13 @@ class SendChatappMessageRequest extends Model
     public $templateCode;
 
     /**
+     * @example test_name
+     *
+     * @var string
+     */
+    public $templateName;
+
+    /**
      * @description The variables of the message template.
      *
      * @var string[]
@@ -303,6 +317,7 @@ class SendChatappMessageRequest extends Model
         'tag'              => 'Tag',
         'taskId'           => 'TaskId',
         'templateCode'     => 'TemplateCode',
+        'templateName'     => 'TemplateName',
         'templateParams'   => 'TemplateParams',
         'to'               => 'To',
         'trackingData'     => 'TrackingData',
@@ -376,6 +391,9 @@ class SendChatappMessageRequest extends Model
         }
         if (null !== $this->templateCode) {
             $res['TemplateCode'] = $this->templateCode;
+        }
+        if (null !== $this->templateName) {
+            $res['TemplateName'] = $this->templateName;
         }
         if (null !== $this->templateParams) {
             $res['TemplateParams'] = $this->templateParams;
@@ -465,6 +483,9 @@ class SendChatappMessageRequest extends Model
         }
         if (isset($map['TemplateCode'])) {
             $model->templateCode = $map['TemplateCode'];
+        }
+        if (isset($map['TemplateName'])) {
+            $model->templateName = $map['TemplateName'];
         }
         if (isset($map['TemplateParams'])) {
             $model->templateParams = $map['TemplateParams'];

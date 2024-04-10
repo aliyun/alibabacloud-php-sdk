@@ -40,7 +40,7 @@ class ListProductCatalogResponseBody extends Model
     public $message;
 
     /**
-     * @description The returned results.
+     * @description The returned data.
      *
      * @var model_
      */

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class cliented extends Model
 {
     /**
-     * @description Button name
+     * @description The text on the button.
      *
      * @example Open url
      *
@@ -18,7 +18,7 @@ class cliented extends Model
     public $buttonContent;
 
     /**
-     * @description Clicked count
+     * @description The number of clicks.
      *
      * @example 20
      *
@@ -27,7 +27,15 @@ class cliented extends Model
     public $count;
 
     /**
-     * @description The type of button.
+     * @description The button type.
+     *
+     * >  Valid values:
+     *
+     *   url_button
+     *
+     *   quick_relpy_button
+     *
+     *   phone_number_button
      *
      * @example quick_reply_button
      *

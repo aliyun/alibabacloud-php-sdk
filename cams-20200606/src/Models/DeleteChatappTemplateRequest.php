@@ -18,8 +18,9 @@ class DeleteChatappTemplateRequest extends Model
     public $custSpaceId;
 
     /**
-     * @description The ID of the WhatsApp account that you register.
+     * @description The WhatsApp Business account (WABA) ID of the user within the independent software vendor (ISV) account.
      *
+     * >  CustWabaId is an obsolete parameter. Use CustSpaceId instead.
      * @example 65921621816****
      *
      * @deprecated
@@ -38,6 +39,13 @@ class DeleteChatappTemplateRequest extends Model
     public $isvCode;
 
     /**
+     * @example zh_CN
+     *
+     * @var string
+     */
+    public $language;
+
+    /**
      * @description The code of the message template.
      *
      * @example 744c4b5c79c9432497a075bdfca3****
@@ -45,11 +53,28 @@ class DeleteChatappTemplateRequest extends Model
      * @var string
      */
     public $templateCode;
+
+    /**
+     * @example test_name
+     *
+     * @var string
+     */
+    public $templateName;
+
+    /**
+     * @example WHATSAPP
+     *
+     * @var string
+     */
+    public $templateType;
     protected $_name = [
         'custSpaceId'  => 'CustSpaceId',
         'custWabaId'   => 'CustWabaId',
         'isvCode'      => 'IsvCode',
+        'language'     => 'Language',
         'templateCode' => 'TemplateCode',
+        'templateName' => 'TemplateName',
+        'templateType' => 'TemplateType',
     ];
 
     public function validate()
@@ -68,8 +93,17 @@ class DeleteChatappTemplateRequest extends Model
         if (null !== $this->isvCode) {
             $res['IsvCode'] = $this->isvCode;
         }
+        if (null !== $this->language) {
+            $res['Language'] = $this->language;
+        }
         if (null !== $this->templateCode) {
             $res['TemplateCode'] = $this->templateCode;
+        }
+        if (null !== $this->templateName) {
+            $res['TemplateName'] = $this->templateName;
+        }
+        if (null !== $this->templateType) {
+            $res['TemplateType'] = $this->templateType;
         }
 
         return $res;
@@ -92,8 +126,17 @@ class DeleteChatappTemplateRequest extends Model
         if (isset($map['IsvCode'])) {
             $model->isvCode = $map['IsvCode'];
         }
+        if (isset($map['Language'])) {
+            $model->language = $map['Language'];
+        }
         if (isset($map['TemplateCode'])) {
             $model->templateCode = $map['TemplateCode'];
+        }
+        if (isset($map['TemplateName'])) {
+            $model->templateName = $map['TemplateName'];
+        }
+        if (isset($map['TemplateType'])) {
+            $model->templateType = $map['TemplateType'];
         }
 
         return $model;

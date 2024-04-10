@@ -9,12 +9,14 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The categories of the Flow.
+     *
      * @var string[]
      */
     public $categories;
 
     /**
-     * @description flow ID。
+     * @description The Flow ID.
      *
      * @example 3939399****
      *
@@ -23,6 +25,8 @@ class data extends Model
     public $flowId;
 
     /**
+     * @description The name of the Flow.
+     *
      * @example flow-00203
      *
      * @var string

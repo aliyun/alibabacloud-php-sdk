@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListFlowShrinkRequest extends Model
 {
     /**
+     * @description The space ID of the user within the independent software vendor (ISV) account.
+     *
      * @example 99948484
      *
      * @var string
@@ -16,6 +18,8 @@ class ListFlowShrinkRequest extends Model
     public $custSpaceId;
 
     /**
+     * @description The name of the Flow.
+     *
      * @example flow_001
      *
      * @var string
@@ -23,6 +27,8 @@ class ListFlowShrinkRequest extends Model
     public $flowName;
 
     /**
+     * @description The returned pages.
+     *
      * @var string
      */
     public $pageShrink;

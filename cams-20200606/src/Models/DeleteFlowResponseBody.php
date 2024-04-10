@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteFlowResponseBody extends Model
 {
     /**
+     * @description If OK is returned, the request was successful.
+     *
      * @example OK
      *
      * @var string
@@ -16,12 +18,14 @@ class DeleteFlowResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message.
+     *
      * @var string
      */
     public $message;
 
     /**
-     * @description Id of the request。
+     * @description The request ID.
      *
      * @example 90E63D28-E31D-1EB2-8939-A9486641****
      *

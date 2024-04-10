@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetCommerceSettingRequest extends Model
 {
     /**
+     * @description The space ID of the user within the independent software vendor (ISV) account.
+     *
      * @example 293483938849493
      *
      * @var string
@@ -16,7 +18,9 @@ class GetCommerceSettingRequest extends Model
     public $custSpaceId;
 
     /**
-     * @example 手机号码
+     * @description The phone number.
+     *
+     * @example 1380000****
      *
      * @var string
      */

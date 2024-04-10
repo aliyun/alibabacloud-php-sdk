@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteFlowRequest extends Model
 {
     /**
+     * @description The space ID of the user within the independent software vendor (ISV) account.
+     *
      * @example 393983883
      *
      * @var string
@@ -16,7 +18,7 @@ class DeleteFlowRequest extends Model
     public $custSpaceId;
 
     /**
-     * @description Flow ID。
+     * @description The Flow ID.
      *
      * @example flow_001
      *

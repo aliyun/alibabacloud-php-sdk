@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class components extends Model
 {
     /**
-     * @description Whatsapp类型模板，Category为Authentication，并且Component Type为Body时有效，表示在Body上面显示不要将验证码信息提供给其它人的提示信息
+     * @description The note indicating that customers cannot share verification codes with others. The note is displayed in the message body. This parameter is valid if Category is set to AUTHENTICATION and the Type sub-parameter of the Components parameter is set to BODY in a WhatsApp message template.
      *
      * @example false
      *
@@ -20,14 +20,14 @@ class components extends Model
     public $addSecretRecommendation;
 
     /**
-     * @description This parameter applies only to components of the **BUTTONS** type. This parameter is passed in by converting its original JSON structure into a string.
+     * @description The buttons. Specify this parameter only if you set the Type sub-parameter of the Components parameter to **BUTTONS**. Before you specify this parameter, the format of the value must be changed from JSON to String.
      *
      * @var buttons[]
      */
     public $buttons;
 
     /**
-     * @description The description of the file.
+     * @description The description of the document.
      *
      * @example The new file has been uploaded.
      *
@@ -36,12 +36,14 @@ class components extends Model
     public $caption;
 
     /**
+     * @description The carousel cards.
+     *
      * @var cards[]
      */
     public $cards;
 
     /**
-     * @description Whatsapp Authentication模板验证码有效期（分钟），只在Whatsapp类型消息，Category为Authentication并且Component Type为Footer时有效（此信息显示在Footer位置）
+     * @description The validity period of the verification code in the WhatsApp authentication template. Unit: minutes. This parameter is valid only when Category is set to AUTHENTICATION and the Type sub-parameter of the Components parameter is set to FOOTER in a WhatsApp message template. The validity period of the verification code is displayed in the footer.
      *
      * @example 5
      *
@@ -59,7 +61,7 @@ class components extends Model
     public $duration;
 
     /**
-     * @description The name of the file.
+     * @description The name of the document.
      *
      * @example Express file
      *
@@ -68,7 +70,7 @@ class components extends Model
     public $fileName;
 
     /**
-     * @description The type of the file attached in the Viber message template.
+     * @description The type of the document attached in the Viber message template.
      *
      * @example docx
      *
@@ -77,7 +79,7 @@ class components extends Model
     public $fileType;
 
     /**
-     * @description The type of the media resources that are included in the message.
+     * @description The format.
      *
      * @example TEXT
      *
@@ -86,7 +88,7 @@ class components extends Model
     public $format;
 
     /**
-     * @description 位置纬度属性
+     * @description The latitude of the location.
      *
      * @example 28.001
      *
@@ -95,25 +97,25 @@ class components extends Model
     public $latitude;
 
     /**
-     * @description 位置地址
+     * @description The address of the location.
      *
-     * @example 杭州
+     * @example Hangzhou
      *
      * @var string
      */
     public $locationAddress;
 
     /**
-     * @description 位置名称
+     * @description The name of the location.
      *
-     * @example 杭州
+     * @example Hangzhou
      *
      * @var string
      */
     public $locationName;
 
     /**
-     * @description 位置经度属性
+     * @description The longitude of the location.
      *
      * @example 120.002
      *
@@ -122,6 +124,8 @@ class components extends Model
     public $longitude;
 
     /**
+     * @description The variable when the coupon code expires in the limited-time offer template.
+     *
      * @example $(offerExpirationTimeMs)
      *
      * @var string
@@ -156,15 +160,11 @@ class components extends Model
      *
      * >
      *
-     *   The following limits apply to components in WhatsApp message templates: A component of the **BODY** type cannot exceed 1,024 characters. A component of the **HEADER** or **FOOTER** type cannot exceed 60 characters in length.
-     *
-     * >
+     *   The following limits apply to components in WhatsApp message templates: A **BODY** component cannot exceed 1,024 characters in length. A **HEADER** or **FOOTER** component cannot exceed 60 characters in length.
      *
      *   **FOOTER** components are not supported in Viber message templates.
      *
-     * >
-     *
-     *   In a Viber message template, a media resource, such as an image, a video, or a file, is placed in the **HEADER** component. If a Viber message contains text and an image, the image is placed under the text in the message received on a device.
+     *   In a Viber message template, media resources such as images, videos, and documents are placed in the **HEADER** component. If a Viber message contains both text and an image, the image is placed below the text in the message received on a device.
      *
      * @example BODY
      *
@@ -173,7 +173,7 @@ class components extends Model
     public $type;
 
     /**
-     * @description The URL of the material.
+     * @description The URL of the media resource.
      *
      * @example https://image.developer.aliyundoc.com
      *
@@ -182,6 +182,10 @@ class components extends Model
     public $url;
 
     /**
+     * @description Indicates whether the coupon code will expire in the limited-time offer template.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $hasExpiration;
