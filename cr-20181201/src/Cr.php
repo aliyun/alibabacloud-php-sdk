@@ -160,6 +160,10 @@ use AlibabaCloud\SDK\Cr\V20181201\Models\ListRepoTagScanResultRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ListRepoTagScanResultResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ListRepoTriggerRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ListRepoTriggerResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\ListScanBaselineByTaskRequest;
+use AlibabaCloud\SDK\Cr\V20181201\Models\ListScanBaselineByTaskResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\ListScanMaliciousFileByTaskRequest;
+use AlibabaCloud\SDK\Cr\V20181201\Models\ListScanMaliciousFileByTaskResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ResetLoginPasswordRequest;
@@ -4213,6 +4217,86 @@ class Cr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listRepositoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListScanBaselineByTaskRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListScanBaselineByTaskResponse
+     */
+    public function listScanBaselineByTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListScanBaselineByTask',
+            'version'     => '2018-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListScanBaselineByTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListScanBaselineByTaskRequest $request
+     *
+     * @return ListScanBaselineByTaskResponse
+     */
+    public function listScanBaselineByTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listScanBaselineByTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListScanMaliciousFileByTaskRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListScanMaliciousFileByTaskResponse
+     */
+    public function listScanMaliciousFileByTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListScanMaliciousFileByTask',
+            'version'     => '2018-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListScanMaliciousFileByTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListScanMaliciousFileByTaskRequest $request
+     *
+     * @return ListScanMaliciousFileByTaskResponse
+     */
+    public function listScanMaliciousFileByTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listScanMaliciousFileByTaskWithOptions($request, $runtime);
     }
 
     /**

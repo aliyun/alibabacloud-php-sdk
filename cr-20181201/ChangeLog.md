@@ -1,3 +1,10 @@
+2024-04-10 Version: 1.4.0
+- Support API ListScanBaselineByTask.
+- Support API ListScanMaliciousFileByTask.
+- Update API GetArtifactBuildRule: update response param.
+- Update API ListRepository: update param RepoStatus.
+
+
 2024-01-24 Version: 1.3.2
 - Generated php 2018-12-01 for cr.
 

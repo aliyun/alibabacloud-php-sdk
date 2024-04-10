@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cr\V20181201\Models;
 
+use AlibabaCloud\SDK\Cr\V20181201\Models\GetArtifactBuildRuleResponseBody\parameters;
 use AlibabaCloud\Tea\Model;
 
 class GetArtifactBuildRuleResponseBody extends Model
@@ -37,6 +38,11 @@ class GetArtifactBuildRuleResponseBody extends Model
     public $isSuccess;
 
     /**
+     * @var parameters
+     */
+    public $parameters;
+
+    /**
      * @example 7A3E98F6-296C-54AC-A612-B75E7777D4C1
      *
      * @var string
@@ -61,6 +67,7 @@ class GetArtifactBuildRuleResponseBody extends Model
         'buildRuleId'  => 'BuildRuleId',
         'code'         => 'Code',
         'isSuccess'    => 'IsSuccess',
+        'parameters'   => 'Parameters',
         'requestId'    => 'RequestId',
         'scopeId'      => 'ScopeId',
         'scopeType'    => 'ScopeType',
@@ -84,6 +91,9 @@ class GetArtifactBuildRuleResponseBody extends Model
         }
         if (null !== $this->isSuccess) {
             $res['IsSuccess'] = $this->isSuccess;
+        }
+        if (null !== $this->parameters) {
+            $res['Parameters'] = null !== $this->parameters ? $this->parameters->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -117,6 +127,9 @@ class GetArtifactBuildRuleResponseBody extends Model
         }
         if (isset($map['IsSuccess'])) {
             $model->isSuccess = $map['IsSuccess'];
+        }
+        if (isset($map['Parameters'])) {
+            $model->parameters = parameters::fromMap($map['Parameters']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
