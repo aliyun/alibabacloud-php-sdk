@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
@@ -19,6 +21,8 @@ class data extends Model
     public $message;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

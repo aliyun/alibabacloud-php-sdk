@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class SetTopicAttributesRequest extends Model
 {
     /**
+     * @example True
+     *
      * @var bool
      */
     public $enableLogging;
 
     /**
+     * @example 65536
+     *
      * @var int
      */
     public $maxMessageSize;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $topicName;

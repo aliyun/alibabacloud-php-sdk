@@ -9,51 +9,64 @@ use AlibabaCloud\Tea\Model;
 class pageData extends Model
 {
     /**
+     * @example 1449554806
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example http://example.com
+     *
      * @var string
      */
     public $endpoint;
 
     /**
+     * @example important
+     *
      * @var string
      */
     public $filterTag;
 
     /**
+     * @example 1449554806
+     *
      * @var int
      */
     public $lastModifyTime;
 
     /**
+     * @example XML
+     *
      * @var string
      */
     public $notifyContentFormat;
 
     /**
+     * @example BACKOFF_RETRY
+     *
      * @var string
      */
     public $notifyStrategy;
 
     /**
+     * @example MySubscription
+     *
      * @var string
      */
     public $subscriptionName;
 
     /**
-     * @var string
-     */
-    public $subscriptionURL;
-
-    /**
+     * @example MyTopic
+     *
      * @var string
      */
     public $topicName;
 
     /**
+     * @example 123456789098****
+     *
      * @var string
      */
     public $topicOwner;
@@ -65,7 +78,6 @@ class pageData extends Model
         'notifyContentFormat' => 'NotifyContentFormat',
         'notifyStrategy'      => 'NotifyStrategy',
         'subscriptionName'    => 'SubscriptionName',
-        'subscriptionURL'     => 'SubscriptionURL',
         'topicName'           => 'TopicName',
         'topicOwner'          => 'TopicOwner',
     ];
@@ -97,9 +109,6 @@ class pageData extends Model
         }
         if (null !== $this->subscriptionName) {
             $res['SubscriptionName'] = $this->subscriptionName;
-        }
-        if (null !== $this->subscriptionURL) {
-            $res['SubscriptionURL'] = $this->subscriptionURL;
         }
         if (null !== $this->topicName) {
             $res['TopicName'] = $this->topicName;
@@ -139,9 +148,6 @@ class pageData extends Model
         }
         if (isset($map['SubscriptionName'])) {
             $model->subscriptionName = $map['SubscriptionName'];
-        }
-        if (isset($map['SubscriptionURL'])) {
-            $model->subscriptionURL = $map['SubscriptionURL'];
         }
         if (isset($map['TopicName'])) {
             $model->topicName = $map['TopicName'];

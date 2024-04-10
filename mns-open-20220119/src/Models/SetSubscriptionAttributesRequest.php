@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class SetSubscriptionAttributesRequest extends Model
 {
     /**
+     * @example BACKOFF_RETRY
+     *
      * @var string
      */
     public $notifyStrategy;
 
     /**
+     * @example MySubscription
+     *
      * @var string
      */
     public $subscriptionName;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $topicName;

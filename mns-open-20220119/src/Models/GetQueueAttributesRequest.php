@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetQueueAttributesRequest extends Model
 {
     /**
+     * @example demo-queue
+     *
      * @var string
      */
     public $queueName;

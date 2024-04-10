@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListSubscriptionByTopicRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example demo-subscription
+     *
      * @var string
      */
     public $subscriptionName;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $topicName;

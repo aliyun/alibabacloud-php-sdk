@@ -15,26 +15,36 @@ class data extends Model
     public $pageData;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $pages;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @example 130
+     *
      * @var int
      */
     public $total;

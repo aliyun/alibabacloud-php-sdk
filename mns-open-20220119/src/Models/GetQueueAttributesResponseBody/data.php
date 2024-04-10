@@ -9,71 +9,85 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 20
+     *
      * @var int
      */
     public $activeMessages;
 
     /**
+     * @example 1250700999
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $delayMessages;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $delaySeconds;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $inactiveMessages;
 
     /**
+     * @example 1250700999
+     *
      * @var int
      */
     public $lastModifyTime;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $loggingEnabled;
 
     /**
+     * @example 65536
+     *
      * @var int
      */
     public $maximumMessageSize;
 
     /**
+     * @example 65536
+     *
      * @var int
      */
     public $messageRetentionPeriod;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $pollingWaitSeconds;
 
     /**
-     * @var string
-     */
-    public $queueInternalUrl;
-
-    /**
+     * @example demo-queue
+     *
      * @var string
      */
     public $queueName;
 
     /**
-     * @var string
-     */
-    public $queueUrl;
-
-    /**
+     * @example 60
+     *
      * @var int
      */
     public $visibilityTimeout;
@@ -88,9 +102,7 @@ class data extends Model
         'maximumMessageSize'     => 'MaximumMessageSize',
         'messageRetentionPeriod' => 'MessageRetentionPeriod',
         'pollingWaitSeconds'     => 'PollingWaitSeconds',
-        'queueInternalUrl'       => 'QueueInternalUrl',
         'queueName'              => 'QueueName',
-        'queueUrl'               => 'QueueUrl',
         'visibilityTimeout'      => 'VisibilityTimeout',
     ];
 
@@ -131,14 +143,8 @@ class data extends Model
         if (null !== $this->pollingWaitSeconds) {
             $res['PollingWaitSeconds'] = $this->pollingWaitSeconds;
         }
-        if (null !== $this->queueInternalUrl) {
-            $res['QueueInternalUrl'] = $this->queueInternalUrl;
-        }
         if (null !== $this->queueName) {
             $res['QueueName'] = $this->queueName;
-        }
-        if (null !== $this->queueUrl) {
-            $res['QueueUrl'] = $this->queueUrl;
         }
         if (null !== $this->visibilityTimeout) {
             $res['VisibilityTimeout'] = $this->visibilityTimeout;
@@ -185,14 +191,8 @@ class data extends Model
         if (isset($map['PollingWaitSeconds'])) {
             $model->pollingWaitSeconds = $map['PollingWaitSeconds'];
         }
-        if (isset($map['QueueInternalUrl'])) {
-            $model->queueInternalUrl = $map['QueueInternalUrl'];
-        }
         if (isset($map['QueueName'])) {
             $model->queueName = $map['QueueName'];
-        }
-        if (isset($map['QueueUrl'])) {
-            $model->queueUrl = $map['QueueUrl'];
         }
         if (isset($map['VisibilityTimeout'])) {
             $model->visibilityTimeout = $map['VisibilityTimeout'];

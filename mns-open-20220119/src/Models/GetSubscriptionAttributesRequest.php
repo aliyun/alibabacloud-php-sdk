@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetSubscriptionAttributesRequest extends Model
 {
     /**
+     * @example MySubscription
+     *
      * @var string
      */
     public $subscriptionName;
 
     /**
+     * @example MyTopic
+     *
      * @var string
      */
     public $topicName;

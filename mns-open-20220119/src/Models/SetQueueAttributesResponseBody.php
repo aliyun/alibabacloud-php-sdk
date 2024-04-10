@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class SetQueueAttributesResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
@@ -20,21 +22,29 @@ class SetQueueAttributesResponseBody extends Model
     public $data;
 
     /**
+     * @example operation success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 06273500-249F-5863-121D-74D51123****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example Success
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

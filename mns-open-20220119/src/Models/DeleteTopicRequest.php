@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteTopicRequest extends Model
 {
     /**
+     * @example tf-testAccMNSTopic-112965059402264645
+     *
      * @var string
      */
     public $topicName;

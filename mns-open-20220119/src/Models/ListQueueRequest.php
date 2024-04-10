@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListQueueRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example demo-queue
+     *
      * @var string
      */
     public $queueName;

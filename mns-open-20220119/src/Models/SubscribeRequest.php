@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class SubscribeRequest extends Model
 {
     /**
+     * @example http://example.com
+     *
      * @var string
      */
     public $endpoint;
 
     /**
+     * @example important
+     *
      * @var string
      */
     public $messageTag;
 
     /**
+     * @example XML
+     *
      * @var string
      */
     public $notifyContentFormat;
 
     /**
+     * @example BACKOFF_RETRY
+     *
      * @var string
      */
     public $notifyStrategy;
 
     /**
+     * @example queue
+     *
      * @var string
      */
     public $pushType;
 
     /**
+     * @example testSubscription
+     *
      * @var string
      */
     public $subscriptionName;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $topicName;

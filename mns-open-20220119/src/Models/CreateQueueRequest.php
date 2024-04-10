@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class CreateQueueRequest extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $delaySeconds;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableLogging;
 
     /**
+     * @example 65536
+     *
      * @var int
      */
     public $maximumMessageSize;
 
     /**
+     * @example 345600
+     *
      * @var int
      */
     public $messageRetentionPeriod;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $pollingWaitSeconds;
 
     /**
+     * @example 06273500-249F-5863-121D-74D51123****
+     *
      * @var string
      */
     public $queueName;
 
     /**
+     * @example 60
+     *
      * @var int
      */
     public $visibilityTimeout;

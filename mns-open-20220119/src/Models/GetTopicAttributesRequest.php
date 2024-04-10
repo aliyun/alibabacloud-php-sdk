@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetTopicAttributesRequest extends Model
 {
     /**
+     * @example demo-topic
+     *
      * @var string
      */
     public $topicName;

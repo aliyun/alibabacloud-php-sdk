@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UnsubscribeRequest extends Model
 {
     /**
+     * @example MySubscription
+     *
      * @var string
      */
     public $subscriptionName;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $topicName;
