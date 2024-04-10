@@ -8,6 +8,8 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\AIGCFaceVerifyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\AIGCFaceVerifyResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\BankMetaVerifyRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\BankMetaVerifyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CompareFacesRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CompareFacesResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CompareFaceVerifyRequest;
@@ -24,6 +26,8 @@ use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeDeviceInfoResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeFaceVerifyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeFaceVerifyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeOssUploadTokenResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribePageFaceVerifyDataRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribePageFaceVerifyDataResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeSmartStatisticsPageListRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeSmartStatisticsPageListResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeVerifyResultRequest;
@@ -44,6 +48,12 @@ use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Mobile3MetaDetailVerifyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Mobile3MetaDetailVerifyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Mobile3MetaSimpleVerifyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Mobile3MetaSimpleVerifyResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\MobileDetectRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\MobileDetectResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\MobileOnlineStatusRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\MobileOnlineStatusResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\MobileOnlineTimeRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\MobileOnlineTimeResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\ModifyDeviceInfoRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\ModifyDeviceInfoResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\VerifyMaterialRequest;
@@ -156,6 +166,67 @@ class Cloudauth extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->aIGCFaceVerifyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param BankMetaVerifyRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return BankMetaVerifyResponse
+     */
+    public function bankMetaVerifyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bankCard)) {
+            $query['BankCard'] = $request->bankCard;
+        }
+        if (!Utils::isUnset($request->identifyNum)) {
+            $query['IdentifyNum'] = $request->identifyNum;
+        }
+        if (!Utils::isUnset($request->mobile)) {
+            $query['Mobile'] = $request->mobile;
+        }
+        if (!Utils::isUnset($request->paramType)) {
+            $query['ParamType'] = $request->paramType;
+        }
+        if (!Utils::isUnset($request->productType)) {
+            $query['ProductType'] = $request->productType;
+        }
+        if (!Utils::isUnset($request->userName)) {
+            $query['UserName'] = $request->userName;
+        }
+        if (!Utils::isUnset($request->verifyMode)) {
+            $query['VerifyMode'] = $request->verifyMode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BankMetaVerify',
+            'version'     => '2019-03-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BankMetaVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BankMetaVerifyRequest $request
+     *
+     * @return BankMetaVerifyResponse
+     */
+    public function bankMetaVerify($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->bankMetaVerifyWithOptions($request, $runtime);
     }
 
     /**
@@ -720,6 +791,64 @@ class Cloudauth extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeOssUploadTokenWithOptions($runtime);
+    }
+
+    /**
+     * @param DescribePageFaceVerifyDataRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribePageFaceVerifyDataResponse
+     */
+    public function describePageFaceVerifyDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePageFaceVerifyData',
+            'version'     => '2019-03-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribePageFaceVerifyDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribePageFaceVerifyDataRequest $request
+     *
+     * @return DescribePageFaceVerifyDataResponse
+     */
+    public function describePageFaceVerifyData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePageFaceVerifyDataWithOptions($request, $runtime);
     }
 
     /**
@@ -1376,6 +1505,144 @@ class Cloudauth extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->mobile3MetaSimpleVerifyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param MobileDetectRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return MobileDetectResponse
+     */
+    public function mobileDetectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->mobiles)) {
+            $query['Mobiles'] = $request->mobiles;
+        }
+        if (!Utils::isUnset($request->paramType)) {
+            $query['ParamType'] = $request->paramType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'MobileDetect',
+            'version'     => '2019-03-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return MobileDetectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param MobileDetectRequest $request
+     *
+     * @return MobileDetectResponse
+     */
+    public function mobileDetect($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->mobileDetectWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param MobileOnlineStatusRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return MobileOnlineStatusResponse
+     */
+    public function mobileOnlineStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->mobile)) {
+            $query['Mobile'] = $request->mobile;
+        }
+        if (!Utils::isUnset($request->paramType)) {
+            $query['ParamType'] = $request->paramType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'MobileOnlineStatus',
+            'version'     => '2019-03-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return MobileOnlineStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param MobileOnlineStatusRequest $request
+     *
+     * @return MobileOnlineStatusResponse
+     */
+    public function mobileOnlineStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->mobileOnlineStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param MobileOnlineTimeRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return MobileOnlineTimeResponse
+     */
+    public function mobileOnlineTimeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->mobile)) {
+            $query['Mobile'] = $request->mobile;
+        }
+        if (!Utils::isUnset($request->paramType)) {
+            $query['ParamType'] = $request->paramType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'MobileOnlineTime',
+            'version'     => '2019-03-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return MobileOnlineTimeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param MobileOnlineTimeRequest $request
+     *
+     * @return MobileOnlineTimeResponse
+     */
+    public function mobileOnlineTime($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->mobileOnlineTimeWithOptions($request, $runtime);
     }
 
     /**
