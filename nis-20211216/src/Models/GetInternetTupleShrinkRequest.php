@@ -34,6 +34,13 @@ class GetInternetTupleShrinkRequest extends Model
     public $cloudIp;
 
     /**
+     * @description The local IP addresses for filtering.
+     *
+     * @var string
+     */
+    public $cloudIpListShrink;
+
+    /**
      * @description The local Internet service provider (ISP).
      *
      * >  In most cases, the value is Alibaba or Alibaba Cloud.
@@ -235,6 +242,7 @@ class GetInternetTupleShrinkRequest extends Model
         'accountIds'         => 'AccountIds',
         'beginTime'          => 'BeginTime',
         'cloudIp'            => 'CloudIp',
+        'cloudIpListShrink'  => 'CloudIpList',
         'cloudIsp'           => 'CloudIsp',
         'cloudPort'          => 'CloudPort',
         'direction'          => 'Direction',
@@ -270,6 +278,9 @@ class GetInternetTupleShrinkRequest extends Model
         }
         if (null !== $this->cloudIp) {
             $res['CloudIp'] = $this->cloudIp;
+        }
+        if (null !== $this->cloudIpListShrink) {
+            $res['CloudIpList'] = $this->cloudIpListShrink;
         }
         if (null !== $this->cloudIsp) {
             $res['CloudIsp'] = $this->cloudIsp;
@@ -347,6 +358,9 @@ class GetInternetTupleShrinkRequest extends Model
         }
         if (isset($map['CloudIp'])) {
             $model->cloudIp = $map['CloudIp'];
+        }
+        if (isset($map['CloudIpList'])) {
+            $model->cloudIpListShrink = $map['CloudIpList'];
         }
         if (isset($map['CloudIsp'])) {
             $model->cloudIsp = $map['CloudIsp'];

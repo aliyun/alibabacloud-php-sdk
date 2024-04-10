@@ -372,6 +372,9 @@ class Nis extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new GetInternetTupleShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->cloudIpList)) {
+            $request->cloudIpListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->cloudIpList, 'CloudIpList', 'json');
+        }
         if (!Utils::isUnset($tmpReq->instanceList)) {
             $request->instanceListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceList, 'InstanceList', 'json');
         }
@@ -384,6 +387,9 @@ class Nis extends OpenApiClient
         }
         if (!Utils::isUnset($request->cloudIp)) {
             $query['CloudIp'] = $request->cloudIp;
+        }
+        if (!Utils::isUnset($request->cloudIpListShrink)) {
+            $query['CloudIpList'] = $request->cloudIpListShrink;
         }
         if (!Utils::isUnset($request->cloudIsp)) {
             $query['CloudIsp'] = $request->cloudIsp;

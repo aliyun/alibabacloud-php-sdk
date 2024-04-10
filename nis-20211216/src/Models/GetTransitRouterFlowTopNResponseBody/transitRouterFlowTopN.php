@@ -74,7 +74,7 @@ class transitRouterFlowTopN extends Model
     /**
      * @description The remote region where the **remote IP address** resides.
      *
-     * @example ap-southeast-2
+     * @example ap-southeast-1
      *
      * @var string
      */
