@@ -16,6 +16,11 @@ class mailDetail extends Model
     /**
      * @var string
      */
+    public $errorClassification;
+
+    /**
+     * @var string
+     */
     public $lastUpdateTime;
 
     /**
@@ -31,6 +36,11 @@ class mailDetail extends Model
     /**
      * @var string
      */
+    public $subject;
+
+    /**
+     * @var string
+     */
     public $toAddress;
 
     /**
@@ -38,12 +48,14 @@ class mailDetail extends Model
      */
     public $utcLastUpdateTime;
     protected $_name = [
-        'accountName'       => 'AccountName',
-        'lastUpdateTime'    => 'LastUpdateTime',
-        'message'           => 'Message',
-        'status'            => 'Status',
-        'toAddress'         => 'ToAddress',
-        'utcLastUpdateTime' => 'UtcLastUpdateTime',
+        'accountName'         => 'AccountName',
+        'errorClassification' => 'ErrorClassification',
+        'lastUpdateTime'      => 'LastUpdateTime',
+        'message'             => 'Message',
+        'status'              => 'Status',
+        'subject'             => 'Subject',
+        'toAddress'           => 'ToAddress',
+        'utcLastUpdateTime'   => 'UtcLastUpdateTime',
     ];
 
     public function validate()
@@ -56,6 +68,9 @@ class mailDetail extends Model
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
         }
+        if (null !== $this->errorClassification) {
+            $res['ErrorClassification'] = $this->errorClassification;
+        }
         if (null !== $this->lastUpdateTime) {
             $res['LastUpdateTime'] = $this->lastUpdateTime;
         }
@@ -64,6 +79,9 @@ class mailDetail extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->subject) {
+            $res['Subject'] = $this->subject;
         }
         if (null !== $this->toAddress) {
             $res['ToAddress'] = $this->toAddress;
@@ -86,6 +104,9 @@ class mailDetail extends Model
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
         }
+        if (isset($map['ErrorClassification'])) {
+            $model->errorClassification = $map['ErrorClassification'];
+        }
         if (isset($map['LastUpdateTime'])) {
             $model->lastUpdateTime = $map['LastUpdateTime'];
         }
@@ -94,6 +115,9 @@ class mailDetail extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Subject'])) {
+            $model->subject = $map['Subject'];
         }
         if (isset($map['ToAddress'])) {
             $model->toAddress = $map['ToAddress'];
