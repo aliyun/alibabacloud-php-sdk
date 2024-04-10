@@ -40,6 +40,11 @@ class PostMSSearchEnhanceRequest extends Model
     public $filters;
 
     /**
+     * @var float
+     */
+    public $minScore;
+
+    /**
      * @example 1
      *
      * @var int
@@ -92,6 +97,7 @@ class PostMSSearchEnhanceRequest extends Model
         'debug'            => 'Debug',
         'fields'           => 'Fields',
         'filters'          => 'Filters',
+        'minScore'         => 'MinScore',
         'page'             => 'Page',
         'queries'          => 'Queries',
         'rankModelInfo'    => 'RankModelInfo',
@@ -123,6 +129,9 @@ class PostMSSearchEnhanceRequest extends Model
         }
         if (null !== $this->filters) {
             $res['Filters'] = $this->filters;
+        }
+        if (null !== $this->minScore) {
+            $res['MinScore'] = $this->minScore;
         }
         if (null !== $this->page) {
             $res['Page'] = $this->page;
@@ -176,6 +185,9 @@ class PostMSSearchEnhanceRequest extends Model
         }
         if (isset($map['Filters'])) {
             $model->filters = $map['Filters'];
+        }
+        if (isset($map['MinScore'])) {
+            $model->minScore = $map['MinScore'];
         }
         if (isset($map['Page'])) {
             $model->page = $map['Page'];

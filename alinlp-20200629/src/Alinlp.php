@@ -3368,6 +3368,9 @@ class Alinlp extends OpenApiClient
         if (!Utils::isUnset($request->filters)) {
             $body['Filters'] = $request->filters;
         }
+        if (!Utils::isUnset($request->minScore)) {
+            $body['MinScore'] = $request->minScore;
+        }
         if (!Utils::isUnset($request->page)) {
             $body['Page'] = $request->page;
         }

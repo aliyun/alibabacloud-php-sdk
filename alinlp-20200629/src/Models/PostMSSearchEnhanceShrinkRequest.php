@@ -40,6 +40,11 @@ class PostMSSearchEnhanceShrinkRequest extends Model
     public $filters;
 
     /**
+     * @var float
+     */
+    public $minScore;
+
+    /**
      * @example 1
      *
      * @var int
@@ -92,6 +97,7 @@ class PostMSSearchEnhanceShrinkRequest extends Model
         'debug'                  => 'Debug',
         'fieldsShrink'           => 'Fields',
         'filters'                => 'Filters',
+        'minScore'               => 'MinScore',
         'page'                   => 'Page',
         'queries'                => 'Queries',
         'rankModelInfoShrink'    => 'RankModelInfo',
@@ -123,6 +129,9 @@ class PostMSSearchEnhanceShrinkRequest extends Model
         }
         if (null !== $this->filters) {
             $res['Filters'] = $this->filters;
+        }
+        if (null !== $this->minScore) {
+            $res['MinScore'] = $this->minScore;
         }
         if (null !== $this->page) {
             $res['Page'] = $this->page;
@@ -174,6 +183,9 @@ class PostMSSearchEnhanceShrinkRequest extends Model
         }
         if (isset($map['Filters'])) {
             $model->filters = $map['Filters'];
+        }
+        if (isset($map['MinScore'])) {
+            $model->minScore = $map['MinScore'];
         }
         if (isset($map['Page'])) {
             $model->page = $map['Page'];
