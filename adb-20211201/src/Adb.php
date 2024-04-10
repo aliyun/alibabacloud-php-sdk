@@ -1878,6 +1878,12 @@ class Adb extends OpenApiClient
         if (!Utils::isUnset($request->DBClusterId)) {
             $body['DBClusterId'] = $request->DBClusterId;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->workloadId)) {
+            $body['WorkloadId'] = $request->workloadId;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);

@@ -17,8 +17,20 @@ class DescribeApsResourceGroupsRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $workloadId;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
+        'regionId'    => 'RegionId',
+        'workloadId'  => 'WorkloadId',
     ];
 
     public function validate()
@@ -30,6 +42,12 @@ class DescribeApsResourceGroupsRequest extends Model
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->workloadId) {
+            $res['WorkloadId'] = $this->workloadId;
         }
 
         return $res;
@@ -45,6 +63,12 @@ class DescribeApsResourceGroupsRequest extends Model
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['WorkloadId'])) {
+            $model->workloadId = $map['WorkloadId'];
         }
 
         return $model;
