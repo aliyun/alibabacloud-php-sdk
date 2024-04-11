@@ -47,6 +47,16 @@ class TransferPayTypeRequest extends Model
     public $dtsJobId;
 
     /**
+     * @var int
+     */
+    public $maxDu;
+
+    /**
+     * @var int
+     */
+    public $minDu;
+
+    /**
      * @description The billing cycle of the subscription instance. Valid values:
      *
      *   **Year**
@@ -76,6 +86,8 @@ class TransferPayTypeRequest extends Model
         'buyCount'        => 'BuyCount',
         'chargeType'      => 'ChargeType',
         'dtsJobId'        => 'DtsJobId',
+        'maxDu'           => 'MaxDu',
+        'minDu'           => 'MinDu',
         'period'          => 'Period',
         'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
@@ -96,6 +108,12 @@ class TransferPayTypeRequest extends Model
         }
         if (null !== $this->dtsJobId) {
             $res['DtsJobId'] = $this->dtsJobId;
+        }
+        if (null !== $this->maxDu) {
+            $res['MaxDu'] = $this->maxDu;
+        }
+        if (null !== $this->minDu) {
+            $res['MinDu'] = $this->minDu;
         }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
@@ -126,6 +144,12 @@ class TransferPayTypeRequest extends Model
         }
         if (isset($map['DtsJobId'])) {
             $model->dtsJobId = $map['DtsJobId'];
+        }
+        if (isset($map['MaxDu'])) {
+            $model->maxDu = $map['MaxDu'];
+        }
+        if (isset($map['MinDu'])) {
+            $model->minDu = $map['MinDu'];
         }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];

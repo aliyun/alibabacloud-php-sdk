@@ -7760,6 +7760,12 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->dtsJobId)) {
             $query['DtsJobId'] = $request->dtsJobId;
         }
+        if (!Utils::isUnset($request->maxDu)) {
+            $query['MaxDu'] = $request->maxDu;
+        }
+        if (!Utils::isUnset($request->minDu)) {
+            $query['MinDu'] = $request->minDu;
+        }
         if (!Utils::isUnset($request->period)) {
             $query['Period'] = $request->period;
         }
