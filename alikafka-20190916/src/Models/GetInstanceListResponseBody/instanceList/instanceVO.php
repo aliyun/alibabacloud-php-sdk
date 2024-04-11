@@ -128,6 +128,11 @@ class instanceVO extends Model
     public $ioMax;
 
     /**
+     * @var int
+     */
+    public $ioMaxRead;
+
+    /**
      * @description The traffic specification.
      *
      * @example alikafka.hw.2xlarge
@@ -135,6 +140,11 @@ class instanceVO extends Model
      * @var string
      */
     public $ioMaxSpec;
+
+    /**
+     * @var int
+     */
+    public $ioMaxWrite;
 
     /**
      * @description The ID of the key that is used for disk encryption in the region where the instance is deployed.
@@ -389,7 +399,9 @@ class instanceVO extends Model
         'expiredTime'               => 'ExpiredTime',
         'instanceId'                => 'InstanceId',
         'ioMax'                     => 'IoMax',
+        'ioMaxRead'                 => 'IoMaxRead',
         'ioMaxSpec'                 => 'IoMaxSpec',
+        'ioMaxWrite'                => 'IoMaxWrite',
         'kmsKeyId'                  => 'KmsKeyId',
         'msgRetain'                 => 'MsgRetain',
         'name'                      => 'Name',
@@ -460,8 +472,14 @@ class instanceVO extends Model
         if (null !== $this->ioMax) {
             $res['IoMax'] = $this->ioMax;
         }
+        if (null !== $this->ioMaxRead) {
+            $res['IoMaxRead'] = $this->ioMaxRead;
+        }
         if (null !== $this->ioMaxSpec) {
             $res['IoMaxSpec'] = $this->ioMaxSpec;
+        }
+        if (null !== $this->ioMaxWrite) {
+            $res['IoMaxWrite'] = $this->ioMaxWrite;
         }
         if (null !== $this->kmsKeyId) {
             $res['KmsKeyId'] = $this->kmsKeyId;
@@ -586,8 +604,14 @@ class instanceVO extends Model
         if (isset($map['IoMax'])) {
             $model->ioMax = $map['IoMax'];
         }
+        if (isset($map['IoMaxRead'])) {
+            $model->ioMaxRead = $map['IoMaxRead'];
+        }
         if (isset($map['IoMaxSpec'])) {
             $model->ioMaxSpec = $map['IoMaxSpec'];
+        }
+        if (isset($map['IoMaxWrite'])) {
+            $model->ioMaxWrite = $map['IoMaxWrite'];
         }
         if (isset($map['KmsKeyId'])) {
             $model->kmsKeyId = $map['KmsKeyId'];

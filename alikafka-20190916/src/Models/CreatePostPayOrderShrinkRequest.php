@@ -4,11 +4,10 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models;
 
-use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreatePostPayOrderRequest\serverlessConfig;
-use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreatePostPayOrderRequest\tag;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreatePostPayOrderShrinkRequest\tag;
 use AlibabaCloud\Tea\Model;
 
-class CreatePostPayOrderRequest extends Model
+class CreatePostPayOrderShrinkRequest extends Model
 {
     /**
      * @description The deployment mode of the instance. Valid values:
@@ -118,9 +117,9 @@ class CreatePostPayOrderRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @var serverlessConfig
+     * @var string
      */
-    public $serverlessConfig;
+    public $serverlessConfigShrink;
 
     /**
      * @description The edition of the instance. Valid values:
@@ -157,20 +156,20 @@ class CreatePostPayOrderRequest extends Model
      */
     public $topicQuota;
     protected $_name = [
-        'deployType'       => 'DeployType',
-        'diskSize'         => 'DiskSize',
-        'diskType'         => 'DiskType',
-        'eipMax'           => 'EipMax',
-        'ioMax'            => 'IoMax',
-        'ioMaxSpec'        => 'IoMaxSpec',
-        'paidType'         => 'PaidType',
-        'partitionNum'     => 'PartitionNum',
-        'regionId'         => 'RegionId',
-        'resourceGroupId'  => 'ResourceGroupId',
-        'serverlessConfig' => 'ServerlessConfig',
-        'specType'         => 'SpecType',
-        'tag'              => 'Tag',
-        'topicQuota'       => 'TopicQuota',
+        'deployType'             => 'DeployType',
+        'diskSize'               => 'DiskSize',
+        'diskType'               => 'DiskType',
+        'eipMax'                 => 'EipMax',
+        'ioMax'                  => 'IoMax',
+        'ioMaxSpec'              => 'IoMaxSpec',
+        'paidType'               => 'PaidType',
+        'partitionNum'           => 'PartitionNum',
+        'regionId'               => 'RegionId',
+        'resourceGroupId'        => 'ResourceGroupId',
+        'serverlessConfigShrink' => 'ServerlessConfig',
+        'specType'               => 'SpecType',
+        'tag'                    => 'Tag',
+        'topicQuota'             => 'TopicQuota',
     ];
 
     public function validate()
@@ -210,8 +209,8 @@ class CreatePostPayOrderRequest extends Model
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-        if (null !== $this->serverlessConfig) {
-            $res['ServerlessConfig'] = null !== $this->serverlessConfig ? $this->serverlessConfig->toMap() : null;
+        if (null !== $this->serverlessConfigShrink) {
+            $res['ServerlessConfig'] = $this->serverlessConfigShrink;
         }
         if (null !== $this->specType) {
             $res['SpecType'] = $this->specType;
@@ -235,7 +234,7 @@ class CreatePostPayOrderRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreatePostPayOrderRequest
+     * @return CreatePostPayOrderShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -271,7 +270,7 @@ class CreatePostPayOrderRequest extends Model
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ServerlessConfig'])) {
-            $model->serverlessConfig = serverlessConfig::fromMap($map['ServerlessConfig']);
+            $model->serverlessConfigShrink = $map['ServerlessConfig'];
         }
         if (isset($map['SpecType'])) {
             $model->specType = $map['SpecType'];

@@ -16,6 +16,7 @@ use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreateConsumerGroupRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreateConsumerGroupResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreatePostPayOrderRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreatePostPayOrderResponse;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreatePostPayOrderShrinkRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreatePrePayOrderRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreatePrePayOrderResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreatePrePayOrderShrinkRequest;
@@ -363,14 +364,19 @@ class Alikafka extends OpenApiClient
     /**
      * Before you call this operation, make sure that you understand the billing method and pricing of pay-as-you-go Message Queue for Apache Kafka instances. For more information, see [Billing](~~84737~~).
      *   *
-     * @param CreatePostPayOrderRequest $request CreatePostPayOrderRequest
+     * @param CreatePostPayOrderRequest $tmpReq  CreatePostPayOrderRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
      * @return CreatePostPayOrderResponse CreatePostPayOrderResponse
      */
-    public function createPostPayOrderWithOptions($request, $runtime)
+    public function createPostPayOrderWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new CreatePostPayOrderShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->serverlessConfig)) {
+            $request->serverlessConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->serverlessConfig, 'ServerlessConfig', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->deployType)) {
             $query['DeployType'] = $request->deployType;
@@ -390,6 +396,9 @@ class Alikafka extends OpenApiClient
         if (!Utils::isUnset($request->ioMaxSpec)) {
             $query['IoMaxSpec'] = $request->ioMaxSpec;
         }
+        if (!Utils::isUnset($request->paidType)) {
+            $query['PaidType'] = $request->paidType;
+        }
         if (!Utils::isUnset($request->partitionNum)) {
             $query['PartitionNum'] = $request->partitionNum;
         }
@@ -398,6 +407,9 @@ class Alikafka extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceGroupId)) {
             $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->serverlessConfigShrink)) {
+            $query['ServerlessConfig'] = $request->serverlessConfigShrink;
         }
         if (!Utils::isUnset($request->specType)) {
             $query['SpecType'] = $request->specType;
