@@ -10,19 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainStagingConfigResponseBody extends Model
 {
     /**
-     * @description The status of the feature. Valid values:
-     *
-     *   success
-     *   testing
-     *   failed
-     *   configuring
+     * @description The configurations of accelerated domain names returned.
      *
      * @var domainConfigs[]
      */
     public $domainConfigs;
 
     /**
-     * @description The configurations of accelerated domain names returned.
+     * @description The ID of the request.
      *
      * @example C80705BF-0F76-41FA-BAD1-5B59296A4E59
      *

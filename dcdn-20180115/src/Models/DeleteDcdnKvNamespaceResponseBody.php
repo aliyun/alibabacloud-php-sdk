@@ -11,7 +11,7 @@ class DeleteDcdnKvNamespaceResponseBody extends Model
     /**
      * @description The ID of the request.
      *
-     * @example D61E4801-EAFF-4A63-AAE1-FBF6CE1CFD1C
+     * @example D61E4801-EAFF-4A63-AAE1-FBF6CE1CFD1C。
      *
      * @var string
      */

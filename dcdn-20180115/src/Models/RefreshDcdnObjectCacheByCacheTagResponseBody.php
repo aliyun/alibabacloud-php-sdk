@@ -6,18 +6,24 @@ namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UpdateDcdnDomainResponseBody extends Model
+class RefreshDcdnObjectCacheByCacheTagResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @example 17410889914
      *
+     * @var string
+     */
+    public $refreshTaskId;
+
+    /**
      * @example 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
      *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'refreshTaskId' => 'RefreshTaskId',
+        'requestId'     => 'RequestId',
     ];
 
     public function validate()
@@ -27,6 +33,9 @@ class UpdateDcdnDomainResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->refreshTaskId) {
+            $res['RefreshTaskId'] = $this->refreshTaskId;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -37,11 +46,14 @@ class UpdateDcdnDomainResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return UpdateDcdnDomainResponseBody
+     * @return RefreshDcdnObjectCacheByCacheTagResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RefreshTaskId'])) {
+            $model->refreshTaskId = $map['RefreshTaskId'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class certInfo extends Model
 {
     /**
-     * @description The certificate information about the domain name.
+     * @description The returned primary domain name of the certificate.
      *
      * @example *.com
      *
@@ -18,7 +18,7 @@ class certInfo extends Model
     public $certCommonName;
 
     /**
-     * @description The name of the certificate.
+     * @description The time at which the certificate expires.
      *
      * @example 2018-12-26 14:45:09
      *
@@ -27,7 +27,7 @@ class certInfo extends Model
     public $certExpireTime;
 
     /**
-     * @description The accelerated domain name for which the certificate information was queried.
+     * @description The name of the certificate.
      *
      * @example cert
      *
@@ -36,7 +36,7 @@ class certInfo extends Model
     public $certName;
 
     /**
-     * @description The time when the certificate expires.
+     * @description The time at which the certificate became effective.
      *
      * @example 2018-11-26 14:45:09
      *
@@ -45,7 +45,12 @@ class certInfo extends Model
     public $certStartTime;
 
     /**
-     * @description The number of pages to return. Valid values: **1 to 100000**.
+     * @description The status of the certificate. Valid values:
+     *
+     *   **ok**: The certificate is working as expected.
+     *   **mismatch**: The certificate does not match the specified domain name.
+     *   **expired**: The certificate has expired.
+     *   **expire_soon**: The certificate is about to expire.
      *
      * @example mismatch
      *
@@ -54,7 +59,10 @@ class certInfo extends Model
     public $certStatus;
 
     /**
-     * @description The operation that you want to perform. Set the value to **DescribeDcdnHttpsDomainList**.
+     * @description The type of the certificate. Valid values:
+     *
+     *   **cas**: a certificate that is purchased by using Certificate Management Service
+     *   **upload**: a custom certificate that you upload
      *
      * @example upload
      *
@@ -63,7 +71,7 @@ class certInfo extends Model
     public $certType;
 
     /**
-     * @description The keyword used for search.
+     * @description The time at which the certificate was updated.
      *
      * @example 2019-01-08 18:33:16
      *
@@ -72,7 +80,7 @@ class certInfo extends Model
     public $certUpdateTime;
 
     /**
-     * @description The time when the certificate was updated.
+     * @description The accelerated domain name.
      *
      * @example *.com
      *

@@ -6,11 +6,16 @@ namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeDcdnDomainStagingConfigRequest extends Model
+class RefreshDcdnObjectCacheByCacheTagRequest extends Model
 {
     /**
-     * @description The accelerated domain name.
+     * @example tag1,tag2
      *
+     * @var string
+     */
+    public $cacheTag;
+
+    /**
      * @example example.com
      *
      * @var string
@@ -18,16 +23,15 @@ class DescribeDcdnDomainStagingConfigRequest extends Model
     public $domainName;
 
     /**
-     * @description The names of the features to query. You can separate multiple features with commas (,).
+     * @example true
      *
-     * @example aliauth
-     *
-     * @var string
+     * @var bool
      */
-    public $functionNames;
+    public $force;
     protected $_name = [
-        'domainName'    => 'DomainName',
-        'functionNames' => 'FunctionNames',
+        'cacheTag'   => 'CacheTag',
+        'domainName' => 'DomainName',
+        'force'      => 'Force',
     ];
 
     public function validate()
@@ -37,11 +41,14 @@ class DescribeDcdnDomainStagingConfigRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->cacheTag) {
+            $res['CacheTag'] = $this->cacheTag;
+        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->functionNames) {
-            $res['FunctionNames'] = $this->functionNames;
+        if (null !== $this->force) {
+            $res['Force'] = $this->force;
         }
 
         return $res;
@@ -50,16 +57,19 @@ class DescribeDcdnDomainStagingConfigRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeDcdnDomainStagingConfigRequest
+     * @return RefreshDcdnObjectCacheByCacheTagRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CacheTag'])) {
+            $model->cacheTag = $map['CacheTag'];
+        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-        if (isset($map['FunctionNames'])) {
-            $model->functionNames = $map['FunctionNames'];
+        if (isset($map['Force'])) {
+            $model->force = $map['Force'];
         }
 
         return $model;

@@ -397,6 +397,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\PutDcdnKvRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\PutDcdnKvResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\PutDcdnKvWithHighCapacityRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\PutDcdnKvWithHighCapacityResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\RefreshDcdnObjectCacheByCacheTagRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\RefreshDcdnObjectCacheByCacheTagResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\RefreshDcdnObjectCachesRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\RefreshDcdnObjectCachesResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\RefreshErObjectCachesRequest;
@@ -1852,10 +1854,8 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * **
-     *   * ****
-     *   * *
-     *   * *
+     * > *   This operation allows you to create a custom operations report for a specific domain name. You can view the statistics about the domain name in the report.
+     *   * > *   You can call this operation up to three times per second per account.
      *   *
      * @param CreateDcdnSubTaskRequest $request CreateDcdnSubTaskRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -1891,10 +1891,8 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * **
-     *   * ****
-     *   * *
-     *   * *
+     * > *   This operation allows you to create a custom operations report for a specific domain name. You can view the statistics about the domain name in the report.
+     *   * > *   You can call this operation up to three times per second per account.
      *   *
      * @param CreateDcdnSubTaskRequest $request CreateDcdnSubTaskRequest
      *
@@ -5688,7 +5686,7 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * The name of the accelerated domain.
+     * > You can call this operation up to 30 times per second per account.
      *   *
      * @param DescribeDcdnDomainStagingConfigRequest $request DescribeDcdnDomainStagingConfigRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
@@ -5724,7 +5722,7 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * The name of the accelerated domain.
+     * > You can call this operation up to 30 times per second per account.
      *   *
      * @param DescribeDcdnDomainStagingConfigRequest $request DescribeDcdnDomainStagingConfigRequest
      *
@@ -6506,7 +6504,7 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 100.
+     * > You can call this operation up to 100 times per second per account.
      *   *
      * @param DescribeDcdnHttpsDomainListRequest $request DescribeDcdnHttpsDomainListRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -6545,7 +6543,7 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 100.
+     * > You can call this operation up to 100 times per second per account.
      *   *
      * @param DescribeDcdnHttpsDomainListRequest $request DescribeDcdnHttpsDomainListRequest
      *
@@ -10414,7 +10412,7 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * >  You can call this operation up to 100 times per second per account.
+     * > You can call this operation up to 100 times per second per account.
      *   *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -10439,7 +10437,7 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * >  You can call this operation up to 100 times per second per account.
+     * > You can call this operation up to 100 times per second per account.
      *   *
      * @return DescribeRoutineUserInfoResponse DescribeRoutineUserInfoResponse
      */
@@ -11575,6 +11573,55 @@ class Dcdn extends OpenApiClient
     }
 
     /**
+     * @param RefreshDcdnObjectCacheByCacheTagRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return RefreshDcdnObjectCacheByCacheTagResponse
+     */
+    public function refreshDcdnObjectCacheByCacheTagWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cacheTag)) {
+            $query['CacheTag'] = $request->cacheTag;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->force)) {
+            $query['Force'] = $request->force;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RefreshDcdnObjectCacheByCacheTag',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RefreshDcdnObjectCacheByCacheTagResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RefreshDcdnObjectCacheByCacheTagRequest $request
+     *
+     * @return RefreshDcdnObjectCacheByCacheTagResponse
+     */
+    public function refreshDcdnObjectCacheByCacheTag($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->refreshDcdnObjectCacheByCacheTagWithOptions($request, $runtime);
+    }
+
+    /**
      * *   DCDN supports POST requests in which parameters are sent as a form.
      *   * *   You can call the [RefreshDcdnObjectCaches](~~130620~~) operation to refresh content and call the [PreloadDcdnObjectCaches](~~130636~~) operation to prefetch content.
      *   * *   By default, each Alibaba Cloud account can refresh content from a maximum of 10,000 URLs and 100 directories per day, including subdirectories. If the daily peak bandwidth value exceeds 200 Mbit/s, you can [submit a ticket](https://account.alibabacloud.com/login/login.htm?oauth_callback=https%3A//ticket-intl.console.aliyun.com/%23/ticket/createIndex) to request a quota increase. DCDN evaluates your application based on your workloads.
@@ -12644,7 +12691,7 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * >  You can call this operation up to 30 times per second per account.
+     * > You can call this operation up to 30 times per second per account.
      *   *
      * @param UpdateDcdnDomainRequest $request UpdateDcdnDomainRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -12692,7 +12739,7 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * >  You can call this operation up to 30 times per second per account.
+     * > You can call this operation up to 30 times per second per account.
      *   *
      * @param UpdateDcdnDomainRequest $request UpdateDcdnDomainRequest
      *

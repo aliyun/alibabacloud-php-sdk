@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteDcdnKvRequest extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The name of the key that you want to delete.
      *
      * @example test_key_1
      *
