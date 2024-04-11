@@ -59,6 +59,12 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\CreateEngineNamespaceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateEngineNamespaceResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateFlowRuleRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateFlowRuleResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\CreateGatewayCircuitBreakerRuleRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\CreateGatewayCircuitBreakerRuleResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\CreateGatewayFlowRuleRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\CreateGatewayFlowRuleResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\CreateGatewayIsolationRuleRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\CreateGatewayIsolationRuleResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateIsolationRuleRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateIsolationRuleResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateMseServiceApplicationRequest;
@@ -93,8 +99,14 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewayAuthConsumerRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewayAuthConsumerResourceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewayAuthConsumerResourceResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewayAuthConsumerResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewayCircuitBreakerRuleRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewayCircuitBreakerRuleResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewayDomainRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewayDomainResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewayFlowRuleRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewayFlowRuleResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewayIsolationRuleRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewayIsolationRuleResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewayRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewayResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewayRouteRequest;
@@ -246,8 +258,14 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayAuthConsumerRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayAuthConsumerResourceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayAuthConsumerResourceResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayAuthConsumerResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayCircuitBreakerRuleRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayCircuitBreakerRuleResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayDomainRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayDomainResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayFlowRuleRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayFlowRuleResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayIsolationRuleRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayIsolationRuleResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayRouteOnAuthRequest;
@@ -379,8 +397,14 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayAuthConsumerResourceStatu
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayAuthConsumerResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayAuthConsumerStatusRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayAuthConsumerStatusResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayCircuitBreakerRuleRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayCircuitBreakerRuleResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayDomainRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayDomainResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayFlowRuleRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayFlowRuleResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayIsolationRuleRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayIsolationRuleResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayNameRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayNameResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayOptionRequest;
@@ -2226,6 +2250,249 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * @param CreateGatewayCircuitBreakerRuleRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return CreateGatewayCircuitBreakerRuleResponse
+     */
+    public function createGatewayCircuitBreakerRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->behaviorType)) {
+            $query['BehaviorType'] = $request->behaviorType;
+        }
+        if (!Utils::isUnset($request->bodyEncoding)) {
+            $query['BodyEncoding'] = $request->bodyEncoding;
+        }
+        if (!Utils::isUnset($request->enable)) {
+            $query['Enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->gatewayId)) {
+            $query['GatewayId'] = $request->gatewayId;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->maxAllowedMs)) {
+            $query['MaxAllowedMs'] = $request->maxAllowedMs;
+        }
+        if (!Utils::isUnset($request->minRequestAmount)) {
+            $query['MinRequestAmount'] = $request->minRequestAmount;
+        }
+        if (!Utils::isUnset($request->recoveryTimeoutSec)) {
+            $query['RecoveryTimeoutSec'] = $request->recoveryTimeoutSec;
+        }
+        if (!Utils::isUnset($request->responseContentBody)) {
+            $query['ResponseContentBody'] = $request->responseContentBody;
+        }
+        if (!Utils::isUnset($request->responseRedirectUrl)) {
+            $query['ResponseRedirectUrl'] = $request->responseRedirectUrl;
+        }
+        if (!Utils::isUnset($request->responseStatusCode)) {
+            $query['ResponseStatusCode'] = $request->responseStatusCode;
+        }
+        if (!Utils::isUnset($request->routeId)) {
+            $query['RouteId'] = $request->routeId;
+        }
+        if (!Utils::isUnset($request->routeName)) {
+            $query['RouteName'] = $request->routeName;
+        }
+        if (!Utils::isUnset($request->statDurationSec)) {
+            $query['StatDurationSec'] = $request->statDurationSec;
+        }
+        if (!Utils::isUnset($request->strategy)) {
+            $query['Strategy'] = $request->strategy;
+        }
+        if (!Utils::isUnset($request->triggerRatio)) {
+            $query['TriggerRatio'] = $request->triggerRatio;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateGatewayCircuitBreakerRule',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateGatewayCircuitBreakerRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateGatewayCircuitBreakerRuleRequest $request
+     *
+     * @return CreateGatewayCircuitBreakerRuleResponse
+     */
+    public function createGatewayCircuitBreakerRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createGatewayCircuitBreakerRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateGatewayFlowRuleRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateGatewayFlowRuleResponse
+     */
+    public function createGatewayFlowRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->behaviorType)) {
+            $query['BehaviorType'] = $request->behaviorType;
+        }
+        if (!Utils::isUnset($request->bodyEncoding)) {
+            $query['BodyEncoding'] = $request->bodyEncoding;
+        }
+        if (!Utils::isUnset($request->enable)) {
+            $query['Enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->gatewayId)) {
+            $query['GatewayId'] = $request->gatewayId;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->responseContentBody)) {
+            $query['ResponseContentBody'] = $request->responseContentBody;
+        }
+        if (!Utils::isUnset($request->responseRedirectUrl)) {
+            $query['ResponseRedirectUrl'] = $request->responseRedirectUrl;
+        }
+        if (!Utils::isUnset($request->responseStatusCode)) {
+            $query['ResponseStatusCode'] = $request->responseStatusCode;
+        }
+        if (!Utils::isUnset($request->routeId)) {
+            $query['RouteId'] = $request->routeId;
+        }
+        if (!Utils::isUnset($request->routeName)) {
+            $query['RouteName'] = $request->routeName;
+        }
+        if (!Utils::isUnset($request->threshold)) {
+            $query['Threshold'] = $request->threshold;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateGatewayFlowRule',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateGatewayFlowRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateGatewayFlowRuleRequest $request
+     *
+     * @return CreateGatewayFlowRuleResponse
+     */
+    public function createGatewayFlowRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createGatewayFlowRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateGatewayIsolationRuleRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateGatewayIsolationRuleResponse
+     */
+    public function createGatewayIsolationRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->behaviorType)) {
+            $query['BehaviorType'] = $request->behaviorType;
+        }
+        if (!Utils::isUnset($request->bodyEncoding)) {
+            $query['BodyEncoding'] = $request->bodyEncoding;
+        }
+        if (!Utils::isUnset($request->enable)) {
+            $query['Enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->gatewayId)) {
+            $query['GatewayId'] = $request->gatewayId;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->maxConcurrency)) {
+            $query['MaxConcurrency'] = $request->maxConcurrency;
+        }
+        if (!Utils::isUnset($request->responseContentBody)) {
+            $query['ResponseContentBody'] = $request->responseContentBody;
+        }
+        if (!Utils::isUnset($request->responseRedirectUrl)) {
+            $query['ResponseRedirectUrl'] = $request->responseRedirectUrl;
+        }
+        if (!Utils::isUnset($request->responseStatusCode)) {
+            $query['ResponseStatusCode'] = $request->responseStatusCode;
+        }
+        if (!Utils::isUnset($request->routeId)) {
+            $query['RouteId'] = $request->routeId;
+        }
+        if (!Utils::isUnset($request->routeName)) {
+            $query['RouteName'] = $request->routeName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateGatewayIsolationRule',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateGatewayIsolationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateGatewayIsolationRuleRequest $request
+     *
+     * @return CreateGatewayIsolationRuleResponse
+     */
+    public function createGatewayIsolationRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createGatewayIsolationRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateIsolationRuleRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -3231,6 +3498,58 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * @param DeleteGatewayCircuitBreakerRuleRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DeleteGatewayCircuitBreakerRuleResponse
+     */
+    public function deleteGatewayCircuitBreakerRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->routeId)) {
+            $query['RouteId'] = $request->routeId;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteGatewayCircuitBreakerRule',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteGatewayCircuitBreakerRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteGatewayCircuitBreakerRuleRequest $request
+     *
+     * @return DeleteGatewayCircuitBreakerRuleResponse
+     */
+    public function deleteGatewayCircuitBreakerRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteGatewayCircuitBreakerRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteGatewayDomainRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -3277,6 +3596,110 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteGatewayDomainWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteGatewayFlowRuleRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteGatewayFlowRuleResponse
+     */
+    public function deleteGatewayFlowRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->routeId)) {
+            $query['RouteId'] = $request->routeId;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteGatewayFlowRule',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteGatewayFlowRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteGatewayFlowRuleRequest $request
+     *
+     * @return DeleteGatewayFlowRuleResponse
+     */
+    public function deleteGatewayFlowRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteGatewayFlowRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteGatewayIsolationRuleRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DeleteGatewayIsolationRuleResponse
+     */
+    public function deleteGatewayIsolationRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->routeId)) {
+            $query['RouteId'] = $request->routeId;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteGatewayIsolationRule',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteGatewayIsolationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteGatewayIsolationRuleRequest $request
+     *
+     * @return DeleteGatewayIsolationRuleResponse
+     */
+    public function deleteGatewayIsolationRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteGatewayIsolationRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -7446,6 +7869,52 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * @param ListGatewayCircuitBreakerRuleRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ListGatewayCircuitBreakerRuleResponse
+     */
+    public function listGatewayCircuitBreakerRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->filterParams)) {
+            $query['FilterParams'] = $request->filterParams;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListGatewayCircuitBreakerRule',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListGatewayCircuitBreakerRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListGatewayCircuitBreakerRuleRequest $request
+     *
+     * @return ListGatewayCircuitBreakerRuleResponse
+     */
+    public function listGatewayCircuitBreakerRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listGatewayCircuitBreakerRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListGatewayDomainRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -7495,6 +7964,98 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listGatewayDomainWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListGatewayFlowRuleRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListGatewayFlowRuleResponse
+     */
+    public function listGatewayFlowRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->filterParams)) {
+            $query['FilterParams'] = $request->filterParams;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListGatewayFlowRule',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListGatewayFlowRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListGatewayFlowRuleRequest $request
+     *
+     * @return ListGatewayFlowRuleResponse
+     */
+    public function listGatewayFlowRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listGatewayFlowRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListGatewayIsolationRuleRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListGatewayIsolationRuleResponse
+     */
+    public function listGatewayIsolationRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->filterParams)) {
+            $query['FilterParams'] = $request->filterParams;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListGatewayIsolationRule',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListGatewayIsolationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListGatewayIsolationRuleRequest $request
+     *
+     * @return ListGatewayIsolationRuleResponse
+     */
+    public function listGatewayIsolationRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listGatewayIsolationRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -10997,6 +11558,100 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * @param UpdateGatewayCircuitBreakerRuleRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return UpdateGatewayCircuitBreakerRuleResponse
+     */
+    public function updateGatewayCircuitBreakerRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->behaviorType)) {
+            $query['BehaviorType'] = $request->behaviorType;
+        }
+        if (!Utils::isUnset($request->bodyEncoding)) {
+            $query['BodyEncoding'] = $request->bodyEncoding;
+        }
+        if (!Utils::isUnset($request->enable)) {
+            $query['Enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->gatewayId)) {
+            $query['GatewayId'] = $request->gatewayId;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->maxAllowedMs)) {
+            $query['MaxAllowedMs'] = $request->maxAllowedMs;
+        }
+        if (!Utils::isUnset($request->minRequestAmount)) {
+            $query['MinRequestAmount'] = $request->minRequestAmount;
+        }
+        if (!Utils::isUnset($request->recoveryTimeoutSec)) {
+            $query['RecoveryTimeoutSec'] = $request->recoveryTimeoutSec;
+        }
+        if (!Utils::isUnset($request->responseContentBody)) {
+            $query['ResponseContentBody'] = $request->responseContentBody;
+        }
+        if (!Utils::isUnset($request->responseRedirectUrl)) {
+            $query['ResponseRedirectUrl'] = $request->responseRedirectUrl;
+        }
+        if (!Utils::isUnset($request->responseStatusCode)) {
+            $query['ResponseStatusCode'] = $request->responseStatusCode;
+        }
+        if (!Utils::isUnset($request->routeId)) {
+            $query['RouteId'] = $request->routeId;
+        }
+        if (!Utils::isUnset($request->routeName)) {
+            $query['RouteName'] = $request->routeName;
+        }
+        if (!Utils::isUnset($request->statDurationSec)) {
+            $query['StatDurationSec'] = $request->statDurationSec;
+        }
+        if (!Utils::isUnset($request->strategy)) {
+            $query['Strategy'] = $request->strategy;
+        }
+        if (!Utils::isUnset($request->triggerRatio)) {
+            $query['TriggerRatio'] = $request->triggerRatio;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateGatewayCircuitBreakerRule',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateGatewayCircuitBreakerRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateGatewayCircuitBreakerRuleRequest $request
+     *
+     * @return UpdateGatewayCircuitBreakerRuleResponse
+     */
+    public function updateGatewayCircuitBreakerRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateGatewayCircuitBreakerRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateGatewayDomainRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -11061,6 +11716,164 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateGatewayDomainWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateGatewayFlowRuleRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateGatewayFlowRuleResponse
+     */
+    public function updateGatewayFlowRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->behaviorType)) {
+            $query['BehaviorType'] = $request->behaviorType;
+        }
+        if (!Utils::isUnset($request->bodyEncoding)) {
+            $query['BodyEncoding'] = $request->bodyEncoding;
+        }
+        if (!Utils::isUnset($request->enable)) {
+            $query['Enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->gatewayId)) {
+            $query['GatewayId'] = $request->gatewayId;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->responseContentBody)) {
+            $query['ResponseContentBody'] = $request->responseContentBody;
+        }
+        if (!Utils::isUnset($request->responseRedirectUrl)) {
+            $query['ResponseRedirectUrl'] = $request->responseRedirectUrl;
+        }
+        if (!Utils::isUnset($request->responseStatusCode)) {
+            $query['ResponseStatusCode'] = $request->responseStatusCode;
+        }
+        if (!Utils::isUnset($request->routeId)) {
+            $query['RouteId'] = $request->routeId;
+        }
+        if (!Utils::isUnset($request->routeName)) {
+            $query['RouteName'] = $request->routeName;
+        }
+        if (!Utils::isUnset($request->threshold)) {
+            $query['Threshold'] = $request->threshold;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateGatewayFlowRule',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateGatewayFlowRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateGatewayFlowRuleRequest $request
+     *
+     * @return UpdateGatewayFlowRuleResponse
+     */
+    public function updateGatewayFlowRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateGatewayFlowRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateGatewayIsolationRuleRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UpdateGatewayIsolationRuleResponse
+     */
+    public function updateGatewayIsolationRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->behaviorType)) {
+            $query['BehaviorType'] = $request->behaviorType;
+        }
+        if (!Utils::isUnset($request->bodyEncoding)) {
+            $query['BodyEncoding'] = $request->bodyEncoding;
+        }
+        if (!Utils::isUnset($request->enable)) {
+            $query['Enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->gatewayId)) {
+            $query['GatewayId'] = $request->gatewayId;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->maxConcurrency)) {
+            $query['MaxConcurrency'] = $request->maxConcurrency;
+        }
+        if (!Utils::isUnset($request->responseContentBody)) {
+            $query['ResponseContentBody'] = $request->responseContentBody;
+        }
+        if (!Utils::isUnset($request->responseRedirectUrl)) {
+            $query['ResponseRedirectUrl'] = $request->responseRedirectUrl;
+        }
+        if (!Utils::isUnset($request->responseStatusCode)) {
+            $query['ResponseStatusCode'] = $request->responseStatusCode;
+        }
+        if (!Utils::isUnset($request->routeId)) {
+            $query['RouteId'] = $request->routeId;
+        }
+        if (!Utils::isUnset($request->routeName)) {
+            $query['RouteName'] = $request->routeName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateGatewayIsolationRule',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateGatewayIsolationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateGatewayIsolationRuleRequest $request
+     *
+     * @return UpdateGatewayIsolationRuleResponse
+     */
+    public function updateGatewayIsolationRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateGatewayIsolationRuleWithOptions($request, $runtime);
     }
 
     /**
