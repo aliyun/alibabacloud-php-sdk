@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class RefreshVodObjectCachesRequest extends Model
 {
     /**
+     * @description Specifies whether to refresh resources in a directory if the resources are different from the resources in the same directory in the origin server. Default value: false.
+     *
+     * - false:refresh the changed resources in the directory.
+     * @example false
+     *
+     * @var bool
+     */
+    public $force;
+
+    /**
      * @description The URL of the file to be prefetched. Separate multiple URLs with line breaks (\n or \r\n).
      *
      * @example abc.com/image/1.png
@@ -22,7 +32,10 @@ class RefreshVodObjectCachesRequest extends Model
      *
      *   **File** (default): refreshes files.
      *   **Directory**: refreshes the files in specified directories.
+     *   **Regex**: refreshes content based on regular expressions.
+     *   **ExQuery**: omits parameters after the question mark in the URL and refreshes content.
      *
+     * If you set the ObjectType parameter to Directory, the resources in the directory that you want to refresh are marked as expired. You cannot delete the directory. If clients request resources on POPs that are marked as expired, Alibaba Cloud CDN checks whether the resources on your origin server are updated. If resources are updated, Alibaba Cloud CDN retrieves the latest version of the resources and returns the resources to the clients. Otherwise, the origin server returns the 304 status code.
      * @example File
      *
      * @var string
@@ -39,6 +52,7 @@ class RefreshVodObjectCachesRequest extends Model
      */
     public $securityToken;
     protected $_name = [
+        'force'         => 'Force',
         'objectPath'    => 'ObjectPath',
         'objectType'    => 'ObjectType',
         'ownerId'       => 'OwnerId',
@@ -52,6 +66,9 @@ class RefreshVodObjectCachesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->force) {
+            $res['Force'] = $this->force;
+        }
         if (null !== $this->objectPath) {
             $res['ObjectPath'] = $this->objectPath;
         }
@@ -76,6 +93,9 @@ class RefreshVodObjectCachesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Force'])) {
+            $model->force = $map['Force'];
+        }
         if (isset($map['ObjectPath'])) {
             $model->objectPath = $map['ObjectPath'];
         }

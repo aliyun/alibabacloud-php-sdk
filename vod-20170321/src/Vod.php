@@ -114,6 +114,8 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainTrafficDataRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainTrafficDataResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainUsageDataRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainUsageDataResponse;
+use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodMediaPlayDataRequest;
+use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodMediaPlayDataResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodRefreshQuotaRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodRefreshQuotaResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodRefreshTasksRequest;
@@ -3601,6 +3603,73 @@ class Vod extends OpenApiClient
     }
 
     /**
+     * @param DescribeVodMediaPlayDataRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeVodMediaPlayDataResponse
+     */
+    public function describeVodMediaPlayDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->mediaId)) {
+            $query['MediaId'] = $request->mediaId;
+        }
+        if (!Utils::isUnset($request->orderName)) {
+            $query['OrderName'] = $request->orderName;
+        }
+        if (!Utils::isUnset($request->orderType)) {
+            $query['OrderType'] = $request->orderType;
+        }
+        if (!Utils::isUnset($request->os)) {
+            $query['Os'] = $request->os;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->playDate)) {
+            $query['PlayDate'] = $request->playDate;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->terminalType)) {
+            $query['TerminalType'] = $request->terminalType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVodMediaPlayData',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeVodMediaPlayDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVodMediaPlayDataRequest $request
+     *
+     * @return DescribeVodMediaPlayDataResponse
+     */
+    public function describeVodMediaPlayData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVodMediaPlayDataWithOptions($request, $runtime);
+    }
+
+    /**
      * > *   This operation is available only in the **China (Shanghai)** region.
      *   * > *   You can call the [RefreshVodObjectCaches](~~69215~~) operation to refresh content and the [PreloadVodObjectCaches](~~69211~~) operation to prefetch content.
      *   *
@@ -7012,6 +7081,9 @@ class Vod extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->force)) {
+            $query['Force'] = $request->force;
+        }
         if (!Utils::isUnset($request->objectPath)) {
             $query['ObjectPath'] = $request->objectPath;
         }
@@ -7445,8 +7517,7 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * *   Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
-     *   * *   Before you can call this operation to specify an AI template as the default template, you must obtain the ID of the AI template. You cannot delete an AI template that is set as the default template.
+     * Specifies an AI template as the default template.
      *   *
      * @param SetDefaultAITemplateRequest $request SetDefaultAITemplateRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -7479,8 +7550,7 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * *   Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
-     *   * *   Before you can call this operation to specify an AI template as the default template, you must obtain the ID of the AI template. You cannot delete an AI template that is set as the default template.
+     * Specifies an AI template as the default template.
      *   *
      * @param SetDefaultAITemplateRequest $request SetDefaultAITemplateRequest
      *
