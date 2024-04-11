@@ -24,6 +24,11 @@ class detectResult extends Model
     public $coverUrl;
 
     /**
+     * @var float[][]
+     */
+    public $humanBoxes;
+
+    /**
      * @var string
      */
     public $message;
@@ -36,6 +41,7 @@ class detectResult extends Model
         'box'                => 'Box',
         'code'               => 'Code',
         'coverUrl'           => 'CoverUrl',
+        'humanBoxes'         => 'HumanBoxes',
         'message'            => 'Message',
         'selectedFrameIndex' => 'SelectedFrameIndex',
     ];
@@ -55,6 +61,9 @@ class detectResult extends Model
         }
         if (null !== $this->coverUrl) {
             $res['CoverUrl'] = $this->coverUrl;
+        }
+        if (null !== $this->humanBoxes) {
+            $res['HumanBoxes'] = $this->humanBoxes;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -84,6 +93,11 @@ class detectResult extends Model
         }
         if (isset($map['CoverUrl'])) {
             $model->coverUrl = $map['CoverUrl'];
+        }
+        if (isset($map['HumanBoxes'])) {
+            if (!empty($map['HumanBoxes'])) {
+                $model->humanBoxes = $map['HumanBoxes'];
+            }
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

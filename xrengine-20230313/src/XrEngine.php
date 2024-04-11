@@ -3328,6 +3328,9 @@ class XrEngine extends OpenApiClient
         if (!Utils::isUnset($request->jwtToken)) {
             $body['JwtToken'] = $request->jwtToken;
         }
+        if (!Utils::isUnset($request->selectedBoxIndex)) {
+            $body['SelectedBoxIndex'] = $request->selectedBoxIndex;
+        }
         if (!Utils::isUnset($request->title)) {
             $body['Title'] = $request->title;
         }

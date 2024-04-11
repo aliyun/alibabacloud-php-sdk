@@ -19,6 +19,11 @@ class SubmitMotionShopTaskRequest extends Model
     public $jwtToken;
 
     /**
+     * @var int
+     */
+    public $selectedBoxIndex;
+
+    /**
      * @var string
      */
     public $title;
@@ -28,10 +33,11 @@ class SubmitMotionShopTaskRequest extends Model
      */
     public $videoId;
     protected $_name = [
-        'avatarId' => 'AvatarId',
-        'jwtToken' => 'JwtToken',
-        'title'    => 'Title',
-        'videoId'  => 'VideoId',
+        'avatarId'         => 'AvatarId',
+        'jwtToken'         => 'JwtToken',
+        'selectedBoxIndex' => 'SelectedBoxIndex',
+        'title'            => 'Title',
+        'videoId'          => 'VideoId',
     ];
 
     public function validate()
@@ -46,6 +52,9 @@ class SubmitMotionShopTaskRequest extends Model
         }
         if (null !== $this->jwtToken) {
             $res['JwtToken'] = $this->jwtToken;
+        }
+        if (null !== $this->selectedBoxIndex) {
+            $res['SelectedBoxIndex'] = $this->selectedBoxIndex;
         }
         if (null !== $this->title) {
             $res['Title'] = $this->title;
@@ -70,6 +79,9 @@ class SubmitMotionShopTaskRequest extends Model
         }
         if (isset($map['JwtToken'])) {
             $model->jwtToken = $map['JwtToken'];
+        }
+        if (isset($map['SelectedBoxIndex'])) {
+            $model->selectedBoxIndex = $map['SelectedBoxIndex'];
         }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
