@@ -3809,9 +3809,9 @@ class Rds extends OpenApiClient
 
     /**
      * ### [](#)Supported database engines
-     *   * MySQL
+     *   * RDS MySQL
      *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
      *   * [Delete a node from an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition](~~464130~~).
      *   *
      * @param CreateOrderForDeleteDBNodesRequest $tmpReq  CreateOrderForDeleteDBNodesRequest
@@ -3896,9 +3896,9 @@ class Rds extends OpenApiClient
 
     /**
      * ### [](#)Supported database engines
-     *   * MySQL
+     *   * RDS MySQL
      *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
      *   * [Delete a node from an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition](~~464130~~).
      *   *
      * @param CreateOrderForDeleteDBNodesRequest $request CreateOrderForDeleteDBNodesRequest
@@ -11316,10 +11316,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceKeywordsRequest $request
-     * @param RuntimeOptions                  $runtime
+     * ### [](#)Supported database engines
+     *   * *   RDS MySQL
+     *   * *   RDS PostgreSQL
+     *   * *   RDS SQL Server
+     *   * *   RDS MariaDB.
+     *   *
+     * @param DescribeInstanceKeywordsRequest $request DescribeInstanceKeywordsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceKeywordsResponse
+     * @return DescribeInstanceKeywordsResponse DescribeInstanceKeywordsResponse
      */
     public function describeInstanceKeywordsWithOptions($request, $runtime)
     {
@@ -11359,9 +11365,15 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceKeywordsRequest $request
+     * ### [](#)Supported database engines
+     *   * *   RDS MySQL
+     *   * *   RDS PostgreSQL
+     *   * *   RDS SQL Server
+     *   * *   RDS MariaDB.
+     *   *
+     * @param DescribeInstanceKeywordsRequest $request DescribeInstanceKeywordsRequest
      *
-     * @return DescribeInstanceKeywordsResponse
+     * @return DescribeInstanceKeywordsResponse DescribeInstanceKeywordsResponse
      */
     public function describeInstanceKeywords($request)
     {

@@ -44,6 +44,11 @@ class priceInfo extends Model
     public $discountPrice;
 
     /**
+     * @var string
+     */
+    public $orderLines;
+
+    /**
      * @description The original price.
      *
      * @example 2504
@@ -60,6 +65,16 @@ class priceInfo extends Model
     public $ruleIds;
 
     /**
+     * @var float
+     */
+    public $tradeMaxRCUAmount;
+
+    /**
+     * @var float
+     */
+    public $tradeMinRCUAmount;
+
+    /**
      * @description The transaction price, which is equal to the original price minus the discount.
      *
      * @example 2504
@@ -68,13 +83,16 @@ class priceInfo extends Model
      */
     public $tradePrice;
     protected $_name = [
-        'activityInfo'  => 'ActivityInfo',
-        'coupons'       => 'Coupons',
-        'currency'      => 'Currency',
-        'discountPrice' => 'DiscountPrice',
-        'originalPrice' => 'OriginalPrice',
-        'ruleIds'       => 'RuleIds',
-        'tradePrice'    => 'TradePrice',
+        'activityInfo'      => 'ActivityInfo',
+        'coupons'           => 'Coupons',
+        'currency'          => 'Currency',
+        'discountPrice'     => 'DiscountPrice',
+        'orderLines'        => 'OrderLines',
+        'originalPrice'     => 'OriginalPrice',
+        'ruleIds'           => 'RuleIds',
+        'tradeMaxRCUAmount' => 'TradeMaxRCUAmount',
+        'tradeMinRCUAmount' => 'TradeMinRCUAmount',
+        'tradePrice'        => 'TradePrice',
     ];
 
     public function validate()
@@ -96,11 +114,20 @@ class priceInfo extends Model
         if (null !== $this->discountPrice) {
             $res['DiscountPrice'] = $this->discountPrice;
         }
+        if (null !== $this->orderLines) {
+            $res['OrderLines'] = $this->orderLines;
+        }
         if (null !== $this->originalPrice) {
             $res['OriginalPrice'] = $this->originalPrice;
         }
         if (null !== $this->ruleIds) {
             $res['RuleIds'] = null !== $this->ruleIds ? $this->ruleIds->toMap() : null;
+        }
+        if (null !== $this->tradeMaxRCUAmount) {
+            $res['TradeMaxRCUAmount'] = $this->tradeMaxRCUAmount;
+        }
+        if (null !== $this->tradeMinRCUAmount) {
+            $res['TradeMinRCUAmount'] = $this->tradeMinRCUAmount;
         }
         if (null !== $this->tradePrice) {
             $res['TradePrice'] = $this->tradePrice;
@@ -129,11 +156,20 @@ class priceInfo extends Model
         if (isset($map['DiscountPrice'])) {
             $model->discountPrice = $map['DiscountPrice'];
         }
+        if (isset($map['OrderLines'])) {
+            $model->orderLines = $map['OrderLines'];
+        }
         if (isset($map['OriginalPrice'])) {
             $model->originalPrice = $map['OriginalPrice'];
         }
         if (isset($map['RuleIds'])) {
             $model->ruleIds = ruleIds::fromMap($map['RuleIds']);
+        }
+        if (isset($map['TradeMaxRCUAmount'])) {
+            $model->tradeMaxRCUAmount = $map['TradeMaxRCUAmount'];
+        }
+        if (isset($map['TradeMinRCUAmount'])) {
+            $model->tradeMinRCUAmount = $map['TradeMinRCUAmount'];
         }
         if (isset($map['TradePrice'])) {
             $model->tradePrice = $map['TradePrice'];

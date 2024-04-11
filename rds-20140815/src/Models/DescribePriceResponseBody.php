@@ -6,10 +6,16 @@ namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribePriceResponseBody\priceInfo;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribePriceResponseBody\rules;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribePriceResponseBody\serverlessPrice;
 use AlibabaCloud\Tea\Model;
 
 class DescribePriceResponseBody extends Model
 {
+    /**
+     * @var string
+     */
+    public $orderParams;
+
     /**
      * @description The price information.
      *
@@ -32,6 +38,11 @@ class DescribePriceResponseBody extends Model
      * @var rules
      */
     public $rules;
+
+    /**
+     * @var serverlessPrice
+     */
+    public $serverlessPrice;
 
     /**
      * @description Indicates whether discounts can be used.
@@ -60,9 +71,11 @@ class DescribePriceResponseBody extends Model
      */
     public $tradeMinRCUAmount;
     protected $_name = [
+        'orderParams'       => 'OrderParams',
         'priceInfo'         => 'PriceInfo',
         'requestId'         => 'RequestId',
         'rules'             => 'Rules',
+        'serverlessPrice'   => 'ServerlessPrice',
         'showDiscount'      => 'ShowDiscount',
         'tradeMaxRCUAmount' => 'TradeMaxRCUAmount',
         'tradeMinRCUAmount' => 'TradeMinRCUAmount',
@@ -75,6 +88,9 @@ class DescribePriceResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->orderParams) {
+            $res['OrderParams'] = $this->orderParams;
+        }
         if (null !== $this->priceInfo) {
             $res['PriceInfo'] = null !== $this->priceInfo ? $this->priceInfo->toMap() : null;
         }
@@ -83,6 +99,9 @@ class DescribePriceResponseBody extends Model
         }
         if (null !== $this->rules) {
             $res['Rules'] = null !== $this->rules ? $this->rules->toMap() : null;
+        }
+        if (null !== $this->serverlessPrice) {
+            $res['ServerlessPrice'] = null !== $this->serverlessPrice ? $this->serverlessPrice->toMap() : null;
         }
         if (null !== $this->showDiscount) {
             $res['ShowDiscount'] = $this->showDiscount;
@@ -105,6 +124,9 @@ class DescribePriceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OrderParams'])) {
+            $model->orderParams = $map['OrderParams'];
+        }
         if (isset($map['PriceInfo'])) {
             $model->priceInfo = priceInfo::fromMap($map['PriceInfo']);
         }
@@ -113,6 +135,9 @@ class DescribePriceResponseBody extends Model
         }
         if (isset($map['Rules'])) {
             $model->rules = rules::fromMap($map['Rules']);
+        }
+        if (isset($map['ServerlessPrice'])) {
+            $model->serverlessPrice = serverlessPrice::fromMap($map['ServerlessPrice']);
         }
         if (isset($map['ShowDiscount'])) {
             $model->showDiscount = $map['ShowDiscount'];

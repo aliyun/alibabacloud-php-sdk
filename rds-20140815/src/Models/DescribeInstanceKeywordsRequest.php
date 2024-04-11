@@ -14,6 +14,7 @@ class DescribeInstanceKeywordsRequest extends Model
      *   **account**
      *   **database**
      *
+     * >  This parameter is required.
      * @example account
      *
      * @var string

@@ -28,7 +28,7 @@ class DescribeInstanceKeywordsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description An array that consists of reserved keywords.
+     * @description The reserved keywords.
      *
      * @var words
      */
