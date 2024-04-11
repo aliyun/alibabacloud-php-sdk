@@ -832,8 +832,14 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->acceptLanguage)) {
             $query['AcceptLanguage'] = $request->acceptLanguage;
         }
+        if (!Utils::isUnset($request->authResourceConfig)) {
+            $query['AuthResourceConfig'] = $request->authResourceConfig;
+        }
         if (!Utils::isUnset($request->authResourceListShrink)) {
             $query['AuthResourceList'] = $request->authResourceListShrink;
+        }
+        if (!Utils::isUnset($request->authResourceMode)) {
+            $query['AuthResourceMode'] = $request->authResourceMode;
         }
         if (!Utils::isUnset($request->clientId)) {
             $query['ClientId'] = $request->clientId;

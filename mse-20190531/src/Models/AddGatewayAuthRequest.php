@@ -18,11 +18,23 @@ class AddGatewayAuthRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @var string
+     */
+    public $authResourceConfig;
+
+    /**
      * @description The information about the resource to be authorized.
      *
      * @var authResourceList[]
      */
     public $authResourceList;
+
+    /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $authResourceMode;
 
     /**
      * @description The application ID registered with the OIDC authentication service.
@@ -191,27 +203,29 @@ class AddGatewayAuthRequest extends Model
      */
     public $type;
     protected $_name = [
-        'acceptLanguage'    => 'AcceptLanguage',
-        'authResourceList'  => 'AuthResourceList',
-        'clientId'          => 'ClientId',
-        'clientSecret'      => 'ClientSecret',
-        'cookieDomain'      => 'CookieDomain',
-        'externalAuthZJSON' => 'ExternalAuthZJSON',
-        'gatewayUniqueId'   => 'GatewayUniqueId',
-        'isWhite'           => 'IsWhite',
-        'issuer'            => 'Issuer',
-        'jwks'              => 'Jwks',
-        'loginUrl'          => 'LoginUrl',
-        'name'              => 'Name',
-        'redirectUrl'       => 'RedirectUrl',
-        'scopesList'        => 'ScopesList',
-        'status'            => 'Status',
-        'sub'               => 'Sub',
-        'tokenName'         => 'TokenName',
-        'tokenNamePrefix'   => 'TokenNamePrefix',
-        'tokenPass'         => 'TokenPass',
-        'tokenPosition'     => 'TokenPosition',
-        'type'              => 'Type',
+        'acceptLanguage'     => 'AcceptLanguage',
+        'authResourceConfig' => 'AuthResourceConfig',
+        'authResourceList'   => 'AuthResourceList',
+        'authResourceMode'   => 'AuthResourceMode',
+        'clientId'           => 'ClientId',
+        'clientSecret'       => 'ClientSecret',
+        'cookieDomain'       => 'CookieDomain',
+        'externalAuthZJSON'  => 'ExternalAuthZJSON',
+        'gatewayUniqueId'    => 'GatewayUniqueId',
+        'isWhite'            => 'IsWhite',
+        'issuer'             => 'Issuer',
+        'jwks'               => 'Jwks',
+        'loginUrl'           => 'LoginUrl',
+        'name'               => 'Name',
+        'redirectUrl'        => 'RedirectUrl',
+        'scopesList'         => 'ScopesList',
+        'status'             => 'Status',
+        'sub'                => 'Sub',
+        'tokenName'          => 'TokenName',
+        'tokenNamePrefix'    => 'TokenNamePrefix',
+        'tokenPass'          => 'TokenPass',
+        'tokenPosition'      => 'TokenPosition',
+        'type'               => 'Type',
     ];
 
     public function validate()
@@ -224,6 +238,9 @@ class AddGatewayAuthRequest extends Model
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
+        if (null !== $this->authResourceConfig) {
+            $res['AuthResourceConfig'] = $this->authResourceConfig;
+        }
         if (null !== $this->authResourceList) {
             $res['AuthResourceList'] = [];
             if (null !== $this->authResourceList && \is_array($this->authResourceList)) {
@@ -232,6 +249,9 @@ class AddGatewayAuthRequest extends Model
                     $res['AuthResourceList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->authResourceMode) {
+            $res['AuthResourceMode'] = $this->authResourceMode;
         }
         if (null !== $this->clientId) {
             $res['ClientId'] = $this->clientId;
@@ -305,6 +325,9 @@ class AddGatewayAuthRequest extends Model
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
+        if (isset($map['AuthResourceConfig'])) {
+            $model->authResourceConfig = $map['AuthResourceConfig'];
+        }
         if (isset($map['AuthResourceList'])) {
             if (!empty($map['AuthResourceList'])) {
                 $model->authResourceList = [];
@@ -313,6 +336,9 @@ class AddGatewayAuthRequest extends Model
                     $model->authResourceList[$n++] = null !== $item ? authResourceList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['AuthResourceMode'])) {
+            $model->authResourceMode = $map['AuthResourceMode'];
         }
         if (isset($map['ClientId'])) {
             $model->clientId = $map['ClientId'];

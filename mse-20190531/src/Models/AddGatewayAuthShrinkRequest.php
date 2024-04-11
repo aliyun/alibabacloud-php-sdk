@@ -16,11 +16,23 @@ class AddGatewayAuthShrinkRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @var string
+     */
+    public $authResourceConfig;
+
+    /**
      * @description The information about the resource to be authorized.
      *
      * @var string
      */
     public $authResourceListShrink;
+
+    /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $authResourceMode;
 
     /**
      * @description The application ID registered with the OIDC authentication service.
@@ -190,7 +202,9 @@ class AddGatewayAuthShrinkRequest extends Model
     public $type;
     protected $_name = [
         'acceptLanguage'          => 'AcceptLanguage',
+        'authResourceConfig'      => 'AuthResourceConfig',
         'authResourceListShrink'  => 'AuthResourceList',
+        'authResourceMode'        => 'AuthResourceMode',
         'clientId'                => 'ClientId',
         'clientSecret'            => 'ClientSecret',
         'cookieDomain'            => 'CookieDomain',
@@ -222,8 +236,14 @@ class AddGatewayAuthShrinkRequest extends Model
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
+        if (null !== $this->authResourceConfig) {
+            $res['AuthResourceConfig'] = $this->authResourceConfig;
+        }
         if (null !== $this->authResourceListShrink) {
             $res['AuthResourceList'] = $this->authResourceListShrink;
+        }
+        if (null !== $this->authResourceMode) {
+            $res['AuthResourceMode'] = $this->authResourceMode;
         }
         if (null !== $this->clientId) {
             $res['ClientId'] = $this->clientId;
@@ -297,8 +317,14 @@ class AddGatewayAuthShrinkRequest extends Model
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
+        if (isset($map['AuthResourceConfig'])) {
+            $model->authResourceConfig = $map['AuthResourceConfig'];
+        }
         if (isset($map['AuthResourceList'])) {
             $model->authResourceListShrink = $map['AuthResourceList'];
+        }
+        if (isset($map['AuthResourceMode'])) {
+            $model->authResourceMode = $map['AuthResourceMode'];
         }
         if (isset($map['ClientId'])) {
             $model->clientId = $map['ClientId'];

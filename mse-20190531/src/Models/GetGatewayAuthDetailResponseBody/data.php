@@ -11,6 +11,18 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var string
+     */
+    public $authResourceConfig;
+
+    /**
+     * @example 0
+     *
+     * @var int
+     */
+    public $authResourceMode;
+
+    /**
      * @example example-app
      *
      * @var string
@@ -174,30 +186,32 @@ class data extends Model
      */
     public $type;
     protected $_name = [
-        'clientId'        => 'ClientId',
-        'clientSecret'    => 'ClientSecret',
-        'cookieDomain'    => 'CookieDomain',
-        'externalAuthZ'   => 'ExternalAuthZ',
-        'gatewayId'       => 'GatewayId',
-        'gatewayUniqueId' => 'GatewayUniqueId',
-        'gmtCreate'       => 'GmtCreate',
-        'gmtModified'     => 'GmtModified',
-        'id'              => 'Id',
-        'isWhite'         => 'IsWhite',
-        'issuer'          => 'Issuer',
-        'jwks'            => 'Jwks',
-        'loginUrl'        => 'LoginUrl',
-        'name'            => 'Name',
-        'redirectUrl'     => 'RedirectUrl',
-        'resourceList'    => 'ResourceList',
-        'scopesList'      => 'ScopesList',
-        'status'          => 'Status',
-        'sub'             => 'Sub',
-        'tokenName'       => 'TokenName',
-        'tokenNamePrefix' => 'TokenNamePrefix',
-        'tokenPass'       => 'TokenPass',
-        'tokenPosition'   => 'TokenPosition',
-        'type'            => 'Type',
+        'authResourceConfig' => 'AuthResourceConfig',
+        'authResourceMode'   => 'AuthResourceMode',
+        'clientId'           => 'ClientId',
+        'clientSecret'       => 'ClientSecret',
+        'cookieDomain'       => 'CookieDomain',
+        'externalAuthZ'      => 'ExternalAuthZ',
+        'gatewayId'          => 'GatewayId',
+        'gatewayUniqueId'    => 'GatewayUniqueId',
+        'gmtCreate'          => 'GmtCreate',
+        'gmtModified'        => 'GmtModified',
+        'id'                 => 'Id',
+        'isWhite'            => 'IsWhite',
+        'issuer'             => 'Issuer',
+        'jwks'               => 'Jwks',
+        'loginUrl'           => 'LoginUrl',
+        'name'               => 'Name',
+        'redirectUrl'        => 'RedirectUrl',
+        'resourceList'       => 'ResourceList',
+        'scopesList'         => 'ScopesList',
+        'status'             => 'Status',
+        'sub'                => 'Sub',
+        'tokenName'          => 'TokenName',
+        'tokenNamePrefix'    => 'TokenNamePrefix',
+        'tokenPass'          => 'TokenPass',
+        'tokenPosition'      => 'TokenPosition',
+        'type'               => 'Type',
     ];
 
     public function validate()
@@ -207,6 +221,12 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->authResourceConfig) {
+            $res['AuthResourceConfig'] = $this->authResourceConfig;
+        }
+        if (null !== $this->authResourceMode) {
+            $res['AuthResourceMode'] = $this->authResourceMode;
+        }
         if (null !== $this->clientId) {
             $res['ClientId'] = $this->clientId;
         }
@@ -297,6 +317,12 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AuthResourceConfig'])) {
+            $model->authResourceConfig = $map['AuthResourceConfig'];
+        }
+        if (isset($map['AuthResourceMode'])) {
+            $model->authResourceMode = $map['AuthResourceMode'];
+        }
         if (isset($map['ClientId'])) {
             $model->clientId = $map['ClientId'];
         }
