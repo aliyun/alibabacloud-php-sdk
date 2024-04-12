@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var int
+     */
+    public $archiveDuration;
+
+    /**
      * @description auth token string.
      *
      * @example ad32dxxxx
@@ -180,6 +185,11 @@ class data extends Model
     public $securityGroupId;
 
     /**
+     * @var int
+     */
+    public $storageDuration;
+
+    /**
      * @description The child instances of the Prometheus instance for GlobalView. The value is a JSON string.
      *
      * @example \[{"headers":{},"regionId":"cn-hangzhou","sourceType":"AlibabaPrometheus","extras":{},"clusterId":"c39a1048921e04fceb039db2fbb73\*\*\*","sourceName":"arms-luyao-test","dataSource":"","userId":"167275301789\*\*\*"},{"headers":{},"regionId":"cn-beijing","sourceType":"AlibabaPrometheus","extras":{},"clusterId":"c6b6485496d5b400abde22cb47b5\*\*\*\*","sourceName":"agent-321-test","dataSource":"","userId":"1672753017899\*\*\*"},{"headers":{},"regionId":"cn-zhangjiakou","sourceType":"AlibabaPrometheus","extras":{},"clusterId":"c261a4f3200c446659133f1ade789b15e","sourceName":"zaifeng-cardinality-01","dataSource":"","userId":"167275301789\*\*\*"}]
@@ -222,6 +232,7 @@ class data extends Model
      */
     public $vpcId;
     protected $_name = [
+        'archiveDuration'     => 'ArchiveDuration',
         'authToken'           => 'AuthToken',
         'clusterId'           => 'ClusterId',
         'clusterName'         => 'ClusterName',
@@ -240,6 +251,7 @@ class data extends Model
         'resourceGroupId'     => 'ResourceGroupId',
         'resourceType'        => 'ResourceType',
         'securityGroupId'     => 'SecurityGroupId',
+        'storageDuration'     => 'StorageDuration',
         'subClustersJson'     => 'SubClustersJson',
         'tags'                => 'Tags',
         'userId'              => 'UserId',
@@ -254,6 +266,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->archiveDuration) {
+            $res['ArchiveDuration'] = $this->archiveDuration;
+        }
         if (null !== $this->authToken) {
             $res['AuthToken'] = $this->authToken;
         }
@@ -308,6 +323,9 @@ class data extends Model
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
         }
+        if (null !== $this->storageDuration) {
+            $res['StorageDuration'] = $this->storageDuration;
+        }
         if (null !== $this->subClustersJson) {
             $res['SubClustersJson'] = $this->subClustersJson;
         }
@@ -341,6 +359,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ArchiveDuration'])) {
+            $model->archiveDuration = $map['ArchiveDuration'];
+        }
         if (isset($map['AuthToken'])) {
             $model->authToken = $map['AuthToken'];
         }
@@ -394,6 +415,9 @@ class data extends Model
         }
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
+        }
+        if (isset($map['StorageDuration'])) {
+            $model->storageDuration = $map['StorageDuration'];
         }
         if (isset($map['SubClustersJson'])) {
             $model->subClustersJson = $map['SubClustersJson'];

@@ -39,6 +39,11 @@ class GrafanaWorkspaceIntegrationDataSource extends Model
     public $exploreUrl;
 
     /**
+     * @var string[]
+     */
+    public $extra;
+
+    /**
      * @var string
      */
     public $folderUrl;
@@ -64,6 +69,7 @@ class GrafanaWorkspaceIntegrationDataSource extends Model
         'datasourceUrl'  => 'datasourceUrl',
         'description'    => 'description',
         'exploreUrl'     => 'exploreUrl',
+        'extra'          => 'extra',
         'folderUrl'      => 'folderUrl',
         'regionId'       => 'regionId',
         'status'         => 'status',
@@ -94,6 +100,9 @@ class GrafanaWorkspaceIntegrationDataSource extends Model
         }
         if (null !== $this->exploreUrl) {
             $res['exploreUrl'] = $this->exploreUrl;
+        }
+        if (null !== $this->extra) {
+            $res['extra'] = $this->extra;
         }
         if (null !== $this->folderUrl) {
             $res['folderUrl'] = $this->folderUrl;
@@ -136,6 +145,9 @@ class GrafanaWorkspaceIntegrationDataSource extends Model
         }
         if (isset($map['exploreUrl'])) {
             $model->exploreUrl = $map['exploreUrl'];
+        }
+        if (isset($map['extra'])) {
+            $model->extra = $map['extra'];
         }
         if (isset($map['folderUrl'])) {
             $model->folderUrl = $map['folderUrl'];

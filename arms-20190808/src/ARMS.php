@@ -468,6 +468,8 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdatePrometheusAlertRuleRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdatePrometheusAlertRuleResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdatePrometheusGlobalViewRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdatePrometheusGlobalViewResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdatePrometheusInstanceRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdatePrometheusInstanceResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdatePrometheusIntegrationRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdatePrometheusIntegrationResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdatePrometheusMonitoringRequest;
@@ -2863,6 +2865,9 @@ class ARMS extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->allSubClustersSuccess)) {
             $query['AllSubClustersSuccess'] = $request->allSubClustersSuccess;
+        }
+        if (!Utils::isUnset($request->archiveDuration)) {
+            $query['ArchiveDuration'] = $request->archiveDuration;
         }
         if (!Utils::isUnset($request->clusterId)) {
             $query['ClusterId'] = $request->clusterId;
@@ -12705,6 +12710,61 @@ class ARMS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updatePrometheusGlobalViewWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdatePrometheusInstanceRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdatePrometheusInstanceResponse
+     */
+    public function updatePrometheusInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->archiveDuration)) {
+            $query['ArchiveDuration'] = $request->archiveDuration;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->storageDuration)) {
+            $query['StorageDuration'] = $request->storageDuration;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdatePrometheusInstance',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdatePrometheusInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdatePrometheusInstanceRequest $request
+     *
+     * @return UpdatePrometheusInstanceResponse
+     */
+    public function updatePrometheusInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updatePrometheusInstanceWithOptions($request, $runtime);
     }
 
     /**

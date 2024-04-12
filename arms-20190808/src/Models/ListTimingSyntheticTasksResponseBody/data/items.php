@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\ListTimingSyntheticTasksResponseBody\data;
 
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ListTimingSyntheticTasksResponseBody\data\items\commonSetting;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListTimingSyntheticTasksResponseBody\data\items\tags;
 use AlibabaCloud\Tea\Model;
 
 class items extends Model
 {
+    /**
+     * @var commonSetting
+     */
+    public $commonSetting;
+
     /**
      * @description The detection frequency. Valid values: 1m, 5m, 10m, 15m, 20m, 30m, 1h, 2h, 3h, 4h, 6h, 8h, 12h, and 24h.
      *
@@ -125,6 +131,7 @@ class items extends Model
      */
     public $url;
     protected $_name = [
+        'commonSetting'   => 'CommonSetting',
         'frequency'       => 'Frequency',
         'gmtCreate'       => 'GmtCreate',
         'gmtModified'     => 'GmtModified',
@@ -147,6 +154,9 @@ class items extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->commonSetting) {
+            $res['CommonSetting'] = null !== $this->commonSetting ? $this->commonSetting->toMap() : null;
+        }
         if (null !== $this->frequency) {
             $res['Frequency'] = $this->frequency;
         }
@@ -204,6 +214,9 @@ class items extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CommonSetting'])) {
+            $model->commonSetting = commonSetting::fromMap($map['CommonSetting']);
+        }
         if (isset($map['Frequency'])) {
             $model->frequency = $map['Frequency'];
         }

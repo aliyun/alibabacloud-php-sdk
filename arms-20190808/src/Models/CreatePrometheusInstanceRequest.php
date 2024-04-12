@@ -10,8 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreatePrometheusInstanceRequest extends Model
 {
     /**
-     * @description To edit a GlobalView aggregated instance, do you require all passed child instances to be verified successfully before creating a GlobalView instance (optional, default to false):
-     * - false
+     * @description Does it require all child instances to be verified successfully before creating a GlobalView instance. The default is false, which means partial success is possible.
+     *
      * @example true
      *
      * @var bool
@@ -19,7 +19,16 @@ class CreatePrometheusInstanceRequest extends Model
     public $allSubClustersSuccess;
 
     /**
-     * @description The ID of the cluster. This parameter is required if you set ClusterType to aliyun-cs.
+     * @description The number of days for automatic archiving after storage expiration (optional values: 60, 90, 180, 365). 0 means not archive.
+     *
+     * @example 90
+     *
+     * @var int
+     */
+    public $archiveDuration;
+
+    /**
+     * @description The ID of the ACK cluster. This parameter is required if you set the ClusterType parameter to aliyun-cs.
      *
      * @example cc7a37ee31aea4ed1a059eff8034b****
      *
@@ -28,7 +37,7 @@ class CreatePrometheusInstanceRequest extends Model
     public $clusterId;
 
     /**
-     * @description The name of the cluster. This parameter is required if you set ClusterType to remote-write, ecs, or global-view.
+     * @description The name of the created cluster. This parameter is required if you set the ClusterType parameter to remote-write or ecs.
      *
      * @example clusterNameOfTest
      *
@@ -37,8 +46,14 @@ class CreatePrometheusInstanceRequest extends Model
     public $clusterName;
 
     /**
-     * @description Types include:
-     * - flink: Prometheus for Flink
+     * @description The type of the cluster to which the Prometheus instance belongs. Valid values:
+     * remote-write: Prometheus instance for remote write.
+     * ecs(Not supported): Prometheus instance for ECS.
+     * cloud-monitor(Not supported): Prometheus instance for Alibaba Cloud services in China.
+     * cloud-product(Not supported): Prometheus instance for Alibaba Cloud services outside China.
+     * global-view: Prometheus instance for GlobalView.
+     * aliyun-cs(Not supported): Prometheus instance for Container Service for Kubernetes (ACK).
+     *
      * @example remote-write
      *
      * @var string
@@ -46,12 +61,16 @@ class CreatePrometheusInstanceRequest extends Model
     public $clusterType;
 
     /**
+     * @description Data storage duration (in days).
+     *
+     * @example 90
+     *
      * @var int
      */
     public $duration;
 
     /**
-     * @description The ID of the Grafana dedicated instance. This parameter is available if you set ClusterType to ecs.
+     * @description The ID of the Grafana dedicated instance. This parameter is available if you set the ClusterType parameter to ecs.
      *
      * @example grafana-bp1*****
      *
@@ -60,7 +79,7 @@ class CreatePrometheusInstanceRequest extends Model
     public $grafanaInstanceId;
 
     /**
-     * @description The region ID. If you create a Prometheus instance for a cloud service in China, set this parameter to cn-shanghai.
+     * @description The ID of the region. If you use a Prometheus instance to monitor an Alibaba Cloud service in China, this parameter must be set to cn-shanghai.
      *
      * @example cn-shanghai
      *
@@ -69,7 +88,7 @@ class CreatePrometheusInstanceRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the custom resource group. You can specify this parameter to bind the instance to the resource group.
+     * @description The ID of the custom resource group. You can configure this parameter to bind the instance to the resource group.
      *
      * @example rg-acfmxyexli2****
      *
@@ -78,7 +97,7 @@ class CreatePrometheusInstanceRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The ID of the security group. This parameter is required if you set ClusterType to ecs or create an ASK managed cluster.
+     * @description The ID of the security group. This parameter is required if you set the ClusterType parameter to ecs.
      *
      * @example sg-bp1********
      *
@@ -87,16 +106,28 @@ class CreatePrometheusInstanceRequest extends Model
     public $securityGroupId;
 
     /**
-     * @description The child instances of the Prometheus instance for GlobalView. The value is a JSON string.
+     * @description JSON string for child instances of the globalView instance.
      *
-     * @example [ { "headers":{ }, "regionId":"cn-hangzhou", "sourceType":"AlibabaPrometheus", "extras":{ }, "clusterId":"c39a1048921e04f***********", "sourceName":"arms-luyao-test", "dataSource":"", "userId":"1672753***********" }, { "headers":{ }, "regionId":"cn-beijing", "sourceType":"AlibabaPrometheus", "extras":{ }, "clusterId":"c6b6485496d5b40***********", "sourceName":"agent-321-test", "dataSource":"", "userId":"1672753***********" }, { "headers":{ }, "regionId":"cn-zhangjiakou", "sourceType":"AlibabaPrometheus", "extras":{ }, "clusterId":"c261a4f3200c446***********", "sourceName":"zaifeng-cardinality-01", "dataSource":"", "userId":"1672753***********" } ]
-     *
+     * @example When the clusterType is global view, this parameter needs to be passed: a list of information about the clusters that need to be aggregated.
+     * },
+     * "ClusterId": "c39a1048921e04f ****************",
+     * "DataSource": "",
+     * "UserId": "1672753 ******************"
+     * },
+     * "ClusterId": "c6b6485496d5b40 ****************",
+     * "DataSource": "",
+     * "UserId": "1672753 ******************"
+     * },
+     * "ClusterId": "c261a4f3200c446 ****************",
+     * "DataSource": "",
+     * "UserId": "1672753 ******************"
+     * ]
      * @var string
      */
     public $subClustersJson;
 
     /**
-     * @description The tags of the instance. You can specify this parameter to manage tags for the instance.
+     * @description The tags of the instance. You can configure this parameter to manage tags for the instance.
      *
      * @example [
      * ]
@@ -105,7 +136,7 @@ class CreatePrometheusInstanceRequest extends Model
     public $tags;
 
     /**
-     * @description The ID of the vSwitch. This parameter is required if you set ClusterType to ecs or create an ASK managed cluster.
+     * @description The ID of the vSwitch. This parameter is required if you set the ClusterType parameter to ecs.
      *
      * @example vsw-bp1*********
      *
@@ -114,7 +145,7 @@ class CreatePrometheusInstanceRequest extends Model
     public $vSwitchId;
 
     /**
-     * @description The ID of the virtual private cloud (VPC). This parameter is required if you set ClusterType to ecs or create a serverless Kubernetes (ASK) managed cluster.
+     * @description The ID of virtual private cloud (VPC). This parameter is required if you set the ClusterType parameter to ecs.
      *
      * @example vpc-rpn**********
      *
@@ -123,6 +154,7 @@ class CreatePrometheusInstanceRequest extends Model
     public $vpcId;
     protected $_name = [
         'allSubClustersSuccess' => 'AllSubClustersSuccess',
+        'archiveDuration'       => 'ArchiveDuration',
         'clusterId'             => 'ClusterId',
         'clusterName'           => 'ClusterName',
         'clusterType'           => 'ClusterType',
@@ -146,6 +178,9 @@ class CreatePrometheusInstanceRequest extends Model
         $res = [];
         if (null !== $this->allSubClustersSuccess) {
             $res['AllSubClustersSuccess'] = $this->allSubClustersSuccess;
+        }
+        if (null !== $this->archiveDuration) {
+            $res['ArchiveDuration'] = $this->archiveDuration;
         }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
@@ -203,6 +238,9 @@ class CreatePrometheusInstanceRequest extends Model
         $model = new self();
         if (isset($map['AllSubClustersSuccess'])) {
             $model->allSubClustersSuccess = $map['AllSubClustersSuccess'];
+        }
+        if (isset($map['ArchiveDuration'])) {
+            $model->archiveDuration = $map['ArchiveDuration'];
         }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];

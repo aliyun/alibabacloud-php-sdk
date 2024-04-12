@@ -6,11 +6,9 @@ namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreatePrometheusInstanceResponseBody extends Model
+class UpdatePrometheusInstanceResponseBody extends Model
 {
     /**
-     * @description The status code. The status code 200 indicates that the request was successful.
-     *
      * @example 200
      *
      * @var int
@@ -18,17 +16,13 @@ class CreatePrometheusInstanceResponseBody extends Model
     public $code;
 
     /**
-     * @description The ID of the created Prometheus instance.
-     *
-     * @example qduukd****
+     * @example success
      *
      * @var string
      */
     public $data;
 
     /**
-     * @description The message returned.
-     *
      * @example message
      *
      * @var string
@@ -36,9 +30,9 @@ class CreatePrometheusInstanceResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description Id of the request
      *
-     * @example 70675725-8F11-4817-8106-CFE0AD71****
+     * @example 6A9AEA84-7186-4D8D-B498-4585C6A2****
      *
      * @var string
      */
@@ -76,7 +70,7 @@ class CreatePrometheusInstanceResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreatePrometheusInstanceResponseBody
+     * @return UpdatePrometheusInstanceResponseBody
      */
     public static function fromMap($map = [])
     {
