@@ -1764,6 +1764,9 @@ class AIWorkSpace extends OpenApiClient
         if (!Utils::isUnset($request->creator)) {
             $query['Creator'] = $request->creator;
         }
+        if (!Utils::isUnset($request->option)) {
+            $query['Option'] = $request->option;
+        }
         if (!Utils::isUnset($request->resource)) {
             $query['Resource'] = $request->resource;
         }

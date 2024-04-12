@@ -25,10 +25,16 @@ class GetPermissionRequest extends Model
     /**
      * @var string
      */
+    public $option;
+
+    /**
+     * @var string
+     */
     public $resource;
     protected $_name = [
         'accessibility' => 'Accessibility',
         'creator'       => 'Creator',
+        'option'        => 'Option',
         'resource'      => 'Resource',
     ];
 
@@ -44,6 +50,9 @@ class GetPermissionRequest extends Model
         }
         if (null !== $this->creator) {
             $res['Creator'] = $this->creator;
+        }
+        if (null !== $this->option) {
+            $res['Option'] = $this->option;
         }
         if (null !== $this->resource) {
             $res['Resource'] = $this->resource;
@@ -65,6 +74,9 @@ class GetPermissionRequest extends Model
         }
         if (isset($map['Creator'])) {
             $model->creator = $map['Creator'];
+        }
+        if (isset($map['Option'])) {
+            $model->option = $map['Option'];
         }
         if (isset($map['Resource'])) {
             $model->resource = $map['Resource'];
