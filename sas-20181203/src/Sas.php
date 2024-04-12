@@ -18287,6 +18287,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
         }
+        if (!Utils::isUnset($request->ids)) {
+            $query['Ids'] = $request->ids;
+        }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }

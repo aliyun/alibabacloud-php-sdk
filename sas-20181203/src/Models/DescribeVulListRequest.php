@@ -59,6 +59,11 @@ class DescribeVulListRequest extends Model
     public $groupId;
 
     /**
+     * @var string
+     */
+    public $ids;
+
+    /**
      * @description The language of the content within the request and response. Default value: **zh**. Valid values:
      *
      *   **zh**: Chinese
@@ -190,6 +195,7 @@ class DescribeVulListRequest extends Model
         'currentPage'                => 'CurrentPage',
         'dealed'                     => 'Dealed',
         'groupId'                    => 'GroupId',
+        'ids'                        => 'Ids',
         'lang'                       => 'Lang',
         'name'                       => 'Name',
         'necessity'                  => 'Necessity',
@@ -225,6 +231,9 @@ class DescribeVulListRequest extends Model
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->ids) {
+            $res['Ids'] = $this->ids;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
@@ -288,6 +297,9 @@ class DescribeVulListRequest extends Model
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['Ids'])) {
+            $model->ids = $map['Ids'];
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
