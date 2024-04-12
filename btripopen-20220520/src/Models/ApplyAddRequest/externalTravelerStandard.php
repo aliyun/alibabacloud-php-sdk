@@ -39,6 +39,16 @@ class externalTravelerStandard extends Model
     public $flightCabins;
 
     /**
+     * @var int
+     */
+    public $flightIntlRuleCode;
+
+    /**
+     * @var int
+     */
+    public $flightRuleCode;
+
+    /**
      * @var hotelCitys[]
      */
     public $hotelCitys;
@@ -47,6 +57,16 @@ class externalTravelerStandard extends Model
      * @var hotelIntlCitys[]
      */
     public $hotelIntlCitys;
+
+    /**
+     * @var int
+     */
+    public $hotelIntlRuleCode;
+
+    /**
+     * @var int
+     */
+    public $hotelRuleCode;
 
     /**
      * @example F
@@ -70,6 +90,11 @@ class externalTravelerStandard extends Model
     public $reserveType;
 
     /**
+     * @var int
+     */
+    public $trainRuleCode;
+
+    /**
      * @example 0
      *
      * @var string
@@ -80,11 +105,16 @@ class externalTravelerStandard extends Model
         'economyDiscount'           => 'economy_discount',
         'firstDiscount'             => 'first_discount',
         'flightCabins'              => 'flight_cabins',
+        'flightIntlRuleCode'        => 'flight_intl_rule_code',
+        'flightRuleCode'            => 'flight_rule_code',
         'hotelCitys'                => 'hotel_citys',
         'hotelIntlCitys'            => 'hotel_intl_citys',
+        'hotelIntlRuleCode'         => 'hotel_intl_rule_code',
+        'hotelRuleCode'             => 'hotel_rule_code',
         'internationalFlightCabins' => 'international_flight_cabins',
         'premiumEconomyDiscount'    => 'premium_economy_discount',
         'reserveType'               => 'reserve_type',
+        'trainRuleCode'             => 'train_rule_code',
         'trainSeats'                => 'train_seats',
     ];
 
@@ -107,6 +137,12 @@ class externalTravelerStandard extends Model
         if (null !== $this->flightCabins) {
             $res['flight_cabins'] = $this->flightCabins;
         }
+        if (null !== $this->flightIntlRuleCode) {
+            $res['flight_intl_rule_code'] = $this->flightIntlRuleCode;
+        }
+        if (null !== $this->flightRuleCode) {
+            $res['flight_rule_code'] = $this->flightRuleCode;
+        }
         if (null !== $this->hotelCitys) {
             $res['hotel_citys'] = [];
             if (null !== $this->hotelCitys && \is_array($this->hotelCitys)) {
@@ -125,6 +161,12 @@ class externalTravelerStandard extends Model
                 }
             }
         }
+        if (null !== $this->hotelIntlRuleCode) {
+            $res['hotel_intl_rule_code'] = $this->hotelIntlRuleCode;
+        }
+        if (null !== $this->hotelRuleCode) {
+            $res['hotel_rule_code'] = $this->hotelRuleCode;
+        }
         if (null !== $this->internationalFlightCabins) {
             $res['international_flight_cabins'] = $this->internationalFlightCabins;
         }
@@ -133,6 +175,9 @@ class externalTravelerStandard extends Model
         }
         if (null !== $this->reserveType) {
             $res['reserve_type'] = $this->reserveType;
+        }
+        if (null !== $this->trainRuleCode) {
+            $res['train_rule_code'] = $this->trainRuleCode;
         }
         if (null !== $this->trainSeats) {
             $res['train_seats'] = $this->trainSeats;
@@ -161,6 +206,12 @@ class externalTravelerStandard extends Model
         if (isset($map['flight_cabins'])) {
             $model->flightCabins = $map['flight_cabins'];
         }
+        if (isset($map['flight_intl_rule_code'])) {
+            $model->flightIntlRuleCode = $map['flight_intl_rule_code'];
+        }
+        if (isset($map['flight_rule_code'])) {
+            $model->flightRuleCode = $map['flight_rule_code'];
+        }
         if (isset($map['hotel_citys'])) {
             if (!empty($map['hotel_citys'])) {
                 $model->hotelCitys = [];
@@ -179,6 +230,12 @@ class externalTravelerStandard extends Model
                 }
             }
         }
+        if (isset($map['hotel_intl_rule_code'])) {
+            $model->hotelIntlRuleCode = $map['hotel_intl_rule_code'];
+        }
+        if (isset($map['hotel_rule_code'])) {
+            $model->hotelRuleCode = $map['hotel_rule_code'];
+        }
         if (isset($map['international_flight_cabins'])) {
             $model->internationalFlightCabins = $map['international_flight_cabins'];
         }
@@ -187,6 +244,9 @@ class externalTravelerStandard extends Model
         }
         if (isset($map['reserve_type'])) {
             $model->reserveType = $map['reserve_type'];
+        }
+        if (isset($map['train_rule_code'])) {
+            $model->trainRuleCode = $map['train_rule_code'];
         }
         if (isset($map['train_seats'])) {
             $model->trainSeats = $map['train_seats'];

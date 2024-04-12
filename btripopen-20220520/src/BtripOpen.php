@@ -488,6 +488,13 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainStationSearchResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainTicketScanQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainTicketScanQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainTicketScanQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TravelStandardListQueryHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TravelStandardListQueryRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TravelStandardListQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TravelStandardQueryHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TravelStandardQueryRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TravelStandardQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TravelStandardQueryShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\UserQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\UserQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\UserQueryResponse;
@@ -10772,6 +10779,132 @@ class BtripOpen extends OpenApiClient
         $headers = new TrainTicketScanQueryHeaders([]);
 
         return $this->trainTicketScanQueryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param TravelStandardListQueryRequest $request
+     * @param TravelStandardListQueryHeaders $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return TravelStandardListQueryResponse
+     */
+    public function travelStandardListQueryWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->fromGroup)) {
+            $query['from_group'] = $request->fromGroup;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['page_no'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['page_size'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['rule_name'] = $request->ruleName;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TravelStandardListQuery',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/travel-manage/v1/standards/list',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return TravelStandardListQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TravelStandardListQueryRequest $request
+     *
+     * @return TravelStandardListQueryResponse
+     */
+    public function travelStandardListQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new TravelStandardListQueryHeaders([]);
+
+        return $this->travelStandardListQueryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param TravelStandardQueryRequest $tmpReq
+     * @param TravelStandardQueryHeaders $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return TravelStandardQueryResponse
+     */
+    public function travelStandardQueryWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new TravelStandardQueryShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->serviceTypeList)) {
+            $request->serviceTypeListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->serviceTypeList, 'service_type_list', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->fromGroup)) {
+            $query['from_group'] = $request->fromGroup;
+        }
+        if (!Utils::isUnset($request->ruleCode)) {
+            $query['rule_code'] = $request->ruleCode;
+        }
+        if (!Utils::isUnset($request->serviceTypeListShrink)) {
+            $query['service_type_list'] = $request->serviceTypeListShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TravelStandardQuery',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/travel-manage/v1/standards/detail',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return TravelStandardQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TravelStandardQueryRequest $request
+     *
+     * @return TravelStandardQueryResponse
+     */
+    public function travelStandardQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new TravelStandardQueryHeaders([]);
+
+        return $this->travelStandardQueryWithOptions($request, $headers, $runtime);
     }
 
     /**

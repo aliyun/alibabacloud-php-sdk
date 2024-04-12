@@ -45,6 +45,16 @@ class travelerStandard extends Model
     public $flightCabins;
 
     /**
+     * @var int
+     */
+    public $flightIntlRuleCode;
+
+    /**
+     * @var int
+     */
+    public $flightRuleCode;
+
+    /**
      * @var hotelCitys[]
      */
     public $hotelCitys;
@@ -53,6 +63,16 @@ class travelerStandard extends Model
      * @var hotelIntlCitys[]
      */
     public $hotelIntlCitys;
+
+    /**
+     * @var int
+     */
+    public $hotelIntlRuleCode;
+
+    /**
+     * @var int
+     */
+    public $hotelRuleCode;
 
     /**
      * @description 超级经济舱折扣。1到10的整数
@@ -69,6 +89,11 @@ class travelerStandard extends Model
      * @var int
      */
     public $reserveType;
+
+    /**
+     * @var int
+     */
+    public $trainRuleCode;
 
     /**
      * @example 1
@@ -89,10 +114,15 @@ class travelerStandard extends Model
         'economyDiscount'        => 'economy_discount',
         'firstDiscount'          => 'first_discount',
         'flightCabins'           => 'flight_cabins',
+        'flightIntlRuleCode'     => 'flight_intl_rule_code',
+        'flightRuleCode'         => 'flight_rule_code',
         'hotelCitys'             => 'hotel_citys',
         'hotelIntlCitys'         => 'hotel_intl_citys',
+        'hotelIntlRuleCode'      => 'hotel_intl_rule_code',
+        'hotelRuleCode'          => 'hotel_rule_code',
         'premiumEconomyDiscount' => 'premium_economy_discount',
         'reserveType'            => 'reserve_type',
+        'trainRuleCode'          => 'train_rule_code',
         'trainSeats'             => 'train_seats',
         'userId'                 => 'user_id',
     ];
@@ -125,6 +155,12 @@ class travelerStandard extends Model
         if (null !== $this->flightCabins) {
             $res['flight_cabins'] = $this->flightCabins;
         }
+        if (null !== $this->flightIntlRuleCode) {
+            $res['flight_intl_rule_code'] = $this->flightIntlRuleCode;
+        }
+        if (null !== $this->flightRuleCode) {
+            $res['flight_rule_code'] = $this->flightRuleCode;
+        }
         if (null !== $this->hotelCitys) {
             $res['hotel_citys'] = [];
             if (null !== $this->hotelCitys && \is_array($this->hotelCitys)) {
@@ -143,11 +179,20 @@ class travelerStandard extends Model
                 }
             }
         }
+        if (null !== $this->hotelIntlRuleCode) {
+            $res['hotel_intl_rule_code'] = $this->hotelIntlRuleCode;
+        }
+        if (null !== $this->hotelRuleCode) {
+            $res['hotel_rule_code'] = $this->hotelRuleCode;
+        }
         if (null !== $this->premiumEconomyDiscount) {
             $res['premium_economy_discount'] = $this->premiumEconomyDiscount;
         }
         if (null !== $this->reserveType) {
             $res['reserve_type'] = $this->reserveType;
+        }
+        if (null !== $this->trainRuleCode) {
+            $res['train_rule_code'] = $this->trainRuleCode;
         }
         if (null !== $this->trainSeats) {
             $res['train_seats'] = $this->trainSeats;
@@ -188,6 +233,12 @@ class travelerStandard extends Model
         if (isset($map['flight_cabins'])) {
             $model->flightCabins = $map['flight_cabins'];
         }
+        if (isset($map['flight_intl_rule_code'])) {
+            $model->flightIntlRuleCode = $map['flight_intl_rule_code'];
+        }
+        if (isset($map['flight_rule_code'])) {
+            $model->flightRuleCode = $map['flight_rule_code'];
+        }
         if (isset($map['hotel_citys'])) {
             if (!empty($map['hotel_citys'])) {
                 $model->hotelCitys = [];
@@ -206,11 +257,20 @@ class travelerStandard extends Model
                 }
             }
         }
+        if (isset($map['hotel_intl_rule_code'])) {
+            $model->hotelIntlRuleCode = $map['hotel_intl_rule_code'];
+        }
+        if (isset($map['hotel_rule_code'])) {
+            $model->hotelRuleCode = $map['hotel_rule_code'];
+        }
         if (isset($map['premium_economy_discount'])) {
             $model->premiumEconomyDiscount = $map['premium_economy_discount'];
         }
         if (isset($map['reserve_type'])) {
             $model->reserveType = $map['reserve_type'];
+        }
+        if (isset($map['train_rule_code'])) {
+            $model->trainRuleCode = $map['train_rule_code'];
         }
         if (isset($map['train_seats'])) {
             $model->trainSeats = $map['train_seats'];
