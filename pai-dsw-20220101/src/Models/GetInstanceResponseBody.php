@@ -11,6 +11,7 @@ use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceResponseBody\instanceShu
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceResponseBody\instanceSnapshotList;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceResponseBody\labels;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceResponseBody\latestSnapshot;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceResponseBody\nodeErrorRecovery;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceResponseBody\requestedResource;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceResponseBody\userVpc;
 use AlibabaCloud\Tea\Model;
@@ -189,6 +190,11 @@ class GetInstanceResponseBody extends Model
     public $message;
 
     /**
+     * @var nodeErrorRecovery
+     */
+    public $nodeErrorRecovery;
+
+    /**
      * @example PayAsYouGo
      *
      * @var string
@@ -339,6 +345,7 @@ class GetInstanceResponseBody extends Model
         'labels'                     => 'Labels',
         'latestSnapshot'             => 'LatestSnapshot',
         'message'                    => 'Message',
+        'nodeErrorRecovery'          => 'NodeErrorRecovery',
         'paymentType'                => 'PaymentType',
         'priority'                   => 'Priority',
         'reasonCode'                 => 'ReasonCode',
@@ -464,6 +471,9 @@ class GetInstanceResponseBody extends Model
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
+        }
+        if (null !== $this->nodeErrorRecovery) {
+            $res['NodeErrorRecovery'] = null !== $this->nodeErrorRecovery ? $this->nodeErrorRecovery->toMap() : null;
         }
         if (null !== $this->paymentType) {
             $res['PaymentType'] = $this->paymentType;
@@ -629,6 +639,9 @@ class GetInstanceResponseBody extends Model
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
+        }
+        if (isset($map['NodeErrorRecovery'])) {
+            $model->nodeErrorRecovery = nodeErrorRecovery::fromMap($map['NodeErrorRecovery']);
         }
         if (isset($map['PaymentType'])) {
             $model->paymentType = $map['PaymentType'];
