@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListHostAccountsResponseBody extends Model
 {
     /**
-     * @description The ID of the host account.
+     * @description An array that consists of the queried host accounts.
      *
      * @var hostAccounts[]
      */
     public $hostAccounts;
 
     /**
-     * @description An array that consists of the queried host accounts.
+     * @description The ID of the request.
      *
      * @example EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
      *
@@ -26,9 +26,8 @@ class ListHostAccountsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the bastion host in which you want to query accounts of the specified host.
+     * @description The total number of host accounts that are queried.
      *
-     * >  You can call the DescribeInstances operation to query the ID of the bastion host.
      * @example 1
      *
      * @var int

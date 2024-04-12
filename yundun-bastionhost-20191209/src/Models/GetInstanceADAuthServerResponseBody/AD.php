@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AD extends Model
 {
     /**
-     * @description The port that is used to access the AD server.
+     * @description The distinguished name (DN) of the AD server account.
      *
      * @example cn=Manager,dc=test,dc=com
      *
@@ -18,9 +18,8 @@ class AD extends Model
     public $account;
 
     /**
-     * @description The ID of the bastion host to query.
+     * @description The Base DN of the AD server.
      *
-     * You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
      * @example dc=test,dc=com
      *
      * @var string
@@ -28,7 +27,7 @@ class AD extends Model
     public $baseDN;
 
     /**
-     * @description The settings of AD authentication.
+     * @description The domain on the AD server.
      *
      * @example domain
      *
@@ -37,7 +36,7 @@ class AD extends Model
     public $domain;
 
     /**
-     * @description The address of the secondary AD server.
+     * @description The field that is used to indicate the email address of a user on the AD server.
      *
      * @example emailAttr
      *
@@ -46,7 +45,7 @@ class AD extends Model
     public $emailMapping;
 
     /**
-     * @description The field that is used to indicate the mobile phone number of a user on the AD server.
+     * @description The condition that is used to filter users.
      *
      * @example (&(objectClass=top))
      *
@@ -55,7 +54,10 @@ class AD extends Model
     public $filter;
 
     /**
-     * @description The address of the AD server.
+     * @description Indicates whether passwords are required. Valid values:
+     *
+     *   **true**:
+     *   **false**
      *
      * @example true
      *
@@ -64,7 +66,10 @@ class AD extends Model
     public $hasPassword;
 
     /**
-     * @description The Base DN of the AD server.
+     * @description Indicates whether SSL is supported. Valid values:
+     *
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -73,7 +78,7 @@ class AD extends Model
     public $isSSL;
 
     /**
-     * @description The field that is used to indicate the name of a user on the AD server.
+     * @description The field that is used to indicate the mobile phone number of a user on the AD server.
      *
      * @example mobileAttr
      *
@@ -82,7 +87,7 @@ class AD extends Model
     public $mobileMapping;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The field that is used to indicate the name of a user on the AD server.
      *
      * @example nameAttr
      *
@@ -91,7 +96,7 @@ class AD extends Model
     public $nameMapping;
 
     /**
-     * @description Queries the settings of Active Directory (AD) authentication on a bastion host.
+     * @description The port that is used to access the AD server.
      *
      * @example 389
      *
@@ -100,6 +105,8 @@ class AD extends Model
     public $port;
 
     /**
+     * @description The address of the LDAP server.
+     *
      * @example 192.168.XX.XX
      *
      * @var string
@@ -107,6 +114,8 @@ class AD extends Model
     public $server;
 
     /**
+     * @description The address of the secondary LDAP server.
+     *
      * @example 192.168.XX.XX
      *
      * @var string

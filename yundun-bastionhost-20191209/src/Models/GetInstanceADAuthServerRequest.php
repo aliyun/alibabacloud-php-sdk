@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceADAuthServerRequest extends Model
 {
     /**
-     * @description The field that is used to indicate the email address of a user on the AD server.
+     * @description The ID of the bastion host. You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
      *
      * @example bastionhost-cn-st220aw****
      *
@@ -18,11 +18,9 @@ class GetInstanceADAuthServerRequest extends Model
     public $instanceId;
 
     /**
-     * @description Indicates whether passwords are required. Valid values:
+     * @description The region ID of the bastion host.
      *
-     *   **true**: required
-     *   **false**: not required
-     *
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
      * @example cn-hangzhou
      *
      * @var string

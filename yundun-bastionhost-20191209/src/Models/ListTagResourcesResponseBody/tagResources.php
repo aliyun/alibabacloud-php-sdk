@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tagResources extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
      * @example bastionhost-cn-78v1gc****
      *
      * @var string
@@ -16,6 +18,9 @@ class tagResources extends Model
     public $resourceId;
 
     /**
+     * @description The type of the resource.
+     *
+     * The returned value is INSTANCE, which indicates that the resource is a Bastionhost instance.
      * @example INSTANCE
      *
      * @var string
@@ -23,6 +28,8 @@ class tagResources extends Model
     public $resourceType;
 
     /**
+     * @description The key of the tag.
+     *
      * @example test
      *
      * @var string
@@ -30,6 +37,8 @@ class tagResources extends Model
     public $tagKey;
 
     /**
+     * @description The value of the tag.
+     *
      * @example testapi
      *
      * @var string

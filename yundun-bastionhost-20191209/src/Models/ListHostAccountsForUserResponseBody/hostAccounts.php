@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class hostAccounts extends Model
 {
     /**
-     * @description The protocol that is used by the host account. Valid values:
-     *
-     *   **SSH**
-     *   **RDP**
+     * @description The ID of the host account.
      *
      * @example 1
      *
@@ -21,7 +18,7 @@ class hostAccounts extends Model
     public $hostAccountId;
 
     /**
-     * @description The ID of the host account.
+     * @description The name of the host account.
      *
      * @example root
      *
@@ -30,7 +27,7 @@ class hostAccounts extends Model
     public $hostAccountName;
 
     /**
-     * @description The ID of the request.
+     * @description The ID of the host for which the host accounts were queried.
      *
      * @example 1
      *
@@ -39,9 +36,11 @@ class hostAccounts extends Model
     public $hostId;
 
     /**
-     * @description The ID of the host for which you want to query the host accounts that the user is authorized to manage.
+     * @description Indicates whether the user is authorized to manage the host account. Valid values:
      *
-     * >  You can call the [ListHosts](~~200665~~) operation to query the ID of the host.
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example true
      *
      * @var bool
@@ -49,10 +48,10 @@ class hostAccounts extends Model
     public $isAuthorized;
 
     /**
-     * @description Indicates whether the user is authorized to manage the host account. Valid values:
+     * @description The protocol that is used by the host. Valid values:
      *
-     *   **true**: The user is authorized to manage the host account.
-     *   **false**: The user is not authorized to manage the host account.
+     *   **SSH**
+     *   **RDP**
      *
      * @example SSH
      *

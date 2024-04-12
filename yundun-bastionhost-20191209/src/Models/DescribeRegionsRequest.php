@@ -9,7 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeRegionsRequest extends Model
 {
     /**
-     * @description The ID of the region.
+     * @description The natural language in which responses are returned. Valid values:
+     *
+     *   **zh-CN**: Chinese. This is the default value.
+     *   **en-US**: English.
+     *   **ja**: Japanese.
      *
      * @example zh-CN
      *
@@ -18,7 +22,7 @@ class DescribeRegionsRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The ID of request.
+     * @description The ID of the region.
      *
      * @example cn-shenzhen
      *

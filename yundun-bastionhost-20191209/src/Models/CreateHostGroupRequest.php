@@ -39,10 +39,7 @@ class CreateHostGroupRequest extends Model
     /**
      * @description The region ID of the bastion host on which you want to create a host group.
      *
-     **
-     *
-     **For more information about the mapping between region IDs and region names, see **Regions and zones[.](~~40654~~)
-     *
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
      * @example cn-hangzhou
      *
      * @var string

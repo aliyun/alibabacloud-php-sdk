@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesResponseBody extends Model
 {
     /**
-     * @description Queries the tags bound to one or more Bastionhost instances.
+     * @description The token for starting the next query.
      *
      * @example 4ieSWJCwxvW3dk3wF.BqkrZmP72nWu5zJ5NWydMqyEs****
      *
@@ -19,7 +19,7 @@ class ListTagResourcesResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description ListTagResources
+     * @description The ID of the request.
      *
      * @example 134D6018-EB68-4B7C-BABF-4DB09023E014
      *
@@ -28,8 +28,9 @@ class ListTagResourcesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description 58928
+     * @description The information about Bastionhost instances and the tags bound to Bastionhost instances.
      *
+     * The following information is included: instance ID, resource type, tag key, and tag value.
      * @var tagResources[]
      */
     public $tagResources;

@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteUserPublicKeyRequest extends Model
 {
     /**
-     * @description The region ID of the bastion host on which you want to delete the public key from the user.
+     * @description The ID of the Bastionhost instance to which the users to be queried belong.
      *
-     * > You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
+     * >  You can call the [DescribeInstances](~~153281~~) operation to query the ID of the Bastionhost instance.
      * @example bastionhost-cn-st220aw****
      *
      * @var string

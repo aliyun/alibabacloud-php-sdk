@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeRegionsResponseBody extends Model
 {
     /**
-     * @description DescribeRegions
+     * @description The information about regions where you can create bastion hosts.
      *
      * @var regions[]
      */
     public $regions;
 
     /**
-     * @description Queries available regions where you can create bastion hosts.
+     * @description The ID of request.
      *
      * @example B7281856-F27D-4ECE-B4F1-50511E550xxx
      *

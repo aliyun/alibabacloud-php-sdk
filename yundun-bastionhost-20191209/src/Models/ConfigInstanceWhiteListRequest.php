@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ConfigInstanceWhiteListRequest extends Model
 {
     /**
-     * @description The ID of the bastion host for which a whitelist of public IP addresses is configured.
+     * @description The ID of the bastion host for which you want to configure a whitelist of public IP addresses.
      *
      * @example bastionhost-cn-78v1gh****
      *
@@ -18,7 +18,7 @@ class ConfigInstanceWhiteListRequest extends Model
     public $instanceId;
 
     /**
-     * @description Configures a whitelist of public IP addresses for a bastion host.
+     * @description The region ID of the bastion host.
      *
      * @example cn-hangzhou
      *
@@ -27,7 +27,7 @@ class ConfigInstanceWhiteListRequest extends Model
     public $regionId;
 
     /**
-     * @description ConfigInstanceWhiteList
+     * @description The public IP addresses that you want to add to the whitelist.
      *
      * @example 10.162.XX.XX
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListHostAccountsForUserRequest extends Model
 {
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The name of the host account that you want to query. Exact match is supported.
      *
      * @example root
      *
@@ -18,8 +18,9 @@ class ListHostAccountsForUserRequest extends Model
     public $hostAccountName;
 
     /**
-     * @description The ID of the host for which the host accounts were queried.
+     * @description The ID of the host to query.
      *
+     * > You can call the [ListHosts](~~200665~~) operation to query the ID of the host.
      * @example 1
      *
      * @var string
@@ -27,8 +28,9 @@ class ListHostAccountsForUserRequest extends Model
     public $hostId;
 
     /**
-     * @description The total number of host accounts returned.
+     * @description The ID of the bastion host on which you want to perform the query. The host accounts that the specified user is authorized to manage on the specified host are queried.
      *
+     * > You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -36,9 +38,8 @@ class ListHostAccountsForUserRequest extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the user for which you want to query authorized host accounts.
+     * @description The number of the page to return. Default value: **1**.
      *
-     * >  You can call the [ListUsers](~~204522~~) operation to query the ID of the user ID.
      * @example 1
      *
      * @var string
@@ -46,8 +47,8 @@ class ListHostAccountsForUserRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The name of the host account that you want to query. Exact match is supported.
-     *
+     * @description The number of entries to return on each page.\
+     * > We recommend that you do not leave this parameter empty.
      * @example 20
      *
      * @var string
@@ -55,8 +56,9 @@ class ListHostAccountsForUserRequest extends Model
     public $pageSize;
 
     /**
-     * @description The name of the host account.
+     * @description The region ID of the bastion host on which you want to perform the query. The host accounts that the specified user is authorized to manage on the specified host are queried.
      *
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
      * @example cn-hangzhou
      *
      * @var string
@@ -64,9 +66,9 @@ class ListHostAccountsForUserRequest extends Model
     public $regionId;
 
     /**
-     * @description The region ID of the Bastionhost instance where you want to query the host accounts that the user is authorized to manage on the host.
+     * @description The ID of the user for which you want to query authorized host accounts.
      *
-     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
+     * > You can call the [ListUsers](~~204522~~) operation to query the ID of the user.
      * @example 1
      *
      * @var string

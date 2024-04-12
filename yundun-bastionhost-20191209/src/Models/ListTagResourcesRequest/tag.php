@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The key of tag N.
      *
+     * Valid values of N: 1 to 20.
      * @example test
      *
      * @var string
@@ -18,9 +19,9 @@ class tag extends Model
     public $key;
 
     /**
-     * @description The type of the resource.
+     * @description The value of tag N.
      *
-     * The returned value is INSTANCE, which indicates that the resource is a Bastionhost instance.
+     * Valid values of N: 1 to 20.
      * @example testapi
      *
      * @var string

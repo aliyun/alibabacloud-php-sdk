@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
-     * @description The region ID of the Bastionhost instance.
+     * @description The token for starting the next query.
      *
      * @example 6EwFJmScBXFFC3nf.9Rq7HzA7APx7GWLbkZbjHrR6Pq39w
      *
@@ -19,7 +19,7 @@ class ListTagResourcesRequest extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the instance.
+     * @description The region ID of the Bastionhost instance.
      *
      * @example cn-hangzhou
      *
@@ -28,7 +28,7 @@ class ListTagResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @description The value of the tag.
+     * @description The IDs of instances. The ID is up to 20.
      *
      * @example bastionhost-cn-78v1gcxxxxx
      *
@@ -37,9 +37,9 @@ class ListTagResourcesRequest extends Model
     public $resourceId;
 
     /**
-     * @description The operation that you want to perform.
+     * @description The type of the resource.
      *
-     * Set the value to **ListTagResources**.
+     * Set the value to INSTANCE, which indicates that the resource is a Bastionhost instance.
      * @example INSTANCE
      *
      * @var string
@@ -47,9 +47,8 @@ class ListTagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description The key of tag N.
+     * @description The tags.
      *
-     * Valid values of N: 1 to 20.
      * @var tag[]
      */
     public $tag;

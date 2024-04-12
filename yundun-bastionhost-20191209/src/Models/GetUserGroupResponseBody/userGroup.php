@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class userGroup extends Model
 {
     /**
-     * @description GetUserGroup
+     * @description The description of the user group.
      *
      * @example comment
      *
@@ -18,6 +18,8 @@ class userGroup extends Model
     public $comment;
 
     /**
+     * @description The ID of the group.
+     *
      * @example 1
      *
      * @var string
@@ -25,7 +27,7 @@ class userGroup extends Model
     public $userGroupId;
 
     /**
-     * @description WB662865
+     * @description The name of the user group.
      *
      * @example UserGroup01
      *

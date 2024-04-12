@@ -10,10 +10,16 @@ use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AcceptApproveCommandRequ
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AcceptApproveCommandResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AcceptOperationTicketRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AcceptOperationTicketResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AddDatabasesToGroupRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AddDatabasesToGroupResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AddHostsToGroupRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AddHostsToGroupResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AddUsersToGroupRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AddUsersToGroupResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AttachDatabaseAccountsToUserGroupRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AttachDatabaseAccountsToUserGroupResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AttachDatabaseAccountsToUserRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AttachDatabaseAccountsToUserResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AttachHostAccountsToHostShareKeyRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AttachHostAccountsToHostShareKeyResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AttachHostAccountsToUserGroupRequest;
@@ -28,6 +34,10 @@ use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ConfigInstanceSecurityGr
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ConfigInstanceSecurityGroupsResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ConfigInstanceWhiteListRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ConfigInstanceWhiteListResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateDatabaseAccountRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateDatabaseAccountResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateDatabaseRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateDatabaseResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateHostAccountRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateHostAccountResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateHostGroupRequest;
@@ -36,12 +46,22 @@ use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateHostRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateHostResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateHostShareKeyRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateHostShareKeyResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateNetworkDomainRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateNetworkDomainResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreatePolicyRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreatePolicyResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateRuleRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateRuleResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateUserGroupRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateUserGroupResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateUserPublicKeyRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateUserPublicKeyResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateUserRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateUserResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DeleteDatabaseAccountRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DeleteDatabaseAccountResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DeleteDatabaseRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DeleteDatabaseResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DeleteHostAccountRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DeleteHostAccountResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DeleteHostGroupRequest;
@@ -50,6 +70,12 @@ use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DeleteHostRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DeleteHostResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DeleteHostShareKeyRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DeleteHostShareKeyResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DeleteNetworkDomainRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DeleteNetworkDomainResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DeletePolicyRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DeletePolicyResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DeleteRuleRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DeleteRuleResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DeleteUserGroupRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DeleteUserGroupResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DeleteUserPublicKeyRequest;
@@ -62,6 +88,10 @@ use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DescribeInstancesRequest
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DescribeInstancesResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DescribeRegionsResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DetachDatabaseAccountsFromUserGroupRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DetachDatabaseAccountsFromUserGroupResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DetachDatabaseAccountsFromUserRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DetachDatabaseAccountsFromUserResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DetachHostAccountsFromHostShareKeyRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DetachHostAccountsFromHostShareKeyResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DetachHostAccountsFromUserGroupRequest;
@@ -74,8 +104,18 @@ use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DetachHostGroupAccountsF
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DetachHostGroupAccountsFromUserResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DisableInstancePublicAccessRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DisableInstancePublicAccessResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DisableRuleRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DisableRuleResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\EnableInstancePublicAccessRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\EnableInstancePublicAccessResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\EnableRuleRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\EnableRuleResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GenerateAssetOperationTokenRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GenerateAssetOperationTokenResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetDatabaseAccountRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetDatabaseAccountResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetDatabaseRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetDatabaseResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetHostAccountRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetHostAccountResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetHostGroupRequest;
@@ -90,12 +130,34 @@ use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetInstanceLDAPAuthServe
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetInstanceLDAPAuthServerResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetInstanceTwoFactorRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetInstanceTwoFactorResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetNetworkDomainRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetNetworkDomainResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetPolicyAssetScopeRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetPolicyAssetScopeResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetPolicyRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetPolicyResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetPolicyUserScopeRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetPolicyUserScopeResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetRuleRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetRuleResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetUserGroupRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetUserGroupResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetUserRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetUserResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListApproveCommandsRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListApproveCommandsResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListDatabaseAccountsForUserGroupRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListDatabaseAccountsForUserGroupResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListDatabaseAccountsForUserRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListDatabaseAccountsForUserResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListDatabaseAccountsRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListDatabaseAccountsResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListDatabasesForUserGroupRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListDatabasesForUserGroupResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListDatabasesForUserRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListDatabasesForUserResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListDatabasesRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListDatabasesResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListHostAccountsForHostShareKeyRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListHostAccountsForHostShareKeyResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListHostAccountsForUserGroupRequest;
@@ -122,8 +184,22 @@ use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListHostShareKeysRequest
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListHostShareKeysResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListHostsRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListHostsResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListNetworkDomainsRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListNetworkDomainsResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListOperationDatabaseAccountsRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListOperationDatabaseAccountsResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListOperationDatabasesRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListOperationDatabasesResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListOperationHostAccountsRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListOperationHostAccountsResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListOperationHostsRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListOperationHostsResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListOperationTicketsRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListOperationTicketsResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListPoliciesRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListPoliciesResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListRulesRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListRulesResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListTagKeysRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListTagKeysResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListTagResourcesRequest;
@@ -136,6 +212,10 @@ use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListUsersRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListUsersResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\LockUsersRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\LockUsersResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyDatabaseAccountRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyDatabaseAccountResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyDatabaseRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyDatabaseResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyHostAccountRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyHostAccountResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyHostGroupRequest;
@@ -156,22 +236,57 @@ use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyInstanceLDAPAuthSe
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyInstanceLDAPAuthServerResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyInstanceTwoFactorRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyInstanceTwoFactorResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyNetworkDomainRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyNetworkDomainResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyPolicyRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyPolicyResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyRuleRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyRuleResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyUserGroupRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyUserGroupResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyUserPublicKeyRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyUserPublicKeyResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyUserRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyUserResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\MoveDatabasesToNetworkDomainRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\MoveDatabasesToNetworkDomainResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\MoveHostsToNetworkDomainRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\MoveHostsToNetworkDomainResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\MoveResourceGroupRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\MoveResourceGroupResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\RejectApproveCommandRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\RejectApproveCommandResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\RejectOperationTicketRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\RejectOperationTicketResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\RemoveDatabasesFromGroupRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\RemoveDatabasesFromGroupResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\RemoveHostsFromGroupRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\RemoveHostsFromGroupResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\RemoveUsersFromGroupRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\RemoveUsersFromGroupResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\RenewAssetOperationTokenRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\RenewAssetOperationTokenResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ResetHostAccountCredentialRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ResetHostAccountCredentialResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\SetPolicyAccessTimeRangeConfigRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\SetPolicyAccessTimeRangeConfigResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\SetPolicyAccessTimeRangeConfigShrinkRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\SetPolicyApprovalConfigRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\SetPolicyApprovalConfigResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\SetPolicyApprovalConfigShrinkRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\SetPolicyAssetScopeRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\SetPolicyAssetScopeResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\SetPolicyCommandConfigRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\SetPolicyCommandConfigResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\SetPolicyCommandConfigShrinkRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\SetPolicyIPAclConfigRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\SetPolicyIPAclConfigResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\SetPolicyIPAclConfigShrinkRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\SetPolicyProtocolConfigRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\SetPolicyProtocolConfigResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\SetPolicyProtocolConfigShrinkRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\SetPolicyUserScopeRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\SetPolicyUserScopeResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\StartInstanceRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\StartInstanceResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\TagResourcesRequest;
@@ -180,6 +295,10 @@ use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\UnlockUsersRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\UnlockUsersResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\VerifyInstanceADAuthServerRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\VerifyInstanceADAuthServerResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\VerifyInstanceLDAPAuthServerRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\VerifyInstanceLDAPAuthServerResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -333,6 +452,58 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
+     * @param AddDatabasesToGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return AddDatabasesToGroupResponse
+     */
+    public function addDatabasesToGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->databaseIds)) {
+            $query['DatabaseIds'] = $request->databaseIds;
+        }
+        if (!Utils::isUnset($request->hostGroupId)) {
+            $query['HostGroupId'] = $request->hostGroupId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddDatabasesToGroup',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddDatabasesToGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddDatabasesToGroupRequest $request
+     *
+     * @return AddDatabasesToGroupResponse
+     */
+    public function addDatabasesToGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addDatabasesToGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * You can call this operation to add one or more hosts to a host group. You can add multiple hosts to a host group to manage and grant permissions on the hosts in a centralized manner.
      *   * # Limits
      *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
@@ -452,6 +623,110 @@ class Yundunbastionhost extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addUsersToGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AttachDatabaseAccountsToUserRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return AttachDatabaseAccountsToUserResponse
+     */
+    public function attachDatabaseAccountsToUserWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->databases)) {
+            $query['Databases'] = $request->databases;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AttachDatabaseAccountsToUser',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AttachDatabaseAccountsToUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AttachDatabaseAccountsToUserRequest $request
+     *
+     * @return AttachDatabaseAccountsToUserResponse
+     */
+    public function attachDatabaseAccountsToUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->attachDatabaseAccountsToUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AttachDatabaseAccountsToUserGroupRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return AttachDatabaseAccountsToUserGroupResponse
+     */
+    public function attachDatabaseAccountsToUserGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->databases)) {
+            $query['Databases'] = $request->databases;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->userGroupId)) {
+            $query['UserGroupId'] = $request->userGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AttachDatabaseAccountsToUserGroup',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AttachDatabaseAccountsToUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AttachDatabaseAccountsToUserGroupRequest $request
+     *
+     * @return AttachDatabaseAccountsToUserGroupResponse
+     */
+    public function attachDatabaseAccountsToUserGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->attachDatabaseAccountsToUserGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -771,7 +1046,10 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * The ID of the request, which is used to locate and troubleshoot issues.
+     * ## Usage notes
+     *   * You can call this operation to configure a whitelist of public IP addresses for a bastion host. By default, a bastion host is accessible from all public IP addresses. If you want to allow the requests from specific public IP addresses, you can call this operation to add trusted IP addresses to the whitelist of the bastion host.
+     *   * ## Limits
+     *   * You can call this operation up to 30 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param ConfigInstanceWhiteListRequest $request ConfigInstanceWhiteListRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -810,7 +1088,10 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * The ID of the request, which is used to locate and troubleshoot issues.
+     * ## Usage notes
+     *   * You can call this operation to configure a whitelist of public IP addresses for a bastion host. By default, a bastion host is accessible from all public IP addresses. If you want to allow the requests from specific public IP addresses, you can call this operation to add trusted IP addresses to the whitelist of the bastion host.
+     *   * ## Limits
+     *   * You can call this operation up to 30 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param ConfigInstanceWhiteListRequest $request ConfigInstanceWhiteListRequest
      *
@@ -821,6 +1102,149 @@ class Yundunbastionhost extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->configInstanceWhiteListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDatabaseRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateDatabaseResponse
+     */
+    public function createDatabaseWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->activeAddressType)) {
+            $query['ActiveAddressType'] = $request->activeAddressType;
+        }
+        if (!Utils::isUnset($request->comment)) {
+            $query['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->databaseName)) {
+            $query['DatabaseName'] = $request->databaseName;
+        }
+        if (!Utils::isUnset($request->databasePort)) {
+            $query['DatabasePort'] = $request->databasePort;
+        }
+        if (!Utils::isUnset($request->databasePrivateAddress)) {
+            $query['DatabasePrivateAddress'] = $request->databasePrivateAddress;
+        }
+        if (!Utils::isUnset($request->databasePublicAddress)) {
+            $query['DatabasePublicAddress'] = $request->databasePublicAddress;
+        }
+        if (!Utils::isUnset($request->databaseType)) {
+            $query['DatabaseType'] = $request->databaseType;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->networkDomainId)) {
+            $query['NetworkDomainId'] = $request->networkDomainId;
+        }
+        if (!Utils::isUnset($request->polarDBEndpointType)) {
+            $query['PolarDBEndpointType'] = $request->polarDBEndpointType;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->sourceInstanceId)) {
+            $query['SourceInstanceId'] = $request->sourceInstanceId;
+        }
+        if (!Utils::isUnset($request->sourceInstanceRegionId)) {
+            $query['SourceInstanceRegionId'] = $request->sourceInstanceRegionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDatabase',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDatabaseRequest $request
+     *
+     * @return CreateDatabaseResponse
+     */
+    public function createDatabase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDatabaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDatabaseAccountRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateDatabaseAccountResponse
+     */
+    public function createDatabaseAccountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->databaseAccountName)) {
+            $query['DatabaseAccountName'] = $request->databaseAccountName;
+        }
+        if (!Utils::isUnset($request->databaseId)) {
+            $query['DatabaseId'] = $request->databaseId;
+        }
+        if (!Utils::isUnset($request->databaseSchema)) {
+            $query['DatabaseSchema'] = $request->databaseSchema;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->loginAttribute)) {
+            $query['LoginAttribute'] = $request->loginAttribute;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDatabaseAccount',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDatabaseAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDatabaseAccountRequest $request
+     *
+     * @return CreateDatabaseAccountResponse
+     */
+    public function createDatabaseAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDatabaseAccountWithOptions($request, $runtime);
     }
 
     /**
@@ -1074,6 +1498,192 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
+     * @param CreateNetworkDomainRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateNetworkDomainResponse
+     */
+    public function createNetworkDomainWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->comment)) {
+            $query['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->networkDomainName)) {
+            $query['NetworkDomainName'] = $request->networkDomainName;
+        }
+        if (!Utils::isUnset($request->networkDomainType)) {
+            $query['NetworkDomainType'] = $request->networkDomainType;
+        }
+        if (!Utils::isUnset($request->proxies)) {
+            $query['Proxies'] = $request->proxies;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateNetworkDomain',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateNetworkDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateNetworkDomainRequest $request
+     *
+     * @return CreateNetworkDomainResponse
+     */
+    public function createNetworkDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createNetworkDomainWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreatePolicyRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreatePolicyResponse
+     */
+    public function createPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->comment)) {
+            $query['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->policyName)) {
+            $query['PolicyName'] = $request->policyName;
+        }
+        if (!Utils::isUnset($request->priority)) {
+            $query['Priority'] = $request->priority;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreatePolicy',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreatePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreatePolicyRequest $request
+     *
+     * @return CreatePolicyResponse
+     */
+    public function createPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateRuleRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CreateRuleResponse
+     */
+    public function createRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->comment)) {
+            $query['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->databases)) {
+            $query['Databases'] = $request->databases;
+        }
+        if (!Utils::isUnset($request->effectiveEndTime)) {
+            $query['EffectiveEndTime'] = $request->effectiveEndTime;
+        }
+        if (!Utils::isUnset($request->effectiveStartTime)) {
+            $query['EffectiveStartTime'] = $request->effectiveStartTime;
+        }
+        if (!Utils::isUnset($request->hostGroups)) {
+            $query['HostGroups'] = $request->hostGroups;
+        }
+        if (!Utils::isUnset($request->hosts)) {
+            $query['Hosts'] = $request->hosts;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
+        if (!Utils::isUnset($request->userGroupIds)) {
+            $query['UserGroupIds'] = $request->userGroupIds;
+        }
+        if (!Utils::isUnset($request->userIds)) {
+            $query['UserIds'] = $request->userIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateRule',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateRuleRequest $request
+     *
+     * @return CreateRuleResponse
+     */
+    public function createRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * ## Usage notes
      *   * You can call this operation to add a user to a bastion host. You can add local users and Resource Access Management (RAM) users. After a Bastionhost administrator adds a user to a bastion host, the O&M personnel can log on to the bastion host as the user to perform O&M operations on the host on which they have permissions.
      *   * ## Limits
@@ -1298,6 +1908,104 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
+     * @param DeleteDatabaseRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteDatabaseResponse
+     */
+    public function deleteDatabaseWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->databaseId)) {
+            $query['DatabaseId'] = $request->databaseId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDatabase',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDatabaseRequest $request
+     *
+     * @return DeleteDatabaseResponse
+     */
+    public function deleteDatabase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDatabaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteDatabaseAccountRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteDatabaseAccountResponse
+     */
+    public function deleteDatabaseAccountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->databaseAccountId)) {
+            $query['DatabaseAccountId'] = $request->databaseAccountId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDatabaseAccount',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDatabaseAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDatabaseAccountRequest $request
+     *
+     * @return DeleteDatabaseAccountResponse
+     */
+    public function deleteDatabaseAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDatabaseAccountWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteHostRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -1348,10 +2056,10 @@ class Yundunbastionhost extends OpenApiClient
 
     /**
      * ## Usage notes
-     *   * You can call this operation to remove a single host account. If you no longer use a host account that is added to a host in Bastionhost, you can call this operation to remove the host account from the host.
+     *   * This interface is used to delete individual host accounts. If a host account is no longer in use, you can invoke this interface to delete the host account for that host that has been configured on the bastion.
      *   * >  After you remove the host account, you must enter the username and password of the host when you log on to the host in Bastionhost.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   * ## QPS Limit
+     *   * The single-user QPS limit of this interface is 10 times/second. If the limit is exceeded, the API call will be stream-limited, which may affect your business, please call reasonably.
      *   *
      * @param DeleteHostAccountRequest $request DeleteHostAccountRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -1391,10 +2099,10 @@ class Yundunbastionhost extends OpenApiClient
 
     /**
      * ## Usage notes
-     *   * You can call this operation to remove a single host account. If you no longer use a host account that is added to a host in Bastionhost, you can call this operation to remove the host account from the host.
+     *   * This interface is used to delete individual host accounts. If a host account is no longer in use, you can invoke this interface to delete the host account for that host that has been configured on the bastion.
      *   * >  After you remove the host account, you must enter the username and password of the host when you log on to the host in Bastionhost.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   * ## QPS Limit
+     *   * The single-user QPS limit of this interface is 10 times/second. If the limit is exceeded, the API call will be stream-limited, which may affect your business, please call reasonably.
      *   *
      * @param DeleteHostAccountRequest $request DeleteHostAccountRequest
      *
@@ -1511,6 +2219,153 @@ class Yundunbastionhost extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteHostShareKeyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteNetworkDomainRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteNetworkDomainResponse
+     */
+    public function deleteNetworkDomainWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->networkDomainId)) {
+            $query['NetworkDomainId'] = $request->networkDomainId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteNetworkDomain',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteNetworkDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteNetworkDomainRequest $request
+     *
+     * @return DeleteNetworkDomainResponse
+     */
+    public function deleteNetworkDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteNetworkDomainWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeletePolicyRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeletePolicyResponse
+     */
+    public function deletePolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->policyId)) {
+            $query['PolicyId'] = $request->policyId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeletePolicy',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeletePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeletePolicyRequest $request
+     *
+     * @return DeletePolicyResponse
+     */
+    public function deletePolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deletePolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteRuleRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeleteRuleResponse
+     */
+    public function deleteRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteRule',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteRuleRequest $request
+     *
+     * @return DeleteRuleResponse
+     */
+    public function deleteRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -1818,6 +2673,110 @@ class Yundunbastionhost extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeRegionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DetachDatabaseAccountsFromUserRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DetachDatabaseAccountsFromUserResponse
+     */
+    public function detachDatabaseAccountsFromUserWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->databases)) {
+            $query['Databases'] = $request->databases;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DetachDatabaseAccountsFromUser',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DetachDatabaseAccountsFromUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DetachDatabaseAccountsFromUserRequest $request
+     *
+     * @return DetachDatabaseAccountsFromUserResponse
+     */
+    public function detachDatabaseAccountsFromUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detachDatabaseAccountsFromUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DetachDatabaseAccountsFromUserGroupRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return DetachDatabaseAccountsFromUserGroupResponse
+     */
+    public function detachDatabaseAccountsFromUserGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->databases)) {
+            $query['Databases'] = $request->databases;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->userGroupId)) {
+            $query['UserGroupId'] = $request->userGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DetachDatabaseAccountsFromUserGroup',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DetachDatabaseAccountsFromUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DetachDatabaseAccountsFromUserGroupRequest $request
+     *
+     * @return DetachDatabaseAccountsFromUserGroupResponse
+     */
+    public function detachDatabaseAccountsFromUserGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detachDatabaseAccountsFromUserGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -2131,6 +3090,55 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
+     * @param DisableRuleRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DisableRuleResponse
+     */
+    public function disableRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DisableRule',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DisableRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DisableRuleRequest $request
+     *
+     * @return DisableRuleResponse
+     */
+    public function disableRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * @param EnableInstancePublicAccessRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -2174,6 +3182,217 @@ class Yundunbastionhost extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->enableInstancePublicAccessWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param EnableRuleRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return EnableRuleResponse
+     */
+    public function enableRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableRule',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return EnableRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param EnableRuleRequest $request
+     *
+     * @return EnableRuleResponse
+     */
+    public function enableRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GenerateAssetOperationTokenRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GenerateAssetOperationTokenResponse
+     */
+    public function generateAssetOperationTokenWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->assetAccountId)) {
+            $query['AssetAccountId'] = $request->assetAccountId;
+        }
+        if (!Utils::isUnset($request->assetAccountName)) {
+            $query['AssetAccountName'] = $request->assetAccountName;
+        }
+        if (!Utils::isUnset($request->assetAccountPassword)) {
+            $query['AssetAccountPassword'] = $request->assetAccountPassword;
+        }
+        if (!Utils::isUnset($request->assetAccountProtocolName)) {
+            $query['AssetAccountProtocolName'] = $request->assetAccountProtocolName;
+        }
+        if (!Utils::isUnset($request->assetId)) {
+            $query['AssetId'] = $request->assetId;
+        }
+        if (!Utils::isUnset($request->assetType)) {
+            $query['AssetType'] = $request->assetType;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GenerateAssetOperationToken',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GenerateAssetOperationTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GenerateAssetOperationTokenRequest $request
+     *
+     * @return GenerateAssetOperationTokenResponse
+     */
+    public function generateAssetOperationToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateAssetOperationTokenWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetDatabaseRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetDatabaseResponse
+     */
+    public function getDatabaseWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->databaseId)) {
+            $query['DatabaseId'] = $request->databaseId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDatabase',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetDatabaseRequest $request
+     *
+     * @return GetDatabaseResponse
+     */
+    public function getDatabase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDatabaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetDatabaseAccountRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetDatabaseAccountResponse
+     */
+    public function getDatabaseAccountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->databaseAccountId)) {
+            $query['DatabaseAccountId'] = $request->databaseAccountId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDatabaseAccount',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDatabaseAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetDatabaseAccountRequest $request
+     *
+     * @return GetDatabaseAccountResponse
+     */
+    public function getDatabaseAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDatabaseAccountWithOptions($request, $runtime);
     }
 
     /**
@@ -2373,7 +3592,10 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * The condition that is used to filter users.
+     * ###
+     *   * You can call this operation to query the settings of AD authentication on a bastion host. After you configure AD authentication on a bastion host, you can import AD-authenticated users into the bastion host. After the AD-authenticated users are imported into the bastion host, the AD-authenticated users can log on to the bastion host to perform O\\&M operations on servers.
+     *   * ### Limit
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param GetInstanceADAuthServerRequest $request GetInstanceADAuthServerRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -2409,7 +3631,10 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * The condition that is used to filter users.
+     * ###
+     *   * You can call this operation to query the settings of AD authentication on a bastion host. After you configure AD authentication on a bastion host, you can import AD-authenticated users into the bastion host. After the AD-authenticated users are imported into the bastion host, the AD-authenticated users can log on to the bastion host to perform O\\&M operations on servers.
+     *   * ### Limit
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param GetInstanceADAuthServerRequest $request GetInstanceADAuthServerRequest
      *
@@ -2469,9 +3694,9 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Indicates whether two-factor authentication is enabled. Valid values:
-     *   * *   **true**: enabled
-     *   * *   **false**: disabled.
+     * You can call this operation to query the settings of two-factor authentication on a bastion host. After you enable two-factor authentication, Bastionhost sends a verification code to a local user when the local user logs on to a bastion host. A local user can log on to the bastion host only when the local user enters the valid username and password and the verification code. This reduces the security risks caused by account information leaks.
+     *   * ### Limit
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param GetInstanceTwoFactorRequest $request GetInstanceTwoFactorRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -2507,9 +3732,9 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Indicates whether two-factor authentication is enabled. Valid values:
-     *   * *   **true**: enabled
-     *   * *   **false**: disabled.
+     * You can call this operation to query the settings of two-factor authentication on a bastion host. After you enable two-factor authentication, Bastionhost sends a verification code to a local user when the local user logs on to a bastion host. A local user can log on to the bastion host only when the local user enters the valid username and password and the verification code. This reduces the security risks caused by account information leaks.
+     *   * ### Limit
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param GetInstanceTwoFactorRequest $request GetInstanceTwoFactorRequest
      *
@@ -2520,6 +3745,251 @@ class Yundunbastionhost extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getInstanceTwoFactorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetNetworkDomainRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetNetworkDomainResponse
+     */
+    public function getNetworkDomainWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->networkDomainId)) {
+            $query['NetworkDomainId'] = $request->networkDomainId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetNetworkDomain',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetNetworkDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetNetworkDomainRequest $request
+     *
+     * @return GetNetworkDomainResponse
+     */
+    public function getNetworkDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getNetworkDomainWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetPolicyRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetPolicyResponse
+     */
+    public function getPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->policyId)) {
+            $query['PolicyId'] = $request->policyId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPolicy',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetPolicyRequest $request
+     *
+     * @return GetPolicyResponse
+     */
+    public function getPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetPolicyAssetScopeRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetPolicyAssetScopeResponse
+     */
+    public function getPolicyAssetScopeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->policyId)) {
+            $query['PolicyId'] = $request->policyId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPolicyAssetScope',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetPolicyAssetScopeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetPolicyAssetScopeRequest $request
+     *
+     * @return GetPolicyAssetScopeResponse
+     */
+    public function getPolicyAssetScope($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPolicyAssetScopeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetPolicyUserScopeRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetPolicyUserScopeResponse
+     */
+    public function getPolicyUserScopeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->policyId)) {
+            $query['PolicyId'] = $request->policyId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPolicyUserScope',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetPolicyUserScopeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetPolicyUserScopeRequest $request
+     *
+     * @return GetPolicyUserScopeResponse
+     */
+    public function getPolicyUserScope($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPolicyUserScopeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetRuleRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetRuleResponse
+     */
+    public function getRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetRule',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetRuleRequest $request
+     *
+     * @return GetRuleResponse
+     */
+    public function getRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -2670,6 +4140,384 @@ class Yundunbastionhost extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listApproveCommandsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDatabaseAccountsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListDatabaseAccountsResponse
+     */
+    public function listDatabaseAccountsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->databaseAccountName)) {
+            $query['DatabaseAccountName'] = $request->databaseAccountName;
+        }
+        if (!Utils::isUnset($request->databaseId)) {
+            $query['DatabaseId'] = $request->databaseId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDatabaseAccounts',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDatabaseAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDatabaseAccountsRequest $request
+     *
+     * @return ListDatabaseAccountsResponse
+     */
+    public function listDatabaseAccounts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDatabaseAccountsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDatabaseAccountsForUserRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListDatabaseAccountsForUserResponse
+     */
+    public function listDatabaseAccountsForUserWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->databaseAccountName)) {
+            $query['DatabaseAccountName'] = $request->databaseAccountName;
+        }
+        if (!Utils::isUnset($request->databaseId)) {
+            $query['DatabaseId'] = $request->databaseId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDatabaseAccountsForUser',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDatabaseAccountsForUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDatabaseAccountsForUserRequest $request
+     *
+     * @return ListDatabaseAccountsForUserResponse
+     */
+    public function listDatabaseAccountsForUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDatabaseAccountsForUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDatabaseAccountsForUserGroupRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ListDatabaseAccountsForUserGroupResponse
+     */
+    public function listDatabaseAccountsForUserGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->databaseAccountName)) {
+            $query['DatabaseAccountName'] = $request->databaseAccountName;
+        }
+        if (!Utils::isUnset($request->databaseId)) {
+            $query['DatabaseId'] = $request->databaseId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->userGroupId)) {
+            $query['UserGroupId'] = $request->userGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDatabaseAccountsForUserGroup',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDatabaseAccountsForUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDatabaseAccountsForUserGroupRequest $request
+     *
+     * @return ListDatabaseAccountsForUserGroupResponse
+     */
+    public function listDatabaseAccountsForUserGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDatabaseAccountsForUserGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDatabasesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListDatabasesResponse
+     */
+    public function listDatabasesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->databaseType)) {
+            $query['DatabaseType'] = $request->databaseType;
+        }
+        if (!Utils::isUnset($request->hostGroupId)) {
+            $query['HostGroupId'] = $request->hostGroupId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->networkDomainId)) {
+            $query['NetworkDomainId'] = $request->networkDomainId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDatabases',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDatabasesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDatabasesRequest $request
+     *
+     * @return ListDatabasesResponse
+     */
+    public function listDatabases($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDatabasesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDatabasesForUserRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListDatabasesForUserResponse
+     */
+    public function listDatabasesForUserWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->databaseAddress)) {
+            $query['DatabaseAddress'] = $request->databaseAddress;
+        }
+        if (!Utils::isUnset($request->databaseName)) {
+            $query['DatabaseName'] = $request->databaseName;
+        }
+        if (!Utils::isUnset($request->databaseType)) {
+            $query['DatabaseType'] = $request->databaseType;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->networkDomainId)) {
+            $query['NetworkDomainId'] = $request->networkDomainId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDatabasesForUser',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDatabasesForUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDatabasesForUserRequest $request
+     *
+     * @return ListDatabasesForUserResponse
+     */
+    public function listDatabasesForUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDatabasesForUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDatabasesForUserGroupRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListDatabasesForUserGroupResponse
+     */
+    public function listDatabasesForUserGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->databaseAddress)) {
+            $query['DatabaseAddress'] = $request->databaseAddress;
+        }
+        if (!Utils::isUnset($request->databaseName)) {
+            $query['DatabaseName'] = $request->databaseName;
+        }
+        if (!Utils::isUnset($request->databaseType)) {
+            $query['DatabaseType'] = $request->databaseType;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->networkDomainId)) {
+            $query['NetworkDomainId'] = $request->networkDomainId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->userGroupId)) {
+            $query['UserGroupId'] = $request->userGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDatabasesForUserGroup',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDatabasesForUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDatabasesForUserGroupRequest $request
+     *
+     * @return ListDatabasesForUserGroupResponse
+     */
+    public function listDatabasesForUserGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDatabasesForUserGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -3451,6 +5299,320 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
+     * @param ListNetworkDomainsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListNetworkDomainsResponse
+     */
+    public function listNetworkDomainsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->networkDomainName)) {
+            $query['NetworkDomainName'] = $request->networkDomainName;
+        }
+        if (!Utils::isUnset($request->networkDomainType)) {
+            $query['NetworkDomainType'] = $request->networkDomainType;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListNetworkDomains',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListNetworkDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListNetworkDomainsRequest $request
+     *
+     * @return ListNetworkDomainsResponse
+     */
+    public function listNetworkDomains($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listNetworkDomainsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListOperationDatabaseAccountsRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ListOperationDatabaseAccountsResponse
+     */
+    public function listOperationDatabaseAccountsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->databaseAccountName)) {
+            $query['DatabaseAccountName'] = $request->databaseAccountName;
+        }
+        if (!Utils::isUnset($request->databaseId)) {
+            $query['DatabaseId'] = $request->databaseId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListOperationDatabaseAccounts',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListOperationDatabaseAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListOperationDatabaseAccountsRequest $request
+     *
+     * @return ListOperationDatabaseAccountsResponse
+     */
+    public function listOperationDatabaseAccounts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listOperationDatabaseAccountsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListOperationDatabasesRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListOperationDatabasesResponse
+     */
+    public function listOperationDatabasesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->databaseAddress)) {
+            $query['DatabaseAddress'] = $request->databaseAddress;
+        }
+        if (!Utils::isUnset($request->databaseName)) {
+            $query['DatabaseName'] = $request->databaseName;
+        }
+        if (!Utils::isUnset($request->databaseType)) {
+            $query['DatabaseType'] = $request->databaseType;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->sourceInstanceId)) {
+            $query['SourceInstanceId'] = $request->sourceInstanceId;
+        }
+        if (!Utils::isUnset($request->sourceInstanceState)) {
+            $query['SourceInstanceState'] = $request->sourceInstanceState;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListOperationDatabases',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListOperationDatabasesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListOperationDatabasesRequest $request
+     *
+     * @return ListOperationDatabasesResponse
+     */
+    public function listOperationDatabases($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listOperationDatabasesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListOperationHostAccountsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListOperationHostAccountsResponse
+     */
+    public function listOperationHostAccountsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->hostAccountName)) {
+            $query['HostAccountName'] = $request->hostAccountName;
+        }
+        if (!Utils::isUnset($request->hostId)) {
+            $query['HostId'] = $request->hostId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListOperationHostAccounts',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListOperationHostAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListOperationHostAccountsRequest $request
+     *
+     * @return ListOperationHostAccountsResponse
+     */
+    public function listOperationHostAccounts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listOperationHostAccountsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListOperationHostsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListOperationHostsResponse
+     */
+    public function listOperationHostsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->hostAddress)) {
+            $query['HostAddress'] = $request->hostAddress;
+        }
+        if (!Utils::isUnset($request->hostName)) {
+            $query['HostName'] = $request->hostName;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->OSType)) {
+            $query['OSType'] = $request->OSType;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->sourceInstanceId)) {
+            $query['SourceInstanceId'] = $request->sourceInstanceId;
+        }
+        if (!Utils::isUnset($request->sourceInstanceState)) {
+            $query['SourceInstanceState'] = $request->sourceInstanceState;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListOperationHosts',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListOperationHostsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListOperationHostsRequest $request
+     *
+     * @return ListOperationHostsResponse
+     */
+    public function listOperationHosts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listOperationHostsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListOperationTicketsRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -3503,6 +5665,119 @@ class Yundunbastionhost extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listOperationTicketsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListPoliciesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListPoliciesResponse
+     */
+    public function listPoliciesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->policyName)) {
+            $query['PolicyName'] = $request->policyName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPolicies',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListPoliciesRequest $request
+     *
+     * @return ListPoliciesResponse
+     */
+    public function listPolicies($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPoliciesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListRulesRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListRulesResponse
+     */
+    public function listRulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
+        if (!Utils::isUnset($request->ruleState)) {
+            $query['RuleState'] = $request->ruleState;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListRules',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListRulesRequest $request
+     *
+     * @return ListRulesResponse
+     */
+    public function listRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRulesWithOptions($request, $runtime);
     }
 
     /**
@@ -3852,6 +6127,137 @@ class Yundunbastionhost extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->lockUsersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyDatabaseRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ModifyDatabaseResponse
+     */
+    public function modifyDatabaseWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->activeAddressType)) {
+            $query['ActiveAddressType'] = $request->activeAddressType;
+        }
+        if (!Utils::isUnset($request->comment)) {
+            $query['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->databaseId)) {
+            $query['DatabaseId'] = $request->databaseId;
+        }
+        if (!Utils::isUnset($request->databaseName)) {
+            $query['DatabaseName'] = $request->databaseName;
+        }
+        if (!Utils::isUnset($request->databasePort)) {
+            $query['DatabasePort'] = $request->databasePort;
+        }
+        if (!Utils::isUnset($request->databasePrivateAddress)) {
+            $query['DatabasePrivateAddress'] = $request->databasePrivateAddress;
+        }
+        if (!Utils::isUnset($request->databasePublicAddress)) {
+            $query['DatabasePublicAddress'] = $request->databasePublicAddress;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->networkDomainId)) {
+            $query['NetworkDomainId'] = $request->networkDomainId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->sourceInstanceId)) {
+            $query['SourceInstanceId'] = $request->sourceInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDatabase',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDatabaseRequest $request
+     *
+     * @return ModifyDatabaseResponse
+     */
+    public function modifyDatabase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDatabaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyDatabaseAccountRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyDatabaseAccountResponse
+     */
+    public function modifyDatabaseAccountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->databaseAccountId)) {
+            $query['DatabaseAccountId'] = $request->databaseAccountId;
+        }
+        if (!Utils::isUnset($request->databaseAccountName)) {
+            $query['DatabaseAccountName'] = $request->databaseAccountName;
+        }
+        if (!Utils::isUnset($request->databaseSchema)) {
+            $query['DatabaseSchema'] = $request->databaseSchema;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDatabaseAccount',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDatabaseAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDatabaseAccountRequest $request
+     *
+     * @return ModifyDatabaseAccountResponse
+     */
+    public function modifyDatabaseAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDatabaseAccountWithOptions($request, $runtime);
     }
 
     /**
@@ -4492,6 +6898,201 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
+     * @param ModifyNetworkDomainRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ModifyNetworkDomainResponse
+     */
+    public function modifyNetworkDomainWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->comment)) {
+            $query['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->networkDomainId)) {
+            $query['NetworkDomainId'] = $request->networkDomainId;
+        }
+        if (!Utils::isUnset($request->networkDomainName)) {
+            $query['NetworkDomainName'] = $request->networkDomainName;
+        }
+        if (!Utils::isUnset($request->networkDomainType)) {
+            $query['NetworkDomainType'] = $request->networkDomainType;
+        }
+        if (!Utils::isUnset($request->proxies)) {
+            $query['Proxies'] = $request->proxies;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyNetworkDomain',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyNetworkDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyNetworkDomainRequest $request
+     *
+     * @return ModifyNetworkDomainResponse
+     */
+    public function modifyNetworkDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyNetworkDomainWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyPolicyRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ModifyPolicyResponse
+     */
+    public function modifyPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->comment)) {
+            $query['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->policyId)) {
+            $query['PolicyId'] = $request->policyId;
+        }
+        if (!Utils::isUnset($request->policyName)) {
+            $query['PolicyName'] = $request->policyName;
+        }
+        if (!Utils::isUnset($request->priority)) {
+            $query['Priority'] = $request->priority;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyPolicy',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyPolicyRequest $request
+     *
+     * @return ModifyPolicyResponse
+     */
+    public function modifyPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyRuleRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ModifyRuleResponse
+     */
+    public function modifyRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->comment)) {
+            $query['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->databases)) {
+            $query['Databases'] = $request->databases;
+        }
+        if (!Utils::isUnset($request->effectiveEndTime)) {
+            $query['EffectiveEndTime'] = $request->effectiveEndTime;
+        }
+        if (!Utils::isUnset($request->effectiveStartTime)) {
+            $query['EffectiveStartTime'] = $request->effectiveStartTime;
+        }
+        if (!Utils::isUnset($request->hostGroups)) {
+            $query['HostGroups'] = $request->hostGroups;
+        }
+        if (!Utils::isUnset($request->hosts)) {
+            $query['Hosts'] = $request->hosts;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
+        if (!Utils::isUnset($request->userGroupIds)) {
+            $query['UserGroupIds'] = $request->userGroupIds;
+        }
+        if (!Utils::isUnset($request->userIds)) {
+            $query['UserIds'] = $request->userIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyRule',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyRuleRequest $request
+     *
+     * @return ModifyRuleResponse
+     */
+    public function modifyRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyUserRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -4632,6 +7233,168 @@ class Yundunbastionhost extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyUserGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyUserPublicKeyRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ModifyUserPublicKeyResponse
+     */
+    public function modifyUserPublicKeyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->comment)) {
+            $query['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->publicKey)) {
+            $query['PublicKey'] = $request->publicKey;
+        }
+        if (!Utils::isUnset($request->publicKeyId)) {
+            $query['PublicKeyId'] = $request->publicKeyId;
+        }
+        if (!Utils::isUnset($request->publicKeyName)) {
+            $query['PublicKeyName'] = $request->publicKeyName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyUserPublicKey',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyUserPublicKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyUserPublicKeyRequest $request
+     *
+     * @return ModifyUserPublicKeyResponse
+     */
+    public function modifyUserPublicKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyUserPublicKeyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param MoveDatabasesToNetworkDomainRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return MoveDatabasesToNetworkDomainResponse
+     */
+    public function moveDatabasesToNetworkDomainWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->databaseIds)) {
+            $query['DatabaseIds'] = $request->databaseIds;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->networkDomainId)) {
+            $query['NetworkDomainId'] = $request->networkDomainId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'MoveDatabasesToNetworkDomain',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return MoveDatabasesToNetworkDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param MoveDatabasesToNetworkDomainRequest $request
+     *
+     * @return MoveDatabasesToNetworkDomainResponse
+     */
+    public function moveDatabasesToNetworkDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->moveDatabasesToNetworkDomainWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param MoveHostsToNetworkDomainRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return MoveHostsToNetworkDomainResponse
+     */
+    public function moveHostsToNetworkDomainWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->hostIds)) {
+            $query['HostIds'] = $request->hostIds;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->networkDomainId)) {
+            $query['NetworkDomainId'] = $request->networkDomainId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'MoveHostsToNetworkDomain',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return MoveHostsToNetworkDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param MoveHostsToNetworkDomainRequest $request
+     *
+     * @return MoveHostsToNetworkDomainResponse
+     */
+    public function moveHostsToNetworkDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->moveHostsToNetworkDomainWithOptions($request, $runtime);
     }
 
     /**
@@ -4791,6 +7554,58 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
+     * @param RemoveDatabasesFromGroupRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return RemoveDatabasesFromGroupResponse
+     */
+    public function removeDatabasesFromGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->databaseIds)) {
+            $query['DatabaseIds'] = $request->databaseIds;
+        }
+        if (!Utils::isUnset($request->hostGroupId)) {
+            $query['HostGroupId'] = $request->hostGroupId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveDatabasesFromGroup',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RemoveDatabasesFromGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RemoveDatabasesFromGroupRequest $request
+     *
+     * @return RemoveDatabasesFromGroupResponse
+     */
+    public function removeDatabasesFromGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeDatabasesFromGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RemoveHostsFromGroupRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -4903,6 +7718,55 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
+     * @param RenewAssetOperationTokenRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return RenewAssetOperationTokenResponse
+     */
+    public function renewAssetOperationTokenWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->tokenId)) {
+            $query['TokenId'] = $request->tokenId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RenewAssetOperationToken',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RenewAssetOperationTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RenewAssetOperationTokenRequest $request
+     *
+     * @return RenewAssetOperationTokenResponse
+     */
+    public function renewAssetOperationToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->renewAssetOperationTokenWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ResetHostAccountCredentialRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -4952,6 +7816,410 @@ class Yundunbastionhost extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->resetHostAccountCredentialWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetPolicyAccessTimeRangeConfigRequest $tmpReq
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return SetPolicyAccessTimeRangeConfigResponse
+     */
+    public function setPolicyAccessTimeRangeConfigWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SetPolicyAccessTimeRangeConfigShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->accessTimeRangeConfig)) {
+            $request->accessTimeRangeConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->accessTimeRangeConfig, 'AccessTimeRangeConfig', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->accessTimeRangeConfigShrink)) {
+            $query['AccessTimeRangeConfig'] = $request->accessTimeRangeConfigShrink;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->policyId)) {
+            $query['PolicyId'] = $request->policyId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetPolicyAccessTimeRangeConfig',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetPolicyAccessTimeRangeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SetPolicyAccessTimeRangeConfigRequest $request
+     *
+     * @return SetPolicyAccessTimeRangeConfigResponse
+     */
+    public function setPolicyAccessTimeRangeConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setPolicyAccessTimeRangeConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetPolicyApprovalConfigRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return SetPolicyApprovalConfigResponse
+     */
+    public function setPolicyApprovalConfigWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SetPolicyApprovalConfigShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->approvalConfig)) {
+            $request->approvalConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->approvalConfig, 'ApprovalConfig', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->approvalConfigShrink)) {
+            $query['ApprovalConfig'] = $request->approvalConfigShrink;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->policyId)) {
+            $query['PolicyId'] = $request->policyId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetPolicyApprovalConfig',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetPolicyApprovalConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SetPolicyApprovalConfigRequest $request
+     *
+     * @return SetPolicyApprovalConfigResponse
+     */
+    public function setPolicyApprovalConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setPolicyApprovalConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetPolicyAssetScopeRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SetPolicyAssetScopeResponse
+     */
+    public function setPolicyAssetScopeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->databases)) {
+            $query['Databases'] = $request->databases;
+        }
+        if (!Utils::isUnset($request->hostGroups)) {
+            $query['HostGroups'] = $request->hostGroups;
+        }
+        if (!Utils::isUnset($request->hosts)) {
+            $query['Hosts'] = $request->hosts;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->policyId)) {
+            $query['PolicyId'] = $request->policyId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->scopeType)) {
+            $query['ScopeType'] = $request->scopeType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetPolicyAssetScope',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetPolicyAssetScopeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SetPolicyAssetScopeRequest $request
+     *
+     * @return SetPolicyAssetScopeResponse
+     */
+    public function setPolicyAssetScope($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setPolicyAssetScopeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetPolicyCommandConfigRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return SetPolicyCommandConfigResponse
+     */
+    public function setPolicyCommandConfigWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SetPolicyCommandConfigShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->commandConfig)) {
+            $request->commandConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->commandConfig, 'CommandConfig', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->commandConfigShrink)) {
+            $query['CommandConfig'] = $request->commandConfigShrink;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->policyId)) {
+            $query['PolicyId'] = $request->policyId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetPolicyCommandConfig',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetPolicyCommandConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SetPolicyCommandConfigRequest $request
+     *
+     * @return SetPolicyCommandConfigResponse
+     */
+    public function setPolicyCommandConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setPolicyCommandConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetPolicyIPAclConfigRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SetPolicyIPAclConfigResponse
+     */
+    public function setPolicyIPAclConfigWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SetPolicyIPAclConfigShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->IPAclConfig)) {
+            $request->IPAclConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->IPAclConfig, 'IPAclConfig', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->IPAclConfigShrink)) {
+            $query['IPAclConfig'] = $request->IPAclConfigShrink;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->policyId)) {
+            $query['PolicyId'] = $request->policyId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetPolicyIPAclConfig',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetPolicyIPAclConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SetPolicyIPAclConfigRequest $request
+     *
+     * @return SetPolicyIPAclConfigResponse
+     */
+    public function setPolicyIPAclConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setPolicyIPAclConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetPolicyProtocolConfigRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return SetPolicyProtocolConfigResponse
+     */
+    public function setPolicyProtocolConfigWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SetPolicyProtocolConfigShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->protocolConfig)) {
+            $request->protocolConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->protocolConfig, 'ProtocolConfig', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->policyId)) {
+            $query['PolicyId'] = $request->policyId;
+        }
+        if (!Utils::isUnset($request->protocolConfigShrink)) {
+            $query['ProtocolConfig'] = $request->protocolConfigShrink;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetPolicyProtocolConfig',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetPolicyProtocolConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SetPolicyProtocolConfigRequest $request
+     *
+     * @return SetPolicyProtocolConfigResponse
+     */
+    public function setPolicyProtocolConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setPolicyProtocolConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetPolicyUserScopeRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SetPolicyUserScopeResponse
+     */
+    public function setPolicyUserScopeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->policyId)) {
+            $query['PolicyId'] = $request->policyId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->scopeType)) {
+            $query['ScopeType'] = $request->scopeType;
+        }
+        if (!Utils::isUnset($request->userGroupIds)) {
+            $query['UserGroupIds'] = $request->userGroupIds;
+        }
+        if (!Utils::isUnset($request->userIds)) {
+            $query['UserIds'] = $request->userIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetPolicyUserScope',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetPolicyUserScopeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SetPolicyUserScopeRequest $request
+     *
+     * @return SetPolicyUserScopeResponse
+     */
+    public function setPolicyUserScope($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setPolicyUserScopeWithOptions($request, $runtime);
     }
 
     /**
@@ -5168,5 +8436,148 @@ class Yundunbastionhost extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->untagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param VerifyInstanceADAuthServerRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return VerifyInstanceADAuthServerResponse
+     */
+    public function verifyInstanceADAuthServerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->account)) {
+            $query['Account'] = $request->account;
+        }
+        if (!Utils::isUnset($request->baseDN)) {
+            $query['BaseDN'] = $request->baseDN;
+        }
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->filter)) {
+            $query['Filter'] = $request->filter;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->isSSL)) {
+            $query['IsSSL'] = $request->isSSL;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->server)) {
+            $query['Server'] = $request->server;
+        }
+        if (!Utils::isUnset($request->standbyServer)) {
+            $query['StandbyServer'] = $request->standbyServer;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'VerifyInstanceADAuthServer',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return VerifyInstanceADAuthServerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param VerifyInstanceADAuthServerRequest $request
+     *
+     * @return VerifyInstanceADAuthServerResponse
+     */
+    public function verifyInstanceADAuthServer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->verifyInstanceADAuthServerWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param VerifyInstanceLDAPAuthServerRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return VerifyInstanceLDAPAuthServerResponse
+     */
+    public function verifyInstanceLDAPAuthServerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->account)) {
+            $query['Account'] = $request->account;
+        }
+        if (!Utils::isUnset($request->baseDN)) {
+            $query['BaseDN'] = $request->baseDN;
+        }
+        if (!Utils::isUnset($request->filter)) {
+            $query['Filter'] = $request->filter;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->isSSL)) {
+            $query['IsSSL'] = $request->isSSL;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->server)) {
+            $query['Server'] = $request->server;
+        }
+        if (!Utils::isUnset($request->standbyServer)) {
+            $query['StandbyServer'] = $request->standbyServer;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'VerifyInstanceLDAPAuthServer',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return VerifyInstanceLDAPAuthServerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param VerifyInstanceLDAPAuthServerRequest $request
+     *
+     * @return VerifyInstanceLDAPAuthServerResponse
+     */
+    public function verifyInstanceLDAPAuthServer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->verifyInstanceLDAPAuthServerWithOptions($request, $runtime);
     }
 }

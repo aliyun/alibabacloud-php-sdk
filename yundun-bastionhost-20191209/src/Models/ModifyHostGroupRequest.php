@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyHostGroupRequest extends Model
 {
     /**
-     * @description The new name of the host group. The name can be up to 128 characters in length.
+     * @description The new description of the host group. The value can be up to 500 characters in length.
      *
      * @example comment
      *
@@ -18,9 +18,9 @@ class ModifyHostGroupRequest extends Model
     public $comment;
 
     /**
-     * @description The region ID of the Bastionhost instance where you want to modify the information of the host group.
+     * @description The ID of the host group that you want to modify.
      *
-     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
+     * > You can call the [ListHostGroups](~~201307~~) operation to query the ID of the host group.
      * @example 1
      *
      * @var string
@@ -28,9 +28,8 @@ class ModifyHostGroupRequest extends Model
     public $hostGroupId;
 
     /**
-     * @description The ID of the host group that you want to modify.
+     * @description The new name of the host group. The name can be up to 128 characters in length.
      *
-     * >  You can call the [ListHostGroups](~~201307~~) operation to query the ID of the host group.
      * @example Group01
      *
      * @var string
@@ -38,8 +37,9 @@ class ModifyHostGroupRequest extends Model
     public $hostGroupName;
 
     /**
-     * @description The ID of the request.
+     * @description The ID of the bastion host on which you want to modify the information about the host group.
      *
+     * > You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -47,9 +47,9 @@ class ModifyHostGroupRequest extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the Bastionhost instance where you want to modify the information of the host group.
+     * @description The region ID of the bastion host on which you want to modify the information about the host group.
      *
-     * >  You can call the [DescribeInstances](~~153281~~) operation to query the ID of the Bastionhost instance.
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
      * @example cn-hangzhou
      *
      * @var string

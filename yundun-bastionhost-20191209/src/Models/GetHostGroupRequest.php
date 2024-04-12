@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetHostGroupRequest extends Model
 {
     /**
-     * @description The region ID of the Bastionhost instance where you want to query the host group.
+     * @description The ID of the host group.
      *
-     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
+     * > You can call the [ListHostGroups](~~201307~~) operation to query the ID of the host group.
      * @example 1
      *
      * @var string
@@ -19,8 +19,9 @@ class GetHostGroupRequest extends Model
     public $hostGroupId;
 
     /**
-     * @description MyHostGroup
+     * @description The ID of the bastion host in which you want to query the details of the host group.
      *
+     * > You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -28,9 +29,9 @@ class GetHostGroupRequest extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the Bastionhost instance where you want to query the host group.
+     * @description The region ID of the bastion host in which you want to query the details of the host group.
      *
-     * >  You can call the [DescribeInstances](~~153281~~) operation to query the ID of the Bastionhost instance.
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
      * @example cn-hangzhou
      *
      * @var string

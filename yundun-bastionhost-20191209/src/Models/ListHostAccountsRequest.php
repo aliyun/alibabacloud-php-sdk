@@ -9,12 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListHostAccountsRequest extends Model
 {
     /**
-     * @description Indicates whether a password is configured for the host account.
-     *
-     * Valid values:
-     *
-     *   true: A password is configured for the host account.
-     *   false: No passwords are configured for the host account.
+     * @description The name of the host account that you want to query. The name can be up to 128 characters in length. Only exact match is supported.
      *
      * @example abc
      *
@@ -23,13 +18,9 @@ class ListHostAccountsRequest extends Model
     public $hostAccountName;
 
     /**
-     * @description The protocol used by the host whose accounts you want to query.
+     * @description The ID of the specified host whose accounts you want to query.
      *
-     * Valid values:
-     *
-     *   SSH
-     *   RDP
-     *
+     * >  You can call the [ListHosts](~~200665~~) operation to query the ID of the host.
      * @example 1
      *
      * @var string
@@ -37,8 +28,9 @@ class ListHostAccountsRequest extends Model
     public $hostId;
 
     /**
-     * @description The ID of the shared key.
+     * @description The ID of the bastion host in which you want to query accounts of the specified host.
      *
+     * >  You can call the DescribeInstances operation to query the ID of the bastion host.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -46,9 +38,8 @@ class ListHostAccountsRequest extends Model
     public $instanceId;
 
     /**
-     * @description The operation that you want to perform.
+     * @description The number of the page to return. Default value: **1**.
      *
-     * Set the value to **ListHostAccounts**.
      * @example 1
      *
      * @var string
@@ -66,7 +57,12 @@ class ListHostAccountsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The name of the host account that you want to query. The name can be up to 128 characters in length. Only exact match is supported.
+     * @description The protocol used by the host whose accounts you want to query.
+     *
+     * Valid values:
+     *
+     *   SSH
+     *   RDP
      *
      * @example SSH
      *
@@ -75,9 +71,9 @@ class ListHostAccountsRequest extends Model
     public $protocolName;
 
     /**
-     * @description The ID of the specified host whose accounts you want to query.
+     * @description The region ID of the bastion host in which you want to query accounts of the specified host.
      *
-     * >  You can call the [ListHosts](~~200665~~) operation to query the ID of the host.
+     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
      * @example cn-hangzhou
      *
      * @var string

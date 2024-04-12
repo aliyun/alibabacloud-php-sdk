@@ -9,14 +9,23 @@ use AlibabaCloud\Tea\Model;
 class CreateHostAccountRequest extends Model
 {
     /**
-     * @description The passphrase of the private key for the host account.
+     * @description The name of the host account.
      *
-     * >  You can specify this parameter when the ProtocolName parameter is set to SSH. If the ProtocolName parameter is set to RDP, you do not need to specify this parameter.
      * @example abc
      *
      * @var string
      */
     public $hostAccountName;
+
+    /**
+     * @description The ID of the host to which you want to add a host account.
+     *
+     * >  You can call the [ListHosts](~~200665~~) operation to query the ID of the host.
+     * @example 1
+     *
+     * @var string
+     */
+    public $hostId;
 
     /**
      * @description The ID of the shared key.
@@ -25,30 +34,36 @@ class CreateHostAccountRequest extends Model
      *
      * @var string
      */
-    public $hostId;
-
-    /**
-     * @description The protocol of the host to which you want to add a host account.
-     *
-     * Valid values:
-     *
-     *   SSH
-     *   RDP
-     *
-     * @example 1
-     *
-     * @var string
-     */
     public $hostShareKeyId;
 
     /**
-     * @description master
+     * @description The ID of the bastion host in which you want to add a host account to the host.
      *
+     * >  You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @description The passphrase of the private key for the host account.
+     *
+     * >  You can specify this parameter when the ProtocolName parameter is set to SSH. If the ProtocolName parameter is set to RDP, you do not need to specify this parameter.
+     * @example ****
+     *
+     * @var string
+     */
+    public $passPhrase;
+
+    /**
+     * @description The password of the host account.
+     *
+     * @example ****
+     *
+     * @var string
+     */
+    public $password;
 
     /**
      * @description The private key of the host account. The value is a Base64-encoded string.
@@ -58,32 +73,16 @@ class CreateHostAccountRequest extends Model
      *
      * @var string
      */
-    public $passPhrase;
-
-    /**
-     * @description The region ID of the bastion host in which you want to add a host account to the host.
-     *
-     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
-     * @example ****
-     *
-     * @var string
-     */
-    public $password;
-
-    /**
-     * @description The ID of the host to which you want to add a host account.
-     *
-     * >  You can call the [ListHosts](~~200665~~) operation to query the ID of the host.
-     * @example ****
-     *
-     * @var string
-     */
     public $privateKey;
 
     /**
-     * @description The ID of the bastion host in which you want to add a host account to the host.
+     * @description The protocol of the host to which you want to add a host account.
      *
-     * >  You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
+     * Valid values:
+     *
+     *   SSH
+     *   RDP
+     *
      * @example SSH
      *
      * @var string
@@ -91,8 +90,9 @@ class CreateHostAccountRequest extends Model
     public $protocolName;
 
     /**
-     * @description The password of the host account.
+     * @description The region ID of the bastion host in which you want to add a host account to the host.
      *
+     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
      * @example cn-hangzhou
      *
      * @var string

@@ -11,7 +11,7 @@ class user extends Model
     /**
      * @description The description of the user.
      *
-     * @example commet
+     * @example comment
      *
      * @var string
      */

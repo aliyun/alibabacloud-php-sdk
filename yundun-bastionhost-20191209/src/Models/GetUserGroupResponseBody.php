@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetUserGroupResponseBody extends Model
 {
     /**
-     * @description Queries the details of a specified user group in a specified Bastionhost instance.
+     * @description The request ID.
      *
      * @example EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
      *
@@ -19,7 +19,7 @@ class GetUserGroupResponseBody extends Model
     public $requestId;
 
     /**
-     * @description GetUserGroup
+     * @description The details of the user group returned.
      *
      * @var userGroup
      */

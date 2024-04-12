@@ -10,15 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetHostGroupResponseBody extends Model
 {
     /**
-     * @description The ID of the host group that you want to query.
+     * @description The details of the host group returned.
      *
-     * >  You can call the [ListHostGroups](~~201307~~) operation to query the ID of the host group.
      * @var hostGroup
      */
     public $hostGroup;
 
     /**
-     * @description my host group.
+     * @description The ID of the request.
      *
      * @example EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
      *

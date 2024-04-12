@@ -9,7 +9,12 @@ use AlibabaCloud\Tea\Model;
 class hostAccounts extends Model
 {
     /**
-     * @description The fingerprint of the private key for the host account.
+     * @description Indicates whether a password is configured for the host account.
+     *
+     * Valid values:
+     *
+     *   true: A password is configured for the host account.
+     *   false: No passwords are configured for the host account.
      *
      * @example true
      *
@@ -18,7 +23,7 @@ class hostAccounts extends Model
     public $hasPassword;
 
     /**
-     * @description The ID of the request.
+     * @description The ID of the host account.
      *
      * @example 1
      *
@@ -27,7 +32,7 @@ class hostAccounts extends Model
     public $hostAccountId;
 
     /**
-     * @description The name of the shared key.
+     * @description The name of the host account.
      *
      * @example abc
      *
@@ -36,6 +41,8 @@ class hostAccounts extends Model
     public $hostAccountName;
 
     /**
+     * @description The ID of the host.
+     *
      * @example 1
      *
      * @var string
@@ -43,6 +50,8 @@ class hostAccounts extends Model
     public $hostId;
 
     /**
+     * @description The ID of the shared key.
+     *
      * @example 1
      *
      * @var string
@@ -50,6 +59,8 @@ class hostAccounts extends Model
     public $hostShareKeyId;
 
     /**
+     * @description The name of the shared key.
+     *
      * @example name
      *
      * @var string
@@ -57,12 +68,7 @@ class hostAccounts extends Model
     public $hostShareKeyName;
 
     /**
-     * @description The protocol that is used by the host.
-     *
-     * Valid values:
-     *
-     *   SSH
-     *   RDP
+     * @description The fingerprint of the private key for the host account.
      *
      * @example fe:ca:37:42:30:00:9d:95:e6:73:e5:b0:32:0a:**:**
      *
@@ -71,7 +77,12 @@ class hostAccounts extends Model
     public $privateKeyFingerprint;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The protocol that is used by the host.
+     *
+     * Valid values:
+     *
+     *   SSH
+     *   RDP
      *
      * @example SSH
      *
