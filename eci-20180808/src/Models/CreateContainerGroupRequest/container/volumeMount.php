@@ -21,9 +21,9 @@ class volumeMount extends Model
     /**
      * @description The mount propagation settings of the volume. Mount propagation allows volumes that are mounted on one container to be shared with other containers in the same pod, or even with other pods on the same node. Valid values:
      *
-     *   None: This volume mount does not receive subsequent mounts that are performed on this volume or subdirectories of this volume.
+     *   None: The volume mount does not receive subsequent mounts that are performed on this volume or subdirectories of this volume.
      *   HostToCotainer: The volume mount receives subsequent mounts that are performed on this volume or the subdirectories of this volume.
-     *   Bidirectional: The volume mount behaves the same as the HostToCotainer mount. The volume mount receives subsequent mounts that are performed on the volume or the subdirectories of the volume. In addition, all volume mounts created by the container are propagated back to the host and to all containers of all pods that use the same volume.
+     *   Bidirectional: This value is similar to HostToContainer. The volume mount receives subsequent mounts that are performed on this volume or the subdirectories of this volume. In addition, all volume mounts that are mounted on the container are propagated back to the host and all containers of all pods that use the same volume.
      *
      * Default value: None.
      * @example None
@@ -33,7 +33,7 @@ class volumeMount extends Model
     public $mountPropagation;
 
     /**
-     * @description The name of the volume. This parameter is the same as Name in the Volume object.
+     * @description The name of the volume. The name of this parameter is the same as the name of the volume that is mounted to the containers.
      *
      * @example default-volume1
      *

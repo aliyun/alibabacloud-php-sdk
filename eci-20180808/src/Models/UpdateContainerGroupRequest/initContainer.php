@@ -18,7 +18,7 @@ class initContainer extends Model
     public $securityContext;
 
     /**
-     * @description The startup arguments of the init container.
+     * @description The arguments that you want to pass to the startup command of the init container.
      *
      * @example 10
      *
@@ -27,7 +27,7 @@ class initContainer extends Model
     public $arg;
 
     /**
-     * @description The commands of the init container.
+     * @description The commands that are used to start the init container.
      *
      * @example /bin/sh sleep
      *
@@ -45,14 +45,14 @@ class initContainer extends Model
     public $cpu;
 
     /**
-     * @description The environment variables for the init container.
+     * @description The environment variable of the init container.
      *
      * @var environmentVar[]
      */
     public $environmentVar;
 
     /**
-     * @description The number of GPUs that you want to allocate to the init container.
+     * @description The number of GPUs you want to allocate to the init container.
      *
      * @example 1
      *
@@ -70,7 +70,11 @@ class initContainer extends Model
     public $image;
 
     /**
-     * @description The image pulling policy.
+     * @description The image pulling policy. Valid values:
+     *
+     *   Always: Each time the instance is updated, image pulling is performed.
+     *   IfNotPresent: On-premises images are used first. If no on-premises images are available, image pulling is performed.
+     *   Never: On-premises images are always used. Image pulling is not performed.
      *
      * @example Onfailure
      *
@@ -79,7 +83,7 @@ class initContainer extends Model
     public $imagePullPolicy;
 
     /**
-     * @description The size of memory that you want to allocate to the init container.
+     * @description The memory size of the init container.
      *
      * @example 4.0
      *
@@ -113,7 +117,7 @@ class initContainer extends Model
     public $stdin;
 
     /**
-     * @description Whether the container runtime closes the stdin channel after the stdin channel has been opened by a sing attach. If stdin is true, the stdin stream remains open across multiple attach sessions. If StdinOnce is set to true, stdin is opened on container start, is empty until the first client attaches to stdin, and then remains open and receive data until the client disconnects. When the client disconnects, stdin is closed and remains closed until the container is restarted.
+     * @description Specifies whether standard input streams are disconnected after a client is disconnected. If Stdin is set to true, standard input streams remain connected among multiple sessions. If StdinOnce is set to true, standard input streams are connected after the init container is started, and remain idle until a client is connected to receive data. After the client is disconnected, streams are also disconnected, and remain disconnected until the init container restarts.
      *
      * @example true
      *
@@ -131,7 +135,7 @@ class initContainer extends Model
     public $tty;
 
     /**
-     * @description Pod volumes to mount into the filesystem of the init container.
+     * @description The information about the volume that you want to mount on the init container.
      *
      * @var volumeMount[]
      */

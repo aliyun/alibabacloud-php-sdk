@@ -72,7 +72,7 @@ class previousState extends Model
     public $startTime;
 
     /**
-     * @description The status of the container. Valid values: Waiting, Running, and Terminated.
+     * @description The container status. Valid values: Waiting, Running, and Terminated.
      *
      * @example Terminated
      *

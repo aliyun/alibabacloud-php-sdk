@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class lifecyclePreStopHandlerHttpGetHttpHeader extends Model
 {
     /**
-     * @description The request parameter of HTTP GET requests when you use HTTP requests to specify the preStop callback function.
+     * @description The request parameter of the HTTP GET request when you use an HTTP request to specify the preStop callback function.
      *
      * @example test
      *
@@ -18,7 +18,7 @@ class lifecyclePreStopHandlerHttpGetHttpHeader extends Model
     public $name;
 
     /**
-     * @description The request parameter value of HTTP GET requests when you use HTTP requests to specify the preStop callback function.
+     * @description The request parameter value of the HTTP GET request when you use an HTTP request to specify the preStop callback function.
      *
      * @example testValue
      *

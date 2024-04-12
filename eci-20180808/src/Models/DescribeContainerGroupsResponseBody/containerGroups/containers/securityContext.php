@@ -17,7 +17,7 @@ class securityContext extends Model
     public $capability;
 
     /**
-     * @description Indicates whether the root file system is set to the read-only mode. The only valid value is true.
+     * @description Indicates whether permissions on the root file system are read-only.
      *
      * @example true
      *
@@ -26,7 +26,7 @@ class securityContext extends Model
     public $readOnlyRootFilesystem;
 
     /**
-     * @description The ID of the user that runs the container.
+     * @description The user ID (UID) that is used to run the container.
      *
      * @example 1000
      *

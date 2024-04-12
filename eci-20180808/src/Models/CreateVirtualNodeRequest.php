@@ -156,7 +156,7 @@ class CreateVirtualNodeRequest extends Model
     public $vSwitchId;
 
     /**
-     * @description he name of the VNode. The name must be 2 to 128 characters in length, and can contain lowercase letters, digits, periods (.), and hyphens (-).
+     * @description The name of the VNode. The name must be 2 to 128 characters in length, and can contain lowercase letters, digits, periods (.), and hyphens (-).
      *
      * @example testNode
      *

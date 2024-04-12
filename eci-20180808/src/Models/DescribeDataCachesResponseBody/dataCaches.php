@@ -39,7 +39,7 @@ class dataCaches extends Model
     public $creationTime;
 
     /**
-     * @description The data cache ID.
+     * @description The ID of the data cache.
      *
      * @example edc-bp15l4vvys94oo******
      *
@@ -71,7 +71,7 @@ class dataCaches extends Model
     public $expireDateTime;
 
     /**
-     * @description The ID of the local snapshot.
+     * @description The ID of the on-premises snapshot.
      *
      * @example s-bp12w3v37sit96t6****
      *
@@ -89,7 +89,7 @@ class dataCaches extends Model
     public $lastMatchedTime;
 
     /**
-     * @description The data cache name.
+     * @description The name of the data cache.
      *
      * @example test
      *
@@ -98,7 +98,7 @@ class dataCaches extends Model
     public $name;
 
     /**
-     * @description The vHost directory in which the data cache resides.
+     * @description The directory in which the virtual host of the data cache resides.
      *
      * @example /data/models/
      *
@@ -125,7 +125,7 @@ class dataCaches extends Model
     public $regionId;
 
     /**
-     * @description The resource group ID.
+     * @description The ID of the resource group.
      *
      * @example rg-aek2hlt3ux4****
      *
@@ -152,7 +152,7 @@ class dataCaches extends Model
     public $snapshotId;
 
     /**
-     * @description The state of the data cache. Valid values:
+     * @description The status of the data cache. Valid values:
      *
      *   Loading: The data cache is loading data.
      *   Creating: The data cache is being created.
@@ -161,8 +161,8 @@ class dataCaches extends Model
      *   Updating: The data cache is being updated.
      *   UpdateFailed: The data cache failed to be updated.
      *
-     * The data cache is available when it is in the Ready state.
-     * @example Ready
+     * If the data cache is in the Available state, the data cache can be used.
+     * @example Available
      *
      * @var string
      */

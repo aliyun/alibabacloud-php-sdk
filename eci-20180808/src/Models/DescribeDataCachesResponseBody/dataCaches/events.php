@@ -36,7 +36,7 @@ class events extends Model
     public $lastTimestamp;
 
     /**
-     * @description The information about the event.
+     * @description The message about the event.
      *
      * @example Successfully check data cache resource.
      *
@@ -54,7 +54,7 @@ class events extends Model
     public $name;
 
     /**
-     * @description The event cause.
+     * @description The reason for the transition into the current status of the event.
      *
      * @example Started
      *
@@ -63,7 +63,7 @@ class events extends Model
     public $reason;
 
     /**
-     * @description The event type. Valid values:
+     * @description The type of the event. Valid values:
      *
      *   Normal
      *   Warning

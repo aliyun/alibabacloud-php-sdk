@@ -17,21 +17,21 @@ use AlibabaCloud\Tea\Model;
 class containers extends Model
 {
     /**
-     * @description The arguments that are passed to the startup command of the container.
+     * @description The arguments that are passed to the startup commands of the container.
      *
      * @var string[]
      */
     public $args;
 
     /**
-     * @description The container startup commands.
+     * @description The startup commands of the container.
      *
      * @var string[]
      */
     public $commands;
 
     /**
-     * @description The number of vCPUs that you want to allocate to the container.
+     * @description The number of vCPUs that are allocated to the container.
      *
      * @example 2.0
      *
@@ -47,7 +47,7 @@ class containers extends Model
     public $currentState;
 
     /**
-     * @description The environment variables.
+     * @description The environment variables of the container.
      *
      * @var environmentVars[]
      */
@@ -63,7 +63,7 @@ class containers extends Model
     public $gpu;
 
     /**
-     * @description The image of the container.
+     * @description The image in the container.
      *
      * @example mysql
      *
@@ -72,10 +72,10 @@ class containers extends Model
     public $image;
 
     /**
-     * @description The policy for image pulling. Valid values:
+     * @description The image pulling policy. Valid values:
      *
-     *   Always: Image pulling is always performed.
-     *   IfNotPresent: On-premises images are preferentially used. If no on-premises images are available, image pulling is performed.
+     *   Always: Each time the instance is updated, image pulling is performed.
+     *   IfNotPresent: On-premises images are used first. If no on-premises images are available, image pulling is performed.
      *   Never: On-premises images are always used. Image pulling is not performed.
      *
      * @example Always
@@ -101,7 +101,7 @@ class containers extends Model
     public $memory;
 
     /**
-     * @description The container name.
+     * @description The name of the container.
      *
      * @example nginx
      *
@@ -110,14 +110,14 @@ class containers extends Model
     public $name;
 
     /**
-     * @description The exposed port and protocol of the container.
+     * @description The exposed ports and protocols of the container.
      *
      * @var ports[]
      */
     public $ports;
 
     /**
-     * @description The previous state of the container.
+     * @description The previous status of the container.
      *
      * @var previousState
      */
@@ -165,7 +165,7 @@ class containers extends Model
     public $stdin;
 
     /**
-     * @description Indicates whether the container runtime closes the stdin channel after the stdin channel has been opened by a sing attach. If stdin is true, the stdin stream remains open across multiple attach sessions. If StdinOnce is set to true, stdin is opened on container start, is empty until the first client attaches to stdin, and then remains open and receive data until the client disconnects. When the client disconnects, stdin is closed and remains closed until the container is restarted.
+     * @description Indicates whether standard input streams are disconnected after a client is disconnected. If Stdin is set to true, standard input streams remain connected among multiple sessions. If StdinOnce is set to true, standard input streams are connected after the container is started, and remain idle until a client is connected to receive data. After the client is disconnected, streams are also disconnected, and remain disconnected until the container restarts.
      *
      * @example true
      *
@@ -174,7 +174,7 @@ class containers extends Model
     public $stdinOnce;
 
     /**
-     * @description Indicates whether interaction is enabled. Default value: false If the Command parameter is a `/bin/bash` command, the value is true.
+     * @description Indicates whether interaction is enabled. Default value: false. If the value of the Command parameter is `/bin/bash`, the value of this parameter is true.
      *
      * @example false
      *

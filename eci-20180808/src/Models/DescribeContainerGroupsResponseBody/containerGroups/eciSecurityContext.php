@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class eciSecurityContext extends Model
 {
     /**
-     * @description The Sysctl parameters.
+     * @description sysctl parameters.
      *
      * @var sysctls[]
      */

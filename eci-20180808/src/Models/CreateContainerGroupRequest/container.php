@@ -32,7 +32,7 @@ class container extends Model
     public $securityContext;
 
     /**
-     * @description The arguments that are passed to the startup command of the container. You can specify a maximum of 10 arguments.
+     * @description The arguments that are passed to the startup command of the container. You can specify up to 10 arguments.
      *
      * @example 100
      *
@@ -41,7 +41,7 @@ class container extends Model
     public $arg;
 
     /**
-     * @description The commands that you want to run to perform checks in containers.
+     * @description The commands that you want to run to perform health checks on containers.
      *
      * @example sleep
      *
@@ -50,7 +50,7 @@ class container extends Model
     public $command;
 
     /**
-     * @description The number of vCPUs that you want to allocate to the container. Unit: cores.
+     * @description The number of vCPUs that you want to allocate to the container.
      *
      * @example 0.25
      *
@@ -59,17 +59,17 @@ class container extends Model
     public $cpu;
 
     /**
-     * @description The environment variable of the container.
+     * @description The value of the environment variable for the container.
      *
      * @var environmentVar[]
      */
     public $environmentVar;
 
     /**
-     * @description Specifies whether to hide the information about the environment variable when you query the details of an elastic container instance (ECI). Valid values:
+     * @description Specifies whether to hide the information about environment variables when you query the details of an elastic container instance. Default value: false. Valid values:
      *
-     *   false (default): does not hide the information about the environment variable.
-     *   true: does not return the information about the environment variable. If the environment variable contains sensitive information, you can set this parameter to true to improve the security of the information.
+     *   false
+     *   true If environment variables contain sensitive information, you can set this parameter to true to improve security of the information.
      *
      * @example false
      *
@@ -98,9 +98,9 @@ class container extends Model
     /**
      * @description The policy that you want to use to pull an image. Valid values:
      *
-     *   Always: Image pulling is always performed.
-     *   IfNotPresent: On-premises images are used first. If no on-premises images are available, image pulling is performed.
-     *   Never: Image pulling is not performed. On-premises images are always used.
+     *   Always: Each time instances are created, image pulling is performed.
+     *   IfNotPresent: On-premises images are preferentially used. If no on-premises images are available, image pulling is performed.
+     *   Never: On-premises images are always used. Image pulling is not performed.
      *
      * @example Always
      *
@@ -109,7 +109,7 @@ class container extends Model
     public $imagePullPolicy;
 
     /**
-     * @description The commands to be executed in containers when you use the CLI to specify the postStart callback function.
+     * @description The commands to be executed in containers when you use a CLI to specify the postStart callback function.
      *
      * @example ["/bin/sh", "-c", "echo Hello from the postStart handler > /usr/share/message"]
      *
@@ -118,7 +118,7 @@ class container extends Model
     public $lifecyclePostStartHandlerExec;
 
     /**
-     * @description The IP address of the host that receives HTTP GET requests when you use HTTP requests to specify the postStart callback function.
+     * @description The IP address of the host that receives the HTTP GET request when you use an HTTP request to specify the postStart callback function.
      *
      * @example 10.0.XX.XX
      *
@@ -134,7 +134,7 @@ class container extends Model
     public $lifecyclePostStartHandlerHttpGetHttpHeader;
 
     /**
-     * @description The path to which HTTP GET requests are sent when you use HTTP requests to specify the postStart callback function.
+     * @description The path to which the system sends an HTTP GET request for a health check when you use an HTTP request to specify the postStart callback function.
      *
      * @example /healthyz
      *
@@ -143,7 +143,7 @@ class container extends Model
     public $lifecyclePostStartHandlerHttpGetPath;
 
     /**
-     * @description The port to which HTTP GET requests are sent when you use HTTP requests to specify the postStart callback function.
+     * @description The port to which the system sends an HTTP GET request when you use an HTTP request to specify the postStart callback function.
      *
      * @example 5050
      *
@@ -164,7 +164,7 @@ class container extends Model
     public $lifecyclePostStartHandlerHttpGetScheme;
 
     /**
-     * @description The port that is detected by TCP sockets when you use TCP sockets to specify the postStart callback function.
+     * @description The port to which the system sends a TCP socket request for a health check when you use TCP sockets to specify the postStart callback function.
      *
      * @example 10.0.XX.XX
      *
@@ -173,7 +173,7 @@ class container extends Model
     public $lifecyclePostStartHandlerTcpSocketHost;
 
     /**
-     * @description The port that is detected by TCP sockets when you use TCP sockets to specify the postStart callback function.
+     * @description The port to which the system sends a TCP socket request for a health check when you use TCP sockets to specify the postStart callback function.
      *
      * @example 80
      *
@@ -182,7 +182,7 @@ class container extends Model
     public $lifecyclePostStartHandlerTcpSocketPort;
 
     /**
-     * @description The commands to be executed in containers when you use the CLI to specify the preStop callback function.
+     * @description The commands to be executed in containers when you use a CLI to specify the preStop callback function.
      *
      * @example ["/bin/sh", "-c","echo Hello from the preStop handler > /usr/share/message"]
      *
@@ -191,7 +191,7 @@ class container extends Model
     public $lifecyclePreStopHandlerExec;
 
     /**
-     * @description The IP address of the host that receives HTTP GET requests when you use HTTP requests to specify the preStop callback function.
+     * @description The IP address of the host that receives the HTTP GET request when you use an HTTP request to specify the preStop callback function.
      *
      * @example 10.0.XX.XX
      *
@@ -207,7 +207,7 @@ class container extends Model
     public $lifecyclePreStopHandlerHttpGetHttpHeader;
 
     /**
-     * @description The path to which HTTP GET requests are sent when you use HTTP requests to specify the preStop callback function.
+     * @description The path to which the system sends an HTTP GET request for a health check when you use an HTTP request to specify the preSop callback function.
      *
      * @example /healthyz
      *
@@ -216,7 +216,7 @@ class container extends Model
     public $lifecyclePreStopHandlerHttpGetPath;
 
     /**
-     * @description The port to which HTTP GET requests are sent when you use HTTP requests to specify the preStop callback function.
+     * @description The port to which the system sends an HTTP GET request for a health check when you use HTTP requests to specify the preStop callback function.
      *
      * @example 88
      *
@@ -225,7 +225,7 @@ class container extends Model
     public $lifecyclePreStopHandlerHttpGetPort;
 
     /**
-     * @description The protocol type of HTTP GET requests when you use HTTP requests to specify the preStop callback function. Valid values:
+     * @description The protocol type of the HTTP GET request when you use an HTTP request to specify the preStop callback function. Valid values:
      *
      *   HTTP
      *   HTTPS
@@ -237,7 +237,7 @@ class container extends Model
     public $lifecyclePreStopHandlerHttpGetScheme;
 
     /**
-     * @description The host IP address that is detected by TCP sockets when you use TCP sockets to specify the preStop callback function.
+     * @description The IP address of the host that receives the TCP socket request when you use a TCP socket request to specify the preStop callback function.
      *
      * @example 10.0.XX.XX
      *
@@ -246,7 +246,7 @@ class container extends Model
     public $lifecyclePreStopHandlerTcpSocketHost;
 
     /**
-     * @description The port that is detected by TCP sockets when you use TCP sockets to specify the preStop callback function.
+     * @description The port to which the system sends a TCP socket request for a health check when you use TCP sockets to specify the preStop callback function.
      *
      * @example 90
      *
@@ -255,7 +255,7 @@ class container extends Model
     public $lifecyclePreStopHandlerTcpSocketPort;
 
     /**
-     * @description The memory size of the container. Unit: GiB
+     * @description The memory size that you want to allocate to the container. Unit: GiB
      *
      * @example 0.5
      *
@@ -264,7 +264,7 @@ class container extends Model
     public $memory;
 
     /**
-     * @description The container name.
+     * @description The name of the container.
      *
      * @example nginx
      *
@@ -273,24 +273,32 @@ class container extends Model
     public $name;
 
     /**
-     * @description The port to which HTTP GET requests are sent when you use HTTP requests to perform health checks.
+     * @description The port to which the system sends an HTTP GET request for a health check when you use HTTP requests to perform health checks.
      *
      * @var port[]
      */
     public $port;
 
     /**
+     * @description The user group that runs the container.
+     *
+     * @example 3000
+     *
      * @var int
      */
     public $securityContextRunAsGroup;
 
     /**
+     * @description Specifies whether to run the container as a non-root user.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $securityContextRunAsNonRoot;
 
     /**
-     * @description Specifies whether the container allocates a buffer for standard input in the container runtime. If you do not specify this parameter, an end-of-file (EOF) error occurs when standard input in the container is read. Default value: false.
+     * @description Specifies whether the container allocates buffer resources to standard input streams when the container is running. If you do not specify this parameter, an end-of-file (EOF) error may occur when standard input streams in the container are read. Default value: false.
      *
      * @example false
      *
@@ -299,8 +307,8 @@ class container extends Model
     public $stdin;
 
     /**
-     * @description Specifies whether to keep the standard input stream open in the container runtime across multiple attach sessions if Stdin is set to true.\
-     * If StdinOnce is set to true, the standard input stream is opened when the container is started, remains empty until the first client is attached to standard input, and then remains open and receives data until the client is disconnected. When the client is disconnected, the standard input stream is closed and remains closed until the container is restarted.
+     * @description Specifies whether standard input streams are disconnected from multiple sessions after a client is disconnected.\
+     * If StdinOnce is set to true, standard input streams are connected after the container is started, and remain idle until a client is connected to receive data. After the client is disconnected, standard input streams are also disconnected, and remain disconnected until the container restarts.
      * @example false
      *
      * @var bool
@@ -317,7 +325,7 @@ class container extends Model
     public $terminationMessagePath;
 
     /**
-     * @description The message notification policy. This parameter is empty by default. You can use only Message Service (MNS) queues to configure notifications.
+     * @description The message notification policy. This parameter is empty by default. Only Message Service (MNS) queue message notifications can be sent.
      *
      * @example FallbackToLogsOnError
      *
@@ -328,7 +336,7 @@ class container extends Model
     /**
      * @description Specifies whether to enable interaction. Default value: false.
      *
-     * If you set Command to /bin/bash, you must set this parameter to true.
+     * If the command is a /bin/bash command, set the value to true.
      * @example false
      *
      * @var bool
@@ -336,7 +344,7 @@ class container extends Model
     public $tty;
 
     /**
-     * @description The information about the volume that you want to mount on the container.
+     * @description The information about the volume that you want to mount to the container.
      *
      * @var volumeMount[]
      */

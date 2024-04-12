@@ -10,6 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeContainerGroupsRequest extends Model
 {
     /**
+     * @description The computing power type of the elastic container instance. A value of economy specifies economic elastic container instances.
+     *
+     * @example economy
+     *
+     * @var string
+     */
+    public $computeCategory;
+
+    /**
      * @description The IDs of the elastic container instances in JSON format. You can specify up to 20 IDs.
      *
      * @example ["eci-bp17gw49eu09yiwm****", "eci-bp19aq49du01abcm****", "eci-2zegym1qhbmdfr1s****"]
@@ -67,7 +76,7 @@ class DescribeContainerGroupsRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which the elastic container instances belong. If you do not specify a resource group when you create an elastic container instance, the system automatically adds the instance to the default resource group in your account.
+     * @description The ID of the resource group to which the instance belongs.
      *
      * @example rg-aekzh43v*****
      *
@@ -86,6 +95,10 @@ class DescribeContainerGroupsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the security group to which the instance belongs.
+     *
+     * @example sg-uf66jeqopgqa9hdn****
+     *
      * @var string
      */
     public $securityGroupId;
@@ -127,7 +140,7 @@ class DescribeContainerGroupsRequest extends Model
     public $vSwitchId;
 
     /**
-     * @description Specifies whether to return event information.
+     * @description Specify whether to return event information.
      *
      * @example true
      *
@@ -145,6 +158,7 @@ class DescribeContainerGroupsRequest extends Model
      */
     public $zoneId;
     protected $_name = [
+        'computeCategory'      => 'ComputeCategory',
         'containerGroupIds'    => 'ContainerGroupIds',
         'containerGroupName'   => 'ContainerGroupName',
         'limit'                => 'Limit',
@@ -170,6 +184,9 @@ class DescribeContainerGroupsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->computeCategory) {
+            $res['ComputeCategory'] = $this->computeCategory;
+        }
         if (null !== $this->containerGroupIds) {
             $res['ContainerGroupIds'] = $this->containerGroupIds;
         }
@@ -236,6 +253,9 @@ class DescribeContainerGroupsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ComputeCategory'])) {
+            $model->computeCategory = $map['ComputeCategory'];
+        }
         if (isset($map['ContainerGroupIds'])) {
             $model->containerGroupIds = $map['ContainerGroupIds'];
         }

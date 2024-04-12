@@ -17,6 +17,10 @@ use AlibabaCloud\Tea\Model;
 class containerGroups extends Model
 {
     /**
+     * @description The computing power type of the elastic container instance. A value of economy indicates economic instances.
+     *
+     * @example economy
+     *
      * @var string
      */
     public $computeCategory;
@@ -40,7 +44,7 @@ class containerGroups extends Model
     public $containerGroupName;
 
     /**
-     * @description The containers in the elastic container instance.
+     * @description The information about containers in the elastic container instance.
      *
      * @var containers[]
      */
@@ -56,7 +60,7 @@ class containerGroups extends Model
     public $cpu;
 
     /**
-     * @description The time when the system created the elastic container instance after the system received the request. The time follows the RFC 3339 standard and must be in UTC.
+     * @description The time when the system created the elastic container instance after the system received the request. The time follows the RFC 3339 standard. The time is displayed in UTC.
      *
      * @example 2018-08-02T15:00:00Z
      *
@@ -106,14 +110,14 @@ class containerGroups extends Model
     public $ephemeralStorage;
 
     /**
-     * @description The events about the elastic container instance. A maximum of 50 events can be returned.
+     * @description The events of the elastic container instance. A maximum of 50 events can be returned.
      *
      * @var events[]
      */
     public $events;
 
     /**
-     * @description The time when the elastic container instance failed to run due to overdue payments. The time follows the RFC 3339 standard and must be in UTC.
+     * @description The time when the elastic container instance failed to run due to overdue payments. The time follows the RFC 3339 standard. The time is displayed in UTC.
      *
      * @example 2018-08-02T15:00:00Z
      *
@@ -122,7 +126,7 @@ class containerGroups extends Model
     public $expiredTime;
 
     /**
-     * @description The time when the instance failed to run. The time follows the RFC 3339 standard and must be in UTC.
+     * @description The time when the instance failed to run. The time follows the RFC 3339 standard. The time is displayed in UTC.
      *
      * @example 2018-08-02T15:00:00Z
      *
@@ -131,7 +135,7 @@ class containerGroups extends Model
     public $failedTime;
 
     /**
-     * @description The hostname mapping of a container in the elastic container instance.
+     * @description The hostnames and IP addresses for a container that are added to the hosts file of the elastic container instance.
      *
      * @var hostAliases[]
      */
@@ -145,7 +149,7 @@ class containerGroups extends Model
     public $initContainers;
 
     /**
-     * @description The instance type of the Elastic Compute Service (ECS) instance that is used to create the elastic container instance.
+     * @description The instance type of the specified Elastic Compute Service (ECS) instance.
      *
      * @example ecs.g5.large
      *
@@ -172,7 +176,7 @@ class containerGroups extends Model
     public $intranetIp;
 
     /**
-     * @description The IPv6 address.
+     * @description The IPv6 address of the instance.
      *
      * @example 2001:XXXX:4:4:4:4:4:4
      *
@@ -181,7 +185,7 @@ class containerGroups extends Model
     public $ipv6Address;
 
     /**
-     * @description The memory size of the elastic container instance. Unit: GiB.
+     * @description The memory size of the instance. Unit: GiB.
      *
      * @example 4.0
      *
@@ -190,7 +194,7 @@ class containerGroups extends Model
     public $memory;
 
     /**
-     * @description The name of the instance RAM role. You can use an instance RAM role to access both elastic container instances and ECS instances. For more information, see [Use the instance RAM role by calling APIs](~~61178~~).
+     * @description The name of the instance RAM role. The elastic container instance and the ECS instance share a RAM role. For more information, see [Use an instance RAM role by calling API operations](~~61178~~).
      *
      * @example ram:PassRole
      *
@@ -208,7 +212,7 @@ class containerGroups extends Model
     public $regionId;
 
     /**
-     * @description The resource group ID.
+     * @description The ID of the resource group.
      *
      * @example rg-8db03793gfrz****
      *
@@ -219,9 +223,9 @@ class containerGroups extends Model
     /**
      * @description The restart policy of the elastic container instance. Valid values:
      *
-     *   Never: never restarts the elastic container instance.
-     *   Always: always restarts the elastic container instance.
-     *   OnFailure: restarts the instance if it fails to run.
+     *   Never: Never restarts the instance if a container in the instance exits.
+     *   Always: Always restarts the instance if a container in the instance exits.
+     *   OnFailure: Restarts the instance only if a container in the instance exists upon failure with a status code of non-zero.
      *
      * @example Never
      *
@@ -230,7 +234,7 @@ class containerGroups extends Model
     public $restartPolicy;
 
     /**
-     * @description The ID of the security group to which the instance belongs.
+     * @description The security group ID.
      *
      * @example sg-bp12ujq5zpxuyjfo3o8r
      *
@@ -241,7 +245,7 @@ class containerGroups extends Model
     /**
      * @description The maximum hourly price for the preemptible elastic container instance.
      *
-     * This parameter is returned only if you set the SpotStrategy parameter to SpotWithPriceLimit.
+     * This parameter is returned only when SpotStrategy is set to SpotWithPriceLimit.
      * @example 0.025
      *
      * @var float
@@ -249,11 +253,11 @@ class containerGroups extends Model
     public $spotPriceLimit;
 
     /**
-     * @description The bidding policy for the instance. Valid values:
+     * @description The bid policy for the instance. Default value: NoSpot. Valid values:
      *
-     *   NoSpot (default): The instance is created as a regular pay-as-you-go instance.
+     *   NoSpot: The instance is a regular pay-as-you-go instance.
      *   SpotWithPriceLimit: The instance is a preemptible instance that has a maximum price.
-     *   SpotAsPriceGo: The instance is a preemptible instance for which the market price at the time of purchase is automatically used as the bidding price.
+     *   SpotAsPriceGo: The instance is a preemptible instance for which the market price at the time of purchase is used as the bid price.
      *
      * @example NoSpot
      *
@@ -262,18 +266,18 @@ class containerGroups extends Model
     public $spotStrategy;
 
     /**
-     * @description The status of the instance. Valid values:
+     * @description The state of the instance. Valid values:
      *
-     *   Pending: The elastic container instance is being started.
-     *   Running: The elastic container instance is running.
-     *   Succeeded: The elastic container instance runs successfully.
-     *   Failed: The elastic container instance fails to run.
-     *   Scheduling: The elastic container instance is being created.
-     *   ScheduleFailed: The elastic container instance fails to be created.
-     *   Restarting: The elastic container instance is being restarted.
-     *   Updating: The elastic container instance is being updated.
-     *   Terminating: The elastic container instance is being terminated.
-     *   Expired: The instance expired.
+     *   Pending: The instance is being started.
+     *   Running: The instance is running.
+     *   Succeeded: The instance successfully runs.
+     *   Failed: The instance fails to run.
+     *   Scheduling: The instance is being created.
+     *   ScheduleFailed: The instance fails to be created.
+     *   Restarting: The instance is being restarted.
+     *   Updating: The instance is being updated.
+     *   Terminating: The instance is being terminated.
+     *   Expired: The instance is expired.
      *
      * @example Running
      *
@@ -282,7 +286,7 @@ class containerGroups extends Model
     public $status;
 
     /**
-     * @description The time when all containers in the elastic container instance exit. The time follows the RFC 3339 standard and must be in UTC.
+     * @description The time when all containers exited on success. The time follows the RFC 3339 standard. The time is displayed in UTC.
      *
      * @example 2019-12-11T04:33:42Z
      *
@@ -298,7 +302,7 @@ class containerGroups extends Model
     public $tags;
 
     /**
-     * @description This parameter is unavailable.
+     * @description This parameter is not publicly available.
      *
      * @example i-xxx
      *
@@ -307,7 +311,7 @@ class containerGroups extends Model
     public $tenantEniInstanceId;
 
     /**
-     * @description This parameter is unavailable.
+     * @description This parameter is not publicly available.
      *
      * @example 10.10.XX.XX
      *
@@ -316,7 +320,7 @@ class containerGroups extends Model
     public $tenantEniIp;
 
     /**
-     * @description This parameter is unavailable.
+     * @description This parameter is not publicly available.
      *
      * @example sg-xxx
      *
@@ -325,7 +329,7 @@ class containerGroups extends Model
     public $tenantSecurityGroupId;
 
     /**
-     * @description This parameter is unavailable.
+     * @description This parameter is not publicly available.
      *
      * @example vsw-xxx
      *
@@ -334,7 +338,7 @@ class containerGroups extends Model
     public $tenantVSwitchId;
 
     /**
-     * @description The ID of the vSwitch.
+     * @description The ID of the vSwitch to which the instance is connected.
      *
      * @example vsw-bp1vzjjflab6wvjox****
      *
@@ -343,14 +347,14 @@ class containerGroups extends Model
     public $vSwitchId;
 
     /**
-     * @description The information about the volumes.
+     * @description Information about the volumes.
      *
      * @var volumes[]
      */
     public $volumes;
 
     /**
-     * @description The ID of the virtual private cloud (VPC) to which the elastic container instances belong.
+     * @description The ID of the VPC to which the instance belongs.
      *
      * @example vpc-1vzjjflab6wvjox****
      *

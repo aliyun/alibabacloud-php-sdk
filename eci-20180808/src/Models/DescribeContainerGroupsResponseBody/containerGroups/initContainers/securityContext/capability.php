@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class capability extends Model
 {
     /**
-     * @description The permissions specific to the process in the container.
+     * @description The permissions specific to the processes in the container.
      *
      * @var string[]
      */

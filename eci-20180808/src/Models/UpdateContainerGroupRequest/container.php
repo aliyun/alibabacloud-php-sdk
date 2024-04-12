@@ -32,7 +32,7 @@ class container extends Model
     public $securityContext;
 
     /**
-     * @description The arguments that are passed to the container startup command. You can specify up to 10 arguments.
+     * @description The arguments that you want to pass to the startup command of the container. You can specify up to 10 arguments.
      *
      * @example hello
      *
@@ -41,7 +41,7 @@ class container extends Model
     public $arg;
 
     /**
-     * @description The commands that are used to run the probe.
+     * @description The commands that you want to run to perform the health check.
      *
      * @example echo
      *
@@ -50,7 +50,7 @@ class container extends Model
     public $command;
 
     /**
-     * @description The number of vCPUs that you want to allocate to the container.
+     * @description The number of vCPUs that you want to allocate to the container
      *
      * @example 1.0
      *
@@ -84,7 +84,11 @@ class container extends Model
     public $image;
 
     /**
-     * @description The image pulling policy.
+     * @description The image pulling policy. Valid values:
+     *
+     *   Always: Each time the instance is updated, image pulling is performed.
+     *   IfNotPresent: On-premises images are used first. If no on-premises images are available, image pulling is performed.
+     *   Never: On-premises images are always used. Image pulling is not performed.
      *
      * @example Never
      *
@@ -93,7 +97,7 @@ class container extends Model
     public $imagePullPolicy;
 
     /**
-     * @description The command that you run in the container when you use a command-line interface (CLI) to specify the postStart callback function.
+     * @description The commands to be executed in the container when you use the CLI to specify the postStart callback function.
      *
      * @example hide
      *
@@ -102,7 +106,7 @@ class container extends Model
     public $lifecyclePostStartHandlerExec;
 
     /**
-     * @description The IP address of the host that receives HTTP GET requests when you use HTTP requests to specify the postStart callback function.
+     * @description The IP address of the host that receives the HTTP GET request when you use an HTTP request to specify the postStart callback function.
      *
      * @example hide
      *
@@ -118,7 +122,7 @@ class container extends Model
     public $lifecyclePostStartHandlerHttpGetHttpHeaders;
 
     /**
-     * @description The path to which HTTP GET requests are sent when you use HTTP requests to specify the postStart callback function.
+     * @description The path to which the system sends an HTTP GET request for a health check when you use an HTTP request to specify the postStart callback function.
      *
      * @example /healthyz
      *
@@ -127,7 +131,7 @@ class container extends Model
     public $lifecyclePostStartHandlerHttpGetPath;
 
     /**
-     * @description The port to which HTTP GET requests are sent when you use HTTP requests to specify the postStart callback function.
+     * @description The port to which the system sends the HTTP GET request when you use an HTTP request to specify the postStart callback function.
      *
      * @example 1
      *
@@ -136,7 +140,7 @@ class container extends Model
     public $lifecyclePostStartHandlerHttpGetPort;
 
     /**
-     * @description The path to which HTTP GET requests are sent when you use HTTP requests to specify the postStart callback function.
+     * @description The path to which the system sends an HTTP GET request for a health check when you use an HTTP request to specify the postStart callback function.
      *
      * @example /healthyz
      *
@@ -145,7 +149,7 @@ class container extends Model
     public $lifecyclePostStartHandlerHttpGetScheme;
 
     /**
-     * @description The host IP address of TCP socket probes when you use TCP sockets to specify the postStart callback function.
+     * @description The IP address of the host that receives the TCP socket request when you use a TCP socket request to specify the postStart callback function.
      *
      * @example 10.0.XX.XX
      *
@@ -154,7 +158,7 @@ class container extends Model
     public $lifecyclePostStartHandlerTcpSocketHost;
 
     /**
-     * @description The port of TCP socket probes when you use TCP sockets to specify the postStart callback function.
+     * @description The port to which the system sends a TCP socket request for a health check when you use TCP sockets to specify the postStart callback function.
      *
      * @example 1
      *
@@ -163,7 +167,7 @@ class container extends Model
     public $lifecyclePostStartHandlerTcpSocketPort;
 
     /**
-     * @description The command that you run in the container when you use a CLI to specify the preStop callback function.
+     * @description The commands to be executed in the container when you use the CLI to specify the preStop callback function.
      *
      * @example hide
      *
@@ -172,7 +176,7 @@ class container extends Model
     public $lifecyclePreStopHandlerExec;
 
     /**
-     * @description The IP address of the host that receives HTTP GET requests when you use HTTP requests to specify the preStop callback function.
+     * @description The IP address of the host that receives the HTTP GET request when you use an HTTP request to specify the preStop callback function.
      *
      * @example 10.0.XX.XX
      *
@@ -181,14 +185,14 @@ class container extends Model
     public $lifecyclePreStopHandlerHttpGetHost;
 
     /**
-     * @description The information about the generated HTTP request headers.
+     * @description The information about the generated HTTP request header.
      *
      * @var lifecyclePreStopHandlerHttpGetHttpHeader[]
      */
     public $lifecyclePreStopHandlerHttpGetHttpHeader;
 
     /**
-     * @description The path to which HTTP GET requests are sent when you use HTTP requests to specify the preStop callback function.
+     * @description The path to which the system sends an HTTP GET request for a health check when you use an HTTP request to specify the preSop callback function.
      *
      * @example /healthyz
      *
@@ -197,7 +201,7 @@ class container extends Model
     public $lifecyclePreStopHandlerHttpGetPath;
 
     /**
-     * @description The port to which HTTP GET requests are sent when you use HTTP requests to specify the preStop callback function.
+     * @description The port to which the system sends the HTTP GET request for a health check when you use an HTTP request to specify the preStop callback function.
      *
      * @example 1
      *
@@ -206,7 +210,7 @@ class container extends Model
     public $lifecyclePreStopHandlerHttpGetPort;
 
     /**
-     * @description The protocol type of HTTP GET requests when you use HTTP requests to specify the preStop callback function. Valid values:
+     * @description The protocol type of the HTTP GET request when you use an HTTP request to specify the preStop callback function. Valid values:
      *
      *   HTTP
      *   HTTPS
@@ -218,7 +222,7 @@ class container extends Model
     public $lifecyclePreStopHandlerHttpGetScheme;
 
     /**
-     * @description The host IP address of TCP socket probes when you use TCP sockets to specify the preStop callback function.
+     * @description The IP address of the host that receives the TCP socket request when you use a TCP socket request to specify the preStop callback function.
      *
      * @example 10.0.XX.XX
      *
@@ -227,7 +231,7 @@ class container extends Model
     public $lifecyclePreStopHandlerTcpSocketHost;
 
     /**
-     * @description The port of TCP socket probes when you use TCP sockets to specify the preStop callback function.
+     * @description The port to which the system sends a TCP socket request for a health check when you use TCP sockets to specify the preStop callback function.
      *
      * @example 80
      *
@@ -270,7 +274,7 @@ class container extends Model
     public $stdin;
 
     /**
-     * @description Whether the container runtime closes the stdin channel after the stdin channel has been opened by a sing attach. If stdin is true, the stdin stream remains open across multiple attach sessions. If StdinOnce is set to true, stdin is opened on container start, is empty until the first client attaches to stdin, and then remains open and receive data until the client disconnects. When the client disconnects, stdin is closed and remains closed until the container is restarted.
+     * @description Specifies whether standard input streams are disconnected after a client is disconnected. If Stdin is set to true, standard input streams remain connected among multiple sessions. If StdinOnce is set to true, standard input streams are connected after the container is started, and remain idle until a client is connected to receive data. After the client is disconnected, streams are also disconnected, and remain disconnected until the container restarts.
      *
      * @example true
      *
@@ -288,7 +292,7 @@ class container extends Model
     public $tty;
 
     /**
-     * @description Pod volumes to mount into the filesystem of the container.
+     * @description Pod volumes that you want to mount into the filesystem of the container.
      *
      * @var volumeMount[]
      */

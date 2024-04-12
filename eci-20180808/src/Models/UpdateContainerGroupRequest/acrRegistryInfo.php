@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class acrRegistryInfo extends Model
 {
     /**
-     * @description The domain names of the Container Registry Enterprise Edition instance. By default, all domain names of the instance are displayed. You can specify one or more domain names. Separate multiple domain names with commas (,).
+     * @description The domain names of the Container Registry Enterprise Edition instance. By default, all domain names of the instance are displayed. You can specify specific domain names. Separate multiple domain names with commas (,).
      *
      * @var string[]
      */
@@ -34,7 +34,7 @@ class acrRegistryInfo extends Model
     public $instanceName;
 
     /**
-     * @description The region ID of the Container Registry Enterprise Edition instance.
+     * @description The ID of the region where the Container Registry Enterprise Edition instance resides.
      *
      * @example cn-beijing
      *

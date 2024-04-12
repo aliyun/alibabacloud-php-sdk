@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class readinessProbe extends Model
 {
     /**
-     * @description The commands to be executed in containers when you use a command-line interface (CLI) to perform health checks.
+     * @description The commands that are run in the container when you use a CLI to perform health checks.
      *
      * @var string[]
      */
@@ -34,7 +34,7 @@ class readinessProbe extends Model
     public $httpGet;
 
     /**
-     * @description The number of seconds between the time when the startup of the container ends and the time when the check starts.
+     * @description The number of seconds between the time when the startup of the container ends and the time when the probe starts.
      *
      * @example 5
      *
@@ -43,7 +43,7 @@ class readinessProbe extends Model
     public $initialDelaySeconds;
 
     /**
-     * @description The interval at which the container is checked. Unit: seconds. Default value: 10. Minimum value: 1.
+     * @description The interval at which the health check is performed. Unit: seconds. Default value: 10. Minimum value: 1.
      *
      * @example 1
      *
@@ -68,7 +68,7 @@ class readinessProbe extends Model
     public $tcpSocket;
 
     /**
-     * @description The timeout period of the health check. Unit: seconds. Default value: 1. Minimum value: 1.
+     * @description The timeout period of the check. Default value: 1. Minimum value: 1. Unit: seconds.
      *
      * @example 1
      *

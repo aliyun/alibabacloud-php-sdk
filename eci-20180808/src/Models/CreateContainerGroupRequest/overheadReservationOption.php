@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class overheadReservationOption extends Model
 {
     /**
+     * @description Specify whether to enable the overhead reservation feature. Default: false. Valid values: true and false. After you enable the overhead reservation feature, the system automatically adds the overhead to the specification of the elastic container instance, and then adjusts the specification of the instance upward to the most approximate specification. You are charged based on the new specification after the adjustment.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableOverheadReservation;

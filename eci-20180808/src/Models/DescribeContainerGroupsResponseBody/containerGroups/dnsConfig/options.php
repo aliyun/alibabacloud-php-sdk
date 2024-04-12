@@ -18,7 +18,7 @@ class options extends Model
     public $name;
 
     /**
-     * @description The value of the object.
+     * @description The variable value of the option.
      *
      * @example value
      *

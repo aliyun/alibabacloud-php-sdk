@@ -78,6 +78,13 @@ class CreateContainerGroupRequest extends Model
     public $clientToken;
 
     /**
+     * @description The computing power type of the instance.
+     *
+     * @var string[]
+     */
+    public $computeCategory;
+
+    /**
      * @description The information about the containers.
      *
      * @var container[]
@@ -125,6 +132,13 @@ class CreateContainerGroupRequest extends Model
     public $cpu;
 
     /**
+     * @description The CPU architecture of the instance. Default value: AMD64. Valid values:
+     *
+     *   AMD64
+     *   ARM64
+     *
+     * @example ARM64
+     *
      * @var string
      */
     public $cpuArchitecture;
@@ -292,6 +306,11 @@ class CreateContainerGroupRequest extends Model
     public $fixedIpRetainHour;
 
     /**
+     * @var string
+     */
+    public $gpuDriverVersion;
+
+    /**
      * @description The alias of the elastic container instance.
      *
      * @var hostAliase[]
@@ -426,11 +445,21 @@ class CreateContainerGroupRequest extends Model
     public $ntpServer;
 
     /**
+     * @description The operating system of the elastic container instance. Default value: Linux. Valid values:
+     *
+     *   Linux
+     *   Windows
+     *
+     * >  Windows instances are in invitational preview. To use the operating system, submit a ticket.
+     * @example Windows
+     *
      * @var string
      */
     public $osType;
 
     /**
+     * @description The options that you can configure when you enable the overhead reservation feature.
+     *
      * @var overheadReservationOption
      */
     public $overheadReservationOption;
@@ -642,6 +671,7 @@ class CreateContainerGroupRequest extends Model
         'autoCreateEip'                 => 'AutoCreateEip',
         'autoMatchImageCache'           => 'AutoMatchImageCache',
         'clientToken'                   => 'ClientToken',
+        'computeCategory'               => 'ComputeCategory',
         'container'                     => 'Container',
         'containerGroupName'            => 'ContainerGroupName',
         'containerResourceView'         => 'ContainerResourceView',
@@ -665,6 +695,7 @@ class CreateContainerGroupRequest extends Model
         'ephemeralStorage'              => 'EphemeralStorage',
         'fixedIp'                       => 'FixedIp',
         'fixedIpRetainHour'             => 'FixedIpRetainHour',
+        'gpuDriverVersion'              => 'GpuDriverVersion',
         'hostAliase'                    => 'HostAliase',
         'hostName'                      => 'HostName',
         'imageAccelerateMode'           => 'ImageAccelerateMode',
@@ -742,6 +773,9 @@ class CreateContainerGroupRequest extends Model
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+        if (null !== $this->computeCategory) {
+            $res['ComputeCategory'] = $this->computeCategory;
+        }
         if (null !== $this->container) {
             $res['Container'] = [];
             if (null !== $this->container && \is_array($this->container)) {
@@ -816,6 +850,9 @@ class CreateContainerGroupRequest extends Model
         }
         if (null !== $this->fixedIpRetainHour) {
             $res['FixedIpRetainHour'] = $this->fixedIpRetainHour;
+        }
+        if (null !== $this->gpuDriverVersion) {
+            $res['GpuDriverVersion'] = $this->gpuDriverVersion;
         }
         if (null !== $this->hostAliase) {
             $res['HostAliase'] = [];
@@ -1003,6 +1040,11 @@ class CreateContainerGroupRequest extends Model
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+        if (isset($map['ComputeCategory'])) {
+            if (!empty($map['ComputeCategory'])) {
+                $model->computeCategory = $map['ComputeCategory'];
+            }
+        }
         if (isset($map['Container'])) {
             if (!empty($map['Container'])) {
                 $model->container = [];
@@ -1077,6 +1119,9 @@ class CreateContainerGroupRequest extends Model
         }
         if (isset($map['FixedIpRetainHour'])) {
             $model->fixedIpRetainHour = $map['FixedIpRetainHour'];
+        }
+        if (isset($map['GpuDriverVersion'])) {
+            $model->gpuDriverVersion = $map['GpuDriverVersion'];
         }
         if (isset($map['HostAliase'])) {
             if (!empty($map['HostAliase'])) {

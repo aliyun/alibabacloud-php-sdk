@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tcpSocket extends Model
 {
     /**
-     * @description The IP address of the host.
+     * @description The hostname.
      *
      * @example 1.2.3.4
      *

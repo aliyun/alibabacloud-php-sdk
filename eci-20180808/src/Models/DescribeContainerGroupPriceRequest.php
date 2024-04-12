@@ -9,6 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeContainerGroupPriceRequest extends Model
 {
     /**
+     * @description The computing power type. A value of economy specifies economic instances.
+     *
+     * @example economy
+     *
+     * @var string
+     */
+    public $computeCategory;
+
+    /**
      * @description The number of vCPUs. For information about the vCPU and memory specifications that are supported by Elastic Container Instance, see [vCPU and memory specifications](~~114662~~).
      *
      * @example 2.0
@@ -115,6 +124,7 @@ class DescribeContainerGroupPriceRequest extends Model
      */
     public $zoneId;
     protected $_name = [
+        'computeCategory'      => 'ComputeCategory',
         'cpu'                  => 'Cpu',
         'ephemeralStorage'     => 'EphemeralStorage',
         'instanceType'         => 'InstanceType',
@@ -137,6 +147,9 @@ class DescribeContainerGroupPriceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->computeCategory) {
+            $res['ComputeCategory'] = $this->computeCategory;
+        }
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
         }
@@ -188,6 +201,9 @@ class DescribeContainerGroupPriceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ComputeCategory'])) {
+            $model->computeCategory = $map['ComputeCategory'];
+        }
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
         }

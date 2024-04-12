@@ -27,14 +27,14 @@ class livenessProbe extends Model
     public $failureThreshold;
 
     /**
-     * @description The HTTP GET method that is used to check the container.
+     * @description The HTTP GET method used to check the container.
      *
      * @var httpGet
      */
     public $httpGet;
 
     /**
-     * @description The number of seconds between the time when the startup of the container ends and the time when the check starts.
+     * @description The number of seconds between the time when the startup of the container ends and the time when the probe starts.
      *
      * @example 10
      *
@@ -43,7 +43,7 @@ class livenessProbe extends Model
     public $initialDelaySeconds;
 
     /**
-     * @description The interval at which the container is checked. Unit: seconds. Default value: 10. Minimum value: 1.
+     * @description The interval at which the health check is performed. Unit: seconds. Default value: 10. Minimum value: 1.
      *
      * @example 5
      *
@@ -68,7 +68,7 @@ class livenessProbe extends Model
     public $tcpSocket;
 
     /**
-     * @description The timeout period of the health check. Unit: seconds. Default value: 1. Minimum value: 1.
+     * @description The timeout period of the check. Default value: 1. Minimum value: 1. Unit: seconds.
      *
      * @example 10
      *

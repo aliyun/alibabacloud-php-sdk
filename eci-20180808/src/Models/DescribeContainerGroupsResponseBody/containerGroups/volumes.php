@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class volumes extends Model
 {
     /**
-     * @description The paths to configuration files.
+     * @description The path of the ConfigFile volume.
      *
      * @var configFileVolumeConfigFileToPaths[]
      */
@@ -35,10 +35,10 @@ class volumes extends Model
     public $diskVolumeFsType;
 
     /**
-     * @description The storage media of emptyDir volume N. This parameter is empty by default, indicating that the node file system is used as the storage media. Valid values:
+     * @description The storage media for the emptyDir volume. This parameter is empty by default, indicating that the node file system is used as the storage media. Valid values:
      *
-     *   Memory: uses memory as the storage media.
-     *   LocalRaid0: forms local disks into RAID 0. This value is applicable only to scenarios in which an elastic container instance that has local disks mounted is created. For more information, see [Create an elastic container instance that has local disks mounted](~~114664~~).
+     *   Memory: Memory is used as the storage media.
+     *   LocalRaid0: Local disks are formed into RAID 0. This value is valid only if an elastic container instance that has local disks mounted is created. For more information, see [Create an elastic container instance that has local disks mounted](~~114664~~).
      *
      * @example Memory
      *
@@ -47,7 +47,7 @@ class volumes extends Model
     public $emptyDirVolumeMedium;
 
     /**
-     * @description The storage capacity of emptyDir volume N.
+     * @description The storage size of the emptyDir volume.
      *
      * @example 256Mi
      *
@@ -56,7 +56,7 @@ class volumes extends Model
     public $emptyDirVolumeSizeLimit;
 
     /**
-     * @description The name of the FlexVolume driver.
+     * @description The name of the driver when you set the Type parameter to FlexVolume.
      *
      * @example flexvolume
      *
@@ -65,7 +65,7 @@ class volumes extends Model
     public $flexVolumeDriver;
 
     /**
-     * @description The file system type when you set the Type parameter to FlexVolume. The default value is determined by the script of the FlexVolume plug-in.
+     * @description The file system type when you set the Type parameter to FlexVolume. The default value varies based on the script of the FlexVolume plug-in.
      *
      * @example ntfs
      *
@@ -74,7 +74,7 @@ class volumes extends Model
     public $flexVolumeFsType;
 
     /**
-     * @description The options when you set the Volume.N.Type parameter to FlexVolume.
+     * @description The options when you set the Type parameter to FlexVolume.
      *
      * @example [nolock,tcp,noresvport]
      *
@@ -92,7 +92,7 @@ class volumes extends Model
     public $NFSVolumePath;
 
     /**
-     * @description Indicates whether the volume is read-only.
+     * @description Indicates whether the NFS volume is read-only.
      *
      * @example false
      *

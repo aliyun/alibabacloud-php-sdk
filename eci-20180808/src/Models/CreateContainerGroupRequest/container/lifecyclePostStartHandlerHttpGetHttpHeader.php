@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class lifecyclePostStartHandlerHttpGetHttpHeader extends Model
 {
     /**
-     * @description The key of the custom field in the HTTP GET request header when you use HTTP requests to specify the postStart callback function.
+     * @description The name of the custom field in the HTTP GET request header when you use HTTP requests to specify the postStart callback function.
      *
      * @example Xiao-Custom-Header
      *

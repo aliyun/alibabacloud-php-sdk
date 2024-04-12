@@ -39,7 +39,7 @@ class volume extends Model
     public $NFSVolume;
 
     /**
-     * @description The name of the volume.
+     * @description The volume name.
      *
      * @example test-empty
      *
@@ -53,7 +53,7 @@ class volume extends Model
      *   Directory
      *   File
      *
-     * > This parameter is unavailable.
+     * >  This parameter is not publicly available.
      * @example EmptyDirVolume
      *
      * @var string

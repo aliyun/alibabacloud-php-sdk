@@ -17,14 +17,14 @@ class dnsConfig extends Model
     public $nameServers;
 
     /**
-     * @description The objects. Each object is a name-value pair. The value is optional.
+     * @description The options. Each option is a name-value pair. The value in the name-value pair is optional.
      *
      * @var options[]
      */
     public $options;
 
     /**
-     * @description The lookup domains of DNS server N.
+     * @description The search domain of the DNS server.
      *
      * @var string[]
      */

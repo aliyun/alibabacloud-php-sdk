@@ -18,7 +18,7 @@ class events extends Model
     public $count;
 
     /**
-     * @description The time when the event started.
+     * @description The start time of the event.
      *
      * @example 2018-08-02T15:00:00Z
      *
@@ -27,7 +27,7 @@ class events extends Model
     public $firstTimestamp;
 
     /**
-     * @description The time when the event ended.
+     * @description The end time of the event.
      *
      * @example 2018-08-02T15:00:00Z
      *
@@ -36,7 +36,7 @@ class events extends Model
     public $lastTimestamp;
 
     /**
-     * @description The message about the event.
+     * @description The event message.
      *
      * @example Started container
      *

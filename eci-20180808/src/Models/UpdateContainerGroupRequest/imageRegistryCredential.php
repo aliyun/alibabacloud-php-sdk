@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class imageRegistryCredential extends Model
 {
     /**
-     * @description The password that is used to access the image repository.
+     * @description The password that you use to access the image repository.
      *
      * @example yourpassword
      *
@@ -27,7 +27,7 @@ class imageRegistryCredential extends Model
     public $server;
 
     /**
-     * @description The username that is used to access the image repository.
+     * @description The username that you use to access the image repository.
      *
      * @example yourname
      *

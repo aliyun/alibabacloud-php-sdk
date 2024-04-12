@@ -21,7 +21,7 @@ class UpdateContainerGroupRequest extends Model
     public $dnsConfig;
 
     /**
-     * @description The information about the Container Registry Enterprise Edition instance.
+     * @description Details of the Container Registry Enterprise Edition instance that hosts the image of the init container.
      *
      * @var acrRegistryInfo[]
      */
@@ -53,7 +53,7 @@ class UpdateContainerGroupRequest extends Model
     public $containerGroupId;
 
     /**
-     * @description The number of vCPUs allocated to the elastic container instance.
+     * @description The number of vCPUs that are allocated to the elastic container instance.
      *
      * @example 2.0
      *
@@ -69,14 +69,14 @@ class UpdateContainerGroupRequest extends Model
     public $imageRegistryCredential;
 
     /**
-     * @description The information about the new init containers.
+     * @description The information about the new init container.
      *
      * @var initContainer[]
      */
     public $initContainer;
 
     /**
-     * @description The memory size allocated to the elastic container instance. Unit: GiB.
+     * @description The size of the memory that is allocated to the elastic container instance. Unit: GiB.
      *
      * @example 4.0
      *
@@ -145,8 +145,8 @@ class UpdateContainerGroupRequest extends Model
     /**
      * @description The update type. Valid values:
      *
-     *   RenewUpdate: full update. You must specify all relevant parameters to update the instance. For a parameter of the List type, you must specify all the items contained in the parameter even if you want to update only some of the items. For a parameter of the struct type, you must specify all the members if you want to update only some of the members.
-     *   IncrementalUpdate: incremental update. You can specify only the parameter that needs to be updated. Other related parameters remain unchanged.
+     *   RenewUpdate: full updates. You must specify all relevant parameters to update the elastic container instance. For a parameter of the list type, you must specify all the items contained in the parameter even if you want to update only some of the items. For a parameter of the struct type, you must specify all the members even if you want to update only some of the members.
+     *   IncrementalUpdate: incremental updates. You may specify only the parameter that you want to update. Other related parameters remain unchanged.
      *
      * Default value: RenewUpdate.
      * @example RenewUpdate

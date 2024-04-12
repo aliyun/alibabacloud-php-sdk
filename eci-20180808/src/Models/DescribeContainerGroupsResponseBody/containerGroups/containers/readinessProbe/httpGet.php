@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class httpGet extends Model
 {
     /**
-     * @description The path to which the system sends an HTTP GET request for a probe.
+     * @description The path to which the system sends an HTTP GET request for a health check.
      *
      * @example /usr/local
      *
@@ -27,7 +27,7 @@ class httpGet extends Model
     public $port;
 
     /**
-     * @description The protocol type of the HTTP GET requests.
+     * @description The protocol type supported by the method. Valid values: HTTP and HTTPS.
      *
      * @example HTTP
      *

@@ -65,7 +65,7 @@ class terminated extends Model
     /**
      * @description The start time.
      *
-     * @example 021-05-12T07:02:52Z
+     * @example 2021-05-12T07:02:52Z
      *
      * @var string
      */

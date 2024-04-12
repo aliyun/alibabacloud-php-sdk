@@ -15,7 +15,7 @@ use AlibabaCloud\Tea\Model;
 class initContainers extends Model
 {
     /**
-     * @description The arguments that are passed to the startup command.
+     * @description The arguments that are passed to the startup commands of the container.
      *
      * @var string[]
      */
@@ -29,7 +29,7 @@ class initContainers extends Model
     public $command;
 
     /**
-     * @description The number of vCPUs.
+     * @description The number of vCPUs that are allocated to the container.
      *
      * @example 1.0
      *
@@ -45,7 +45,7 @@ class initContainers extends Model
     public $currentState;
 
     /**
-     * @description The environment variables.
+     * @description The environment variables of the container.
      *
      * @var environmentVars[]
      */
@@ -61,7 +61,7 @@ class initContainers extends Model
     public $gpu;
 
     /**
-     * @description The image.
+     * @description The image of the container.
      *
      * @example nginx
      *
@@ -70,10 +70,10 @@ class initContainers extends Model
     public $image;
 
     /**
-     * @description The policy for image pulling. Valid values:
+     * @description The image pulling policy. Valid values:
      *
-     *   Always: Image pulling is always performed.
-     *   IfNotPresent: On-premises images are preferentially used. If no on-premises images are available, image pulling is performed.
+     *   Always: Each time the instance is updated, image pulling is performed.
+     *   IfNotPresent: On-premises images are used first. If no on-premises images are available, image pulling is performed.
      *   Never: On-premises images are always used. Image pulling is not performed.
      *
      * @example Always
@@ -83,7 +83,7 @@ class initContainers extends Model
     public $imagePullPolicy;
 
     /**
-     * @description The size of memory that is allocated to the init container. Unit: GiB.
+     * @description The memory size of the init container. Unit: GiB.
      *
      * @example 2.0
      *
@@ -101,7 +101,7 @@ class initContainers extends Model
     public $name;
 
     /**
-     * @description The exposed port and protocol of the container.
+     * @description The exposed ports and protocols of the container.
      *
      * @var ports[]
      */
