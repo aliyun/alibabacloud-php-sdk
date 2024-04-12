@@ -20,6 +20,26 @@ class data extends Model
     public $errorMessage;
 
     /**
+     * @var string
+     */
+    public $outputMp3Path;
+
+    /**
+     * @var string
+     */
+    public $outputMp4Path;
+
+    /**
+     * @var string
+     */
+    public $outputSpectrumPath;
+
+    /**
+     * @var string
+     */
+    public $outputThumbnailPath;
+
+    /**
      * @var result
      */
     public $result;
@@ -45,12 +65,16 @@ class data extends Model
      */
     public $taskStatus;
     protected $_name = [
-        'errorCode'    => 'ErrorCode',
-        'errorMessage' => 'ErrorMessage',
-        'result'       => 'Result',
-        'taskId'       => 'TaskId',
-        'taskKey'      => 'TaskKey',
-        'taskStatus'   => 'TaskStatus',
+        'errorCode'           => 'ErrorCode',
+        'errorMessage'        => 'ErrorMessage',
+        'outputMp3Path'       => 'OutputMp3Path',
+        'outputMp4Path'       => 'OutputMp4Path',
+        'outputSpectrumPath'  => 'OutputSpectrumPath',
+        'outputThumbnailPath' => 'OutputThumbnailPath',
+        'result'              => 'Result',
+        'taskId'              => 'TaskId',
+        'taskKey'             => 'TaskKey',
+        'taskStatus'          => 'TaskStatus',
     ];
 
     public function validate()
@@ -65,6 +89,18 @@ class data extends Model
         }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
+        }
+        if (null !== $this->outputMp3Path) {
+            $res['OutputMp3Path'] = $this->outputMp3Path;
+        }
+        if (null !== $this->outputMp4Path) {
+            $res['OutputMp4Path'] = $this->outputMp4Path;
+        }
+        if (null !== $this->outputSpectrumPath) {
+            $res['OutputSpectrumPath'] = $this->outputSpectrumPath;
+        }
+        if (null !== $this->outputThumbnailPath) {
+            $res['OutputThumbnailPath'] = $this->outputThumbnailPath;
         }
         if (null !== $this->result) {
             $res['Result'] = null !== $this->result ? $this->result->toMap() : null;
@@ -95,6 +131,18 @@ class data extends Model
         }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
+        }
+        if (isset($map['OutputMp3Path'])) {
+            $model->outputMp3Path = $map['OutputMp3Path'];
+        }
+        if (isset($map['OutputMp4Path'])) {
+            $model->outputMp4Path = $map['OutputMp4Path'];
+        }
+        if (isset($map['OutputSpectrumPath'])) {
+            $model->outputSpectrumPath = $map['OutputSpectrumPath'];
+        }
+        if (isset($map['OutputThumbnailPath'])) {
+            $model->outputThumbnailPath = $map['OutputThumbnailPath'];
         }
         if (isset($map['Result'])) {
             $model->result = result::fromMap($map['Result']);
