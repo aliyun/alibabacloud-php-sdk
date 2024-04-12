@@ -58,6 +58,18 @@ class DescribeDedicatedHostsRequest extends Model
     public $lockReason;
 
     /**
+     * @example 10
+     *
+     * @var int
+     */
+    public $maxResults;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @var string
      */
     public $ownerAccount;
@@ -162,6 +174,8 @@ class DescribeDedicatedHostsRequest extends Model
         'dedicatedHostName'      => 'DedicatedHostName',
         'dedicatedHostType'      => 'DedicatedHostType',
         'lockReason'             => 'LockReason',
+        'maxResults'             => 'MaxResults',
+        'nextToken'              => 'NextToken',
         'ownerAccount'           => 'OwnerAccount',
         'ownerId'                => 'OwnerId',
         'pageNumber'             => 'PageNumber',
@@ -197,6 +211,12 @@ class DescribeDedicatedHostsRequest extends Model
         }
         if (null !== $this->lockReason) {
             $res['LockReason'] = $this->lockReason;
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -266,6 +286,12 @@ class DescribeDedicatedHostsRequest extends Model
         }
         if (isset($map['LockReason'])) {
             $model->lockReason = $map['LockReason'];
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

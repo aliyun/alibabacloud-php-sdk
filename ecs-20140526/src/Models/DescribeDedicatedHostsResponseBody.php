@@ -17,6 +17,11 @@ class DescribeDedicatedHostsResponseBody extends Model
     public $dedicatedHosts;
 
     /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @description The page number.
      *
      * @example 5
@@ -53,6 +58,7 @@ class DescribeDedicatedHostsResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'dedicatedHosts' => 'DedicatedHosts',
+        'nextToken'      => 'NextToken',
         'pageNumber'     => 'PageNumber',
         'pageSize'       => 'PageSize',
         'requestId'      => 'RequestId',
@@ -68,6 +74,9 @@ class DescribeDedicatedHostsResponseBody extends Model
         $res = [];
         if (null !== $this->dedicatedHosts) {
             $res['DedicatedHosts'] = null !== $this->dedicatedHosts ? $this->dedicatedHosts->toMap() : null;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -95,6 +104,9 @@ class DescribeDedicatedHostsResponseBody extends Model
         $model = new self();
         if (isset($map['DedicatedHosts'])) {
             $model->dedicatedHosts = dedicatedHosts::fromMap($map['DedicatedHosts']);
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

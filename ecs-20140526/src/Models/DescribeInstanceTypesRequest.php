@@ -21,6 +21,11 @@ class DescribeInstanceTypesRequest extends Model
     public $cpuArchitecture;
 
     /**
+     * @var string[]
+     */
+    public $cpuArchitectures;
+
+    /**
      * @description The GPU model.
      *
      * >  Fuzzy match is supported. For example, if an instance type provides NVIDIA V100 GPUs and you set this parameter to NVIDIA, information about the instance type is queried.
@@ -29,6 +34,16 @@ class DescribeInstanceTypesRequest extends Model
      * @var string
      */
     public $GPUSpec;
+
+    /**
+     * @var string[]
+     */
+    public $gpuSpecs;
+
+    /**
+     * @var string[]
+     */
+    public $instanceCategories;
 
     /**
      * @description The category of the instance type. Valid values:
@@ -69,6 +84,11 @@ class DescribeInstanceTypesRequest extends Model
     public $instanceFamilyLevel;
 
     /**
+     * @var string[]
+     */
+    public $instanceTypeFamilies;
+
+    /**
      * @description The instance family to which the instance type belongs. For information about the valid values of this parameter, see [DescribeInstanceTypeFamilies](~~25621~~).
      *
      * For more information about instance families, see [Instance families](~~25378~~).
@@ -86,6 +106,11 @@ class DescribeInstanceTypesRequest extends Model
      * @var string[]
      */
     public $instanceTypes;
+
+    /**
+     * @var string[]
+     */
+    public $localStorageCategories;
 
     /**
      * @description The category of local disks. For more information, see [Local disks](~~63138#section_n2w\_8yc\_5u1~~). Valid values:
@@ -410,6 +435,11 @@ class DescribeInstanceTypesRequest extends Model
     public $physicalProcessorModel;
 
     /**
+     * @var string[]
+     */
+    public $physicalProcessorModels;
+
+    /**
      * @var string
      */
     public $resourceOwnerAccount;
@@ -420,11 +450,16 @@ class DescribeInstanceTypesRequest extends Model
     public $resourceOwnerId;
     protected $_name = [
         'cpuArchitecture'                    => 'CpuArchitecture',
+        'cpuArchitectures'                   => 'CpuArchitectures',
         'GPUSpec'                            => 'GPUSpec',
+        'gpuSpecs'                           => 'GpuSpecs',
+        'instanceCategories'                 => 'InstanceCategories',
         'instanceCategory'                   => 'InstanceCategory',
         'instanceFamilyLevel'                => 'InstanceFamilyLevel',
+        'instanceTypeFamilies'               => 'InstanceTypeFamilies',
         'instanceTypeFamily'                 => 'InstanceTypeFamily',
         'instanceTypes'                      => 'InstanceTypes',
+        'localStorageCategories'             => 'LocalStorageCategories',
         'localStorageCategory'               => 'LocalStorageCategory',
         'maxResults'                         => 'MaxResults',
         'maximumCpuCoreCount'                => 'MaximumCpuCoreCount',
@@ -458,6 +493,7 @@ class DescribeInstanceTypesRequest extends Model
         'ownerAccount'                       => 'OwnerAccount',
         'ownerId'                            => 'OwnerId',
         'physicalProcessorModel'             => 'PhysicalProcessorModel',
+        'physicalProcessorModels'            => 'PhysicalProcessorModels',
         'resourceOwnerAccount'               => 'ResourceOwnerAccount',
         'resourceOwnerId'                    => 'ResourceOwnerId',
     ];
@@ -472,8 +508,17 @@ class DescribeInstanceTypesRequest extends Model
         if (null !== $this->cpuArchitecture) {
             $res['CpuArchitecture'] = $this->cpuArchitecture;
         }
+        if (null !== $this->cpuArchitectures) {
+            $res['CpuArchitectures'] = $this->cpuArchitectures;
+        }
         if (null !== $this->GPUSpec) {
             $res['GPUSpec'] = $this->GPUSpec;
+        }
+        if (null !== $this->gpuSpecs) {
+            $res['GpuSpecs'] = $this->gpuSpecs;
+        }
+        if (null !== $this->instanceCategories) {
+            $res['InstanceCategories'] = $this->instanceCategories;
         }
         if (null !== $this->instanceCategory) {
             $res['InstanceCategory'] = $this->instanceCategory;
@@ -481,11 +526,17 @@ class DescribeInstanceTypesRequest extends Model
         if (null !== $this->instanceFamilyLevel) {
             $res['InstanceFamilyLevel'] = $this->instanceFamilyLevel;
         }
+        if (null !== $this->instanceTypeFamilies) {
+            $res['InstanceTypeFamilies'] = $this->instanceTypeFamilies;
+        }
         if (null !== $this->instanceTypeFamily) {
             $res['InstanceTypeFamily'] = $this->instanceTypeFamily;
         }
         if (null !== $this->instanceTypes) {
             $res['InstanceTypes'] = $this->instanceTypes;
+        }
+        if (null !== $this->localStorageCategories) {
+            $res['LocalStorageCategories'] = $this->localStorageCategories;
         }
         if (null !== $this->localStorageCategory) {
             $res['LocalStorageCategory'] = $this->localStorageCategory;
@@ -586,6 +637,9 @@ class DescribeInstanceTypesRequest extends Model
         if (null !== $this->physicalProcessorModel) {
             $res['PhysicalProcessorModel'] = $this->physicalProcessorModel;
         }
+        if (null !== $this->physicalProcessorModels) {
+            $res['PhysicalProcessorModels'] = $this->physicalProcessorModels;
+        }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
@@ -607,8 +661,23 @@ class DescribeInstanceTypesRequest extends Model
         if (isset($map['CpuArchitecture'])) {
             $model->cpuArchitecture = $map['CpuArchitecture'];
         }
+        if (isset($map['CpuArchitectures'])) {
+            if (!empty($map['CpuArchitectures'])) {
+                $model->cpuArchitectures = $map['CpuArchitectures'];
+            }
+        }
         if (isset($map['GPUSpec'])) {
             $model->GPUSpec = $map['GPUSpec'];
+        }
+        if (isset($map['GpuSpecs'])) {
+            if (!empty($map['GpuSpecs'])) {
+                $model->gpuSpecs = $map['GpuSpecs'];
+            }
+        }
+        if (isset($map['InstanceCategories'])) {
+            if (!empty($map['InstanceCategories'])) {
+                $model->instanceCategories = $map['InstanceCategories'];
+            }
         }
         if (isset($map['InstanceCategory'])) {
             $model->instanceCategory = $map['InstanceCategory'];
@@ -616,12 +685,22 @@ class DescribeInstanceTypesRequest extends Model
         if (isset($map['InstanceFamilyLevel'])) {
             $model->instanceFamilyLevel = $map['InstanceFamilyLevel'];
         }
+        if (isset($map['InstanceTypeFamilies'])) {
+            if (!empty($map['InstanceTypeFamilies'])) {
+                $model->instanceTypeFamilies = $map['InstanceTypeFamilies'];
+            }
+        }
         if (isset($map['InstanceTypeFamily'])) {
             $model->instanceTypeFamily = $map['InstanceTypeFamily'];
         }
         if (isset($map['InstanceTypes'])) {
             if (!empty($map['InstanceTypes'])) {
                 $model->instanceTypes = $map['InstanceTypes'];
+            }
+        }
+        if (isset($map['LocalStorageCategories'])) {
+            if (!empty($map['LocalStorageCategories'])) {
+                $model->localStorageCategories = $map['LocalStorageCategories'];
             }
         }
         if (isset($map['LocalStorageCategory'])) {
@@ -722,6 +801,11 @@ class DescribeInstanceTypesRequest extends Model
         }
         if (isset($map['PhysicalProcessorModel'])) {
             $model->physicalProcessorModel = $map['PhysicalProcessorModel'];
+        }
+        if (isset($map['PhysicalProcessorModels'])) {
+            if (!empty($map['PhysicalProcessorModels'])) {
+                $model->physicalProcessorModels = $map['PhysicalProcessorModels'];
+            }
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

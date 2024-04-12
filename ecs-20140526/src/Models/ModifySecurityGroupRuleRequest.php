@@ -27,7 +27,7 @@ class ModifySecurityGroupRuleRequest extends Model
     public $description;
 
     /**
-     * @description The destination IPv4 CIDR block. IPv4 CIDR blocks and addresses are supported.
+     * @description The destination IPv4 CIDR block. IPv4 CIDR blocks and IPv4 addresses are supported.
      *
      * By default, this parameter is left empty.
      * @example 10.0.0.0/8
@@ -37,7 +37,7 @@ class ModifySecurityGroupRuleRequest extends Model
     public $destCidrIp;
 
     /**
-     * @description The transport layer protocol of the security group rule. The values of this parameter are not case-sensitive. Valid values:
+     * @description The transport layer protocol of the security group rule. The value of this parameter is case-insensitive. Valid values:
      *
      *   ICMP
      *   GRE
@@ -52,7 +52,7 @@ class ModifySecurityGroupRuleRequest extends Model
     public $ipProtocol;
 
     /**
-     * @description The destination IPv6 CIDR block. IPv6 CIDR blocks and addresses are supported.
+     * @description The destination IPv6 CIDR block. IPv6 CIDR blocks and IPv6 addresses are supported.
      *
      * By default, this parameter is left empty.
      * @example 2001:db8:1234:1a00::***
@@ -62,7 +62,7 @@ class ModifySecurityGroupRuleRequest extends Model
     public $ipv6DestCidrIp;
 
     /**
-     * @description The source IPv6 CIDR block to which you want to control access. IPv6 CIDR blocks and addresses are supported.
+     * @description The source IPv6 CIDR block. IPv6 CIDR blocks and IPv6 addresses are supported.
      *
      * By default, this parameter is left empty.
      * @example 2001:db8:1233:1a00::***
@@ -165,7 +165,7 @@ class ModifySecurityGroupRuleRequest extends Model
     public $securityGroupRuleId;
 
     /**
-     * @description The source IPv4 CIDR block to which you want to control access. IPv4 CIDR blocks and addresses are supported.
+     * @description The source IPv4 CIDR block. IPv4 CIDR blocks and IPv4 addresses are supported.
      *
      * By default, this parameter is left empty.
      * @example 10.0.0.0/8
