@@ -10,11 +10,22 @@ use AlibabaCloud\Tea\Model;
 class domain extends Model
 {
     /**
+     * @description The name of the domain name registrant.
+     *
+     * @example Guangzhou Forest Advertising Decoration Co., LTD
+     *
      * @var string
      */
     public $ccompany;
 
     /**
+     * @description The state of real-name verification for the domain name. Valid values:
+     *
+     *   **FAILED**: Real-name verification for the domain name fails.
+     *   **SUCCEED**: Real-name verification for the domain name is successful.
+     *   **NONAUDIT**: Real-name verification for the domain name is not performed.
+     *   **AUDITING**: Real-name verification for the domain name is in progress.
+     *
      * @example FAILED
      *
      * @var string
@@ -22,6 +33,8 @@ class domain extends Model
     public $domainAuditStatus;
 
     /**
+     * @description The ID of the domain name group.
+     *
      * @example 123456
      *
      * @var string
@@ -29,11 +42,17 @@ class domain extends Model
     public $domainGroupId;
 
     /**
+     * @description The name of the domain name group.
+     *
+     * @example 测试分组
+     *
      * @var string
      */
     public $domainGroupName;
 
     /**
+     * @description The domain name.
+     *
      * @example test.com
      *
      * @var string
@@ -41,6 +60,12 @@ class domain extends Model
     public $domainName;
 
     /**
+     * @description The state of the domain name. Valid values:
+     *
+     *   **1**: The domain name needs to be renewed.
+     *   **2**: The domain name needs to be redeemed.
+     *   **3**: The domain name is normal.
+     *
      * @example 3
      *
      * @var string
@@ -48,6 +73,12 @@ class domain extends Model
     public $domainStatus;
 
     /**
+     * @description The type of the domain name. Valid values:
+     *
+     *   **New gTLD**
+     *   **gTLD**
+     *   **ccTLD**
+     *
      * @example gTLD
      *
      * @var string
@@ -55,6 +86,8 @@ class domain extends Model
     public $domainType;
 
     /**
+     * @description The number of days from the expiration date of the domain name to the current date.
+     *
      * @example -30
      *
      * @var int
@@ -62,11 +95,17 @@ class domain extends Model
     public $expirationCurrDateDiff;
 
     /**
+     * @description The time when the domain name expires.
+     *
+     * @example 2017-11-02 04:00:45
+     *
      * @var string
      */
     public $expirationDate;
 
     /**
+     * @description The validity period of the domain name. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1522080000000
      *
      * @var int
@@ -74,6 +113,11 @@ class domain extends Model
     public $expirationDateLong;
 
     /**
+     * @description Indicates whether the domain name expires. Valid values:
+     *
+     *   **1**: The domain name does not expire.
+     *   **2**: The domain name expires.
+     *
      * @example 1
      *
      * @var string
@@ -81,6 +125,8 @@ class domain extends Model
     public $expirationDateStatus;
 
     /**
+     * @description The instance ID.
+     *
      * @example ST20151102120031118
      *
      * @var string
@@ -88,6 +134,8 @@ class domain extends Model
     public $instanceId;
 
     /**
+     * @description Indicates whether the domain name is a premium domain name.
+     *
      * @example true
      *
      * @var bool
@@ -95,6 +143,8 @@ class domain extends Model
     public $premium;
 
     /**
+     * @description The service ID.
+     *
      * @example 2a
      *
      * @var string
@@ -102,6 +152,11 @@ class domain extends Model
     public $productId;
 
     /**
+     * @description The registration type of the domain name. Valid values:
+     *
+     *   **1**: individual
+     *   **2**: enterprise
+     *
      * @example 1
      *
      * @var string
@@ -109,6 +164,8 @@ class domain extends Model
     public $registrantType;
 
     /**
+     * @description The time when the domain name was registered.
+     *
      * @example 2017-11-02 04:00:45
      *
      * @var string
@@ -116,6 +173,8 @@ class domain extends Model
     public $registrationDate;
 
     /**
+     * @description Indicates how long the domain name has been registered. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1522080000000
      *
      * @var int
@@ -123,11 +182,17 @@ class domain extends Model
     public $registrationDateLong;
 
     /**
+     * @description The remarks of the domain name.
+     *
+     * @example 备注
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @description The ID of the resource group to which the domain name belongs.
+     *
      * @example rg-aek2yyciz557g3q
      *
      * @var string
@@ -135,6 +200,8 @@ class domain extends Model
     public $resourceGroupId;
 
     /**
+     * @description The tags added to the resource.
+     *
      * @var tag
      */
     public $tag;

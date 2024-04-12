@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class QueryDomainListRequest extends Model
 {
     /**
+     * @description The name of the domain name registrant.
+     *
+     * @example Guangzhou Jinye Renewable Resources Recycling Co., Ltd
+     *
      * @var string
      */
     public $ccompany;
 
     /**
+     * @description The ID of the domain name group.
+     *
      * @example 123456
      *
      * @var string
@@ -22,6 +28,8 @@ class QueryDomainListRequest extends Model
     public $domainGroupId;
 
     /**
+     * @description The domain name that you want to search for.
+     *
      * @example test.com
      *
      * @var string
@@ -29,6 +37,8 @@ class QueryDomainListRequest extends Model
     public $domainName;
 
     /**
+     * @description The end of the time range to query domain names based on expiration dates. Set the value to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. Only queries by day are supported.
+     *
      * @example 1522080000000
      *
      * @var int
@@ -36,6 +46,8 @@ class QueryDomainListRequest extends Model
     public $endExpirationDate;
 
     /**
+     * @description The end of the time range to query domain names based on registration dates. Set the value to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. Only queries by day are supported.
+     *
      * @example 1522080000000
      *
      * @var int
@@ -43,6 +55,12 @@ class QueryDomainListRequest extends Model
     public $endRegistrationDate;
 
     /**
+     * @description The language of the error message to return if the request fails. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * Default value: **en**.
      * @example en
      *
      * @var string
@@ -50,6 +68,12 @@ class QueryDomainListRequest extends Model
     public $lang;
 
     /**
+     * @description The order of the information based on which the domain names are sorted, such as the registration date and expiration date. Valid values:
+     *
+     *   **ASC**: ascending order
+     *   **DESC**: descending order
+     *
+     * >  If this parameter is not specified, the default value **DESC** is used.
      * @example ASC
      *
      * @var string
@@ -57,6 +81,12 @@ class QueryDomainListRequest extends Model
     public $orderByType;
 
     /**
+     * @description The field that you use to sort the domain names. Valid values:
+     *
+     *   **RegistrationDate**: registration date
+     *   **ExpirationDate**: expiration date
+     *
+     * >  If this parameter is not specified, the domain names are sorted by the time when they were added to the database.
      * @example RegistrationDate
      *
      * @var string
@@ -64,6 +94,8 @@ class QueryDomainListRequest extends Model
     public $orderKeyType;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -71,6 +103,8 @@ class QueryDomainListRequest extends Model
     public $pageNum;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -78,6 +112,12 @@ class QueryDomainListRequest extends Model
     public $pageSize;
 
     /**
+     * @description The type of the domain name. Valid values:
+     *
+     *   **New gTLD**: new generic top-level domain names
+     *   **gTLD**: generic top-level domain names
+     *   **ccTLD**: country code top-level domain names
+     *
      * @example New gTLD
      *
      * @var string
@@ -85,6 +125,11 @@ class QueryDomainListRequest extends Model
     public $productDomainType;
 
     /**
+     * @description The category of the domain names that you want to query. Valid values:
+     *
+     *   **1**: the domain names that need to be renewed
+     *   **2**: the domain names that need to be redeemed
+     *
      * @example 1
      *
      * @var string
@@ -92,6 +137,8 @@ class QueryDomainListRequest extends Model
     public $queryType;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-aek2indvyxgpfti
      *
      * @var string
@@ -99,6 +146,8 @@ class QueryDomainListRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The beginning of the time range to query domain names based on expiration dates. Set the value to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. Only queries by day are supported.
+     *
      * @example 1522080000000
      *
      * @var int
@@ -106,6 +155,8 @@ class QueryDomainListRequest extends Model
     public $startExpirationDate;
 
     /**
+     * @description The beginning of the time range to query domain names based on registration dates. Set the value to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. Only queries by day are supported.
+     *
      * @example 1522080000000
      *
      * @var int
@@ -113,11 +164,15 @@ class QueryDomainListRequest extends Model
     public $startRegistrationDate;
 
     /**
+     * @description The tags to add to the resource.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description The IP address of the client. Set the value to **127.0.0.1**.
+     *
      * @example 127.0.0.1
      *
      * @var string

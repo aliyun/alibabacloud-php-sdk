@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class SaveBatchTaskForGenerateDomainCertificateShrinkRequest extends Model
 {
     /**
+     * @description The domain names.
+     *
      * @var string
      */
     public $domainNamesShrink;
 
     /**
+     * @description The language of the error message to return if the request fails. Valid values:
+     *
+     *   **zh**: Chinese.
+     *   **en**: English.
+     *
+     * Default value: **en**.
      * @example en
      *
      * @var string
@@ -21,6 +29,8 @@ class SaveBatchTaskForGenerateDomainCertificateShrinkRequest extends Model
     public $lang;
 
     /**
+     * @description The IP address of the client.
+     *
      * @example 127.0.0.1
      *
      * @var string
