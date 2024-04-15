@@ -38,9 +38,8 @@ class CancelCoordinationForMonitoringRequest extends Model
      *
      * Valid value:
      *
-     *   <!-- -->
+     * TENANT_ADMIN: administrator.
      *
-     * : administrator.
      * @example TENANT_ADMIN
      *
      * @var string

@@ -71,13 +71,9 @@ class DescribeFotaTasksRequest extends Model
      *
      * Valid values:
      *
-     *   Running
+     *   Running: automatically pushes the image update task.
+     *   Pending: does not automatically push the image update task.
      *
-     * <!-- -->
-     *
-     *   Pending
-     *
-     * <!-- -->
      * @example Pending
      *
      * @var string

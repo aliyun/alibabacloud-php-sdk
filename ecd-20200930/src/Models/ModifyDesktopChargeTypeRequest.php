@@ -18,8 +18,17 @@ class ModifyDesktopChargeTypeRequest extends Model
     public $autoPay;
 
     /**
-     * @description The new billing method that you want to use for the desktop group.
+     * @description The new billing method that you want to apply.
      *
+     * Valid values:
+     *
+     *   PostPaid: changes the billing method from subscription to pay-as-you-go.
+     *
+     * <!-- -->
+     *
+     *   PrePaid: changes the billing method from pay-as-you-go to subscription.
+     *
+     * <!-- -->
      * @example PrePaid
      *
      * @var string
@@ -27,7 +36,7 @@ class ModifyDesktopChargeTypeRequest extends Model
     public $chargeType;
 
     /**
-     * @description The IDs of the cloud desktops. You can specify 1 to 20 IDs.
+     * @description The IDs of the cloud computers. You can specify 1 to 20 IDs.
      *
      * @example ecd-gx2x1dhsmucyy****
      *
@@ -36,9 +45,9 @@ class ModifyDesktopChargeTypeRequest extends Model
     public $desktopId;
 
     /**
-     * @description The subscription duration if you specify subscription as the new billing method for the cloud desktop. The unit of the value is specified by the `PeriodUnit` parameter. This parameter takes effect only when the `ChargeType` parameter is set to `PrePaid`.
+     * @description The subscription duration of the cloud computers if you set the ChargeType parameter to PrePaid. The unit is specified by the `PeriodUnit` parameter. This parameter is valid only when the `ChargeType` parameter is set to `PrePaid`. In this case, you must specify this parameter.
      *
-     *   If the `PeriodUnit` parameter is set to `Week`, the valid value of the Period parameter is 1.
+     *   If the `PeriodUnit` parameter is set to `Week`, set the Period parameter to 1.
      *   If the `PeriodUnit` parameter is set to `Month`, the valid values of the Period parameter are 1, 2, 3, and 6.
      *   If the `PeriodUnit` parameter is set to `Year`, the valid values of the Period parameter are 1, 2, 3, 4, and 5.
      *
@@ -58,7 +67,7 @@ class ModifyDesktopChargeTypeRequest extends Model
     public $periodUnit;
 
     /**
-     * @description The ID of the sales promotion.
+     * @description The ID of the promotional activity.
      *
      * @example 500038360030606
      *
@@ -67,7 +76,7 @@ class ModifyDesktopChargeTypeRequest extends Model
     public $promotionId;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -76,9 +85,9 @@ class ModifyDesktopChargeTypeRequest extends Model
     public $regionId;
 
     /**
-     * @description > 处于定向邀测中，暂不对外开放。
+     * @description >  This parameter is in invitational preview and not publicly available.
      *
-     * @example 处于定向邀测中，暂不对外开放。
+     * @example internal only
      *
      * @var int
      */

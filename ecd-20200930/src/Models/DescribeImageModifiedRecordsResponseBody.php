@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageModifiedRecordsResponseBody extends Model
 {
     /**
-     * @description The image modification record collection.
+     * @description Details about the image modification record.
      *
      * @var imageModifiedRecords[]
      */

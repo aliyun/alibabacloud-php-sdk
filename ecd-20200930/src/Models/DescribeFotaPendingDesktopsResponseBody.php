@@ -10,24 +10,32 @@ use AlibabaCloud\Tea\Model;
 class DescribeFotaPendingDesktopsResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
-     * @description Details about the cloud desktops whose images can be but are not yet updated to the version that is described in an image update task (TaskUid).
+     * @description The cloud computers whose images can be but are not yet updated to the version that is described in an image update task (TaskUid).
      *
      * @var fotaPendingDesktops[]
      */
     public $fotaPendingDesktops;
 
     /**
+     * @description The returned message.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
-     * @description The pagination token that is used in the next request to retrieve a new page of results. If the NextToken parameter is empty, no next page exists.
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
      *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *
@@ -36,7 +44,7 @@ class DescribeFotaPendingDesktopsResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
      *

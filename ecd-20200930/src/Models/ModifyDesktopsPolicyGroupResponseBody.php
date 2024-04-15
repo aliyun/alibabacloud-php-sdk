@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyDesktopsPolicyGroupResponseBody extends Model
 {
     /**
-     * @description The change results.
+     * @description The modification results.
      *
      * @var modifyResults[]
      */

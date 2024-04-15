@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class snapshots extends Model
 {
     /**
-     * @description The time when the snapshot was created. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description The point in time at which the snapshot was created. The time follows the [ISO 8601](~~25696~~) standard in the `yyyy-mm-ddthh:mm:ssz` format. The time is displayed in UTC.
      *
      * @example 2020-12-20T14:52:28Z
      *
@@ -18,7 +18,7 @@ class snapshots extends Model
     public $creationTime;
 
     /**
-     * @description The user that creates the cloud desktop.
+     * @description The user who creates the snapshot.
      *
      * @example Administrator
      *
@@ -27,7 +27,7 @@ class snapshots extends Model
     public $creator;
 
     /**
-     * @description The time when the snapshot was deleted. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-mm-ddthh:mm:ssz format. The time is displayed in UTC.
+     * @description The time when the snapshot was deleted. The time follows the [ISO 8601](~~25696~~) standard in the `yyyy-mm-ddthh:mm:ssz` format. The time is displayed in UTC.
      *
      * @example 2020-12-20T14:52:28Z
      *
@@ -36,7 +36,7 @@ class snapshots extends Model
     public $deletionTime;
 
     /**
-     * @description The snapshot description.
+     * @description The description of the snapshot.
      *
      * @example testDescription
      *
@@ -45,7 +45,7 @@ class snapshots extends Model
     public $description;
 
     /**
-     * @description The ID of the cloud desktop to which the snapshot belongs.
+     * @description The ID of the cloud computer to which the snapshot belongs.
      *
      * @example ecd-g03l3tlm8djoj****
      *
@@ -54,7 +54,7 @@ class snapshots extends Model
     public $desktopId;
 
     /**
-     * @description The cloud desktop name.
+     * @description The name of the cloud computer.
      *
      * @example test
      *
@@ -63,16 +63,18 @@ class snapshots extends Model
     public $desktopName;
 
     /**
-     * @description The cloud desktop state. Valid values:
+     * @description The status of the cloud computer.
      *
-     *   Pending: The cloud desktop is pending.
-     *   Starting: The cloud desktop is being started.
-     *   Running: The cloud desktop is running.
-     *   Stopping: The cloud desktop is being stopped.
-     *   Rebuilding: The cloud desktop is being recreated.
-     *   Stopped: The cloud desktop is stopped.
-     *   Expired: The cloud desktop expired.
-     *   Deleted: The cloud desktop is deleted.
+     * Valid values:
+     *
+     *   Stopped
+     *   Starting
+     *   Rebuilding
+     *   Running
+     *   Stopping
+     *   Expired
+     *   Deleted
+     *   Pending
      *
      * @example Running
      *
@@ -81,7 +83,7 @@ class snapshots extends Model
     public $desktopStatus;
 
     /**
-     * @description The progress of creating the snapshot. Unit: percentage (%).
+     * @description The progress of creating the snapshot. Unit: %.
      *
      * @example 100%
      *
@@ -90,11 +92,17 @@ class snapshots extends Model
     public $progress;
 
     /**
-     * @description The protocol. Valid values:
+     * @description The protocol type.
      *
-     *   ASP
-     *   HDX
+     * Valid values:
      *
+     *   HDX: High-definition Experience (HDX) protocol
+     *
+     * <!-- -->
+     *
+     *   ASP: in-house Adaptive Streaming Protocol (ASP)
+     *
+     * <!-- -->
      * @example ASP
      *
      * @var string
@@ -102,9 +110,9 @@ class snapshots extends Model
     public $protocolType;
 
     /**
-     * @description The remaining time required to create the snapshot. Unit: seconds.
+     * @description The remaining time that is required to complete the snapshot creation. Unit: seconds.
      *
-     * > If the value of the `Status` parameter is `PROGRESSING` and the value of the `RemainTime` parameter is `-1`, the system is calculating the remaining time required to create the snapshot.
+     * >  When the `Status` value is `PROGRESSING`, the `RemainTime` value is `-1`. A value of -1 indicates that the system is calculating the remaining time.
      * @example 30
      *
      * @var int
@@ -121,7 +129,7 @@ class snapshots extends Model
     public $snapshotId;
 
     /**
-     * @description The snapshot name.
+     * @description The name of the snapshot.
      *
      * @example testSnapshotName
      *
@@ -130,11 +138,17 @@ class snapshots extends Model
     public $snapshotName;
 
     /**
-     * @description The snapshot type. Valid values:
+     * @description The type of the snapshot.
+     *
+     * Valid values:
      *
      *   AUTO: automatic snapshot
+     *
+     * <!-- -->
+     *
      *   USER: manual snapshot
      *
+     * <!-- -->
      * @example USER
      *
      * @var string
@@ -142,7 +156,7 @@ class snapshots extends Model
     public $snapshotType;
 
     /**
-     * @description The size of the source disk. Unit: GiB.
+     * @description The capacity of the source disk. Unit: GiB.
      *
      * @example 150
      *
@@ -151,11 +165,17 @@ class snapshots extends Model
     public $sourceDiskSize;
 
     /**
-     * @description The type of the source disk. Valid values:
+     * @description The type of the source disk.
+     *
+     * Valid values:
      *
      *   SYSTEM: system disk
+     *
+     * <!-- -->
+     *
      *   DATA: data disk
      *
+     * <!-- -->
      * @example SYSTEM
      *
      * @var string
@@ -163,12 +183,21 @@ class snapshots extends Model
     public $sourceDiskType;
 
     /**
-     * @description The state of the snapshot. Valid values:
+     * @description The status of the snapshot.
+     *
+     * Valid values:
      *
      *   PROGRESSING: The snapshot is being created.
-     *   FAILED: The snapshot failed to be created.
+     *
+     * <!-- -->
+     *
+     *   FAILED: The snapshot fails to be created.
+     *
+     * <!-- -->
+     *
      *   ACCOMPLISHED: The snapshot is created.
      *
+     * <!-- -->
      * @example ACCOMPLISHED
      *
      * @var string
@@ -185,7 +214,7 @@ class snapshots extends Model
     public $volumeEncryptionEnabled;
 
     /**
-     * @description The ID of the Key Management Service (KMS) key that is used when disk encryption is enabled. You can call the [ListKeys](~~28951~~) operation to obtain a list of KMS keys.
+     * @description The ID of the Key Management Service (KMS) key that is used when disk encryption is enabled. You can call the [ListKeys](~~28951~~) operation to query the list of KMS keys.
      *
      * @example 08c33a6f-4e0a-4a1b-a3fa-7ddfa1d4****
      *

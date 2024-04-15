@@ -25,7 +25,7 @@ class DeleteImagesRequest extends Model
     public $imageId;
 
     /**
-     * @description The region ID.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

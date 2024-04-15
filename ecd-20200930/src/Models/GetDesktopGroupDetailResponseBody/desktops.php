@@ -11,7 +11,12 @@ use AlibabaCloud\Tea\Model;
 class desktops extends Model
 {
     /**
-     * @description Indicates whether the auto scale-out feature is enabled for the desktop group.
+     * @description Indicates whether cloud computers can be automatically created in the subscription cloud computer pool.
+     *
+     * Valid values:
+     *
+     *   0: false
+     *   1: true
      *
      * @example 1
      *
@@ -20,7 +25,10 @@ class desktops extends Model
     public $allowAutoSetup;
 
     /**
-     * @description The number of reserved cloud desktops in the desktop group.
+     * @description The number of cloud computers that is allowed to be reserved in the pay-as-you-go cloud computer pool. Valid values:
+     *
+     *   0: does not allow the system to reserve cloud computers.
+     *   N: allows the system to reserve N cloud computers. (1≤ N ≤ 100)
      *
      * @example 1
      *
@@ -29,7 +37,7 @@ class desktops extends Model
     public $allowBufferCount;
 
     /**
-     * @description The number of sessions that are allowed for each cloud desktop in the multi-session desktop group.
+     * @description The number of concurrent sessions that is allowed for each cloud computer in a multi-session cloud computer pool.
      *
      * @example 1
      *
@@ -38,7 +46,8 @@ class desktops extends Model
     public $bindAmount;
 
     /**
-     * @description The number of purchased cloud desktops. Valid values: 0 to 200.
+     * @description *   This parameter has different meanings based on the billing method of the cloud computer pool. For a subscription pool, this parameter indicates the number of cloud computers that you purchase in the pool. Valid values: 0 to 200.
+     *   For a pay-as-you-go pool, this parameter indicates the minimum number of cloud computers that you can create in the pool. Default value: 1. Valid values: 0 to `MaxDesktopsCount`.
      *
      * @example 5
      *
@@ -47,7 +56,7 @@ class desktops extends Model
     public $buyDesktopsCount;
 
     /**
-     * @description The remarks on the desktop group.
+     * @description The remarks.
      *
      * @example for students
      *
@@ -56,7 +65,7 @@ class desktops extends Model
     public $comments;
 
     /**
-     * @description The maximum period of time for which a session is effective. Unit: milliseconds.
+     * @description The maximum period of time during which the session is connected. When the specified maximum period of time is reached, the session is automatically disconnected. Unit: milliseconds.
      *
      * @example 60000
      *
@@ -83,7 +92,7 @@ class desktops extends Model
     public $creationTime;
 
     /**
-     * @description The user who creates the desktop group.
+     * @description The Alibaba Cloud account that creates the cloud computer pool.
      *
      * @example 155177335370****
      *
@@ -92,7 +101,7 @@ class desktops extends Model
     public $creator;
 
     /**
-     * @description The category of the data disk.
+     * @description The category of the user disk.
      *
      * @example cloud_essd
      *
@@ -101,7 +110,7 @@ class desktops extends Model
     public $dataDiskCategory;
 
     /**
-     * @description The size of the data disk.
+     * @description The user disk capacity. Unit: GiB.
      *
      * @example 80
      *
@@ -110,7 +119,7 @@ class desktops extends Model
     public $dataDiskSize;
 
     /**
-     * @description The ID of the desktop group.
+     * @description The ID of the cloud computer pool.
      *
      * @example dg-3uiojcc0j4kh7****
      *
@@ -119,7 +128,7 @@ class desktops extends Model
     public $desktopGroupId;
 
     /**
-     * @description The name of the desktop group.
+     * @description The name of the cloud computer pool that is queried.
      *
      * @example DesktopGroupDemo
      *
@@ -128,7 +137,7 @@ class desktops extends Model
     public $desktopGroupName;
 
     /**
-     * @description The ID of the directory, which is the same as the ID of the workspace.
+     * @description The ID of the directory or office network.
      *
      * @example cn-hangzhou+dir-363353****
      *
@@ -146,7 +155,7 @@ class desktops extends Model
     public $directoryType;
 
     /**
-     * @description The time when the desktop group expires.
+     * @description The time when the subscription cloud computer pool expires.
      *
      * @example 2021-12-31T15:59Z
      *
@@ -173,7 +182,7 @@ class desktops extends Model
     public $gpuSpec;
 
     /**
-     * @description The maximum period of time for which a session remains idle. Unit: milliseconds.
+     * @description After an end user connects to a cloud computer, the session is established. If the system does not detect any inputs from the keyboard or mouse within the specified period of time, the session is closed. Unit: milliseconds.
      *
      * @example 900000
      *
@@ -191,8 +200,9 @@ class desktops extends Model
     public $imageId;
 
     /**
-     * @description The retention period of a cloud desktop in the desktop group after the cloud desktop is disconnected. Unit: milliseconds.
+     * @description The amount of time to retain a session after it is disconnected. Unit: milliseconds. Valid values: 180000 to 345600000. That is, the session can be retained for 3 to 5760 minutes (4 days). If you specify the value to 0, the session is permanently retained.
      *
+     * When a session is disconnected, take note of the following situations: If an end user does not resume the session within the specified duration, the session is closed and all unsaved data is cleared. If the end user resumes the session within the specified duration, the end user can still access data of the session.
      * @example 180000
      *
      * @var int
@@ -200,17 +210,13 @@ class desktops extends Model
     public $keepDuration;
 
     /**
-     * @description The load balancing policy for the multi-session desktop group.
+     * @description The load balancing policy of the multi-session cloud computer pool.
      *
      * Valid values:
      *
-     *   0
+     *   0: depth-first
+     *   1: breadth-first
      *
-     * .
-     *
-     *   1
-     *
-     * .
      * @example 0
      *
      * @var int
@@ -218,7 +224,7 @@ class desktops extends Model
     public $loadPolicy;
 
     /**
-     * @description The maximum number of cloud desktops that the desktop group can contain.
+     * @description The maximum number of cloud computers that can be housed in the pay-as-you-go cloud computer pool.
      *
      * @example 10
      *
@@ -227,7 +233,7 @@ class desktops extends Model
     public $maxDesktopsCount;
 
     /**
-     * @description The memory size.
+     * @description The memory size. Unit: MiB.
      *
      * @example 4096
      *
@@ -236,7 +242,7 @@ class desktops extends Model
     public $memory;
 
     /**
-     * @description The minimum number of cloud desktops that the desktop group must retain.
+     * @description The maximum number of cloud computers that can be automatically created in the subscription cloud computer pool.
      *
      * @example 1
      *
@@ -245,7 +251,7 @@ class desktops extends Model
     public $minDesktopsCount;
 
     /**
-     * @description The ID of the Apsara File Storage NAS (NAS) file system.
+     * @description The ID of the Apsara File Storage NAS (NAS) file system for the user data roaming feature.
      *
      * @example 0783b4****
      *
@@ -254,7 +260,7 @@ class desktops extends Model
     public $nasFileSystemID;
 
     /**
-     * @description The name of the NAS file system.
+     * @description The name of the NAS file system for the user data roaming feature.
      *
      * @example abcd
      *
@@ -263,7 +269,7 @@ class desktops extends Model
     public $nasFileSystemName;
 
     /**
-     * @description The ID of the workspace.
+     * @description The ID of the office network.
      *
      * @example cn-hangzhou+dir-990541****
      *
@@ -272,7 +278,7 @@ class desktops extends Model
     public $officeSiteId;
 
     /**
-     * @description The name of the workspace.
+     * @description The name of the office network in which the cloud computer pool resides.
      *
      * @example test
      *
@@ -281,7 +287,14 @@ class desktops extends Model
     public $officeSiteName;
 
     /**
-     * @description The type of the workspace.
+     * @description The office network type.
+     *
+     * Valid values:
+     *
+     *   PERSONAL: individual office network
+     *   SIMPLE: convenience office network
+     *   AD_CONNECTOR: enterprise Active Directory (AD) office network
+     *   RAM: Resource Access Management (RAM)-based office network
      *
      * @example SIMPLE
      *
@@ -290,7 +303,7 @@ class desktops extends Model
     public $officeSiteType;
 
     /**
-     * @description The ID of the desktop template.
+     * @description The ID of the cloud computer template.
      *
      * @example b-1se9fb37r5tfq****
      *
@@ -299,7 +312,7 @@ class desktops extends Model
     public $ownBundleId;
 
     /**
-     * @description The name of the desktop template.
+     * @description The name of the cloud computer template.
      *
      * @example BundleDemo
      *
@@ -308,17 +321,13 @@ class desktops extends Model
     public $ownBundleName;
 
     /**
-     * @description The type of the desktop group.
+     * @description The type of the cloud computer pool.
      *
      * Valid values:
      *
-     *   0
+     *   0: individual (single session)
+     *   1: shared (multiple sessions)
      *
-     * .
-     *
-     *   1
-     *
-     * .
      * @example 0
      *
      * @var int
@@ -330,13 +339,10 @@ class desktops extends Model
      *
      * Valid values:
      *
-     *   PostPaid
+     *   PostPaid: pay-as-you-go.
      *
-     * .
+     *   PrePaid: subscription.
      *
-     *   PrePaid
-     *
-     * .
      * @example PrePaid
      *
      * @var string
@@ -344,7 +350,7 @@ class desktops extends Model
     public $payType;
 
     /**
-     * @description The ID of the security policy group.
+     * @description The ID of the policy that is associated with the cloud computer pool.
      *
      * @example pg-9cktlowtxfl6****
      *
@@ -353,14 +359,14 @@ class desktops extends Model
     public $policyGroupId;
 
     /**
-     * @description The IDs of the policies with which the desktop group is associated.
+     * @description The IDs of policies that are associated with the cloud computer pool.
      *
      * @var string[]
      */
     public $policyGroupIds;
 
     /**
-     * @description The name of the security policy group.
+     * @description The name of the policy that is associated with the cloud computer pool.
      *
      * @example test
      *
@@ -369,14 +375,14 @@ class desktops extends Model
     public $policyGroupName;
 
     /**
-     * @description The names of the policies.
+     * @description The names of policies that are associated with the cloud computer pool.
      *
      * @var string[]
      */
     public $policyGroupNames;
 
     /**
-     * @description Indicates whether data roaming is enabled.
+     * @description Indicates whether user data roaming is enabled.
      *
      * @example true
      *
@@ -385,8 +391,9 @@ class desktops extends Model
     public $profileFollowSwitch;
 
     /**
-     * @description The session usage threshold for the multi-session desktop group that has an auto scaling policy in effect.
+     * @description The threshold for the ratio of connected sessions. This parameter is the condition that triggers auto scaling in a multi-session cloud computer pool. To calculate the ratio of connected sessions, use the following formula:
      *
+     * If the ratio of connected sessions is greater than the specified value, new cloud computers are created. If the ratio of connected sessions is smaller than the specified value, idle cloud computers are deleted.
      * @example 0.6
      *
      * @var float
@@ -396,11 +403,10 @@ class desktops extends Model
     /**
      * @description The type of the resource. Only Elastic Compute Service (ECS) instances are supported.
      *
-     * Valid values:
+     * Valid value:
      *
-     *   0
+     *   0: ECS
      *
-     * .
      * @example 0
      *
      * @var int
@@ -408,25 +414,15 @@ class desktops extends Model
     public $resType;
 
     /**
-     * @description Indicates which type of disk is reset for cloud desktops in the desktop group.
+     * @description The disk reset type of the cloud computer.
      *
      * Valid values:
      *
-     *   0
+     *   0: does not reset disks.
+     *   1: resets only the system disk.
+     *   2: resets only the user disk.
+     *   3: resets the system disk and the user disk.
      *
-     * .
-     *
-     *   1
-     *
-     * .
-     *
-     *   2
-     *
-     * .
-     *
-     *   3
-     *
-     * .
      * @example 0
      *
      * @var int
@@ -441,21 +437,14 @@ class desktops extends Model
     public $scaleTimerInfos;
 
     /**
-     * @description The status of the desktop group.
+     * @description The payment status of the cloud computer pool.
      *
      * Valid values:
      *
-     *   0
+     *   0: unpaid
+     *   1: paid
+     *   2: overdue or expired
      *
-     * .
-     *
-     *   1
-     *
-     * .
-     *
-     *   2
-     *
-     * .
      * @example 1
      *
      * @var int
@@ -463,7 +452,7 @@ class desktops extends Model
     public $status;
 
     /**
-     * @description The period of time before an idle cloud desktop enters the Stopped state. When the specified period of time is reached, the idle cloud desktop automatically stops. If an end user connects to a stopped cloud desktop, the cloud desktop automatically starts. Unit: milliseconds.
+     * @description The period of time before the idle cloud computer enters the Stopped state. If the specified value is reached, the cloud computer is automatically stopped. If an end user connects to the stopped cloud computer, the cloud computer automatically starts. Unit: milliseconds.
      *
      * @example 180000
      *
@@ -481,7 +470,7 @@ class desktops extends Model
     public $systemDiskCategory;
 
     /**
-     * @description The size of the system disk.
+     * @description The system disk capacity. Unit: GiB.
      *
      * @example 80
      *
@@ -506,7 +495,7 @@ class desktops extends Model
     public $timingStrategyInfo;
 
     /**
-     * @description The version number of the desktop group.
+     * @description The version number of the cloud computer pool.
      *
      * @example 1
      *

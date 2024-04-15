@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class desktopFlowStatistic extends Model
 {
     /**
-     * @description The ID of the cloud desktop.
+     * @description The ID of the cloud computer.
      *
      * @example ecd-8bslxqq0csytn****
      *
@@ -18,7 +18,7 @@ class desktopFlowStatistic extends Model
     public $desktopId;
 
     /**
-     * @description The name of the cloud desktop.
+     * @description The name of the cloud computer.
      *
      * @example desktop-1
      *
@@ -27,7 +27,7 @@ class desktopFlowStatistic extends Model
     public $desktopName;
 
     /**
-     * @description The amount of the traffic. Unit: KB.
+     * @description The traffic amount. Unit: KB.
      *
      * @example 1000
      *

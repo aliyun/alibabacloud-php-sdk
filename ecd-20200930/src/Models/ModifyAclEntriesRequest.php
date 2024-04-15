@@ -9,17 +9,14 @@ use AlibabaCloud\Tea\Model;
 class ModifyAclEntriesRequest extends Model
 {
     /**
-     * @description The ACL policy.
+     * @description The Internet access control policy.
      *
      * Valid values:
      *
-     *   allow
+     *   allow: allows access to the Internet.
      *
-     * <!-- -->
+     *   disable: forbids access to the Internet.
      *
-     *   deny
-     *
-     * <!-- -->
      * @example allow
      *
      * @var string
@@ -36,24 +33,21 @@ class ModifyAclEntriesRequest extends Model
     public $regionId;
 
     /**
-     * @description The IDs of instances that correspond to the ACL granularity.
+     * @description The instance IDs (office network IDs or cloud computer IDs) to which the Internet access control policy is applicable.
      *
      * @var string[]
      */
     public $sourceId;
 
     /**
-     * @description The network granularity that corresponds to the access control list (ACL) policy.
+     * @description The granularity to which the Internet access control policy is applicable.
      *
      * Valid values:
      *
-     *   desktop
+     *   desktop: cloud computer granularity.
      *
-     * <!-- -->
+     *   vpc: office network granularity.
      *
-     *   vpc
-     *
-     * <!-- -->
      * @example desktop
      *
      * @var string

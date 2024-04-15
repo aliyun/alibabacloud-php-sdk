@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyEntitlementRequest extends Model
 {
     /**
-     * @description The cloud desktop ID.
+     * @description The ID of the cloud computer.
      *
      * @example ecd-7w78ozhjcwa3u****
      *
@@ -18,7 +18,7 @@ class ModifyEntitlementRequest extends Model
     public $desktopId;
 
     /**
-     * @description The usernames. You can specify 1 to 100 usernames.
+     * @description The username IDs. End users specified by this parameter become the end users of the cloud computer, and the original end users of the cloud computer are removed. You can specify 1 to 100 IDs.
      *
      * @example alice
      *
@@ -27,7 +27,7 @@ class ModifyEntitlementRequest extends Model
     public $endUserId;
 
     /**
-     * @description The region ID.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

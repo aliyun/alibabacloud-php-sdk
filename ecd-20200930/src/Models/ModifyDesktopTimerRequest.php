@@ -10,21 +10,21 @@ use AlibabaCloud\Tea\Model;
 class ModifyDesktopTimerRequest extends Model
 {
     /**
-     * @description The cloud computer ID. You can specify 1 to 20 IDs.
+     * @description The IDs of the cloud computers.
      *
      * @var string[]
      */
     public $desktopId;
 
     /**
-     * @description The details of the scheduled task for the cloud desktops.
+     * @description The details of the scheduled task on cloud computers.
      *
      * @var desktopTimers[]
      */
     public $desktopTimers;
 
     /**
-     * @description The region ID.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -33,7 +33,7 @@ class ModifyDesktopTimerRequest extends Model
     public $regionId;
 
     /**
-     * @description Specifies whether to use DesktopTimers. If you want to use a timer, **set this parameter to true**.
+     * @description Specifies whether to use the `DesktopTimers`** parameter. Set the value to `true`**.
      *
      * @example true
      *

@@ -27,7 +27,7 @@ class ModifyAutoSnapshotPolicyRequest extends Model
     public $policyId;
 
     /**
-     * @description The name of the automatic snapshot policy. The name must be 2 to 128 characters in length. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-). It must start with a letter but cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-). Default value: null.
+     * @description The name of the automatic snapshot policy. The name must be 2 to 128 characters in length. The name must start with a letter but cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-). This parameter is empty by default.
      *
      * @example Automatic system snapshot
      *
@@ -36,7 +36,7 @@ class ModifyAutoSnapshotPolicyRequest extends Model
     public $policyName;
 
     /**
-     * @description The ID of the region where the automatic snapshot policy is created.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -45,10 +45,7 @@ class ModifyAutoSnapshotPolicyRequest extends Model
     public $regionId;
 
     /**
-     * @description The retention period of automatic snapshots. Unit: days. Valid values:
-     *
-     *   1 (default): The automatic snapshots are permanently retained.
-     *   1 to 65536: The automatic snapshots are retained for the specified number of days.
+     * @description The retention period of the automatic snapshots. Unit: days. Valid values: 1 to 180.
      *
      * @example 5
      *

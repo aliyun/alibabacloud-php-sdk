@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class authorizeSecurityPolicyRules extends Model
 {
     /**
-     * @description The IPv4 CIDR block of the security group rule.
+     * @description The object to which the security group rule applies. The value is an IPv4 CIDR block.
      *
      * @example 47.100.XX.XX/16
      *
@@ -32,24 +32,11 @@ class authorizeSecurityPolicyRules extends Model
      * Valid values:
      *
      *   tcp: Transmission Control Protocol (TCP)
-     *
-     * <!-- -->
-     *
      *   udp: User Datagram Protocol (UDP)
-     *
-     * <!-- -->
-     *
      *   all: all protocols
-     *
-     * <!-- -->
-     *
      *   gre: Generic Routing Encapsulation (GRE)
+     *   icmp: Internet Control Message Protocol (ICMP) for IPv4
      *
-     * <!-- -->
-     *
-     *   icmp: ICMP (IPv4)
-     *
-     * <!-- -->
      * @example tcp
      *
      * @var string
@@ -57,17 +44,13 @@ class authorizeSecurityPolicyRules extends Model
     public $ipProtocol;
 
     /**
-     * @description The authorization policy of the security group rule.
+     * @description The authorization of the security group rule.
      *
      * Valid values:
      *
      *   drop: denies all access requests.
-     *
-     * <!-- -->
-     *
      *   accept: accepts all access requests.
      *
-     * <!-- -->
      * @example accept
      *
      * @var string
@@ -98,12 +81,8 @@ class authorizeSecurityPolicyRules extends Model
      * Valid values:
      *
      *   outflow: outbound
-     *
-     * <!-- -->
-     *
      *   inflow: inbound
      *
-     * <!-- -->
      * @example inflow
      *
      * @var string

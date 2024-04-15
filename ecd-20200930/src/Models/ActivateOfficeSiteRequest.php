@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ActivateOfficeSiteRequest extends Model
 {
     /**
-     * @description The ID of the convenience workspace that is locked.
+     * @description The ID of the convenience office network that is locked.
      *
      * @example cn-hangzhou+dir-803704****
      *
@@ -18,7 +18,7 @@ class ActivateOfficeSiteRequest extends Model
     public $officeSiteId;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

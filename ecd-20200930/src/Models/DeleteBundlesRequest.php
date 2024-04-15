@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteBundlesRequest extends Model
 {
     /**
+     * @description The IDs of the cloud computer templates. You can specify 1 to 100 IDs.
+     *
      * @example b-cezrnfgecbich****
      *
      * @var string[]
@@ -16,7 +18,7 @@ class DeleteBundlesRequest extends Model
     public $bundleId;
 
     /**
-     * @description DeleteBundles
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

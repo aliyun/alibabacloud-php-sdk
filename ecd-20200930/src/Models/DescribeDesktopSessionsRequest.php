@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeDesktopSessionsRequest extends Model
 {
     /**
+     * @var string[]
+     */
+    public $desktopId;
+
+    /**
+     * @var string
+     */
+    public $desktopName;
+
+    /**
      * @description The end of the time range to query.
      *
      * @example 2023-02-13T02:51:43Z
@@ -83,6 +93,8 @@ class DescribeDesktopSessionsRequest extends Model
      */
     public $startTime;
     protected $_name = [
+        'desktopId'     => 'DesktopId',
+        'desktopName'   => 'DesktopName',
         'endTime'       => 'EndTime',
         'endUserId'     => 'EndUserId',
         'officeSiteId'  => 'OfficeSiteId',
@@ -100,6 +112,12 @@ class DescribeDesktopSessionsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->desktopId) {
+            $res['DesktopId'] = $this->desktopId;
+        }
+        if (null !== $this->desktopName) {
+            $res['DesktopName'] = $this->desktopName;
+        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
@@ -136,6 +154,14 @@ class DescribeDesktopSessionsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DesktopId'])) {
+            if (!empty($map['DesktopId'])) {
+                $model->desktopId = $map['DesktopId'];
+            }
+        }
+        if (isset($map['DesktopName'])) {
+            $model->desktopName = $map['DesktopName'];
+        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }

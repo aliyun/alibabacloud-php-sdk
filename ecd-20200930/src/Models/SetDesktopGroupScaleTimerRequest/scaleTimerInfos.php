@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class scaleTimerInfos extends Model
 {
     /**
-     * @description The number of cloud desktops that you want to create in the desktop group. Valid values: 0 to 200. You must configure this parameter for the scaling policy.
+     * @description One option for the auto scaling policy. This option specifies the number of cloud computers that you want to create in the cloud computer pool. Valid values: 0 to 200.
      *
      * @example 5
      *
@@ -18,7 +18,7 @@ class scaleTimerInfos extends Model
     public $buyResAmount;
 
     /**
-     * @description The CRON expression that is used when an auto scaling task is triggered.
+     * @description The cron expression of the trigger time.
      *
      * @example 0 0 12 ? * 1
      *
@@ -27,8 +27,9 @@ class scaleTimerInfos extends Model
     public $cron;
 
     /**
-     * @description The keep-alive duration after the cloud desktop is disconnected. Unit: milliseconds.
+     * @description The keep-alive duration of a session after the session is disconnected. Unit: milliseconds. Valid values: 180000 (3 minutes) to 345600000 (4 days). A value of 0 indicates that the session always keeps alive.
      *
+     * If a session is disconnected by the end user or accidentally due to a factor and the end user does not re-establish a connection with the session within the keep-alive duration, the session expires and unsaved data is deleted. If the end user successfully re-establishes a connection with the session within the keep-alive duration, the end user returns to the session and can still access the original data.
      * @example 1000
      *
      * @var int
@@ -36,7 +37,12 @@ class scaleTimerInfos extends Model
     public $keepDuration;
 
     /**
-     * @description The load balancing policy of the multi-session desktop group.
+     * @description The load balancing policy for the multi-session cloud computer pool.
+     *
+     * Valid values:
+     *
+     *   0: depth-first
+     *   1: breadth first.
      *
      * @example 0
      *
@@ -45,7 +51,7 @@ class scaleTimerInfos extends Model
     public $loadPolicy;
 
     /**
-     * @description The maximum number of cloud desktops in the workspace after scaling. Valid values: 0 to 200. You must configure this parameter for the scaling policy.
+     * @description One option for the auto scaling policy. This option specifies the maximum number of cloud computers that you can create in the cloud computer pool. Valid values: 0 to 200.
      *
      * @example 100
      *
@@ -54,7 +60,7 @@ class scaleTimerInfos extends Model
     public $maxResAmount;
 
     /**
-     * @description The minimum number of cloud desktops that can be connected. Valid values: 0 to 200.
+     * @description One option for the auto scaling policy. This option specifies the minimum number of cloud computers that you must create in the cloud computer pool. Valid values: 0 to 200.
      *
      * @example 5
      *
@@ -63,8 +69,9 @@ class scaleTimerInfos extends Model
     public $minResAmount;
 
     /**
-     * @description The threshold for the ratio of connected sessions. This parameter is the condition that triggers auto scaling in a multi-session desktop group. `Ratio of connected sessions = Number of connected sessions/(Total number of cloud desktops × Maximum number of sessions supported by each cloud desktop) × 100%`. When the ratio of connected sessions is greater than the specified threshold, desktop scale-out is automatically triggered. When the ratio of connected sessions is smaller than the specified threshold, desktop scale-in is automatically triggered under a specific condition.
+     * @description The threshold for the ratio of connected sessions. This parameter is the condition that triggers auto scaling in a multi-session cloud computer pool. Formula:
      *
+     * When the specified threshold is reached, new cloud computers are automatically created. When the specified threshold is not reached, idle cloud computers are released.
      * @example 0.9
      *
      * @var float
@@ -72,8 +79,25 @@ class scaleTimerInfos extends Model
     public $ratioThreshold;
 
     /**
-     * @description The type of the policy.
+     * @description The type of the auto scaling policy.
      *
+     * Valid values:
+     *
+     *   drop
+     *
+     * <!-- -->
+     *
+     *   normal
+     *
+     * <!-- -->
+     *
+     *   peak
+     *
+     * <!-- -->
+     *
+     *   rise
+     *
+     * <!-- -->
      * @example rise
      *
      * @var string

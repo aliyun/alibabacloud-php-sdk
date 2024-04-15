@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeFlowStatisticResponseBody extends Model
 {
     /**
-     * @description The number of available cloud desktops in the workspace.
+     * @description The number of available cloud computers in the office network.
      *
      * @example 10
      *
@@ -19,7 +19,7 @@ class DescribeFlowStatisticResponseBody extends Model
     public $desktopCount;
 
     /**
-     * @description Details of the traffic that is consumed by cloud desktops.
+     * @description The traffic statistics.
      *
      * @var desktopFlowStatistic[]
      */

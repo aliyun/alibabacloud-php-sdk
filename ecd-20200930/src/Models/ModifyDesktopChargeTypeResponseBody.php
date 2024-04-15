@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyDesktopChargeTypeResponseBody extends Model
 {
     /**
-     * @description The IDs of the desktop groups. If multiple cloud desktops are created at a time, multiple cloud desktop IDs are returned.
+     * @description The IDs of the cloud computers.
      *
      * @var string[]
      */

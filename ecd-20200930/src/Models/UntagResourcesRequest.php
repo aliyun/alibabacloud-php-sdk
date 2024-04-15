@@ -18,7 +18,7 @@ class UntagResourcesRequest extends Model
     public $all;
 
     /**
-     * @description The region ID.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -27,7 +27,7 @@ class UntagResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @description The resource IDs, namely the cloud desktop IDs. Valid values of N: 1 to 50.
+     * @description The resource IDs, which are cloud computer IDs. You can specify 1 to 50 IDs.
      *
      * @example ecd-ia2zw38bi6cm7****
      *
@@ -36,7 +36,11 @@ class UntagResourcesRequest extends Model
     public $resourceId;
 
     /**
-     * @description The resource type. Valid value: ALIYUN::GWS::INSTANCE.
+     * @description The type of the resource.
+     *
+     * Valid values:
+     *
+     * ALIYUN::GWS::INSTANCE: cloud computer.
      *
      * @example ALIYUN::GWS::INSTANCE
      *
@@ -45,7 +49,7 @@ class UntagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description The tag key. You can specify up to 20 tag keys.
+     * @description The tag keys. You can specify 1 to 20 tag keys.
      *
      * @example TestKey
      *

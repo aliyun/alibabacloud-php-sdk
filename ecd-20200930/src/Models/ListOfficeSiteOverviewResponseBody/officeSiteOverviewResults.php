@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class officeSiteOverviewResults extends Model
 {
     /**
-     * @description The number of expired cloud desktops in the workspace.
+     * @description The number of expired cloud computers in the office network.
      *
      * @example 0
      *
@@ -18,7 +18,7 @@ class officeSiteOverviewResults extends Model
     public $hasExpiredEdsCount;
 
     /**
-     * @description The number of expired cloud desktops in the desktop group.
+     * @description The number of expired cloud computers in the cloud computer pool.
      *
      * @example 0
      *
@@ -27,7 +27,7 @@ class officeSiteOverviewResults extends Model
     public $hasExpiredEdsCountForGroup;
 
     /**
-     * @description The ID of the workspace.
+     * @description The office network ID.
      *
      * @example cn-hangzhou+dir-363353****
      *
@@ -36,7 +36,7 @@ class officeSiteOverviewResults extends Model
     public $officeSiteId;
 
     /**
-     * @description The name of the workspace.
+     * @description The office network name.
      *
      * @example test
      *
@@ -45,8 +45,45 @@ class officeSiteOverviewResults extends Model
     public $officeSiteName;
 
     /**
-     * @description The status of the workspace.
+     * @description The office network status.
      *
+     * Default values:
+     *
+     *   CONFIGUSERFAILED
+     *
+     * <!-- -->
+     *
+     *   REGISTERING
+     *
+     * <!-- -->
+     *
+     *   REGISTERED
+     *
+     * <!-- -->
+     *
+     *   NEEDCONFIGTRUST
+     *
+     * <!-- -->
+     *
+     *   CONFIGUSERING
+     *
+     * <!-- -->
+     *
+     *   CONFIGTRUSTFAILED
+     *
+     * <!-- -->
+     *
+     *   ERROR
+     *
+     * <!-- -->
+     *
+     *   CONFIGTRUSTING
+     *
+     * <!-- -->
+     *
+     *   NEEDCONFIGUSER
+     *
+     * <!-- -->
      * @example REGISTERED
      *
      * @var string
@@ -54,7 +91,7 @@ class officeSiteOverviewResults extends Model
     public $officeSiteStatus;
 
     /**
-     * @description The region ID of the workspace.
+     * @description The ID of the region where the office network resides.
      *
      * @example cn-hangzhou
      *
@@ -63,7 +100,7 @@ class officeSiteOverviewResults extends Model
     public $regionId;
 
     /**
-     * @description The number of running cloud desktops in the workspace.
+     * @description The number of cloud computers that are running in the office network.
      *
      * @example 1
      *
@@ -72,7 +109,7 @@ class officeSiteOverviewResults extends Model
     public $runningEdsCount;
 
     /**
-     * @description The number of running cloud desktops in the desktop group.
+     * @description The number of running cloud computers in the cloud computer pool.
      *
      * @example 1
      *
@@ -81,7 +118,7 @@ class officeSiteOverviewResults extends Model
     public $runningEdsCountForGroup;
 
     /**
-     * @description The total number of cloud desktops in the workspace.
+     * @description The total number of cloud computers in the office network.
      *
      * @example 1
      *
@@ -90,7 +127,7 @@ class officeSiteOverviewResults extends Model
     public $totalEdsCount;
 
     /**
-     * @description The total number of cloud desktops in the desktop group.
+     * @description The total number of cloud computers in the cloud computer pool.
      *
      * @example 1
      *
@@ -99,7 +136,13 @@ class officeSiteOverviewResults extends Model
     public $totalEdsCountForGroup;
 
     /**
-     * @description The virtual private cloud (VPC) type of the workspace.
+     * @description The office network type and its suitable VPC type.
+     *
+     * Valid values:
+     *
+     *   standard (default): standard, exclusive VPC
+     *   customized: custom, user VPC
+     *   basic: basic, shared VPC
      *
      * @example standard
      *
@@ -108,7 +151,7 @@ class officeSiteOverviewResults extends Model
     public $vpcType;
 
     /**
-     * @description The number of cloud desktops that are about to expire in the workspace.
+     * @description The number of cloud computers that are about to expire in the office network.
      *
      * @example 0
      *
@@ -117,7 +160,7 @@ class officeSiteOverviewResults extends Model
     public $willExpiredEdsCount;
 
     /**
-     * @description The number of cloud desktops that are about to expire in the desktop group.
+     * @description The number of cloud computers that are about to expire in the cloud computer pool.
      *
      * @example 0
      *

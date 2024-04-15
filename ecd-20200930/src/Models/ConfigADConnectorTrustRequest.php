@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ConfigADConnectorTrustRequest extends Model
 {
     /**
-     * @description The ID of the AD workspace.
+     * @description The ID of the enterprise AD office network.
      *
      * @example cn-hangzhou+dir-778418****
      *
@@ -18,17 +18,14 @@ class ConfigADConnectorTrustRequest extends Model
     public $officeSiteId;
 
     /**
-     * @description Specifies whether to configure the trust password for the RDS license domain of the AD workspace.
+     * @description Specifies whether to configure a trust password for the Remote Desktop Services (RDS) License Domain of the enterprise AD office network.
      *
      * Valid values:
      *
-     *   true
+     *   true: configures a trust password for the RDS License Domain of the AD office network.
      *
-     * for the RDS license domain of the AD workspace.
+     *   false: configures a trust password for a regular enterprise AD office network.
      *
-     *   false
-     *
-     * for common AD workspaces.
      * @example true
      *
      * @var bool
@@ -36,7 +33,7 @@ class ConfigADConnectorTrustRequest extends Model
     public $rdsLicenseDomain;
 
     /**
-     * @description The region ID.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

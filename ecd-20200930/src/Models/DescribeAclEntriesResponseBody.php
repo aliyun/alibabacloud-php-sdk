@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeAclEntriesResponseBody extends Model
 {
     /**
-     * @description The ACL entry.
+     * @description The ACL entries.
      *
      * @var aclEntries[]
      */

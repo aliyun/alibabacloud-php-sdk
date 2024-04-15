@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeNetworkPackagesResponseBody extends Model
 {
     /**
-     * @description Details of the Internet access packages.
+     * @description The premium bandwidth plans.
      *
      * @var networkPackages[]
      */

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDiskEncryptionServiceResponseBody extends Model
 {
     /**
+     * @description The order ID.
+     *
      * @example 214552063030752
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateDiskEncryptionServiceResponseBody extends Model
     public $orderId;
 
     /**
+     * @description The request ID.
+     *
      * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateDiskEncryptionServiceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
      * @example true
      *
      * @var bool

@@ -30,7 +30,7 @@ class DescribeOfficeSitesRequest extends Model
     public $nextToken;
 
     /**
-     * @description The IDs of the workspaces. You can specify 1 to 100 IDs of workspaces.
+     * @description The office network IDs. You can specify the IDs of 1 to 100 office networks.
      *
      * @example cn-hangzhou+dir-363353****
      *
@@ -39,8 +39,17 @@ class DescribeOfficeSitesRequest extends Model
     public $officeSiteId;
 
     /**
-     * @description The account type of the workspace.
+     * @description The account type of the office network.
      *
+     * Valid values:
+     *
+     *   SIMPLE: convenience account
+     *
+     * <!-- -->
+     *
+     *   AD_CONNECTOR: enterprise Active Directory (AD) account
+     *
+     * <!-- -->
      * @example SIMPLE
      *
      * @var string
@@ -48,7 +57,7 @@ class DescribeOfficeSitesRequest extends Model
     public $officeSiteType;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -57,8 +66,45 @@ class DescribeOfficeSitesRequest extends Model
     public $regionId;
 
     /**
-     * @description The state of the workspace.
+     * @description The office network status.
      *
+     * Valid values:
+     *
+     *   REGISTERING: The office network is being registered.
+     *
+     * <!-- -->
+     *
+     *   DEREGISTERING: The office network is being deregistered.
+     *
+     * <!-- -->
+     *
+     *   REGISTERED: The office network is registered.
+     *
+     * <!-- -->
+     *
+     *   NEEDCONFIGTRUST: A trust relationship is required for the office network.
+     *
+     * <!-- -->
+     *
+     *   CONFIGTRUSTFAILED: A trust relationship fails to be configured for the office network.
+     *
+     * <!-- -->
+     *
+     *   DEREGISTERED: The office network is deregistered.
+     *
+     * <!-- -->
+     *
+     *   ERROR: One or more configurations of the office network are invalid.
+     *
+     * <!-- -->
+     *
+     *   CONFIGTRUSTING: A trust relationship is being configured for the office network.
+     *
+     * <!-- -->
+     *
+     *   NEEDCONFIGUSER: Users are required for the office network.
+     *
+     * <!-- -->
      * @example REGISTERED
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class OUNames extends Model
 {
     /**
-     * @description The display name of the OU.
+     * @description The name of the OU.
      *
      * @example wuying_computers
      *
@@ -18,7 +18,7 @@ class OUNames extends Model
     public $displayOUName;
 
     /**
-     * @description The name of the OU of the AD domain controller.
+     * @description The canonical name (CNAME) of the OU in the AD domain controller.
      *
      * @example example.com/wuying_computers
      *
@@ -27,7 +27,7 @@ class OUNames extends Model
     public $OUName;
 
     /**
-     * @description The ID of the AD workspace.
+     * @description The enterprise AD office network ID.
      *
      * @example cn-hangzhou+dir-485361****
      *

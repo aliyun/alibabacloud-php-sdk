@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyDesktopTimerResponseBody extends Model
 {
     /**
-     * @description The IDs of cloud desktops whose scheduled tasks are configured.
+     * @description The IDs of the cloud computers for which you successfully configure the scheduled task.
      *
      * @var string[]
      */

@@ -21,7 +21,7 @@ class desktops extends Model
     public $connectionStatus;
 
     /**
-     * @description The current image version of the cloud desktop.
+     * @description The version of the image that is used by the cloud computer.
      *
      * @example 1.4.0-R-***
      *
@@ -30,7 +30,7 @@ class desktops extends Model
     public $currentAppVersion;
 
     /**
-     * @description The ID of the cloud desktop.
+     * @description The cloud computer ID.
      *
      * @example ecd-gx2x1dhsmucyy****
      *
@@ -39,16 +39,16 @@ class desktops extends Model
     public $desktopId;
 
     /**
-     * @description The state of the cloud desktop. Valid values:
+     * @description The status of the cloud computer. Valid values:
      *
-     *   Pending: The cloud desktop is being created.
-     *   Starting: The cloud desktop is being started.
-     *   Running: The cloud desktop is running.
-     *   Stopping: The cloud desktop is being stopped.
-     *   Stopped: The cloud desktop is stopped.
-     *   Expired: The cloud desktop is expired.
-     *   Deleted: The cloud desktop is deleted.
-     *   Failed: Failed to create the cloud desktop.
+     *   Pending: The cloud computer is being created.
+     *   Starting: The cloud computer is being started.
+     *   Running: The cloud computer is running.
+     *   Stopping: The cloud computer is being stopped.
+     *   Stopped: The cloud computer is stopped.
+     *   Expired: The cloud computer is expired.
+     *   Deleted: The cloud computer is deleted.
+     *   Failed: Failed to create the cloud computer.
      *
      * @example Running
      *
@@ -57,13 +57,15 @@ class desktops extends Model
     public $desktopStatus;
 
     /**
-     * @description The information about flags that are used to manage cloud desktops.
+     * @description The information about flags that are used to manage cloud computers.
      *
      * @var string[]
      */
     public $managementFlag;
 
     /**
+     * @description The size of the update package. Unit: KB.
+     *
      * @example 568533470
      *
      * @var int
@@ -71,6 +73,8 @@ class desktops extends Model
     public $newAppSize;
 
     /**
+     * @description The destination version to which the image of the cloud computer can be updated.
+     *
      * @example 1.6.0-R-***
      *
      * @var string
@@ -78,12 +82,16 @@ class desktops extends Model
     public $newAppVersion;
 
     /**
+     * @description The description of the destination version to which the image of the cloud computer can be updated.
+     *
+     * @example Test package 03-07
+     *
      * @var string
      */
     public $releaseNote;
 
     /**
-     * @description The first time when the cloud desktop was started.
+     * @description The first time when the cloud computer was started.
      *
      * @example 2020-11-06T08:31Z
      *

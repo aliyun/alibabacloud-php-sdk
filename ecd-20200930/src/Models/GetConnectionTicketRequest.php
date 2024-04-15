@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetConnectionTicketRequest extends Model
 {
     /**
-     * @description The command that you want to run to configure a custom application in user mode. After you obtain the credentials, the application automatically starts.
+     * @description The command that you want to run to configure a custom application in user mode. After you obtain the credential, the application is automatically started. Parameter description in the command:
      *
-     *   appPath: the path of the application startup file. Example: C:\\\Program Files (x86)\\\000\\\000.exe. Use double slashes as delimiters.
-     *   appParameter: the startup parameters of the application. The value must be of the String type. Separate multiple parameters with spaces. Example: meetingid 000 meetingname aaa.
+     *   appPath: the path of the application startup file. Example: `"C:\\Program Files (x86)\\000\\000.exe"`. Use double slashes (\\\) as the delimiter. Type of the parameter value: string.
+     *   appParameter: the startup arguments of the application. Example: `"meetingid 000 meetingname aaa"`. Separate multiple arguments with spaces. Type of the parameter value: string.
      *
      * @example {
      * }
@@ -21,7 +21,7 @@ class GetConnectionTicketRequest extends Model
     public $commandContent;
 
     /**
-     * @description The ID of the cloud desktop.
+     * @description The ID of the cloud computer for which you want to generate a connection credential. This parameter is required.
      *
      * @example ecd-gx2x1dhsmucyy****
      *
@@ -30,7 +30,7 @@ class GetConnectionTicketRequest extends Model
     public $desktopId;
 
     /**
-     * @description The ID of the end user.
+     * @description The ID of the end user of the cloud computer. The end user must be the current end user of the cloud computer.
      *
      * @example Alice
      *
@@ -44,7 +44,7 @@ class GetConnectionTicketRequest extends Model
     public $ownerId;
 
     /**
-     * @description The password for the username.
+     * @description The password of the current end user of the cloud computer.
      *
      * @example Ab123456
      *
@@ -53,7 +53,7 @@ class GetConnectionTicketRequest extends Model
     public $password;
 
     /**
-     * @description The region ID of the cloud desktop.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -72,7 +72,7 @@ class GetConnectionTicketRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the desktop connection task.
+     * @description The ID of the cloud computer connection task.
      *
      * @example 2afbad19-778a-4fc5-9674-1f19c63862da
      *

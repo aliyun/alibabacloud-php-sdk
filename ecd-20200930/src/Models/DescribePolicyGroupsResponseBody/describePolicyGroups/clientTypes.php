@@ -14,28 +14,12 @@ class clientTypes extends Model
      * Valid values:
      *
      *   html5: web client
+     *   linux: WUYING hardware terminal
+     *   android: Android client
+     *   windows: Windows client
+     *   ios: iOS client
+     *   macos: macOS client
      *
-     * <!-- -->
-     *
-     *   linux
-     *
-     * <!-- -->
-     *
-     *   android
-     *
-     * <!-- -->
-     *
-     *   windows
-     *
-     * <!-- -->
-     *
-     *   ios
-     *
-     * <!-- -->
-     *
-     *   macos
-     *
-     * <!-- -->
      * @example windows
      *
      * @var string
@@ -48,12 +32,8 @@ class clientTypes extends Model
      * Valid values:
      *
      *   OFF
-     *
-     * <!-- -->
-     *
      *   ON
      *
-     * <!-- -->
      * @example ON
      *
      * @var string

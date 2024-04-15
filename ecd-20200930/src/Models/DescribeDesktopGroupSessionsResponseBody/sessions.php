@@ -142,13 +142,9 @@ class sessions extends Model
      *
      * Valid values:
      *
-     *   0
+     *   0: single-session
+     *   1: multi-session
      *
-     * <!-- -->
-     *
-     *   1
-     *
-     * <!-- -->
      * @example 0
      *
      * @var int

@@ -10,12 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ExportDesktopListInfoRequest extends Model
 {
     /**
-     * @description The billing method of the cloud desktop. Valid values:
+     * @description The billing method of the cloud computer.
      *
-     *   PostPaid: pay-as-you-go
+     * Default value: Postpaid. Valid values:
+     *
+     *   Postpaid: pay-as-you-go
+     *
+     * <!-- -->
+     *
      *   PrePaid: subscription
      *
-     * Default value: PostPaid.
+     * <!-- -->
      * @example PostPaid
      *
      * @var string
@@ -23,14 +28,14 @@ class ExportDesktopListInfoRequest extends Model
     public $chargeType;
 
     /**
-     * @description The ID of the cloud desktop.
+     * @description The IDs of the cloud computers. You can specify 1 to 100 IDs.
      *
      * @var string[]
      */
     public $desktopId;
 
     /**
-     * @description The name of the cloud desktop.
+     * @description The name of the cloud computer.
      *
      * @example testName
      *
@@ -39,17 +44,41 @@ class ExportDesktopListInfoRequest extends Model
     public $desktopName;
 
     /**
-     * @description The status of the cloud desktop. Valid values:
+     * @description The status of the cloud computers.
      *
-     *   Pending
-     *   Starting
-     *   Running
-     *   Stopping
-     *   Rebuilding
+     * Valid values:
+     *
      *   Stopped
+     *
+     * <!-- -->
+     *
+     *   Starting
+     *
+     * <!-- -->
+     *
+     *   Rebuilding
+     *
+     * <!-- -->
+     *
+     *   Running
+     *
+     * <!-- -->
+     *
+     *   Stopping
+     *
+     * <!-- -->
+     *
      *   Expired
+     *
+     * <!-- -->
+     *
      *   Deleted
      *
+     * <!-- -->
+     *
+     *   Pending
+     *
+     * <!-- -->
      * @example Running
      *
      * @var string
@@ -57,12 +86,15 @@ class ExportDesktopListInfoRequest extends Model
     public $desktopStatus;
 
     /**
+     * @description The IDs of the end users of the cloud computer. You can specify 1 to 100 IDs.
+     *
+     * >  During a specific period of time, only one user can connect to and use the cloud computer.
      * @var string[]
      */
     public $endUserId;
 
     /**
-     * @description The time when the subscription cloud desktop expires.
+     * @description The time when a subscription cloud computer expires.
      *
      * @example 2022-12-31T15:59Z
      *
@@ -71,7 +103,7 @@ class ExportDesktopListInfoRequest extends Model
     public $expiredTime;
 
     /**
-     * @description The ID of the group to which the cloud desktop belongs.
+     * @description The ID of the cloud computer pool to which the cloud computers belong.
      *
      * @example dg-boyczi8enfyc5***
      *
@@ -80,8 +112,17 @@ class ExportDesktopListInfoRequest extends Model
     public $groupId;
 
     /**
-     * @description The language that you want to use.
+     * @description The language in which the cloud computer is displayed in the console UI. You can export the list of cloud computers in the specified language.
      *
+     * Default value: zh-CN. Valid values:
+     *
+     *   zh-CN: Simplified Chinese
+     *
+     * <!-- -->
+     *
+     *   en-GB: British English
+     *
+     * <!-- -->
      * @example `zh-CN`
      *
      * @var string
@@ -89,7 +130,7 @@ class ExportDesktopListInfoRequest extends Model
     public $langType;
 
     /**
-     * @description The maximum number of entries to return on each page.
+     * @description The number of entries per page.
      *
      * Default value: 10.
      * @example 10
@@ -108,7 +149,7 @@ class ExportDesktopListInfoRequest extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the workspace.
+     * @description The office network ID.
      *
      * @example cn-hangzhou+dir-363353****
      *
@@ -117,7 +158,7 @@ class ExportDesktopListInfoRequest extends Model
     public $officeSiteId;
 
     /**
-     * @description The ID of the policy that is associated with the cloud desktop.
+     * @description The ID of the policy that is attached to the cloud computer.
      *
      * @example system-all-enabled-policy
      *
@@ -126,7 +167,7 @@ class ExportDesktopListInfoRequest extends Model
     public $policyGroupId;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -135,14 +176,14 @@ class ExportDesktopListInfoRequest extends Model
     public $regionId;
 
     /**
-     * @description The tags that you want to add to the cloud desktop.
+     * @description The tags that are added to the cloud computer. A tag is a key-value pair that consists of a tag key and a tag value. Tags are used to identify resources. You can use tags to manage cloud computers by group. This facilitates search and batch operations. For more information, see [Use tags to manage cloud computers](~~203781~~).
      *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description The username of the current user of the cloud desktop.
+     * @description The username of the end user who is using the cloud computer.
      *
      * @example alice
      *

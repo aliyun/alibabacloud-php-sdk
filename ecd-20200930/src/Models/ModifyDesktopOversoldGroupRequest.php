@@ -19,9 +19,19 @@ class ModifyDesktopOversoldGroupRequest extends Model
     public $description;
 
     /**
+     * @var int
+     */
+    public $idleDisconnectDuration;
+
+    /**
      * @var string
      */
     public $imageId;
+
+    /**
+     * @var int
+     */
+    public $keepDuration;
 
     /**
      * @var string
@@ -53,15 +63,17 @@ class ModifyDesktopOversoldGroupRequest extends Model
      */
     public $stopDuration;
     protected $_name = [
-        'concurrenceCount'  => 'ConcurrenceCount',
-        'description'       => 'Description',
-        'imageId'           => 'ImageId',
-        'name'              => 'Name',
-        'oversoldGroupId'   => 'OversoldGroupId',
-        'oversoldUserCount' => 'OversoldUserCount',
-        'oversoldWarn'      => 'OversoldWarn',
-        'policyGroupId'     => 'PolicyGroupId',
-        'stopDuration'      => 'StopDuration',
+        'concurrenceCount'       => 'ConcurrenceCount',
+        'description'            => 'Description',
+        'idleDisconnectDuration' => 'IdleDisconnectDuration',
+        'imageId'                => 'ImageId',
+        'keepDuration'           => 'KeepDuration',
+        'name'                   => 'Name',
+        'oversoldGroupId'        => 'OversoldGroupId',
+        'oversoldUserCount'      => 'OversoldUserCount',
+        'oversoldWarn'           => 'OversoldWarn',
+        'policyGroupId'          => 'PolicyGroupId',
+        'stopDuration'           => 'StopDuration',
     ];
 
     public function validate()
@@ -77,8 +89,14 @@ class ModifyDesktopOversoldGroupRequest extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+        if (null !== $this->idleDisconnectDuration) {
+            $res['IdleDisconnectDuration'] = $this->idleDisconnectDuration;
+        }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
+        }
+        if (null !== $this->keepDuration) {
+            $res['KeepDuration'] = $this->keepDuration;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -116,8 +134,14 @@ class ModifyDesktopOversoldGroupRequest extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+        if (isset($map['IdleDisconnectDuration'])) {
+            $model->idleDisconnectDuration = $map['IdleDisconnectDuration'];
+        }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
+        }
+        if (isset($map['KeepDuration'])) {
+            $model->keepDuration = $map['KeepDuration'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

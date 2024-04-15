@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DeleteNetworkPackagesRequest extends Model
 {
     /**
-     * @description The IDs of Internet access packages.
+     * @description The IDs of premium bandwidth plans. You can specify one or more IDs.
      *
      * @var string[]
      */
     public $networkPackageId;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

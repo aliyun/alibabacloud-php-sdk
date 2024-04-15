@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateBundleResponseBody extends Model
 {
     /**
-     * @description The ID of the desktop template.
+     * @description The ID of the cloud computer template.
      *
      * @example b-cezrnfgecbich****
      *

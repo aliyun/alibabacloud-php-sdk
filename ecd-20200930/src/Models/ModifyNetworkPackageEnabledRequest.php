@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ModifyNetworkPackageEnabledRequest extends Model
 {
     /**
-     * @description Specifies whether to restore or disable Internet access for the cloud desktop. Valid values:
+     * @description Specifies whether to restore the premium bandwidth plan of the cloud computer.
      *
-     *   true: restores Internet access.
-     *   false: disables Internet access.
+     * Valid values:
      *
+     *   true
+     *
+     * <!-- -->
+     *
+     *   false
+     *
+     * <!-- -->
      * @example true
      *
      * @var bool
@@ -21,7 +27,7 @@ class ModifyNetworkPackageEnabledRequest extends Model
     public $enabled;
 
     /**
-     * @description The ID of the Internet access package.
+     * @description The ID of the premium bandwidth plan.
      *
      * @example np-cfedn7r2pe48g****
      *
@@ -30,7 +36,7 @@ class ModifyNetworkPackageEnabledRequest extends Model
     public $networkPackageId;
 
     /**
-     * @description The region ID.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

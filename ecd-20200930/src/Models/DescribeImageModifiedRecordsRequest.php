@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageModifiedRecordsRequest extends Model
 {
     /**
-     * @description The ID of the cloud desktop.
+     * @description The ID of the cloud computer.
      *
      * @example ecd-bd53sfmysz8ir****
      *
@@ -39,7 +39,7 @@ class DescribeImageModifiedRecordsRequest extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

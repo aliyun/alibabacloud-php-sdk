@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateImageRequest extends Model
 {
     /**
+     * @description Specifies whether to clear private data of users. If you set AutoCleanUserdata to `true`, the custom image clears the data directories, excluding the `Administrator` and `Public` directories, in the `C:\Users` directory.
+     *
      * @example false
      *
      * @var bool
@@ -16,6 +18,8 @@ class CreateImageRequest extends Model
     public $autoCleanUserdata;
 
     /**
+     * @description The description of the custom image. The description must be 2 to 256 characters in length. It cannot start with `http://` or `https://`.
+     *
      * @example This is description.
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateImageRequest extends Model
     public $description;
 
     /**
+     * @description The ID of the cloud computer.
+     *
      * @example ecd-7w78ozhjcwa3u****
      *
      * @var string
@@ -30,6 +36,9 @@ class CreateImageRequest extends Model
     public $desktopId;
 
     /**
+     * @description The disk data that is contained in the custom image.
+     *
+     * - ALL: contain data from system disks and user disks. [default]
      * @example ALL
      *
      * @var string
@@ -37,6 +46,8 @@ class CreateImageRequest extends Model
     public $diskType;
 
     /**
+     * @description The name of the image. The name must be 2 to 128 characters in length. The name must start with a letter but cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     *
      * @example testImageName
      *
      * @var string
@@ -44,6 +55,8 @@ class CreateImageRequest extends Model
     public $imageName;
 
     /**
+     * @description This parameter is not publicly available.
+     *
      * @example To be hidden.
      *
      * @var string
@@ -51,6 +64,8 @@ class CreateImageRequest extends Model
     public $imageResourceType;
 
     /**
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -58,6 +73,8 @@ class CreateImageRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the snapshot.
+     *
      * @example s-2zefuwk8l6ytcgd3bf4o
      *
      * @var string
@@ -65,6 +82,8 @@ class CreateImageRequest extends Model
     public $snapshotId;
 
     /**
+     * @description The IDs of the snapshots.
+     *
      * @var string[]
      */
     public $snapshotIds;

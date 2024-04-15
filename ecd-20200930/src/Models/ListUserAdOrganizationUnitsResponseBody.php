@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListUserAdOrganizationUnitsResponseBody extends Model
 {
     /**
-     * @description The token that is used to start the next query.
+     * @description A pagination token.
      *
      * @example CAAAAA==
      *
@@ -19,7 +19,7 @@ class ListUserAdOrganizationUnitsResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The names of the OUs in the AD domain.
+     * @description The OUs of the AD domain.
      *
      * @var OUNames[]
      */

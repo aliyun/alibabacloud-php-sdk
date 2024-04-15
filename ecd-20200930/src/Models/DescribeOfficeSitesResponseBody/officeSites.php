@@ -11,14 +11,14 @@ use AlibabaCloud\Tea\Model;
 class officeSites extends Model
 {
     /**
-     * @description Details about AD connectors.
+     * @description The details of AD connectors.
      *
      * @var ADConnectors[]
      */
     public $ADConnectors;
 
     /**
-     * @description The hostname of the domain controller. The hostname must comply with the naming conventions for Windows hosts.
+     * @description The hostname of the domain controller. The hostname must comply with Windows hostname naming convention.
      *
      * @example beijing-ad01
      *
@@ -28,7 +28,7 @@ class officeSites extends Model
 
     /**
      * @description The maximum public bandwidth value. Valid values: 0 to 1000.\
-     * If the value of this parameter is 0, Internet access is disabled.
+     * If you leave this parameter empty or set this parameter to 0, Internet access is not enabled.
      * @example 10
      *
      * @var int
@@ -36,12 +36,16 @@ class officeSites extends Model
     public $bandwidth;
 
     /**
+     * @description The CEN instance status.
+     *
+     * @example attached
+     *
      * @var string
      */
     public $cenAttachStatus;
 
     /**
-     * @description The ID of the Cloud Enterprise Network (CEN) instance.
+     * @description The CEN instance ID.
      *
      * @example cen-3gwy16dojz1m65****
      *
@@ -50,7 +54,7 @@ class officeSites extends Model
     public $cenId;
 
     /**
-     * @description The IPv4 CIDR block that is included in the secure office network of the workspace.
+     * @description The IPv4 CIDR block of the VPC that the office network uses.
      *
      * @example 172.16.0.0/16
      *
@@ -59,15 +63,15 @@ class officeSites extends Model
     public $cidrBlock;
 
     /**
-     * @description Specifies whether the workspace is a cloud box-based workspace.
+     * @description Indicates whether the CloudBox-based office network is created.
      *
      * Valid values:
      *
-     *   True: a cloud box-based workspace
+     *   true
      *
      * <!-- -->
      *
-     *   False: an Internet-based workspace
+     *   false
      *
      * <!-- -->
      * @example true
@@ -77,7 +81,7 @@ class officeSites extends Model
     public $cloudBoxOfficeSite;
 
     /**
-     * @description The time when the workspace was created.
+     * @description The time when the office network was created.
      *
      * @example 2021-05-06T05:58Z
      *
@@ -86,7 +90,7 @@ class officeSites extends Model
     public $creationTime;
 
     /**
-     * @description The ID of the security group.
+     * @description The security group ID.
      *
      * @example sg-bp1ce64o4g9mdf5u****
      *
@@ -95,21 +99,14 @@ class officeSites extends Model
     public $customSecurityGroupId;
 
     /**
-     * @description The method that is used to connect an Alibaba Cloud Workspace client to cloud desktops.
+     * @description The method that is used to connect cloud computers that reside in the office network from WUYING clients.
      *
      * Valid values:
      *
-     *   INTERNET: allows clients to connect to cloud desktops only over the Internet.
+     *   INTERNET (default): Cloud computers are connected from WUYING clients over the Internet.
+     *   VPC: Cloud computers are connected from WUYING clients over the VPC.
+     *   ANY: Cloud computers are connected from WUYING clients over the Internet or the VPC. When you use can choose a method to connect cloud computers over the Internet or VPC from WUYING clients based on their business requirements.
      *
-     * <!-- -->
-     *
-     *   VPC: allows only clients in VPCs to connect to a cloud desktop.
-     *
-     * <!-- -->
-     *
-     *   ANY: connects the client to cloud desktops over the Internet or a VPC.
-     *
-     * <!-- -->
      * @example INTERNET
      *
      * @var string
@@ -117,7 +114,7 @@ class officeSites extends Model
     public $desktopAccessType;
 
     /**
-     * @description The number of cloud desktops that are created.
+     * @description The number of cloud computers that are created.
      *
      * @example 1
      *
@@ -126,7 +123,7 @@ class officeSites extends Model
     public $desktopCount;
 
     /**
-     * @description The endpoint that is used to connect to cloud desktops over a VPC.
+     * @description The endpoint that is used by the VPC, over which cloud computers are connected.
      *
      * @example http://ep-bp1s2vmbj55r5rzc****.epsrv-bp1pcfhpwvlpny01****.cn-hangzhou.privatelink.aliyuncs.com
      *
@@ -135,14 +132,14 @@ class officeSites extends Model
     public $desktopVpcEndpoint;
 
     /**
-     * @description The DNS addresses of the AD domains.
+     * @description The array of DNS addresses in the AD domains.
      *
      * @var string[]
      */
     public $dnsAddress;
 
     /**
-     * @description The username of the Domain Name System (DNS) user.
+     * @description The username of a Domain Name System (DNS) user.
      *
      * @example testDnsUserName
      *
@@ -151,7 +148,7 @@ class officeSites extends Model
     public $dnsUserName;
 
     /**
-     * @description The domain name of the enterprise Active Directory (AD) system.
+     * @description The domain name of the enterprise AD.
      *
      * @example example.com
      *
@@ -178,7 +175,12 @@ class officeSites extends Model
     public $domainUserName;
 
     /**
-     * @description Indicates whether the Local Administrator permissions are granted for users of the cloud desktop.
+     * @description Indicates whether the local administrator permissions are granted to users that are authorized to use cloud computers in the office network.
+     *
+     * Valid values:
+     *
+     * true (default)
+     * false
      *
      * @example true
      *
@@ -187,7 +189,7 @@ class officeSites extends Model
     public $enableAdminAccess;
 
     /**
-     * @description Indicates whether the cross-desktop access feature is enabled for cloud desktops in the same workspace. If the feature is enabled, cloud desktops in the same workspace can access each other.
+     * @description Indicates whether the connection between cloud computers in the office network is enabled. After you enable the connection between cloud computers in the office network, cloud computers in the office network can access each other.
      *
      * @example false
      *
@@ -205,7 +207,7 @@ class officeSites extends Model
     public $enableInternetAccess;
 
     /**
-     * @description The IDs of the Apsara File Storage NAS (NAS) file systems.
+     * @description An array of Apsara File Storage NAS (NAS) file system IDs.
      *
      * @var string[]
      */
@@ -219,7 +221,7 @@ class officeSites extends Model
     public $logs;
 
     /**
-     * @description Specifies whether to enable multi-factor authentication (MFA).
+     * @description Indicates whether multi-factor authentication (MFA) is enabled.
      *
      * @example false
      *
@@ -228,7 +230,7 @@ class officeSites extends Model
     public $mfaEnabled;
 
     /**
-     * @description The name of the workspace. The name is unique in the same region.
+     * @description The office network name. The name is unique in a region.
      *
      * @example test
      *
@@ -237,8 +239,8 @@ class officeSites extends Model
     public $name;
 
     /**
-     * @description Indicates whether two-step verification for logons is enabled. This parameter is returned only for workspaces of the convenience account type.\
-     * If two-factor verification is enabled, the system checks whether security risks exist within the logon account when a convenience user logs on to an Alibaba Cloud Workspace client. If risks are detected, the system sends a verification code to the email address that is associated with the account. Then, the convenience user can log on to the client only after the user enters the correct verification code.
+     * @description Indicates whether two-factor verification is enabled when an end user logs on to a WUYING client. This parameter is required only for convenience office networks. If two-factor verification is enabled, the system checks whether security risks exist within the logon account when the end user uses a convenience user to log on to the client. If risks are detected, the system sends a verification code to the email address that is associated with the account of the convenience user. Then, the end user can log on to the client only when the verification code is correct.
+     *
      * @example false
      *
      * @var bool
@@ -246,15 +248,15 @@ class officeSites extends Model
     public $needVerifyLoginRisk;
 
     /**
-     * @description Specifies whether to enable trusted device verification.
+     * @description Indicates whether the trusted device verification is enabled.
      *
      * Valid values:
      *
-     *   true: enables device verification.
+     *   true
      *
      * <!-- -->
      *
-     *   false: disables device verification.
+     *   false
      *
      * <!-- -->
      * @example true
@@ -264,7 +266,7 @@ class officeSites extends Model
     public $needVerifyZeroDevice;
 
     /**
-     * @description The ID of the Internet access package.
+     * @description The premium bandwidth plan ID.
      *
      * @example np-amtp8e8q1o9e4****
      *
@@ -273,7 +275,7 @@ class officeSites extends Model
     public $networkPackageId;
 
     /**
-     * @description The workspace ID.
+     * @description The office network ID.
      *
      * @example cn-hangzhou+dir-363353****
      *
@@ -282,15 +284,15 @@ class officeSites extends Model
     public $officeSiteId;
 
     /**
-     * @description The account type of the workspace.
+     * @description The account type of the office network.
      *
      * Valid values:
      *
-     *   SIMPLE: the convenience account
+     *   SIMPLE: convenience account
      *
      * <!-- -->
      *
-     *   AD_CONNECTOR: the enterprise AD account
+     *   AD_CONNECTOR: enterprise AD account
      *
      * <!-- -->
      * @example AD_CONNECTOR
@@ -300,7 +302,7 @@ class officeSites extends Model
     public $officeSiteType;
 
     /**
-     * @description The name of the organizational unit (OU) that is connected to the AD domain.
+     * @description The organizational unit (OU) in the AD domain to which the office network is connected.
      *
      * @example example.com/Domain Controllers
      *
@@ -309,15 +311,15 @@ class officeSites extends Model
     public $ouName;
 
     /**
-     * @description The workspace protocol.
+     * @description The protocol type.
      *
      * Valid values:
      *
-     *   HDX: the third-party protocol
+     *   High-definition Experience (HDX)
      *
      * <!-- -->
      *
-     *   ASP: the protocol developed by Alibaba Cloud
+     *   Adaptive Streaming Protocol (ASP)
      *
      * <!-- -->
      * @example ASP
@@ -327,6 +329,8 @@ class officeSites extends Model
     public $protocolType;
 
     /**
+     * @description The IP address of the RDS license.
+     *
      * @example 47.100.XX.XX
      *
      * @var string
@@ -334,6 +338,8 @@ class officeSites extends Model
     public $rdsLicenseAddress;
 
     /**
+     * @description The domain name of the RDS license.
+     *
      * @example test.com
      *
      * @var string
@@ -341,6 +347,8 @@ class officeSites extends Model
     public $rdsLicenseDomainName;
 
     /**
+     * @description The remote desktop service (RDS) license status.
+     *
      * @example 2
      *
      * @var string
@@ -357,7 +365,7 @@ class officeSites extends Model
     public $ssoEnabled;
 
     /**
-     * @description The type of SSO.
+     * @description The SSO type.
      *
      * @example To be hidden.
      *
@@ -366,43 +374,43 @@ class officeSites extends Model
     public $ssoType;
 
     /**
-     * @description The state of the workspace.
+     * @description The office network status.
      *
      * Valid values:
      *
-     *   REGISTERING: The workspace is being registered.
+     *   REGISTERING: The office network is being registered.
      *
      * <!-- -->
      *
-     *   DEREGISTERING: The workspace is being deregistered.
+     *   DEREGISTERING: The office network is being deregistered.
      *
      * <!-- -->
      *
-     *   REGISTERED: The workspace is registered.
+     *   REGISTERED: The office network is registered.
      *
      * <!-- -->
      *
-     *   NEEDCONFIGTRUST: A trust relationship needs to be configured.
+     *   NEEDCONFIGTRUST: A trust relationship is required for the office network.
      *
      * <!-- -->
      *
-     *   CONFIGTRUSTFAILED: A trust relationship fails to be configured.
+     *   CONFIGTRUSTFAILED: A trust relationship fails to be configured for the office network.
      *
      * <!-- -->
      *
-     *   DEREGISTERED: The workspace is deregistered.
+     *   DEREGISTERED: The office network is deregistered.
      *
      * <!-- -->
      *
-     *   ERROR: The configurations of the workspace are invalid.
+     *   ERROR: One or more configurations of the office network are invalid.
      *
      * <!-- -->
      *
-     *   CONFIGTRUSTING: A trust relationship is being configured.
+     *   CONFIGTRUSTING: A trust relationship is being configured for the office network.
      *
      * <!-- -->
      *
-     *   NEEDCONFIGUSER: Users need to be configured.
+     *   NEEDCONFIGUSER: Users are required for the office network.
      *
      * <!-- -->
      * @example REGISTERED
@@ -412,14 +420,14 @@ class officeSites extends Model
     public $status;
 
     /**
-     * @description The DNS addresses of the AD subdomains.
+     * @description An array of DNS addresses for AD subdomains.
      *
      * @var string[]
      */
     public $subDnsAddress;
 
     /**
-     * @description The username of a Domain Name System (DNS) account in the AD subdomain.
+     * @description The username of enterprise AD subdomain.
      *
      * @example testSubDnsUserName
      *
@@ -428,6 +436,8 @@ class officeSites extends Model
     public $subDomainName;
 
     /**
+     * @description The total number of cloud computers.
+     *
      * @example 0
      *
      * @var int
@@ -435,6 +445,8 @@ class officeSites extends Model
     public $totalEdsCount;
 
     /**
+     * @description The total number of cloud computers in the cloud computer pool (formerly desktop group).
+     *
      * @example 0
      *
      * @var int
@@ -442,7 +454,7 @@ class officeSites extends Model
     public $totalEdsCountForGroup;
 
     /**
-     * @description > This parameter is unavailable.
+     * @description >  This parameter is unavailable.
      *
      * @example To be hidden.
      *
@@ -451,14 +463,14 @@ class officeSites extends Model
     public $trustPassword;
 
     /**
-     * @description The IDs of the vSwitches.
+     * @description An array of VSwitch IDs.
      *
      * @var string[]
      */
     public $vSwitchIds;
 
     /**
-     * @description The ID of the secure office network of the workspace. The ID is also the ID of the virtual private cloud (VPC) used by the workspace.
+     * @description The VPC ID.
      *
      * @example vpc-uf6tz5k67puge5jn8****
      *

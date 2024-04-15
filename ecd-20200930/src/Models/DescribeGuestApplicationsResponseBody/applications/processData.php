@@ -27,7 +27,7 @@ class processData extends Model
     public $applicationVersion;
 
     /**
-     * @description The CPU usage.
+     * @description The CPU utilization (%).
      *
      * @example 89
      *
@@ -36,7 +36,7 @@ class processData extends Model
     public $cpuPercent;
 
     /**
-     * @description The GPU usage.
+     * @description The GPU utilization (%).
      *
      * @example 15
      *
@@ -54,7 +54,7 @@ class processData extends Model
     public $iospeed;
 
     /**
-     * @description The memory usage.
+     * @description The memory utilization (%).
      *
      * @example 34
      *
@@ -63,7 +63,7 @@ class processData extends Model
     public $memPercent;
 
     /**
-     * @description The process ID.
+     * @description The PID.
      *
      * @example 1357
      *

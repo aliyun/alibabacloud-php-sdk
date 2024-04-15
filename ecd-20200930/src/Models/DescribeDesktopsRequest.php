@@ -143,10 +143,10 @@ class DescribeDesktopsRequest extends Model
     public $managementFlag;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page.
      *
-     *   Maximum value: 100.
-     *   Default value: 10.
+     *   Maximum value: 100
+     *   Default value: 10
      *
      * @example 10
      *

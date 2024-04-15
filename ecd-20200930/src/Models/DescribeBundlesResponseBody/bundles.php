@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class bundles extends Model
 {
     /**
-     * @description The ID of the cloud desktop template.
+     * @description The ID of the cloud computer template.
      *
      * @example bundle_ecd_graphics.2xlarge_s15d15_win2019
      *
@@ -20,7 +20,7 @@ class bundles extends Model
     public $bundleId;
 
     /**
-     * @description The name of the cloud desktop template.
+     * @description The name of the cloud computer template.
      *
      * @example Advanced graphics with Windows 2019
      *
@@ -29,11 +29,17 @@ class bundles extends Model
     public $bundleName;
 
     /**
-     * @description The type of the cloud desktop template. Valid values:
+     * @description The type of the cloud computer template.
      *
-     *   SYSTEM: the system template
-     *   CUSTOM: the custom template
+     * Valid values:
      *
+     *   SYSTEM: system template
+     *
+     * <!-- -->
+     *
+     *   CUSTOM: custom template
+     *
+     * <!-- -->
      * @example SYSTEM
      *
      * @var string
@@ -41,7 +47,7 @@ class bundles extends Model
     public $bundleType;
 
     /**
-     * @description The time when the cloud desktop template was created.
+     * @description The time when the cloud computer template was created.
      *
      * @example 2021-09-30T06:09Z
      *
@@ -50,7 +56,7 @@ class bundles extends Model
     public $creationTime;
 
     /**
-     * @description The description of the cloud desktop template.
+     * @description The description of the cloud computer template.
      *
      * @example test
      *
@@ -59,7 +65,7 @@ class bundles extends Model
     public $description;
 
     /**
-     * @description The type of the cloud desktop.
+     * @description The instance type of the cloud computer.
      *
      * @example ecd.graphics.2xlarge
      *
@@ -68,18 +74,20 @@ class bundles extends Model
     public $desktopType;
 
     /**
-     * @description Details about the cloud desktop type.
+     * @description The details of the cloud computer instance type.
      *
      * @var desktopTypeAttribute
      */
     public $desktopTypeAttribute;
 
     /**
-     * @description The family of the cloud desktop type. Valid values:
+     * @description The instance family of the cloud computer.
      *
-     *   eds.general: General Office
-     *   eds.hf: High Frequency
-     *   eds.graphics: Graphics
+     * Valid values:
+     *
+     *   eds.graphics: graphical instance family
+     *   eds.hf: instance family with a high clock speed
+     *   eds.general: general-purpose instance family
      *
      * @example eds.general
      *
@@ -88,14 +96,14 @@ class bundles extends Model
     public $desktopTypeFamily;
 
     /**
-     * @description Details about the disks.
+     * @description Details of the disks.
      *
      * @var disks[]
      */
     public $disks;
 
     /**
-     * @description The ID of the image.
+     * @description The image ID.
      *
      * @example desktopimage-windows-server-2019-64-ch-vgpu
      *
@@ -104,7 +112,7 @@ class bundles extends Model
     public $imageId;
 
     /**
-     * @description The name of the image.
+     * @description The image name.
      *
      * @example Windows server 2019 Chinese
      *
@@ -131,8 +139,17 @@ class bundles extends Model
     public $language;
 
     /**
-     * @description The OS type.
+     * @description The type of the OS.
      *
+     * Valid values:
+     *
+     *   Linux
+     *
+     * <!-- -->
+     *
+     *   Windows
+     *
+     * <!-- -->
      * @example Windows
      *
      * @var string
@@ -140,14 +157,33 @@ class bundles extends Model
     public $osType;
 
     /**
-     * @description The information about the OS platform. Valid values:
+     * @description The OS.
      *
-     * CentOS
-     * Ubuntu
-     * Windows Server 2016
-     * Windows Server 2019
-     * UOS
+     * Valid values:
      *
+     *   Ubuntu
+     *
+     * <!-- -->
+     *
+     *   Windows Server 2022
+     *
+     * <!-- -->
+     *
+     *   UOS
+     *
+     * <!-- -->
+     *
+     *   CentOS
+     *
+     * <!-- -->
+     *
+     *   Windows Server 2019
+     *
+     * <!-- -->
+     *
+     *   Windows Server 2016
+     *
+     * <!-- -->
      * @example Windows Server 2019
      *
      * @var string
@@ -157,8 +193,10 @@ class bundles extends Model
     /**
      * @description The protocol type.
      *
-     *   HDX
-     *   ASP (Recommend)
+     * Valid values:
+     *
+     *   HDX: HDX protocol
+     *   ASP: in-house ASP
      *
      * @example ASP
      *
@@ -167,10 +205,12 @@ class bundles extends Model
     public $protocolType;
 
     /**
-     * @description The session type. Valid values:
+     * @description The session type.
      *
-     *   0: single_session
-     *   1: multiple_session
+     * Valid values:
+     *
+     *   0: single-session
+     *   1: multi-session
      *
      * @example 0
      *
@@ -179,7 +219,7 @@ class bundles extends Model
     public $sessionType;
 
     /**
-     * @description The inventory status of the cloud desktop type, which is returned when the CheckStock parameter is set to true.
+     * @description The inventory status of the cloud computer instance type. This parameter is returned only if you set the `CheckStock` parameter to `true`.
      *
      * @example Sufficient
      *

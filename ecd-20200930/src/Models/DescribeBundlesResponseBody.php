@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeBundlesResponseBody extends Model
 {
     /**
-     * @description Details about the cloud desktop templates.
+     * @description The details of the queried cloud computer templates.
      *
      * @var bundles[]
      */

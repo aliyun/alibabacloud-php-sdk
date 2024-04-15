@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeUsersPasswordResponseBody extends Model
 {
     /**
-     * @description The users that are associated with cloud desktop.
+     * @description The authorized users of the cloud computer.
      *
      * @var desktopUsers[]
      */

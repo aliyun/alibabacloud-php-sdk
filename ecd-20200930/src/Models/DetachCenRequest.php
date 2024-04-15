@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DetachCenRequest extends Model
 {
     /**
-     * @description The workspace ID.
+     * @description The office network ID.
      *
      * @example cn-hangzhou+dir-363353****
      *
@@ -18,7 +18,7 @@ class DetachCenRequest extends Model
     public $officeSiteId;
 
     /**
-     * @description The region ID.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

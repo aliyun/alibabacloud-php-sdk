@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class MigrateImageProtocolResponseBody extends Model
 {
     /**
-     * @description The IDs of images whose protocols fail to be migrated.
+     * @description The IDs of the images whose protocols failed to be updated.
      *
      * @var string[]
      */

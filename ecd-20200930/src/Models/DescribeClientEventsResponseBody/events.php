@@ -54,7 +54,7 @@ class events extends Model
     public $clientOS;
 
     /**
-     * @description The version of the client.
+     * @description The client version.
      *
      * @example 1.0.4 202012021700
      *
@@ -63,7 +63,7 @@ class events extends Model
     public $clientVersion;
 
     /**
-     * @description The ID of the desktop group.
+     * @description The desktop group ID.
      *
      * @example dg-kadkdfaf****
      *
@@ -72,7 +72,7 @@ class events extends Model
     public $desktopGroupId;
 
     /**
-     * @description The name of the desktop group.
+     * @description The desktop group name.
      *
      * @example testName
      *
@@ -81,7 +81,7 @@ class events extends Model
     public $desktopGroupName;
 
     /**
-     * @description The ID of the cloud desktop.
+     * @description The cloud desktop ID.
      *
      * @example ecd-8fupvkhg0aayu****
      *
@@ -99,7 +99,7 @@ class events extends Model
     public $desktopIp;
 
     /**
-     * @description The name of the cloud desktop.
+     * @description The cloud desktop name.
      *
      * @example test
      *
@@ -117,7 +117,7 @@ class events extends Model
     public $directoryId;
 
     /**
-     * @description The type of the directory.
+     * @description The directory type.
      *
      * @example RAM
      *
@@ -126,7 +126,7 @@ class events extends Model
     public $directoryType;
 
     /**
-     * @description The information about the regular user that connects to the cloud desktop from the EDS client. The information can be the RAM user ID or AD username.
+     * @description The information about the end user that connects to the cloud desktop from the EDS client. The information can be a RAM user ID or an AD username.
      *
      * @example 28961708130834****
      *
@@ -135,7 +135,7 @@ class events extends Model
     public $endUserId;
 
     /**
-     * @description The ID of the event.
+     * @description The event ID.
      *
      * @example 5651188b-3070-d1cc-5311-75753d59****
      *
@@ -153,7 +153,7 @@ class events extends Model
     public $eventTime;
 
     /**
-     * @description The type of the event.
+     * @description The event type. Valid values:
      *
      * @example DESKTOP_DISCONNECT
      *
@@ -171,7 +171,7 @@ class events extends Model
     public $officeSiteId;
 
     /**
-     * @description The name of the workspace.
+     * @description The workspace name.
      *
      * @example test
      *
@@ -180,11 +180,17 @@ class events extends Model
     public $officeSiteName;
 
     /**
-     * @description The account type of the workspace. Valid values:
+     * @description The account type of the workspace.
+     *
+     * Valid values:
      *
      *   SIMPLE: convenience account
+     *
+     * <!-- -->
+     *
      *   AD_CONNECTOR: enterprise AD account
      *
+     * <!-- -->
      * @example SIMPLE
      *
      * @var string
@@ -192,7 +198,7 @@ class events extends Model
     public $officeSiteType;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -201,7 +207,7 @@ class events extends Model
     public $regionId;
 
     /**
-     * @description The status of the event. This parameter is returned if you set the EventType parameter to DESKTOP_DISCONNECT or GET_CONNECTION_TICKET. Valid values:
+     * @description The status of the event. If you set the EventType parameter to `DESKTOP_DISCONNECT` or `GET_CONNECTION_TICKET`, this parameter is returned. Valid values:
      *
      *   200\. The value indicates that the request is successful.
      *   An error message. The value indicates that the request failed. Example: FailedToGetConnectionTicket.

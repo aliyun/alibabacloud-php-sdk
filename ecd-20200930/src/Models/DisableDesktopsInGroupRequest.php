@@ -18,14 +18,14 @@ class DisableDesktopsInGroupRequest extends Model
     public $desktopGroupId;
 
     /**
-     * @description The IDs of the cloud desktops.
+     * @description The IDs of cloud desktops.
      *
      * @var string[]
      */
     public $desktopIds;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

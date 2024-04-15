@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDesktopsInGroupRequest extends Model
 {
     /**
-     * @description The desktop group ID.
+     * @description The ID of the cloud computer pool.
      *
      * @example dg-2i8qxpv6t1a03****
      *
@@ -18,7 +18,12 @@ class DescribeDesktopsInGroupRequest extends Model
     public $desktopGroupId;
 
     /**
-     * @description Specifies whether to ignore the deleted cloud desktops.
+     * @description Specifies whether to ignore deletion flags.
+     *
+     * Default value: true. Valid values:
+     *
+     *   true: ignores deletion flags. The cloud computers that were deleted are returned.
+     *   false: does not ignore deletion flags. The cloud computers that were deleted are not returned.
      *
      * @example true
      *
@@ -54,7 +59,7 @@ class DescribeDesktopsInGroupRequest extends Model
     public $payType;
 
     /**
-     * @description The region ID.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

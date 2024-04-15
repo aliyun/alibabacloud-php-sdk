@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateRAMDirectoryResponseBody extends Model
 {
     /**
-     * @description The ID of the RAM directory.
+     * @description The RAM directory ID.
      *
      * @example dri-uf62w3qzt4aigvlcb****
      *
@@ -18,7 +18,7 @@ class CreateRAMDirectoryResponseBody extends Model
     public $directoryId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
      *

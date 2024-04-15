@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteOfficeSitesRequest extends Model
 {
     /**
-     * @description The ID of the workspace that you want to delete. You can specify 1 to 100 IDs of workspaces.
+     * @description The IDs of the office networks. You can specify 1 to 100 office networks.
      *
      * @example cn-hangzhou+dir-363353****
      *
@@ -18,7 +18,7 @@ class DeleteOfficeSitesRequest extends Model
     public $officeSiteId;
 
     /**
-     * @description The region ID of the workspace that you want to delete. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

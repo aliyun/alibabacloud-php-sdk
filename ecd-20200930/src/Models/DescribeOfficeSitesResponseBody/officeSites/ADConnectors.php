@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ADConnectors extends Model
 {
     /**
-     * @description The IP address of the AD connector.
+     * @description The connection address of the AD connector.
      *
      * @example 172.24.*.*
      *
@@ -18,29 +18,29 @@ class ADConnectors extends Model
     public $ADConnectorAddress;
 
     /**
-     * @description The state of the AD connector.
+     * @description The status of the AD connector.
      *
      * Valid values:
      *
-     *   CONNECT_ERROR: A connection error occurs.
+     *   CONNECT_ERROR
      *
      * <!-- -->
      *
-     *   RUNNING: The AD connector is running
-     *
-     * .
-     *
-     *   CONNECTING: The AD connector is being connected.
+     *   RUNNING
      *
      * <!-- -->
      *
-     *   EXPIRED: The AD connector expired due to overdue payments.
+     *   CONNECTING
      *
      * <!-- -->
      *
-     *   CREATING: The consumer group is being created
+     *   EXPIRED
      *
-     * .
+     * <!-- -->
+     *
+     *   CREATING
+     *
+     * <!-- -->
      * @example RUNNING
      *
      * @var string
@@ -48,7 +48,7 @@ class ADConnectors extends Model
     public $connectorStatus;
 
     /**
-     * @description The ID of the network interface controller (NIC) that is associated with the AD connector.
+     * @description The ID of an elastic network interface (ENI) to which the AD connector is mounted.
      *
      * @example eni-bp1i4wx78lgosrj6****
      *
@@ -75,7 +75,7 @@ class ADConnectors extends Model
     public $specification;
 
     /**
-     * @description The trust password that is specified when you configured the AD trust relationship.
+     * @description The trust password that is specified when you configure the AD trust relationship.
      *
      * @example password123***
      *
@@ -84,7 +84,7 @@ class ADConnectors extends Model
     public $trustKey;
 
     /**
-     * @description The ID of the vSwitch that corresponds to the network of the AD connector.
+     * @description The ID of the vSwitch that resides in the network of the AD connector.
      *
      * @example vsw-bp19ocz3erfx15uon****
      *

@@ -9,8 +9,17 @@ use AlibabaCloud\Tea\Model;
 class CreateNetworkPackageRequest extends Model
 {
     /**
-     * @description Specifies whether to enable automatic payment.
+     * @description Specifies whether to enable the automatic payment feature.
      *
+     * Valid values:
+     *
+     *   true (default): enables the auto-payment feature.
+     *
+     * <!-- -->
+     *
+     *   false: disables the auto-payment feature. In this case, an order is generated but you need to make the payment manually.
+     *
+     * <!-- -->
      * @example false
      *
      * @var bool
@@ -18,8 +27,17 @@ class CreateNetworkPackageRequest extends Model
     public $autoPay;
 
     /**
-     * @description Specifies whether to enable auto-renewal.
+     * @description Specifies whether to enable auto-renewal for the premium bandwidth plan.
      *
+     * Valid values:
+     *
+     *   true
+     *
+     * <!-- -->
+     *
+     *   false
+     *
+     * <!-- -->
      * @example false
      *
      * @var bool
@@ -27,8 +45,12 @@ class CreateNetworkPackageRequest extends Model
     public $autoRenew;
 
     /**
-     * @description The maximum public bandwidth. Unit: Mbit/s.\
-     * Valid values for the pay-by-data-transfer type (PayByTraffic): 10 to 200. Valid values for the pay-by-bandwith type (PayByBandwidth): 10 to 1000.
+     * @description The bandwidth provided by the premium bandwidth plan. Unit: Mbit/s.
+     *
+     *   Valid values if the premium bandwidth plan is a subscription plan: 2 to 1000.
+     *   Valid values if the premium bandwidth plan is a pay-as-you-go plan that charges by data transfer (PayByTraffic): 2 to 200.
+     *   Valid values if the premium bandwidth plan is a pay-as-you-go plan that charges by fixed bandwidth (PayByBandwidth): 2 to 1000.
+     *
      * @example 10
      *
      * @var int
@@ -36,7 +58,16 @@ class CreateNetworkPackageRequest extends Model
     public $bandwidth;
 
     /**
-     * @description The metering method of the pay-as-you-go Internet access package. Valid values: PayByTraffic: pay-by-data-transfer. PayByBandwidth: pay-by-bandwidth. Default value: PayByTraffic.
+     * @description The charge type of the premium bandwidth plan.
+     *
+     *   Valid value when the `PayType` parameter is set to `PrePaid`:
+     *
+     *   PayByBandwidth: charges by fixed bandwidth.
+     *
+     *   Valid values when the `PayType` parameter is set to `PostPaid`:
+     *
+     *   PayByTraffic: charges by data transfer.
+     *   PayByBandwidth: charges by fixed bandwidth.
      *
      * @example PayByTraffic
      *
@@ -45,7 +76,7 @@ class CreateNetworkPackageRequest extends Model
     public $internetChargeType;
 
     /**
-     * @description The ID of the workspace.
+     * @description The office network ID.
      *
      * @example cn-hangzhou+dir-363353****
      *
@@ -54,7 +85,12 @@ class CreateNetworkPackageRequest extends Model
     public $officeSiteId;
 
     /**
-     * @description The billing method of the Internet access package.
+     * @description The billing method of the premium bandwidth plan.
+     *
+     * Valid values:
+     *
+     *   PostPaid: pay-as-you-go
+     *   PrePaid: subscription
      *
      * @example PrePaid
      *
@@ -63,8 +99,13 @@ class CreateNetworkPackageRequest extends Model
     public $payType;
 
     /**
-     * @description The duration of the Internet access package.
+     * @description The subscription duration of the premium bandwidth plan. This parameter takes effect and is required only when the `PayType` parameter is set to `PrePaid`. The valid values of this parameter vary based on the `PeriodUnit` value.
      *
+     *   Valid value when the `PeriodUnit` parameter is set to `Week`: 1
+     *   Valid values when the `PeriodUnit` parameter is set to `Month`: 1, 2, 3, and 6
+     *   Valid values when the `PeriodUnit` parameter is set to `Year`: 1, 2, and 3
+     *
+     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -72,8 +113,21 @@ class CreateNetworkPackageRequest extends Model
     public $period;
 
     /**
-     * @description The unit of duration that you want to use for the Internet access package.
+     * @description The unit of the subscription duration of the premium bandwidth plan. This parameter takes effect and is required only when the `PayType` parameter is set to `PrePaid`.
      *
+     * Valid values:
+     *
+     *   Month
+     *
+     * <!-- -->
+     *
+     *   Year
+     *
+     * <!-- -->
+     *
+     *   Week
+     *
+     * <!-- -->
      * @example Month
      *
      * @var string
@@ -90,7 +144,7 @@ class CreateNetworkPackageRequest extends Model
     public $promotionId;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

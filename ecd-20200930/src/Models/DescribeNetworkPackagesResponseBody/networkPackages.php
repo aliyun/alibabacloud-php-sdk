@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class networkPackages extends Model
 {
     /**
-     * @description The maximum public bandwidth of the Internet access package. Unit: Mbit/s.
+     * @description The bandwidth provided by the premium bandwidth plan. Unit: Mbit/s.
      *
      * @example 10
      *
@@ -18,12 +18,25 @@ class networkPackages extends Model
     public $bandwidth;
 
     /**
+     * @description The business status.
+     *
+     * Valid values:
+     *
+     *   Expired
+     *
+     * <!-- -->
+     *
+     *   Normal
+     *
+     * <!-- -->
+     * @example Normal
+     *
      * @var string
      */
     public $businessStatus;
 
     /**
-     * @description The time when the Internet access package was created.
+     * @description The time when the premium bandwidth plan was created.
      *
      * @example 2021-05-10T02:35:26Z
      *
@@ -32,17 +45,17 @@ class networkPackages extends Model
     public $createTime;
 
     /**
-     * @description The elastic IP addresses (EIPs) of the Internet access package for outbound traffic.
+     * @description The public egress IP address of the premium bandwidth plan.
      *
      * @var string[]
      */
     public $eipAddresses;
 
     /**
-     * @description The time when the Internet access package expires.
+     * @description The time when the premium bandwidth plan expires.
      *
-     *   If the Internet access package is metered on a pay-by-bandwidth basis, the actual expiration time is returned.
-     *   If the Internet access package is metered on a pay-by-data-transfer basis, 2099-12-31T15:59:59Z is returned.
+     *   If the plan is a subscription one, the time when the plan expires is returned.
+     *   If the plan is a pay-as-you-go one, `2099-12-31T15:59:59Z` is returned.
      *
      * @example 2099-12-31T15:59:59Z
      *
@@ -51,10 +64,16 @@ class networkPackages extends Model
     public $expiredTime;
 
     /**
-     * @description The billing method of the network bandwidth.
+     * @description The charge type of the premium bandwidth plan.
      *
-     *   PayByTraffic: pay-by-data-transfer
-     *   PayByBandwidth: pay-by-bandwidth
+     *   Valid value when the `PayType` parameter is set to `PrePaid`:
+     *
+     *   PayByBandwidth: charges by fixed bandwidth.
+     *
+     *   Valid values when the `PayType` parameter is set to `PostPaid`:
+     *
+     *   PayByTraffic: charges by data transfer.
+     *   PayByBandwidth: charges by fixed bandwidth.
      *
      * @example PayByTraffic
      *
@@ -63,7 +82,7 @@ class networkPackages extends Model
     public $internetChargeType;
 
     /**
-     * @description The ID of the Internet access package.
+     * @description The ID of the premium bandwidth plan.
      *
      * @example np-amtp8e8q1o9e4****
      *
@@ -72,13 +91,25 @@ class networkPackages extends Model
     public $networkPackageId;
 
     /**
-     * @description The state of the Internet access package. Valid values:
+     * @description The status of the premium bandwidth plan.
+     *
+     * Valid values:
      *
      *   Creating
-     *   InUse
-     *   Releasing
+     *
+     * <!-- -->
+     *
      *   Released
      *
+     * <!-- -->
+     *
+     *   InUse
+     *
+     * <!-- -->
+     *
+     *   Releasing
+     *
+     * <!-- -->
      * @example InUse
      *
      * @var string
@@ -86,7 +117,7 @@ class networkPackages extends Model
     public $networkPackageStatus;
 
     /**
-     * @description The ID of the workspace.
+     * @description The office network ID.
      *
      * @example cn-hangzhou+dir-363353****
      *
@@ -95,7 +126,7 @@ class networkPackages extends Model
     public $officeSiteId;
 
     /**
-     * @description The name of the workspace.
+     * @description The office network name.
      *
      * @example test
      *
@@ -104,11 +135,13 @@ class networkPackages extends Model
     public $officeSiteName;
 
     /**
-     * @description The type of the workspace. Valid values:
+     * @description The type of the office network.
      *
-     *   basic
-     *   standard
-     *   customized
+     * Valid values:
+     *
+     *   standard: advanced office network
+     *   customized: custom office network
+     *   basic: basic office network
      *
      * @example basic
      *
@@ -117,10 +150,12 @@ class networkPackages extends Model
     public $officeSiteVpcType;
 
     /**
-     * @description The billing method for the network.
+     * @description The billing method of the premium bandwidth plan.
      *
-     *   PrePaid: subscription
+     * Valid values:
+     *
      *   PostPaid: pay-as-you-go
+     *   PrePaid: subscription
      *
      * @example PostPaid
      *
@@ -129,7 +164,7 @@ class networkPackages extends Model
     public $payType;
 
     /**
-     * @description The time when the reserved network bandwidth takes effect.
+     * @description The time when the reserved network bandwidth took effect.
      *
      * @example 2021-07-10T00:00:00Z
      *
@@ -138,7 +173,7 @@ class networkPackages extends Model
     public $reservationActiveTime;
 
     /**
-     * @description The peak bandwidth of the reserved network bandwidth. Unit: Mbit/s.
+     * @description The peak bandwidth that is reserved for the premium bandwidth plan. Unit: Mbit/s.
      *
      * @example 20
      *
@@ -149,8 +184,11 @@ class networkPackages extends Model
     /**
      * @description The billing method of the reserved network bandwidth.
      *
-     *   PayByTraffic: pay-by-data-transfer
-     *   PayByBandwidth: pay-by-bandwidth
+     * Valid values:
+     *
+     *   PayByTraffic: charges by data transfer.
+     *
+     *   PayByBandwidth: charges by fixed bandwidth.
      *
      * @example PayByBandwidth
      *

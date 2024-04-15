@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class scaleTimerInfos extends Model
 {
     /**
-     * @description The number of purchased cloud desktops during the scaling event. Valid values: 0 to 200.
+     * @description The number of cloud computers that you purchase in the cloud computer pool. This parameter is one of the auto scaling parameters. Valid values: 0 to 200.
      *
      * @example 5
      *
@@ -18,7 +18,7 @@ class scaleTimerInfos extends Model
     public $buyResAmount;
 
     /**
-     * @description The type of the CRON expression that is specified for the scheduled task.
+     * @description The cron expression for the scheduled task.
      *
      * @example 0 0 0 * * ?
      *
@@ -27,8 +27,9 @@ class scaleTimerInfos extends Model
     public $cron;
 
     /**
-     * @description The retention period of a cloud desktop in the desktop group after the cloud desktop is disconnected. Unit: milliseconds.
+     * @description The duration that is retained after the session is disconnected. Unit: milliseconds. Valid values: 180000 to 345600000. That is, the session can be retained for 3 to 5760 minutes (4 days). If you specify the value to 0, the session is permanently retained.
      *
+     * When a session is disconnected, take note of the following situations: If an end user does not resume the session within the specified duration, the session is closed and all unsaved data is cleared. If the end user resumes the session within the specified duration, the end user can still access data of the session.
      * @example 600000
      *
      * @var int
@@ -36,7 +37,12 @@ class scaleTimerInfos extends Model
     public $keepDuration;
 
     /**
-     * @description The load balancing policy for the multi-session desktop group.
+     * @description The load balancing policy of the multi-session cloud computer pool.
+     *
+     * Valid values:
+     *
+     *   0: depth-first
+     *   1: breadth-first
      *
      * @example 1
      *
@@ -45,7 +51,7 @@ class scaleTimerInfos extends Model
     public $loadPolicy;
 
     /**
-     * @description The maximum number of cloud desktops that the system can scale. Valid values: 0 to 200.
+     * @description The maximum number of cloud computers in the cloud computer pool. This parameter is one of the auto scaling parameters. Valid values: 0 to 200.
      *
      * @example 100
      *
@@ -54,7 +60,7 @@ class scaleTimerInfos extends Model
     public $maxResAmount;
 
     /**
-     * @description The minimum number of cloud desktops that the system must scale. Valid values: 0 to 200.
+     * @description The minimum number of cloud computers in the cloud computer pool. This parameter is one of the auto scaling parameters. Valid values: 0 to 200.
      *
      * @example 1
      *
@@ -63,8 +69,9 @@ class scaleTimerInfos extends Model
     public $minResAmount;
 
     /**
-     * @description The threshold for the ratio of connected sessions. This parameter is the condition that triggers auto scaling in a multi-session desktop group. `Ratio of connected sessions = Number of connected sessions/(Total number of cloud desktops × Maximum number of sessions allowed for each cloud desktop) × 100%`. If the specified threshold is reached, new cloud desktops are automatically created. If the specified threshold is not reached, idle cloud desktops are released.
+     * @description The threshold for the ratio of connected sessions. This parameter is the condition that triggers auto scaling in a multi-session cloud computer pool. To calculate the ratio of connected sessions, use the following formula:
      *
+     * If the ratio of connected sessions is greater than the specified value, new cloud computers are created. If the ratio of connected sessions is smaller than the specified value, idle cloud computers are deleted.
      * @example 0.5
      *
      * @var float
@@ -76,21 +83,11 @@ class scaleTimerInfos extends Model
      *
      * Valid values:
      *
-     *   drop
+     *   drop: decline policy
+     *   normal: normal policy
+     *   peak: peak hour policy
+     *   rise: rise policy
      *
-     * .
-     *
-     *   normal
-     *
-     * .
-     *
-     *   peak
-     *
-     * .
-     *
-     *   rise
-     *
-     * .
      * @example rise
      *
      * @var string

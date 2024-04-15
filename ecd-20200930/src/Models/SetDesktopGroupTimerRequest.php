@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SetDesktopGroupTimerRequest extends Model
 {
     /**
-     * @description The CRON expression for the scheduled task.
+     * @description The cron expression for the scheduled task. This parameter is required when `TimerType` is set to 2, 3, or 4.
      *
      * @example 0 0 2 ? * 1-7
      *
@@ -18,7 +18,7 @@ class SetDesktopGroupTimerRequest extends Model
     public $cronExpression;
 
     /**
-     * @description The ID of the desktop group.
+     * @description The ID of the cloud computer pool.
      *
      * @example dg-dbdkfmh883****
      *
@@ -36,7 +36,7 @@ class SetDesktopGroupTimerRequest extends Model
     public $force;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -47,6 +47,7 @@ class SetDesktopGroupTimerRequest extends Model
     /**
      * @description The type of the disk that you want to reset.
      *
+     * - resets the system disk and the user disk.
      * @example 1
      *
      * @var int
@@ -55,6 +56,13 @@ class SetDesktopGroupTimerRequest extends Model
 
     /**
      * @description The type of the scheduled task.
+     *
+     * Valid values:
+     *
+     *   1: scheduled reset
+     *   2: scheduled startup
+     *   3: scheduled stop
+     *   4: scheduled restart
      *
      * @example 1
      *

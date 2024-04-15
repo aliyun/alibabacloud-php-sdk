@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ModifyOfficeSiteMfaEnabledRequest extends Model
 {
     /**
-     * @description Specifies whether to enable MFA. Valid values:
+     * @description Specifies whether to enable MFA.
+     *
+     * Valid values:
      *
      *   true
+     *
+     * <!-- -->
+     *
      *   false
      *
+     * <!-- -->
      * @example true
      *
      * @var bool
@@ -21,7 +27,7 @@ class ModifyOfficeSiteMfaEnabledRequest extends Model
     public $mfaEnabled;
 
     /**
-     * @description The workspace ID.
+     * @description The office network ID.
      *
      * @example cn-hangzhou+dir-363353****
      *
@@ -30,7 +36,7 @@ class ModifyOfficeSiteMfaEnabledRequest extends Model
     public $officeSiteId;
 
     /**
-     * @description The region ID.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

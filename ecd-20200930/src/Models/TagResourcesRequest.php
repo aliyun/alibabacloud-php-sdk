@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesRequest extends Model
 {
     /**
-     * @description The region ID.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -19,7 +19,7 @@ class TagResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @description The resource ID, namely the cloud desktop ID. Valid values of N: 1 to 50.
+     * @description The resource IDs, which are cloud computer IDs. You can specify 1 to 50 IDs.
      *
      * @example ecd-ia2zw38bi6cm7****
      *
@@ -28,7 +28,11 @@ class TagResourcesRequest extends Model
     public $resourceId;
 
     /**
-     * @description The resource type. Valid value: ALIYUN::GWS::INSTANCE.
+     * @description The type of the resource.
+     *
+     * Valid values:
+     *
+     * ALIYUN::GWS::INSTANCE: cloud computer.
      *
      * @example ALIYUN::GWS::INSTANCE
      *
@@ -37,7 +41,7 @@ class TagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description The tags.
+     * @description The tags that you want to add to the cloud computers. You can specify 1 to 20 tags.
      *
      * @var tag[]
      */

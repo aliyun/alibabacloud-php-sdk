@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeBundlesRequest extends Model
 {
     /**
-     * @description The IDs of the desktop templates. You can specify 1 to 100 desktop templates.
+     * @description The IDs of the cloud computer templates. You can specify 1 to 100 IDs.
      *
      * @example bundle_ecd_graphics.2xlarge_s15d15_win2019
      *
@@ -18,11 +18,17 @@ class DescribeBundlesRequest extends Model
     public $bundleId;
 
     /**
-     * @description The type of the cloud desktop template. Valid values:
+     * @description The type of the cloud computer template.
      *
-     *   SYSTEM: the system template
-     *   CUSTOM: the custom template
+     * Valid values:
      *
+     *   SYSTEM: system template
+     *
+     * <!-- -->
+     *
+     *   CUSTOM: custom template
+     *
+     * <!-- -->
      * @example SYSTEM
      *
      * @var string
@@ -30,7 +36,7 @@ class DescribeBundlesRequest extends Model
     public $bundleType;
 
     /**
-     * @description Specifies whether to query the inventory status of the cloud desktop type.
+     * @description Specifies whether to query the inventory status of the cloud computer instance type.
      *
      * @example true
      *
@@ -39,7 +45,7 @@ class DescribeBundlesRequest extends Model
     public $checkStock;
 
     /**
-     * @description The number of vCPUs that is defined in the cloud desktop type.
+     * @description The number of vCPUs contained in the cloud computer instance type.
      *
      * @example 2
      *
@@ -48,11 +54,13 @@ class DescribeBundlesRequest extends Model
     public $cpuCount;
 
     /**
-     * @description The family of the cloud desktop type. Valid values:
+     * @description The instance family of the cloud computers.
      *
-     *   eds.general: General Office
-     *   eds.hf: High Frequency
-     *   eds.graphics: Graphics
+     * Valid values:
+     *
+     *   eds.graphics: graphical instance families
+     *   eds.hf: instance families with high clock speeds
+     *   eds.general: general-purpose instance families
      *
      * @example eds.general
      *
@@ -61,7 +69,7 @@ class DescribeBundlesRequest extends Model
     public $desktopTypeFamily;
 
     /**
-     * @description This parameter is now in invitational preview and unavailable.
+     * @description This parameter is now in invitational preview and not publicly available.
      *
      * @example This parameter is now in invitational preview and unavailable.
      *
@@ -70,8 +78,17 @@ class DescribeBundlesRequest extends Model
     public $fotaChannel;
 
     /**
-     * @description Specifies whether the cloud desktop template belongs to a desktop group. Default value: false.
+     * @description Specifies whether the cloud computers in the template belong to a cloud computer pool.
      *
+     * Valid values:
+     *
+     *   true
+     *
+     * <!-- -->
+     *
+     *   false
+     *
+     * <!-- -->
      * @example false
      *
      * @var bool
@@ -79,7 +96,7 @@ class DescribeBundlesRequest extends Model
     public $fromDesktopGroup;
 
     /**
-     * @description The number of GPUs that is defined in the cloud desktop type.
+     * @description The number of GPUs contained in the cloud computer instance type.
      *
      * @example 1
      *
@@ -105,7 +122,7 @@ class DescribeBundlesRequest extends Model
     public $maxResults;
 
     /**
-     * @description The memory size that is defined in the cloud desktop type. Unit: GiB.
+     * @description The memory size of the cloud computer instance type. Unit: GiB.
      *
      * @example 4
      *
@@ -123,11 +140,17 @@ class DescribeBundlesRequest extends Model
     public $nextToken;
 
     /**
-     * @description The OS. Valid values:
+     * @description The type of the OS.
      *
-     * **Windows**
-     * **Linux**
+     * Valid values:
      *
+     *   Linux
+     *
+     * <!-- -->
+     *
+     *   Windows
+     *
+     * <!-- -->
      * @example Windows
      *
      * @var string
@@ -137,8 +160,10 @@ class DescribeBundlesRequest extends Model
     /**
      * @description The protocol type.
      *
-     *   HDX
-     *   ASP (Recommend)
+     * Valid values:
+     *
+     *   HDX: High-definition Experience (HDX) protocol
+     *   ASP: in-house Adaptive Streaming Protocol (ASP) (recommend)
      *
      * @example ASP
      *
@@ -147,7 +172,7 @@ class DescribeBundlesRequest extends Model
     public $protocolType;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~436773~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -187,7 +212,7 @@ class DescribeBundlesRequest extends Model
     public $sessionType;
 
     /**
-     * @description Specifies whether to return multi-session desktop templates in this call. Default value: false.
+     * @description Specifies whether to return multi-session cloud computer templates. Default value: false.
      *
      * @example false
      *

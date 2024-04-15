@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetDesktopGroupDetailRequest extends Model
 {
     /**
-     * @description The ID of the desktop group.
+     * @description The ID of the cloud computer pool.
      *
      * @example dg-2i8qxpv6t1a03****
      *
@@ -18,7 +18,7 @@ class GetDesktopGroupDetailRequest extends Model
     public $desktopGroupId;
 
     /**
-     * @description The region ID of the desktop group.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

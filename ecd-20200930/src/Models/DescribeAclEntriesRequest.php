@@ -28,7 +28,7 @@ class DescribeAclEntriesRequest extends Model
     public $nextToken;
 
     /**
-     * @description The region ID.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -37,7 +37,7 @@ class DescribeAclEntriesRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the instance corresponding to the ACL.
+     * @description The ID of the instance to which the ACL applies. You can specify an office network ID or a cloud computer ID.
      *
      * @example cn-hangzhou+dir-****
      *
@@ -46,10 +46,12 @@ class DescribeAclEntriesRequest extends Model
     public $sourceId;
 
     /**
-     * @description The object on which the ACL takes effect.
+     * @description The granularity of the ACL.
      *
-     *   **vpc**: workspace.
-     *   **desktop**: cloud desktop.
+     * Valid values:
+     *
+     *   desktop: cloud computer
+     *   vpc: office network
      *
      * @example desktop
      *

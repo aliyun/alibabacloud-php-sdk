@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeImagesRequest extends Model
 {
     /**
-     * @description The cloud desktop type. You can call the [DescribeBundles](~~188884~~) operation to query the available cloud desktop types.
+     * @description The instance type of the cloud computer. You can call the [DescribeDesktopTypes](~~436816~~) operation to obtain the parameter value.
      *
      * @example ecd.graphics.xlarge
      *
@@ -27,8 +27,17 @@ class DescribeImagesRequest extends Model
     public $fotaVersion;
 
     /**
-     * @description Specifies whether the image is a GPU-accelerated image.
+     * @description Specifies whether the images are GPU-accelerated images.
      *
+     * Valid values:
+     *
+     *   true
+     *
+     * <!-- -->
+     *
+     *   false
+     *
+     * <!-- -->
      * @example false
      *
      * @var bool
@@ -111,8 +120,17 @@ class DescribeImagesRequest extends Model
     public $nextToken;
 
     /**
-     * @description The type of the OS. Default value: `null`.
+     * @description The type of the operating system of the images. Default value: `null`.
      *
+     * Valid values:
+     *
+     *   Linux
+     *
+     * <!-- -->
+     *
+     *   Windows
+     *
+     * <!-- -->
      * @example Windows
      *
      * @var string
@@ -120,7 +138,12 @@ class DescribeImagesRequest extends Model
     public $osType;
 
     /**
-     * @description The type of the protocol.
+     * @description The protocol type.
+     *
+     * Valid values:
+     *
+     *   HDX: High-definition Experience (HDX) protocol
+     *   ASP: in-house Adaptive Streaming Protocol (ASP) (recommended)
      *
      * @example ASP
      *
@@ -129,7 +152,7 @@ class DescribeImagesRequest extends Model
     public $protocolType;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

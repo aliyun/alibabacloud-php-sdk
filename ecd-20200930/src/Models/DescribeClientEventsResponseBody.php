@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeClientEventsResponseBody extends Model
 {
     /**
-     * @description Details about the events.
+     * @description The information about the events of an end user.
      *
      * @var events[]
      */
     public $events;
 
     /**
-     * @description The query token that is returned in this call.
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
      *
      * @example AAAAAV3MpHK1AP0pfERHZN5pu6nmB7qrRFJ8vmttjxPL****
      *
@@ -26,7 +26,7 @@ class DescribeClientEventsResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 28A40F12-F340-442B-A35F-46EF6A03227B
      *

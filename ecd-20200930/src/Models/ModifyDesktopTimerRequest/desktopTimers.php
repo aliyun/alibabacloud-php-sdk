@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class desktopTimers extends Model
 {
     /**
-     * @description Specifies whether to allow end users to configure scheduled tasks on an Alibaba Cloud Workspace client.
+     * @description Specifies whether to allow end users to configure the scheduled task.
      *
      * @example true
      *
@@ -18,9 +18,9 @@ class desktopTimers extends Model
     public $allowClientSetting;
 
     /**
-     * @description The cron expression of the scheduled task.
+     * @description The cron expression of the schedule.
      *
-     * >  You must specify the time in UTC format. For example, if you want to specify 00:00 of UTC+8, use the following cron expression: 0 0 16. \* 1,2,3,4,5,6,7
+     * > The time must be in UTC. For example, for 24:00 (UTC+8), you must set the value to 0 0 16 ? \* 1,2,3,4,5,6,7
      * @example 0 0 16 ? * 1,2,3,4,5,6,7
      *
      * @var string
@@ -28,8 +28,17 @@ class desktopTimers extends Model
     public $cronExpression;
 
     /**
-     * @description Specifies whether to forcefully execute the scheduled task. A value of true indicates that the system forcefully executes the scheduled task regardless of the connection status of the cloud desktop.
+     * @description Specifies whether to forcibly execute the scheduled task.
      *
+     * Valid values:
+     *
+     *   true: forcibly executes the scheduled task regardless of the status and connection of the cloud computers.
+     *
+     * <!-- -->
+     *
+     *   false: does not forcibly execute the scheduled task.
+     *
+     * <!-- -->
      * @example true
      *
      * @var bool
@@ -37,7 +46,7 @@ class desktopTimers extends Model
     public $enforce;
 
     /**
-     * @description The interval. Unit: minutes.
+     * @description The interval at which the scheduled task is executed. Unit: minutes.
      *
      * @example 10
      *
@@ -46,33 +55,37 @@ class desktopTimers extends Model
     public $interval;
 
     /**
-     * @description The type of the scheduled operation. This parameter is valid only when TimerType is set to NoConnect.
+     * @description The operations that scheduled tasks support. This parameter is valid only when TimerType is set to NoConnect.
      *
      * Valid values:
      *
-     *   Hibernate
+     *   Hibernate: hibernates the cloud computers.
      *
-     * .
+     * <!-- -->
      *
-     *   Shutdown
+     *   Shutdown: stops the cloud computers.
      *
-     * .
+     * <!-- -->
+     * @example Shutdown
+     *
      * @var string
      */
     public $operationType;
 
     /**
-     * @description Indicates which type of disk that is used by the cloud desktop is reset.
+     * @description The reset type of the cloud computers.
      *
      * Valid values:
      *
-     *   RESET_TYPE_SYSTEM
-     *
-     * .
-     *
-     *   RESET_TYPE_BOTH
+     *   RESET_TYPE_SYSTE: resets the system disk.
      *
      * <!-- -->
+     *
+     *   RESET_TYPE_BOTH: resets data and user disks.
+     *
+     * <!-- -->
+     * @example RESET_TYPE_SYSTEM
+     *
      * @var string
      */
     public $resetType;
@@ -82,45 +95,47 @@ class desktopTimers extends Model
      *
      * Valid values:
      *
-     *   NoOperationDisconnect: Disconnects the cloud desktops when no operations are performed on the cloud desktops.
+     *   NoOperationDisconnect: Disconnects the cloud computers without performing operations on the cloud computers.
      *
      * <!-- -->
      *
-     *   LogoutShutdown: Stops the cloud desktops when end users log out of Alibaba Cloud Workspace clients.
+     *   LogoutShutdown: Stops the cloud computers when end users log out Alibaba Cloud Workspace clients.
      *
      * <!-- -->
      *
-     *   NoConnect: Disconnets the cloud desktops when end users perform one of the actions that is specified by the OperationType parameter.
+     *   NoConnect: Disconnects the cloud computers when end users perform one of the actions that is specified by the OperationType parameter.
      *
      * <!-- -->
      *
-     *   TimerBoot: Starts the cloud desktops at a scheduled point in time.
+     *   TimerBoot: Starts the cloud computers on schedule.
      *
      * <!-- -->
      *
-     *   TimerReset: Resets the cloud desktops at a scheduled point in time.
+     *   TimerReset: Resets the cloud computers on schedule.
      *
      * <!-- -->
      *
-     *   LoginAutoConnect: automatically connects to cloud desktops when end users log on to Alibaba Cloud Workspace clients.
+     *   LoginAutoConnect: automatically connects to the cloud computers when end users log on to Alibaba Cloud Workspace clients.
      *
      * <!-- -->
      *
-     *   NoOperationShutdown: Stops the cloud desktops when no operations are performed on the cloud desktops.
+     *   NoOperationShutdown: Stops the cloud computers without performing operations on the cloud computers.
      *
      * <!-- -->
      *
-     *   TimerShutdown: Stops the cloud desktops at a scheduled point in time.
+     *   TimerShutdown: Stops the cloud computers on schedule.
      *
      * <!-- -->
      *
-     *   NoOperationReboot: Restarts the cloud desktops when no operations are performed on the cloud desktops.
+     *   NoOperationReboot: Restarts the cloud computers without performing operations on the cloud computers.
      *
      * <!-- -->
      *
-     *   TimerReboot: Restarts the cloud desktops at a scheduled point in time.
+     *   TimerReboot: Restarts the cloud computers on schedule.
      *
      * <!-- -->
+     * @example TimerBoot
+     *
      * @var string
      */
     public $timerType;

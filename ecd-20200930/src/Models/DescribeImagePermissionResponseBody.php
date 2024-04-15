@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeImagePermissionResponseBody extends Model
 {
     /**
-     * @description The IDs of the recipient Alibaba Cloud accounts. You can share an image with up to 50 Alibaba Cloud accounts.
+     * @description The IDs of the Alibaba Cloud accounts with which the image is shared.
      *
      * @var string[]
      */

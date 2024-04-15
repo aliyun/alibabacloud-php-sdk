@@ -36,7 +36,7 @@ class desktopTypeAttribute extends Model
     public $gpuSpec;
 
     /**
-     * @description The memory size. Unit: MB.
+     * @description The memory size. Unit: MiB.
      *
      * @example 47104
      *

@@ -37,7 +37,7 @@ class ListTagResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @description The resource IDs, namely the cloud desktop IDs. You can specify 1 to 50 IDs of cloud desktops.
+     * @description The resource IDs, which are cloud computer IDs. You can specify 1 to 50 IDs.
      *
      * @example ecd-ia2zw38bi6cm7****
      *
@@ -46,7 +46,11 @@ class ListTagResourcesRequest extends Model
     public $resourceId;
 
     /**
-     * @description The resource type. Valid value: ALIYUN::GWS::INSTANCE.
+     * @description The type of the resource.
+     *
+     * Valid values:
+     *
+     * ALIYUN::GWS::INSTANCE: cloud computer.
      *
      * @example ALIYUN::GWS::INSTANCE
      *
@@ -55,7 +59,7 @@ class ListTagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description The tags.
+     * @description The tags that you want to query.
      *
      * @var tag[]
      */

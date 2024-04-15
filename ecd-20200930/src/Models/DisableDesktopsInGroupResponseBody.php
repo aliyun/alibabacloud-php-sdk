@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DisableDesktopsInGroupResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 34FB4D97-C0D9-5534-ABC6-90C7EBD5****
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteSnapshotRequest extends Model
 {
     /**
-     * @description The ID of the region.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -18,7 +18,7 @@ class DeleteSnapshotRequest extends Model
     public $regionId;
 
     /**
-     * @description The IDs of the snapshots. You can specify 1 to 100 IDs of snapshots.
+     * @description The snapshot IDs. You can specify 1 to 100 IDs.
      *
      * @example s-2ze81owrnv9pity4****
      *

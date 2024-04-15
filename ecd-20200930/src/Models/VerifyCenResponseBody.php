@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class VerifyCenResponseBody extends Model
 {
     /**
-     * @description The three random IPv4 CIDR blocks that are recommended. If the returned value of the Status parameter is Conflict, this parameter is returned.
+     * @description The recommended IPv4 CIDR blocks. Three CIDR blocks are randomly recommended. This parameter is returned when the `Status` value is `Conflict`.
      *
      * @var string[]
      */
@@ -26,21 +26,23 @@ class VerifyCenResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information about the routes of the CEN instance.
+     * @description The routes provided by the CEN instance.
      *
      * @var routeEntries[]
      */
     public $routeEntries;
 
     /**
-     * @description The verification result. Valid values:
+     * @description The check result of CIDR block conflict.
      *
-     *   Access: The route verification succeeds. If the verification result for all routes succeeds, Access is returned for this parameter.
-     *   Conflict: A CIDR block conflict exists. If the verification result of at least one route is Conflict, Conflict is returned for this parameter.
-     *   InvalidCen.ParameterCenInstanceId: The ID of the CEN instance and the ID of the Alibaba Cloud account are invalid. The CEN instance does not belong to the Alibaba Cloud account.
-     *   InvalidCen.CenUidInvalid: The ID of the Alibaba Cloud account is invalid or the Alibaba Cloud account is not granted the required permissions to access Elastic Desktop Service (EDS).
+     * Valid values:
+     *
+     *   InvalidCen.CenUidInvalid: The Alibaba Cloud account is invalid or the Alibaba Cloud account does not have the permission to access WUYING Workspace.
      *   VerifyCode.InvalidTokenCode: The verification code is invalid.
-     *   VerifyCode.ReachTokenRetryTime: The retries of entering the verification code reaches the upper limit.
+     *   VerifyCode.ReachTokenRetryTime: The maximum number of times for entering a verification code reaches the limit.
+     *   Conflict: A CIDR block conflict exists. If the verification result of at least one route is Conflict, Conflict is returned for this parameter.
+     *   Access: The verification is passed. If the verification result for all routes is Access, Access is returned for this parameter.
+     *   InvalidCen.ParameterCenInstanceId: The Alibaba Cloud account does not own the CEN instance.
      *
      * @example Access
      *

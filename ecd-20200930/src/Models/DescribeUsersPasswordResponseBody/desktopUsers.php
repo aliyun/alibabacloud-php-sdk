@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class desktopUsers extends Model
 {
     /**
-     * @description The display name of the user.
+     * @description The display name of the end user.
      *
      * @example alice_1365*****
      *
@@ -27,7 +27,7 @@ class desktopUsers extends Model
     public $endUserId;
 
     /**
-     * @description The password of the user.
+     * @description The password of the end user.
      *
      * @example tes123
      *

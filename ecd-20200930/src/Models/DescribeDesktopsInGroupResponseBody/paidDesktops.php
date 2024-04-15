@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class paidDesktops extends Model
 {
     /**
-     * @description The connection state.
+     * @description The connection status of the cloud computer.
      *
      * Valid values:
      *
@@ -31,7 +31,7 @@ class paidDesktops extends Model
     public $connectionStatus;
 
     /**
-     * @description The cloud desktop ID.
+     * @description The ID of the cloud computer.
      *
      * @example ud-7ftf5b6yu77b0****
      *
@@ -40,7 +40,7 @@ class paidDesktops extends Model
     public $desktopId;
 
     /**
-     * @description The cloud desktop name.
+     * @description The name of the cloud computer.
      *
      * @example testName
      *
@@ -49,7 +49,7 @@ class paidDesktops extends Model
     public $desktopName;
 
     /**
-     * @description The state of the cloud desktop.
+     * @description The status of the cloud computer.
      *
      * Valid values:
      *
@@ -91,15 +91,15 @@ class paidDesktops extends Model
     public $desktopStatus;
 
     /**
-     * @description The disk type.
+     * @description The type of the disk.
      *
      * Valid values:
      *
-     *   SYSTEM
+     *   SYSTEM: system disk
      *
      * <!-- -->
      *
-     *   DATA:
+     *   DATA: data disk
      *
      * <!-- -->
      * @example SYSTEM
@@ -109,7 +109,7 @@ class paidDesktops extends Model
     public $diskType;
 
     /**
-     * @description The authorized user.
+     * @description The ID of the authorized user of the cloud computer.
      *
      * @example alice
      *
@@ -118,7 +118,7 @@ class paidDesktops extends Model
     public $endUserId;
 
     /**
-     * @description The IDs of users that are connected to cloud desktops. If no users are connected, null is returned.
+     * @description The IDs of the end users who are connected to the cloud computers in the cloud computer pool. If no end users are connected, no values are returned for this parameter.
      *
      * @var string[]
      */
@@ -134,7 +134,7 @@ class paidDesktops extends Model
     public $endUserName;
 
     /**
-     * @description The names of users that are connected to cloud desktops. If no users are connected, null is returned.
+     * @description The usernames of the end users who are connected to the cloud computers in the cloud computer pool. If no end users are connected, no values are returned for this parameter.
      *
      * @var string[]
      */
@@ -150,7 +150,7 @@ class paidDesktops extends Model
     public $fotaVersion;
 
     /**
-     * @description The GPU driver version.
+     * @description The version of the GPU driver.
      *
      * @example 1.0
      *
@@ -177,15 +177,15 @@ class paidDesktops extends Model
     public $imageName;
 
     /**
-     * @description The flag that is used for management.
+     * @description The flag that is used to manage the cloud computer.
      *
      * Valid values:
      *
-     *   Updating: The configurations of the cloud desktop are being changed.
+     *   Updating: The configurations of the cloud computer are being updated.
      *
      * <!-- -->
      *
-     *   NoFlag: No flags are available.
+     *   NoFlag: No flags are attached to the cloud computer.
      *
      * <!-- -->
      * @example NoFlag
@@ -195,14 +195,14 @@ class paidDesktops extends Model
     public $managementFlag;
 
     /**
-     * @description The flags that are used for management.
+     * @description The flags that are used to manage the cloud computers.
      *
      * @var string[]
      */
     public $managementFlags;
 
     /**
-     * @description The IP address of the member Elastic Network Interface (ENI).
+     * @description The IP address of the member network interface controller (NIC) of the instance.
      *
      * @example 192.168.XX.XX
      *
@@ -229,7 +229,7 @@ class paidDesktops extends Model
     public $osType;
 
     /**
-     * @description The IP address of the primary ENI.
+     * @description The IP address of the primary NIC of the instance.
      *
      * @example 192.168.XX.XX
      *
@@ -238,11 +238,17 @@ class paidDesktops extends Model
     public $primaryEniIp;
 
     /**
-     * @description The protocol type. Valid values:
+     * @description The protocol.
      *
-     *   ASP
-     *   HDX
+     * Valid values:
      *
+     *   HDX: High-definition Experience (HDX) protocol
+     *
+     * <!-- -->
+     *
+     *   ASP: Adaptive Streaming Protocol (ASP) protocol provided by Alibaba Cloud
+     *
+     * <!-- -->
      * @example ASP
      *
      * @var string
@@ -250,7 +256,7 @@ class paidDesktops extends Model
     public $protocolType;
 
     /**
-     * @description The point in time when the cloud desktop was reset.
+     * @description The time when the cloud computer was reset.
      *
      * @example 2021-03-03 08:48:08
      *

@@ -34,9 +34,19 @@ class CreateDesktopOversoldGroupRequest extends Model
     public $directoryId;
 
     /**
+     * @var int
+     */
+    public $idleDisconnectDuration;
+
+    /**
      * @var string
      */
     public $imageId;
+
+    /**
+     * @var int
+     */
+    public $keepDuration;
 
     /**
      * @var string
@@ -78,20 +88,22 @@ class CreateDesktopOversoldGroupRequest extends Model
      */
     public $systemDiskSize;
     protected $_name = [
-        'concurrenceCount'  => 'ConcurrenceCount',
-        'dataDiskSize'      => 'DataDiskSize',
-        'description'       => 'Description',
-        'desktopType'       => 'DesktopType',
-        'directoryId'       => 'DirectoryId',
-        'imageId'           => 'ImageId',
-        'name'              => 'Name',
-        'oversoldUserCount' => 'OversoldUserCount',
-        'oversoldWarn'      => 'OversoldWarn',
-        'period'            => 'Period',
-        'periodUnit'        => 'PeriodUnit',
-        'policyGroupId'     => 'PolicyGroupId',
-        'stopDuration'      => 'StopDuration',
-        'systemDiskSize'    => 'SystemDiskSize',
+        'concurrenceCount'       => 'ConcurrenceCount',
+        'dataDiskSize'           => 'DataDiskSize',
+        'description'            => 'Description',
+        'desktopType'            => 'DesktopType',
+        'directoryId'            => 'DirectoryId',
+        'idleDisconnectDuration' => 'IdleDisconnectDuration',
+        'imageId'                => 'ImageId',
+        'keepDuration'           => 'KeepDuration',
+        'name'                   => 'Name',
+        'oversoldUserCount'      => 'OversoldUserCount',
+        'oversoldWarn'           => 'OversoldWarn',
+        'period'                 => 'Period',
+        'periodUnit'             => 'PeriodUnit',
+        'policyGroupId'          => 'PolicyGroupId',
+        'stopDuration'           => 'StopDuration',
+        'systemDiskSize'         => 'SystemDiskSize',
     ];
 
     public function validate()
@@ -116,8 +128,14 @@ class CreateDesktopOversoldGroupRequest extends Model
         if (null !== $this->directoryId) {
             $res['DirectoryId'] = $this->directoryId;
         }
+        if (null !== $this->idleDisconnectDuration) {
+            $res['IdleDisconnectDuration'] = $this->idleDisconnectDuration;
+        }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
+        }
+        if (null !== $this->keepDuration) {
+            $res['KeepDuration'] = $this->keepDuration;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -170,8 +188,14 @@ class CreateDesktopOversoldGroupRequest extends Model
         if (isset($map['DirectoryId'])) {
             $model->directoryId = $map['DirectoryId'];
         }
+        if (isset($map['IdleDisconnectDuration'])) {
+            $model->idleDisconnectDuration = $map['IdleDisconnectDuration'];
+        }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
+        }
+        if (isset($map['KeepDuration'])) {
+            $model->keepDuration = $map['KeepDuration'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

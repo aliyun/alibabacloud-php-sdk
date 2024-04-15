@@ -39,57 +39,20 @@ class memberList extends Model
      *
      * Valid values:
      *
-     *   <!-- -->
+     * SystemFileEditorWithoutShareLink
+     * SystemFileUploaderAndDownloaderWithShareLink
+     * SystemFileDownloader
+     * SystemFileEditorWithoutDelete
+     * SystemFileOwner
+     * SystemFileDownloaderWithShareLink
+     * SystemFileUploaderAndViewer
+     * SystemFileViewer
+     * SystemFileEditor
+     * SystemFileUploaderWithShareLink
+     * SystemFileUploader
+     * SystemFileUploaderAndDownloader
+     * SystemFileMetaViewer
      *
-     * <!-- -->
-     *
-     *   <!-- -->
-     *
-     * <!-- -->
-     *
-     *   <!-- -->
-     *
-     * <!-- -->
-     *
-     *   <!-- -->
-     *
-     * <!-- -->
-     *
-     *   <!-- -->
-     *
-     * <!-- -->
-     *
-     *   <!-- -->
-     *
-     * <!-- -->
-     *
-     *   <!-- -->
-     *
-     * <!-- -->
-     *
-     *   <!-- -->
-     *
-     * <!-- -->
-     *
-     *   <!-- -->
-     *
-     * <!-- -->
-     *
-     *   <!-- -->
-     *
-     * <!-- -->
-     *
-     *   <!-- -->
-     *
-     * <!-- -->
-     *
-     *   <!-- -->
-     *
-     * <!-- -->
-     *
-     *   <!-- -->
-     *
-     * <!-- -->
      * @example SystemFileUploaderAndDownloader
      *
      * @var string

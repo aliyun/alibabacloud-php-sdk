@@ -19,7 +19,7 @@ class ListOfficeSiteOverviewResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description Details of the workspaces.
+     * @description The office network information.
      *
      * @var officeSiteOverviewResults[]
      */

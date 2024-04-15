@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ApplyAutoSnapshotPolicyRequest extends Model
 {
     /**
-     * @description The IDs of cloud desktops. You can specify 1 to 20 cloud desktops.
+     * @description The IDs of the cloud computers. You can specify 1 to 20 IDs.
      *
      * @var string[]
      */
@@ -25,7 +25,7 @@ class ApplyAutoSnapshotPolicyRequest extends Model
     public $policyId;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

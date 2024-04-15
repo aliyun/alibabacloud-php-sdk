@@ -13,7 +13,7 @@ use AlibabaCloud\Tea\Model;
 class CreateDesktopsRequest extends Model
 {
     /**
-     * @description The number of cloud desktops that you want to create. Valid values: 1 to 300. Default value: 1.
+     * @description The number of cloud computers that you want to create. Valid values: 1 to 300. Default value: 1.
      *
      * @example 1
      *
@@ -40,7 +40,7 @@ class CreateDesktopsRequest extends Model
     public $autoRenew;
 
     /**
-     * @description The ID of the desktop template.
+     * @description The ID of the cloud computer template.
      *
      * @example b-je9hani001wfn****
      *
@@ -49,15 +49,24 @@ class CreateDesktopsRequest extends Model
     public $bundleId;
 
     /**
-     * @description The desktop templates that you want to use.
+     * @description The cloud computer templates.
      *
      * @var bundleModels[]
      */
     public $bundleModels;
 
     /**
-     * @description The billing method of the cloud desktop.
+     * @description The billing method of the cloud computers.
      *
+     * Default value: PostPaid. Valid values:
+     *
+     *   Postpaid: pay-as-you-go
+     *
+     * <!-- -->
+     *
+     *   PrePaid: subscription
+     *
+     * <!-- -->
      * @example PrePaid
      *
      * @var string
@@ -65,6 +74,8 @@ class CreateDesktopsRequest extends Model
     public $chargeType;
 
     /**
+     * @description The private IP address of the cloud computer.
+     *
      * @example 10.0.0.1
      *
      * @var string
@@ -72,10 +83,11 @@ class CreateDesktopsRequest extends Model
     public $desktopMemberIp;
 
     /**
-     * @description The name of the cloud desktop. The name must meet the following requirements:
+     * @description The name of the cloud computer. The name must meet the following requirements:
      *
      *   The name must be 1 to 64 characters in length.
-     *   The name can contain letters, digits, colons (:), underscores (\_), periods (.), and hyphens (-). It must start with a letter but cannot start with http:// or https://.
+     *   The name must start with a letter but cannot start with `http://` or `https://`.
+     *   The name can only contain letters, digits, colons (:), underscores (\_), periods (.), and hyphens (-).
      *
      * @example testDesktopName
      *
@@ -84,8 +96,17 @@ class CreateDesktopsRequest extends Model
     public $desktopName;
 
     /**
-     * @description Specifies whether to automatically add a suffix to the cloud desktop name when you create multiple cloud desktops at a time.
+     * @description Specifies whether to automatically add suffixes to the names of cloud computers when you create multiple cloud computers at the same time.
      *
+     * Default value: true. Valid values:
+     *
+     *   true
+     *
+     * <!-- -->
+     *
+     *   False
+     *
+     * <!-- -->
      * @example false
      *
      * @var bool
@@ -93,12 +114,14 @@ class CreateDesktopsRequest extends Model
     public $desktopNameSuffix;
 
     /**
+     * @description The details of the scheduled task on cloud computers.
+     *
      * @var desktopTimers[]
      */
     public $desktopTimers;
 
     /**
-     * @description This parameter is not available.
+     * @description >  This parameter is not publicly available.
      *
      * @example To be hidden.
      *
@@ -107,10 +130,7 @@ class CreateDesktopsRequest extends Model
     public $directoryId;
 
     /**
-     * @description The IDs of the users that you want to authorize to use the cloud desktop. The cloud desktop is assigned to the users. You can specify IDs of 1 to 100 users.
-     *
-     *   Only one user can use the cloud desktop at a time.
-     *   If you do not specify the `EndUserId` parameter, the cloud desktop that you create is not assigned to users.
+     * @description The IDs of the end users to which you want to assign the cloud computers. You can specify 1 to 100 IDs.
      *
      * @example 123456789
      *
@@ -119,7 +139,7 @@ class CreateDesktopsRequest extends Model
     public $endUserId;
 
     /**
-     * @description The ID of the desktop group.
+     * @description The ID of the cloud computer pool.
      *
      * @example dg-boyczi8enfyc5****
      *
@@ -128,17 +148,17 @@ class CreateDesktopsRequest extends Model
     public $groupId;
 
     /**
-     * @description The hostname that you specify for the cloud desktop. You can specify only the hostname of a Windows cloud desktop in the workspace of the enterprise AD account type.
+     * @description The custom hostnames of the cloud computers. This parameter is valid only if the office network is an AD office network and the operating system type of the cloud computers is Windows.
      *
-     * The hostname must meet the following requirements:
+     * The hostnames must meet the following requirements:
      *
-     *   It must be 2 to 15 characters in length.
-     *   It can contain letters, digits, and hyphens (-). The hostname cannot start or end with a hyphen (-), contain consecutive hyphens (-), or contain only digits.
+     *   The hostnames must be 2 to 15 characters in length.
+     *   The hostnames can contain only letters, digits, and hyphens (-). The hostnames cannot start or end with a hyphen (-), contain consecutive hyphens (-), or contain only digits.
      *
-     * If you create multiple cloud desktops, you can use the`  name_prefix[begin_number,bits]name_suffix ` format to determine the hostnames of the cloud desktops. For example, if you set Hostname to ecd-\[1,4]-test, the hostname of the first cloud desktop is ecd-0001-test and the hostname of the second cloud desktop is ecd-0002-test. Other hostnames follow the same rule.
+     * When you create multiple cloud computers, you can use the `name_prefix[begin_number,bits]name_suffix` naming format to name the cloud computers. For example, if you set the value of the Hostname parameter to ecd-\[1,4]-test, the hostname of the first cloud computer is ecd-0001-test, the hostname of the second cloud computer is ecd-0002-test, and so on.
      *
      *   `name_prefix`: the prefix of the hostname.
-     *   `[begin_number,bits]`: the ordered numbers in the hostname. begin_number: the start number. Valid values: 0 to 999999. Default value: 0. bits: the digit. Valid values: 1 to 6. Default value: 6.
+     *   `[begin_number,bits]`: the sequential number in the hostname. The `begin_number` value is the starting digit. Valid values of begin_number: 0 to 999999. Default value: 0. The `bits` value is the number of digits. Valid values: 1 to 6. Default value: 6.
      *   `name_suffix`: the suffix of the hostname.
      *
      * @example testhost
@@ -148,7 +168,7 @@ class CreateDesktopsRequest extends Model
     public $hostname;
 
     /**
-     * @description The ID of the workspace.
+     * @description The office network ID.
      *
      * @example cn-hangzhou+os-c5cy7q578s8jc****
      *
@@ -224,9 +244,17 @@ class CreateDesktopsRequest extends Model
     public $tag;
 
     /**
-     * @description The assignment mode of the cloud desktop.
+     * @description How the cloud computers are assigned.
      *
-     * > If you do not specify the `EndUserId` parameter, the cloud desktop that you create is not assigned to users.
+     * Default value: ALL. Valid values:
+     *
+     *   ALL: If you specify the EndUserId parameter, the cloud computers are assigned to all specified end users after the cloud computers are created.
+     *
+     * <!-- -->
+     *
+     *   PER_USER: If you specify the EndUserId parameter, the cloud computers are evenly assigned to the specified end users after the cloud computers are created.
+     *
+     * <!-- -->
      * @example ALL
      *
      * @var string
@@ -234,14 +262,14 @@ class CreateDesktopsRequest extends Model
     public $userAssignMode;
 
     /**
-     * @description The custom command scripts of the user.
+     * @description Details about the custom command scripts.
      *
      * @var userCommands[]
      */
     public $userCommands;
 
     /**
-     * @description This parameter is not available.
+     * @description >  This parameter is not publicly available.
      *
      * @example To be hidden.
      *
@@ -268,7 +296,7 @@ class CreateDesktopsRequest extends Model
     public $volumeEncryptionKey;
 
     /**
-     * @description This parameter is not available.
+     * @description >  This parameter is not publicly available.
      *
      * @example To be hidden.
      *

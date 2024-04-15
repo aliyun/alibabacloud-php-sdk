@@ -11,6 +11,7 @@ class DescribeUsersInGroupRequest extends Model
     /**
      * @description The status of the desktop connection for the end user.
      *
+     * - 1: Connected.
      * @example 1
      *
      * @var int
@@ -18,7 +19,7 @@ class DescribeUsersInGroupRequest extends Model
     public $connectState;
 
     /**
-     * @description The ID of the desktop group.
+     * @description The ID of the cloud computer pool.
      *
      * @example dg-8ttn55ujj8nj8****
      *
@@ -36,7 +37,7 @@ class DescribeUsersInGroupRequest extends Model
     public $endUserId;
 
     /**
-     * @description The IDs of the end users.
+     * @description The IDs of the authorized users.
      *
      * @var string[]
      */
@@ -82,8 +83,17 @@ class DescribeUsersInGroupRequest extends Model
     public $orgId;
 
     /**
-     * @description Specifies whether to query the details about the end user.
+     * @description Specifies whether to query user details.
      *
+     * Valid values:
+     *
+     *   true (default)
+     *
+     * <!-- -->
+     *
+     *   false
+     *
+     * <!-- -->
      * @example false
      *
      * @var bool
@@ -91,7 +101,7 @@ class DescribeUsersInGroupRequest extends Model
     public $queryUserDetail;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

@@ -9,13 +9,14 @@ use AlibabaCloud\Tea\Model;
 class CreateRAMDirectoryRequest extends Model
 {
     /**
-     * @description The method that you use to connect clients to cloud desktops. Valid values:
+     * @description The method to connect clients to cloud desktops.
      *
-     *   Internet: connects clients to cloud desktops only over the Internet.
-     *   VPC: connects clients to cloud desktops only over a VPC.
-     *   Any: connects clients to cloud desktops over the Internet or a VPC. You can select a connection method when you connect clients to cloud desktops.
+     * Valid values:
      *
-     * > The VPC connection method is provided by Alibaba Cloud PrivateLink. You are not charged for PrivateLink. If you set this parameter to VPC or Any, PrivateLink is automatically activated.
+     *   VPC: connects to cloud desktops over VPCs.
+     *   Internet (default): connects to the cloud desktops over the Internet.
+     *   Any: connects to the cloud desktops over the Internet or VPCs.
+     *
      * @example Internet
      *
      * @var string
@@ -23,9 +24,8 @@ class CreateRAMDirectoryRequest extends Model
     public $desktopAccessType;
 
     /**
-     * @description The name of the directory. The name must be 2 to 255 characters in length and can contain letters, digits, colons (:), underscores (\_), and hyphens (-). It must start with a letter and cannot start with `http://` or `https://`.
+     * @description The directory name. The name must be 2 to 255 characters in length, and can contain letters, digits, colons (:), underscores (\_), and hyphens (-). It must start with a letter but cannot start with `http://` or `https://`.
      *
-     * This parameter is empty by default.
      * @example testDirectoryName
      *
      * @var string
@@ -33,9 +33,13 @@ class CreateRAMDirectoryRequest extends Model
     public $directoryName;
 
     /**
-     * @description Specifies whether to grant the permissions of the local administrator to the desktop users.
+     * @description Specifies whether to grant the permissions of the local administrator to end users of the cloud desktops that belong to the workspace.
      *
-     * Default value: true.
+     * Valid values:
+     *
+     * true (default)
+     * false
+     *
      * @example true
      *
      * @var bool
@@ -43,8 +47,17 @@ class CreateRAMDirectoryRequest extends Model
     public $enableAdminAccess;
 
     /**
-     * @description Specifies whether to enable the Internet access feature.
+     * @description Specifies whether to enable Internet access.
      *
+     * Valid values:
+     *
+     *   true
+     *
+     * <!-- -->
+     *
+     *   false
+     *
+     * <!-- -->
      * @example false
      *
      * @var bool
@@ -52,7 +65,7 @@ class CreateRAMDirectoryRequest extends Model
     public $enableInternetAccess;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -61,7 +74,7 @@ class CreateRAMDirectoryRequest extends Model
     public $regionId;
 
     /**
-     * @description The IDs of vSwitches. You can configure only one vSwitch.
+     * @description The vSwitch IDs. You can configure only one vSwitch.
      *
      * @var string[]
      */

@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class RenewDesktopsRequest extends Model
 {
     /**
-     * @description Specifies whether to enable the automatic payment feature.
+     * @description Specifies whether to enable the auto-payment feature.
      *
-     * Valid values:
+     * Default value: true. Valid values:
      *
-     *   true (default): enables the auto-payment feature.
+     *   true: enables the auto-payment feature.
      *
      * <!-- -->
      *
@@ -27,7 +27,7 @@ class RenewDesktopsRequest extends Model
     public $autoPay;
 
     /**
-     * @description The cloud desktop ID. Only subscription cloud desktops can be renewed.
+     * @description The IDs of the cloud computers. Only IDs of subscription cloud computers are supported.
      *
      * @example ecd-ia2zw38bi6cm7****
      *
@@ -49,11 +49,11 @@ class RenewDesktopsRequest extends Model
     public $period;
 
     /**
-     * @description The unit of the renewal duration that is specified by the Period parameter.
+     * @description The unit of the renewal duration specified by the `Period` parameter.
      *
-     * Valid values:
+     * Default value: Month. Valid values:
      *
-     *   Month (default)
+     *   Month
      *
      * <!-- -->
      *
@@ -67,7 +67,7 @@ class RenewDesktopsRequest extends Model
     public $periodUnit;
 
     /**
-     * @description The ID of the sales promotion.
+     * @description The ID of the promotional activity.
      *
      * @example 500030980150146
      *
@@ -76,7 +76,7 @@ class RenewDesktopsRequest extends Model
     public $promotionId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

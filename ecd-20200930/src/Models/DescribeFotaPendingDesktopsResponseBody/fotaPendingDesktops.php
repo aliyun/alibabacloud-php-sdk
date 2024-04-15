@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class fotaPendingDesktops extends Model
 {
     /**
-     * @description The current version of the image used by the cloud desktop.
+     * @description The current version of the image used by the cloud computer.
      *
      * @example 0.0.1-D-20220513.143129
      *
@@ -19,7 +19,7 @@ class fotaPendingDesktops extends Model
     public $currentAppVersion;
 
     /**
-     * @description The cloud desktop ID.
+     * @description The cloud computer ID.
      *
      * @example ecd-bvdtu3jn97o1r****
      *
@@ -28,7 +28,7 @@ class fotaPendingDesktops extends Model
     public $desktopId;
 
     /**
-     * @description The cloud desktop name.
+     * @description The cloud computer name.
      *
      * @example TestDesktop
      *
@@ -37,6 +37,8 @@ class fotaPendingDesktops extends Model
     public $desktopName;
 
     /**
+     * @description The Firmware Over-The-Air (FOTA) update project of the cloud computer.
+     *
      * @example To be hidden
      *
      * @var string
@@ -44,7 +46,7 @@ class fotaPendingDesktops extends Model
     public $fotaProject;
 
     /**
-     * @description The workspace ID.
+     * @description The office network ID.
      *
      * @example cn-hangzhou+dir-815419****
      *
@@ -53,11 +55,17 @@ class fotaPendingDesktops extends Model
     public $officeSiteId;
 
     /**
+     * @description The information about the connected sessions.
+     *
      * @var sessions[]
      */
     public $sessions;
 
     /**
+     * @description The status.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $status;

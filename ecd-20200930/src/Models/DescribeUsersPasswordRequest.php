@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeUsersPasswordRequest extends Model
 {
     /**
-     * @description The ID of the cloud desktop.
+     * @description The ID of the cloud computer.
      *
      * @example ecd-gq8u6whi9f6k8****
      *
@@ -18,7 +18,7 @@ class DescribeUsersPasswordRequest extends Model
     public $desktopId;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

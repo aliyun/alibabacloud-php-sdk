@@ -37,7 +37,9 @@ class AddFilePermissionRequest extends Model
     public $fileId;
 
     /**
-     * @description The group ID.
+     * @description The ID of the team that uses cloud disks in Cloud Drive Service.
+     *
+     * @example cg-i1ruuudp92qpj****
      *
      * @var string
      */

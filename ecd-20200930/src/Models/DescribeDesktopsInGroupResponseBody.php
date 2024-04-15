@@ -20,7 +20,7 @@ class DescribeDesktopsInGroupResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The number of subscription cloud desktops that are connected.
+     * @description The number of subscription cloud computers that are in the Connected state.
      *
      * @example 100
      *
@@ -29,14 +29,14 @@ class DescribeDesktopsInGroupResponseBody extends Model
     public $onlinePrePaidDesktopsCount;
 
     /**
-     * @description The subscription cloud desktops.
+     * @description The details about subscription cloud computers.
      *
      * @var paidDesktops[]
      */
     public $paidDesktops;
 
     /**
-     * @description The total number of subscription cloud desktops.
+     * @description The total number of queried subscription cloud computers.
      *
      * @example 10
      *
@@ -45,14 +45,14 @@ class DescribeDesktopsInGroupResponseBody extends Model
     public $paidDesktopsCount;
 
     /**
-     * @description The pay-as-you-go cloud desktops.
+     * @description The details about pay-as-you-go cloud computers.
      *
      * @var postPaidDesktops[]
      */
     public $postPaidDesktops;
 
     /**
-     * @description The total number of pay-as-you-go cloud desktops.
+     * @description The total number of queried pay-as-you-go cloud computers.
      *
      * @example 10
      *
@@ -61,7 +61,7 @@ class DescribeDesktopsInGroupResponseBody extends Model
     public $postPaidDesktopsCount;
 
     /**
-     * @description The total bill amount for the pay-as-you-go cloud desktops.
+     * @description The total amount of bills for pay-as-you-go cloud computers.
      *
      * @example 10000
      *
@@ -79,7 +79,7 @@ class DescribeDesktopsInGroupResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The number of subscription cloud desktops that are running.
+     * @description The number of subscription cloud computers that are in the Running state.
      *
      * @example 100
      *
@@ -88,7 +88,7 @@ class DescribeDesktopsInGroupResponseBody extends Model
     public $runningPrePaidDesktopsCount;
 
     /**
-     * @description The number of subscription cloud desktops that are stopped.
+     * @description The number of subscription cloud computers that are in the Stopped state.
      *
      * @example 100
      *
@@ -97,7 +97,7 @@ class DescribeDesktopsInGroupResponseBody extends Model
     public $stopedPrePaidDesktopsCount;
 
     /**
-     * @description The number of subscription cloud desktops that are stopped.
+     * @description The number of subscription cloud computers that are in the Stopped state.
      *
      * @example 100
      *

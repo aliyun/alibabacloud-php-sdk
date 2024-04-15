@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class netRedirectRule extends Model
 {
     /**
-     * @description The content of the rule.
+     * @description The rule content.
      *
      * @example *.com
      *
@@ -18,6 +18,15 @@ class netRedirectRule extends Model
     public $domain;
 
     /**
+     * @description Indicates whether the rule is allowed.
+     *
+     * Valid values:
+     *
+     *   allow
+     *   block
+     *
+     * @example allow
+     *
      * @var string
      */
     public $policy;
@@ -27,13 +36,9 @@ class netRedirectRule extends Model
      *
      * Valid values:
      *
-     *   prc
+     *   prc: process
+     *   domain: domain name
      *
-     * <!-- -->
-     *
-     *   domain
-     *
-     * <!-- -->
      * @example domain
      *
      * @var string

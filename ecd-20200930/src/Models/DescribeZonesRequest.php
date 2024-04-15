@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeZonesRequest extends Model
 {
     /**
-     * @description The region ID.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -18,7 +18,7 @@ class DescribeZonesRequest extends Model
     public $regionId;
 
     /**
-     * @description The zone type. Default value: **AvailabilityZone**. This value specifies Alibaba Cloud zones.
+     * @description The type of the zone. Default value: `AvailabilityZone`. This value indicates Alibaba Cloud zones.
      *
      * @example AvailabilityZone
      *

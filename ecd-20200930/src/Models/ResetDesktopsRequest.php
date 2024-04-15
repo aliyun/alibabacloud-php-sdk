@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ResetDesktopsRequest extends Model
 {
     /**
-     * @description The ID of the desktop group. If you specify the `DesktopId` parameter, ignore the `DesktopGroupId` parameter. If you do not specify the `DesktopId` parameter, specify the `DesktopGroupId` parameter in the call to request all IDs of the cloud desktops in the specified desktop group.``
+     * @description The ID of the cloud computer pool. If you specify the `DesktopId` parameter, ignore the `DesktopGroupId` parameter. If you do not specify the `DesktopId` parameter, specify the `DesktopGroupId` parameter in the call to request all IDs of the cloud computers in the specified pool.
      *
      * @example dg-07if7qsxoxkb6****
      *
@@ -18,12 +18,14 @@ class ResetDesktopsRequest extends Model
     public $desktopGroupId;
 
     /**
+     * @description The IDs of the cloud computer pools.
+     *
      * @var string[]
      */
     public $desktopGroupIds;
 
     /**
-     * @description The IDs of the cloud desktops. You can specify 1 to 100 cloud desktop IDs.
+     * @description The IDs of the cloud computers. You can specify the IDs of 1 to 100 cloud computers.
      *
      * @var string[]
      */
@@ -41,7 +43,7 @@ class ResetDesktopsRequest extends Model
     /**
      * @description The billing method.
      *
-     * > This parameter is available only when you reset desktop groups. If you leave this parameter empty, all cloud desktops in the specified desktop group are reset, regardless of how the cloud desktops are billed.
+     * > This parameter is available only when you reset cloud computer pools. If you leave this parameter empty, all cloud computers in the specified cloud computer pool are reset, regardless of how the cloud computers are billed.
      * @example PrePaid
      *
      * @var string
@@ -49,7 +51,7 @@ class ResetDesktopsRequest extends Model
     public $payType;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~436773~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~436773~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -58,12 +60,28 @@ class ResetDesktopsRequest extends Model
     public $regionId;
 
     /**
+     * @description The reset scope. You can configure this parameter to reset the image or cloud computer.
+     *
+     * Valid values:
+     *
+     *   ALL (default): resets the image and cloud computer.
+     *   IMAGE: resets only the image.
+     *
+     * @example ALL
+     *
      * @var string
      */
     public $resetScope;
 
     /**
-     * @description The type of the disk that you want to reset.
+     * @description The disk reset type.
+     *
+     * Valid values:
+     *
+     *   0: does not reset disks.
+     *   1: resets only the system disk.
+     *   2: resets only the user disk.
+     *   3: resets the system disk and the user disk.
      *
      * @example 1
      *

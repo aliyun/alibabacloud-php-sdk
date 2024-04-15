@@ -9,19 +9,19 @@ use AlibabaCloud\Tea\Model;
 class logs extends Model
 {
     /**
-     * @description The log level.
+     * @description The log severity.
      *
      * Valid values:
      *
-     *   ERROR: errors
+     *   ERROR
      *
      * <!-- -->
      *
-     *   INFO: information
+     *   INFO
      *
      * <!-- -->
      *
-     *   WARN: warnings
+     *   WARN
      *
      * <!-- -->
      * @example INFO
@@ -40,7 +40,7 @@ class logs extends Model
     public $message;
 
     /**
-     * @description The step that corresponds to the log entry.
+     * @description The step in the log entry.
      *
      * @example CREATE_CONNECTOR
      *

@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DeleteAutoSnapshotPolicyRequest extends Model
 {
     /**
-     * @description The ID of the policy template that you want to manage.
+     * @description The IDs of the automatic snapshot policies that you want to delete.
      *
      * @var string[]
      */
     public $policyId;
 
     /**
-     * @description The ID of the region where the automatic snapshot policy is created.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

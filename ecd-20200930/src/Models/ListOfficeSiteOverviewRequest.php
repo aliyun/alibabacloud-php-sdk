@@ -39,7 +39,7 @@ class ListOfficeSiteOverviewRequest extends Model
     public $nextToken;
 
     /**
-     * @description Details about the IDs of the workspaces. You can specify 1 to 100 workspace IDs.
+     * @description The office network IDs. You can specify IDs of 1 to 100 office networks.
      *
      * @example cn-hangzhou+dir-363353****
      *
@@ -48,7 +48,13 @@ class ListOfficeSiteOverviewRequest extends Model
     public $officeSiteId;
 
     /**
-     * @description The query scope. Default value: 1.
+     * @description The query scope. Cloud computers in a cloud computer pool are pooled cloud computers.
+     *
+     * Default values:
+     *
+     *   1 (default): queries non-pooled cloud computers in the office network.
+     *   2: queries pooled cloud computers in the office network.
+     *   3: queries all cloud computers in the office network.
      *
      * @example 1
      *
@@ -57,7 +63,7 @@ class ListOfficeSiteOverviewRequest extends Model
     public $queryRange;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

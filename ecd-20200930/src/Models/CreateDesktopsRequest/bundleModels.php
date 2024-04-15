@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class bundleModels extends Model
 {
     /**
-     * @description The number of cloud desktops that you want to create. Valid values: 1 to 300. Default value: 0.
+     * @description The number of cloud computers that you want to create. Valid values: 1 to 300. Default value: null.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class bundleModels extends Model
     public $amount;
 
     /**
-     * @description The ID of the desktop template.
+     * @description The ID of a cloud computer template.
      *
      * @example b-je9hani001wfn****
      *
@@ -27,7 +27,11 @@ class bundleModels extends Model
     public $bundleId;
 
     /**
-     * @description The name of the cloud desktop.
+     * @description The name of the cloud computer. The name must meet the following requirements:
+     *
+     *   The name must be 1 to 64 characters in length.
+     *   The name must start with a letter but cannot start with `http://` or `https://`.
+     *   The name can only contain letters, digits, colons (:), underscores (\_), periods (.), and hyphens (-).
      *
      * @example testDesktopName
      *
@@ -36,24 +40,24 @@ class bundleModels extends Model
     public $desktopName;
 
     /**
-     * @description The users to whom you want to assign the cloud desktops.
+     * @description The IDs of the end users to whom the cloud computer are assigned.
      *
      * @var string[]
      */
     public $endUserIds;
 
     /**
-     * @description The hostname that you specify for the cloud desktop. You can only specify the hostname of a Windows cloud desktop in the workspace of the enterprise AD account type.
+     * @description The custom hostnames of the cloud computers. This parameter is valid only if the office network is an AD office network and the operating system type of the cloud computers is Windows.
      *
-     * The hostname must meet the following requirements:
+     * The hostnames must meet the following requirements:
      *
-     *   It must be 2 to 15 characters in length.
-     *   It can contain letters, digits, and hyphens (-). The hostname cannot start or end with a hyphen (-), contain consecutive hyphens (-), or contain only digits.
+     *   The hostnames must be 2 to 15 characters in length.
+     *   The hostnames can contain only letters, digits, and hyphens (-). The hostnames cannot start or end with a hyphen (-), contain consecutive hyphens (-), or contain only digits.
      *
-     * If you create multiple cloud desktops, you can use the`  name_prefix[begin_number,bits]name_suffix ` format to determine the hostnames of the cloud desktops. For example, if you set Hostname to ecd-\[1,4]-test, the hostname of the first cloud desktop is ecd-0001-test and the hostname of the second cloud desktop is ecd-0002-test. Other hostnames follow the same rule.
+     * When you create multiple cloud computers, you can use the `name_prefix[begin_number,bits]name_suffix` naming format to name the cloud computers. For example, if you set the value of the Hostname parameter to ecd-\[1,4]-test, the hostname of the first cloud computer is ecd-0001-test, the hostname of the second cloud computer is ecd-0002-test, and so on.
      *
      *   `name_prefix`: the prefix of the hostname.
-     *   `[begin_number,bits]`: the ordered numbers in the hostname. begin_number: the start number. Valid values: 0 to 999999. Default value: 0. bits: the digit. Valid values: 1 to 6. Default value: 6.
+     *   `[begin_number,bits]`: the sequential number in the hostname. The `begin_number` value is the starting digit. Valid values of begin_number: 0 to 999999. Default value: 0. The `bits` value is the number of digits. Valid values: 1 to 6. Default value: 6.
      *   `name_suffix`: the suffix of the hostname.
      *
      * @example testhost
@@ -72,7 +76,7 @@ class bundleModels extends Model
     public $volumeEncryptionEnabled;
 
     /**
-     * @description The ID of the Key Management Service (KMS) key that you want to use when disk encryption is enabled. You can call the [ListKeys](~~28951~~) operation to obtain a list of KMS keys.
+     * @description The ID of the Key Management Service (KMS) key that is used when disk encryption is enabled. You can call the [ListKeys](~~28951~~) operation to query the list of KMS keys.
      *
      * @example 08c33a6f-4e0a-4a1b-a3fa-7ddfa1d4****
      *

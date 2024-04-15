@@ -63,7 +63,7 @@ class DescribeUserConnectionRecordsRequest extends Model
     public $connectStartTimeTo;
 
     /**
-     * @description The ID of the desktop group.
+     * @description The ID of the cloud computer pool.
      *
      * @example dg-2i8qxpv6t1a03****
      *
@@ -72,7 +72,7 @@ class DescribeUserConnectionRecordsRequest extends Model
     public $desktopGroupId;
 
     /**
-     * @description The ID of the cloud desktop.
+     * @description The ID of the cloud computer.
      *
      * @example ecd-138dsptkrt00u****
      *
@@ -81,7 +81,7 @@ class DescribeUserConnectionRecordsRequest extends Model
     public $desktopId;
 
     /**
-     * @description The user that you want to authorize to use the desktop group.
+     * @description The ID of the authorized user.
      *
      * @example alice
      *
@@ -90,11 +90,17 @@ class DescribeUserConnectionRecordsRequest extends Model
     public $endUserId;
 
     /**
-     * @description The account type of the user. Valid values:
+     * @description The type of the user account.
      *
-     *   SIMPLE: the convenience account type
-     *   AD_CONNECTOR: the enterprise Active Directory (AD) account type
+     * Valid values:
      *
+     *   SIMPLE: convenience account
+     *
+     * <!-- -->
+     *
+     *   AD_CONNECTOR: enterprise AD account
+     *
+     * <!-- -->
      * @example SIMPLE
      *
      * @var string
@@ -120,7 +126,7 @@ class DescribeUserConnectionRecordsRequest extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

@@ -54,7 +54,7 @@ class images extends Model
     public $gpuCategory;
 
     /**
-     * @description The version of the GPU driver.
+     * @description The version number of the GPU driver.
      *
      * @example 417.22
      *
@@ -74,6 +74,15 @@ class images extends Model
     /**
      * @description The type of the image.
      *
+     * Valid values:
+     *
+     *   SYSTEM
+     *
+     * <!-- -->
+     *
+     *   CUSTOM
+     *
+     * <!-- -->
      * @example SYSTEM
      *
      * @var string
@@ -90,7 +99,7 @@ class images extends Model
     public $name;
 
     /**
-     * @description The OS type of the image.
+     * @description The type of the operating system.
      *
      * @example WINDOWS
      *
@@ -99,8 +108,37 @@ class images extends Model
     public $osType;
 
     /**
-     * @description The OS type of the image.
+     * @description The operating system type of the image.
      *
+     * Valid values:
+     *
+     *   Ubuntu
+     *
+     * <!-- -->
+     *
+     *   Windows Server 2022
+     *
+     * <!-- -->
+     *
+     *   UOS
+     *
+     * <!-- -->
+     *
+     *   CentOS
+     *
+     * <!-- -->
+     *
+     *   Windows Server 2019
+     *
+     * <!-- -->
+     *
+     *   SQL Server 2016
+     *
+     * <!-- -->
+     *
+     *   Windows 10
+     *
+     * <!-- -->
      * @example Windows Server 2019
      *
      * @var string
@@ -108,7 +146,7 @@ class images extends Model
     public $platform;
 
     /**
-     * @description The progress of image creation. Unit: percentage (%).
+     * @description The creation progress of the image. Unit: %.
      *
      * @example 100%
      *
@@ -117,7 +155,12 @@ class images extends Model
     public $progress;
 
     /**
-     * @description The type of the protocol.
+     * @description The protocol type.
+     *
+     * Valid values:
+     *
+     *   HDX: High-definition Experience (HDX) protocol
+     *   ASP: in-house Adaptive Streaming Protocol (ASP) (recommended)
      *
      * @example ASP
      *
@@ -126,10 +169,13 @@ class images extends Model
     public $protocolType;
 
     /**
-     * @description The session type of the image. Valid values:
+     * @description The type of the image session.
      *
-     *   SINGLE_SESSION: single-session images
-     *   MULTIPLE_SESSION: multi-session images
+     * Valid values:
+     *
+     *   SINGLE_SESSION: single-session image.
+     *
+     *   MULTIPLE_SESSION: multi-session image.
      *
      * @example MULTIPLE_SESSION
      *
@@ -156,8 +202,21 @@ class images extends Model
     public $size;
 
     /**
-     * @description The state of the image.
+     * @description The status of the image.
      *
+     * Valid values:
+     *
+     *   Creating
+     *
+     * <!-- -->
+     *
+     *   Available
+     *
+     * <!-- -->
+     *
+     *   CreateFailed
+     *
+     * <!-- -->
      * @example Available
      *
      * @var string
@@ -165,7 +224,7 @@ class images extends Model
     public $status;
 
     /**
-     * @description The languages of the OS.
+     * @description The languages of the operating system.
      *
      * @var string[]
      */
@@ -190,7 +249,7 @@ class images extends Model
     public $volumeEncryptionEnabled;
 
     /**
-     * @description The ID of the Key Management Service (KMS) key that is used when disk encryption is enabled. You can call the [ListKeys](~~28951~~) operation to obtain the list of KMS keys.
+     * @description The ID of the Key Management Service (KMS) key that is used when disk encryption is enabled. You can call the [ListKeys](~~28951~~) operation to query the list of KMS keys.
      *
      * @example 08c33a6f-4e0a-4a1b-a3fa-7ddfa1d4****
      *

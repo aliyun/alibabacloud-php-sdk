@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeFotaPendingDesktopsRequest extends Model
 {
     /**
-     * @description The cloud desktop ID.
+     * @description The cloud computer ID.
      *
      * @example ecd-gx2x1dhsmucyy****
      *
@@ -18,7 +18,7 @@ class DescribeFotaPendingDesktopsRequest extends Model
     public $desktopId;
 
     /**
-     * @description The name of the cloud desktop.
+     * @description The cloud computer name.
      *
      * @example testName
      *
@@ -27,9 +27,9 @@ class DescribeFotaPendingDesktopsRequest extends Model
     public $desktopName;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page.
      *
-     *   Maximum value: 100.
+     *   Valid values: 1 to 100.
      *   Default value: 20.
      *
      * @example 20
@@ -39,7 +39,7 @@ class DescribeFotaPendingDesktopsRequest extends Model
     public $maxResults;
 
     /**
-     * @description The token that determines the start point of the next query. If this parameter is left empty, all results are returned.
+     * @description The pagination token that is used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
      *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *
@@ -48,7 +48,7 @@ class DescribeFotaPendingDesktopsRequest extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the workspace.
+     * @description The office network ID. You can call the [DescribeOfficeSites](~~216071~~) operation to obtain the office network ID.
      *
      * @example cn-hangzhou+dir-363353****
      *
@@ -57,7 +57,7 @@ class DescribeFotaPendingDesktopsRequest extends Model
     public $officeSiteId;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](https://next.api.aliyun.com/document/ecd/2020-09-30/DescribeRegions) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -66,7 +66,7 @@ class DescribeFotaPendingDesktopsRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the image update task. You can call the [DescribeFotaTasks](~~DescribeFotaTasks~~) operation to obtain the value of this parameter.
+     * @description The ID of the image update task. You can call the DescribeFotaTasks operation to obtain the task ID.
      *
      * @example aot-c4khwrp9ocml4****
      *

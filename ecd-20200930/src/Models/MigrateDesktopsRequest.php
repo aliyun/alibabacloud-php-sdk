@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class MigrateDesktopsRequest extends Model
 {
     /**
-     * @description The IDs of the cloud desktops. You can specify one or more cloud desktops. Valid values of N: 1 to 100.
+     * @description The IDs of the cloud computers. You can specify 1 to 100 IDs.
      *
      * @var string[]
      */
     public $desktopId;
 
     /**
-     * @description The region ID.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-shanghai
      *
@@ -25,7 +25,7 @@ class MigrateDesktopsRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the destination workspace.
+     * @description The ID of the destination office network.
      *
      * @example cn-shenzhen+dir-388505****
      *

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserConnectionRecordsResponseBody extends Model
 {
     /**
-     * @description Details about connection records.
+     * @description Details about connection records of the end user.
      *
      * @var connectionRecords[]
      */

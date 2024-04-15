@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeFlowStatisticRequest extends Model
 {
     /**
-     * @description The ID of the cloud desktop.
+     * @description The ID of the cloud computer.
      *
      * @example ecd-7w78ozhjcwa3u****
      *
@@ -18,7 +18,7 @@ class DescribeFlowStatisticRequest extends Model
     public $desktopId;
 
     /**
-     * @description The ID of the workspace.
+     * @description The office network ID.
      *
      * @example cn-hangzhou+dir-363353****
      *
@@ -45,11 +45,13 @@ class DescribeFlowStatisticRequest extends Model
     public $pageSize;
 
     /**
-     * @description The interval to query the traffic data. Unit: seconds. Valid values:
+     * @description The statistic collection interval. Unit: seconds.
      *
-     *   3600
-     *   10800
-     *   86400
+     * Valid values:
+     *
+     *   3600: 1 hour
+     *   10800: 3 hours
+     *   86400: 24 hours
      *
      * @example 3600
      *
@@ -58,7 +60,7 @@ class DescribeFlowStatisticRequest extends Model
     public $period;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

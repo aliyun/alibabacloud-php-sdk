@@ -9,12 +9,14 @@ use AlibabaCloud\Tea\Model;
 class ExportDesktopGroupInfoRequest extends Model
 {
     /**
-     * @description The billing method of the cloud desktop. Valid values:
+     * @description The billing method of the cloud computer pool.
      *
-     *   PostPaid: pay-as-you-go
-     *   PrePaid: subscription
+     * Valid values:
      *
-     * Default value: PostPaid.
+     *   PostPaid: pay-as-you-go.
+     *
+     *   PrePaid: subscription.
+     *
      * @example PrePaid
      *
      * @var string
@@ -22,14 +24,14 @@ class ExportDesktopGroupInfoRequest extends Model
     public $chargeType;
 
     /**
-     * @description The ID of the desktop group. You can set 1 to 100.
+     * @description The IDs of the cloud computer pools.
      *
      * @var string[]
      */
     public $desktopGroupId;
 
     /**
-     * @description The name of the desktop group.
+     * @description The name of the cloud computer pool.
      *
      * @example test
      *
@@ -38,14 +40,14 @@ class ExportDesktopGroupInfoRequest extends Model
     public $desktopGroupName;
 
     /**
-     * @description The ID of the user who is authorized to use the desktop group. You can set 1 to 100.
+     * @description The authorized user IDs of cloud computer pools.
      *
      * @var string[]
      */
     public $endUserId;
 
     /**
-     * @description The time when the subscription cloud desktop expires.
+     * @description The time when the subscription cloud computer pool expires.
      *
      * @example 2022-12-31T15:59Z
      *
@@ -82,7 +84,7 @@ class ExportDesktopGroupInfoRequest extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the workspace.
+     * @description The ID of the office network to which the cloud computer pool belongs.
      *
      * @example cn-hangzhou+dir-467671****
      *
@@ -91,7 +93,7 @@ class ExportDesktopGroupInfoRequest extends Model
     public $officeSiteId;
 
     /**
-     * @description The ID of the policy that is associated with the cloud desktop.
+     * @description The ID of the policy that is associated with the cloud computer pool.
      *
      * @example pg-53iyi2aar0nd6****
      *
@@ -100,7 +102,7 @@ class ExportDesktopGroupInfoRequest extends Model
     public $policyGroupId;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the regions supported by WUYING Workspace.
      *
      * @example cn-hangzhou
      *

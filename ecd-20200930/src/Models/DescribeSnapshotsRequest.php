@@ -18,7 +18,7 @@ class DescribeSnapshotsRequest extends Model
     public $creator;
 
     /**
-     * @description The cloud desktop ID.
+     * @description The ID of the cloud computer.
      *
      * @example ecd-gx2x1dhsmucyy****
      *
@@ -27,7 +27,7 @@ class DescribeSnapshotsRequest extends Model
     public $desktopId;
 
     /**
-     * @description The cloud desktop name.
+     * @description The name of the cloud computer.
      *
      * @example testName
      *
@@ -36,7 +36,7 @@ class DescribeSnapshotsRequest extends Model
     public $desktopName;
 
     /**
-     * @description The end of the time range to query. The query is performed based on the time when the system stopped creating a snapshot. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-mm-ddthh:mm:ssz format. The time must be in UTC.
+     * @description The end of the time range to query. Specify the time in the [ISO 8601](~~25696~~) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
      *
      * @example 2020-11-31T06:32:31Z
      *
@@ -84,9 +84,8 @@ class DescribeSnapshotsRequest extends Model
     public $snapshotId;
 
     /**
-     * @description The snapshot name. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (\_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
+     * @description The name of the snapshot. The name must be 2 to 127 characters in length. The name must start with a letter. The name can contain letters, digits, underscores (\_), and hyphens (-). The name cannot start with `auto` because snapshots whose names start with auto are recognized as automatic snapshots.
      *
-     * The name cannot start with `auto` because snapshots whose names start with auto are recognized as automatic snapshots.
      * @example test_data_disk
      *
      * @var string
@@ -94,14 +93,21 @@ class DescribeSnapshotsRequest extends Model
     public $snapshotName;
 
     /**
-     * @description The snapshot type.
+     * @description The category of the snapshots.
      *
-     * Valid values:
+     * Default value: all. Valid values:
      *
-     *   auto: automatic snapshot
-     *   user: manual snapshot
-     *   all (default): all types of snapshots
+     *   all: all snapshot categories
      *
+     * <!-- -->
+     *
+     *   auto: automatic snapshots
+     *
+     * <!-- -->
+     *
+     *   user: manual snapshots
+     *
+     * <!-- -->
      * @example user
      *
      * @var string
@@ -109,12 +115,17 @@ class DescribeSnapshotsRequest extends Model
     public $snapshotType;
 
     /**
-     * @description The type of the source disk of which you want to query snapshots. Valid values:
+     * @description The type of the disk for which the snapshot is created.
      *
-     *   System: system disk
+     * Valid values:
+     *
      *   Data: data disk
      *
-     * > The value of this parameter is not case-sensitive.
+     * <!-- -->
+     *
+     *   System: system disk
+     *
+     * <!-- -->
      * @example system
      *
      * @var string
@@ -122,7 +133,7 @@ class DescribeSnapshotsRequest extends Model
     public $sourceDiskType;
 
     /**
-     * @description The beginning of the time range to query. The query is performed based on the time when the system created a snapshot. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-mm-ddthh:mm:ssz format. The time must be in UTC.
+     * @description The beginning of the time range to query. Specify the time in the [ISO 8601](~~25696~~) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
      *
      * @example 2020-11-30T06:32:31Z
      *

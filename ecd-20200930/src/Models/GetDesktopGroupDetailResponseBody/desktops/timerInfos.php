@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class timerInfos extends Model
 {
     /**
-     * @description The CRON expression of the scheduled task.
+     * @description The cron expression.
      *
      * @example 0 58 11 ? * 2
      *
@@ -27,21 +27,14 @@ class timerInfos extends Model
     public $forced;
 
     /**
-     * @description The status of the scheduled task.
+     * @description The status of the cloud computer pool.
      *
      * Valid values:
      *
-     *   1
+     *   1: enabled
+     *   2: disabled
+     *   3: deleted
      *
-     * .
-     *
-     *   2
-     *
-     * .
-     *
-     *   3
-     *
-     * .
      * @example 1
      *
      * @var int
@@ -53,21 +46,11 @@ class timerInfos extends Model
      *
      * Valid values:
      *
-     *   1
+     *   1: scheduled reset
+     *   2: scheduled startup
+     *   3: scheduled stop
+     *   4: scheduled restart
      *
-     * .
-     *
-     *   2
-     *
-     * .
-     *
-     *   3
-     *
-     * .
-     *
-     *   4
-     *
-     * .
      * @example 1
      *
      * @var int

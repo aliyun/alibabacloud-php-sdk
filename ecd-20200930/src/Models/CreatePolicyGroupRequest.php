@@ -14,6 +14,9 @@ use AlibabaCloud\Tea\Model;
 class CreatePolicyGroupRequest extends Model
 {
     /**
+     * @description Specifies whether users have the administrator permissions after they connect to cloud desktops.
+     *
+     * >  This parameter is in invitational preview and not available to the public.
      * @example deny
      *
      * @var string
@@ -429,11 +432,19 @@ class CreatePolicyGroupRequest extends Model
     public $recordingStartTime;
 
     /**
+     * @description Specifies whether the feature to send screen recording notifications to clients is enabled. Valid values: on and off.
+     *
+     * @example off
+     *
      * @var string
      */
     public $recordingUserNotify;
 
     /**
+     * @description The notification content sent to clients when screen recording is enabled. By default, you do not need to specify this parameter.
+     *
+     * @example Your desktop is being recorded.
+     *
      * @var string
      */
     public $recordingUserNotifyMessage;
@@ -568,6 +579,10 @@ class CreatePolicyGroupRequest extends Model
     public $watermark;
 
     /**
+     * @description The anti-screen photo feature. Valid values: on and off.
+     *
+     * @example off
+     *
      * @var string
      */
     public $watermarkAntiCam;
@@ -612,6 +627,10 @@ class CreatePolicyGroupRequest extends Model
     public $watermarkFontStyle;
 
     /**
+     * @description The invisible watermark enhancement feature. Valid values: low, medium, and high.
+     *
+     * @example medium
+     *
      * @var string
      */
     public $watermarkPower;

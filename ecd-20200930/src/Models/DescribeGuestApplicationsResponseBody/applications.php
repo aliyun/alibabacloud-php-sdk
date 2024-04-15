@@ -28,7 +28,7 @@ class applications extends Model
     public $applicationVersion;
 
     /**
-     * @description The CPU usage.
+     * @description The CPU utilization (%).
      *
      * @example 89
      *
@@ -37,7 +37,7 @@ class applications extends Model
     public $cpuPercent;
 
     /**
-     * @description The GPU usage.
+     * @description The GPU utilization (%).
      *
      * @example 15
      *
@@ -46,7 +46,7 @@ class applications extends Model
     public $gpuPercent;
 
     /**
-     * @description The icon address of the application.
+     * @description The icon URL of the application.
      *
      * @example https://app-center-icon-prod-shanghai.oss-cn-shanghai.aliyuncs.com/market/preload/default****.png
      *
@@ -64,7 +64,7 @@ class applications extends Model
     public $ioSpeed;
 
     /**
-     * @description The memory usage.
+     * @description The memory utilization (%).
      *
      * @example 34
      *
@@ -73,7 +73,7 @@ class applications extends Model
     public $memPercent;
 
     /**
-     * @description The process ID.
+     * @description The process ID (PID).
      *
      * @example 1357
      *

@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyOfficeSiteCrossDesktopAccessRequest extends Model
 {
     /**
-     * @description Specifies whether to enable the cross-desktop access feature for the workspace.
-     *
-     *   true: enable
-     *   false: disable
+     * @description Specifies whether to enable the communication between cloud computers in an office network. If you enable the communication between cloud computers in an office network, the cloud computers can access each other.
      *
      * @example false
      *
@@ -21,7 +18,7 @@ class ModifyOfficeSiteCrossDesktopAccessRequest extends Model
     public $enableCrossDesktopAccess;
 
     /**
-     * @description The workspace ID.
+     * @description The office network ID.
      *
      * @example cn-hangzhou+dir-068266****
      *
@@ -30,7 +27,7 @@ class ModifyOfficeSiteCrossDesktopAccessRequest extends Model
     public $officeSiteId;
 
     /**
-     * @description The region ID.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

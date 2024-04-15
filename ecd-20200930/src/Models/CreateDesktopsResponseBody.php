@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateDesktopsResponseBody extends Model
 {
     /**
-     * @description If multiple cloud desktops are created in a call, the IDs of the cloud desktops are returned.
+     * @description The IDs of the cloud computers that are created. If multiple cloud computers are created, multiple IDs are returned.
      *
      * @var string[]
      */

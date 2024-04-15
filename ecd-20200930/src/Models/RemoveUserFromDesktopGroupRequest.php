@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RemoveUserFromDesktopGroupRequest extends Model
 {
     /**
-     * @description The ID of the desktop group.
+     * @description The ID of the cloud computer pool for which you want to remove the authorized users.
      *
      * @example dg-2i8qxpv6t1a03****
      *
@@ -18,21 +18,21 @@ class RemoveUserFromDesktopGroupRequest extends Model
     public $desktopGroupId;
 
     /**
-     * @description The IDs of the desktop groups.
+     * @description The IDs of cloud computer pools.
      *
      * @var string[]
      */
     public $desktopGroupIds;
 
     /**
-     * @description The authorized user to be removed.
+     * @description The IDs of the authorized users that you want to remove.
      *
      * @var string[]
      */
     public $endUserIds;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

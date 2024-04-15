@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class autoSnapshotPolicies extends Model
 {
     /**
-     * @description The time when the automatic snapshot policy was created. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-mm-ddthh:mm:ssz format. The time is displayed in UTC.
+     * @description The time when the automatic snapshot policy was created. The time follows the [ISO 8601](~~25696~~) standard in the `yyyy-mm-ddthh:mm:ssz` format. The time is displayed in UTC.
      *
      * @example 2023-01-11T09:14:00Z
      *
@@ -18,7 +18,7 @@ class autoSnapshotPolicies extends Model
     public $creationTime;
 
     /**
-     * @description The CRON expression that is used to create the snapshot.
+     * @description The cron expression that specifies when WUYING Workspace creates snapshots on the cloud computers.
      *
      * @example 0 0 5,7 ? * 2/2
      *
@@ -27,7 +27,7 @@ class autoSnapshotPolicies extends Model
     public $cronExpression;
 
     /**
-     * @description The number of cloud desktops that are associated with the automatic snapshot policy.
+     * @description The number of cloud computers to which the automatic snapshot policy is applied.
      *
      * @example 5
      *
@@ -54,7 +54,7 @@ class autoSnapshotPolicies extends Model
     public $policyName;
 
     /**
-     * @description The ID of the region where the automatic snapshot policy resides.
+     * @description The ID of the region to which the automatic snapshot policy belongs.
      *
      * @example cn-hangzhou
      *
@@ -63,10 +63,7 @@ class autoSnapshotPolicies extends Model
     public $regionId;
 
     /**
-     * @description The retention period of the automatic snapshot. Unit: days. Valid values:
-     *
-     *   \-1: The snapshot is permanently retained.
-     *   1 to 65536: The automatic snapshot is retained for the specified number of days.
+     * @description The retention period of the automatic snapshots. Unit: days. Valid values: 1 to 180.
      *
      * @example 3
      *
@@ -75,11 +72,17 @@ class autoSnapshotPolicies extends Model
     public $retentionDays;
 
     /**
-     * @description The state of the automatic snapshot policy. Valid values:
+     * @description The status of the automatic snapshot policy.
+     *
+     * Valid values:
+     *
+     *   Expire: The automatic snapshot policy cannot be used because you have overdue payments in your account.
+     *
+     * <!-- -->
      *
      *   Normal: The automatic snapshot policy is normal.
-     *   Expire: The automatic snapshot policy cannot be used because your account has an overdue payment.
      *
+     * <!-- -->
      * @example Normal
      *
      * @var string
@@ -87,9 +90,9 @@ class autoSnapshotPolicies extends Model
     public $status;
 
     /**
-     * @description The points in time at which automatic snapshots are created.
+     * @description The points in time at which the auto snapshots were created.
      *
-     * The parameter value is a JSON array that contains up to 24 points in time separated by commas (,). Example: `["0", "1", ... "23"]`.
+     * The parameter values are a JSON array. Example: `["0", "1", ... "23"]`. A maximum of 24 points in time are returned. The points in time are separated with commas (,).
      * @example ["17","18"]
      *
      * @var string

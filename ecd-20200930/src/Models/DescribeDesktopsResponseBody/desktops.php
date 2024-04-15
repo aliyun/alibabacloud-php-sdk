@@ -13,7 +13,7 @@ use AlibabaCloud\Tea\Model;
 class desktops extends Model
 {
     /**
-     * @description The number of sessions allowed for each cloud desktop in the multi-session desktop group.
+     * @description The number of sessions that are allowed for each cloud desktop in the multi-session desktop group.
      *
      * @example 10
      *
@@ -42,6 +42,15 @@ class desktops extends Model
     /**
      * @description The billing method of the cloud desktop.
      *
+     * Default value: PostPaid. Valid values:
+     *
+     *   Postpaid: pay-as-you-go
+     *
+     * <!-- -->
+     *
+     *   PrePaid: subscription
+     *
+     * <!-- -->
      * @example PostPaid
      *
      * @var string
@@ -51,6 +60,19 @@ class desktops extends Model
     /**
      * @description The connection status of the end user.
      *
+     * Valid values:
+     *
+     *   Unknown
+     *
+     * <!-- -->
+     *
+     *   Connected
+     *
+     * <!-- -->
+     *
+     *   Disconnected
+     *
+     * <!-- -->
      * @example Disconnected
      *
      * @var string
@@ -76,7 +98,7 @@ class desktops extends Model
     public $creationTime;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable.
+     * @description >  This parameter is in invitational preview and is not publicly available.
      *
      * @example null
      *
@@ -85,7 +107,7 @@ class desktops extends Model
     public $dataDiskCategory;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable.
+     * @description >  This parameter is in invitational preview and is not publicly available.
      *
      * @example null
      *
@@ -94,9 +116,8 @@ class desktops extends Model
     public $dataDiskSize;
 
     /**
-     * @description The ID of the desktop group. Default value: null.
+     * @description The ID of the desktop group to which the cloud desktop belongs. Default value: null.
      *
-     * > This parameter is in invitational preview and is unavailable.
      * @example null
      *
      * @var string
@@ -104,7 +125,7 @@ class desktops extends Model
     public $desktopGroupId;
 
     /**
-     * @description The ID of the cloud desktop.
+     * @description The cloud desktop ID.
      *
      * @example ecd-gx2x1dhsmucyy****
      *
@@ -113,7 +134,7 @@ class desktops extends Model
     public $desktopId;
 
     /**
-     * @description The name of the cloud desktop.
+     * @description The cloud desktop name.
      *
      * @example testDesktopName
      *
@@ -131,7 +152,7 @@ class desktops extends Model
     public $desktopStatus;
 
     /**
-     * @description The desktop type.
+     * @description The type of the cloud desktop.
      *
      * @example ecd.basic.large
      *
@@ -140,7 +161,7 @@ class desktops extends Model
     public $desktopType;
 
     /**
-     * @description The ID of the directory. The ID is the same as the workspace ID that is indicated by the OfficeSiteId parameter.
+     * @description The directory ID. The value of this parameter is the same as the workspace ID that is indicated by the OfficeSiteId parameter.
      *
      * @example cn-hangzhou+dir-363353****
      *
@@ -149,7 +170,7 @@ class desktops extends Model
     public $directoryId;
 
     /**
-     * @description This parameter is in invitational preview and is unavailable.
+     * @description >  This parameter is in invitational preview and is not publicly available.
      *
      * @example SIMPLE
      *
@@ -183,14 +204,14 @@ class desktops extends Model
     public $downgradedTimes;
 
     /**
-     * @description The IDs of the end users that have the permissions to connect to the cloud desktops.
+     * @description The IDs of the end users who are authorized to connect to the cloud desktop.
      *
      * @var string[]
      */
     public $endUserIds;
 
     /**
-     * @description The time when the subscription cloud desktop expired.
+     * @description The time when the subscription cloud desktop expires.
      *
      * @example 2021-12-31T15:59Z
      *
@@ -206,7 +227,7 @@ class desktops extends Model
     public $fotaUpdate;
 
     /**
-     * @description Indicates whether the cloud desktop is of the GPU-accelerated type.
+     * @description Indicates whether the cloud desktop is a GPU-accelerated desktop.
      *
      * @example 0
      *
@@ -215,7 +236,7 @@ class desktops extends Model
     public $gpuCategory;
 
     /**
-     * @description The number of GPUs.
+     * @description The number of GPU cores.
      *
      * @example 1
      *
@@ -224,7 +245,7 @@ class desktops extends Model
     public $gpuCount;
 
     /**
-     * @description The version of the GPU driver with which the cloud desktop is equipped.
+     * @description The version number of the GPU driver of the cloud desktop.
      *
      * @example null
      *
@@ -233,7 +254,7 @@ class desktops extends Model
     public $gpuDriverVersion;
 
     /**
-     * @description The GPU specifications.
+     * @description The GPU Specifications.
      *
      * @example NVIDIA T4
      *
@@ -242,7 +263,7 @@ class desktops extends Model
     public $gpuSpec;
 
     /**
-     * @description > This parameter is in invitational preview and is not available for use.
+     * @description >  This parameter is in invitational preview and is not publicly available.
      *
      * @example true
      *
@@ -251,7 +272,7 @@ class desktops extends Model
     public $hibernationBeta;
 
     /**
-     * @description > This parameter is in invitational preview and is not available for use.
+     * @description >  This parameter is in invitational preview and is not publicly available.
      *
      * @example true
      *
@@ -269,7 +290,7 @@ class desktops extends Model
     public $hostName;
 
     /**
-     * @description The ID of the image.
+     * @description The image ID.
      *
      * @example m-4zfb6zj728hhr****
      *
@@ -278,8 +299,17 @@ class desktops extends Model
     public $imageId;
 
     /**
-     * @description The flag that is used to manage the cloud desktops.
+     * @description The flag that is used to manage the cloud desktop.
      *
+     * Valid values:
+     *
+     *   Updating: The configurations of the cloud desktop are being updated.
+     *
+     * <!-- -->
+     *
+     *   NoFlag: No flags are available.
+     *
+     * <!-- -->
      * @example NoFlag
      *
      * @var string
@@ -287,7 +317,7 @@ class desktops extends Model
     public $managementFlag;
 
     /**
-     * @description The flag that is used to manage the cloud desktops.
+     * @description The flags that are used to manage the cloud desktops.
      *
      * @var string[]
      */
@@ -303,7 +333,7 @@ class desktops extends Model
     public $memory;
 
     /**
-     * @description The ID of the secondary network interface controller (NIC) created by the RAM user or Active Directory (AD) user in EDS. You do not have the permissions to modify this ID.
+     * @description The ID of the secondary network interface controller (NIC) created by the RAM or Active Directory (AD) user in Elastic Desktop Service (EDS). You do not have permissions to modify this parameter.
      *
      * @example 123456
      *
@@ -312,7 +342,7 @@ class desktops extends Model
     public $networkInterfaceId;
 
     /**
-     * @description The IP address of the secondary NIC that is created by the RAM user or AD user in EDS.
+     * @description The IP address of the secondary NIC that is created by the RAM or AD user in EDS.
      *
      * @example 192.168.74.165
      *
@@ -321,7 +351,7 @@ class desktops extends Model
     public $networkInterfaceIp;
 
     /**
-     * @description The ID of the workspace.
+     * @description The workspace ID.
      *
      * @example cn-hangzhou+dir-363353****
      *
@@ -330,7 +360,7 @@ class desktops extends Model
     public $officeSiteId;
 
     /**
-     * @description The name of the workspace.
+     * @description The workspace name.
      *
      * @example test
      *
@@ -341,6 +371,15 @@ class desktops extends Model
     /**
      * @description The account type of the workspace.
      *
+     * Valid values:
+     *
+     *   SIMPLE: convenience account
+     *
+     * <!-- -->
+     *
+     *   AD_CONNECTOR: enterprise AD account
+     *
+     * <!-- -->
      * @example SIMPLE
      *
      * @var string
@@ -350,6 +389,19 @@ class desktops extends Model
     /**
      * @description The virtual private cloud (VPC) type of the workspace.
      *
+     * Valid values:
+     *
+     *   standard
+     *
+     * <!-- -->
+     *
+     *   customized
+     *
+     * <!-- -->
+     *
+     *   basic
+     *
+     * <!-- -->
      * @example basic
      *
      * @var string
@@ -357,7 +409,7 @@ class desktops extends Model
     public $officeSiteVpcType;
 
     /**
-     * @description The type of the OS.
+     * @description The OS that is defined in the desktop template.
      *
      * @example Windows
      *
@@ -381,7 +433,7 @@ class desktops extends Model
     public $platform;
 
     /**
-     * @description The ID of the policy.
+     * @description The policy ID.
      *
      * @example system-all-enabled-policy
      *
@@ -390,14 +442,14 @@ class desktops extends Model
     public $policyGroupId;
 
     /**
-     * @description The policies IDs.
+     * @description The policy IDs.
      *
      * @var string[]
      */
     public $policyGroupIdList;
 
     /**
-     * @description The name of the policy.
+     * @description The policy name.
      *
      * @example test
      *
@@ -422,8 +474,17 @@ class desktops extends Model
     public $progress;
 
     /**
-     * @description The type of the protocol.
+     * @description The protocol.
      *
+     * Valid values:
+     *
+     *   HDX: High-definition Experience (HDX) protocol
+     *
+     * <!-- -->
+     *
+     *   ASP: Adaptive Streaming Protocol (ASP) developed by Alibaba Cloud
+     *
+     * <!-- -->
      * @example ASP
      *
      * @var string
@@ -431,14 +492,17 @@ class desktops extends Model
     public $protocolType;
 
     /**
-     * @description The session type.
+     * @description The type of the session.
      *
      * Valid values:
      *
-     * **SINGLE_SESSION**
+     *   SINGLE_SESSION
      *
-     * **MULTIPLE_SESSION**
+     * <!-- -->
      *
+     *   MULTIPLE_SESSION
+     *
+     * <!-- -->
      * @example SINGLE_SESSION
      *
      * @var string
@@ -446,7 +510,7 @@ class desktops extends Model
     public $sessionType;
 
     /**
-     * @description Details of the desktop sessions that end users hold.
+     * @description The information about the desktop sessions of end users.
      *
      * @var sessions[]
      */
@@ -471,7 +535,7 @@ class desktops extends Model
     public $snapshotPolicyName;
 
     /**
-     * @description The first time when the cloud desktop was started.
+     * @description The time when the cloud desktop was first started.
      *
      * @example 2020-11-06T08:31Z
      *
@@ -480,7 +544,7 @@ class desktops extends Model
     public $startTime;
 
     /**
-     * @description Indicates whether hibernation is supported for the cloud desktop.
+     * @description Indicates whether the cloud desktop supports hibernation.
      *
      * @example true
      *
@@ -489,7 +553,7 @@ class desktops extends Model
     public $supportHibernation;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable.
+     * @description >  This parameter is in invitational preview and is not publicly available.
      *
      * @example null
      *
@@ -498,7 +562,7 @@ class desktops extends Model
     public $systemDiskCategory;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable.
+     * @description >  This parameter is in invitational preview and is not publicly available.
      *
      * @example 0
      *
@@ -507,7 +571,7 @@ class desktops extends Model
     public $systemDiskSize;
 
     /**
-     * @description Details of the tags.
+     * @description Details about the tags.
      *
      * @var tags[]
      */
@@ -523,7 +587,7 @@ class desktops extends Model
     public $volumeEncryptionEnabled;
 
     /**
-     * @description The ID of the Key Management Service (KMS) key that is used when disk encryption is enabled. You can call the [ListKeys](~~28951~~) operation to obtain a list of KMS keys.
+     * @description The ID of the Key Management Service (KMS) key that is used when disk encryption is enabled. You can call the [ListKeys](~~28951~~) operation to query the list of KMS keys.
      *
      * @example 08c33a6f-4e0a-4a1b-a3fa-7ddfa1d4****
      *
@@ -532,7 +596,7 @@ class desktops extends Model
     public $volumeEncryptionKey;
 
     /**
-     * @description The type of the zone. Default value: **AvailabilityZone**. This value indicates Alibaba Cloud zones.
+     * @description The zone type. Default value: **AvailabilityZone**. This value indicates Alibaba Cloud zones.
      *
      * @example AvailabilityZone
      *

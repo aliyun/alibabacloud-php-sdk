@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyDesktopHostNameRequest extends Model
 {
     /**
-     * @description The cloud desktop ID.
+     * @description The ID of the cloud computer.
      *
      * @example ecd-gx2x1dhsmucyy****
      *
@@ -18,10 +18,10 @@ class ModifyDesktopHostNameRequest extends Model
     public $desktopId;
 
     /**
-     * @description The new hostname of the cloud desktop. The hostname must meet the following requirements:
+     * @description The new hostname of the cloud computer. The hostname must meet the following requirements:
      *
-     *   It must be 2 to 15 characters in length.
-     *   It can contain letters, digits, and hyphens (-). The hostname cannot start or end with a hyphen (-), contain consecutive hyphens (-), or contain only digits.
+     *   The hostname must be 2 to 15 characters in length.
+     *   The hostname can contain only letters, digits, and hyphens (-). The hostname cannot start or end with a hyphen (-), contain consecutive hyphens (-), or contain only digits.
      *
      * @example NewName
      *
@@ -30,7 +30,7 @@ class ModifyDesktopHostNameRequest extends Model
     public $newHostName;
 
     /**
-     * @description The region ID.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

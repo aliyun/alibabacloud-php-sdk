@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SetDesktopGroupTimerStatusRequest extends Model
 {
     /**
-     * @description The ID of the desktop group.
+     * @description The ID of the cloud computer pool.
      *
      * @example dg-fgxsniu6at****
      *
@@ -18,7 +18,7 @@ class SetDesktopGroupTimerStatusRequest extends Model
     public $desktopGroupId;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -29,6 +29,13 @@ class SetDesktopGroupTimerStatusRequest extends Model
     /**
      * @description The status of the scheduled task.
      *
+     * Valid values:
+     *
+     *   1: enabled
+     *   2: disabled
+     *   3: deleted
+     *   100: unknown
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +44,13 @@ class SetDesktopGroupTimerStatusRequest extends Model
 
     /**
      * @description The type of the scheduled task.
+     *
+     * Valid values:
+     *
+     *   1: scheduled reset
+     *   2: scheduled startup
+     *   3: scheduled stop
+     *   4: scheduled restart
      *
      * @example 1
      *

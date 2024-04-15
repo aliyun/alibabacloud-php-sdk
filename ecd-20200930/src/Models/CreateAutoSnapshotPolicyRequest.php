@@ -18,7 +18,7 @@ class CreateAutoSnapshotPolicyRequest extends Model
     public $cronExpression;
 
     /**
-     * @description The name of the automatic snapshot policy.
+     * @description The name of the automatic snapshot policy. The name must be 2 to 128 characters in length. The name must start with a letter but cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-). This parameter is empty by default.
      *
      * @example test_auto_policy
      *
@@ -27,7 +27,7 @@ class CreateAutoSnapshotPolicyRequest extends Model
     public $policyName;
 
     /**
-     * @description The ID of the region where the automatic snapshot policy is created. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -36,10 +36,7 @@ class CreateAutoSnapshotPolicyRequest extends Model
     public $regionId;
 
     /**
-     * @description The retention period of automatic snapshots. Unit: days. Valid values:
-     *
-     *   \-1: Automatic snapshots are retained until they are deleted.
-     *   1 to 65536: Automatic snapshots are retained for the specified number of days.
+     * @description The retention period of the automatic snapshots. Unit: days. Valid values: 1 to 180.
      *
      * @example 30
      *

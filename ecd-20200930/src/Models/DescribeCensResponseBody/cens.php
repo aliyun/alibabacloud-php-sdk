@@ -38,12 +38,13 @@ class cens extends Model
     public $description;
 
     /**
-     * @description Indicates whether IPv6 is supported. A value of DISABLED indicates that IPv6 is not supported.
+     * @description The IPv6 level.
      *
-     **
+     * Valid value:
      *
-     **Description** IPv6 is not supported.
+     *   DISABLED
      *
+     * <!-- -->
      * @example DISABLED
      *
      * @var string
@@ -60,14 +61,18 @@ class cens extends Model
     public $name;
 
     /**
-     * @description The IDs of the bandwidth plans that are associated with the CEN instance.
+     * @description The bandwidth plans that are bound to the CEN instance.
      *
      * @var packageIds[]
      */
     public $packageIds;
 
     /**
-     * @description The level of CIDR block overlapping. If REDUCED returns, the CIDR blocks can overlap with each other but must not be the same.
+     * @description The tolerated level of CIDR block conflict.
+     *
+     * Valid value:
+     *
+     *   REDUCED: CIDR block conflicts are allowed, but the conflicting CIDR blocks cannot be identical.
      *
      * @example REDUCED
      *
@@ -76,12 +81,21 @@ class cens extends Model
     public $protectionLevel;
 
     /**
-     * @description The status of the CEN instance. Valid values:
+     * @description The status of the CEN instance.
+     *
+     * Valid values:
      *
      *   Creating
+     *
+     * <!-- -->
+     *
      *   Active
+     *
+     * <!-- -->
+     *
      *   Deleting
      *
+     * <!-- -->
      * @example Active
      *
      * @var string

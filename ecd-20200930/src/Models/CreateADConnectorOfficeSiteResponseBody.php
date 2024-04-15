@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateADConnectorOfficeSiteResponseBody extends Model
 {
     /**
-     * @description The ID of the workspace.
+     * @description The office network ID.
      *
      * @example cn-hangzhou+dir-363353****
      *

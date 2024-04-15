@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tagResources extends Model
 {
     /**
-     * @description The resource ID, namely the cloud desktop ID.
+     * @description The resource ID, which is the cloud computer ID.
      *
      * @example ecd-ia2zw38bi6cm7****
      *
@@ -18,7 +18,11 @@ class tagResources extends Model
     public $resourceId;
 
     /**
-     * @description The resource type. Valid value: ALIYUN::GWS::INSTANCE.
+     * @description The type of the resource.
+     *
+     * Valid values:
+     *
+     * ALIYUN::GWS::INSTANCE: cloud computer.
      *
      * @example ALIYUN::GWS::INSTANCE
      *
@@ -27,7 +31,7 @@ class tagResources extends Model
     public $resourceType;
 
     /**
-     * @description The tag key.
+     * @description The tag keys.
      *
      * @example TestKey
      *
@@ -36,7 +40,7 @@ class tagResources extends Model
     public $tagKey;
 
     /**
-     * @description The tag value.
+     * @description The tag values.
      *
      * @example TestValue
      *

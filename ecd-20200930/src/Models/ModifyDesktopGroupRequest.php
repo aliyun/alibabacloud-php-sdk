@@ -9,10 +9,12 @@ use AlibabaCloud\Tea\Model;
 class ModifyDesktopGroupRequest extends Model
 {
     /**
-     * @description Specifies whether to automatically create cloud desktops in the desktop group if you set the billing method to subscription. If you set the ChargeType parameter to PrePaid, this parameter is required. Valid values:
+     * @description Specifies whether cloud computers can be automatically created in the subscription cloud computer pool. This parameter takes effect and is required only if you set `ChargeType` to `PrePaid`.
      *
-     *   0: does not create cloud desktops in the desktop group.
-     *   1: creates cloud desktops in the desktop group.
+     * Valid values:
+     *
+     *   0: false
+     *   1: true
      *
      * @example 1
      *
@@ -21,8 +23,12 @@ class ModifyDesktopGroupRequest extends Model
     public $allowAutoSetup;
 
     /**
-     * @description Specifies whether to reserve cloud desktops if you set the billing method to pay-as-you-go. If you set the ChargeType parameter to PostPaid, this parameter is required. Valid values: 0: does not reserve cloud desktops. N: reserves N cloud desktops. Valid values of N: 1 to the value of the MaxDesktopsCount parameter.
+     * @description The number of cloud computers that can be reserved in the pay-as-you-go cloud computer pool. This parameter takes effect and is required only if you set `ChargeType` to `PostPaid`. Valid values:
      *
+     *   0: does not allow the system to reserve cloud computers.
+     *   N: allows the system to reserve N cloud computers (1≤ N ≤ 100).
+     *
+     * >  If you set this parameter to 0, the system must create and start cloud computers and then assign the cloud computers to end users when the end users request cloud computers. This process is time-consuming. To improve user experience, we recommend that you reserve a specific number of cloud computers.
      * @example 1
      *
      * @var int
@@ -30,8 +36,9 @@ class ModifyDesktopGroupRequest extends Model
     public $allowBufferCount;
 
     /**
-     * @description The maximum number of sessions per cloud desktop in the multi-session desktop group.
+     * @description The number of concurrent sessions that is allowed for each cloud computer in a multi-session cloud computer pool.
      *
+     * >  This parameter is unavailable.
      * @example 1
      *
      * @var int
@@ -39,7 +46,8 @@ class ModifyDesktopGroupRequest extends Model
     public $bindAmount;
 
     /**
-     * @description The number of cloud desktops to purchase. Valid values: 0 to 200.
+     * @description *   This parameter has different meanings based on the billing method of the cloud computer pool. For a subscription pool, this parameter specifies the number of cloud computers to purchase in the pool. Valid values: 0 to 200.
+     *   For a pay-as-you-go pool, this parameter specifies the minimum number of cloud computers to create in the pool. Default value: 1. Valid values: 0 to `MaxDesktopsCount`.
      *
      * @example 5
      *
@@ -48,8 +56,17 @@ class ModifyDesktopGroupRequest extends Model
     public $buyDesktopsCount;
 
     /**
-     * @description The classification of the cloud desktop pool.
+     * @description The role that uses the cloud computer pool.
      *
+     * Valid values:
+     *
+     *   teacher
+     *
+     * <!-- -->
+     *
+     *   student
+     *
+     * <!-- -->
      * @example teacher
      *
      * @var string
@@ -57,7 +74,7 @@ class ModifyDesktopGroupRequest extends Model
     public $classify;
 
     /**
-     * @description The remarks on the desktop group.
+     * @description The remarks.
      *
      * @example test
      *
@@ -66,7 +83,7 @@ class ModifyDesktopGroupRequest extends Model
     public $comments;
 
     /**
-     * @description The maximum duration of the session. Unit: milliseconds.
+     * @description The maximum period of time during which the session is connected. When the specified maximum period of time is reached, the session is automatically disconnected. Unit: milliseconds. Valid values: 900000 to 345600000. That is, the session can be connected for 15 to 5,760 minutes (4 days).
      *
      * @example 600000
      *
@@ -75,7 +92,7 @@ class ModifyDesktopGroupRequest extends Model
     public $connectDuration;
 
     /**
-     * @description The ID of the desktop group.
+     * @description The ID of the cloud computer pool.
      *
      * @example dg-2i8qxpv6t1a03****
      *
@@ -84,7 +101,7 @@ class ModifyDesktopGroupRequest extends Model
     public $desktopGroupId;
 
     /**
-     * @description The name of the desktop group.
+     * @description The name of the cloud computer pool.
      *
      * @example desktopGroupName1
      *
@@ -102,8 +119,9 @@ class ModifyDesktopGroupRequest extends Model
     public $disableSessionConfig;
 
     /**
-     * @description The ID of the Apsara File Storage NAS (NAS) file system.
+     * @description The ID of the Apsara File Storage NAS (NAS) file system for the user data roaming feature.
      *
+     * >  This parameter is unavailable.
      * @example 04f314****
      *
      * @var string
@@ -111,8 +129,9 @@ class ModifyDesktopGroupRequest extends Model
     public $fileSystemId;
 
     /**
-     * @description The maximum duration of the idle session. Unit: milliseconds.
+     * @description After an end user connects to a cloud computer, the session is established. If the system does not detect inputs from the keyboard or mouse within the specified period of time, the session is closed. Unit: milliseconds. Valid values: 360000 to 3600000 (6 minutes to 60 minutes)
      *
+     * >  This parameter is suitable only for cloud computers whose image version is v1.0.2 or later.
      * @example 120000
      *
      * @var int
@@ -129,8 +148,9 @@ class ModifyDesktopGroupRequest extends Model
     public $imageId;
 
     /**
-     * @description The retention period of cloud desktops in the desktop group after end users disconnect from the desktops. Unit: ms.
+     * @description The retention period of a session after it is disconnected. Unit: milliseconds. Valid values: 180000 to 345600000. That is, the session can be retained for 3 to 5,760 minutes (4 days) after it is disconnected. If you set this parameter to 0, the session is permanently retained after it is disconnected.
      *
+     * When a session is disconnected, take note of the following situations: If an end user does not resume the session within the specified duration, the session is closed and all unsaved data is cleared. If the end user resumes the session within the specified duration, the end user can continue to access data of the session.
      * @example 1000
      *
      * @var int
@@ -138,7 +158,12 @@ class ModifyDesktopGroupRequest extends Model
     public $keepDuration;
 
     /**
-     * @description The load balancing policy of the multi-session desktop group.
+     * @description The load balancing policy of the multi-session cloud computer pool.
+     *
+     * Valid values:
+     *
+     *   0: depth-first
+     *   1: breadth-first
      *
      * @example 0
      *
@@ -147,7 +172,7 @@ class ModifyDesktopGroupRequest extends Model
     public $loadPolicy;
 
     /**
-     * @description The maximum number of cloud desktops that the desktop group can contain. Valid values: 0 to 200.
+     * @description The maximum number of cloud computers that can be housed in the pay-as-you-go cloud computer pool. Valid values: 0 to 500.
      *
      * @example 10
      *
@@ -156,7 +181,7 @@ class ModifyDesktopGroupRequest extends Model
     public $maxDesktopsCount;
 
     /**
-     * @description The minimum number of cloud desktops that must be contained in the desktop group if you set the billing method to subscription. If you set the ChargeType parameter to PrePaid, this parameter is required. Valid values: 0 to the value of MaxDesktopsCount. Default value: 1.
+     * @description The maximum number of cloud computers that can be automatically created in the subscription cloud computer pool. This parameter takes effect and is required only if you set `ChargeType` to `PrePaid`. Default value: 1. Valid values: 0 to `MaxDesktopsCount`.
      *
      * @example 1
      *
@@ -165,7 +190,7 @@ class ModifyDesktopGroupRequest extends Model
     public $minDesktopsCount;
 
     /**
-     * @description The ID of the cloud desktop template.
+     * @description The ID of the cloud computer template.
      *
      * @example b-7t275tpgjueeu****
      *
@@ -190,8 +215,9 @@ class ModifyDesktopGroupRequest extends Model
     public $policyGroupIds;
 
     /**
-     * @description Specifies whether to enable data roaming.
+     * @description Specifies whether to enable user data roaming.
      *
+     * >  This parameter is unavailable.
      * @example false
      *
      * @var bool
@@ -199,8 +225,9 @@ class ModifyDesktopGroupRequest extends Model
     public $profileFollowSwitch;
 
     /**
-     * @description The session usage threshold for the multi-session desktop group that has an auto scaling policy in effect.
+     * @description The threshold for the ratio of connected sessions. This parameter indicates the condition that triggers auto scaling in a multi-session cloud computer pool. The ratio of connected sessions IS calculated by using the following formula:
      *
+     * >  This parameter is unavailable.
      * @example 0.5
      *
      * @var float
@@ -208,7 +235,7 @@ class ModifyDesktopGroupRequest extends Model
     public $ratioThreshold;
 
     /**
-     * @description The region ID of the desktop group.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the regions supported by WUYING Workspace.
      *
      * @example cn-hangzhou
      *
@@ -217,7 +244,17 @@ class ModifyDesktopGroupRequest extends Model
     public $regionId;
 
     /**
-     * @description Specifies which type of disk to reset for cloud desktops in the desktop group.
+     * @description The disk reset type of cloud computers.
+     *
+     * Valid values:
+     *
+     *   0: does not reset disks.
+     *
+     *   1: resets only the system disks.
+     *
+     *   2: resets only the user disks.
+     *
+     *   3: resets the system disks and user disks.
      *
      * @example 0
      *
@@ -236,7 +273,7 @@ class ModifyDesktopGroupRequest extends Model
     public $scaleStrategyId;
 
     /**
-     * @description The duration before an idle cloud desktop is stopped. Unit: milliseconds.
+     * @description The period of time before the idle cloud computer enters the Stopped state. When the specified period of time is reached, the cloud computer is automatically stopped. If an end user connects to the stopped cloud computer, the cloud computer automatically starts. Unit: milliseconds.
      *
      * @example 180000
      *

@@ -41,7 +41,7 @@ class AddUserToDesktopGroupRequest extends Model
     public $endUserIds;
 
     /**
-     * @description The ID of the region
+     * @description The ID of the region.
      *
      * @example cn-hangzhou
      *

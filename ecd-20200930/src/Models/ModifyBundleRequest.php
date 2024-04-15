@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyBundleRequest extends Model
 {
     /**
-     * @description The desktop template ID.
+     * @description The ID of the cloud computer template that you want to modify.
      *
      * @example b-2g65ljy4291vl****
      *
@@ -18,7 +18,7 @@ class ModifyBundleRequest extends Model
     public $bundleId;
 
     /**
-     * @description The name of the new desktop template.
+     * @description The name of the new cloud computer template.
      *
      * @example newName
      *
@@ -27,7 +27,7 @@ class ModifyBundleRequest extends Model
     public $bundleName;
 
     /**
-     * @description The description of the new desktop template.
+     * @description The description of the new cloud computer template.
      *
      * @example newDescription
      *
@@ -50,11 +50,14 @@ class ModifyBundleRequest extends Model
     public $imageId;
 
     /**
-     * @description The language of the OS. This parameter is available only for system images. Valid values:
+     * @description The OS language. This parameter is available only for system images.
      *
-     *   zh-CN: Simplified Chinese
+     * Valid values:
+     *
+     *   en-US: American English
      *   zh-HK: Traditional Chinese (Hong Kong)
-     *   en-US: English
+     *   zh-CN: Simplified Chinese.
+     *
      *   ja-JP: Japanese
      *
      * @example zh-CN
@@ -64,7 +67,7 @@ class ModifyBundleRequest extends Model
     public $language;
 
     /**
-     * @description The region ID.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

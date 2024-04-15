@@ -9,8 +9,25 @@ use AlibabaCloud\Tea\Model;
 class disks extends Model
 {
     /**
-     * @description The performance level (PL) of the disk.
+     * @description The PL of the disk.
      *
+     * Valid values:
+     *
+     *   PL1
+     *
+     * <!-- -->
+     *
+     *   PL0
+     *
+     * <!-- -->
+     *
+     *   PL3
+     *
+     * <!-- -->
+     *
+     *   PL2
+     *
+     * <!-- -->
      * @example PL0
      *
      * @var string
@@ -27,11 +44,17 @@ class disks extends Model
     public $diskSize;
 
     /**
-     * @description The disk type. Valid values:
+     * @description The type of the disk.
      *
-     *   SYSTEM: the system disk
-     *   DATA: the data disk
+     * Valid values:
      *
+     *   SYSTEM: system disk
+     *
+     * <!-- -->
+     *
+     *   DATA: data disk
+     *
+     * <!-- -->
      * @example SYSTEM
      *
      * @var string

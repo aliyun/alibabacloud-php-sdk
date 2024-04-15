@@ -18,7 +18,18 @@ class ExportDesktopGroupInfoResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The download URL of the exported file that contains the monitoring data of sessions in the desktop group.
+     * @description The URL from which you can download the exported cloud computer pools. The details of the cloud computer pools include:
+     *
+     *   IDs and names of the cloud computer pools
+     *   IDs and names of the office networks
+     *   Cloud computer pool templates
+     *   Number of CPU cores and memory size
+     *   System disks and data disks
+     *   Names of security policies
+     *   Number of current authorized users
+     *   Billing methods
+     *   The time when the cloud computer pools were created
+     *   The time when the cloud computer pools expire
      *
      * @example https://cn-hangzhou-servicemanager.oss-cn-hangzhou.aliyuncs.com/A0_DESKTOP/EDS_CloudDesktopGroups_202203********_xBjqdCT***.xlsx?*********
      *

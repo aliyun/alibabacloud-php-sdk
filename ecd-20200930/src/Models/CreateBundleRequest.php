@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateBundleRequest extends Model
 {
     /**
-     * @description The name of the desktop template.
+     * @description The name of the cloud computer template.
      *
      * @example testBundleName
      *
@@ -18,7 +18,7 @@ class CreateBundleRequest extends Model
     public $bundleName;
 
     /**
-     * @description The description of the desktop template.
+     * @description The description of the cloud computer template.
      *
      * @example test
      *
@@ -27,9 +27,9 @@ class CreateBundleRequest extends Model
     public $description;
 
     /**
-     * @description The type of the cloud desktop. You can call the DescribeBundles operation to query the cloud desktop templates and obtain the supported desktop type from the value of the DesktopType parameter.
+     * @description The instance type of the cloud computers. You can call the [DescribeBundles](~~436974~~) operation to query cloud computer templates and obtain the instance types supported by the cloud computers from the `DesktopType` response parameter.
      *
-     * >  You can select GPU-accelerated desktop types only when you use GPU-accelerated images.
+     * >  If you want the template to use a non-GPU-accelerated image, you can only select a non-GPU-accelerated instance type. If you want the template to use a GPU-accelerated image, you can only select a GPU-accelerated instance type.
      * @example ecd.basic.large
      *
      * @var string
@@ -46,11 +46,11 @@ class CreateBundleRequest extends Model
     public $imageId;
 
     /**
-     * @description The language of the OS. This parameter is available only for system images. Valid values:
+     * @description The OS language. This parameter is available only for system images. Valid values:
      *
      *   zh-CN: Simplified Chinese
      *   zh-HK: Traditional Chinese (Hong Kong)
-     *   en-US: English
+     *   en-US: American English
      *   ja-JP: Japanese
      *
      * @example zh-CN
@@ -60,7 +60,7 @@ class CreateBundleRequest extends Model
     public $language;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -69,14 +69,25 @@ class CreateBundleRequest extends Model
     public $regionId;
 
     /**
-     * @description The performance level (PL) of the system disk. If the cloud desktop type is Graphics or High Frequency, you can set the PL of the system disk. Valid values:
+     * @description The performance level (PL) of the system disk. When the cloud computer instance type that is specified by the DesktopType parameter is set to a graphical instance type or instance type with a high clock speed, you can set the performance level of the disks. For more information about the differences among disks at different PLs, see [Enhanced SSDs](~~122389~~).
+     *
+     * Valid values:
+     *
+     *   PL1
+     *
+     * <!-- -->
      *
      *   PL0
-     *   PL1
-     *   PL2
+     *
+     * <!-- -->
+     *
      *   PL3
      *
-     * For more information about the differences between disks at different PLs, see [Enhanced SSDs](~~122389~~).
+     * <!-- -->
+     *
+     *   PL2
+     *
+     * <!-- -->
      * @example PL1
      *
      * @var string
@@ -84,9 +95,8 @@ class CreateBundleRequest extends Model
     public $rootDiskPerformanceLevel;
 
     /**
-     * @description The size of the system disk. Unit: GiB.
+     * @description The size of the system disk. Unit: GiB. The value of this parameter must be consistent with the system disk size supported by the cloud computer instance type. For more information, see [Overview](~~188609~~).
      *
-     * The value of this parameter must be consistent with the system disk size supported by the cloud desktop type. For more information, see [Cloud desktop types](~~188609~~).
      * @example 80
      *
      * @var int
@@ -94,14 +104,25 @@ class CreateBundleRequest extends Model
     public $rootDiskSizeGib;
 
     /**
-     * @description The PL of the data disk. If the cloud desktop type is Graphics or High Frequency, you can set the PL of the data disk. Valid values:
+     * @description The PL of the data disk. When the cloud computer instance type that is specified by the DesktopType parameter is set to a graphical instance type or instance type with a high clock speed, you can set the performance level of the disks. For more information about the differences among disks at different PLs, see [Enhanced SSDs](~~122389~~).
+     *
+     * Valid values:
+     *
+     *   PL1
+     *
+     * <!-- -->
      *
      *   PL0
-     *   PL1
-     *   PL2
+     *
+     * <!-- -->
+     *
      *   PL3
      *
-     * For more information about the differences between disks at different PLs, see [Enhanced SSDs](~~122389~~).
+     * <!-- -->
+     *
+     *   PL2
+     *
+     * <!-- -->
      * @example PL1
      *
      * @var string
@@ -109,6 +130,8 @@ class CreateBundleRequest extends Model
     public $userDiskPerformanceLevel;
 
     /**
+     * @description The data disk sizes. You can configure only one data disk.
+     *
      * @example 70
      *
      * @var int[]

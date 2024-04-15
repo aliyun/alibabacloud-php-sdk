@@ -9,10 +9,12 @@ use AlibabaCloud\Tea\Model;
 class aclEntries extends Model
 {
     /**
-     * @description The ACL policy.
+     * @description The ACL type.
      *
-     *   **allow**: allows access.
-     *   **drop**: denies access.
+     * Valid values:
+     *
+     *   allow: whitelist
+     *   disable: blacklist
      *
      * @example allow
      *
@@ -21,7 +23,7 @@ class aclEntries extends Model
     public $policy;
 
     /**
-     * @description The ID of the instance corresponding to the ACL.
+     * @description The ID of the instance to which the ACL applies, such as an office network ID or a cloud computer ID.
      *
      * @example ecd-fsafeweh***
      *
@@ -30,10 +32,12 @@ class aclEntries extends Model
     public $sourceId;
 
     /**
-     * @description The object on which the ACL takes effect.
+     * @description The granularity of the ACL.
      *
-     *   **vpc**: workspace.
-     *   **desktop**: cloud desktop.
+     * Valid values:
+     *
+     *   desktop: cloud computer
+     *   vpc: office network
      *
      * @example desktop
      *

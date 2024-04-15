@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteVirtualMFADeviceRequest extends Model
 {
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -20,7 +20,7 @@ class DeleteVirtualMFADeviceRequest extends Model
     /**
      * @description The serial number of the virtual MFA device, which is a unique identifier.
      *
-     * You can call the [DescribeVirtualMFADevices](~~206210~~) operation to query the serial number of the virtual MFA device bound to AD users.
+     * You can call the [DescribeVirtualMFADevices](~~206210~~) operation to query the serial number of the virtual MFA device that is bound by AD users.
      * @example a25f297f-f2e1-4a44-bbf1-5f48a6e5****
      *
      * @var string

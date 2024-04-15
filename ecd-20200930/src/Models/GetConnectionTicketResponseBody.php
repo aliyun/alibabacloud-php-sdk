@@ -18,7 +18,7 @@ class GetConnectionTicketResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the desktop connection task.
+     * @description The ID of the cloud computer connection task.
      *
      * @example 2afbad19-778a-4fc5-9674-1f19c638****
      *
@@ -27,21 +27,21 @@ class GetConnectionTicketResponseBody extends Model
     public $taskId;
 
     /**
-     * @description The status of the task.
+     * @description The task status.
      *
      * Valid values:
      *
-     *   FAILED
+     *   FAILED: The credential fails to be obtained.
      *
-     * .
+     * <!-- -->
      *
-     *   RUNNING
+     *   RUNNING: The credential is being obtained.
      *
-     * .
+     * <!-- -->
      *
-     *   FINISHED
+     *   FINISHED: The credential is obtained.
      *
-     * .
+     * <!-- -->
      * @example FINISHED
      *
      * @var string
@@ -49,8 +49,11 @@ class GetConnectionTicketResponseBody extends Model
     public $taskStatus;
 
     /**
-     * @description The credentials that are used to connect to the cloud desktop. To use the credentials, you must decode the credentials in Base64, save the credentials as a xxx.ica file, and then open the file. Sample Python code:
+     * @description The credential that is returned to connect to the cloud computer. Before you use the credential, you must Base64 decode the content of the credential, save the credential as an xxx.ica file, and then open the file. Python sample code:
      *
+     * response = {
+     * "Ticket": "W0VuY29kaW5nXQ0KSW5wdXRFbmNvZGluZz1V********",
+     * "RequestId": "1CBAFFAB-B697-4049-A9B1-67E1FC5F****",
      * f.close()
      * @example W0VuY29kaW5nXQ0KSW5wdXRFbmNvZGluZz1V********
      *

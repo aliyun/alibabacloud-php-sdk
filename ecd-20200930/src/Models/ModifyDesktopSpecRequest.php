@@ -9,12 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ModifyDesktopSpecRequest extends Model
 {
     /**
-     * @description Specifies whether to automatically complete the payment. Valid values:
+     * @description Specifies whether to enable the auto-payment feature.
      *
-     *   `true`: automatically completes the payment. Make sure that your Alibaba Cloud account has sufficient balance. If your Alibaba Cloud account does not have sufficient balance, abnormal orders are generated.
-     *   `false`: does not automatically complete the payment. In this case, an order is generated, but no payment is made. You can log on to the EDS console and complete the payment based on the order ID on the **Orders** page.
+     * Default value: true. Valid values:
      *
-     * Default value: `true`.
+     *   true: enables the auto-payment feature.
+     *
+     * <!-- -->
+     *
+     *   false: disables the auto-payment feature. In this case, an order is generated, and no payment is automatically made.
+     *
+     * <!-- -->
      * @example false
      *
      * @var bool
@@ -22,7 +27,7 @@ class ModifyDesktopSpecRequest extends Model
     public $autoPay;
 
     /**
-     * @description The ID of the cloud desktop.
+     * @description The ID of a cloud computer.
      *
      * @example ecd-4543qyik164a4****
      *
@@ -31,7 +36,7 @@ class ModifyDesktopSpecRequest extends Model
     public $desktopId;
 
     /**
-     * @description The desktop type. You can call the [DescribeDesktopTypes](~~188882~~) operation to query the IDs of supported desktop types.
+     * @description The destination instance type. You can call the [DescribeDesktopTypes](~~188882~~) operation to query the instance types supported by cloud computers.
      *
      * @example eds.general.2c8g
      *
@@ -40,7 +45,7 @@ class ModifyDesktopSpecRequest extends Model
     public $desktopType;
 
     /**
-     * @description The ID of the sales promotion.
+     * @description The ID of the promotional activity.
      *
      * @example 500033080110596
      *
@@ -49,7 +54,7 @@ class ModifyDesktopSpecRequest extends Model
     public $promotionId;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -67,14 +72,25 @@ class ModifyDesktopSpecRequest extends Model
     public $rootDiskSizeGib;
 
     /**
-     * @description The performance level (PL) of the data disk. Valid values:
+     * @description The performance level (PL) of the data disk. Default value: PL0.
+     *
+     * Valid values:
+     *
+     *   PL1
+     *
+     * <!-- -->
      *
      *   PL0
-     *   PL1
-     *   PL2
+     *
+     * <!-- -->
+     *
      *   PL3
      *
-     * Default value: PL0.
+     * <!-- -->
+     *
+     *   PL2
+     *
+     * <!-- -->
      * @example PL0
      *
      * @var string
@@ -82,10 +98,10 @@ class ModifyDesktopSpecRequest extends Model
     public $userDiskPerformanceLevel;
 
     /**
-     * @description The size of the new data disk. Unit: GiB.
+     * @description The destination data disk size. Unit: GiB.
      *
-     *   The data disk size of a non-Graphics cloud desktop can be within the range of 20 to 1,020 GiB. The value must be a multiple of 10.
-     *   The data disk size of the Graphics cloud desktop can be within the range of 40 to 1,020 GiB. The value must be a multiple of 10.
+     *   The data disk size of a non-graphical cloud computer ranges from 20 to 1020 GiB and must be a multiple of 10.
+     *   The data disk size of a graphical cloud computer ranges from 40 to 1020 GiB and must be a multiple of 10.
      *
      * @example 100
      *

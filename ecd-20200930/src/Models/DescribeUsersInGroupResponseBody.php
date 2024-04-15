@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeUsersInGroupResponseBody extends Model
 {
     /**
-     * @description Details about the end users.
+     * @description The list of authorized users.
      *
      * @var endUsers[]
      */
@@ -26,7 +26,7 @@ class DescribeUsersInGroupResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The number of authorized users that are connecting to cloud desktops.
+     * @description The total number of authorized users that is connected to cloud computers in the cloud computer pool.
      *
      * @example 0
      *
@@ -44,7 +44,7 @@ class DescribeUsersInGroupResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of authorized users of the desktop group.
+     * @description The total number of authorized users of the cloud computer pool.
      *
      * @example 1
      *

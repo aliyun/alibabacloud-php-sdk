@@ -18,7 +18,7 @@ class CreateSnapshotRequest extends Model
     public $description;
 
     /**
-     * @description The ID of the cloud desktop.
+     * @description The ID of the cloud computer.
      *
      * @example ecd-gx2x1dhsmucyy****"
      *
@@ -27,7 +27,7 @@ class CreateSnapshotRequest extends Model
     public $desktopId;
 
     /**
-     * @description The region ID.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -36,8 +36,8 @@ class CreateSnapshotRequest extends Model
     public $regionId;
 
     /**
-     * @description The name of the snapshot. The name must be 2 to 128 characters in length.\
-     * The name cannot start with auto because snapshots whose names start with auto are recognized as automatic snapshots.
+     * @description The name of the snapshot. The name must be 2 to 127 characters in length. The name must start with a letter. The name can contain letters, digits, underscores (\_), and hyphens (-). The name cannot start with `auto` because snapshots whose names start with auto are recognized as automatic snapshots.
+     *
      * @example testSnapshotName
      *
      * @var string
@@ -45,11 +45,17 @@ class CreateSnapshotRequest extends Model
     public $snapshotName;
 
     /**
-     * @description The type of the disk for which to create a snapshot. Valid values:
+     * @description The type of the disk for which you want to create a snapshot.
+     *
+     * Valid values:
      *
      *   system: system disk
+     *
+     * <!-- -->
+     *
      *   data: data disk
      *
+     * <!-- -->
      * @example system
      *
      * @var string

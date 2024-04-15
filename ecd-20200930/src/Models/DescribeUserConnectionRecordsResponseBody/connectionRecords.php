@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class connectionRecords extends Model
 {
     /**
-     * @description The duration of the desktop connection. Unit: seconds.
+     * @description The duration for which the end user is connected to the cloud computer. Unit: seconds.
      *
      * @example 3405035000
      *
@@ -18,7 +18,7 @@ class connectionRecords extends Model
     public $connectDuration;
 
     /**
-     * @description The time when the cloud desktop was disconnected.
+     * @description The time when the end user disconnected from the cloud computer.
      *
      * @example 2022-02-27T20:03:13Z
      *
@@ -27,7 +27,7 @@ class connectionRecords extends Model
     public $connectEndTime;
 
     /**
-     * @description The time when the cloud desktop was connected.
+     * @description The time when the end user connected to the cloud computer.
      *
      * @example 2022-01-19T10:12:38Z
      *
@@ -45,7 +45,7 @@ class connectionRecords extends Model
     public $connectionRecordId;
 
     /**
-     * @description The ID of the cloud desktop that is connected.
+     * @description The ID of the cloud computer to which the end user connected.
      *
      * @example ud-2hawufy3uedi1****
      *
@@ -54,7 +54,7 @@ class connectionRecords extends Model
     public $desktopId;
 
     /**
-     * @description The name of the cloud desktop that is connected.
+     * @description The name of the cloud computer to which the end user connected.
      *
      * @example testName
      *

@@ -18,7 +18,7 @@ class userCommands extends Model
     public $content;
 
     /**
-     * @description The encoding mode of the command content (CommandContent).
+     * @description The encoding mode of the command content.
      *
      * Valid values:
      *
@@ -36,19 +36,19 @@ class userCommands extends Model
     public $contentEncoding;
 
     /**
-     * @description The command language.
+     * @description The language type of the command.
      *
      * Valid values:
      *
-     *   RunPowerShellScript: PowerShell command (applicable to Windows cloud desktops).
+     *   RunPowerShellScript: PowerShell commands (applicable to Windows cloud computers).
      *
      * <!-- -->
      *
-     *   RunShellScript: shell command (applicable to Linux cloud desktops).
+     *   RunShellScript: shell commands (applicable to Linux cloud computers).
      *
      * <!-- -->
      *
-     *   RunBatScript: batch command (applicable to Windows cloud desktops).
+     *   RunBatScript: batch commands (applicable to Windows cloud computers).
      *
      * <!-- -->
      * @example RunPowerShellScript

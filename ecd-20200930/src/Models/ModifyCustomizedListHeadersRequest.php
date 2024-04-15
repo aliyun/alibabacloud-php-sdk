@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyCustomizedListHeadersRequest extends Model
 {
     /**
-     * @description The header of the response.
+     * @description The headers.
      *
      * @var headers[]
      */
@@ -19,6 +19,11 @@ class ModifyCustomizedListHeadersRequest extends Model
     /**
      * @description The type of the list.
      *
+     * Valid values:
+     *
+     *   desktop: cloud computer
+     *
+     * <!-- -->
      * @example desktop
      *
      * @var string
@@ -26,7 +31,7 @@ class ModifyCustomizedListHeadersRequest extends Model
     public $listType;
 
     /**
-     * @description The region ID.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

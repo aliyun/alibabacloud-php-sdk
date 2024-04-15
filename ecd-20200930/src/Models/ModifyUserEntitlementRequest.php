@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyUserEntitlementRequest extends Model
 {
     /**
-     * @description The IDs of the cloud desktops on which you want to grant permissions to users.
+     * @description The IDs of the cloud computers to which you want to add end users.
      *
      * @var string[]
      */
@@ -23,7 +23,7 @@ class ModifyUserEntitlementRequest extends Model
     public $endUserId;
 
     /**
-     * @description The region ID.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -32,7 +32,7 @@ class ModifyUserEntitlementRequest extends Model
     public $regionId;
 
     /**
-     * @description The IDs of the cloud desktops on which you want to revoke permissions from users.
+     * @description The IDs of the cloud computers whose end users you want to remove.
      *
      * @var string[]
      */

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class sessions extends Model
 {
     /**
+     * @description The ID of the end user that connects to the cloud computer.
+     *
+     * @example end user id
+     *
      * @var string
      */
     public $endUserId;

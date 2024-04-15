@@ -49,13 +49,9 @@ class DescribeDesktopGroupSessionsRequest extends Model
      *
      * Valid values:
      *
-     *   0
+     *   0: single-session
+     *   1: multi-session
      *
-     * <!-- -->
-     *
-     *   1
-     *
-     * <!-- -->
      * @example 1
      *
      * @var int

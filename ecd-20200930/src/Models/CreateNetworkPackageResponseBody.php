@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateNetworkPackageResponseBody extends Model
 {
     /**
-     * @description The ID of the Internet access package.
+     * @description The ID of the premium bandwidth plan.
      *
      * @example np-amtp8e8q1o9e4****
      *

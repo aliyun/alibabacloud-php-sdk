@@ -18,7 +18,7 @@ class ExportDesktopListInfoResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The URL from which you can download the file that contains information about exported cloud desktops.
+     * @description The URL of the exported file of the cloud computer list.
      *
      * @example https://cn-hangzhou-servicemanager.oss-cn-hangzhou.aliyuncs.com/A0_DESKTOP/EDS_CloudDesktops%20List_2022**********_w3fq******.csv?**********
      *

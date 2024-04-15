@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteDirectoriesRequest extends Model
 {
     /**
-     * @description The IDs of directories.
+     * @description The directory IDs. You can specify one or more directory IDs.
      *
      * @example cn-hangzhou+dir-gx2x1dhsmu52rd****
      *
@@ -18,7 +18,7 @@ class DeleteDirectoriesRequest extends Model
     public $directoryId;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CancelCopyImageRequest extends Model
 {
     /**
-     * @description The ID of the image that is being copied.
+     * @description The ID of the new image in the destination region.
      *
      * @example m-gx2x1dhsmusr2****
      *
@@ -18,7 +18,7 @@ class CancelCopyImageRequest extends Model
     public $imageId;
 
     /**
-     * @description The region ID.
+     * @description The ID of the region to which the image is copied.
      *
      * @example cn-hangzhou
      *

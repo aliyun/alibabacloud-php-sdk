@@ -36,10 +36,10 @@ class CreateADConnectorOfficeSiteRequest extends Model
     public $cenId;
 
     /**
-     * @description The ID of the Alibaba Cloud account to which the Cloud Enterprise Network (CEN) instance belongs.
+     * @description The Alibaba Cloud account that creates the Cloud Enterprise Network (CEN) instance.
      *
-     *   If you do not specify CenId or the CEN instance that is specified by CenId belongs to the current Alibaba Cloud account, leave this parameter empty.
-     *   If you specify CenId and the CEN instance that is specified by CenId belongs to another Alibaba Cloud account, enter the ID of the Alibaba Cloud account.
+     *   If you do not specify the CenId parameter, or the CEN instance that is specified by the CenId parameter belongs to the current Alibaba Cloud account, skip this parameter.
+     *   If you specify the CenId parameter and the CEN instance that you specify for the CenId parameter belongs to another Alibaba Cloud account, enter the ID of the Alibaba Cloud account.
      *
      * @example 102681951715****
      *
@@ -48,7 +48,11 @@ class CreateADConnectorOfficeSiteRequest extends Model
     public $cenOwnerId;
 
     /**
-     * @description The IPv4 CIDR block in the secure office network of the workspace. The IPv4 CIDR block that the system uses to create a virtual private cloud (VPC) for the workspace. We recommend that you set the IPv4 CIDR block to 10.0.0.0/12, 172.16.0.0/12, 192.168.0.0/16, or a subnet of these CIDR blocks. If you set the IPv4 CIDR block to 10.0.0.0/12 or 172.16.0.0/12, the mask is 1224 bits in length. If you set the IPv4 CIDR block to 192.168.0.0/16, the mask is 1624 bits in length.
+     * @description The IPv4 CIDR block of the virtual private cloud (VPC) that your office network uses. The system creates a VPC for your office network based on the IPv4 CIDR block. We recommend that you set this parameter to one of the following CIDR blocks and their subnets:
+     *
+     *   `10.0.0.0/12` (subnet mask range: 12 to 24 bits)
+     *   `172.16.0.0/12` (subnet mask range: 12 to 24 bits)
+     *   `192.168.0.0/16` (subnet mask range: 16 to 24 bits)
      *
      * @example 47.100.XX.XX
      *
@@ -57,13 +61,9 @@ class CreateADConnectorOfficeSiteRequest extends Model
     public $cidrBlock;
 
     /**
-     * @description The connection method that is used to connect clients to cloud desktops. Valid values:
+     * @description The method to connect to cloud computers from WUYING clients.
      *
-     *   Internet: connects clients to cloud desktops only over the Internet.
-     *   VPC: connects clients to cloud desktops only over a VPC.
-     *   Any: connects clients to cloud desktops over the Internet or a VPC. You can select a connection method based on your business requirements when you connect to your cloud desktop from a client.
-     *
-     * > VPC connections are established by using Alibaba Cloud PrivateLink. You can use PrivateLink free of charge. If you set this parameter to VPC or Any, PrivateLink is automatically activated.
+     * - Any: connects clients to cloud desktops over the Internet or a VPC. You can select a connection method based on your business requirements when you connect to your cloud desktop from a client.
      * @example Internet
      *
      * @var string
@@ -108,8 +108,17 @@ class CreateADConnectorOfficeSiteRequest extends Model
     public $domainUserName;
 
     /**
-     * @description Specifies whether to grant the permissions of the local administrator to end users of the cloud desktops that belong to the workspace. Default value: `true`
+     * @description Specifies whether to grant the local administrator permissions to users that are authorized to use cloud computers in the office network.
      *
+     * Valid values:
+     *
+     *   <!-- -->
+     *
+     * <!-- -->
+     *
+     *   <!-- -->
+     *
+     * <!-- -->
      * @example true
      *
      * @var bool
@@ -135,8 +144,8 @@ class CreateADConnectorOfficeSiteRequest extends Model
     public $mfaEnabled;
 
     /**
-     * @description The name of the workspace. The name must be 2 to 255 characters in length. The name must start with a letter but cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).\
-     * Default value: null
+     * @description The office network name. The name must be 2 to 255 characters in length. It can contain letters, digits, colons (:), underscores (\_), periods (.), and hyphens (-). It must start with a letter and cannot start with `http://` or `https://`.\
+     * This parameter is empty by default.
      * @example test
      *
      * @var string
@@ -144,8 +153,13 @@ class CreateADConnectorOfficeSiteRequest extends Model
     public $officeSiteName;
 
     /**
-     * @description The type of the protocol. Set the value to ASP.
+     * @description The protocol type.
      *
+     * Valid value:
+     *
+     *   Adaptive Streaming Protocol (ASP)
+     *
+     * <!-- -->
      * @example ASP
      *
      * @var string
@@ -153,7 +167,7 @@ class CreateADConnectorOfficeSiteRequest extends Model
     public $protocolType;
 
     /**
-     * @description The region ID of the workspace.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -162,11 +176,17 @@ class CreateADConnectorOfficeSiteRequest extends Model
     public $regionId;
 
     /**
-     * @description The type of the AD connector.
+     * @description The AD connector type.
+     *
+     * Valid values:
      *
      *   1: General
+     *
+     * <!-- -->
+     *
      *   2: Advanced
      *
+     * <!-- -->
      * @example 1
      *
      * @var int
@@ -192,7 +212,7 @@ class CreateADConnectorOfficeSiteRequest extends Model
     public $subDomainName;
 
     /**
-     * @description The verification code. If the CEN instance that is specified by CenId belongs to another Alibaba Cloud account, you must call the SendVerifyCode operation to obtain the verification code.
+     * @description The verification code. If the CEN instance that you specify for the CenId parameter belongs to another Alibaba Cloud account, you must call the [SendVerifyCode](~~436847~~) operation to obtain the verification code.
      *
      * @example 12****
      *

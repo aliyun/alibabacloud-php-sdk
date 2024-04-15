@@ -18,7 +18,7 @@ class routeEntries extends Model
     public $destinationCidrBlock;
 
     /**
-     * @description The ID of the network instance that is attached to the route.
+     * @description The ID of the instance corresponding to the route.
      *
      * @example vpc-uf62bu0xs5j8md54p****
      *
@@ -27,7 +27,7 @@ class routeEntries extends Model
     public $nextHopInstanceId;
 
     /**
-     * @description The ID of the region where the route resides.
+     * @description The region ID of the route.
      *
      * @example cn-hangzhou
      *
@@ -36,10 +36,12 @@ class routeEntries extends Model
     public $regionId;
 
     /**
-     * @description The verification result for a route. Valid values:
+     * @description The verification result of the route.
      *
-     *   Access: The route verification succeeds.
+     * Valid values:
+     *
      *   Conflict: A CIDR block conflict exists.
+     *   Access: The verification is passed.
      *
      * @example Access
      *

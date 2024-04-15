@@ -37,6 +37,8 @@ class invocations extends Model
     public $creationTime;
 
     /**
+     * @description The ID of the end user.
+     *
      * @example User1
      *
      * @var string

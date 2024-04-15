@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class domainResolveRule extends Model
 {
     /**
-     * @description The policy description.
+     * @description The rule description.
      *
      * @example Test
      *
@@ -27,10 +27,10 @@ class domainResolveRule extends Model
     public $domain;
 
     /**
-     * @description Indicates whether the resolution feature is allowed.
+     * @description Indicates whether the domain name resolution is allowed. Valid values:
      *
-     *   allow: The feature is allowed.
-     *   block: The feature is not allowed.
+     *   allow
+     *   block
      *
      * @example allow
      *

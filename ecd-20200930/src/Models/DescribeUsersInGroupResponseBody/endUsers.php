@@ -11,7 +11,12 @@ use AlibabaCloud\Tea\Model;
 class endUsers extends Model
 {
     /**
-     * @description The status of the desktop connection for the end user.
+     * @description The connection status.
+     *
+     * Valid values:
+     *
+     *   0: disconnected
+     *   1: connecting
      *
      * @example 1
      *
@@ -20,7 +25,7 @@ class endUsers extends Model
     public $connectionStatus;
 
     /**
-     * @description The ID of the cloud desktop.
+     * @description The ID of the cloud computer.
      *
      * @example ecd-gx2x1dhsmucyy****
      *
@@ -29,7 +34,7 @@ class endUsers extends Model
     public $desktopId;
 
     /**
-     * @description The name of the cloud desktop.
+     * @description The name of the cloud computer.
      *
      * @example testName
      *
@@ -47,7 +52,7 @@ class endUsers extends Model
     public $displayName;
 
     /**
-     * @description The email address of the end user.
+     * @description The email address of the authorized user.
      *
      * @example alice@example.com
      *
@@ -56,7 +61,7 @@ class endUsers extends Model
     public $endUserEmail;
 
     /**
-     * @description The name of the end user.
+     * @description The ID of the authorized user.
      *
      * @example alice
      *
@@ -65,7 +70,7 @@ class endUsers extends Model
     public $endUserId;
 
     /**
-     * @description The name of the end user.
+     * @description The username of the authorized user.
      *
      * @example alice
      *
@@ -74,7 +79,7 @@ class endUsers extends Model
     public $endUserName;
 
     /**
-     * @description The mobile number of the end user.
+     * @description The mobile number of the authorized user.
      *
      * @example 1381111****
      *
@@ -83,7 +88,7 @@ class endUsers extends Model
     public $endUserPhone;
 
     /**
-     * @description The remarks of the end user.
+     * @description The remarks.
      *
      * @example Note
      *
@@ -92,7 +97,12 @@ class endUsers extends Model
     public $endUserRemark;
 
     /**
-     * @description The account type of the end user.
+     * @description The user account type.
+     *
+     * Valid values:
+     *
+     *   SIMPLE: convenience account
+     *   AD_CONNECTOR: enterprise Active Directory (AD) account
      *
      * @example SIMPLE
      *
@@ -108,7 +118,7 @@ class endUsers extends Model
     public $externalInfo;
 
     /**
-     * @description The ID of the desktop of the end user.
+     * @description The ID of the cloud computer that is used by the user.
      *
      * @example ud-i896ze8hazpvl****
      *
@@ -117,7 +127,7 @@ class endUsers extends Model
     public $userDesktopId;
 
     /**
-     * @description Details about the seats of end users.
+     * @description Details about the seats of users.
      *
      * @var userSetPropertiesModels[]
      */

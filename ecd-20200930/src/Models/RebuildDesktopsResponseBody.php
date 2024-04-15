@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class RebuildDesktopsResponseBody extends Model
 {
     /**
-     * @description The recreation results of cloud desktops by changing images.
+     * @description The recreation results.
      *
      * @var rebuildResults[]
      */

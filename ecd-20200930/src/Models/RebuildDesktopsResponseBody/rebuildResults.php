@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class rebuildResults extends Model
 {
     /**
-     * @description The recreation result of the cloud desktop by changing the image. A value of success indicates that the image of the cloud desktop is changed. If the image of the cloud desktop failed to be changed, an error message is returned.
+     * @description The recreation result code. If the request was successful, `success` is returned. If the request failed, an error message is returned.
      *
      * @example IncorrectDesktopStatus
      *
@@ -18,7 +18,7 @@ class rebuildResults extends Model
     public $code;
 
     /**
-     * @description The ID of the cloud desktop.
+     * @description The IDs of the cloud computers.
      *
      * @example ecd-gx2x1dhsmucyy****
      *
@@ -27,7 +27,7 @@ class rebuildResults extends Model
     public $desktopId;
 
     /**
-     * @description The error message. This parameter is not returned if the value of Code is success.
+     * @description The error message. This parameter is invalid if the value of `Code` is `success`.
      *
      * @example The current status of the desktop does not support this operation.
      *

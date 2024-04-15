@@ -18,10 +18,10 @@ class VerifyCenRequest extends Model
     public $cenId;
 
     /**
-     * @description The ID of the Alibaba Cloud account to which the CEN instance belongs.
+     * @description The Alibaba Cloud account to which the CEN instance belongs.
      *
-     *   If you specify the CenId parameter and the CEN instance that you specify for the CenId parameter belongs to the current Alibaba Cloud account, skip this parameter.
-     *   If you specify the CenId parameter and the CEN instance that you specify for the CenId parameter belongs to another Alibaba Cloud account, enter the ID of the exact Alibaba Cloud account.
+     *   If you own the CEN instance, you can skip this parameter.
+     *   If you do not own the CEN instance, you must specify the ID of the account that owns the CEN instance.
      *
      * @example 102681951715****
      *
@@ -30,7 +30,7 @@ class VerifyCenRequest extends Model
     public $cenOwnerId;
 
     /**
-     * @description The IPv4 CIDR block of the workspace.
+     * @description The IPv4 CIDR block of the associated office network.
      *
      * @example 47.100.XX.XX
      *
@@ -39,7 +39,7 @@ class VerifyCenRequest extends Model
     public $cidrBlock;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -48,7 +48,7 @@ class VerifyCenRequest extends Model
     public $regionId;
 
     /**
-     * @description The verification code. If the CEN instance that you specify for the CenId parameter belongs to another Alibaba Cloud account, you must call the SendVerifyCode operation to obtain the verification code.
+     * @description The verification code. If you do not own the CEN instance, you must call the [SendVerifyCode](~~436847~~) operation to obtain a verification code.
      *
      * @example 12****
      *

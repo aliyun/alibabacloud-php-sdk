@@ -76,13 +76,9 @@ class fotaTasks extends Model
      *
      * Valid values:
      *
-     *   valid
+     *   valid: The end user can update the image.
+     *   invalid: The end user cannot update the image.
      *
-     * <!-- -->
-     *
-     *   invalid
-     *
-     * <!-- -->
      * @example valid
      *
      * @var string

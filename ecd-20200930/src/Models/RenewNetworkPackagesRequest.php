@@ -9,12 +9,17 @@ use AlibabaCloud\Tea\Model;
 class RenewNetworkPackagesRequest extends Model
 {
     /**
-     * @description Specifies whether to enable automatic payment. Valid values:
+     * @description Specifies whether to enable the automatic payment feature.
      *
-     *   true: enables automatic payment. Make sure that you have sufficient balance in your account. Otherwise, abnormal orders are generated.
-     *   false: generates the order with no payment made. You can log on to the EDS console and complete the payment based on the order number.
+     * Valid values:
      *
-     * Default value: true.
+     *   true (default): enables the auto-payment feature.
+     *
+     * <!-- -->
+     *
+     *   false: disables the auto-payment feature. In this case, an order is generated but you need to make the payment manually.
+     *
+     * <!-- -->
      * @example true
      *
      * @var bool
@@ -22,7 +27,7 @@ class RenewNetworkPackagesRequest extends Model
     public $autoPay;
 
     /**
-     * @description The IDs of Internet access packages.
+     * @description The IDs of premium bandwidth plans. You can specify up to 100 IDs.
      *
      * @var string[]
      */
@@ -55,7 +60,7 @@ class RenewNetworkPackagesRequest extends Model
     public $periodUnit;
 
     /**
-     * @description The ID of the promotion. You can call the `GetResourcePrice` operation to obtain the ID of the promotion.
+     * @description The promotion ID.
      *
      * @example 500038360030606
      *
@@ -64,7 +69,7 @@ class RenewNetworkPackagesRequest extends Model
     public $promotionId;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

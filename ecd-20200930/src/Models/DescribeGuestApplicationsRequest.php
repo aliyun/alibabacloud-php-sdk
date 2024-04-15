@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeGuestApplicationsRequest extends Model
 {
     /**
-     * @description The cloud desktop ID.
+     * @description The ID of the cloud computer.
      *
      * @example ecd-asw3giklqvfqe****
      *
@@ -18,7 +18,7 @@ class DescribeGuestApplicationsRequest extends Model
     public $desktopId;
 
     /**
-     * @description The end user ID.
+     * @description The ID of the end user.
      *
      * @example demo001
      *

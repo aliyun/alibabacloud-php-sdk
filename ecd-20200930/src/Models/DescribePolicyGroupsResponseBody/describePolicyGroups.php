@@ -15,6 +15,11 @@ use AlibabaCloud\Tea\Model;
 class describePolicyGroups extends Model
 {
     /**
+     * @description Indicates whether users have the administrator permissions after they connect to cloud desktops.
+     *
+     * >  This parameter is in invitational preview and not available to the public.
+     * @example deny
+     *
      * @var string
      */
     public $adminAccess;
@@ -22,8 +27,8 @@ class describePolicyGroups extends Model
     /**
      * @description Indicates whether the anti-screenshot feature is enabled. Valid values:
      *
-     *   on: This feature is enabled.
-     *   off: This feature is disabled.
+     *   on
+     *   off
      *
      * Default value: off.
      * @example off
@@ -33,7 +38,7 @@ class describePolicyGroups extends Model
     public $appContentProtection;
 
     /**
-     * @description The client CIDR blocks in the whitelist.
+     * @description The client CIDR blocks in a whitelist.
      *
      * @var authorizeAccessPolicyRules[]
      */
@@ -51,13 +56,9 @@ class describePolicyGroups extends Model
      *
      * Valid values:
      *
-     *   off: The feature is disabled.
+     *   off
+     *   on (default)
      *
-     * <!-- -->
-     *
-     *   on (default): The feature is enabled.
-     *
-     * <!-- -->
      * @example on
      *
      * @var string
@@ -77,16 +78,9 @@ class describePolicyGroups extends Model
      * Valid values:
      *
      *   read: One-way transfer is allowed.
-     *
-     * <!-- -->
-     *
      *   readwrite: Two-way transfer is allowed.
-     *
-     * <!-- -->
-     *
      *   off: Two-way transfer is not allowed.
      *
-     * <!-- -->
      * @example readwrite
      *
      * @var string
@@ -94,40 +88,62 @@ class describePolicyGroups extends Model
     public $clipboard;
 
     /**
+     * @description The CPU underclocking duration. Valid values: 30 to 120.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $cpuDownGradeDuration;
 
     /**
+     * @description The process whitelist that is not restricted by the CPU usage limit.
+     *
      * @var string[]
      */
     public $cpuProcessors;
 
     /**
+     * @description Indicates whether the switch for CPU protection mode is turned on. Valid values: on and off.
+     *
+     * @example on
+     *
      * @var string
      */
     public $cpuProtectedMode;
 
     /**
+     * @description The overall CPU utilization. Valid values: 70 to 90.
+     *
+     * @example 70
+     *
      * @var int
      */
     public $cpuRateLimit;
 
     /**
+     * @description The overall CPU sampling duration. Valid values: 10 to 60.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $cpuSampleDuration;
 
     /**
+     * @description The usage of a single CPU. Valid values: 70 to 100.
+     *
+     * @example 70
+     *
      * @var int
      */
     public $cpuSingleRateLimit;
 
     /**
-     * @description The access control for domain names. The domain names can contain the wildcard character (\*). Multiple domain names are separated by commas (,). Valid values:
+     * @description Indicates whether the access control for domain names is enabled. The domain names can contain wildcard characters (\*). Multiple domain names are separated by commas (,). Valid values:
      *
-     *   off: This feature is disabled.
-     *   on: This feature is enabled.
+     *   off
+     *   on
      *
      * @example off
      *
@@ -136,7 +152,7 @@ class describePolicyGroups extends Model
     public $domainList;
 
     /**
-     * @description The resolution of domain names.
+     * @description The rule of domain name resolution.
      *
      * @var domainResolveRule[]
      */
@@ -148,12 +164,8 @@ class describePolicyGroups extends Model
      * Valid values:
      *
      *   off
-     *
-     * <!-- -->
-     *
      *   on
      *
-     * <!-- -->
      * @example on
      *
      * @var string
@@ -162,7 +174,7 @@ class describePolicyGroups extends Model
 
     /**
      * @description The number of cloud desktops that are associated with the policy.\
-     * This parameter is returned only if PolicyGroupType is set to CUSTOM.
+     * This parameter is returned only for custom policies.
      * @example 1
      *
      * @var int
@@ -170,7 +182,7 @@ class describePolicyGroups extends Model
     public $edsCount;
 
     /**
-     * @description Indicates whether the switch for end users to ask for assistance from the administrator is turned on. Valid values: on off
+     * @description Indicates whether the switch for end users to ask for assistance from the administrator is turned on. Valid values: on and off.
      *
      * @example on
      *
@@ -179,7 +191,7 @@ class describePolicyGroups extends Model
     public $endUserApplyAdminCoordinate;
 
     /**
-     * @description The switch for stream collaboration between end users. Valid values: on off
+     * @description Indicates whether the switch for stream collaboration between end users is turned on. Valid values: on and off.
      *
      * @example on
      *
@@ -188,17 +200,13 @@ class describePolicyGroups extends Model
     public $endUserGroupCoordinate;
 
     /**
-     * @description Indicates whether the image quality policy is enabled for Graphics cloud desktops. If you have high requirements for desktop performance and user experience, we recommend that you enable this feature. For example, you can enable this feature in professional design scenarios.
+     * @description Indicates whether the image quality feature is enabled for Graphics cloud desktops. If you have high requirements for desktop performance and user experience, we recommend that you enable this feature. For example, you can enable this feature in professional graphic design scenarios.
      *
      * Valid values:
      *
-     *   off: The feature is disabled.
+     *   off
+     *   on
      *
-     * <!-- -->
-     *
-     *   on: This feature is enabled.
-     *
-     * <!-- -->
      * @example off
      *
      * @var string
@@ -206,17 +214,13 @@ class describePolicyGroups extends Model
     public $gpuAcceleration;
 
     /**
-     * @description The HTML5 client access feature.
+     * @description Indicates whether the access policy on HTML5 clients is allowed.
      *
      * Valid values:
      *
      *   off (default)
-     *
-     * <!-- -->
-     *
      *   on
      *
-     * <!-- -->
      * @example off
      *
      * @var string
@@ -224,25 +228,15 @@ class describePolicyGroups extends Model
     public $html5Access;
 
     /**
-     * @description The file transfer feature for the HTML5 client.
+     * @description The file transfer policy for HTML5 clients.
      *
      * Valid values:
      *
-     *   all: Files can be uploaded and downloaded between your computer and HTML5 clients.
-     *
-     * <!-- -->
-     *
-     *   download: Files on HTML5 clients can be downloaded to your computer.
-     *
-     * <!-- -->
-     *
-     *   upload: Files on your computer can be uploaded to HTML5 clients.
-     *
-     * <!-- -->
-     *
+     *   all: Files can be uploaded and downloaded between your local computer and HTML5 clients.
+     *   download: Files on HTML5 clients can be downloaded to your local computer.
+     *   upload: Files on your local computer can be uploaded to HTML5 clients.
      *   off (default): File transfer between HTML5 clients and your computer is disabled.
      *
-     * <!-- -->
      * @example off
      *
      * @var string
@@ -252,8 +246,8 @@ class describePolicyGroups extends Model
     /**
      * @description The protocol that is used for network communication. Valid values:
      *
-     *   TCP: Only the TCP protocol is used.
-     *   BOTH: The automatic switchover between the TCP protocol and the UDP protocol is supported.
+     *   TCP: Only TCP can be used.
+     *   BOTH: TCP or UDP can be used. The system switches between TCP and UDP based on the actual network condition.
      *
      * Default value: TCP.
      * @example BOTH
@@ -268,16 +262,9 @@ class describePolicyGroups extends Model
      * Valid values:
      *
      *   read: read-only
-     *
-     * <!-- -->
-     *
      *   readwrite: read and write
-     *
-     * <!-- -->
-     *
      *   off: no permissions
      *
-     * <!-- -->
      * @example readwrite
      *
      * @var string
@@ -285,31 +272,53 @@ class describePolicyGroups extends Model
     public $localDrive;
 
     /**
+     * @description The duration required for underclocking memory by a single process. Valid values: 30 to 120.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $memoryDownGradeDuration;
 
     /**
+     * @description The whitelist of processes that are not restricted by the memory usage limit.
+     *
      * @var string[]
      */
     public $memoryProcessors;
 
     /**
+     * @description Indicates whether the switch for memory protection mode is turned on. Valid values: on and off.
+     *
+     * @example on
+     *
      * @var string
      */
     public $memoryProtectedMode;
 
     /**
+     * @description The overall memory usage. Valid values: 70 to 90.
+     *
+     * @example 70
+     *
      * @var int
      */
     public $memoryRateLimit;
 
     /**
+     * @description The overall sampling duration of memory statistics. Valid values: 30 to 60.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $memorySampleDuration;
 
     /**
+     * @description The memory usage of a single process. Valid values: 30 to 60.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $memorySingleRateLimit;
@@ -326,10 +335,10 @@ class describePolicyGroups extends Model
     /**
      * @description Indicates whether the network redirection feature is enabled. Valid values:
      *
-     *   on: This feature is enabled.
-     *   off: The feature is disabled.
+     *   on
+     *   off
      *
-     * Default value: off.
+     * >  This parameter is in invitational preview and not available to the public.
      * @example off
      *
      * @var string
@@ -337,8 +346,9 @@ class describePolicyGroups extends Model
     public $netRedirect;
 
     /**
-     * @description The network redirection rules.
+     * @description The network redirection rule.
      *
+     * >  This parameter is in invitational preview and not available to the public.
      * @var netRedirectRule[]
      */
     public $netRedirectRule;
@@ -353,17 +363,13 @@ class describePolicyGroups extends Model
     public $policyGroupId;
 
     /**
-     * @description The rule type.
+     * @description The policy type.
      *
      * Valid values:
      *
      *   SYSTEM
-     *
-     * <!-- -->
-     *
      *   CUSTOM
      *
-     * <!-- -->
      * @example SYSTEM
      *
      * @var string
@@ -371,17 +377,13 @@ class describePolicyGroups extends Model
     public $policyGroupType;
 
     /**
-     * @description The state of the policy.
+     * @description The policy status.
      *
      * Valid values:
      *
      *   AVAILABLE
-     *
-     * <!-- -->
-     *
      *   CREATING
      *
-     * <!-- -->
      * @example AVAILABLE
      *
      * @var string
@@ -405,17 +407,13 @@ class describePolicyGroups extends Model
     public $preemptLoginUsers;
 
     /**
-     * @description The printer redirection feature.
+     * @description Indicates whether the printer redirection feature is enabled.
      *
      * Valid values:
      *
      *   off
-     *
-     * .
-     *
      *   on
      *
-     * .
      * @example on
      *
      * @var string
@@ -425,8 +423,8 @@ class describePolicyGroups extends Model
     /**
      * @description Indicates whether the custom screen recording feature is enabled. Valid values:
      *
-     *   on: This feature is enabled.
-     *   off: This feature is disabled.
+     *   on
+     *   off
      *
      * Default value: off.
      * @example off
@@ -436,7 +434,7 @@ class describePolicyGroups extends Model
     public $recordContent;
 
     /**
-     * @description The duration in which the custom screen recording is valid. Default value: 30. Unit: days.
+     * @description The period when the custom screen recording can be retained before expiration. Default value: 30 days.
      *
      * @example 30
      *
@@ -445,21 +443,14 @@ class describePolicyGroups extends Model
     public $recordContentExpires;
 
     /**
-     * @description Indicates whether screen recording is enabled.
+     * @description Indicates whether the screen recording feature is enabled.
      *
      * Valid values:
      *
      *   ALLTIME: All operations that are performed by end users on cloud desktops are recorded. The recording starts immediately when end users connect to cloud desktops and ends after the end users disconnect from the cloud desktops.
-     *
-     * <!-- -->
-     *
      *   PERIOD: The operations that are performed by end users on cloud desktops during a specified period of time are recorded. You must specify the start time and the end time of the recording.
+     *   OFF: The screen recording feature is disabled.
      *
-     * <!-- -->
-     *
-     *   OFF: Screen recording is disabled.
-     *
-     * <!-- -->
      * @example OFF
      *
      * @var string
@@ -467,7 +458,7 @@ class describePolicyGroups extends Model
     public $recording;
 
     /**
-     * @description Indicates whether the sound that is generated on the cloud desktop is recorded during screen recording. Valid values:
+     * @description Indicates whether to record audio or video data that is generated on the cloud desktop during screen recording. Valid values:
      *
      *   on: records audio and video data.
      *   off: records only video data.
@@ -479,7 +470,7 @@ class describePolicyGroups extends Model
     public $recordingAudio;
 
     /**
-     * @description This parameter is used together with Recording. After the specified period of the recording reaches, a screen recording file is generated.
+     * @description This parameter is used with the Recording parameter to generate a screen recording file after you specify the duration of screen recording.
      *
      * @example 10
      *
@@ -488,7 +479,7 @@ class describePolicyGroups extends Model
     public $recordingDuration;
 
     /**
-     * @description The time when the screen recording ended. The value is in the HH:MM:SS format. The value of this parameter is valid only if Recording is set to PERIOD.
+     * @description The time when the screen recording ended. The value is in the HH:MM:SS format. The value takes effect only when Recording is set to PERIOD.
      *
      * @example 08:59:00
      *
@@ -497,7 +488,7 @@ class describePolicyGroups extends Model
     public $recordingEndTime;
 
     /**
-     * @description The period in which the screen recording audit is valid. Valid values: 15 to 180. Unit: days.
+     * @description The period in which the screen recording audit is valid. Valid values: 15 to 180. Unit: day.
      *
      * @example 15
      *
@@ -520,7 +511,7 @@ class describePolicyGroups extends Model
     public $recordingFps;
 
     /**
-     * @description The time when the screen recording was started. The value is in the HH:MM:SS format. The value of this parameter is valid only if Recording is set to PERIOD.
+     * @description The time when the screen recording was started. The value is in the HH:MM:SS format. The value takes effect only when Recording is set to PERIOD.
      *
      * @example 08:00:00
      *
@@ -529,11 +520,19 @@ class describePolicyGroups extends Model
     public $recordingStartTime;
 
     /**
+     * @description Indicates whether the client notification of screen recording is enabled. Valid values: on and off.
+     *
+     * @example off
+     *
      * @var string
      */
     public $recordingUserNotify;
 
     /**
+     * @description The notification content of screen recording. By default, this parameter is left empty.
+     *
+     * @example Your desktop is being recorded
+     *
      * @var string
      */
     public $recordingUserNotifyMessage;
@@ -555,7 +554,7 @@ class describePolicyGroups extends Model
      * @description The effective scope of the policy. Valid values:
      *
      *   GLOBAL: The policy takes effect globally.
-     *   IP: The policy takes effect based on the IP address.
+     *   IP: The policy takes effect based on IP addresses.
      *
      * @example GLOBAL
      *
@@ -564,7 +563,7 @@ class describePolicyGroups extends Model
     public $scope;
 
     /**
-     * @description This parameter is specified if Scope is set to IP.
+     * @description This parameter is required when Scope is set to IP. This parameter takes effect when Scope is set to IP.
      *
      * @var string[]
      */
@@ -575,13 +574,9 @@ class describePolicyGroups extends Model
      *
      * Valid values:
      *
-     *   off: The feature is disabled.
+     *   off
+     *   on
      *
-     * <!-- -->
-     *
-     *   on: This feature is enabled.
-     *
-     * <!-- -->
      * @example on
      *
      * @var string
@@ -589,14 +584,14 @@ class describePolicyGroups extends Model
     public $usbRedirect;
 
     /**
-     * @description The USB redirection rules.
+     * @description The USB redirection rule.
      *
      * @var usbSupplyRedirectRule[]
      */
     public $usbSupplyRedirectRule;
 
     /**
-     * @description Indicates whether the multimedia redirection feature is enabled. Valid values: on: The feature is enabled. off: The feature is disabled.
+     * @description Indicates whether the multimedia redirection feature is enabled. Valid values: on and off.
      *
      * @example off
      *
@@ -605,25 +600,15 @@ class describePolicyGroups extends Model
     public $videoRedirect;
 
     /**
-     * @description The image display quality feature.
+     * @description The image display quality.
      *
      * Valid values:
      *
-     *   high
+     *   high: high-definition (HD)
+     *   low: fluent
+     *   medium (default): adaptive
+     *   lossless: no quality loss
      *
-     * <!-- -->
-     *
-     *   low
-     *
-     * <!-- -->
-     *
-     *   medium (default)
-     *
-     * <!-- -->
-     *
-     *   lossless
-     *
-     * <!-- -->
      * @example medium
      *
      * @var string
@@ -631,17 +616,13 @@ class describePolicyGroups extends Model
     public $visualQuality;
 
     /**
-     * @description Indicates whether the watermark feature is enabled.
+     * @description Indicates whether the watermarking feature is enabled.
      *
      * Valid values:
      *
-     *   off: The feature is disabled.
+     *   off
+     *   on
      *
-     * <!-- -->
-     *
-     *   on: This feature is enabled.
-     *
-     * <!-- -->
      * @example on
      *
      * @var string
@@ -649,12 +630,16 @@ class describePolicyGroups extends Model
     public $watermark;
 
     /**
+     * @description Indicates whether the anti-screen photo feature is enabled for invisible watermarks. Valid values: on and off.
+     *
+     * @example off
+     *
      * @var string
      */
     public $watermarkAntiCam;
 
     /**
-     * @description The font color of the watermark. Valid values: 0 to 16777215.
+     * @description The font color in red, green, and blue (RGB) of the watermark. Valid values: 0 to 16777215.
      *
      * @example 0
      *
@@ -672,7 +657,7 @@ class describePolicyGroups extends Model
     public $watermarkCustomText;
 
     /**
-     * @description The inclination angle of the watermark. Valid values: -10 to -30.
+     * @description The slope of the watermark. Valid values: -10 to -30.
      *
      * @example -10
      *
@@ -702,6 +687,10 @@ class describePolicyGroups extends Model
     public $watermarkFontStyle;
 
     /**
+     * @description The invisible watermark enhancement feature. Valid values: low, medium, and high.
+     *
+     * @example medium
+     *
      * @var string
      */
     public $watermarkPower;
@@ -716,6 +705,10 @@ class describePolicyGroups extends Model
     public $watermarkRowAmount;
 
     /**
+     * @description Indicates whether the security priority for invisible watermarks is enabled. Valid values: on and off.
+     *
+     * @example on
+     *
      * @var string
      */
     public $watermarkSecurity;
@@ -726,16 +719,9 @@ class describePolicyGroups extends Model
      * Valid values:
      *
      *   LIGHT
-     *
-     * <!-- -->
-     *
      *   DARK
-     *
-     * <!-- -->
-     *
      *   MIDDLE
      *
-     * <!-- -->
      * @example LIGHT
      *
      * @var string
@@ -743,7 +729,7 @@ class describePolicyGroups extends Model
     public $watermarkTransparency;
 
     /**
-     * @description The watermark transparency. A larger value indicates that the watermark is less transparent. Valid values: 10 to 100.
+     * @description The watermark transparency. A greater value indicates that the watermark is less transparent. Valid values: 10 to 100.
      *
      * @example 10
      *
@@ -757,20 +743,10 @@ class describePolicyGroups extends Model
      * Valid values:
      *
      *   HostName,EndUserId: The watermark is displayed in the following format: Rightmost 15 characters of the cloud desktop ID,Username.
-     *
-     * <!-- -->
-     *
      *   EndUserId: The username is displayed.
-     *
-     * <!-- -->
-     *
      *   EndUserId,HostName: The watermark is displayed in the following format: Username,Rightmost 15 characters of the cloud desktop ID.
-     *
-     * <!-- -->
-     *
      *   HostName: The rightmost 15 characters of the cloud desktop ID are displayed.
      *
-     * <!-- -->
      * @example EndUserId
      *
      * @var string

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class SetDesktopGroupScaleTimerRequest extends Model
 {
     /**
-     * @description The ID of the desktop group.
+     * @description The ID of the cloud computer pool.
      *
      * @example dg-2i8qxpv6t1a03****
      *
@@ -19,7 +19,7 @@ class SetDesktopGroupScaleTimerRequest extends Model
     public $desktopGroupId;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the regions supported by WUYING Workspace.
      *
      * @example cn-hangzhou
      *
@@ -28,7 +28,7 @@ class SetDesktopGroupScaleTimerRequest extends Model
     public $regionId;
 
     /**
-     * @description The information about the scheduled auto scaling tasks.
+     * @description The information about the scheduled auto scaling task.
      *
      * @var scaleTimerInfos[]
      */
