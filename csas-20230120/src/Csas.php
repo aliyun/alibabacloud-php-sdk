@@ -96,6 +96,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\ListUserGroupsForRegistrationPolicyRe
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListUserGroupsForRegistrationPolicyResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListUserGroupsRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListUserGroupsResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListUsersRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListUsersResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateDynamicRouteRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateDynamicRouteResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateExcessiveDeviceRegistrationApplicationsStatusRequest;
@@ -113,6 +115,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateUserDevicesStatusRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateUserDevicesStatusResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateUserGroupRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateUserGroupResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateUsersStatusRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateUsersStatusResponse;
 use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
@@ -2102,6 +2106,46 @@ class Csas extends OpenApiClient
     }
 
     /**
+     * @param ListUsersRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListUsersResponse
+     */
+    public function listUsersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListUsers',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListUsersRequest $request
+     *
+     * @return ListUsersResponse
+     */
+    public function listUsers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listUsersWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateDynamicRouteRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -2608,5 +2652,51 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateUserGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateUsersStatusRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateUsersStatusResponse
+     */
+    public function updateUsersStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->saseUserIds)) {
+            $query['SaseUserIds'] = $request->saseUserIds;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateUsersStatus',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateUsersStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateUsersStatusRequest $request
+     *
+     * @return UpdateUsersStatusResponse
+     */
+    public function updateUsersStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateUsersStatusWithOptions($request, $runtime);
     }
 }
