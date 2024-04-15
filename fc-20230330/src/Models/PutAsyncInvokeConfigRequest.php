@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class PutAsyncInvokeConfigRequest extends Model
 {
     /**
+     * @description The configurations of asynchronous function invocation.
+     *
      * @var PutAsyncInvokeConfigInput
      */
     public $body;
 
     /**
+     * @description The version or alias of the function.
+     *
      * @example LATEST
      *
      * @var string

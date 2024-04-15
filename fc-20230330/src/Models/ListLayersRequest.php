@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListLayersRequest extends Model
 {
     /**
+     * @description The number of layers that are returned
+     *
      * @example 10
      *
      * @var int
@@ -16,6 +18,8 @@ class ListLayersRequest extends Model
     public $limit;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
      * @example MTIzNCNhYmM=
      *
      * @var string
@@ -23,6 +27,8 @@ class ListLayersRequest extends Model
     public $nextToken;
 
     /**
+     * @description Specifies whether the layer is official. Valid values: true and false.
+     *
      * @example true
      *
      * @var string
@@ -30,6 +36,8 @@ class ListLayersRequest extends Model
     public $official;
 
     /**
+     * @description The name prefix of the layer.
+     *
      * @example my-layer
      *
      * @var string
@@ -37,6 +45,8 @@ class ListLayersRequest extends Model
     public $prefix;
 
     /**
+     * @description Specifies whether the layer is public. Valid values: true and false.
+     *
      * @example true
      *
      * @var string

@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class InvokeFunctionRequest extends Model
 {
     /**
+     * @description The request parameters of function invocation.
+     *
      * @example event
      *
      * @var Stream
@@ -17,6 +19,8 @@ class InvokeFunctionRequest extends Model
     public $body;
 
     /**
+     * @description The version or alias of the function.
+     *
      * @example LATEST
      *
      * @var string

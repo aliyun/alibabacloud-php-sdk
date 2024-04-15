@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateLayerVersionRequest extends Model
 {
     /**
+     * @description The information about layer configurations.
+     *
      * @var CreateLayerVersionInput
      */
     public $body;

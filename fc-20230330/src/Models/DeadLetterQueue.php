@@ -6,16 +6,16 @@ namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class TagResourceRequest extends Model
+class DeadLetterQueue extends Model
 {
     /**
-     * @description The configuration of the resource tag.
+     * @example acs:mq:cn-shanghai:14319991365*****:/instances/MQ_INST_14319991365*****_BYWs****\/topic/testTopic
      *
-     * @var TagResourceInput
+     * @var string
      */
-    public $body;
+    public $arn;
     protected $_name = [
-        'body' => 'body',
+        'arn' => 'Arn',
     ];
 
     public function validate()
@@ -25,8 +25,8 @@ class TagResourceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->arn) {
+            $res['Arn'] = $this->arn;
         }
 
         return $res;
@@ -35,13 +35,13 @@ class TagResourceRequest extends Model
     /**
      * @param array $map
      *
-     * @return TagResourceRequest
+     * @return DeadLetterQueue
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['body'])) {
-            $model->body = TagResourceInput::fromMap($map['body']);
+        if (isset($map['Arn'])) {
+            $model->arn = $map['Arn'];
         }
 
         return $model;

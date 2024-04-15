@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateCustomDomainRequest extends Model
 {
     /**
+     * @description The information about the custom domain name.
+     *
      * @var CreateCustomDomainInput
      */
     public $body;

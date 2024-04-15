@@ -6,18 +6,14 @@ namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteAsyncInvokeConfigRequest extends Model
+class Filter extends Model
 {
     /**
-     * @description The version or alias of the function.
-     *
-     * @example LATEST
-     *
-     * @var string
+     * @var Key
      */
-    public $qualifier;
+    public $key;
     protected $_name = [
-        'qualifier' => 'qualifier',
+        'key' => 'key',
     ];
 
     public function validate()
@@ -27,8 +23,8 @@ class DeleteAsyncInvokeConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->qualifier) {
-            $res['qualifier'] = $this->qualifier;
+        if (null !== $this->key) {
+            $res['key'] = null !== $this->key ? $this->key->toMap() : null;
         }
 
         return $res;
@@ -37,13 +33,13 @@ class DeleteAsyncInvokeConfigRequest extends Model
     /**
      * @param array $map
      *
-     * @return DeleteAsyncInvokeConfigRequest
+     * @return Filter
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['qualifier'])) {
-            $model->qualifier = $map['qualifier'];
+        if (isset($map['key'])) {
+            $model->key = Key::fromMap($map['key']);
         }
 
         return $model;

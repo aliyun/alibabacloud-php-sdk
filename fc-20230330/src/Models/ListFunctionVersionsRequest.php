@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListFunctionVersionsRequest extends Model
 {
     /**
+     * @description The sorting mode of function versions. Valid values: BACKWARD and FORWARD.
+     *
      * @example BACKWARD
      *
      * @var string
@@ -16,6 +18,8 @@ class ListFunctionVersionsRequest extends Model
     public $direction;
 
     /**
+     * @description The number of function versions that are returned.
+     *
      * @example 10
      *
      * @var int
@@ -23,6 +27,8 @@ class ListFunctionVersionsRequest extends Model
     public $limit;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
      * @example MTIzNCNhYmM=
      *
      * @var string

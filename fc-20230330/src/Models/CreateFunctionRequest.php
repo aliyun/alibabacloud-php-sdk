@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateFunctionRequest extends Model
 {
     /**
+     * @description The information about function configurations.
+     *
      * @var CreateFunctionInput
      */
     public $body;

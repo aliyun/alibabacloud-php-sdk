@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListCustomDomainsRequest extends Model
 {
     /**
+     * @description The number of custom domain names returned.
+     *
      * @example 10
      *
      * @var int
@@ -16,6 +18,8 @@ class ListCustomDomainsRequest extends Model
     public $limit;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
      * @example MTIzNCNhYmM=
      *
      * @var string
@@ -23,6 +27,8 @@ class ListCustomDomainsRequest extends Model
     public $nextToken;
 
     /**
+     * @description The domain name prefix.
+     *
      * @example foo
      *
      * @var string

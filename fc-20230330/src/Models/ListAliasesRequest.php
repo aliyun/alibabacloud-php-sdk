@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListAliasesRequest extends Model
 {
     /**
+     * @description The number of aliases returned.
+     *
      * @example 10
      *
      * @var int
@@ -16,6 +18,8 @@ class ListAliasesRequest extends Model
     public $limit;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
      * @example MTIzNCNhYmM=
      *
      * @var string
@@ -23,6 +27,8 @@ class ListAliasesRequest extends Model
     public $nextToken;
 
     /**
+     * @description The alias prefix.
+     *
      * @example my-alias
      *
      * @var string

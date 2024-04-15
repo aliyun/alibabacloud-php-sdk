@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateAliasRequest extends Model
 {
     /**
+     * @description The request parameters for creating an alias.
+     *
      * @var CreateAliasInput
      */
     public $body;

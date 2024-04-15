@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class PutAsyncInvokeConfigInput extends Model
 {
     /**
+     * @example true
+     *
+     * @var bool
+     */
+    public $asyncTask;
+
+    /**
      * @var DestinationConfig
      */
     public $destinationConfig;
@@ -27,6 +34,7 @@ class PutAsyncInvokeConfigInput extends Model
      */
     public $maxAsyncRetryAttempts;
     protected $_name = [
+        'asyncTask'                 => 'asyncTask',
         'destinationConfig'         => 'destinationConfig',
         'maxAsyncEventAgeInSeconds' => 'maxAsyncEventAgeInSeconds',
         'maxAsyncRetryAttempts'     => 'maxAsyncRetryAttempts',
@@ -39,6 +47,9 @@ class PutAsyncInvokeConfigInput extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->asyncTask) {
+            $res['asyncTask'] = $this->asyncTask;
+        }
         if (null !== $this->destinationConfig) {
             $res['destinationConfig'] = null !== $this->destinationConfig ? $this->destinationConfig->toMap() : null;
         }
@@ -60,6 +71,9 @@ class PutAsyncInvokeConfigInput extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['asyncTask'])) {
+            $model->asyncTask = $map['asyncTask'];
+        }
         if (isset($map['destinationConfig'])) {
             $model->destinationConfig = DestinationConfig::fromMap($map['destinationConfig']);
         }

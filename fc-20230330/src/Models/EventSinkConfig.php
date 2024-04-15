@@ -6,18 +6,14 @@ namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetResourceTagsRequest extends Model
+class EventSinkConfig extends Model
 {
     /**
-     * @description The resource ID.
-     *
-     * @example acs:fc:cn-shanghai:1234/functions/my-func
-     *
-     * @var string
+     * @var DeliveryOption
      */
-    public $arn;
+    public $deliveryOption;
     protected $_name = [
-        'arn' => 'arn',
+        'deliveryOption' => 'deliveryOption',
     ];
 
     public function validate()
@@ -27,8 +23,8 @@ class GetResourceTagsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->arn) {
-            $res['arn'] = $this->arn;
+        if (null !== $this->deliveryOption) {
+            $res['deliveryOption'] = null !== $this->deliveryOption ? $this->deliveryOption->toMap() : null;
         }
 
         return $res;
@@ -37,13 +33,13 @@ class GetResourceTagsRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetResourceTagsRequest
+     * @return EventSinkConfig
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['arn'])) {
-            $model->arn = $map['arn'];
+        if (isset($map['deliveryOption'])) {
+            $model->deliveryOption = DeliveryOption::fromMap($map['deliveryOption']);
         }
 
         return $model;

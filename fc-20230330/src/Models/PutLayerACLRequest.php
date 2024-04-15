@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class PutLayerACLRequest extends Model
 {
     /**
+     * @description Specifies whether the layer is a public layer. Valid values: true and false.
+     *
      * @example true
      *
      * @var string

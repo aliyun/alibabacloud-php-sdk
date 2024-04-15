@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateTriggerRequest extends Model
 {
     /**
+     * @description The trigger configurations.
+     *
      * @var CreateTriggerInput
      */
     public $body;

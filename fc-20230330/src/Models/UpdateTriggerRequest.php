@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateTriggerRequest extends Model
 {
     /**
+     * @description The trigger configurations.
+     *
      * @var UpdateTriggerInput
      */
     public $body;

@@ -6,18 +6,16 @@ namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteAsyncInvokeConfigRequest extends Model
+class RetryStrategy extends Model
 {
     /**
-     * @description The version or alias of the function.
-     *
-     * @example LATEST
+     * @example BACKOFF_RETRY
      *
      * @var string
      */
-    public $qualifier;
+    public $pushRetryStrategy;
     protected $_name = [
-        'qualifier' => 'qualifier',
+        'pushRetryStrategy' => 'PushRetryStrategy',
     ];
 
     public function validate()
@@ -27,8 +25,8 @@ class DeleteAsyncInvokeConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->qualifier) {
-            $res['qualifier'] = $this->qualifier;
+        if (null !== $this->pushRetryStrategy) {
+            $res['PushRetryStrategy'] = $this->pushRetryStrategy;
         }
 
         return $res;
@@ -37,13 +35,13 @@ class DeleteAsyncInvokeConfigRequest extends Model
     /**
      * @param array $map
      *
-     * @return DeleteAsyncInvokeConfigRequest
+     * @return RetryStrategy
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['qualifier'])) {
-            $model->qualifier = $map['qualifier'];
+        if (isset($map['PushRetryStrategy'])) {
+            $model->pushRetryStrategy = $map['PushRetryStrategy'];
         }
 
         return $model;

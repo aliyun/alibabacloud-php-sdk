@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetFunctionRequest extends Model
 {
     /**
+     * @description The version or alias of the function.
+     *
      * @example LATEST
      *
      * @var string

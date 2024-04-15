@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class AsyncConfig extends Model
 {
     /**
+     * @example true
+     *
+     * @var bool
+     */
+    public $asyncTask;
+
+    /**
      * @example 2006-01-02T15:04:05Z07:00
      *
      * @var string
@@ -48,6 +55,7 @@ class AsyncConfig extends Model
      */
     public $maxAsyncRetryAttempts;
     protected $_name = [
+        'asyncTask'                 => 'asyncTask',
         'createdTime'               => 'createdTime',
         'destinationConfig'         => 'destinationConfig',
         'functionArn'               => 'functionArn',
@@ -63,6 +71,9 @@ class AsyncConfig extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->asyncTask) {
+            $res['asyncTask'] = $this->asyncTask;
+        }
         if (null !== $this->createdTime) {
             $res['createdTime'] = $this->createdTime;
         }
@@ -93,6 +104,9 @@ class AsyncConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['asyncTask'])) {
+            $model->asyncTask = $map['asyncTask'];
+        }
         if (isset($map['createdTime'])) {
             $model->createdTime = $map['createdTime'];
         }

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListTriggersRequest extends Model
 {
     /**
+     * @description The number of triggers returned.
+     *
      * @example 10
      *
      * @var int
@@ -16,6 +18,8 @@ class ListTriggersRequest extends Model
     public $limit;
 
     /**
+     * @description The token for the next page.
+     *
      * @example MTIzNCNhYmM=
      *
      * @var string
@@ -23,6 +27,8 @@ class ListTriggersRequest extends Model
     public $nextToken;
 
     /**
+     * @description The trigger name prefix.
+     *
      * @example my-trigger
      *
      * @var string

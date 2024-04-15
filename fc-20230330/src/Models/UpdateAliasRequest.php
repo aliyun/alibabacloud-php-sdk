@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateAliasRequest extends Model
 {
     /**
+     * @description The alias information to be updated.
+     *
      * @var UpdateAliasInput
      */
     public $body;

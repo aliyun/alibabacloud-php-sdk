@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateVpcBindingRequest extends Model
 {
     /**
+     * @description The configurations of the virtual private cloud (VPC) binding.
+     *
      * @var CreateVpcBindingInput
      */
     public $body;

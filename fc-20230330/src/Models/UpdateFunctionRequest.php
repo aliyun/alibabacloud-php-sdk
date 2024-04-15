@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateFunctionRequest extends Model
 {
     /**
+     * @description The function information
+     *
      * @var UpdateFunctionInput
      */
     public $body;

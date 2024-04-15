@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListLayerVersionsRequest extends Model
 {
     /**
+     * @description The number of versions to be returned.
+     *
      * @example 10
      *
      * @var int
@@ -16,6 +18,8 @@ class ListLayerVersionsRequest extends Model
     public $limit;
 
     /**
+     * @description The initial version of the layer.
+     *
      * @example 1
      *
      * @var string

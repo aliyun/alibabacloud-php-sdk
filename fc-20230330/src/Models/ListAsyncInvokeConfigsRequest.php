@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListAsyncInvokeConfigsRequest extends Model
 {
     /**
+     * @description The function name. If you do not configure this parameter, the asynchronous invocation configurations of all functions are displayed.
+     *
      * @example my-func
      *
      * @var string
@@ -16,6 +18,8 @@ class ListAsyncInvokeConfigsRequest extends Model
     public $functionName;
 
     /**
+     * @description The maximum number of entries to be returned.
+     *
      * @example 10
      *
      * @var int
@@ -23,6 +27,8 @@ class ListAsyncInvokeConfigsRequest extends Model
     public $limit;
 
     /**
+     * @description The paging information. This parameter specifies the start point of the query.
+     *
      * @example MTIzNCNhYmM=
      *
      * @var string

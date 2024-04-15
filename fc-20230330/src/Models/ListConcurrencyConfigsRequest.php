@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListConcurrencyConfigsRequest extends Model
 {
     /**
+     * @description The function name. If you leave this parameter empty, the concurrency configurations of all functions are returned.
+     *
      * @example my-func
      *
      * @var string
@@ -16,6 +18,8 @@ class ListConcurrencyConfigsRequest extends Model
     public $functionName;
 
     /**
+     * @description The maximum number of entries returned.
+     *
      * @example 10
      *
      * @var int
@@ -23,6 +27,8 @@ class ListConcurrencyConfigsRequest extends Model
     public $limit;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
      * @example MTIzNCNhYmM=
      *
      * @var string

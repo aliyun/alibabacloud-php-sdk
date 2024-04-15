@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteProvisionConfigRequest extends Model
 {
     /**
+     * @description The function alias or LATEST.
+     *
      * @example LATEST
      *
      * @var string

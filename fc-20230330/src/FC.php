@@ -43,8 +43,6 @@ use AlibabaCloud\SDK\FC\V20230330\Models\GetLayerVersionByArnResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\GetLayerVersionResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\GetProvisionConfigRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\GetProvisionConfigResponse;
-use AlibabaCloud\SDK\FC\V20230330\Models\GetResourceTagsRequest;
-use AlibabaCloud\SDK\FC\V20230330\Models\GetResourceTagsResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\GetTriggerResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\InvokeFunctionHeaders;
 use AlibabaCloud\SDK\FC\V20230330\Models\InvokeFunctionRequest;
@@ -69,8 +67,6 @@ use AlibabaCloud\SDK\FC\V20230330\Models\ListLayerVersionsRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\ListLayerVersionsResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\ListProvisionConfigsRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\ListProvisionConfigsResponse;
-use AlibabaCloud\SDK\FC\V20230330\Models\ListTaggedResourcesRequest;
-use AlibabaCloud\SDK\FC\V20230330\Models\ListTaggedResourcesResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\ListTagResourcesShrinkRequest;
@@ -87,12 +83,8 @@ use AlibabaCloud\SDK\FC\V20230330\Models\PutLayerACLRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\PutLayerACLResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\PutProvisionConfigRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\PutProvisionConfigResponse;
-use AlibabaCloud\SDK\FC\V20230330\Models\TagResourceRequest;
-use AlibabaCloud\SDK\FC\V20230330\Models\TagResourceResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\TagResourcesResponse;
-use AlibabaCloud\SDK\FC\V20230330\Models\UntagResourceRequest;
-use AlibabaCloud\SDK\FC\V20230330\Models\UntagResourceResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\UntagResourcesShrinkRequest;
@@ -1226,60 +1218,6 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
-     * Deprecated
-     *
-     * @param GetResourceTagsRequest $request GetResourceTagsRequest
-     * @param string[]               $headers map
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
-     *
-     * @return GetResourceTagsResponse GetResourceTagsResponse
-     */
-    public function getResourceTagsWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->arn)) {
-            $query['arn'] = $request->arn;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetResourceTags',
-            'version'     => '2023-03-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/2023-03-30/tag',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetResourceTagsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @deprecated
-     *   *
-     * Deprecated
-     *
-     * @param GetResourceTagsRequest $request GetResourceTagsRequest
-     *
-     * @return GetResourceTagsResponse GetResourceTagsResponse
-     */
-    public function getResourceTags($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->getResourceTagsWithOptions($request, $headers, $runtime);
-    }
-
-    /**
      * @param string         $functionName
      * @param string         $triggerName
      * @param string[]       $headers
@@ -1339,6 +1277,9 @@ class FC extends OpenApiClient
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAsyncTaskId)) {
+            $realHeaders['x-fc-async-task-id'] = Utils::toJSONString($headers->xFcAsyncTaskId);
         }
         if (!Utils::isUnset($headers->xFcInvocationType)) {
             $realHeaders['x-fc-invocation-type'] = Utils::toJSONString($headers->xFcInvocationType);
@@ -1990,66 +1931,6 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
-     * Deprecated
-     *
-     * @param ListTaggedResourcesRequest $request ListTaggedResourcesRequest
-     * @param string[]                   $headers map
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
-     *
-     * @return ListTaggedResourcesResponse ListTaggedResourcesResponse
-     */
-    public function listTaggedResourcesWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->limit)) {
-            $query['limit'] = $request->limit;
-        }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['nextToken'] = $request->nextToken;
-        }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['resourceType'] = $request->resourceType;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListTaggedResources',
-            'version'     => '2023-03-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/2023-03-30/tags',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListTaggedResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @deprecated
-     *   *
-     * Deprecated
-     *
-     * @param ListTaggedResourcesRequest $request ListTaggedResourcesRequest
-     *
-     * @return ListTaggedResourcesResponse ListTaggedResourcesResponse
-     */
-    public function listTaggedResources($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->listTaggedResourcesWithOptions($request, $headers, $runtime);
-    }
-
-    /**
      * @param string              $functionName
      * @param ListTriggersRequest $request
      * @param string[]            $headers
@@ -2378,56 +2259,6 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
-     * Deprecated
-     *
-     * @param TagResourceRequest $request TagResourceRequest
-     * @param string[]           $headers map
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
-     *
-     * @return TagResourceResponse TagResourceResponse
-     */
-    public function tagResourceWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
-        ]);
-        $params = new Params([
-            'action'      => 'TagResource',
-            'version'     => '2023-03-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/2023-03-30/tag',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'none',
-        ]);
-
-        return TagResourceResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @deprecated
-     *   *
-     * Deprecated
-     *
-     * @param TagResourceRequest $request TagResourceRequest
-     *
-     * @return TagResourceResponse TagResourceResponse
-     */
-    public function tagResource($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->tagResourceWithOptions($request, $headers, $runtime);
-    }
-
-    /**
      * @param TagResourcesRequest $request
      * @param string[]            $headers
      * @param RuntimeOptions      $runtime
@@ -2467,66 +2298,6 @@ class FC extends OpenApiClient
         $headers = [];
 
         return $this->tagResourcesWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @deprecated
-     *   *
-     * Deprecated
-     *
-     * @param UntagResourceRequest $request UntagResourceRequest
-     * @param string[]             $headers map
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
-     *
-     * @return UntagResourceResponse UntagResourceResponse
-     */
-    public function untagResourceWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->all)) {
-            $query['all'] = $request->all;
-        }
-        if (!Utils::isUnset($request->arn)) {
-            $query['arn'] = $request->arn;
-        }
-        if (!Utils::isUnset($request->tagKeys)) {
-            $query['tagKeys'] = $request->tagKeys;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UntagResource',
-            'version'     => '2023-03-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/2023-03-30/tag',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'none',
-        ]);
-
-        return UntagResourceResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @deprecated
-     *   *
-     * Deprecated
-     *
-     * @param UntagResourceRequest $request UntagResourceRequest
-     *
-     * @return UntagResourceResponse UntagResourceResponse
-     */
-    public function untagResource($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->untagResourceWithOptions($request, $headers, $runtime);
     }
 
     /**

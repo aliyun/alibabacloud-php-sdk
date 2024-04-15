@@ -11,6 +11,13 @@ class InvokeFunctionHeaders extends Model
     public $commonHeaders;
 
     /**
+     * @var string
+     */
+    public $xFcAsyncTaskId;
+
+    /**
+     * @description The type of function invocation. Valid values: Sync and Async.
+     *
      * @example Sync
      *
      * @var string
@@ -18,12 +25,15 @@ class InvokeFunctionHeaders extends Model
     public $xFcInvocationType;
 
     /**
+     * @description The log type of function invocation. Valid values: None and Tail.
+     *
      * @example Tail
      *
      * @var string
      */
     public $xFcLogType;
     protected $_name = [
+        'xFcAsyncTaskId'    => 'x-fc-async-task-id',
         'xFcInvocationType' => 'x-fc-invocation-type',
         'xFcLogType'        => 'x-fc-log-type',
     ];
@@ -37,6 +47,9 @@ class InvokeFunctionHeaders extends Model
         $res = [];
         if (null !== $this->commonHeaders) {
             $res['commonHeaders'] = $this->commonHeaders;
+        }
+        if (null !== $this->xFcAsyncTaskId) {
+            $res['x-fc-async-task-id'] = $this->xFcAsyncTaskId;
         }
         if (null !== $this->xFcInvocationType) {
             $res['x-fc-invocation-type'] = $this->xFcInvocationType;
@@ -58,6 +71,9 @@ class InvokeFunctionHeaders extends Model
         $model = new self();
         if (isset($map['commonHeaders'])) {
             $model->commonHeaders = $map['commonHeaders'];
+        }
+        if (isset($map['x-fc-async-task-id'])) {
+            $model->xFcAsyncTaskId = $map['x-fc-async-task-id'];
         }
         if (isset($map['x-fc-invocation-type'])) {
             $model->xFcInvocationType = $map['x-fc-invocation-type'];

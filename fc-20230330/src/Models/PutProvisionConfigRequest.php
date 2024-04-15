@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class PutProvisionConfigRequest extends Model
 {
     /**
+     * @description The information about the provisioned configuration.
+     *
      * @var PutProvisionConfigInput
      */
     public $body;
 
     /**
+     * @description The function alias or LATEST.
+     *
      * @example LATEST
      *
      * @var string

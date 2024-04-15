@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListInstancesRequest extends Model
 {
     /**
+     * @description The function version or alias.
+     *
      * @example LATEST
      *
      * @var string
@@ -16,6 +18,8 @@ class ListInstancesRequest extends Model
     public $qualifier;
 
     /**
+     * @description Specifies whether to list all instances. Valid values: true and false.
+     *
      * @example true
      *
      * @var bool
