@@ -11,7 +11,7 @@ class DescribeBackupTasksRequest extends Model
     /**
      * @example 170034
      *
-     * @var int
+     * @var string
      */
     public $backupJobId;
 

@@ -40,7 +40,7 @@ class backup extends Model
      *
      * @example 32102****
      *
-     * @var int
+     * @var string
      */
     public $backupId;
 
@@ -55,7 +55,7 @@ class backup extends Model
     public $backupIntranetDownloadURL;
 
     /**
-     * @var int
+     * @var string
      */
     public $backupJobId;
 
