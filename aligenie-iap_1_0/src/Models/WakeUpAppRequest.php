@@ -10,37 +10,27 @@ use AlibabaCloud\Tea\Model;
 class WakeUpAppRequest extends Model
 {
     /**
-     * @description 应用拉起路径，类似在技能应用控制台中填的唤起链接。
+     * @example true
+     *
+     * @var bool
+     */
+    public $isDebug;
+
+    /**
+     * @example 应用拉起路径
      *
      * @var string
      */
     public $path;
 
     /**
-     * @description 猫精应用id，控制台中创建应用后得到的应用id。
-     *
-     * @var string
-     */
-    public $genieAppId;
-
-    /**
-     * @description 要拉起的目标设备信息。
-     *
      * @var targetInfo
      */
     public $targetInfo;
-
-    /**
-     * @description 是否调试
-     *
-     * @var bool
-     */
-    public $isDebug;
     protected $_name = [
-        'path'       => 'Path',
-        'genieAppId' => 'GenieAppId',
-        'targetInfo' => 'TargetInfo',
         'isDebug'    => 'IsDebug',
+        'path'       => 'Path',
+        'targetInfo' => 'TargetInfo',
     ];
 
     public function validate()
@@ -50,17 +40,14 @@ class WakeUpAppRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->isDebug) {
+            $res['IsDebug'] = $this->isDebug;
+        }
         if (null !== $this->path) {
             $res['Path'] = $this->path;
         }
-        if (null !== $this->genieAppId) {
-            $res['GenieAppId'] = $this->genieAppId;
-        }
         if (null !== $this->targetInfo) {
             $res['TargetInfo'] = null !== $this->targetInfo ? $this->targetInfo->toMap() : null;
-        }
-        if (null !== $this->isDebug) {
-            $res['IsDebug'] = $this->isDebug;
         }
 
         return $res;
@@ -74,17 +61,14 @@ class WakeUpAppRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['IsDebug'])) {
+            $model->isDebug = $map['IsDebug'];
+        }
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
         }
-        if (isset($map['GenieAppId'])) {
-            $model->genieAppId = $map['GenieAppId'];
-        }
         if (isset($map['TargetInfo'])) {
             $model->targetInfo = targetInfo::fromMap($map['TargetInfo']);
-        }
-        if (isset($map['IsDebug'])) {
-            $model->isDebug = $map['IsDebug'];
         }
 
         return $model;

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class PushNotificationsShrinkRequest extends Model
 {
     /**
-     * @description 消息推送入参对象。
-     *
      * @var string
      */
     public $notificationUnicastRequestShrink;
 
     /**
-     * @description 身份信息。
-     *
      * @var string
      */
     public $tenantInfoShrink;

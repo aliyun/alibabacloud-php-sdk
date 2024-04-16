@@ -11,15 +11,11 @@ use AlibabaCloud\Tea\Model;
 class PushNotificationsRequest extends Model
 {
     /**
-     * @description 消息推送入参对象。
-     *
      * @var notificationUnicastRequest
      */
     public $notificationUnicastRequest;
 
     /**
-     * @description 身份信息。
-     *
      * @var tenantInfo
      */
     public $tenantInfo;
