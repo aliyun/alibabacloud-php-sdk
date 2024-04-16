@@ -4,17 +4,24 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20230701\Models\CreateJobRequest\tasks\taskSpec;
 
+use AlibabaCloud\SDK\EHPC\V20230701\Models\CreateJobRequest\tasks\taskSpec\taskExecutor\container;
 use AlibabaCloud\SDK\EHPC\V20230701\Models\CreateJobRequest\tasks\taskSpec\taskExecutor\VM;
 use AlibabaCloud\Tea\Model;
 
 class taskExecutor extends Model
 {
     /**
+     * @var container
+     */
+    public $container;
+
+    /**
      * @var VM
      */
     public $VM;
     protected $_name = [
-        'VM' => 'VM',
+        'container' => 'Container',
+        'VM'        => 'VM',
     ];
 
     public function validate()
@@ -24,6 +31,9 @@ class taskExecutor extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->container) {
+            $res['Container'] = null !== $this->container ? $this->container->toMap() : null;
+        }
         if (null !== $this->VM) {
             $res['VM'] = null !== $this->VM ? $this->VM->toMap() : null;
         }
@@ -39,6 +49,9 @@ class taskExecutor extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Container'])) {
+            $model->container = container::fromMap($map['Container']);
+        }
         if (isset($map['VM'])) {
             $model->VM = VM::fromMap($map['VM']);
         }

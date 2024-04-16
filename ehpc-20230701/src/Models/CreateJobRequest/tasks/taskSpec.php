@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\EHPC\V20230701\Models\CreateJobRequest\tasks;
 
 use AlibabaCloud\SDK\EHPC\V20230701\Models\CreateJobRequest\tasks\taskSpec\resource;
 use AlibabaCloud\SDK\EHPC\V20230701\Models\CreateJobRequest\tasks\taskSpec\taskExecutor;
+use AlibabaCloud\SDK\EHPC\V20230701\Models\CreateJobRequest\tasks\taskSpec\volumeMount;
 use AlibabaCloud\Tea\Model;
 
 class taskSpec extends Model
@@ -19,9 +20,15 @@ class taskSpec extends Model
      * @var taskExecutor[]
      */
     public $taskExecutor;
+
+    /**
+     * @var volumeMount[]
+     */
+    public $volumeMount;
     protected $_name = [
         'resource'     => 'Resource',
         'taskExecutor' => 'TaskExecutor',
+        'volumeMount'  => 'VolumeMount',
     ];
 
     public function validate()
@@ -40,6 +47,15 @@ class taskSpec extends Model
                 $n = 0;
                 foreach ($this->taskExecutor as $item) {
                     $res['TaskExecutor'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->volumeMount) {
+            $res['VolumeMount'] = [];
+            if (null !== $this->volumeMount && \is_array($this->volumeMount)) {
+                $n = 0;
+                foreach ($this->volumeMount as $item) {
+                    $res['VolumeMount'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -64,6 +80,15 @@ class taskSpec extends Model
                 $n                   = 0;
                 foreach ($map['TaskExecutor'] as $item) {
                     $model->taskExecutor[$n++] = null !== $item ? taskExecutor::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['VolumeMount'])) {
+            if (!empty($map['VolumeMount'])) {
+                $model->volumeMount = [];
+                $n                  = 0;
+                foreach ($map['VolumeMount'] as $item) {
+                    $model->volumeMount[$n++] = null !== $item ? volumeMount::fromMap($item) : $item;
                 }
             }
         }

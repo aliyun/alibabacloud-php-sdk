@@ -15,13 +15,6 @@ class ListExecutorsResponseBody extends Model
     public $executors;
 
     /**
-     * @example job-hy1nggvyukuvkrtfpe70
-     *
-     * @var string
-     */
-    public $jobId;
-
-    /**
      * @example 1
      *
      * @var string
@@ -43,13 +36,6 @@ class ListExecutorsResponseBody extends Model
     public $requestId;
 
     /**
-     * @example task0
-     *
-     * @var string
-     */
-    public $taskName;
-
-    /**
      * @example 40
      *
      * @var string
@@ -57,11 +43,9 @@ class ListExecutorsResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'executors'  => 'Executors',
-        'jobId'      => 'JobId',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
         'requestId'  => 'RequestId',
-        'taskName'   => 'TaskName',
         'totalCount' => 'TotalCount',
     ];
 
@@ -81,9 +65,6 @@ class ListExecutorsResponseBody extends Model
                 }
             }
         }
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -92,9 +73,6 @@ class ListExecutorsResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->taskName) {
-            $res['TaskName'] = $this->taskName;
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
@@ -120,9 +98,6 @@ class ListExecutorsResponseBody extends Model
                 }
             }
         }
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
@@ -131,9 +106,6 @@ class ListExecutorsResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['TaskName'])) {
-            $model->taskName = $map['TaskName'];
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];

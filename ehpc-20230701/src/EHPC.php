@@ -15,6 +15,12 @@ use AlibabaCloud\SDK\EHPC\V20230701\Models\CreateJobShrinkRequest;
 use AlibabaCloud\SDK\EHPC\V20230701\Models\DeleteJobsRequest;
 use AlibabaCloud\SDK\EHPC\V20230701\Models\DeleteJobsResponse;
 use AlibabaCloud\SDK\EHPC\V20230701\Models\DeleteJobsShrinkRequest;
+use AlibabaCloud\SDK\EHPC\V20230701\Models\DescribeJobMetricDataRequest;
+use AlibabaCloud\SDK\EHPC\V20230701\Models\DescribeJobMetricDataResponse;
+use AlibabaCloud\SDK\EHPC\V20230701\Models\DescribeJobMetricDataShrinkRequest;
+use AlibabaCloud\SDK\EHPC\V20230701\Models\DescribeJobMetricLastRequest;
+use AlibabaCloud\SDK\EHPC\V20230701\Models\DescribeJobMetricLastResponse;
+use AlibabaCloud\SDK\EHPC\V20230701\Models\DescribeJobMetricLastShrinkRequest;
 use AlibabaCloud\SDK\EHPC\V20230701\Models\GetImageRequest;
 use AlibabaCloud\SDK\EHPC\V20230701\Models\GetImageResponse;
 use AlibabaCloud\SDK\EHPC\V20230701\Models\GetJobRequest;
@@ -246,6 +252,117 @@ class EHPC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteJobsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeJobMetricDataRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeJobMetricDataResponse
+     */
+    public function describeJobMetricDataWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DescribeJobMetricDataShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->arrayIndex)) {
+            $request->arrayIndexShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->arrayIndex, 'ArrayIndex', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->arrayIndexShrink)) {
+            $query['ArrayIndex'] = $request->arrayIndexShrink;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->metricName)) {
+            $query['MetricName'] = $request->metricName;
+        }
+        if (!Utils::isUnset($request->taskName)) {
+            $query['TaskName'] = $request->taskName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeJobMetricData',
+            'version'     => '2023-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeJobMetricDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeJobMetricDataRequest $request
+     *
+     * @return DescribeJobMetricDataResponse
+     */
+    public function describeJobMetricData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeJobMetricDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeJobMetricLastRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeJobMetricLastResponse
+     */
+    public function describeJobMetricLastWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DescribeJobMetricLastShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->arrayIndex)) {
+            $request->arrayIndexShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->arrayIndex, 'ArrayIndex', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->arrayIndexShrink)) {
+            $query['ArrayIndex'] = $request->arrayIndexShrink;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->taskName)) {
+            $query['TaskName'] = $request->taskName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeJobMetricLast',
+            'version'     => '2023-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeJobMetricLastResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeJobMetricLastRequest $request
+     *
+     * @return DescribeJobMetricLastResponse
+     */
+    public function describeJobMetricLast($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeJobMetricLastWithOptions($request, $runtime);
     }
 
     /**
