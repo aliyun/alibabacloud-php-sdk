@@ -113,7 +113,7 @@ class ModifyTunnelAttributeResponseBody extends Model
     public $tunnelId;
 
     /**
-     * @description The configurations of IKE Phase 1.
+     * @description The Phase 1 configuration.
      *
      * @var tunnelIkeConfig
      */
@@ -129,7 +129,7 @@ class ModifyTunnelAttributeResponseBody extends Model
     /**
      * @description The tunnel zone.
      *
-     * @example ap-southeast-2b
+     * @example cn-hangzhou-h
      *
      * @var string
      */

@@ -9,7 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateSslVpnServerRequest extends Model
 {
     /**
-     * @description The encryption algorithm that is used for the SSL-VPN connection. Valid values:
+     * @description The encryption algorithm that is used by the SSL-VPN connection.
+     *
+     *   If the client uses Tunnelblick or OpenVPN 2.4.0 or later, the SSL server dynamically negotiates with the client about the encryption algorithm and uses the most secure encryption algorithm that is supported by the SSL server and the client. The encryption algorithm that you specify for the SSL server does not take effect.
+     *
+     *   If the client uses OpenVPN of a version that is earlier than 2.4.0, the SSL server and the client use the encryption algorithm that you specify for the SSL server. You can specify one of the following encryption algorithms for the SSL server:
      *
      *   **AES-128-CBC** (default)
      *   **AES-192-CBC**
@@ -25,9 +29,24 @@ class CreateSslVpnServerRequest extends Model
     /**
      * @description The client CIDR block.
      *
-     * When the client accesses the local virtual private cloud (VPC) by using an SSL-VPN connection, the VPN gateway allocates an IP address from the client CIDR block to the client.
+     * <summary>Click to view the CIDR blocks that are not supported.</summary>
      *
-     * >  This CIDR block cannot overlap with the CIDR block specified by **LocalSubnet**.
+     *   100.64.0.0~100.127.255.255
+     *   127.0.0.0~127.255.255.255
+     *   169.254.0.0~169.254.255.255
+     *   224.0.0.0~239.255.255.255
+     *   255.0.0.0~255.255.255.255
+     * <summary>Click to view the recommended client CIDR blocks for different numbers of SSL-VPN connections.</summary>
+     *
+     *   If the number of SSL-VPN connections is 5, we recommend that you specify a client CIDR block with a subnet mask that is less than or equal to 27 bits in length. Examples: 10.0.0.0/27 and 10.0.0.0/26.
+     *   If the number of SSL-VPN connections is 10, we recommend that you specify a client CIDR block with a subnet mask that is less than or equal to 26 bits in length. Examples: 10.0.0.0/26 and 10.0.0.0/25.
+     *   If the number of SSL-VPN connections is 20, we recommend that you specify a client CIDR block with a subnet mask that is less than or equal to 25 bits in length. Examples: 10.0.0.0/25 and 10.0.0.0/24.
+     *   If the number of SSL-VPN connections is 50, we recommend that you specify a client CIDR block with a subnet mask that is less than or equal to 24 bits in length. Examples: 10.0.0.0/24 and 10.0.0.0/23.
+     *   If the number of SSL-VPN connections is 100, we recommend that you specify a client CIDR block with a subnet mask that is less than or equal to 23 bits in length. Examples: 10.0.0.0/23 and 10.0.0.0/22.
+     *   If the number of SSL-VPN connections is 200, we recommend that you specify a client CIDR block with a subnet mask that is less than or equal to 22 bits in length. Examples: 10.0.0.0/22 and 10.0.0.0/21.
+     *   If the number of SSL-VPN connections is 500, we recommend that you specify a client CIDR block with a subnet mask that is less than or equal to 21 bits in length. Examples: 10.0.0.0/21 and 10.0.0.0/20.
+     *   If the number of SSL-VPN connections is 1,000, we recommend that you specify a client CIDR block with a subnet mask that is less than or equal to 20 bits in length. Examples: 10.0.0.0/20 and 10.0.0.0/19.
+     * > - After you create an SSL server, the system automatically adds routes that point to the client CIDR block to the VPC route table, which is not displayed in the console by default. Do not add routes that point to the client CIDR block to the VPC route table again. Otherwise, SSL-VPN connections cannot work as expected.
      * @example 192.168.1.0/24
      *
      * @var string
@@ -59,13 +78,12 @@ class CreateSslVpnServerRequest extends Model
     public $compress;
 
     /**
-     * @description Specifies whether to enable two-factor authentication. If you enable two-factor authentication, you must also specify an IDaaS instance ID. Valid values:
+     * @description Specifies whether to enable two-factor authentication. If you enable two-factor authentication, you must configure `IDaaSInstanceId` and `IDaaSRegionId`. Valid values:
      *
-     *   **true**
-     *   **false** (default)
+     *   **true**: enables this feature.
+     *   **false** (default): disables this feature.
      *
-     * >*   Two-factor authentication supports only IDaaS instances of earlier versions. If you do not have and cannot create IDaaS instances of earlier versions, you cannot enable two-factor authentication.
-     * >*   For existing SSL servers, if two-factor authentication is already enabled, you can continue to use two-factor authentication.
+     * > - If two-factor authentication is already enabled for existing SSL servers, you can continue to use two-factor authentication.
      * @example false
      *
      * @var bool
@@ -93,7 +111,14 @@ class CreateSslVpnServerRequest extends Model
     /**
      * @description The local CIDR block.
      *
-     * This value can be the CIDR block of a VPC, a vSwitch, a data center that is connected to a VPC by using an Express Connect circuit, or an Alibaba Cloud service such as Object Storage Service (OSS).
+     * The subnet mask of the specified local CIDR block must be 8 to 32 bits in length. You cannot specify the following CIDR blocks as the local CIDR blocks:
+     *
+     *   100.64.0.0~100.127.255.255
+     *   127.0.0.0~127.255.255.255
+     *   169.254.0.0~169.254.255.255
+     *   224.0.0.0~239.255.255.255
+     *   255.0.0.0~255.255.255.255
+     *
      * @example 10.0.0.0/8
      *
      * @var string

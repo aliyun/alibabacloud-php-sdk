@@ -90,7 +90,7 @@ class ipv6Address extends Model
     public $ipv6InternetBandwidth;
 
     /**
-     * @description The ISP of the IPv6 address.
+     * @description The ISP of the IPv6 address. Valid values:
      *
      *   **BGP** (default)
      *   **ChinaMobile**
@@ -134,6 +134,13 @@ class ipv6Address extends Model
     public $resourceGroupId;
 
     /**
+     * @description Indicates whether the instance is managed. Valid values:
+     *
+     *   **1**: yes
+     *   **0**: no
+     *
+     * @example 1
+     *
      * @var int
      */
     public $serviceManaged;

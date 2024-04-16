@@ -7295,7 +7295,9 @@ class Vpc extends OpenApiClient
      * *   **CreateSslVpnServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](~~73720~~) operation to query the status of the task.
      *   *     *   If the VPN gateway is in the **updating** state, the SSL server is being created.
      *   *     *   If the VPN gateway is in the **active** state, the SSL server is created.
-     *   * *   You cannot repeatedly call the **CreateSslVpnServer** operation for the same VPN gateway within the specified period of time.
+     *   * *   You cannot call the **CreateSslVpnServer** operation to create multiple SSL servers at a time for the same VPN gateway.
+     *   * ### [](#)Prerequisites
+     *   * A VPN gateway is created, and the SSL-VPN feature is enabled for the VPN gateway. For more information, see [CreateVpnGateway](~~2526913~~).
      *   *
      * @param CreateSslVpnServerRequest $request CreateSslVpnServerRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -7379,7 +7381,9 @@ class Vpc extends OpenApiClient
      * *   **CreateSslVpnServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](~~73720~~) operation to query the status of the task.
      *   *     *   If the VPN gateway is in the **updating** state, the SSL server is being created.
      *   *     *   If the VPN gateway is in the **active** state, the SSL server is created.
-     *   * *   You cannot repeatedly call the **CreateSslVpnServer** operation for the same VPN gateway within the specified period of time.
+     *   * *   You cannot call the **CreateSslVpnServer** operation to create multiple SSL servers at a time for the same VPN gateway.
+     *   * ### [](#)Prerequisites
+     *   * A VPN gateway is created, and the SSL-VPN feature is enabled for the VPN gateway. For more information, see [CreateVpnGateway](~~2526913~~).
      *   *
      * @param CreateSslVpnServerRequest $request CreateSslVpnServerRequest
      *
@@ -7949,12 +7953,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   You cannot create a destination-based route whose destination CIDR block is 0.0.0.0/0.
-     *   * *   Do not add a route whose destination CIDR block is 100.64.0.0/10, a subset of 100.64.0.0/10, or a CIDR block that contains 100.64.0.0/10. If such a route is added, the status of the IPsec-VPN connection cannot be displayed in the console or IPsec negotiations fail.
-     *   * *   **CreateVcoRouteEntry** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnConnection](~~53046~~) operation to query the status of the task.
-     *   *     *   If the IPsec-VPN connection is in the **updating** state, the route is being created.
-     *   *     *   If the IPsec-VPN connection is in the **attached** state, the route is created.
-     *   * *   You cannot repeatedly call **CreateVcoRouteEntry** to create a route for the same IPsec-VPN connection within the specified period of time.
+     * *   The IPsec-VPN connection must be associated with a transit router. For more information, see [CreateTransitRouterVpnAttachment](~~468249~~).
+     *   * *   You cannot create a destination-based route whose destination CIDR block is 0.0.0.0/0.
+     *   * *   Do not add a destination-based route whose destination CIDR block is 100.64.0.0/10, or a CIDR block that contains 100.64.0.0/10 or belongs to 100.64.0.0/10. Such a route will make the console fail to display the status of the IPsec-VPN connection or cause IPsec negotiation failures.
+     *   * *   **CreateVcoRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnConnection](~~53046~~) to query the status of the task.
+     *   *     *   If the IPsec-VPN connection is in the **updating** state, the destination-based route is being created.
+     *   *     *   If the IPsec-VPN connection is in the **attached** state, the destination-based route is created.
+     *   * *   You cannot repeatedly call **CreateVcoRouteEntry** within the specified period of time.
      *   *
      * @param CreateVcoRouteEntryRequest $request CreateVcoRouteEntryRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -8017,12 +8022,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   You cannot create a destination-based route whose destination CIDR block is 0.0.0.0/0.
-     *   * *   Do not add a route whose destination CIDR block is 100.64.0.0/10, a subset of 100.64.0.0/10, or a CIDR block that contains 100.64.0.0/10. If such a route is added, the status of the IPsec-VPN connection cannot be displayed in the console or IPsec negotiations fail.
-     *   * *   **CreateVcoRouteEntry** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnConnection](~~53046~~) operation to query the status of the task.
-     *   *     *   If the IPsec-VPN connection is in the **updating** state, the route is being created.
-     *   *     *   If the IPsec-VPN connection is in the **attached** state, the route is created.
-     *   * *   You cannot repeatedly call **CreateVcoRouteEntry** to create a route for the same IPsec-VPN connection within the specified period of time.
+     * *   The IPsec-VPN connection must be associated with a transit router. For more information, see [CreateTransitRouterVpnAttachment](~~468249~~).
+     *   * *   You cannot create a destination-based route whose destination CIDR block is 0.0.0.0/0.
+     *   * *   Do not add a destination-based route whose destination CIDR block is 100.64.0.0/10, or a CIDR block that contains 100.64.0.0/10 or belongs to 100.64.0.0/10. Such a route will make the console fail to display the status of the IPsec-VPN connection or cause IPsec negotiation failures.
+     *   * *   **CreateVcoRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnConnection](~~53046~~) to query the status of the task.
+     *   *     *   If the IPsec-VPN connection is in the **updating** state, the destination-based route is being created.
+     *   *     *   If the IPsec-VPN connection is in the **attached** state, the destination-based route is created.
+     *   * *   You cannot repeatedly call **CreateVcoRouteEntry** within the specified period of time.
      *   *
      * @param CreateVcoRouteEntryRequest $request CreateVcoRouteEntryRequest
      *
@@ -12675,8 +12681,8 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   If the IPsec-VPN connection is associated with a transit router, you must first disassociate the IPsec-VPN connection from the transit router before you delete the IPsec-VPN connection.
-     *   * *   If the IPsec-VPN connection is not associated with a resource, you can call the `DeleteVpnAttachment` to delete the IPsec-VPN connection.
+     * *   If an IPsec-VPN connection is associated with a transit router, you must disassociate the transit router from the IPsec-VPN connection before you delete the IPsec-VPN connection. For more information, see [DeleteTransitRouterVpnAttachment](~~468251~~).
+     *   * *   If an IPsec-VPN connection is not associated with a resource, you can call `DeleteVpnAttachment` to directly delete the IPsec-VPN connection.
      *   *
      * @param DeleteVpnAttachmentRequest $request DeleteVpnAttachmentRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -12724,8 +12730,8 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   If the IPsec-VPN connection is associated with a transit router, you must first disassociate the IPsec-VPN connection from the transit router before you delete the IPsec-VPN connection.
-     *   * *   If the IPsec-VPN connection is not associated with a resource, you can call the `DeleteVpnAttachment` to delete the IPsec-VPN connection.
+     * *   If an IPsec-VPN connection is associated with a transit router, you must disassociate the transit router from the IPsec-VPN connection before you delete the IPsec-VPN connection. For more information, see [DeleteTransitRouterVpnAttachment](~~468251~~).
+     *   * *   If an IPsec-VPN connection is not associated with a resource, you can call `DeleteVpnAttachment` to directly delete the IPsec-VPN connection.
      *   *
      * @param DeleteVpnAttachmentRequest $request DeleteVpnAttachmentRequest
      *
@@ -22549,6 +22555,9 @@ class Vpc extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->addInstanceList)) {
+            $query['AddInstanceList'] = $request->addInstanceList;
+        }
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
@@ -22561,9 +22570,6 @@ class Vpc extends OpenApiClient
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pconnIdList)) {
-            $query['PconnIdList'] = $request->pconnIdList;
-        }
         if (!Utils::isUnset($request->qosDescription)) {
             $query['QosDescription'] = $request->qosDescription;
         }
@@ -22575,6 +22581,9 @@ class Vpc extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->removeInstanceList)) {
+            $query['RemoveInstanceList'] = $request->removeInstanceList;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;

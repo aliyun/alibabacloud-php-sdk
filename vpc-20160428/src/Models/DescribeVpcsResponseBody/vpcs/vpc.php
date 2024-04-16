@@ -75,6 +75,11 @@ class vpc extends Model
     public $dhcpOptionsSetStatus;
 
     /**
+     * @var bool
+     */
+    public $enabledIpv6;
+
+    /**
      * @description The IPv6 CIDR block of the VPC.
      *
      * @example 2408:XXXX:0:a600::/56
@@ -217,6 +222,7 @@ class vpc extends Model
         'description'          => 'Description',
         'dhcpOptionsSetId'     => 'DhcpOptionsSetId',
         'dhcpOptionsSetStatus' => 'DhcpOptionsSetStatus',
+        'enabledIpv6'          => 'EnabledIpv6',
         'ipv6CidrBlock'        => 'Ipv6CidrBlock',
         'ipv6CidrBlocks'       => 'Ipv6CidrBlocks',
         'isDefault'            => 'IsDefault',
@@ -259,6 +265,9 @@ class vpc extends Model
         }
         if (null !== $this->dhcpOptionsSetStatus) {
             $res['DhcpOptionsSetStatus'] = $this->dhcpOptionsSetStatus;
+        }
+        if (null !== $this->enabledIpv6) {
+            $res['EnabledIpv6'] = $this->enabledIpv6;
         }
         if (null !== $this->ipv6CidrBlock) {
             $res['Ipv6CidrBlock'] = $this->ipv6CidrBlock;
@@ -337,6 +346,9 @@ class vpc extends Model
         }
         if (isset($map['DhcpOptionsSetStatus'])) {
             $model->dhcpOptionsSetStatus = $map['DhcpOptionsSetStatus'];
+        }
+        if (isset($map['EnabledIpv6'])) {
+            $model->enabledIpv6 = $map['EnabledIpv6'];
         }
         if (isset($map['Ipv6CidrBlock'])) {
             $model->ipv6CidrBlock = $map['Ipv6CidrBlock'];

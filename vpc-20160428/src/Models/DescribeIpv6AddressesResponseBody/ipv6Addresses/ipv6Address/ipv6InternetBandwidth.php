@@ -56,7 +56,7 @@ class ipv6InternetBandwidth extends Model
      * @description The billing method of the Internet bandwidth of the IPv6 address. Valid values:
      *
      *   **PayByTraffic**
-     *   **PayByBandwidth**: pay-by-bandwidth
+     *   **PayByBandwidth**
      *
      * @example PayByTraffic
      *
@@ -74,7 +74,7 @@ class ipv6InternetBandwidth extends Model
     public $ipv6InternetBandwidthId;
 
     /**
-     * @description The time when the renewal took effect. The time follows the ISO 8601 standard in the `YYYY-MM-DDThh:mm:ssZ` format.
+     * @description The time when the renewal takes effect. The time is displayed in the `YYYY-MM-DDThh:mm:ssZ` format.
      *
      * @example 2021-05-23T16:00:00Z
      *
@@ -95,7 +95,7 @@ class ipv6InternetBandwidth extends Model
      * @description The metering method that is used after the renewal takes effect.
      *
      *   **PayByTraffic**
-     *   **PayByBandwidth**: pay-by-bandwidth
+     *   **PayByBandwidth**
      *
      * @example PayByTraffic
      *

@@ -10,11 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeIpv6GatewayAttributeResponseBody extends Model
 {
     /**
-     * @description The service status of the IPv6 gateway. Valid values:
+     * @description The status of the IPv6 gateway. Valid values:
      *
-     *   **Normal**: The IPv6 gateway runs as expected.
-     *   **FinacialLocked**: The IPv6 gateway is locked due to overdue payments.
-     *   **SecurityLocked**: The IPv6 gateway is locked due to security reasons.
+     *   **Normal**
+     *   **FinancialLocked**
+     *   **SecurityLocked**
      *
      * @example Normal
      *
@@ -126,7 +126,7 @@ class DescribeIpv6GatewayAttributeResponseBody extends Model
     public $status;
 
     /**
-     * @description The list of tags.
+     * @description The information about the tags.
      *
      * @var tags
      */

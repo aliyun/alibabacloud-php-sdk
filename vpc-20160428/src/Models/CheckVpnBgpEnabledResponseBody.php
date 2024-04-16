@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class CheckVpnBgpEnabledResponseBody extends Model
 {
     /**
-     * @description Indicates whether the BGP feature is supported in the current region.
+     * @description Indicates whether the region supports BGP.
      *
-     *   **true**: supported.
-     *   **false**: not supported.
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -21,7 +21,7 @@ class CheckVpnBgpEnabledResponseBody extends Model
     public $bgpEnabled;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example DF448D2E-215D-334F-B10D-7C3B087EF996
      *

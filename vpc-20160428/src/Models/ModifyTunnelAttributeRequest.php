@@ -35,7 +35,7 @@ class ModifyTunnelAttributeRequest extends Model
      * @description The ID of the region in which the IPsec connection is established.
      *
      * You can call the [DescribeRegions](~~36063~~) operation to query the region ID.
-     * @example ap-southeast-2
+     * @example cn-hangzhou
      *
      * @var string
      */

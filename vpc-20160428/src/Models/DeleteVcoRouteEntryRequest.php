@@ -47,7 +47,7 @@ class DeleteVcoRouteEntryRequest extends Model
      * @description The ID of the region where the IPsec-VPN connection is established.
      *
      * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
-     * @example ap-southeast-2
+     * @example cn-hangzhou
      *
      * @var string
      */

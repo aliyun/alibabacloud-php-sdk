@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class associatedPropagationSources extends Model
 {
     /**
-     * @description Indicates whether to propagate the routes of the VPC.
+     * @description Indicates whether routes are advertised to the VPC.
      *
      * @example true
      *
@@ -18,7 +18,7 @@ class associatedPropagationSources extends Model
     public $routePropagated;
 
     /**
-     * @description The instance ID of the propagation source.
+     * @description The instance ID of the source.
      *
      * @example cen-dc4vwznpwbobrl****
      *
@@ -27,7 +27,7 @@ class associatedPropagationSources extends Model
     public $sourceInstanceId;
 
     /**
-     * @description The ID of the account to which the propagation source belongs.
+     * @description The account ID of the source.
      *
      * @example 153980532164****
      *
@@ -36,12 +36,13 @@ class associatedPropagationSources extends Model
     public $sourceOwnerId;
 
     /**
-     * @description The type of the propagation source. Valid values:
+     * @description The source type.
      *
-     * - **CEN**
-     * - **VPN**
-     * - **TR**
-     * - **ECR**
+     *   **CEN**
+     *   **VPN**
+     *   **TR**
+     *   **ECR**
+     *
      * @example CEN
      *
      * @var string
@@ -49,11 +50,12 @@ class associatedPropagationSources extends Model
     public $sourceType;
 
     /**
-     * @description The status indicating whether the propagation source is attached to the VPC. Valid values:
+     * @description The binding status.
      *
-     * - **Attaching**
-     * - **Attached**
-     * - **Detaching**
+     *   **Attaching**
+     *   **Attached**
+     *   **Detaching**
+     *
      * @example Attaching
      *
      * @var string

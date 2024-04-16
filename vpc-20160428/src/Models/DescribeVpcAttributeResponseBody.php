@@ -25,7 +25,7 @@ class DescribeVpcAttributeResponseBody extends Model
     public $associatedCens;
 
     /**
-     * @description The propagation source associated with the VPC.
+     * @description The route source associated with the VPC.
      *
      * @var associatedPropagationSources
      */
@@ -99,6 +99,15 @@ class DescribeVpcAttributeResponseBody extends Model
      * @var string
      */
     public $dhcpOptionsSetStatus;
+
+    /**
+     * @description 是否开启IPv6。
+     *
+     * @example false
+     *
+     * @var bool
+     */
+    public $enabledIpv6;
 
     /**
      * @description The ID of the IPv4 gateway.
@@ -261,6 +270,7 @@ class DescribeVpcAttributeResponseBody extends Model
         'description'                  => 'Description',
         'dhcpOptionsSetId'             => 'DhcpOptionsSetId',
         'dhcpOptionsSetStatus'         => 'DhcpOptionsSetStatus',
+        'enabledIpv6'                  => 'EnabledIpv6',
         'ipv4GatewayId'                => 'Ipv4GatewayId',
         'ipv6CidrBlock'                => 'Ipv6CidrBlock',
         'ipv6CidrBlocks'               => 'Ipv6CidrBlocks',
@@ -313,6 +323,9 @@ class DescribeVpcAttributeResponseBody extends Model
         }
         if (null !== $this->dhcpOptionsSetStatus) {
             $res['DhcpOptionsSetStatus'] = $this->dhcpOptionsSetStatus;
+        }
+        if (null !== $this->enabledIpv6) {
+            $res['EnabledIpv6'] = $this->enabledIpv6;
         }
         if (null !== $this->ipv4GatewayId) {
             $res['Ipv4GatewayId'] = $this->ipv4GatewayId;
@@ -403,6 +416,9 @@ class DescribeVpcAttributeResponseBody extends Model
         }
         if (isset($map['DhcpOptionsSetStatus'])) {
             $model->dhcpOptionsSetStatus = $map['DhcpOptionsSetStatus'];
+        }
+        if (isset($map['EnabledIpv6'])) {
+            $model->enabledIpv6 = $map['EnabledIpv6'];
         }
         if (isset($map['Ipv4GatewayId'])) {
             $model->ipv4GatewayId = $map['Ipv4GatewayId'];

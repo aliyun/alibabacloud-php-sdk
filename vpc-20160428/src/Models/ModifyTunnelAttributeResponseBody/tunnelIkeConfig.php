@@ -36,10 +36,10 @@ class tunnelIkeConfig extends Model
     public $ikeLifetime;
 
     /**
-     * @description The IKE negotiation mode. Valid values:
+     * @description The IKE negotiation mode.
      *
      *   **main:** This mode offers higher security during negotiations.
-     *   **aggressive:** This mode is faster and has a higher success rate.
+     *   **aggressive**: This mode is faster and has a higher success rate.
      *
      * @example main
      *
@@ -57,12 +57,12 @@ class tunnelIkeConfig extends Model
     public $ikePfs;
 
     /**
-     * @description The IKE version. Valid values:
+     * @description The IKE version.
      *
      *   **ikev1**
      *   **ikev2**
      *
-     * Compared with IKEv1, IKEv2 simplifies the SA negotiation process and is more suitable for scenarios in which multiple CIDR blocks are used.
+     * Compared with IKEv1, IKEv2 simplifies the SA negotiation process and provides better support for scenarios with multiple CIDR blocks.
      * @example ikev2
      *
      * @var string

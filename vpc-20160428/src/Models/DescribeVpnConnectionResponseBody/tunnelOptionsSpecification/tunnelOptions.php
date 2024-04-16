@@ -136,7 +136,7 @@ class tunnelOptions extends Model
      * @description The zone where the tunnel is deployed.
      *
      * You can call [DescribeZones](~~36064~~) to query zone IDs.
-     * @example ap-southeast-5a
+     * @example cn-hangzhou-i
      *
      * @var string
      */

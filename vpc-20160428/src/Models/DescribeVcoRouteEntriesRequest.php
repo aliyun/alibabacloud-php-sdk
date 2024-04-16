@@ -47,7 +47,7 @@ class DescribeVcoRouteEntriesRequest extends Model
      * @description The region ID of the IPsec-VPN connection.
      *
      * You can call the [DescribeRegions](~~36063~~) operation to query the most recent list of regions.
-     * @example ap-southeast-2
+     * @example cn-hangzhou
      *
      * @var string
      */

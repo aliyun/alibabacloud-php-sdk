@@ -321,7 +321,7 @@ class DescribeVpnConnectionResponseBody extends Model
      * @description The ID of the zone where the IPsec-VPN connection is deployed.
      *
      * You can call [DescribeZones](~~36064~~) to query zone IDs and mapping between zone IDs and zone names.
-     * @example ap-southeast-2b
+     * @example cn-hangzhou-h
      *
      * @var string
      */

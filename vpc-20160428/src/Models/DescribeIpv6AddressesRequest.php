@@ -21,7 +21,8 @@ class DescribeIpv6AddressesRequest extends Model
     /**
      * @description The type of instance associated with the IPv6 address. Valid values:
      *
-     **EcsInstance**: Elastic Compute Service (ECS) instance in a virtual private cloud (VPC).
+     *   **EcsInstance**: Elastic Compute Service (ECS) instance in a virtual private cloud (VPC)
+     *   **NetworkInterface**: secondary elastic network interface (ENI)
      *
      * @example EcsInstance
      *
@@ -147,6 +148,14 @@ class DescribeIpv6AddressesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description Indicates whether the instance is managed. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * If you do not specify this parameter, all instances are queried.
+     * @example false
+     *
      * @var bool
      */
     public $serviceManaged;

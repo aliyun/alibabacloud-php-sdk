@@ -86,8 +86,8 @@ class CreateVcoRouteEntryResponseBody extends Model
     /**
      * @description The weight of the destination-based route. Valid values:
      *
-     *   **0**: a low priority
-     *   **100**: a high priority
+     *   **0**: a low priority.
+     *   **100**: a high priority.
      *
      * @example 100
      *

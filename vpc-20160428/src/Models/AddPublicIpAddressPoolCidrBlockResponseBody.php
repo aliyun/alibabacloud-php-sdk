@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class AddPublicIpAddressPoolCidrBlockResponseBody extends Model
 {
     /**
+     * @description The CIDR blocks.
+     *
+     * @example 47.0.XX.XX/28
+     *
      * @var string
      */
     public $cidrBlock;

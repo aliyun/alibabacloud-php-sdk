@@ -27,8 +27,9 @@ class AllocateEipAddressProResponseBody extends Model
     public $eipAddress;
 
     /**
-     * @description The order ID. This parameter is returned only when **InstanceChargeType** is set to **PrePaid**.
+     * @description The order ID.
      *
+     * This parameter is returned when InstanceChargeType is set to PrePaid. If AutoPay is set to false, you must manually complete the payment in the [Order Center](https://usercenter2-intl.aliyun.com/order/list).
      * @example 20190000
      *
      * @var int

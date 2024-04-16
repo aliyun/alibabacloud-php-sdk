@@ -21,9 +21,9 @@ class CreateCommonBandwidthPackageRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate a token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+     * >
      *
-     * >  If you do not specify this parameter, the system automatically uses the value of **RequestId** as the **client token**. The value of **RequestId** is different for each API request.
+     * If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 02fb3da4-130e-11e9-8e44-001****
      *
      * @var string
@@ -33,7 +33,7 @@ class CreateCommonBandwidthPackageRequest extends Model
     /**
      * @description The description of the Internet Shared Bandwidth instance.
      *
-     * The description must be 2 to 256 characters in length. The description must start with a letter but cannot start with `http://` or `https://`.
+     * The description must be 2 to 256 characters in length and start with a letter. The description cannot start with `http://` or `https://`.
      * @example abc
      *
      * @var string
@@ -43,10 +43,10 @@ class CreateCommonBandwidthPackageRequest extends Model
     /**
      * @description The line type. Valid values:
      *
-     *   **BGP**: BGP (Multi-ISP) All regions support BGP (Multi-ISP).
-     *   **BGP_PRO**: BGP (Multi-ISP) Pro Only the following regions support BGP (Multi-ISP) Pro lines: China (Hong Kong), Singapore, Japan (Tokyo), Philippines (Manila), Malaysia (Kuala Lumpur), Indonesia (Jakarta), and Thailand (Bangkok).
+     *   **BGP** All regions support BGP (Multi-ISP).
+     *   **BGP_PRO** BGP (Multi-ISP) Pro lines are available in the China (Hong Kong), Singapore, Japan (Tokyo), Philippines (Manila), Malaysia (Kuala Lumpur), Indonesia (Jakarta), and Thailand (Bangkok) regions.
      *
-     * If you are allowed to use single-ISP bandwidth, you can also choose one of the following values:
+     * If you are allowed to use single-ISP bandwidth, you can also use one of the following values:
      *
      *   **ChinaTelecom**
      *   **ChinaUnicom**
@@ -63,9 +63,7 @@ class CreateCommonBandwidthPackageRequest extends Model
     public $ISP;
 
     /**
-     * @description The billing method of the Internet Shared Bandwidth instance. Valid values: **PayByTraffic**: pay-by-data-transfer
-     *
-     * @example PayByBandwidth
+     * @description The billing method of the Internet Shared Bandwidth instance. Set the value to **PayByTraffic**, which specifies the pay-by-data-transfer billing method.
      *
      * @var string
      */
@@ -74,7 +72,7 @@ class CreateCommonBandwidthPackageRequest extends Model
     /**
      * @description The name of the Internet Shared Bandwidth instance.
      *
-     * The name must be 2 to 128 characters in length and start with a letter, and can contain letters, digits, underscores (\_), and hyphens (-).
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
      * @example test123
      *
      * @var string
@@ -94,7 +92,7 @@ class CreateCommonBandwidthPackageRequest extends Model
     /**
      * @description The percentage of the minimum bandwidth commitment. Set the parameter to **20**.
      *
-     * >  This parameter is supported only on the Alibaba Cloud China site.
+     * This parameter is available only on the Alibaba Cloud China site.
      * @example 20
      *
      * @var int
@@ -104,7 +102,7 @@ class CreateCommonBandwidthPackageRequest extends Model
     /**
      * @description The region ID of the Internet Shared Bandwidth instance.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the region ID.
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -131,12 +129,6 @@ class CreateCommonBandwidthPackageRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The editions of Anti-DDoS.
-     *
-     *   If you do not specify this parameter, Anti-DDoS Origin Basic is used.
-     *   If you set the parameter to **AntiDDoS_Enhanced**, Anti-DDoS Pro/Premium is used.
-     *
-     * You can specify up to 10 editions of Anti-DDoS.
      * @example AntiDDoS_Enhanced
      *
      * @var string[]
@@ -144,9 +136,9 @@ class CreateCommonBandwidthPackageRequest extends Model
     public $securityProtectionTypes;
 
     /**
-     * @description The zone of the Internet Shared Bandwidth instance. This parameter must be specified when you create an Internet Shared Bandwidth instance for a cloud box.
+     * @description The zone of the Internet Shared Bandwidth instance. This parameter is required if you create an Internet Shared Bandwidth instance for a cloud box.
      *
-     * @example cn-hangzhou-a
+     * @example ap-southeast-1-lzdvn-cb
      *
      * @var string
      */
