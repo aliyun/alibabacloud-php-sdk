@@ -56,6 +56,10 @@ class CreateAuthorityTemplateResponseBody extends Model
     public $success;
 
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to query the tenant ID.
+     *
+     * @example 3***
+     *
      * @var int
      */
     public $tid;

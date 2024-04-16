@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class UpdateStandardGroupRequest extends Model
 {
     /**
+     * @description The description of the security rule set.
+     *
+     * @example Production Environment test rules
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The security rule set ID. You can call the [ListStandardGroups](~~465940~~) operation to obtain the ID of the security rule set.
+     *
      * @example 242***
      *
      * @var int
@@ -21,6 +27,8 @@ class UpdateStandardGroupRequest extends Model
     public $groupId;
 
     /**
+     * @description The name of the security rule set.
+     *
      * @example poc_test
      *
      * @var string
@@ -28,6 +36,9 @@ class UpdateStandardGroupRequest extends Model
     public $groupName;
 
     /**
+     * @description The tenant ID.
+     *
+     * >  To view the tenant ID, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see the [View information about the current tenant](~~181330~~) section of the "Manage DMS tenants" topic.
      * @example 23****
      *
      * @var int

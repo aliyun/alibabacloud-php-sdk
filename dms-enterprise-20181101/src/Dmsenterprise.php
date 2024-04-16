@@ -327,6 +327,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListProxySQLExecAuditLogRequ
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListProxySQLExecAuditLogResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListScenariosRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListScenariosResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListSensitiveColumnInfoRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListSensitiveColumnInfoResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListSensitiveColumnsDetailRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListSensitiveColumnsDetailResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListSensitiveColumnsRequest;
@@ -8704,6 +8706,67 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listScenariosWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListSensitiveColumnInfoRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListSensitiveColumnInfoResponse
+     */
+    public function listSensitiveColumnInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->columnName)) {
+            $query['ColumnName'] = $request->columnName;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->schemaName)) {
+            $query['SchemaName'] = $request->schemaName;
+        }
+        if (!Utils::isUnset($request->tableName)) {
+            $query['TableName'] = $request->tableName;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSensitiveColumnInfo',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListSensitiveColumnInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListSensitiveColumnInfoRequest $request
+     *
+     * @return ListSensitiveColumnInfoResponse
+     */
+    public function listSensitiveColumnInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSensitiveColumnInfoWithOptions($request, $runtime);
     }
 
     /**

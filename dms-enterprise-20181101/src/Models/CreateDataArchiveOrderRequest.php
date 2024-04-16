@@ -26,7 +26,7 @@ class CreateDataArchiveOrderRequest extends Model
     public $param;
 
     /**
-     * @description The ID of the parent ticket. A parent ticket is generated only when a sub ticket is created.
+     * @description The ID of the parent ticket. A parent ticket is generated only when a child ticket is created.
      *
      * @example 123****
      *
@@ -35,7 +35,7 @@ class CreateDataArchiveOrderRequest extends Model
     public $parentId;
 
     /**
-     * @description The plugin type. Default value: DATA_ARCHIVE.
+     * @description The type of the plug-in. Default value: DATA_ARCHIVE.
      *
      * @example DATA_ARCHIVE
      *

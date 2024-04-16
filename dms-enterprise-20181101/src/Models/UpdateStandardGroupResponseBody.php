@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateStandardGroupResponseBody extends Model
 {
     /**
+     * @description The error code returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -17,6 +19,8 @@ class UpdateStandardGroupResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -24,6 +28,8 @@ class UpdateStandardGroupResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The request ID. You can use the request ID to locate logs and troubleshoot issues.
+     *
      * @example 4E1D2B4D-3E53-4ABC-999D-1D2520B3471A
      *
      * @var string
@@ -31,11 +37,18 @@ class UpdateStandardGroupResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about the security rule set.
+     *
      * @var standardGroup
      */
     public $standardGroup;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

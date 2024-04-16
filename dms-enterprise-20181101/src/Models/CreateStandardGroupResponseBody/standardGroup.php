@@ -27,6 +27,10 @@ class standardGroup extends Model
     public $description;
 
     /**
+     * @description The security rule set ID.
+     *
+     * @example 41****
+     *
      * @var int
      */
     public $groupId;

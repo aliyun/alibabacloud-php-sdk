@@ -18,7 +18,7 @@ class tableIncludes extends Model
     public $tableName;
 
     /**
-     * @description The filter condition specified by the WHERE clause of the archiving configuration.
+     * @description The filter condition specified by the WHERE clause of the archiving configuration. If a time variable is used in the filter condition, the filter condition is specified in the following format: field name <=\"${variable name}\". The variable name in the filter condition must be the same as the Name value of Variables.
      *
      * @example gmt_modified<\"${time}\"
      *

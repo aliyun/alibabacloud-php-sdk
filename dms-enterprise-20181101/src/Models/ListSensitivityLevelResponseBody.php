@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListSensitivityLevelResponseBody extends Model
 {
     /**
+     * @description The status code.
+     *
      * @example UnknownError
      *
      * @var string
@@ -17,6 +19,8 @@ class ListSensitivityLevelResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned.
+     *
      * @example UnknownError
      *
      * @var string
@@ -24,6 +28,8 @@ class ListSensitivityLevelResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The request ID. You can use the ID to query logs and troubleshoot issues.
+     *
      * @example 4E1D2B4D-3E53-4ABC-999D-1D2520B3471A
      *
      * @var string
@@ -31,11 +37,18 @@ class ListSensitivityLevelResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The sensitivity levels.
+     *
      * @var sensitivityLevelList[]
      */
     public $sensitivityLevelList;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
      * @example true
      *
      * @var bool

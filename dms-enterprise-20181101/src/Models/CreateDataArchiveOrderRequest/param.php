@@ -11,13 +11,16 @@ use AlibabaCloud\Tea\Model;
 class param extends Model
 {
     /**
-     * @description The database for archiving data. Valid values:
+     * @description The type of the destination database for archiving data. Valid values:
      *
-     *   inner_oss: Built-in Object Storage Service (OSS) of Database Backup (DBS).
-     *   oss_userself: OSS of user.
-     *   mysql: ApsaraDB RDS for MySQL.
-     *   polardb: PolarDB for MySQL.
-     *   lindorm: Lindorm.
+     * >  If you set ArchiveMethod to a value other than inner_oss, you must connect the destination database for archiving data to Data Management (DMS) before you create the data archiving ticket. After the database is connected to DMS, the database is displayed in the Instances Connected section of the DMS console.
+     *
+     *   **inner_oss**: dedicated storage, which is a built-in Object Storage Service (OSS) bucket.
+     *   **oss_userself**: OSS bucket of the user.
+     *   **mysql**: ApsaraDB RDS for MySQL instance.
+     *   **polardb**: PolarDB for MySQL cluster.
+     *   **adb_mysql**: AnalyticDB for MySQL V3.0 cluster.
+     *   **lindorm**: ApsaraDB for Lindorm instance.
      *
      * @example mysql
      *
@@ -26,8 +29,8 @@ class param extends Model
     public $archiveMethod;
 
     /**
-     * @description 填写Crontab表达式，以便定期执行任务，更多信息，请参见[Crontab表达式](~~206581~~)。
-     * 当运行方式为周期归档时需要填写该参数。
+     * @description A crontab expression that specifies the scheduling cycle to run the task. For more information, see the [Crontab expressions](~~206581~~) section of the "Create shadow tables for synchronization" topic. This parameter is required if RunMethod is set to schedule.
+     *
      * @example 00 05 11 * * ?
      *
      * @var string
@@ -51,7 +54,10 @@ class param extends Model
     public $orderAfter;
 
     /**
-     * @description The running mode. Only now is supported, which indicates that data archiving is immediately executed.
+     * @description The method that is used to run the data archiving task. Valid values:
+     *
+     *   **schedule**: The data archiving task is periodically scheduled.
+     *   **now**: The data archiving task is immediately run.
      *
      * @example now
      *
@@ -60,10 +66,12 @@ class param extends Model
     public $runMethod;
 
     /**
-     * @description 源库目录（catalog）。
-     * - **def**：对于两层逻辑结构的数据库，如MySQL，PolarDB MySQL，AnalyticDB MySQL，固定为def。
-     * - **空字符串**： 对于lindorm与MongoDB，填入空字符串。
-     * - **catalog名**：对于三层逻辑结构的数据库，如PostgreSQL，填入catalog名。
+     * @description The catalog of the source database. Valid values:
+     *
+     *   **def**: Set this parameter to def if the source database is of the two-layer logical schema, such as a MySQL database, a PolarDB for MySQL cluster, or an AnalyticDB for MySQL instance.
+     *   **An empty string**: Set this parameter to an empty string if the source database is an ApsaraDB for Lindorm or ApsaraDB for MongoDB instance.
+     *   **Catalog name**: Set this parameter to the catalog name of the source database if the source database is of the three-layer logical schema, such as a PostgreSQL database.
+     *
      * @example def
      *
      * @var string
@@ -71,7 +79,7 @@ class param extends Model
     public $sourceCatalogName;
 
     /**
-     * @description 源实例名称。
+     * @description The name of the source instance.
      *
      * @example pc-bp1*******
      *
@@ -80,8 +88,8 @@ class param extends Model
     public $sourceInstanceName;
 
     /**
-     * @description 源库Schema，源库与目标库同名。
-     * 如MySQL为库名，PostgreSQL为Schema名。
+     * @description The schema name of the source database. The schema name of the source database is the same as that of the destination database. If the source database is a MySQL database, this parameter specifies the name of the source database. If the source database is a PostgreSQL database, this parameter specifies the schema name of the source database.
+     *
      * @example schema_test
      *
      * @var string
@@ -96,16 +104,18 @@ class param extends Model
     public $tableIncludes;
 
     /**
-     * @description The table names mapped in the destination database.
+     * @description The table names mapped to the destination database. If you call an API operation to create the data archiving ticket, you do not need to specify this parameter. The default value is used.
      *
      * @var string[]
      */
     public $tableMapping;
 
     /**
-     * @description 目标库Host，若目标实例同时开放了内网与公网，优先写入内网Host。
+     * @description The host of the destination instance. If the destination instance can be accessed over an internal network or the Internet, preferentially set the value to the internal endpoint of the destination instance.
      *
-     * - 若归档目标为专属存储，则为inner_oss。
+     *   If the data is archived in an OSS bucket, set the value to the name of the bucket.
+     *   If the data is archived in the dedicated storage space, set the value to inner_oss.
+     *
      * @example am-bp1*********.ads.aliyuncs.com
      *
      * @var string
@@ -113,7 +123,7 @@ class param extends Model
     public $targetInstanceHost;
 
     /**
-     * @description The configuration of archiving variables.
+     * @description The configuration of archiving variables. You can use a time variable as a filter condition for archiving data. Each variable has two attributes: name and pattern.
      *
      * @var variables[]
      */

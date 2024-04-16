@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RefundPayAsYouGoOrderRequest extends Model
 {
     /**
-     * @description The ID of the sales order instance.
+     * @description The instance ID in the sales order.
      *
      * @example dms_pre_public_intl-sg-vf****
      *

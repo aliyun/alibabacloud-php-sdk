@@ -37,7 +37,7 @@ class CreateStandardGroupResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The created security rule set.
+     * @description The information about the created security rule set.
      *
      * @var standardGroup
      */

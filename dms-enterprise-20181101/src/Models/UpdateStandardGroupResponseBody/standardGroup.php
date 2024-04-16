@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class standardGroup extends Model
 {
     /**
+     * @description The type of the database for which the security rules are used.
+     *
      * @example mysql
      *
      * @var string
@@ -16,11 +18,17 @@ class standardGroup extends Model
     public $dbType;
 
     /**
+     * @description The description of the security rule set.
+     *
+     * @example Production Environment test rules
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The security rule set ID.
+     *
      * @example 41****
      *
      * @var int
@@ -28,6 +36,12 @@ class standardGroup extends Model
     public $groupId;
 
     /**
+     * @description The control mode. Valid values:
+     *
+     *   **NONE_CONTROL**: Flexible Management
+     *   **STABLE**: Stable Change
+     *   **COMMON**: Security Collaboration
+     *
      * @example COMMON
      *
      * @var string
@@ -35,6 +49,8 @@ class standardGroup extends Model
     public $groupMode;
 
     /**
+     * @description The name of the security rule set.
+     *
      * @example poc_test
      *
      * @var string
@@ -42,6 +58,8 @@ class standardGroup extends Model
     public $groupName;
 
     /**
+     * @description The ID of the user who last modified the security rules.
+     *
      * @example 51****
      *
      * @var int

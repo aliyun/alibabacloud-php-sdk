@@ -34,6 +34,10 @@ class DDLPublishRecordList extends Model
     public $auditStatus;
 
     /**
+     * @description Release remarks.
+     *
+     * @example Release remarks
+     *
      * @var string
      */
     public $comment;

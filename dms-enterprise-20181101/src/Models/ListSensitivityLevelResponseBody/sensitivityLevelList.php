@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class sensitivityLevelList extends Model
 {
     /**
+     * @description Indicates whether the fields of the sensitive level are displayed in plaintext.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class sensitivityLevelList extends Model
     public $isPlain;
 
     /**
+     * @description The name of the sensitive level.
+     *
      * @example S2
      *
      * @var string
@@ -23,6 +27,8 @@ class sensitivityLevelList extends Model
     public $name;
 
     /**
+     * @description The ID of the classification template.
+     *
      * @example 1070
      *
      * @var string
@@ -30,6 +36,11 @@ class sensitivityLevelList extends Model
     public $templateId;
 
     /**
+     * @description The type of the classification template. Valid values:
+     *
+     *   **INNER**: a built-in template.
+     *   **USER_DEFINE**: a custom template.
+     *
      * @example INNER
      *
      * @var string

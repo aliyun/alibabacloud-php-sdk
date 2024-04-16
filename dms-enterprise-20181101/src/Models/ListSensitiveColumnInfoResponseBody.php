@@ -4,20 +4,12 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListSensitiveColumnInfoResponseBody\sensitiveColumnList;
 use AlibabaCloud\Tea\Model;
 
-class CreateDataArchiveOrderResponseBody extends Model
+class ListSensitiveColumnInfoResponseBody extends Model
 {
     /**
-     * @description The ID of the data archiving ticket.
-     *
-     * @var int[]
-     */
-    public $createOrderResult;
-
-    /**
-     * @description The error code returned if the request failed.
-     *
      * @example UnknownError
      *
      * @var string
@@ -25,8 +17,6 @@ class CreateDataArchiveOrderResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned if the request failed.
-     *
      * @example UnknownError
      *
      * @var string
@@ -34,31 +24,37 @@ class CreateDataArchiveOrderResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the request, which is used to query logs and troubleshoot issues.
-     *
-     * @example 283C461F-11D8-48AA-B695-DF092DA32AF3
+     * @example 0C1CB646-1DE4-4AD0-B4A4-7D47DD52E931
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   **true**
-     *   **false**
-     *
+     * @var sensitiveColumnList
+     */
+    public $sensitiveColumnList;
+
+    /**
      * @example true
      *
      * @var bool
      */
     public $success;
+
+    /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
-        'createOrderResult' => 'CreateOrderResult',
-        'errorCode'         => 'ErrorCode',
-        'errorMessage'      => 'ErrorMessage',
-        'requestId'         => 'RequestId',
-        'success'           => 'Success',
+        'errorCode'           => 'ErrorCode',
+        'errorMessage'        => 'ErrorMessage',
+        'requestId'           => 'RequestId',
+        'sensitiveColumnList' => 'SensitiveColumnList',
+        'success'             => 'Success',
+        'totalCount'          => 'TotalCount',
     ];
 
     public function validate()
@@ -68,9 +64,6 @@ class CreateDataArchiveOrderResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->createOrderResult) {
-            $res['CreateOrderResult'] = $this->createOrderResult;
-        }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
@@ -80,8 +73,14 @@ class CreateDataArchiveOrderResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->sensitiveColumnList) {
+            $res['SensitiveColumnList'] = null !== $this->sensitiveColumnList ? $this->sensitiveColumnList->toMap() : null;
+        }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -90,16 +89,11 @@ class CreateDataArchiveOrderResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateDataArchiveOrderResponseBody
+     * @return ListSensitiveColumnInfoResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CreateOrderResult'])) {
-            if (!empty($map['CreateOrderResult'])) {
-                $model->createOrderResult = $map['CreateOrderResult'];
-            }
-        }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
@@ -109,8 +103,14 @@ class CreateDataArchiveOrderResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+        if (isset($map['SensitiveColumnList'])) {
+            $model->sensitiveColumnList = sensitiveColumnList::fromMap($map['SensitiveColumnList']);
+        }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;
