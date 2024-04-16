@@ -2,6 +2,10 @@
 - Support API ListSensitiveColumnInfo.
 
 
+2024-04-16 Version: 1.60.0
+- Support API ListSensitiveColumnInfo.
+
+
 2024-03-27 Version: 1.59.1
 - Update API AddInstance: add param UseSsl.
 - Update API ModifyInstance: add param UseSsl.
