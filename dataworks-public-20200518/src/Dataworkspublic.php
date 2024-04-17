@@ -153,6 +153,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeployFileRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeployFileResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DesensitizeDataRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DesensitizeDataResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgQuerySensResultRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgQuerySensResultResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\EstablishRelationTableToBusinessRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\EstablishRelationTableToBusinessResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ExportDataSourcesRequest;
@@ -4977,6 +4979,91 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->desensitizeDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DsgQuerySensResultRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DsgQuerySensResultResponse
+     */
+    public function dsgQuerySensResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->col)) {
+            $body['Col'] = $request->col;
+        }
+        if (!Utils::isUnset($request->dbType)) {
+            $body['DbType'] = $request->dbType;
+        }
+        if (!Utils::isUnset($request->level)) {
+            $body['Level'] = $request->level;
+        }
+        if (!Utils::isUnset($request->nodeName)) {
+            $body['NodeName'] = $request->nodeName;
+        }
+        if (!Utils::isUnset($request->order)) {
+            $body['Order'] = $request->order;
+        }
+        if (!Utils::isUnset($request->orderField)) {
+            $body['OrderField'] = $request->orderField;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $body['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $body['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->schemaName)) {
+            $body['SchemaName'] = $request->schemaName;
+        }
+        if (!Utils::isUnset($request->sensStatus)) {
+            $body['SensStatus'] = $request->sensStatus;
+        }
+        if (!Utils::isUnset($request->sensitiveId)) {
+            $body['SensitiveId'] = $request->sensitiveId;
+        }
+        if (!Utils::isUnset($request->sensitiveName)) {
+            $body['SensitiveName'] = $request->sensitiveName;
+        }
+        if (!Utils::isUnset($request->table)) {
+            $body['Table'] = $request->table;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DsgQuerySensResult',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DsgQuerySensResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DsgQuerySensResultRequest $request
+     *
+     * @return DsgQuerySensResultResponse
+     */
+    public function dsgQuerySensResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->dsgQuerySensResultWithOptions($request, $runtime);
     }
 
     /**
