@@ -39,6 +39,11 @@ class properties extends Model
     public $enableDecimal2;
 
     /**
+     * @var bool
+     */
+    public $enableFdcCacheForce;
+
+    /**
      * @description Indicates whether tunnel quota routing is enabled.
      *
      * @example true
@@ -53,6 +58,11 @@ class properties extends Model
      * @var encryption
      */
     public $encryption;
+
+    /**
+     * @var string
+     */
+    public $fdcQuota;
 
     /**
      * @description The number of days for which backup data can be retained.
@@ -116,8 +126,10 @@ class properties extends Model
         'allowFullScan'          => 'allowFullScan',
         'elderTunnelQuota'       => 'elderTunnelQuota',
         'enableDecimal2'         => 'enableDecimal2',
+        'enableFdcCacheForce'    => 'enableFdcCacheForce',
         'enableTunnelQuotaRoute' => 'enableTunnelQuotaRoute',
         'encryption'             => 'encryption',
+        'fdcQuota'               => 'fdcQuota',
         'retentionDays'          => 'retentionDays',
         'sqlMeteringMax'         => 'sqlMeteringMax',
         'storageTierInfo'        => 'storageTierInfo',
@@ -143,11 +155,17 @@ class properties extends Model
         if (null !== $this->enableDecimal2) {
             $res['enableDecimal2'] = $this->enableDecimal2;
         }
+        if (null !== $this->enableFdcCacheForce) {
+            $res['enableFdcCacheForce'] = $this->enableFdcCacheForce;
+        }
         if (null !== $this->enableTunnelQuotaRoute) {
             $res['enableTunnelQuotaRoute'] = $this->enableTunnelQuotaRoute;
         }
         if (null !== $this->encryption) {
             $res['encryption'] = null !== $this->encryption ? $this->encryption->toMap() : null;
+        }
+        if (null !== $this->fdcQuota) {
+            $res['fdcQuota'] = $this->fdcQuota;
         }
         if (null !== $this->retentionDays) {
             $res['retentionDays'] = $this->retentionDays;
@@ -191,11 +209,17 @@ class properties extends Model
         if (isset($map['enableDecimal2'])) {
             $model->enableDecimal2 = $map['enableDecimal2'];
         }
+        if (isset($map['enableFdcCacheForce'])) {
+            $model->enableFdcCacheForce = $map['enableFdcCacheForce'];
+        }
         if (isset($map['enableTunnelQuotaRoute'])) {
             $model->enableTunnelQuotaRoute = $map['enableTunnelQuotaRoute'];
         }
         if (isset($map['encryption'])) {
             $model->encryption = encryption::fromMap($map['encryption']);
+        }
+        if (isset($map['fdcQuota'])) {
+            $model->fdcQuota = $map['fdcQuota'];
         }
         if (isset($map['retentionDays'])) {
             $model->retentionDays = $map['retentionDays'];
