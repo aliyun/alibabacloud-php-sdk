@@ -1,3 +1,7 @@
+2024-04-17 Version: 6.6.2
+- Update API DescribeVirtualBorderRouters: update response param.
+
+
 2024-04-16 Version: 6.6.1
 - Update API DeleteExpressConnectTrafficQos: update param QosId.
 - Update API DeleteExpressConnectTrafficQosQueue: update param QosId.

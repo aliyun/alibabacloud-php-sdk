@@ -120,6 +120,11 @@ class virtualBorderRouterType extends Model
     public $ecrId;
 
     /**
+     * @var string
+     */
+    public $ecrOwnerId;
+
+    /**
      * @description Indicates whether IPv6 is enabled. Valid values:
      *
      *   **true**
@@ -396,6 +401,7 @@ class virtualBorderRouterType extends Model
         'eccId'                            => 'EccId',
         'ecrAttatchStatus'                 => 'EcrAttatchStatus',
         'ecrId'                            => 'EcrId',
+        'ecrOwnerId'                       => 'EcrOwnerId',
         'enableIpv6'                       => 'EnableIpv6',
         'localGatewayIp'                   => 'LocalGatewayIp',
         'localIpv6GatewayIp'               => 'LocalIpv6GatewayIp',
@@ -470,6 +476,9 @@ class virtualBorderRouterType extends Model
         }
         if (null !== $this->ecrId) {
             $res['EcrId'] = $this->ecrId;
+        }
+        if (null !== $this->ecrOwnerId) {
+            $res['EcrOwnerId'] = $this->ecrOwnerId;
         }
         if (null !== $this->enableIpv6) {
             $res['EnableIpv6'] = $this->enableIpv6;
@@ -602,6 +611,9 @@ class virtualBorderRouterType extends Model
         }
         if (isset($map['EcrId'])) {
             $model->ecrId = $map['EcrId'];
+        }
+        if (isset($map['EcrOwnerId'])) {
+            $model->ecrOwnerId = $map['EcrOwnerId'];
         }
         if (isset($map['EnableIpv6'])) {
             $model->enableIpv6 = $map['EnableIpv6'];
