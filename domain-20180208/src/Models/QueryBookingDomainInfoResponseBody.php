@@ -51,6 +51,11 @@ class QueryBookingDomainInfoResponseBody extends Model
     public $requestId;
 
     /**
+     * @var string
+     */
+    public $snatchNo;
+
+    /**
      * @example 17
      *
      * @var float
@@ -63,6 +68,7 @@ class QueryBookingDomainInfoResponseBody extends Model
         'maxBid'          => 'MaxBid',
         'partnerType'     => 'PartnerType',
         'requestId'       => 'RequestId',
+        'snatchNo'        => 'SnatchNo',
         'transferInPrice' => 'TransferInPrice',
     ];
 
@@ -90,6 +96,9 @@ class QueryBookingDomainInfoResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->snatchNo) {
+            $res['SnatchNo'] = $this->snatchNo;
         }
         if (null !== $this->transferInPrice) {
             $res['TransferInPrice'] = $this->transferInPrice;
@@ -123,6 +132,9 @@ class QueryBookingDomainInfoResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SnatchNo'])) {
+            $model->snatchNo = $map['SnatchNo'];
         }
         if (isset($map['TransferInPrice'])) {
             $model->transferInPrice = $map['TransferInPrice'];
