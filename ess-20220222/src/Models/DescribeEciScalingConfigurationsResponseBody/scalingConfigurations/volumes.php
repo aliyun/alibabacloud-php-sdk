@@ -26,7 +26,7 @@ class volumes extends Model
     public $configFileVolumeDefaultMode;
 
     /**
-     * @description The storage size of a disk volume. Unit: GiB.
+     * @description The size of the disk volume. Unit: GiB.
      *
      * @example 15
      *
@@ -35,7 +35,7 @@ class volumes extends Model
     public $diskVolumeDiskId;
 
     /**
-     * @description The storage size of a disk volume. Unit: GiB.
+     * @description The size of the disk volume. Unit: GiB.
      *
      * @example 15
      *
@@ -44,7 +44,7 @@ class volumes extends Model
     public $diskVolumeDiskSize;
 
     /**
-     * @description The file system type of a disk volume.
+     * @description The system type of the disk volume.
      *
      * @example xfs
      *
@@ -53,7 +53,7 @@ class volumes extends Model
     public $diskVolumeFsType;
 
     /**
-     * @description The storage medium of EmptyDirVolume. If this parameter is left empty, the file system that backs the node is used as the storage medium. If this parameter is set to memory, the memory is used as the storage medium.
+     * @description The storage medium of the emptyDir volume. If you do not specify a storage medium for the emptyDir volume, the volume stores data in the file system of a node by default. We recommend that you set this parameter to memory. In this case, the emptyDir volume stores data in the specified memory.
      *
      * @example memory
      *
@@ -62,7 +62,7 @@ class volumes extends Model
     public $emptyDirVolumeMedium;
 
     /**
-     * @description EmptyDir数据卷的大小。
+     * @description The storage size of the emptyDir volume.
      *
      * @example 256Mi
      *
@@ -71,7 +71,7 @@ class volumes extends Model
     public $emptyDirVolumeSizeLimit;
 
     /**
-     * @description The FlexVolume driver name of the volume.
+     * @description The name of the FlexVolume driver.
      *
      * @example flexvolume
      *
@@ -80,7 +80,7 @@ class volumes extends Model
     public $flexVolumeDriver;
 
     /**
-     * @description The file system type of the volume. The default value is determined by the script of FlexVolume.
+     * @description The type of the mounted file system. The default value is determined by the script of FlexVolume.
      *
      * @example ext4
      *
@@ -89,9 +89,9 @@ class volumes extends Model
     public $flexVolumeFsType;
 
     /**
-     * @description The FlexVolume options. Each option is a key-value pair in a JSON string.
+     * @description The options of the FlexVolume object. Each option is a key-value pair in a JSON string.
      *
-     * For example, when you use FlexVolume to mount a disk, the format of options is `{"volumeId":"d-2zehdahrwoa7srg****","performanceLevel": "PL2"}`.
+     * For example, if you use FlexVolume to mount a disk, the format of Options is `{"volumeId":"d-2zehdahrwoa7srg****","performanceLevel": "PL2"}`.
      * @example {"volumeId":"d-2zehdahrwoa7srg****","performanceLevel": "PL2"}
      *
      * @var string
@@ -99,7 +99,7 @@ class volumes extends Model
     public $flexVolumeOptions;
 
     /**
-     * @description HostPath Volume在主机上的目录路径。
+     * @description The path to the HostPath volume on the host.
      *
      * @example /pod/data
      *
@@ -108,7 +108,7 @@ class volumes extends Model
     public $hostPathVolumePath;
 
     /**
-     * @description HostPath Volume的类型。
+     * @description The type of the HostPath volume.
      *
      * @example Directory
      *
@@ -145,7 +145,7 @@ class volumes extends Model
     public $NFSVolumeServer;
 
     /**
-     * @description The name of the volume.
+     * @description The volume name.
      *
      * @example default-volume1
      *
@@ -154,7 +154,7 @@ class volumes extends Model
     public $name;
 
     /**
-     * @description The type of the volume. Valid values:
+     * @description The volume type. Valid values:
      *
      *   EmptyDirVolume
      *   NFSVolume

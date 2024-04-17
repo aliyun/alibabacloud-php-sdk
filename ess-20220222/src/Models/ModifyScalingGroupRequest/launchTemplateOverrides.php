@@ -19,8 +19,6 @@ class launchTemplateOverrides extends Model
     public $instanceType;
 
     /**
-     * @description 本参数用于指定实例启动模板覆盖规格（即`LaunchTemplateOverride.N.InstanceType`）的竞价价格上限。您可以指定N个该参数，扩展启动模板支持N个实例规格。N的取值范围：1~10。
-     * >仅当`LaunchTemplateId`参数指定了启动模板时，该参数才生效。
      * @example 0.025
      *
      * @var float

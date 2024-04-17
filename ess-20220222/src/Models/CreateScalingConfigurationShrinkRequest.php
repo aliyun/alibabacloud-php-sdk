@@ -78,6 +78,12 @@ class CreateScalingConfigurationShrinkRequest extends Model
     public $creditSpecification;
 
     /**
+     * @description The priority of the custom ECS instance type + vSwitch combination.
+     *
+     * >  If you specify the priorities of only partial custom ECS instance type + vSwitch combinations, Auto Scaling preferentially creates ECS instances by using the custom combinations that have specified priorities. If the custom combinations that have specified priorities do not provide sufficient resources, Auto Scaling creates ECS instances by using the custom combinations that do not have specified priorities based on the specified orders of vSwitches and instance types.
+     *
+     *   Example: the specified order of vSwitches for your scaling group is vsw1 and vsw2 and the specified order of instance types in your scaling configuration is type1 and type 2. In addition, you use CustomPriorities to specify \["vsw2+type2", "vsw1+type2"]. In this example, the vsw2+type2 combination has the highest priority and the vsw2+type1 combination has the lowest priority. The vsw1+type2 combination has a higher priority than the vsw1+type1 combination.
+     *
      * @var customPriorities[]
      */
     public $customPriorities;
@@ -100,6 +106,8 @@ class CreateScalingConfigurationShrinkRequest extends Model
     public $dedicatedHostId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $deletionProtection;
@@ -188,7 +196,7 @@ class CreateScalingConfigurationShrinkRequest extends Model
     public $instancePatternInfos;
 
     /**
-     * @description The instance type of the ECS instance. For more information, see the "Instance families" topic.
+     * @description The instance type of the ECS instance. For more information, see the [Instance families](~~25378~~) topic.
      *
      * @example ecs.g6.large
      *
@@ -460,11 +468,15 @@ class CreateScalingConfigurationShrinkRequest extends Model
     public $spotStrategy;
 
     /**
+     * @example ss-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $storageSetId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $storageSetPartitionNumber;

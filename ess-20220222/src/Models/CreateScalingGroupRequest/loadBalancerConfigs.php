@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class loadBalancerConfigs extends Model
 {
     /**
+     * @example lb-2zen1olhfg9yw3f4qgte4
+     *
      * @var string
      */
     public $loadBalancerId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $weight;

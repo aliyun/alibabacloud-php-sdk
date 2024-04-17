@@ -89,6 +89,8 @@ class ModifyScalingConfigurationRequest extends Model
     public $dedicatedHostId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $deletionProtection;
@@ -413,11 +415,15 @@ class ModifyScalingConfigurationRequest extends Model
     public $spotStrategy;
 
     /**
+     * @example ss-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $storageSetId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $storageSetPartitionNumber;

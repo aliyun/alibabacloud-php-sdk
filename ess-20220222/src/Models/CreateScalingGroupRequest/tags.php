@@ -18,6 +18,8 @@ class tags extends Model
     public $key;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $propagate;

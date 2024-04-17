@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class customPriorities extends Model
 {
     /**
+     * @example ecs.c6a.4xlarge
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example vsw-bp14zolna43z266bq****
+     *
      * @var string
      */
     public $vswitchId;

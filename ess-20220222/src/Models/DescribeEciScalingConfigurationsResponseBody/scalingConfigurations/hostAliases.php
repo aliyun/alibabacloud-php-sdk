@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class hostAliases extends Model
 {
     /**
-     * @description The hostnames that are added.
+     * @description The hostnames that were added.
      *
      * @var string[]
      */
     public $hostnames;
 
     /**
-     * @description The IP address that is added.
+     * @description The IP address that was added.
      *
      * @example 192.0.XX.XX
      *

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class loadBalancerConfigs extends Model
 {
     /**
+     * @description The ID of the Classic Load Balancer (CLB, formerly known as Server Load Balancer or SLB) instance.
+     *
+     * @example lb-2zep8alpq5zq1a2xwyxxx
+     *
      * @var string
      */
     public $loadBalancerId;
 
     /**
+     * @description The weight of an ECS instance as a backend server in the CLB server group. If you increase the weight of an ECS instance, the number of access requests that are forwarded to the ECS instance increases. If you set the weight of an ECS instance to 0, no access requests are forwarded to the ECS instance. Valid values: 0 to 100.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $weight;

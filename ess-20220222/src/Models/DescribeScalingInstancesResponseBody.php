@@ -31,6 +31,8 @@ class DescribeScalingInstancesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about the ECS instances.
+     *
      * @var scalingInstances[]
      */
     public $scalingInstances;

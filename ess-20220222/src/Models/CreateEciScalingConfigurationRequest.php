@@ -111,21 +111,48 @@ class CreateEciScalingConfigurationRequest extends Model
     public $cpuOptionsThreadsPerCore;
 
     /**
+     * @description The bucket that caches data.
+     *
+     * @example default
+     *
      * @var string
      */
     public $dataCacheBucket;
 
     /**
+     * @description Specifies whether to enable the Performance Burst feature for the ESSD AutoPL disk that caches data. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * >  For more information about ESSD AutoPL disks, see [ESSD AutoPL disks](~~368372~~).
+     * @example false
+     *
      * @var bool
      */
     public $dataCacheBurstingEnabled;
 
     /**
+     * @description The performance level (PL) of the cloud disk that caches disk. We recommend that you use enhanced SSDs (ESSDs). Valid values:
+     *
+     *   PL0: An ESSD can deliver up to 10,000 random read/write IOPS.
+     *   PL1: An ESSD can deliver up to 50,000 random read/write IOPS.
+     *   PL2: An ESSD can deliver up to 100,000 random read/write IOPS.
+     *   PL3: An ESSD can deliver up to 1,000,000 random read/write IOPS.
+     *
+     * >  For more information about ESSDs, see [ESSDs](~~122389~~).
+     * @example PL1
+     *
      * @var string
      */
     public $dataCachePL;
 
     /**
+     * @description The provisioned read/write IOPS of the ESSD AutoPL disk that caches data. Valid values: 0 to min{50,000, 1,000 × *Capacity - Baseline IOPS}. Baseline IOPS = min{1,800+50 x *Capacity, 50,000}.
+     *
+     * >  For more information about ESSD AutoPL disks, see [ESSD AutoPL disks](~~368372~~).
+     * @example 40000
+     *
      * @var int
      */
     public $dataCacheProvisionedIops;

@@ -30,21 +30,21 @@ class containers extends Model
     public $securityContext;
 
     /**
-     * @description The arguments that correspond to the startup commands of the container. You can specify up to 10 arguments.
+     * @description The container startup arguments. You can specify up to 10 arguments.
      *
      * @var string[]
      */
     public $args;
 
     /**
-     * @description The commands that you want to run in the container when you use the CLI to perform probes.
+     * @description The commands that you can run in the container when you use the CLI to perform liveness probes.
      *
      * @var string[]
      */
     public $commands;
 
     /**
-     * @description The number of CPU cores in the container.
+     * @description The number of vCPUs that you want to allocate to the container.
      *
      * @example 0.25
      *
@@ -53,7 +53,7 @@ class containers extends Model
     public $cpu;
 
     /**
-     * @description Information about environment variables.
+     * @description The environment variables.
      *
      * @var environmentVars[]
      */
@@ -80,9 +80,9 @@ class containers extends Model
     /**
      * @description The image pulling policy. Valid values:
      *
-     *   Always: pulls images each time.
-     *   IfNotPresent: pulls images only if no on-premises images are available. On-premises images are preferentially used. If no on-premises images are available, image pulling is performed.
-     *   Never: never pulls images. On-premises images are always used.
+     *   Always: Each time instances are created, image pulling is performed.
+     *   IfNotPresent: Image pulling is performed as needed. On-premises images are preferentially used. If no on-premises images are available, image pulling is performed.
+     *   Never: On-premises images are always used. Image pulling is not performed.
      *
      * @example Always
      *
@@ -96,31 +96,43 @@ class containers extends Model
     public $lifecyclePostStartHandlerExecs;
 
     /**
+     * @example 10.0.XX.XX
+     *
      * @var string
      */
     public $lifecyclePostStartHandlerHttpGetHost;
 
     /**
+     * @example /healthyz
+     *
      * @var string
      */
     public $lifecyclePostStartHandlerHttpGetPath;
 
     /**
+     * @example 5050
+     *
      * @var int
      */
     public $lifecyclePostStartHandlerHttpGetPort;
 
     /**
+     * @example HTTPS
+     *
      * @var string
      */
     public $lifecyclePostStartHandlerHttpGetScheme;
 
     /**
+     * @example 10.0.XX.XX
+     *
      * @var string
      */
     public $lifecyclePostStartHandlerTcpSocketHost;
 
     /**
+     * @example 80
+     *
      * @var int
      */
     public $lifecyclePostStartHandlerTcpSocketPort;
@@ -131,37 +143,49 @@ class containers extends Model
     public $lifecyclePreStopHandlerExecs;
 
     /**
+     * @example 10.0.XX.XX
+     *
      * @var string
      */
     public $lifecyclePreStopHandlerHttpGetHost;
 
     /**
+     * @example /healthyz
+     *
      * @var string
      */
     public $lifecyclePreStopHandlerHttpGetPath;
 
     /**
+     * @example 88
+     *
      * @var int
      */
     public $lifecyclePreStopHandlerHttpGetPort;
 
     /**
+     * @example HTTP
+     *
      * @var string
      */
     public $lifecyclePreStopHandlerHttpGetScheme;
 
     /**
+     * @example 10.0.XX.XX
+     *
      * @var string
      */
     public $lifecyclePreStopHandlerTcpSocketHost;
 
     /**
+     * @example 90
+     *
      * @var int
      */
     public $lifecyclePreStopHandlerTcpSocketPort;
 
     /**
-     * @description The memory size of the container. Unit: GiB.
+     * @description The memory size that you want to allocate to the container. Unit: GiB.
      *
      * @example 0.5
      *
@@ -186,7 +210,7 @@ class containers extends Model
     public $ports;
 
     /**
-     * @description Specifies whether the container allocates buffer resources to standard input streams when the container is running. If you do not specify this parameter, an end-of-file (EOF) error may occur.
+     * @description Specifies whether the container allocates buffer resources to standard input streams when the container is running. If you do not specify this parameter, an end-of-file (EOF) error may occur when standard input streams in the container are read.
      *
      * Default value: false.
      * @example false
@@ -196,9 +220,9 @@ class containers extends Model
     public $stdin;
 
     /**
-     * @description Specifies whether to disconnect standard input streams after a client is disconnected.
+     * @description Specifies whether to remain standard input streams connected during multiple sessions if StdinOnce is set to true.
      *
-     * If you set the StdinOnce parameter to true, standard input streams are connected after the container is started, and remain idle until a client is connected to receive data. After the client is disconnected, streams are also disconnected, and remain disconnected until the container is started again.
+     * If StdinOnce is set to true, standard input streams are connected after the container is started, and remain idle until a client is connected to receive data. After the client is disconnected, streams are also disconnected, and remain disconnected until the container is restarted.
      * @example false
      *
      * @var bool
@@ -219,7 +243,7 @@ class containers extends Model
     public $tty;
 
     /**
-     * @description Information about the volume mount of the container.
+     * @description The volume mounts of the container.
      *
      * @var volumeMounts[]
      */

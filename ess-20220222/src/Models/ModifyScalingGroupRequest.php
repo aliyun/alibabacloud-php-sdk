@@ -84,9 +84,6 @@ class ModifyScalingGroupRequest extends Model
     public $desiredCapacity;
 
     /**
-     * @description 伸缩组是否关闭期望实例数功能。取值范围：
-     *
-     * > 只有伸缩组当前无伸缩活动时，才能将该参数设置为true（即关闭伸缩组的期望实例数功能），关闭伸缩组的期望实例数功能时伸缩组当前的DesiredCapacity属性也会被清空，但伸缩组中当前的实例数量不发生变化。
      * @example false
      *
      * @var bool
@@ -108,8 +105,9 @@ class ModifyScalingGroupRequest extends Model
     /**
      * @description The health check mode of the scaling group. Valid values:
      *
-     *   NONE: Auto Scaling does not perform health checks on instances in the scaling group.
-     *   ECS: Auto Scaling performs health checks on ECS instances in the scaling group.
+     *   NONE: Auto Scaling does not check the health status of instances in the scaling group.
+     *   ECS: Auto Scaling checks the health status of Elastic Compute Service (ECS) instances in the scaling group.
+     *   LOAD_BALANCER: Auto Scaling checks the health status of instances in the scaling group based on the health check results of load balancers. The health check results of Classic Load Balancer (CLB) instances are not supported as the health check basis of instances in the scaling group.
      *
      * @example ECS
      *
@@ -118,6 +116,12 @@ class ModifyScalingGroupRequest extends Model
     public $healthCheckType;
 
     /**
+     * @description The health check modes of the scaling group. Valid values:
+     *
+     *   NONE: Auto Scaling does not check the health status of instances in the scaling group.
+     *   ECS: Auto Scaling checks the health status of ECS instances in the scaling group.
+     *   LOAD_BALANCER: Auto Scaling checks the health status of instances in the scaling group based on the health check results of load balancers. The health check results of CLB instances are not supported as the health check basis of instances in the scaling group.
+     *
      * @var string[]
      */
     public $healthCheckTypes;
@@ -270,6 +274,27 @@ class ModifyScalingGroupRequest extends Model
     public $scalingGroupName;
 
     /**
+     * @description The reclaim mode of the scaling group. Valid values:
+     *
+     *   recycle: economical mode
+     *
+     *   release: release mode
+     *
+     *   forcerelease: forced release mode
+     *
+     **
+     *
+     **Note** If you set the value to `forcerelease`, Auto Scaling forcibly releases instances that are in the `Running` state during scale-ins. Forced release is equivalent to power outage. If an instance is forcibly released, ephemeral data on the instance will be cleared and cannot be recovered. Exercise caution when you select this option.
+     *
+     *   forcerecycle: forced recycle mode
+     *
+     **
+     *
+     **Note** If you set the value to `forcerecycle`, Auto Scaling forcibly shuts down instances that are in the `Running` state during scale-ins. Forced shutdown is equivalent to power outage. If an instance is forcibly shut down, ephemeral data on the instance will be cleared and cannot be recovered. Exercise caution when you select this option.
+     *
+     * ScalingPolicy specifies only the reclaim mode of the scaling group. RemovePolicy of the RemoveInstances operation specifies the manner how instances are removed from the scaling group. For more information, see [RemoveInstances](~~25955~~).
+     * @example recycle
+     *
      * @var string
      */
     public $scalingPolicy;

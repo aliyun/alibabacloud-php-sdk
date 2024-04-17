@@ -40,6 +40,8 @@ class DescribeScalingInstancesRequest extends Model
     public $lifecycleState;
 
     /**
+     * @description The lifecycle states of the ECS instance in the scaling group. You can specify only one of the LifecycleStates and LifecycleState parameters at the same time. We recommend that you specify this parameter.
+     *
      * @var string[]
      */
     public $lifecycleStates;

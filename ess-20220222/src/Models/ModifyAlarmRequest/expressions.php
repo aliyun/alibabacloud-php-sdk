@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class expressions extends Model
 {
     /**
-     * @description The operator that is used to compare the metric value and the metric threshold. Valid values:
+     * @description The operator that is used to compare the metric value and the threshold. Valid values:
      *
-     *   If the metric value is greater than or equal to the metric threshold, set the value to `>=`.
-     *   If the metric value is less than or equal to the metric threshold, set the value to `<=`.
-     *   If the metric value is greater than the metric threshold, set the value to `>`.
-     *   If the metric value is less than the metric threshold, set the value to `<`.
+     *   If the metric value is greater than or equal to the threshold, set the value to `>=`.
+     *   If the metric value is less than or equal to the threshold, set the value to `<=`.
+     *   If the metric value is greater than the threshold, set the value to `>`.
+     *   If the metric value is less than the threshold, set the value to `<`.
      *
-     * Default value: >=
+     * Default value: >=.
      * @example >=
      *
      * @var string
@@ -24,21 +24,21 @@ class expressions extends Model
     public $comparisonOperator;
 
     /**
-     * @description The name of the metric that is specified in the multi-metric alert rule. Valid values of MetricName vary based on the value of MetricType.
+     * @description The name of the metric that is specified in the multi-metric alert rule. The valid values vary based on the metric type.
      *
-     *   If you set MetricType to custom, the valid values of MetricName are your custom metrics.
+     *   If you set the MetricType parameter to custom, the valid values are your custom metrics.
      *
-     *   If you set MetricType to system, MetricName has the following valid values:
+     *   If you set the MetricType parameter to system, the MetricName parameter has the following valid values:
      *
-     *   CpuUtilization: (ECS) the CPU utilization. Unit: %.
+     *   CpuUtilization: the CPU utilization of an ECS instance. Unit: %.
      *   IntranetTx: the outbound traffic over the internal network from an ECS instance. Unit: KB/min.
-     *   IntranetRx: the inbound traffic over the internal network to an ECS instance. Unit: KB/min.
+     *   IntranetRx: the inbound traffic over the Internet to an ECS instance that resides in a VPC. Unit: KB/min.
      *   VpcInternetTx: the outbound traffic over the Internet from an ECS instance that resides in a VPC. Unit: KB/min.
      *   VpcInternetRx: the inbound traffic over the Internet to an ECS instance that resides in a VPC. Unit: KB/min.
-     *   SystemDiskReadBps: the number of bytes read from the system disk that is used by an ECS instance per second.
-     *   SystemDiskWriteBps: the number of bytes written to the system disk that is used by an ECS instance per second.
-     *   SystemDiskReadOps: the number of read operations on the system disk that is used by an ECS instance per second.
-     *   SystemDiskWriteOps: the number of write operations on the system disk that is used by an ECS instance per second.
+     *   SystemDiskReadBps: the number of bytes read from the system disk used by an ECS instance per second.
+     *   SystemDiskWriteBps: the number of bytes written to the system disk used by an ECS instance per second.
+     *   SystemDiskReadOps: the number of read operations on the system disk used by an ECS instance per second.
+     *   SystemDiskWriteOps: the number of write operations on the system disk used by an ECS instance per second.
      *   CpuUtilizationAgent: the CPU utilization of an agent. Unit: %.
      *   GpuUtilizationAgent: the GPU utilization of an agent. Unit: %.
      *   GpuMemoryFreeUtilizationAgent: the percentage of idle GPU memory of an agent.
@@ -60,7 +60,7 @@ class expressions extends Model
     public $metricName;
 
     /**
-     * @description The period of time during which the statistics of a metric in the multi-metric alert rule is collected. Unit: seconds. Valid values:
+     * @description The period of time during which statistics about the metrics in the multi-metric alert rule is collected. Unit: seconds. Valid values:
      *
      *   15
      *   60
@@ -68,7 +68,7 @@ class expressions extends Model
      *   300
      *   900
      *
-     * Default value: 300
+     * Default value: 300.
      * @example 300
      *
      * @var int
@@ -76,7 +76,7 @@ class expressions extends Model
     public $period;
 
     /**
-     * @description The method that is used to aggregate the statistics of a metric that is specified in the multi-metric alert rule. Valid values:
+     * @description The method that is used to aggregate statistics about the metrics that are specified in the multi-metric alert rule. Valid values:
      *
      *   Average
      *   Minimum
@@ -89,7 +89,7 @@ class expressions extends Model
     public $statistics;
 
     /**
-     * @description The threshold of a metric in the multi-metric alert rule. If the threshold is reached the specified number of times within the specified period, a scaling rule is executed.
+     * @description The thresholds of the metric values in the multi-metric alert rule. If the thresholds are reached the specified number of times within the specified period, a scaling rule is executed.
      *
      * @example 40.0
      *

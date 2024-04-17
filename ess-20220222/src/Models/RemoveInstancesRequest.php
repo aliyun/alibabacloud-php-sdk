@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class RemoveInstancesRequest extends Model
 {
     /**
+     * @description 保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。只支持ASCII字符，且不能超过64个字符。更多信息，请参见[如何保证幂等性](~~25965~~)。
+     *
+     * @example 123e4567-e89b-12d3-a456-42665544****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description Specifies whether to adjust the expected number of ECS instances in the scaling group. Valid values:
+     *
+     *   true: After ECS instances are removed from the scaling group, the expected number of ECS instances in the scaling group decreases.
+     *   false: After ECS instances are removed from the scaling group, the expected number of ECS instances in the scaling group remains unchanged.
+     *
+     * Default value: true.
      * @example true
      *
      * @var bool
@@ -21,6 +31,8 @@ class RemoveInstancesRequest extends Model
     public $decreaseDesiredCapacity;
 
     /**
+     * @description The IDs of the ECS instances that you want to remove from the scaling group.
+     *
      * @var string[]
      */
     public $instanceIds;
@@ -36,6 +48,8 @@ class RemoveInstancesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the scaling group.
+     *
      * @example cn-qingdao
      *
      * @var string
@@ -43,6 +57,22 @@ class RemoveInstancesRequest extends Model
     public $regionId;
 
     /**
+     * @description The action that you want Auto Scaling to perform after the ECS instance is removed from the scaling group. Valid values:
+     *
+     *   recycle: puts the ECS instance into economical mode.
+     *
+     **Note** This setting takes effect only if you set the ScalingPolicy parameter to recycle.
+     *
+     *   release: releases the ECS instance.
+     *
+     * The ScalingPolicy parameter that you specify when you call the CreateScalingGroup operation specifies the reclaim mode of the scaling group. The RemovePolicy parameter that you specify when you call the RemoveInstances operation specifies the action to be performed on ECS instances after the ECS instances are removed. Example:
+     *
+     *   If you set both the ScalingPolicy parameter and the RemovePolicy parameter to recycle, the ECS instances are put into economical mode after the ECS instances are removed from the scaling group.
+     *   If you set the ScalingPolicy parameter to recycle and the RemovePolicy parameter to release, the ECS instances are released after the ECS instances are removed from the scaling group.
+     *   If you set the ScalingPolicy parameter to release and the RemovePolicy parameter to recycle, the ECS instances are released after the ECS instances are removed from the scaling group.
+     *   If you set both the ScalingPolicy parameter and the RemovePolicy parameter to release, the ECS instances are released after the ECS instances are removed from the scaling group.
+     *
+     * Default value: release.
      * @example release
      *
      * @var string
@@ -60,6 +90,8 @@ class RemoveInstancesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the scaling group.
+     *
      * @example asg-bp18p2yfxow2dloq****
      *
      * @var string

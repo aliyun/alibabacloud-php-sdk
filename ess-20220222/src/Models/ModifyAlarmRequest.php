@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyAlarmRequest extends Model
 {
     /**
-     * @description The unique identifiers of the scaling rules that are associated with the event-triggered task.
+     * @description The list of unique identifiers of the scaling rules that are associated with the event-triggered task.
      *
      * @var string[]
      */
@@ -27,12 +27,12 @@ class ModifyAlarmRequest extends Model
     public $alarmTaskId;
 
     /**
-     * @description The operator that is used to compare the metric value and the metric threshold. Valid values:
+     * @description The operator that is used to compare the metric value and the threshold. Valid values:
      *
-     *   If the metric value is greater than or equal to the metric threshold, set the value to `>=`.
-     *   If the metric value is less than or equal to the metric threshold, set the value to `<=`.
-     *   If the metric value is greater than the metric threshold, set the value to `>`.
-     *   If the metric value is less than the metric threshold, set the value to `<`.
+     *   If the metric value is greater than or equal to the threshold, set the value to `>=`.
+     *   If the metric value is less than or equal to the threshold, set the value to `<=`.
+     *   If the metric value is greater than the threshold, set the value to `>`.
+     *   If the metric value is less than the threshold, set the value to `<`.
      *
      * @example >=
      *
@@ -50,7 +50,7 @@ class ModifyAlarmRequest extends Model
     public $description;
 
     /**
-     * @description The dimensions of the metric.
+     * @description Details of the dimensions.
      *
      * @var dimensions[]
      */
@@ -59,7 +59,7 @@ class ModifyAlarmRequest extends Model
     /**
      * @description The effective period of the event-triggered task.
      *
-     * The Effective value follows the cron expression format. The default format is `X X X X X ?`. In the format:
+     * This parameter follows the cron expression format. The default format is `X X X X X ?`, in which:
      *
      *   X: a placeholder for a field, which represents seconds, minutes, hours, days, and months in sequence. X can be a definite value or a special character that has logical meaning. For information about the valid values of X, see [Cron expression](~~25907~~).
      *   ?: No value is specified.
@@ -68,9 +68,9 @@ class ModifyAlarmRequest extends Model
      *
      * Examples:
      *
-     *   ` * * * * * ?  `: The event-triggered task is in effect at all times.
-     *   ` * * 17-18 * * ?  `: The event-triggered task is in effect between 17:00:00 and 18:59:00 (UTC+8) every day.
-     *   `TZ=+00 * * 1-2 * * ?`: The event-triggered task is in effect between 01:00:00 and 02:59:00 (UTC+0) every day.
+     *   ` * * * * * ?  `: The event-triggered task is in effect all the time.
+     *   ` * * 17-18 * * ?  `: The event-triggered task is in effect between 17:00 and 18:59 (UTC+8) every day.
+     *   `TZ=+00 * * 1-2 * * ?`: The event-triggered task is in effect between 01:00 and 02:59 (UTC+0) every day.
      *
      * @example TZ=+00 * * 1-2 * * ?
      *
@@ -98,9 +98,9 @@ class ModifyAlarmRequest extends Model
      * @description The relationship between the trigger conditions in the multi-metric alert rule. Valid values:
      *
      *   `&&`: An alert is triggered only if all metrics in the multi-metric alert rule meet the trigger conditions. In this case, an alert is triggered only if the results of all trigger conditions that are specified in the multi-metric alert rule are `true`.
-     *   \`\`: An alert is triggered as long as one of the metrics in the multi-metric alert rule meets the trigger condition.
+     *   `||`: An alert is triggered if one of the metrics in the multi-metric alert rule meets the trigger condition.
      *
-     * Default value: `&&`
+     * Default value: `&&`.
      * @example &&
      *
      * @var string
@@ -108,7 +108,7 @@ class ModifyAlarmRequest extends Model
     public $expressionsLogicOperator;
 
     /**
-     * @description The ID of the application group to which the custom metric belongs. This parameter must be specified when MetricType is set to custom.
+     * @description The ID of the application group to which the custom metric belongs. If you set the MetricType parameter to custom, you must specify this parameter.
      *
      * @example 4055401
      *
@@ -117,21 +117,21 @@ class ModifyAlarmRequest extends Model
     public $groupId;
 
     /**
-     * @description The name of the metric. Valid values of MetricName vary based on the value of MetricType.
+     * @description The name of the metric. The valid values vary based on the metric type.
      *
-     *   If you set MetricType to custom, the valid values of MetricName are your custom metrics.
+     *   If you set the MetricType parameter to custom, the valid values are your custom metrics.
      *
-     *   If you set MetricType to system, MetricName has the following valid values:
+     *   If you set the MetricType parameter to system, the MetricName parameter has the following valid values:
      *
-     *   CpuUtilization: (ECS) the CPU utilization. Unit: %.
+     *   CpuUtilization: the CPU utilization of an ECS instance. Unit: %.
      *   IntranetTx: the outbound traffic over the internal network from an ECS instance. Unit: KB/min.
-     *   IntranetRx: the inbound traffic over the internal network to an ECS instance. Unit: KB/min.
-     *   VpcInternetTx: the outbound traffic over the Internet from an ECS instance that resides in a virtual private cloud (VPC). Unit: KB/min.
+     *   IntranetRx: the inbound traffic over the Internet to an ECS instance that resides in a virtual private cloud (VPC). Unit: KB/min.
+     *   VpcInternetTx: the outbound traffic over the Internet from an ECS instance that resides in a VPC. Unit: KB/min.
      *   VpcInternetRx: the inbound traffic over the Internet to an ECS instance that resides in a VPC. Unit: KB/min.
-     *   SystemDiskReadBps: the number of bytes read from the system disk that is used by an ECS instance per second.
-     *   SystemDiskWriteBps: the number of bytes written to the system disk that is used by an ECS instance per second.
-     *   SystemDiskReadOps: the number of read operations on the system disk that is used by an ECS instance per second.
-     *   SystemDiskWriteOps: the number of write operations on the system disk that is used by an ECS instance per second.
+     *   SystemDiskReadBps: the number of bytes read from the system disk used by an ECS instance per second.
+     *   SystemDiskWriteBps: the number of bytes written to the system disk used by an ECS instance per second.
+     *   SystemDiskReadOps: the number of read operations on the system disk used by an ECS instance per second.
+     *   SystemDiskWriteOps: the number of write operations on the system disk used by an ECS instance per second.
      *   CpuUtilizationAgent: the CPU utilization of an agent. Unit: %.
      *   GpuMemoryFreeUtilizationAgent: the percentage of idle GPU memory of an agent.
      *   GpuMemoryUtilizationAgent: the GPU memory usage of an agent. Unit: %.
@@ -186,7 +186,7 @@ class ModifyAlarmRequest extends Model
      *   300
      *   900
      *
-     * > If your scaling group is of the ECS type and uses CloudMonitor metrics, you can set Period to 15. In other cases, you can set Period to 60, 120, 300, or 900. In most cases, the name of a CloudMonitor metric contains Agent.
+     * > If your scaling group is of the ECS type and uses CloudMonitor metrics, you can set the Period parameter to 15. In other cases, you can set the Period parameter to 60, 120, 300, or 900. In most cases, the name of a CloudMonitor metric contains Agent.
      * @example 300
      *
      * @var int
@@ -221,7 +221,7 @@ class ModifyAlarmRequest extends Model
     public $statistics;
 
     /**
-     * @description The threshold of a metric in the multi-metric alert rule. If the threshold is reached the specified number of times within the specified period, a scaling rule is executed.
+     * @description The thresholds of the metric values in the multi-metric alert rule. If the thresholds are reached the specified number of times within the specified period, a scaling rule is executed.
      *
      * @example 80
      *

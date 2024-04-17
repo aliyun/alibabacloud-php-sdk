@@ -21,8 +21,8 @@ class initContainerVolumeMounts extends Model
      * @description The mount propagation settings of the volume . Mount propagation allows volumes that are mounted on one container to be shared with other containers in the same pod, or even with other pods on the same node. Valid values:
      *
      *   None: The volume mount does not receive subsequent mounts that are mounted to this volume or its subdirectories.
-     *   HostToCotainer: The volume mount receives all subsequent mounts that are mounted to this volume or its subdirectories.
-     *   Bidirectional: This value is similar to HostToCotainer. The volume mount receives all subsequent mounts that are mounted to this volume or its subdirectories. In addition, all volume mounts that are created by the container are propagated back to the instance and to all containers of all pods that use the same volume.
+     *   HostToContainer: The volume mount receives all subsequent mounts that are mounted to this volume or its subdirectories.
+     *   Bidirectional: This value is similar to HostToContainer. The volume mount receives all subsequent mounts that are mounted to this volume or its subdirectories. In addition, all volume mounts that are created by the container are propagated back to the instance and to all containers of all pods that use the same volume.
      *
      * @example None
      *

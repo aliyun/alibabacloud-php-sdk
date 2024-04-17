@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class environmentVars extends Model
 {
     /**
-     * @description > This parameter is unavailable.
+     * @description >  This parameter is not available for use.
      *
      * @example path
      *

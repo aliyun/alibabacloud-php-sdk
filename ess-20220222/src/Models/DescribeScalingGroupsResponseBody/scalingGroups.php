@@ -15,6 +15,8 @@ use AlibabaCloud\Tea\Model;
 class scalingGroups extends Model
 {
     /**
+     * @description The number of ECS instances that are in the In Service state in the scaling group.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +24,8 @@ class scalingGroups extends Model
     public $activeCapacity;
 
     /**
+     * @description The ID of the active scaling configuration in the scaling group.
+     *
      * @example asc-bp1et2qekq3ojr33****
      *
      * @var string
@@ -29,11 +33,18 @@ class scalingGroups extends Model
     public $activeScalingConfigurationId;
 
     /**
+     * @description The information about the Application Load Balancer (ALB) server groups.
+     *
      * @var albServerGroups[]
      */
     public $albServerGroups;
 
     /**
+     * @description The allocation policy of instances. Auto Scaling selects instance types based on the allocation policy to create the required number of instances. You can apply the policy to pay-as-you-go instances and preemptible instances. This parameter takes effect only if you set `MultiAZPolicy` to `COMPOSABLE`. Valid values:
+     *
+     *   priority: Auto Scaling selects instance types based on the specified order of the instance types to create the required number of instances.
+     *   lowestPrice: Auto Scaling selects instance types that have the lowest unit price of vCPUs to create the required number of instances.
+     *
      * @example priority
      *
      * @var string
@@ -41,6 +52,11 @@ class scalingGroups extends Model
     public $allocationStrategy;
 
     /**
+     * @description Indicates whether instances in the scaling group are evenly distributed across the specified zones. This parameter takes effect only if you set `MultiAZPolicy` to `COMPOSABLE`. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example false
      *
      * @var bool
@@ -48,6 +64,11 @@ class scalingGroups extends Model
     public $azBalance;
 
     /**
+     * @description Indicates whether Auto Scaling can create pay-as-you-go instances to supplement preemptible instances in the case that preemptilble instances cannot be created due to price-related factors or insufficient inventory when MultiAZPolicy is set to COST_OPTIMIZED. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -55,6 +76,8 @@ class scalingGroups extends Model
     public $compensateWithOnDemand;
 
     /**
+     * @description The time at which the scaling group was created.
+     *
      * @example 2014-08-14T10:58Z
      *
      * @var string
@@ -62,6 +85,8 @@ class scalingGroups extends Model
     public $creationTime;
 
     /**
+     * @description >  This parameter is not available for use.
+     *
      * @example hostname
      *
      * @var string
@@ -69,6 +94,8 @@ class scalingGroups extends Model
     public $currentHostName;
 
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the function that is specified in the custom scale-in policy. This parameter takes effect only if you set the first value of RemovalPolicies to CustomPolicy.
+     *
      * @example acs:fc:cn-zhangjiakou:16145688****:services/ess_custom_terminate_policy.LATEST/functions/ess_custom_terminate_policy_name
      *
      * @var string
@@ -76,11 +103,15 @@ class scalingGroups extends Model
     public $customPolicyARN;
 
     /**
+     * @description The IDs of the ApsaraDB RDS instances that are associated with the scaling group.
+     *
      * @var string[]
      */
     public $DBInstanceIds;
 
     /**
+     * @description The cooldown period of the scaling group. During the cooldown period, Auto Scaling does not execute the scaling activities that are triggered by [CloudMonitor](~~35170~~) event-triggered tasks.
+     *
      * @example 60
      *
      * @var int
@@ -88,6 +119,8 @@ class scalingGroups extends Model
     public $defaultCooldown;
 
     /**
+     * @description The expected number of ECS instances in the scaling group. Auto Scaling automatically maintains the expected number of ECS instances.
+     *
      * @example 5
      *
      * @var int
@@ -95,11 +128,23 @@ class scalingGroups extends Model
     public $desiredCapacity;
 
     /**
+     * @description Indicates whether the Expected Number of Instances feature is enabled. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enableDesiredCapacity;
 
     /**
+     * @description Indicates whether Deletion Protection is enabled for the scaling group. Valid values:
+     *
+     *   true: Deletion Protection is enabled for the scaling group. The scaling group cannot be deleted.
+     *   false: Deletion Protection is disabled for the scaling group.
+     *
      * @example true
      *
      * @var bool
@@ -107,6 +152,8 @@ class scalingGroups extends Model
     public $groupDeletionProtection;
 
     /**
+     * @description The type of instances that are managed by the scaling group.
+     *
      * @example ECS
      *
      * @var string
@@ -114,6 +161,12 @@ class scalingGroups extends Model
     public $groupType;
 
     /**
+     * @description The health check mode of the scaling group. Valid values:
+     *
+     *   NONE: Auto Scaling does not check the health status of instances in the scaling group.
+     *   ECS: Auto Scaling checks the health status of ECS instances in the scaling group.
+     *   LOAD_BALANCER: Auto Scaling checks the health status of instances in the scaling group based on the health check results of load balancers. The health check results of Classic Load Balancer (CLB) instances are not supported as the health check basis for instances in the scaling group.
+     *
      * @example ECS
      *
      * @var string
@@ -121,11 +174,19 @@ class scalingGroups extends Model
     public $healthCheckType;
 
     /**
+     * @description The health check modes of the scaling group. Valid values:
+     *
+     *   NONE: Auto Scaling does not check the health status of instances in the scaling group.
+     *   ECS: Auto Scaling checks the health status of ECS instances in the scaling group.
+     *   LOAD_BALANCER: Auto Scaling checks the health status of instances in the scaling group based on the health check results of load balancers. The health check results of CLB instances are not supported as the health check basis for instances in the scaling group.
+     *
      * @var string[]
      */
     public $healthCheckTypes;
 
     /**
+     * @description The number of instances that are in the Initialized state and ready to be scaled out in the scaling group.
+     *
      * @example 0
      *
      * @var int
@@ -133,6 +194,8 @@ class scalingGroups extends Model
     public $initCapacity;
 
     /**
+     * @description >  This parameter is not available for use.
+     *
      * @example false
      *
      * @var bool
@@ -140,6 +203,8 @@ class scalingGroups extends Model
     public $isElasticStrengthInAlarm;
 
     /**
+     * @description The ID of the launch template that is used by the scaling group.
+     *
      * @example lt-m5e3ofjr1zn1aw7****
      *
      * @var string
@@ -147,11 +212,15 @@ class scalingGroups extends Model
     public $launchTemplateId;
 
     /**
+     * @description The information about the instance types that are extended in the launch template.
+     *
      * @var launchTemplateOverrides[]
      */
     public $launchTemplateOverrides;
 
     /**
+     * @description The version of the launch template that is used by the scaling group.
+     *
      * @example Default
      *
      * @var string
@@ -159,6 +228,12 @@ class scalingGroups extends Model
     public $launchTemplateVersion;
 
     /**
+     * @description The lifecycle status of the scaling group. Valid values:
+     *
+     *   Active: The scaling group is in the Enabled state. Enabled scaling groups can receive requests to execute scaling rules and trigger scaling activities.
+     *   Inactive: The scaling group is in the Disabled state. Disabled scaling groups cannot receive requests to execute scaling rules.
+     *   Deleting: The scaling group is being deleted. Scaling groups that are being deleted cannot receive requests to execute scaling rules, and the parameter settings of the scaling groups cannot be modified.
+     *
      * @example Active
      *
      * @var string
@@ -166,16 +241,23 @@ class scalingGroups extends Model
     public $lifecycleState;
 
     /**
+     * @description The load balancer configurations.
+     *
      * @var loadBalancerConfigs[]
      */
     public $loadBalancerConfigs;
 
     /**
+     * @description The IDs of the load balancers that are associated with the scaling group.
+     *
      * @var string[]
      */
     public $loadBalancerIds;
 
     /**
+     * @description The maximum life span of an ECS instance in the scaling group. Unit: seconds.
+     *
+     * >  This parameter is not supported by scaling groups of the Elastic Container Instance type and scaling groups whose ScalingPolicy is set to Recycle.
      * @example null
      *
      * @var int
@@ -183,6 +265,8 @@ class scalingGroups extends Model
     public $maxInstanceLifetime;
 
     /**
+     * @description The maximum number of ECS instances that can be contained in the scaling group.
+     *
      * @example 2
      *
      * @var int
@@ -190,6 +274,8 @@ class scalingGroups extends Model
     public $maxSize;
 
     /**
+     * @description The minimum number of ECS instances that must be contained in the scaling group.
+     *
      * @example 1
      *
      * @var int
@@ -197,6 +283,8 @@ class scalingGroups extends Model
     public $minSize;
 
     /**
+     * @description The time when the scaling group was modified.
+     *
      * @example 2014-08-14T10:58Z
      *
      * @var string
@@ -204,6 +292,8 @@ class scalingGroups extends Model
     public $modificationTime;
 
     /**
+     * @description The ID of the CloudMonitor application group that is associated with the scaling group.
+     *
      * @example 1497****
      *
      * @var string
@@ -211,6 +301,18 @@ class scalingGroups extends Model
     public $monitorGroupId;
 
     /**
+     * @description The scaling policy of the ECS instances in the multi-zone scaling group. Valid values:
+     *
+     *   PRIORITY: ECS instances are created based on the value of VSwitchIds. If Auto Scaling cannot create ECS instances in the zone where the vSwitch of the highest priority resides, Auto Scaling creates ECS instances in the zone where the vSwitch of the next highest priority resides.
+     *
+     *   COST_OPTIMIZED: ECS instances are created based on the unit prices of their vCPUs. Auto Scaling preferentially creates ECS instances whose vCPUs are provided at the lowest price. If preemptible instance types are specified in the scaling configuration, Auto Scaling preferentially creates preemptible instances. You can also specify CompensateWithOnDemand to allow Auto Scaling to create pay-as-you-go instances in the case that preemptible instances cannot be created due to insufficient inventory of preemptible instance types.
+     *
+     **
+     *
+     **Note** The COST_OPTIMIZED setting takes effect only if you specified multiple instance types or preemptible instance types in your scaling configuration.
+     *
+     *   BALANCE: ECS instances are evenly distributed across the zones that are specified for the scaling group. If ECS instance are unevenly distributed across the specified zones due to insufficient inventory of instance types, you can call the RebalanceInstance operation to rebalance the distribution of the ECS instances.
+     *
      * @example PRIORITY
      *
      * @var string
@@ -218,6 +320,8 @@ class scalingGroups extends Model
     public $multiAZPolicy;
 
     /**
+     * @description The minimum number of pay-as-you-go instances that must be contained in the scaling group. Valid values: 0 to 1000. If the number of pay-as-you-go instances in the scaling group is less than the value of this parameter, Auto Scaling preferentially creates pay-as-you-go instances.
+     *
      * @example 30
      *
      * @var int
@@ -225,6 +329,8 @@ class scalingGroups extends Model
     public $onDemandBaseCapacity;
 
     /**
+     * @description The percentage of pay-as-you-go instances in the excess instances when the minimum number of pay-as-you-go instances reaches the requirement. Valid values: 0 to 100.
+     *
      * @example 20
      *
      * @var int
@@ -232,6 +338,8 @@ class scalingGroups extends Model
     public $onDemandPercentageAboveBaseCapacity;
 
     /**
+     * @description The number of ECS instances that are being added to the scaling group and configured.
+     *
      * @example 0
      *
      * @var int
@@ -239,6 +347,8 @@ class scalingGroups extends Model
     public $pendingCapacity;
 
     /**
+     * @description The number of ECS instances that are in the Pending Add state in the scaling group.
+     *
      * @example 1
      *
      * @var int
@@ -246,6 +356,8 @@ class scalingGroups extends Model
     public $pendingWaitCapacity;
 
     /**
+     * @description The number of ECS instances that are in the Protected state in the scaling group.
+     *
      * @example 1
      *
      * @var int
@@ -253,6 +365,8 @@ class scalingGroups extends Model
     public $protectedCapacity;
 
     /**
+     * @description The region ID of the scaling group.
+     *
      * @example cn-qingdao
      *
      * @var string
@@ -260,11 +374,19 @@ class scalingGroups extends Model
     public $regionId;
 
     /**
+     * @description The instance removal policies. Valid values:
+     *
+     *   OldestInstance: Auto Scaling removes ECS instances that are added at the earliest point in time to the scaling group.
+     *   NewestInstance: Auto Scaling removes ECS instances that are most recently added to the scaling group.
+     *   OldestScalingConfiguration: Auto Scaling removes ECS instances that are created based on the earliest scaling configuration.
+     *
      * @var string[]
      */
     public $removalPolicies;
 
     /**
+     * @description The number of ECS instances that are being removed from the scaling group.
+     *
      * @example 0
      *
      * @var int
@@ -272,6 +394,8 @@ class scalingGroups extends Model
     public $removingCapacity;
 
     /**
+     * @description The number of ECS instances that are in the Pending Remove state in the scaling group.
+     *
      * @example 1
      *
      * @var int
@@ -279,6 +403,8 @@ class scalingGroups extends Model
     public $removingWaitCapacity;
 
     /**
+     * @description The ID of the resource group to which the scaling group belongs.
+     *
      * @example rg-123****
      *
      * @var string
@@ -286,6 +412,8 @@ class scalingGroups extends Model
     public $resourceGroupId;
 
     /**
+     * @description The ID of the scaling group.
+     *
      * @example asg-bp14wlu85wrpchm0****
      *
      * @var string
@@ -293,6 +421,8 @@ class scalingGroups extends Model
     public $scalingGroupId;
 
     /**
+     * @description The name of the scaling group.
+     *
      * @example dyrSuvBOtO1dEdIlIbp****
      *
      * @var string
@@ -300,6 +430,13 @@ class scalingGroups extends Model
     public $scalingGroupName;
 
     /**
+     * @description The reclaim mode of the scaling group. Valid values:
+     *
+     *   recycle: economical mode
+     *   release: release mode
+     *   forcerelease: forced release mode
+     *
+     * For more information, see [RemoveInstances](~~25955~~).
      * @example recycle
      *
      * @var string
@@ -307,11 +444,20 @@ class scalingGroups extends Model
     public $scalingPolicy;
 
     /**
+     * @description The information about the server groups.
+     *
+     * >  You can use this parameter to obtain information about ALB server groups and Network Load Balancer (NLB) server groups associated with your scaling group.
      * @var serverGroups[]
      */
     public $serverGroups;
 
     /**
+     * @description The allocation policy of preemptible instances. You can use this parameter to individually specify the allocation policy for preemptible instances. This parameter takes effect only if you set `MultiAZPolicy` to `COMPOSABLE`. Valid values:
+     *
+     *   priority: Auto Scaling selects instance types based on the specified order of the instance types to create the required number of preemptible instances.
+     *   lowestPrice: Auto Scaling selects instance types that have the lowest unit price of vCPUs to create the required number of preemptible instances.
+     *
+     * Default value: priority.
      * @example lowestPrice
      *
      * @var string
@@ -319,6 +465,8 @@ class scalingGroups extends Model
     public $spotAllocationStrategy;
 
     /**
+     * @description The number of specified instance types. Auto Scaling evenly creates preemptible instances of multiple instance types that are provided at the lowest price across the zones of the scaling group. Valid values: 0 to 10.
+     *
      * @example 5
      *
      * @var int
@@ -326,6 +474,8 @@ class scalingGroups extends Model
     public $spotInstancePools;
 
     /**
+     * @description Indicates whether preemptible instances can be supplemented. If this parameter is set to true, Auto Scaling creates an instance to replace a preemptible instance when Auto Scaling receives the system message which indicates that the preemptible instance is to be reclaimed.
+     *
      * @example true
      *
      * @var bool
@@ -333,6 +483,8 @@ class scalingGroups extends Model
     public $spotInstanceRemedy;
 
     /**
+     * @description The number of ECS instances that are in the Standby state in the scaling group.
+     *
      * @example 1
      *
      * @var int
@@ -340,6 +492,8 @@ class scalingGroups extends Model
     public $standbyCapacity;
 
     /**
+     * @description The number of instances that are in Economical Mode in the scaling group.
+     *
      * @example 1
      *
      * @var int
@@ -347,11 +501,24 @@ class scalingGroups extends Model
     public $stoppedCapacity;
 
     /**
+     * @description The processes that are suspended. If no process is suspended, null is returned. Valid values:
+     *
+     *   ScaleIn: scale-in
+     *   ScaleOut: scale-out
+     *   HealthCheck: health check
+     *   AlarmNotification: event-triggered task
+     *   ScheduledAction: scheduled task
+     *
      * @var string[]
      */
     public $suspendedProcesses;
 
     /**
+     * @description Indicates whether Auto Scaling stops executing scaling activities in the scaling group. Valid values:
+     *
+     *   true: Auto Scaling stops executing scaling activities in the scaling group if the scaling activities failed for more than seven consecutive days in the scaling group. You must modify the scaling group or scaling configuration to resume the execution of the scaling activities.
+     *   false: Auto Scaling does not stop executing scaling activities in the scaling group.
+     *
      * @example true
      *
      * @var bool
@@ -359,11 +526,15 @@ class scalingGroups extends Model
     public $systemSuspended;
 
     /**
+     * @description The tags of the scaling group.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description The total weighted capacity of all ECS instances in the scaling group if Weighted is specified. In other cases, this parameter specifies the total number of ECS instances in the scaling group.
+     *
      * @example 1
      *
      * @var int
@@ -371,6 +542,8 @@ class scalingGroups extends Model
     public $totalCapacity;
 
     /**
+     * @description The total number of Elastic Compute Service (ECS) instances in the scaling group.
+     *
      * @example 1
      *
      * @var int
@@ -378,11 +551,15 @@ class scalingGroups extends Model
     public $totalInstanceCount;
 
     /**
+     * @description The backend vServer groups.
+     *
      * @var VServerGroups[]
      */
     public $VServerGroups;
 
     /**
+     * @description The vSwitch ID of the scaling group.
+     *
      * @example vsw-bp1whw2u46cn8zubm****
      *
      * @var string
@@ -390,11 +567,15 @@ class scalingGroups extends Model
     public $vSwitchId;
 
     /**
+     * @description The IDs of the vSwitches that are associated with the scaling group. If you specify VSwitchIds, VSwitchId is ignored.
+     *
      * @var string[]
      */
     public $vSwitchIds;
 
     /**
+     * @description The ID of the virtual private cloud (VPC) in which the scaling group resides.
+     *
      * @example vpc-bp1vwnn14rqpyiczj****
      *
      * @var string

@@ -105,14 +105,14 @@ class systemDisk extends Model
     public $KMSKeyId;
 
     /**
-     * @description The performance level (PL) of the system disk that is an ESSD. Valid values:
+     * @description The performance level (PL) of the system disk that is an enhanced SSD (ESSD). Valid values:
      *
      *   PL0: An ESSD can provide up to 10,000 random read/write IOPS.
      *   PL1: An ESSD can provide up to 50,000 random read/write IOPS.
      *   PL2: An ESSD can provide up to 100,000 random read/write IOPS.
      *   PL3: An ESSD can provide up to 1,000,000 random read/write IOPS.
      *
-     * Default value: PL0
+     * Default value: PL1.
      * @example PL0
      *
      * @var string

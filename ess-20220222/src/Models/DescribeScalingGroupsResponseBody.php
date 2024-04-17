@@ -31,6 +31,8 @@ class DescribeScalingGroupsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about the scaling groups.
+     *
      * @var scalingGroups[]
      */
     public $scalingGroups;

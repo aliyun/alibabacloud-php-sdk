@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class imageOptions extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $loginAsNonRoot;

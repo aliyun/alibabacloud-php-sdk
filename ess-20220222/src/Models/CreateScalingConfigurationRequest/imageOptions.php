@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class imageOptions extends Model
 {
     /**
+     * @description For more information about whether an ECS instance uses the ecs-user user user to log on to an ECS instance, see [Manage the login name of an ECS instance](~~388447~~). Value range:
+     *
+     * Default value: false.
+     * @example false
+     *
      * @var bool
      */
     public $loginAsNonRoot;
