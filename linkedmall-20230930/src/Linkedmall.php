@@ -42,6 +42,8 @@ use AlibabaCloud\SDK\Linkedmall\V20230930\Models\RenderPurchaseOrderRequest;
 use AlibabaCloud\SDK\Linkedmall\V20230930\Models\RenderPurchaseOrderResponse;
 use AlibabaCloud\SDK\Linkedmall\V20230930\Models\RenderRefundOrderRequest;
 use AlibabaCloud\SDK\Linkedmall\V20230930\Models\RenderRefundOrderResponse;
+use AlibabaCloud\SDK\Linkedmall\V20230930\Models\SplitPurchaseOrderRequest;
+use AlibabaCloud\SDK\Linkedmall\V20230930\Models\SplitPurchaseOrderResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -1040,5 +1042,47 @@ class Linkedmall extends OpenApiClient
         $headers = [];
 
         return $this->renderRefundOrderWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param SplitPurchaseOrderRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SplitPurchaseOrderResponse
+     */
+    public function splitPurchaseOrderWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'SplitPurchaseOrder',
+            'version'     => '2023-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/purchaseOrders/commands/split',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return SplitPurchaseOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SplitPurchaseOrderRequest $request
+     *
+     * @return SplitPurchaseOrderResponse
+     */
+    public function splitPurchaseOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->splitPurchaseOrderWithOptions($request, $headers, $runtime);
     }
 }
