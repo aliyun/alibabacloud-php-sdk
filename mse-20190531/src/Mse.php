@@ -47,6 +47,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\ApplyGatewayRouteResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ApplyTagPoliciesRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ApplyTagPoliciesResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ApplyTagPoliciesShrinkRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\BindSentinelBlockFallbackDefinitionRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\BindSentinelBlockFallbackDefinitionResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CloneNacosConfigRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CloneNacosConfigResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateApplicationRequest;
@@ -299,6 +301,9 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\ListSecurityGroupRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListSecurityGroupResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListSecurityGroupRuleRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListSecurityGroupRuleResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListSentinelBlockFallbackDefinitionsRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListSentinelBlockFallbackDefinitionsResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListSentinelBlockFallbackDefinitionsShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListServiceSourceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListServiceSourceResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListSSLCertRequest;
@@ -1789,6 +1794,64 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->applyTagPoliciesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param BindSentinelBlockFallbackDefinitionRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return BindSentinelBlockFallbackDefinitionResponse
+     */
+    public function bindSentinelBlockFallbackDefinitionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->fallbackId)) {
+            $query['FallbackId'] = $request->fallbackId;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->resource)) {
+            $query['Resource'] = $request->resource;
+        }
+        if (!Utils::isUnset($request->targetType)) {
+            $query['TargetType'] = $request->targetType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BindSentinelBlockFallbackDefinition',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BindSentinelBlockFallbackDefinitionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BindSentinelBlockFallbackDefinitionRequest $request
+     *
+     * @return BindSentinelBlockFallbackDefinitionResponse
+     */
+    public function bindSentinelBlockFallbackDefinition($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->bindSentinelBlockFallbackDefinitionWithOptions($request, $runtime);
     }
 
     /**
@@ -8901,6 +8964,63 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listSecurityGroupRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListSentinelBlockFallbackDefinitionsRequest $tmpReq
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return ListSentinelBlockFallbackDefinitionsResponse
+     */
+    public function listSentinelBlockFallbackDefinitionsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListSentinelBlockFallbackDefinitionsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->classificationSet)) {
+            $request->classificationSetShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->classificationSet, 'ClassificationSet', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->classificationSetShrink)) {
+            $query['ClassificationSet'] = $request->classificationSetShrink;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSentinelBlockFallbackDefinitions',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListSentinelBlockFallbackDefinitionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListSentinelBlockFallbackDefinitionsRequest $request
+     *
+     * @return ListSentinelBlockFallbackDefinitionsResponse
+     */
+    public function listSentinelBlockFallbackDefinitions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSentinelBlockFallbackDefinitionsWithOptions($request, $runtime);
     }
 
     /**
