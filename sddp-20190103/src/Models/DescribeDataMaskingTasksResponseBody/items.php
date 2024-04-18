@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @var int
+     */
+    public $dstMemberAccount;
+
+    /**
      * @description The destination directory.
      *
      * @example ***\/table1
@@ -90,6 +95,11 @@ class items extends Model
     public $runCount;
 
     /**
+     * @var int
+     */
+    public $srcMemberAccount;
+
+    /**
      * @description The source path.
      *
      * @example ***\/table2
@@ -159,6 +169,7 @@ class items extends Model
      */
     public $triggerType;
     protected $_name = [
+        'dstMemberAccount'   => 'DstMemberAccount',
         'dstPath'            => 'DstPath',
         'dstType'            => 'DstType',
         'dstTypeCode'        => 'DstTypeCode',
@@ -168,6 +179,7 @@ class items extends Model
         'originalTable'      => 'OriginalTable',
         'owner'              => 'Owner',
         'runCount'           => 'RunCount',
+        'srcMemberAccount'   => 'SrcMemberAccount',
         'srcPath'            => 'SrcPath',
         'srcType'            => 'SrcType',
         'srcTypeCode'        => 'SrcTypeCode',
@@ -184,6 +196,9 @@ class items extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dstMemberAccount) {
+            $res['DstMemberAccount'] = $this->dstMemberAccount;
+        }
         if (null !== $this->dstPath) {
             $res['DstPath'] = $this->dstPath;
         }
@@ -210,6 +225,9 @@ class items extends Model
         }
         if (null !== $this->runCount) {
             $res['RunCount'] = $this->runCount;
+        }
+        if (null !== $this->srcMemberAccount) {
+            $res['SrcMemberAccount'] = $this->srcMemberAccount;
         }
         if (null !== $this->srcPath) {
             $res['SrcPath'] = $this->srcPath;
@@ -244,6 +262,9 @@ class items extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DstMemberAccount'])) {
+            $model->dstMemberAccount = $map['DstMemberAccount'];
+        }
         if (isset($map['DstPath'])) {
             $model->dstPath = $map['DstPath'];
         }
@@ -270,6 +291,9 @@ class items extends Model
         }
         if (isset($map['RunCount'])) {
             $model->runCount = $map['RunCount'];
+        }
+        if (isset($map['SrcMemberAccount'])) {
+            $model->srcMemberAccount = $map['SrcMemberAccount'];
         }
         if (isset($map['SrcPath'])) {
             $model->srcPath = $map['SrcPath'];

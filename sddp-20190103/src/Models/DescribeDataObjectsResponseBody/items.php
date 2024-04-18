@@ -44,6 +44,11 @@ class items extends Model
     public $lastScanTime;
 
     /**
+     * @var int
+     */
+    public $memberAccount;
+
+    /**
      * @var modelTags[]
      */
     public $modelTags;
@@ -119,6 +124,7 @@ class items extends Model
         'instanceDescription' => 'InstanceDescription',
         'instanceId'          => 'InstanceId',
         'lastScanTime'        => 'LastScanTime',
+        'memberAccount'       => 'MemberAccount',
         'modelTags'           => 'ModelTags',
         'name'                => 'Name',
         'objectFileCategory'  => 'ObjectFileCategory',
@@ -153,6 +159,9 @@ class items extends Model
         }
         if (null !== $this->lastScanTime) {
             $res['LastScanTime'] = $this->lastScanTime;
+        }
+        if (null !== $this->memberAccount) {
+            $res['MemberAccount'] = $this->memberAccount;
         }
         if (null !== $this->modelTags) {
             $res['ModelTags'] = [];
@@ -227,6 +236,9 @@ class items extends Model
         }
         if (isset($map['LastScanTime'])) {
             $model->lastScanTime = $map['LastScanTime'];
+        }
+        if (isset($map['MemberAccount'])) {
+            $model->memberAccount = $map['MemberAccount'];
         }
         if (isset($map['ModelTags'])) {
             if (!empty($map['ModelTags'])) {

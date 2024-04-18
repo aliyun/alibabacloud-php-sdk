@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class CreateSlrRoleRequest extends Model
 {
     /**
+     * @description This parameter is deprecated.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $featureType;
@@ -26,6 +30,10 @@ class CreateSlrRoleRequest extends Model
     public $lang;
 
     /**
+     * @description This parameter is deprecated.
+     *
+     * @example 39.170.XX.XX
+     *
      * @var string
      */
     public $sourceIp;

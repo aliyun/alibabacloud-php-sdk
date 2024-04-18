@@ -83,6 +83,10 @@ class CreateDataLimitRequest extends Model
     public $eventStatus;
 
     /**
+     * @description This parameter is deprecated.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $featureType;
@@ -198,6 +202,10 @@ class CreateDataLimitRequest extends Model
     public $serviceRegionId;
 
     /**
+     * @description This parameter is deprecated.
+     *
+     * @example 39.170.XX.XX
+     *
      * @var string
      */
     public $sourceIp;

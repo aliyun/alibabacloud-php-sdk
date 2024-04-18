@@ -65,6 +65,11 @@ class DescribeParentInstanceRequest extends Model
     public $lang;
 
     /**
+     * @var int
+     */
+    public $memberAccount;
+
+    /**
      * @example 10
      *
      * @var int
@@ -93,6 +98,7 @@ class DescribeParentInstanceRequest extends Model
         'engineType'      => 'EngineType',
         'instanceId'      => 'InstanceId',
         'lang'            => 'Lang',
+        'memberAccount'   => 'MemberAccount',
         'pageSize'        => 'PageSize',
         'resourceType'    => 'ResourceType',
         'serviceRegionId' => 'ServiceRegionId',
@@ -128,6 +134,9 @@ class DescribeParentInstanceRequest extends Model
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->memberAccount) {
+            $res['MemberAccount'] = $this->memberAccount;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -173,6 +182,9 @@ class DescribeParentInstanceRequest extends Model
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['MemberAccount'])) {
+            $model->memberAccount = $map['MemberAccount'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];

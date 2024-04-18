@@ -51,6 +51,10 @@ class DescribeInstanceSourcesRequest extends Model
     public $engineType;
 
     /**
+     * @description This parameter is deprecated.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $featureType;

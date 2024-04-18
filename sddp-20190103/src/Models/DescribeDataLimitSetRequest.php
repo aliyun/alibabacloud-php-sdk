@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeDataLimitSetRequest extends Model
 {
     /**
+     * @description This parameter is deprecated.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $featureType;

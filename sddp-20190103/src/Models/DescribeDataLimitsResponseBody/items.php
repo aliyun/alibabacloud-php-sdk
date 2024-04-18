@@ -195,6 +195,11 @@ class items extends Model
     public $logStoreDay;
 
     /**
+     * @var int
+     */
+    public $memberAccount;
+
+    /**
      * @description The next time when the data asset is scanned. The value is a UNIX timestamp. Unit: milliseconds.
      *
      * @example 1676620236000
@@ -428,6 +433,7 @@ class items extends Model
         'lastFinishedTime'    => 'LastFinishedTime',
         'localName'           => 'LocalName',
         'logStoreDay'         => 'LogStoreDay',
+        'memberAccount'       => 'MemberAccount',
         'nextStartTime'       => 'NextStartTime',
         'ocrStatus'           => 'OcrStatus',
         'parentId'            => 'ParentId',
@@ -511,6 +517,9 @@ class items extends Model
         }
         if (null !== $this->logStoreDay) {
             $res['LogStoreDay'] = $this->logStoreDay;
+        }
+        if (null !== $this->memberAccount) {
+            $res['MemberAccount'] = $this->memberAccount;
         }
         if (null !== $this->nextStartTime) {
             $res['NextStartTime'] = $this->nextStartTime;
@@ -640,6 +649,9 @@ class items extends Model
         }
         if (isset($map['LogStoreDay'])) {
             $model->logStoreDay = $map['LogStoreDay'];
+        }
+        if (isset($map['MemberAccount'])) {
+            $model->memberAccount = $map['MemberAccount'];
         }
         if (isset($map['NextStartTime'])) {
             $model->nextStartTime = $map['NextStartTime'];

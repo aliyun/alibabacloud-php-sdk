@@ -31,6 +31,10 @@ class CreateConfigRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is deprecated.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $featureType;
@@ -48,6 +52,10 @@ class CreateConfigRequest extends Model
     public $lang;
 
     /**
+     * @description This parameter is deprecated.
+     *
+     * @example 39.170.XX.XX
+     *
      * @var string
      */
     public $sourceIp;

@@ -87,6 +87,10 @@ class DescribeDataLimitsRequest extends Model
     public $engineType;
 
     /**
+     * @description This parameter is deprecated.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $featureType;
@@ -102,6 +106,11 @@ class DescribeDataLimitsRequest extends Model
      * @var string
      */
     public $lang;
+
+    /**
+     * @var int
+     */
+    public $memberAccount;
 
     /**
      * @description The number of entries to return on each page.
@@ -168,6 +177,7 @@ class DescribeDataLimitsRequest extends Model
         'engineType'      => 'EngineType',
         'featureType'     => 'FeatureType',
         'lang'            => 'Lang',
+        'memberAccount'   => 'MemberAccount',
         'pageSize'        => 'PageSize',
         'parentId'        => 'ParentId',
         'resourceType'    => 'ResourceType',
@@ -208,6 +218,9 @@ class DescribeDataLimitsRequest extends Model
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->memberAccount) {
+            $res['MemberAccount'] = $this->memberAccount;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -262,6 +275,9 @@ class DescribeDataLimitsRequest extends Model
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['MemberAccount'])) {
+            $model->memberAccount = $map['MemberAccount'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];

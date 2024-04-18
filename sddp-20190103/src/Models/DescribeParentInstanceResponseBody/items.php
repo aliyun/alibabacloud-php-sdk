@@ -79,6 +79,11 @@ class items extends Model
     public $localName;
 
     /**
+     * @var int
+     */
+    public $memberAccount;
+
+    /**
      * @example rm-uf6b9897shxxx.test
      *
      * @var string
@@ -137,6 +142,7 @@ class items extends Model
         'instanceId'                  => 'InstanceId',
         'instanceSize'                => 'InstanceSize',
         'localName'                   => 'LocalName',
+        'memberAccount'               => 'MemberAccount',
         'parentId'                    => 'ParentId',
         'resourceType'                => 'ResourceType',
         'supportConnectNodes'         => 'SupportConnectNodes',
@@ -182,6 +188,9 @@ class items extends Model
         }
         if (null !== $this->localName) {
             $res['LocalName'] = $this->localName;
+        }
+        if (null !== $this->memberAccount) {
+            $res['MemberAccount'] = $this->memberAccount;
         }
         if (null !== $this->parentId) {
             $res['ParentId'] = $this->parentId;
@@ -245,6 +254,9 @@ class items extends Model
         }
         if (isset($map['LocalName'])) {
             $model->localName = $map['LocalName'];
+        }
+        if (isset($map['MemberAccount'])) {
+            $model->memberAccount = $map['MemberAccount'];
         }
         if (isset($map['ParentId'])) {
             $model->parentId = $map['ParentId'];

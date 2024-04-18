@@ -128,6 +128,10 @@ class CreateRuleRequest extends Model
     public $ruleType;
 
     /**
+     * @description This parameter is deprecated.
+     *
+     * @example 39.170.XX.XX
+     *
      * @var string
      */
     public $sourceIp;

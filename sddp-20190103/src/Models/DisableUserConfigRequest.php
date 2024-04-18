@@ -18,6 +18,10 @@ class DisableUserConfigRequest extends Model
     public $code;
 
     /**
+     * @description This parameter is deprecated.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $featureType;

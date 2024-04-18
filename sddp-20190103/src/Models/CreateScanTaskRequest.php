@@ -18,6 +18,10 @@ class CreateScanTaskRequest extends Model
     public $dataLimitId;
 
     /**
+     * @description This parameter is deprecated.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $featureType;
@@ -103,6 +107,10 @@ class CreateScanTaskRequest extends Model
     public $scanRangeContent;
 
     /**
+     * @description This parameter is deprecated.
+     *
+     * @example 39.170.XX.XX
+     *
      * @var string
      */
     public $sourceIp;

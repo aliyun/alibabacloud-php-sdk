@@ -78,9 +78,9 @@ class userStatus extends Model
     public $dataManagerRole;
 
     /**
-     * @description The ID of the instance within the current account.
+     * @description The ID of the data security center instance purchased by the main account.
      *
-     * @example ins-****
+     * @example sddp-cn-****
      *
      * @var string
      */

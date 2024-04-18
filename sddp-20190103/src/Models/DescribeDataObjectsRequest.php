@@ -50,6 +50,11 @@ class DescribeDataObjectsRequest extends Model
     public $lang;
 
     /**
+     * @var int
+     */
+    public $memberAccount;
+
+    /**
      * @var string
      */
     public $modelIds;
@@ -117,6 +122,7 @@ class DescribeDataObjectsRequest extends Model
         'fileType'          => 'FileType',
         'instanceId'        => 'InstanceId',
         'lang'              => 'Lang',
+        'memberAccount'     => 'MemberAccount',
         'modelIds'          => 'ModelIds',
         'modelTagIds'       => 'ModelTagIds',
         'pageSize'          => 'PageSize',
@@ -155,6 +161,9 @@ class DescribeDataObjectsRequest extends Model
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->memberAccount) {
+            $res['MemberAccount'] = $this->memberAccount;
         }
         if (null !== $this->modelIds) {
             $res['ModelIds'] = $this->modelIds;
@@ -215,6 +224,9 @@ class DescribeDataObjectsRequest extends Model
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['MemberAccount'])) {
+            $model->memberAccount = $map['MemberAccount'];
         }
         if (isset($map['ModelIds'])) {
             $model->modelIds = $map['ModelIds'];

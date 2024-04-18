@@ -53,7 +53,7 @@ class DescribeRulesRequest extends Model
     /**
      * @description This parameter is deprecated.
      *
-     * @example 1
+     * @example 2
      *
      * @var int
      */

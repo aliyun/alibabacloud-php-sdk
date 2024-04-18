@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteRuleRequest extends Model
 {
     /**
+     * @description This parameter is deprecated.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $featureType;
@@ -32,6 +36,10 @@ class DeleteRuleRequest extends Model
     public $lang;
 
     /**
+     * @description This parameter is deprecated.
+     *
+     * @example 39.170.XX.XX
+     *
      * @var string
      */
     public $sourceIp;

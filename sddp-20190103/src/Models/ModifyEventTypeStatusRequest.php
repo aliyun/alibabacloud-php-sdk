@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyEventTypeStatusRequest extends Model
 {
     /**
+     * @description This parameter is deprecated.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $featureType;
