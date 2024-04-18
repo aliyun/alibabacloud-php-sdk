@@ -32,6 +32,11 @@ class CreateSecretParameterShrinkRequest extends Model
     public $constraints;
 
     /**
+     * @var string
+     */
+    public $DKMSInstanceId;
+
+    /**
      * @description The description of the encryption parameter. The description must be 1 to 200 characters in length.
      *
      * @example SecretParameter
@@ -86,7 +91,7 @@ class CreateSecretParameterShrinkRequest extends Model
     public $tagsShrink;
 
     /**
-     * @description The data type of the parameter. Set the value to Secret.
+     * @description The type of the parameter. Set the value to Secret.
      *
      * @example Secret
      *
@@ -105,6 +110,7 @@ class CreateSecretParameterShrinkRequest extends Model
     protected $_name = [
         'clientToken'     => 'ClientToken',
         'constraints'     => 'Constraints',
+        'DKMSInstanceId'  => 'DKMSInstanceId',
         'description'     => 'Description',
         'keyId'           => 'KeyId',
         'name'            => 'Name',
@@ -127,6 +133,9 @@ class CreateSecretParameterShrinkRequest extends Model
         }
         if (null !== $this->constraints) {
             $res['Constraints'] = $this->constraints;
+        }
+        if (null !== $this->DKMSInstanceId) {
+            $res['DKMSInstanceId'] = $this->DKMSInstanceId;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -169,6 +178,9 @@ class CreateSecretParameterShrinkRequest extends Model
         }
         if (isset($map['Constraints'])) {
             $model->constraints = $map['Constraints'];
+        }
+        if (isset($map['DKMSInstanceId'])) {
+            $model->DKMSInstanceId = $map['DKMSInstanceId'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];

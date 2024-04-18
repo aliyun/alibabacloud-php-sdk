@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListInstancePatchesRequest extends Model
 {
     /**
-     * @description The number of entries to return on each page.
+     * @description The ID of the instance.
      *
      * @example i-bp1jaxa2bs4bps7*****
      *
@@ -18,7 +18,7 @@ class ListInstancePatchesRequest extends Model
     public $instanceId;
 
     /**
-     * @description The token that is used to retrieve the next page of results.
+     * @description The number of entries to return on each page.
      *
      * @example 50
      *
@@ -27,16 +27,16 @@ class ListInstancePatchesRequest extends Model
     public $maxResults;
 
     /**
-     * @description MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctMTJDQzQ
+     * @description The token that is used to retrieve the next page of results.
      *
-     * @example The status of the patches that you want to query. If you do not set this parameter, patches are not filtered.
+     * @example gAAAAABfTgv5ewUWmNdJ3g7JVLvX70sPH90GZOVGC6KPDUL0FIIb
      *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The token that is used to retrieve the next page of results.
+     * @description The status of the patches that you want to query. If you do not set this parameter, patches are not filtered.
      *
      * @example Installed
      *
@@ -45,7 +45,7 @@ class ListInstancePatchesRequest extends Model
     public $patchStatuses;
 
     /**
-     * @description The ID of the instance.
+     * @description The ID of the region in which the instance whose patches you want to query resides.
      *
      * @example cn-hangzhou
      *

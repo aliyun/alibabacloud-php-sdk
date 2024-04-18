@@ -1,3 +1,15 @@
+2024-04-18 Version: 2.2.0
+- Support API ListGitRepositories.
+- Update API CreateOpsItem: update response param.
+- Update API CreateSecretParameter: add param DKMSInstanceId.
+- Update API CreateSecretParameter: update response param.
+- Update API DeleteApplication: add param RetainResource.
+- Update API DeleteApplicationGroup: add param RetainResource.
+- Update API GetOpsItem: update response param.
+- Update API GetSecretParameter: update response param.
+- Update API UpdateOpsItem: update param Title.
+
+
 2023-12-08 Version: 2.1.0
 - Generated php 2019-06-01 for oos.
 

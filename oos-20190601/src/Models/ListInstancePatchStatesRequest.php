@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListInstancePatchStatesRequest extends Model
 {
     /**
-     * @description The token that is used to retrieve the next page of results.
+     * @description The ID of the Elastic Compute Service (ECS) instance. The value can be a JSON array that consists of up to 100 instance IDs. Separate the instance IDs with commas (,).
      *
      * @example ["i-bp1jaxa2bs4bps7*****", "i-bp67acfmxazb4p****", … "i-bp67acfmxazb4p****"]
      *
@@ -18,7 +18,7 @@ class ListInstancePatchStatesRequest extends Model
     public $instanceIds;
 
     /**
-     * @description The token that is used to retrieve the next page of results.
+     * @description The number of entries to return on each page.
      *
      * @example 50
      *
@@ -27,7 +27,7 @@ class ListInstancePatchStatesRequest extends Model
     public $maxResults;
 
     /**
-     * @description The ID of the Elastic Compute Service (ECS) instance. The value can be a JSON array that consists of up to 100 instance IDs. Separate the instance IDs with commas (,).
+     * @description The token that is used to retrieve the next page of results.
      *
      * @example -
      *
@@ -36,7 +36,7 @@ class ListInstancePatchStatesRequest extends Model
     public $nextToken;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The ID of the region in which the instance whose patches you want to query resides.
      *
      * @example cn-hangzhou
      *

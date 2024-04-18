@@ -37,10 +37,20 @@ class DeleteApplicationRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @description Specifies whether to retain resources created by application manager when deleting the application. Valid values:
+     * - false
+     * @example false
+     *
+     * @var bool
+     */
+    public $retainResource;
     protected $_name = [
-        'force'    => 'Force',
-        'name'     => 'Name',
-        'regionId' => 'RegionId',
+        'force'          => 'Force',
+        'name'           => 'Name',
+        'regionId'       => 'RegionId',
+        'retainResource' => 'RetainResource',
     ];
 
     public function validate()
@@ -58,6 +68,9 @@ class DeleteApplicationRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->retainResource) {
+            $res['RetainResource'] = $this->retainResource;
         }
 
         return $res;
@@ -79,6 +92,9 @@ class DeleteApplicationRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RetainResource'])) {
+            $model->retainResource = $map['RetainResource'];
         }
 
         return $model;

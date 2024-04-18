@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Oos\V20190601\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateApplicationResponse extends Model
+class ListGitRepositoriesResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class CreateApplicationResponse extends Model
     public $statusCode;
 
     /**
-     * @var CreateApplicationResponseBody
+     * @var ListGitRepositoriesResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class CreateApplicationResponse extends Model
     /**
      * @param array $map
      *
-     * @return CreateApplicationResponse
+     * @return ListGitRepositoriesResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class CreateApplicationResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = CreateApplicationResponseBody::fromMap($map['body']);
+            $model->body = ListGitRepositoriesResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -37,7 +37,7 @@ class ListTemplatesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The metadata of the template.
+     * @description The template metadata.
      *
      * @var templates[]
      */

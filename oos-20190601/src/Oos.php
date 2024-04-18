@@ -103,6 +103,8 @@ use AlibabaCloud\SDK\Oos\V20190601\Models\ListExecutionRiskyTasksResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListExecutionsRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListExecutionsResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListExecutionsShrinkRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\ListGitRepositoriesRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\ListGitRepositoriesResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListInstancePatchesRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListInstancePatchesResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListInstancePatchStatesRequest;
@@ -787,6 +789,9 @@ class Oos extends OpenApiClient
         if (!Utils::isUnset($request->constraints)) {
             $query['Constraints'] = $request->constraints;
         }
+        if (!Utils::isUnset($request->DKMSInstanceId)) {
+            $query['DKMSInstanceId'] = $request->DKMSInstanceId;
+        }
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
         }
@@ -1004,6 +1009,9 @@ class Oos extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->retainResource)) {
+            $query['RetainResource'] = $request->retainResource;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -1052,6 +1060,9 @@ class Oos extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->retainResource)) {
+            $query['RetainResource'] = $request->retainResource;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -2728,6 +2739,64 @@ class Oos extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listExecutionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListGitRepositoriesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListGitRepositoriesResponse
+     */
+    public function listGitRepositoriesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->orgName)) {
+            $query['OrgName'] = $request->orgName;
+        }
+        if (!Utils::isUnset($request->owner)) {
+            $query['Owner'] = $request->owner;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->platform)) {
+            $query['Platform'] = $request->platform;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListGitRepositories',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListGitRepositoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListGitRepositoriesRequest $request
+     *
+     * @return ListGitRepositoriesResponse
+     */
+    public function listGitRepositories($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listGitRepositoriesWithOptions($request, $runtime);
     }
 
     /**

@@ -59,12 +59,16 @@ class ListTemplatesRequest extends Model
     public $hasTrigger;
 
     /**
+     * @description The template is favorite or not.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isFavorite;
 
     /**
-     * @description The number of entries to return on each page. Valid values: 20 to 100. Default value: 50.
+     * @description The number of entries to return on each page. Valid values: 10 to 100. Default value: 50.
      *
      * @example 50
      *
@@ -112,13 +116,13 @@ class ListTemplatesRequest extends Model
     public $shareType;
 
     /**
-     * @description The field that is used to sort the templates to be returned. Valid values:
+     * @description The field that is used to sort the templates to be queried. Valid values:
      *
-     *   **TotalExecutionCounts**: The system sorts the returned templates based on the total number of execution times of the template. This is the default value.
-     *   **Popularity**: The system sorts the returned templates based on the popularity of the template.
-     *   **TemplateName**: The system sorts the returned templates based on the name of the template.
-     *   **CreatedDate**: The system sorts the returned templates based on the creation time of the template.
-     *   **UpdateDate**: The system sorts the returned templates based on the update time of the template.
+     *   **TotalExecutionCount** (default): The system sorts the returned templates based on the total number of times that the templates are used.
+     *   **Popularity**: The system sorts the returned templates based on the popularity of the templates.
+     *   **TemplateName**: The system sorts the returned templates based on the names of the templates.
+     *   **CreatedDate**: The system sorts the returned templates based on the points in time when the templates are created.
+     *   **UpdatedDate**: The system sorts the returned templates based on the points in time when the templates are updated.
      *
      * @example Popularity
      *
@@ -169,21 +173,12 @@ class ListTemplatesRequest extends Model
     public $templateName;
 
     /**
-     * @description The type of the template.
+     * @description The type of the template. Valid values:
      *
-     * Valid values:
+     *   Automation: the template for automated tasks.
+     *   State: the template for configuration inventories.
+     *   Package: the template for software packages.
      *
-     *   Automation
-     *
-     * <!-- -->
-     *
-     *   State
-     *
-     * <!-- -->
-     *
-     *   Package
-     *
-     * <!-- -->
      * @example private
      *
      * @var string

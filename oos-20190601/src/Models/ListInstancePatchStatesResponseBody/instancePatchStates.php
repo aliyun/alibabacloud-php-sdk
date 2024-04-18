@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class instancePatchStates extends Model
 {
     /**
-     * @description The number of patches that have been installed but require a restart to take effect.
+     * @description The ID of the patch baseline.
      *
      * @example pb-f9393021b7a049e1b34e
      *
@@ -18,7 +18,7 @@ class instancePatchStates extends Model
     public $baselineId;
 
     /**
-     * @description The ID of the patch baseline.
+     * @description The number of patches that failed to be installed.
      *
      * @example 0
      *
@@ -27,7 +27,7 @@ class instancePatchStates extends Model
     public $failedCount;
 
     /**
-     * @description Queries patches of an instance.
+     * @description The number of installed patches.
      *
      * @example 0
      *
@@ -36,7 +36,7 @@ class instancePatchStates extends Model
     public $installedCount;
 
     /**
-     * @description The ID of the ECS instance.
+     * @description The number of patches that do not meet the baseline.
      *
      * @example 0
      *
@@ -45,7 +45,7 @@ class instancePatchStates extends Model
     public $installedOtherCount;
 
     /**
-     * @description The number of patches that are rejected by the user.
+     * @description The number of patches that have been installed but require a restart to take effect.
      *
      * @example 0
      *
@@ -54,7 +54,7 @@ class instancePatchStates extends Model
     public $installedPendingRebootCount;
 
     /**
-     * @description The patch group.
+     * @description The number of patches that are rejected by the user.
      *
      * @example 0
      *
@@ -63,7 +63,7 @@ class instancePatchStates extends Model
     public $installedRejectedCount;
 
     /**
-     * @description The operation type.
+     * @description The ID of the ECS instance.
      *
      * @example i-bp1jaxa2bs4bps7*****
      *
@@ -72,7 +72,7 @@ class instancePatchStates extends Model
     public $instanceId;
 
     /**
-     * @description The time when the operation ended.
+     * @description The number of patches that are not installed.
      *
      * @example 0
      *
@@ -81,7 +81,7 @@ class instancePatchStates extends Model
     public $missingCount;
 
     /**
-     * @description The information about the user.
+     * @description The time when the operation ended.
      *
      * @example 2021-09-10T11:42:22Z
      *
@@ -90,7 +90,7 @@ class instancePatchStates extends Model
     public $operationEndTime;
 
     /**
-     * @description The number of patches that failed to be installed.
+     * @description The time when the operation was initiated.
      *
      * @example 2021-09-10T11:42:22Z
      *
@@ -99,7 +99,7 @@ class instancePatchStates extends Model
     public $operationStartTime;
 
     /**
-     * @description The time when the operation was initiated.
+     * @description The operation type.
      *
      * @example scan
      *
@@ -108,7 +108,7 @@ class instancePatchStates extends Model
     public $operationType;
 
     /**
-     * @description The number of patches that do not meet the baseline.
+     * @description The information about the user.
      *
      * @example “”
      *
@@ -117,7 +117,7 @@ class instancePatchStates extends Model
     public $ownerInformation;
 
     /**
-     * @description The number of installed patches.
+     * @description The patch group.
      *
      * @example null
      *

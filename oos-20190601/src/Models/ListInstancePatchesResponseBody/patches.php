@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class patches extends Model
 {
     /**
-     * @description Queries the patches of an instance.
+     * @description The classification of the patch.
      *
      * @example “”
      *
@@ -18,7 +18,7 @@ class patches extends Model
     public $classification;
 
     /**
-     * @description The name of the patch.
+     * @description The time when the patch was installed.
      *
      * @example 2021-01-28T07:07:20Z
      *
@@ -27,7 +27,7 @@ class patches extends Model
     public $installedTime;
 
     /**
-     * @description KBId
+     * @description The Id of KBId.
      *
      * @example apt-utils.amd64
      *
@@ -36,7 +36,7 @@ class patches extends Model
     public $KBId;
 
     /**
-     * @description The status of the installation.
+     * @description The level of the severity.
      *
      * @example important
      *
@@ -45,7 +45,7 @@ class patches extends Model
     public $severity;
 
     /**
-     * @description The time when the patch was installed.
+     * @description The status of the installation.
      *
      * @example Installed
      *
@@ -54,7 +54,7 @@ class patches extends Model
     public $status;
 
     /**
-     * @description The classification of the patch.
+     * @description The name of the patch.
      *
      * @example isc-dhcp-common.amd64:4.3.5-3ubuntu7.3
      *

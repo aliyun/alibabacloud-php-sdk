@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateExecutionRequest extends Model
 {
     /**
-     * @description The description of the execution.
+     * @description The client token that is used to ensure the idempotence of the request.
      *
      * @example 123e4567-e89b-12d3-a456-42665544****
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeApplicationGroupBillRequest extends Model
 {
     /**
+     * @description The application name.
+     *
      * @example test_application
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeApplicationGroupBillRequest extends Model
     public $applicationName;
 
     /**
+     * @description The billing cycle, in the YYYY-MM format.
+     *
      * @example 2023-06
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeApplicationGroupBillRequest extends Model
     public $billingCycle;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -30,6 +36,8 @@ class DescribeApplicationGroupBillRequest extends Model
     public $maxResults;
 
     /**
+     * @description The application group name.
+     *
      * @example test_application_group
      *
      * @var string
@@ -37,6 +45,8 @@ class DescribeApplicationGroupBillRequest extends Model
     public $name;
 
     /**
+     * @description The token that is used to retrieve the next page of results.
+     *
      * @example -
      *
      * @var string
@@ -44,6 +54,8 @@ class DescribeApplicationGroupBillRequest extends Model
     public $nextToken;
 
     /**
+     * @description The ID of the region.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -51,6 +63,8 @@ class DescribeApplicationGroupBillRequest extends Model
     public $regionId;
 
     /**
+     * @description The type of the cloud resource.
+     *
      * @example ALIYUN::ECS::INSTANCE
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class applicationGroupConsume extends Model
 {
     /**
+     * @description The amount consumed by the instance.
+     *
      * @example 18.88
      *
      * @var float
@@ -16,6 +18,8 @@ class applicationGroupConsume extends Model
     public $amount;
 
     /**
+     * @description The time when the instance was created.
+     *
      * @example 2023-06-10T06:00Z
      *
      * @var string
@@ -23,6 +27,8 @@ class applicationGroupConsume extends Model
     public $creationTime;
 
     /**
+     * @description The currency unit.
+     *
      * @example CNY
      *
      * @var string
@@ -30,6 +36,8 @@ class applicationGroupConsume extends Model
     public $currency;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example i-0jl781czrhqey0s5zpsj
      *
      * @var string
@@ -37,6 +45,8 @@ class applicationGroupConsume extends Model
     public $instanceId;
 
     /**
+     * @description The name of the instance.
+     *
      * @example test-
      *
      * @var string
@@ -44,6 +54,8 @@ class applicationGroupConsume extends Model
     public $instanceName;
 
     /**
+     * @description The instance type.
+     *
      * @example ALIYUN::ECS::INSTANCE
      *
      * @var string
@@ -51,6 +63,8 @@ class applicationGroupConsume extends Model
     public $instanceType;
 
     /**
+     * @description Optimization suggestions.
+     *
      * @example 1
      *
      * @var string
@@ -58,6 +72,8 @@ class applicationGroupConsume extends Model
     public $optimization;
 
     /**
+     * @description The peak type.
+     *
      * @example WHITE
      *
      * @var string
@@ -65,6 +81,8 @@ class applicationGroupConsume extends Model
     public $peakType;
 
     /**
+     * @description The performance of the data synchronization instance.
+     *
      * @example "{\"mem\":\"6.82\",\"cpu\":\"0.55\"}"
      *
      * @var string
@@ -72,6 +90,8 @@ class applicationGroupConsume extends Model
     public $performance;
 
     /**
+     * @description The status of instance.
+     *
      * @example Running
      *
      * @var string

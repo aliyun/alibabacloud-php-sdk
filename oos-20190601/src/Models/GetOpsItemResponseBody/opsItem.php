@@ -43,13 +43,6 @@ class opsItem extends Model
     public $createDate;
 
     /**
-     * @description The duplicated string.
-     *
-     * @var string
-     */
-    public $dedupString;
-
-    /**
      * @description The description.
      *
      * @example test-update
@@ -166,7 +159,6 @@ class opsItem extends Model
         'category'        => 'Category',
         'createBy'        => 'CreateBy',
         'createDate'      => 'CreateDate',
-        'dedupString'     => 'DedupString',
         'description'     => 'Description',
         'lastModifiedBy'  => 'LastModifiedBy',
         'opsItemId'       => 'OpsItemId',
@@ -200,9 +192,6 @@ class opsItem extends Model
         }
         if (null !== $this->createDate) {
             $res['CreateDate'] = $this->createDate;
-        }
-        if (null !== $this->dedupString) {
-            $res['DedupString'] = $this->dedupString;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -266,9 +255,6 @@ class opsItem extends Model
         }
         if (isset($map['CreateDate'])) {
             $model->createDate = $map['CreateDate'];
-        }
-        if (isset($map['DedupString'])) {
-            $model->dedupString = $map['DedupString'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];

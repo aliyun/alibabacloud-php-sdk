@@ -29,7 +29,7 @@ class template extends Model
     /**
      * @description The description of the template.
      *
-     * @example Descirbe instances of given status
+     * @example Get status of instances
      *
      * @var string
      */

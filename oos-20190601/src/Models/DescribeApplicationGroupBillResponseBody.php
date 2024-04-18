@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeApplicationGroupBillResponseBody extends Model
 {
     /**
+     * @description The consume of application group.
+     *
      * @var applicationGroupConsume[]
      */
     public $applicationGroupConsume;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeApplicationGroupBillResponseBody extends Model
     public $maxResults;
 
     /**
+     * @description The token that is used to retrieve the next page of results.
+     *
      * @example ""
      *
      * @var string
@@ -29,6 +35,8 @@ class DescribeApplicationGroupBillResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
      * @example E897A1AB-4701-5B71-93AD-38FD703763A3
      *
      * @var string

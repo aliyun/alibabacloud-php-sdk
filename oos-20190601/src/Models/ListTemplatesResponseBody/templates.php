@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class templates extends Model
 {
     /**
-     * @description The type of the template.
+     * @description The template type.
      *
      * @example TimerTrigger
      *
@@ -18,6 +18,10 @@ class templates extends Model
     public $category;
 
     /**
+     * @description The constraints of template
+     *
+     * @example {
+     * }
      * @var string
      */
     public $constraints;
@@ -41,7 +45,7 @@ class templates extends Model
     public $createdDate;
 
     /**
-     * @description The description of the template.
+     * @description The template description.
      *
      * @example Describe instances of given status
      *
@@ -50,7 +54,7 @@ class templates extends Model
     public $description;
 
     /**
-     * @description Indicates whether the template is configured with a trigger.
+     * @description Indicates whether the template was configured with a trigger.
      *
      * @example true
      *
@@ -68,15 +72,18 @@ class templates extends Model
     public $hash;
 
     /**
+     * @description The template is favorite or not.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isFavorite;
 
     /**
-     * @description The popularity of the public template. Valid values: **1-10**. A greater value indicates higher popularity. If the **ShareType** parameter is set to **Private**, the value of this parameter is `-1`.
+     * @description The popularity of the public template. Valid values: **1-10**. A greater value indicates higher popularity. If **ShareType** is set to **Private**, the value of this parameter is `-1`.
      *
-     **Notes** This parameter is valid only if the value of the **ShareType** parameter is set to **Public**.
-     *
+     * >  This parameter is valid only if the value of **ShareType** is set to **Public**.
      * @example 8
      *
      * @var int
@@ -84,12 +91,16 @@ class templates extends Model
     public $popularity;
 
     /**
+     * @description The publisher of template.
+     *
+     * @example aliyun
+     *
      * @var string
      */
     public $publisher;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID.
      *
      * @example rg-acfmxsn4m4******
      *
@@ -98,7 +109,7 @@ class templates extends Model
     public $resourceGroupId;
 
     /**
-     * @description The share type of the template. The share type of the template that you create is **Private**. Valid values:
+     * @description The share type of the template. The share type of a template created by a user is **Private**. Valid values:
      *
      *   **Public**
      *   **Private**
@@ -119,7 +130,7 @@ class templates extends Model
     public $tags;
 
     /**
-     * @description The format of the template. The system automatically determines whether the format is JSON or YAML.
+     * @description The template format. The system automatically determines whether the format is JSON or YAML.
      *
      * @example JSON
      *
@@ -128,7 +139,7 @@ class templates extends Model
     public $templateFormat;
 
     /**
-     * @description The ID of the template.
+     * @description The template ID.
      *
      * @example t-94753deed38
      *
@@ -137,7 +148,7 @@ class templates extends Model
     public $templateId;
 
     /**
-     * @description The name of the template.
+     * @description The template name.
      *
      * @example MyTemplate
      *
@@ -146,7 +157,7 @@ class templates extends Model
     public $templateName;
 
     /**
-     * @description The type of the template.
+     * @description The template type.
      *
      * @example private
      *
@@ -155,7 +166,7 @@ class templates extends Model
     public $templateType;
 
     /**
-     * @description The version of the template. The name of the version consists of the letter v and a number. The number starts from 1.
+     * @description The template version. The name of the version consists of the letter v and a number. The number starts from 1.
      *
      * @example v1
      *
@@ -164,9 +175,9 @@ class templates extends Model
     public $templateVersion;
 
     /**
-     * @description The number of times for which the private template is executed. If the **ShareType** parameter is set to **Public**, the value of this parameter is `-1`.
-     **Notes** This parameter is valid only if the **ShareType** parameter is set to **Private**.
+     * @description The number of times for which the private template is executed. If **ShareType** is set to **Public**, the value of this parameter is `-1`.
      *
+     * >  This parameter is valid only if the value of **ShareType** is **Private**.
      * @example 5
      *
      * @var int

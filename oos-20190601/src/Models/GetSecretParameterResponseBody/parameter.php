@@ -36,6 +36,11 @@ class parameter extends Model
     public $createdDate;
 
     /**
+     * @var string
+     */
+    public $DKMSInstanceId;
+
+    /**
      * @description The description of the encryption parameter.
      *
      * @example SecretParameter
@@ -146,6 +151,7 @@ class parameter extends Model
         'constraints'      => 'Constraints',
         'createdBy'        => 'CreatedBy',
         'createdDate'      => 'CreatedDate',
+        'DKMSInstanceId'   => 'DKMSInstanceId',
         'description'      => 'Description',
         'id'               => 'Id',
         'keyId'            => 'KeyId',
@@ -175,6 +181,9 @@ class parameter extends Model
         }
         if (null !== $this->createdDate) {
             $res['CreatedDate'] = $this->createdDate;
+        }
+        if (null !== $this->DKMSInstanceId) {
+            $res['DKMSInstanceId'] = $this->DKMSInstanceId;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -232,6 +241,9 @@ class parameter extends Model
         }
         if (isset($map['CreatedDate'])) {
             $model->createdDate = $map['CreatedDate'];
+        }
+        if (isset($map['DKMSInstanceId'])) {
+            $model->DKMSInstanceId = $map['DKMSInstanceId'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];

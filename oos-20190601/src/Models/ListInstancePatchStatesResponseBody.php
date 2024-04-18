@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListInstancePatchStatesResponseBody extends Model
 {
     /**
-     * @description The number of patches that are not installed.
+     * @description The details of patches of the instance.
      *
      * @var instancePatchStates[]
      */
     public $instancePatchStates;
 
     /**
-     * @description The details of patches of the instance.
+     * @description The number of entries returned on each page.
      *
      * @example 50
      *
@@ -26,7 +26,7 @@ class ListInstancePatchStatesResponseBody extends Model
     public $maxResults;
 
     /**
-     * @description The ID of the request.
+     * @description The token that is used to retrieve the next page of results.
      *
      * @example -
      *
@@ -35,7 +35,7 @@ class ListInstancePatchStatesResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The number of entries returned on each page.
+     * @description The ID of the request.
      *
      * @example 9A47C086-E64D-52EE-8B2C-EFD23877C55E
      *
