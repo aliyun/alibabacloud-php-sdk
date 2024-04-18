@@ -68,6 +68,8 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeServiceLogRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeServiceLogResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeServiceMirrorResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeServiceResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeSpotDiscountHistoryRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeSpotDiscountHistoryResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DevelopServiceRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DevelopServiceResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListBenchmarkTaskRequest;
@@ -2197,6 +2199,55 @@ class Eas extends OpenApiClient
         $headers = [];
 
         return $this->describeServiceMirrorWithOptions($ClusterId, $ServiceName, $headers, $runtime);
+    }
+
+    /**
+     * @param DescribeSpotDiscountHistoryRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeSpotDiscountHistoryResponse
+     */
+    public function describeSpotDiscountHistoryWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->isProtect)) {
+            $query['IsProtect'] = $request->isProtect;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSpotDiscountHistory',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/public/spot_discount',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSpotDiscountHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSpotDiscountHistoryRequest $request
+     *
+     * @return DescribeSpotDiscountHistoryResponse
+     */
+    public function describeSpotDiscountHistory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeSpotDiscountHistoryWithOptions($request, $headers, $runtime);
     }
 
     /**
