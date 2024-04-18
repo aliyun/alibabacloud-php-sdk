@@ -502,6 +502,11 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $subCategory;
 
     /**
+     * @var string
+     */
+    public $supportInstantSwitchWithImci;
+
+    /**
      * @description Details about the tags.
      *
      * @var tags[]
@@ -535,61 +540,62 @@ class DescribeDBClusterAttributeResponseBody extends Model
      */
     public $zoneIds;
     protected $_name = [
-        'aiCreatingTime'            => 'AiCreatingTime',
-        'aiType'                    => 'AiType',
-        'architecture'              => 'Architecture',
-        'blktagTotal'               => 'BlktagTotal',
-        'blktagUsed'                => 'BlktagUsed',
-        'category'                  => 'Category',
-        'compressStorageMode'       => 'CompressStorageMode',
-        'compressStorageUsed'       => 'CompressStorageUsed',
-        'creationTime'              => 'CreationTime',
-        'DBClusterDescription'      => 'DBClusterDescription',
-        'DBClusterId'               => 'DBClusterId',
-        'DBClusterNetworkType'      => 'DBClusterNetworkType',
-        'DBClusterStatus'           => 'DBClusterStatus',
-        'DBNodes'                   => 'DBNodes',
-        'DBType'                    => 'DBType',
-        'DBVersion'                 => 'DBVersion',
-        'DBVersionStatus'           => 'DBVersionStatus',
-        'dataLevel1BackupChainSize' => 'DataLevel1BackupChainSize',
-        'dataSyncMode'              => 'DataSyncMode',
-        'deletionLock'              => 'DeletionLock',
-        'engine'                    => 'Engine',
-        'expireTime'                => 'ExpireTime',
-        'expired'                   => 'Expired',
-        'hasCompleteStandbyRes'     => 'HasCompleteStandbyRes',
-        'hotStandbyCluster'         => 'HotStandbyCluster',
-        'inodeTotal'                => 'InodeTotal',
-        'inodeUsed'                 => 'InodeUsed',
-        'isLatestVersion'           => 'IsLatestVersion',
-        'isProxyLatestVersion'      => 'IsProxyLatestVersion',
-        'lockMode'                  => 'LockMode',
-        'maintainTime'              => 'MaintainTime',
-        'payType'                   => 'PayType',
-        'provisionedIops'           => 'ProvisionedIops',
-        'proxyCpuCores'             => 'ProxyCpuCores',
-        'proxyServerlessType'       => 'ProxyServerlessType',
-        'proxyStandardCpuCores'     => 'ProxyStandardCpuCores',
-        'proxyStatus'               => 'ProxyStatus',
-        'proxyType'                 => 'ProxyType',
-        'regionId'                  => 'RegionId',
-        'requestId'                 => 'RequestId',
-        'resourceGroupId'           => 'ResourceGroupId',
-        'SQLSize'                   => 'SQLSize',
-        'serverlessType'            => 'ServerlessType',
-        'standbyHAMode'             => 'StandbyHAMode',
-        'storageMax'                => 'StorageMax',
-        'storagePayType'            => 'StoragePayType',
-        'storageSpace'              => 'StorageSpace',
-        'storageType'               => 'StorageType',
-        'storageUsed'               => 'StorageUsed',
-        'strictConsistency'         => 'StrictConsistency',
-        'subCategory'               => 'SubCategory',
-        'tags'                      => 'Tags',
-        'VPCId'                     => 'VPCId',
-        'vSwitchId'                 => 'VSwitchId',
-        'zoneIds'                   => 'ZoneIds',
+        'aiCreatingTime'               => 'AiCreatingTime',
+        'aiType'                       => 'AiType',
+        'architecture'                 => 'Architecture',
+        'blktagTotal'                  => 'BlktagTotal',
+        'blktagUsed'                   => 'BlktagUsed',
+        'category'                     => 'Category',
+        'compressStorageMode'          => 'CompressStorageMode',
+        'compressStorageUsed'          => 'CompressStorageUsed',
+        'creationTime'                 => 'CreationTime',
+        'DBClusterDescription'         => 'DBClusterDescription',
+        'DBClusterId'                  => 'DBClusterId',
+        'DBClusterNetworkType'         => 'DBClusterNetworkType',
+        'DBClusterStatus'              => 'DBClusterStatus',
+        'DBNodes'                      => 'DBNodes',
+        'DBType'                       => 'DBType',
+        'DBVersion'                    => 'DBVersion',
+        'DBVersionStatus'              => 'DBVersionStatus',
+        'dataLevel1BackupChainSize'    => 'DataLevel1BackupChainSize',
+        'dataSyncMode'                 => 'DataSyncMode',
+        'deletionLock'                 => 'DeletionLock',
+        'engine'                       => 'Engine',
+        'expireTime'                   => 'ExpireTime',
+        'expired'                      => 'Expired',
+        'hasCompleteStandbyRes'        => 'HasCompleteStandbyRes',
+        'hotStandbyCluster'            => 'HotStandbyCluster',
+        'inodeTotal'                   => 'InodeTotal',
+        'inodeUsed'                    => 'InodeUsed',
+        'isLatestVersion'              => 'IsLatestVersion',
+        'isProxyLatestVersion'         => 'IsProxyLatestVersion',
+        'lockMode'                     => 'LockMode',
+        'maintainTime'                 => 'MaintainTime',
+        'payType'                      => 'PayType',
+        'provisionedIops'              => 'ProvisionedIops',
+        'proxyCpuCores'                => 'ProxyCpuCores',
+        'proxyServerlessType'          => 'ProxyServerlessType',
+        'proxyStandardCpuCores'        => 'ProxyStandardCpuCores',
+        'proxyStatus'                  => 'ProxyStatus',
+        'proxyType'                    => 'ProxyType',
+        'regionId'                     => 'RegionId',
+        'requestId'                    => 'RequestId',
+        'resourceGroupId'              => 'ResourceGroupId',
+        'SQLSize'                      => 'SQLSize',
+        'serverlessType'               => 'ServerlessType',
+        'standbyHAMode'                => 'StandbyHAMode',
+        'storageMax'                   => 'StorageMax',
+        'storagePayType'               => 'StoragePayType',
+        'storageSpace'                 => 'StorageSpace',
+        'storageType'                  => 'StorageType',
+        'storageUsed'                  => 'StorageUsed',
+        'strictConsistency'            => 'StrictConsistency',
+        'subCategory'                  => 'SubCategory',
+        'supportInstantSwitchWithImci' => 'SupportInstantSwitchWithImci',
+        'tags'                         => 'Tags',
+        'VPCId'                        => 'VPCId',
+        'vSwitchId'                    => 'VSwitchId',
+        'zoneIds'                      => 'ZoneIds',
     ];
 
     public function validate()
@@ -757,6 +763,9 @@ class DescribeDBClusterAttributeResponseBody extends Model
         }
         if (null !== $this->subCategory) {
             $res['SubCategory'] = $this->subCategory;
+        }
+        if (null !== $this->supportInstantSwitchWithImci) {
+            $res['SupportInstantSwitchWithImci'] = $this->supportInstantSwitchWithImci;
         }
         if (null !== $this->tags) {
             $res['Tags'] = [];
@@ -946,6 +955,9 @@ class DescribeDBClusterAttributeResponseBody extends Model
         }
         if (isset($map['SubCategory'])) {
             $model->subCategory = $map['SubCategory'];
+        }
+        if (isset($map['SupportInstantSwitchWithImci'])) {
+            $model->supportInstantSwitchWithImci = $map['SupportInstantSwitchWithImci'];
         }
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {

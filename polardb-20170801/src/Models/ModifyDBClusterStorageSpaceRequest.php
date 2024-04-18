@@ -65,9 +65,9 @@ class ModifyDBClusterStorageSpaceRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The new storage capacity. Unit: GB.
+     * @description The storage capacity that you can select when you change the cluster. Unit: GB.
      *
-     * > Valid values for PolarDB for MySQL Standard Edition are 20 to 32000.
+     * >  You can set this parameter for PolarDB for MySQL clusters of Standard Edition to a value that ranges from 20 to 32000.
      * @example 50
      *
      * @var int
@@ -78,7 +78,7 @@ class ModifyDBClusterStorageSpaceRequest extends Model
      * @description The category of the cluster. Default value: ON. Valid values:
      *
      *   **normal_exclusive**: dedicated
-     *   **normal_general**: genera-purpose
+     *   **normal_general**: general-purpose
      *
      * @example normal_general
      *

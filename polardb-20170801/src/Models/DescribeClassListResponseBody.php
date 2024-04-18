@@ -17,6 +17,8 @@ class DescribeClassListResponseBody extends Model
     public $items;
 
     /**
+     * @description The region ID of the cluster.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -24,12 +26,8 @@ class DescribeClassListResponseBody extends Model
     public $regionId;
 
     /**
-     * @description The price.
+     * @description The ID of the request.
      *
-     * Unit: cents (US dollars).
-     *
-     * > *   If you set the CommodityCode parameter to a value that indicates the pay-as-you-go billing method, the ReferencePrice parameter specifies the hourly fee that you must pay.
-     * > *   If you set the CommodityCode parameter to a value that indicates the subscription billing method, the ReferencePrice parameter specifies the monthly fee that you must pay.
      * @example 69A85BAF-1089-4CDF-A82F-0A140F******
      *
      * @var string

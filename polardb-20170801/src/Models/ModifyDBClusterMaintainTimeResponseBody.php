@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBClusterMaintainTimeResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 70656639-1416-479F-AF13-D08197******
      *
