@@ -18,6 +18,8 @@ use AlibabaCloud\SDK\HBase\V20190101\Models\CloseBackupRequest;
 use AlibabaCloud\SDK\HBase\V20190101\Models\CloseBackupResponse;
 use AlibabaCloud\SDK\HBase\V20190101\Models\ConvertInstanceRequest;
 use AlibabaCloud\SDK\HBase\V20190101\Models\ConvertInstanceResponse;
+use AlibabaCloud\SDK\HBase\V20190101\Models\CreateAccountRequest;
+use AlibabaCloud\SDK\HBase\V20190101\Models\CreateAccountResponse;
 use AlibabaCloud\SDK\HBase\V20190101\Models\CreateBackupPlanRequest;
 use AlibabaCloud\SDK\HBase\V20190101\Models\CreateBackupPlanResponse;
 use AlibabaCloud\SDK\HBase\V20190101\Models\CreateClusterRequest;
@@ -34,6 +36,8 @@ use AlibabaCloud\SDK\HBase\V20190101\Models\CreateRestorePlanRequest;
 use AlibabaCloud\SDK\HBase\V20190101\Models\CreateRestorePlanResponse;
 use AlibabaCloud\SDK\HBase\V20190101\Models\CreateServerlessClusterRequest;
 use AlibabaCloud\SDK\HBase\V20190101\Models\CreateServerlessClusterResponse;
+use AlibabaCloud\SDK\HBase\V20190101\Models\DeleteAccountRequest;
+use AlibabaCloud\SDK\HBase\V20190101\Models\DeleteAccountResponse;
 use AlibabaCloud\SDK\HBase\V20190101\Models\DeleteGlobalResourceRequest;
 use AlibabaCloud\SDK\HBase\V20190101\Models\DeleteGlobalResourceResponse;
 use AlibabaCloud\SDK\HBase\V20190101\Models\DeleteHBaseHaDBRequest;
@@ -50,6 +54,8 @@ use AlibabaCloud\SDK\HBase\V20190101\Models\DeleteServerlessClusterRequest;
 use AlibabaCloud\SDK\HBase\V20190101\Models\DeleteServerlessClusterResponse;
 use AlibabaCloud\SDK\HBase\V20190101\Models\DeleteUserHdfsInfoRequest;
 use AlibabaCloud\SDK\HBase\V20190101\Models\DeleteUserHdfsInfoResponse;
+use AlibabaCloud\SDK\HBase\V20190101\Models\DescribeAccountsRequest;
+use AlibabaCloud\SDK\HBase\V20190101\Models\DescribeAccountsResponse;
 use AlibabaCloud\SDK\HBase\V20190101\Models\DescribeActiveOperationTasksRequest;
 use AlibabaCloud\SDK\HBase\V20190101\Models\DescribeActiveOperationTasksResponse;
 use AlibabaCloud\SDK\HBase\V20190101\Models\DescribeActiveOperationTaskTypeRequest;
@@ -122,6 +128,8 @@ use AlibabaCloud\SDK\HBase\V20190101\Models\EvaluateMultiZoneResourceRequest;
 use AlibabaCloud\SDK\HBase\V20190101\Models\EvaluateMultiZoneResourceResponse;
 use AlibabaCloud\SDK\HBase\V20190101\Models\GetMultimodeCmsUrlRequest;
 use AlibabaCloud\SDK\HBase\V20190101\Models\GetMultimodeCmsUrlResponse;
+use AlibabaCloud\SDK\HBase\V20190101\Models\GrantRequest;
+use AlibabaCloud\SDK\HBase\V20190101\Models\GrantResponse;
 use AlibabaCloud\SDK\HBase\V20190101\Models\ListHBaseInstancesRequest;
 use AlibabaCloud\SDK\HBase\V20190101\Models\ListHBaseInstancesResponse;
 use AlibabaCloud\SDK\HBase\V20190101\Models\ListInstanceServiceConfigHistoriesRequest;
@@ -132,6 +140,8 @@ use AlibabaCloud\SDK\HBase\V20190101\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\HBase\V20190101\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\HBase\V20190101\Models\ListTagsRequest;
 use AlibabaCloud\SDK\HBase\V20190101\Models\ListTagsResponse;
+use AlibabaCloud\SDK\HBase\V20190101\Models\ModifyAccountPasswordRequest;
+use AlibabaCloud\SDK\HBase\V20190101\Models\ModifyAccountPasswordResponse;
 use AlibabaCloud\SDK\HBase\V20190101\Models\ModifyActiveOperationTasksRequest;
 use AlibabaCloud\SDK\HBase\V20190101\Models\ModifyActiveOperationTasksResponse;
 use AlibabaCloud\SDK\HBase\V20190101\Models\ModifyBackupPlanConfigRequest;
@@ -186,6 +196,8 @@ use AlibabaCloud\SDK\HBase\V20190101\Models\ResizeNodeCountRequest;
 use AlibabaCloud\SDK\HBase\V20190101\Models\ResizeNodeCountResponse;
 use AlibabaCloud\SDK\HBase\V20190101\Models\RestartInstanceRequest;
 use AlibabaCloud\SDK\HBase\V20190101\Models\RestartInstanceResponse;
+use AlibabaCloud\SDK\HBase\V20190101\Models\RevokeRequest;
+use AlibabaCloud\SDK\HBase\V20190101\Models\RevokeResponse;
 use AlibabaCloud\SDK\HBase\V20190101\Models\SwitchHbaseHaSlbRequest;
 use AlibabaCloud\SDK\HBase\V20190101\Models\SwitchHbaseHaSlbResponse;
 use AlibabaCloud\SDK\HBase\V20190101\Models\SwitchServiceRequest;
@@ -545,6 +557,55 @@ class HBase extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->convertInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateAccountRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateAccountResponse
+     */
+    public function createAccountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
+        }
+        if (!Utils::isUnset($request->accountPassword)) {
+            $query['AccountPassword'] = $request->accountPassword;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAccount',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateAccountRequest $request
+     *
+     * @return CreateAccountResponse
+     */
+    public function createAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAccountWithOptions($request, $runtime);
     }
 
     /**
@@ -1132,6 +1193,52 @@ class HBase extends OpenApiClient
     }
 
     /**
+     * @param DeleteAccountRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteAccountResponse
+     */
+    public function deleteAccountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAccount',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteAccountRequest $request
+     *
+     * @return DeleteAccountResponse
+     */
+    public function deleteAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAccountWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteGlobalResourceRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -1509,6 +1616,49 @@ class HBase extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteUserHdfsInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeAccountsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeAccountsResponse
+     */
+    public function describeAccountsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAccounts',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAccountsRequest $request
+     *
+     * @return DescribeAccountsResponse
+     */
+    public function describeAccounts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAccountsWithOptions($request, $runtime);
     }
 
     /**
@@ -3393,6 +3543,61 @@ class HBase extends OpenApiClient
     }
 
     /**
+     * @param GrantRequest   $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return GrantResponse
+     */
+    public function grantWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
+        }
+        if (!Utils::isUnset($request->aclActions)) {
+            $query['AclActions'] = $request->aclActions;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->tableName)) {
+            $query['TableName'] = $request->tableName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'Grant',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GrantResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GrantRequest $request
+     *
+     * @return GrantResponse
+     */
+    public function grant($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->grantWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListHBaseInstancesRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -3626,6 +3831,55 @@ class HBase extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listTagsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyAccountPasswordRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyAccountPasswordResponse
+     */
+    public function modifyAccountPasswordWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->newAccountPassword)) {
+            $query['NewAccountPassword'] = $request->newAccountPassword;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyAccountPassword',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyAccountPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyAccountPasswordRequest $request
+     *
+     * @return ModifyAccountPasswordResponse
+     */
+    public function modifyAccountPassword($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAccountPasswordWithOptions($request, $runtime);
     }
 
     /**
@@ -5021,6 +5275,61 @@ class HBase extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->restartInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RevokeRequest  $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return RevokeResponse
+     */
+    public function revokeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
+        }
+        if (!Utils::isUnset($request->aclActions)) {
+            $query['AclActions'] = $request->aclActions;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->tableName)) {
+            $query['TableName'] = $request->tableName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'Revoke',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RevokeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RevokeRequest $request
+     *
+     * @return RevokeResponse
+     */
+    public function revoke($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->revokeWithOptions($request, $runtime);
     }
 
     /**
