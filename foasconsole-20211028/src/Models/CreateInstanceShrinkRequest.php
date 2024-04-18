@@ -108,6 +108,11 @@ class CreateInstanceShrinkRequest extends Model
     public $storageShrink;
 
     /**
+     * @var string
+     */
+    public $tagShrink;
+
+    /**
      * @var bool
      */
     public $usePromotionCode;
@@ -148,6 +153,7 @@ class CreateInstanceShrinkRequest extends Model
         'resourceGroupId'      => 'ResourceGroupId',
         'resourceSpecShrink'   => 'ResourceSpec',
         'storageShrink'        => 'Storage',
+        'tagShrink'            => 'Tag',
         'usePromotionCode'     => 'UsePromotionCode',
         'vSwitchIdsShrink'     => 'VSwitchIds',
         'vpcId'                => 'VpcId',
@@ -211,6 +217,9 @@ class CreateInstanceShrinkRequest extends Model
         }
         if (null !== $this->storageShrink) {
             $res['Storage'] = $this->storageShrink;
+        }
+        if (null !== $this->tagShrink) {
+            $res['Tag'] = $this->tagShrink;
         }
         if (null !== $this->usePromotionCode) {
             $res['UsePromotionCode'] = $this->usePromotionCode;
@@ -286,6 +295,9 @@ class CreateInstanceShrinkRequest extends Model
         }
         if (isset($map['Storage'])) {
             $model->storageShrink = $map['Storage'];
+        }
+        if (isset($map['Tag'])) {
+            $model->tagShrink = $map['Tag'];
         }
         if (isset($map['UsePromotionCode'])) {
             $model->usePromotionCode = $map['UsePromotionCode'];

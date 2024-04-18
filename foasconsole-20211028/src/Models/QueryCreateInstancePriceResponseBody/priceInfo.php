@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Foasconsole\V20211028\Models\QueryCreateInstancePriceResponseBody;
 
+use AlibabaCloud\SDK\Foasconsole\V20211028\Models\QueryCreateInstancePriceResponseBody\priceInfo\depreciateInfo;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\QueryCreateInstancePriceResponseBody\priceInfo\optionalPromotions;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\QueryCreateInstancePriceResponseBody\priceInfo\rules;
 use AlibabaCloud\Tea\Model;
@@ -25,11 +26,21 @@ class priceInfo extends Model
     public $currency;
 
     /**
+     * @var depreciateInfo
+     */
+    public $depreciateInfo;
+
+    /**
      * @example 655.2
      *
      * @var float
      */
     public $discountAmount;
+
+    /**
+     * @var bool
+     */
+    public $isContractActivity;
 
     /**
      * @example 存在未支付订单，请先支付或取消原有订单
@@ -56,6 +67,16 @@ class priceInfo extends Model
     public $rules;
 
     /**
+     * @var string
+     */
+    public $standDiscountPrice;
+
+    /**
+     * @var string
+     */
+    public $standPrice;
+
+    /**
      * @example 3712.8
      *
      * @var float
@@ -64,11 +85,15 @@ class priceInfo extends Model
     protected $_name = [
         'code'               => 'Code',
         'currency'           => 'Currency',
+        'depreciateInfo'     => 'DepreciateInfo',
         'discountAmount'     => 'DiscountAmount',
+        'isContractActivity' => 'IsContractActivity',
         'message'            => 'Message',
         'optionalPromotions' => 'OptionalPromotions',
         'originalAmount'     => 'OriginalAmount',
         'rules'              => 'Rules',
+        'standDiscountPrice' => 'StandDiscountPrice',
+        'standPrice'         => 'StandPrice',
         'tradeAmount'        => 'TradeAmount',
     ];
 
@@ -85,8 +110,14 @@ class priceInfo extends Model
         if (null !== $this->currency) {
             $res['Currency'] = $this->currency;
         }
+        if (null !== $this->depreciateInfo) {
+            $res['DepreciateInfo'] = null !== $this->depreciateInfo ? $this->depreciateInfo->toMap() : null;
+        }
         if (null !== $this->discountAmount) {
             $res['DiscountAmount'] = $this->discountAmount;
+        }
+        if (null !== $this->isContractActivity) {
+            $res['IsContractActivity'] = $this->isContractActivity;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -112,6 +143,12 @@ class priceInfo extends Model
                 }
             }
         }
+        if (null !== $this->standDiscountPrice) {
+            $res['StandDiscountPrice'] = $this->standDiscountPrice;
+        }
+        if (null !== $this->standPrice) {
+            $res['StandPrice'] = $this->standPrice;
+        }
         if (null !== $this->tradeAmount) {
             $res['TradeAmount'] = $this->tradeAmount;
         }
@@ -133,8 +170,14 @@ class priceInfo extends Model
         if (isset($map['Currency'])) {
             $model->currency = $map['Currency'];
         }
+        if (isset($map['DepreciateInfo'])) {
+            $model->depreciateInfo = depreciateInfo::fromMap($map['DepreciateInfo']);
+        }
         if (isset($map['DiscountAmount'])) {
             $model->discountAmount = $map['DiscountAmount'];
+        }
+        if (isset($map['IsContractActivity'])) {
+            $model->isContractActivity = $map['IsContractActivity'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
@@ -159,6 +202,12 @@ class priceInfo extends Model
                     $model->rules[$n++] = null !== $item ? rules::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['StandDiscountPrice'])) {
+            $model->standDiscountPrice = $map['StandDiscountPrice'];
+        }
+        if (isset($map['StandPrice'])) {
+            $model->standPrice = $map['StandPrice'];
         }
         if (isset($map['TradeAmount'])) {
             $model->tradeAmount = $map['TradeAmount'];

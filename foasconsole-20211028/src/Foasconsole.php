@@ -178,6 +178,9 @@ class Foasconsole extends OpenApiClient
         if (!Utils::isUnset($tmpReq->storage)) {
             $request->storageShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->storage, 'Storage', 'json');
         }
+        if (!Utils::isUnset($tmpReq->tag)) {
+            $request->tagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
         if (!Utils::isUnset($tmpReq->vSwitchIds)) {
             $request->vSwitchIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->vSwitchIds, 'VSwitchIds', 'json');
         }
@@ -232,6 +235,9 @@ class Foasconsole extends OpenApiClient
         }
         if (!Utils::isUnset($request->storageShrink)) {
             $body['Storage'] = $request->storageShrink;
+        }
+        if (!Utils::isUnset($request->tagShrink)) {
+            $body['Tag'] = $request->tagShrink;
         }
         if (!Utils::isUnset($request->usePromotionCode)) {
             $body['UsePromotionCode'] = $request->usePromotionCode;

@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Foasconsole\V20211028\Models;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\CreateInstanceRequest\haResourceSpec;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\CreateInstanceRequest\resourceSpec;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\CreateInstanceRequest\storage;
+use AlibabaCloud\SDK\Foasconsole\V20211028\Models\CreateInstanceRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateInstanceRequest extends Model
@@ -111,6 +112,11 @@ class CreateInstanceRequest extends Model
     public $storage;
 
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @var bool
      */
     public $usePromotionCode;
@@ -151,6 +157,7 @@ class CreateInstanceRequest extends Model
         'resourceGroupId'  => 'ResourceGroupId',
         'resourceSpec'     => 'ResourceSpec',
         'storage'          => 'Storage',
+        'tag'              => 'Tag',
         'usePromotionCode' => 'UsePromotionCode',
         'vSwitchIds'       => 'VSwitchIds',
         'vpcId'            => 'VpcId',
@@ -214,6 +221,15 @@ class CreateInstanceRequest extends Model
         }
         if (null !== $this->storage) {
             $res['Storage'] = null !== $this->storage ? $this->storage->toMap() : null;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->usePromotionCode) {
             $res['UsePromotionCode'] = $this->usePromotionCode;
@@ -291,6 +307,15 @@ class CreateInstanceRequest extends Model
         }
         if (isset($map['Storage'])) {
             $model->storage = storage::fromMap($map['Storage']);
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['UsePromotionCode'])) {
             $model->usePromotionCode = $map['UsePromotionCode'];
