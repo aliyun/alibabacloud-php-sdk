@@ -27,6 +27,11 @@ class accountInfoList extends Model
     public $creditLine;
 
     /**
+     * @var string
+     */
+    public $customerBd;
+
+    /**
      * @description Customer ID, Returning ID from CreateCustomer API.
      *
      * @example 1234567
@@ -83,6 +88,7 @@ class accountInfoList extends Model
     protected $_name = [
         'accountNickname'          => 'AccountNickname',
         'creditLine'               => 'CreditLine',
+        'customerBd'               => 'CustomerBd',
         'customerId'               => 'CustomerId',
         'emailAddress'             => 'EmailAddress',
         'newBuyStatus'             => 'NewBuyStatus',
@@ -103,6 +109,9 @@ class accountInfoList extends Model
         }
         if (null !== $this->creditLine) {
             $res['CreditLine'] = $this->creditLine;
+        }
+        if (null !== $this->customerBd) {
+            $res['CustomerBd'] = $this->customerBd;
         }
         if (null !== $this->customerId) {
             $res['CustomerId'] = $this->customerId;
@@ -139,6 +148,9 @@ class accountInfoList extends Model
         }
         if (isset($map['CreditLine'])) {
             $model->creditLine = $map['CreditLine'];
+        }
+        if (isset($map['CustomerBd'])) {
+            $model->customerBd = $map['CustomerBd'];
         }
         if (isset($map['CustomerId'])) {
             $model->customerId = $map['CustomerId'];

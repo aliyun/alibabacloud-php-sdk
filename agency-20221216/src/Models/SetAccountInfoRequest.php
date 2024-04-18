@@ -20,6 +20,11 @@ class SetAccountInfoRequest extends Model
     public $accountNickname;
 
     /**
+     * @var string
+     */
+    public $customerBd;
+
+    /**
      * @description Description of Sub Account.
      *
      * @example test account
@@ -38,6 +43,7 @@ class SetAccountInfoRequest extends Model
     public $uid;
     protected $_name = [
         'accountNickname' => 'AccountNickname',
+        'customerBd'      => 'CustomerBd',
         'remark'          => 'Remark',
         'uid'             => 'Uid',
     ];
@@ -51,6 +57,9 @@ class SetAccountInfoRequest extends Model
         $res = [];
         if (null !== $this->accountNickname) {
             $res['AccountNickname'] = $this->accountNickname;
+        }
+        if (null !== $this->customerBd) {
+            $res['CustomerBd'] = $this->customerBd;
         }
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
@@ -72,6 +81,9 @@ class SetAccountInfoRequest extends Model
         $model = new self();
         if (isset($map['AccountNickname'])) {
             $model->accountNickname = $map['AccountNickname'];
+        }
+        if (isset($map['CustomerBd'])) {
+            $model->customerBd = $map['CustomerBd'];
         }
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];

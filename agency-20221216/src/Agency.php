@@ -1060,6 +1060,9 @@ class Agency extends OpenApiClient
         if (!Utils::isUnset($request->accountNickname)) {
             $query['AccountNickname'] = $request->accountNickname;
         }
+        if (!Utils::isUnset($request->customerBd)) {
+            $query['CustomerBd'] = $request->customerBd;
+        }
         if (!Utils::isUnset($request->remark)) {
             $query['Remark'] = $request->remark;
         }

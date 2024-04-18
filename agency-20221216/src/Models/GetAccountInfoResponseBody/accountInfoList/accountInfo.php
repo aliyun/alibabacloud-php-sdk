@@ -45,6 +45,21 @@ class accountInfo extends Model
     public $cid;
 
     /**
+     * @var string
+     */
+    public $customerBd;
+
+    /**
+     * @var string
+     */
+    public $delayAmount;
+
+    /**
+     * @var string
+     */
+    public $delayStatus;
+
+    /**
      * @description The E-mail of Distribution Customer.
      *
      * @example 1234@qq.com
@@ -61,6 +76,11 @@ class accountInfo extends Model
      * @var string
      */
     public $mobile;
+
+    /**
+     * @var string
+     */
+    public $newBuyStatus;
 
     /**
      * @description Description of Distribution Customer.
@@ -93,8 +113,12 @@ class accountInfo extends Model
         'aliyunId'               => 'AliyunId',
         'associationSuccessTime' => 'AssociationSuccessTime',
         'cid'                    => 'Cid',
+        'customerBd'             => 'CustomerBd',
+        'delayAmount'            => 'DelayAmount',
+        'delayStatus'            => 'DelayStatus',
         'email'                  => 'Email',
         'mobile'                 => 'Mobile',
+        'newBuyStatus'           => 'NewBuyStatus',
         'remark'                 => 'Remark',
         'subAccountType'         => 'SubAccountType',
         'uid'                    => 'Uid',
@@ -119,11 +143,23 @@ class accountInfo extends Model
         if (null !== $this->cid) {
             $res['Cid'] = $this->cid;
         }
+        if (null !== $this->customerBd) {
+            $res['CustomerBd'] = $this->customerBd;
+        }
+        if (null !== $this->delayAmount) {
+            $res['DelayAmount'] = $this->delayAmount;
+        }
+        if (null !== $this->delayStatus) {
+            $res['DelayStatus'] = $this->delayStatus;
+        }
         if (null !== $this->email) {
             $res['Email'] = $this->email;
         }
         if (null !== $this->mobile) {
             $res['Mobile'] = $this->mobile;
+        }
+        if (null !== $this->newBuyStatus) {
+            $res['NewBuyStatus'] = $this->newBuyStatus;
         }
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
@@ -158,11 +194,23 @@ class accountInfo extends Model
         if (isset($map['Cid'])) {
             $model->cid = $map['Cid'];
         }
+        if (isset($map['CustomerBd'])) {
+            $model->customerBd = $map['CustomerBd'];
+        }
+        if (isset($map['DelayAmount'])) {
+            $model->delayAmount = $map['DelayAmount'];
+        }
+        if (isset($map['DelayStatus'])) {
+            $model->delayStatus = $map['DelayStatus'];
+        }
         if (isset($map['Email'])) {
             $model->email = $map['Email'];
         }
         if (isset($map['Mobile'])) {
             $model->mobile = $map['Mobile'];
+        }
+        if (isset($map['NewBuyStatus'])) {
+            $model->newBuyStatus = $map['NewBuyStatus'];
         }
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
