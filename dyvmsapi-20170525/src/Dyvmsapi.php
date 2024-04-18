@@ -14,18 +14,26 @@ use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CancelOrderRobotTaskRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CancelOrderRobotTaskResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CancelRobotTaskRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CancelRobotTaskResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ChangeMediaTypeRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ChangeMediaTypeResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CreateCallTaskRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CreateCallTaskResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CreateRobotTaskRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CreateRobotTaskResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\DegradeVideoFileRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\DegradeVideoFileResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\DeleteRobotTaskRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\DeleteRobotTaskResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ExecuteCallTaskRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ExecuteCallTaskResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetCallProgressRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetCallProgressResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetHotlineQualificationByOrderRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetHotlineQualificationByOrderResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetTokenRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetTokenResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetVideoFieldUrlRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetVideoFieldUrlResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\IvrCallRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\IvrCallResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListCallTaskDetailRequest;
@@ -36,6 +44,10 @@ use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListHotlineTransferNumberRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListHotlineTransferNumberResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListHotlineTransferRegisterFileRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListHotlineTransferRegisterFileResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\PauseVideoFileRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\PauseVideoFileResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\PlayVideoFileRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\PlayVideoFileResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryCallDetailByCallIdRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryCallDetailByCallIdResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryCallDetailByTaskIdRequest;
@@ -56,6 +68,8 @@ use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryRobotTaskListRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryRobotTaskListResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryRobotv2AllListRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryRobotv2AllListResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVideoPlayProgressRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVideoPlayProgressResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVirtualNumberRelationRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVirtualNumberRelationResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVirtualNumberRequest;
@@ -64,14 +78,22 @@ use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVoiceFileAuditInfoRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVoiceFileAuditInfoResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\RecoverCallInConfigRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\RecoverCallInConfigResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ResumeVideoFileRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ResumeVideoFileResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\SeekVideoFileRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\SeekVideoFileResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\SendVerificationRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\SendVerificationResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\SetTransferCalleePoolConfigRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\SetTransferCalleePoolConfigResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\SingleCallByTtsRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\SingleCallByTtsResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\SingleCallByVideoRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\SingleCallByVideoResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\SingleCallByVoiceRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\SingleCallByVoiceResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\SkipVideoFileRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\SkipVideoFileResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\SmartCallOperateRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\SmartCallOperateResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\SmartCallRequest;
@@ -84,6 +106,8 @@ use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\StopRobotTaskRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\StopRobotTaskResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\SubmitHotlineTransferRegisterRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\SubmitHotlineTransferRegisterResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\UpgradeVideoFileRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\UpgradeVideoFileResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\UploadRobotTaskCalledFileRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\UploadRobotTaskCalledFileResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -412,6 +436,67 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
+     * @param ChangeMediaTypeRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ChangeMediaTypeResponse
+     */
+    public function changeMediaTypeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->callId)) {
+            $query['CallId'] = $request->callId;
+        }
+        if (!Utils::isUnset($request->calledNum)) {
+            $query['CalledNum'] = $request->calledNum;
+        }
+        if (!Utils::isUnset($request->mediaType)) {
+            $query['MediaType'] = $request->mediaType;
+        }
+        if (!Utils::isUnset($request->outId)) {
+            $query['OutId'] = $request->outId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ChangeMediaType',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ChangeMediaTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ChangeMediaTypeRequest $request
+     *
+     * @return ChangeMediaTypeResponse
+     */
+    public function changeMediaType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->changeMediaTypeWithOptions($request, $runtime);
+    }
+
+    /**
      * You can create up to 1,000 voice notifications for each task.
      *   * ### QPS limits
      *   * You can call this operation up to 100 times per second per account.
@@ -589,6 +674,67 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
+     * @param DegradeVideoFileRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DegradeVideoFileResponse
+     */
+    public function degradeVideoFileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->callId)) {
+            $query['CallId'] = $request->callId;
+        }
+        if (!Utils::isUnset($request->calledNumber)) {
+            $query['CalledNumber'] = $request->calledNumber;
+        }
+        if (!Utils::isUnset($request->mediaType)) {
+            $query['MediaType'] = $request->mediaType;
+        }
+        if (!Utils::isUnset($request->outId)) {
+            $query['OutId'] = $request->outId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DegradeVideoFile',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DegradeVideoFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DegradeVideoFileRequest $request
+     *
+     * @return DegradeVideoFileResponse
+     */
+    public function degradeVideoFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->degradeVideoFileWithOptions($request, $runtime);
+    }
+
+    /**
      * You can call this operation to delete only tasks that are not started, that are completed, and that are terminated.
      *   * ### QPS limits
      *   * You can call this operation up to 100 times per second per account.
@@ -713,6 +859,61 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
+     * @param GetCallProgressRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetCallProgressResponse
+     */
+    public function getCallProgressWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->callId)) {
+            $query['CallId'] = $request->callId;
+        }
+        if (!Utils::isUnset($request->calledNum)) {
+            $query['CalledNum'] = $request->calledNum;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCallProgress',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCallProgressResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetCallProgressRequest $request
+     *
+     * @return GetCallProgressResponse
+     */
+    public function getCallProgress($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCallProgressWithOptions($request, $runtime);
+    }
+
+    /**
      * ### QPS limits
      *   * You can call this operation up to 100 times per second per account.
      *   *
@@ -826,6 +1027,58 @@ class Dyvmsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getTokenWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetVideoFieldUrlRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetVideoFieldUrlResponse
+     */
+    public function getVideoFieldUrlWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->videoFile)) {
+            $query['VideoFile'] = $request->videoFile;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetVideoFieldUrl',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetVideoFieldUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetVideoFieldUrlRequest $request
+     *
+     * @return GetVideoFieldUrlResponse
+     */
+    public function getVideoFieldUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getVideoFieldUrlWithOptions($request, $runtime);
     }
 
     /**
@@ -1197,6 +1450,122 @@ class Dyvmsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listHotlineTransferRegisterFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param PauseVideoFileRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return PauseVideoFileResponse
+     */
+    public function pauseVideoFileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->callId)) {
+            $query['CallId'] = $request->callId;
+        }
+        if (!Utils::isUnset($request->calledNumber)) {
+            $query['CalledNumber'] = $request->calledNumber;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PauseVideoFile',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PauseVideoFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param PauseVideoFileRequest $request
+     *
+     * @return PauseVideoFileResponse
+     */
+    public function pauseVideoFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->pauseVideoFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param PlayVideoFileRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return PlayVideoFileResponse
+     */
+    public function playVideoFileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->callId)) {
+            $query['CallId'] = $request->callId;
+        }
+        if (!Utils::isUnset($request->calledNumber)) {
+            $query['CalledNumber'] = $request->calledNumber;
+        }
+        if (!Utils::isUnset($request->outId)) {
+            $query['OutId'] = $request->outId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->videoId)) {
+            $query['VideoId'] = $request->videoId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PlayVideoFile',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PlayVideoFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param PlayVideoFileRequest $request
+     *
+     * @return PlayVideoFileResponse
+     */
+    public function playVideoFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->playVideoFileWithOptions($request, $runtime);
     }
 
     /**
@@ -1836,6 +2205,61 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
+     * @param QueryVideoPlayProgressRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return QueryVideoPlayProgressResponse
+     */
+    public function queryVideoPlayProgressWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->callId)) {
+            $query['CallId'] = $request->callId;
+        }
+        if (!Utils::isUnset($request->calledNumber)) {
+            $query['CalledNumber'] = $request->calledNumber;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryVideoPlayProgress',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryVideoPlayProgressResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryVideoPlayProgressRequest $request
+     *
+     * @return QueryVideoPlayProgressResponse
+     */
+    public function queryVideoPlayProgress($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryVideoPlayProgressWithOptions($request, $runtime);
+    }
+
+    /**
      * ### QPS limits
      *   * You can call this operation up to 100 times per second per account.
      *   *
@@ -2092,6 +2516,119 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
+     * @param ResumeVideoFileRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ResumeVideoFileResponse
+     */
+    public function resumeVideoFileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->callId)) {
+            $query['CallId'] = $request->callId;
+        }
+        if (!Utils::isUnset($request->calledNumber)) {
+            $query['CalledNumber'] = $request->calledNumber;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ResumeVideoFile',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ResumeVideoFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ResumeVideoFileRequest $request
+     *
+     * @return ResumeVideoFileResponse
+     */
+    public function resumeVideoFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resumeVideoFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SeekVideoFileRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return SeekVideoFileResponse
+     */
+    public function seekVideoFileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->callId)) {
+            $query['CallId'] = $request->callId;
+        }
+        if (!Utils::isUnset($request->calledNumber)) {
+            $query['CalledNumber'] = $request->calledNumber;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->seekTimes)) {
+            $query['SeekTimes'] = $request->seekTimes;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SeekVideoFile',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SeekVideoFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SeekVideoFileRequest $request
+     *
+     * @return SeekVideoFileResponse
+     */
+    public function seekVideoFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->seekVideoFileWithOptions($request, $runtime);
+    }
+
+    /**
      * ### QPS limits
      *   * You can call this operation up to 100 times per second per account.
      *   *
@@ -2306,6 +2843,79 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
+     * @param SingleCallByVideoRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return SingleCallByVideoResponse
+     */
+    public function singleCallByVideoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->calledNumber)) {
+            $query['CalledNumber'] = $request->calledNumber;
+        }
+        if (!Utils::isUnset($request->calledShowNumber)) {
+            $query['CalledShowNumber'] = $request->calledShowNumber;
+        }
+        if (!Utils::isUnset($request->outId)) {
+            $query['OutId'] = $request->outId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->playTimes)) {
+            $query['PlayTimes'] = $request->playTimes;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->speed)) {
+            $query['Speed'] = $request->speed;
+        }
+        if (!Utils::isUnset($request->videoCode)) {
+            $query['VideoCode'] = $request->videoCode;
+        }
+        if (!Utils::isUnset($request->voiceCode)) {
+            $query['VoiceCode'] = $request->voiceCode;
+        }
+        if (!Utils::isUnset($request->volume)) {
+            $query['Volume'] = $request->volume;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SingleCallByVideo',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SingleCallByVideoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SingleCallByVideoRequest $request
+     *
+     * @return SingleCallByVideoResponse
+     */
+    public function singleCallByVideo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->singleCallByVideoWithOptions($request, $runtime);
+    }
+
+    /**
      * > Due to business adjustments, the updates of the voice notification and voice verification code services have been stopped in regions outside the Chinese mainland and the services have been discontinued since March 2022. Only qualified customers can continue using the voice notification and voice verification code services.
      *   * You can call the [SingleCallByTts](~~393519~~) operation to send voice notifications with variables.
      *   * ### QPS limits
@@ -2386,6 +2996,67 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
+     * @param SkipVideoFileRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return SkipVideoFileResponse
+     */
+    public function skipVideoFileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->callId)) {
+            $query['CallId'] = $request->callId;
+        }
+        if (!Utils::isUnset($request->calledNumber)) {
+            $query['CalledNumber'] = $request->calledNumber;
+        }
+        if (!Utils::isUnset($request->outId)) {
+            $query['OutId'] = $request->outId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->skipTimes)) {
+            $query['SkipTimes'] = $request->skipTimes;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SkipVideoFile',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SkipVideoFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SkipVideoFileRequest $request
+     *
+     * @return SkipVideoFileResponse
+     */
+    public function skipVideoFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->skipVideoFileWithOptions($request, $runtime);
+    }
+
+    /**
      * *   The SmartCall operation must be used together with the [intelligent outbound HTTP operation](~~112703~~). After the call initiated by the Voice Messaging Service (VMS) platform is connected, the VMS platform sends the text converted from speech back to the business side, and the business side then returns the follow-up action to the VMS platform.
      *   * *   The SmartCall operation does not support the following characters: `@ = : "" $ { } ^ * ￥`.
      *   * ### QPS limits
@@ -2438,6 +3109,9 @@ class Dyvmsapi extends OpenApiClient
         }
         if (!Utils::isUnset($request->muteTime)) {
             $query['MuteTime'] = $request->muteTime;
+        }
+        if (!Utils::isUnset($request->noiseThreshold)) {
+            $query['NoiseThreshold'] = $request->noiseThreshold;
         }
         if (!Utils::isUnset($request->outId)) {
             $query['OutId'] = $request->outId;
@@ -2846,6 +3520,67 @@ class Dyvmsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitHotlineTransferRegisterWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpgradeVideoFileRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpgradeVideoFileResponse
+     */
+    public function upgradeVideoFileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->callId)) {
+            $query['CallId'] = $request->callId;
+        }
+        if (!Utils::isUnset($request->calledNumber)) {
+            $query['CalledNumber'] = $request->calledNumber;
+        }
+        if (!Utils::isUnset($request->mediaType)) {
+            $query['MediaType'] = $request->mediaType;
+        }
+        if (!Utils::isUnset($request->outId)) {
+            $query['OutId'] = $request->outId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpgradeVideoFile',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpgradeVideoFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpgradeVideoFileRequest $request
+     *
+     * @return UpgradeVideoFileResponse
+     */
+    public function upgradeVideoFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->upgradeVideoFileWithOptions($request, $runtime);
     }
 
     /**

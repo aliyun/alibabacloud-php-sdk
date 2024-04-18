@@ -166,6 +166,11 @@ class SmartCallRequest extends Model
     public $muteTime;
 
     /**
+     * @var float
+     */
+    public $noiseThreshold;
+
+    /**
      * @description The ID that is reserved for the caller of the operation. This ID is returned to the caller in a receipt message.
      *
      * The value is of the STRING type and must be 1 to 15 bytes in length.
@@ -333,6 +338,7 @@ class SmartCallRequest extends Model
         'earlyMediaAsr'        => 'EarlyMediaAsr',
         'enableITN'            => 'EnableITN',
         'muteTime'             => 'MuteTime',
+        'noiseThreshold'       => 'NoiseThreshold',
         'outId'                => 'OutId',
         'ownerId'              => 'OwnerId',
         'pauseTime'            => 'PauseTime',
@@ -396,6 +402,9 @@ class SmartCallRequest extends Model
         }
         if (null !== $this->muteTime) {
             $res['MuteTime'] = $this->muteTime;
+        }
+        if (null !== $this->noiseThreshold) {
+            $res['NoiseThreshold'] = $this->noiseThreshold;
         }
         if (null !== $this->outId) {
             $res['OutId'] = $this->outId;
@@ -495,6 +504,9 @@ class SmartCallRequest extends Model
         }
         if (isset($map['MuteTime'])) {
             $model->muteTime = $map['MuteTime'];
+        }
+        if (isset($map['NoiseThreshold'])) {
+            $model->noiseThreshold = $map['NoiseThreshold'];
         }
         if (isset($map['OutId'])) {
             $model->outId = $map['OutId'];
