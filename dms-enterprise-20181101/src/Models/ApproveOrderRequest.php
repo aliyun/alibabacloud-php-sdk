@@ -63,6 +63,11 @@ class ApproveOrderRequest extends Model
     public $newApprover;
 
     /**
+     * @var string
+     */
+    public $newApproverList;
+
+    /**
      * @description The ID of the user that transfers the ticket to another user. The default value is the ID of the current user. If the current user is an administrator or a database administrator (DBA), the user can change the value of this parameter to the ID of another user.
      *
      * @example 23***
@@ -94,6 +99,7 @@ class ApproveOrderRequest extends Model
         'approvalType'       => 'ApprovalType',
         'comment'            => 'Comment',
         'newApprover'        => 'NewApprover',
+        'newApproverList'    => 'NewApproverList',
         'oldApprover'        => 'OldApprover',
         'tid'                => 'Tid',
         'workflowInstanceId' => 'WorkflowInstanceId',
@@ -120,6 +126,9 @@ class ApproveOrderRequest extends Model
         }
         if (null !== $this->newApprover) {
             $res['NewApprover'] = $this->newApprover;
+        }
+        if (null !== $this->newApproverList) {
+            $res['NewApproverList'] = $this->newApproverList;
         }
         if (null !== $this->oldApprover) {
             $res['OldApprover'] = $this->oldApprover;
@@ -156,6 +165,9 @@ class ApproveOrderRequest extends Model
         }
         if (isset($map['NewApprover'])) {
             $model->newApprover = $map['NewApprover'];
+        }
+        if (isset($map['NewApproverList'])) {
+            $model->newApproverList = $map['NewApproverList'];
         }
         if (isset($map['OldApprover'])) {
             $model->oldApprover = $map['OldApprover'];

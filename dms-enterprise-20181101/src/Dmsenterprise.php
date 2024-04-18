@@ -977,6 +977,9 @@ class Dmsenterprise extends OpenApiClient
         if (!Utils::isUnset($request->newApprover)) {
             $query['NewApprover'] = $request->newApprover;
         }
+        if (!Utils::isUnset($request->newApproverList)) {
+            $query['NewApproverList'] = $request->newApproverList;
+        }
         if (!Utils::isUnset($request->oldApprover)) {
             $query['OldApprover'] = $request->oldApprover;
         }

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataCorrectOrderDetailResponseBody;
 
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataCorrectOrderDetailResponseBody\dataCorrectOrderDetail\configDetail;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataCorrectOrderDetailResponseBody\dataCorrectOrderDetail\databaseList;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataCorrectOrderDetailResponseBody\dataCorrectOrderDetail\orderDetail;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataCorrectOrderDetailResponseBody\dataCorrectOrderDetail\preCheckDetail;
@@ -11,6 +12,11 @@ use AlibabaCloud\Tea\Model;
 
 class dataCorrectOrderDetail extends Model
 {
+    /**
+     * @var configDetail
+     */
+    public $configDetail;
+
     /**
      * @description The information about the database in which data is changed.
      *
@@ -64,6 +70,7 @@ class dataCorrectOrderDetail extends Model
      */
     public $status;
     protected $_name = [
+        'configDetail'   => 'ConfigDetail',
         'databaseList'   => 'DatabaseList',
         'execMode'       => 'ExecMode',
         'orderDetail'    => 'OrderDetail',
@@ -78,6 +85,9 @@ class dataCorrectOrderDetail extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->configDetail) {
+            $res['ConfigDetail'] = null !== $this->configDetail ? $this->configDetail->toMap() : null;
+        }
         if (null !== $this->databaseList) {
             $res['DatabaseList'] = null !== $this->databaseList ? $this->databaseList->toMap() : null;
         }
@@ -105,6 +115,9 @@ class dataCorrectOrderDetail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ConfigDetail'])) {
+            $model->configDetail = configDetail::fromMap($map['ConfigDetail']);
+        }
         if (isset($map['DatabaseList'])) {
             $model->databaseList = databaseList::fromMap($map['DatabaseList']);
         }
