@@ -6,14 +6,20 @@ namespace AlibabaCloud\SDK\Emr\V20210320;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Emr\V20210320\Models\CreateApiTemplateRequest;
+use AlibabaCloud\SDK\Emr\V20210320\Models\CreateApiTemplateResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\CreateClusterRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\CreateClusterResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\CreateNodeGroupRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\CreateNodeGroupResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\DecreaseNodesRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\DecreaseNodesResponse;
+use AlibabaCloud\SDK\Emr\V20210320\Models\DeleteApiTemplateRequest;
+use AlibabaCloud\SDK\Emr\V20210320\Models\DeleteApiTemplateResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\DeleteClusterRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\DeleteClusterResponse;
+use AlibabaCloud\SDK\Emr\V20210320\Models\GetApiTemplateRequest;
+use AlibabaCloud\SDK\Emr\V20210320\Models\GetApiTemplateResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\GetApplicationRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\GetApplicationResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\GetAutoScalingActivityRequest;
@@ -58,6 +64,8 @@ use AlibabaCloud\SDK\Emr\V20210320\Models\IncreaseNodesRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\IncreaseNodesResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\JoinResourceGroupRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\JoinResourceGroupResponse;
+use AlibabaCloud\SDK\Emr\V20210320\Models\ListApiTemplatesRequest;
+use AlibabaCloud\SDK\Emr\V20210320\Models\ListApiTemplatesResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\ListApplicationConfigsRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\ListApplicationConfigsResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\ListApplicationsRequest;
@@ -108,12 +116,16 @@ use AlibabaCloud\SDK\Emr\V20210320\Models\PutAutoScalingPolicyRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\PutAutoScalingPolicyResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\RemoveAutoScalingPolicyRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\RemoveAutoScalingPolicyResponse;
+use AlibabaCloud\SDK\Emr\V20210320\Models\RunApiTemplateRequest;
+use AlibabaCloud\SDK\Emr\V20210320\Models\RunApiTemplateResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\RunApplicationActionRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\RunApplicationActionResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\Emr\V20210320\Models\UpdateApiTemplateRequest;
+use AlibabaCloud\SDK\Emr\V20210320\Models\UpdateApiTemplateResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\UpdateApplicationConfigsRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\UpdateApplicationConfigsResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -164,6 +176,61 @@ class Emr extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param CreateApiTemplateRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateApiTemplateResponse
+     */
+    public function createApiTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->apiName)) {
+            $query['ApiName'] = $request->apiName;
+        }
+        if (!Utils::isUnset($request->content)) {
+            $query['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateApiTemplate',
+            'version'     => '2021-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateApiTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateApiTemplateRequest $request
+     *
+     * @return CreateApiTemplateResponse
+     */
+    public function createApiTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createApiTemplateWithOptions($request, $runtime);
     }
 
     /**
@@ -367,6 +434,62 @@ class Emr extends OpenApiClient
     }
 
     /**
+     * 创建集群模板
+     *   *
+     * @param DeleteApiTemplateRequest $request DeleteApiTemplateRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteApiTemplateResponse DeleteApiTemplateResponse
+     */
+    public function deleteApiTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->apiName)) {
+            $query['ApiName'] = $request->apiName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteApiTemplate',
+            'version'     => '2021-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteApiTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建集群模板
+     *   *
+     * @param DeleteApiTemplateRequest $request DeleteApiTemplateRequest
+     *
+     * @return DeleteApiTemplateResponse DeleteApiTemplateResponse
+     */
+    public function deleteApiTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteApiTemplateWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteClusterRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -410,6 +533,52 @@ class Emr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteClusterWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetApiTemplateRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetApiTemplateResponse
+     */
+    public function getApiTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetApiTemplate',
+            'version'     => '2021-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetApiTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetApiTemplateRequest $request
+     *
+     * @return GetApiTemplateResponse
+     */
+    public function getApiTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getApiTemplateWithOptions($request, $runtime);
     }
 
     /**
@@ -1611,6 +1780,70 @@ class Emr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->joinResourceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListApiTemplatesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListApiTemplatesResponse
+     */
+    public function listApiTemplatesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->apiName)) {
+            $query['ApiName'] = $request->apiName;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->templateIds)) {
+            $query['TemplateIds'] = $request->templateIds;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListApiTemplates',
+            'version'     => '2021-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListApiTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListApiTemplatesRequest $request
+     *
+     * @return ListApiTemplatesResponse
+     */
+    public function listApiTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listApiTemplatesWithOptions($request, $runtime);
     }
 
     /**
@@ -3278,6 +3511,62 @@ class Emr extends OpenApiClient
     }
 
     /**
+     * 执行集群模板
+     *   *
+     * @param RunApiTemplateRequest $request RunApiTemplateRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RunApiTemplateResponse RunApiTemplateResponse
+     */
+    public function runApiTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->apiName)) {
+            $query['ApiName'] = $request->apiName;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RunApiTemplate',
+            'version'     => '2021-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RunApiTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 执行集群模板
+     *   *
+     * @param RunApiTemplateRequest $request RunApiTemplateRequest
+     *
+     * @return RunApiTemplateResponse RunApiTemplateResponse
+     */
+    public function runApiTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runApiTemplateWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RunApplicationActionRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -3453,6 +3742,68 @@ class Emr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->untagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改集群模板
+     *   *
+     * @param UpdateApiTemplateRequest $request UpdateApiTemplateRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateApiTemplateResponse UpdateApiTemplateResponse
+     */
+    public function updateApiTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->apiName)) {
+            $query['ApiName'] = $request->apiName;
+        }
+        if (!Utils::isUnset($request->content)) {
+            $query['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateApiTemplate',
+            'version'     => '2021-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateApiTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改集群模板
+     *   *
+     * @param UpdateApiTemplateRequest $request UpdateApiTemplateRequest
+     *
+     * @return UpdateApiTemplateResponse UpdateApiTemplateResponse
+     */
+    public function updateApiTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateApiTemplateWithOptions($request, $runtime);
     }
 
     /**

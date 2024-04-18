@@ -1,3 +1,12 @@
+2024-04-18 Version: 1.4.0
+- Support API CreateApiTemplate.
+- Support API DeleteApiTemplate.
+- Support API GetApiTemplate.
+- Support API ListApiTemplates.
+- Support API RunApiTemplate.
+- Support API UpdateApiTemplate.
+
+
 2024-03-26 Version: 1.3.2
 - Generated php 2021-03-20 for Emr.
 
