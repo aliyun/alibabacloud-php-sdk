@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ScanClusterVulsResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
      * @example 687C5BAA-D103-4993-884B-C35E4314A1E1
      *
      * @var string
@@ -18,8 +16,6 @@ class ScanClusterVulsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The task ID.
-     *
      * @example T-xascadasd*****
      *
      * @var string

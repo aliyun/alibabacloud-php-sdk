@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class newerVersions extends Model
 {
     /**
+     * @description The minimum cluster version required by the component version.
+     *
      * @example 1.20.4
      *
      * @var string
@@ -16,6 +18,8 @@ class newerVersions extends Model
     public $minimumClusterVersion;
 
     /**
+     * @description Indicates whether the component can be updated to the version.
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +27,8 @@ class newerVersions extends Model
     public $upgradable;
 
     /**
+     * @description The version number.
+     *
      * @example v1.9.3.10-7dfca203-aliyun
      *
      * @var string

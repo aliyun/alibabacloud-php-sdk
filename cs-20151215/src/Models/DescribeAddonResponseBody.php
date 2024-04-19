@@ -10,11 +10,18 @@ use AlibabaCloud\Tea\Model;
 class DescribeAddonResponseBody extends Model
 {
     /**
+     * @description Architectures supported by the component. Valid values:
+     *
+     *   amd64
+     *   arm64
+     *
      * @var string[]
      */
     public $architecture;
 
     /**
+     * @description The category of the component.
+     *
      * @example network
      *
      * @var string
@@ -22,6 +29,8 @@ class DescribeAddonResponseBody extends Model
     public $category;
 
     /**
+     * @description The custom parameter schema of the component.
+     *
      * @example {}
      *
      * @var string
@@ -29,6 +38,8 @@ class DescribeAddonResponseBody extends Model
     public $configSchema;
 
     /**
+     * @description Indicates whether the component is automatically installed by default.
+     *
      * @example true
      *
      * @var bool
@@ -36,6 +47,8 @@ class DescribeAddonResponseBody extends Model
     public $installByDefault;
 
     /**
+     * @description Indicates whether the component is fully managed.
+     *
      * @example false
      *
      * @var bool
@@ -43,6 +56,8 @@ class DescribeAddonResponseBody extends Model
     public $managed;
 
     /**
+     * @description The name of the component.
+     *
      * @example coredns
      *
      * @var string
@@ -50,16 +65,27 @@ class DescribeAddonResponseBody extends Model
     public $name;
 
     /**
+     * @description The latest version of the component.
+     *
      * @var newerVersions[]
      */
     public $newerVersions;
 
     /**
+     * @description Operations supported by the component. Valid values:
+     *
+     *   Install
+     *   Upgrade
+     *   Modify
+     *   Uninstall
+     *
      * @var string[]
      */
     public $supportedActions;
 
     /**
+     * @description The version of the component.
+     *
      * @example v1.9.3.6-32932850-aliyun
      *
      * @var string

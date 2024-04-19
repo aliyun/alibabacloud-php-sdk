@@ -24,7 +24,7 @@ class kubernetesConfig extends Model
     public $cmsEnabled;
 
     /**
-     * @description The CPU management policy of the nodes in the node pool. The following policies are supported if the Kubernetes version of the cluster is 1.12.6 or later.
+     * @description The CPU management policy of the nodes in the node pool. The following policies are supported if the Kubernetes version of the cluster is 1.12.6 or later:
      *
      *   `static`: allows pods with specific resource characteristics on the node to be granted enhanced CPU affinity and exclusivity.
      *   `none`: specifies that the default CPU affinity is used.
@@ -39,7 +39,7 @@ class kubernetesConfig extends Model
     /**
      * @description The labels of the nodes in the node pool. You can add labels to the nodes in the cluster. You must add labels based on the following rules:
      *
-     *   Each label is a case-sensitive key-value pair. You can add at most 20 labels.
+     *   A tag is a case-sensitive key-value pair. You can add up to 20 tags.
      *   The key must be unique and cannot exceed 64 characters in length. The value can be empty and cannot exceed 128 characters in length. Keys and values cannot start with `aliyun`, `acs:`, `https://`, or `http://`. For more information, see [Labels and Selectors](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set).
      *
      * @var Tag[]

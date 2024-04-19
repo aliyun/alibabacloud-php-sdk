@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class addons extends Model
 {
     /**
+     * @description The component name.
+     *
      * @example coredns
      *
      * @var string
@@ -16,6 +18,13 @@ class addons extends Model
     public $name;
 
     /**
+     * @description The status of the component. Valid values:
+     *
+     *   active: The component is installed.
+     *   updating: The component is being modified.
+     *   upgrading: The component is being updated.
+     *   deleting: The component is being uninstalled.
+     *
      * @example active
      *
      * @var string
@@ -23,6 +32,8 @@ class addons extends Model
     public $state;
 
     /**
+     * @description The version of the component.
+     *
      * @example v1.9.3.10-7dfca203-aliyun
      *
      * @var string

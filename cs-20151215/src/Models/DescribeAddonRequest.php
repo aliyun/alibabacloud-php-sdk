@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAddonRequest extends Model
 {
     /**
+     * @description The ID of the cluster. If you specify a cluster ID, only components used in the cluster are queried. Other parameters are ignored.
+     *
      * @example c02b3e03be10643e8a644a843ffcb****
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeAddonRequest extends Model
     public $clusterId;
 
     /**
+     * @description The specifications of the cluster. If cluster_id is specified, this parameter is ignored. You must specify the region_id, cluster_type, profile, cluster_spec, and cluster_version parameters at the same time.
+     *
      * @example ack.pro.small
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeAddonRequest extends Model
     public $clusterSpec;
 
     /**
+     * @description The type of the cluster. If cluster_id is specified, this parameter is ignored. You must specify the region_id, cluster_type, profile, cluster_spec, and cluster_version parameters at the same time.
+     *
      * @example ManagedKubernetes
      *
      * @var string
@@ -30,6 +36,8 @@ class DescribeAddonRequest extends Model
     public $clusterType;
 
     /**
+     * @description The version of the cluster. If cluster_id is specified, this parameter is ignored. You must specify the region_id, cluster_type, profile, cluster_spec, and cluster_version parameters at the same time.
+     *
      * @example 1.26.3-aliyun.1
      *
      * @var string
@@ -37,6 +45,8 @@ class DescribeAddonRequest extends Model
     public $clusterVersion;
 
     /**
+     * @description The subtype of the cluster. If cluster_id is specified, this parameter is ignored. You must specify the region_id, cluster_type, profile, cluster_spec, and cluster_version parameters at the same time.
+     *
      * @example Default
      *
      * @var string
@@ -44,6 +54,8 @@ class DescribeAddonRequest extends Model
     public $profile;
 
     /**
+     * @description The region ID. If cluster_id is specified, this parameter is ignored. You must specify the region_id, cluster_type, profile, cluster_spec, and cluster_version parameters at the same time.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -51,6 +63,8 @@ class DescribeAddonRequest extends Model
     public $regionId;
 
     /**
+     * @description The version of the component. If you do not specify this parameter, the latest version of the component is queried.
+     *
      * @example v1.9.3.10-7dfca203-aliyun
      *
      * @var string

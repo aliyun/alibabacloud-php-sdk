@@ -20,17 +20,10 @@ class vulRecords extends Model
      *
      * Valid values:
      *
-     *   nntf
+     *   nntf: low
+     *   later: medium
+     *   asap: high
      *
-     * <!-- -->
-     *
-     *   later
-     *
-     * <!-- -->
-     *
-     *   asap
-     *
-     * <!-- -->
      * @example asap
      *
      * @var string
@@ -87,29 +80,13 @@ class vulRecords extends Model
      *
      * Valid values:
      *
-     *   app
+     *   app: application vulnerabilities
+     *   sca: application vulnerabilities (software component analysis)
+     *   cve: Linux vulnerabilities
+     *   cms: Web-CMS vulnerabilities
+     *   sys: Windows vulnerabilities
+     *   emg:  emergency vulnerabilities
      *
-     * <!-- -->
-     *
-     *   sca
-     *
-     * <!-- -->
-     *
-     *   cve
-     *
-     * <!-- -->
-     *
-     *   cms
-     *
-     * <!-- -->
-     *
-     *   sys
-     *
-     * <!-- -->
-     *
-     *   emg
-     *
-     * <!-- -->
      * @example cve
      *
      * @var string

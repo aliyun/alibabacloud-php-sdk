@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class policyInstances extends Model
 {
     /**
-     * @description The policy type.
+     * @description The policy type. For more information about different types of policies and their descriptions, see [Predefined security policies of ACK](https://www.alibabacloud.com/help/doc-detail/359819.html).
      *
      * @example cis-k8s
      *

@@ -38,7 +38,7 @@ class scalingGroup extends Model
     /**
      * @description Specifies whether to automatically create pay-as-you-go instances to meet the required number of ECS instances if preemptible instances cannot be created due to reasons such as the cost or insufficient inventory. This parameter takes effect when you set `multi_az_policy` to `COST_OPTIMIZED`. Valid values:
      *
-     *   `true`: automatically creates pay-as-you-go instances to meet the required number of ECS instances if preemptible instances cannot be created.
+     *   `true`: automatically creates pay-as-you-go instances to meet the required number of ECS instances if preemptible instances cannot be created
      *   `false`: does not create pay-as-you-go instances to meet the required number of ECS instances if preemptible instances cannot be created.
      *
      * @example true
@@ -73,6 +73,8 @@ class scalingGroup extends Model
     public $imageId;
 
     /**
+     * @description The type of OS distribution that you want to use. To specify the node OS, we recommend that you use this parameter. Valid values: CentOS, AliyunLinux, AliyunLinux Qboot, AliyunLinuxUEFI, AliyunLinux3, Windows, WindowsCore, AliyunLinux3Arm64, and ContainerOS.
+     *
      * @example AliyunLinux
      *
      * @var string
@@ -139,7 +141,7 @@ class scalingGroup extends Model
     public $loginPassword;
 
     /**
-     * @description The ECS instance scaling policy for a multi-zone scaling group. Valid values:
+     * @description The ECS instance scaling policy for the multi-zone scaling group. Valid values:
      *
      *   `PRIORITY`: The scaling group is scaled based on the VSwitchIds.N parameter. If an ECS instance cannot be created in the zone where the vSwitch that has the highest priority resides, Auto Scaling creates the ECS instance in the zone where the vSwitch that has the next highest priority resides.
      *
@@ -149,7 +151,7 @@ class scalingGroup extends Model
      *
      **Note** `COST_OPTIMIZED` is valid only when multiple instance types are specified or at least one preemptible instance type is specified.
      *
-     *   `BALANCE`: ECS instances are evenly distributed across multiple zones specified by the scaling group. If ECS instances become imbalanced among multiple zones due to insufficient inventory, you can call the `RebalanceInstances` operation of Auto Scaling to balance the instance distribution among zones. For more information, see [RebalanceInstances](~~71516~~).
+     *   `BALANCE`: ECS instances are evenly distributed across multiple zones specified by the scaling group. If ECS instances become imbalanced among multiple zones due to the insufficient inventory, you can call the `RebalanceInstances` operation of Auto Scaling to balance the instance distribution among zones. For more information, see [RebalanceInstances](~~71516~~).
      *
      * Default value: `PRIORITY`.
      * @example BALANCE
@@ -229,7 +231,7 @@ class scalingGroup extends Model
     /**
      * @description The scaling mode of the scaling group. Valid values:
      *
-     *   `release`: the standard mode. ECS instances are created and released based on resource usage.
+     *   `release`: the standard mode. ECS instances are created and released based on the resource usage.
      *   `recycle`: the swift mode. ECS instances are created, stopped, or started during scaling events. This reduces the time required for the next scale-out event. When the instance is stopped, you are charged only for the storage service. This does not apply to ECS instances that are attached with local disks.
      *
      * @example release
@@ -281,6 +283,8 @@ class scalingGroup extends Model
     public $spotStrategy;
 
     /**
+     * @description Indicates whether Burst is enabled for the system disk when the disk type is cloud_auto.
+     *
      * @example true
      *
      * @var bool
@@ -288,6 +292,8 @@ class scalingGroup extends Model
     public $systemDiskBurstingEnabled;
 
     /**
+     * @description The types of system disks. The system attempts to create system disks from a disk type with a lower priority when the disk type with a higher priority is unavailable. Valid values: cloud: disk cloud_efficiency: ultra disk cloud_ssd: standard SSD cloud_essd: indicates an enhanced SSD (ESSD).
+     *
      * @var string[]
      */
     public $systemDiskCategories;
@@ -296,7 +302,7 @@ class scalingGroup extends Model
      * @description The type of system disk. Valid values:
      *
      *   `cloud_efficiency`: ultra disk.
-     *   `cloud_ssd`: standard SSD.
+     *   `cloud_ssd`: standard SSD
      *
      * Default value: `cloud_ssd`.
      * @example cloud_efficiency
@@ -306,6 +312,8 @@ class scalingGroup extends Model
     public $systemDiskCategory;
 
     /**
+     * @description The algorithm that you want to use to encrypt the system disk. The value is aes-256.
+     *
      * @example aes-256
      *
      * @var string
@@ -313,6 +321,8 @@ class scalingGroup extends Model
     public $systemDiskEncryptAlgorithm;
 
     /**
+     * @description Indicates whether the system disk is encrypted. Valid values: true: encrypts the system disk. false: does not encrypt the system disk.
+     *
      * @example false
      *
      * @var bool
@@ -320,6 +330,8 @@ class scalingGroup extends Model
     public $systemDiskEncrypted;
 
     /**
+     * @description The ID of the Key Management Service (KMS) key that is used to encrypt the system disk.
+     *
      * @example 0e478b7a-4262-4802-b8cb-00d3fb40****
      *
      * @var string
@@ -336,6 +348,8 @@ class scalingGroup extends Model
     public $systemDiskPerformanceLevel;
 
     /**
+     * @description The predefined read and write IOPS of the system disk when the disk type is cloud_auto.
+     *
      * @example 1000
      *
      * @var int
@@ -343,9 +357,9 @@ class scalingGroup extends Model
     public $systemDiskProvisionedIops;
 
     /**
-     * @description The system disk size of a node. Unit: GiB.
+     * @description The size of the system disk in GiB.
      *
-     * The default value is the greater one between 40 and the image size.
+     * Default value: the greater value between 40 and the image size.
      * @example 120
      *
      * @var int
@@ -353,15 +367,15 @@ class scalingGroup extends Model
     public $systemDiskSize;
 
     /**
-     * @description The labels that you want to add to the ECS instances.
+     * @description The labels that you want to add only to ECS instances.
      *
-     * The key must be unique and cannot exceed 128 characters in length. Neither keys nor values can start with aliyun or acs:. Neither keys nor values can contain https:// or http://.
+     * The tag key must be unique and cannot exceed 128 characters in length. The tag key and value must not start with aliyun or acs: or contain https:// or http://.
      * @var Tag[]
      */
     public $tags;
 
     /**
-     * @description The vSwitch IDs. You can specify 1 to 20 vSwitches.
+     * @description The IDs of vSwitches. You can specify 1 to 20 vSwitches.
      *
      * >  To ensure high availability, we recommend that you select vSwitches in different zones.
      * @var string[]

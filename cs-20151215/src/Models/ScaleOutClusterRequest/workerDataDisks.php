@@ -11,7 +11,7 @@ class workerDataDisks extends Model
     /**
      * @description The ID of an automatic snapshot policy. Automatic backup is performed for a disk based on the specified automatic snapshot policy.
      *
-     * By default, this parameter is empty. This indicates that automatic backup is disabled.
+     * By default, this parameter is empty, which indicates that automatic backup is disabled.
      * @example sp-bp14yziiuvu3s6jn****
      *
      * @var string

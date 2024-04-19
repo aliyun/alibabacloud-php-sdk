@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListAddonsResponseBody extends Model
 {
     /**
+     * @description The list of available components.
+     *
      * @var addons[]
      */
     public $addons;

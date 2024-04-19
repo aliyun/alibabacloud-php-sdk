@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListOperationPlansResponseBody extends Model
 {
     /**
+     * @description The operation plans.
+     *
      * @var plans[]
      */
     public $plans;

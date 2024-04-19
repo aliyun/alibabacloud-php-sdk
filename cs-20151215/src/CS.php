@@ -5161,6 +5161,9 @@ class CS extends OpenApiClient
         if (!Utils::isUnset($request->kubeletConfig)) {
             $body['kubelet_config'] = $request->kubeletConfig;
         }
+        if (!Utils::isUnset($request->osConfig)) {
+            $body['os_config'] = $request->osConfig;
+        }
         if (!Utils::isUnset($request->rollingPolicy)) {
             $body['rolling_policy'] = $request->rollingPolicy;
         }

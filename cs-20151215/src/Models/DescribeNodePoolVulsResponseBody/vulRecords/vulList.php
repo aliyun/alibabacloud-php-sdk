@@ -38,17 +38,10 @@ class vulList extends Model
      *
      * Valid values:
      *
-     *   nntf
+     *   nntf: You can ignore the vulnerability
+     *   later: You can fix the vulnerability later
+     *   asap: You need to fix the vulnerability at the earliest opportunity
      *
-     * .
-     *
-     *   later
-     *
-     * .
-     *
-     *   asap
-     *
-     * .
      * @example asap
      *
      * @var string

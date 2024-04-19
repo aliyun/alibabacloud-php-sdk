@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class FixNodePoolVulsRequest extends Model
 {
     /**
+     * @description Specifies whether to allow the nodes to restart.
+     *
      * @example true
      *
      * @var bool

@@ -9,11 +9,18 @@ use AlibabaCloud\Tea\Model;
 class addons extends Model
 {
     /**
+     * @description Architectures supported by the component. Valid values:
+     *
+     *   amd64
+     *   arm64
+     *
      * @var string[]
      */
     public $architecture;
 
     /**
+     * @description The category of the component.
+     *
      * @example monitor
      *
      * @var string
@@ -21,6 +28,8 @@ class addons extends Model
     public $category;
 
     /**
+     * @description The schema of the custom parameters of the component.
+     *
      * @example {}
      *
      * @var string
@@ -28,6 +37,8 @@ class addons extends Model
     public $configSchema;
 
     /**
+     * @description Indicates whether the component is automatically installed by default.
+     *
      * @example false
      *
      * @var bool
@@ -35,6 +46,8 @@ class addons extends Model
     public $installByDefault;
 
     /**
+     * @description Indicates whether the component is fully managed.
+     *
      * @example false
      *
      * @var bool
@@ -42,6 +55,8 @@ class addons extends Model
     public $managed;
 
     /**
+     * @description The component name.
+     *
      * @example arms-prometheus
      *
      * @var string
@@ -49,11 +64,20 @@ class addons extends Model
     public $name;
 
     /**
+     * @description Operations supported by the component. Valid values:
+     *
+     *   Install
+     *   Upgrade
+     *   Modify
+     *   Uninstall
+     *
      * @var string[]
      */
     public $supportedActions;
 
     /**
+     * @description The version number.
+     *
      * @example 1.1.9
      *
      * @var string

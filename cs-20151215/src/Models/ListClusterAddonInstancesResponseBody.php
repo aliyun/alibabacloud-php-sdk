@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListClusterAddonInstancesResponseBody extends Model
 {
     /**
+     * @description A list of components that are installed in the cluster.
+     *
      * @var addons[]
      */
     public $addons;

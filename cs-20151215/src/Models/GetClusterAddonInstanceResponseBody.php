@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetClusterAddonInstanceResponseBody extends Model
 {
     /**
+     * @description The custom configurations of the component.
+     *
      * @example {"sls_project_name":""}
      *
      * @var string
@@ -17,11 +19,15 @@ class GetClusterAddonInstanceResponseBody extends Model
     public $config;
 
     /**
+     * @description The status of Simple Log Service.
+     *
      * @var logging
      */
     public $logging;
 
     /**
+     * @description The name of the component instance.
+     *
      * @example ack-node-problem-detector
      *
      * @var string
@@ -29,6 +35,13 @@ class GetClusterAddonInstanceResponseBody extends Model
     public $name;
 
     /**
+     * @description The status of the component. Valid values:
+     *
+     *   active: The component is installed.
+     *   updating: The component is being modified.
+     *   upgrading: The component is being updated.
+     *   deleting: The component is being uninstalled.
+     *
      * @example active
      *
      * @var string
@@ -36,6 +49,8 @@ class GetClusterAddonInstanceResponseBody extends Model
     public $state;
 
     /**
+     * @description The version of the component instance.
+     *
      * @example 1.2.16
      *
      * @var string

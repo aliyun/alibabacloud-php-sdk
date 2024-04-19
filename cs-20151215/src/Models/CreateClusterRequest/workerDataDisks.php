@@ -31,7 +31,7 @@ class workerDataDisks extends Model
     public $encrypted;
 
     /**
-     * @description The performance level (PL) of a data disk. This parameter takes effect only on ESSDs. You can specify a higher PL if you increase the size of a data disk. For more information, see [ESSDs](~~122389~~).
+     * @description The PL of a data disk. This parameter takes effect only for ESSDs. You can specify a higher PL if you increase the size of the system disk. For more information, see [Enhanced SSDs](~~122389~~).
      *
      * @example PL1
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class plans extends Model
 {
     /**
+     * @description The cluster ID.
+     *
      * @example c29ced64b3dfe4f33b57ca0aa9f68****
      *
      * @var string
@@ -16,6 +18,8 @@ class plans extends Model
     public $clusterId;
 
     /**
+     * @description The time when the operation plan was created.
+     *
      * @example 2023-11-21T20:01:22+08:00
      *
      * @var string
@@ -23,6 +27,8 @@ class plans extends Model
     public $created;
 
     /**
+     * @description The expected end time of the plan.
+     *
      * @example 2023-11-22T18:00:00+08:00
      *
      * @var string
@@ -30,6 +36,8 @@ class plans extends Model
     public $endTime;
 
     /**
+     * @description The operation plan ID.
+     *
      * @example P-655c9c127e0e6603ef00****
      *
      * @var string
@@ -37,6 +45,8 @@ class plans extends Model
     public $planId;
 
     /**
+     * @description The expected start time of the plan.
+     *
      * @example 2023-11-22T15:18:00+08:00
      *
      * @var string
@@ -44,6 +54,11 @@ class plans extends Model
     public $startTime;
 
     /**
+     * @description The plan status. Valid values:
+     *
+     *   scheduled
+     *   Canceled
+     *
      * @example scheduled
      *
      * @var string
@@ -51,6 +66,8 @@ class plans extends Model
     public $state;
 
     /**
+     * @description The target ID.
+     *
      * @example c29ced64b3dfe4f33b57ca0aa9f68****
      *
      * @var string
@@ -58,6 +75,8 @@ class plans extends Model
     public $targetId;
 
     /**
+     * @description The target type.
+     *
      * @example cluster
      *
      * @var string
@@ -65,6 +84,10 @@ class plans extends Model
     public $targetType;
 
     /**
+     * @description The plan type. Valid values:
+     *
+     *   cluster_upgrade
+     *
      * @example cluster_upgrade
      *
      * @var string

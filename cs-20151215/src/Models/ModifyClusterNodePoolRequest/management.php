@@ -55,7 +55,7 @@ class management extends Model
      * @description Specifies whether ACK is allowed to automatically patch CVE vulnerabilities. Valid values:
      *
      *   `true`: yes
-     *   `false`: no
+     *   `true`: no
      *
      * @example true
      *

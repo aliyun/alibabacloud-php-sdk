@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class StartAlertRequest extends Model
 {
     /**
+     * @description The name of the alert rule set to be enabled.
+     *
      * @var string
      */
     public $alertRuleGroupName;
 
     /**
+     * @description The name of the alert rule to be enabled. If you do not specify an alert rule name, the alert rule set is enabled.
+     *
      * @var string
      */
     public $alertRuleName;

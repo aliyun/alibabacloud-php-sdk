@@ -72,7 +72,11 @@ class DescribePolicyDetailsResponseBody extends Model
     public $noConfig;
 
     /**
-     * @description The severity level of the policy.
+     * @description The severity level of the policy. Valid values:
+     *
+     *   `high`
+     *   `medium`
+     *   `low`
      *
      * @example high
      *

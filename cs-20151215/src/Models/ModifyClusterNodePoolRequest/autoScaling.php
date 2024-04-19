@@ -85,7 +85,7 @@ class autoScaling extends Model
      *
      *   `cpu`: regular instance.
      *   `gpu`: GPU-accelerated instance.
-     *   `gpushare`: shared GPU-accelerated instance.
+     *   `gpushare`: shared GPU-accelerated instance
      *   `spot`: preemptible instance
      *
      * Default value: `cpu`.

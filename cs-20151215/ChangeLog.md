@@ -1,3 +1,10 @@
+2024-04-19 Version: 4.0.1
+- Update API CreateCluster: update param body.
+- Update API CreateClusterNodePool: update param body.
+- Update API ModifyClusterNodePool: update param body.
+- Update API ModifyNodePoolNodeConfig: update param body.
+
+
 2024-03-19 Version: 4.0.0
 - Support API UpdateUserPermissions.
 - Update API DeleteAlertContact: add param contact_ids.

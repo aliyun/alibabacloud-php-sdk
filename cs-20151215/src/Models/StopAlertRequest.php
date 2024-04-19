@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class StopAlertRequest extends Model
 {
     /**
+     * @description The name of the alert rule set to be disabled.
+     *
      * @var string
      */
     public $alertRuleGroupName;
 
     /**
+     * @description The name of the alert rule to be disabled. If you do not specify an alert rule name, the alert rule set is disabled.
+     *
      * @var string
      */
     public $alertRuleName;

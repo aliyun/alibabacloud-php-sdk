@@ -22,6 +22,8 @@ class ModifyClusterNodePoolRequest extends Model
     public $autoScaling;
 
     /**
+     * @description Specifies whether concurrency is supported.
+     *
      * @example true
      *
      * @var bool

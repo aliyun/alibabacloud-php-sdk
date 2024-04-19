@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class logging extends Model
 {
     /**
+     * @description Indicates whether Simple Log Service is supported by the component.
+     *
      * @example false
      *
      * @var bool
@@ -16,6 +18,8 @@ class logging extends Model
     public $capable;
 
     /**
+     * @description Indicates whether Simple Log Service is enabled for the component.
+     *
      * @example false
      *
      * @var bool
@@ -23,6 +27,8 @@ class logging extends Model
     public $enabled;
 
     /**
+     * @description The Simple Log Service project that is used to collect logs for the component.
+     *
      * @example my-log-project
      *
      * @var string
@@ -30,6 +36,8 @@ class logging extends Model
     public $logProject;
 
     /**
+     * @description The Simple Log Service Logstore that is used to collect logs for the component.
+     *
      * @example my-logstore
      *
      * @var string

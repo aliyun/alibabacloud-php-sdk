@@ -18,7 +18,7 @@ class TagResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @description The IDs of the resources that you want to label.
+     * @description The list of resource IDs.
      *
      * @var string[]
      */
@@ -34,11 +34,11 @@ class TagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description The labels that you want to add to the resources in key-value pairs. You can add up to 20 labels. Note:
+     * @description The labels that you want to add to the resources in key-value pairs. You can add up to 20 labels. Usage notes:
      *
-     *   A value cannot be empty and can contain up to 128 characters.
-     *   A key or value must not start with `aliyun` or `acs:`.
-     *   A key or value must not contain `http://` or `https://`.
+     *   Label values must not be empty strings. A label value must be 1 to 128 characters in length.
+     *   The label value must not start with `aliyun` or `acs:`.
+     *   The label value must not contain `http://` or `https://`.
      *
      * @var Tag[]
      */
