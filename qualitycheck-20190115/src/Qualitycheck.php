@@ -90,8 +90,6 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetPrecisionTaskRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetPrecisionTaskResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetQualityCheckSchemeRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetQualityCheckSchemeResponse;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultCallbackRequest;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultCallbackResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultToReviewRequest;
@@ -134,8 +132,6 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListBusinessSpacesRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListBusinessSpacesResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListDataSetRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListDataSetResponse;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListHotWordsTasksRequest;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListHotWordsTasksResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListPrecisionTaskRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListPrecisionTaskResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListQualityCheckSchemeRequest;
@@ -2282,60 +2278,6 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
-     * Deprecated
-     *
-     * @param GetResultCallbackRequest $request GetResultCallbackRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
-     *
-     * @return GetResultCallbackResponse GetResultCallbackResponse
-     */
-    public function getResultCallbackWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
-        }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetResultCallback',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetResultCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @deprecated
-     *   *
-     * Deprecated
-     *
-     * @param GetResultCallbackRequest $request GetResultCallbackRequest
-     *
-     * @return GetResultCallbackResponse GetResultCallbackResponse
-     */
-    public function getResultCallback($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getResultCallbackWithOptions($request, $runtime);
-    }
-
-    /**
      * @param GetResultToReviewRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -3339,52 +3281,6 @@ class Qualitycheck extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listDataSetWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListHotWordsTasksRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ListHotWordsTasksResponse
-     */
-    public function listHotWordsTasksWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
-        }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListHotWordsTasks',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListHotWordsTasksResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListHotWordsTasksRequest $request
-     *
-     * @return ListHotWordsTasksResponse
-     */
-    public function listHotWordsTasks($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listHotWordsTasksWithOptions($request, $runtime);
     }
 
     /**
