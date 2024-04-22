@@ -24,6 +24,8 @@ use AlibabaCloud\SDK\Dm\V20151123\Models\CreateReceiverRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\CreateReceiverResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\CreateTagRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\CreateTagResponse;
+use AlibabaCloud\SDK\Dm\V20151123\Models\CreateUserSuppressionRequest;
+use AlibabaCloud\SDK\Dm\V20151123\Models\CreateUserSuppressionResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\DeleteDomainRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\DeleteDomainResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\DeleteInvalidAddressRequest;
@@ -46,10 +48,14 @@ use AlibabaCloud\SDK\Dm\V20151123\Models\GetIpfilterListRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\GetIpfilterListResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\GetIpProtectionRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\GetIpProtectionResponse;
+use AlibabaCloud\SDK\Dm\V20151123\Models\GetSuppressionListLevelRequest;
+use AlibabaCloud\SDK\Dm\V20151123\Models\GetSuppressionListLevelResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\GetTrackListByMailFromAndTagNameRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\GetTrackListByMailFromAndTagNameResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\GetTrackListRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\GetTrackListResponse;
+use AlibabaCloud\SDK\Dm\V20151123\Models\ListUserSuppressionRequest;
+use AlibabaCloud\SDK\Dm\V20151123\Models\ListUserSuppressionResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\ModifyMailAddressRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\ModifyMailAddressResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\ModifyPWByDomainRequest;
@@ -70,6 +76,8 @@ use AlibabaCloud\SDK\Dm\V20151123\Models\QueryTagByParamRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\QueryTagByParamResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\QueryTaskByParamRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\QueryTaskByParamResponse;
+use AlibabaCloud\SDK\Dm\V20151123\Models\RemoveUserSuppressionRequest;
+use AlibabaCloud\SDK\Dm\V20151123\Models\RemoveUserSuppressionResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\SaveReceiverDetailRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\SaveReceiverDetailResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\SenderStatisticsByTagNameAndBatchIDRequest;
@@ -78,6 +86,8 @@ use AlibabaCloud\SDK\Dm\V20151123\Models\SenderStatisticsDetailByParamRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\SenderStatisticsDetailByParamResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\SendTestByTemplateRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\SendTestByTemplateResponse;
+use AlibabaCloud\SDK\Dm\V20151123\Models\SetSuppressionListLevelRequest;
+use AlibabaCloud\SDK\Dm\V20151123\Models\SetSuppressionListLevelResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\SingleSendMailRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\SingleSendMailResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\UpdateIpProtectionRequest;
@@ -635,6 +645,58 @@ class Dm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createTagWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateUserSuppressionRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateUserSuppressionResponse
+     */
+    public function createUserSuppressionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->address)) {
+            $query['Address'] = $request->address;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateUserSuppression',
+            'version'     => '2015-11-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateUserSuppressionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateUserSuppressionRequest $request
+     *
+     * @return CreateUserSuppressionResponse
+     */
+    public function createUserSuppression($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createUserSuppressionWithOptions($request, $runtime);
     }
 
     /**
@@ -1210,6 +1272,55 @@ class Dm extends OpenApiClient
     }
 
     /**
+     * @param GetSuppressionListLevelRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetSuppressionListLevelResponse
+     */
+    public function getSuppressionListLevelWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSuppressionListLevel',
+            'version'     => '2015-11-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetSuppressionListLevelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetSuppressionListLevelRequest $request
+     *
+     * @return GetSuppressionListLevelResponse
+     */
+    public function getSuppressionListLevel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSuppressionListLevelWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetTrackListRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -1359,6 +1470,76 @@ class Dm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getTrackListByMailFromAndTagNameWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListUserSuppressionRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListUserSuppressionResponse
+     */
+    public function listUserSuppressionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->address)) {
+            $query['Address'] = $request->address;
+        }
+        if (!Utils::isUnset($request->endBounceTime)) {
+            $query['EndBounceTime'] = $request->endBounceTime;
+        }
+        if (!Utils::isUnset($request->endCreateTime)) {
+            $query['EndCreateTime'] = $request->endCreateTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->startBounceTime)) {
+            $query['StartBounceTime'] = $request->startBounceTime;
+        }
+        if (!Utils::isUnset($request->startCreateTime)) {
+            $query['StartCreateTime'] = $request->startCreateTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListUserSuppression',
+            'version'     => '2015-11-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListUserSuppressionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListUserSuppressionRequest $request
+     *
+     * @return ListUserSuppressionResponse
+     */
+    public function listUserSuppression($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listUserSuppressionWithOptions($request, $runtime);
     }
 
     /**
@@ -1960,6 +2141,58 @@ class Dm extends OpenApiClient
     }
 
     /**
+     * @param RemoveUserSuppressionRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return RemoveUserSuppressionResponse
+     */
+    public function removeUserSuppressionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->suppressionIds)) {
+            $query['SuppressionIds'] = $request->suppressionIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveUserSuppression',
+            'version'     => '2015-11-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RemoveUserSuppressionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RemoveUserSuppressionRequest $request
+     *
+     * @return RemoveUserSuppressionResponse
+     */
+    public function removeUserSuppression($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeUserSuppressionWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SaveReceiverDetailRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -2219,6 +2452,58 @@ class Dm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->senderStatisticsDetailByParamWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetSuppressionListLevelRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return SetSuppressionListLevelResponse
+     */
+    public function setSuppressionListLevelWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->suppressionListLevel)) {
+            $query['SuppressionListLevel'] = $request->suppressionListLevel;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetSuppressionListLevel',
+            'version'     => '2015-11-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetSuppressionListLevelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SetSuppressionListLevelRequest $request
+     *
+     * @return SetSuppressionListLevelResponse
+     */
+    public function setSuppressionListLevel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setSuppressionListLevelWithOptions($request, $runtime);
     }
 
     /**
