@@ -81,6 +81,11 @@ class directoryStatistics extends Model
     public $inProgressTaskCount;
 
     /**
+     * @var int
+     */
+    public $inlinePolicyPerAccessConfigurationQuota;
+
+    /**
      * @description The region ID of the directory.
      *
      * @example cn-shanghai
@@ -157,6 +162,7 @@ class directoryStatistics extends Model
         'groupCount'                              => 'GroupCount',
         'groupQuota'                              => 'GroupQuota',
         'inProgressTaskCount'                     => 'InProgressTaskCount',
+        'inlinePolicyPerAccessConfigurationQuota' => 'InlinePolicyPerAccessConfigurationQuota',
         'region'                                  => 'Region',
         'SCIMServerCredentialCount'               => 'SCIMServerCredentialCount',
         'SCIMSyncEnabled'                         => 'SCIMSyncEnabled',
@@ -196,6 +202,9 @@ class directoryStatistics extends Model
         }
         if (null !== $this->inProgressTaskCount) {
             $res['InProgressTaskCount'] = $this->inProgressTaskCount;
+        }
+        if (null !== $this->inlinePolicyPerAccessConfigurationQuota) {
+            $res['InlinePolicyPerAccessConfigurationQuota'] = $this->inlinePolicyPerAccessConfigurationQuota;
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
@@ -253,6 +262,9 @@ class directoryStatistics extends Model
         }
         if (isset($map['InProgressTaskCount'])) {
             $model->inProgressTaskCount = $map['InProgressTaskCount'];
+        }
+        if (isset($map['InlinePolicyPerAccessConfigurationQuota'])) {
+            $model->inlinePolicyPerAccessConfigurationQuota = $map['InlinePolicyPerAccessConfigurationQuota'];
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
