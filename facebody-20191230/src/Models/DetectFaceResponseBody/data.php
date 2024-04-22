@@ -38,6 +38,11 @@ class data extends Model
     public $landmarkCount;
 
     /**
+     * @var float[]
+     */
+    public $landmarkScore;
+
+    /**
      * @description 1
      *
      * @var float[]
@@ -67,6 +72,7 @@ class data extends Model
         'faceProbabilityList' => 'FaceProbabilityList',
         'faceRectangles'      => 'FaceRectangles',
         'landmarkCount'       => 'LandmarkCount',
+        'landmarkScore'       => 'LandmarkScore',
         'landmarks'           => 'Landmarks',
         'poseList'            => 'PoseList',
         'pupils'              => 'Pupils',
@@ -91,6 +97,9 @@ class data extends Model
         }
         if (null !== $this->landmarkCount) {
             $res['LandmarkCount'] = $this->landmarkCount;
+        }
+        if (null !== $this->landmarkScore) {
+            $res['LandmarkScore'] = $this->landmarkScore;
         }
         if (null !== $this->landmarks) {
             $res['Landmarks'] = $this->landmarks;
@@ -131,6 +140,11 @@ class data extends Model
         }
         if (isset($map['LandmarkCount'])) {
             $model->landmarkCount = $map['LandmarkCount'];
+        }
+        if (isset($map['LandmarkScore'])) {
+            if (!empty($map['LandmarkScore'])) {
+                $model->landmarkScore = $map['LandmarkScore'];
+            }
         }
         if (isset($map['Landmarks'])) {
             if (!empty($map['Landmarks'])) {
