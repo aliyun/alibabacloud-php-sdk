@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class chart extends Model
 {
     /**
+     * @var int
+     */
+    public $chatType;
+
+    /**
      * @description The data in the baseline behavior profile of the anomalous event.
      *
      * @var data
@@ -24,6 +29,11 @@ class chart extends Model
      * @var string
      */
     public $label;
+
+    /**
+     * @var string
+     */
+    public $name;
 
     /**
      * @description The type of the chart. Valid values:
@@ -54,12 +64,20 @@ class chart extends Model
      * @var string
      */
     public $YLabel;
+
+    /**
+     * @var string
+     */
+    public $ZLabel;
     protected $_name = [
-        'data'   => 'Data',
-        'label'  => 'Label',
-        'type'   => 'Type',
-        'XLabel' => 'XLabel',
-        'YLabel' => 'YLabel',
+        'chatType' => 'ChatType',
+        'data'     => 'Data',
+        'label'    => 'Label',
+        'name'     => 'Name',
+        'type'     => 'Type',
+        'XLabel'   => 'XLabel',
+        'YLabel'   => 'YLabel',
+        'ZLabel'   => 'ZLabel',
     ];
 
     public function validate()
@@ -69,11 +87,17 @@ class chart extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->chatType) {
+            $res['ChatType'] = $this->chatType;
+        }
         if (null !== $this->data) {
             $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
         if (null !== $this->label) {
             $res['Label'] = $this->label;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -83,6 +107,9 @@ class chart extends Model
         }
         if (null !== $this->YLabel) {
             $res['YLabel'] = $this->YLabel;
+        }
+        if (null !== $this->ZLabel) {
+            $res['ZLabel'] = $this->ZLabel;
         }
 
         return $res;
@@ -96,11 +123,17 @@ class chart extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ChatType'])) {
+            $model->chatType = $map['ChatType'];
+        }
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
@@ -110,6 +143,9 @@ class chart extends Model
         }
         if (isset($map['YLabel'])) {
             $model->YLabel = $map['YLabel'];
+        }
+        if (isset($map['ZLabel'])) {
+            $model->ZLabel = $map['ZLabel'];
         }
 
         return $model;

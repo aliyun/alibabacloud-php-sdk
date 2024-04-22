@@ -25,9 +25,15 @@ class data extends Model
      * @var string[]
      */
     public $y;
+
+    /**
+     * @var string[]
+     */
+    public $z;
     protected $_name = [
         'x' => 'X',
         'y' => 'Y',
+        'z' => 'Z',
     ];
 
     public function validate()
@@ -42,6 +48,9 @@ class data extends Model
         }
         if (null !== $this->y) {
             $res['Y'] = $this->y;
+        }
+        if (null !== $this->z) {
+            $res['Z'] = $this->z;
         }
 
         return $res;
@@ -63,6 +72,11 @@ class data extends Model
         if (isset($map['Y'])) {
             if (!empty($map['Y'])) {
                 $model->y = $map['Y'];
+            }
+        }
+        if (isset($map['Z'])) {
+            if (!empty($map['Z'])) {
+                $model->z = $map['Z'];
             }
         }
 

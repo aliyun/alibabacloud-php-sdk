@@ -18,6 +18,11 @@ class content extends Model
     public $label;
 
     /**
+     * @var string
+     */
+    public $name;
+
+    /**
      * @description The description of the content in the anomalous event.
      *
      * @example The account was used to access OSS from an unusual terminal whose IP address is 1.2.3.4 from 00:06:45 on September 9, 2019 to 00:57:37 on September 9, 2019.
@@ -27,6 +32,7 @@ class content extends Model
     public $value;
     protected $_name = [
         'label' => 'Label',
+        'name'  => 'Name',
         'value' => 'Value',
     ];
 
@@ -39,6 +45,9 @@ class content extends Model
         $res = [];
         if (null !== $this->label) {
             $res['Label'] = $this->label;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->value) {
             $res['Value'] = $this->value;
@@ -57,6 +66,9 @@ class content extends Model
         $model = new self();
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['Value'])) {
             $model->value = $map['Value'];

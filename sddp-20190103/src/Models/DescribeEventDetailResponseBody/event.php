@@ -146,6 +146,11 @@ class event extends Model
     public $loginName;
 
     /**
+     * @var bool
+     */
+    public $newAlarm;
+
+    /**
      * @description The name of the service in which the anomalous event was detected. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
      *
      * @example MaxCompute
@@ -240,6 +245,7 @@ class event extends Model
         'id'              => 'Id',
         'logDetail'       => 'LogDetail',
         'loginName'       => 'LoginName',
+        'newAlarm'        => 'NewAlarm',
         'productCode'     => 'ProductCode',
         'status'          => 'Status',
         'statusName'      => 'StatusName',
@@ -307,6 +313,9 @@ class event extends Model
         }
         if (null !== $this->loginName) {
             $res['LoginName'] = $this->loginName;
+        }
+        if (null !== $this->newAlarm) {
+            $res['NewAlarm'] = $this->newAlarm;
         }
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
@@ -394,6 +403,9 @@ class event extends Model
         }
         if (isset($map['LoginName'])) {
             $model->loginName = $map['LoginName'];
+        }
+        if (isset($map['NewAlarm'])) {
+            $model->newAlarm = $map['NewAlarm'];
         }
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
