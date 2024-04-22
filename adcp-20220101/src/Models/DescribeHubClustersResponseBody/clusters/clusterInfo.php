@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class clusterInfo extends Model
 {
     /**
+     * @description The cluster ID.
+     *
      * @example c2d3e0121ea214b438010502a8019****
      *
      * @var string
@@ -16,6 +18,10 @@ class clusterInfo extends Model
     public $clusterId;
 
     /**
+     * @description The specification of the cluster.
+     *
+     *   Only ack.pro.small is returned.
+     *
      * @example ack.pro.small
      *
      * @var string
@@ -23,6 +29,8 @@ class clusterInfo extends Model
     public $clusterSpec;
 
     /**
+     * @description The time when the cluster was created.
+     *
      * @example 2021-11-05T10:25:48Z
      *
      * @var string
@@ -30,6 +38,8 @@ class clusterInfo extends Model
     public $creationTime;
 
     /**
+     * @description The error message that is returned if the cluster failed to be created.
+     *
      * @example Success
      *
      * @var string
@@ -37,6 +47,8 @@ class clusterInfo extends Model
     public $errorMessage;
 
     /**
+     * @description The name of the cluster.
+     *
      * @example ackone-heyuan
      *
      * @var string
@@ -44,6 +56,8 @@ class clusterInfo extends Model
     public $name;
 
     /**
+     * @description The configurations of the cluster.
+     *
      * @example Default
      *
      * @var string
@@ -51,6 +65,8 @@ class clusterInfo extends Model
     public $profile;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-beijing
      *
      * @var string
@@ -58,6 +74,25 @@ class clusterInfo extends Model
     public $regionId;
 
     /**
+     * @description The ID of Resource Group.
+     *
+     * @example rg-qh2zgjsdv52***
+     *
+     * @var string
+     */
+    public $resourceGroupID;
+
+    /**
+     * @description The status of the cluster. Valid values:
+     *
+     *   initial: The cluster is being initialized.
+     *   failed: The cluster failed to be created.
+     *   running: The cluster is running
+     *   inactive: The cluster is pending.
+     *   deleting: The cluster is being deleted.
+     *   delete_failed: The cluster failed to be deleted.
+     *   deleted: The cluster is deleted.
+     *
      * @example running
      *
      * @var string
@@ -65,6 +100,8 @@ class clusterInfo extends Model
     public $state;
 
     /**
+     * @description The time when the cluster was last updated.
+     *
      * @example 2021-09-02T13:39:50Z
      *
      * @var string
@@ -72,22 +109,25 @@ class clusterInfo extends Model
     public $updateTime;
 
     /**
+     * @description The Kubernetes version of the cluster.
+     *
      * @example 1.22.3-aliyun.1
      *
      * @var string
      */
     public $version;
     protected $_name = [
-        'clusterId'    => 'ClusterId',
-        'clusterSpec'  => 'ClusterSpec',
-        'creationTime' => 'CreationTime',
-        'errorMessage' => 'ErrorMessage',
-        'name'         => 'Name',
-        'profile'      => 'Profile',
-        'regionId'     => 'RegionId',
-        'state'        => 'State',
-        'updateTime'   => 'UpdateTime',
-        'version'      => 'Version',
+        'clusterId'       => 'ClusterId',
+        'clusterSpec'     => 'ClusterSpec',
+        'creationTime'    => 'CreationTime',
+        'errorMessage'    => 'ErrorMessage',
+        'name'            => 'Name',
+        'profile'         => 'Profile',
+        'regionId'        => 'RegionId',
+        'resourceGroupID' => 'ResourceGroupID',
+        'state'           => 'State',
+        'updateTime'      => 'UpdateTime',
+        'version'         => 'Version',
     ];
 
     public function validate()
@@ -117,6 +157,9 @@ class clusterInfo extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupID) {
+            $res['ResourceGroupID'] = $this->resourceGroupID;
         }
         if (null !== $this->state) {
             $res['State'] = $this->state;
@@ -159,6 +202,9 @@ class clusterInfo extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupID'])) {
+            $model->resourceGroupID = $map['ResourceGroupID'];
         }
         if (isset($map['State'])) {
             $model->state = $map['State'];

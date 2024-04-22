@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class workflowUnits extends Model
 {
     /**
+     * @description The region ID of the cluster.
+     *
+     * >  You can call the [DescribeRegions](~~143074~~) operation to query the most recent region list.
      * @example cn-beijing
      *
      * @var string
@@ -17,11 +20,15 @@ class workflowUnits extends Model
     public $regionId;
 
     /**
+     * @description The vSwitches.
+     *
      * @var vSwitches[]
      */
     public $vSwitches;
 
     /**
+     * @description The ID of the VPC.
+     *
      * @example vpc-f8zukabbkv5aw7zkm****
      *
      * @var string

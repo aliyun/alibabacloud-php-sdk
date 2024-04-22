@@ -117,9 +117,13 @@ class UpdateHubClusterFeatureRequest extends Model
     public $enableMesh;
 
     /**
+     * @description Specifies whether to enable Gateway. Valid values:
+     * - false
+     * @example true
+     *
      * @var bool
      */
-    public $MSEEnabled;
+    public $gatewayEnabled;
 
     /**
      * @description Specifies whether to enable the monitoring dashboard feature for the workflow instance. This parameter takes effect only if Profile is set to XFlow. Valid values:
@@ -204,7 +208,7 @@ class UpdateHubClusterFeatureRequest extends Model
         'clusterId'              => 'ClusterId',
         'deletionProtection'     => 'DeletionProtection',
         'enableMesh'             => 'EnableMesh',
-        'MSEEnabled'             => 'MSEEnabled',
+        'gatewayEnabled'         => 'GatewayEnabled',
         'monitorEnabled'         => 'MonitorEnabled',
         'name'                   => 'Name',
         'priceLimit'             => 'PriceLimit',
@@ -251,8 +255,8 @@ class UpdateHubClusterFeatureRequest extends Model
         if (null !== $this->enableMesh) {
             $res['EnableMesh'] = $this->enableMesh;
         }
-        if (null !== $this->MSEEnabled) {
-            $res['MSEEnabled'] = $this->MSEEnabled;
+        if (null !== $this->gatewayEnabled) {
+            $res['GatewayEnabled'] = $this->gatewayEnabled;
         }
         if (null !== $this->monitorEnabled) {
             $res['MonitorEnabled'] = $this->monitorEnabled;
@@ -319,8 +323,8 @@ class UpdateHubClusterFeatureRequest extends Model
         if (isset($map['EnableMesh'])) {
             $model->enableMesh = $map['EnableMesh'];
         }
-        if (isset($map['MSEEnabled'])) {
-            $model->MSEEnabled = $map['MSEEnabled'];
+        if (isset($map['GatewayEnabled'])) {
+            $model->gatewayEnabled = $map['GatewayEnabled'];
         }
         if (isset($map['MonitorEnabled'])) {
             $model->monitorEnabled = $map['MonitorEnabled'];

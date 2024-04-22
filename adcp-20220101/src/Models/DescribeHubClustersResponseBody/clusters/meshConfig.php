@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class meshConfig extends Model
 {
     /**
+     * @description Indicates whether ASM is enabled. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example false
      *
      * @var bool
@@ -16,6 +21,8 @@ class meshConfig extends Model
     public $enableMesh;
 
     /**
+     * @description The ASM instance ID.
+     *
      * @example c2d3e0121ea214b438010502a8019****
      *
      * @var string

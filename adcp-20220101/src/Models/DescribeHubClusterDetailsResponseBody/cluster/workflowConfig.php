@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class workflowConfig extends Model
 {
     /**
+     * @description Specifies whether to enable the workflow instance UI. This parameter takes effect only if Profile is set to XFlow. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -17,6 +22,8 @@ class workflowConfig extends Model
     public $argoServerEnabled;
 
     /**
+     * @description The limit on the prices of containers in the workflow. This parameter takes effect only if the WorkflowScheduleMode parameter is set to cost-optimized.
+     *
      * @example 0.08
      *
      * @var string
@@ -24,6 +31,11 @@ class workflowConfig extends Model
     public $priceLimit;
 
     /**
+     * @description The scheduling mode of the workflow. This parameter takes effect only if Profile is set to XFlow. Valid values:
+     *
+     *   cost-optimized: cost-prioritized scheduling mode.
+     *   stock-optimized: inventory-prioritized scheduling mode.
+     *
      * @example cost-optimized
      *
      * @var string
@@ -31,6 +43,8 @@ class workflowConfig extends Model
     public $workflowScheduleMode;
 
     /**
+     * @description The Argo workflow regions  configuration.
+     *
      * @var workflowUnits[]
      */
     public $workflowUnits;

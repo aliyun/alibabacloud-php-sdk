@@ -67,9 +67,8 @@ class Adcp extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_signatureAlgorithm = 'v2';
-        $this->_endpointRule       = 'central';
-        $this->_endpointMap        = [
+        $this->_endpointRule = 'central';
+        $this->_endpointMap  = [
             'cn-beijing'            => 'adcp.cn-beijing.aliyuncs.com',
             'cn-zhangjiakou'        => 'adcp.cn-zhangjiakou.aliyuncs.com',
             'cn-hangzhou'           => 'adcp.cn-hangzhou.aliyuncs.com',
@@ -205,6 +204,9 @@ class Adcp extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupID)) {
+            $body['ResourceGroupID'] = $request->resourceGroupID;
         }
         if (!Utils::isUnset($request->vSwitches)) {
             $body['VSwitches'] = $request->vSwitches;
@@ -606,6 +608,9 @@ class Adcp extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->profile)) {
             $query['Profile'] = $request->profile;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1081,10 +1086,14 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param GrantUserPermissionsRequest $tmpReq
-     * @param RuntimeOptions              $runtime
+     * @deprecated : GrantUserPermissions is deprecated, please use adcp::2022-01-01::GrantUserPermission instead.
+     *   *
+     * Deprecated
      *
-     * @return GrantUserPermissionsResponse
+     * @param GrantUserPermissionsRequest $tmpReq  GrantUserPermissionsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GrantUserPermissionsResponse GrantUserPermissionsResponse
      */
     public function grantUserPermissionsWithOptions($tmpReq, $runtime)
     {
@@ -1120,9 +1129,13 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param GrantUserPermissionsRequest $request
+     * @deprecated : GrantUserPermissions is deprecated, please use adcp::2022-01-01::GrantUserPermission instead.
+     *   *
+     * Deprecated
      *
-     * @return GrantUserPermissionsResponse
+     * @param GrantUserPermissionsRequest $request GrantUserPermissionsRequest
+     *
+     * @return GrantUserPermissionsResponse GrantUserPermissionsResponse
      */
     public function grantUserPermissions($request)
     {
@@ -1179,8 +1192,8 @@ class Adcp extends OpenApiClient
         if (!Utils::isUnset($request->enableMesh)) {
             $query['EnableMesh'] = $request->enableMesh;
         }
-        if (!Utils::isUnset($request->MSEEnabled)) {
-            $query['MSEEnabled'] = $request->MSEEnabled;
+        if (!Utils::isUnset($request->gatewayEnabled)) {
+            $query['GatewayEnabled'] = $request->gatewayEnabled;
         }
         if (!Utils::isUnset($request->monitorEnabled)) {
             $query['MonitorEnabled'] = $request->monitorEnabled;

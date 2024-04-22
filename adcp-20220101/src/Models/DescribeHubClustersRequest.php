@@ -9,13 +9,25 @@ use AlibabaCloud\Tea\Model;
 class DescribeHubClustersRequest extends Model
 {
     /**
+     * @description The configurations of the cluster.
+     *
      * @example Default
      *
      * @var string
      */
     public $profile;
+
+    /**
+     * @description The resource group ID.
+     *
+     * @example rg-aekz77rhypeu***
+     *
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
-        'profile' => 'Profile',
+        'profile'         => 'Profile',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -27,6 +39,9 @@ class DescribeHubClustersRequest extends Model
         $res = [];
         if (null !== $this->profile) {
             $res['Profile'] = $this->profile;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -42,6 +57,9 @@ class DescribeHubClustersRequest extends Model
         $model = new self();
         if (isset($map['Profile'])) {
             $model->profile = $map['Profile'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

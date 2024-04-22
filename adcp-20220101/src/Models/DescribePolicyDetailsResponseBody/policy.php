@@ -60,7 +60,7 @@ class policy extends Model
      * @description Indicates whether parameters are required. Valid values:
      *
      *   0: Parameters are required.
-     *   1: Parameters are optional.
+     *   1: Parameters are not required.
      *
      * @example 0
      *
@@ -79,6 +79,8 @@ class policy extends Model
 
     /**
      * @description The content of the policy.
+     *
+     * @example The content of the policy.
      *
      * @var string
      */

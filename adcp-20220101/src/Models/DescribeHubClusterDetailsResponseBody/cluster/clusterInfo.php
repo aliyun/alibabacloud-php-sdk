@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeHubClusterDetailsResponseBody\cluster;
 
+use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeHubClusterDetailsResponseBody\cluster\clusterInfo\metaData;
 use AlibabaCloud\Tea\Model;
 
 class clusterInfo extends Model
@@ -47,6 +48,13 @@ class clusterInfo extends Model
     public $errorMessage;
 
     /**
+     * @description The cluster metadata.
+     *
+     * @var metaData
+     */
+    public $metaData;
+
+    /**
      * @description The name of the master instance.
      *
      * @example ackone-heyuan
@@ -72,6 +80,15 @@ class clusterInfo extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @description The ID of Resource Group.
+     *
+     * @example rg-1w4vdvo6p51***
+     *
+     * @var string
+     */
+    public $resourceGroupID;
 
     /**
      * @description The status of the master instance. Valid values:
@@ -108,16 +125,18 @@ class clusterInfo extends Model
      */
     public $version;
     protected $_name = [
-        'clusterId'    => 'ClusterId',
-        'clusterSpec'  => 'ClusterSpec',
-        'creationTime' => 'CreationTime',
-        'errorMessage' => 'ErrorMessage',
-        'name'         => 'Name',
-        'profile'      => 'Profile',
-        'regionId'     => 'RegionId',
-        'state'        => 'State',
-        'updateTime'   => 'UpdateTime',
-        'version'      => 'Version',
+        'clusterId'       => 'ClusterId',
+        'clusterSpec'     => 'ClusterSpec',
+        'creationTime'    => 'CreationTime',
+        'errorMessage'    => 'ErrorMessage',
+        'metaData'        => 'MetaData',
+        'name'            => 'Name',
+        'profile'         => 'Profile',
+        'regionId'        => 'RegionId',
+        'resourceGroupID' => 'ResourceGroupID',
+        'state'           => 'State',
+        'updateTime'      => 'UpdateTime',
+        'version'         => 'Version',
     ];
 
     public function validate()
@@ -139,6 +158,9 @@ class clusterInfo extends Model
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
+        if (null !== $this->metaData) {
+            $res['MetaData'] = null !== $this->metaData ? $this->metaData->toMap() : null;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -147,6 +169,9 @@ class clusterInfo extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupID) {
+            $res['ResourceGroupID'] = $this->resourceGroupID;
         }
         if (null !== $this->state) {
             $res['State'] = $this->state;
@@ -181,6 +206,9 @@ class clusterInfo extends Model
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
+        if (isset($map['MetaData'])) {
+            $model->metaData = metaData::fromMap($map['MetaData']);
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
@@ -189,6 +217,9 @@ class clusterInfo extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupID'])) {
+            $model->resourceGroupID = $map['ResourceGroupID'];
         }
         if (isset($map['State'])) {
             $model->state = $map['State'];

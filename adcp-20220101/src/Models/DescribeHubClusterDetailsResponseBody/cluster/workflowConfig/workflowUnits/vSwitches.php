@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class vSwitches extends Model
 {
     /**
+     * @description The ID of the vSwitch.
+     *
      * @example vsw-wz9sf0hsuizl7bxnj****
      *
      * @var string
@@ -16,6 +18,9 @@ class vSwitches extends Model
     public $vswitchId;
 
     /**
+     * @description The zone ID of the cluster.
+     *
+     * > You can call the [DescribeRegions](~~143074~~) operation to query the most recent zone list.
      * @example cn-hangzhou-e
      *
      * @var string

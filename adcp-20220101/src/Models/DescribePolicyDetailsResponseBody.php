@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribePolicyDetailsResponseBody extends Model
 {
     /**
-     * @description Detailed information about the policy.
+     * @description The policies.
      *
      * @var policy
      */

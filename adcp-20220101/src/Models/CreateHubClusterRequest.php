@@ -21,6 +21,11 @@ class CreateHubClusterRequest extends Model
     public $apiServerPublicEip;
 
     /**
+     * @description Specifies whether to enable the workflow instance UI. This parameter takes effect only if Profile is set to XFlow. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -58,6 +63,8 @@ class CreateHubClusterRequest extends Model
     public $name;
 
     /**
+     * @description The limit on the prices of containers in the workflow. This parameter takes effect only if the WorkflowScheduleMode parameter is set to cost-optimized.
+     *
      * @example 0.08
      *
      * @var string
@@ -87,6 +94,15 @@ class CreateHubClusterRequest extends Model
     public $regionId;
 
     /**
+     * @description The Resource Group ID.
+     *
+     * @example rg-1exm6tg2h48***
+     *
+     * @var string
+     */
+    public $resourceGroupID;
+
+    /**
      * @description The ID of the vSwitch.
      *
      * @example ["vsw-2zeaijsas4zkzz81xm***"]
@@ -105,6 +121,11 @@ class CreateHubClusterRequest extends Model
     public $vpcId;
 
     /**
+     * @description The scheduling mode of the workflow. This parameter takes effect only if Profile is set to XFlow. Valid values:
+     *
+     *   cost-optimized: cost-prioritized scheduling mode.
+     *   stock-optimized: inventory-prioritized scheduling mode.
+     *
      * @example cost-optimized
      *
      * @var string
@@ -119,6 +140,7 @@ class CreateHubClusterRequest extends Model
         'priceLimit'                => 'PriceLimit',
         'profile'                   => 'Profile',
         'regionId'                  => 'RegionId',
+        'resourceGroupID'           => 'ResourceGroupID',
         'vSwitches'                 => 'VSwitches',
         'vpcId'                     => 'VpcId',
         'workflowScheduleMode'      => 'WorkflowScheduleMode',
@@ -154,6 +176,9 @@ class CreateHubClusterRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupID) {
+            $res['ResourceGroupID'] = $this->resourceGroupID;
         }
         if (null !== $this->vSwitches) {
             $res['VSwitches'] = $this->vSwitches;
@@ -199,6 +224,9 @@ class CreateHubClusterRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupID'])) {
+            $model->resourceGroupID = $map['ResourceGroupID'];
         }
         if (isset($map['VSwitches'])) {
             $model->vSwitches = $map['VSwitches'];

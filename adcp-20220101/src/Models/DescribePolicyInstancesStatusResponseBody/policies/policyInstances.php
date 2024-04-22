@@ -12,7 +12,7 @@ class policyInstances extends Model
     /**
      * @description The type of the policy.
      *
-     * @example cis-k8s
+     * @example compliance
      *
      * @var string
      */

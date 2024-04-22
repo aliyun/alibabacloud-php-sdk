@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class endpoints extends Model
 {
     /**
+     * @description The internal endpoint of the API server.
+     *
      * @example https://172.16.6.**:6443
      *
      * @var string
@@ -16,6 +18,8 @@ class endpoints extends Model
     public $intranetApiServerEndpoint;
 
     /**
+     * @description The public endpoint of the API server.
+     *
      * @example https://123.57.21.***:6443
      *
      * @var string

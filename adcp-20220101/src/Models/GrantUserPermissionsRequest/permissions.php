@@ -20,6 +20,8 @@ class permissions extends Model
     public $clusterId;
 
     /**
+     * @description The entity to which the permissions are granted. A value of `true` indicates that the permissions are granted to a RAM user. A value of `false` indicates that the permissions are granted to a RAM role.
+     *
      * @example true
      *
      * @var bool

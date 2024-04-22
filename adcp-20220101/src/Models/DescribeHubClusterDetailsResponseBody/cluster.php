@@ -66,6 +66,8 @@ class cluster extends Model
     public $network;
 
     /**
+     * @description The Argo workflow configuration.
+     *
      * @var workflowConfig
      */
     public $workflowConfig;
