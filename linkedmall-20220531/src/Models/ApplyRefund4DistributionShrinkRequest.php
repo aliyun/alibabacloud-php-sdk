@@ -37,6 +37,8 @@ class ApplyRefund4DistributionShrinkRequest extends Model
     public $bizClaimType;
 
     /**
+     * @example 7662***125
+     *
      * @var string
      */
     public $distributorId;
@@ -59,11 +61,15 @@ class ApplyRefund4DistributionShrinkRequest extends Model
     public $leavePictureListsShrink;
 
     /**
+     * @example DIS_343***445
+     *
      * @var string
      */
     public $subDistributionOrderId;
 
     /**
+     * @example 213**761
+     *
      * @var string
      */
     public $tenantId;

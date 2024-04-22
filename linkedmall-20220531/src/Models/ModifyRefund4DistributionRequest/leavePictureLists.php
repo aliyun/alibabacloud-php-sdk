@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class leavePictureLists extends Model
 {
     /**
-     * @example https://lm-dk.oss-cn-hangzhou.aliyuncs.com/1635734*******.png
+     * @example https://www.aliyun.com
      *
      * @var string
      */
     public $desc;
 
     /**
-     * @example http://oss-cn-beijing.aliyuncs.com/orderReturn/163767*****.jpg
+     * @example 商品损坏
      *
      * @var string
      */

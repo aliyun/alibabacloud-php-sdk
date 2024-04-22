@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class ModifyRefund4DistributionResponseBody extends Model
 {
     /**
+     * @example 0000
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $logsId;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $message;
@@ -30,6 +36,8 @@ class ModifyRefund4DistributionResponseBody extends Model
     public $model;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
@@ -37,31 +45,43 @@ class ModifyRefund4DistributionResponseBody extends Model
     /**
      * @description pageSize
      *
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 539E5C68-D8B5-57EC-9****8AFD9E0
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 200
+     *
      * @var string
      */
     public $subCode;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $subMessage;
 
     /**
+     * @example SUCCESS
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

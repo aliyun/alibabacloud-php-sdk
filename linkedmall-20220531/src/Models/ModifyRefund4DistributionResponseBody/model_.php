@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class model_ extends Model
 {
     /**
+     * @example 235***343
+     *
      * @var int
      */
     public $disputeId;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $disputeStatus;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $disputeType;
 
     /**
+     * @example DIS_153***851
+     *
      * @var string
      */
     public $subDistributionOrderId;

@@ -75,6 +75,8 @@ class ModifyRefund4DistributionShrinkRequest extends Model
     public $subDistributionOrderId;
 
     /**
+     * @example 213**112
+     *
      * @var string
      */
     public $tenantId;
