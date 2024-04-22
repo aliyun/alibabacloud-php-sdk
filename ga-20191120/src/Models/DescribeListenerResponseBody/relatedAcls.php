@@ -20,8 +20,8 @@ class relatedAcls extends Model
     /**
      * @description Indicates whether the access control feature is enabled. Valid values:
      *
-     *   **on**: enabled
-     *   **off**: disabled
+     *   **on**: enabled.
+     *   **off**: disabled.
      *
      * @example off
      *

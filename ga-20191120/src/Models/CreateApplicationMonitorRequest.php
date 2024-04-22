@@ -31,7 +31,7 @@ class CreateApplicationMonitorRequest extends Model
      *
      * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
      *
-     * >  If you do not specify this parameter, the system automatically uses the value of **RequestId** as the value of **ClientToken**. The **request ID** may be different for each request.
+     * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -114,7 +114,7 @@ class CreateApplicationMonitorRequest extends Model
     /**
      * @description The name of the origin probing task.
      *
-     * The name must be 4 to 100 characters in length, and can contain digits, underscores (\_), and hyphens (-). It must start with a letter.
+     * The name must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter.
      * @example task1
      *
      * @var string

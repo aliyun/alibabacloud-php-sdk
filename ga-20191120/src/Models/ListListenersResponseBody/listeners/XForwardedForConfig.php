@@ -11,8 +11,8 @@ class XForwardedForConfig extends Model
     /**
      * @description Indicates whether the `GA-AP` header is used to retrieve the information about acceleration regions. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
      * >  This parameter is returned only for HTTP and HTTPS listeners.
      * @example false
@@ -24,8 +24,8 @@ class XForwardedForConfig extends Model
     /**
      * @description Indicates whether the `GA-ID` header is used to retrieve the ID of the GA instance. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
      * >  This parameter is returned only for HTTP and HTTPS listeners.
      * @example false
@@ -37,8 +37,8 @@ class XForwardedForConfig extends Model
     /**
      * @description Indicates whether the `GA-X-Forward-Port` header is used to retrieve the listener ports of the GA instance. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
      * >  This parameter is returned only for HTTP and HTTPS listeners.
      * @example false
@@ -50,8 +50,8 @@ class XForwardedForConfig extends Model
     /**
      * @description Indicates whether the `GA-X-Forward-Proto` header is used to retrieve the listener protocol of the GA instance. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
      * >  This parameter is returned only for HTTP and HTTPS listeners.
      * @example false
@@ -63,8 +63,8 @@ class XForwardedForConfig extends Model
     /**
      * @description Indicates whether the `X-Real-IP` header is used to retrieve client IP addresses. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
      * >  This parameter is returned only for HTTP and HTTPS listeners.
      * @example false

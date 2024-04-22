@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListBandwidthackagesResponseBody extends Model
 {
     /**
-     * @description Details about the bandwidth plans.
+     * @description The details of the bandwidth plans.
      *
      * @var bandwidthPackages[]
      */

@@ -22,7 +22,7 @@ class CreateSpareIpsRequest extends Model
      *
      * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
      *
-     * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+     * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 1F4B6A4A-C89E-489E-BAF1-52777EE148EF
      *
      * @var string
@@ -51,9 +51,9 @@ class CreateSpareIpsRequest extends Model
     public $regionId;
 
     /**
-     * @description The secondary IP addresses to be created for the CNAME. If an acceleration area of the GA instance become unavailable, GA redirects the access traffic to the secondary IP addresses.
+     * @description The secondary IP addresses to be created for the CNAME. If an acceleration area of the GA instance becomes unavailable, access traffic is redirected to the secondary IP addresses.
      *
-     * You can specify up to 2 secondary IP addresses. Separate IP addresses with commas (,).
+     * You can specify up to two secondary IP addresses.
      * @var string[]
      */
     public $spareIps;

@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeBandwidthPackageAutoRenewAttributeResponseBody extends Model
 {
     /**
-     * @description Indicates whether auto-renewal is enabled. Valid values:
+     * @description Indicates whether auto-renewal is enabled.
      *
-     *   **true**: enabled
-     *   **false** (default): disabled
+     *   **true**
+     *   **false** (default)
      *
      * @example false
      *
@@ -21,9 +21,9 @@ class DescribeBandwidthPackageAutoRenewAttributeResponseBody extends Model
     public $autoRenew;
 
     /**
-     * @description The auto-renewal period. Unit: months. Valid values: **1** to **12**.
+     * @description The auto-renewal duration. Unit: month. Valid values: **1** to **12**.
      *
-     * > : This parameter takes effect only if **AutoRenew** is set to **true**.
+     * >  This parameter is returned only if the value of **AutoRenew** is **true**.
      * @example 1
      *
      * @var int
@@ -40,13 +40,13 @@ class DescribeBandwidthPackageAutoRenewAttributeResponseBody extends Model
     public $instanceId;
 
     /**
-     * @description The auto-renewal status of the bandwidth plan. Valid values:
+     * @description The auto-renewal status of the bandwidth plan.
      *
      *   **AutoRenewal**: The bandwidth plan is automatically renewed.
      *   **Normal**: You must manually renew the bandwidth plan.
-     *   **NotRenewal**: Choose this option if you do not want to renew the bandwidth plan after it expires. The system sends only a non-renewal reminder three days before the expiration date. The system no longer sends notifications to remind you to renew the bandwidth plan. You can change the value of this parameter from NotRenewal to Normal for a bandwidth plan, and then manually renew the bandwidth plan. You can also set the RenewalStatus parameter to **AutoRenewal**.
+     *   **NotRenewal**: The bandwidth plan is not renewed after it expires. The system sends a non-renewal reminder three days before the expiration date but no longer sends reminders to renew the bandwidth plan. You can change the auto-renewal status of a bandwidth plan from NotRenewal to **Normal** or **AutoRenewal**.
      *
-     * > The **RenewalStatus** parameter takes precedence over the **AutoRenew** parameter. If you do not set **RenewalStatus**, the **AutoRenew** parameter is used by default.
+     * >  **RenewalStatus** takes precedence over **AutoRenew**. If you do not specify **RenewalStatus**, **AutoRenew** is automatically used.
      * @example Normal
      *
      * @var string

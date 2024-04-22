@@ -19,9 +19,9 @@ class areas extends Model
     public $areaId;
 
     /**
-     * @description The name of the acceleration area.
+     * @description The acceleration area name.
      *
-     * @example 华北
+     * @example North China
      *
      * @var string
      */

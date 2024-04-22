@@ -39,10 +39,9 @@ class UpdateServiceManagedControlRequest extends Model
     public $resourceId;
 
     /**
-     * @description The type of the resource whose control mode you want to change. Valid values:
+     * @description The type of the resource whose control mode you want to change.
      *
-     **Accelerator**: standard GA instance.
-     *
+     * Set the value to **Accelerator**, which specifies a standard GA instance.
      * @example Accelerator
      *
      * @var string
@@ -50,9 +49,9 @@ class UpdateServiceManagedControlRequest extends Model
     public $resourceType;
 
     /**
-     * @description The control mode of the resource. Valid values:
+     * @description The control mode of the resource.
      *
-     **false**: changes the control mode of the resource from managed mode to unmanaged mode.
+     * Set the value to **false**, which changes the control mode of the resource from managed mode to unmanaged mode.
      *
      * >  You can change the control mode only from managed mode to unmanaged mode.
      * @example false

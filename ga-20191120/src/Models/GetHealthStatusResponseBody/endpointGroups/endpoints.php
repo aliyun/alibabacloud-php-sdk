@@ -39,9 +39,9 @@ class endpoints extends Model
     /**
      * @description The health status of the endpoint. Valid values:
      *
-     *   **init**: The endpoint is being initialized.
-     *   **normal**: The endpoint is normal.
-     *   **Abnormal**: The endpoint is abnormal.
+     *   **init:** The endpoint is being initialized.
+     *   **normal:** The endpoint is normal.
+     *   **abnormal:** The endpoint is abnormal.
      *
      * @example normal
      *
@@ -61,13 +61,15 @@ class endpoints extends Model
     /**
      * @description The type of the endpoint. Valid values:
      *
-     *   **Domain**: a custom domain name
-     *   **Ip**: a custom IP address
-     *   **PublicIp**: a public IP address provided by Alibaba Cloud
-     *   **ECS**: an Elastic Compute Service (ECS) instance
-     *   **SLB**: a Server Load Balancer (SLB) instance
-     *   **ALB**: an Application Load Balancer (ALB) instance
-     *   **OSS**: an Object Storage Service (OSS) bucket
+     *   **Domain:** a custom domain name.
+     *   **Ip:** a custom IP address.
+     *   **PublicIp:** a public IP address provided by Alibaba Cloud.
+     *   **ECS:** an Elastic Compute Service (ECS) instance.
+     *   **SLB:** a Classic Load Balancer (CLB) instance.
+     *   **ALB:** an Application Load Balancer (ALB) instance.
+     *   **OSS:** an Object Storage Service (OSS) bucket.
+     *   **ENI:** an elastic network interface (ENI).
+     *   **NLB:** a Network Load Balancer (NLB) instance.
      *
      * @example Ip
      *

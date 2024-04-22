@@ -26,10 +26,10 @@ class DescribeListenerResponseBody extends Model
     /**
      * @description The type of the ACL. Valid values:
      *
-     *   **white**: a whitelist. Only requests from the IP addresses or CIDR blocks in the ACL are forwarded. Whitelists apply to scenarios in which you want to allow only specified IP addresses to access an application. Your service may be adversely affected if the whitelist is not properly configured. After you configure a whitelist for a listener, only requests from the IP addresses that are added to the whitelist are forwarded by the listener. If the whitelist is enabled but no IP addresses are added to the ACL, the listener does not forward requests.
-     *   **black**: a blacklist. All requests from the IP addresses or CIDR blocks in the ACL are blocked. Blacklists apply to scenarios in which you want to deny access from specific IP addresses to an application. If the blacklist is enabled but no IP addresses are added to the ACL, the listener forwards all requests.
+     *   **white**: a whitelist. Only requests from the IP addresses or CIDR blocks in the ACL are forwarded. Whitelists are suitable for scenarios in which you want to allow only specific IP addresses to access an application. If a whitelist is improperly configured, risks may arise. After a whitelist is configured for a listener, only requests from the IP addresses that are added to the whitelist are distributed by the listener. If the whitelist is enabled but no IP addresses are added to the ACL, the listener does not forward requests.
+     *   **black**: a blacklist. All requests from the IP addresses or CIDR blocks in the ACL are blocked. Blacklists are suitable for scenarios in which you want to deny access from specific IP addresses to an application. If the blacklist is enabled but no IP addresses are added to the ACL, the listener forwards all requests.
      *
-     * If the value of **Status** is **on**, this parameter is returned.
+     * This parameter is returned only if the value of **Status** is **on**.
      * @example white
      *
      * @var string
@@ -37,7 +37,7 @@ class DescribeListenerResponseBody extends Model
     public $aclType;
 
     /**
-     * @description Details about the backend ports.
+     * @description The information about the backend ports.
      *
      * @var backendPorts[]
      */
@@ -53,8 +53,8 @@ class DescribeListenerResponseBody extends Model
     /**
      * @description Indicates whether client affinity is enabled for the listener.
      *
-     *   If **NONE** is returned, client affinity is disabled. In this case, requests from the same client may be forwarded to different endpoints.
-     *   If **SOURCE_IP** is returned, client affinity is enabled. In this case, when a client accesses stateful applications, requests from the same client are always forwarded to the same endpoint regardless of the source port or protocol.
+     *   If **NONE** is returned, client affinity is disabled. Requests from the same client may be forwarded to different endpoints.
+     *   If **SOURCE_IP** is returned, client affinity is enabled. When a client accesses stateful applications, requests from the same client are forwarded to the same endpoint regardless of the source port or protocol.
      *
      * @example SOURCE_IP
      *
@@ -63,7 +63,7 @@ class DescribeListenerResponseBody extends Model
     public $clientAffinity;
 
     /**
-     * @description The timestamp when the listener was created. Unit: milliseconds.
+     * @description The time when the listener was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. Unit: milliseconds.
      *
      * @example 1577786252000
      *
@@ -81,6 +81,24 @@ class DescribeListenerResponseBody extends Model
     public $description;
 
     /**
+     * @description The maximum version of the HTTP protocol. Valid values:
+     *
+     *   **http3**
+     *   **http2**
+     *   **http1.1**
+     *
+     * >  This parameter is returned only for HTTPS listeners.
+     * @example http2
+     *
+     * @var string
+     */
+    public $httpVersion;
+
+    /**
+     * @description The timeout period of idle connections. Unit: seconds.
+     *
+     * @example 900
+     *
      * @var int
      */
     public $idleTimeout;
@@ -104,7 +122,7 @@ class DescribeListenerResponseBody extends Model
     public $name;
 
     /**
-     * @description Details about the listener ports.
+     * @description The information about the listener ports.
      *
      * @var portRanges[]
      */
@@ -113,10 +131,10 @@ class DescribeListenerResponseBody extends Model
     /**
      * @description The network transmission protocol that is used by the listener. Valid values:
      *
-     *   **tcp**: TCP
-     *   **udp**: UDP
-     *   **http**: HTTP
-     *   **https**: HTTPS
+     *   **tcp**: TCP.
+     *   **udp**: UDP.
+     *   **http**: HTTP.
+     *   **https**: HTTPS.
      *
      * @example tcp
      *
@@ -127,8 +145,8 @@ class DescribeListenerResponseBody extends Model
     /**
      * @description Indicates whether the client IP address preservation feature is enabled. Valid values:
      *
-     *   **true**: The client IP address preservation feature is enabled. After client IP addresses are reserved, you can view the source IP addresses of clients over the backend service.
-     *   **false**: The client IP address preservation feature is disabled.
+     *   **true** You can view the source IP addresses of clients over the backend service.
+     *   **false**
      *
      * @example false
      *
@@ -153,6 +171,11 @@ class DescribeListenerResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The timeout period of HTTP or HTTPS requests. Unit: seconds.
+     *
+     * >  This parameter is returned only for HTTP and HTTPS listeners. If no responses are received from the backend server within the specified timeout period, GA returns the HTTP 504 error code to the client.
+     * @example 60
+     *
      * @var int
      */
     public $requestTimeout;
@@ -162,28 +185,28 @@ class DescribeListenerResponseBody extends Model
      *
      *   **tls_cipher_policy\_1\_0**
      *
-     *   Supported Transport Layer Security (TLS) versions: TLS 1.0, TLS 1.1, and TLS 1.2
-     *   Supported cipher suites: ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, AES128-GCM-SHA256, AES256-GCM-SHA384, AES128-SHA256, AES256-SHA256, ECDHE-RSA-AES128-SHA, ECDHE-RSA-AES256-SHA, AES128-SHA, AES256-SHA, and DES-CBC3-SHA
+     *   Supported Transport Layer Security (TLS) versions: TLS 1.0, TLS 1.1, and TLS 1.2.
+     *   Supported cipher suites: ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, AES128-GCM-SHA256, AES256-GCM-SHA384, AES128-SHA256, AES256-SHA256, ECDHE-RSA-AES128-SHA, ECDHE-RSA-AES256-SHA, AES128-SHA, AES256-SHA, and DES-CBC3-SHA.
      *
      *   **tls_cipher_policy\_1\_1**
      *
-     *   Supported TLS versions: TLS 1.1 and TLS 1.2
-     *   Supported cipher suites: ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, AES128-GCM-SHA256, AES256-GCM-SHA384, AES128-SHA256, AES256-SHA256, ECDHE-RSA-AES128-SHA, ECDHE-RSA-AES256-SHA, AES128-SHA, AES256-SHA, and DES-CBC3-SHA
+     *   Supported TLS versions: TLS 1.1 and TLS 1.2.
+     *   Supported cipher suites: ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, AES128-GCM-SHA256, AES256-GCM-SHA384, AES128-SHA256, AES256-SHA256, ECDHE-RSA-AES128-SHA, ECDHE-RSA-AES256-SHA, AES128-SHA, AES256-SHA, and DES-CBC3-SHA.
      *
      *   **tls_cipher_policy\_1\_2**
      *
-     *   Supported TLS version: TLS 1.2
-     *   Supported cipher suites: ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, AES128-GCM-SHA256, AES256-GCM-SHA384, AES128-SHA256, AES256-SHA256, ECDHE-RSA-AES128-SHA, ECDHE-RSA-AES256-SHA, AES128-SHA, AES256-SHA, and DES-CBC3-SHA
+     *   Supported TLS version: TLS 1.2.
+     *   Supported cipher suites: ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, AES128-GCM-SHA256, AES256-GCM-SHA384, AES128-SHA256, AES256-SHA256, ECDHE-RSA-AES128-SHA, ECDHE-RSA-AES256-SHA, AES128-SHA, AES256-SHA, and DES-CBC3-SHA.
      *
      *   **tls_cipher_policy\_1\_2\_strict**
      *
-     *   Supported TLS version: TLS 1.2
-     *   Supported cipher suites: ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, ECDHE-RSA-AES128-SHA, and ECDHE-RSA-AES256-SHA
+     *   Supported TLS version: TLS 1.2.
+     *   Supported cipher suites: ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, ECDHE-RSA-AES128-SHA, and ECDHE-RSA-AES256-SHA.
      *
      *   **tls_cipher_policy\_1\_2\_strict_with\_1\_3**
      *
-     *   Supported TLS versions: TLS 1.2 and TLS 1.3
-     *   Supported cipher suites: TLS_AES\_128\_GCM_SHA256, TLS_AES\_256\_GCM_SHA384, TLS_CHACHA20\_POLY1305\_SHA256, TLS_AES\_128\_CCM_SHA256, TLS_AES\_128\_CCM\_8\_SHA256, ECDHE-ECDSA-AES128-GCM-SHA256, ECDHE-ECDSA-AES256-GCM-SHA384, ECDHE-ECDSA-AES128-SHA256, ECDHE-ECDSA-AES256-SHA384, ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, ECDHE-ECDSA-AES128-SHA, ECDHE-ECDSA-AES256-SHA, ECDHE-RSA-AES128-SHA, and ECDHE-RSA-AES256-SHA
+     *   Supported TLS versions: TLS 1.2 and TLS 1.3.
+     *   Supported cipher suites: TLS_AES\_128\_GCM_SHA256, TLS_AES\_256\_GCM_SHA384, TLS_CHACHA20\_POLY1305\_SHA256, TLS_AES\_128\_CCM_SHA256, TLS_AES\_128\_CCM\_8\_SHA256, ECDHE-ECDSA-AES128-GCM-SHA256, ECDHE-ECDSA-AES256-GCM-SHA384, ECDHE-ECDSA-AES128-SHA256, ECDHE-ECDSA-AES256-SHA384, ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, ECDHE-ECDSA-AES128-SHA, ECDHE-ECDSA-AES256-SHA, ECDHE-RSA-AES128-SHA, and ECDHE-RSA-AES256-SHA.
      *
      * >  This parameter is returned only for HTTPS listeners.
      * @example tls_cipher_policy_1_0
@@ -193,9 +216,9 @@ class DescribeListenerResponseBody extends Model
     public $securityPolicyId;
 
     /**
-     * @description The service ID to which the managed instance belongs.
+     * @description The ID of the service that manages the instance.
      *
-     * >  Valid only when the ServiceManaged parameter is True.
+     * >  This parameter is returned only if the value of **ServiceManaged** is **true**.
      * @example ALB
      *
      * @var string
@@ -203,9 +226,11 @@ class DescribeListenerResponseBody extends Model
     public $serviceId;
 
     /**
-     * @description Is it a managed instance. Valid values:
+     * @description Indicates whether the instance is managed. Valid values:
      *
-     * - false
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -213,19 +238,20 @@ class DescribeListenerResponseBody extends Model
     public $serviceManaged;
 
     /**
-     * @description A list of action policies that users can execute on this managed instance.
-     *
+     * @description The actions that users can perform on the managed instance.
+     * >*   This parameter is returned only if the value of **ServiceManaged** is **true**.
+     * >*   Users can perform only specific actions on a managed instance.
      * @var serviceManagedInfos[]
      */
     public $serviceManagedInfos;
 
     /**
-     * @description The state of the listener. Valid values:
+     * @description The status of the listener. Valid values:
      *
      *   **configuring**: The listener is being configured.
      *   **init**: The listener is being initialized.
      *   **updating**: The listener is being updated.
-     *   **deleting**: The listener is being deleted.
+     *   **deleting:** The listener is being deleted.
      *
      * @example active
      *
@@ -236,8 +262,8 @@ class DescribeListenerResponseBody extends Model
     /**
      * @description The routing type of the listener. Valid values:
      *
-     *   **Standard**: intelligent routing
-     *   **CustomRouting**: custom routing
+     *   **Standard**: intelligent routing.
+     *   **CustomRouting**: custom routing.
      *
      * @example Standard
      *
@@ -259,6 +285,7 @@ class DescribeListenerResponseBody extends Model
         'clientAffinity'      => 'ClientAffinity',
         'createTime'          => 'CreateTime',
         'description'         => 'Description',
+        'httpVersion'         => 'HttpVersion',
         'idleTimeout'         => 'IdleTimeout',
         'listenerId'          => 'ListenerId',
         'name'                => 'Name',
@@ -316,6 +343,9 @@ class DescribeListenerResponseBody extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->httpVersion) {
+            $res['HttpVersion'] = $this->httpVersion;
         }
         if (null !== $this->idleTimeout) {
             $res['IdleTimeout'] = $this->idleTimeout;
@@ -427,6 +457,9 @@ class DescribeListenerResponseBody extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['HttpVersion'])) {
+            $model->httpVersion = $map['HttpVersion'];
         }
         if (isset($map['IdleTimeout'])) {
             $model->idleTimeout = $map['IdleTimeout'];

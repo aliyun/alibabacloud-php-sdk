@@ -18,7 +18,7 @@ class regions extends Model
     public $localName;
 
     /**
-     * @description The ID of the region where the GA instance is deployed. Only **cn-hangzhou** is returned.
+     * @description The ID of the region.
      *
      * @example cn-hangzhou
      *

@@ -14,14 +14,14 @@ class regions extends Model
      *   **true**
      *   **false**
      *
-     * @example false
+     * @example true
      *
      * @var bool
      */
     public $chinaMainland;
 
     /**
-     * @description The region name.
+     * @description The name of the region.
      *
      * @example China (Qingdao)
      *
@@ -30,7 +30,7 @@ class regions extends Model
     public $localName;
 
     /**
-     * @description Indicates whether the region is a point of presence (PoP) of Alibaba Cloud. Valid values:
+     * @description Indicates whether it is a point of presence (PoP) of Alibaba Cloud. Valid values:
      *
      *   **true**
      *   **false**
@@ -42,7 +42,7 @@ class regions extends Model
     public $pop;
 
     /**
-     * @description The region ID.
+     * @description The ID of the region.
      *
      * @example cn-qingdao
      *

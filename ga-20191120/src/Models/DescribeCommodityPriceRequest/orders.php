@@ -21,15 +21,15 @@ class orders extends Model
     /**
      * @description The commodity code.
      *
-     * Examples for the China site (aliyun.com):
+     * Valid values on the China site (aliyun.com):
      *
      *   **ga_gapluspre_public_cn**: GA instance.
      *   **ga_plusbwppre_public_cn**: basic bandwidth plan.
      *
-     * Examples for the international site (alibabacloud.com):
+     * Valid values on the international site (alibabacloud.com):
      *
      *   **ga_pluspre_public_intl**: GA instance.
-     *   **ga_bwppreintl_public_intl**: basic bandwidth plan.
+     *   **ga_bwppreintl_public_intl:** basic bandwidth plan.
      *
      * @example ga_gapluspre_public_cn
      *
@@ -38,7 +38,7 @@ class orders extends Model
     public $commodityCode;
 
     /**
-     * @description The information about the commodity module.
+     * @description The information about commodity modules.
      *
      * The information varies based on the commodity module.
      * @var components[]
@@ -46,10 +46,10 @@ class orders extends Model
     public $components;
 
     /**
-     * @description The subscription duration of the instance.
+     * @description The subscription duration.
      *
-     *   If the **PricingCycle** parameter is set to **Month**, the valid values of the Duration parameter are **1** to **9**.
-     *   If the **PricingCycle** parameter is set to **Year**, the valid values of the Duration parameter are **1** to **3**.
+     *   Valid values if you set **PricingCycle** to **Month**: **1** to **9**.
+     *   Valid values if you set **PricingCycle** to **Year**: **1** to **3**.
      *
      * @example 1
      *
@@ -58,11 +58,11 @@ class orders extends Model
     public $duration;
 
     /**
-     * @description The type of order. Valid values:
+     * @description The type of the order. Valid values:
      *
-     *   **BUY**: purchase order
-     *   **RENEW**: renewal order
-     *   **UPGRADE**: upgrade order
+     *   **BUY**: purchase order.
+     *   **RENEW**: renewal order.
+     *   **UPGRADE**: upgrade order.
      *
      * @example BUY
      *
@@ -71,10 +71,10 @@ class orders extends Model
     public $orderType;
 
     /**
-     * @description The billing cycle of the GA instance. Valid values:
+     * @description The billing cycle. Valid values:
      *
-     *   **Month**: billed on a monthly basis.
-     *   **Year**: billed on an annual basis.
+     *   **Month**
+     *   **Year**
      *
      * @example Month
      *

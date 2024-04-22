@@ -9,8 +9,15 @@ use AlibabaCloud\Tea\Model;
 class serviceManagedInfos extends Model
 {
     /**
-     * @description Managed policy action name, Valid values:
-     * - CreateChild
+     * @description The name of the action on the managed instance. Valid values:
+     *
+     *   **Create**
+     *   **Update**
+     *   **Delete**
+     *   **Associate**
+     *   **UserUnmanaged**
+     *   **CreateChild**
+     *
      * @example Update
      *
      * @var string
@@ -18,9 +25,17 @@ class serviceManagedInfos extends Model
     public $action;
 
     /**
-     * @description Sub resource type, Valid values:
+     * @description The type of the child resource. Valid values:
      *
-     * >Only valid when the Action parameter is CreateChild.
+     *   **Listener**: listener.
+     *   **IpSet**: acceleration region.
+     *   **EndpointGroup**: endpoint group.
+     *   **ForwardingRule**: forwarding rule.
+     *   **Endpoint**: endpoint.
+     *   **EndpointGroupDestination**: protocol mapping of an endpoint group associated with a custom routing listener.
+     *   **EndpointPolicy**: traffic policy of an endpoint associated with a custom routing listener.
+     *
+     * >  This parameter takes effect only if the value of **Action** is **CreateChild**.
      * @example Listener
      *
      * @var string
@@ -28,9 +43,11 @@ class serviceManagedInfos extends Model
     public $childType;
 
     /**
-     * @description Is the managed policy action managed, Valid values:
+     * @description Indicates whether the specified actions are managed.
      *
-     * - false: The managed policy action is not managed, and users have permission to perform the operation specified in the Action on the managed instance.
+     *   **true**: The specified actions are managed, and users cannot perform the specified actions on the managed instance.
+     *   **false**: The specified actions are not managed, and users can perform the specified actions on the managed instance.
+     *
      * @example false
      *
      * @var bool

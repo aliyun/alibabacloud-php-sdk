@@ -54,9 +54,9 @@ class orderDetails extends Model
     public $originalPrice;
 
     /**
-     * @description The details about the discount.
+     * @description The details of the discount.
      *
-     * >  This parameter is unavailable on the China site (aliyun.com).
+     * >  This parameter does not take effect for accounts registered on the China site (aliyun.com).
      * @var promDetails[]
      */
     public $promDetails;
@@ -71,7 +71,7 @@ class orderDetails extends Model
     public $quantity;
 
     /**
-     * @description The IDs of the discount rules.
+     * @description The IDs of discount rules.
      *
      * @var int[]
      */

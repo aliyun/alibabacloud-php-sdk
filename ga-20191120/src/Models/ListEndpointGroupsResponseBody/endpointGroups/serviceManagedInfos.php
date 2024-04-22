@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class serviceManagedInfos extends Model
 {
     /**
-     * @description The name of the action on the managed instance. Valid values:
+     * @description The name of the action that was performed on the managed instance. Valid values:
      *
-     *   **Create**
-     *   **Update**
-     *   **Delete**
-     *   **Associate**
-     *   **UserUnmanaged**
-     *   **CreateChild**
+     *   **Create:** Create an instance.
+     *   **Update:** Update the current instance.
+     *   **Delete:** Delete the current instance.
+     *   **Associate:** Reference the current instance.
+     *   **UserUnmanaged:** Unmanage the instance.
+     *   **CreateChild:** Create a child resource in the current instance.
      *
      * @example Update
      *
@@ -27,15 +27,15 @@ class serviceManagedInfos extends Model
     /**
      * @description The type of the child resource. Valid values:
      *
-     *   **Listener**: listener
-     *   **IpSet**: acceleration region
-     *   **EndpointGroup**: endpoint group
-     *   **ForwardingRule**: forwarding rule
-     *   **Endpoint**: endpoint
-     *   **EndpointGroupDestination**: protocol mapping of an endpoint group associated with a custom routing listener
-     *   **EndpointPolicy**: traffic policy of an endpoint associated with a custom routing listener
+     *   **Listener:** listener.
+     *   **IpSet:** acceleration region.
+     *   **EndpointGroup:** endpoint group.
+     *   **ForwardingRule:** forwarding rule.
+     *   **Endpoint:** endpoint.
+     *   **EndpointGroupDestination:** the protocol mapping of an endpoint group associated with a custom routing listener.
+     *   **EndpointPolicy:** the traffic policy of an endpoint associated with a custom routing listener.
      *
-     * >  This parameter is valid only if **Action** is set to **CreateChild**.
+     * >  This parameter takes effect only if you set **Action** to **CreateChild**.
      * @example Listener
      *
      * @var string

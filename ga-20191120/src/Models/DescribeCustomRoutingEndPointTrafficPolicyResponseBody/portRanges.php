@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class portRanges extends Model
 {
     /**
-     * @description The port range of the traffic destination.
+     * @description The first port of the port range used by the traffic destination to process requests.
      *
      * @example 80
      *
@@ -18,7 +18,7 @@ class portRanges extends Model
     public $fromPort;
 
     /**
-     * @description The first port of the port range.
+     * @description The last port of the port range used by the traffic destination to process requests.
      *
      * @example 80
      *

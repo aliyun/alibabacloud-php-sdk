@@ -114,17 +114,14 @@ class DescribeApplicationMonitorResponseBody extends Model
     public $silenceTime;
 
     /**
-     * @description The state of the application monitor task. Valid values:
+     * @description The status of the origin probing task. Valid values:
      *
-     * - **init**
+     *   **init**
+     *   **active**
+     *   **updating**
+     *   **inactive**
+     *   **deleting**
      *
-     * - **active**
-     *
-     * - **updating**
-     *
-     * - **inactive**
-     *
-     * - **deleting**
      * @example active
      *
      * @var string

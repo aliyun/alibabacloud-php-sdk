@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListBusiRegionsResponseBody extends Model
 {
     /**
-     * @description The information of the regions.
+     * @description The information about the acceleration regions that are supported by GA.
      *
      * @var regions[]
      */

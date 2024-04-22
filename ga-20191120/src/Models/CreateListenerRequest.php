@@ -83,6 +83,20 @@ class CreateListenerRequest extends Model
     public $endpointGroupConfigurations;
 
     /**
+     * @description The maximum version of the HTTP protocol. Valid values:
+     *
+     *   **http3**
+     *   **http2** (default)
+     *   **http1.1**
+     *
+     * >  Only HTTPS listeners support this parameter.
+     * @example http2
+     *
+     * @var string
+     */
+    public $httpVersion;
+
+    /**
      * @description The timeout period of idle connections. Unit: seconds.
      *
      *   TCP: 10-900. Default value: 900. Unit: seconds.
@@ -221,6 +235,7 @@ class CreateListenerRequest extends Model
         'customRoutingEndpointGroupConfigurations' => 'CustomRoutingEndpointGroupConfigurations',
         'description'                              => 'Description',
         'endpointGroupConfigurations'              => 'EndpointGroupConfigurations',
+        'httpVersion'                              => 'HttpVersion',
         'idleTimeout'                              => 'IdleTimeout',
         'name'                                     => 'Name',
         'portRanges'                               => 'PortRanges',
@@ -278,6 +293,9 @@ class CreateListenerRequest extends Model
                     $res['EndpointGroupConfigurations'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->httpVersion) {
+            $res['HttpVersion'] = $this->httpVersion;
         }
         if (null !== $this->idleTimeout) {
             $res['IdleTimeout'] = $this->idleTimeout;
@@ -365,6 +383,9 @@ class CreateListenerRequest extends Model
                     $model->endpointGroupConfigurations[$n++] = null !== $item ? endpointGroupConfigurations::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['HttpVersion'])) {
+            $model->httpVersion = $map['HttpVersion'];
         }
         if (isset($map['IdleTimeout'])) {
             $model->idleTimeout = $map['IdleTimeout'];

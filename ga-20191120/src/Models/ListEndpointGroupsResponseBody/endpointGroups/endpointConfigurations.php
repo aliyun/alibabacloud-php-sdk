@@ -30,7 +30,7 @@ class endpointConfigurations extends Model
     public $endpoint;
 
     /**
-     * @description The endpoint ID.
+     * @description The ID of the endpoint.
      *
      * @example ep-bp1d2utp8qqe2a44t****
      *
@@ -48,7 +48,7 @@ class endpointConfigurations extends Model
     public $probePort;
 
     /**
-     * @description The protocol that is used to monitor latency. Valid values:
+     * @description The protocol that is used to monitor latency.
      *
      *   **icmp**
      *   **tcp**
@@ -60,7 +60,7 @@ class endpointConfigurations extends Model
     public $probeProtocol;
 
     /**
-     * @description 弹性网卡的私网IP地址。
+     * @description The private IP address of the ENI.
      *
      * @example 172.168.XX.XX
      *
@@ -71,13 +71,15 @@ class endpointConfigurations extends Model
     /**
      * @description The type of the endpoint. Valid values:
      *
-     *   **Domain**: a custom domain name
-     *   **Ip**: a custom IP address
-     *   **PublicIp**: a public IP address provided by Alibaba Cloud
-     *   **ECS**: an Elastic Compute Service (ECS) instance
-     *   **SLB**: a Server Load Balancer (SLB) instance
-     *   **ALB**: an Application Load Balancer (ALB) instance
-     *   **OSS**: an Object Storage Service (OSS) bucket
+     *   **Domain:** a custom domain name.
+     *   **Ip:** a custom IP address.
+     *   **PublicIp:** a public IP address provided by Alibaba Cloud.
+     *   **ECS:** an Elastic Compute Service (ECS) instance.
+     *   **SLB:** a Classic Load Balancer (SLB) instance.
+     *   **ALB:** an Application Load Balancer (ALB) instance.
+     *   **OSS:** an Object Storage Service (OSS) bucket.
+     *   **ENI:** an elastic network interface (ENI).
+     *   **NLB:** a Network Load Balancer (NLB) instance.
      *
      * @example Ip
      *

@@ -45,7 +45,7 @@ class moduleDetails extends Model
     public $originalPrice;
 
     /**
-     * @description The discounted price.
+     * @description The transaction price, which is equal to the original price minus the discount.
      *
      * @example 160000.0
      *

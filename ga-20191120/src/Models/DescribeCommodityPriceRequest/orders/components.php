@@ -20,7 +20,7 @@ class components extends Model
     public $componentCode;
 
     /**
-     * @description The attributes of the commodity module.
+     * @description The attributes of commodity modules.
      *
      * The information varies based on the commodity module.
      * @var properties[]

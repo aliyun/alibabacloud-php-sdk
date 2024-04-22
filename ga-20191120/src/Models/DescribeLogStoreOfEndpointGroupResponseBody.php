@@ -36,7 +36,7 @@ class DescribeLogStoreOfEndpointGroupResponseBody extends Model
     public $listenerId;
 
     /**
-     * @description Id of the request
+     * @description The response parameters.
      *
      * @example 1777E713-8456-55F1-9A69-9AD9EAE2B3B6
      *
@@ -63,7 +63,7 @@ class DescribeLogStoreOfEndpointGroupResponseBody extends Model
     public $slsProjectName;
 
     /**
-     * @description The ID of the region to which the Simple Log Service project belongs.
+     * @description The region ID of the Simple Log Service project.
      *
      * @example cn-hangzhou
      *
@@ -72,7 +72,10 @@ class DescribeLogStoreOfEndpointGroupResponseBody extends Model
     public $slsRegionId;
 
     /**
-     * @description Indicates whether the GA instance is associated with the project.
+     * @description Indicates whether the endpoint group is bound to the Simple Log Service project.
+     *
+     *   **on:** The endpoint group is bound to the Simple Log Service project.
+     *   **off:** The endpoint group is not bound to the Simple Log Service project.
      *
      * @example on - binding
      * off - unbinding

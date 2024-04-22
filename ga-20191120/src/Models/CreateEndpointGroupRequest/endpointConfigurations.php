@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class endpointConfigurations extends Model
 {
     /**
-     * @description Specifies whether to use the TCP Option Address (TOA) module to preserve client IP addresses. Valid values:
+     * @description Specifies whether to preserve client IP addresses by using the TCP Option Address (TOA) module. Valid values:
      *
      *   **true**
      *   **false** (default)
@@ -44,7 +44,7 @@ class endpointConfigurations extends Model
     /**
      * @description The private IP address of the ENI.
      *
-     * >  If you set the endpoint type to ENI, you can specify this parameter. If you leave this parameter empty, the primary private IP address of the ENI is used.
+     * >  This parameter is available only when you set the endpoint type to **ENI**. If you leave this parameter empty, the primary private IP address of the ENI is used.
      * @example 172.168.XX.XX
      *
      * @var string
@@ -58,15 +58,21 @@ class endpointConfigurations extends Model
      *   **Ip:** a custom IP address.
      *   **PublicIp:** a public IP address provided by Alibaba Cloud.
      *   **ECS:** an Elastic Compute Service (ECS) instance.
-     *   **SLB:** a Server Load Balancer (SLB) instance.
+     *   **SLB:** a Classic Load Balancer (CLB) instance.
      *   **ALB:** an Application Load Balancer (ALB) instance.
      *   **OSS:** an Object Storage Service (OSS) bucket.
      *   **ENI:** an elastic network interface (ENI).
      *   **NLB:** a Network Load Balancer (NLB) instance.
      *
-     * >*   If you set this parameter to **ECS** or **SLB** and the AliyunServiceRoleForGaVpcEndpoint service-linked role does not exist, the system automatically creates the service-linked role.
-     * > *   If you set this parameter to **ALB** and the AliyunServiceRoleForGaAlb service-linked role does not exist, the system automatically creates the service-linked role.
-     * > *   If you set this parameter to **OSS** and the AliyunServiceRoleForGaOss service-linked role does not exist, the system automatically creates the service-linked role.
+     * >
+     *
+     *   If you set this parameter to **ECS**, **ENI**, **SLB**, **ALB**, or **NLB** and the AliyunServiceRoleForGaVpcEndpoint service-linked role does not exist, the system automatically creates the service-linked role.
+     *
+     *   If you set this parameter to **ALB** and the AliyunServiceRoleForGaAlb service-linked role does not exist, the system automatically creates the role.
+     *
+     *   If you set this parameter to **OSS** and the AliyunServiceRoleForGaOss service-linked role does not exist, the system automatically creates the role.
+     *
+     *   If you set this parameter to **NLB** and the AliyunServiceRoleForGaNlb service-linked role does not exist, the system automatically creates the role.
      *
      * For more information, see [Service-linked roles](~~178360~~).
      * @example Ip
@@ -80,7 +86,7 @@ class endpointConfigurations extends Model
      *
      * Valid values: **0** to **255**.
      *
-     * >  If you set the weight of an endpoint to 0, the GA instance stops distributing traffic to the endpoint.
+     * >  If you set the weight of an endpoint to 0, GA stops distributing traffic to the endpoint. Proceed with caution.
      * @example 20
      *
      * @var int

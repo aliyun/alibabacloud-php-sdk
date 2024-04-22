@@ -80,7 +80,10 @@ class DescribeBandwidthPackageResponseBody extends Model
     public $cbnGeographicRegionIdB;
 
     /**
-     * @description The billing method of the bandwidth plan. Only **PREPAY** is returned, which indicates the subscription billing method.
+     * @description The billing method of the bandwidth plan.
+     *
+     *   **PREPAY**: subscription. This is the default value.
+     *   **POSTPAY**: pay-as-you-go.
      *
      * @example PREPAY
      *

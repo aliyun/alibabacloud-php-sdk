@@ -20,8 +20,8 @@ class DescribeAcceleratorAutoRenewAttributeResponseBody extends Model
     /**
      * @description Indicates whether auto-renewal is enabled. Valid values:
      *
-     *   **true**: enabled
-     *   **false** (default): disabled
+     *   **true**
+     *   **false**
      *
      * @example false
      *
@@ -30,9 +30,8 @@ class DescribeAcceleratorAutoRenewAttributeResponseBody extends Model
     public $autoRenew;
 
     /**
-     * @description The auto-renewal duration. Unit: months.
+     * @description The auto-renewal duration. Unit: month.
      *
-     * This parameter is returned only if **AutoRenew** is set to **true**.
      * @example 1
      *
      * @var int

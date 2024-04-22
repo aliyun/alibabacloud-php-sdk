@@ -22,7 +22,7 @@ class DeleteIpSetRequest extends Model
      *
      * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
      *
-     * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+     * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example DD61839A-5CC5-404B-8C6E-56066F0C432D
      *
      * @var string
@@ -32,6 +32,7 @@ class DeleteIpSetRequest extends Model
     /**
      * @description The ID of the acceleration region that you want to delete.
      *
+     * You can call the [ListIpSets](~~2253273~~) operation to query the IDs of acceleration regions of a specified GA instance.
      * @example ips-bp11r5jb8ogp122xl****
      *
      * @var string

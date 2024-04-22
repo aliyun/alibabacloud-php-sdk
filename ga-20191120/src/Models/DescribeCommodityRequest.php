@@ -11,15 +11,15 @@ class DescribeCommodityRequest extends Model
     /**
      * @description The commodity code.
      *
-     * Examples for the China site (aliyun.com):
+     * Valid values on the China site (aliyun.com):
      *
      *   **ga_gapluspre_public_cn**: GA instance.
      *   **ga_plusbwppre_public_cn**: basic bandwidth plan.
      *
-     * Examples for the international site (alibabacloud.com):
+     * Valid values on the international site (alibabacloud.com):
      *
      *   **ga_pluspre_public_intl**: GA instance.
-     *   **ga_bwppreintl_public_intl**: basic bandwidth plan.
+     *   **ga_bwppreintl_public_intl:** basic bandwidth plan.
      *
      * @example ga_gapluspre_public_cn
      *
@@ -30,9 +30,9 @@ class DescribeCommodityRequest extends Model
     /**
      * @description The type of the order. Valid values:
      *
-     *   **BUY**: purchase
-     *   **RENEW**: renewal
-     *   **UPGRADE**: upgrade
+     *   **BUY**: purchase order.
+     *   **RENEW**: renewal order.
+     *   **UPGRADE**: upgrade order.
      *
      * @example BUY
      *

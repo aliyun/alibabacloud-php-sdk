@@ -60,6 +60,28 @@ class UpdateListenerRequest extends Model
     public $description;
 
     /**
+     * @description The maximum version of the HTTP protocol. Valid values:
+     *
+     *   **http3**
+     *   **http2**
+     *   **http1.1**
+     *
+     * >  Only HTTPS listeners support this parameter.
+     * @example http2
+     *
+     * @var string
+     */
+    public $httpVersion;
+
+    /**
+     * @description The timeout period for idle connections. Unit: seconds.
+     *
+     *   TCP: 10-900. Default value: 900. Unit: seconds.
+     *   UDP: 10-20. Default value: 20. Unit: seconds.
+     *   HTTP/HTTPS: 1-60. Default value: 15. Unit: seconds.
+     *
+     * @example 900
+     *
      * @var int
      */
     public $idleTimeout;
@@ -130,6 +152,11 @@ class UpdateListenerRequest extends Model
     public $regionId;
 
     /**
+     * @description The timeout period for HTTP or HTTPS requests.
+     *
+     * >  This parameter takes effect only for HTTP or HTTPS listeners. If the backend server does not respond within the timeout period, GA returns an HTTP 504 error code to the client.
+     * @example 60
+     *
      * @var int
      */
     public $requestTimeout;
@@ -181,6 +208,7 @@ class UpdateListenerRequest extends Model
         'clientAffinity'      => 'ClientAffinity',
         'clientToken'         => 'ClientToken',
         'description'         => 'Description',
+        'httpVersion'         => 'HttpVersion',
         'idleTimeout'         => 'IdleTimeout',
         'listenerId'          => 'ListenerId',
         'name'                => 'Name',
@@ -226,6 +254,9 @@ class UpdateListenerRequest extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->httpVersion) {
+            $res['HttpVersion'] = $this->httpVersion;
         }
         if (null !== $this->idleTimeout) {
             $res['IdleTimeout'] = $this->idleTimeout;
@@ -301,6 +332,9 @@ class UpdateListenerRequest extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['HttpVersion'])) {
+            $model->httpVersion = $map['HttpVersion'];
         }
         if (isset($map['IdleTimeout'])) {
             $model->idleTimeout = $map['IdleTimeout'];

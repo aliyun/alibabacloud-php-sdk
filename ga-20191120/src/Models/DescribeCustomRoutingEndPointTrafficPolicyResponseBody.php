@@ -90,9 +90,9 @@ class DescribeCustomRoutingEndPointTrafficPolicyResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The service ID to which the managed instance belongs.
+     * @description The ID of the service that manages the instance.
      *
-     * >  Valid only when the ServiceManaged parameter is True.
+     * >  This parameter is returned only if the value of **ServiceManaged** is **true**.
      * @example ALB
      *
      * @var string
@@ -100,9 +100,11 @@ class DescribeCustomRoutingEndPointTrafficPolicyResponseBody extends Model
     public $serviceId;
 
     /**
-     * @description Is it a managed instance. Valid values:
+     * @description Indicates whether the instance is managed. Valid values:
      *
-     * - false
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -110,8 +112,9 @@ class DescribeCustomRoutingEndPointTrafficPolicyResponseBody extends Model
     public $serviceManaged;
 
     /**
-     * @description A list of action policies that users can execute on this managed instance.
-     *
+     * @description The actions that users can perform on the managed instance.
+     * > *   This parameter is returned only if the value of **ServiceManaged** is **true**.
+     * > *   Users can perform only specific actions on a managed instance.
      * @var serviceManagedInfos[]
      */
     public $serviceManagedInfos;

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListEndpointGroupsResponseBody extends Model
 {
     /**
-     * @description The configurations of the endpoint groups.
+     * @description The configurations of the endpoint group.
      *
      * @var endpointGroups[]
      */

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class properties extends Model
 {
     /**
-     * @description The code of the attribute.
+     * @description The code of the attribute of the commodity module.
      *
      * The information varies based on the commodity module. Examples: **instance** (GA instance) and **ord_time** (subscription duration).
      * @example instance
@@ -21,7 +21,7 @@ class properties extends Model
     /**
      * @description The value of the attribute.
      *
-     * The information varies based on the commodity module. Examples: **1:Month** (one-month subscription) and **instance_fee** (GA instance fee).
+     * The information varies based on the commodity module. Examples: **instance_fee** (GA instance fee) and **1:Month** (one-month subscription).
      * @example instance_fee
      *
      * @var string

@@ -21,8 +21,8 @@ class endpointGroups extends Model
     /**
      * @description The type of the endpoint group. Valid values:
      *
-     *   **default**: a default endpoint group
-     *   **virtual**: a virtual endpoint group
+     *   **default:** the default endpoint group.
+     *   **virtual:** a virtual endpoint group.
      *
      * @example default
      *
@@ -47,10 +47,10 @@ class endpointGroups extends Model
     /**
      * @description The health status of the endpoint group. Valid values:
      *
-     *   **init**: The endpoint group is being initialized.
-     *   **normal**: The endpoint group is normal.
-     *   **Abnormal**: The endpoint group is abnormal.
-     *   **partiallyAbnormal**: Some endpoint groups that are associated with the listener are abnormal.
+     *   **init:** The endpoint group is being initialized.
+     *   **normal:** The endpoint group is normal.
+     *   **abnormal:** The endpoint group is abnormal.
+     *   **partiallyAbnormal:** The endpoint group is partially abnormal.
      *
      * @example normal
      *

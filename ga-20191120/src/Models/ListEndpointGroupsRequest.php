@@ -89,7 +89,7 @@ class ListEndpointGroupsRequest extends Model
     public $regionId;
 
     /**
-     * @description The name of the endpoint group.
+     * @description The tag of the endpoint group.
      *
      * @var tag[]
      */

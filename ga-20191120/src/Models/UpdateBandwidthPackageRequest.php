@@ -11,9 +11,10 @@ class UpdateBandwidthPackageRequest extends Model
     /**
      * @description Specifies whether to enable automatic payment. Valid values:
      *
-     *   **false** (default): disables automatic payment. If you select this option, you must go to Order Center to complete the payment after an order is generated.
+     *   **false**: disables automatic payment. This is the default value. If you select this option, you must go to [Order Center](https://usercenter2-intl.aliyun.com/order/list) to complete the payment after an order is generated.
      *   **true**: enables automatic payment. Payments are automatically completed.
      *
+     * >  This parameter takes effect only if you call the UpdateBandwidthPackage operation to upgrade a bandwidth plan.
      * @example false
      *
      * @var bool
@@ -58,7 +59,7 @@ class UpdateBandwidthPackageRequest extends Model
      *   **Enhanced**
      *   **Advanced**
      *
-     * >  You can upgrade **Basic** bandwidth to **Enhanced** bandwidth. You cannot change **Enhanced** or **Advanced** bandwidth to another type of bandwidth.
+     * >  You can upgrade **Basic** bandwidth to **Enhanced** bandwidth or downgrade Enhanced bandwidth to Basic bandwidth. You cannot change **Advanced** bandwidth to another type of bandwidth.
      * @example Basic
      *
      * @var string

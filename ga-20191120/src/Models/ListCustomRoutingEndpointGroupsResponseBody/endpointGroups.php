@@ -37,7 +37,7 @@ class endpointGroups extends Model
     public $endpointGroupId;
 
     /**
-     * @description The list of endpoint group IP addresses.
+     * @description The endpoint group IP addresses.
      *
      * @var string[]
      */
@@ -78,9 +78,9 @@ class endpointGroups extends Model
     public $name;
 
     /**
-     * @description The service ID to which the managed instance belongs.
+     * @description The ID of the service that manages the instance.
      *
-     * >  Valid only when the ServiceManaged parameter is True.
+     * >  This parameter takes effect only if **ServiceManaged** is set to **True**.
      * @example ALB
      *
      * @var string
@@ -88,9 +88,11 @@ class endpointGroups extends Model
     public $serviceId;
 
     /**
-     * @description Is it a managed instance. Valid values:
+     * @description Indicates whether the GA instance is managed. Valid values:
      *
-     * - false
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -98,19 +100,25 @@ class endpointGroups extends Model
     public $serviceManaged;
 
     /**
-     * @description A list of action policies that users can execute on this managed instance.
+     * @description The actions that users can perform on the managed instance.
+     *
+     * >
+     *
+     *   This parameter takes effect only if **ServiceManaged** is set to **True**.
+     *
+     *   Users can perform only specific actions on a managed instance.
      *
      * @var serviceManagedInfos[]
      */
     public $serviceManagedInfos;
 
     /**
-     * @description The status of the endpoint group.
+     * @description The status of the endpoint group. Valid values:
      *
-     *   **init**: being initialized
-     *   **active**: running as expected
-     *   **updating**: being updated
-     *   **deleting**: being deleted
+     *   **init**
+     *   **active**
+     *   **updating**
+     *   **deleting**
      *
      * @example active
      *

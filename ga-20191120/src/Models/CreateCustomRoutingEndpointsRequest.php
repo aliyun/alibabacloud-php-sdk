@@ -10,8 +10,11 @@ use AlibabaCloud\Tea\Model;
 class CreateCustomRoutingEndpointsRequest extends Model
 {
     /**
-     * @description The ID of the endpoint group in which to create endpoints.
+     * @description The client token that is used to ensure the idempotence of the request.
      *
+     * You can use the client to generate the token, but you must make sure that the token is unique among all requests. The token can contain only ASCII characters.
+     *
+     * > If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request is different.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -27,9 +30,8 @@ class CreateCustomRoutingEndpointsRequest extends Model
     public $endpointConfigurations;
 
     /**
-     * @description The information about the endpoints.
+     * @description The ID of the endpoint group in which to create endpoints.
      *
-     * You can specify information for up to 20 endpoints.
      * @example epg-bp1bpn0kn908w4nb****
      *
      * @var string
@@ -37,11 +39,8 @@ class CreateCustomRoutingEndpointsRequest extends Model
     public $endpointGroupId;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request.
+     * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
      *
-     * You can use the client to generate the token, but you must make sure that the token is unique among all requests. The token can contain only ASCII characters.
-     *
-     * > If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request is different.
      * @example cn-hangzhou
      *
      * @var string

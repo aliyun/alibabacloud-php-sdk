@@ -12,13 +12,7 @@ use AlibabaCloud\Tea\Model;
 class GetAclResponseBody extends Model
 {
     /**
-     * @description The state of the network ACL. Valid values:
-     *
-     *   **init**: The network ACL is being initialized.
-     *   **active**: The network ACL is available.
-     *   **configuring**: The network ACL is being configured.
-     *   **updating**: The network ACL is being updated.
-     *   **deleting**: The network ACL is being deleted.
+     * @description The entries of the ACL.
      *
      * @var aclEntries[]
      */
@@ -64,7 +58,7 @@ class GetAclResponseBody extends Model
     public $addressIPVersion;
 
     /**
-     * @description The description of the network ACL entry.
+     * @description The listeners that are associated with the ACL.
      *
      * @var relatedListeners[]
      */
@@ -89,7 +83,7 @@ class GetAclResponseBody extends Model
     public $resourceGroupId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The tags of the ACL.
      *
      * @var tags[]
      */

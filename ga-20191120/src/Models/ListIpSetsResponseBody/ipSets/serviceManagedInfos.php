@@ -27,13 +27,13 @@ class serviceManagedInfos extends Model
     /**
      * @description The type of the child resource. Valid values:
      *
-     *   **Listener**: listener
-     *   **IpSet**: acceleration region
-     *   **EndpointGroup**: endpoint group
-     *   **ForwardingRule**: forwarding rule
-     *   **Endpoint**: endpoint
-     *   **EndpointGroupDestination**: protocol mapping of an endpoint group associated with a custom routing listener
-     *   **EndpointPolicy**: traffic policy of an endpoint associated with a custom routing listener
+     *   **Listener**: listener.
+     *   **IpSet**: acceleration region.
+     *   **EndpointGroup**: endpoint group.
+     *   **ForwardingRule**: forwarding rule.
+     *   **Endpoint**: endpoint.
+     *   **EndpointGroupDestination**: protocol mapping of an endpoint group associated with a custom routing listener.
+     *   **EndpointPolicy**: traffic policy of an endpoint associated with a custom routing listener.
      *
      * >  This parameter takes effect only if **Action** is set to **CreateChild**.
      * @example Listener
@@ -43,10 +43,10 @@ class serviceManagedInfos extends Model
     public $childType;
 
     /**
-     * @description Indicates whether the specified actions are managed. Valid values:
+     * @description Indicates whether the specified actions are managed.
      *
-     *   **true**: The specified actions are managed, and users cannot perform the specified actions on the managed instance.
-     *   **false**: The specified actions are not managed, and users can perform the specified actions on the managed instance.
+     *   **true**: The specified actions are managed, and users cannot perform the actions on the managed instance.****
+     *   **false**: The specified actions are not managed, and users can perform the actions on the managed instance.
      *
      * @example false
      *

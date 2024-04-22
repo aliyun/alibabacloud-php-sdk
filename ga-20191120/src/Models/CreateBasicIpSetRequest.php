@@ -28,8 +28,9 @@ class CreateBasicIpSetRequest extends Model
     public $acceleratorId;
 
     /**
-     * @description The bandwidth to be allocated to the acceleration region. Unit: **Mbit/s**.
+     * @description The bandwidth that you want to allocate to the acceleration region. Unit: **Mbit/s**.
      *
+     * You must allocate at least 2 Mbit/s of bandwidth to the acceleration region.
      * @example 2
      *
      * @var int
@@ -39,9 +40,9 @@ class CreateBasicIpSetRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the token, but you must make sure that the token is unique among all requests. The token can contain only ASCII characters.
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
      *
-     * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+     * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -51,19 +52,26 @@ class CreateBasicIpSetRequest extends Model
     /**
      * @description The line type of the elastic IP address (EIP) in the acceleration region. Valid values:
      *
-     *   **BGP** (default)
-     *   **BGP_PRO** If the acceleration region is China (Hong Kong) and a basic bandwidth plan whose bandwidth type is Premium is associated with the GA instance, the default value of IspType is BGP_PRO.
+     *   **BGP** (default): BGP (Multi-ISP) lines.
+     *   **BGP_PRO**: BGP (Multi-ISP) Pro lines.
      *
-     * If you are allowed to use single-ISP bandwidth, you can also specify one of the following values:
+     * Valid values if you are allowed to use single-ISP bandwidth:
      *
-     *   **ChinaTelecom**: China Telecom (single ISP)
-     *   **ChinaUnicom**: China Unicom (single ISP)
-     *   **ChinaMobile**: China Mobile (single ISP)
-     *   **ChinaTelecom_L2**: China Telecom \_L2 (single ISP)
-     *   **ChinaUnicom_L2**: China Unicom \_L2 (single ISP)
-     *   **ChinaMobile_L2**: China Mobile \_L2 (single ISP)
+     *   **ChinaTelecom**
+     *   **ChinaUnicom**
+     *   **ChinaMobile**
+     *   **ChinaTelecom_L2**
+     *   **ChinaUnicom_L2**
+     *   **ChinaMobile_L2**
      *
-     * > Different acceleration regions support different single-ISP BGP lines.
+     * >
+     *
+     *   If the bandwidth metering method of the GA instance is **pay-by-data-transfer**, this parameter is required.
+     *
+     *   If the acceleration region is China (Hong Kong) and a basic bandwidth plan whose bandwidth type is Premium is associated with the GA instance, the default value of IspType is BGP_PRO.
+     *
+     *   The supported single-ISP type varies based on the acceleration region.
+     *
      * @example BGP
      *
      * @var string

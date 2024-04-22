@@ -77,11 +77,11 @@ class GetBasicAcceleratorResponseBody extends Model
     public $createTime;
 
     /**
-     * @description 基础型全球加速实例是否开启跨境线路功能。取值：
+     * @description Indicates whether cross-border acceleration is enabled for the basic GA instance. Valid values:
      *
-     * - **true**：开启跨境线路功能，可以加速跨境线路。
+     *   **true**
+     *   **false**
      *
-     * - **false**：关闭跨境线路功能，不可以加速跨境线路。
      * @example false
      *
      * @var bool

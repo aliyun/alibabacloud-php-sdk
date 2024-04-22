@@ -52,7 +52,7 @@ class endpointGroupConfigurations extends Model
     public $endpointGroupDescription;
 
     /**
-     * @description The endpoint ID.
+     * @description The ID of the endpoint.
      *
      * @example ep-bp1d2utp8qqe2a44t****
      *
@@ -77,7 +77,7 @@ class endpointGroupConfigurations extends Model
      *   **HTTPS**
      *
      * > *   You can specify this parameter only if the listener that is associated with the endpoint group uses HTTP or HTTPS.
-     * >*   The backend service protocol of an HTTP listener must be HTTP.
+     * > *   The backend service protocol of an HTTP listener must be HTTP.
      * @example HTTP
      *
      * @var string
@@ -97,7 +97,7 @@ class endpointGroupConfigurations extends Model
     public $healthCheckEnabled;
 
     /**
-     * @description The interval at which health checks are performed. Unit: seconds. Valid values: **1** to **50**.
+     * @description The interval between two consecutive health checks. Unit: seconds. Valid values: **1** to **50**.
      *
      * @example 3
      *
@@ -127,9 +127,9 @@ class endpointGroupConfigurations extends Model
     /**
      * @description The protocol over which health check requests are sent. Valid values:
      *
-     *   **tcp**
-     *   **http**
-     *   **https**
+     *   **tcp** or **TCP**
+     *   **http** or **HTTP**
+     *   **https** or **HTTPS**
      *
      * @example tcp
      *

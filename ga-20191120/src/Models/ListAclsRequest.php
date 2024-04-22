@@ -39,7 +39,7 @@ class ListAclsRequest extends Model
     public $clientToken;
 
     /**
-     * @description The number of entries to return on each page. Valid values: **1** to **50**. Default value: **10**.
+     * @description The number of entries per page. Valid values: **1** to **50**. Default value: **10**.
      *
      * @example 10
      *

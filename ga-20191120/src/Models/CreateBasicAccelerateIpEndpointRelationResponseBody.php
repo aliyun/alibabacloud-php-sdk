@@ -45,9 +45,9 @@ class CreateBasicAccelerateIpEndpointRelationResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The association status between the accelerated IP address and endpoint.
+     * @description The status of the mapping between the accelerated IP address and the endpoint.
      *
-     * >  This parameter is not in use and empty.
+     * >  This parameter is not in use.
      * @example null
      *
      * @var string

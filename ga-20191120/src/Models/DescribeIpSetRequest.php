@@ -11,7 +11,7 @@ class DescribeIpSetRequest extends Model
     /**
      * @description The ID of the acceleration region.
      *
-     * You can call the [ListIpSets](~~153247~~) operation to query IDs of acceleration regions of a specified GA instance.
+     * You can call the [ListIpSets](~~2253273~~) operation to query the IDs of acceleration regions of a specific GA instance.
      * @example ips-bp11ilwqjdkjeg9r7****
      *
      * @var string

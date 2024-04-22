@@ -19,7 +19,7 @@ class UpdateEndpointGroupAttributeRequest extends Model
     public $clientToken;
 
     /**
-     * @description The description of the endpoint group that you want to modify.
+     * @description The description of the endpoint group that you want to modify. The description can be up to 200 characters in length and cannot start with `http://` or `https://`.
      *
      * @example testEndpointGroup
      *
@@ -39,7 +39,7 @@ class UpdateEndpointGroupAttributeRequest extends Model
     /**
      * @description The name of the endpoint group that you want to modify.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
+     * The name must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter.
      * @example test
      *
      * @var string

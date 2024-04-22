@@ -13,193 +13,91 @@ use AlibabaCloud\Tea\Model;
 class endpointGroupConfigurations extends Model
 {
     /**
-     * @description Specifies whether to use the proxy protocol to preserve client IP addresses. Valid values:
-     *
-     *   **true**
-     *   **false** (default)
-     *
-     * You can specify this parameter for up to 10 endpoint groups.
-     * @example false
-     *
      * @var bool
      */
     public $enableClientIPPreservationProxyProtocol;
 
     /**
-     * @description Specifies whether to preserve the IP addresses of clients that access the endpoint by using the TCP Option Address (TOA) module. Valid values:
-     *
-     *   **true**
-     *   **false** (default)
-     *
-     * You can specify this parameter for up to 10 endpoint groups.
-     * @example false
-     *
      * @var bool
      */
     public $enableClientIPPreservationToa;
 
     /**
-     * @description The configurations of the endpoints.
-     *
      * @var endpointConfigurations[]
      */
     public $endpointConfigurations;
 
     /**
-     * @description The description of the endpoint group.
-     *
-     * You can enter the descriptions of up to 10 endpoint groups.
-     * @example group1
-     *
      * @var string
      */
     public $endpointGroupDescription;
 
     /**
-     * @description The name of the endpoint group.
-     *
-     * You can specify the names of up to 10 endpoint groups.
-     * @example group1
-     *
      * @var string
      */
     public $endpointGroupName;
 
     /**
-     * @description The ID of the region where you want to create the endpoint group.
-     *
-     * You can enter the region IDs of up to 10 endpoint groups.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $endpointGroupRegion;
 
     /**
-     * @description The type of the endpoint group. Valid values:
-     *
-     *   **default** (default)
-     *   **virtual**
-     *
-     * >  Only HTTP and HTTPS listeners support virtual endpoint groups.
-     * @example default
-     *
      * @var string
      */
     public $endpointGroupType;
 
     /**
-     * @description The protocol that is used by the backend service. Valid values:
-     *
-     *   **HTTP** (default)
-     *   **HTTPS**
-     *
-     * You can specify up to 10 backend service protocols.
-     *
-     * > *   You can specify this parameter only if the listener that is associated with the endpoint group uses **HTTP** or **HTTPS**.
-     * > *   For an **HTTP** listener, the backend service protocol must be **HTTP**.
-     * @example HTTP
-     *
      * @var string
      */
     public $endpointRequestProtocol;
 
     /**
-     * @description Specifies whether to enable the health check feature. Valid values:
-     *
-     *   **true**
-     *   **false** (default)
-     *
-     * You can enable the health check feature for up to 10 endpoint groups.
-     * @example false
-     *
      * @var bool
      */
     public $healthCheckEnabled;
 
     /**
-     * @description The interval at which health checks are performed. Unit: seconds.
-     *
-     * You can specify up to 10 health check intervals.
-     * @example 3
-     *
      * @var int
      */
     public $healthCheckIntervalSeconds;
 
     /**
-     * @description The path to which health check requests are sent.
-     *
-     * You can specify up to 10 health check paths.
-     * @example /healthcheck
-     *
      * @var string
      */
     public $healthCheckPath;
 
     /**
-     * @description The port that is used for health checks. Valid values: **1** to **65535**.
-     *
-     * You can specify up to 10 ports for health checks.
-     * @example 20
-     *
      * @var int
      */
     public $healthCheckPort;
 
     /**
-     * @description The protocol over which health check requests are sent. Valid values:
-     *
-     *   **tcp**
-     *   **http**
-     *   **https**
-     *
-     * You can specify up to 10 health check protocols.
-     * @example tcp
-     *
      * @var string
      */
     public $healthCheckProtocol;
 
     /**
-     * @description The port mapping.
-     *
      * @var portOverrides[]
      */
     public $portOverrides;
 
     /**
-     * @description The system tag.
-     *
      * @var systemTag[]
      */
     public $systemTag;
 
     /**
-     * @description The tags.
-     *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description The number of consecutive health check failures that must occur before a healthy endpoint group is considered unhealthy, or the number of consecutive health check successes that must occur before an unhealthy endpoint group is considered healthy. Valid values: **2** to **10**. Default value: **3**.
-     *
-     * You can specify the number of successful consecutive health checks or failed consecutive health checks for up to 10 endpoint groups.
-     * @example 3
-     *
      * @var int
      */
     public $thresholdCount;
 
     /**
-     * @description The traffic distribution ratio. If a listener is associated with multiple endpoint groups, you can specify this parameter to distribute traffic to the endpoint groups based on ratios.
-     *
-     * Valid values: **1** to **100**. Default value: **100**.
-     *
-     * You can specify traffic distribution ratios for up to 10 endpoint groups.
-     * @example 20
-     *
      * @var int
      */
     public $trafficPercentage;

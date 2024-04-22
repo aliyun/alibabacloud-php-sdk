@@ -23,7 +23,7 @@ class accelerators extends Model
     public $acceleratorId;
 
     /**
-     * @description The bandwidth value of the GA instance. Unit: Mbit/s.
+     * @description The bandwidth of the GA instance. Unit: Mbit/s.
      *
      * @example 5
      *
@@ -71,7 +71,9 @@ class accelerators extends Model
     /**
      * @description The type of cross-border acceleration. This parameter is returned for GA instances whose bandwidth metering method is pay-by-data-transfer.
      *
-     * Only **bpgPro** may be returned, which indicates BGP (Multi-ISP) Pro lines.
+     *   **bpgPro**: BGP (Multi-ISP) Pro lines.
+     *   **private**: cross-border Express Connect circuit.
+     *
      * @example bpgPro
      *
      * @var string
@@ -99,7 +101,7 @@ class accelerators extends Model
     public $crossDomainBandwidthPackage;
 
     /**
-     * @description The ID of the Anti-DDoS Pro/Premium instance that is associated with the GA instance.
+     * @description The ID of the Anti-DDoS Pro or Anti-DDOS Premium instance that is associated with the GA instance.
      *
      * @example ddoscoo-cn-zz11vq7j****
      *
@@ -117,7 +119,7 @@ class accelerators extends Model
     public $description;
 
     /**
-     * @description The canonical name (CNAME) that is assigned to the GA instance.
+     * @description The CNAME that is assigned to the GA instance.
      *
      * @example ga-bp15u1i2hmtbk8c3i****.aliyunga0019.com
      *
@@ -160,7 +162,7 @@ class accelerators extends Model
     public $name;
 
     /**
-     * @description The region ID of the GA instance. Only **cn-hangzhou** may be returned.
+     * @description The ID of the region where GA instance is deployed. Only **cn-hangzhou** may be returned.
      *
      * @example cn-hangzhou
      *
@@ -178,7 +180,7 @@ class accelerators extends Model
     public $resourceGroupId;
 
     /**
-     * @description The CNAME that is used to associate the GA instance with an Anti-DDoS Pro/Premium instance.
+     * @description The CNAME that is used to associate the GA instance with an Anti-DDoS Pro instance or an Anti-DDOS Premium instance.
      *
      * @example ga-bp1f609c76zg6zuna****-1.aliyunga0047.com
      *
@@ -187,9 +189,9 @@ class accelerators extends Model
     public $secondDnsName;
 
     /**
-     * @description The ID of the service that manages the GA instance.
+     * @description The ID of the service that manages the instance.
      *
-     * >  This parameter takes effect only if **ServiceManaged** is set to **True**.
+     * >  This parameter takes effect only if the value of **ServiceManaged** is **true**.
      * @example ALB
      *
      * @var string
@@ -209,12 +211,9 @@ class accelerators extends Model
     public $serviceManaged;
 
     /**
-     * @description The actions that you can perform on the managed instance.
-     *
-     * >  This parameter takes effect only if **ServiceManaged** is set to **True**.
-     *
-     *   You can perform only specific actions on a managed instance.
-     *
+     * @description The actions that users can perform on the managed instance.
+     * > *   This parameter takes effect only if the value of **ServiceManaged** is **true**.
+     * > *   Users can perform only specific actions on a managed instance.
      * @var serviceManagedInfos[]
      */
     public $serviceManagedInfos;
@@ -222,24 +221,24 @@ class accelerators extends Model
     /**
      * @description The specification of the GA instance. Valid values:
      *
-     *   **1**: Small Ⅰ
-     *   **2**: Small Ⅱ
-     *   **3**: Small Ⅲ
-     *   **5**: Medium Ⅰ
-     *   **8**: Medium Ⅱ
-     *   **10**: Medium Ⅲ
-     *   **20**: Large Ⅰ
-     *   **30**: Large Ⅱ
-     *   **40**: Large Ⅲ
-     *   **50**: Large Ⅳ
-     *   **60**: Large Ⅴ
-     *   **70**: Large Ⅵ
-     *   **80**: Large VⅡ
-     *   **90**: Large VⅢ
-     *   **100**: Super Large Ⅰ
-     *   **200**: Super Large Ⅱ
+     *   **1**: Small Ⅰ.
+     *   **2**: Small Ⅱ.
+     *   **3**: Small Ⅲ.
+     *   **5**: Medium Ⅰ.
+     *   **8**: Medium Ⅱ.
+     *   **10**: Medium Ⅲ.
+     *   **20**: Large Ⅰ.
+     *   **30**: Large Ⅱ.
+     *   **40**: Large Ⅲ.
+     *   **50**: Large IV.
+     *   **60**: Large V.
+     *   **70**: Large VI.
+     *   **80**: Large VII.
+     *   **90**: Large VIII.
+     *   **100**: Super Large Ⅰ.
+     *   **200**: Super Large Ⅱ.
      *
-     * Each instance specification provides different capabilities. For more information, see [Instance specifications](~~153127~~).
+     * Different specifications provide different capabilities. For more information, see [Instance specifications](~~153127~~).
      * @example 1
      *
      * @var string
@@ -249,13 +248,13 @@ class accelerators extends Model
     /**
      * @description The status of the GA instance. Valid values:
      *
-     *   **init**
-     *   **active**
-     *   **configuring**
-     *   **binding**
-     *   **unbinding**
-     *   **deleting**
-     *   **finacialLocked**
+     *   **init**: The GA instance is being initialized.
+     *   **active**: The GA instance is available.
+     *   **configuring**: The GA instance is being configured.
+     *   **binding**: The GA instance is being associated.
+     *   **unbinding**: The GA instance is being disassociated.
+     *   **deleting**: The GA instance is being deleted.
+     *   **finacialLocked**: The GA instance is locked due to overdue payments.
      *
      * @example active
      *

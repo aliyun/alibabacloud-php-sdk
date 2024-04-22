@@ -9,13 +9,15 @@ use AlibabaCloud\Tea\Model;
 class serviceManagedInfos extends Model
 {
     /**
-     * @description 托管策略动作名称，取值：
-     * - **Create**：创建实例。
-     * - **Update**：更新当前实例。
-     * - **Delete**：删除当前实例。
-     * - **Associate**：引用/被引用当前实例。
-     * - **UserUnmanaged**：用户解托管实例。
-     * - **CreateChild**：在当前实例下创建子资源。
+     * @description The name of the action performed on the managed instance. Valid values:
+     *
+     *   **Create**
+     *   **Update**
+     *   **Delete**
+     *   **Associate**
+     *   **UserUnmanaged**
+     *   **CreateChild**
+     *
      * @example Update
      *
      * @var string
@@ -23,23 +25,17 @@ class serviceManagedInfos extends Model
     public $action;
 
     /**
-     * @description 子资源类型，取值：
+     * @description The type of the child resource. Valid values:
      *
-     * - **Listener**：监听资源。
+     *   **Listener**: a listener.
+     *   **IpSet**: an acceleration region.
+     *   **EndpointGroup**: an endpoint group.
+     *   **ForwardingRule**: a forwarding rule.
+     *   **Endpoint**: an endpoint.
+     *   **EndpointGroupDestination**: a protocol mapping of an endpoint group associated with a custom routing listener.
+     *   **EndpointPolicy**: a traffic policy of an endpoint associated with a custom routing listener.
      *
-     * - **IpSet**：加速地域资源。
-     *
-     * - **EndpointGroup**：终端节点组资源。
-     *
-     * - **ForwardingRule**：转发策略资源。
-     *
-     * - **Endpoint**：终端节点资源。
-     *
-     * - **EndpointGroupDestination**：自定义路由监听下的终端节点组协议映射资源。
-     *
-     * - **EndpointPolicy**：自定义路由监听下的终端节点通行策略资源。
-     *
-     * > 仅在**Action**参数为**CreateChild**时有效。
+     * >  This parameter is returned only if the value of **Action** is **CreateChild**.
      * @example Listener
      *
      * @var string
@@ -47,11 +43,11 @@ class serviceManagedInfos extends Model
     public $childType;
 
     /**
-     * @description 托管策略动作是否被托管，取值：
+     * @description Indicates whether the specified actions are managed. Valid values:
      *
-     * - **true**：托管策略动作被托管，用户无权在托管实例下执行Action指定的操作。
+     *   **true**: The specified actions are managed, and you cannot perform the specified actions on the managed instance.
+     *   **false**: The specified actions are not managed, and you can perform the specified actions on the managed instance.
      *
-     * - **false**：托管策略动作未被托管，用户可在托管实例下执行Action指定的操作。
      * @example false
      *
      * @var bool

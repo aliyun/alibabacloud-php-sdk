@@ -49,9 +49,9 @@ class DescribeCommodityPriceResponseBody extends Model
     public $originalPrice;
 
     /**
-     * @description The list of coupons.
+     * @description The details of the coupon.
      *
-     * >  This parameter is unavailable on the China site (aliyun.com).
+     * >  This parameter does not take effect for accounts registered on the China site (aliyun.com).
      * @var promotions[]
      */
     public $promotions;

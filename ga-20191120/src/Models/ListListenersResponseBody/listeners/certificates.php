@@ -18,9 +18,9 @@ class certificates extends Model
     public $id;
 
     /**
-     * @description The type of the certificate.
+     * @description The type of the SSL certificate.
      *
-     * Only **Server** can be returned, which indicates a server certificate.
+     * Only **Server** may be returned, which indicates a server certificate.
      * @example Server
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteIpSetsResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example B49B60F6-F6C8-49E5-B06B-E33E3A469A92
      *

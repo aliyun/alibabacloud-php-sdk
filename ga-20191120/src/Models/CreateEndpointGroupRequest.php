@@ -23,9 +23,9 @@ class CreateEndpointGroupRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the value, but you must make sure that it is unique among different requests. ClientToken can contain only ASCII characters.
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
      *
-     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** may be different for each API request.
+     * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -35,7 +35,7 @@ class CreateEndpointGroupRequest extends Model
     /**
      * @description The description of the endpoint group.
      *
-     * The description cannot exceed 256 characters in length and cannot contain `http://` or `https://`.
+     * The description can be up to 200 characters in length and cannot start with `http://` or `https://`.
      * @example EndpointGroup
      *
      * @var string
@@ -59,12 +59,12 @@ class CreateEndpointGroupRequest extends Model
     public $endpointGroupRegion;
 
     /**
-     * @description The type of the endpoint group. Default value: default. Valid values:
+     * @description The type of the endpoint group. Valid values:
      *
-     *   **default**: a default endpoint group.
+     *   **default** (default): a default endpoint group.
      *   **virtual**: a virtual endpoint group.
      *
-     * >  Only HTTP and HTTPS listeners support virtual endpoint groups.
+     * >  When you call this operation to create a virtual endpoint group for a Layer 4 listener, make sure that a default endpoint group is created.
      * @example default
      *
      * @var string
@@ -86,10 +86,10 @@ class CreateEndpointGroupRequest extends Model
     public $endpointRequestProtocol;
 
     /**
-     * @description Specifies whether to enable the health check feature. Default value: true. Valid values:
+     * @description Specifies whether to enable the health check feature. Valid values:
      *
-     *   **true**: enables the health check feature.
-     *   **false**: disables the health check feature.
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -127,9 +127,9 @@ class CreateEndpointGroupRequest extends Model
     /**
      * @description The protocol over which to send health check requests. Valid values:
      *
-     *   **tcp**: TCP
-     *   **http**: HTTP
-     *   **https**: HTTPS
+     *   **tcp** or **TCP**
+     *   **http** or **HTTP**
+     *   **https** or **HTTPS**
      *
      * @example tcp
      *
@@ -149,7 +149,7 @@ class CreateEndpointGroupRequest extends Model
     /**
      * @description The name of the endpoint group.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
+     * The name must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter.
      * @example group1
      *
      * @var string

@@ -53,10 +53,11 @@ class DescribeIpSetResponseBody extends Model
     public $ipSetId;
 
     /**
-     * @description The version of the IP protocol. Valid values:
+     * @description The IP version. Valid values:
      *
      *   **IPv4**
      *   **IPv6**
+     *   **DUAL_STACK**
      *
      * @example IPv4
      *
@@ -67,19 +68,9 @@ class DescribeIpSetResponseBody extends Model
     /**
      * @description The line type of the elastic IP address (EIP) in the acceleration region. Valid values:
      *
-     *   **BGP**: BGP (Multi-ISP) lines.
+     *   **BGP**: BGP (Multi-ISP) lines. This is the default value.
      *   **BGP_PRO**: BGP (Multi-ISP) Pro lines.
      *
-     * If you are allowed to use single-ISP bandwidth, one of the following values is returned:
-     *
-     *   **ChinaTelecom**: China Telecom (single ISP).
-     *   **ChinaUnicom**: China Unicom (single ISP).
-     *   **ChinaMobile**: China Mobile (single ISP).
-     *   **ChinaTelecom_L2**: China Telecom (single ISP)\_L2.
-     *   **ChinaUnicom_L2**: China Unicom (single ISP)\_L2.
-     *   **ChinaMobile_L2**: China Mobile (single ISP)\_L2.
-     *
-     * >  The supported single-ISP type varies with the acceleration region.
      * @example BGP
      *
      * @var string
@@ -96,9 +87,9 @@ class DescribeIpSetResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The service ID to which the managed instance belongs.
+     * @description The ID of the service that manages the instance.
      *
-     * >  Valid only when the ServiceManaged parameter is True.
+     * >  This parameter is returned only if the value of **ServiceManaged** is **true**.
      * @example ALB
      *
      * @var string
@@ -106,9 +97,11 @@ class DescribeIpSetResponseBody extends Model
     public $serviceId;
 
     /**
-     * @description Is it a managed instance. Valid values:
+     * @description Indicates whether the GA instance is managed. Valid values:
      *
-     * - false
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -116,8 +109,10 @@ class DescribeIpSetResponseBody extends Model
     public $serviceManaged;
 
     /**
-     * @description A list of action policies that users can execute on this managed instance.
+     * @description The actions that users can perform on the managed instance.
      *
+     * > *   This parameter is returned only if the value of **ServiceManaged** is **true**.
+     * >*   Users can perform only specific actions on a managed instance.
      * @var serviceManagedInfos[]
      */
     public $serviceManagedInfos;

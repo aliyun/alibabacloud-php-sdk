@@ -22,9 +22,8 @@ class CreateCustomRoutingEndpointTrafficPoliciesRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the endpoint for which you want to create the traffic destinations.
+     * @description The ID of the endpoint for which you want to create traffic destinations.
      *
-     * > This parameter is required.
      * @example ep-2zewuzypq5e6r3pfh****
      *
      * @var string

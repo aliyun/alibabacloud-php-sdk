@@ -11,9 +11,9 @@ class UpdateBasicEndpointGroupRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the value, but you must make sure that it is unique among different requests. ClientToken can contain only ASCII characters.
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
      *
-     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** may be different for each API request.
+     * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -21,9 +21,9 @@ class UpdateBasicEndpointGroupRequest extends Model
     public $clientToken;
 
     /**
-     * @description The description of the endpoint group that is associated with the basic GA instance.
+     * @description The description of the endpoint group.
      *
-     * The description cannot exceed 256 characters in length and cannot contain `http://` or `https://`.
+     * The description can be up to 200 characters in length and cannot start with `http://` or `https://`.
      * @example BasicEndpointGroup
      *
      * @var string
@@ -40,7 +40,7 @@ class UpdateBasicEndpointGroupRequest extends Model
     public $endpointAddress;
 
     /**
-     * @description The ID of the endpoint group that is associated with the basic GA instance.
+     * @description The ID of the endpoint group.
      *
      * @example epg-bp1dmlohjjz4kqaun****
      *
@@ -51,10 +51,10 @@ class UpdateBasicEndpointGroupRequest extends Model
     /**
      * @description The secondary address of the endpoint.
      *
-     * This parameter is required when the accelerated IP address is associated with the secondary private IP address of an ECS instance or an ENI.
+     * This parameter is required only if the accelerated IP address is associated with the secondary private IP address of an ECS instance or an ENI.
      *
-     *   If the endpoint type is **ECS**, you can set the **EndpointSubAddress** parameter to the secondary private IP address of the primary ENI. If the parameter is left empty, the primary private IP address of the primary ENI is used.
-     *   If the endpoint type is **ENI**, you can set the **EndpointSubAddress** parameter to the secondary private IP address of the secondary ENI. If the parameter is left empty, the primary private IP address of the secondary ENI is used.
+     *   If you set the endpoint type to **ECS**, you can set **EndpointSubAddress** to the secondary private IP address of the primary ENI. If you leave this parameter empty, the primary private IP address of the primary ENI is used.
+     *   If you set the endpoint type to **ENI**, you can set **EndpointSubAddress** to the secondary private IP address of the secondary ENI. If you leave this parameter empty, the primary private IP address of the secondary ENI is used.
      *
      * @example 172.16.XX.XX
      *
@@ -63,10 +63,11 @@ class UpdateBasicEndpointGroupRequest extends Model
     public $endpointSubAddress;
 
     /**
-     * @description The type of endpoint. Valid values:
+     * @description The type of the endpoint. Valid values:
      *
-     *   **ENI**: elastic network interface (ENI)
-     *   **SLB**: Server Load Balancer (SLB) instance
+     *   **ENI**: elastic network interface (ENI).
+     *   **SLB**: Classic Load Balancer (CLB) instance.
+     *   **ECS**: Elastic Compute Service (ECS) instance.
      *
      * @example ENI
      *
@@ -75,9 +76,9 @@ class UpdateBasicEndpointGroupRequest extends Model
     public $endpointType;
 
     /**
-     * @description The name of the endpoint group that is associated with the basic GA instance.
+     * @description The name of the endpoint group.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
+     * The name must be 1 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). It must start with a letter.
      * @example group1
      *
      * @var string

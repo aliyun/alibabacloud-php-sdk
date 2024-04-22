@@ -43,8 +43,6 @@ class CreateEndpointGroupsRequest extends Model
     public $dryRun;
 
     /**
-     * @description The configurations of the endpoint groups.
-     *
      * @var endpointGroupConfigurations[]
      */
     public $endpointGroupConfigurations;

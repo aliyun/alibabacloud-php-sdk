@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The tag key of the Endpoint Group. The tag key cannot be an empty string.
+     * @description The tag key of the endpoint group. It cannot be an empty string.
      *
      * You can specify up to 20 tag keys.
      * @example test-key
@@ -19,7 +19,7 @@ class tag extends Model
     public $key;
 
     /**
-     * @description The tag value of the Endpoint Group. The tag value can be an empty string.
+     * @description The tag value of the endpoint group. The tag value can be an empty string.
      *
      * You can specify up to 20 tag values.
      * @example test-value

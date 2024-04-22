@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateApplicationMonitorRequest extends Model
 {
     /**
-     * @description The URL or IP address that you want to probe.
+     * @description The URL or IP address that is probed.
      *
      * @example https://www.aliyun.com
      *
@@ -20,9 +20,9 @@ class UpdateApplicationMonitorRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the value, but you must make sure that it is unique among different requests. ClientToken can contain only ASCII characters.
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
      *
-     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** may be different for each API request.
+     * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -30,10 +30,10 @@ class UpdateApplicationMonitorRequest extends Model
     public $clientToken;
 
     /**
-     * @description Specifies whether to enable the automatic diagnostics feature. Default value: false. Valid values:
+     * @description Specifies whether to enable the automatic diagnostics feature. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false** (default)
      *
      * @example false
      *
@@ -52,7 +52,7 @@ class UpdateApplicationMonitorRequest extends Model
     public $detectThreshold;
 
     /**
-     * @description The number of times that are required to reach the threshold before the automatic diagnostics feature can be triggered.
+     * @description The number of times that the threshold must be reached before the automatic diagnostics feature is triggered.
      *
      * Valid values: **1** to **20**.
      * @example 1
@@ -80,7 +80,7 @@ class UpdateApplicationMonitorRequest extends Model
     public $optionsJson;
 
     /**
-     * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
+     * @description The ID of the region where the Global Accelerator (GA) instance is deployed. The value is set to **cn-hangzhou**.
      *
      * @example cn-hangzhou
      *
@@ -89,7 +89,7 @@ class UpdateApplicationMonitorRequest extends Model
     public $regionId;
 
     /**
-     * @description The silence period of the automatic diagnostics feature. This parameter specifies the interval at which the automatic diagnostics feature is triggered. If the availability rate does not return to normal after GA triggers an automatic diagnostic, GA must wait until the silence period ends before GA can trigger another automatic diagnostic.
+     * @description The silence period of the automatic diagnostics feature. This parameter specifies the interval at which the automatic diagnostics feature is triggered. If the availability rate does not return to normal after GA triggers an automatic diagnostic task, GA must wait until the silence period ends before GA can trigger another automatic diagnostic task.
      *
      * If the number of consecutive times that the availability rate drops below the threshold of automatic diagnostics reaches the value of the **DetectTimes** parameter, the automatic diagnostics feature is triggered. The automatic diagnostics feature is not triggered again within the silence period even if the availability rate stays below the threshold. If the availability rate does not return to normal after the silence period ends, the automatic diagnostics feature is triggered again.
      *
@@ -112,7 +112,7 @@ class UpdateApplicationMonitorRequest extends Model
     /**
      * @description The name of the origin probing task.
      *
-     * The name must be 4 to 100 characters in length, and can contain digits, underscores (\_), and hyphens (-). It must start with a letter.
+     * The name must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter.
      * @example task1
      *
      * @var string

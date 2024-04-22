@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class regionList extends Model
 {
     /**
-     * @description Whether China Mainland.
+     * @description Indicates whether the region is in the Chinese mainland. Valid values:
+     *
+     *   **true**
+     *   **false**
      *
      * @example false
      *
@@ -18,33 +21,35 @@ class regionList extends Model
     public $chinaMainland;
 
     /**
-     * @description The line types of EIPs in the acceleration region.
+     * @description The line type of the elastic IP address (EIP) in the acceleration region. Valid values:
      *
-     *   **BGP**: BGP (Multi-ISP) lines
-     *   **BGP_PRO**: BGP (Multi-ISP) Pro lines
+     *   **BGP**: BGP (Multi-ISP) lines.
+     *   **BGP_PRO**: BGP (Multi-ISP) Pro lines.
      *
-     * If you have the permissions to use single-ISP bandwidth, one of the following values may be returned:
-     *
-     *   **ChinaTelecom**: China Telecom (single ISP)
-     *   **ChinaUnicom**: China Unicom (single ISP)
-     *   **ChinaMobile**: China Mobile (single ISP)
-     *   **ChinaTelecom_L2**: China Telecom_L2 (single ISP)
-     *   **ChinaUnicom_L2**: China Unicom_L2 (single ISP)
-     *   **ChinaMobile_L2**: China Mobile_L2 (single ISP)
-     *
-     * > Different acceleration regions support different single-ISP BGP lines.
      * @var string[]
      */
     public $ispTypeList;
 
     /**
-     * @description The name of the acceleration region.
+     * @description The acceleration region name.
      *
-     * @example 青岛
+     * @example China (Qingdao)
      *
      * @var string
      */
     public $localName;
+
+    /**
+     * @description Indicates whether multiple zones are supported. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
+     * @var bool
+     */
+    public $multiAz;
 
     /**
      * @description The ID of the acceleration region.
@@ -56,9 +61,11 @@ class regionList extends Model
     public $regionId;
 
     /**
-     * @description Ipv6 supported, Valid values:
+     * @description Indicates whether IPv6 is supported. Valid values:
      *
-     * - false
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -68,6 +75,7 @@ class regionList extends Model
         'chinaMainland' => 'ChinaMainland',
         'ispTypeList'   => 'IspTypeList',
         'localName'     => 'LocalName',
+        'multiAz'       => 'MultiAz',
         'regionId'      => 'RegionId',
         'supportIpv6'   => 'SupportIpv6',
     ];
@@ -87,6 +95,9 @@ class regionList extends Model
         }
         if (null !== $this->localName) {
             $res['LocalName'] = $this->localName;
+        }
+        if (null !== $this->multiAz) {
+            $res['MultiAz'] = $this->multiAz;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -116,6 +127,9 @@ class regionList extends Model
         }
         if (isset($map['LocalName'])) {
             $model->localName = $map['LocalName'];
+        }
+        if (isset($map['MultiAz'])) {
+            $model->multiAz = $map['MultiAz'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

@@ -18,8 +18,11 @@ class CreateBasicAcceleratorResponseBody extends Model
     public $acceleratorId;
 
     /**
-     * @description The ID of the order.
+     * @description The order ID.
      *
+     * This parameter is returned only if ChargeType is set to PREPAY.
+     *
+     * If **AutoPay** is set to **false**, go to [Order Center](https://usercenter2-intl.aliyun.com/order/list) to complete the payment after an order is generated.
      * @example 2082574365
      *
      * @var string

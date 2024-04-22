@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class regionList extends Model
 {
     /**
-     * @description The region name.
+     * @description The name of the region.
      *
-     * @example 青岛
+     * @example China (Qingdao)
      *
      * @var string
      */

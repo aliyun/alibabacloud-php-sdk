@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteIpSetsRequest extends Model
 {
     /**
-     * @description The ID of the acceleration region that you want to delete.
+     * @description The IDs of the acceleration regions that you want to delete.
      *
      * @example ips-bp11c9mpphtb1xkds****
      *
@@ -18,7 +18,7 @@ class DeleteIpSetsRequest extends Model
     public $ipSetIds;
 
     /**
-     * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+     * @description The region ID of the GA instance. Set the value to **cn-hangzhou**.
      *
      * @example cn-hangzhou
      *

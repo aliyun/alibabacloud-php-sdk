@@ -22,7 +22,7 @@ class DeleteSpareIpsRequest extends Model
      *
      * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
      *
-     * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+     * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 1F4B6A4A-C89E-489E-BAF1-52777EE148EF
      *
      * @var string

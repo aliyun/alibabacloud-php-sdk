@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class backendPorts extends Model
 {
     /**
-     * @description The start port in the range of ports used by the backend server to receive requests.
+     * @description The first port in the range of ports that are used by the backend server to receive requests.
      *
-     * This parameter is returned only when you configure an HTTPS listener and the listening port is the same port used by the backend server to provide services.
+     * This parameter is returned only if an HTTPS listener is configured and the listener port is the same as the service port of the backend server.
      * @example 80
      *
      * @var string
@@ -19,7 +19,7 @@ class backendPorts extends Model
     public $fromPort;
 
     /**
-     * @description The end port in the range of ports used by the backend server to receive requests.
+     * @description The last port in the range of ports that are used by the backend server to receive requests.
      *
      * @example 80
      *

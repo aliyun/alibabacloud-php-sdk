@@ -9,11 +9,12 @@ use AlibabaCloud\Tea\Model;
 class UpdateBandwidthPackagaAutoRenewAttributeRequest extends Model
 {
     /**
-     * @description Specifies whether to enable auto-renewal for the bandwidth plan. Valid values:
+     * @description Specifies whether to enable auto-renewal. Valid values:
      *
-     *   **true**: enables auto-renewal.
-     *   **false** (default): disables auto-renewal.
+     *   **true**
+     *   **false** (default)
      *
+     * >  You must specify **AutoRenew** or **RenewalStatus**.
      * @example false
      *
      * @var bool
@@ -23,7 +24,7 @@ class UpdateBandwidthPackagaAutoRenewAttributeRequest extends Model
     /**
      * @description The auto-renewal duration. Unit: months. Valid values: **1** to **12**.
      *
-     * > : This parameter takes effect only if **AutoRenew** is set to **true**.
+     * > This parameter takes effect only if **AutoRenew** is set to **true**.
      * @example 1
      *
      * @var int
@@ -33,9 +34,9 @@ class UpdateBandwidthPackagaAutoRenewAttributeRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The client token can contain only ASCII characters.
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
      *
-     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
+     * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -75,9 +76,9 @@ class UpdateBandwidthPackagaAutoRenewAttributeRequest extends Model
      *
      *   **AutoRenewal**: The bandwidth plan is automatically renewed.
      *   **Normal**: You must manually renew the bandwidth plan.
-     *   **NotRenewal**: Choose this option if you do not want to renew the bandwidth plan after it expires. The system sends only a non-renewal reminder three days before the expiration date. The system no longer sends notifications to remind you to renew the bandwidth plan. You can change the value of this parameter from NotRenewal to Normal for a bandwidth plan, and then manually renew the bandwidth plan. You can also set the RenewalStatus parameter to **AutoRenewal**.
-     *
-     * > The **RenewalStatus** parameter takes precedence over the **AutoRenew** parameter. If you do not set **RenewalStatus**, the **AutoRenew** parameter is used by default.
+     *   **NotRenewal**: The bandwidth plan is not renewed after it expires. The system sends only a non-renewal reminder three days before the expiration date. To renew a bandwidth plan for which you set RenewalStatus to NotRenewal, you can change the value of RenewalStatus from NotRenewal to Normal, and then manually renew the bandwidth plan. You can also set RenewalStatus to **AutoRenewal**.
+     * > *   You must specify **AutoRenew** or **RenewalStatus**.
+     * > *   **RenewalStatus** takes precedence over **AutoRenew**. If you do not specify **RenewalStatus**, **AutoRenew** is used.
      * @example Normal
      *
      * @var string

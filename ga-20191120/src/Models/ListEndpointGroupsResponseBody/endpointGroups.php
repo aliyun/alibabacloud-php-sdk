@@ -13,7 +13,7 @@ use AlibabaCloud\Tea\Model;
 class endpointGroups extends Model
 {
     /**
-     * @description The GA instance ID.
+     * @description The ID of the GA instance.
      *
      * @example ga-bp1odcab8tmno0hdq****
      *
@@ -31,14 +31,14 @@ class endpointGroups extends Model
     public $description;
 
     /**
-     * @description The configurations of the endpoints in the endpoint group.
+     * @description The configurations of endpoints in the endpoint group.
      *
      * @var endpointConfigurations[]
      */
     public $endpointConfigurations;
 
     /**
-     * @description The endpoint group ID.
+     * @description The ID of the endpoint group.
      *
      * @example epg-bp16jdc00bhe97sr5****
      *
@@ -54,7 +54,7 @@ class endpointGroups extends Model
     public $endpointGroupIpList;
 
     /**
-     * @description The region ID of the endpoint group.
+     * @description The ID of the region where the endpoint group is created.
      *
      * @example cn-hangzhou
      *
@@ -65,8 +65,8 @@ class endpointGroups extends Model
     /**
      * @description The type of the endpoint group. Valid values:
      *
-     *   **default**
-     *   **virtual**
+     *   **default**: a default endpoint group
+     *   **virtual:** a virtual endpoint group.
      *
      * @example default
      *
@@ -75,14 +75,14 @@ class endpointGroups extends Model
     public $endpointGroupType;
 
     /**
-     * @description The endpoint group IP addresses to be confirmed. After the GA instance is upgraded, the IP addresses that are added to the endpoint group need to be confirmed.
+     * @description The endpoint group IP addresses to be confirmed after the GA instance is upgraded.
      *
      * @var string[]
      */
     public $endpointGroupUnconfirmedIpList;
 
     /**
-     * @description The protocol that is used by the backend service. Valid values:
+     * @description The protocol that is used by the backend server.
      *
      *   **HTTP**
      *   **HTTPS**
@@ -101,7 +101,7 @@ class endpointGroups extends Model
     public $forwardingRuleIds;
 
     /**
-     * @description Indicates whether the health check feature is enabled. Valid values:
+     * @description Indicates whether the health check feature is enabled.
      *
      *   **true**
      *   **false**
@@ -113,7 +113,7 @@ class endpointGroups extends Model
     public $healthCheckEnabled;
 
     /**
-     * @description The interval at which health checks are performed. Unit: seconds.
+     * @description The interval at which you want to perform health checks. Unit: seconds.
      *
      * @example 3
      *
@@ -122,7 +122,7 @@ class endpointGroups extends Model
     public $healthCheckIntervalSeconds;
 
     /**
-     * @description The path based on which the system performs health checks.
+     * @description The path that is used for health checks.
      *
      * @example /healthcheck
      *
@@ -142,9 +142,9 @@ class endpointGroups extends Model
     /**
      * @description The protocol over which health check requests are sent. Valid values:
      *
-     *   **tcp**
-     *   **http**
-     *   **https**
+     *   **tcp** or **TCP**
+     *   **http** or **HTTP**
+     *   **https** or **HTTPS**
      *
      * @example tcp
      *
@@ -153,7 +153,7 @@ class endpointGroups extends Model
     public $healthCheckProtocol;
 
     /**
-     * @description The listener ID.
+     * @description The ID of the listener.
      *
      * @example lsr-bp1bpn0kn908w4nbw****
      *
@@ -180,7 +180,7 @@ class endpointGroups extends Model
     /**
      * @description The service that manages the instance.
      *
-     * >  This parameter is valid only if **ServiceManaged** is set to **True**.
+     * >  This parameter takes effect only if the value of **Service managed** is **true**.
      * @example ALB
      *
      * @var string
@@ -202,7 +202,9 @@ class endpointGroups extends Model
     /**
      * @description The actions that users can perform on the managed instance.
      *
-     * >  This parameter is valid only if **ServiceManaged** is set to **True**.
+     * >
+     *
+     *   This parameter takes effect only if the value of **ServiceManaged** is **true**.
      *
      *   Users can perform only specific actions on a managed instance.
      *
@@ -213,10 +215,10 @@ class endpointGroups extends Model
     /**
      * @description The status of the endpoint group. Valid values:
      *
-     *   **init**
-     *   **active**
-     *   **updating**
-     *   **deleteing**
+     *   **init:** The endpoint group is being initialized.
+     *   **active:** The endpoint group is running normally.
+     *   **updating:**The endpoint group is being updated.
+     *   **deleteing:** The endpoint group is being deleted.
      *
      * @example active
      *
@@ -225,7 +227,7 @@ class endpointGroups extends Model
     public $state;
 
     /**
-     * @description The tags.
+     * @description The tag of the endpoint group.
      *
      * @var tags[]
      */
@@ -241,7 +243,7 @@ class endpointGroups extends Model
     public $thresholdCount;
 
     /**
-     * @description The weight of the endpoint group when the listener is associated with multiple endpoint groups.
+     * @description The value of the traffic distribution ratio. If a listener is associated with multiple endpoint groups, you can set this parameter to distribute different percentages of traffic to the endpoint groups.
      *
      * @example 20
      *
