@@ -28,6 +28,16 @@ class conversations extends Model
     public $conversationId;
 
     /**
+     * @var string
+     */
+    public $dsReport;
+
+    /**
+     * @var string[]
+     */
+    public $dsReportTitles;
+
+    /**
      * @example 1
      *
      * @var int
@@ -82,6 +92,8 @@ class conversations extends Model
         'calledNumber'             => 'CalledNumber',
         'callingNumber'            => 'CallingNumber',
         'conversationId'           => 'ConversationId',
+        'dsReport'                 => 'DsReport',
+        'dsReportTitles'           => 'DsReportTitles',
         'endReason'                => 'EndReason',
         'endTime'                  => 'EndTime',
         'hasLastPlaybackCompleted' => 'HasLastPlaybackCompleted',
@@ -107,6 +119,12 @@ class conversations extends Model
         }
         if (null !== $this->conversationId) {
             $res['ConversationId'] = $this->conversationId;
+        }
+        if (null !== $this->dsReport) {
+            $res['DsReport'] = $this->dsReport;
+        }
+        if (null !== $this->dsReportTitles) {
+            $res['DsReportTitles'] = $this->dsReportTitles;
         }
         if (null !== $this->endReason) {
             $res['EndReason'] = $this->endReason;
@@ -152,6 +170,14 @@ class conversations extends Model
         }
         if (isset($map['ConversationId'])) {
             $model->conversationId = $map['ConversationId'];
+        }
+        if (isset($map['DsReport'])) {
+            $model->dsReport = $map['DsReport'];
+        }
+        if (isset($map['DsReportTitles'])) {
+            if (!empty($map['DsReportTitles'])) {
+                $model->dsReportTitles = $map['DsReportTitles'];
+            }
         }
         if (isset($map['EndReason'])) {
             $model->endReason = $map['EndReason'];
