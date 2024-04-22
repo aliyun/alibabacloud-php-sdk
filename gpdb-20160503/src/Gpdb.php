@@ -6320,6 +6320,9 @@ class Gpdb extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new QueryCollectionDataShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->hybridSearchArgs)) {
+            $request->hybridSearchArgsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->hybridSearchArgs, 'HybridSearchArgs', 'json');
+        }
         if (!Utils::isUnset($tmpReq->vector)) {
             $request->vectorShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->vector, 'Vector', 'json');
         }
@@ -6335,6 +6338,12 @@ class Gpdb extends OpenApiClient
         }
         if (!Utils::isUnset($request->filter)) {
             $query['Filter'] = $request->filter;
+        }
+        if (!Utils::isUnset($request->hybridSearch)) {
+            $query['HybridSearch'] = $request->hybridSearch;
+        }
+        if (!Utils::isUnset($request->hybridSearchArgsShrink)) {
+            $query['HybridSearchArgs'] = $request->hybridSearchArgsShrink;
         }
         if (!Utils::isUnset($request->includeValues)) {
             $query['IncludeValues'] = $request->includeValues;
@@ -6401,6 +6410,9 @@ class Gpdb extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new QueryContentShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->hybridSearchArgs)) {
+            $request->hybridSearchArgsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->hybridSearchArgs, 'HybridSearchArgs', 'json');
+        }
         if (!Utils::isUnset($tmpReq->recallWindow)) {
             $request->recallWindowShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->recallWindow, 'RecallWindow', 'json');
         }
@@ -6422,6 +6434,12 @@ class Gpdb extends OpenApiClient
         }
         if (!Utils::isUnset($request->filter)) {
             $query['Filter'] = $request->filter;
+        }
+        if (!Utils::isUnset($request->hybridSearch)) {
+            $query['HybridSearch'] = $request->hybridSearch;
+        }
+        if (!Utils::isUnset($request->hybridSearchArgsShrink)) {
+            $query['HybridSearchArgs'] = $request->hybridSearchArgsShrink;
         }
         if (!Utils::isUnset($request->includeVector)) {
             $query['IncludeVector'] = $request->includeVector;

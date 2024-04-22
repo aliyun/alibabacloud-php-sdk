@@ -38,7 +38,7 @@ class DescribeSQLLogsRequest extends Model
     public $endTime;
 
     /**
-     * @description The execution duration of the query. Unit: seconds.
+     * @description The execution duration of the SQL statement. Unit: seconds.
      *
      * @example 1
      *
@@ -47,10 +47,10 @@ class DescribeSQLLogsRequest extends Model
     public $executeCost;
 
     /**
-     * @description The execution state of the query. Valid values:
+     * @description The execution status of the SQL statement. Valid values:
      *
-     *   **success**
-     *   **fail**
+     *   **1**: successful.
+     *   **0**: failed.
      *
      * @example success
      *

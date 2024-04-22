@@ -46,12 +46,12 @@ class DownloadSQLLogsRecordsRequest extends Model
     public $executeCost;
 
     /**
-     * @description The execution state of the SQL statement.
+     * @description The execution status of the SQL statement.
      *
-     *   **success**
-     *   **fail**
+     *   **1**: successful.
+     *   **0**: failed.
      *
-     * @example success
+     * @example 1
      *
      * @var string
      */

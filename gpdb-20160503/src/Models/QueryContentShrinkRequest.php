@@ -45,6 +45,16 @@ class QueryContentShrinkRequest extends Model
     public $filter;
 
     /**
+     * @var string
+     */
+    public $hybridSearch;
+
+    /**
+     * @var string
+     */
+    public $hybridSearchArgsShrink;
+
+    /**
      * @var bool
      */
     public $includeVector;
@@ -106,22 +116,24 @@ class QueryContentShrinkRequest extends Model
      */
     public $useFullTextRetrieval;
     protected $_name = [
-        'collection'           => 'Collection',
-        'content'              => 'Content',
-        'DBInstanceId'         => 'DBInstanceId',
-        'fileName'             => 'FileName',
-        'fileUrl'              => 'FileUrl',
-        'filter'               => 'Filter',
-        'includeVector'        => 'IncludeVector',
-        'metrics'              => 'Metrics',
-        'namespace'            => 'Namespace',
-        'namespacePassword'    => 'NamespacePassword',
-        'ownerId'              => 'OwnerId',
-        'recallWindowShrink'   => 'RecallWindow',
-        'regionId'             => 'RegionId',
-        'rerankFactor'         => 'RerankFactor',
-        'topK'                 => 'TopK',
-        'useFullTextRetrieval' => 'UseFullTextRetrieval',
+        'collection'             => 'Collection',
+        'content'                => 'Content',
+        'DBInstanceId'           => 'DBInstanceId',
+        'fileName'               => 'FileName',
+        'fileUrl'                => 'FileUrl',
+        'filter'                 => 'Filter',
+        'hybridSearch'           => 'HybridSearch',
+        'hybridSearchArgsShrink' => 'HybridSearchArgs',
+        'includeVector'          => 'IncludeVector',
+        'metrics'                => 'Metrics',
+        'namespace'              => 'Namespace',
+        'namespacePassword'      => 'NamespacePassword',
+        'ownerId'                => 'OwnerId',
+        'recallWindowShrink'     => 'RecallWindow',
+        'regionId'               => 'RegionId',
+        'rerankFactor'           => 'RerankFactor',
+        'topK'                   => 'TopK',
+        'useFullTextRetrieval'   => 'UseFullTextRetrieval',
     ];
 
     public function validate()
@@ -148,6 +160,12 @@ class QueryContentShrinkRequest extends Model
         }
         if (null !== $this->filter) {
             $res['Filter'] = $this->filter;
+        }
+        if (null !== $this->hybridSearch) {
+            $res['HybridSearch'] = $this->hybridSearch;
+        }
+        if (null !== $this->hybridSearchArgsShrink) {
+            $res['HybridSearchArgs'] = $this->hybridSearchArgsShrink;
         }
         if (null !== $this->includeVector) {
             $res['IncludeVector'] = $this->includeVector;
@@ -208,6 +226,12 @@ class QueryContentShrinkRequest extends Model
         }
         if (isset($map['Filter'])) {
             $model->filter = $map['Filter'];
+        }
+        if (isset($map['HybridSearch'])) {
+            $model->hybridSearch = $map['HybridSearch'];
+        }
+        if (isset($map['HybridSearchArgs'])) {
+            $model->hybridSearchArgsShrink = $map['HybridSearchArgs'];
         }
         if (isset($map['IncludeVector'])) {
             $model->includeVector = $map['IncludeVector'];

@@ -46,6 +46,16 @@ class QueryContentAdvanceRequest extends Model
     public $filter;
 
     /**
+     * @var string
+     */
+    public $hybridSearch;
+
+    /**
+     * @var mixed[][]
+     */
+    public $hybridSearchArgs;
+
+    /**
      * @var bool
      */
     public $includeVector;
@@ -113,6 +123,8 @@ class QueryContentAdvanceRequest extends Model
         'fileName'             => 'FileName',
         'fileUrlObject'        => 'FileUrl',
         'filter'               => 'Filter',
+        'hybridSearch'         => 'HybridSearch',
+        'hybridSearchArgs'     => 'HybridSearchArgs',
         'includeVector'        => 'IncludeVector',
         'metrics'              => 'Metrics',
         'namespace'            => 'Namespace',
@@ -149,6 +161,12 @@ class QueryContentAdvanceRequest extends Model
         }
         if (null !== $this->filter) {
             $res['Filter'] = $this->filter;
+        }
+        if (null !== $this->hybridSearch) {
+            $res['HybridSearch'] = $this->hybridSearch;
+        }
+        if (null !== $this->hybridSearchArgs) {
+            $res['HybridSearchArgs'] = $this->hybridSearchArgs;
         }
         if (null !== $this->includeVector) {
             $res['IncludeVector'] = $this->includeVector;
@@ -209,6 +227,12 @@ class QueryContentAdvanceRequest extends Model
         }
         if (isset($map['Filter'])) {
             $model->filter = $map['Filter'];
+        }
+        if (isset($map['HybridSearch'])) {
+            $model->hybridSearch = $map['HybridSearch'];
+        }
+        if (isset($map['HybridSearchArgs'])) {
+            $model->hybridSearchArgs = $map['HybridSearchArgs'];
         }
         if (isset($map['IncludeVector'])) {
             $model->includeVector = $map['IncludeVector'];

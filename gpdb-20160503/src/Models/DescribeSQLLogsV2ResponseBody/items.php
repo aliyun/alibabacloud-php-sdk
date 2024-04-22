@@ -36,7 +36,7 @@ class items extends Model
     public $DBRole;
 
     /**
-     * @description The execution duration of the query.
+     * @description The execution duration of the SQL statement.
      *
      * @example 2
      *
@@ -45,7 +45,7 @@ class items extends Model
     public $executeCost;
 
     /**
-     * @description The execution state of the query. Valid values:
+     * @description The execution status of the SQL statement. Valid values:
      *
      *   **success**
      *   **fail**

@@ -37,6 +37,16 @@ class QueryCollectionDataRequest extends Model
     public $filter;
 
     /**
+     * @var string
+     */
+    public $hybridSearch;
+
+    /**
+     * @var mixed[][]
+     */
+    public $hybridSearchArgs;
+
+    /**
      * @var bool
      */
     public $includeValues;
@@ -88,6 +98,8 @@ class QueryCollectionDataRequest extends Model
         'content'           => 'Content',
         'DBInstanceId'      => 'DBInstanceId',
         'filter'            => 'Filter',
+        'hybridSearch'      => 'HybridSearch',
+        'hybridSearchArgs'  => 'HybridSearchArgs',
         'includeValues'     => 'IncludeValues',
         'metrics'           => 'Metrics',
         'namespace'         => 'Namespace',
@@ -116,6 +128,12 @@ class QueryCollectionDataRequest extends Model
         }
         if (null !== $this->filter) {
             $res['Filter'] = $this->filter;
+        }
+        if (null !== $this->hybridSearch) {
+            $res['HybridSearch'] = $this->hybridSearch;
+        }
+        if (null !== $this->hybridSearchArgs) {
+            $res['HybridSearchArgs'] = $this->hybridSearchArgs;
         }
         if (null !== $this->includeValues) {
             $res['IncludeValues'] = $this->includeValues;
@@ -164,6 +182,12 @@ class QueryCollectionDataRequest extends Model
         }
         if (isset($map['Filter'])) {
             $model->filter = $map['Filter'];
+        }
+        if (isset($map['HybridSearch'])) {
+            $model->hybridSearch = $map['HybridSearch'];
+        }
+        if (isset($map['HybridSearchArgs'])) {
+            $model->hybridSearchArgs = $map['HybridSearchArgs'];
         }
         if (isset($map['IncludeValues'])) {
             $model->includeValues = $map['IncludeValues'];
