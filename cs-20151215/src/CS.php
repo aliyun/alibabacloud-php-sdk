@@ -981,6 +981,9 @@ class CS extends OpenApiClient
         if (!Utils::isUnset($request->securityGroupId)) {
             $body['security_group_id'] = $request->securityGroupId;
         }
+        if (!Utils::isUnset($request->securityHardeningOs)) {
+            $body['security_hardening_os'] = $request->securityHardeningOs;
+        }
         if (!Utils::isUnset($request->serviceAccountIssuer)) {
             $body['service_account_issuer'] = $request->serviceAccountIssuer;
         }

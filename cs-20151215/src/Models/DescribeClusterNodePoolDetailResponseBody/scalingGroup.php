@@ -37,6 +37,8 @@ class scalingGroup extends Model
     /**
      * @example false
      *
+     * @deprecated
+     *
      * @var bool
      */
     public $cisEnabled;
@@ -290,6 +292,11 @@ class scalingGroup extends Model
     public $securityGroupIds;
 
     /**
+     * @var bool
+     */
+    public $securityHardeningOs;
+
+    /**
      * @example false
      *
      * @var bool
@@ -454,6 +461,7 @@ class scalingGroup extends Model
         'scalingPolicy'                       => 'scaling_policy',
         'securityGroupId'                     => 'security_group_id',
         'securityGroupIds'                    => 'security_group_ids',
+        'securityHardeningOs'                 => 'security_hardening_os',
         'socEnabled'                          => 'soc_enabled',
         'spotInstancePools'                   => 'spot_instance_pools',
         'spotInstanceRemedy'                  => 'spot_instance_remedy',
@@ -571,6 +579,9 @@ class scalingGroup extends Model
         }
         if (null !== $this->securityGroupIds) {
             $res['security_group_ids'] = $this->securityGroupIds;
+        }
+        if (null !== $this->securityHardeningOs) {
+            $res['security_hardening_os'] = $this->securityHardeningOs;
         }
         if (null !== $this->socEnabled) {
             $res['soc_enabled'] = $this->socEnabled;
@@ -742,6 +753,9 @@ class scalingGroup extends Model
             if (!empty($map['security_group_ids'])) {
                 $model->securityGroupIds = $map['security_group_ids'];
             }
+        }
+        if (isset($map['security_hardening_os'])) {
+            $model->securityHardeningOs = $map['security_hardening_os'];
         }
         if (isset($map['soc_enabled'])) {
             $model->socEnabled = $map['soc_enabled'];

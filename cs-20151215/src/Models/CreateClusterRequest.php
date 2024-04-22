@@ -77,6 +77,8 @@ class CreateClusterRequest extends Model
      * Default value: `false`.
      * @example false
      *
+     * @deprecated
+     *
      * @var bool
      */
     public $cisEnabled;
@@ -300,9 +302,9 @@ class CreateClusterRequest extends Model
     public $instances;
 
     /**
-     * @description The cluster IP stack.
+     * @description The cluster ip_stack.
      *
-     * @example Optional value: IPv4 (Single stack) or IPv6 (Dual Stack)
+     * @example Optional value: ipv4 (Single stack) or ipv6 (Dual Stack)
      * Default value: IPV4
      * @var string
      */
@@ -717,6 +719,11 @@ class CreateClusterRequest extends Model
     public $securityGroupId;
 
     /**
+     * @var bool
+     */
+    public $securityHardeningOs;
+
+    /**
      * @description Service accounts provide identities for pods when pods communicate with the `API server` of the cluster. `service-account-issuer` is the issuer of the `serviceaccount token`, which corresponds to the `iss` field in the `token payload`.
      *
      * For more information about `ServiceAccount`, see [Enable service account token volume projection](~~160384~~).
@@ -1083,6 +1090,7 @@ class CreateClusterRequest extends Model
         'resourceGroupId'                  => 'resource_group_id',
         'runtime'                          => 'runtime',
         'securityGroupId'                  => 'security_group_id',
+        'securityHardeningOs'              => 'security_hardening_os',
         'serviceAccountIssuer'             => 'service_account_issuer',
         'serviceCidr'                      => 'service_cidr',
         'serviceDiscoveryTypes'            => 'service_discovery_types',
@@ -1319,6 +1327,9 @@ class CreateClusterRequest extends Model
         }
         if (null !== $this->securityGroupId) {
             $res['security_group_id'] = $this->securityGroupId;
+        }
+        if (null !== $this->securityHardeningOs) {
+            $res['security_hardening_os'] = $this->securityHardeningOs;
         }
         if (null !== $this->serviceAccountIssuer) {
             $res['service_account_issuer'] = $this->serviceAccountIssuer;
@@ -1645,6 +1656,9 @@ class CreateClusterRequest extends Model
         }
         if (isset($map['security_group_id'])) {
             $model->securityGroupId = $map['security_group_id'];
+        }
+        if (isset($map['security_hardening_os'])) {
+            $model->securityHardeningOs = $map['security_hardening_os'];
         }
         if (isset($map['service_account_issuer'])) {
             $model->serviceAccountIssuer = $map['service_account_issuer'];

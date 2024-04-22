@@ -39,6 +39,8 @@ class scalingGroup extends Model
      *
      * @example false
      *
+     * @deprecated
+     *
      * @var bool
      */
     public $cisEnabled;
@@ -298,6 +300,11 @@ class scalingGroup extends Model
     public $securityGroupIds;
 
     /**
+     * @var bool
+     */
+    public $securityHardeningOs;
+
+    /**
      * @description 是否开启等保加固，仅当系统镜像选择Alibaba Cloud Linux 2或Alibaba Cloud Linux 3时，可为节点开启等保加固。阿里云为Alibaba Cloud Linux 2和Alibaba Cloud Linux 3等保2.0三级版镜像提供等保合规的基线检查标准和扫描程序。
      *
      * @example false
@@ -476,6 +483,7 @@ class scalingGroup extends Model
         'scalingPolicy'                       => 'scaling_policy',
         'securityGroupId'                     => 'security_group_id',
         'securityGroupIds'                    => 'security_group_ids',
+        'securityHardeningOs'                 => 'security_hardening_os',
         'socEnabled'                          => 'soc_enabled',
         'spotInstancePools'                   => 'spot_instance_pools',
         'spotInstanceRemedy'                  => 'spot_instance_remedy',
@@ -593,6 +601,9 @@ class scalingGroup extends Model
         }
         if (null !== $this->securityGroupIds) {
             $res['security_group_ids'] = $this->securityGroupIds;
+        }
+        if (null !== $this->securityHardeningOs) {
+            $res['security_hardening_os'] = $this->securityHardeningOs;
         }
         if (null !== $this->socEnabled) {
             $res['soc_enabled'] = $this->socEnabled;
@@ -764,6 +775,9 @@ class scalingGroup extends Model
             if (!empty($map['security_group_ids'])) {
                 $model->securityGroupIds = $map['security_group_ids'];
             }
+        }
+        if (isset($map['security_hardening_os'])) {
+            $model->securityHardeningOs = $map['security_hardening_os'];
         }
         if (isset($map['soc_enabled'])) {
             $model->socEnabled = $map['soc_enabled'];
