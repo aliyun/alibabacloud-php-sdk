@@ -59,6 +59,7 @@ use AlibabaCloud\SDK\CS\V20151215\Models\DescribeAddonResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeAddonsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeAddonsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterAddonInstanceResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterAddonMetadataRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterAddonMetadataResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterAddonsUpgradeStatusRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterAddonsUpgradeStatusResponse;
@@ -2179,18 +2180,24 @@ class CS extends OpenApiClient
      *   *
      * Deprecated
      *
-     * @param string         $clusterId
-     * @param string         $componentId
-     * @param string         $version
-     * @param string[]       $headers     map
-     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
+     * @param string                              $clusterId
+     * @param string                              $componentId
+     * @param DescribeClusterAddonMetadataRequest $request     DescribeClusterAddonMetadataRequest
+     * @param string[]                            $headers     map
+     * @param RuntimeOptions                      $runtime     runtime options for this request RuntimeOptions
      *
      * @return DescribeClusterAddonMetadataResponse DescribeClusterAddonMetadataResponse
      */
-    public function describeClusterAddonMetadataWithOptions($clusterId, $componentId, $version, $headers, $runtime)
+    public function describeClusterAddonMetadataWithOptions($clusterId, $componentId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->version)) {
+            $query['version'] = $request->version;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeClusterAddonMetadata',
@@ -2212,18 +2219,18 @@ class CS extends OpenApiClient
      *   *
      * Deprecated
      *
-     * @param string $clusterId
-     * @param string $componentId
-     * @param string $version
+     * @param string                              $clusterId
+     * @param string                              $componentId
+     * @param DescribeClusterAddonMetadataRequest $request     DescribeClusterAddonMetadataRequest
      *
      * @return DescribeClusterAddonMetadataResponse DescribeClusterAddonMetadataResponse
      */
-    public function describeClusterAddonMetadata($clusterId, $componentId, $version)
+    public function describeClusterAddonMetadata($clusterId, $componentId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeClusterAddonMetadataWithOptions($clusterId, $componentId, $version, $headers, $runtime);
+        return $this->describeClusterAddonMetadataWithOptions($clusterId, $componentId, $request, $headers, $runtime);
     }
 
     /**
