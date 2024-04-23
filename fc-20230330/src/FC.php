@@ -33,6 +33,8 @@ use AlibabaCloud\SDK\FC\V20230330\Models\DeleteVpcBindingResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\GetAliasResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\GetAsyncInvokeConfigRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\GetAsyncInvokeConfigResponse;
+use AlibabaCloud\SDK\FC\V20230330\Models\GetAsyncTaskRequest;
+use AlibabaCloud\SDK\FC\V20230330\Models\GetAsyncTaskResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\GetConcurrencyConfigResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\GetCustomDomainResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\GetFunctionCodeRequest;
@@ -51,6 +53,8 @@ use AlibabaCloud\SDK\FC\V20230330\Models\ListAliasesRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\ListAliasesResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\ListAsyncInvokeConfigsRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\ListAsyncInvokeConfigsResponse;
+use AlibabaCloud\SDK\FC\V20230330\Models\ListAsyncTasksRequest;
+use AlibabaCloud\SDK\FC\V20230330\Models\ListAsyncTasksResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\ListConcurrencyConfigsRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\ListConcurrencyConfigsResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\ListCustomDomainsRequest;
@@ -83,6 +87,8 @@ use AlibabaCloud\SDK\FC\V20230330\Models\PutLayerACLRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\PutLayerACLResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\PutProvisionConfigRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\PutProvisionConfigResponse;
+use AlibabaCloud\SDK\FC\V20230330\Models\StopAsyncTaskRequest;
+use AlibabaCloud\SDK\FC\V20230330\Models\StopAsyncTaskResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\UntagResourcesRequest;
@@ -912,6 +918,56 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @param string              $functionName
+     * @param string              $taskId
+     * @param GetAsyncTaskRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetAsyncTaskResponse
+     */
+    public function getAsyncTaskWithOptions($functionName, $taskId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->qualifier)) {
+            $query['qualifier'] = $request->qualifier;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAsyncTask',
+            'version'     => '2023-03-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2023-03-30/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/async-tasks/' . OpenApiUtilClient::getEncodeParam($taskId) . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAsyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string              $functionName
+     * @param string              $taskId
+     * @param GetAsyncTaskRequest $request
+     *
+     * @return GetAsyncTaskResponse
+     */
+    public function getAsyncTask($functionName, $taskId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getAsyncTaskWithOptions($functionName, $taskId, $request, $headers, $runtime);
+    }
+
+    /**
      * @param string         $functionName
      * @param string[]       $headers
      * @param RuntimeOptions $runtime
@@ -1440,6 +1496,78 @@ class FC extends OpenApiClient
         $headers = [];
 
         return $this->listAsyncInvokeConfigsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                $functionName
+     * @param ListAsyncTasksRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListAsyncTasksResponse
+     */
+    public function listAsyncTasksWithOptions($functionName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->includePayload)) {
+            $query['includePayload'] = $request->includePayload;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $query['limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['nextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->prefix)) {
+            $query['prefix'] = $request->prefix;
+        }
+        if (!Utils::isUnset($request->qualifier)) {
+            $query['qualifier'] = $request->qualifier;
+        }
+        if (!Utils::isUnset($request->sortOrderByTime)) {
+            $query['sortOrderByTime'] = $request->sortOrderByTime;
+        }
+        if (!Utils::isUnset($request->startedTimeBegin)) {
+            $query['startedTimeBegin'] = $request->startedTimeBegin;
+        }
+        if (!Utils::isUnset($request->startedTimeEnd)) {
+            $query['startedTimeEnd'] = $request->startedTimeEnd;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAsyncTasks',
+            'version'     => '2023-03-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2023-03-30/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/async-tasks',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAsyncTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                $functionName
+     * @param ListAsyncTasksRequest $request
+     *
+     * @return ListAsyncTasksResponse
+     */
+    public function listAsyncTasks($functionName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listAsyncTasksWithOptions($functionName, $request, $headers, $runtime);
     }
 
     /**
@@ -2256,6 +2384,56 @@ class FC extends OpenApiClient
         $headers = [];
 
         return $this->putProvisionConfigWithOptions($functionName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string               $functionName
+     * @param string               $taskId
+     * @param StopAsyncTaskRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return StopAsyncTaskResponse
+     */
+    public function stopAsyncTaskWithOptions($functionName, $taskId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->qualifier)) {
+            $query['qualifier'] = $request->qualifier;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopAsyncTask',
+            'version'     => '2023-03-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2023-03-30/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/async-tasks/' . OpenApiUtilClient::getEncodeParam($taskId) . '/stop',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return StopAsyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string               $functionName
+     * @param string               $taskId
+     * @param StopAsyncTaskRequest $request
+     *
+     * @return StopAsyncTaskResponse
+     */
+    public function stopAsyncTask($functionName, $taskId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->stopAsyncTaskWithOptions($functionName, $taskId, $request, $headers, $runtime);
     }
 
     /**

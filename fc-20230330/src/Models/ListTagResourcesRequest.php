@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
+     * @description The number of resources to return.
+     *
      * @example 10
      *
      * @var int
@@ -17,6 +19,8 @@ class ListTagResourcesRequest extends Model
     public $limit;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
      * @example MTIzNCNhYmM=
      *
      * @var string
@@ -24,11 +28,15 @@ class ListTagResourcesRequest extends Model
     public $nextToken;
 
     /**
+     * @description The resource IDs.
+     *
      * @var string[]
      */
     public $resourceId;
 
     /**
+     * @description The resource type.
+     *
      * @example ALIYUN::FC:FUNCTION
      *
      * @var string
@@ -36,6 +44,9 @@ class ListTagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description The tags.
+     *
+     * You can query up to 20 tags at a time.
      * @var tag[]
      */
     public $tag;

@@ -6,16 +6,16 @@ namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class TagResourcesRequest extends Model
+class StopAsyncTaskRequest extends Model
 {
     /**
-     * @description The configuration of the resource tag.
+     * @example LATEST
      *
-     * @var TagResourcesInput
+     * @var string
      */
-    public $body;
+    public $qualifier;
     protected $_name = [
-        'body' => 'body',
+        'qualifier' => 'qualifier',
     ];
 
     public function validate()
@@ -25,8 +25,8 @@ class TagResourcesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->qualifier) {
+            $res['qualifier'] = $this->qualifier;
         }
 
         return $res;
@@ -35,13 +35,13 @@ class TagResourcesRequest extends Model
     /**
      * @param array $map
      *
-     * @return TagResourcesRequest
+     * @return StopAsyncTaskRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['body'])) {
-            $model->body = TagResourcesInput::fromMap($map['body']);
+        if (isset($map['qualifier'])) {
+            $model->qualifier = $map['qualifier'];
         }
 
         return $model;
