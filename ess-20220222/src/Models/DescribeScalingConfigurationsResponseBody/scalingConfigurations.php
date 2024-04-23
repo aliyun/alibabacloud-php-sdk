@@ -71,6 +71,11 @@ class scalingConfigurations extends Model
     public $dataDisks;
 
     /**
+     * @var string
+     */
+    public $dedicatedHostClusterId;
+
+    /**
      * @description The ID of the dedicated host on which the ECS instance is created. Preemptible instances cannot be created on dedicated hosts. If you specify the DedicatedHostId parameter, the SpotStrategy and SpotPriceLimit parameters are ignored.
      *
      * You can call the DescribeDedicatedHosts operation to query dedicated host IDs.
@@ -639,6 +644,7 @@ class scalingConfigurations extends Model
         'creditSpecification'              => 'CreditSpecification',
         'customPriorities'                 => 'CustomPriorities',
         'dataDisks'                        => 'DataDisks',
+        'dedicatedHostClusterId'           => 'DedicatedHostClusterId',
         'dedicatedHostId'                  => 'DedicatedHostId',
         'deletionProtection'               => 'DeletionProtection',
         'deploymentSetId'                  => 'DeploymentSetId',
@@ -738,6 +744,9 @@ class scalingConfigurations extends Model
                     $res['DataDisks'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->dedicatedHostClusterId) {
+            $res['DedicatedHostClusterId'] = $this->dedicatedHostClusterId;
         }
         if (null !== $this->dedicatedHostId) {
             $res['DedicatedHostId'] = $this->dedicatedHostId;
@@ -987,6 +996,9 @@ class scalingConfigurations extends Model
                     $model->dataDisks[$n++] = null !== $item ? dataDisks::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['DedicatedHostClusterId'])) {
+            $model->dedicatedHostClusterId = $map['DedicatedHostClusterId'];
         }
         if (isset($map['DedicatedHostId'])) {
             $model->dedicatedHostId = $map['DedicatedHostId'];

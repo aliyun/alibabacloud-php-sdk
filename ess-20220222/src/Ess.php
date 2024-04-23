@@ -449,6 +449,9 @@ class Ess extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->attachMode)) {
+            $query['AttachMode'] = $request->attachMode;
+        }
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
@@ -469,6 +472,9 @@ class Ess extends OpenApiClient
         }
         if (!Utils::isUnset($request->scalingGroupId)) {
             $query['ScalingGroupId'] = $request->scalingGroupId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1444,6 +1450,9 @@ class Ess extends OpenApiClient
         if (!Utils::isUnset($request->dataDisks)) {
             $query['DataDisks'] = $request->dataDisks;
         }
+        if (!Utils::isUnset($request->dedicatedHostClusterId)) {
+            $query['DedicatedHostClusterId'] = $request->dedicatedHostClusterId;
+        }
         if (!Utils::isUnset($request->dedicatedHostId)) {
             $query['DedicatedHostId'] = $request->dedicatedHostId;
         }
@@ -1688,6 +1697,9 @@ class Ess extends OpenApiClient
         }
         if (!Utils::isUnset($request->DBInstanceIds)) {
             $query['DBInstanceIds'] = $request->DBInstanceIds;
+        }
+        if (!Utils::isUnset($request->DBInstances)) {
+            $query['DBInstances'] = $request->DBInstances;
         }
         if (!Utils::isUnset($request->defaultCooldown)) {
             $query['DefaultCooldown'] = $request->defaultCooldown;
@@ -3798,6 +3810,9 @@ class Ess extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->removeSecurityGroup)) {
+            $query['RemoveSecurityGroup'] = $request->removeSecurityGroup;
+        }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
@@ -5288,6 +5303,9 @@ class Ess extends OpenApiClient
         }
         if (!Utils::isUnset($request->dataDisks)) {
             $query['DataDisks'] = $request->dataDisks;
+        }
+        if (!Utils::isUnset($request->dedicatedHostClusterId)) {
+            $query['DedicatedHostClusterId'] = $request->dedicatedHostClusterId;
         }
         if (!Utils::isUnset($request->dedicatedHostId)) {
             $query['DedicatedHostId'] = $request->dedicatedHostId;

@@ -53,6 +53,11 @@ class DetachDBInstancesRequest extends Model
     public $regionId;
 
     /**
+     * @var bool
+     */
+    public $removeSecurityGroup;
+
+    /**
      * @var string
      */
     public $resourceOwnerAccount;
@@ -71,6 +76,7 @@ class DetachDBInstancesRequest extends Model
         'forceDetach'          => 'ForceDetach',
         'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
+        'removeSecurityGroup'  => 'RemoveSecurityGroup',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'scalingGroupId'       => 'ScalingGroupId',
     ];
@@ -96,6 +102,9 @@ class DetachDBInstancesRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->removeSecurityGroup) {
+            $res['RemoveSecurityGroup'] = $this->removeSecurityGroup;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -131,6 +140,9 @@ class DetachDBInstancesRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RemoveSecurityGroup'])) {
+            $model->removeSecurityGroup = $map['RemoveSecurityGroup'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

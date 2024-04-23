@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingGroupsResponseBody;
 
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingGroupsResponseBody\scalingGroups\albServerGroups;
+use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingGroupsResponseBody\scalingGroups\DBInstances;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingGroupsResponseBody\scalingGroups\launchTemplateOverrides;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingGroupsResponseBody\scalingGroups\loadBalancerConfigs;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingGroupsResponseBody\scalingGroups\serverGroups;
@@ -108,6 +109,11 @@ class scalingGroups extends Model
      * @var string[]
      */
     public $DBInstanceIds;
+
+    /**
+     * @var DBInstances[]
+     */
+    public $DBInstances;
 
     /**
      * @description The cooldown period of the scaling group. During the cooldown period, Auto Scaling does not execute the scaling activities that are triggered by [CloudMonitor](~~35170~~) event-triggered tasks.
@@ -592,6 +598,7 @@ class scalingGroups extends Model
         'currentHostName'                     => 'CurrentHostName',
         'customPolicyARN'                     => 'CustomPolicyARN',
         'DBInstanceIds'                       => 'DBInstanceIds',
+        'DBInstances'                         => 'DBInstances',
         'defaultCooldown'                     => 'DefaultCooldown',
         'desiredCapacity'                     => 'DesiredCapacity',
         'enableDesiredCapacity'               => 'EnableDesiredCapacity',
@@ -685,6 +692,15 @@ class scalingGroups extends Model
         }
         if (null !== $this->DBInstanceIds) {
             $res['DBInstanceIds'] = $this->DBInstanceIds;
+        }
+        if (null !== $this->DBInstances) {
+            $res['DBInstances'] = [];
+            if (null !== $this->DBInstances && \is_array($this->DBInstances)) {
+                $n = 0;
+                foreach ($this->DBInstances as $item) {
+                    $res['DBInstances'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->defaultCooldown) {
             $res['DefaultCooldown'] = $this->defaultCooldown;
@@ -911,6 +927,15 @@ class scalingGroups extends Model
         if (isset($map['DBInstanceIds'])) {
             if (!empty($map['DBInstanceIds'])) {
                 $model->DBInstanceIds = $map['DBInstanceIds'];
+            }
+        }
+        if (isset($map['DBInstances'])) {
+            if (!empty($map['DBInstances'])) {
+                $model->DBInstances = [];
+                $n                  = 0;
+                foreach ($map['DBInstances'] as $item) {
+                    $model->DBInstances[$n++] = null !== $item ? DBInstances::fromMap($item) : $item;
+                }
             }
         }
         if (isset($map['DefaultCooldown'])) {

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class AttachDBInstancesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $attachMode;
+
+    /**
      * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that the value is unique among different requests.
      *
      * The token can only contain ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure the idempotence of a request](~~25965~~).
@@ -65,7 +70,13 @@ class AttachDBInstancesRequest extends Model
      * @var string
      */
     public $scalingGroupId;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
+        'attachMode'           => 'AttachMode',
         'clientToken'          => 'ClientToken',
         'DBInstances'          => 'DBInstances',
         'forceAttach'          => 'ForceAttach',
@@ -73,6 +84,7 @@ class AttachDBInstancesRequest extends Model
         'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'scalingGroupId'       => 'ScalingGroupId',
+        'type'                 => 'Type',
     ];
 
     public function validate()
@@ -82,6 +94,9 @@ class AttachDBInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->attachMode) {
+            $res['AttachMode'] = $this->attachMode;
+        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -103,6 +118,9 @@ class AttachDBInstancesRequest extends Model
         if (null !== $this->scalingGroupId) {
             $res['ScalingGroupId'] = $this->scalingGroupId;
         }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
 
         return $res;
     }
@@ -115,6 +133,9 @@ class AttachDBInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AttachMode'])) {
+            $model->attachMode = $map['AttachMode'];
+        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
@@ -137,6 +158,9 @@ class AttachDBInstancesRequest extends Model
         }
         if (isset($map['ScalingGroupId'])) {
             $model->scalingGroupId = $map['ScalingGroupId'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ess\V20220222\Models;
 
 use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingGroupRequest\albServerGroups;
+use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingGroupRequest\DBInstances;
 use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingGroupRequest\launchTemplateOverrides;
 use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingGroupRequest\lifecycleHooks;
 use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingGroupRequest\loadBalancerConfigs;
@@ -97,6 +98,11 @@ class CreateScalingGroupRequest extends Model
      * @var string
      */
     public $DBInstanceIds;
+
+    /**
+     * @var DBInstances[]
+     */
+    public $DBInstances;
 
     /**
      * @description The cooldown period of the scaling group after a scaling activity is complete. Valid values: 0 to 86400. Unit: seconds.
@@ -461,6 +467,7 @@ class CreateScalingGroupRequest extends Model
         'containerGroupId'                    => 'ContainerGroupId',
         'customPolicyARN'                     => 'CustomPolicyARN',
         'DBInstanceIds'                       => 'DBInstanceIds',
+        'DBInstances'                         => 'DBInstances',
         'defaultCooldown'                     => 'DefaultCooldown',
         'desiredCapacity'                     => 'DesiredCapacity',
         'groupDeletionProtection'             => 'GroupDeletionProtection',
@@ -535,6 +542,15 @@ class CreateScalingGroupRequest extends Model
         }
         if (null !== $this->DBInstanceIds) {
             $res['DBInstanceIds'] = $this->DBInstanceIds;
+        }
+        if (null !== $this->DBInstances) {
+            $res['DBInstances'] = [];
+            if (null !== $this->DBInstances && \is_array($this->DBInstances)) {
+                $n = 0;
+                foreach ($this->DBInstances as $item) {
+                    $res['DBInstances'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->defaultCooldown) {
             $res['DefaultCooldown'] = $this->defaultCooldown;
@@ -721,6 +737,15 @@ class CreateScalingGroupRequest extends Model
         }
         if (isset($map['DBInstanceIds'])) {
             $model->DBInstanceIds = $map['DBInstanceIds'];
+        }
+        if (isset($map['DBInstances'])) {
+            if (!empty($map['DBInstances'])) {
+                $model->DBInstances = [];
+                $n                  = 0;
+                foreach ($map['DBInstances'] as $item) {
+                    $model->DBInstances[$n++] = null !== $item ? DBInstances::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['DefaultCooldown'])) {
             $model->defaultCooldown = $map['DefaultCooldown'];
