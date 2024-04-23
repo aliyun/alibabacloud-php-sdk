@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribePostpayTrafficTotalResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 826B6280-9704-5643-97B1-6B47AC3F027A
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribePostpayTrafficTotalResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of the assets that are protected by the Internet firewall.
+     *
      * @example 132
      *
      * @var int
@@ -23,6 +27,8 @@ class DescribePostpayTrafficTotalResponseBody extends Model
     public $totalAssets;
 
     /**
+     * @description The total number of the assets that are protected by the NAT firewall.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +36,8 @@ class DescribePostpayTrafficTotalResponseBody extends Model
     public $totalNatAssets;
 
     /**
+     * @description The total traffic for the NAT firewall. Unit: bytes.
+     *
      * @example 560646279
      *
      * @var int
@@ -37,6 +45,8 @@ class DescribePostpayTrafficTotalResponseBody extends Model
     public $totalNatTraffic;
 
     /**
+     * @description The total traffic for the Internet firewall. Unit: bytes.
+     *
      * @example 2320274874426
      *
      * @var int

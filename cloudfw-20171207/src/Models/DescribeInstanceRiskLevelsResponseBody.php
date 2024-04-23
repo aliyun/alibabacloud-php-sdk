@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceRiskLevelsResponseBody extends Model
 {
     /**
+     * @description The information about the instances.
+     *
      * @var instanceRisks[]
      */
     public $instanceRisks;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 9AABB1B7-C81F-5158-9EF9-B2DD5D3DA014
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribePostpayTrafficDetailResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 0525EADE-C112-5702-A5BC-0E2F6F94DB23
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribePostpayTrafficDetailResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 132
      *
      * @var int
@@ -24,6 +28,8 @@ class DescribePostpayTrafficDetailResponseBody extends Model
     public $totalCount;
 
     /**
+     * @description The traffic statistics.
+     *
      * @var trafficList[]
      */
     public $trafficList;

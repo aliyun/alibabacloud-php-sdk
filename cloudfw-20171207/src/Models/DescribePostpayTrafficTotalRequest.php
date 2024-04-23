@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribePostpayTrafficTotalRequest extends Model
 {
     /**
+     * @description The language of the content within the response. Valid values:
+     *
+     *   **zh** (default): Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string

@@ -18,7 +18,7 @@ class tasks extends Model
     public $createTime;
 
     /**
-     * @description The expiration time of the task. The value is a UNIX timestamp. Unit: seconds.
+     * @description The time when the task expires. The value is a UNIX timestamp. Unit: seconds.
      *
      * @example 1714371828
      *
@@ -36,9 +36,9 @@ class tasks extends Model
     public $fileSize;
 
     /**
-     * @description The URL of the OSS object.
+     * @description The URL of the OSS file.
      *
-     * @example https://cfw-table-download-cn.oss-cn-hangzhou.aliyuncs.com/%E4%BA%92%E8%81%94%E7%BD%91%E8%BE%B9%E7%95%8C%E9%98%B2%E7%81%AB%E5%A2%99%E8%B5%84%E4%BA%A7-IPv4_1069.csv?Expires=1708583913&OSSAccessKeyId=LTAI5t89DcGQ3jfhnywv1PLY&Signature=h38bRzYTL2pz0hjTVsNsaVCw4V8%3D
+     * @example https://cfw-table-download-cn.oss-cn-hangzhou.aliyuncs.com/%E4%BA%92%E8%81%94%E7%BD%91%E8%BE%B9%E7%95%8C%E9%98%B2%E7%81%AB%E5%A2%99%E8%B5%84%E4%BA%A7-IPv4_1069.csv?Expires=1708583913&OSSAccessKeyId=****&Signature=******%3D
      *
      * @var string
      */
@@ -69,6 +69,8 @@ class tasks extends Model
 
     /**
      * @description The name of the task.
+     *
+     * @example Internet Boundary Firewall Assets - IPv4
      *
      * @var string
      */

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeTrFirewallPolicyBackUpAssociationListShrinkRequest extends Model
 {
     /**
+     * @description An array that consists of the details about the traffic redirection instance.
+     *
      * @var string
      */
     public $candidateListShrink;

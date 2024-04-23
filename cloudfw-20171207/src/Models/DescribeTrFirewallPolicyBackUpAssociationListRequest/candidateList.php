@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class candidateList extends Model
 {
     /**
+     * @description The ID of the traffic redirection instance.
+     *
+     * @example vpc-wz9grb8ng3y7h7lf2****
+     *
      * @var string
      */
     public $candidateId;
 
     /**
+     * @description The type of the traffic redirection instance.
+     *
+     * @example VPC
+     *
      * @var string
      */
     public $candidateType;

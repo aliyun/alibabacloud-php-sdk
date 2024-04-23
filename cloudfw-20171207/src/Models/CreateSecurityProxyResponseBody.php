@@ -6,17 +6,23 @@ namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ResetVpcFirewallRuleHitCountResponseBody extends Model
+class CreateSecurityProxyResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @example proxy-nat97ac4d7cc3834a5daf40
      *
-     * @example A918B4F6-482F-5A91-8F65-AFFFF1FC04EA
+     * @var string
+     */
+    public $proxyId;
+
+    /**
+     * @example 15FCCC52-1E23-57AE-B5EF-3E00A3DC3CAB
      *
      * @var string
      */
     public $requestId;
     protected $_name = [
+        'proxyId'   => 'ProxyId',
         'requestId' => 'RequestId',
     ];
 
@@ -27,6 +33,9 @@ class ResetVpcFirewallRuleHitCountResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->proxyId) {
+            $res['ProxyId'] = $this->proxyId;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -37,11 +46,14 @@ class ResetVpcFirewallRuleHitCountResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ResetVpcFirewallRuleHitCountResponseBody
+     * @return CreateSecurityProxyResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ProxyId'])) {
+            $model->proxyId = $map['ProxyId'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

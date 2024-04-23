@@ -20,6 +20,8 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateDownloadTaskRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateDownloadTaskResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateNatFirewallControlPolicyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateNatFirewallControlPolicyResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateSecurityProxyRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateSecurityProxyResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateTrFirewallV2Request;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateTrFirewallV2Response;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateTrFirewallV2RoutePolicyRequest;
@@ -765,6 +767,79 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createNatFirewallControlPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateSecurityProxyRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateSecurityProxyResponse
+     */
+    public function createSecurityProxyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->firewallSwitch)) {
+            $query['FirewallSwitch'] = $request->firewallSwitch;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->natGatewayId)) {
+            $query['NatGatewayId'] = $request->natGatewayId;
+        }
+        if (!Utils::isUnset($request->natRouteEntryList)) {
+            $query['NatRouteEntryList'] = $request->natRouteEntryList;
+        }
+        if (!Utils::isUnset($request->proxyName)) {
+            $query['ProxyName'] = $request->proxyName;
+        }
+        if (!Utils::isUnset($request->regionNo)) {
+            $query['RegionNo'] = $request->regionNo;
+        }
+        if (!Utils::isUnset($request->strictMode)) {
+            $query['StrictMode'] = $request->strictMode;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        if (!Utils::isUnset($request->vswitchAuto)) {
+            $query['VswitchAuto'] = $request->vswitchAuto;
+        }
+        if (!Utils::isUnset($request->vswitchCidr)) {
+            $query['VswitchCidr'] = $request->vswitchCidr;
+        }
+        if (!Utils::isUnset($request->vswitchId)) {
+            $query['VswitchId'] = $request->vswitchId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSecurityProxy',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateSecurityProxyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateSecurityProxyRequest $request
+     *
+     * @return CreateSecurityProxyResponse
+     */
+    public function createSecurityProxy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSecurityProxyWithOptions($request, $runtime);
     }
 
     /**

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class trafficList extends Model
 {
     /**
+     * @description The inbound network throughput, which indicates the total number of bytes that are received. Unit: bytes.
+     *
      * @example 1115096939
      *
      * @var int
@@ -16,16 +18,26 @@ class trafficList extends Model
     public $inBytes;
 
     /**
+     * @description The instance ID of the asset.
+     *
+     * @example i-8vb2d7c9mtn0bo9qcraq
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The type of the asset. This value takes effect only for the Internet firewall.
+     *
+     * @example EcsPublicIP
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The outbound network throughput, which indicates the total number of bytes that are sent. Unit: bytes.
+     *
      * @example 100000000
      *
      * @var int
@@ -33,6 +45,8 @@ class trafficList extends Model
     public $outBytes;
 
     /**
+     * @description The resource ID. The resource ID for the Internet firewall is the public IP address that is protected the Internet firewall, and the resource ID for a NAT firewall is the instance ID of the NAT firewall.
+     *
      * @example 39.106.146.214
      *
      * @var string
@@ -40,6 +54,8 @@ class trafficList extends Model
     public $resourceId;
 
     /**
+     * @description The total inbound and outbound network throughput, which indicates the total number of bytes that are sent and received. Unit: bytes.
+     *
      * @example 1215096939
      *
      * @var int
@@ -47,6 +63,8 @@ class trafficList extends Model
     public $totalBytes;
 
     /**
+     * @description The date on which the statistics are collected.
+     *
      * @example 20231001
      *
      * @var string
@@ -54,6 +72,11 @@ class trafficList extends Model
     public $trafficDay;
 
     /**
+     * @description The traffic type. Valid values:
+     *
+     *   **EIP_TRAFFIC**: traffic for the Internet firewall
+     *   **NatGateway_TRAFFIC**: traffic for the NAT firewall
+     *
      * @example EIP_TRAFFIC
      *
      * @var string

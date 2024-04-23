@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribePostpayTrafficDetailRequest extends Model
 {
     /**
+     * @description The page number. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class DescribePostpayTrafficDetailRequest extends Model
     public $currentPage;
 
     /**
+     * @description The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+     *
      * @example 1656923760
      *
      * @var string
@@ -23,6 +27,11 @@ class DescribePostpayTrafficDetailRequest extends Model
     public $endTime;
 
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh** (default): Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -30,6 +39,11 @@ class DescribePostpayTrafficDetailRequest extends Model
     public $lang;
 
     /**
+     * @description The field based on which you want to sort the query results. Valid values:
+     *
+     *   **resourceId**
+     *   **trafficDay**
+     *
      * @example resourceId
      *
      * @var string
@@ -37,6 +51,8 @@ class DescribePostpayTrafficDetailRequest extends Model
     public $order;
 
     /**
+     * @description The number of entries per page. Default value: 10. Maximum value: 50.
+     *
      * @example 10
      *
      * @var int
@@ -44,11 +60,17 @@ class DescribePostpayTrafficDetailRequest extends Model
     public $pageSize;
 
     /**
+     * @description The instance ID or the IP address of the asset.
+     *
+     * @example 192.0.XX.XX
+     *
      * @var string
      */
     public $searchItem;
 
     /**
+     * @description The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+     *
      * @example 1656750960
      *
      * @var string
@@ -56,6 +78,11 @@ class DescribePostpayTrafficDetailRequest extends Model
     public $startTime;
 
     /**
+     * @description The traffic type. This parameter is required. Valid values:
+     *
+     *   **EIP_TRAFFIC**: traffic for the Internet firewall
+     *   **NatGateway_TRAFFIC**: traffic for the NAT firewall
+     *
      * @example EIP_TRAFFIC
      *
      * @var string

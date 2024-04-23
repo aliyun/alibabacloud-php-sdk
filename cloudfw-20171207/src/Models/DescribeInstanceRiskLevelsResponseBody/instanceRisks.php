@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class instanceRisks extends Model
 {
     /**
+     * @description The risk levels of the Elastic Compute Service (ECS) instance.
+     *
      * @var details[]
      */
     public $details;
 
     /**
+     * @description The instance ID of your Cloud Firewall.
+     *
      * @example vipcloudfw-cn-7mz2fj8nm0u
      *
      * @var string
@@ -22,6 +26,10 @@ class instanceRisks extends Model
     public $instanceId;
 
     /**
+     * @description The risk levels. Valid values:
+     *
+     *   **medium**
+     *
      * @example medium
      *
      * @var string

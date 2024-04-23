@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class BatchDeleteVpcFirewallControlPolicyRequest extends Model
 {
     /**
+     * @description The UUIDs of access control policies.
+     *
      * @var string[]
      */
     public $aclUuidList;
 
     /**
+     * @description The instance ID of the VPC firewall.
+     *
      * @example vfw-m5e7dbc4y****
      *
      * @var string

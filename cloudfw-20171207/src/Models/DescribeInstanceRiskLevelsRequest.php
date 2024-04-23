@@ -10,11 +10,18 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceRiskLevelsRequest extends Model
 {
     /**
+     * @description The information about the instances.
+     *
      * @var instances[]
      */
     public $instances;
 
     /**
+     * @description The language of the content within the response. Valid values:
+     *
+     *   **zh** (default): Chinese
+     *   **en**: English
+     *
      * @example en
      *
      * @var string

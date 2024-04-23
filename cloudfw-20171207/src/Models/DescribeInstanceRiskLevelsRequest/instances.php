@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class instances extends Model
 {
     /**
+     * @description The instance ID of your Cloud Firewall.
+     *
      * @example vipcloudfw-cn-7mz2fj8nm0u
      *
      * @var string
@@ -16,11 +18,15 @@ class instances extends Model
     public $instanceId;
 
     /**
+     * @description The public IP addresses of instances.
+     *
      * @var string[]
      */
     public $internetIp;
 
     /**
+     * @description The private IP address of the instance.
+     *
      * @example 172.17.220.199
      *
      * @var string
@@ -28,6 +34,8 @@ class instances extends Model
     public $intranetIp;
 
     /**
+     * @description The UUID of the instance.
+     *
      * @example 181ad081-e4f2-4e3e-b925-03b67f648397
      *
      * @var string

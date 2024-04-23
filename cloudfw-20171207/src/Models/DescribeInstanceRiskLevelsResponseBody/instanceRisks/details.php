@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class details extends Model
 {
     /**
+     * @description The IP addresses of servers.
+     *
      * @example 203.107.86.37
      *
      * @var string
@@ -16,6 +18,10 @@ class details extends Model
     public $ip;
 
     /**
+     * @description The risk levels. Valid values:
+     *
+     *   **medium**
+     *
      * @example medium
      *
      * @var string
@@ -23,6 +29,8 @@ class details extends Model
     public $level;
 
     /**
+     * @description The type.
+     *
      * @example ResourceNotProtected
      *
      * @var string
