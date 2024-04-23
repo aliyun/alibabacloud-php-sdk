@@ -6,6 +6,14 @@
 - Support API UpdateArtifactLifecycleRule.
 
 
+2024-04-23 Version: 1.5.0
+- Support API CreateArtifactLifecycleRule.
+- Support API DeleteArtifactLifecycleRule.
+- Support API GetArtifactLifecycleRule.
+- Support API ListArtifactLifecycleRule.
+- Support API UpdateArtifactLifecycleRule.
+
+
 2024-04-10 Version: 1.4.0
 - Support API ListScanBaselineByTask.
 - Support API ListScanMaliciousFileByTask.
