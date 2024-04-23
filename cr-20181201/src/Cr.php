@@ -15,6 +15,8 @@ use AlibabaCloud\SDK\Cr\V20181201\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateArtifactBuildRuleRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateArtifactBuildRuleResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateArtifactBuildRuleShrinkRequest;
+use AlibabaCloud\SDK\Cr\V20181201\Models\CreateArtifactLifecycleRuleRequest;
+use AlibabaCloud\SDK\Cr\V20181201\Models\CreateArtifactLifecycleRuleResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateBuildRecordByRecordRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateBuildRecordByRecordResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateBuildRecordByRuleRequest;
@@ -49,6 +51,8 @@ use AlibabaCloud\SDK\Cr\V20181201\Models\CreateRepoTagScanTaskRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateRepoTagScanTaskResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateRepoTriggerRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateRepoTriggerResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\DeleteArtifactLifecycleRuleRequest;
+use AlibabaCloud\SDK\Cr\V20181201\Models\DeleteArtifactLifecycleRuleResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\DeleteChainRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\DeleteChainResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\DeleteChartNamespaceRequest;
@@ -79,6 +83,8 @@ use AlibabaCloud\SDK\Cr\V20181201\Models\GetArtifactBuildRuleRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetArtifactBuildRuleResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetArtifactBuildTaskRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetArtifactBuildTaskResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\GetArtifactLifecycleRuleRequest;
+use AlibabaCloud\SDK\Cr\V20181201\Models\GetArtifactLifecycleRuleResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetAuthorizationTokenRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetAuthorizationTokenResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetChainRequest;
@@ -120,6 +126,8 @@ use AlibabaCloud\SDK\Cr\V20181201\Models\GetRepoTagScanSummaryRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetRepoTagScanSummaryResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ListArtifactBuildTaskLogRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ListArtifactBuildTaskLogResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\ListArtifactLifecycleRuleRequest;
+use AlibabaCloud\SDK\Cr\V20181201\Models\ListArtifactLifecycleRuleResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ListChainInstanceRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ListChainInstanceResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ListChainRequest;
@@ -172,6 +180,8 @@ use AlibabaCloud\SDK\Cr\V20181201\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateArtifactLifecycleRuleRequest;
+use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateArtifactLifecycleRuleResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateChainRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateChainResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateChartNamespaceRequest;
@@ -440,6 +450,73 @@ class Cr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createArtifactBuildRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateArtifactLifecycleRuleRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateArtifactLifecycleRuleResponse
+     */
+    public function createArtifactLifecycleRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->auto)) {
+            $query['Auto'] = $request->auto;
+        }
+        if (!Utils::isUnset($request->enableDeleteTag)) {
+            $query['EnableDeleteTag'] = $request->enableDeleteTag;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->namespaceName)) {
+            $query['NamespaceName'] = $request->namespaceName;
+        }
+        if (!Utils::isUnset($request->repoName)) {
+            $query['RepoName'] = $request->repoName;
+        }
+        if (!Utils::isUnset($request->retentionTagCount)) {
+            $query['RetentionTagCount'] = $request->retentionTagCount;
+        }
+        if (!Utils::isUnset($request->scheduleTime)) {
+            $query['ScheduleTime'] = $request->scheduleTime;
+        }
+        if (!Utils::isUnset($request->scope)) {
+            $query['Scope'] = $request->scope;
+        }
+        if (!Utils::isUnset($request->tagRegexp)) {
+            $query['TagRegexp'] = $request->tagRegexp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateArtifactLifecycleRule',
+            'version'     => '2018-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateArtifactLifecycleRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateArtifactLifecycleRuleRequest $request
+     *
+     * @return CreateArtifactLifecycleRuleResponse
+     */
+    public function createArtifactLifecycleRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createArtifactLifecycleRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -1433,6 +1510,52 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * @param DeleteArtifactLifecycleRuleRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeleteArtifactLifecycleRuleResponse
+     */
+    public function deleteArtifactLifecycleRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteArtifactLifecycleRule',
+            'version'     => '2018-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteArtifactLifecycleRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteArtifactLifecycleRuleRequest $request
+     *
+     * @return DeleteArtifactLifecycleRuleResponse
+     */
+    public function deleteArtifactLifecycleRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteArtifactLifecycleRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteChainRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -2159,6 +2282,46 @@ class Cr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getArtifactBuildTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetArtifactLifecycleRuleRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetArtifactLifecycleRuleResponse
+     */
+    public function getArtifactLifecycleRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetArtifactLifecycleRule',
+            'version'     => '2018-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetArtifactLifecycleRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetArtifactLifecycleRuleRequest $request
+     *
+     * @return GetArtifactLifecycleRuleResponse
+     */
+    public function getArtifactLifecycleRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getArtifactLifecycleRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -3147,6 +3310,46 @@ class Cr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listArtifactBuildTaskLogWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListArtifactLifecycleRuleRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListArtifactLifecycleRuleResponse
+     */
+    public function listArtifactLifecycleRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListArtifactLifecycleRule',
+            'version'     => '2018-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListArtifactLifecycleRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListArtifactLifecycleRuleRequest $request
+     *
+     * @return ListArtifactLifecycleRuleResponse
+     */
+    public function listArtifactLifecycleRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listArtifactLifecycleRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -4505,6 +4708,76 @@ class Cr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->untagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateArtifactLifecycleRuleRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return UpdateArtifactLifecycleRuleResponse
+     */
+    public function updateArtifactLifecycleRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->auto)) {
+            $query['Auto'] = $request->auto;
+        }
+        if (!Utils::isUnset($request->enableDeleteTag)) {
+            $query['EnableDeleteTag'] = $request->enableDeleteTag;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->namespaceName)) {
+            $query['NamespaceName'] = $request->namespaceName;
+        }
+        if (!Utils::isUnset($request->repoName)) {
+            $query['RepoName'] = $request->repoName;
+        }
+        if (!Utils::isUnset($request->retentionTagCount)) {
+            $query['RetentionTagCount'] = $request->retentionTagCount;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->scheduleTime)) {
+            $query['ScheduleTime'] = $request->scheduleTime;
+        }
+        if (!Utils::isUnset($request->scope)) {
+            $query['Scope'] = $request->scope;
+        }
+        if (!Utils::isUnset($request->tagRegexp)) {
+            $query['TagRegexp'] = $request->tagRegexp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateArtifactLifecycleRule',
+            'version'     => '2018-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateArtifactLifecycleRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateArtifactLifecycleRuleRequest $request
+     *
+     * @return UpdateArtifactLifecycleRuleResponse
+     */
+    public function updateArtifactLifecycleRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateArtifactLifecycleRuleWithOptions($request, $runtime);
     }
 
     /**
