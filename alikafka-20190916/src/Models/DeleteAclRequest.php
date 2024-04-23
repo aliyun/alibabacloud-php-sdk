@@ -9,10 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DeleteAclRequest extends Model
 {
     /**
-     * @description The operation type. Valid values:
+     * @description The operation allowed by the access control list (ACL). Valid values:
      *
-     *   **Write**
-     *   **Read**
+     *   **Write**: data writes
+     *   **Read**: data reads
+     *   **Describe**: reads of transactional IDs
+     *   **IdempotentWrite**: idempotent data writes to clusters
      *
      * @example Write
      *
@@ -21,11 +23,31 @@ class DeleteAclRequest extends Model
     public $aclOperationType;
 
     /**
+     * @description The operations allowed by the ACL. Separate multiple operations with commas (,).
+     *
+     * Valid values:
+     *
+     *   **Write**: data writes
+     *   **Read**: data reads
+     *   **Describe**: reads of **transactional IDs**
+     *   **IdempotentWrite**: idempotent data writes to **clusters**
+     *
+     * >  This parameter is available only for ApsaraMQ for Kafka V3 serverless instances.
+     * @example Write,Read
+     *
      * @var string
      */
     public $aclOperationTypes;
 
     /**
+     * @description The authorization method. Valid values:
+     *
+     *   Deny
+     *   ALLOW
+     *
+     * >  This parameter is available only for ApsaraMQ for Kafka V3 serverless instances.
+     * @example DENY
+     *
      * @var string
      */
     public $aclPermissionType;
@@ -55,10 +77,12 @@ class DeleteAclRequest extends Model
     public $aclResourcePatternType;
 
     /**
-     * @description The type of the resource.
+     * @description The resource type. Valid values:
      *
-     *   **Topic**
-     *   **Group**
+     *   **Topic**: topic
+     *   **Group**: consumer group
+     *   **Cluster**: cluster
+     *   **TransactionalId**: transactional ID
      *
      * @example Topic
      *
@@ -67,6 +91,10 @@ class DeleteAclRequest extends Model
     public $aclResourceType;
 
     /**
+     * @description The IP address of the source.
+     *
+     * @example *
+     *
      * @var string
      */
     public $host;

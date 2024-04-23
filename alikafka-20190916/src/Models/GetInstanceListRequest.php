@@ -46,6 +46,11 @@ class GetInstanceListRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @var string
+     */
+    public $series;
+
+    /**
      * @description The tags.
      *
      * @var tag[]
@@ -56,6 +61,7 @@ class GetInstanceListRequest extends Model
         'orderId'         => 'OrderId',
         'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
+        'series'          => 'Series',
         'tag'             => 'Tag',
     ];
 
@@ -77,6 +83,9 @@ class GetInstanceListRequest extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->series) {
+            $res['Series'] = $this->series;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -112,6 +121,9 @@ class GetInstanceListRequest extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['Series'])) {
+            $model->series = $map['Series'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

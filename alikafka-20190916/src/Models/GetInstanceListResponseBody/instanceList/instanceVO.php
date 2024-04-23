@@ -238,6 +238,11 @@ class instanceVO extends Model
     public $securityGroup;
 
     /**
+     * @var string
+     */
+    public $series;
+
+    /**
      * @description The instance status. Valid values:
      *
      *   **0**: pending
@@ -412,6 +417,7 @@ class instanceVO extends Model
         'resourceGroupId'           => 'ResourceGroupId',
         'saslDomainEndpoint'        => 'SaslDomainEndpoint',
         'securityGroup'             => 'SecurityGroup',
+        'series'                    => 'Series',
         'serviceStatus'             => 'ServiceStatus',
         'specType'                  => 'SpecType',
         'sslDomainEndpoint'         => 'SslDomainEndpoint',
@@ -510,6 +516,9 @@ class instanceVO extends Model
         }
         if (null !== $this->securityGroup) {
             $res['SecurityGroup'] = $this->securityGroup;
+        }
+        if (null !== $this->series) {
+            $res['Series'] = $this->series;
         }
         if (null !== $this->serviceStatus) {
             $res['ServiceStatus'] = $this->serviceStatus;
@@ -642,6 +651,9 @@ class instanceVO extends Model
         }
         if (isset($map['SecurityGroup'])) {
             $model->securityGroup = $map['SecurityGroup'];
+        }
+        if (isset($map['Series'])) {
+            $model->series = $map['Series'];
         }
         if (isset($map['ServiceStatus'])) {
             $model->serviceStatus = $map['ServiceStatus'];

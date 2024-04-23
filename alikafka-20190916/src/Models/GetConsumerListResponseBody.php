@@ -26,6 +26,10 @@ class GetConsumerListResponseBody extends Model
     public $consumerList;
 
     /**
+     * @description The number of the page to return. Pages start from page 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
@@ -40,6 +44,10 @@ class GetConsumerListResponseBody extends Model
     public $message;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -63,6 +71,10 @@ class GetConsumerListResponseBody extends Model
     public $success;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 12
+     *
      * @var int
      */
     public $total;

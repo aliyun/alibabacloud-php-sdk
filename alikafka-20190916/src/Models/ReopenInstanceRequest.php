@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ReopenInstanceRequest extends Model
 {
     /**
+     * @description The instance ID.
+     *
      * @example alikafka_post-cn-mp91inkw****
      *
      * @var string
@@ -16,6 +18,8 @@ class ReopenInstanceRequest extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the region where the instance resides.
+     *
      * @example cn-hangzhou
      *
      * @var string

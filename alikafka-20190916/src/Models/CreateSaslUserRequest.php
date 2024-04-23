@@ -18,6 +18,17 @@ class CreateSaslUserRequest extends Model
     public $instanceId;
 
     /**
+     * @description The encryption method. Valid values:
+     *
+     *   SCRAM-SHA-512 (default)
+     *   SCRAM-SHA-256
+     *
+     * >
+     *
+     *   This parameter is available only for ApsaraMQ for Kafka V3 serverless instances.
+     *
+     * @example SCRAM-SHA-256
+     *
      * @var string
      */
     public $mechanism;

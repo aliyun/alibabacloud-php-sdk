@@ -1383,6 +1383,9 @@ class Alikafka extends OpenApiClient
         if (!Utils::isUnset($request->resourceGroupId)) {
             $query['ResourceGroupId'] = $request->resourceGroupId;
         }
+        if (!Utils::isUnset($request->series)) {
+            $query['Series'] = $request->series;
+        }
         if (!Utils::isUnset($request->tag)) {
             $query['Tag'] = $request->tag;
         }
@@ -1917,10 +1920,12 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param ReopenInstanceRequest $request
-     * @param RuntimeOptions        $runtime
+     * You can call this operation only if your instance is in the Stopped state.
+     *   *
+     * @param ReopenInstanceRequest $request ReopenInstanceRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReopenInstanceResponse
+     * @return ReopenInstanceResponse ReopenInstanceResponse
      */
     public function reopenInstanceWithOptions($request, $runtime)
     {
@@ -1951,9 +1956,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param ReopenInstanceRequest $request
+     * You can call this operation only if your instance is in the Stopped state.
+     *   *
+     * @param ReopenInstanceRequest $request ReopenInstanceRequest
      *
-     * @return ReopenInstanceResponse
+     * @return ReopenInstanceResponse ReopenInstanceResponse
      */
     public function reopenInstance($request)
     {
@@ -2070,10 +2077,12 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param StopInstanceRequest $request
-     * @param RuntimeOptions      $runtime
+     * You cannot stop a subscription ApsaraMQ for Kafka instance. If you want to stop a subscription ApsaraMQ for Kafka instance, submit a ticket.
+     *   *
+     * @param StopInstanceRequest $request StopInstanceRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopInstanceResponse
+     * @return StopInstanceResponse StopInstanceResponse
      */
     public function stopInstanceWithOptions($request, $runtime)
     {
@@ -2104,9 +2113,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param StopInstanceRequest $request
+     * You cannot stop a subscription ApsaraMQ for Kafka instance. If you want to stop a subscription ApsaraMQ for Kafka instance, submit a ticket.
+     *   *
+     * @param StopInstanceRequest $request StopInstanceRequest
      *
-     * @return StopInstanceResponse
+     * @return StopInstanceResponse StopInstanceResponse
      */
     public function stopInstance($request)
     {

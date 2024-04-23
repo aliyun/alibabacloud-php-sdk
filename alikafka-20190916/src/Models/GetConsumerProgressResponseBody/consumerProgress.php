@@ -20,19 +20,21 @@ class consumerProgress extends Model
     public $lastTimestamp;
 
     /**
+     * @description The details of rebalances in the consumer group.
+     *
      * @var rebalanceInfoList
      */
     public $rebalanceInfoList;
 
     /**
-     * @description The consumption progress of each topic to which the consumer group is subscribed.
+     * @description The consumer progress of each topic to which the consumer group subscribes.
      *
      * @var topicList
      */
     public $topicList;
 
     /**
-     * @description The number of messages that were not consumed in all topics. This is also known as the number of accumulated messages in all topics.
+     * @description The total number of unconsumed messages in all topics to which the consumer group subscribes.
      *
      * @example 0
      *

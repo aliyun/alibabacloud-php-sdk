@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class serverlessConfig extends Model
 {
     /**
+     * @description The traffic reserved for message publishing. Unit: MB/s. Valid values: 1 to 31457280. You can specify only integers for this parameter.
+     *
      * @example 50
      *
      * @var int
@@ -16,6 +18,8 @@ class serverlessConfig extends Model
     public $reservedPublishCapacity;
 
     /**
+     * @description The traffic reserved for message subscription. Unit: MB/s. Valid values: 1 to 31457280. You can specify only integers for this parameter.
+     *
      * @example 50
      *
      * @var int

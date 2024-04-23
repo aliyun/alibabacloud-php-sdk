@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class consumerVO extends Model
 {
     /**
-     * @description The consumer group that is automatically created by the system.
+     * @description Indicates that the consumer group was automatically created by the system.
      *
      * @var bool
      */
     public $automaticallyCreatedGroup;
 
     /**
-     * @description The ID of the consumer group.
+     * @description The consumer group ID.
      *
      * @example kafka-test
      *
@@ -35,7 +35,7 @@ class consumerVO extends Model
     public $instanceId;
 
     /**
-     * @description The region ID.
+     * @description The ID of the region where the instance resides.
      *
      * @example cn-hangzhou
      *
@@ -44,7 +44,7 @@ class consumerVO extends Model
     public $regionId;
 
     /**
-     * @description The description of the consumer group.
+     * @description The instance description.
      *
      * @example test
      *

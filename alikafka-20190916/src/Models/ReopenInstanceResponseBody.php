@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ReopenInstanceResponseBody extends Model
 {
     /**
+     * @description The returned HTTP status code. If the request is successful, 200 is returned.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +18,8 @@ class ReopenInstanceResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned message.
+     *
      * @example operation success.
      *
      * @var string
@@ -23,6 +27,8 @@ class ReopenInstanceResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 252820E1-A2E6-45F2-B4C9-1056B8CE****
      *
      * @var string
@@ -30,6 +36,8 @@ class ReopenInstanceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

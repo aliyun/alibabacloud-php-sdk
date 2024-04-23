@@ -18,6 +18,10 @@ class GetConsumerListRequest extends Model
     public $consumerId;
 
     /**
+     * @description The page number.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
@@ -32,6 +36,10 @@ class GetConsumerListRequest extends Model
     public $instanceId;
 
     /**
+     * @description The number of entries to be returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StopInstanceResponseBody extends Model
 {
     /**
+     * @description The returned status code. If the request is successful, 200 is returned.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +18,8 @@ class StopInstanceResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned message.
+     *
      * @example operation success.
      *
      * @var string
@@ -23,6 +27,8 @@ class StopInstanceResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 17D425C2-4EA3-4AB8-928D-E10511ECF***
      *
      * @var string
@@ -30,6 +36,8 @@ class StopInstanceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

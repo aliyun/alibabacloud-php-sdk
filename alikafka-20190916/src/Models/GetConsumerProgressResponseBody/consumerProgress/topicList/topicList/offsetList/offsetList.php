@@ -36,7 +36,7 @@ class offsetList extends Model
     public $lastTimestamp;
 
     /**
-     * @description The ID of the partition.
+     * @description The partition ID.
      *
      * @example 0
      *

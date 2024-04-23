@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetConsumerProgressResponseBody extends Model
 {
     /**
-     * @description The HTTP status code returned. The HTTP status code 200 indicates that the request is successful.
+     * @description The returned HTTP status code. If the request is successful, 200 is returned.
      *
      * @example 200
      *
@@ -19,7 +19,7 @@ class GetConsumerProgressResponseBody extends Model
     public $code;
 
     /**
-     * @description The consumption status of the consumer group.
+     * @description The consumer progress of the consumer group.
      *
      * @var consumerProgress
      */
@@ -35,7 +35,7 @@ class GetConsumerProgressResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 252820E1-A2E6-45F2-B4C9-1056B8CE****
      *

@@ -19,14 +19,14 @@ class topicList extends Model
     public $lastTimestamp;
 
     /**
-     * @description The information about offsets in the topic.
+     * @description The consumer offsets.
      *
      * @var offsetList
      */
     public $offsetList;
 
     /**
-     * @description The name of the topic.
+     * @description The topic name.
      *
      * @example kafka-test
      *
@@ -35,7 +35,7 @@ class topicList extends Model
     public $topic;
 
     /**
-     * @description The number of messages that were not consumed in the topic. This is also known as the number of accumulated messages in the topic.
+     * @description The number of unconsumed messages in the topic to which the consumer group subscribes.
      *
      * @example 0
      *
