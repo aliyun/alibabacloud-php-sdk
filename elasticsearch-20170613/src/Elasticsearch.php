@@ -32,8 +32,6 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\CreateComponentIndexRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\CreateComponentIndexResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\CreateDataStreamRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\CreateDataStreamResponse;
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\CreateDataTasksRequest;
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\CreateDataTasksResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\CreateILMPolicyRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\CreateILMPolicyResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\CreateIndexTemplateRequest;
@@ -1074,69 +1072,6 @@ class Elasticsearch extends OpenApiClient
         $headers = [];
 
         return $this->createDataStreamWithOptions($InstanceId, $request, $headers, $runtime);
-    }
-
-    /**
-     * @deprecated
-     *   * Before you call this operation, note that:
-     *   * *   Currently, the one-click index migration feature only supports the China (Beijing) region.
-     *   * *   The source and destination Elasticsearch clusters must meet the following requirements: a user-created or Alibaba Cloud Elasticsearch Elasticsearch cluster with a source of version 6.7.0 and a Alibaba Cloud Elasticsearch Elasticsearch cluster with a destination of version 6.3.2 or 6.7.0.
-     *   *
-     * Deprecated
-     *
-     * @param string                 $InstanceId
-     * @param CreateDataTasksRequest $request    CreateDataTasksRequest
-     * @param string[]               $headers    map
-     * @param RuntimeOptions         $runtime    runtime options for this request RuntimeOptions
-     *
-     * @return CreateDataTasksResponse CreateDataTasksResponse
-     */
-    public function createDataTasksWithOptions($InstanceId, $request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => Utils::toArray($request->body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateDataTasks',
-            'version'     => '2017-06-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/data-task',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateDataTasksResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @deprecated
-     *   * Before you call this operation, note that:
-     *   * *   Currently, the one-click index migration feature only supports the China (Beijing) region.
-     *   * *   The source and destination Elasticsearch clusters must meet the following requirements: a user-created or Alibaba Cloud Elasticsearch Elasticsearch cluster with a source of version 6.7.0 and a Alibaba Cloud Elasticsearch Elasticsearch cluster with a destination of version 6.3.2 or 6.7.0.
-     *   *
-     * Deprecated
-     *
-     * @param string                 $InstanceId
-     * @param CreateDataTasksRequest $request    CreateDataTasksRequest
-     *
-     * @return CreateDataTasksResponse CreateDataTasksResponse
-     */
-    public function createDataTasks($InstanceId, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->createDataTasksWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
