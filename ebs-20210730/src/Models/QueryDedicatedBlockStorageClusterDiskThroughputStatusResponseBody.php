@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryDedicatedBlockStorageClusterDiskThroughputStatusResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example A37597A6-BB99-19B3-85EA-4C2B91F0****
      *
      * @var string
@@ -16,7 +18,10 @@ class QueryDedicatedBlockStorageClusterDiskThroughputStatusResponseBody extends 
     public $requestId;
 
     /**
-     * @example Running
+     * @description The status of the throughput after setting the throughput by SetDedicatedBlockStorageClusterDiskThroughput api.
+     *
+     * - FAIL(): The throughput setting has failed.
+     * @example RUNNING
      *
      * @var string
      */

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetDedicatedBlockStorageClusterDiskThroughputResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 17EE62D8-064E-5404-8B0D-72122478****
      *
      * @var string

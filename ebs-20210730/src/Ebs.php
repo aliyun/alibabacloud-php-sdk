@@ -55,6 +55,8 @@ use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDisksRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDisksResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeEnterpriseSnapshotPolicyRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeEnterpriseSnapshotPolicyResponse;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeEventsRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeEventsResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeLensServiceStatusResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeMetricDataRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeMetricDataResponse;
@@ -1789,6 +1791,73 @@ class Ebs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeEnterpriseSnapshotPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeEventsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DescribeEventsResponse
+     */
+    public function describeEventsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->eventName)) {
+            $query['EventName'] = $request->eventName;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeEvents',
+            'version'     => '2021-07-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeEventsRequest $request
+     *
+     * @return DescribeEventsResponse
+     */
+    public function describeEvents($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeEventsWithOptions($request, $runtime);
     }
 
     /**
