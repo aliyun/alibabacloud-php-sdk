@@ -10,6 +10,8 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ConsumerGroupHeartBeatRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ConsumerGroupHeartBeatResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ConsumerGroupUpdateCheckPointRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ConsumerGroupUpdateCheckPointResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateAlertRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateAlertResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateAnnotationDataSetRequest;
@@ -54,6 +56,8 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\CreateScheduledSQLRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateScheduledSQLResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateSqlInstanceRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateSqlInstanceResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateStoreViewRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateStoreViewResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateTicketRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateTicketResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteAlertResponse;
@@ -81,7 +85,9 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteProjectResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteSavedSearchResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteScheduledSQLResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteShipperResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteStoreViewResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DisableAlertResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\DisableScheduledSQLResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\EnableAlertResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetAlertResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetAnnotationDataResponse;
@@ -116,6 +122,7 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\GetLogsV2Request;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetLogsV2Response;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetLogtailPipelineConfigResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetMachineGroupResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetMetricStoreMeteringModeResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetMLServiceResultsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetMLServiceResultsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetOSSExportResponse;
@@ -131,6 +138,8 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\GetShipperStatusRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetShipperStatusResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetSlsServiceResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetSqlInstanceResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetStoreViewIndexResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetStoreViewResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListAlertsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListAlertsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListAnnotationDataRequest;
@@ -175,6 +184,8 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\ListScheduledSQLsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListScheduledSQLsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListShardsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListShipperResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListStoreViewsRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListStoreViewsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListTagResourcesShrinkRequest;
@@ -235,6 +246,8 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateMachineGroupMachineRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateMachineGroupMachineResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateMachineGroupRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateMachineGroupResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateMetricStoreMeteringModeRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateMetricStoreMeteringModeResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateOSSExportRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateOSSExportResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateOssExternalStoreRequest;
@@ -253,6 +266,8 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateScheduledSQLRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateScheduledSQLResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateSqlInstanceRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateSqlInstanceResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateStoreViewRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateStoreViewResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpsertCollectionPolicyRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpsertCollectionPolicyResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -445,6 +460,65 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->consumerGroupHeartBeatWithOptions($project, $logstore, $consumerGroup, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                               $project
+     * @param string                               $logstore
+     * @param string                               $consumerGroup
+     * @param ConsumerGroupUpdateCheckPointRequest $request
+     * @param string[]                             $headers
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ConsumerGroupUpdateCheckPointResponse
+     */
+    public function consumerGroupUpdateCheckPointWithOptions($project, $logstore, $consumerGroup, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $query              = [];
+        if (!Utils::isUnset($request->consumer)) {
+            $query['consumer'] = $request->consumer;
+        }
+        if (!Utils::isUnset($request->forceSuccess)) {
+            $query['forceSuccess'] = $request->forceSuccess;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => Utils::toArray($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'ConsumerGroupUpdateCheckPoint',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/logstores/' . $logstore . '/consumergroups/' . $consumerGroup . '?type=checkpoint',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return ConsumerGroupUpdateCheckPointResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                               $project
+     * @param string                               $logstore
+     * @param string                               $consumerGroup
+     * @param ConsumerGroupUpdateCheckPointRequest $request
+     *
+     * @return ConsumerGroupUpdateCheckPointResponse
+     */
+    public function consumerGroupUpdateCheckPoint($project, $logstore, $consumerGroup, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->consumerGroupUpdateCheckPointWithOptions($project, $logstore, $consumerGroup, $request, $headers, $runtime);
     }
 
     /**
@@ -1819,6 +1893,63 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * @param string                 $project
+     * @param CreateStoreViewRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateStoreViewResponse
+     */
+    public function createStoreViewWithOptions($project, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $body               = [];
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->storeType)) {
+            $body['storeType'] = $request->storeType;
+        }
+        if (!Utils::isUnset($request->stores)) {
+            $body['stores'] = $request->stores;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateStoreView',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/storeviews',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return CreateStoreViewResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                 $project
+     * @param CreateStoreViewRequest $request
+     *
+     * @return CreateStoreViewResponse
+     */
+    public function createStoreView($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createStoreViewWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
      * @param CreateTicketRequest $request
      * @param string[]            $headers
      * @param RuntimeOptions      $runtime
@@ -3032,6 +3163,51 @@ class Sls extends OpenApiClient
 
     /**
      * @param string         $project
+     * @param string         $name
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteStoreViewResponse
+     */
+    public function deleteStoreViewWithOptions($project, $name, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteStoreView',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/storeviews/' . $name . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return DeleteStoreViewResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     * @param string $name
+     *
+     * @return DeleteStoreViewResponse
+     */
+    public function deleteStoreView($project, $name)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteStoreViewWithOptions($project, $name, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
      * @param string         $alertName
      * @param string[]       $headers
      * @param RuntimeOptions $runtime
@@ -3073,6 +3249,51 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->disableAlertWithOptions($project, $alertName, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
+     * @param string         $scheduledSQLName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DisableScheduledSQLResponse
+     */
+    public function disableScheduledSQLWithOptions($project, $scheduledSQLName, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DisableScheduledSQL',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/scheduledsqls/' . $scheduledSQLName . '?action=disable',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DisableScheduledSQLResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     * @param string $scheduledSQLName
+     *
+     * @return DisableScheduledSQLResponse
+     */
+    public function disableScheduledSQL($project, $scheduledSQLName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->disableScheduledSQLWithOptions($project, $scheduledSQLName, $headers, $runtime);
     }
 
     /**
@@ -4442,6 +4663,9 @@ class Sls extends OpenApiClient
         if (!Utils::isUnset($request->allowBuiltin)) {
             $query['allowBuiltin'] = $request->allowBuiltin;
         }
+        if (!Utils::isUnset($request->version)) {
+            $query['version'] = $request->version;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
@@ -4523,6 +4747,51 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->getMachineGroupWithOptions($project, $machineGroup, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
+     * @param string         $metricStore
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetMetricStoreMeteringModeResponse
+     */
+    public function getMetricStoreMeteringModeWithOptions($project, $metricStore, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetMetricStoreMeteringMode',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/metricstores/' . $metricStore . '/meteringmode',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'none',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetMetricStoreMeteringModeResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     * @param string $metricStore
+     *
+     * @return GetMetricStoreMeteringModeResponse
+     */
+    public function getMetricStoreMeteringMode($project, $metricStore)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getMetricStoreMeteringModeWithOptions($project, $metricStore, $headers, $runtime);
     }
 
     /**
@@ -5077,6 +5346,96 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->getSqlInstanceWithOptions($project, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
+     * @param string         $name
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetStoreViewResponse
+     */
+    public function getStoreViewWithOptions($project, $name, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetStoreView',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/storeviews/' . $name . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetStoreViewResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     * @param string $name
+     *
+     * @return GetStoreViewResponse
+     */
+    public function getStoreView($project, $name)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getStoreViewWithOptions($project, $name, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
+     * @param string         $name
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetStoreViewIndexResponse
+     */
+    public function getStoreViewIndexWithOptions($project, $name, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetStoreViewIndex',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/storeviews/' . $name . '/index',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetStoreViewIndexResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     * @param string $name
+     *
+     * @return GetStoreViewIndexResponse
+     */
+    public function getStoreViewIndex($project, $name)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getStoreViewIndexWithOptions($project, $name, $headers, $runtime);
     }
 
     /**
@@ -6441,6 +6800,66 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->listShipperWithOptions($project, $logstore, $headers, $runtime);
+    }
+
+    /**
+     * @param string                $project
+     * @param ListStoreViewsRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListStoreViewsResponse
+     */
+    public function listStoreViewsWithOptions($project, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $query              = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->offset)) {
+            $query['offset'] = $request->offset;
+        }
+        if (!Utils::isUnset($request->size)) {
+            $query['size'] = $request->size;
+        }
+        if (!Utils::isUnset($request->storeType)) {
+            $query['storeType'] = $request->storeType;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListStoreViews',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/storeviews',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListStoreViewsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                $project
+     * @param ListStoreViewsRequest $request
+     *
+     * @return ListStoreViewsResponse
+     */
+    public function listStoreViews($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listStoreViewsWithOptions($project, $request, $headers, $runtime);
     }
 
     /**
@@ -8439,6 +8858,59 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * @param string                               $project
+     * @param string                               $metricStore
+     * @param UpdateMetricStoreMeteringModeRequest $request
+     * @param string[]                             $headers
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return UpdateMetricStoreMeteringModeResponse
+     */
+    public function updateMetricStoreMeteringModeWithOptions($project, $metricStore, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $body               = [];
+        if (!Utils::isUnset($request->meteringMode)) {
+            $body['meteringMode'] = $request->meteringMode;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateMetricStoreMeteringMode',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/metricstores/' . $metricStore . '/meteringmode',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return UpdateMetricStoreMeteringModeResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                               $project
+     * @param string                               $metricStore
+     * @param UpdateMetricStoreMeteringModeRequest $request
+     *
+     * @return UpdateMetricStoreMeteringModeResponse
+     */
+    public function updateMetricStoreMeteringMode($project, $metricStore, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateMetricStoreMeteringModeWithOptions($project, $metricStore, $request, $headers, $runtime);
+    }
+
+    /**
      * @param string                 $project
      * @param string                 $ossExportName
      * @param UpdateOSSExportRequest $request
@@ -8982,6 +9454,62 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->updateSqlInstanceWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                 $project
+     * @param string                 $name
+     * @param UpdateStoreViewRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateStoreViewResponse
+     */
+    public function updateStoreViewWithOptions($project, $name, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $body               = [];
+        if (!Utils::isUnset($request->storeType)) {
+            $body['storeType'] = $request->storeType;
+        }
+        if (!Utils::isUnset($request->stores)) {
+            $body['stores'] = $request->stores;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateStoreView',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/storeviews/' . $name . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return UpdateStoreViewResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                 $project
+     * @param string                 $name
+     * @param UpdateStoreViewRequest $request
+     *
+     * @return UpdateStoreViewResponse
+     */
+    public function updateStoreView($project, $name, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateStoreViewWithOptions($project, $name, $request, $headers, $runtime);
     }
 
     /**

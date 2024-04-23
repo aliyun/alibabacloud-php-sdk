@@ -19,9 +19,15 @@ class GetMLServiceResultsRequest extends Model
      * @var MLServiceAnalysisParam
      */
     public $body;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
         'allowBuiltin' => 'allowBuiltin',
         'body'         => 'body',
+        'version'      => 'version',
     ];
 
     public function validate()
@@ -36,6 +42,9 @@ class GetMLServiceResultsRequest extends Model
         }
         if (null !== $this->body) {
             $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        }
+        if (null !== $this->version) {
+            $res['version'] = $this->version;
         }
 
         return $res;
@@ -54,6 +63,9 @@ class GetMLServiceResultsRequest extends Model
         }
         if (isset($map['body'])) {
             $model->body = MLServiceAnalysisParam::fromMap($map['body']);
+        }
+        if (isset($map['version'])) {
+            $model->version = $map['version'];
         }
 
         return $model;
