@@ -18,8 +18,6 @@ class DescribeInstanceTopologyRequest extends Model
     public $instanceIds;
 
     /**
-     * @example 111
-     *
      * @var int
      */
     public $ownerId;
@@ -34,15 +32,11 @@ class DescribeInstanceTopologyRequest extends Model
     public $regionId;
 
     /**
-     * @example hide
-     *
      * @var string
      */
     public $resourceOwnerAccount;
 
     /**
-     * @example 111
-     *
      * @var int
      */
     public $resourceOwnerId;

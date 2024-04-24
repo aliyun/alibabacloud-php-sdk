@@ -18,7 +18,7 @@ class topology extends Model
     public $hostId;
 
     /**
-     * @description The ID of the ECS instance.
+     * @description The instance ID.
      *
      * @example i-bp67acfmxazb4p****
      *

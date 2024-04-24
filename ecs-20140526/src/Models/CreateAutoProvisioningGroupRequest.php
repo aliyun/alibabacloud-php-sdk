@@ -261,6 +261,8 @@ class CreateAutoProvisioningGroupRequest extends Model
     public $systemDiskConfig;
 
     /**
+     * @description The tags to add to the auto provisioning group.
+     *
      * @var tag[]
      */
     public $tag;

@@ -39,7 +39,7 @@ class ossDeliveryConfig extends Model
     public $enabled;
 
     /**
-     * @description OSS encryption algorithm. Valid values:
+     * @description The OSS encryption algorithm. Valid values:
      *
      *   AES256
      *   SM4
@@ -51,7 +51,7 @@ class ossDeliveryConfig extends Model
     public $encryptionAlgorithm;
 
     /**
-     * @description The ID of the customer master key (CMK) when the encryption method is KMS.
+     * @description The ID of the customer master key (CMK) when EncryptionType is KMS.
      *
      * @example a807****7a70e
      *
@@ -60,11 +60,11 @@ class ossDeliveryConfig extends Model
     public $encryptionKeyId;
 
     /**
-     * @description OSS encryption method. Valid values:
+     * @description The OSS encryption method. Valid values:
      *
      *   Inherit: the encryption method used by the specified bucket.
      *   OssManaged: server-side encryption by using OSS-managed keys (SSE-OSS).
-     *   KMS: server-side encryption with Key Management Service (SSE-KMS).
+     *   KMS: server-side encryption by using Key Management Service managed keys (SSE-KMS).
      *
      * @example Inherit
      *

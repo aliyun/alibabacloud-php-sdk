@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class capacityReservationUsage extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account.
+     *
+     * @example 105909559088****
+     *
      * @var string
      */
     public $accountId;
 
     /**
+     * @description The name of the Alibaba Cloud service.
+     *
+     * @example maxcompute.aliyuncs.com
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @description The number of instances that are used by the Alibaba Cloud account or service.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $usedAmount;

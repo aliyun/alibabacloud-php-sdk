@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTypesResponseBody\instanceTypes;
 
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTypesResponseBody\instanceTypes\instanceType\networkCards;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTypesResponseBody\instanceTypes\instanceType\supportedBootModes;
 use AlibabaCloud\Tea\Model;
 
 class instanceType extends Model
@@ -376,6 +377,11 @@ class instanceType extends Model
     public $secondaryEniQueueNumber;
 
     /**
+     * @var supportedBootModes
+     */
+    public $supportedBootModes;
+
+    /**
      * @description The maximum number of queues on ENIs that the instance type supports.
      *
      * @example 12
@@ -421,6 +427,7 @@ class instanceType extends Model
         'primaryEniQueueNumber'       => 'PrimaryEniQueueNumber',
         'queuePairNumber'             => 'QueuePairNumber',
         'secondaryEniQueueNumber'     => 'SecondaryEniQueueNumber',
+        'supportedBootModes'          => 'SupportedBootModes',
         'totalEniQueueQuantity'       => 'TotalEniQueueQuantity',
     ];
 
@@ -541,6 +548,9 @@ class instanceType extends Model
         }
         if (null !== $this->secondaryEniQueueNumber) {
             $res['SecondaryEniQueueNumber'] = $this->secondaryEniQueueNumber;
+        }
+        if (null !== $this->supportedBootModes) {
+            $res['SupportedBootModes'] = null !== $this->supportedBootModes ? $this->supportedBootModes->toMap() : null;
         }
         if (null !== $this->totalEniQueueQuantity) {
             $res['TotalEniQueueQuantity'] = $this->totalEniQueueQuantity;
@@ -667,6 +677,9 @@ class instanceType extends Model
         }
         if (isset($map['SecondaryEniQueueNumber'])) {
             $model->secondaryEniQueueNumber = $map['SecondaryEniQueueNumber'];
+        }
+        if (isset($map['SupportedBootModes'])) {
+            $model->supportedBootModes = supportedBootModes::fromMap($map['SupportedBootModes']);
         }
         if (isset($map['TotalEniQueueQuantity'])) {
             $model->totalEniQueueQuantity = $map['TotalEniQueueQuantity'];

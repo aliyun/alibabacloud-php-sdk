@@ -13,7 +13,7 @@ use AlibabaCloud\Tea\Model;
 class disk extends Model
 {
     /**
-     * @description The time when the disk was last attached. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mmZ format. The time must be in UTC.
+     * @description The time when the cloud disk was last attached. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mmZ format. The time is displayed in UTC.
      *
      * @example 2021-06-07T06:08:56Z
      *
@@ -22,14 +22,14 @@ class disk extends Model
     public $attachedTime;
 
     /**
-     * @description The attachment information about the cloud disk. The value is an array that consists of the `Attachment` values. This value is not returned when you query Shared Block Storage devices.
+     * @description The attachment information about the cloud disk. The value is an array that contains a list of `Attachment` objects. The value is not returned when you query Shared Block Storage devices.
      *
      * @var attachments
      */
     public $attachments;
 
     /**
-     * @description The ID of the automatic snapshot policy that is applied to the disk.
+     * @description The ID of the automatic snapshot policy that is applied to the cloud disk.
      *
      * @example sp-bp67acfmxazb4p****
      *
@@ -89,7 +89,7 @@ class disk extends Model
     public $creationTime;
 
     /**
-     * @description Indicates whether the automatic snapshots of the disk are deleted when the disk is released. Valid values:
+     * @description Indicates whether the automatic snapshots of the cloud disk are deleted when the cloud disk is released. Valid values:
      *
      *   true: The automatic snapshots of the cloud disk are deleted when the disk is released.
      *   false: The automatic snapshots of the cloud disk are retained when the disk is released.
@@ -102,7 +102,7 @@ class disk extends Model
     public $deleteAutoSnapshot;
 
     /**
-     * @description Indicates whether the disk is released when the instance to which the disk is attached is released. Valid values:
+     * @description Indicates whether the cloud disk is released when the instance to which the disk is attached is released. Valid values:
      *
      *   true: The disk is released when the instance to which the disk is attached is released.
      *   false: The disk is retained when the instance to which the disk is attached is released.
@@ -123,7 +123,7 @@ class disk extends Model
     public $description;
 
     /**
-     * @description The time when the disk was last detached.
+     * @description The time when the cloud disk was last detached.
      *
      * @example 2021-06-07T21:01:22Z
      *
@@ -134,8 +134,8 @@ class disk extends Model
     /**
      * @description The device name of the disk on the instance to which the disk is attached. Example: /dev/xvdb. Take note of the following items:
      *
-     *   This parameter has a value only when the `Status` value is `In_use`.
-     *   This parameter is empty for disks that have the multi-attach feature enabled. You can query the attachment information of the disk based on the `Attachment` values.
+     *   This parameter has a value only when the `Status` value is `In_use` or `Detaching`.
+     *   This parameter is empty for disks that have the multi-attach feature enabled. You can query the attachment information of the disk based on the returned list of `Attachment` objects.
      *
      * >  This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
      * @example /dev/xvdb
@@ -175,7 +175,7 @@ class disk extends Model
     public $diskName;
 
     /**
-     * @description Indicates whether the automatic snapshot policy feature is enabled for the disk.
+     * @description Indicates whether the automatic snapshot policy feature is enabled for the cloud disk.
      *
      * @example false
      *
@@ -184,7 +184,7 @@ class disk extends Model
     public $enableAutoSnapshot;
 
     /**
-     * @description Indicates whether an automatic snapshot policy is applied to the disk.
+     * @description Indicates whether an automatic snapshot policy is applied to the cloud disk.
      *
      * @example false
      *
@@ -211,7 +211,7 @@ class disk extends Model
     public $expiredTime;
 
     /**
-     * @description The maximum number of read/write IOPS of the disk.
+     * @description The maximum number of read and write operations per second.
      *
      * @example 4000
      *
@@ -229,7 +229,7 @@ class disk extends Model
     public $IOPSRead;
 
     /**
-     * @description The maximum number of write IOPS of the disk.
+     * @description The maximum number of write operations per second.
      *
      * @example 2000
      *
@@ -249,8 +249,8 @@ class disk extends Model
     /**
      * @description The ID of the instance to which the disk is attached. Take note of the following items:
      *
-     *   This parameter has a value only when the `Status` value is `In_use`.
-     *   This parameter is empty for disks that have the multi-attach feature enabled. You can query the attachment information of the disk based on the `Attachment` values.
+     *   This parameter has a value only when the `Status` value is `In_use` or `Detaching`.
+     *   This parameter is empty for disks that have the multi-attach feature enabled. You can query the attachment information of the disk based on the returned list of `Attachment` objects.
      *
      * @example i-bp67acfmxazb4q****
      *
@@ -259,7 +259,7 @@ class disk extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the Key Management Service (KMS) key that is used for the disk.
+     * @description The ID of the Key Management Service (KMS) key that is used for the cloud disk.
      *
      * @example 0e478b7a-4262-4802-b8cb-00d3fb408***
      *
@@ -284,7 +284,7 @@ class disk extends Model
     public $mountInstances;
 
     /**
-     * @description Indicates whether the multi-attach feature is enabled for the disk.
+     * @description Indicates whether the multi-attach feature is enabled for the cloud disk.
      *
      * @example Disabled
      *
@@ -293,7 +293,7 @@ class disk extends Model
     public $multiAttach;
 
     /**
-     * @description The reasons why the disk is locked.
+     * @description The reasons why the disk was locked.
      *
      * @var operationLocks
      */
@@ -314,7 +314,7 @@ class disk extends Model
     public $performanceLevel;
 
     /**
-     * @description Specifies whether the disk is removable.
+     * @description Indicates whether the disk is removable.
      *
      * @example false
      *
@@ -332,7 +332,7 @@ class disk extends Model
     public $productCode;
 
     /**
-     * @description The provisioned read/write IOPS of the ESSD AutoPL disk. Valid values: 0 to min{50,000, 1,000 × *capacity - Baseline IOPS}. Baseline IOPS = min{1,800 + 50 × *Capacity, 50,000}
+     * @description The provisioned read/write IOPS of the ESSD AutoPL disk. Valid values: 0 to min{50,000, 1,000 × *Capacity - Baseline IOPS}. Baseline IOPS = min{1,800 + 50 × *Capacity, 50,000}
      *
      * This parameter is available only if you set `DiskCategory` to `cloud_auto`. For more information, see [ESSD AutoPL disks](~~368372~~).
      * @example 40000
@@ -378,9 +378,9 @@ class disk extends Model
     public $size;
 
     /**
-     * @description The ID of the snapshot that was used to create the disk.
+     * @description The ID of the snapshot that was used to create the cloud disk.
      *
-     * This parameter is empty unless the disk was created from a snapshot. The value of this parameter remains unchanged throughout the lifecycle of the disk.
+     * This parameter is empty unless the cloud disk was created from a snapshot. The value of this parameter remains unchanged throughout the lifecycle of the disk.
      * @example s-bp67acfmxazb4p****
      *
      * @var string
@@ -404,7 +404,7 @@ class disk extends Model
     public $status;
 
     /**
-     * @description The ID of the dedicated block storage cluster to which the disk belongs. If your disk belongs to the public block storage cluster, an empty value is returned.
+     * @description The ID of the dedicated block storage cluster to which the cloud disk belongs. If your cloud disk belongs to the public block storage cluster, an empty value is returned.
      *
      * @example dbsc-j5e1sf2vaf5he8m2****
      *
@@ -438,7 +438,7 @@ class disk extends Model
     public $tags;
 
     /**
-     * @description The amount of data that is transferred per second. Unit: MB/s.
+     * @description The amount of data that can be transferred per second. Unit: MB/s.
      *
      * @example 100
      *
@@ -447,7 +447,7 @@ class disk extends Model
     public $throughput;
 
     /**
-     * @description The amount of data that is read by the system per second. Unit: MB/s.
+     * @description The amount of data that can be read per second. Unit: MB/s.
      *
      * @example 100
      *
@@ -456,7 +456,7 @@ class disk extends Model
     public $throughputRead;
 
     /**
-     * @description The amount of data that is written by the system per second. Unit: MB/s.
+     * @description The amount of data that can be written per second. Unit: MB/s.
      *
      * @example 100
      *

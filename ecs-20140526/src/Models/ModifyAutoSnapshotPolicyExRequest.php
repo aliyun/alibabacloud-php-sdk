@@ -19,6 +19,8 @@ class ModifyAutoSnapshotPolicyExRequest extends Model
     public $copiedSnapshotsRetentionDays;
 
     /**
+     * @description The encryption configurations for cross-region snapshot replication.
+     *
      * @var copyEncryptionConfiguration
      */
     public $copyEncryptionConfiguration;

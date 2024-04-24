@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class arn extends Model
 {
     /**
+     * @description This parameter is not publicly available.
+     *
      * @example 1000000000
      *
      * @var int
@@ -16,6 +18,8 @@ class arn extends Model
     public $assumeRoleFor;
 
     /**
+     * @description This parameter is not publicly available.
+     *
      * @example hide
      *
      * @var string
@@ -23,6 +27,8 @@ class arn extends Model
     public $roleType;
 
     /**
+     * @description This parameter is not publicly available.
+     *
      * @example hide
      *
      * @var string

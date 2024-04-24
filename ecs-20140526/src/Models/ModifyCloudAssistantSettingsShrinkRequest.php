@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyCloudAssistantSettingsShrinkRequest extends Model
 {
     /**
-     * @description 云助手Agent升级配置。
+     * @description The configurations for upgrading Cloud Assistant Agent.
      *
      * @var string
      */

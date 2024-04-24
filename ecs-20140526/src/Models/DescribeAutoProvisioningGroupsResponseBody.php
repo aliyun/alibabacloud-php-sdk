@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeAutoProvisioningGroupsResponseBody extends Model
 {
     /**
-     * @description The details of the auto provisioning groups.
+     * @description Details about the auto provisioning groups.
      *
      * @var autoProvisioningGroups
      */

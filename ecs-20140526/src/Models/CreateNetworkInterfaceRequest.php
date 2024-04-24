@@ -50,8 +50,12 @@ class CreateNetworkInterfaceRequest extends Model
     public $description;
 
     /**
-     * @description > This parameter is no longer used.
+     * @description The type of the ENI. Valid values:
      *
+     *   Secondary: secondary ENI.
+     *   Trunk: trunk ENI. This value is in invitational preview.
+     *
+     * Default value: Secondary.
      * @example null
      *
      * @var string
@@ -217,6 +221,13 @@ class CreateNetworkInterfaceRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The receive (Rx) queue depth of the ENI.
+     *
+     * Take note of the following items:
+     *
+     *   The Rx queue depth of an ENI must be the same as the Tx queue depth of the ENI. Valid values: powers of 2 in the range of 8192 to 16384.
+     *   A larger Rx queue depth yields higher inbound throughput but consumes more memory.
+     *
      * @example 8192
      *
      * @var int
@@ -224,8 +235,8 @@ class CreateNetworkInterfaceRequest extends Model
     public $rxQueueSize;
 
     /**
-     * @description The number of private IP addresses to be automatically created by ECS.
-     * Valid values: 1 to 49.
+     * @description The number of private IP addresses to be assigned by ECS. Valid values: 1 to 49.
+     *
      * @example 1
      *
      * @var int
@@ -262,6 +273,13 @@ class CreateNetworkInterfaceRequest extends Model
     public $tag;
 
     /**
+     * @description The transmit (Tx) queue depth of the ENI.
+     *
+     * Take note of the following items:
+     *
+     *   The Tx queue depth of an ENI must be the same as the Rx queue depth of the ENI. Valid values: powers of 2 in the range of 8192 to 16384.
+     *   A larger Tx queue depth yields higher outbound throughput but consumes more memory.
+     *
      * @example 8192
      *
      * @var int

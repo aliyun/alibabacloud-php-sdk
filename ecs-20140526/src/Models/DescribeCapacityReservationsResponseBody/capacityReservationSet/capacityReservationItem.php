@@ -18,6 +18,10 @@ class capacityReservationItem extends Model
     public $allocatedResources;
 
     /**
+     * @description The ID of the capacity reservation owner.
+     *
+     * @example 100************7
+     *
      * @var string
      */
     public $capacityReservationOwnerId;
@@ -43,7 +47,7 @@ class capacityReservationItem extends Model
     /**
      * @description The release mode of the capacity reservation. Valid values:
      *
-     *   Limited: The capacity reservation is automatically released at the specified time.
+     *   Limited: The capacity reservation is automatically released at a specified time.
      *   Unlimited: The capacity reservation is manually released. You can release the capacity reservation anytime.
      *
      * @example Unlimited
@@ -53,7 +57,7 @@ class capacityReservationItem extends Model
     public $endTimeType;
 
     /**
-     * @description The billing method of instances in the capacity reservation. Valid values:
+     * @description The billing method of the instances created by using the capacity reservation. Valid values:
      *
      *   PostPaid: pay-as-you-go.
      *   PrePaid: subscription.
@@ -65,10 +69,10 @@ class capacityReservationItem extends Model
     public $instanceChargeType;
 
     /**
-     * @description The operating system type of the instances. Valid values:
+     * @description The operating system type of the instances created by using the capacity reservation. Valid values:
      *
-     *   windows: Windows operating systems.
-     *   linux: Linux operating systems.
+     *   windows
+     *   linux
      *
      * @example linux
      *
@@ -154,8 +158,8 @@ class capacityReservationItem extends Model
     /**
      * @description The mode in which the capacity reservation takes effect. Valid values:
      *
-     *   Now: The capacity reservation takes effect as soon as it is created.
-     *   Later: The capacity reservation takes effect at the specified time.
+     *   Now: The capacity reservation takes effect immediately after it is created.
+     *   Later: The capacity reservation takes effect at a specified time.
      *
      * @example Now
      *
@@ -164,7 +168,7 @@ class capacityReservationItem extends Model
     public $startTimeType;
 
     /**
-     * @description The state of the capacity reservation. Valid values:
+     * @description The status of the capacity reservation. Valid values:
      *
      *   Pending: The capacity reservation is being initialized.
      *   Preparing: The capacity reservation is being prepared.
@@ -179,14 +183,14 @@ class capacityReservationItem extends Model
     public $status;
 
     /**
-     * @description The tags of the capacity reservation.
+     * @description The tags that are added to the capacity reservation.
      *
      * @var tags
      */
     public $tags;
 
     /**
-     * @description > This parameter is in invitational preview and is not publicly available.
+     * @description >  This parameter is in invitational preview and is not publicly available.
      *
      * @example null
      *

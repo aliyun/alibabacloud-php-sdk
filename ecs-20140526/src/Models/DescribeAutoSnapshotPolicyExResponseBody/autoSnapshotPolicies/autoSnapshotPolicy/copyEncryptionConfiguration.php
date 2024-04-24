@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class copyEncryptionConfiguration extends Model
 {
     /**
+     * @description Whether to enable encryption for cross-region snapshot replication. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * Default value: false.
      * @example false
      *
      * @var bool
@@ -16,6 +22,8 @@ class copyEncryptionConfiguration extends Model
     public $encrypted;
 
     /**
+     * @description The ID of the Key Management Service (KMS) key used to encrypt snapshots in cross-region snapshot replication.
+     *
      * @example 0e478b7a-4262-4802-b8cb-00d3fb40****
      *
      * @var string

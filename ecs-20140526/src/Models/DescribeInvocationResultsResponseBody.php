@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeInvocationResultsResponseBody extends Model
 {
     /**
-     * @description The information about the execution results.
+     * @description Details about the execution results.
      *
      * @var invocation
      */

@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class agentUpgradeConfig extends Model
 {
     /**
-     * @description 允许升级的时间段列表。
+     * @description The time windows during which Cloud Assistant Agent can be upgraded.
      *
      * @var allowedUpgradeWindows
      */
     public $allowedUpgradeWindows;
 
     /**
-     * @description 是否开启自定义Agent升级配置。如查询结果为false或空，默认保持每30分钟尝试升级一次。
+     * @description Indicates whether custom upgrade is enabled for Cloud Assistant Agent. If the value is false or empty, an upgrade attempt is performed for Cloud Assistant Agent every 30 minutes.
      *
      * @example true
      *
@@ -26,7 +26,7 @@ class agentUpgradeConfig extends Model
     public $enabled;
 
     /**
-     * @description 允许升级时间段的时区。
+     * @description The time zone of the time window.
      *
      * @example Asia/Shanghai
      *

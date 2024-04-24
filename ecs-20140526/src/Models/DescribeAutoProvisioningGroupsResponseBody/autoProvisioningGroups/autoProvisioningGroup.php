@@ -53,7 +53,7 @@ class autoProvisioningGroup extends Model
     public $creationTime;
 
     /**
-     * @description Indicates whether to release the scaled-in instances when the real-time capacity exceeds the target capacity and the group scales in. Valid values:
+     * @description Indicates whether to release the scaled-in instances when the real-time capacity of the auto provisioning group exceeds the target capacity and the group is triggered to scale in. Valid values:
      *
      *   termination: releases the scaled-in instances.
      *   no-termination: only removes the scaled-in instances from the auto provisioning group but does not release the instances.
@@ -65,7 +65,7 @@ class autoProvisioningGroup extends Model
     public $excessCapacityTerminationPolicy;
 
     /**
-     * @description The details of the extended configurations.
+     * @description Details about the extended configurations.
      *
      * @var launchTemplateConfigs
      */
@@ -90,9 +90,9 @@ class autoProvisioningGroup extends Model
     public $launchTemplateVersion;
 
     /**
-     * @description The maximum price for preemptible instances in the auto provisioning group.
+     * @description The maximum price of preemptible instances in the auto provisioning group.
      *
-     * The value of LaunchTemplateConfig.N.MaxPrice is specified when the auto provisioning group is created, and the value cannot be modified.
+     * The LaunchTemplateConfig.N.Priority parameter is set when the auto provisioning group is created, and cannot be modified.
      * @example 2
      *
      * @var float
@@ -132,7 +132,7 @@ class autoProvisioningGroup extends Model
     public $spotOptions;
 
     /**
-     * @description The overall state of instance scheduling in the auto provisioning group. Valid values:
+     * @description The overall status of instance scheduling in the auto provisioning group. Valid values:
      *
      *   fulfilled: Scheduling was complete and the instances were delivered.
      *   pending-fulfillment: The instances were being created.
@@ -146,7 +146,7 @@ class autoProvisioningGroup extends Model
     public $state;
 
     /**
-     * @description The state of the auto provisioning group. Valid values:
+     * @description The status of the auto provisioning group. Valid values:
      *
      *   submitted: The auto provisioning group was created but did not execute scheduling tasks.
      *   active: The auto provisioning group was executing scheduling tasks.
@@ -161,6 +161,8 @@ class autoProvisioningGroup extends Model
     public $status;
 
     /**
+     * @description The tags that are added to the auto provisioning group.
+     *
      * @var tags
      */
     public $tags;
@@ -173,10 +175,10 @@ class autoProvisioningGroup extends Model
     public $targetCapacitySpecification;
 
     /**
-     * @description Indicates whether the instances in the auto provisioning group are released when the auto provisioning group is deleted. Valid values:
+     * @description Indicates whether to release instances in the auto provisioning group when the auto provisioning group is deleted. Valid values:
      *
      *   true: releases the instances.
-     *   false: retains the instances.
+     *   false: only removes the instances from the auto provisioning group but does not release the instances.
      *
      * @example false
      *

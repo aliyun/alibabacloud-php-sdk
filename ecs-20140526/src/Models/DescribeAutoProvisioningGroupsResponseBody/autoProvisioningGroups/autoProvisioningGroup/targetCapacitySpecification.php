@@ -11,8 +11,8 @@ class targetCapacitySpecification extends Model
     /**
      * @description The type of supplemental instances. When the sum of the `PayAsYouGoTargetCapacity` and `SpotTargetCapacity` values is less than the `TotalTargetCapacity` value, the auto provisioning group creates instances of the specified billing method to meet the target capacity. Valid values:
      *
-     *   PayAsYouGo: pay-as-you-go instances
-     *   Spot: preemptible instances
+     *   PayAsYouGo: pay-as-you-go instances.
+     *   Spot: preemptible instances.
      *
      * @example Spot
      *
@@ -21,7 +21,7 @@ class targetCapacitySpecification extends Model
     public $defaultTargetCapacityType;
 
     /**
-     * @description The target capacity of pay-as-you-go instances in the auto provisioning group.
+     * @description The target capacity of pay-as-you-go instances that the auto provisioning group provisions.
      *
      * @example 30
      *
@@ -30,7 +30,7 @@ class targetCapacitySpecification extends Model
     public $payAsYouGoTargetCapacity;
 
     /**
-     * @description The target capacity of preemptible instances in the auto provisioning group.
+     * @description The target capacity of preemptible instances that the auto provisioning group provisions.
      *
      * @example 20
      *

@@ -22,12 +22,8 @@ class DescribeBandwidthLimitationRequest extends Model
     public $instanceChargeType;
 
     /**
-     * @description The type of the elastic network interface (ENI). Valid values:
+     * @description The instance type. For information about the values, see [Overview of ECS instance families](~~25378~~).
      *
-     *   Secondary: secondary ENI.
-     *   Trunk: trunk ENI. This value is in invitational preview.
-     *
-     * Default value: Secondary.
      * @example ecs.g5.large
      *
      * @var string

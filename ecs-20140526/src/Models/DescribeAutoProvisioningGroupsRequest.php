@@ -95,6 +95,8 @@ class DescribeAutoProvisioningGroupsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The tags that are added to the auto provisioning group.
+     *
      * @var tag[]
      */
     public $tag;

@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class spotOptions extends Model
 {
     /**
-     * @description The provisioning policy for preemptible instances. Valid values:
+     * @description The policy for creating preemptible instances. Valid values:
      *
-     *   lowest-price: cost optimization policy. This policy indicates that lowest-cost instance types are used to create instances.
+     *   lowest-price: cost optimization policy. This policy indicates that the lowest-priced instance type is used to create instances.
      *   diversified: balanced distribution policy. This policy indicates that instances are created evenly across multiple zones specified in the extended configuration.
      *
      * @example diversified

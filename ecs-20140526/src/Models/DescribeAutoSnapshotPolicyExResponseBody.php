@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeAutoSnapshotPolicyExResponseBody extends Model
 {
     /**
-     * @description Details about the returned automatic snapshot policies.
+     * @description Details about the automatic snapshot policies.
      *
      * @var autoSnapshotPolicies
      */
