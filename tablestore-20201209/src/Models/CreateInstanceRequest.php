@@ -17,6 +17,11 @@ class CreateInstanceRequest extends Model
     public $clusterType;
 
     /**
+     * @var bool
+     */
+    public $disableReplication;
+
+    /**
      * @example 实例描述
      *
      * @var string
@@ -63,6 +68,7 @@ class CreateInstanceRequest extends Model
     public $tags;
     protected $_name = [
         'clusterType'         => 'ClusterType',
+        'disableReplication'  => 'DisableReplication',
         'instanceDescription' => 'InstanceDescription',
         'instanceName'        => 'InstanceName',
         'network'             => 'Network',
@@ -82,6 +88,9 @@ class CreateInstanceRequest extends Model
         $res = [];
         if (null !== $this->clusterType) {
             $res['ClusterType'] = $this->clusterType;
+        }
+        if (null !== $this->disableReplication) {
+            $res['DisableReplication'] = $this->disableReplication;
         }
         if (null !== $this->instanceDescription) {
             $res['InstanceDescription'] = $this->instanceDescription;
@@ -127,6 +136,9 @@ class CreateInstanceRequest extends Model
         $model = new self();
         if (isset($map['ClusterType'])) {
             $model->clusterType = $map['ClusterType'];
+        }
+        if (isset($map['DisableReplication'])) {
+            $model->disableReplication = $map['DisableReplication'];
         }
         if (isset($map['InstanceDescription'])) {
             $model->instanceDescription = $map['InstanceDescription'];

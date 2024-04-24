@@ -129,6 +129,9 @@ class Tablestore extends OpenApiClient
         if (!Utils::isUnset($request->clusterType)) {
             $body['ClusterType'] = $request->clusterType;
         }
+        if (!Utils::isUnset($request->disableReplication)) {
+            $body['DisableReplication'] = $request->disableReplication;
+        }
         if (!Utils::isUnset($request->instanceDescription)) {
             $body['InstanceDescription'] = $request->instanceDescription;
         }
