@@ -12,6 +12,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\AddMetaCollectionEntityReq
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\AddMetaCollectionEntityResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\AddProjectMemberToRoleRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\AddProjectMemberToRoleResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\AddRecognizeRuleRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\AddRecognizeRuleResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\AddToMetaCategoryRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\AddToMetaCategoryResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ApprovePermissionApplyOrderRequest;
@@ -139,6 +141,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteQualityRelativeNodeR
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteQualityRelativeNodeResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteQualityRuleRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteQualityRuleResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteRecognizeRuleRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteRecognizeRuleResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteRemindRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteRemindResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteTableLevelRequest;
@@ -155,6 +159,13 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DesensitizeDataRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DesensitizeDataResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgQuerySensResultRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgQuerySensResultResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgRunSensIdentifyRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgRunSensIdentifyResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgRunSensIdentifyShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgStopSensIdentifyRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgStopSensIdentifyResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\EditRecognizeRuleRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\EditRecognizeRuleResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\EstablishRelationTableToBusinessRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\EstablishRelationTableToBusinessResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ExportDataSourcesRequest;
@@ -443,10 +454,23 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\OfflineNodeRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\OfflineNodeResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\PublishDataServiceApiRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\PublishDataServiceApiResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\QueryDefaultTemplateRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\QueryDefaultTemplateResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\QueryDISyncTaskConfigProcessResultRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\QueryDISyncTaskConfigProcessResultResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\QueryPublicModelEngineRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\QueryPublicModelEngineResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\QueryRecognizeDataByRuleTypeRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\QueryRecognizeDataByRuleTypeResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\QueryRecognizeRuleDetailRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\QueryRecognizeRuleDetailResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\QueryRecognizeRulesTypeResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\QuerySensClassificationRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\QuerySensClassificationResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\QuerySensLevelRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\QuerySensLevelResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\QuerySensNodeInfoRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\QuerySensNodeInfoResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\RegisterLineageRelationRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\RegisterLineageRelationResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\RegisterLineageRelationShrinkRequest;
@@ -801,6 +825,100 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addProjectMemberToRoleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddRecognizeRuleRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return AddRecognizeRuleResponse
+     */
+    public function addRecognizeRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->accountName)) {
+            $body['AccountName'] = $request->accountName;
+        }
+        if (!Utils::isUnset($request->colExclude)) {
+            $body['ColExclude'] = $request->colExclude;
+        }
+        if (!Utils::isUnset($request->colScan)) {
+            $body['ColScan'] = $request->colScan;
+        }
+        if (!Utils::isUnset($request->commentScan)) {
+            $body['CommentScan'] = $request->commentScan;
+        }
+        if (!Utils::isUnset($request->contentScan)) {
+            $body['ContentScan'] = $request->contentScan;
+        }
+        if (!Utils::isUnset($request->hitThreshold)) {
+            $body['HitThreshold'] = $request->hitThreshold;
+        }
+        if (!Utils::isUnset($request->level)) {
+            $body['Level'] = $request->level;
+        }
+        if (!Utils::isUnset($request->levelName)) {
+            $body['LevelName'] = $request->levelName;
+        }
+        if (!Utils::isUnset($request->nodeId)) {
+            $body['NodeId'] = $request->nodeId;
+        }
+        if (!Utils::isUnset($request->nodeParent)) {
+            $body['NodeParent'] = $request->nodeParent;
+        }
+        if (!Utils::isUnset($request->operationType)) {
+            $body['OperationType'] = $request->operationType;
+        }
+        if (!Utils::isUnset($request->recognizeRules)) {
+            $body['RecognizeRules'] = $request->recognizeRules;
+        }
+        if (!Utils::isUnset($request->recognizeRulesType)) {
+            $body['RecognizeRulesType'] = $request->recognizeRulesType;
+        }
+        if (!Utils::isUnset($request->sensitiveDescription)) {
+            $body['SensitiveDescription'] = $request->sensitiveDescription;
+        }
+        if (!Utils::isUnset($request->sensitiveName)) {
+            $body['SensitiveName'] = $request->sensitiveName;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $body['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AddRecognizeRule',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddRecognizeRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddRecognizeRuleRequest $request
+     *
+     * @return AddRecognizeRuleResponse
+     */
+    public function addRecognizeRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addRecognizeRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -4648,6 +4766,52 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @param DeleteRecognizeRuleRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteRecognizeRuleResponse
+     */
+    public function deleteRecognizeRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->sensitiveId)) {
+            $body['SensitiveId'] = $request->sensitiveId;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteRecognizeRule',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteRecognizeRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteRecognizeRuleRequest $request
+     *
+     * @return DeleteRecognizeRuleResponse
+     */
+    public function deleteRecognizeRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRecognizeRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteRemindRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -5064,6 +5228,200 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->dsgQuerySensResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DsgRunSensIdentifyRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DsgRunSensIdentifyResponse
+     */
+    public function dsgRunSensIdentifyWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DsgRunSensIdentifyShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->esMetaParams)) {
+            $request->esMetaParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->esMetaParams, 'EsMetaParams', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->esMetaParamsShrink)) {
+            $body['EsMetaParams'] = $request->esMetaParamsShrink;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DsgRunSensIdentify',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DsgRunSensIdentifyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DsgRunSensIdentifyRequest $request
+     *
+     * @return DsgRunSensIdentifyResponse
+     */
+    public function dsgRunSensIdentify($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->dsgRunSensIdentifyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DsgStopSensIdentifyRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DsgStopSensIdentifyResponse
+     */
+    public function dsgStopSensIdentifyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $body['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DsgStopSensIdentify',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DsgStopSensIdentifyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DsgStopSensIdentifyRequest $request
+     *
+     * @return DsgStopSensIdentifyResponse
+     */
+    public function dsgStopSensIdentify($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->dsgStopSensIdentifyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param EditRecognizeRuleRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return EditRecognizeRuleResponse
+     */
+    public function editRecognizeRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->accountName)) {
+            $body['AccountName'] = $request->accountName;
+        }
+        if (!Utils::isUnset($request->colExclude)) {
+            $body['ColExclude'] = $request->colExclude;
+        }
+        if (!Utils::isUnset($request->colScan)) {
+            $body['ColScan'] = $request->colScan;
+        }
+        if (!Utils::isUnset($request->commentScan)) {
+            $body['CommentScan'] = $request->commentScan;
+        }
+        if (!Utils::isUnset($request->contentScan)) {
+            $body['ContentScan'] = $request->contentScan;
+        }
+        if (!Utils::isUnset($request->hitThreshold)) {
+            $body['HitThreshold'] = $request->hitThreshold;
+        }
+        if (!Utils::isUnset($request->levelName)) {
+            $body['LevelName'] = $request->levelName;
+        }
+        if (!Utils::isUnset($request->nodeId)) {
+            $body['NodeId'] = $request->nodeId;
+        }
+        if (!Utils::isUnset($request->nodeParent)) {
+            $body['NodeParent'] = $request->nodeParent;
+        }
+        if (!Utils::isUnset($request->operationType)) {
+            $body['OperationType'] = $request->operationType;
+        }
+        if (!Utils::isUnset($request->recognizeRules)) {
+            $body['RecognizeRules'] = $request->recognizeRules;
+        }
+        if (!Utils::isUnset($request->recognizeRulesType)) {
+            $body['RecognizeRulesType'] = $request->recognizeRulesType;
+        }
+        if (!Utils::isUnset($request->sensitiveDescription)) {
+            $body['SensitiveDescription'] = $request->sensitiveDescription;
+        }
+        if (!Utils::isUnset($request->sensitiveId)) {
+            $body['SensitiveId'] = $request->sensitiveId;
+        }
+        if (!Utils::isUnset($request->sensitiveName)) {
+            $body['SensitiveName'] = $request->sensitiveName;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $body['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        if (!Utils::isUnset($request->level)) {
+            $body['level'] = $request->level;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'EditRecognizeRule',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return EditRecognizeRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param EditRecognizeRuleRequest $request
+     *
+     * @return EditRecognizeRuleResponse
+     */
+    public function editRecognizeRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->editRecognizeRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -12503,6 +12861,49 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @param QueryDefaultTemplateRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return QueryDefaultTemplateResponse
+     */
+    public function queryDefaultTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDefaultTemplate',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryDefaultTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryDefaultTemplateRequest $request
+     *
+     * @return QueryDefaultTemplateResponse
+     */
+    public function queryDefaultTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryDefaultTemplateWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QueryPublicModelEngineRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -12546,6 +12947,284 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryPublicModelEngineWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryRecognizeDataByRuleTypeRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return QueryRecognizeDataByRuleTypeResponse
+     */
+    public function queryRecognizeDataByRuleTypeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->recognizeRulesType)) {
+            $body['RecognizeRulesType'] = $request->recognizeRulesType;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryRecognizeDataByRuleType',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryRecognizeDataByRuleTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryRecognizeDataByRuleTypeRequest $request
+     *
+     * @return QueryRecognizeDataByRuleTypeResponse
+     */
+    public function queryRecognizeDataByRuleType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryRecognizeDataByRuleTypeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryRecognizeRuleDetailRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return QueryRecognizeRuleDetailResponse
+     */
+    public function queryRecognizeRuleDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->sensitiveName)) {
+            $body['SensitiveName'] = $request->sensitiveName;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryRecognizeRuleDetail',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryRecognizeRuleDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryRecognizeRuleDetailRequest $request
+     *
+     * @return QueryRecognizeRuleDetailResponse
+     */
+    public function queryRecognizeRuleDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryRecognizeRuleDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return QueryRecognizeRulesTypeResponse
+     */
+    public function queryRecognizeRulesTypeWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'QueryRecognizeRulesType',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryRecognizeRulesTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return QueryRecognizeRulesTypeResponse
+     */
+    public function queryRecognizeRulesType()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryRecognizeRulesTypeWithOptions($runtime);
+    }
+
+    /**
+     * @param QuerySensClassificationRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return QuerySensClassificationResponse
+     */
+    public function querySensClassificationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->templateId)) {
+            $body['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QuerySensClassification',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QuerySensClassificationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QuerySensClassificationRequest $request
+     *
+     * @return QuerySensClassificationResponse
+     */
+    public function querySensClassification($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->querySensClassificationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QuerySensLevelRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return QuerySensLevelResponse
+     */
+    public function querySensLevelWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->templateId)) {
+            $body['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['tenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QuerySensLevel',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QuerySensLevelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QuerySensLevelRequest $request
+     *
+     * @return QuerySensLevelResponse
+     */
+    public function querySensLevel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->querySensLevelWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QuerySensNodeInfoRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return QuerySensNodeInfoResponse
+     */
+    public function querySensNodeInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->nodeId)) {
+            $body['NodeId'] = $request->nodeId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $body['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->sensitiveName)) {
+            $body['SensitiveName'] = $request->sensitiveName;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $body['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $body['status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QuerySensNodeInfo',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QuerySensNodeInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QuerySensNodeInfoRequest $request
+     *
+     * @return QuerySensNodeInfoResponse
+     */
+    public function querySensNodeInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->querySensNodeInfoWithOptions($request, $runtime);
     }
 
     /**
