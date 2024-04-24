@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DBInstance extends Model
 {
     /**
+     * @var bool
+     */
+    public $allowAllCategory;
+
+    /**
      * @description The description of the storage instance.
      *
      * @example test
@@ -106,6 +111,7 @@ class DBInstance extends Model
      */
     public $zoneId;
     protected $_name = [
+        'allowAllCategory'      => 'AllowAllCategory',
         'DBInstanceDescription' => 'DBInstanceDescription',
         'DBInstanceId'          => 'DBInstanceId',
         'DBInstanceStatus'      => 'DBInstanceStatus',
@@ -125,6 +131,9 @@ class DBInstance extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->allowAllCategory) {
+            $res['AllowAllCategory'] = $this->allowAllCategory;
+        }
         if (null !== $this->DBInstanceDescription) {
             $res['DBInstanceDescription'] = $this->DBInstanceDescription;
         }
@@ -167,6 +176,9 @@ class DBInstance extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AllowAllCategory'])) {
+            $model->allowAllCategory = $map['AllowAllCategory'];
+        }
         if (isset($map['DBInstanceDescription'])) {
             $model->DBInstanceDescription = $map['DBInstanceDescription'];
         }
