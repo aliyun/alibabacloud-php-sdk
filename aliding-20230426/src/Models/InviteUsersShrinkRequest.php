@@ -24,10 +24,16 @@ class InviteUsersShrinkRequest extends Model
      * @var string
      */
     public $conferenceId;
+
+    /**
+     * @var string
+     */
+    public $phoneInviteeListShrink;
     protected $_name = [
-        'inviteeListShrink'   => 'InviteeList',
-        'tenantContextShrink' => 'TenantContext',
-        'conferenceId'        => 'conferenceId',
+        'inviteeListShrink'      => 'InviteeList',
+        'tenantContextShrink'    => 'TenantContext',
+        'conferenceId'           => 'conferenceId',
+        'phoneInviteeListShrink' => 'phoneInviteeList',
     ];
 
     public function validate()
@@ -45,6 +51,9 @@ class InviteUsersShrinkRequest extends Model
         }
         if (null !== $this->conferenceId) {
             $res['conferenceId'] = $this->conferenceId;
+        }
+        if (null !== $this->phoneInviteeListShrink) {
+            $res['phoneInviteeList'] = $this->phoneInviteeListShrink;
         }
 
         return $res;
@@ -66,6 +75,9 @@ class InviteUsersShrinkRequest extends Model
         }
         if (isset($map['conferenceId'])) {
             $model->conferenceId = $map['conferenceId'];
+        }
+        if (isset($map['phoneInviteeList'])) {
+            $model->phoneInviteeListShrink = $map['phoneInviteeList'];
         }
 
         return $model;

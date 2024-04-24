@@ -51,6 +51,11 @@ class StartInstanceRequest extends Model
     public $processCode;
 
     /**
+     * @var string
+     */
+    public $processData;
+
+    /**
      * @example hexxyy
      *
      * @var string
@@ -63,6 +68,7 @@ class StartInstanceRequest extends Model
         'formUuid'     => 'FormUuid',
         'language'     => 'Language',
         'processCode'  => 'ProcessCode',
+        'processData'  => 'ProcessData',
         'systemToken'  => 'SystemToken',
     ];
 
@@ -90,6 +96,9 @@ class StartInstanceRequest extends Model
         }
         if (null !== $this->processCode) {
             $res['ProcessCode'] = $this->processCode;
+        }
+        if (null !== $this->processData) {
+            $res['ProcessData'] = $this->processData;
         }
         if (null !== $this->systemToken) {
             $res['SystemToken'] = $this->systemToken;
@@ -123,6 +132,9 @@ class StartInstanceRequest extends Model
         }
         if (isset($map['ProcessCode'])) {
             $model->processCode = $map['ProcessCode'];
+        }
+        if (isset($map['ProcessData'])) {
+            $model->processData = $map['ProcessData'];
         }
         if (isset($map['SystemToken'])) {
             $model->systemToken = $map['SystemToken'];

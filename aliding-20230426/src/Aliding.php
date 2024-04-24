@@ -8228,6 +8228,9 @@ class Aliding extends OpenApiClient
         if (!Utils::isUnset($tmpReq->tenantContext)) {
             $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
         }
+        if (!Utils::isUnset($tmpReq->phoneInviteeList)) {
+            $request->phoneInviteeListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->phoneInviteeList, 'phoneInviteeList', 'json');
+        }
         $body = [];
         if (!Utils::isUnset($request->inviteeListShrink)) {
             $body['InviteeList'] = $request->inviteeListShrink;
@@ -8237,6 +8240,9 @@ class Aliding extends OpenApiClient
         }
         if (!Utils::isUnset($request->conferenceId)) {
             $body['conferenceId'] = $request->conferenceId;
+        }
+        if (!Utils::isUnset($request->phoneInviteeListShrink)) {
+            $body['phoneInviteeList'] = $request->phoneInviteeListShrink;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
@@ -12123,6 +12129,9 @@ class Aliding extends OpenApiClient
         }
         if (!Utils::isUnset($request->processCode)) {
             $body['ProcessCode'] = $request->processCode;
+        }
+        if (!Utils::isUnset($request->processData)) {
+            $body['ProcessData'] = $request->processData;
         }
         if (!Utils::isUnset($request->systemToken)) {
             $body['SystemToken'] = $request->systemToken;

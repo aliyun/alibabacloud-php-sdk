@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InviteUsersRequest\inviteeList;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\InviteUsersRequest\phoneInviteeList;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InviteUsersRequest\tenantContext;
 use AlibabaCloud\Tea\Model;
 
@@ -26,10 +27,16 @@ class InviteUsersRequest extends Model
      * @var string
      */
     public $conferenceId;
+
+    /**
+     * @var phoneInviteeList[]
+     */
+    public $phoneInviteeList;
     protected $_name = [
-        'inviteeList'   => 'InviteeList',
-        'tenantContext' => 'TenantContext',
-        'conferenceId'  => 'conferenceId',
+        'inviteeList'      => 'InviteeList',
+        'tenantContext'    => 'TenantContext',
+        'conferenceId'     => 'conferenceId',
+        'phoneInviteeList' => 'phoneInviteeList',
     ];
 
     public function validate()
@@ -53,6 +60,15 @@ class InviteUsersRequest extends Model
         }
         if (null !== $this->conferenceId) {
             $res['conferenceId'] = $this->conferenceId;
+        }
+        if (null !== $this->phoneInviteeList) {
+            $res['phoneInviteeList'] = [];
+            if (null !== $this->phoneInviteeList && \is_array($this->phoneInviteeList)) {
+                $n = 0;
+                foreach ($this->phoneInviteeList as $item) {
+                    $res['phoneInviteeList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -80,6 +96,15 @@ class InviteUsersRequest extends Model
         }
         if (isset($map['conferenceId'])) {
             $model->conferenceId = $map['conferenceId'];
+        }
+        if (isset($map['phoneInviteeList'])) {
+            if (!empty($map['phoneInviteeList'])) {
+                $model->phoneInviteeList = [];
+                $n                       = 0;
+                foreach ($map['phoneInviteeList'] as $item) {
+                    $model->phoneInviteeList[$n++] = null !== $item ? phoneInviteeList::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;
