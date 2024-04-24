@@ -37,6 +37,16 @@ class outbound extends Model
     public $averageWorkTime;
 
     /**
+     * @var int
+     */
+    public $callsAbandoned;
+
+    /**
+     * @var int
+     */
+    public $callsAgentHandled;
+
+    /**
      * @example 0
      *
      * @var int
@@ -51,11 +61,51 @@ class outbound extends Model
     public $callsDialed;
 
     /**
+     * @var int
+     */
+    public $callsOffered;
+
+    /**
+     * @var int
+     */
+    public $callsQueuingCancelled;
+
+    /**
+     * @var int
+     */
+    public $callsQueuingFailed;
+
+    /**
+     * @var int
+     */
+    public $callsQueuingFailure;
+
+    /**
+     * @var int
+     */
+    public $callsQueuingOverflow;
+
+    /**
+     * @var int
+     */
+    public $callsQueuingRerouted;
+
+    /**
+     * @var int
+     */
+    public $callsQueuingTimeout;
+
+    /**
      * @example 0
      *
      * @var string
      */
     public $callsServiceLevel30;
+
+    /**
+     * @var int
+     */
+    public $callsServiceLevel30V2;
 
     /**
      * @example 0
@@ -114,6 +164,11 @@ class outbound extends Model
     public $totalTalkTime;
 
     /**
+     * @var int
+     */
+    public $totalWaitTime;
+
+    /**
      * @example 0
      *
      * @var int
@@ -124,9 +179,19 @@ class outbound extends Model
         'averageDialingTime'           => 'AverageDialingTime',
         'averageTalkTime'              => 'AverageTalkTime',
         'averageWorkTime'              => 'AverageWorkTime',
+        'callsAbandoned'               => 'CallsAbandoned',
+        'callsAgentHandled'            => 'CallsAgentHandled',
         'callsAnswered'                => 'CallsAnswered',
         'callsDialed'                  => 'CallsDialed',
+        'callsOffered'                 => 'CallsOffered',
+        'callsQueuingCancelled'        => 'CallsQueuingCancelled',
+        'callsQueuingFailed'           => 'CallsQueuingFailed',
+        'callsQueuingFailure'          => 'CallsQueuingFailure',
+        'callsQueuingOverflow'         => 'CallsQueuingOverflow',
+        'callsQueuingRerouted'         => 'CallsQueuingRerouted',
+        'callsQueuingTimeout'          => 'CallsQueuingTimeout',
         'callsServiceLevel30'          => 'CallsServiceLevel30',
+        'callsServiceLevel30V2'        => 'CallsServiceLevel30V2',
         'maxDialingTime'               => 'MaxDialingTime',
         'maxTalkTime'                  => 'MaxTalkTime',
         'maxWorkTime'                  => 'MaxWorkTime',
@@ -135,6 +200,7 @@ class outbound extends Model
         'satisfactionSurveysResponded' => 'SatisfactionSurveysResponded',
         'totalDialingTime'             => 'TotalDialingTime',
         'totalTalkTime'                => 'TotalTalkTime',
+        'totalWaitTime'                => 'TotalWaitTime',
         'totalWorkTime'                => 'TotalWorkTime',
     ];
 
@@ -157,14 +223,44 @@ class outbound extends Model
         if (null !== $this->averageWorkTime) {
             $res['AverageWorkTime'] = $this->averageWorkTime;
         }
+        if (null !== $this->callsAbandoned) {
+            $res['CallsAbandoned'] = $this->callsAbandoned;
+        }
+        if (null !== $this->callsAgentHandled) {
+            $res['CallsAgentHandled'] = $this->callsAgentHandled;
+        }
         if (null !== $this->callsAnswered) {
             $res['CallsAnswered'] = $this->callsAnswered;
         }
         if (null !== $this->callsDialed) {
             $res['CallsDialed'] = $this->callsDialed;
         }
+        if (null !== $this->callsOffered) {
+            $res['CallsOffered'] = $this->callsOffered;
+        }
+        if (null !== $this->callsQueuingCancelled) {
+            $res['CallsQueuingCancelled'] = $this->callsQueuingCancelled;
+        }
+        if (null !== $this->callsQueuingFailed) {
+            $res['CallsQueuingFailed'] = $this->callsQueuingFailed;
+        }
+        if (null !== $this->callsQueuingFailure) {
+            $res['CallsQueuingFailure'] = $this->callsQueuingFailure;
+        }
+        if (null !== $this->callsQueuingOverflow) {
+            $res['CallsQueuingOverflow'] = $this->callsQueuingOverflow;
+        }
+        if (null !== $this->callsQueuingRerouted) {
+            $res['CallsQueuingRerouted'] = $this->callsQueuingRerouted;
+        }
+        if (null !== $this->callsQueuingTimeout) {
+            $res['CallsQueuingTimeout'] = $this->callsQueuingTimeout;
+        }
         if (null !== $this->callsServiceLevel30) {
             $res['CallsServiceLevel30'] = $this->callsServiceLevel30;
+        }
+        if (null !== $this->callsServiceLevel30V2) {
+            $res['CallsServiceLevel30V2'] = $this->callsServiceLevel30V2;
         }
         if (null !== $this->maxDialingTime) {
             $res['MaxDialingTime'] = $this->maxDialingTime;
@@ -189,6 +285,9 @@ class outbound extends Model
         }
         if (null !== $this->totalTalkTime) {
             $res['TotalTalkTime'] = $this->totalTalkTime;
+        }
+        if (null !== $this->totalWaitTime) {
+            $res['TotalWaitTime'] = $this->totalWaitTime;
         }
         if (null !== $this->totalWorkTime) {
             $res['TotalWorkTime'] = $this->totalWorkTime;
@@ -217,14 +316,44 @@ class outbound extends Model
         if (isset($map['AverageWorkTime'])) {
             $model->averageWorkTime = $map['AverageWorkTime'];
         }
+        if (isset($map['CallsAbandoned'])) {
+            $model->callsAbandoned = $map['CallsAbandoned'];
+        }
+        if (isset($map['CallsAgentHandled'])) {
+            $model->callsAgentHandled = $map['CallsAgentHandled'];
+        }
         if (isset($map['CallsAnswered'])) {
             $model->callsAnswered = $map['CallsAnswered'];
         }
         if (isset($map['CallsDialed'])) {
             $model->callsDialed = $map['CallsDialed'];
         }
+        if (isset($map['CallsOffered'])) {
+            $model->callsOffered = $map['CallsOffered'];
+        }
+        if (isset($map['CallsQueuingCancelled'])) {
+            $model->callsQueuingCancelled = $map['CallsQueuingCancelled'];
+        }
+        if (isset($map['CallsQueuingFailed'])) {
+            $model->callsQueuingFailed = $map['CallsQueuingFailed'];
+        }
+        if (isset($map['CallsQueuingFailure'])) {
+            $model->callsQueuingFailure = $map['CallsQueuingFailure'];
+        }
+        if (isset($map['CallsQueuingOverflow'])) {
+            $model->callsQueuingOverflow = $map['CallsQueuingOverflow'];
+        }
+        if (isset($map['CallsQueuingRerouted'])) {
+            $model->callsQueuingRerouted = $map['CallsQueuingRerouted'];
+        }
+        if (isset($map['CallsQueuingTimeout'])) {
+            $model->callsQueuingTimeout = $map['CallsQueuingTimeout'];
+        }
         if (isset($map['CallsServiceLevel30'])) {
             $model->callsServiceLevel30 = $map['CallsServiceLevel30'];
+        }
+        if (isset($map['CallsServiceLevel30V2'])) {
+            $model->callsServiceLevel30V2 = $map['CallsServiceLevel30V2'];
         }
         if (isset($map['MaxDialingTime'])) {
             $model->maxDialingTime = $map['MaxDialingTime'];
@@ -249,6 +378,9 @@ class outbound extends Model
         }
         if (isset($map['TotalTalkTime'])) {
             $model->totalTalkTime = $map['TotalTalkTime'];
+        }
+        if (isset($map['TotalWaitTime'])) {
+            $model->totalWaitTime = $map['TotalWaitTime'];
         }
         if (isset($map['TotalWorkTime'])) {
             $model->totalWorkTime = $map['TotalWorkTime'];
