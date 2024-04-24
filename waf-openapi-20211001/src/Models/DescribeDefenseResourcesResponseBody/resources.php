@@ -33,7 +33,7 @@ class resources extends Model
     public $acwSecureStatus;
 
     /**
-     * @description The status of the slider CAPTCHA cookie.
+     * @description The status of the secure attribute in the slider CAPTCHA cookie.
      *
      *   **0:** disabled.
      *   **1:** enabled.
@@ -149,7 +149,7 @@ class resources extends Model
     public $resourceOrigin;
 
     /**
-     * @description Indicates whether the X-Forwarded-For (XFF) proxy feature is enabled for the protected object.
+     * @description Indicates whether the X-Forwarded-For (XFF) proxy is enabled.
      *
      * @example 1
      *

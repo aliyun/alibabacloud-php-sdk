@@ -12,7 +12,7 @@ class DescribeResponseCodeTrendGraphResponseBody extends Model
     /**
      * @description The ID of the request.
      *
-     * @example 7D46493E-84DD-58CE-80A7-8643F2B09ECC
+     * @example 7D46493E-84DD-58CE-80A7-8643****9ECC
      *
      * @var string
      */

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeResourceInstanceCertsResponseBody extends Model
 {
     /**
+     * @description The certificates.
+     *
      * @var certs[]
      */
     public $certs;
 
     /**
+     * @description The request ID.
+     *
      * @example D7861F61-***-6B19160D5EB0
      *
      * @var string
@@ -22,6 +26,8 @@ class DescribeResourceInstanceCertsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1
      *
      * @var int

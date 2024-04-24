@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateMemberAccountsRequest extends Model
 {
     /**
+     * @description The ID of the WAF instance.
+     *
+     * >  You can call the [DescribeInstance](~~433756~~) operation to query the ID of the WAF instance.
      * @example waf_cdnsdf3****
      *
      * @var string
@@ -16,11 +19,18 @@ class CreateMemberAccountsRequest extends Model
     public $instanceId;
 
     /**
+     * @description The Alibaba Cloud account IDs of the members that you want to add. You can add up to 10 members at the same time.
+     *
      * @var string[]
      */
     public $memberAccountIds;
 
     /**
+     * @description The region in which the WAF instance is deployed. Valid values:
+     *
+     *   **cn-hangzhou**: Chinese mainland.
+     *   **ap-southeast-1**: outside the Chinese mainland.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -28,6 +38,8 @@ class CreateMemberAccountsRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the Alibaba Cloud resource group.
+     *
      * @example rg-acfm***q
      *
      * @var string
@@ -35,6 +47,8 @@ class CreateMemberAccountsRequest extends Model
     public $resourceManagerResourceGroupId;
 
     /**
+     * @description The source IP address of the request. The system automatically obtains the value of this parameter.
+     *
      * @example 1.1.X.X
      *
      * @var string

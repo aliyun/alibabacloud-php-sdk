@@ -54,7 +54,7 @@ class ModifyDefenseRuleRequest extends Model
      *   **id:** The ID of the protection rule. Data type: long. You must specify this parameter.
      *   The protection rule configurations: The role of this parameter is the same as that of the **Rules** parameter in the **CreateDefenseRule** topic. For more information, see the "**Protection rule parameters**" section in the [CreateDefenseRule](~~CreateDefenseRule~~) topic.
      *
-     * @example [{\"id\":2344,\"policyId\":1012,\"action\":\"block\"}]
+     * @example [{"id":2344,"policyId":1012,"action":"block"}]
      *
      * @var string
      */

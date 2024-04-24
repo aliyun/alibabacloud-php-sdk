@@ -19,6 +19,10 @@ class DescribeProductInstancesRequest extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the resource belongs.
+     *
+     * @example 1704********9107
+     *
      * @var string
      */
     public $ownerUserId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateMemberAccountsResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 66A98669-ER12-WE34-23PO-301469*****E
      *
      * @var string

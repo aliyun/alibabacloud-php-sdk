@@ -10,12 +10,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeMemberAccountsResponseBody extends Model
 {
     /**
+     * @description The information about the member.
+     *
      * @var accountInfos[]
      */
     public $accountInfos;
 
     /**
-     * @example 50C4A80D-D46C-57E0-9A7D-03C078474852
+     * @description The ID of the request.
+     *
+     * @example 50C4A80D-D46C-57E0-9A7D-03C0****4852
      *
      * @var string
      */

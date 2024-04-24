@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteMemberAccountRequest extends Model
 {
     /**
+     * @description The ID of the WAF instance.
+     *
+     * >  You can call the [DescribeInstance](~~433756~~) operation to query the ID of the WAF instance.
      * @example waf_esasdf3****
      *
      * @var string
@@ -16,6 +19,8 @@ class DeleteMemberAccountRequest extends Model
     public $instanceId;
 
     /**
+     * @description The Alibaba Cloud account ID of the managed member.
+     *
      * @example 131***********39
      *
      * @var string
@@ -23,6 +28,11 @@ class DeleteMemberAccountRequest extends Model
     public $memberAccountId;
 
     /**
+     * @description The region in which the WAF instance is deployed. Valid values:
+     *
+     *   **cn-hangzhou**: Chinese mainland.
+     *   **ap-southeast-1**: outside the Chinese mainland.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -30,6 +40,8 @@ class DeleteMemberAccountRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the Alibaba Cloud resource group.
+     *
      * @example rg-acfm***q
      *
      * @var string
@@ -37,6 +49,8 @@ class DeleteMemberAccountRequest extends Model
     public $resourceManagerResourceGroupId;
 
     /**
+     * @description The source IP address of the request. The system automatically obtains the value of this parameter.
+     *
      * @example 0.0.XX.XX
      *
      * @var string

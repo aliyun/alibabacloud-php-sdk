@@ -11,7 +11,7 @@ class ModifyDefenseRuleResponseBody extends Model
     /**
      * @description The ID of the request.
      *
-     * @example 1EEA9C98-F166-54FE-ADE3-08D82427BDFA
+     * @example 1EEA9C98-F166-54FE-ADE3-08D8****BDFA
      *
      * @var string
      */

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class accountInfos extends Model
 {
     /**
+     * @description The ID of the member.
+     *
      * @example 169************21
      *
      * @var string
@@ -16,6 +18,8 @@ class accountInfos extends Model
     public $accountId;
 
     /**
+     * @description The name of the member.
+     *
      * @example ipflgmqqnbjg
      *
      * @var string
@@ -23,6 +27,12 @@ class accountInfos extends Model
     public $accountName;
 
     /**
+     * @description The status of the member.
+     *
+     *   **enabled**: managed.
+     *   **disabled**: not managed.
+     *   **disabling**: being deleted.
+     *
      * @example enabled
      *
      * @var string
@@ -30,6 +40,8 @@ class accountInfos extends Model
     public $accountStatus;
 
     /**
+     * @description The description of the member.
+     *
      * @example test
      *
      * @var string
@@ -37,6 +49,8 @@ class accountInfos extends Model
     public $description;
 
     /**
+     * @description The time when the member was added.
+     *
      * @example 1683367751000
      *
      * @var int

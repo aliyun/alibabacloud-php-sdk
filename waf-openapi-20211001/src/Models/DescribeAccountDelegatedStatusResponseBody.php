@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAccountDelegatedStatusResponseBody extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account.
+     *
      * @example 10***********34
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeAccountDelegatedStatusResponseBody extends Model
     public $accountId;
 
     /**
+     * @description The name of the Alibaba Cloud account. This parameter is returned only if the account is the delegated administrator account.
+     *
      * @example account_test
      *
      * @var string
@@ -23,6 +27,11 @@ class DescribeAccountDelegatedStatusResponseBody extends Model
     public $accountName;
 
     /**
+     * @description Indicates whether the Alibaba Cloud account is the delegated administrator account of the WAF instance.
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -30,7 +39,9 @@ class DescribeAccountDelegatedStatusResponseBody extends Model
     public $delegatedStatus;
 
     /**
-     * @example 8161375D-5958-5627-BFDE-DF1458A73E87
+     * @description The request ID.
+     *
+     * @example 8161375D-5958-5627-BFDE-DF14****3E87
      *
      * @var string
      */

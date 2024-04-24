@@ -8,6 +8,8 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ClearMajorProtectionBlackIpRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ClearMajorProtectionBlackIpResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CopyDefenseTemplateRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CopyDefenseTemplateResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateDefenseResourceGroupRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateDefenseResourceGroupResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateDefenseRuleRequest;
@@ -21,6 +23,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateMajorProtectionBlackIpReq
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateMajorProtectionBlackIpResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateMemberAccountsRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateMemberAccountsResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreatePostpaidInstanceRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreatePostpaidInstanceResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteDefenseResourceGroupRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteDefenseResourceGroupResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteDefenseRuleRequest;
@@ -35,12 +39,22 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteMemberAccountRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteMemberAccountResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAccountDelegatedStatusRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAccountDelegatedStatusResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCertDetailRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCertDetailResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCertsRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCertsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCloudResourcesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCloudResourcesResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseResourceGroupNamesRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseResourceGroupNamesResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseResourceGroupRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseResourceGroupResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseResourceGroupsRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseResourceGroupsResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseResourceNamesRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseResourceNamesResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseResourceRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseResourceResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseResourcesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseResourcesResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseResourceTemplatesRequest;
@@ -53,6 +67,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseTemplateRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseTemplateResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseTemplatesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseTemplatesResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseTemplateValidGroupsRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseTemplateValidGroupsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDomainDetailRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDomainDetailResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDomainDNSRecordRequest;
@@ -81,6 +97,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribePeakTrendRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribePeakTrendResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeProductInstancesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeProductInstancesResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribePunishedDomainsRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribePunishedDomainsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeResourceInstanceCertsRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeResourceInstanceCertsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeResourceLogStatusRequest;
@@ -113,6 +131,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSlsLogStoreRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSlsLogStoreResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSlsLogStoreStatusRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSlsLogStoreStatusResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeTemplateResourceCountRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeTemplateResourceCountResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeTemplateResourcesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeTemplateResourcesResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeUserSlsLogRegionsRequest;
@@ -125,6 +145,12 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeVisitUasRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeVisitUasResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeWafSourceIpSegmentRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeWafSourceIpSegmentResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ListTagKeysRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ListTagKeysResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ListTagResourcesRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ListTagResourcesResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ListTagValuesRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ListTagValuesResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDefenseResourceGroupRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDefenseResourceGroupResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDefenseResourceXffRequest;
@@ -139,6 +165,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDefenseTemplateRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDefenseTemplateResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDefenseTemplateStatusRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDefenseTemplateStatusResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDomainPunishStatusRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDomainPunishStatusResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDomainRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDomainResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDomainShrinkRequest;
@@ -154,6 +182,10 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyTemplateResourcesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyTemplateResourcesResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\SyncProductInstanceRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\SyncProductInstanceResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\TagResourcesRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\TagResourcesResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\UntagResourcesRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\UntagResourcesResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -272,6 +304,58 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->clearMajorProtectionBlackIpWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CopyDefenseTemplateRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CopyDefenseTemplateResponse
+     */
+    public function copyDefenseTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CopyDefenseTemplate',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CopyDefenseTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CopyDefenseTemplateRequest $request
+     *
+     * @return CopyDefenseTemplateResponse
+     */
+    public function copyDefenseTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->copyDefenseTemplateWithOptions($request, $runtime);
     }
 
     /**
@@ -647,6 +731,52 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createMemberAccountsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreatePostpaidInstanceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreatePostpaidInstanceResponse
+     */
+    public function createPostpaidInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreatePostpaidInstance',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreatePostpaidInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreatePostpaidInstanceRequest $request
+     *
+     * @return CreatePostpaidInstanceResponse
+     */
+    public function createPostpaidInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createPostpaidInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -1026,6 +1156,58 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * @param DescribeCertDetailRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeCertDetailResponse
+     */
+    public function describeCertDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->certIdentifier)) {
+            $query['CertIdentifier'] = $request->certIdentifier;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCertDetail',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCertDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCertDetailRequest $request
+     *
+     * @return DescribeCertDetailResponse
+     */
+    public function describeCertDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCertDetailWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeCertsRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -1166,6 +1348,58 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * @param DescribeDefenseResourceRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeDefenseResourceResponse
+     */
+    public function describeDefenseResourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resource)) {
+            $query['Resource'] = $request->resource;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDefenseResource',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDefenseResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDefenseResourceRequest $request
+     *
+     * @return DescribeDefenseResourceResponse
+     */
+    public function describeDefenseResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDefenseResourceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDefenseResourceGroupRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -1215,6 +1449,183 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDefenseResourceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDefenseResourceGroupNamesRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeDefenseResourceGroupNamesResponse
+     */
+    public function describeDefenseResourceGroupNamesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupNameLike)) {
+            $query['GroupNameLike'] = $request->groupNameLike;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDefenseResourceGroupNames',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDefenseResourceGroupNamesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDefenseResourceGroupNamesRequest $request
+     *
+     * @return DescribeDefenseResourceGroupNamesResponse
+     */
+    public function describeDefenseResourceGroupNames($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDefenseResourceGroupNamesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDefenseResourceGroupsRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeDefenseResourceGroupsResponse
+     */
+    public function describeDefenseResourceGroupsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupNameLike)) {
+            $query['GroupNameLike'] = $request->groupNameLike;
+        }
+        if (!Utils::isUnset($request->groupNames)) {
+            $query['GroupNames'] = $request->groupNames;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDefenseResourceGroups',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDefenseResourceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDefenseResourceGroupsRequest $request
+     *
+     * @return DescribeDefenseResourceGroupsResponse
+     */
+    public function describeDefenseResourceGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDefenseResourceGroupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDefenseResourceNamesRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeDefenseResourceNamesResponse
+     */
+    public function describeDefenseResourceNamesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resource)) {
+            $query['Resource'] = $request->resource;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDefenseResourceNames',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDefenseResourceNamesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDefenseResourceNamesRequest $request
+     *
+     * @return DescribeDefenseResourceNamesResponse
+     */
+    public function describeDefenseResourceNames($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDefenseResourceNamesWithOptions($request, $runtime);
     }
 
     /**
@@ -1505,6 +1916,70 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDefenseTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDefenseTemplateValidGroupsRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DescribeDefenseTemplateValidGroupsResponse
+     */
+    public function describeDefenseTemplateValidGroupsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->defenseScene)) {
+            $query['DefenseScene'] = $request->defenseScene;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDefenseTemplateValidGroups',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDefenseTemplateValidGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDefenseTemplateValidGroupsRequest $request
+     *
+     * @return DescribeDefenseTemplateValidGroupsResponse
+     */
+    public function describeDefenseTemplateValidGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDefenseTemplateValidGroupsWithOptions($request, $runtime);
     }
 
     /**
@@ -2402,6 +2877,58 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * @param DescribePunishedDomainsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribePunishedDomainsResponse
+     */
+    public function describePunishedDomainsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domains)) {
+            $query['Domains'] = $request->domains;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePunishedDomains',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribePunishedDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribePunishedDomainsRequest $request
+     *
+     * @return DescribePunishedDomainsResponse
+     */
+    public function describePunishedDomains($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePunishedDomainsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeResourceInstanceCertsRequest $request
      * @param RuntimeOptions                       $runtime
      *
@@ -3291,6 +3818,58 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * @param DescribeTemplateResourceCountRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeTemplateResourceCountResponse
+     */
+    public function describeTemplateResourceCountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        if (!Utils::isUnset($request->templateIds)) {
+            $query['TemplateIds'] = $request->templateIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeTemplateResourceCount',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeTemplateResourceCountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeTemplateResourceCountRequest $request
+     *
+     * @return DescribeTemplateResourceCountResponse
+     */
+    public function describeTemplateResourceCount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeTemplateResourceCountWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeTemplateResourcesRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -3603,6 +4182,165 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeWafSourceIpSegmentWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListTagKeysRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListTagKeysResponse
+     */
+    public function listTagKeysWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagKeys',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListTagKeysRequest $request
+     *
+     * @return ListTagKeysResponse
+     */
+    public function listTagKeys($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTagKeysWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagResources',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListTagValuesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListTagValuesResponse
+     */
+    public function listTagValuesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->key)) {
+            $query['Key'] = $request->key;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagValues',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListTagValuesRequest $request
+     *
+     * @return ListTagValuesResponse
+     */
+    public function listTagValues($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTagValuesWithOptions($request, $runtime);
     }
 
     /**
@@ -4084,6 +4822,58 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * @param ModifyDomainPunishStatusRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ModifyDomainPunishStatusResponse
+     */
+    public function modifyDomainPunishStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDomainPunishStatus',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDomainPunishStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDomainPunishStatusRequest $request
+     *
+     * @return ModifyDomainPunishStatusResponse
+     */
+    public function modifyDomainPunishStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDomainPunishStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyHybridCloudClusterBypassStatusRequest $request
      * @param RuntimeOptions                              $runtime
      *
@@ -4424,5 +5214,112 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->syncProductInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TagResources',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->tagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UntagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UntagResources',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->untagResourcesWithOptions($request, $runtime);
     }
 }

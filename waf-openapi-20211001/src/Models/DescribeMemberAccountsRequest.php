@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeMemberAccountsRequest extends Model
 {
     /**
+     * @description The status of the member that you want to query.
+     *
+     *   **enabled**: managed.
+     *   **disabled**: not managed.
+     *   **disabling**: being deleted.
+     *
      * @example enabled
      *
      * @var string
@@ -16,6 +22,9 @@ class DescribeMemberAccountsRequest extends Model
     public $accountStatus;
 
     /**
+     * @description The ID of the Web Application Firewall (WAF) instance.
+     *
+     * >  You can call the [DescribeInstance](~~433756~~) operation to query the ID of the WAF instance.
      * @example waf_cdnsdf3****
      *
      * @var string
@@ -23,6 +32,11 @@ class DescribeMemberAccountsRequest extends Model
     public $instanceId;
 
     /**
+     * @description The region in which the WAF instance is deployed. Valid values:
+     *
+     *   **cn-hangzhou**: Chinese mainland.
+     *   **ap-southeast-1**: outside the Chinese mainland.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -30,6 +44,8 @@ class DescribeMemberAccountsRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the Alibaba Cloud resource group.
+     *
      * @example rg-acfm***q
      *
      * @var string
@@ -37,6 +53,8 @@ class DescribeMemberAccountsRequest extends Model
     public $resourceManagerResourceGroupId;
 
     /**
+     * @description The source IP address of the request. The system specifies this parameter.
+     *
      * @example 0.0.XX.XX
      *
      * @var string

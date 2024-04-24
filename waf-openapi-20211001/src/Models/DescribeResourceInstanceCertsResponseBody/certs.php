@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class certs extends Model
 {
     /**
+     * @description The time when the certificate expires.
+     *
      * @example 1708415521211
      *
      * @var int
@@ -16,6 +18,8 @@ class certs extends Model
     public $afterDate;
 
     /**
+     * @description The time when the certificate was issued.
+     *
      * @example 1708415521211
      *
      * @var int
@@ -23,6 +27,8 @@ class certs extends Model
     public $beforeDate;
 
     /**
+     * @description The globally unique ID of the certificate. The value is in the "Certificate ID-cn-hangzhou" format. For example, if the ID of the certificate is 123, the value of CertIdentifier is 123-cn-hangzhou.
+     *
      * @example 123-cn-hangzhou
      *
      * @var string
@@ -30,18 +36,26 @@ class certs extends Model
     public $certIdentifier;
 
     /**
+     * @description The name of the certificate.
+     *
+     * @example demoCertName
+     *
      * @var string
      */
     public $certName;
 
     /**
-     * @example www.aliyundemo.com
+     * @description The common name.
+     *
+     * @example *.aliyundemo.com
      *
      * @var string
      */
     public $commonName;
 
     /**
+     * @description The domain name for which the certificate is issued.
+     *
      * @example waf.aliyundemo.com
      *
      * @var string
@@ -49,6 +63,8 @@ class certs extends Model
     public $domain;
 
     /**
+     * @description Indicates whether the certificate chain is complete.
+     *
      * @example true
      *
      * @var bool

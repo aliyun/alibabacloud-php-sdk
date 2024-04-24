@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeResourceInstanceCertsRequest extends Model
 {
     /**
+     * @description The ID of the WAF instance.
+     *
+     * >  You can call the [DescribeInstance](~~433756~~) operation to query the ID of the WAF instance.
      * @example waf_v2_public_cn-*
      *
      * @var string
@@ -16,6 +19,8 @@ class DescribeResourceInstanceCertsRequest extends Model
     public $instanceId;
 
     /**
+     * @description The page number. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +28,8 @@ class DescribeResourceInstanceCertsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -30,6 +37,11 @@ class DescribeResourceInstanceCertsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region in which the WAF instance is deployed. Valid values:
+     *
+     *   **cn-hangzhou**: Chinese mainland.
+     *   **ap-southeast-1**: outside the Chinese mainland.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -37,6 +49,8 @@ class DescribeResourceInstanceCertsRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example lb-bp1*****jqnnqk5uj2p
      *
      * @var string
@@ -44,6 +58,8 @@ class DescribeResourceInstanceCertsRequest extends Model
     public $resourceInstanceId;
 
     /**
+     * @description The ID of the Alibaba Cloud resource group.
+     *
      * @example rg-acfm***q
      *
      * @var string

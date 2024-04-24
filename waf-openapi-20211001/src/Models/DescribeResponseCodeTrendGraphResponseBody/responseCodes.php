@@ -27,6 +27,15 @@ class responseCodes extends Model
     public $code405Pv;
 
     /**
+     * @description The number of 444 error codes that are returned.
+     *
+     * @example 0
+     *
+     * @var int
+     */
+    public $code444Pv;
+
+    /**
      * @description The number of 499 error codes that are returned.
      *
      * @example 0
@@ -55,6 +64,7 @@ class responseCodes extends Model
     protected $_name = [
         'code302Pv' => '302Pv',
         'code405Pv' => '405Pv',
+        'code444Pv' => '444Pv',
         'code499Pv' => '499Pv',
         'code5xxPv' => '5xxPv',
         'index'     => 'Index',
@@ -72,6 +82,9 @@ class responseCodes extends Model
         }
         if (null !== $this->code405Pv) {
             $res['405Pv'] = $this->code405Pv;
+        }
+        if (null !== $this->code444Pv) {
+            $res['444Pv'] = $this->code444Pv;
         }
         if (null !== $this->code499Pv) {
             $res['499Pv'] = $this->code499Pv;
@@ -99,6 +112,9 @@ class responseCodes extends Model
         }
         if (isset($map['405Pv'])) {
             $model->code405Pv = $map['405Pv'];
+        }
+        if (isset($map['444Pv'])) {
+            $model->code444Pv = $map['444Pv'];
         }
         if (isset($map['499Pv'])) {
             $model->code499Pv = $map['499Pv'];
