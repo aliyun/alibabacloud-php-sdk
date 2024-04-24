@@ -51,6 +51,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\BindSentinelBlockFallbackDefinitionReq
 use AlibabaCloud\SDK\Mse\V20190531\Models\BindSentinelBlockFallbackDefinitionResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CloneNacosConfigRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CloneNacosConfigResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\CloneSentinelRuleFromAhasRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\CloneSentinelRuleFromAhasResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateApplicationRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateApplicationResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateCircuitBreakerRuleRequest;
@@ -1914,6 +1916,61 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->cloneNacosConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CloneSentinelRuleFromAhasRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CloneSentinelRuleFromAhasResponse
+     */
+    public function cloneSentinelRuleFromAhasWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->ahasNamespace)) {
+            $query['AhasNamespace'] = $request->ahasNamespace;
+        }
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->isAHASPublicRegion)) {
+            $query['IsAHASPublicRegion'] = $request->isAHASPublicRegion;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CloneSentinelRuleFromAhas',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CloneSentinelRuleFromAhasResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CloneSentinelRuleFromAhasRequest $request
+     *
+     * @return CloneSentinelRuleFromAhasResponse
+     */
+    public function cloneSentinelRuleFromAhas($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cloneSentinelRuleFromAhasWithOptions($request, $runtime);
     }
 
     /**
