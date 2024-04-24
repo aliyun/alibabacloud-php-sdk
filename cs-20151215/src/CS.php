@@ -4861,6 +4861,9 @@ class CS extends OpenApiClient
         if (!Utils::isUnset($request->accessControlList)) {
             $body['access_control_list'] = $request->accessControlList;
         }
+        if (!Utils::isUnset($request->apiServerCustomCertSans)) {
+            $body['api_server_custom_cert_sans'] = $request->apiServerCustomCertSans;
+        }
         if (!Utils::isUnset($request->apiServerEip)) {
             $body['api_server_eip'] = $request->apiServerEip;
         }

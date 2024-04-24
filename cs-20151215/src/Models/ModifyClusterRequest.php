@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
+use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterRequest\apiServerCustomCertSans;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterRequest\operationPolicy;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterRequest\systemEventsLogging;
 use AlibabaCloud\Tea\Model;
@@ -16,6 +17,11 @@ class ModifyClusterRequest extends Model
      * @var string[]
      */
     public $accessControlList;
+
+    /**
+     * @var apiServerCustomCertSans
+     */
+    public $apiServerCustomCertSans;
 
     /**
      * @description Specifies whether to associate an elastic IP address (EIP) with the cluster API server. This enables Internet access for the cluster. Valid values:
@@ -137,6 +143,7 @@ class ModifyClusterRequest extends Model
     public $systemEventsLogging;
     protected $_name = [
         'accessControlList'          => 'access_control_list',
+        'apiServerCustomCertSans'    => 'api_server_custom_cert_sans',
         'apiServerEip'               => 'api_server_eip',
         'apiServerEipId'             => 'api_server_eip_id',
         'clusterName'                => 'cluster_name',
@@ -160,6 +167,9 @@ class ModifyClusterRequest extends Model
         $res = [];
         if (null !== $this->accessControlList) {
             $res['access_control_list'] = $this->accessControlList;
+        }
+        if (null !== $this->apiServerCustomCertSans) {
+            $res['api_server_custom_cert_sans'] = null !== $this->apiServerCustomCertSans ? $this->apiServerCustomCertSans->toMap() : null;
         }
         if (null !== $this->apiServerEip) {
             $res['api_server_eip'] = $this->apiServerEip;
@@ -213,6 +223,9 @@ class ModifyClusterRequest extends Model
             if (!empty($map['access_control_list'])) {
                 $model->accessControlList = $map['access_control_list'];
             }
+        }
+        if (isset($map['api_server_custom_cert_sans'])) {
+            $model->apiServerCustomCertSans = apiServerCustomCertSans::fromMap($map['api_server_custom_cert_sans']);
         }
         if (isset($map['api_server_eip'])) {
             $model->apiServerEip = $map['api_server_eip'];
