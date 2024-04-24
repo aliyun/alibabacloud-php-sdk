@@ -11,6 +11,7 @@ class CreateDiagnosticRequest extends Model
     /**
      * @description The keyword in the diagnosis.
      *
+     * You can specify the ID of the stack that you want to diagnose.
      * @example 37A5679B-8488-5A5D-8D5C-90E66A577A5D
      *
      * @var string
@@ -27,6 +28,13 @@ class CreateDiagnosticRequest extends Model
     public $diagnosticType;
 
     /**
+     * @description The language of the diagnostic report to be generated. Only Chinese and English are supported.
+     *
+     * Valid values:
+     *
+     *   zh-cn
+     *   en
+     *
      * @example zh-cn
      *
      * @var string

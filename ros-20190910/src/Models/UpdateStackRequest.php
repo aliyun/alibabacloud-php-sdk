@@ -30,6 +30,8 @@ class UpdateStackRequest extends Model
      *
      * @example false
      *
+     * @deprecated
+     *
      * @var bool
      */
     public $disableRollback;

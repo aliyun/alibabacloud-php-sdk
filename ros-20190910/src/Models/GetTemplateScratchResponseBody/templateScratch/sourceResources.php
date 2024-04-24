@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class sourceResources extends Model
 {
     /**
+     * @var string[]
+     */
+    public $relatedResourceTypeFilter;
+
+    /**
      * @description The resource ID.
      *
      * @example vpc-m5e7cv7e9mz69sszb****
@@ -26,8 +31,9 @@ class sourceResources extends Model
      */
     public $resourceType;
     protected $_name = [
-        'resourceId'   => 'ResourceId',
-        'resourceType' => 'ResourceType',
+        'relatedResourceTypeFilter' => 'RelatedResourceTypeFilter',
+        'resourceId'                => 'ResourceId',
+        'resourceType'              => 'ResourceType',
     ];
 
     public function validate()
@@ -37,6 +43,9 @@ class sourceResources extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->relatedResourceTypeFilter) {
+            $res['RelatedResourceTypeFilter'] = $this->relatedResourceTypeFilter;
+        }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
@@ -55,6 +64,11 @@ class sourceResources extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RelatedResourceTypeFilter'])) {
+            if (!empty($map['RelatedResourceTypeFilter'])) {
+                $model->relatedResourceTypeFilter = $map['RelatedResourceTypeFilter'];
+            }
+        }
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }

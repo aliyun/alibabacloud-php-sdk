@@ -18,6 +18,11 @@ class sourceResources extends Model
     public $regionId;
 
     /**
+     * @var string[]
+     */
+    public $relatedResourceTypeFilter;
+
+    /**
      * @description The ID of the resource.
      *
      * @example vpc-bp1m6fww66xbntjyc****
@@ -35,9 +40,10 @@ class sourceResources extends Model
      */
     public $resourceType;
     protected $_name = [
-        'regionId'     => 'RegionId',
-        'resourceId'   => 'ResourceId',
-        'resourceType' => 'ResourceType',
+        'regionId'                  => 'RegionId',
+        'relatedResourceTypeFilter' => 'RelatedResourceTypeFilter',
+        'resourceId'                => 'ResourceId',
+        'resourceType'              => 'ResourceType',
     ];
 
     public function validate()
@@ -49,6 +55,9 @@ class sourceResources extends Model
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->relatedResourceTypeFilter) {
+            $res['RelatedResourceTypeFilter'] = $this->relatedResourceTypeFilter;
         }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
@@ -70,6 +79,11 @@ class sourceResources extends Model
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RelatedResourceTypeFilter'])) {
+            if (!empty($map['RelatedResourceTypeFilter'])) {
+                $model->relatedResourceTypeFilter = $map['RelatedResourceTypeFilter'];
+            }
         }
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];

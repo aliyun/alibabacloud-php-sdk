@@ -29,6 +29,9 @@ class stackInstance extends Model
     public $driftDetectionTime;
 
     /**
+     * @description The outputs of the stack.
+     *
+     * >  This parameter is returned if OutputOption is set to Enabled.
      * @var mixed[][]
      */
     public $outputs;
