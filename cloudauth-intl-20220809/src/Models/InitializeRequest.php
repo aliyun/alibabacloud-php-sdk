@@ -55,13 +55,6 @@ class InitializeRequest extends Model
     public $facePictureUrl;
 
     /**
-     * @example ***
-     *
-     * @var string
-     */
-    public $flowType;
-
-    /**
      * @example *
      *
      * @var string
@@ -111,32 +104,11 @@ class InitializeRequest extends Model
     public $ocr;
 
     /**
-     * @example ***
-     *
-     * @var string
-     */
-    public $operationMode;
-
-    /**
-     * @example 1
-     *
-     * @var string
-     */
-    public $pages;
-
-    /**
      * @example eKYC
      *
      * @var string
      */
     public $productCode;
-
-    /**
-     * @example ***
-     *
-     * @var string
-     */
-    public $productConfig;
 
     /**
      * @var string
@@ -163,11 +135,9 @@ class InitializeRequest extends Model
     public $securityLevel;
 
     /**
-     * @example ****
-     *
      * @var string
      */
-    public $serviceLevel;
+    public $styleConfig;
     protected $_name = [
         'authorize'         => 'Authorize',
         'callbackToken'     => 'CallbackToken',
@@ -177,7 +147,6 @@ class InitializeRequest extends Model
         'docType'           => 'DocType',
         'facePictureBase64' => 'FacePictureBase64',
         'facePictureUrl'    => 'FacePictureUrl',
-        'flowType'          => 'FlowType',
         'idFaceQuality'     => 'IdFaceQuality',
         'idSpoof'           => 'IdSpoof',
         'languageConfig'    => 'LanguageConfig',
@@ -185,15 +154,12 @@ class InitializeRequest extends Model
         'merchantUserId'    => 'MerchantUserId',
         'metaInfo'          => 'MetaInfo',
         'ocr'               => 'Ocr',
-        'operationMode'     => 'OperationMode',
-        'pages'             => 'Pages',
         'productCode'       => 'ProductCode',
-        'productConfig'     => 'ProductConfig',
         'productFlow'       => 'ProductFlow',
         'returnUrl'         => 'ReturnUrl',
         'sceneCode'         => 'SceneCode',
         'securityLevel'     => 'SecurityLevel',
-        'serviceLevel'      => 'ServiceLevel',
+        'styleConfig'       => 'StyleConfig',
     ];
 
     public function validate()
@@ -227,9 +193,6 @@ class InitializeRequest extends Model
         if (null !== $this->facePictureUrl) {
             $res['FacePictureUrl'] = $this->facePictureUrl;
         }
-        if (null !== $this->flowType) {
-            $res['FlowType'] = $this->flowType;
-        }
         if (null !== $this->idFaceQuality) {
             $res['IdFaceQuality'] = $this->idFaceQuality;
         }
@@ -251,17 +214,8 @@ class InitializeRequest extends Model
         if (null !== $this->ocr) {
             $res['Ocr'] = $this->ocr;
         }
-        if (null !== $this->operationMode) {
-            $res['OperationMode'] = $this->operationMode;
-        }
-        if (null !== $this->pages) {
-            $res['Pages'] = $this->pages;
-        }
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
-        }
-        if (null !== $this->productConfig) {
-            $res['ProductConfig'] = $this->productConfig;
         }
         if (null !== $this->productFlow) {
             $res['ProductFlow'] = $this->productFlow;
@@ -275,8 +229,8 @@ class InitializeRequest extends Model
         if (null !== $this->securityLevel) {
             $res['SecurityLevel'] = $this->securityLevel;
         }
-        if (null !== $this->serviceLevel) {
-            $res['ServiceLevel'] = $this->serviceLevel;
+        if (null !== $this->styleConfig) {
+            $res['StyleConfig'] = $this->styleConfig;
         }
 
         return $res;
@@ -314,9 +268,6 @@ class InitializeRequest extends Model
         if (isset($map['FacePictureUrl'])) {
             $model->facePictureUrl = $map['FacePictureUrl'];
         }
-        if (isset($map['FlowType'])) {
-            $model->flowType = $map['FlowType'];
-        }
         if (isset($map['IdFaceQuality'])) {
             $model->idFaceQuality = $map['IdFaceQuality'];
         }
@@ -338,17 +289,8 @@ class InitializeRequest extends Model
         if (isset($map['Ocr'])) {
             $model->ocr = $map['Ocr'];
         }
-        if (isset($map['OperationMode'])) {
-            $model->operationMode = $map['OperationMode'];
-        }
-        if (isset($map['Pages'])) {
-            $model->pages = $map['Pages'];
-        }
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
-        }
-        if (isset($map['ProductConfig'])) {
-            $model->productConfig = $map['ProductConfig'];
         }
         if (isset($map['ProductFlow'])) {
             $model->productFlow = $map['ProductFlow'];
@@ -362,8 +304,8 @@ class InitializeRequest extends Model
         if (isset($map['SecurityLevel'])) {
             $model->securityLevel = $map['SecurityLevel'];
         }
-        if (isset($map['ServiceLevel'])) {
-            $model->serviceLevel = $map['ServiceLevel'];
+        if (isset($map['StyleConfig'])) {
+            $model->styleConfig = $map['StyleConfig'];
         }
 
         return $model;

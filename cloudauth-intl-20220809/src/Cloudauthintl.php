@@ -10,8 +10,6 @@ use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CardOcrRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CardOcrResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CheckResultRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CheckResultResponse;
-use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeletePictureRequest;
-use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeletePictureResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeleteVerifyResultRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeleteVerifyResultResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DescribeAddressLabelsRequest;
@@ -215,52 +213,6 @@ class Cloudauthintl extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->checkResultWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeletePictureRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DeletePictureResponse
-     */
-    public function deletePictureWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deletePicAfterQuery)) {
-            $query['DeletePicAfterQuery'] = $request->deletePicAfterQuery;
-        }
-        if (!Utils::isUnset($request->transactionId)) {
-            $query['TransactionId'] = $request->transactionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeletePicture',
-            'version'     => '2022-08-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeletePictureResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DeletePictureRequest $request
-     *
-     * @return DeletePictureResponse
-     */
-    public function deletePicture($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deletePictureWithOptions($request, $runtime);
     }
 
     /**
@@ -1130,9 +1082,6 @@ class Cloudauthintl extends OpenApiClient
         if (!Utils::isUnset($request->facePictureUrl)) {
             $query['FacePictureUrl'] = $request->facePictureUrl;
         }
-        if (!Utils::isUnset($request->flowType)) {
-            $query['FlowType'] = $request->flowType;
-        }
         if (!Utils::isUnset($request->idFaceQuality)) {
             $query['IdFaceQuality'] = $request->idFaceQuality;
         }
@@ -1154,17 +1103,8 @@ class Cloudauthintl extends OpenApiClient
         if (!Utils::isUnset($request->ocr)) {
             $query['Ocr'] = $request->ocr;
         }
-        if (!Utils::isUnset($request->operationMode)) {
-            $query['OperationMode'] = $request->operationMode;
-        }
-        if (!Utils::isUnset($request->pages)) {
-            $query['Pages'] = $request->pages;
-        }
         if (!Utils::isUnset($request->productCode)) {
             $query['ProductCode'] = $request->productCode;
-        }
-        if (!Utils::isUnset($request->productConfig)) {
-            $query['ProductConfig'] = $request->productConfig;
         }
         if (!Utils::isUnset($request->productFlow)) {
             $query['ProductFlow'] = $request->productFlow;
@@ -1178,8 +1118,8 @@ class Cloudauthintl extends OpenApiClient
         if (!Utils::isUnset($request->securityLevel)) {
             $query['SecurityLevel'] = $request->securityLevel;
         }
-        if (!Utils::isUnset($request->serviceLevel)) {
-            $query['ServiceLevel'] = $request->serviceLevel;
+        if (!Utils::isUnset($request->styleConfig)) {
+            $query['StyleConfig'] = $request->styleConfig;
         }
         $body = [];
         if (!Utils::isUnset($request->facePictureBase64)) {
