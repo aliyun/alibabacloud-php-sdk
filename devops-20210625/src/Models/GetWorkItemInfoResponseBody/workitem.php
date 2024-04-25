@@ -44,6 +44,11 @@ class workitem extends Model
     public $document;
 
     /**
+     * @var string
+     */
+    public $documentFormat;
+
+    /**
      * @var int
      */
     public $finishTime;
@@ -195,6 +200,7 @@ class workitem extends Model
         'creator'                => 'creator',
         'customFields'           => 'customFields',
         'document'               => 'document',
+        'documentFormat'         => 'documentFormat',
         'finishTime'             => 'finishTime',
         'gmtCreate'              => 'gmtCreate',
         'gmtModified'            => 'gmtModified',
@@ -247,6 +253,9 @@ class workitem extends Model
         }
         if (null !== $this->document) {
             $res['document'] = $this->document;
+        }
+        if (null !== $this->documentFormat) {
+            $res['documentFormat'] = $this->documentFormat;
         }
         if (null !== $this->finishTime) {
             $res['finishTime'] = $this->finishTime;
@@ -355,6 +364,9 @@ class workitem extends Model
         }
         if (isset($map['document'])) {
             $model->document = $map['document'];
+        }
+        if (isset($map['documentFormat'])) {
+            $model->documentFormat = $map['documentFormat'];
         }
         if (isset($map['finishTime'])) {
             $model->finishTime = $map['finishTime'];

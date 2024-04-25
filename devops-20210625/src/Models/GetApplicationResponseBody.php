@@ -9,6 +9,20 @@ use AlibabaCloud\Tea\Model;
 class GetApplicationResponseBody extends Model
 {
     /**
+     * @example 应用模版展示名称A
+     *
+     * @var string
+     */
+    public $appTemplateDisplayName;
+
+    /**
+     * @example 应用模版名称A
+     *
+     * @var string
+     */
+    public $appTemplateName;
+
+    /**
      * @example 1332695887xxxxxx
      *
      * @var string
@@ -43,11 +57,13 @@ class GetApplicationResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'creatorAccountId' => 'creatorAccountId',
-        'description'      => 'description',
-        'gmtCreate'        => 'gmtCreate',
-        'name'             => 'name',
-        'requestId'        => 'requestId',
+        'appTemplateDisplayName' => 'appTemplateDisplayName',
+        'appTemplateName'        => 'appTemplateName',
+        'creatorAccountId'       => 'creatorAccountId',
+        'description'            => 'description',
+        'gmtCreate'              => 'gmtCreate',
+        'name'                   => 'name',
+        'requestId'              => 'requestId',
     ];
 
     public function validate()
@@ -57,6 +73,12 @@ class GetApplicationResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appTemplateDisplayName) {
+            $res['appTemplateDisplayName'] = $this->appTemplateDisplayName;
+        }
+        if (null !== $this->appTemplateName) {
+            $res['appTemplateName'] = $this->appTemplateName;
+        }
         if (null !== $this->creatorAccountId) {
             $res['creatorAccountId'] = $this->creatorAccountId;
         }
@@ -84,6 +106,12 @@ class GetApplicationResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appTemplateDisplayName'])) {
+            $model->appTemplateDisplayName = $map['appTemplateDisplayName'];
+        }
+        if (isset($map['appTemplateName'])) {
+            $model->appTemplateName = $map['appTemplateName'];
+        }
         if (isset($map['creatorAccountId'])) {
             $model->creatorAccountId = $map['creatorAccountId'];
         }
