@@ -114,6 +114,8 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainRealTimeBpsDataReques
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainRealTimeBpsDataResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainRealTimeByteHitRateDataRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainRealTimeByteHitRateDataResponse;
+use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainRealTimeDetailDataRequest;
+use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainRealTimeDetailDataResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainRealTimeHttpCodeDataRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainRealTimeHttpCodeDataResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainRealTimeQpsDataRequest;
@@ -3516,6 +3518,46 @@ class Vod extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeVodDomainRealTimeByteHitRateDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeVodDomainRealTimeDetailDataRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return DescribeVodDomainRealTimeDetailDataResponse
+     */
+    public function describeVodDomainRealTimeDetailDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVodDomainRealTimeDetailData',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeVodDomainRealTimeDetailDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVodDomainRealTimeDetailDataRequest $request
+     *
+     * @return DescribeVodDomainRealTimeDetailDataResponse
+     */
+    public function describeVodDomainRealTimeDetailData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVodDomainRealTimeDetailDataWithOptions($request, $runtime);
     }
 
     /**
