@@ -9,8 +9,12 @@ use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Csas\V20230120\Models\AttachApplication2ConnectorRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\AttachApplication2ConnectorResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\AttachApplication2ConnectorShrinkRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateClientUserRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateClientUserResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateDynamicRouteRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateDynamicRouteResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateIdpDepartmentRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateIdpDepartmentResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreatePrivateAccessApplicationRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreatePrivateAccessApplicationResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreatePrivateAccessPolicyRequest;
@@ -22,8 +26,12 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\CreateRegistrationPolicyResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateRegistrationPolicyShrinkRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateUserGroupRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateUserGroupResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteClientUserRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteClientUserResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteDynamicRouteRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteDynamicRouteResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteIdpDepartmentRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteIdpDepartmentResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeletePrivateAccessApplicationRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeletePrivateAccessApplicationResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeletePrivateAccessPolicyRequest;
@@ -37,8 +45,13 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteUserGroupResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DetachApplication2ConnectorRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DetachApplication2ConnectorResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DetachApplication2ConnectorShrinkRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetActiveIdpConfigResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetClientUserRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetClientUserResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetDynamicRouteRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetDynamicRouteResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetIdpConfigRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetIdpConfigResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetPrivateAccessApplicationRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetPrivateAccessApplicationResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetPrivateAccessPolicyRequest;
@@ -53,6 +66,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\ListApplicationsForPrivateAccessPolic
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListApplicationsForPrivateAccessPolicyResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListApplicationsForPrivateAccessTagRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListApplicationsForPrivateAccessTagResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListClientUsersRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListClientUsersResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListConnectorsRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListConnectorsResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListDynamicRouteRegionsResponse;
@@ -60,6 +75,10 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\ListDynamicRoutesRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListDynamicRoutesResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListExcessiveDeviceRegistrationApplicationsRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListExcessiveDeviceRegistrationApplicationsResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListIdpConfigsRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListIdpConfigsResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListIdpDepartmentsRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListIdpDepartmentsResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPolicesForPrivateAccessApplicationRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPolicesForPrivateAccessApplicationResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPolicesForPrivateAccessTagRequest;
@@ -98,10 +117,18 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\ListUserGroupsRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListUserGroupsResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListUsersRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListUsersResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateClientUserPasswordRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateClientUserPasswordResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateClientUserRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateClientUserResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateClientUserStatusRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateClientUserStatusResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateDynamicRouteRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateDynamicRouteResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateExcessiveDeviceRegistrationApplicationsStatusRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateExcessiveDeviceRegistrationApplicationsStatusResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateIdpDepartmentRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateIdpDepartmentResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdatePrivateAccessApplicationRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdatePrivateAccessApplicationResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdatePrivateAccessPolicyRequest;
@@ -209,6 +236,67 @@ class Csas extends OpenApiClient
     }
 
     /**
+     * @param CreateClientUserRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateClientUserResponse
+     */
+    public function createClientUserWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->departmentId)) {
+            $query['DepartmentId'] = $request->departmentId;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->email)) {
+            $query['Email'] = $request->email;
+        }
+        if (!Utils::isUnset($request->idpConfigId)) {
+            $query['IdpConfigId'] = $request->idpConfigId;
+        }
+        if (!Utils::isUnset($request->mobileNumber)) {
+            $query['MobileNumber'] = $request->mobileNumber;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->username)) {
+            $query['Username'] = $request->username;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateClientUser',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateClientUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateClientUserRequest $request
+     *
+     * @return CreateClientUserResponse
+     */
+    public function createClientUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createClientUserWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateDynamicRouteRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -278,6 +366,52 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createDynamicRouteWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateIdpDepartmentRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateIdpDepartmentResponse
+     */
+    public function createIdpDepartmentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->departmentName)) {
+            $query['DepartmentName'] = $request->departmentName;
+        }
+        if (!Utils::isUnset($request->idpConfigId)) {
+            $query['IdpConfigId'] = $request->idpConfigId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateIdpDepartment',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateIdpDepartmentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateIdpDepartmentRequest $request
+     *
+     * @return CreateIdpDepartmentResponse
+     */
+    public function createIdpDepartment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createIdpDepartmentWithOptions($request, $runtime);
     }
 
     /**
@@ -602,6 +736,49 @@ class Csas extends OpenApiClient
     }
 
     /**
+     * @param DeleteClientUserRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteClientUserResponse
+     */
+    public function deleteClientUserWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteClientUser',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteClientUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteClientUserRequest $request
+     *
+     * @return DeleteClientUserResponse
+     */
+    public function deleteClientUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteClientUserWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteDynamicRouteRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -642,6 +819,52 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteDynamicRouteWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteIdpDepartmentRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteIdpDepartmentResponse
+     */
+    public function deleteIdpDepartmentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->departmentId)) {
+            $query['DepartmentId'] = $request->departmentId;
+        }
+        if (!Utils::isUnset($request->idpConfigId)) {
+            $query['IdpConfigId'] = $request->idpConfigId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteIdpDepartment',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteIdpDepartmentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteIdpDepartmentRequest $request
+     *
+     * @return DeleteIdpDepartmentResponse
+     */
+    public function deleteIdpDepartment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteIdpDepartmentWithOptions($request, $runtime);
     }
 
     /**
@@ -913,6 +1136,79 @@ class Csas extends OpenApiClient
     }
 
     /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetActiveIdpConfigResponse
+     */
+    public function getActiveIdpConfigWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetActiveIdpConfig',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetActiveIdpConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return GetActiveIdpConfigResponse
+     */
+    public function getActiveIdpConfig()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getActiveIdpConfigWithOptions($runtime);
+    }
+
+    /**
+     * @param GetClientUserRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetClientUserResponse
+     */
+    public function getClientUserWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetClientUser',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetClientUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetClientUserRequest $request
+     *
+     * @return GetClientUserResponse
+     */
+    public function getClientUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getClientUserWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetDynamicRouteRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -950,6 +1246,46 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getDynamicRouteWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetIdpConfigRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetIdpConfigResponse
+     */
+    public function getIdpConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetIdpConfig',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetIdpConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetIdpConfigRequest $request
+     *
+     * @return GetIdpConfigResponse
+     */
+    public function getIdpConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getIdpConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -1233,6 +1569,46 @@ class Csas extends OpenApiClient
     }
 
     /**
+     * @param ListClientUsersRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListClientUsersResponse
+     */
+    public function listClientUsersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListClientUsers',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListClientUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListClientUsersRequest $request
+     *
+     * @return ListClientUsersResponse
+     */
+    public function listClientUsers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listClientUsersWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListConnectorsRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -1383,6 +1759,86 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listExcessiveDeviceRegistrationApplicationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListIdpConfigsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListIdpConfigsResponse
+     */
+    public function listIdpConfigsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListIdpConfigs',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListIdpConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListIdpConfigsRequest $request
+     *
+     * @return ListIdpConfigsResponse
+     */
+    public function listIdpConfigs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listIdpConfigsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListIdpDepartmentsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListIdpDepartmentsResponse
+     */
+    public function listIdpDepartmentsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListIdpDepartments',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListIdpDepartmentsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListIdpDepartmentsRequest $request
+     *
+     * @return ListIdpDepartmentsResponse
+     */
+    public function listIdpDepartments($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listIdpDepartmentsWithOptions($request, $runtime);
     }
 
     /**
@@ -2146,6 +2602,156 @@ class Csas extends OpenApiClient
     }
 
     /**
+     * @param UpdateClientUserRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateClientUserResponse
+     */
+    public function updateClientUserWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->departmentId)) {
+            $query['DepartmentId'] = $request->departmentId;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->email)) {
+            $query['Email'] = $request->email;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->mobileNumber)) {
+            $query['MobileNumber'] = $request->mobileNumber;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateClientUser',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateClientUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateClientUserRequest $request
+     *
+     * @return UpdateClientUserResponse
+     */
+    public function updateClientUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateClientUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateClientUserPasswordRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateClientUserPasswordResponse
+     */
+    public function updateClientUserPasswordWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->username)) {
+            $query['Username'] = $request->username;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateClientUserPassword',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateClientUserPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateClientUserPasswordRequest $request
+     *
+     * @return UpdateClientUserPasswordResponse
+     */
+    public function updateClientUserPassword($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateClientUserPasswordWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateClientUserStatusRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateClientUserStatusResponse
+     */
+    public function updateClientUserStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateClientUserStatus',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateClientUserStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateClientUserStatusRequest $request
+     *
+     * @return UpdateClientUserStatusResponse
+     */
+    public function updateClientUserStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateClientUserStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateDynamicRouteRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -2269,6 +2875,55 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateExcessiveDeviceRegistrationApplicationsStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateIdpDepartmentRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateIdpDepartmentResponse
+     */
+    public function updateIdpDepartmentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->departmentId)) {
+            $query['DepartmentId'] = $request->departmentId;
+        }
+        if (!Utils::isUnset($request->departmentName)) {
+            $query['DepartmentName'] = $request->departmentName;
+        }
+        if (!Utils::isUnset($request->idpConfigId)) {
+            $query['IdpConfigId'] = $request->idpConfigId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateIdpDepartment',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateIdpDepartmentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateIdpDepartmentRequest $request
+     *
+     * @return UpdateIdpDepartmentResponse
+     */
+    public function updateIdpDepartment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateIdpDepartmentWithOptions($request, $runtime);
     }
 
     /**
