@@ -68,6 +68,11 @@ class CreateVpcRequest extends Model
     public $enableIpv6;
 
     /**
+     * @var int
+     */
+    public $ipv4CidrMask;
+
+    /**
      * @description The ID of the IP Address Manager (IPAM) pool of the IPv4 type.
      *
      * @example ipam-pool-sycmt3p2a9v63i****
@@ -172,6 +177,7 @@ class CreateVpcRequest extends Model
         'description'          => 'Description',
         'dryRun'               => 'DryRun',
         'enableIpv6'           => 'EnableIpv6',
+        'ipv4CidrMask'         => 'Ipv4CidrMask',
         'ipv4IpamPoolId'       => 'Ipv4IpamPoolId',
         'ipv6CidrBlock'        => 'Ipv6CidrBlock',
         'ipv6Isp'              => 'Ipv6Isp',
@@ -207,6 +213,9 @@ class CreateVpcRequest extends Model
         }
         if (null !== $this->enableIpv6) {
             $res['EnableIpv6'] = $this->enableIpv6;
+        }
+        if (null !== $this->ipv4CidrMask) {
+            $res['Ipv4CidrMask'] = $this->ipv4CidrMask;
         }
         if (null !== $this->ipv4IpamPoolId) {
             $res['Ipv4IpamPoolId'] = $this->ipv4IpamPoolId;
@@ -276,6 +285,9 @@ class CreateVpcRequest extends Model
         }
         if (isset($map['EnableIpv6'])) {
             $model->enableIpv6 = $map['EnableIpv6'];
+        }
+        if (isset($map['Ipv4CidrMask'])) {
+            $model->ipv4CidrMask = $map['Ipv4CidrMask'];
         }
         if (isset($map['Ipv4IpamPoolId'])) {
             $model->ipv4IpamPoolId = $map['Ipv4IpamPoolId'];

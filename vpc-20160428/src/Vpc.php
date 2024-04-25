@@ -2861,6 +2861,9 @@ class Vpc extends OpenApiClient
         if (!Utils::isUnset($request->secondaryCidrBlock)) {
             $query['SecondaryCidrBlock'] = $request->secondaryCidrBlock;
         }
+        if (!Utils::isUnset($request->secondaryCidrMask)) {
+            $query['SecondaryCidrMask'] = $request->secondaryCidrMask;
+        }
         if (!Utils::isUnset($request->vpcId)) {
             $query['VpcId'] = $request->vpcId;
         }
@@ -8268,6 +8271,9 @@ class Vpc extends OpenApiClient
         }
         if (!Utils::isUnset($request->enableIpv6)) {
             $query['EnableIpv6'] = $request->enableIpv6;
+        }
+        if (!Utils::isUnset($request->ipv4CidrMask)) {
+            $query['Ipv4CidrMask'] = $request->ipv4CidrMask;
         }
         if (!Utils::isUnset($request->ipv4IpamPoolId)) {
             $query['Ipv4IpamPoolId'] = $request->ipv4IpamPoolId;

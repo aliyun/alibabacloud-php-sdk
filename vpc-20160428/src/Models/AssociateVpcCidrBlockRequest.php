@@ -103,6 +103,11 @@ class AssociateVpcCidrBlockRequest extends Model
     public $secondaryCidrBlock;
 
     /**
+     * @var int
+     */
+    public $secondaryCidrMask;
+
+    /**
      * @description The ID of the VPC to which you want to add a secondary CIDR block.
      *
      * @example vpc-o6wrloqsdqc9io3mg****
@@ -121,6 +126,7 @@ class AssociateVpcCidrBlockRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'secondaryCidrBlock'   => 'SecondaryCidrBlock',
+        'secondaryCidrMask'    => 'SecondaryCidrMask',
         'vpcId'                => 'VpcId',
     ];
 
@@ -160,6 +166,9 @@ class AssociateVpcCidrBlockRequest extends Model
         }
         if (null !== $this->secondaryCidrBlock) {
             $res['SecondaryCidrBlock'] = $this->secondaryCidrBlock;
+        }
+        if (null !== $this->secondaryCidrMask) {
+            $res['SecondaryCidrMask'] = $this->secondaryCidrMask;
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
@@ -205,6 +214,9 @@ class AssociateVpcCidrBlockRequest extends Model
         }
         if (isset($map['SecondaryCidrBlock'])) {
             $model->secondaryCidrBlock = $map['SecondaryCidrBlock'];
+        }
+        if (isset($map['SecondaryCidrMask'])) {
+            $model->secondaryCidrMask = $map['SecondaryCidrMask'];
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];

@@ -101,8 +101,8 @@ class DescribeVpcAttributeResponseBody extends Model
     public $dhcpOptionsSetStatus;
 
     /**
-     * @description 是否开启IPv6。
-     *
+     * @description Indicates whether the VPC enables IPv6 .
+     * - false
      * @example false
      *
      * @var bool
