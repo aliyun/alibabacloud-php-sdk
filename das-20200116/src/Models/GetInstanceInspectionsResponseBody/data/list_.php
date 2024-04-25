@@ -18,7 +18,7 @@ class list_ extends Model
     public $autoFunction;
 
     /**
-     * @description The returned data.
+     * @description The data returned.
      *
      * @example "data": { "hasDeadLock": false, "exceptionTableMap": {}, "bigTransactionCount": 0, "cpu": 4, "isRds": true, "rdsEnable": true, "enable": false, "activeSessions": [], "bigTransactionList": [], "bigSessionList": [ { "blockDuration": 0, "active": false, "Time": 0, "db": "" },
      *
@@ -27,11 +27,11 @@ class list_ extends Model
     public $data;
 
     /**
-     * @description Indicates whether DAS Professional Edition is enabled. Valid values:
+     * @description Indicates whether DAS Enterprise Edition is enabled. Valid values:
      *
-     * **0**: disabled.
-     * **1**: enabled.
-     * **2**: not supported.
+     *   **0**: disabled.
+     *   **1**: enabled.
+     *   **2**: not supported.
      *
      * @example 0
      *
@@ -42,7 +42,7 @@ class list_ extends Model
     /**
      * @description The end time of the inspection and scoring task. The value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
-     * > The end time must be later than the start time.
+     * >  The end time must be later than the start time.
      * @example 1608888296001
      *
      * @var int
@@ -59,14 +59,14 @@ class list_ extends Model
     public $gmtCreate;
 
     /**
-     * @description The details of the instance.
+     * @description The information about the instance.
      *
      * @var instance
      */
     public $instance;
 
     /**
-     * @description The inspection scores of the instance.
+     * @description The inspection score of the instance.
      *
      * @example 100
      *
@@ -82,7 +82,7 @@ class list_ extends Model
     public $scoreMap;
 
     /**
-     * @description The start time of the inspection and scoring task. The value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     * @description The start time of the inspection and scoring task. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1608888296000
      *
@@ -93,9 +93,9 @@ class list_ extends Model
     /**
      * @description The state of the inspection and scoring task. Valid values:
      *
-     * **0**: The task is waiting for execution.
-     * **1**: The task is in progress.
-     * **2**: The task is complete.
+     *   **0**: The task is waiting for execution.
+     *   **1**: The task is in progress.
+     *   **2**: The task is complete.
      *
      * @example 2
      *
@@ -106,8 +106,8 @@ class list_ extends Model
     /**
      * @description The mode in which the inspection and scoring task was initiated. Valid values:
      *
-     * **0**: automatic mode
-     * **1**: manual mode
+     *   **0**: automatic mode.
+     *   **1**: manual mode.
      *
      * @example 0
      *

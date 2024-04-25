@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class instance extends Model
 {
     /**
-     * @description The account ID. You can obtain the account ID on the **Security Settings** page in the Alibaba Cloud **account management center**.
+     * @description The account ID. You can view the ID of the logon account by moving the pointer over the profile in the Alibaba Cloud management console.
      *
      * @example 108398049688****
      *
@@ -20,8 +20,8 @@ class instance extends Model
     /**
      * @description The connection mode of the instance. Valid values:
      *
-     * **standard**: standard mode.
-     * **safe**: database proxy mode.
+     *   **standard**: standard mode.
+     *   **safe**: database proxy mode.
      *
      * @example standard
      *
@@ -41,9 +41,9 @@ class instance extends Model
     /**
      * @description The database engine. Valid values:
      *
-     * **MySQL**
-     * **Redis**
-     * **PolarDBMySQL**
+     *   **MySQL**
+     *   **Redis**
+     *   **PolarDBMySQL**
      *
      * @example MySQL
      *
@@ -61,7 +61,7 @@ class instance extends Model
     public $engineVersion;
 
     /**
-     * @description The name of the instance.
+     * @description The instance name.
      *
      * @example test-01
      *
@@ -72,11 +72,11 @@ class instance extends Model
     /**
      * @description The type of the instance on which the database is deployed. Valid values:
      *
-     * **RDS**: an Alibaba Cloud database instance.
-     * **ECS**: an ECS instance on which a self-managed database is deployed.
-     * **IDC**: a self-managed database instance that is not deployed on Alibaba Cloud.
+     *   **RDS**: an Alibaba Cloud database instance.
+     *   **ECS**: an Elastic Compute Service (ECS) instance on which a self-managed database is deployed.
+     *   **IDC**: a self-managed database instance that is not deployed on Alibaba Cloud.
      *
-     * > The value IDC indicates that the instance is deployed in a data center.
+     * >  The value IDC indicates that the instance is deployed in a data center.
      * @example RDS
      *
      * @var string
@@ -129,7 +129,7 @@ class instance extends Model
     public $nodeId;
 
     /**
-     * @description The ID of the region in which the instance resides.
+     * @description The region ID of the instance.
      *
      * @example cn-hangzhou
      *

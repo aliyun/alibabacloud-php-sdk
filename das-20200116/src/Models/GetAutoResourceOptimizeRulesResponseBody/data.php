@@ -28,7 +28,7 @@ class data extends Model
     public $enableAutoResourceOptimizeList;
 
     /**
-     * @description The number of database instances for which the automatic fragment recycling feature is enabled and DAS Professional Edition is disabled.
+     * @description The number of database instances for which the automatic fragment recycling feature is enabled and DAS Enterprise Edition is disabled.
      *
      * @example 1
      *
@@ -37,9 +37,9 @@ class data extends Model
     public $hasEnableRuleButNotDasProCount;
 
     /**
-     * @description The database instances for which the automatic fragment recycling feature is enabled and DAS Professional Edition is disabled.
+     * @description The database instances for which the automatic fragment recycling feature is enabled and DAS Enterprise Edition is disabled.
      *
-     * > This type of database instance does not perform automatic fragment recycling tasks until DAS Professional Edition is enabled for the instances again.
+     * >  Automatic fragment recycling tasks are run on this type of database instances only if DAS Enterprise Edition is enabled for the database instances again.
      * @var hasEnableRuleButNotDasProList[]
      */
     public $hasEnableRuleButNotDasProList;

@@ -11,8 +11,8 @@ class turnOffAutoResourceOptimizeList extends Model
     /**
      * @description Indicates whether the automatic fragment recycling feature is enabled. Valid values:
      *
-     * **true**
-     * **false**
+     *   **true**:
+     *   **false**
      *
      * @example false
      *
@@ -21,10 +21,10 @@ class turnOffAutoResourceOptimizeList extends Model
     public $autoDefragment;
 
     /**
-     * @description Indicates whether DAS Professional Edition is enabled. Valid values:
+     * @description Indicates whether DAS Enterprise Edition is enabled. Valid values:
      *
-     * **true**
-     * **false**
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -51,9 +51,8 @@ class turnOffAutoResourceOptimizeList extends Model
     public $tableFragmentationRatio;
 
     /**
-     * @description Indicates whether the automatic fragment recycling feature is enabled. Valid values:
+     * @description The minimum storage usage of a single physical table for which the automatic fragment recycling feature is enabled. Unit: GB.
      *
-     * false
      * @example 10
      *
      * @var float

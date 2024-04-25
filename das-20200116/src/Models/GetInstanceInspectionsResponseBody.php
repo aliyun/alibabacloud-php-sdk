@@ -19,7 +19,7 @@ class GetInstanceInspectionsResponseBody extends Model
     public $code;
 
     /**
-     * @description The inspection and scoring results.
+     * @description The details.
      *
      * @var data
      */

@@ -10,10 +10,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The mode in which the inspection and scoring task was initiated. Valid values:
-     *
-     *   **0**: automatic mode
-     *   **1**: manual mode
+     * @description The detailed information.
      *
      * @var list_[]
      */

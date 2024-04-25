@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The ID of the DAS Professional Edition instance.
+     * @description The ID of the DAS Enterprise Edition instance.
      *
      * @example daspro-cn-v0h1l6i****
      *
@@ -27,7 +27,7 @@ class data extends Model
     public $engine;
 
     /**
-     * @description The point of time when DAS Professional Edition for the database instance expires. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     * @description The point of time when DAS Enterprise Edition for the database instance expires. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1648742400000
      *
@@ -63,7 +63,7 @@ class data extends Model
     public $ip;
 
     /**
-     * @description Indicates whether DAS Professional Edition for the database instance has expired. Valid values:
+     * @description Indicates whether DAS Enterprise Edition for the database instance has expired. Valid values:
      *
      *   **true**
      *   **false**
@@ -121,7 +121,7 @@ class data extends Model
     public $sqlRetention;
 
     /**
-     * @description The time when DAS Professional Edition was enabled for the database instance. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     * @description The time when DAS Enterprise Edition was enabled for the database instance. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1646100892000
      *

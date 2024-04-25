@@ -99,7 +99,7 @@ class data extends Model
     public $lockLatency;
 
     /**
-     * @description The logical database ID.
+     * @description The ID of the logical database.
      *
      * @example xxxxx
      *
@@ -110,8 +110,8 @@ class data extends Model
     /**
      * @description Indicates whether the server failed to find an index that can be used for the SQL statement. Valid values:
      *
-     * **1:** yes.
-     * **0:** no.
+     *   **1**: yes.
+     *   **0**: no.
      *
      * @example 1
      *
@@ -122,8 +122,8 @@ class data extends Model
     /**
      * @description Indicates whether table scans were performed when indexes were not used. Valid values:
      *
-     * **1:** yes.
-     * **0:** no.
+     *   **1**: yes.
+     *   **0**: no.
      *
      * @example 1
      *
@@ -134,7 +134,7 @@ class data extends Model
     /**
      * @description The node ID.
      *
-     * > This parameter is returned only for ApsaraDB RDS for MySQL Cluster Edition instances and PolarDB for MySQL clusters.
+     * >  This parameter is returned only for ApsaraDB RDS for MySQL Cluster Edition instances or PolarDB for MySQL clusters.
      * @example r-x****-db-0
      *
      * @var string
@@ -171,7 +171,7 @@ class data extends Model
     /**
      * @description The number of joins that are used to perform table scans without using indexes.
      *
-     * > This parameter is used to count the number of joins that did not use indexes. If the value of this parameter is not 0, check the table indexes.
+     * > : This parameter is used for the scenario in which indexes are not used in a union query. If the returned value is not 0, check the indexes of tables.
      * @example 0
      *
      * @var int
@@ -199,7 +199,7 @@ class data extends Model
     /**
      * @description The number of joins that did not have key values. The keys and values were checked for each row of data.
      *
-     * >  This parameter is used to count the number of joins that did not use indexes. If the value of this parameter is not 0, check the table indexes.
+     * > : This parameter is used for the scenario in which indexes are not used in a union query. If the returned value is not 0, check the indexes of tables.
      * @example 0
      *
      * @var int
@@ -252,7 +252,7 @@ class data extends Model
     public $sortScan;
 
     /**
-     * @description The SQL sample.
+     * @description The sample SQL statement.
      *
      * @example select * from xxxx where ****
      *
@@ -261,7 +261,7 @@ class data extends Model
     public $sql;
 
     /**
-     * @description The SQL ID.
+     * @description The SQL statement ID.
      *
      * @example 651b56fe9418d48edb8fdf0980ec****
      *

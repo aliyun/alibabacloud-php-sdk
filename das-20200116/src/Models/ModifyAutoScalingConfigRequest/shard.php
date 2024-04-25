@@ -14,7 +14,7 @@ class shard extends Model
      *   **true**
      *   **false**
      *
-     * >  The auto scaling feature for shards is available only for ApsaraDB for Redis Community Edition instances that use cloud disks on the China site (aliyun.com).
+     * > The auto scaling feature for shards is available only for ApsaraDB for Redis Community Edition cloud-native instances on the China site (aliyun.com).
      * @example true
      *
      * @var bool

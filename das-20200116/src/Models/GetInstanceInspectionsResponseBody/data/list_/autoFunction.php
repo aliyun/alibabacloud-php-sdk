@@ -11,9 +11,9 @@ class autoFunction extends Model
     /**
      * @description Indicates whether the feature of automatically creating and deleting indexes is enabled. Valid values:
      *
-     * **0**: disabled.
-     * **1**: enabled.
-     * **2**: not supported.
+     *   **0**: disabled.
+     *   **1**: enabled.
+     *   **2**: not supported.
      *
      * @example 2
      *
@@ -24,9 +24,9 @@ class autoFunction extends Model
     /**
      * @description Indicates whether the automatic throttling feature is enabled. Valid values:
      *
-     * **0**: disabled.
-     * **1**: enabled.
-     * **2**: not supported.
+     *   **0**: disabled.
+     *   **1**: enabled.
+     *   **2**: not supported.
      *
      * @example 2
      *
@@ -35,11 +35,11 @@ class autoFunction extends Model
     public $autoLimitedSql;
 
     /**
-     * @description Indicates whether automatic reclamation of fragments is enabled. Valid values:
+     * @description Indicates whether the automatic fragment recycling feature is enabled. Valid values:
      *
-     * **0**: disabled.
-     * **1**: enabled.
-     * **2**: not supported.
+     *   **0**: disabled.
+     *   **1**: enabled.
+     *   **2**: not supported.
      *
      * @example 0
      *
@@ -50,9 +50,9 @@ class autoFunction extends Model
     /**
      * @description Indicates whether the auto scaling feature is enabled. Valid values:
      *
-     * **0**: disabled.
-     * **1**: enabled.
-     * **2**: not supported.
+     *   **0**: disabled.
+     *   **1**: enabled.
+     *   **2**: not supported.
      *
      * @example 0
      *
@@ -63,9 +63,9 @@ class autoFunction extends Model
     /**
      * @description Indicates whether the event subscription feature is enabled. Valid values:
      *
-     * **0**: disabled.
-     * **1**: enabled.
-     * **2**: not supported.
+     *   **0**: disabled.
+     *   **1**: enabled.
+     *   **2**: not supported.
      *
      * @example 0
      *

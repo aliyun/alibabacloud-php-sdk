@@ -19,7 +19,7 @@ class GetPfsSqlSampleResponseBody extends Model
     public $code;
 
     /**
-     * @description The queried SQL sample data.
+     * @description The SQL sample data.
      *
      * @var data[]
      */

@@ -18,7 +18,7 @@ class DescribeInstanceDasProResponseBody extends Model
     public $code;
 
     /**
-     * @description Indicates whether DAS Professional Edition is enabled for the database instance.
+     * @description Indicates whether DAS Enterprise Edition is enabled for the database instance. Valid values:
      *
      *   **true**
      *   **false**

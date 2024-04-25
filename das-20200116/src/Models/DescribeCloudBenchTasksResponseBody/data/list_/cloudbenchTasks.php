@@ -71,7 +71,7 @@ class cloudbenchTasks extends Model
      * **WAIT_INSTALL_JDK**: Install the Java Development Kit (JDK).
      * **WAIT_INSTALL_DBGATEWAY**: Install the database gateway (DBGateway).
      * **ADD_SECURITY_IPS_STEP**: Configure the whitelist of the security group.
-     * **ARCHIVIE**: Archive the file that stores the analysis results of full SQL statistics.
+     * **ARCHIVE**: Archive the file that stores the analysis results of full SQL statistics.
      * **DOWNLOAD**: Download the file that stores the analysis result of full SQL statistics.
      * **PROCEED**: Preprocess the file that stores the analysis result of full SQL statistics.
      * **PRE_LOAD**: Preload the file that stores the analysis result of full SQL statistics.

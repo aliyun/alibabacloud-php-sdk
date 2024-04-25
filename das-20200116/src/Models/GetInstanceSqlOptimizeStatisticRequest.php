@@ -18,12 +18,12 @@ class GetInstanceSqlOptimizeStatisticRequest extends Model
     public $endTime;
 
     /**
-     * @description Specifies whether to filter instances for which DAS Professional Edition is enabled. Valid values:
+     * @description Specifies whether to filter instances for which DAS Enterprise Edition is enabled. Valid values:
      *
-     *   **true**: filters instances for which DAS Professional Edition is enabled.
-     *   **false**: does not filter instances for which DAS Professional Edition is enabled.
+     *   **true**
+     *   **false**
      *
-     * >  If you set the value to **true**, only database instances for which DAS Professional Edition is disabled are queried. If you set the value to **false**, all database instances are queried.
+     * >  If you set this parameter to **true**, only database instances for which DAS Enterprise Edition is disabled are queried. If you set this parameter to **false**, all database instances are queried.
      * @example false
      *
      * @var string
@@ -43,7 +43,7 @@ class GetInstanceSqlOptimizeStatisticRequest extends Model
     /**
      * @description The node ID.
      *
-     * >  This parameter must be specified if the database instance is an ApsaraDB RDS for MySQL Cluster Edition instance or a PolarDB for MySQL cluster.
+     * >  For ApsaraDB RDS for MySQL Cluster Edition instances or PolarDB for MySQL clusters, you must specify the node ID.
      * @example pi-bp12v7243x012****
      *
      * @var string

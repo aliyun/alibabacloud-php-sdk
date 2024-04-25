@@ -109,10 +109,10 @@ class GetFullRequestStatResultByInstanceIdRequest extends Model
     public $pageSize;
 
     /**
-     * @description The role of the PolarDB-X 2.0 node. Valid values:
+     * @description The role of the node in the PolarDB-X 2.0 instance. Valid values:
      *
-     *   **polarx_cn**: compute node
-     *   **polarx_en**: data node
+     *   **polarx_cn**: compute node.
+     *   **polarx_dn**: data node.
      *
      * @example polarx_cn
      *

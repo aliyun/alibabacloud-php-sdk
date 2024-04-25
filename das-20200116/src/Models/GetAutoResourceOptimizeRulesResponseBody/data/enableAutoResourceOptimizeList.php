@@ -11,8 +11,8 @@ class enableAutoResourceOptimizeList extends Model
     /**
      * @description Indicates whether the automatic fragment recycling feature is enabled. Valid values:
      *
-     * **true**
-     * **false**
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -21,10 +21,10 @@ class enableAutoResourceOptimizeList extends Model
     public $autoDefragment;
 
     /**
-     * @description Indicates whether DAS Professional Edition is enabled. Valid values:
+     * @description Indicates whether DAS Enterprise Edition is enabled. Valid values:
      *
-     * **true**
-     * **false**
+     *   **true**
+     *   **false**
      *
      * @example true
      *

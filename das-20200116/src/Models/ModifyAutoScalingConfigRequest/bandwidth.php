@@ -62,7 +62,7 @@ class bandwidth extends Model
     public $downgrade;
 
     /**
-     * @description The observation window of the automatic bandwidth upgrade feature. The value of this parameter consists of a numeric value and a time unit suffix. The **m** time unit suffix specifies the minute. Valid values:
+     * @description The observation window of the automatic bandwidth adjustment feature. The value of this parameter consists of a numeric value and a time unit suffix. The **m** time unit suffix specifies the minute. Valid values:
      *
      *   **1m**
      *   **5m**
