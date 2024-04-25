@@ -434,6 +434,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\GetTemplateListByUserIdResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetTemplateListByUserIdShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetTemplateListByUserIdShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserLatestPlanHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserLatestPlanRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserLatestPlanResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserLatestPlanShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserLatestPlanShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserShrinkHeaders;
@@ -731,6 +736,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\SubscribeCalendarHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SubscribeCalendarRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SubscribeCalendarResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SubscribeCalendarShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\SyncDingTypeHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\SyncDingTypeRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\SyncDingTypeResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\SyncDingTypeShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\SyncDingTypeShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\TerminateInstanceHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\TerminateInstanceRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\TerminateInstanceResponse;
@@ -7813,6 +7823,69 @@ class Aliding extends OpenApiClient
     }
 
     /**
+     * @param GetUserLatestPlanRequest $tmpReq
+     * @param GetUserLatestPlanHeaders $tmpHeader
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetUserLatestPlanResponse
+     */
+    public function getUserLatestPlanWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetUserLatestPlanShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new GetUserLatestPlanShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetUserLatestPlan',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/aliding/v1/indepding/getUserLatestPlan',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetUserLatestPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetUserLatestPlanRequest $request
+     *
+     * @return GetUserLatestPlanResponse
+     */
+    public function getUserLatestPlan($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetUserLatestPlanHeaders([]);
+
+        return $this->getUserLatestPlanWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param GetWorkspaceRequest $tmpReq
      * @param GetWorkspaceHeaders $tmpHeader
      * @param RuntimeOptions      $runtime
@@ -12438,6 +12511,78 @@ class Aliding extends OpenApiClient
         $headers = new SubscribeCalendarHeaders([]);
 
         return $this->subscribeCalendarWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param SyncDingTypeRequest $tmpReq
+     * @param SyncDingTypeHeaders $tmpHeader
+     * @param RuntimeOptions      $runtime
+     *
+     * @return SyncDingTypeResponse
+     */
+    public function syncDingTypeWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SyncDingTypeShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new SyncDingTypeShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->dingType)) {
+            $body['DingType'] = $request->dingType;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $body['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        if (!Utils::isUnset($request->workNo)) {
+            $body['WorkNo'] = $request->workNo;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SyncDingType',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/aliding/v1/indepding/syncDingType',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SyncDingTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SyncDingTypeRequest $request
+     *
+     * @return SyncDingTypeResponse
+     */
+    public function syncDingType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new SyncDingTypeHeaders([]);
+
+        return $this->syncDingTypeWithOptions($request, $headers, $runtime);
     }
 
     /**
