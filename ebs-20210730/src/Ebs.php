@@ -57,6 +57,8 @@ use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeEnterpriseSnapshotPolicyReques
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeEnterpriseSnapshotPolicyResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeEventsRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeEventsResponse;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeLensMonitorDisksRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeLensMonitorDisksResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeLensServiceStatusResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeMetricDataRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeMetricDataResponse;
@@ -1858,6 +1860,64 @@ class Ebs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeEventsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeLensMonitorDisksRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeLensMonitorDisksResponse
+     */
+    public function describeLensMonitorDisksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->diskCategory)) {
+            $query['DiskCategory'] = $request->diskCategory;
+        }
+        if (!Utils::isUnset($request->diskIds)) {
+            $query['DiskIds'] = $request->diskIds;
+        }
+        if (!Utils::isUnset($request->lensTags)) {
+            $query['LensTags'] = $request->lensTags;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeLensMonitorDisks',
+            'version'     => '2021-07-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeLensMonitorDisksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeLensMonitorDisksRequest $request
+     *
+     * @return DescribeLensMonitorDisksResponse
+     */
+    public function describeLensMonitorDisks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLensMonitorDisksWithOptions($request, $runtime);
     }
 
     /**
