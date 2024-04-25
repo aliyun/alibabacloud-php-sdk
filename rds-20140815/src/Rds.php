@@ -2663,6 +2663,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->vSwitchId)) {
             $query['VSwitchId'] = $request->vSwitchId;
         }
+        if (!Utils::isUnset($request->whitelistTemplateList)) {
+            $query['WhitelistTemplateList'] = $request->whitelistTemplateList;
+        }
         if (!Utils::isUnset($request->zoneId)) {
             $query['ZoneId'] = $request->zoneId;
         }
@@ -18696,6 +18699,9 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->vSwitchIds)) {
+            $query['VSwitchIds'] = $request->vSwitchIds;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

@@ -92,6 +92,11 @@ class ModifyDBProxyInstanceRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $vSwitchIds;
     protected $_name = [
         'DBInstanceId'          => 'DBInstanceId',
         'DBProxyEngineType'     => 'DBProxyEngineType',
@@ -103,6 +108,7 @@ class ModifyDBProxyInstanceRequest extends Model
         'regionId'              => 'RegionId',
         'resourceOwnerAccount'  => 'ResourceOwnerAccount',
         'resourceOwnerId'       => 'ResourceOwnerId',
+        'vSwitchIds'            => 'VSwitchIds',
     ];
 
     public function validate()
@@ -141,6 +147,9 @@ class ModifyDBProxyInstanceRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->vSwitchIds) {
+            $res['VSwitchIds'] = $this->vSwitchIds;
         }
 
         return $res;
@@ -183,6 +192,9 @@ class ModifyDBProxyInstanceRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['VSwitchIds'])) {
+            $model->vSwitchIds = $map['VSwitchIds'];
         }
 
         return $model;

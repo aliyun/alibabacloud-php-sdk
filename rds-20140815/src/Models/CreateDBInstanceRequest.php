@@ -673,6 +673,11 @@ class CreateDBInstanceRequest extends Model
     public $vSwitchId;
 
     /**
+     * @var string
+     */
+    public $whitelistTemplateList;
+
+    /**
      * @description The zone ID of the primary instance.
      *
      *   If you specify a virtual private cloud (VPC) and a vSwitch, you must specify the ID of the zone to which the specified vSwitch belongs. Otherwise, the instance cannot be created.
@@ -760,6 +765,7 @@ class CreateDBInstanceRequest extends Model
         'userBackupId'                   => 'UserBackupId',
         'VPCId'                          => 'VPCId',
         'vSwitchId'                      => 'VSwitchId',
+        'whitelistTemplateList'          => 'WhitelistTemplateList',
         'zoneId'                         => 'ZoneId',
         'zoneIdSlave1'                   => 'ZoneIdSlave1',
         'zoneIdSlave2'                   => 'ZoneIdSlave2',
@@ -933,6 +939,9 @@ class CreateDBInstanceRequest extends Model
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
+        }
+        if (null !== $this->whitelistTemplateList) {
+            $res['WhitelistTemplateList'] = $this->whitelistTemplateList;
         }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
@@ -1116,6 +1125,9 @@ class CreateDBInstanceRequest extends Model
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
+        }
+        if (isset($map['WhitelistTemplateList'])) {
+            $model->whitelistTemplateList = $map['WhitelistTemplateList'];
         }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
