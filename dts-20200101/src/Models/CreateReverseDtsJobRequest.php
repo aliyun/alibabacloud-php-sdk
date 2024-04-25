@@ -19,9 +19,21 @@ class CreateReverseDtsJobRequest extends Model
      * @var string
      */
     public $resourceGroupId;
+
+    /**
+     * @var string
+     */
+    public $shardPassword;
+
+    /**
+     * @var string
+     */
+    public $shardUsername;
     protected $_name = [
         'dtsJobId'        => 'DtsJobId',
         'resourceGroupId' => 'ResourceGroupId',
+        'shardPassword'   => 'ShardPassword',
+        'shardUsername'   => 'ShardUsername',
     ];
 
     public function validate()
@@ -36,6 +48,12 @@ class CreateReverseDtsJobRequest extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->shardPassword) {
+            $res['ShardPassword'] = $this->shardPassword;
+        }
+        if (null !== $this->shardUsername) {
+            $res['ShardUsername'] = $this->shardUsername;
         }
 
         return $res;
@@ -54,6 +72,12 @@ class CreateReverseDtsJobRequest extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['ShardPassword'])) {
+            $model->shardPassword = $map['ShardPassword'];
+        }
+        if (isset($map['ShardUsername'])) {
+            $model->shardUsername = $map['ShardUsername'];
         }
 
         return $model;

@@ -1857,6 +1857,12 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->resourceGroupId)) {
             $query['ResourceGroupId'] = $request->resourceGroupId;
         }
+        if (!Utils::isUnset($request->shardPassword)) {
+            $query['ShardPassword'] = $request->shardPassword;
+        }
+        if (!Utils::isUnset($request->shardUsername)) {
+            $query['ShardUsername'] = $request->shardUsername;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -5829,6 +5835,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->endpointPort)) {
             $query['EndpointPort'] = $request->endpointPort;
+        }
+        if (!Utils::isUnset($request->endpointRegionId)) {
+            $query['EndpointRegionId'] = $request->endpointRegionId;
         }
         if (!Utils::isUnset($request->password)) {
             $query['Password'] = $request->password;
