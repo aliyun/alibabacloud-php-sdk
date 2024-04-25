@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeWhitelistTemplateRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @description The resource group ID.
      *
      * @example rg-acfmy****
@@ -36,6 +41,7 @@ class DescribeWhitelistTemplateRequest extends Model
      */
     public $templateId;
     protected $_name = [
+        'regionId'             => 'RegionId',
         'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
@@ -49,6 +55,9 @@ class DescribeWhitelistTemplateRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
@@ -73,6 +82,9 @@ class DescribeWhitelistTemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }

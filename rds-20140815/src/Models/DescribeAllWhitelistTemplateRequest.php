@@ -39,6 +39,11 @@ class DescribeAllWhitelistTemplateRequest extends Model
     public $pageNumbers;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @description The resource group ID. For more information about resource groups, see related documentation.
      *
      * @example rg-acfmyhigxskzysy
@@ -69,6 +74,7 @@ class DescribeAllWhitelistTemplateRequest extends Model
         'fuzzySearch'          => 'FuzzySearch',
         'maxRecordsPerPage'    => 'MaxRecordsPerPage',
         'pageNumbers'          => 'PageNumbers',
+        'regionId'             => 'RegionId',
         'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
@@ -90,6 +96,9 @@ class DescribeAllWhitelistTemplateRequest extends Model
         }
         if (null !== $this->pageNumbers) {
             $res['PageNumbers'] = $this->pageNumbers;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -123,6 +132,9 @@ class DescribeAllWhitelistTemplateRequest extends Model
         }
         if (isset($map['PageNumbers'])) {
             $model->pageNumbers = $map['PageNumbers'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];

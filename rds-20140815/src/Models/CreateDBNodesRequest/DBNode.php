@@ -20,7 +20,7 @@ class DBNode extends Model
     /**
      * @var string
      */
-    public $vswId;
+    public $vswitchId;
 
     /**
      * @description The zone ID of the node.
@@ -32,7 +32,7 @@ class DBNode extends Model
     public $zoneId;
     protected $_name = [
         'classCode' => 'classCode',
-        'vswId'     => 'vswId',
+        'vswitchId' => 'vswitchId',
         'zoneId'    => 'zoneId',
     ];
 
@@ -46,8 +46,8 @@ class DBNode extends Model
         if (null !== $this->classCode) {
             $res['classCode'] = $this->classCode;
         }
-        if (null !== $this->vswId) {
-            $res['vswId'] = $this->vswId;
+        if (null !== $this->vswitchId) {
+            $res['vswitchId'] = $this->vswitchId;
         }
         if (null !== $this->zoneId) {
             $res['zoneId'] = $this->zoneId;
@@ -67,8 +67,8 @@ class DBNode extends Model
         if (isset($map['classCode'])) {
             $model->classCode = $map['classCode'];
         }
-        if (isset($map['vswId'])) {
-            $model->vswId = $map['vswId'];
+        if (isset($map['vswitchId'])) {
+            $model->vswitchId = $map['vswitchId'];
         }
         if (isset($map['zoneId'])) {
             $model->zoneId = $map['zoneId'];

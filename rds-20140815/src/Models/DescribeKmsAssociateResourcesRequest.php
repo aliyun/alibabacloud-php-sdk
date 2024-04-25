@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeKmsAssociateResourcesRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.
+     *
+     * The token can contain only ASCII characters and cannot exceed 64 characters in length.
      * @example ETnLKlblzczshOTUbOCz****
      *
      * @var string
@@ -16,6 +19,8 @@ class DescribeKmsAssociateResourcesRequest extends Model
     public $clientToken;
 
     /**
+     * @description The ID of the KMS resource. Only key IDs are supported.
+     *
      * @example 494c98ce-f2b5-48ab-96ab-36c986b6****
      *
      * @var string
@@ -23,6 +28,8 @@ class DescribeKmsAssociateResourcesRequest extends Model
     public $kmsResourceId;
 
     /**
+     * @description The ID of the region to which the KMS resource belongs.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -30,6 +37,8 @@ class DescribeKmsAssociateResourcesRequest extends Model
     public $kmsResourceRegionId;
 
     /**
+     * @description The type of the KMS resource. Only key is supported.
+     *
      * @example key
      *
      * @var string
@@ -37,6 +46,8 @@ class DescribeKmsAssociateResourcesRequest extends Model
     public $kmsResourceType;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the KMS resource belongs.
+     *
      * @example 164882191396****
      *
      * @var string
@@ -54,6 +65,8 @@ class DescribeKmsAssociateResourcesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -61,6 +74,8 @@ class DescribeKmsAssociateResourcesRequest extends Model
     public $regionId;
 
     /**
+     * @description The resource group ID.
+     *
      * @example rg-bp67acfmxazb4p****
      *
      * @var string

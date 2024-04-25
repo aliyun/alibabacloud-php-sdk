@@ -19,7 +19,7 @@ class gadInstances extends Model
     public $creationTime;
 
     /**
-     * @description The cluster name.
+     * @description The name of the cluster.
      *
      * @example GadTest
      *
@@ -63,7 +63,7 @@ class gadInstances extends Model
     public $service;
 
     /**
-     * @description The cluster status. Valid values:
+     * @description The status of the cluster. Valid values:
      *
      *   **activation**: The cluster is running.
      *   **creating**: The cluster is being created.

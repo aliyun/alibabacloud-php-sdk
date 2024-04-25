@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBProxyEndpointRequest extends Model
 {
     /**
-     * @description The features that you want to enable for the proxy endpoint. If you specify more than one feature, separate the features with semicolons (;). Format: `Feature 1:Status;Feature 2:Status;...`. Do not add a semicolon (;) at the end of the last value.
+     * @description The features that you want to enable for the proxy endpoint. If you specify more than one feature, separate the features with semicolons (;). Format: `Feature 1:Status;Feature 2:Status;...`. Do not add a semicolon (;) at the end of the value.
      *
      * Valid feature values:
      *
@@ -22,7 +22,7 @@ class ModifyDBProxyEndpointRequest extends Model
      *   **1**: enabled
      *   **0**: disabled
      *
-     * > If the instance runs PostgreSQL, you can enable only the read/write splitting feature, which is specified by **ReadWriteSpliting**.
+     * >  If the instance runs PostgreSQL, you can enable only the read/write splitting feature, which is specified by **ReadWriteSpliting**.
      * @example ReadWriteSpliting:1;ConnectionPersist:0
      *
      * @var string
@@ -39,7 +39,7 @@ class ModifyDBProxyEndpointRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The proxy endpoint ID. You can call the DescribeDBProxyEndpoint operation to query the proxy endpoint ID.
+     * @description The ID of the proxy endpoint. You can call the DescribeDBProxyEndpoint operation to query the proxy endpoint ID.
      *
      * > *   If the instance runs MySQL and you set **DbEndpointOperator** to **Delete** or **Modify**, you must specify DBProxyEndpointId.
      * > *   If the instance runs PostgreSQL and you set **DbEndpointOperator** to **Delete**, **Modify**, or **Create**, you must specify DBProxyEndpointId.
@@ -50,7 +50,7 @@ class ModifyDBProxyEndpointRequest extends Model
     public $DBProxyEndpointId;
 
     /**
-     * @description A reserved parameter. You do not need to specify this parameter.
+     * @description A deprecated parameter. You do not need to specify this parameter.
      *
      * @example normal
      *

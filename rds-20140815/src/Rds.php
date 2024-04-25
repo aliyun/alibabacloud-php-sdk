@@ -1057,6 +1057,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->insName)) {
             $query['InsName'] = $request->insName;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         if (!Utils::isUnset($request->resourceGroupId)) {
             $query['ResourceGroupId'] = $request->resourceGroupId;
         }
@@ -6127,6 +6130,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->pageNumbers)) {
             $query['PageNumbers'] = $request->pageNumbers;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         if (!Utils::isUnset($request->resourceGroupId)) {
             $query['ResourceGroupId'] = $request->resourceGroupId;
         }
@@ -6533,11 +6539,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
+     * ### [](#)Supported database engines
+     *   * *   RDS MySQL
+     *   * *   RDS PostgreSQL
+     *   * *   RDS SQL Server
+     *   * *   RDS MariaDB
+     *   * > You can call this operation to query the available zones for an instance. The query result may be different from the zones available on the buy page of the ApsaraDB RDS console. The values of some parameters on the buy page vary based on the actual sales policy. The actual information on the [buy page](https://rdsbuy.console.aliyun.com/create/rds/PostgreSQL) prevails.
      *   *
      * @param DescribeAvailableZonesRequest $request DescribeAvailableZonesRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -6594,11 +6601,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
+     * ### [](#)Supported database engines
+     *   * *   RDS MySQL
+     *   * *   RDS PostgreSQL
+     *   * *   RDS SQL Server
+     *   * *   RDS MariaDB
+     *   * > You can call this operation to query the available zones for an instance. The query result may be different from the zones available on the buy page of the ApsaraDB RDS console. The values of some parameters on the buy page vary based on the actual sales policy. The actual information on the [buy page](https://rdsbuy.console.aliyun.com/create/rds/PostgreSQL) prevails.
      *   *
      * @param DescribeAvailableZonesRequest $request DescribeAvailableZonesRequest
      *
@@ -11400,6 +11408,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->insName)) {
             $query['InsName'] = $request->insName;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         if (!Utils::isUnset($request->resourceGroupId)) {
             $query['ResourceGroupId'] = $request->resourceGroupId;
         }
@@ -11445,10 +11456,15 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeKmsAssociateResourcesRequest $request
-     * @param RuntimeOptions                       $runtime
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server.
+     *   *
+     * @param DescribeKmsAssociateResourcesRequest $request DescribeKmsAssociateResourcesRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeKmsAssociateResourcesResponse
+     * @return DescribeKmsAssociateResourcesResponse DescribeKmsAssociateResourcesResponse
      */
     public function describeKmsAssociateResourcesWithOptions($request, $runtime)
     {
@@ -11506,9 +11522,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeKmsAssociateResourcesRequest $request
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server.
+     *   *
+     * @param DescribeKmsAssociateResourcesRequest $request DescribeKmsAssociateResourcesRequest
      *
-     * @return DescribeKmsAssociateResourcesResponse
+     * @return DescribeKmsAssociateResourcesResponse DescribeKmsAssociateResourcesResponse
      */
     public function describeKmsAssociateResources($request)
     {
@@ -14571,6 +14592,9 @@ class Rds extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         if (!Utils::isUnset($request->resourceGroupId)) {
             $query['ResourceGroupId'] = $request->resourceGroupId;
         }
@@ -14633,6 +14657,9 @@ class Rds extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         if (!Utils::isUnset($request->resourceGroupId)) {
             $query['ResourceGroupId'] = $request->resourceGroupId;
         }
@@ -14823,6 +14850,9 @@ class Rds extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->insName)) {
             $query['InsName'] = $request->insName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
         if (!Utils::isUnset($request->resourceGroupId)) {
             $query['ResourceGroupId'] = $request->resourceGroupId;
@@ -18435,9 +18465,9 @@ class Rds extends OpenApiClient
      *   * *   RDS MySQL
      *   * *   RDS PostgreSQL
      *   * ### [](#)References
-     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Enable and configure the dedicated proxy feature](~~197456~~)
-     *   * *   [Create a database proxy terminal for an ApsaraDB RDS for PostgreSQL instance](~~418273~~).
+     *   * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+     *   * *   [Configure the connection settings for a database proxy endpoint for an ApsaraDB RDS for MySQL instance](~~2621331~~)
+     *   * *   [Configure the connection settings for a database proxy endpoint for an ApsaraDB RDS for PostgreSQL instance](~~418273~~).
      *   *
      * @param ModifyDBProxyEndpointRequest $request ModifyDBProxyEndpointRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -18519,9 +18549,9 @@ class Rds extends OpenApiClient
      *   * *   RDS MySQL
      *   * *   RDS PostgreSQL
      *   * ### [](#)References
-     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Enable and configure the dedicated proxy feature](~~197456~~)
-     *   * *   [Create a database proxy terminal for an ApsaraDB RDS for PostgreSQL instance](~~418273~~).
+     *   * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+     *   * *   [Configure the connection settings for a database proxy endpoint for an ApsaraDB RDS for MySQL instance](~~2621331~~)
+     *   * *   [Configure the connection settings for a database proxy endpoint for an ApsaraDB RDS for PostgreSQL instance](~~418273~~).
      *   *
      * @param ModifyDBProxyEndpointRequest $request ModifyDBProxyEndpointRequest
      *
@@ -20315,6 +20345,9 @@ class Rds extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->ipWhitelist)) {
             $query['IpWhitelist'] = $request->ipWhitelist;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
         if (!Utils::isUnset($request->resourceGroupId)) {
             $query['ResourceGroupId'] = $request->resourceGroupId;

@@ -15,7 +15,7 @@ class unitNode extends Model
      *   The name can contain letters, digits, underscores (\_), and hyphens (-) and must start with a letter.
      *   The name cannot start with `http://` or `https://`.
      *
-     **N** specifies unit node N. The value of N is an integer that ranges from **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
+     **N** in this parameter specifies the Nth unit node. The value of N is an integer within the range of **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
      *
      * @example test
      *
@@ -24,9 +24,9 @@ class unitNode extends Model
     public $DBInstanceDescription;
 
     /**
-     * @description The storage capacity of the unit node that you want to create. Unit: GB. The storage capacity increases at a step size of 5 GB. For more information, see [Primary ApsaraDB RDS instance types](~~26312~~). You can also call the [DescribeAvailableResource](~~134039~~) operation to query the storage capacity range that is supported for a specified instance type in a region.
+     * @description The storage capacity of the unit node that you want to create. Unit: GB You can adjust the storage capacity in increments of 5 GB. For more information, see [Primary ApsaraDB RDS instance types](~~26312~~). You can also call the DescribeAvailableResource operation to query the storage capacity range that is supported by the new instance type.
      *
-     **N** specifies unit node N. The value of N is an integer that ranges from **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
+     **N** in this parameter specifies the Nth unit node. The value of N is an integer within the range of **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
      *
      * @example 20
      *
@@ -40,7 +40,7 @@ class unitNode extends Model
      *   **local_ssd**: local SSD. This is the recommended storage type.
      *   **cloud_ssd**: standard SSD. This storage type is not recommended. Standard SSDs are no longer available for purchase in some Alibaba Cloud regions.
      *   **cloud_essd**: enhanced SSD (ESSD) of performance level 1 (PL1).
-     *   **cloud_essd2**: ESSD of PL2
+     *   **cloud_essd2**: ESSD of PL2.
      *   **cloud_essd3**: ESSD of PL3.
      *
      * The default value of this parameter is determined by the instance type specified by the **DBInstanceClass** parameter.
@@ -55,9 +55,9 @@ class unitNode extends Model
     public $DBInstanceStorageType;
 
     /**
-     * @description The instance type of the unit node that you want to create. For more information, see [Primary ApsaraDB RDS instance types](~~26312~~). You can call the [DescribeAvailableResource](~~134039~~) operation to query the available instance types in a region.
+     * @description The instance type of the unit node that you want to create. For more information, see [Primary ApsaraDB RDS instance types](~~26312~~). You can call the DescribeAvailableResource operation to query the available instance types in a region.
      *
-     **N** specifies unit node N. The value of N is an integer that ranges from **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
+     **N** in this parameter specifies the Nth unit node. The value of N is an integer within the range of **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
      *
      * @example rds.mysql.t1.small
      *
@@ -72,7 +72,7 @@ class unitNode extends Model
      *   **interrupt**: DTS stops the synchronization task, reports an error, and then exits.
      *   **ignore**: DTS hides the conflicting primary key on the node.
      *
-     **N** specifies unit node N. The value of N is an integer that ranges from **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
+     **N** in this parameter specifies the Nth unit node. The value of N is an integer within the range of **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
      *
      * @example overwrite
      *
@@ -90,7 +90,7 @@ class unitNode extends Model
      *
      * >  For more information, see [Specifications of data synchronization tasks](~~26605~~).
      *
-     **N** specifies unit node N. The value of N is an integer that ranges from **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
+     **N** in this parameter specifies the Nth unit node. The value of N is an integer within the range of **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
      *
      * @example medium
      *
@@ -101,7 +101,7 @@ class unitNode extends Model
     /**
      * @description The database engine of the unit node that you want to create. Set the value to **MySQL**.
      *
-     **N** specifies unit node N. The value of N is an integer that ranges from **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
+     **N** in this parameter specifies the Nth unit node. The value of N is an integer within the range of **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
      *
      * @example MySQL
      *
@@ -117,7 +117,7 @@ class unitNode extends Model
      *   **5.6**
      *   **5.5**
      *
-     **N** specifies unit node N. The value of N is an integer that ranges from **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
+     **N** in this parameter specifies the Nth unit node. The value of N is an integer within the range of **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
      *
      * @example 8.0
      *
@@ -133,7 +133,7 @@ class unitNode extends Model
      *
      * >  The system automatically generates a purchase order and completes the payment. You do not need to manually confirm the purchase order or complete the payment.
      *
-     **N** specifies unit node N. The value of N is an integer that ranges from **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
+     **N** in this parameter specifies the Nth unit node. The value of N is an integer within the range of **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
      *
      * @example Postpaid
      *
@@ -142,9 +142,9 @@ class unitNode extends Model
     public $payType;
 
     /**
-     * @description The region ID of the unit node that you want to create. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID of the unit node that you want to create. You can call the DescribeRegions operation to query the most recent region list.
      *
-     **N** specifies unit node N. The value of N is an integer that ranges from **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
+     **N** in this parameter specifies the Nth unit node. The value of N is an integer within the range of **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
      *
      * @example cn-hangzhou
      *
@@ -153,12 +153,12 @@ class unitNode extends Model
     public $regionID;
 
     /**
-     * @description The IP address whitelist of the unit node that you want to create. For more information, see [IP address whitelist](~~43185~~). If you want to add more than one entry to the IP address whitelist, separate the entries with commas (,). Each entry must be unique. The IP address whitelist can contain up to 1,000 entries. The entries in the IP address whitelist must be in one of the following formats:
+     * @description The [IP address whitelist](~~43185~~) of the unit node that you want to create. If you want to add more than one entry to the IP address whitelist, separate the entries with commas (,). Each entry must be unique. The IP address whitelist can contain up to 1,000 entries. The entries in the IP address whitelist must be in one of the following formats:
      *
      *   IP addresses, such as `10.10.10.10`.
-     *   CIDR blocks, such as `10.10.10.10/24`. In this example, **24** indicates that the prefix of the IP address is 24 bits in length. You can replace 24 with a value within the range of **1 to 32**.
+     *   CIDR blocks, such as `10.10.10.10/24`. In this example, **24** indicates that the prefix of the IP address in the whitelist is 24 bits in length. You can replace 24 with a value within the range of **1 to 32**.
      *
-     **N** specifies unit node N. The value of N is an integer that ranges from **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
+     **N** in this parameter specifies the Nth unit node. The value of N is an integer within the range of **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
      *
      * @example 10.10.10.10
      *
@@ -169,7 +169,7 @@ class unitNode extends Model
     /**
      * @description The vSwitch ID of the unit node that you want to create.
      *
-     **N** specifies unit node N. The value of N is an integer that ranges from **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
+     **N** in this parameter specifies the Nth unit node. The value of N is an integer within the range of **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
      *
      * @example vsw-bp1tg609m5j85********
      *
@@ -180,7 +180,7 @@ class unitNode extends Model
     /**
      * @description The virtual private cloud (VPC) ID of the unit node that you want to create.
      *
-     **N** specifies unit node N. The value of N is an integer that ranges from **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
+     **N** in this parameter specifies the Nth unit node. The value of N is an integer within the range of **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
      *
      * @example vpc-bp19ame5m1r3o********
      *
@@ -189,9 +189,9 @@ class unitNode extends Model
     public $vpcID;
 
     /**
-     * @description The zone ID of the unit node that you want to create. You can call the [DescribeRegions](~~26243~~) operation to query the ID of the zone.
+     * @description The zone ID of the unit node that you want to create. You can call the DescribeRegions operation to query the zone ID.
      *
-     **N** specifies unit node N. The value of N is an integer that ranges from **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
+     **N** in this parameter specifies the Nth unit node. The value of N is an integer within the range of **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
      *
      * @example cn-hangzhou-h
      *
@@ -200,12 +200,12 @@ class unitNode extends Model
     public $zoneID;
 
     /**
-     * @description The zone ID of the secondary node of the unit node that you want to create. You can call the [DescribeRegions](~~26243~~) operation to query the ID of the zone.
+     * @description The zone ID of the secondary node of the unit node that you want to create. You can call the DescribeRegions operation to query the ID of the zone.
      *
      *   If the value of this parameter is the same as the **zone ID** of the unit node that you want to create, the single-zone deployment method is used.
      *   If the value of this parameter is different from the **zone ID** of the unit node that you want to create, the multiple-zone deployment method is used.
      *
-     **N** specifies unit node N. The value of N is an integer that ranges from **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
+     **N** in this parameter specifies the Nth unit node. The value of N is an integer within the range of **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
      *
      * @example cn-hangzhou-h
      *
@@ -214,12 +214,12 @@ class unitNode extends Model
     public $zoneIDSlave1;
 
     /**
-     * @description The zone ID of the logger node of the unit node that you want to create. You can call the [DescribeRegions](~~26243~~) operation to query the ID of the zone.
+     * @description The zone ID of the logger node of the unit node that you want to create. You can call the DescribeRegions operation to query the ID of the zone.
      *
      *   If the value of this parameter is the same as the **zone ID** of the unit node that you want to create, the single-zone deployment method is used.
      *   If the value of this parameter is different from the **zone ID** of the unit node that you want to create, the multiple-zone deployment method is used.
      *
-     **N** specifies unit node N. The value of N is an integer that ranges from **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
+     **N** in this parameter specifies the Nth unit node. The value of N is an integer within the range of **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
      *
      * @example cn-hangzhou-h
      *

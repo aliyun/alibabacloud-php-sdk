@@ -11,10 +11,10 @@ use AlibabaCloud\Tea\Model;
 class CreateGADInstanceRequest extends Model
 {
     /**
-     * @description The ID of the primary instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the instance ID. The primary instance serves as the central node of the global active database cluster.
+     * @description The ID of the primary instance. You can call the DescribeDBInstances operation to query the instance ID. The primary instance serves as the central node of the global active database cluster.
      *
-     * > *   A primary instance can serve as the central node only of a single global active database cluster.
-     * > *   Only a primary instance that is created in one of the following regions can serve as the central node of a global active database cluster: China (Hangzhou), China (Shanghai), China (Qingdao), China (Beijing), China (Zhangjiakou), China (Shenzhen), and China (Chengdu).
+     * > *   A primary instance can serve only as the central node of a single global active database cluster.
+     * > *   The primary instance can serve as the central node of the global active database cluster only in the following regions: China (Hangzhou), China (Shanghai), China (Qingdao), China (Beijing), China (Zhangjiakou), China (Shenzhen), and China (Chengdu).
      * @example rm-uf6wjk5*******
      *
      * @var string
@@ -22,7 +22,7 @@ class CreateGADInstanceRequest extends Model
     public $centralDBInstanceId;
 
     /**
-     * @description The username of the privileged account of the central node. You can call the [DescribeAccounts](~~26265~~) operation to query the privileged account of the central node.
+     * @description The username of the privileged account of the central node. You can call the DescribeAccounts operation to query the privileged account of the central node.
      *
      * @example test
      *
@@ -40,7 +40,7 @@ class CreateGADInstanceRequest extends Model
     public $centralRdsDtsAdminPassword;
 
     /**
-     * @description The region ID of the central node. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID of the central node. You can call the DescribeRegions operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

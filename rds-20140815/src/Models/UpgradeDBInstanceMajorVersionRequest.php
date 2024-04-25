@@ -89,9 +89,9 @@ class UpgradeDBInstanceMajorVersionRequest extends Model
     public $instanceNetworkType;
 
     /**
-     * @description The billing method of the new instance. Set the value to Postpaid.
+     * @description The billing method. Set the value to Postpaid.
      *
-     * > For more information about how to change the billing method of an instance after the upgrade, see [Change the billing method of an instance from pay-as-you-go to subscription](~~96743~~).
+     * >  For more information about how to change the billing method of an instance after the upgrade, see [Change the billing method of an instance from pay-as-you-go to subscription](~~96743~~).
      * @example Postpaid
      *
      * @var string
@@ -129,19 +129,13 @@ class UpgradeDBInstanceMajorVersionRequest extends Model
      *   true
      *   false Before you perform an upgrade, we recommend that you set this parameter to false to test whether the new major engine version is compatible with your workloads.
      *
-     * >
-     *
-     *   If you set this parameter to true, you must take note of the following information:
-     *
-     *   After the switchover is complete, you cannot roll your workloads back to the original instance. Proceed with caution.
-     *   During the switchover, the original instance processes only read requests. We recommend that you perform the switchover during off-peak hours.
-     *   If read-only instances are attached to the original instance, you can set this parameter only to false. In this case, the read-only instances that are attached to the original instance cannot be cloned. After the upgrade is complete, you must create read-only instances for the new instance.
-     *
-     *   If you set this parameter to false, you must take note of the following information:
-     *
-     *   The data migration does not interrupt your workloads on the original instance.
-     *   After data is migrated to the new instance, you must update the endpoint configuration on your application. This update requires you to replace the endpoint of the original instance with the endpoint of the new instance. For more information about how to view the endpoint of an instance, see [View and change the internal and public endpoints and port numbers of an ApsaraDB RDS for PostgreSQL instance](~~96788~~).
-     *
+     * > *   If you set this parameter to true, you must take note of the following information:
+     * > *   After the switchover is complete, you cannot roll your workloads back to the original instance. Proceed with caution.
+     * > *   During the switchover, the original instance processes only read requests. We recommend that you perform the switchover during off-peak hours.
+     * > *   If read-only instances are attached to the original instance, you can set this parameter only to false. In this case, the read-only instances that are attached to the original instance cannot be cloned. After the upgrade is complete, you must create read-only instances for the new instance.
+     * > *   If you set this parameter to false, you must take note of the following information:
+     * > *   The data migration does not interrupt your workloads on the original instance.
+     * > *   After data is migrated to the new instance, you must update the endpoint configuration on your application. This update requires you to replace the endpoint of the original instance with the endpoint of the new instance. For more information about how to view the endpoint of an instance, see [View and change the internal and public endpoints and port numbers of an ApsaraDB RDS for PostgreSQL instance](~~96788~~).
      * @example false
      *
      * @var string

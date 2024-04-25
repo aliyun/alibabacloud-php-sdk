@@ -22,6 +22,11 @@ class ModifyWhitelistTemplateRequest extends Model
     public $ipWhitelist;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @description The resource group ID. For more information about resource groups, see related documentation.
      *
      * @example rg-acfmy****
@@ -59,6 +64,7 @@ class ModifyWhitelistTemplateRequest extends Model
     public $templateName;
     protected $_name = [
         'ipWhitelist'          => 'IpWhitelist',
+        'regionId'             => 'RegionId',
         'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
@@ -75,6 +81,9 @@ class ModifyWhitelistTemplateRequest extends Model
         $res = [];
         if (null !== $this->ipWhitelist) {
             $res['IpWhitelist'] = $this->ipWhitelist;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -105,6 +114,9 @@ class ModifyWhitelistTemplateRequest extends Model
         $model = new self();
         if (isset($map['IpWhitelist'])) {
             $model->ipWhitelist = $map['IpWhitelist'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];

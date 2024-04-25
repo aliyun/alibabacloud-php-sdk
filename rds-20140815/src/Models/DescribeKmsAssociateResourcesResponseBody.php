@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeKmsAssociateResourcesResponseBody extends Model
 {
     /**
+     * @description The information about the associated ApsaraDB RDS instance.
+     *
      * @var associateDBInstances[]
      */
     public $associateDBInstances;
 
     /**
+     * @description Indicates whether an associated RDS instance exists.
+     *
+     * - **true**: Yes
+     * - **false**: No
      * @example true
      *
      * @var bool
@@ -22,6 +28,8 @@ class DescribeKmsAssociateResourcesResponseBody extends Model
     public $associateStatus;
 
     /**
+     * @description The request ID.
+     *
      * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
      *
      * @var string

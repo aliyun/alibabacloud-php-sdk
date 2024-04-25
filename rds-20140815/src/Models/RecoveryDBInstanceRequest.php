@@ -32,12 +32,8 @@ class RecoveryDBInstanceRequest extends Model
     /**
      * @description The ID of the original instance.
      *
-     * >
-     *
-     *   If you specify BackupId, you do not need to specify this parameter.
-     *
-     *   If you specify RestoreTime, you must also specify this parameter.
-     *
+     * > *   If you specify BackupId, you do not need to specify this parameter.
+     * > *   If you specify RestoreTime, you must also specify this parameter.
      * @example rm-xxxxxxxx1
      *
      * @var string

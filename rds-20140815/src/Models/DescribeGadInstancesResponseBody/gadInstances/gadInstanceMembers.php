@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class gadInstanceMembers extends Model
 {
     /**
-     * @description The node ID.
+     * @description The ID of the node.
      *
      * @example rm-bp1npi2j8********
      *
@@ -47,7 +47,7 @@ class gadInstanceMembers extends Model
     public $engineVersion;
 
     /**
-     * @description The ID of the region in which the node resides.
+     * @description The ID of the region where the node resides.
      *
      * @example cn-hangzhou
      *
@@ -56,7 +56,7 @@ class gadInstanceMembers extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID.
      *
      * @example rg-acfmy*****
      *
@@ -65,9 +65,9 @@ class gadInstanceMembers extends Model
     public $resourceGroupId;
 
     /**
-     * @description The node type. Valid values:
+     * @description The type of the node. Valid values:
      *
-     *   **CENTRAL**: The node is the central node. Each global active database cluster has only one central node. All unit nodes synchronize data from the central node.
+     *   **CENTRAL**: The node is a central node. Each global active database cluster has only one central node. All unit nodes synchronize data from the central node.
      *   **UNIT**: The node is a unit node. Each global active database cluster can have up to 10 unit nodes. All unit nodes synchronize data from the central node.
      *
      * @example CENTRAL

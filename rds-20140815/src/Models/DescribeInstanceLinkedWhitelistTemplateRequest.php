@@ -18,6 +18,11 @@ class DescribeInstanceLinkedWhitelistTemplateRequest extends Model
     public $insName;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @description The resource group ID. You can leave this parameter empty.
      *
      * @example rg-aek3dbzqbh6****
@@ -37,6 +42,7 @@ class DescribeInstanceLinkedWhitelistTemplateRequest extends Model
     public $resourceOwnerId;
     protected $_name = [
         'insName'              => 'InsName',
+        'regionId'             => 'RegionId',
         'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
@@ -51,6 +57,9 @@ class DescribeInstanceLinkedWhitelistTemplateRequest extends Model
         $res = [];
         if (null !== $this->insName) {
             $res['InsName'] = $this->insName;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -75,6 +84,9 @@ class DescribeInstanceLinkedWhitelistTemplateRequest extends Model
         $model = new self();
         if (isset($map['InsName'])) {
             $model->insName = $map['InsName'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];

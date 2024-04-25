@@ -18,6 +18,11 @@ class DetachWhitelistTemplateToInstanceRequest extends Model
     public $insName;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @description The resource group ID. For more information about resource groups, see Resource groups.
      *
      * @example rg-acfmz3kjr******
@@ -46,6 +51,7 @@ class DetachWhitelistTemplateToInstanceRequest extends Model
     public $templateId;
     protected $_name = [
         'insName'              => 'InsName',
+        'regionId'             => 'RegionId',
         'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
@@ -61,6 +67,9 @@ class DetachWhitelistTemplateToInstanceRequest extends Model
         $res = [];
         if (null !== $this->insName) {
             $res['InsName'] = $this->insName;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -88,6 +97,9 @@ class DetachWhitelistTemplateToInstanceRequest extends Model
         $model = new self();
         if (isset($map['InsName'])) {
             $model->insName = $map['InsName'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
