@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StartDesktopsResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
      *
      * @var string

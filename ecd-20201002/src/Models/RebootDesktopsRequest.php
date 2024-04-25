@@ -18,7 +18,7 @@ class RebootDesktopsRequest extends Model
     public $clientId;
 
     /**
-     * @description The client OS.
+     * @description The operating system (OS) of the device that runs the Alibaba Cloud Workspace client (hereinafter referred to as WUYING client).
      *
      * @example Windows_NT 10.0.18363 x64
      *
@@ -36,7 +36,7 @@ class RebootDesktopsRequest extends Model
     public $clientToken;
 
     /**
-     * @description The client version.
+     * @description The client version. If you use a WUYING client, you can view the client version in the **About** dialog box on the client logon page.
      *
      * @example 2.1.0-R-20210731.151756
      *
@@ -45,7 +45,7 @@ class RebootDesktopsRequest extends Model
     public $clientVersion;
 
     /**
-     * @description The cloud desktop IDs. You can specify 1 to 20 IDs.
+     * @description The IDs of the cloud computers. You can specify the IDs of 1 to 20 cloud computers.
      *
      * @example ecd-7w78ozhjcwa3u****
      *
@@ -63,7 +63,7 @@ class RebootDesktopsRequest extends Model
     public $loginToken;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the regions supported by WUYING Workspace.
      *
      * @example cn-hangzhou
      *
@@ -88,6 +88,11 @@ class RebootDesktopsRequest extends Model
      * @var string
      */
     public $sessionToken;
+
+    /**
+     * @var string
+     */
+    public $uuid;
     protected $_name = [
         'clientId'      => 'ClientId',
         'clientOS'      => 'ClientOS',
@@ -98,6 +103,7 @@ class RebootDesktopsRequest extends Model
         'regionId'      => 'RegionId',
         'sessionId'     => 'SessionId',
         'sessionToken'  => 'SessionToken',
+        'uuid'          => 'Uuid',
     ];
 
     public function validate()
@@ -133,6 +139,9 @@ class RebootDesktopsRequest extends Model
         }
         if (null !== $this->sessionToken) {
             $res['SessionToken'] = $this->sessionToken;
+        }
+        if (null !== $this->uuid) {
+            $res['Uuid'] = $this->uuid;
         }
 
         return $res;
@@ -174,6 +183,9 @@ class RebootDesktopsRequest extends Model
         }
         if (isset($map['SessionToken'])) {
             $model->sessionToken = $map['SessionToken'];
+        }
+        if (isset($map['Uuid'])) {
+            $model->uuid = $map['Uuid'];
         }
 
         return $model;

@@ -18,7 +18,7 @@ class StopDesktopsRequest extends Model
     public $clientId;
 
     /**
-     * @description The client OS.
+     * @description The operating system (OS) of the device that runs the Alibaba Cloud Workspace client (hereinafter referred to as WUYING client).
      *
      * @example Windows_NT 10.0.18363 x64
      *
@@ -36,7 +36,7 @@ class StopDesktopsRequest extends Model
     public $clientToken;
 
     /**
-     * @description The client version.
+     * @description The client version. If you use a WUYING client, you can view the client version in the **About** dialog box on the client logon page.
      *
      * @example 2.1.0-R-20210731.151756
      *
@@ -45,7 +45,7 @@ class StopDesktopsRequest extends Model
     public $clientVersion;
 
     /**
-     * @description The cloud desktop IDs. You can specify 1 to 20 IDs.
+     * @description The IDs of the cloud computers. You can specify the IDs of 1 to 20 cloud computers.
      *
      * @example ecd-7w78ozhjcwa3u****
      *
@@ -63,7 +63,7 @@ class StopDesktopsRequest extends Model
     public $loginToken;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the regions supported by WUYING Workspace.
      *
      * @example cn-hangzhou
      *

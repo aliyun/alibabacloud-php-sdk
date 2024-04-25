@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20201002\Models;
 
+use AlibabaCloud\SDK\Ecd\V20201002\Models\GetLoginTokenResponseBody\riskVerifyInfo;
 use AlibabaCloud\Tea\Model;
 
 class GetLoginTokenResponseBody extends Model
@@ -111,6 +112,11 @@ class GetLoginTokenResponseBody extends Model
     public $requestId;
 
     /**
+     * @var riskVerifyInfo
+     */
+    public $riskVerifyInfo;
+
+    /**
      * @description The key that is generated when you bind the virtual MFA device. This parameter is required when the CurrentStage parameter is set to `MFABind`.
      *
      * > For more information about each authentication stage, see the parameter description of the request parameter `CurrentStage`.
@@ -159,6 +165,7 @@ class GetLoginTokenResponseBody extends Model
         'props'             => 'Props',
         'qrCodePng'         => 'QrCodePng',
         'requestId'         => 'RequestId',
+        'riskVerifyInfo'    => 'RiskVerifyInfo',
         'secret'            => 'Secret',
         'sessionId'         => 'SessionId',
         'tenantId'          => 'TenantId',
@@ -204,6 +211,9 @@ class GetLoginTokenResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->riskVerifyInfo) {
+            $res['RiskVerifyInfo'] = null !== $this->riskVerifyInfo ? $this->riskVerifyInfo->toMap() : null;
         }
         if (null !== $this->secret) {
             $res['Secret'] = $this->secret;
@@ -261,6 +271,9 @@ class GetLoginTokenResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['RiskVerifyInfo'])) {
+            $model->riskVerifyInfo = riskVerifyInfo::fromMap($map['RiskVerifyInfo']);
         }
         if (isset($map['Secret'])) {
             $model->secret = $map['Secret'];

@@ -1073,6 +1073,9 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->sessionToken)) {
             $query['SessionToken'] = $request->sessionToken;
         }
+        if (!Utils::isUnset($request->uuid)) {
+            $query['Uuid'] = $request->uuid;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -1586,7 +1589,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * The ID of the client.
+     * The cloud computers that you want to start must be in the Stopped state. After you call this operation, the cloud computers enter the Running state.
      *   *
      * @param StartDesktopsRequest $request StartDesktopsRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -1621,6 +1624,9 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->sessionId)) {
             $query['SessionId'] = $request->sessionId;
         }
+        if (!Utils::isUnset($request->uuid)) {
+            $query['Uuid'] = $request->uuid;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -1640,7 +1646,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * The ID of the client.
+     * The cloud computers that you want to start must be in the Stopped state. After you call this operation, the cloud computers enter the Running state.
      *   *
      * @param StartDesktopsRequest $request StartDesktopsRequest
      *
@@ -1718,7 +1724,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * The cloud desktops that you want to stop by calling this operation must be in the Running state. If the call is successful, the cloud desktops enter the Stopped state.
+     * The cloud computers that you want to stop must be in the Running state. After you call this operation, the cloud computers enter the Stopped state.
      *   *
      * @param StopDesktopsRequest $request StopDesktopsRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -1775,7 +1781,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * The cloud desktops that you want to stop by calling this operation must be in the Running state. If the call is successful, the cloud desktops enter the Stopped state.
+     * The cloud computers that you want to stop must be in the Running state. After you call this operation, the cloud computers enter the Stopped state.
      *   *
      * @param StopDesktopsRequest $request StopDesktopsRequest
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class StartDesktopsRequest extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The ID of the Alibaba Cloud Workspace client (hereinafter referred to as WUYING client). The system generates a unique ID for each client.
      *
      * @example f4a0dc8e-1702-4728-9a60-95b27a35****
      *
@@ -18,7 +18,7 @@ class StartDesktopsRequest extends Model
     public $clientId;
 
     /**
-     * @description The OS used by the client.
+     * @description The operating system (OS) of the device that run the client.
      *
      * @example Windows_NT 10.0.18363 x64
      *
@@ -27,6 +27,8 @@ class StartDesktopsRequest extends Model
     public $clientOS;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     *
      * @example 21e7be12-aa4f-4389-b3e1-82f4a1b5****
      *
      * @var string
@@ -34,7 +36,7 @@ class StartDesktopsRequest extends Model
     public $clientToken;
 
     /**
-     * @description StartDesktops
+     * @description The client version. If you use a WUYING client, you can click **About** on the client logon page to view the version of the client.
      *
      * @example 2.1.0-R-20210731.151756
      *
@@ -43,6 +45,8 @@ class StartDesktopsRequest extends Model
     public $clientVersion;
 
     /**
+     * @description The IDs of the cloud computers. You can specify the IDs of 1 to 20 cloud computers.
+     *
      * @example ecd-cg27ufmapab08****
      *
      * @var string[]
@@ -50,7 +54,7 @@ class StartDesktopsRequest extends Model
     public $desktopId;
 
     /**
-     * @description The ID of cloud desktop N. You can specify one or more IDs of cloud desktops. Valid values of N: 1 to 20.
+     * @description The logon token.
      *
      * @example v18101ac6a9e69c66b04a163031680463660b4b216cd758f34b60b9ad6a7c7f7334b83dd8f75eef4209c68f9f1080b****
      *
@@ -59,7 +63,7 @@ class StartDesktopsRequest extends Model
     public $loginToken;
 
     /**
-     * @description The logon credential.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the regions supported by WUYING Workspace.
      *
      * @example cn-hangzhou
      *
@@ -68,13 +72,18 @@ class StartDesktopsRequest extends Model
     public $regionId;
 
     /**
-     * @description The operation that you want to perform. Set the value to StartDesktops.
+     * @description The session ID.
      *
      * @example cd45e873-650d-4d70-acb9-f996187a****
      *
      * @var string
      */
     public $sessionId;
+
+    /**
+     * @var string
+     */
+    public $uuid;
     protected $_name = [
         'clientId'      => 'ClientId',
         'clientOS'      => 'ClientOS',
@@ -84,6 +93,7 @@ class StartDesktopsRequest extends Model
         'loginToken'    => 'LoginToken',
         'regionId'      => 'RegionId',
         'sessionId'     => 'SessionId',
+        'uuid'          => 'Uuid',
     ];
 
     public function validate()
@@ -116,6 +126,9 @@ class StartDesktopsRequest extends Model
         }
         if (null !== $this->sessionId) {
             $res['SessionId'] = $this->sessionId;
+        }
+        if (null !== $this->uuid) {
+            $res['Uuid'] = $this->uuid;
         }
 
         return $res;
@@ -154,6 +167,9 @@ class StartDesktopsRequest extends Model
         }
         if (isset($map['SessionId'])) {
             $model->sessionId = $map['SessionId'];
+        }
+        if (isset($map['Uuid'])) {
+            $model->uuid = $map['Uuid'];
         }
 
         return $model;
