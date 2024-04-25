@@ -26,10 +26,14 @@ use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\DeleteRobotTaskRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\DeleteRobotTaskResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ExecuteCallTaskRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ExecuteCallTaskResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetCallMediaTypeRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetCallMediaTypeResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetCallProgressRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetCallProgressResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetHotlineQualificationByOrderRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetHotlineQualificationByOrderResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetTemporaryFileUrlRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetTemporaryFileUrlResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetTokenRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetTokenResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetVideoFieldUrlRequest;
@@ -859,6 +863,61 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
+     * @param GetCallMediaTypeRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetCallMediaTypeResponse
+     */
+    public function getCallMediaTypeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->callId)) {
+            $query['CallId'] = $request->callId;
+        }
+        if (!Utils::isUnset($request->calledNumber)) {
+            $query['CalledNumber'] = $request->calledNumber;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCallMediaType',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCallMediaTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetCallMediaTypeRequest $request
+     *
+     * @return GetCallMediaTypeResponse
+     */
+    public function getCallMediaType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCallMediaTypeWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetCallProgressRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -969,6 +1028,58 @@ class Dyvmsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getHotlineQualificationByOrderWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetTemporaryFileUrlRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetTemporaryFileUrlResponse
+     */
+    public function getTemporaryFileUrlWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->videoId)) {
+            $query['VideoId'] = $request->videoId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTemporaryFileUrl',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTemporaryFileUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetTemporaryFileUrlRequest $request
+     *
+     * @return GetTemporaryFileUrlResponse
+     */
+    public function getTemporaryFileUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTemporaryFileUrlWithOptions($request, $runtime);
     }
 
     /**
