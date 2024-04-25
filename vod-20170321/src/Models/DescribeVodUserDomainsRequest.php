@@ -20,10 +20,11 @@ class DescribeVodUserDomainsRequest extends Model
 
     /**
      * @description The search method. Valid values:
-     *   **fuzzy_match**: fuzzy match. This is the default value.
-     *   **pre_match**: prefix match.
-     *   **suf_match**: suffix match.
-     *   **full_match**: exact match.
+     *
+     *   **fuzzy_match** (default): fuzzy match.
+     *   **pre_match**: prefix match
+     *   **suf_match**: suffix match
+     *   **full_match**: exact match
      *
      * @example fuzzy_match
      *
@@ -32,7 +33,8 @@ class DescribeVodUserDomainsRequest extends Model
     public $domainSearchType;
 
     /**
-     * @description The status of the domain name. The value of this parameter is used as a condition to filter domain names. Value values:
+     * @description The status of the domain name. Value values:
+     *
      *   **online**: indicates that the domain name is enabled.
      *   **offline**: indicates that the domain name is disabled.
      *   **configuring**: indicates that the domain name is being configured.
@@ -52,7 +54,7 @@ class DescribeVodUserDomainsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number.
      *
      * @example 1
      *
@@ -61,7 +63,7 @@ class DescribeVodUserDomainsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Default value: **20**. Maximum value: **50**. Valid values: integers in the range of **1** to **50**.
+     * @description The number of entries per page. Default value: **20**. Maximum value: **50**. Valid values: **1** to **50**.
      *
      * @example 20
      *
@@ -75,7 +77,7 @@ class DescribeVodUserDomainsRequest extends Model
     public $securityToken;
 
     /**
-     * @description Tag.
+     * @description The tags.
      *
      * @var tag[]
      */

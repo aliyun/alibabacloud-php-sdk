@@ -19,7 +19,7 @@ class video extends Model
     public $cateId;
 
     /**
-     * @description The name of the video category.
+     * @description The category of the video.
      *
      * @example Category name
      *
@@ -28,7 +28,7 @@ class video extends Model
     public $cateName;
 
     /**
-     * @description The thumbnail URL of the video.
+     * @description The URL of the video thumbnail.
      *
      * @example https://example.aliyundoc.com/coversample.jpg
      *
@@ -37,7 +37,7 @@ class video extends Model
     public $coverURL;
 
     /**
-     * @description The time when the video was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the audio or video file was created. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2017-12-08T07:40:56Z
      *
@@ -46,7 +46,7 @@ class video extends Model
     public $creationTime;
 
     /**
-     * @description The description of the video.
+     * @description The description of the video file.
      *
      * @example Description of the ApsaraVideo VOD video
      *
@@ -55,7 +55,7 @@ class video extends Model
     public $description;
 
     /**
-     * @description The duration of the video. Unit: seconds.
+     * @description The duration of the video file. Unit: seconds.
      *
      * @example 135.6
      *
@@ -64,7 +64,7 @@ class video extends Model
     public $duration;
 
     /**
-     * @description The last time when the video was updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the video was updated. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2017-12-08T09:40:56Z
      *
@@ -73,7 +73,7 @@ class video extends Model
     public $modifyTime;
 
     /**
-     * @description The size of the mezzanine file. Unit: byte.
+     * @description The size of the source video file. Unit: bytes.
      *
      * @example 10897890
      *
@@ -90,13 +90,14 @@ class video extends Model
 
     /**
      * @description The status of the video. Valid values:
-     *   **Uploading:**: indicates that the video is being uploaded.
-     *   **UploadFail**: indicates that the video failed to be uploaded.
-     *   **UploadSucces**: indicates that the video was uploaded.
-     *   **Transcoding**: indicates that the video is being transcoded.
-     *   **TranscodeFail**: indicates that the video failed to be transcoded.
-     *   **Blocked**: indicates that the video is blocked.
-     *   **Normal**: indicates that the video is in a normal state.
+     *
+     *   **Uploading**
+     *   **UploadFail**
+     *   **UploadSuccess**
+     *   **Transcoding**
+     *   **TranscodeFail**
+     *   **Blocked**
+     *   **Normal**: The video is normal.
      *
      * @example Normal
      *
@@ -105,7 +106,7 @@ class video extends Model
     public $status;
 
     /**
-     * @description The tags of the video. Separate multiple tags with commas (,).
+     * @description The tags of the video. Multiple tags are separated with commas (,).
      *
      * @example tag1, tag2
      *

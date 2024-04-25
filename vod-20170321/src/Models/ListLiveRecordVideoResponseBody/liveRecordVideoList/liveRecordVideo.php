@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class liveRecordVideo extends Model
 {
     /**
-     * @description The name of the application.
+     * @description The name of the app.
      *
      * @example testApp
      *
@@ -37,7 +37,7 @@ class liveRecordVideo extends Model
     public $playlistId;
 
     /**
-     * @description The end of the time range in which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The recording end time. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2017-12-08T08:44:56Z
      *
@@ -46,7 +46,7 @@ class liveRecordVideo extends Model
     public $recordEndTime;
 
     /**
-     * @description The beginning of the time range in which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The recording start time. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2017-12-08T07:40:56Z
      *
@@ -55,7 +55,7 @@ class liveRecordVideo extends Model
     public $recordStartTime;
 
     /**
-     * @description The name of the live stream.
+     * @description The name of the live-to-VOD file.
      *
      * @example live-test
      *
@@ -64,7 +64,7 @@ class liveRecordVideo extends Model
     public $streamName;
 
     /**
-     * @description The information about the video.
+     * @description The information about the live-to-VOD file.
      *
      * @var video
      */

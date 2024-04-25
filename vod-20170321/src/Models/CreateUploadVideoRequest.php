@@ -64,7 +64,7 @@ class CreateUploadVideoRequest extends Model
     public $fileName;
 
     /**
-     * @description The size of the audio or video file. Unit: bytes.
+     * @description The size of the source file. Unit: bytes.
      *
      * @example 123
      *

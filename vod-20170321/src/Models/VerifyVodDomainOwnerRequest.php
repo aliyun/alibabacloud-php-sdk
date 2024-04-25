@@ -23,7 +23,10 @@ class VerifyVodDomainOwnerRequest extends Model
     public $ownerId;
 
     /**
-     * @description The DNS verification method that is used to verify the ownership of the specified domain name.
+     * @description The verification method. Valid values:
+     *
+     *   **dnsCheck**: uses a Domain Name System (DNS) record
+     *   **fileCheck**: uses a verification file
      *
      * @example dnsCheck
      *

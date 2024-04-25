@@ -27,7 +27,7 @@ class playInfo extends Model
     public $bitrate;
 
     /**
-     * @description The time when the audio or video stream was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the audio or video stream was created. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2022-04-18T07:37:15Z
      *
@@ -36,7 +36,7 @@ class playInfo extends Model
     public $creationTime;
 
     /**
-     * @description The quality of the media stream. Valid values:
+     * @description The quality of the video stream. Valid values:
      *
      *   **FD**: low definition
      *   **LD**: standard definition
@@ -56,7 +56,7 @@ class playInfo extends Model
     public $definition;
 
     /**
-     * @description The duration of the media stream. Unit: seconds. 86,400 seconds is equivalent to 24 hours.
+     * @description The duration of the media stream. Unit: seconds.
      *
      * @example 9.0464
      *
@@ -80,7 +80,7 @@ class playInfo extends Model
      * @description The encryption type of the media stream. Valid values:
      *
      *   **AliyunVoDEncryption**: Alibaba Cloud proprietary cryptography
-     *   **HLSEncryption**: HTTP Live Streaming (HLS) encryption
+     *   **HLSEncryption**: HTTP-Live-Streaming (HLS) encryption
      *
      * >  If the encryption type is AliyunVoDEncryption, only ApsaraVideo Player SDK can be used to play videos.
      * @example AliyunVoDEncryption
@@ -166,7 +166,7 @@ class playInfo extends Model
     public $jobType;
 
     /**
-     * @description The time when the audio or video file was updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the audio or video file was last updated. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2022-04-20T06:32:19Z
      *
@@ -177,11 +177,11 @@ class playInfo extends Model
     /**
      * @description The type of Narrowband HD transcoding. Valid values:
      *
-     *   **0**: normal transcoding
-     *   **1.0**: Narrowband HD 1.0
-     *   **2.0**: Narrowband HD 2.0
+     *   **0**: regular transcoding
+     *   **1.0**: Narrowband HD™ 1.0 transcoding
+     *   **2.0**: Narrowband HD™ 2.0 transcoding
      *
-     * This parameter is returned only when a quality that is available in the built-in Narrowband HD 1.0 transcoding template is specified. For more information, see the [Definition parameter in the TranscodeTemplate](~~52839~~) table.
+     * This parameter is returned only when a definition that is available in the built-in Narrowband HD™ 1.0 transcoding template is specified. For more information, see the [Definition parameter in the TranscodeTemplate](~~52839~~) table.
      * @example 0
      *
      * @var string

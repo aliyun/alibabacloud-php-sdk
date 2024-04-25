@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class transcodeSummaryList extends Model
 {
     /**
-     * @description The time when the transcoding task was complete. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the transcoding task was complete. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2019-01-23T12:40:12Z
      *
@@ -19,7 +19,7 @@ class transcodeSummaryList extends Model
     public $completeTime;
 
     /**
-     * @description The time when the transcoding task was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the transcoding task was created. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2019-01-23T12:35:12Z
      *
@@ -36,7 +36,8 @@ class transcodeSummaryList extends Model
 
     /**
      * @description The status of the transcoding task. Valid values:
-     *   **Processing**: In progress.
+     *
+     *   **Processing**: Transcoding is in process.
      *   **Partial**: Some transcoding jobs were complete.
      *   **CompleteAllSucc**: All transcoding jobs were successful.
      *   **CompleteAllFail**: All transcoding jobs failed. If an exception occurs in the source file, no transcoding job is initiated and the transcoding task fails.

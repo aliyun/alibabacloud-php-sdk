@@ -17,7 +17,7 @@ class DescribeVodUserDomainsResponseBody extends Model
     public $domains;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeVodUserDomainsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 20
      *
@@ -44,7 +44,7 @@ class DescribeVodUserDomainsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of entries returned.
+     * @description The total number of entries.
      *
      * @example 2
      *

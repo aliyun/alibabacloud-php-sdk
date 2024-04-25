@@ -54,9 +54,10 @@ class ListLiveRecordVideoRequest extends Model
     public $pageSize;
 
     /**
-     * @description The sorting rule of results. Valid values:
-     *   **CreationTime:Desc**: sorts the results based on the creation time in descending order. This is the default value.
-     *   **CreationTime:Asc**: sorts the results based on the creation time in ascending order.
+     * @description The sorting rule of the results. Valid values:
+     *
+     *   **CreationTime:Desc**: The results are sorted in reverse chronological order based on the creation time.
+     *   **CreationTime:Asc**: The results are sorted in chronological order based on the creation time.
      *
      * @example CreationTime:Desc
      *

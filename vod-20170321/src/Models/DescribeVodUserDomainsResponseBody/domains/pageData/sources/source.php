@@ -38,9 +38,9 @@ class source extends Model
     /**
      * @description The type of the origin server. Valid values:
      *
-     *   **ipaddr**: a server that you can access by using an IP address.
-     *   **domain**: a server that you can access by using a domain name.
-     *   **oss**: an Object Storage Service (OSS) bucket.
+     *   **ipaddr**: an IP address.
+     *   **domain**: an origin domain name
+     *   **oss**: the OSS domain of an Object Storage Service (OSS) bucket
      *
      * @example oss
      *

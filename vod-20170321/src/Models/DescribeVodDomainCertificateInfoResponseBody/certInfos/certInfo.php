@@ -18,7 +18,7 @@ class certInfo extends Model
     public $certDomainName;
 
     /**
-     * @description The time at which the certificate expires. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time at which the certificate expires. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2018-06-03T13:03:39Z
      *
@@ -36,7 +36,7 @@ class certInfo extends Model
     public $certLife;
 
     /**
-     * @description The name of the certificate.
+     * @description The certificate name.
      *
      * @example cert-example.com
      *
@@ -67,7 +67,7 @@ class certInfo extends Model
     public $certType;
 
     /**
-     * @description The accelerated domain name.
+     * @description The accelerated domain name whose ICP filing status you want to update.
      *
      * @example example.com
      *
@@ -76,7 +76,7 @@ class certInfo extends Model
     public $domainName;
 
     /**
-     * @description Indicates whether the SSL certificate is enabled.
+     * @description The status of the SSL certificate.
      *
      *   **on**
      *   **off**
@@ -88,7 +88,7 @@ class certInfo extends Model
     public $serverCertificateStatus;
 
     /**
-     * @description The status of the certificate. Valid values:
+     * @description The status of the certificate.
      *
      *   **success**: The certificate is in effect.
      *   **checking**: The system is checking whether the domain name is added to ApsaraVideo VOD.
@@ -98,7 +98,7 @@ class certInfo extends Model
      *   **applying**: The certificate application is in progress.
      *   **failed**: The certificate application failed.
      *
-     * > A value is returned for this parameter only if `free` is returned for `CertType`. If a value other than free is returned for CertType, an empty string is returned for this parameter.
+     * >  A value is returned for this parameter only when you set `CertType` to `free`. Otherwise, an empty value is returned for this parameter.
      * @example success
      *
      * @var string

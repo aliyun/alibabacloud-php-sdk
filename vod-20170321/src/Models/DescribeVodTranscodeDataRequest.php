@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodTranscodeDataRequest extends Model
 {
     /**
+     * @description The ID of the application. You can specify this parameter to query the transcoding statistics of a specific application. By default, the transcoding statistics of all applications is returned. You can obtain the application ID from the `AppId` parameter in the response to the [CreateAppInfo](~~CreateAppInfo~~) operation.
+     *
+     * @example app-1000001
+     *
      * @var string
      */
     public $appId;

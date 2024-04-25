@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetAppInfosRequest extends Model
 {
     /**
-     * @description The ID of the application. You can specify a maximum of 10 application IDs. Separate them with commas (,).
+     * @description The IDs of applications. You can obtain application IDs from the response to the [CreateAppInfo](~~113266~~) or [ListAppInfo](~~114000~~) operation.
+     *
+     *   You can specify a maximum of 10 application IDs.
+     *   Separate application IDs with commas (,).
      *
      * @example app-****
      *

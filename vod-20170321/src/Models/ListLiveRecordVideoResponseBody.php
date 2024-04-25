@@ -26,7 +26,7 @@ class ListLiveRecordVideoResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of videos returned.
+     * @description The total number of videos.
      *
      * @example 123
      *

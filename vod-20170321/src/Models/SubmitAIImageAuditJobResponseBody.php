@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SubmitAIImageAuditJobResponseBody extends Model
 {
     /**
-     * @description The ID of the image review task.
+     * @description The ID of the image review job.
      *
      * @example b1aa3024aee64*****6dc8ca20dbc328
      *

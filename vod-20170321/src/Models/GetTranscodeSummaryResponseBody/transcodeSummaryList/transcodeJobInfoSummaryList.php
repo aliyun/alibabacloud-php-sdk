@@ -18,7 +18,7 @@ class transcodeJobInfoSummaryList extends Model
     public $bitrate;
 
     /**
-     * @description The time when the transcoding job was complete. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the transcoding job was complete. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2019-02-27T03:40:51Z
      *
@@ -27,7 +27,7 @@ class transcodeJobInfoSummaryList extends Model
     public $completeTime;
 
     /**
-     * @description The time when the transcoding job was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the transcoding job was created. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2019-02-27T03:34:46Z
      *
@@ -100,9 +100,10 @@ class transcodeJobInfoSummaryList extends Model
 
     /**
      * @description The status of the transcoding job. Valid values:
-     *   **Transcoding**
-     *   **TranscodeSuccess**
-     *   **TranscodeFail**
+     *
+     *   **Transcoding**: Transcoding is in process.
+     *   **TranscodeSuccess**: The job was successful.
+     *   **TranscodeFail**: The job failed.
      *
      * @example Transcoding
      *

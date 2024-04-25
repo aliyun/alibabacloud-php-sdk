@@ -40,7 +40,7 @@ class transcodeTemplateGroup extends Model
     public $isDefault;
 
     /**
-     * @description Indicates whether the template group is locked. Valid values:
+     * @description Indicates whether the transcoding template group is locked. Valid values:
      *
      *   **Disabled**: The template group is not locked.
      *   **Enabled**: The template group is locked.

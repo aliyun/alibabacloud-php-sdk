@@ -96,6 +96,8 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodAIDataRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodAIDataResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodCertificateListRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodCertificateListResponse;
+use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainBpsDataByLayerRequest;
+use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainBpsDataByLayerResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainBpsDataRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainBpsDataResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainCertificateInfoRequest;
@@ -104,8 +106,24 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainConfigsRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainConfigsResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainDetailRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainDetailResponse;
+use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainHitRateDataRequest;
+use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainHitRateDataResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainLogRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainLogResponse;
+use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainRealTimeBpsDataRequest;
+use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainRealTimeBpsDataResponse;
+use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainRealTimeByteHitRateDataRequest;
+use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainRealTimeByteHitRateDataResponse;
+use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainRealTimeHttpCodeDataRequest;
+use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainRealTimeHttpCodeDataResponse;
+use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainRealTimeQpsDataRequest;
+use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainRealTimeQpsDataResponse;
+use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainRealTimeReqHitRateDataRequest;
+use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainRealTimeReqHitRateDataResponse;
+use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainRealTimeTrafficDataRequest;
+use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainRealTimeTrafficDataResponse;
+use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainReqHitRateDataRequest;
+use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainReqHitRateDataResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainSrcBpsDataRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainSrcBpsDataResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainSrcTrafficDataRequest;
@@ -116,6 +134,8 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainUsageDataRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainUsageDataResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodMediaPlayDataRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodMediaPlayDataResponse;
+use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodRangeDataByLocateAndIspServiceRequest;
+use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodRangeDataByLocateAndIspServiceResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodRefreshQuotaRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodRefreshQuotaResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodRefreshTasksRequest;
@@ -3069,7 +3089,71 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * > This operation is available only in the **China (Shanghai)** region.
+     * @param DescribeVodDomainBpsDataByLayerRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeVodDomainBpsDataByLayerResponse
+     */
+    public function describeVodDomainBpsDataByLayerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ispNameEn)) {
+            $query['IspNameEn'] = $request->ispNameEn;
+        }
+        if (!Utils::isUnset($request->layer)) {
+            $query['Layer'] = $request->layer;
+        }
+        if (!Utils::isUnset($request->locationNameEn)) {
+            $query['LocationNameEn'] = $request->locationNameEn;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVodDomainBpsDataByLayer',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeVodDomainBpsDataByLayerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVodDomainBpsDataByLayerRequest $request
+     *
+     * @return DescribeVodDomainBpsDataByLayerResponse
+     */
+    public function describeVodDomainBpsDataByLayer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVodDomainBpsDataByLayerWithOptions($request, $runtime);
+    }
+
+    /**
+     * This operation is available only in the **China (Shanghai)** region.
      *   *
      * @param DescribeVodDomainCertificateInfoRequest $request DescribeVodDomainCertificateInfoRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
@@ -3105,7 +3189,7 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * > This operation is available only in the **China (Shanghai)** region.
+     * This operation is available only in the **China (Shanghai)** region.
      *   *
      * @param DescribeVodDomainCertificateInfoRequest $request DescribeVodDomainCertificateInfoRequest
      *
@@ -3228,6 +3312,61 @@ class Vod extends OpenApiClient
     }
 
     /**
+     * @param DescribeVodDomainHitRateDataRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeVodDomainHitRateDataResponse
+     */
+    public function describeVodDomainHitRateDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVodDomainHitRateData',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeVodDomainHitRateDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVodDomainHitRateDataRequest $request
+     *
+     * @return DescribeVodDomainHitRateDataResponse
+     */
+    public function describeVodDomainHitRateData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVodDomainHitRateDataWithOptions($request, $runtime);
+    }
+
+    /**
      * *   This operation is available only in the **China (Shanghai)** region.
      *   * *   For more information about the log format and latency, see [Download logs](~~86099~~).
      *   * *   If you specify neither StartTime nor EndTime, the log data in the previous 24 hours is queried.
@@ -3297,6 +3436,334 @@ class Vod extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeVodDomainLogWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeVodDomainRealTimeBpsDataRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeVodDomainRealTimeBpsDataResponse
+     */
+    public function describeVodDomainRealTimeBpsDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVodDomainRealTimeBpsData',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeVodDomainRealTimeBpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVodDomainRealTimeBpsDataRequest $request
+     *
+     * @return DescribeVodDomainRealTimeBpsDataResponse
+     */
+    public function describeVodDomainRealTimeBpsData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVodDomainRealTimeBpsDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeVodDomainRealTimeByteHitRateDataRequest $request
+     * @param RuntimeOptions                                  $runtime
+     *
+     * @return DescribeVodDomainRealTimeByteHitRateDataResponse
+     */
+    public function describeVodDomainRealTimeByteHitRateDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVodDomainRealTimeByteHitRateData',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeVodDomainRealTimeByteHitRateDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVodDomainRealTimeByteHitRateDataRequest $request
+     *
+     * @return DescribeVodDomainRealTimeByteHitRateDataResponse
+     */
+    public function describeVodDomainRealTimeByteHitRateData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVodDomainRealTimeByteHitRateDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeVodDomainRealTimeHttpCodeDataRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return DescribeVodDomainRealTimeHttpCodeDataResponse
+     */
+    public function describeVodDomainRealTimeHttpCodeDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ispNameEn)) {
+            $query['IspNameEn'] = $request->ispNameEn;
+        }
+        if (!Utils::isUnset($request->locationNameEn)) {
+            $query['LocationNameEn'] = $request->locationNameEn;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVodDomainRealTimeHttpCodeData',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeVodDomainRealTimeHttpCodeDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVodDomainRealTimeHttpCodeDataRequest $request
+     *
+     * @return DescribeVodDomainRealTimeHttpCodeDataResponse
+     */
+    public function describeVodDomainRealTimeHttpCodeData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVodDomainRealTimeHttpCodeDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeVodDomainRealTimeQpsDataRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeVodDomainRealTimeQpsDataResponse
+     */
+    public function describeVodDomainRealTimeQpsDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVodDomainRealTimeQpsData',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeVodDomainRealTimeQpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVodDomainRealTimeQpsDataRequest $request
+     *
+     * @return DescribeVodDomainRealTimeQpsDataResponse
+     */
+    public function describeVodDomainRealTimeQpsData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVodDomainRealTimeQpsDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeVodDomainRealTimeReqHitRateDataRequest $request
+     * @param RuntimeOptions                                 $runtime
+     *
+     * @return DescribeVodDomainRealTimeReqHitRateDataResponse
+     */
+    public function describeVodDomainRealTimeReqHitRateDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVodDomainRealTimeReqHitRateData',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeVodDomainRealTimeReqHitRateDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVodDomainRealTimeReqHitRateDataRequest $request
+     *
+     * @return DescribeVodDomainRealTimeReqHitRateDataResponse
+     */
+    public function describeVodDomainRealTimeReqHitRateData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVodDomainRealTimeReqHitRateDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeVodDomainRealTimeTrafficDataRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return DescribeVodDomainRealTimeTrafficDataResponse
+     */
+    public function describeVodDomainRealTimeTrafficDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ispNameEn)) {
+            $query['IspNameEn'] = $request->ispNameEn;
+        }
+        if (!Utils::isUnset($request->locationNameEn)) {
+            $query['LocationNameEn'] = $request->locationNameEn;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVodDomainRealTimeTrafficData',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeVodDomainRealTimeTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVodDomainRealTimeTrafficDataRequest $request
+     *
+     * @return DescribeVodDomainRealTimeTrafficDataResponse
+     */
+    public function describeVodDomainRealTimeTrafficData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVodDomainRealTimeTrafficDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeVodDomainReqHitRateDataRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeVodDomainReqHitRateDataResponse
+     */
+    public function describeVodDomainReqHitRateDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVodDomainReqHitRateData',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeVodDomainReqHitRateDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVodDomainReqHitRateDataRequest $request
+     *
+     * @return DescribeVodDomainReqHitRateDataResponse
+     */
+    public function describeVodDomainReqHitRateData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVodDomainReqHitRateDataWithOptions($request, $runtime);
     }
 
     /**
@@ -3670,6 +4137,64 @@ class Vod extends OpenApiClient
     }
 
     /**
+     * @param DescribeVodRangeDataByLocateAndIspServiceRequest $request
+     * @param RuntimeOptions                                   $runtime
+     *
+     * @return DescribeVodRangeDataByLocateAndIspServiceResponse
+     */
+    public function describeVodRangeDataByLocateAndIspServiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ispNameEn)) {
+            $query['IspNameEn'] = $request->ispNameEn;
+        }
+        if (!Utils::isUnset($request->locationNameEn)) {
+            $query['LocationNameEn'] = $request->locationNameEn;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVodRangeDataByLocateAndIspService',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeVodRangeDataByLocateAndIspServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVodRangeDataByLocateAndIspServiceRequest $request
+     *
+     * @return DescribeVodRangeDataByLocateAndIspServiceResponse
+     */
+    public function describeVodRangeDataByLocateAndIspService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVodRangeDataByLocateAndIspServiceWithOptions($request, $runtime);
+    }
+
+    /**
      * > *   This operation is available only in the **China (Shanghai)** region.
      *   * > *   You can call the [RefreshVodObjectCaches](~~69215~~) operation to refresh content and the [PreloadVodObjectCaches](~~69211~~) operation to prefetch content.
      *   *
@@ -3935,10 +4460,13 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DescribeVodUserDomainsRequest $request
-     * @param RuntimeOptions                $runtime
+     * *   You can filter domain names by name and status. Fuzzy match is supported for domain name-based query.
+     *   * *   This operation is available only in the China (Shanghai) region.
+     *   *
+     * @param DescribeVodUserDomainsRequest $request DescribeVodUserDomainsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVodUserDomainsResponse
+     * @return DescribeVodUserDomainsResponse DescribeVodUserDomainsResponse
      */
     public function describeVodUserDomainsWithOptions($request, $runtime)
     {
@@ -3987,9 +4515,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DescribeVodUserDomainsRequest $request
+     * *   You can filter domain names by name and status. Fuzzy match is supported for domain name-based query.
+     *   * *   This operation is available only in the China (Shanghai) region.
+     *   *
+     * @param DescribeVodUserDomainsRequest $request DescribeVodUserDomainsRequest
      *
-     * @return DescribeVodUserDomainsResponse
+     * @return DescribeVodUserDomainsResponse DescribeVodUserDomainsResponse
      */
     public function describeVodUserDomains($request)
     {
@@ -4434,7 +4965,7 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * Supports batch query.
+     * You can specify multiple accelerated domain names in a request.
      *   *
      * @param GetAppInfosRequest $request GetAppInfosRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -4467,7 +4998,7 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * Supports batch query.
+     * You can specify multiple accelerated domain names in a request.
      *   *
      * @param GetAppInfosRequest $request GetAppInfosRequest
      *
@@ -5476,10 +6007,10 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * *   A media file may be transcoded multiple times. This operation returns only the latest transcoding summary.
-     *   * *   You can query transcoding summaries for a maximum of 10 media files in one request.
+     * *   An audio or video file may be transcoded multiple times. This operation returns only the latest transcoding summary.
+     *   * *   You can query transcoding summaries for a maximum of 10 audio and video files in one request.
      *   * *   You can call the [ListTranscodeTask](~~109120~~) operation to query historical transcoding tasks.
-     *   * *   **You can call this operation to query information only about transcoding tasks created within the past year.**.
+     *   * *   **You can call this operation to query information only about transcoding tasks created within the past year.
      *   *
      * @param GetTranscodeSummaryRequest $request GetTranscodeSummaryRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -5512,10 +6043,10 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * *   A media file may be transcoded multiple times. This operation returns only the latest transcoding summary.
-     *   * *   You can query transcoding summaries for a maximum of 10 media files in one request.
+     * *   An audio or video file may be transcoded multiple times. This operation returns only the latest transcoding summary.
+     *   * *   You can query transcoding summaries for a maximum of 10 audio and video files in one request.
      *   * *   You can call the [ListTranscodeTask](~~109120~~) operation to query historical transcoding tasks.
-     *   * *   **You can call this operation to query information only about transcoding tasks created within the past year.**.
+     *   * *   **You can call this operation to query information only about transcoding tasks created within the past year.
      *   *
      * @param GetTranscodeSummaryRequest $request GetTranscodeSummaryRequest
      *
@@ -5576,7 +6107,7 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * >  This operation returns the information about the specified transcoding template group and the configurations of all the transcoding templates in the group.
+     * This operation returns information about the specified transcoding template group and the configurations of all the transcoding templates in the group.
      *   *
      * @param GetTranscodeTemplateGroupRequest $request GetTranscodeTemplateGroupRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -5609,7 +6140,7 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * >  This operation returns the information about the specified transcoding template group and the configurations of all the transcoding templates in the group.
+     * This operation returns information about the specified transcoding template group and the configurations of all the transcoding templates in the group.
      *   *
      * @param GetTranscodeTemplateGroupRequest $request GetTranscodeTemplateGroupRequest
      *
@@ -6405,7 +6936,7 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * You can query a maximum of 5,000 videos based on the specified filter condition.
+     * You can query up to 5,000 videos based on the specified filter condition.
      *   *
      * @param ListLiveRecordVideoRequest $request ListLiveRecordVideoRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -6459,7 +6990,7 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * You can query a maximum of 5,000 videos based on the specified filter condition.
+     * You can query up to 5,000 videos based on the specified filter condition.
      *   *
      * @param ListLiveRecordVideoRequest $request ListLiveRecordVideoRequest
      *
@@ -7324,12 +7855,14 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * The maximum number of data records that you can query is limited based on the method used to query the data. You can use the following methods to query data:
-     *   * *   Method 1: You must use the PageNo and PageSize parameters for the first 5,000 data records that meet the specified filter condition. This allows you to traverse data page by page. If the number of data records that meet the specified filter condition exceeds 5,000, use Method 2.
-     *   * *   Method 2: This method applies only to the data of video and audio files. To traverse all the data records that meet the specified filter condition, you must set the PageNo, PageSize, and ScrollToken parameters to traverse data page by page. The total number of data records from the current page to the target page cannot exceed 1,200. Assume that the PageSize parameter is set to **20**:
-     *   *     *   When the PageNo parameter is set to **1**, you can scroll forward to traverse data records from page 1 to page **60** at most.
-     *   *     *   When the PageNo parameter is set to **2**, you can scroll forward to traverse data records from page 2 to page **61** at most.
-     *   *     *   When the PageNo parameter is set to **61**, you can scroll backward to traverse data records from page 61 to page **2** at most or scroll forward to traverse data records from page 61 to page **120** at most.
+     * The maximum number of data records that you can query varies based on the method used to query the data. You can use the following methods to query data:
+     *   * *   Method 1: Traverse data by page
+     *   *     You can use the PageNo and PageSize parameters to traverse up to 5,000 data records that meet the specified filter condition. PageNo specifies the page number and PageSize specifies the number of data records displayed on a page. If the number of data records that meet the specified filter condition exceeds 5,000, change the filter conditions to narrow down the results. You cannot use this method to traverse all data records. If you want to traverse more data records, use Method 2.
+     *   * *   Method 2: Traverse all data (available only for audio and video files)
+     *   *     You can use this method to traverse up to 2 million data records related to audio and video files. If the number of data records that meet the specified filter condition exceeds 2 million, change the filter conditions to narrow down the results. To traverse data page by page, you must set the PageNo, PageSize, and ScrollToken parameters. The total number of data records from the current page to the target page cannot exceed 100. For example, you set PageSize to 20. The following content describes the traverse logic:
+     *   *     *   When the PageNo parameter is set to 1, you can traverse data records from page 1 to page 5.
+     *   *     *   When the PageNo parameter is set to 2, you can traverse data records from page 2 to page 6.
+     *   * Make sure that you set the appropriate page number and page size, and use a traverse method based on the number of results that meet your filter condition.
      *   *
      * @param SearchMediaRequest $request SearchMediaRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -7380,12 +7913,14 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * The maximum number of data records that you can query is limited based on the method used to query the data. You can use the following methods to query data:
-     *   * *   Method 1: You must use the PageNo and PageSize parameters for the first 5,000 data records that meet the specified filter condition. This allows you to traverse data page by page. If the number of data records that meet the specified filter condition exceeds 5,000, use Method 2.
-     *   * *   Method 2: This method applies only to the data of video and audio files. To traverse all the data records that meet the specified filter condition, you must set the PageNo, PageSize, and ScrollToken parameters to traverse data page by page. The total number of data records from the current page to the target page cannot exceed 1,200. Assume that the PageSize parameter is set to **20**:
-     *   *     *   When the PageNo parameter is set to **1**, you can scroll forward to traverse data records from page 1 to page **60** at most.
-     *   *     *   When the PageNo parameter is set to **2**, you can scroll forward to traverse data records from page 2 to page **61** at most.
-     *   *     *   When the PageNo parameter is set to **61**, you can scroll backward to traverse data records from page 61 to page **2** at most or scroll forward to traverse data records from page 61 to page **120** at most.
+     * The maximum number of data records that you can query varies based on the method used to query the data. You can use the following methods to query data:
+     *   * *   Method 1: Traverse data by page
+     *   *     You can use the PageNo and PageSize parameters to traverse up to 5,000 data records that meet the specified filter condition. PageNo specifies the page number and PageSize specifies the number of data records displayed on a page. If the number of data records that meet the specified filter condition exceeds 5,000, change the filter conditions to narrow down the results. You cannot use this method to traverse all data records. If you want to traverse more data records, use Method 2.
+     *   * *   Method 2: Traverse all data (available only for audio and video files)
+     *   *     You can use this method to traverse up to 2 million data records related to audio and video files. If the number of data records that meet the specified filter condition exceeds 2 million, change the filter conditions to narrow down the results. To traverse data page by page, you must set the PageNo, PageSize, and ScrollToken parameters. The total number of data records from the current page to the target page cannot exceed 100. For example, you set PageSize to 20. The following content describes the traverse logic:
+     *   *     *   When the PageNo parameter is set to 1, you can traverse data records from page 1 to page 5.
+     *   *     *   When the PageNo parameter is set to 2, you can traverse data records from page 2 to page 6.
+     *   * Make sure that you set the appropriate page number and page size, and use a traverse method based on the number of results that meet your filter condition.
      *   *
      * @param SearchMediaRequest $request SearchMediaRequest
      *
@@ -7846,10 +8381,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param SubmitAIImageAuditJobRequest $request
-     * @param RuntimeOptions               $runtime
+     * This operation is available only in the Singapore region.
+     *   *
+     * @param SubmitAIImageAuditJobRequest $request SubmitAIImageAuditJobRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitAIImageAuditJobResponse
+     * @return SubmitAIImageAuditJobResponse SubmitAIImageAuditJobResponse
      */
     public function submitAIImageAuditJobWithOptions($request, $runtime)
     {
@@ -7895,9 +8432,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param SubmitAIImageAuditJobRequest $request
+     * This operation is available only in the Singapore region.
+     *   *
+     * @param SubmitAIImageAuditJobRequest $request SubmitAIImageAuditJobRequest
      *
-     * @return SubmitAIImageAuditJobResponse
+     * @return SubmitAIImageAuditJobResponse SubmitAIImageAuditJobResponse
      */
     public function submitAIImageAuditJob($request)
     {
@@ -8945,7 +9484,7 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * For security purposes, you cannot add, modify, or delete transcoding templates in a transcoding template group that is locked. To check whether a transcoding template group is locked, call the [GetTranscodeTemplateGroup](~~GetTranscodeTemplateGroup~~) operation and check whether Locked is returned in the response. If the transcoding template group is locked, you can all this operation to unlock the transcoding template group before you add, modify, or delete transcoding templates in the transcoding template group.
+     * For security purposes, you cannot add, modify, or delete transcoding templates in a transcoding template group that is locked. You can call the [GetTranscodeTemplateGroup](~~GetTranscodeTemplateGroup~~) operation to query the configurations of a transcoding template group, check whether the transcoding template group is locked by using the response parameter Locked, and unlock the transcoding template group before you perform operations such as add, modify, and delete transcoding templates.
      *   *
      * @param UpdateTranscodeTemplateGroupRequest $request UpdateTranscodeTemplateGroupRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -8987,7 +9526,7 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * For security purposes, you cannot add, modify, or delete transcoding templates in a transcoding template group that is locked. To check whether a transcoding template group is locked, call the [GetTranscodeTemplateGroup](~~GetTranscodeTemplateGroup~~) operation and check whether Locked is returned in the response. If the transcoding template group is locked, you can all this operation to unlock the transcoding template group before you add, modify, or delete transcoding templates in the transcoding template group.
+     * For security purposes, you cannot add, modify, or delete transcoding templates in a transcoding template group that is locked. You can call the [GetTranscodeTemplateGroup](~~GetTranscodeTemplateGroup~~) operation to query the configurations of a transcoding template group, check whether the transcoding template group is locked by using the response parameter Locked, and unlock the transcoding template group before you perform operations such as add, modify, and delete transcoding templates.
      *   *
      * @param UpdateTranscodeTemplateGroupRequest $request UpdateTranscodeTemplateGroupRequest
      *
@@ -9417,10 +9956,12 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param VerifyVodDomainOwnerRequest $request
-     * @param RuntimeOptions              $runtime
+     * This operation is available only in the **China (Shanghai)** region.
+     *   *
+     * @param VerifyVodDomainOwnerRequest $request VerifyVodDomainOwnerRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return VerifyVodDomainOwnerResponse
+     * @return VerifyVodDomainOwnerResponse VerifyVodDomainOwnerResponse
      */
     public function verifyVodDomainOwnerWithOptions($request, $runtime)
     {
@@ -9454,9 +9995,11 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param VerifyVodDomainOwnerRequest $request
+     * This operation is available only in the **China (Shanghai)** region.
+     *   *
+     * @param VerifyVodDomainOwnerRequest $request VerifyVodDomainOwnerRequest
      *
-     * @return VerifyVodDomainOwnerResponse
+     * @return VerifyVodDomainOwnerResponse VerifyVodDomainOwnerResponse
      */
     public function verifyVodDomainOwner($request)
     {

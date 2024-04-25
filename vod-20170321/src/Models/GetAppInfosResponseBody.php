@@ -26,7 +26,7 @@ class GetAppInfosResponseBody extends Model
     public $code;
 
     /**
-     * @description The ID of the application that was not found.
+     * @description The IDs of applications that do not exist.
      *
      * @var string[]
      */
