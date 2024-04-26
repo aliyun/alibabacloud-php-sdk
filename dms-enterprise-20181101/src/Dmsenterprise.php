@@ -247,6 +247,10 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetStructSyncOrderDetailRequ
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetStructSyncOrderDetailResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableDBTopologyRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableDBTopologyResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableDesignProjectFlowRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableDesignProjectFlowResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableDesignProjectInfoRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableDesignProjectInfoResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableTopologyRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableTopologyResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTaskFlowGraphRequest;
@@ -6443,6 +6447,98 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getTableDBTopologyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetTableDesignProjectFlowRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetTableDesignProjectFlowResponse
+     */
+    public function getTableDesignProjectFlowWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTableDesignProjectFlow',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTableDesignProjectFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetTableDesignProjectFlowRequest $request
+     *
+     * @return GetTableDesignProjectFlowResponse
+     */
+    public function getTableDesignProjectFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTableDesignProjectFlowWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetTableDesignProjectInfoRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetTableDesignProjectInfoResponse
+     */
+    public function getTableDesignProjectInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTableDesignProjectInfo',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTableDesignProjectInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetTableDesignProjectInfoRequest $request
+     *
+     * @return GetTableDesignProjectInfoResponse
+     */
+    public function getTableDesignProjectInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTableDesignProjectInfoWithOptions($request, $runtime);
     }
 
     /**
