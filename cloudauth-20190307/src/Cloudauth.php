@@ -21,6 +21,8 @@ use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CreateAuthKeyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CreateAuthKeyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CreateVerifySettingRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CreateVerifySettingResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CredentialVerifyRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CredentialVerifyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeDeviceInfoRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeDeviceInfoResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeFaceVerifyRequest;
@@ -648,6 +650,75 @@ class Cloudauth extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createVerifySettingWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CredentialVerifyRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CredentialVerifyResponse
+     */
+    public function credentialVerifyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->certNum)) {
+            $query['CertNum'] = $request->certNum;
+        }
+        if (!Utils::isUnset($request->credName)) {
+            $query['CredName'] = $request->credName;
+        }
+        if (!Utils::isUnset($request->credType)) {
+            $query['CredType'] = $request->credType;
+        }
+        if (!Utils::isUnset($request->identifyNum)) {
+            $query['IdentifyNum'] = $request->identifyNum;
+        }
+        if (!Utils::isUnset($request->imageUrl)) {
+            $query['ImageUrl'] = $request->imageUrl;
+        }
+        if (!Utils::isUnset($request->isCheck)) {
+            $query['IsCheck'] = $request->isCheck;
+        }
+        if (!Utils::isUnset($request->isOCR)) {
+            $query['IsOCR'] = $request->isOCR;
+        }
+        if (!Utils::isUnset($request->userName)) {
+            $query['UserName'] = $request->userName;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->imageContext)) {
+            $body['ImageContext'] = $request->imageContext;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CredentialVerify',
+            'version'     => '2019-03-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CredentialVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CredentialVerifyRequest $request
+     *
+     * @return CredentialVerifyResponse
+     */
+    public function credentialVerify($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->credentialVerifyWithOptions($request, $runtime);
     }
 
     /**
