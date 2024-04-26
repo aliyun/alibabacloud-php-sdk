@@ -82,6 +82,16 @@ class ListAutomateResponseConfigsRequest extends Model
     public $regionId;
 
     /**
+     * @var int
+     */
+    public $roleFor;
+
+    /**
+     * @var int
+     */
+    public $roleType;
+
+    /**
      * @description The name of the automated response rule.
      *
      * @example cfw kill quara book
@@ -118,6 +128,8 @@ class ListAutomateResponseConfigsRequest extends Model
         'pageSize'         => 'PageSize',
         'playbookUuid'     => 'PlaybookUuid',
         'regionId'         => 'RegionId',
+        'roleFor'          => 'RoleFor',
+        'roleType'         => 'RoleType',
         'ruleName'         => 'RuleName',
         'status'           => 'Status',
         'subUserId'        => 'SubUserId',
@@ -150,6 +162,12 @@ class ListAutomateResponseConfigsRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->roleFor) {
+            $res['RoleFor'] = $this->roleFor;
+        }
+        if (null !== $this->roleType) {
+            $res['RoleType'] = $this->roleType;
         }
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
@@ -192,6 +210,12 @@ class ListAutomateResponseConfigsRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RoleFor'])) {
+            $model->roleFor = $map['RoleFor'];
+        }
+        if (isset($map['RoleType'])) {
+            $model->roleType = $map['RoleType'];
         }
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];

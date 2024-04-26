@@ -126,6 +126,11 @@ class responseData extends Model
     public $incidentUuid;
 
     /**
+     * @var string
+     */
+    public $referAccount;
+
+    /**
      * @description The remarks of the event.
      *
      * @example dealed
@@ -183,6 +188,7 @@ class responseData extends Model
         'incidentName'   => 'IncidentName',
         'incidentNameEn' => 'IncidentNameEn',
         'incidentUuid'   => 'IncidentUuid',
+        'referAccount'   => 'ReferAccount',
         'remark'         => 'Remark',
         'status'         => 'Status',
         'threatLevel'    => 'ThreatLevel',
@@ -234,6 +240,9 @@ class responseData extends Model
         }
         if (null !== $this->incidentUuid) {
             $res['IncidentUuid'] = $this->incidentUuid;
+        }
+        if (null !== $this->referAccount) {
+            $res['ReferAccount'] = $this->referAccount;
         }
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
@@ -301,6 +310,9 @@ class responseData extends Model
         }
         if (isset($map['IncidentUuid'])) {
             $model->incidentUuid = $map['IncidentUuid'];
+        }
+        if (isset($map['ReferAccount'])) {
+            $model->referAccount = $map['ReferAccount'];
         }
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];

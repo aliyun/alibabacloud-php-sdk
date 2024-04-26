@@ -27,6 +27,11 @@ class PostCustomizeRuleRequest extends Model
     public $alertTypeMds;
 
     /**
+     * @var string
+     */
+    public $attCk;
+
+    /**
      * @description The extended information about event generation. If eventTransferType is set to allToSingle, the value of this parameter indicates the length and unit of the alert aggregation window.
      *
      * @example {"time":"1","unit":"MINUTE"}
@@ -127,6 +132,16 @@ class PostCustomizeRuleRequest extends Model
     public $regionId;
 
     /**
+     * @var int
+     */
+    public $roleFor;
+
+    /**
+     * @var int
+     */
+    public $roleType;
+
+    /**
      * @description The query condition of the rule. The value is in the JSON format.
      *
      * @example [[{"not":false,"left":"alert_name","operator":"=","right":"WEBSHELL"}]]
@@ -186,6 +201,7 @@ class PostCustomizeRuleRequest extends Model
     protected $_name = [
         'alertType'           => 'AlertType',
         'alertTypeMds'        => 'AlertTypeMds',
+        'attCk'               => 'AttCk',
         'eventTransferExt'    => 'EventTransferExt',
         'eventTransferSwitch' => 'EventTransferSwitch',
         'eventTransferType'   => 'EventTransferType',
@@ -196,6 +212,8 @@ class PostCustomizeRuleRequest extends Model
         'logTypeMds'          => 'LogTypeMds',
         'queryCycle'          => 'QueryCycle',
         'regionId'            => 'RegionId',
+        'roleFor'             => 'RoleFor',
+        'roleType'            => 'RoleType',
         'ruleCondition'       => 'RuleCondition',
         'ruleDesc'            => 'RuleDesc',
         'ruleGroup'           => 'RuleGroup',
@@ -216,6 +234,9 @@ class PostCustomizeRuleRequest extends Model
         }
         if (null !== $this->alertTypeMds) {
             $res['AlertTypeMds'] = $this->alertTypeMds;
+        }
+        if (null !== $this->attCk) {
+            $res['AttCk'] = $this->attCk;
         }
         if (null !== $this->eventTransferExt) {
             $res['EventTransferExt'] = $this->eventTransferExt;
@@ -246,6 +267,12 @@ class PostCustomizeRuleRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->roleFor) {
+            $res['RoleFor'] = $this->roleFor;
+        }
+        if (null !== $this->roleType) {
+            $res['RoleType'] = $this->roleType;
         }
         if (null !== $this->ruleCondition) {
             $res['RuleCondition'] = $this->ruleCondition;
@@ -283,6 +310,9 @@ class PostCustomizeRuleRequest extends Model
         if (isset($map['AlertTypeMds'])) {
             $model->alertTypeMds = $map['AlertTypeMds'];
         }
+        if (isset($map['AttCk'])) {
+            $model->attCk = $map['AttCk'];
+        }
         if (isset($map['EventTransferExt'])) {
             $model->eventTransferExt = $map['EventTransferExt'];
         }
@@ -312,6 +342,12 @@ class PostCustomizeRuleRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RoleFor'])) {
+            $model->roleFor = $map['RoleFor'];
+        }
+        if (isset($map['RoleType'])) {
+            $model->roleType = $map['RoleType'];
         }
         if (isset($map['RuleCondition'])) {
             $model->ruleCondition = $map['RuleCondition'];

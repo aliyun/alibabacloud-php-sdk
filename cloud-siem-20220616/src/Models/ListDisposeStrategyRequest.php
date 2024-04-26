@@ -140,6 +140,16 @@ class ListDisposeStrategyRequest extends Model
     public $regionId;
 
     /**
+     * @var int
+     */
+    public $roleFor;
+
+    /**
+     * @var int
+     */
+    public $roleType;
+
+    /**
      * @description The ID of the SOAR handling policy.
      *
      * @example a50a49b7-6044-4593-ab15-2b46567caadd
@@ -169,6 +179,8 @@ class ListDisposeStrategyRequest extends Model
         'playbookTypes'   => 'PlaybookTypes',
         'playbookUuid'    => 'PlaybookUuid',
         'regionId'        => 'RegionId',
+        'roleFor'         => 'RoleFor',
+        'roleType'        => 'RoleType',
         'sophonTaskId'    => 'SophonTaskId',
         'startTime'       => 'StartTime',
     ];
@@ -215,6 +227,12 @@ class ListDisposeStrategyRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->roleFor) {
+            $res['RoleFor'] = $this->roleFor;
+        }
+        if (null !== $this->roleType) {
+            $res['RoleType'] = $this->roleType;
         }
         if (null !== $this->sophonTaskId) {
             $res['SophonTaskId'] = $this->sophonTaskId;
@@ -269,6 +287,12 @@ class ListDisposeStrategyRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RoleFor'])) {
+            $model->roleFor = $map['RoleFor'];
+        }
+        if (isset($map['RoleType'])) {
+            $model->roleType = $map['RoleType'];
         }
         if (isset($map['SophonTaskId'])) {
             $model->sophonTaskId = $map['SophonTaskId'];

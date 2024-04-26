@@ -30,6 +30,16 @@ class DescribeAlertsCountRequest extends Model
     public $regionId;
 
     /**
+     * @var int
+     */
+    public $roleFor;
+
+    /**
+     * @var int
+     */
+    public $roleType;
+
+    /**
      * @description The beginning of the time range to query. Unit: milliseconds.
      *
      * @example 1577808000000
@@ -40,6 +50,8 @@ class DescribeAlertsCountRequest extends Model
     protected $_name = [
         'endTime'   => 'EndTime',
         'regionId'  => 'RegionId',
+        'roleFor'   => 'RoleFor',
+        'roleType'  => 'RoleType',
         'startTime' => 'StartTime',
     ];
 
@@ -55,6 +67,12 @@ class DescribeAlertsCountRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->roleFor) {
+            $res['RoleFor'] = $this->roleFor;
+        }
+        if (null !== $this->roleType) {
+            $res['RoleType'] = $this->roleType;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -76,6 +94,12 @@ class DescribeAlertsCountRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RoleFor'])) {
+            $model->roleFor = $map['RoleFor'];
+        }
+        if (isset($map['RoleType'])) {
+            $model->roleType = $map['RoleType'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

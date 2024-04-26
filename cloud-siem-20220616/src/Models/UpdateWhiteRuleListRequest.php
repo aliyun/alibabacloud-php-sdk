@@ -39,6 +39,16 @@ class UpdateWhiteRuleListRequest extends Model
     public $regionId;
 
     /**
+     * @var int
+     */
+    public $roleFor;
+
+    /**
+     * @var int
+     */
+    public $roleType;
+
+    /**
      * @description The unique ID of the whitelist rule.
      *
      * @example 123456789
@@ -50,6 +60,8 @@ class UpdateWhiteRuleListRequest extends Model
         'expression'   => 'Expression',
         'incidentUuid' => 'IncidentUuid',
         'regionId'     => 'RegionId',
+        'roleFor'      => 'RoleFor',
+        'roleType'     => 'RoleType',
         'whiteRuleId'  => 'WhiteRuleId',
     ];
 
@@ -68,6 +80,12 @@ class UpdateWhiteRuleListRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->roleFor) {
+            $res['RoleFor'] = $this->roleFor;
+        }
+        if (null !== $this->roleType) {
+            $res['RoleType'] = $this->roleType;
         }
         if (null !== $this->whiteRuleId) {
             $res['WhiteRuleId'] = $this->whiteRuleId;
@@ -92,6 +110,12 @@ class UpdateWhiteRuleListRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RoleFor'])) {
+            $model->roleFor = $map['RoleFor'];
+        }
+        if (isset($map['RoleType'])) {
+            $model->roleType = $map['RoleType'];
         }
         if (isset($map['WhiteRuleId'])) {
             $model->whiteRuleId = $map['WhiteRuleId'];

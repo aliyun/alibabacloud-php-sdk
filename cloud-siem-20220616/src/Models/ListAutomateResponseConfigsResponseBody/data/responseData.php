@@ -52,6 +52,11 @@ class responseData extends Model
     public $autoResponseType;
 
     /**
+     * @var int
+     */
+    public $dataType;
+
+    /**
      * @description The trigger condition of the rule. The value is in the JSON format.
      *
      * @example [{"left":{"value":"alert_name"},"operator":"containsString","right":{"value":"webshell_online"}}]
@@ -121,6 +126,7 @@ class responseData extends Model
         'actionType'         => 'ActionType',
         'aliuid'             => 'Aliuid',
         'autoResponseType'   => 'AutoResponseType',
+        'dataType'           => 'DataType',
         'executionCondition' => 'ExecutionCondition',
         'gmtCreate'          => 'GmtCreate',
         'gmtModified'        => 'GmtModified',
@@ -148,6 +154,9 @@ class responseData extends Model
         }
         if (null !== $this->autoResponseType) {
             $res['AutoResponseType'] = $this->autoResponseType;
+        }
+        if (null !== $this->dataType) {
+            $res['DataType'] = $this->dataType;
         }
         if (null !== $this->executionCondition) {
             $res['ExecutionCondition'] = $this->executionCondition;
@@ -193,6 +202,9 @@ class responseData extends Model
         }
         if (isset($map['AutoResponseType'])) {
             $model->autoResponseType = $map['AutoResponseType'];
+        }
+        if (isset($map['DataType'])) {
+            $model->dataType = $map['DataType'];
         }
         if (isset($map['ExecutionCondition'])) {
             $model->executionCondition = $map['ExecutionCondition'];

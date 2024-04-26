@@ -73,6 +73,13 @@ class data extends Model
     public $logMdsCode;
 
     /**
+     * @example 2023-11-23 12:30:00
+     *
+     * @var int
+     */
+    public $logType;
+
+    /**
      * @description The time when the log was last added.
      *
      * @example 2023-11-23 12:30:00
@@ -114,6 +121,7 @@ class data extends Model
         'importedUserCount'   => 'ImportedUserCount',
         'logCode'             => 'LogCode',
         'logMdsCode'          => 'LogMdsCode',
+        'logType'             => 'LogType',
         'modifyTime'          => 'ModifyTime',
         'prodCode'            => 'ProdCode',
         'totalUserCount'      => 'TotalUserCount',
@@ -144,6 +152,9 @@ class data extends Model
         }
         if (null !== $this->logMdsCode) {
             $res['LogMdsCode'] = $this->logMdsCode;
+        }
+        if (null !== $this->logType) {
+            $res['LogType'] = $this->logType;
         }
         if (null !== $this->modifyTime) {
             $res['ModifyTime'] = $this->modifyTime;
@@ -186,6 +197,9 @@ class data extends Model
         }
         if (isset($map['LogMdsCode'])) {
             $model->logMdsCode = $map['LogMdsCode'];
+        }
+        if (isset($map['LogType'])) {
+            $model->logType = $map['LogType'];
         }
         if (isset($map['ModifyTime'])) {
             $model->modifyTime = $map['ModifyTime'];

@@ -48,6 +48,16 @@ class DescribeEntityInfoRequest extends Model
     public $regionId;
 
     /**
+     * @var int
+     */
+    public $roleFor;
+
+    /**
+     * @var int
+     */
+    public $roleType;
+
+    /**
      * @description The ID of the SOAR handling policy.
      *
      * @example 577bbf90-a770-44a7-8154-586aa2d318fa
@@ -60,6 +70,8 @@ class DescribeEntityInfoRequest extends Model
         'entityIdentity' => 'EntityIdentity',
         'incidentUuid'   => 'IncidentUuid',
         'regionId'       => 'RegionId',
+        'roleFor'        => 'RoleFor',
+        'roleType'       => 'RoleType',
         'sophonTaskId'   => 'SophonTaskId',
     ];
 
@@ -81,6 +93,12 @@ class DescribeEntityInfoRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->roleFor) {
+            $res['RoleFor'] = $this->roleFor;
+        }
+        if (null !== $this->roleType) {
+            $res['RoleType'] = $this->roleType;
         }
         if (null !== $this->sophonTaskId) {
             $res['SophonTaskId'] = $this->sophonTaskId;
@@ -108,6 +126,12 @@ class DescribeEntityInfoRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RoleFor'])) {
+            $model->roleFor = $map['RoleFor'];
+        }
+        if (isset($map['RoleType'])) {
+            $model->roleType = $map['RoleType'];
         }
         if (isset($map['SophonTaskId'])) {
             $model->sophonTaskId = $map['SophonTaskId'];

@@ -63,6 +63,16 @@ class PostEventDisposeAndWhiteruleListRequest extends Model
     public $remark;
 
     /**
+     * @var int
+     */
+    public $roleFor;
+
+    /**
+     * @var int
+     */
+    public $roleType;
+
+    /**
      * @description The status of the event. Valid values:
      *
      *   0: unhandled
@@ -81,6 +91,8 @@ class PostEventDisposeAndWhiteruleListRequest extends Model
         'receiverInfo' => 'ReceiverInfo',
         'regionId'     => 'RegionId',
         'remark'       => 'Remark',
+        'roleFor'      => 'RoleFor',
+        'roleType'     => 'RoleType',
         'status'       => 'Status',
     ];
 
@@ -105,6 +117,12 @@ class PostEventDisposeAndWhiteruleListRequest extends Model
         }
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
+        }
+        if (null !== $this->roleFor) {
+            $res['RoleFor'] = $this->roleFor;
+        }
+        if (null !== $this->roleType) {
+            $res['RoleType'] = $this->roleType;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -135,6 +153,12 @@ class PostEventDisposeAndWhiteruleListRequest extends Model
         }
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
+        }
+        if (isset($map['RoleFor'])) {
+            $model->roleFor = $map['RoleFor'];
+        }
+        if (isset($map['RoleType'])) {
+            $model->roleType = $map['RoleType'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

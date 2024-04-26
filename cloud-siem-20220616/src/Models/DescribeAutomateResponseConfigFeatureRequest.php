@@ -31,9 +31,21 @@ class DescribeAutomateResponseConfigFeatureRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var int
+     */
+    public $roleFor;
+
+    /**
+     * @var int
+     */
+    public $roleType;
     protected $_name = [
         'autoResponseType' => 'AutoResponseType',
         'regionId'         => 'RegionId',
+        'roleFor'          => 'RoleFor',
+        'roleType'         => 'RoleType',
     ];
 
     public function validate()
@@ -48,6 +60,12 @@ class DescribeAutomateResponseConfigFeatureRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->roleFor) {
+            $res['RoleFor'] = $this->roleFor;
+        }
+        if (null !== $this->roleType) {
+            $res['RoleType'] = $this->roleType;
         }
 
         return $res;
@@ -66,6 +84,12 @@ class DescribeAutomateResponseConfigFeatureRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RoleFor'])) {
+            $model->roleFor = $map['RoleFor'];
+        }
+        if (isset($map['RoleType'])) {
+            $model->roleType = $map['RoleType'];
         }
 
         return $model;

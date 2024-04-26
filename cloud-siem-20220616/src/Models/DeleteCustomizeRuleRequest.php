@@ -18,6 +18,16 @@ class DeleteCustomizeRuleRequest extends Model
     public $regionId;
 
     /**
+     * @var int
+     */
+    public $roleFor;
+
+    /**
+     * @var int
+     */
+    public $roleType;
+
+    /**
      * @description The ID of the rule.
      *
      * @example 123456789
@@ -27,6 +37,8 @@ class DeleteCustomizeRuleRequest extends Model
     public $ruleId;
     protected $_name = [
         'regionId' => 'RegionId',
+        'roleFor'  => 'RoleFor',
+        'roleType' => 'RoleType',
         'ruleId'   => 'RuleId',
     ];
 
@@ -39,6 +51,12 @@ class DeleteCustomizeRuleRequest extends Model
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->roleFor) {
+            $res['RoleFor'] = $this->roleFor;
+        }
+        if (null !== $this->roleType) {
+            $res['RoleType'] = $this->roleType;
         }
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
@@ -57,6 +75,12 @@ class DeleteCustomizeRuleRequest extends Model
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RoleFor'])) {
+            $model->roleFor = $map['RoleFor'];
+        }
+        if (isset($map['RoleType'])) {
+            $model->roleType = $map['RoleType'];
         }
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];

@@ -45,6 +45,20 @@ class ListCloudSiemCustomizeRulesRequest extends Model
     public $id;
 
     /**
+     * @example desc
+     *
+     * @var string
+     */
+    public $order;
+
+    /**
+     * @example Id
+     *
+     * @var string
+     */
+    public $orderField;
+
+    /**
      * @description The number of entries per page. The value can be up to 100.
      *
      * @example 10
@@ -64,6 +78,16 @@ class ListCloudSiemCustomizeRulesRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var int
+     */
+    public $roleFor;
+
+    /**
+     * @var int
+     */
+    public $roleType;
 
     /**
      * @description The name of the rule. The name can contain letters, digits, underscores (\_), and periods (.).
@@ -127,8 +151,12 @@ class ListCloudSiemCustomizeRulesRequest extends Model
         'currentPage' => 'CurrentPage',
         'endTime'     => 'EndTime',
         'id'          => 'Id',
+        'order'       => 'Order',
+        'orderField'  => 'OrderField',
         'pageSize'    => 'PageSize',
         'regionId'    => 'RegionId',
+        'roleFor'     => 'RoleFor',
+        'roleType'    => 'RoleType',
         'ruleName'    => 'RuleName',
         'ruleType'    => 'RuleType',
         'startTime'   => 'StartTime',
@@ -155,11 +183,23 @@ class ListCloudSiemCustomizeRulesRequest extends Model
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+        if (null !== $this->order) {
+            $res['Order'] = $this->order;
+        }
+        if (null !== $this->orderField) {
+            $res['OrderField'] = $this->orderField;
+        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->roleFor) {
+            $res['RoleFor'] = $this->roleFor;
+        }
+        if (null !== $this->roleType) {
+            $res['RoleType'] = $this->roleType;
         }
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
@@ -200,11 +240,23 @@ class ListCloudSiemCustomizeRulesRequest extends Model
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+        if (isset($map['Order'])) {
+            $model->order = $map['Order'];
+        }
+        if (isset($map['OrderField'])) {
+            $model->orderField = $map['OrderField'];
+        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RoleFor'])) {
+            $model->roleFor = $map['RoleFor'];
+        }
+        if (isset($map['RoleType'])) {
+            $model->roleType = $map['RoleType'];
         }
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];

@@ -30,6 +30,16 @@ class PostCustomizeRuleTestRequest extends Model
     public $regionId;
 
     /**
+     * @var int
+     */
+    public $roleFor;
+
+    /**
+     * @var int
+     */
+    public $roleType;
+
+    /**
      * @description The simulation data for the test. This parameter is available only when TestType is set to simulate.
      *
      * @example [{"key1":"value1","key2":"value2","key3":"value3","key4":"value4","key5":"value5"}]
@@ -52,6 +62,8 @@ class PostCustomizeRuleTestRequest extends Model
     protected $_name = [
         'id'            => 'Id',
         'regionId'      => 'RegionId',
+        'roleFor'       => 'RoleFor',
+        'roleType'      => 'RoleType',
         'simulatedData' => 'SimulatedData',
         'testType'      => 'TestType',
     ];
@@ -68,6 +80,12 @@ class PostCustomizeRuleTestRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->roleFor) {
+            $res['RoleFor'] = $this->roleFor;
+        }
+        if (null !== $this->roleType) {
+            $res['RoleType'] = $this->roleType;
         }
         if (null !== $this->simulatedData) {
             $res['SimulatedData'] = $this->simulatedData;
@@ -92,6 +110,12 @@ class PostCustomizeRuleTestRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RoleFor'])) {
+            $model->roleFor = $map['RoleFor'];
+        }
+        if (isset($map['RoleType'])) {
+            $model->roleType = $map['RoleType'];
         }
         if (isset($map['SimulatedData'])) {
             $model->simulatedData = $map['SimulatedData'];

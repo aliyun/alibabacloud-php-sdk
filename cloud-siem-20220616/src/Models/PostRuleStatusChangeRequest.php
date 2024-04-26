@@ -42,6 +42,16 @@ class PostRuleStatusChangeRequest extends Model
     public $regionId;
 
     /**
+     * @var int
+     */
+    public $roleFor;
+
+    /**
+     * @var int
+     */
+    public $roleType;
+
+    /**
      * @description The type of the rule. Valid values:
      *
      *   predefine
@@ -56,6 +66,8 @@ class PostRuleStatusChangeRequest extends Model
         'ids'      => 'Ids',
         'inUse'    => 'InUse',
         'regionId' => 'RegionId',
+        'roleFor'  => 'RoleFor',
+        'roleType' => 'RoleType',
         'ruleType' => 'RuleType',
     ];
 
@@ -74,6 +86,12 @@ class PostRuleStatusChangeRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->roleFor) {
+            $res['RoleFor'] = $this->roleFor;
+        }
+        if (null !== $this->roleType) {
+            $res['RoleType'] = $this->roleType;
         }
         if (null !== $this->ruleType) {
             $res['RuleType'] = $this->ruleType;
@@ -98,6 +116,12 @@ class PostRuleStatusChangeRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RoleFor'])) {
+            $model->roleFor = $map['RoleFor'];
+        }
+        if (isset($map['RoleType'])) {
+            $model->roleType = $map['RoleType'];
         }
         if (isset($map['RuleType'])) {
             $model->ruleType = $map['RuleType'];

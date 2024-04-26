@@ -21,6 +21,16 @@ class ListUserProdLogsRequest extends Model
     public $regionId;
 
     /**
+     * @var int
+     */
+    public $roleFor;
+
+    /**
+     * @var int
+     */
+    public $roleType;
+
+    /**
      * @description The log code.
      *
      * @example cloud_siem_aegis_proc
@@ -39,6 +49,8 @@ class ListUserProdLogsRequest extends Model
     public $sourceProdCode;
     protected $_name = [
         'regionId'       => 'RegionId',
+        'roleFor'        => 'RoleFor',
+        'roleType'       => 'RoleType',
         'sourceLogCode'  => 'SourceLogCode',
         'sourceProdCode' => 'SourceProdCode',
     ];
@@ -52,6 +64,12 @@ class ListUserProdLogsRequest extends Model
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->roleFor) {
+            $res['RoleFor'] = $this->roleFor;
+        }
+        if (null !== $this->roleType) {
+            $res['RoleType'] = $this->roleType;
         }
         if (null !== $this->sourceLogCode) {
             $res['SourceLogCode'] = $this->sourceLogCode;
@@ -73,6 +91,12 @@ class ListUserProdLogsRequest extends Model
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RoleFor'])) {
+            $model->roleFor = $map['RoleFor'];
+        }
+        if (isset($map['RoleType'])) {
+            $model->roleType = $map['RoleType'];
         }
         if (isset($map['SourceLogCode'])) {
             $model->sourceLogCode = $map['SourceLogCode'];

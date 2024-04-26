@@ -18,6 +18,11 @@ class ListCloudSiemPredefinedRulesRequest extends Model
     public $alertType;
 
     /**
+     * @var string
+     */
+    public $attCk;
+
+    /**
      * @description The page number. Pages start from page 1.
      *
      * @example 1
@@ -36,6 +41,13 @@ class ListCloudSiemPredefinedRulesRequest extends Model
     public $endTime;
 
     /**
+     * @example allToSingle
+     *
+     * @var string
+     */
+    public $eventTransferType;
+
+    /**
      * @description The ID of the rule.
      *
      * @example 10223
@@ -43,6 +55,25 @@ class ListCloudSiemPredefinedRulesRequest extends Model
      * @var string
      */
     public $id;
+
+    /**
+     * @var string
+     */
+    public $logSource;
+
+    /**
+     * @example desc
+     *
+     * @var string
+     */
+    public $order;
+
+    /**
+     * @example Id
+     *
+     * @var string
+     */
+    public $orderField;
 
     /**
      * @description The number of entries per page. Maximum value: 100.
@@ -64,6 +95,16 @@ class ListCloudSiemPredefinedRulesRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var int
+     */
+    public $roleFor;
+
+    /**
+     * @var int
+     */
+    public $roleType;
 
     /**
      * @description The name of the rule. The name can contain letters, digits, underscores (\_), and periods (.).
@@ -123,17 +164,24 @@ class ListCloudSiemPredefinedRulesRequest extends Model
      */
     public $threatLevel;
     protected $_name = [
-        'alertType'   => 'AlertType',
-        'currentPage' => 'CurrentPage',
-        'endTime'     => 'EndTime',
-        'id'          => 'Id',
-        'pageSize'    => 'PageSize',
-        'regionId'    => 'RegionId',
-        'ruleName'    => 'RuleName',
-        'ruleType'    => 'RuleType',
-        'startTime'   => 'StartTime',
-        'status'      => 'Status',
-        'threatLevel' => 'ThreatLevel',
+        'alertType'         => 'AlertType',
+        'attCk'             => 'AttCk',
+        'currentPage'       => 'CurrentPage',
+        'endTime'           => 'EndTime',
+        'eventTransferType' => 'EventTransferType',
+        'id'                => 'Id',
+        'logSource'         => 'LogSource',
+        'order'             => 'Order',
+        'orderField'        => 'OrderField',
+        'pageSize'          => 'PageSize',
+        'regionId'          => 'RegionId',
+        'roleFor'           => 'RoleFor',
+        'roleType'          => 'RoleType',
+        'ruleName'          => 'RuleName',
+        'ruleType'          => 'RuleType',
+        'startTime'         => 'StartTime',
+        'status'            => 'Status',
+        'threatLevel'       => 'ThreatLevel',
     ];
 
     public function validate()
@@ -146,20 +194,41 @@ class ListCloudSiemPredefinedRulesRequest extends Model
         if (null !== $this->alertType) {
             $res['AlertType'] = $this->alertType;
         }
+        if (null !== $this->attCk) {
+            $res['AttCk'] = $this->attCk;
+        }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+        if (null !== $this->eventTransferType) {
+            $res['EventTransferType'] = $this->eventTransferType;
+        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->logSource) {
+            $res['LogSource'] = $this->logSource;
+        }
+        if (null !== $this->order) {
+            $res['Order'] = $this->order;
+        }
+        if (null !== $this->orderField) {
+            $res['OrderField'] = $this->orderField;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->roleFor) {
+            $res['RoleFor'] = $this->roleFor;
+        }
+        if (null !== $this->roleType) {
+            $res['RoleType'] = $this->roleType;
         }
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
@@ -191,20 +260,41 @@ class ListCloudSiemPredefinedRulesRequest extends Model
         if (isset($map['AlertType'])) {
             $model->alertType = $map['AlertType'];
         }
+        if (isset($map['AttCk'])) {
+            $model->attCk = $map['AttCk'];
+        }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+        if (isset($map['EventTransferType'])) {
+            $model->eventTransferType = $map['EventTransferType'];
+        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['LogSource'])) {
+            $model->logSource = $map['LogSource'];
+        }
+        if (isset($map['Order'])) {
+            $model->order = $map['Order'];
+        }
+        if (isset($map['OrderField'])) {
+            $model->orderField = $map['OrderField'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RoleFor'])) {
+            $model->roleFor = $map['RoleFor'];
+        }
+        if (isset($map['RoleType'])) {
+            $model->roleType = $map['RoleType'];
         }
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];

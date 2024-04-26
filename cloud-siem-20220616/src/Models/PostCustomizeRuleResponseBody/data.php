@@ -36,6 +36,16 @@ class data extends Model
     public $aliuid;
 
     /**
+     * @var string
+     */
+    public $attCk;
+
+    /**
+     * @var int
+     */
+    public $dataType;
+
+    /**
      * @description The extended information about event generation. If eventTransferType is set to allToSingle, the value of this parameter indicates the length and unit of the alert aggregation window. The HTML escape characters are reversed.
      *
      * @example {&quot;time&quot;:&quot;1&quot;,&quot;unit&quot;:&quot;MINUTE&quot;}
@@ -229,6 +239,8 @@ class data extends Model
         'alertType'           => 'AlertType',
         'alertTypeMds'        => 'AlertTypeMds',
         'aliuid'              => 'Aliuid',
+        'attCk'               => 'AttCk',
+        'dataType'            => 'DataType',
         'eventTransferExt'    => 'EventTransferExt',
         'eventTransferSwitch' => 'EventTransferSwitch',
         'eventTransferType'   => 'EventTransferType',
@@ -265,6 +277,12 @@ class data extends Model
         }
         if (null !== $this->aliuid) {
             $res['Aliuid'] = $this->aliuid;
+        }
+        if (null !== $this->attCk) {
+            $res['AttCk'] = $this->attCk;
+        }
+        if (null !== $this->dataType) {
+            $res['DataType'] = $this->dataType;
         }
         if (null !== $this->eventTransferExt) {
             $res['EventTransferExt'] = $this->eventTransferExt;
@@ -343,6 +361,12 @@ class data extends Model
         }
         if (isset($map['Aliuid'])) {
             $model->aliuid = $map['Aliuid'];
+        }
+        if (isset($map['AttCk'])) {
+            $model->attCk = $map['AttCk'];
+        }
+        if (isset($map['DataType'])) {
+            $model->dataType = $map['DataType'];
         }
         if (isset($map['EventTransferExt'])) {
             $model->eventTransferExt = $map['EventTransferExt'];

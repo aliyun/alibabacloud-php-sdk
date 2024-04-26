@@ -91,6 +91,16 @@ class DescribeAlertsRequest extends Model
     public $regionId;
 
     /**
+     * @var int
+     */
+    public $roleFor;
+
+    /**
+     * @var int
+     */
+    public $roleType;
+
+    /**
      * @description The source of the alert.
      *
      * @example sas
@@ -125,6 +135,8 @@ class DescribeAlertsRequest extends Model
         'level'       => 'Level',
         'pageSize'    => 'PageSize',
         'regionId'    => 'RegionId',
+        'roleFor'     => 'RoleFor',
+        'roleType'    => 'RoleType',
         'source'      => 'Source',
         'startTime'   => 'StartTime',
         'subUserId'   => 'SubUserId',
@@ -160,6 +172,12 @@ class DescribeAlertsRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->roleFor) {
+            $res['RoleFor'] = $this->roleFor;
+        }
+        if (null !== $this->roleType) {
+            $res['RoleType'] = $this->roleType;
         }
         if (null !== $this->source) {
             $res['Source'] = $this->source;
@@ -207,6 +225,12 @@ class DescribeAlertsRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RoleFor'])) {
+            $model->roleFor = $map['RoleFor'];
+        }
+        if (isset($map['RoleType'])) {
+            $model->roleType = $map['RoleType'];
         }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];

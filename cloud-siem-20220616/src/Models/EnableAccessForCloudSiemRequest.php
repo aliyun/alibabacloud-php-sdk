@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class EnableAccessForCloudSiemRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $autoSubmit;
+
+    /**
      * @description The data management center of the threat analysis feature. Specify this parameter based on the region where your assets reside. Valid values:
      *
      *   cn-hangzhou: Your assets reside in regions inside China.
@@ -19,8 +24,21 @@ class EnableAccessForCloudSiemRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var int
+     */
+    public $roleFor;
+
+    /**
+     * @var int
+     */
+    public $roleType;
     protected $_name = [
-        'regionId' => 'RegionId',
+        'autoSubmit' => 'AutoSubmit',
+        'regionId'   => 'RegionId',
+        'roleFor'    => 'RoleFor',
+        'roleType'   => 'RoleType',
     ];
 
     public function validate()
@@ -30,8 +48,17 @@ class EnableAccessForCloudSiemRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->autoSubmit) {
+            $res['AutoSubmit'] = $this->autoSubmit;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->roleFor) {
+            $res['RoleFor'] = $this->roleFor;
+        }
+        if (null !== $this->roleType) {
+            $res['RoleType'] = $this->roleType;
         }
 
         return $res;
@@ -45,8 +72,17 @@ class EnableAccessForCloudSiemRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoSubmit'])) {
+            $model->autoSubmit = $map['AutoSubmit'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RoleFor'])) {
+            $model->roleFor = $map['RoleFor'];
+        }
+        if (isset($map['RoleType'])) {
+            $model->roleType = $map['RoleType'];
         }
 
         return $model;

@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeEventCountByThreatLevelRequest extends Model
 {
     /**
+     * @example 1577808000000
+     *
+     * @var int
+     */
+    public $endTime;
+
+    /**
      * @description The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
      *
      *   cn-hangzhou: Your assets reside in regions in China.
@@ -19,8 +26,29 @@ class DescribeEventCountByThreatLevelRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var int
+     */
+    public $roleFor;
+
+    /**
+     * @var int
+     */
+    public $roleType;
+
+    /**
+     * @example 1577808000000
+     *
+     * @var int
+     */
+    public $startTime;
     protected $_name = [
-        'regionId' => 'RegionId',
+        'endTime'   => 'EndTime',
+        'regionId'  => 'RegionId',
+        'roleFor'   => 'RoleFor',
+        'roleType'  => 'RoleType',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()
@@ -30,8 +58,20 @@ class DescribeEventCountByThreatLevelRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->roleFor) {
+            $res['RoleFor'] = $this->roleFor;
+        }
+        if (null !== $this->roleType) {
+            $res['RoleType'] = $this->roleType;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -45,8 +85,20 @@ class DescribeEventCountByThreatLevelRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RoleFor'])) {
+            $model->roleFor = $map['RoleFor'];
+        }
+        if (isset($map['RoleType'])) {
+            $model->roleType = $map['RoleType'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

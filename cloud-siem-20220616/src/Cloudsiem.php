@@ -655,6 +655,12 @@ class Cloudsiem extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -700,6 +706,12 @@ class Cloudsiem extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -798,6 +810,12 @@ class Cloudsiem extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
         }
         if (!Utils::isUnset($request->ruleId)) {
             $body['RuleId'] = $request->ruleId;
@@ -1047,6 +1065,12 @@ class Cloudsiem extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -1090,6 +1114,12 @@ class Cloudsiem extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -1132,6 +1162,12 @@ class Cloudsiem extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -1178,6 +1214,12 @@ class Cloudsiem extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -1228,6 +1270,12 @@ class Cloudsiem extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
+        }
         if (!Utils::isUnset($request->startTime)) {
             $body['StartTime'] = $request->startTime;
         }
@@ -1277,6 +1325,12 @@ class Cloudsiem extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -1319,6 +1373,15 @@ class Cloudsiem extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
+        }
+        if (!Utils::isUnset($request->ruleType)) {
+            $body['RuleType'] = $request->ruleType;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -1384,6 +1447,12 @@ class Cloudsiem extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
+        }
         if (!Utils::isUnset($request->source)) {
             $body['Source'] = $request->source;
         }
@@ -1438,6 +1507,12 @@ class Cloudsiem extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
         }
         if (!Utils::isUnset($request->startTime)) {
             $body['StartTime'] = $request->startTime;
@@ -1496,6 +1571,12 @@ class Cloudsiem extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
         }
         if (!Utils::isUnset($request->sophonTaskId)) {
             $body['SophonTaskId'] = $request->sophonTaskId;
@@ -1561,6 +1642,12 @@ class Cloudsiem extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
+        }
         if (!Utils::isUnset($request->source)) {
             $body['Source'] = $request->source;
         }
@@ -1618,6 +1705,12 @@ class Cloudsiem extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
         }
         if (!Utils::isUnset($request->startTime)) {
             $body['StartTime'] = $request->startTime;
@@ -1708,6 +1801,12 @@ class Cloudsiem extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -1753,6 +1852,12 @@ class Cloudsiem extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -1802,6 +1907,12 @@ class Cloudsiem extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -1858,6 +1969,12 @@ class Cloudsiem extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -1904,6 +2021,12 @@ class Cloudsiem extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -1949,6 +2072,12 @@ class Cloudsiem extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -2016,6 +2145,12 @@ class Cloudsiem extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
         }
         if (!Utils::isUnset($request->startTime)) {
             $body['StartTime'] = $request->startTime;
@@ -2164,6 +2299,12 @@ class Cloudsiem extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -2210,6 +2351,12 @@ class Cloudsiem extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -2255,6 +2402,12 @@ class Cloudsiem extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -2412,6 +2565,12 @@ class Cloudsiem extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -2457,6 +2616,12 @@ class Cloudsiem extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
         }
         if (!Utils::isUnset($request->startTime)) {
             $body['StartTime'] = $request->startTime;
@@ -2513,6 +2678,12 @@ class Cloudsiem extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
+        }
         if (!Utils::isUnset($request->sophonTaskId)) {
             $body['SophonTaskId'] = $request->sophonTaskId;
         }
@@ -2556,8 +2727,20 @@ class Cloudsiem extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -2610,6 +2793,12 @@ class Cloudsiem extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -2749,6 +2938,12 @@ class Cloudsiem extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -2794,6 +2989,12 @@ class Cloudsiem extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -2881,6 +3082,12 @@ class Cloudsiem extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -2923,6 +3130,12 @@ class Cloudsiem extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
         }
         if (!Utils::isUnset($request->sceneType)) {
             $body['SceneType'] = $request->sceneType;
@@ -3013,6 +3226,12 @@ class Cloudsiem extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -3098,6 +3317,12 @@ class Cloudsiem extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -3191,6 +3416,12 @@ class Cloudsiem extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -3248,6 +3479,12 @@ class Cloudsiem extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -3399,8 +3636,17 @@ class Cloudsiem extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->autoSubmit)) {
+            $body['AutoSubmit'] = $request->autoSubmit;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -3487,6 +3733,12 @@ class Cloudsiem extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -3693,6 +3945,12 @@ class Cloudsiem extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -3791,6 +4049,12 @@ class Cloudsiem extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -3833,6 +4097,12 @@ class Cloudsiem extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -3894,6 +4164,12 @@ class Cloudsiem extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
         }
         if (!Utils::isUnset($request->ruleName)) {
             $body['RuleName'] = $request->ruleName;
@@ -4051,11 +4327,23 @@ class Cloudsiem extends OpenApiClient
         if (!Utils::isUnset($request->id)) {
             $body['Id'] = $request->id;
         }
+        if (!Utils::isUnset($request->order)) {
+            $body['Order'] = $request->order;
+        }
+        if (!Utils::isUnset($request->orderField)) {
+            $body['OrderField'] = $request->orderField;
+        }
         if (!Utils::isUnset($request->pageSize)) {
             $body['PageSize'] = $request->pageSize;
         }
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
         }
         if (!Utils::isUnset($request->ruleName)) {
             $body['RuleName'] = $request->ruleName;
@@ -4115,20 +4403,41 @@ class Cloudsiem extends OpenApiClient
         if (!Utils::isUnset($request->alertType)) {
             $body['AlertType'] = $request->alertType;
         }
+        if (!Utils::isUnset($request->attCk)) {
+            $body['AttCk'] = $request->attCk;
+        }
         if (!Utils::isUnset($request->currentPage)) {
             $body['CurrentPage'] = $request->currentPage;
         }
         if (!Utils::isUnset($request->endTime)) {
             $body['EndTime'] = $request->endTime;
         }
+        if (!Utils::isUnset($request->eventTransferType)) {
+            $body['EventTransferType'] = $request->eventTransferType;
+        }
         if (!Utils::isUnset($request->id)) {
             $body['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->logSource)) {
+            $body['LogSource'] = $request->logSource;
+        }
+        if (!Utils::isUnset($request->order)) {
+            $body['Order'] = $request->order;
+        }
+        if (!Utils::isUnset($request->orderField)) {
+            $body['OrderField'] = $request->orderField;
         }
         if (!Utils::isUnset($request->pageSize)) {
             $body['PageSize'] = $request->pageSize;
         }
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
         }
         if (!Utils::isUnset($request->ruleName)) {
             $body['RuleName'] = $request->ruleName;
@@ -4196,6 +4505,12 @@ class Cloudsiem extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -4338,6 +4653,12 @@ class Cloudsiem extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -4414,6 +4735,12 @@ class Cloudsiem extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
+        }
         if (!Utils::isUnset($request->sophonTaskId)) {
             $body['SophonTaskId'] = $request->sophonTaskId;
         }
@@ -4468,6 +4795,12 @@ class Cloudsiem extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -4699,6 +5032,12 @@ class Cloudsiem extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
+        }
         if (!Utils::isUnset($request->sourceLogCode)) {
             $body['SourceLogCode'] = $request->sourceLogCode;
         }
@@ -4747,6 +5086,12 @@ class Cloudsiem extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
         }
         if (!Utils::isUnset($request->sourceProdCode)) {
             $body['SourceProdCode'] = $request->sourceProdCode;
@@ -4986,6 +5331,12 @@ class Cloudsiem extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -5044,6 +5395,12 @@ class Cloudsiem extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
+        }
         if (!Utils::isUnset($request->ruleName)) {
             $body['RuleName'] = $request->ruleName;
         }
@@ -5096,6 +5453,9 @@ class Cloudsiem extends OpenApiClient
         if (!Utils::isUnset($request->alertTypeMds)) {
             $body['AlertTypeMds'] = $request->alertTypeMds;
         }
+        if (!Utils::isUnset($request->attCk)) {
+            $body['AttCk'] = $request->attCk;
+        }
         if (!Utils::isUnset($request->eventTransferExt)) {
             $body['EventTransferExt'] = $request->eventTransferExt;
         }
@@ -5125,6 +5485,12 @@ class Cloudsiem extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
         }
         if (!Utils::isUnset($request->ruleCondition)) {
             $body['RuleCondition'] = $request->ruleCondition;
@@ -5190,6 +5556,12 @@ class Cloudsiem extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
+        }
         if (!Utils::isUnset($request->simulatedData)) {
             $body['SimulatedData'] = $request->simulatedData;
         }
@@ -5251,6 +5623,12 @@ class Cloudsiem extends OpenApiClient
         if (!Utils::isUnset($request->remark)) {
             $body['Remark'] = $request->remark;
         }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
+        }
         if (!Utils::isUnset($request->status)) {
             $body['Status'] = $request->status;
         }
@@ -5299,6 +5677,12 @@ class Cloudsiem extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
         }
         if (!Utils::isUnset($request->whiteruleList)) {
             $body['WhiteruleList'] = $request->whiteruleList;
@@ -5349,6 +5733,12 @@ class Cloudsiem extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -5398,6 +5788,12 @@ class Cloudsiem extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
+        }
         if (!Utils::isUnset($request->ruleType)) {
             $body['RuleType'] = $request->ruleType;
         }
@@ -5443,6 +5839,12 @@ class Cloudsiem extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -5538,6 +5940,12 @@ class Cloudsiem extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
         }
         if (!Utils::isUnset($request->ttl)) {
             $body['Ttl'] = $request->ttl;
@@ -5738,6 +6146,12 @@ class Cloudsiem extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -5786,6 +6200,12 @@ class Cloudsiem extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->roleFor)) {
+            $body['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $body['RoleType'] = $request->roleType;
         }
         if (!Utils::isUnset($request->whiteRuleId)) {
             $body['WhiteRuleId'] = $request->whiteRuleId;

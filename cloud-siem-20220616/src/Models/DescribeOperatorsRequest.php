@@ -21,6 +21,16 @@ class DescribeOperatorsRequest extends Model
     public $regionId;
 
     /**
+     * @var int
+     */
+    public $roleFor;
+
+    /**
+     * @var int
+     */
+    public $roleType;
+
+    /**
      * @description The type of the scenario in which the operator is used. Valid values:
      *
      *   If you do not specify this parameter, the default scenario is used.
@@ -33,6 +43,8 @@ class DescribeOperatorsRequest extends Model
     public $sceneType;
     protected $_name = [
         'regionId'  => 'RegionId',
+        'roleFor'   => 'RoleFor',
+        'roleType'  => 'RoleType',
         'sceneType' => 'SceneType',
     ];
 
@@ -45,6 +57,12 @@ class DescribeOperatorsRequest extends Model
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->roleFor) {
+            $res['RoleFor'] = $this->roleFor;
+        }
+        if (null !== $this->roleType) {
+            $res['RoleType'] = $this->roleType;
         }
         if (null !== $this->sceneType) {
             $res['SceneType'] = $this->sceneType;
@@ -63,6 +81,12 @@ class DescribeOperatorsRequest extends Model
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RoleFor'])) {
+            $model->roleFor = $map['RoleFor'];
+        }
+        if (isset($map['RoleType'])) {
+            $model->roleType = $map['RoleType'];
         }
         if (isset($map['SceneType'])) {
             $model->sceneType = $map['SceneType'];

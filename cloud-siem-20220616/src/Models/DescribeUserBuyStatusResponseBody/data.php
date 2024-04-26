@@ -84,6 +84,13 @@ class data extends Model
     public $masterUserName;
 
     /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $rdOrder;
+
+    /**
      * @description The instance ID of Security Center.
      *
      * @example sas-instance-xxxxx
@@ -118,6 +125,7 @@ class data extends Model
         'mainUserName'   => 'MainUserName',
         'masterUserId'   => 'MasterUserId',
         'masterUserName' => 'MasterUserName',
+        'rdOrder'        => 'RdOrder',
         'sasInstanceId'  => 'SasInstanceId',
         'subUserId'      => 'SubUserId',
         'subUserName'    => 'SubUserName',
@@ -153,6 +161,9 @@ class data extends Model
         }
         if (null !== $this->masterUserName) {
             $res['MasterUserName'] = $this->masterUserName;
+        }
+        if (null !== $this->rdOrder) {
+            $res['RdOrder'] = $this->rdOrder;
         }
         if (null !== $this->sasInstanceId) {
             $res['SasInstanceId'] = $this->sasInstanceId;
@@ -198,6 +209,9 @@ class data extends Model
         }
         if (isset($map['MasterUserName'])) {
             $model->masterUserName = $map['MasterUserName'];
+        }
+        if (isset($map['RdOrder'])) {
+            $model->rdOrder = $map['RdOrder'];
         }
         if (isset($map['SasInstanceId'])) {
             $model->sasInstanceId = $map['SasInstanceId'];

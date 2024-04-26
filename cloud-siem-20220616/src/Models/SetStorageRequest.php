@@ -33,6 +33,16 @@ class SetStorageRequest extends Model
     public $regionId;
 
     /**
+     * @var int
+     */
+    public $roleFor;
+
+    /**
+     * @var int
+     */
+    public $roleType;
+
+    /**
      * @description The storage duration of logs. Default value: 180. Minimum value: 30. Maximum value: 3000. Unit: days.
      *
      * @example 180
@@ -43,6 +53,8 @@ class SetStorageRequest extends Model
     protected $_name = [
         'region'   => 'Region',
         'regionId' => 'RegionId',
+        'roleFor'  => 'RoleFor',
+        'roleType' => 'RoleType',
         'ttl'      => 'Ttl',
     ];
 
@@ -58,6 +70,12 @@ class SetStorageRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->roleFor) {
+            $res['RoleFor'] = $this->roleFor;
+        }
+        if (null !== $this->roleType) {
+            $res['RoleType'] = $this->roleType;
         }
         if (null !== $this->ttl) {
             $res['Ttl'] = $this->ttl;
@@ -79,6 +97,12 @@ class SetStorageRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RoleFor'])) {
+            $model->roleFor = $map['RoleFor'];
+        }
+        if (isset($map['RoleType'])) {
+            $model->roleType = $map['RoleType'];
         }
         if (isset($map['Ttl'])) {
             $model->ttl = $map['Ttl'];

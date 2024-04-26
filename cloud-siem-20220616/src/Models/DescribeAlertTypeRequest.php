@@ -19,8 +19,28 @@ class DescribeAlertTypeRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var int
+     */
+    public $roleFor;
+
+    /**
+     * @var int
+     */
+    public $roleType;
+
+    /**
+     * @example customize
+     *
+     * @var string
+     */
+    public $ruleType;
     protected $_name = [
         'regionId' => 'RegionId',
+        'roleFor'  => 'RoleFor',
+        'roleType' => 'RoleType',
+        'ruleType' => 'RuleType',
     ];
 
     public function validate()
@@ -32,6 +52,15 @@ class DescribeAlertTypeRequest extends Model
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->roleFor) {
+            $res['RoleFor'] = $this->roleFor;
+        }
+        if (null !== $this->roleType) {
+            $res['RoleType'] = $this->roleType;
+        }
+        if (null !== $this->ruleType) {
+            $res['RuleType'] = $this->ruleType;
         }
 
         return $res;
@@ -47,6 +76,15 @@ class DescribeAlertTypeRequest extends Model
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RoleFor'])) {
+            $model->roleFor = $map['RoleFor'];
+        }
+        if (isset($map['RoleType'])) {
+            $model->roleType = $map['RoleType'];
+        }
+        if (isset($map['RuleType'])) {
+            $model->ruleType = $map['RuleType'];
         }
 
         return $model;

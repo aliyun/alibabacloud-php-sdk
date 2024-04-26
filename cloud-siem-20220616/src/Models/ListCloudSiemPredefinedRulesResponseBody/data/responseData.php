@@ -18,6 +18,18 @@ class responseData extends Model
     public $alertType;
 
     /**
+     * @var string
+     */
+    public $attCk;
+
+    /**
+     * @example allToSingle
+     *
+     * @var string
+     */
+    public $eventTransferType;
+
+    /**
      * @description The time when the rule was created.
      *
      * @example 2021-01-06 16:37:29
@@ -63,6 +75,20 @@ class responseData extends Model
     public $ruleName;
 
     /**
+     * @example siem_base64-command-exec_aegis-proc
+     *
+     * @var string
+     */
+    public $ruleNameCn;
+
+    /**
+     * @example siem_base64-command-exec_aegis-proc
+     *
+     * @var string
+     */
+    public $ruleNameEn;
+
+    /**
      * @description The internal code of the rule name.
      *
      * @example ${siem_rule_name_siem_cfw-attack-count-level-up_cfw-attack}
@@ -105,16 +131,20 @@ class responseData extends Model
      */
     public $threatLevel;
     protected $_name = [
-        'alertType'   => 'AlertType',
-        'gmtCreate'   => 'GmtCreate',
-        'gmtModified' => 'GmtModified',
-        'id'          => 'Id',
-        'ruleDescMds' => 'RuleDescMds',
-        'ruleName'    => 'RuleName',
-        'ruleNameMds' => 'RuleNameMds',
-        'source'      => 'Source',
-        'status'      => 'Status',
-        'threatLevel' => 'ThreatLevel',
+        'alertType'         => 'AlertType',
+        'attCk'             => 'AttCk',
+        'eventTransferType' => 'EventTransferType',
+        'gmtCreate'         => 'GmtCreate',
+        'gmtModified'       => 'GmtModified',
+        'id'                => 'Id',
+        'ruleDescMds'       => 'RuleDescMds',
+        'ruleName'          => 'RuleName',
+        'ruleNameCn'        => 'RuleNameCn',
+        'ruleNameEn'        => 'RuleNameEn',
+        'ruleNameMds'       => 'RuleNameMds',
+        'source'            => 'Source',
+        'status'            => 'Status',
+        'threatLevel'       => 'ThreatLevel',
     ];
 
     public function validate()
@@ -126,6 +156,12 @@ class responseData extends Model
         $res = [];
         if (null !== $this->alertType) {
             $res['AlertType'] = $this->alertType;
+        }
+        if (null !== $this->attCk) {
+            $res['AttCk'] = $this->attCk;
+        }
+        if (null !== $this->eventTransferType) {
+            $res['EventTransferType'] = $this->eventTransferType;
         }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
@@ -141,6 +177,12 @@ class responseData extends Model
         }
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
+        }
+        if (null !== $this->ruleNameCn) {
+            $res['RuleNameCn'] = $this->ruleNameCn;
+        }
+        if (null !== $this->ruleNameEn) {
+            $res['RuleNameEn'] = $this->ruleNameEn;
         }
         if (null !== $this->ruleNameMds) {
             $res['RuleNameMds'] = $this->ruleNameMds;
@@ -169,6 +211,12 @@ class responseData extends Model
         if (isset($map['AlertType'])) {
             $model->alertType = $map['AlertType'];
         }
+        if (isset($map['AttCk'])) {
+            $model->attCk = $map['AttCk'];
+        }
+        if (isset($map['EventTransferType'])) {
+            $model->eventTransferType = $map['EventTransferType'];
+        }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
@@ -183,6 +231,12 @@ class responseData extends Model
         }
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
+        }
+        if (isset($map['RuleNameCn'])) {
+            $model->ruleNameCn = $map['RuleNameCn'];
+        }
+        if (isset($map['RuleNameEn'])) {
+            $model->ruleNameEn = $map['RuleNameEn'];
         }
         if (isset($map['RuleNameMds'])) {
             $model->ruleNameMds = $map['RuleNameMds'];

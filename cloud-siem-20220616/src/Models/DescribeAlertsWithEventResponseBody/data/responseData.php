@@ -213,6 +213,11 @@ class responseData extends Model
     public $endTime;
 
     /**
+     * @var string
+     */
+    public $entityList;
+
+    /**
      * @description The time when the alert was received.
      *
      * @example 2021-01-06 16:37:29
@@ -335,6 +340,7 @@ class responseData extends Model
         'attCk'              => 'AttCk',
         'cloudCode'          => 'CloudCode',
         'endTime'            => 'EndTime',
+        'entityList'         => 'EntityList',
         'gmtCreate'          => 'GmtCreate',
         'gmtModified'        => 'GmtModified',
         'id'                 => 'Id',
@@ -423,6 +429,9 @@ class responseData extends Model
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->entityList) {
+            $res['EntityList'] = $this->entityList;
         }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
@@ -537,6 +546,9 @@ class responseData extends Model
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['EntityList'])) {
+            $model->entityList = $map['EntityList'];
         }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
