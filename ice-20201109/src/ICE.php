@@ -205,6 +205,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\ListAvatarsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListAvatarsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListAvatarTrainingJobsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListAvatarTrainingJobsResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListBatchMediaProducingJobsRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListBatchMediaProducingJobsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListCustomizedVoiceJobsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListCustomizedVoiceJobsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListCustomizedVoicesRequest;
@@ -239,6 +241,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\ListMediaInfoJobsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListMediaInfoJobsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListMediaMarksRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListMediaMarksResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListMediaProducingJobsRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListMediaProducingJobsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListPackageJobsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListPackageJobsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListPipelinesRequest;
@@ -4183,6 +4187,9 @@ class ICE extends OpenApiClient
         if (!Utils::isUnset($request->outputType)) {
             $query['OutputType'] = $request->outputType;
         }
+        if (!Utils::isUnset($request->returnDetailedInfo)) {
+            $query['ReturnDetailedInfo'] = $request->returnDetailedInfo;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -5226,6 +5233,70 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param ListBatchMediaProducingJobsRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListBatchMediaProducingJobsResponse
+     */
+    public function listBatchMediaProducingJobsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->jobType)) {
+            $query['JobType'] = $request->jobType;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->sortBy)) {
+            $query['SortBy'] = $request->sortBy;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListBatchMediaProducingJobs',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListBatchMediaProducingJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListBatchMediaProducingJobsRequest $request
+     *
+     * @return ListBatchMediaProducingJobsResponse
+     */
+    public function listBatchMediaProducingJobs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBatchMediaProducingJobsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListCustomTemplatesRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -6101,6 +6172,73 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listMediaMarksWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListMediaProducingJobsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListMediaProducingJobsResponse
+     */
+    public function listMediaProducingJobsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->jobType)) {
+            $query['JobType'] = $request->jobType;
+        }
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->masterJobId)) {
+            $query['MasterJobId'] = $request->masterJobId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->sortBy)) {
+            $query['SortBy'] = $request->sortBy;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListMediaProducingJobs',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListMediaProducingJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListMediaProducingJobsRequest $request
+     *
+     * @return ListMediaProducingJobsResponse
+     */
+    public function listMediaProducingJobs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMediaProducingJobsWithOptions($request, $runtime);
     }
 
     /**
@@ -7135,6 +7273,9 @@ class ICE extends OpenApiClient
         }
         if (!Utils::isUnset($request->registerConfig)) {
             $query['RegisterConfig'] = $request->registerConfig;
+        }
+        if (!Utils::isUnset($request->smartTagTemplateId)) {
+            $query['SmartTagTemplateId'] = $request->smartTagTemplateId;
         }
         if (!Utils::isUnset($request->title)) {
             $query['Title'] = $request->title;

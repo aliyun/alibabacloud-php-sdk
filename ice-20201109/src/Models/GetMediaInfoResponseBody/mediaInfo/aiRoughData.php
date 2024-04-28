@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaInfoResponseBody\mediaInfo;
 
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaInfoResponseBody\mediaInfo\aiRoughData\standardSmartTagJob;
 use AlibabaCloud\Tea\Model;
 
 class aiRoughData extends Model
@@ -35,17 +36,23 @@ class aiRoughData extends Model
     public $saveType;
 
     /**
+     * @var standardSmartTagJob
+     */
+    public $standardSmartTagJob;
+
+    /**
      * @example Analyzing
      *
      * @var string
      */
     public $status;
     protected $_name = [
-        'aiCategory' => 'AiCategory',
-        'aiJobId'    => 'AiJobId',
-        'result'     => 'Result',
-        'saveType'   => 'SaveType',
-        'status'     => 'Status',
+        'aiCategory'          => 'AiCategory',
+        'aiJobId'             => 'AiJobId',
+        'result'              => 'Result',
+        'saveType'            => 'SaveType',
+        'standardSmartTagJob' => 'StandardSmartTagJob',
+        'status'              => 'Status',
     ];
 
     public function validate()
@@ -66,6 +73,9 @@ class aiRoughData extends Model
         }
         if (null !== $this->saveType) {
             $res['SaveType'] = $this->saveType;
+        }
+        if (null !== $this->standardSmartTagJob) {
+            $res['StandardSmartTagJob'] = null !== $this->standardSmartTagJob ? $this->standardSmartTagJob->toMap() : null;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -93,6 +103,9 @@ class aiRoughData extends Model
         }
         if (isset($map['SaveType'])) {
             $model->saveType = $map['SaveType'];
+        }
+        if (isset($map['StandardSmartTagJob'])) {
+            $model->standardSmartTagJob = standardSmartTagJob::fromMap($map['StandardSmartTagJob']);
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

@@ -82,6 +82,11 @@ class RegisterMediaInfoRequest extends Model
     public $registerConfig;
 
     /**
+     * @var string
+     */
+    public $smartTagTemplateId;
+
+    /**
      * @example defaultTitle
      *
      * @var string
@@ -100,20 +105,21 @@ class RegisterMediaInfoRequest extends Model
      */
     public $workflowId;
     protected $_name = [
-        'businessType'   => 'BusinessType',
-        'cateId'         => 'CateId',
-        'clientToken'    => 'ClientToken',
-        'coverURL'       => 'CoverURL',
-        'description'    => 'Description',
-        'inputURL'       => 'InputURL',
-        'mediaTags'      => 'MediaTags',
-        'mediaType'      => 'MediaType',
-        'overwrite'      => 'Overwrite',
-        'referenceId'    => 'ReferenceId',
-        'registerConfig' => 'RegisterConfig',
-        'title'          => 'Title',
-        'userData'       => 'UserData',
-        'workflowId'     => 'WorkflowId',
+        'businessType'       => 'BusinessType',
+        'cateId'             => 'CateId',
+        'clientToken'        => 'ClientToken',
+        'coverURL'           => 'CoverURL',
+        'description'        => 'Description',
+        'inputURL'           => 'InputURL',
+        'mediaTags'          => 'MediaTags',
+        'mediaType'          => 'MediaType',
+        'overwrite'          => 'Overwrite',
+        'referenceId'        => 'ReferenceId',
+        'registerConfig'     => 'RegisterConfig',
+        'smartTagTemplateId' => 'SmartTagTemplateId',
+        'title'              => 'Title',
+        'userData'           => 'UserData',
+        'workflowId'         => 'WorkflowId',
     ];
 
     public function validate()
@@ -155,6 +161,9 @@ class RegisterMediaInfoRequest extends Model
         }
         if (null !== $this->registerConfig) {
             $res['RegisterConfig'] = $this->registerConfig;
+        }
+        if (null !== $this->smartTagTemplateId) {
+            $res['SmartTagTemplateId'] = $this->smartTagTemplateId;
         }
         if (null !== $this->title) {
             $res['Title'] = $this->title;
@@ -209,6 +218,9 @@ class RegisterMediaInfoRequest extends Model
         }
         if (isset($map['RegisterConfig'])) {
             $model->registerConfig = $map['RegisterConfig'];
+        }
+        if (isset($map['SmartTagTemplateId'])) {
+            $model->smartTagTemplateId = $map['SmartTagTemplateId'];
         }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];

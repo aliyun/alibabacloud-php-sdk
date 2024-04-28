@@ -2,19 +2,22 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ICE\V20201109\Models\GetBatchMediaProducingJobResponseBody;
+namespace AlibabaCloud\SDK\ICE\V20201109\Models\ListBatchMediaProducingJobsResponseBody;
 
-use AlibabaCloud\SDK\ICE\V20201109\Models\GetBatchMediaProducingJobResponseBody\editingBatchJob\subJobList;
 use AlibabaCloud\Tea\Model;
 
-class editingBatchJob extends Model
+class editingBatchJobList extends Model
 {
     /**
+     * @example 2023-06-09T06:38:09Z
+     *
      * @var string
      */
     public $completeTime;
 
     /**
+     * @example 2023-06-09T06:36:48Z
+     *
      * @var string
      */
     public $createTime;
@@ -27,10 +30,6 @@ class editingBatchJob extends Model
     public $editingConfig;
 
     /**
-     * @example {
-     * "ErrorCode": "InvalidMaterial.NotFound",
-     * "ErrorMessage": "The specified clips id not found:[\"****30d0b5e871eebb2ff7f6c75a****\"]"
-     * }
      * @var string
      */
     public $extend;
@@ -41,18 +40,22 @@ class editingBatchJob extends Model
     public $inputConfig;
 
     /**
-     * @example ****b6b2750d4308892ac3330238****
+     * @example ******7ecbee4c6d9b8474498e******
      *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example Script
+     *
      * @var string
      */
     public $jobType;
 
     /**
+     * @example 2023-06-09T06:37:58Z
+     *
      * @var string
      */
     public $modifiedTime;
@@ -72,13 +75,6 @@ class editingBatchJob extends Model
     public $status;
 
     /**
-     * @var subJobList[]
-     */
-    public $subJobList;
-
-    /**
-     * @example {"NotifyAddress":"http://xx.xx.xxx"}
-     *
      * @var string
      */
     public $userData;
@@ -93,7 +89,6 @@ class editingBatchJob extends Model
         'modifiedTime'  => 'ModifiedTime',
         'outputConfig'  => 'OutputConfig',
         'status'        => 'Status',
-        'subJobList'    => 'SubJobList',
         'userData'      => 'UserData',
     ];
 
@@ -134,15 +129,6 @@ class editingBatchJob extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->subJobList) {
-            $res['SubJobList'] = [];
-            if (null !== $this->subJobList && \is_array($this->subJobList)) {
-                $n = 0;
-                foreach ($this->subJobList as $item) {
-                    $res['SubJobList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
         }
@@ -153,7 +139,7 @@ class editingBatchJob extends Model
     /**
      * @param array $map
      *
-     * @return editingBatchJob
+     * @return editingBatchJobList
      */
     public static function fromMap($map = [])
     {
@@ -187,15 +173,6 @@ class editingBatchJob extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
-        }
-        if (isset($map['SubJobList'])) {
-            if (!empty($map['SubJobList'])) {
-                $model->subJobList = [];
-                $n                 = 0;
-                foreach ($map['SubJobList'] as $item) {
-                    $model->subJobList[$n++] = null !== $item ? subJobList::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
