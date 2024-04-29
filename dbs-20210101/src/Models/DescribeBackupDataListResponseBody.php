@@ -4,39 +4,31 @@
 
 namespace AlibabaCloud\SDK\Dbs\V20210101\Models;
 
-use AlibabaCloud\SDK\Dbs\V20210101\Models\CreateSandboxInstanceResponseBody\data;
+use AlibabaCloud\SDK\Dbs\V20210101\Models\DescribeBackupDataListResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class CreateSandboxInstanceResponseBody extends Model
+class DescribeBackupDataListResponseBody extends Model
 {
     /**
-     * @description The error code returned if the request fails.
-     *
-     * @example Param.NotFound
+     * @example Success
      *
      * @var string
      */
     public $code;
 
     /**
-     * @description The response parameters.
-     *
      * @var data
      */
     public $data;
 
     /**
-     * @description The error code returned if the request fails.
-     *
-     * @example Param.NotFound
+     * @example Request.Forbidden
      *
      * @var string
      */
     public $errCode;
 
     /**
-     * @description The error message returned if the request fails.
-     *
      * @example The specified parameter %s value is not valid.
      *
      * @var string
@@ -44,8 +36,6 @@ class CreateSandboxInstanceResponseBody extends Model
     public $errMessage;
 
     /**
-     * @description The error message returned if the request fails.
-     *
      * @example The specified parameter %s value is not valid.
      *
      * @var string
@@ -53,17 +43,13 @@ class CreateSandboxInstanceResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 4F1888AC-1138-4995-B9FE-D2734F61****
+     * @example 95A5FFD0-7F46-5A7D-9DFE-6A376B4E2A28
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful.
-     *
      * @example true
      *
      * @var string
@@ -114,7 +100,7 @@ class CreateSandboxInstanceResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateSandboxInstanceResponseBody
+     * @return DescribeBackupDataListResponseBody
      */
     public static function fromMap($map = [])
     {

@@ -4,69 +4,52 @@
 
 namespace AlibabaCloud\SDK\Dbs\V20210101\Models;
 
-use AlibabaCloud\SDK\Dbs\V20210101\Models\DescribeDownloadTaskResponseBody\data;
+use AlibabaCloud\SDK\Dbs\V20210101\Models\DescribeBackupPolicyResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class DescribeDownloadTaskResponseBody extends Model
+class DescribeBackupPolicyResponseBody extends Model
 {
     /**
-     * @description The error code returned if the request fails.
-     *
-     * @example DBS.InternalError
+     * @example Success
      *
      * @var string
      */
     public $code;
 
     /**
-     * @description The details of the tasks.
-     *
      * @var data
      */
     public $data;
 
     /**
-     * @description The error code returned if the request fails.
-     *
-     * @example DBS.InternalError
+     * @example Success
      *
      * @var string
      */
     public $errCode;
 
     /**
-     * @description The error message returned if the request fails.
-     *
-     * @example instanceName can not be empty
+     * @example The specified parameter %s value is not valid.
      *
      * @var string
      */
     public $errMessage;
 
     /**
-     * @description The error message returned if the request fails.
-     *
-     * @example instanceName can not be empty
+     * @example instanceName can not be empty.
      *
      * @var string
      */
     public $message;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 5D285EB9-A443-592D-9F3D-A888FAC3****
+     * @example 54A63B3B-AA10-1CC3-A6BB-6CCE98D19628
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   **true**: The request was successful.
-     *   **false**: The request failed.
-     *
      * @example true
      *
      * @var string
@@ -117,7 +100,7 @@ class DescribeDownloadTaskResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DescribeDownloadTaskResponseBody
+     * @return DescribeBackupPolicyResponseBody
      */
     public static function fromMap($map = [])
     {

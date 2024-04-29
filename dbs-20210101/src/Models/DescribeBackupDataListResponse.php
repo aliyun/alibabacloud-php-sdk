@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Dbs\V20210101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateSandboxInstanceResponse extends Model
+class DescribeBackupDataListResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class CreateSandboxInstanceResponse extends Model
     public $statusCode;
 
     /**
-     * @var CreateSandboxInstanceResponseBody
+     * @var DescribeBackupDataListResponseBody
      */
     public $body;
     protected $_name = [
@@ -30,9 +30,6 @@ class CreateSandboxInstanceResponse extends Model
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('statusCode', $this->statusCode, true);
-        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
@@ -54,7 +51,7 @@ class CreateSandboxInstanceResponse extends Model
     /**
      * @param array $map
      *
-     * @return CreateSandboxInstanceResponse
+     * @return DescribeBackupDataListResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +63,7 @@ class CreateSandboxInstanceResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = CreateSandboxInstanceResponseBody::fromMap($map['body']);
+            $model->body = DescribeBackupDataListResponseBody::fromMap($map['body']);
         }
 
         return $model;

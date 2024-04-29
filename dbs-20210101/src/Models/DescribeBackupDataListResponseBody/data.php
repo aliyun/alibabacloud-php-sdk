@@ -2,23 +2,19 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Dbs\V20210101\Models\DescribeDownloadTaskResponseBody;
+namespace AlibabaCloud\SDK\Dbs\V20210101\Models\DescribeBackupDataListResponseBody;
 
-use AlibabaCloud\SDK\Dbs\V20210101\Models\DescribeDownloadTaskResponseBody\data\content;
+use AlibabaCloud\SDK\Dbs\V20210101\Models\DescribeBackupDataListResponseBody\data\content;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The details of the task.
-     *
-     * @var content
+     * @var content[]
      */
     public $content;
 
     /**
-     * @description The extra description of the download tasks.
-     *
      * @example dbtest
      *
      * @var string
@@ -26,8 +22,6 @@ class data extends Model
     public $extra;
 
     /**
-     * @description The page number of the returned page. The value must be an integer that is greater than 0. Default value: 1.
-     *
      * @example 1
      *
      * @var int
@@ -35,17 +29,13 @@ class data extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
-     *
-     * @example 10
+     * @example 20
      *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The total number of full backup tasks.
-     *
      * @example 1
      *
      * @var int
@@ -53,9 +43,7 @@ class data extends Model
     public $totalElements;
 
     /**
-     * @description The total number of returned pages.
-     *
-     * @example 2
+     * @example 1
      *
      * @var int
      */
@@ -77,7 +65,13 @@ class data extends Model
     {
         $res = [];
         if (null !== $this->content) {
-            $res['Content'] = null !== $this->content ? $this->content->toMap() : null;
+            $res['Content'] = [];
+            if (null !== $this->content && \is_array($this->content)) {
+                $n = 0;
+                foreach ($this->content as $item) {
+                    $res['Content'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->extra) {
             $res['Extra'] = $this->extra;
@@ -107,7 +101,13 @@ class data extends Model
     {
         $model = new self();
         if (isset($map['Content'])) {
-            $model->content = content::fromMap($map['Content']);
+            if (!empty($map['Content'])) {
+                $model->content = [];
+                $n              = 0;
+                foreach ($map['Content'] as $item) {
+                    $model->content[$n++] = null !== $item ? content::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Extra'])) {
             $model->extra = $map['Extra'];

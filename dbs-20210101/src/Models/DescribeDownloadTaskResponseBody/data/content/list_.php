@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
-     * @description The point in time of the backup set if the task is used to download a backup set at a specific point in time. The value is a timestamp of the LONG type. Unit: milliseconds.
+     * @description The point in time of the backup set if the task is used to download a backup set at a specific point in time. The value is a timestamp of the LONG type. Unit: millisecond.
      *
      * @example 1663162216000
      *
@@ -27,7 +27,7 @@ class list_ extends Model
     public $bakSetId;
 
     /**
-     * @description The databases.
+     * @description The details of the databases.
      *
      * @example [dbtest]
      *
@@ -36,14 +36,14 @@ class list_ extends Model
     public $dbList;
 
     /**
-     * @description The state of the download task. Valid values:
+     * @description The status of the download task. Valid values:
      *
-     *   **Initializing**: The download task was being initialized.
-     *   **queuing**: The download task was queuing.
-     *   **running**: The download task was running.
-     *   **failed**: The download task failed.
-     *   **finished**: The download task was complete.
-     *   **expired**: The download task expired.
+     *   **Initializing**: The download task is being initialized.
+     *   **queuing**: The download task is queuing.
+     *   **running**: The download task is running.
+     *   **failed**: The download task fails.
+     *   **finished**: The download task is complete.
+     *   **expired**: The download task expires.
      *
      * @example queueing
      *
@@ -110,7 +110,7 @@ class list_ extends Model
     public $regionCode;
 
     /**
-     * @description The destination path to which the data is downloaded if the TargeType parameter is set to OSS.
+     * @description The destination path to which the data is downloaded if the value of **TargetType is OSS**.
      *
      * @example test_db/path
      *
@@ -131,7 +131,7 @@ class list_ extends Model
     public $targetType;
 
     /**
-     * @description The ID of the download task.
+     * @description The download task ID.
      *
      * @example dt-qxntlvgu****
      *

@@ -27,6 +27,15 @@ class ChangeResourceGroupRequest extends Model
     public $newResourceGroupId;
 
     /**
+     * @description The region ID of the instance.
+     *
+     * @example cn-hangzhou
+     *
+     * @var string
+     */
+    public $regionCode;
+
+    /**
      * @description The ID of the resource.
      *
      * @example dbs1jyajqk******
@@ -46,6 +55,7 @@ class ChangeResourceGroupRequest extends Model
     protected $_name = [
         'clientToken'        => 'ClientToken',
         'newResourceGroupId' => 'NewResourceGroupId',
+        'regionCode'         => 'RegionCode',
         'resourceId'         => 'ResourceId',
         'resourceType'       => 'ResourceType',
     ];
@@ -62,6 +72,9 @@ class ChangeResourceGroupRequest extends Model
         }
         if (null !== $this->newResourceGroupId) {
             $res['NewResourceGroupId'] = $this->newResourceGroupId;
+        }
+        if (null !== $this->regionCode) {
+            $res['RegionCode'] = $this->regionCode;
         }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
@@ -86,6 +99,9 @@ class ChangeResourceGroupRequest extends Model
         }
         if (isset($map['NewResourceGroupId'])) {
             $model->newResourceGroupId = $map['NewResourceGroupId'];
+        }
+        if (isset($map['RegionCode'])) {
+            $model->regionCode = $map['RegionCode'];
         }
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];

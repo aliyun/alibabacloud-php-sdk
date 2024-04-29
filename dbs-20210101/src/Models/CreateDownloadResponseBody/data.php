@@ -110,7 +110,7 @@ class data extends Model
     /**
      * @description The destination path to which the backup set is downloaded.
      *
-     * > This parameter is returned if the TargetType parameter is set to OSS.
+     * >  This parameter is returned if the value of **TargetType is OSS**.
      * @example test_db/path
      *
      * @var string

@@ -10,10 +10,12 @@ use AlibabaCloud\SDK\Dbs\V20210101\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\Dbs\V20210101\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\Dbs\V20210101\Models\CreateDownloadRequest;
 use AlibabaCloud\SDK\Dbs\V20210101\Models\CreateDownloadResponse;
-use AlibabaCloud\SDK\Dbs\V20210101\Models\CreateSandboxInstanceRequest;
-use AlibabaCloud\SDK\Dbs\V20210101\Models\CreateSandboxInstanceResponse;
 use AlibabaCloud\SDK\Dbs\V20210101\Models\DeleteSandboxInstanceRequest;
 use AlibabaCloud\SDK\Dbs\V20210101\Models\DeleteSandboxInstanceResponse;
+use AlibabaCloud\SDK\Dbs\V20210101\Models\DescribeBackupDataListRequest;
+use AlibabaCloud\SDK\Dbs\V20210101\Models\DescribeBackupDataListResponse;
+use AlibabaCloud\SDK\Dbs\V20210101\Models\DescribeBackupPolicyRequest;
+use AlibabaCloud\SDK\Dbs\V20210101\Models\DescribeBackupPolicyResponse;
 use AlibabaCloud\SDK\Dbs\V20210101\Models\DescribeDBTablesRecoveryBackupSetRequest;
 use AlibabaCloud\SDK\Dbs\V20210101\Models\DescribeDBTablesRecoveryBackupSetResponse;
 use AlibabaCloud\SDK\Dbs\V20210101\Models\DescribeDBTablesRecoveryStateRequest;
@@ -116,6 +118,9 @@ class Dbs extends OpenApiClient
         if (!Utils::isUnset($request->newResourceGroupId)) {
             $query['NewResourceGroupId'] = $request->newResourceGroupId;
         }
+        if (!Utils::isUnset($request->regionCode)) {
+            $query['RegionCode'] = $request->regionCode;
+        }
         if (!Utils::isUnset($request->resourceId)) {
             $query['ResourceId'] = $request->resourceId;
         }
@@ -153,7 +158,15 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * For ApsaraDB RDS for MySQL instances that use standard SSDs or enhanced SSDs (ESSDs) and meet your business requirements, you can create an advanced download task by point in time or backup set. You can set the download destination to an URL or directly upload the downloaded data to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving. For more information, see [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~).
+     * ### [](#)Supported database engines
+     *   * *   ApsaraDB RDS for MySQL
+     *   * *   ApsaraDB RDS for PostgreSQL
+     *   * *   PolarDB for MySQL
+     *   * ### [](#)References
+     *   * For the instances that meet your business requirements, you can create an advanced download task by point in time or backup set. You can set the download destination to a URL or directly upload the downloaded backup set to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving.
+     *   * *   [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~)
+     *   * *   [Download the backup files of an ApsaraDB RDS for PostgreSQL instance](~~96774~~)
+     *   * *   [Download the backup files of a PolarDB for MySQL cluster](~~2627635~~).
      *   *
      * @param CreateDownloadRequest $request CreateDownloadRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -216,7 +229,15 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * For ApsaraDB RDS for MySQL instances that use standard SSDs or enhanced SSDs (ESSDs) and meet your business requirements, you can create an advanced download task by point in time or backup set. You can set the download destination to an URL or directly upload the downloaded data to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving. For more information, see [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~).
+     * ### [](#)Supported database engines
+     *   * *   ApsaraDB RDS for MySQL
+     *   * *   ApsaraDB RDS for PostgreSQL
+     *   * *   PolarDB for MySQL
+     *   * ### [](#)References
+     *   * For the instances that meet your business requirements, you can create an advanced download task by point in time or backup set. You can set the download destination to a URL or directly upload the downloaded backup set to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving.
+     *   * *   [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~)
+     *   * *   [Download the backup files of an ApsaraDB RDS for PostgreSQL instance](~~96774~~)
+     *   * *   [Download the backup files of a PolarDB for MySQL cluster](~~2627635~~).
      *   *
      * @param CreateDownloadRequest $request CreateDownloadRequest
      *
@@ -227,83 +248,6 @@ class Dbs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createDownloadWithOptions($request, $runtime);
-    }
-
-    /**
-     * Before you call this operation, you must enable the sandbox feature for the database instance. For more information, see [Use the emergency recovery feature of an ApsaraDB RDS for MySQL instance](~~203154~~) or [Create a sandbox instance for emergency disaster recovery of a self-managed MySQL database](~~185577~~). This operation is available only in Database Backup (DBS) API of the 2021-01-01 version.
-     *   *
-     * @param CreateSandboxInstanceRequest $request CreateSandboxInstanceRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
-     *
-     * @return CreateSandboxInstanceResponse CreateSandboxInstanceResponse
-     */
-    public function createSandboxInstanceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->backupPlanId)) {
-            $query['BackupPlanId'] = $request->backupPlanId;
-        }
-        if (!Utils::isUnset($request->backupSetId)) {
-            $query['BackupSetId'] = $request->backupSetId;
-        }
-        if (!Utils::isUnset($request->restoreTime)) {
-            $query['RestoreTime'] = $request->restoreTime;
-        }
-        if (!Utils::isUnset($request->sandboxInstanceName)) {
-            $query['SandboxInstanceName'] = $request->sandboxInstanceName;
-        }
-        if (!Utils::isUnset($request->sandboxPassword)) {
-            $query['SandboxPassword'] = $request->sandboxPassword;
-        }
-        if (!Utils::isUnset($request->sandboxSpecification)) {
-            $query['SandboxSpecification'] = $request->sandboxSpecification;
-        }
-        if (!Utils::isUnset($request->sandboxType)) {
-            $query['SandboxType'] = $request->sandboxType;
-        }
-        if (!Utils::isUnset($request->sandboxUser)) {
-            $query['SandboxUser'] = $request->sandboxUser;
-        }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
-        }
-        if (!Utils::isUnset($request->vpcSwitchId)) {
-            $query['VpcSwitchId'] = $request->vpcSwitchId;
-        }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateSandboxInstance',
-            'version'     => '2021-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateSandboxInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * Before you call this operation, you must enable the sandbox feature for the database instance. For more information, see [Use the emergency recovery feature of an ApsaraDB RDS for MySQL instance](~~203154~~) or [Create a sandbox instance for emergency disaster recovery of a self-managed MySQL database](~~185577~~). This operation is available only in Database Backup (DBS) API of the 2021-01-01 version.
-     *   *
-     * @param CreateSandboxInstanceRequest $request CreateSandboxInstanceRequest
-     *
-     * @return CreateSandboxInstanceResponse CreateSandboxInstanceResponse
-     */
-    public function createSandboxInstance($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createSandboxInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -357,6 +301,140 @@ class Dbs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteSandboxInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeBackupDataListRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeBackupDataListResponse
+     */
+    public function describeBackupDataListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->backupId)) {
+            $query['BackupId'] = $request->backupId;
+        }
+        if (!Utils::isUnset($request->backupMethod)) {
+            $query['BackupMethod'] = $request->backupMethod;
+        }
+        if (!Utils::isUnset($request->backupMode)) {
+            $query['BackupMode'] = $request->backupMode;
+        }
+        if (!Utils::isUnset($request->backupScale)) {
+            $query['BackupScale'] = $request->backupScale;
+        }
+        if (!Utils::isUnset($request->backupStatus)) {
+            $query['BackupStatus'] = $request->backupStatus;
+        }
+        if (!Utils::isUnset($request->backupType)) {
+            $query['BackupType'] = $request->backupType;
+        }
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['DataSourceId'] = $request->dataSourceId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceIsDeleted)) {
+            $query['InstanceIsDeleted'] = $request->instanceIsDeleted;
+        }
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->instanceRegion)) {
+            $query['InstanceRegion'] = $request->instanceRegion;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionCode)) {
+            $query['RegionCode'] = $request->regionCode;
+        }
+        if (!Utils::isUnset($request->sceneType)) {
+            $query['SceneType'] = $request->sceneType;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeBackupDataList',
+            'version'     => '2021-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeBackupDataListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeBackupDataListRequest $request
+     *
+     * @return DescribeBackupDataListResponse
+     */
+    public function describeBackupDataList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeBackupDataListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeBackupPolicyRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeBackupPolicyResponse
+     */
+    public function describeBackupPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->regionCode)) {
+            $query['RegionCode'] = $request->regionCode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeBackupPolicy',
+            'version'     => '2021-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeBackupPolicyRequest $request
+     *
+     * @return DescribeBackupPolicyResponse
+     */
+    public function describeBackupPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeBackupPolicyWithOptions($request, $runtime);
     }
 
     /**
@@ -498,7 +576,14 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * You can create an advanced download task by point in time or backup set. You can set the download destination to an URL or directly upload the downloaded data to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving. For more information, see [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~).
+     * ### [](#)Supported database engines
+     *   * *   ApsaraDB RDS for MySQL
+     *   * *   ApsaraDB RDS for PostgreSQL
+     *   * *   PolarDB for MySQL
+     *   * ### [](#)References
+     *   * *   [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~)
+     *   * *   [Download the backup files of an ApsaraDB RDS for PostgreSQL instance](~~96774~~)
+     *   * *   [Download the backup files of a PolarDB for MySQL cluster](~~2627635~~).
      *   *
      * @param DescribeDownloadBackupSetStorageInfoRequest $request DescribeDownloadBackupSetStorageInfoRequest
      * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
@@ -543,7 +628,14 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * You can create an advanced download task by point in time or backup set. You can set the download destination to an URL or directly upload the downloaded data to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving. For more information, see [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~).
+     * ### [](#)Supported database engines
+     *   * *   ApsaraDB RDS for MySQL
+     *   * *   ApsaraDB RDS for PostgreSQL
+     *   * *   PolarDB for MySQL
+     *   * ### [](#)References
+     *   * *   [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~)
+     *   * *   [Download the backup files of an ApsaraDB RDS for PostgreSQL instance](~~96774~~)
+     *   * *   [Download the backup files of a PolarDB for MySQL cluster](~~2627635~~).
      *   *
      * @param DescribeDownloadBackupSetStorageInfoRequest $request DescribeDownloadBackupSetStorageInfoRequest
      *
@@ -557,7 +649,15 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * You can create an advanced download task by point in time or backup set. You can set the download destination to an URL or directly upload the downloaded data to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving. For more information, see [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~).
+     * ### [](#)Supported database engines
+     *   * *   ApsaraDB RDS for MySQL
+     *   * *   ApsaraDB RDS for PostgreSQL
+     *   * *   PolarDB for MySQL
+     *   * ### [](#)References
+     *   * You can create an advanced download task by point in time or backup set. You can set the download destination to a URL or directly upload the downloaded backup set to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving.
+     *   * *   [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~)
+     *   * *   [Download the backup files of an ApsaraDB RDS for PostgreSQL instance](~~96774~~)
+     *   * *   [Download the backup files of a PolarDB for MySQL cluster](~~2627635~~).
      *   *
      * @param DescribeDownloadSupportRequest $request DescribeDownloadSupportRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -593,7 +693,15 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * You can create an advanced download task by point in time or backup set. You can set the download destination to an URL or directly upload the downloaded data to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving. For more information, see [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~).
+     * ### [](#)Supported database engines
+     *   * *   ApsaraDB RDS for MySQL
+     *   * *   ApsaraDB RDS for PostgreSQL
+     *   * *   PolarDB for MySQL
+     *   * ### [](#)References
+     *   * You can create an advanced download task by point in time or backup set. You can set the download destination to a URL or directly upload the downloaded backup set to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving.
+     *   * *   [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~)
+     *   * *   [Download the backup files of an ApsaraDB RDS for PostgreSQL instance](~~96774~~)
+     *   * *   [Download the backup files of a PolarDB for MySQL cluster](~~2627635~~).
      *   *
      * @param DescribeDownloadSupportRequest $request DescribeDownloadSupportRequest
      *
@@ -607,7 +715,14 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * You can create an advanced download task by point in time or backup set. You can set the Download Destination parameter to URL or directly upload the downloaded data to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving. For more information, see [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~).
+     * ### [](#)Supported database engines
+     *   * *   ApsaraDB RDS for MySQL
+     *   * *   ApsaraDB RDS for PostgreSQL
+     *   * *   PolarDB for MySQL
+     *   * ### [](#)References
+     *   * *   [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~)
+     *   * *   [Download the backup files of an ApsaraDB RDS for PostgreSQL instance](~~96774~~)
+     *   * *   [Download the backup files of a PolarDB for MySQL cluster](~~2627635~~).
      *   *
      * @param DescribeDownloadTaskRequest $request DescribeDownloadTaskRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -673,7 +788,14 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * You can create an advanced download task by point in time or backup set. You can set the Download Destination parameter to URL or directly upload the downloaded data to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving. For more information, see [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~).
+     * ### [](#)Supported database engines
+     *   * *   ApsaraDB RDS for MySQL
+     *   * *   ApsaraDB RDS for PostgreSQL
+     *   * *   PolarDB for MySQL
+     *   * ### [](#)References
+     *   * *   [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~)
+     *   * *   [Download the backup files of an ApsaraDB RDS for PostgreSQL instance](~~96774~~)
+     *   * *   [Download the backup files of a PolarDB for MySQL cluster](~~2627635~~).
      *   *
      * @param DescribeDownloadTaskRequest $request DescribeDownloadTaskRequest
      *

@@ -106,7 +106,7 @@ class DescribeDownloadTaskRequest extends Model
      * @description The state of the download task. Valid values:
      *
      *   **Initializing**: The download task is being initialized.
-     *   **queuing**: The download task is queuing.
+     *   **queueing**: The download task is queuing.
      *   **running**: The download task is running.
      *   **failed**: The download task fails.
      *   **finished**: The download task is complete.

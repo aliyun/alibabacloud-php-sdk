@@ -19,7 +19,7 @@ class CreateDownloadResponseBody extends Model
     public $code;
 
     /**
-     * @description The returned data.
+     * @description The information about the download task.
      *
      * @var data
      */
