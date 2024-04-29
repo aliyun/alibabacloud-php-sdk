@@ -122,8 +122,6 @@ use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainOverviewRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainOverviewResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainQPSListRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainQPSListResponse;
-use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainQpsWithCacheRequest;
-use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainQpsWithCacheResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainResourceRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainResourceResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainSecurityProfileRequest;
@@ -146,6 +144,10 @@ use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainViewTopUrlRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainViewTopUrlResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeElasticBandwidthSpecRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeElasticBandwidthSpecResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeElasticQpsRecordRequest;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeElasticQpsRecordResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeElasticQpsRequest;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeElasticQpsResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeHeadersRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeHeadersResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeHealthCheckListRequest;
@@ -296,6 +298,8 @@ use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyElasticBandWidthRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyElasticBandWidthResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyElasticBizBandWidthRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyElasticBizBandWidthResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyElasticBizQpsRequest;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyElasticBizQpsResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyFullLogTtlRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyFullLogTtlResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyHeadersRequest;
@@ -314,6 +318,8 @@ use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyPortAutoCcStatusRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyPortAutoCcStatusResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyPortRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyPortResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyQpsModeRequest;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyQpsModeResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifySceneDefensePolicyRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifySceneDefensePolicyResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifySchedulerRuleRequest;
@@ -3396,58 +3402,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainQpsWithCacheRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeDomainQpsWithCacheResponse
-     */
-    public function describeDomainQpsWithCacheWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDomainQpsWithCache',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeDomainQpsWithCacheResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeDomainQpsWithCacheRequest $request
-     *
-     * @return DescribeDomainQpsWithCacheResponse
-     */
-    public function describeDomainQpsWithCache($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDomainQpsWithCacheWithOptions($request, $runtime);
-    }
-
-    /**
      * You can call the DescribeDomainResource operation to query the configurations of the forwarding rules that you create for a website by page. The configurations include the domain name-related configurations, protocol-related configurations, HTTPS-related configurations, and configurations that are used to mitigate HTTP flood attacks.
      *   * You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](~~95820~~).
      *   * ### Limits
@@ -4019,6 +3973,110 @@ class Ddoscoo extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeElasticBandwidthSpecWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeElasticQpsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeElasticQpsResponse
+     */
+    public function describeElasticQpsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ip)) {
+            $query['Ip'] = $request->ip;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeElasticQps',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeElasticQpsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeElasticQpsRequest $request
+     *
+     * @return DescribeElasticQpsResponse
+     */
+    public function describeElasticQps($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeElasticQpsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeElasticQpsRecordRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeElasticQpsRecordResponse
+     */
+    public function describeElasticQpsRecordWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ip)) {
+            $query['Ip'] = $request->ip;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeElasticQpsRecord',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeElasticQpsRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeElasticQpsRecordRequest $request
+     *
+     * @return DescribeElasticQpsRecordResponse
+     */
+    public function describeElasticQpsRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeElasticQpsRecordWithOptions($request, $runtime);
     }
 
     /**
@@ -7811,6 +7869,55 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * @param ModifyElasticBizQpsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ModifyElasticBizQpsResponse
+     */
+    public function modifyElasticBizQpsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->mode)) {
+            $query['Mode'] = $request->mode;
+        }
+        if (!Utils::isUnset($request->opsElasticQps)) {
+            $query['OpsElasticQps'] = $request->opsElasticQps;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyElasticBizQps',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyElasticBizQpsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyElasticBizQpsRequest $request
+     *
+     * @return ModifyElasticBizQpsResponse
+     */
+    public function modifyElasticBizQps($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyElasticBizQpsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyFullLogTtlRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -8264,6 +8371,52 @@ class Ddoscoo extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyPortAutoCcStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyQpsModeRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ModifyQpsModeResponse
+     */
+    public function modifyQpsModeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->mode)) {
+            $query['Mode'] = $request->mode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyQpsMode',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyQpsModeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyQpsModeRequest $request
+     *
+     * @return ModifyQpsModeResponse
+     */
+    public function modifyQpsMode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyQpsModeWithOptions($request, $runtime);
     }
 
     /**
