@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateCloudDriveServiceResponseBody\conflictCdsAndOrder;
 use AlibabaCloud\Tea\Model;
 
 class CreateCloudDriveServiceResponseBody extends Model
@@ -32,6 +33,11 @@ class CreateCloudDriveServiceResponseBody extends Model
      * @var string
      */
     public $cenId;
+
+    /**
+     * @var conflictCdsAndOrder
+     */
+    public $conflictCdsAndOrder;
 
     /**
      * @example test1.local
@@ -75,15 +81,16 @@ class CreateCloudDriveServiceResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'cdsId'          => 'CdsId',
-        'cdsName'        => 'CdsName',
-        'cenId'          => 'CenId',
-        'domainName'     => 'DomainName',
-        'errorCode'      => 'ErrorCode',
-        'maxSize'        => 'MaxSize',
-        'officeSiteType' => 'OfficeSiteType',
-        'orderId'        => 'OrderId',
-        'requestId'      => 'RequestId',
+        'cdsId'               => 'CdsId',
+        'cdsName'             => 'CdsName',
+        'cenId'               => 'CenId',
+        'conflictCdsAndOrder' => 'ConflictCdsAndOrder',
+        'domainName'          => 'DomainName',
+        'errorCode'           => 'ErrorCode',
+        'maxSize'             => 'MaxSize',
+        'officeSiteType'      => 'OfficeSiteType',
+        'orderId'             => 'OrderId',
+        'requestId'           => 'RequestId',
     ];
 
     public function validate()
@@ -101,6 +108,9 @@ class CreateCloudDriveServiceResponseBody extends Model
         }
         if (null !== $this->cenId) {
             $res['CenId'] = $this->cenId;
+        }
+        if (null !== $this->conflictCdsAndOrder) {
+            $res['ConflictCdsAndOrder'] = null !== $this->conflictCdsAndOrder ? $this->conflictCdsAndOrder->toMap() : null;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
@@ -140,6 +150,9 @@ class CreateCloudDriveServiceResponseBody extends Model
         }
         if (isset($map['CenId'])) {
             $model->cenId = $map['CenId'];
+        }
+        if (isset($map['ConflictCdsAndOrder'])) {
+            $model->conflictCdsAndOrder = conflictCdsAndOrder::fromMap($map['ConflictCdsAndOrder']);
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];

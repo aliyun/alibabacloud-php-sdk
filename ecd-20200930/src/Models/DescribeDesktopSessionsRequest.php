@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeDesktopSessionsRequest extends Model
 {
     /**
+     * @description The IDs of the cloud computers.
+     *
      * @var string[]
      */
     public $desktopId;
 
     /**
+     * @description The name of the cloud computer.
+     *
+     * @example DemoComputer
+     *
      * @var string
      */
     public $desktopName;

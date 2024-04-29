@@ -27,6 +27,16 @@ class officeSites extends Model
     public $adHostname;
 
     /**
+     * @var string
+     */
+    public $backupDCHostname;
+
+    /**
+     * @var string
+     */
+    public $backupDns;
+
+    /**
      * @description The maximum public bandwidth value. Valid values: 0 to 1000.\
      * If you leave this parameter empty or set this parameter to 0, Internet access is not enabled.
      * @example 10
@@ -207,6 +217,11 @@ class officeSites extends Model
     public $enableInternetAccess;
 
     /**
+     * @var bool
+     */
+    public $enableServiceRoute;
+
+    /**
      * @description An array of Apsara File Storage NAS (NAS) file system IDs.
      *
      * @var string[]
@@ -365,9 +380,9 @@ class officeSites extends Model
     public $ssoEnabled;
 
     /**
-     * @description The SSO type.
+     * @description >  This parameter is unavailable.
      *
-     * @example To be hidden.
+     * @example null
      *
      * @var string
      */
@@ -456,7 +471,7 @@ class officeSites extends Model
     /**
      * @description >  This parameter is unavailable.
      *
-     * @example To be hidden.
+     * @example null
      *
      * @var string
      */
@@ -502,6 +517,8 @@ class officeSites extends Model
     protected $_name = [
         'ADConnectors'             => 'ADConnectors',
         'adHostname'               => 'AdHostname',
+        'backupDCHostname'         => 'BackupDCHostname',
+        'backupDns'                => 'BackupDns',
         'bandwidth'                => 'Bandwidth',
         'cenAttachStatus'          => 'CenAttachStatus',
         'cenId'                    => 'CenId',
@@ -520,6 +537,7 @@ class officeSites extends Model
         'enableAdminAccess'        => 'EnableAdminAccess',
         'enableCrossDesktopAccess' => 'EnableCrossDesktopAccess',
         'enableInternetAccess'     => 'EnableInternetAccess',
+        'enableServiceRoute'       => 'EnableServiceRoute',
         'fileSystemIds'            => 'FileSystemIds',
         'logs'                     => 'Logs',
         'mfaEnabled'               => 'MfaEnabled',
@@ -565,6 +583,12 @@ class officeSites extends Model
         }
         if (null !== $this->adHostname) {
             $res['AdHostname'] = $this->adHostname;
+        }
+        if (null !== $this->backupDCHostname) {
+            $res['BackupDCHostname'] = $this->backupDCHostname;
+        }
+        if (null !== $this->backupDns) {
+            $res['BackupDns'] = $this->backupDns;
         }
         if (null !== $this->bandwidth) {
             $res['Bandwidth'] = $this->bandwidth;
@@ -619,6 +643,9 @@ class officeSites extends Model
         }
         if (null !== $this->enableInternetAccess) {
             $res['EnableInternetAccess'] = $this->enableInternetAccess;
+        }
+        if (null !== $this->enableServiceRoute) {
+            $res['EnableServiceRoute'] = $this->enableServiceRoute;
         }
         if (null !== $this->fileSystemIds) {
             $res['FileSystemIds'] = $this->fileSystemIds;
@@ -725,6 +752,12 @@ class officeSites extends Model
         if (isset($map['AdHostname'])) {
             $model->adHostname = $map['AdHostname'];
         }
+        if (isset($map['BackupDCHostname'])) {
+            $model->backupDCHostname = $map['BackupDCHostname'];
+        }
+        if (isset($map['BackupDns'])) {
+            $model->backupDns = $map['BackupDns'];
+        }
         if (isset($map['Bandwidth'])) {
             $model->bandwidth = $map['Bandwidth'];
         }
@@ -780,6 +813,9 @@ class officeSites extends Model
         }
         if (isset($map['EnableInternetAccess'])) {
             $model->enableInternetAccess = $map['EnableInternetAccess'];
+        }
+        if (isset($map['EnableServiceRoute'])) {
+            $model->enableServiceRoute = $map['EnableServiceRoute'];
         }
         if (isset($map['FileSystemIds'])) {
             if (!empty($map['FileSystemIds'])) {

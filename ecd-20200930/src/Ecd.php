@@ -954,10 +954,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ApproveFotaUpdateRequest $request
-     * @param RuntimeOptions           $runtime
+     * The cloud computers for which you want to allow image updates must be in the Running state.
+     *   *
+     * @param ApproveFotaUpdateRequest $request ApproveFotaUpdateRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ApproveFotaUpdateResponse
+     * @return ApproveFotaUpdateResponse ApproveFotaUpdateResponse
      */
     public function approveFotaUpdateWithOptions($request, $runtime)
     {
@@ -991,9 +993,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ApproveFotaUpdateRequest $request
+     * The cloud computers for which you want to allow image updates must be in the Running state.
+     *   *
+     * @param ApproveFotaUpdateRequest $request ApproveFotaUpdateRequest
      *
-     * @return ApproveFotaUpdateResponse
+     * @return ApproveFotaUpdateResponse ApproveFotaUpdateResponse
      */
     public function approveFotaUpdate($request)
     {
@@ -1707,7 +1711,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * AD directories are used to connect to enterprise AD systems and are suitable for large-scale desktop deployments. You are charged for AD directories that are used to connect to enterprise AD systems. For more information, see [Billing overview](~~188395~~).
+     * An AD directory is used to connect to an enterprise\\"s existing Active Directory and is suitable for large-scale cloud computer deployment. You are charged directory fees when you connect your AD to cloud computers. For more information, see [Billing overview](~~188395~~).
      *   *
      * @param CreateADConnectorDirectoryRequest $request CreateADConnectorDirectoryRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -1776,7 +1780,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * AD directories are used to connect to enterprise AD systems and are suitable for large-scale desktop deployments. You are charged for AD directories that are used to connect to enterprise AD systems. For more information, see [Billing overview](~~188395~~).
+     * An AD directory is used to connect to an enterprise\\"s existing Active Directory and is suitable for large-scale cloud computer deployment. You are charged directory fees when you connect your AD to cloud computers. For more information, see [Billing overview](~~188395~~).
      *   *
      * @param CreateADConnectorDirectoryRequest $request CreateADConnectorDirectoryRequest
      *
@@ -2708,6 +2712,9 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->hostname)) {
             $query['Hostname'] = $request->hostname;
         }
+        if (!Utils::isUnset($request->monthDesktopSetting)) {
+            $query['MonthDesktopSetting'] = $request->monthDesktopSetting;
+        }
         if (!Utils::isUnset($request->officeSiteId)) {
             $query['OfficeSiteId'] = $request->officeSiteId;
         }
@@ -3227,9 +3234,9 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Before you create a RAM directory, make sure that you have completed the following operations:
-     *   * *   You have created a virtual private cloud (VPC) by calling the CreateVpc operation in a region where Elastic Desktop Service (EDS) is available.
-     *   * *   You have created a vSwitch by calling the CreateVSwitch operation in a region where the VPC resides. You can call the [DescribeZones](~~196648~~) operation to obtain the zones where EDS is available in a region.
+     * Before you create a RAM directory, complete the following preparations:
+     *   * *   Call the `CreateVpc` operation to create a virtual private cloud (VPC) in a region supported by WUYING Workspace.
+     *   * *   Call the `CreateVSwitch` operation to create a vSwitch in the VPC. The vSwitch is in a zone that is supported by WUYING Workspace. You can call the [DescribeZones](~~196648~~) operation to obtain the most recent zone list for a region supported by WUYING Workspace.
      *   *
      * @param CreateRAMDirectoryRequest $request CreateRAMDirectoryRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -3277,9 +3284,9 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Before you create a RAM directory, make sure that you have completed the following operations:
-     *   * *   You have created a virtual private cloud (VPC) by calling the CreateVpc operation in a region where Elastic Desktop Service (EDS) is available.
-     *   * *   You have created a vSwitch by calling the CreateVSwitch operation in a region where the VPC resides. You can call the [DescribeZones](~~196648~~) operation to obtain the zones where EDS is available in a region.
+     * Before you create a RAM directory, complete the following preparations:
+     *   * *   Call the `CreateVpc` operation to create a virtual private cloud (VPC) in a region supported by WUYING Workspace.
+     *   * *   Call the `CreateVSwitch` operation to create a vSwitch in the VPC. The vSwitch is in a zone that is supported by WUYING Workspace. You can call the [DescribeZones](~~196648~~) operation to obtain the most recent zone list for a region supported by WUYING Workspace.
      *   *
      * @param CreateRAMDirectoryRequest $request CreateRAMDirectoryRequest
      *
@@ -3835,7 +3842,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You cannot delete directories that are used by cloud desktops.
+     * You cannot delete a directory that has a cloud computer or is used by a cloud computer.
      *   *
      * @param DeleteDirectoriesRequest $request DeleteDirectoriesRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -3871,7 +3878,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You cannot delete directories that are used by cloud desktops.
+     * You cannot delete a directory that has a cloud computer or is used by a cloud computer.
      *   *
      * @param DeleteDirectoriesRequest $request DeleteDirectoriesRequest
      *
@@ -8978,10 +8985,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ModifyADConnectorDirectoryRequest $request
-     * @param RuntimeOptions                    $runtime
+     * You can modify the following domain name- and Domain Name System (DNS)-related parameters only for Active Directory (AD) directories that are in the ERROR or REGISTERING state: `DomainName`, `SubDomainName`, `DnsAddress.N`, and `SubDomainDnsAddress`.
+     *   *
+     * @param ModifyADConnectorDirectoryRequest $request ModifyADConnectorDirectoryRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyADConnectorDirectoryResponse
+     * @return ModifyADConnectorDirectoryResponse ModifyADConnectorDirectoryResponse
      */
     public function modifyADConnectorDirectoryWithOptions($request, $runtime)
     {
@@ -9042,9 +9051,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ModifyADConnectorDirectoryRequest $request
+     * You can modify the following domain name- and Domain Name System (DNS)-related parameters only for Active Directory (AD) directories that are in the ERROR or REGISTERING state: `DomainName`, `SubDomainName`, `DnsAddress.N`, and `SubDomainDnsAddress`.
+     *   *
+     * @param ModifyADConnectorDirectoryRequest $request ModifyADConnectorDirectoryRequest
      *
-     * @return ModifyADConnectorDirectoryResponse
+     * @return ModifyADConnectorDirectoryResponse ModifyADConnectorDirectoryResponse
      */
     public function modifyADConnectorDirectory($request)
     {
@@ -11669,6 +11680,9 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -12850,10 +12864,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param UpdateFotaTaskRequest $request
-     * @param RuntimeOptions        $runtime
+     * You can call this operation to manage each image update task. This operation is valid only when the auto-update switch in the image update module for global image updates is turned off. If the auto-update switch is turned on, the switches for each image update task are always turned on. If you want to turn on or off the auto-update switch, go to the WUYING Workspace console and choose **Operations > Image Updates** in the left-side navigation pane.
+     *   *
+     * @param UpdateFotaTaskRequest $request UpdateFotaTaskRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateFotaTaskResponse
+     * @return UpdateFotaTaskResponse UpdateFotaTaskResponse
      */
     public function updateFotaTaskWithOptions($request, $runtime)
     {
@@ -12887,9 +12903,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param UpdateFotaTaskRequest $request
+     * You can call this operation to manage each image update task. This operation is valid only when the auto-update switch in the image update module for global image updates is turned off. If the auto-update switch is turned on, the switches for each image update task are always turned on. If you want to turn on or off the auto-update switch, go to the WUYING Workspace console and choose **Operations > Image Updates** in the left-side navigation pane.
+     *   *
+     * @param UpdateFotaTaskRequest $request UpdateFotaTaskRequest
      *
-     * @return UpdateFotaTaskResponse
+     * @return UpdateFotaTaskResponse UpdateFotaTaskResponse
      */
     public function updateFotaTask($request)
     {

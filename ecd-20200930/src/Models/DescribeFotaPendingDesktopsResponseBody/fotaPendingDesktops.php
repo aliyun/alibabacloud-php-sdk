@@ -19,7 +19,7 @@ class fotaPendingDesktops extends Model
     public $currentAppVersion;
 
     /**
-     * @description The cloud computer ID.
+     * @description The ID of the cloud computer.
      *
      * @example ecd-bvdtu3jn97o1r****
      *
@@ -28,7 +28,7 @@ class fotaPendingDesktops extends Model
     public $desktopId;
 
     /**
-     * @description The cloud computer name.
+     * @description The name of the cloud computer.
      *
      * @example TestDesktop
      *
@@ -37,7 +37,7 @@ class fotaPendingDesktops extends Model
     public $desktopName;
 
     /**
-     * @description The Firmware Over-The-Air (FOTA) update project of the cloud computer.
+     * @description > This parameter is not publicly available.
      *
      * @example To be hidden
      *
@@ -46,7 +46,7 @@ class fotaPendingDesktops extends Model
     public $fotaProject;
 
     /**
-     * @description The office network ID.
+     * @description The ID of the office network.
      *
      * @example cn-hangzhou+dir-815419****
      *
@@ -55,14 +55,25 @@ class fotaPendingDesktops extends Model
     public $officeSiteId;
 
     /**
-     * @description The information about the connected sessions.
+     * @description The connected sessions.
      *
      * @var sessions[]
      */
     public $sessions;
 
     /**
-     * @description The status.
+     * @description The status of the cloud computer.
+     *
+     * Valid values:
+     *
+     *   0: The cloud computer is being created.
+     *   1: The cloud computer is being started.
+     *   2: The cloud computer is running.
+     *   3: The cloud computer is being stopped.
+     *   5: The cloud computer is stopped.
+     *   6: The cloud computer expires.
+     *   7: The cloud computer is deleted.
+     *   9: Failed to create the cloud computer.
      *
      * @example 2
      *

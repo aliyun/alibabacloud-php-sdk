@@ -91,7 +91,7 @@ class ModifyPolicyGroupRequest extends Model
      *   \[black:],example1.com,example2.com: the domain name blacklist.
      *   \[white:],example1.com,example2.com: the domain name whitelist.
      *
-     * @example on
+     * @example [black:],example1.com,example2.com
      *
      * @var string
      */

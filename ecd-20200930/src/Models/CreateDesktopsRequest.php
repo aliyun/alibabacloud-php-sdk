@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopsRequest\bundleModels;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopsRequest\desktopTimers;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopsRequest\monthDesktopSetting;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopsRequest\tag;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopsRequest\userCommands;
 use AlibabaCloud\Tea\Model;
@@ -168,6 +169,11 @@ class CreateDesktopsRequest extends Model
     public $hostname;
 
     /**
+     * @var monthDesktopSetting
+     */
+    public $monthDesktopSetting;
+
+    /**
      * @description The office network ID.
      *
      * @example cn-hangzhou+os-c5cy7q578s8jc****
@@ -318,6 +324,7 @@ class CreateDesktopsRequest extends Model
         'endUserId'               => 'EndUserId',
         'groupId'                 => 'GroupId',
         'hostname'                => 'Hostname',
+        'monthDesktopSetting'     => 'MonthDesktopSetting',
         'officeSiteId'            => 'OfficeSiteId',
         'period'                  => 'Period',
         'periodUnit'              => 'PeriodUnit',
@@ -393,6 +400,9 @@ class CreateDesktopsRequest extends Model
         }
         if (null !== $this->hostname) {
             $res['Hostname'] = $this->hostname;
+        }
+        if (null !== $this->monthDesktopSetting) {
+            $res['MonthDesktopSetting'] = null !== $this->monthDesktopSetting ? $this->monthDesktopSetting->toMap() : null;
         }
         if (null !== $this->officeSiteId) {
             $res['OfficeSiteId'] = $this->officeSiteId;
@@ -512,6 +522,9 @@ class CreateDesktopsRequest extends Model
         }
         if (isset($map['Hostname'])) {
             $model->hostname = $map['Hostname'];
+        }
+        if (isset($map['MonthDesktopSetting'])) {
+            $model->monthDesktopSetting = monthDesktopSetting::fromMap($map['MonthDesktopSetting']);
         }
         if (isset($map['OfficeSiteId'])) {
             $model->officeSiteId = $map['OfficeSiteId'];

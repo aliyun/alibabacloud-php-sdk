@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeDesktopGroupsRequest extends Model
 {
     /**
-     * @description The IDs of the desktop templates.
+     * @description The IDs of the cloud computer templates.
      *
      * @var string[]
      */
     public $bundleId;
 
     /**
-     * @description The desktop group ID.
+     * @description The ID of the cloud computer pool.
      *
      * @example dg-2i8qxpv6t1a03****
      *
@@ -25,7 +25,7 @@ class DescribeDesktopGroupsRequest extends Model
     public $desktopGroupId;
 
     /**
-     * @description The name of the desktop group that you want to query. Fuzzy search is supported.
+     * @description The name of the cloud computer pool to query. Fuzzy search is supported.
      *
      * @example testName
      *
@@ -34,7 +34,7 @@ class DescribeDesktopGroupsRequest extends Model
     public $desktopGroupName;
 
     /**
-     * @description The authorized users.
+     * @description The authorized user IDs of cloud computer pools.
      *
      * @var string[]
      */
@@ -73,7 +73,7 @@ class DescribeDesktopGroupsRequest extends Model
     public $nextToken;
 
     /**
-     * @description The workspace ID of the desktop group that you want to query.
+     * @description The ID of the office network to which the cloud computer pool belongs.
      *
      * @example cn-hangzhou+dir-467671****
      *
@@ -82,17 +82,13 @@ class DescribeDesktopGroupsRequest extends Model
     public $officeSiteId;
 
     /**
-     * @description The desktop group type.
+     * @description The type of the cloud computer pool.
      *
      * Valid values:
      *
-     *   0
+     *   0: individual (single session)
+     *   1: shared (multiple sessions)
      *
-     * <!-- -->
-     *
-     *   1
-     *
-     * <!-- -->
      * @example 0
      *
      * @var int
@@ -100,7 +96,22 @@ class DescribeDesktopGroupsRequest extends Model
     public $ownType;
 
     /**
-     * @description The validity period of the desktop group. The unit is specified by the PeriodUnit parameter.
+     * @description The subscription duration of the cloud computer pool. The unit is specified by the `PeriodUnit` parameter.
+     *
+     *   Valid values if the `PeriodUnit` parameter is set to `Month`:
+     *
+     *   1
+     *   2
+     *   3
+     *   6
+     *
+     *   Valid values if the `PeriodUnit` parameter is set to `Year`:
+     *
+     *   1
+     *   2
+     *   3
+     *   4
+     *   5
      *
      * @example 1
      *
@@ -109,21 +120,8 @@ class DescribeDesktopGroupsRequest extends Model
     public $period;
 
     /**
-     * @description The unit of the duration.
+     * @description The unit of the subscription duration.
      *
-     * Valid values:
-     *
-     *   Month
-     *
-     * <!-- -->
-     *
-     *   Year
-     *
-     * <!-- -->
-     *
-     *   Day
-     *
-     * <!-- -->
      * @example Month
      *
      * @var string
@@ -131,7 +129,7 @@ class DescribeDesktopGroupsRequest extends Model
     public $periodUnit;
 
     /**
-     * @description The ID of the policy with which the desktop group is associated.
+     * @description The ID of the policy that you want to associate with the cloud computer pool.
      *
      * @example pg-53iyi2aar0nd6****
      *
@@ -140,11 +138,17 @@ class DescribeDesktopGroupsRequest extends Model
     public $policyGroupId;
 
     /**
-     * @description The protocol. Valid values:
+     * @description The protocol type.
      *
-     *   ASP
-     *   HDX
+     * Valid values:
      *
+     *   High-definition Experience (HDX)
+     *
+     * <!-- -->
+     *
+     *   Adaptive Streaming Protocol (ASP)
+     *
+     * <!-- -->
      * @example ASP
      *
      * @var string
@@ -152,7 +156,7 @@ class DescribeDesktopGroupsRequest extends Model
     public $protocolType;
 
     /**
-     * @description The region ID.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the regions supported by WUYING Workspace.
      *
      * @example cn-hangzhou
      *
@@ -161,21 +165,14 @@ class DescribeDesktopGroupsRequest extends Model
     public $regionId;
 
     /**
-     * @description The payment status of the desktop group.
+     * @description The payment status of the cloud computer pool.
      *
      * Valid values:
      *
-     *   0
+     *   0: unpaid
+     *   1: paid
+     *   2: overdue or expired
      *
-     * <!-- -->
-     *
-     *   1
-     *
-     * <!-- -->
-     *
-     *   2
-     *
-     * <!-- -->
      * @example 1
      *
      * @var int

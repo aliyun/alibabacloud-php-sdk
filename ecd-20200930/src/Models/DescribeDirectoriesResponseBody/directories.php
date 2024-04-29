@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class directories extends Model
 {
     /**
-     * @description Details of the AD connectors.
+     * @description Details of the AD connector.
      *
      * @var ADConnectors[]
      */
@@ -27,7 +27,7 @@ class directories extends Model
     public $creationTime;
 
     /**
-     * @description The ID of the security group.
+     * @description The security group ID. This parameter is returned only when the directory type is AD office network.
      *
      * @example sg-bp1ce64o4g9mdf5u****
      *
@@ -36,8 +36,21 @@ class directories extends Model
     public $customSecurityGroupId;
 
     /**
-     * @description The method that is used to connect the client to cloud desktops.
+     * @description The method in which the cloud computer is connected.
      *
+     * Valid values:
+     *
+     *   VPC
+     *
+     * <!-- -->
+     *
+     *   Internet
+     *
+     * <!-- -->
+     *
+     *   Any
+     *
+     * <!-- -->
      * @example Internet
      *
      * @var string
@@ -45,7 +58,7 @@ class directories extends Model
     public $desktopAccessType;
 
     /**
-     * @description The endpoint that is used to connect to cloud desktops over a VPC.
+     * @description The endpoint that is used to connect to cloud computers in the directory over a VPC.
      *
      * @example http://ep-bp1s2vmbj55r5rzc****.epsrv-bp1pcfhpwvlpny01****.cn-hangzhou.privatelink.aliyuncs.com
      *
@@ -54,7 +67,7 @@ class directories extends Model
     public $desktopVpcEndpoint;
 
     /**
-     * @description The ID of the directory.
+     * @description The directory ID.
      *
      * @example cn-hangzhou+dir-gx2x1dhsmu52rd****
      *
@@ -63,8 +76,17 @@ class directories extends Model
     public $directoryId;
 
     /**
-     * @description The type of the directory.
+     * @description The directory type.
      *
+     * Valid values:
+     *
+     *   AD_CONNECTOR: AD directory
+     *
+     * <!-- -->
+     *
+     *   RAM: RAM directory
+     *
+     * <!-- -->
      * @example RAM
      *
      * @var string
@@ -72,14 +94,14 @@ class directories extends Model
     public $directoryType;
 
     /**
-     * @description Details of the DNS addresses of the directory.
+     * @description The DNS address of the directory.
      *
      * @var string[]
      */
     public $dnsAddress;
 
     /**
-     * @description The username of the Domain Name System (DNS) user.
+     * @description The username of a DNS user.
      *
      * @example testDnsUserName
      *
@@ -88,7 +110,7 @@ class directories extends Model
     public $dnsUserName;
 
     /**
-     * @description The name of the domain.
+     * @description The domain name.
      *
      * @example example.com
      *
@@ -97,7 +119,7 @@ class directories extends Model
     public $domainName;
 
     /**
-     * @description The password of the domain administrator.
+     * @description The password of the domain administrator. This parameter is returned only when the directory type is AD office network.
      *
      * @example testPassword
      *
@@ -115,7 +137,7 @@ class directories extends Model
     public $domainUserName;
 
     /**
-     * @description Indicates whether the permissions of the local administrator are granted to the regular user of the cloud desktop.
+     * @description Indicates whether the local administrator permissions are granted to users that use cloud computers in the office network.
      *
      * @example true
      *
@@ -124,9 +146,8 @@ class directories extends Model
     public $enableAdminAccess;
 
     /**
-     * @description Indicates whether the desktop communication feature is enabled for cloud desktops in the same workspace.
+     * @description Indicates whether cloud computers can communicate with each other in the directory.
      *
-     * If the feature is enabled, the cloud desktops in the same workspace can access each other.
      * @example true
      *
      * @var bool
@@ -134,7 +155,7 @@ class directories extends Model
     public $enableCrossDesktopAccess;
 
     /**
-     * @description Indicates whether access over the Internet is allowed.
+     * @description Indicates whether access over the Internet is enabled.
      *
      * >  This parameter is unavailable.
      * @example false
@@ -144,21 +165,21 @@ class directories extends Model
     public $enableInternetAccess;
 
     /**
-     * @description Details of the IDs of the Apsara File Storage NAS (NAS) file systems.
+     * @description The IDs of Apsara File Storage NAS (NAS) file systems.
      *
      * @var string[]
      */
     public $fileSystemIds;
 
     /**
-     * @description Details of the registration logs.
+     * @description The registration logs. This parameter is returned only when the directory type is AD office network.
      *
      * @var logs[]
      */
     public $logs;
 
     /**
-     * @description Indicates whether multi-factor authentication (MFA) is enabled.
+     * @description Indicates whether MFA is enabled.
      *
      * @example false
      *
@@ -167,7 +188,7 @@ class directories extends Model
     public $mfaEnabled;
 
     /**
-     * @description The name of the directory.
+     * @description The directory name.
      *
      * @example testDirectoryName
      *
@@ -176,8 +197,8 @@ class directories extends Model
     public $name;
 
     /**
-     * @description Indicates whether two-factor verification for logons is enabled. This parameter is returned only for workspaces of the convenience account type.\
-     * If two-factor verification is enabled, the system checks whether security risks exist within the logon account when a convenience user logs on to the Elastic Desktop Service (EDS) client. If risks are detected, the system sends a verification code to the email address that is associated with the account. Then, the convenience user can log on to the client only after the user enters the correct verification code.
+     * @description Indicates whether two-step verification for logons is enabled. This parameter is returned only for directories of convenience account type.\
+     * If two-factor verification is enabled, the system checks whether security risks exist within the logon account when a convenience user logs on to an Alibaba Cloud Workspace client. If risks are detected, the system sends a verification code to the email address that is associated with the account. Then, the convenience user can log on to the client only after the user enters the correct verification code.
      * @example false
      *
      * @var bool
@@ -185,7 +206,7 @@ class directories extends Model
     public $needVerifyLoginRisk;
 
     /**
-     * @description The name of the organizational unit (OU) that you specified when you add cloud desktops to domains.
+     * @description The organization unit that you selected when you added the cloud computer to the domain.
      *
      * @example example.com/Domain Controllers
      *
@@ -203,11 +224,17 @@ class directories extends Model
     public $ssoEnabled;
 
     /**
-     * @description The status of the AD directory. Valid values:
+     * @description The status of the AD directory.
+     *
+     * Valid values:
      *
      *   REGISTERING
+     *
+     * <!-- -->
+     *
      *   REGISTERED
      *
+     * <!-- -->
      * @example REGISTERING
      *
      * @var string
@@ -215,14 +242,14 @@ class directories extends Model
     public $status;
 
     /**
-     * @description Details of the DNS addresses of the AD subdomain.
+     * @description The DNS address of the enterprise AD subdomain.
      *
      * @var string[]
      */
     public $subDnsAddress;
 
     /**
-     * @description The fully qualified domain name (FQDN) of the enterprise AD subdomain. The value must contain the hostname and the subdomain name. Example: child.example.com.
+     * @description The fully qualified domain name (FQDN) of the existing AD subdomain. The value contains both the host name and the domain name.
      *
      * @example child.example.com
      *
@@ -231,7 +258,7 @@ class directories extends Model
     public $subDomainName;
 
     /**
-     * @description The AD trust password.
+     * @description The AD trust password. This parameter is returned only when the directory type is AD office network.
      *
      * @example 82Tg****
      *
@@ -240,14 +267,14 @@ class directories extends Model
     public $trustPassword;
 
     /**
-     * @description Details of vSwitch IDs that are specified when the directory is being created.
+     * @description The IDs of the vSwitches specified when the directory was created.
      *
      * @var string[]
      */
     public $vSwitchIds;
 
     /**
-     * @description The ID of the virtual private cloud (VPC) to which the vSwitch belongs.
+     * @description The ID of the VPC to which the vSwitch belongs. This parameter is returned only when the directory type is AD office network.
      *
      * @example vpc-uf6tz5k67puge5jn8****
      *

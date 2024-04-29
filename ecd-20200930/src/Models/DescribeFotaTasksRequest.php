@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeFotaTasksRequest extends Model
 {
     /**
-     * @description This parameter is not available.
+     * @description >  This parameter is not publicly available.
      *
      * @example To be hidden.
      *
@@ -18,10 +18,12 @@ class DescribeFotaTasksRequest extends Model
     public $fotaStatus;
 
     /**
-     * @description The language of the image version to update. Valid values:
+     * @description The language of the image version to update.
      *
-     *   zh: Chinese
-     *   en: English
+     * Valid values:
+     *
+     *   en: English.
+     *   zh: Simplified Chinese.
      *
      * @example zh
      *
@@ -51,7 +53,7 @@ class DescribeFotaTasksRequest extends Model
     public $nextToken;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the regions supported by WUYING Workspace.
      *
      * @example cn-hangzhou
      *
@@ -60,7 +62,7 @@ class DescribeFotaTasksRequest extends Model
     public $regionId;
 
     /**
-     * @description The IDs of the image update tasks. You can call the DescribeFotaTasks operation to obtain the value of this parameter.
+     * @description The IDs of the image update tasks.
      *
      * @var string[]
      */

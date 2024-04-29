@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class fotaTasks extends Model
 {
     /**
-     * @description The version of the image. You can call the [DescribeImages](~~188895~~) operation to obtain this parameter.
+     * @description The image version. You can call the [DescribeImages](~~188895~~) operation to obtain the value of this parameter.
      *
      * @example 0.0.1-D-20220513.143129
      *
@@ -18,7 +18,7 @@ class fotaTasks extends Model
     public $appVersion;
 
     /**
-     * @description This parameter is not available.
+     * @description >  This parameter is not publicly available.
      *
      * @example To be hidden.
      *
@@ -36,7 +36,7 @@ class fotaTasks extends Model
     public $pendingCustomImageCount;
 
     /**
-     * @description The number of cloud desktops for which images can be updated to this version.
+     * @description The number of cloud computers whose images can be updated to this version.
      *
      * @example 1
      *
@@ -45,7 +45,7 @@ class fotaTasks extends Model
     public $pendingDesktopCount;
 
     /**
-     * @description The time when the image version is available for update was published.
+     * @description The time when the image version available for update was published.
      *
      * @example 2022-05-31T04:28:48Z
      *
@@ -54,7 +54,7 @@ class fotaTasks extends Model
     public $publishTime;
 
     /**
-     * @description The description of the image version that is available for update.
+     * @description The description of the image version available for update.
      *
      * @example test
      *
@@ -63,7 +63,7 @@ class fotaTasks extends Model
     public $releaseNote;
 
     /**
-     * @description The size of the image update package. Unit: KB.
+     * @description The size of the update package. Unit: KB.
      *
      * @example 568533470
      *
@@ -72,12 +72,12 @@ class fotaTasks extends Model
     public $size;
 
     /**
-     * @description Indicates whether an end user can update the image.
+     * @description Indicates whether the image update task is automatically pushed.
      *
      * Valid values:
      *
-     *   valid: The end user can update the image.
-     *   invalid: The end user cannot update the image.
+     *   Running: automatically pushes the image update task.
+     *   Pending: does not automatically push the image update task.
      *
      * @example valid
      *
@@ -86,7 +86,7 @@ class fotaTasks extends Model
     public $status;
 
     /**
-     * @description The ID of the image update task.
+     * @description The ID of the image upgrade task.
      *
      * @example aot-c4khwrp9ocml4****
      *

@@ -46,7 +46,17 @@ class data extends Model
     /**
      * @var string
      */
+    public $idleDisconnectDuration;
+
+    /**
+     * @var string
+     */
     public $imageId;
+
+    /**
+     * @var string
+     */
+    public $keepDuration;
 
     /**
      * @var string
@@ -93,23 +103,25 @@ class data extends Model
      */
     public $systemDiskSize;
     protected $_name = [
-        'concurrenceCount'    => 'ConcurrenceCount',
-        'curConcurrenceCount' => 'CurConcurrenceCount',
-        'dataDiskSize'        => 'DataDiskSize',
-        'description'         => 'Description',
-        'desktopType'         => 'DesktopType',
-        'directoryId'         => 'DirectoryId',
-        'expireTime'          => 'ExpireTime',
-        'imageId'             => 'ImageId',
-        'name'                => 'Name',
-        'oversoldGroupId'     => 'OversoldGroupId',
-        'oversoldUserCount'   => 'OversoldUserCount',
-        'oversoldWarn'        => 'OversoldWarn',
-        'policyGroupId'       => 'PolicyGroupId',
-        'saleStatus'          => 'SaleStatus',
-        'status'              => 'Status',
-        'stopDuration'        => 'StopDuration',
-        'systemDiskSize'      => 'SystemDiskSize',
+        'concurrenceCount'       => 'ConcurrenceCount',
+        'curConcurrenceCount'    => 'CurConcurrenceCount',
+        'dataDiskSize'           => 'DataDiskSize',
+        'description'            => 'Description',
+        'desktopType'            => 'DesktopType',
+        'directoryId'            => 'DirectoryId',
+        'expireTime'             => 'ExpireTime',
+        'idleDisconnectDuration' => 'IdleDisconnectDuration',
+        'imageId'                => 'ImageId',
+        'keepDuration'           => 'KeepDuration',
+        'name'                   => 'Name',
+        'oversoldGroupId'        => 'OversoldGroupId',
+        'oversoldUserCount'      => 'OversoldUserCount',
+        'oversoldWarn'           => 'OversoldWarn',
+        'policyGroupId'          => 'PolicyGroupId',
+        'saleStatus'             => 'SaleStatus',
+        'status'                 => 'Status',
+        'stopDuration'           => 'StopDuration',
+        'systemDiskSize'         => 'SystemDiskSize',
     ];
 
     public function validate()
@@ -140,8 +152,14 @@ class data extends Model
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
         }
+        if (null !== $this->idleDisconnectDuration) {
+            $res['IdleDisconnectDuration'] = $this->idleDisconnectDuration;
+        }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
+        }
+        if (null !== $this->keepDuration) {
+            $res['KeepDuration'] = $this->keepDuration;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -203,8 +221,14 @@ class data extends Model
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
         }
+        if (isset($map['IdleDisconnectDuration'])) {
+            $model->idleDisconnectDuration = $map['IdleDisconnectDuration'];
+        }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
+        }
+        if (isset($map['KeepDuration'])) {
+            $model->keepDuration = $map['KeepDuration'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

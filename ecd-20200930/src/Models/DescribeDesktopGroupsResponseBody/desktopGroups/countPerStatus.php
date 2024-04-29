@@ -9,11 +9,52 @@ use AlibabaCloud\Tea\Model;
 class countPerStatus extends Model
 {
     /**
+     * @description The total number of cloud computers.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The status of the cloud computer.
+     *
+     * Valid values:
+     *
+     *   Stopped
+     *
+     * <!-- -->
+     *
+     *   Starting
+     *
+     * <!-- -->
+     *
+     *   Rebuilding
+     *
+     * <!-- -->
+     *
+     *   Running
+     *
+     * <!-- -->
+     *
+     *   Stopping
+     *
+     * <!-- -->
+     *
+     *   Expired
+     *
+     * <!-- -->
+     *
+     *   Deleted
+     *
+     * <!-- -->
+     *
+     *   Pending
+     *
+     * <!-- -->
+     * @example Running
+     *
      * @var string
      */
     public $status;

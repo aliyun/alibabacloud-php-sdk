@@ -92,6 +92,8 @@ class sessions extends Model
     /**
      * @description The workspace name.
      *
+     * @example DemoOfficeSite
+     *
      * @var string
      */
     public $officeSiteName;

@@ -18,7 +18,7 @@ class DescribeDirectoriesRequest extends Model
     public $directoryId;
 
     /**
-     * @description The status of the directory. The value of this parameter is the same as the value of the `Status` parameter.
+     * @description The directory status. This parameter is equivalent to `Status`.
      *
      * @example REGISTERED
      *
@@ -27,7 +27,13 @@ class DescribeDirectoriesRequest extends Model
     public $directoryStatus;
 
     /**
-     * @description The type of the directory.
+     * @description The directory type.
+     *
+     * Valid values:
+     *
+     *   SIMPLE: a directory of the convenience account type
+     *   AD_CONNECTOR: an AD directory
+     *   RAM: a RAM directory
      *
      * @example RAM
      *
@@ -55,7 +61,7 @@ class DescribeDirectoriesRequest extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -64,8 +70,45 @@ class DescribeDirectoriesRequest extends Model
     public $regionId;
 
     /**
-     * @description The status of the workspace.
+     * @description The directory status.
      *
+     * Valid values:
+     *
+     *   REGISTERING: The directory is being registered.
+     *
+     * <!-- -->
+     *
+     *   DEREGISTERING: The directory is being deregistered.
+     *
+     * <!-- -->
+     *
+     *   REGISTERED: The directory is registered.
+     *
+     * <!-- -->
+     *
+     *   NEEDCONFIGTRUST: A trust relationship needs to be configured for the directory.
+     *
+     * <!-- -->
+     *
+     *   CONFIGTRUSTFAILED: A trust relationship fails to be configured for the directory.
+     *
+     * <!-- -->
+     *
+     *   DEREGISTERED: The directory is deregistered.
+     *
+     * <!-- -->
+     *
+     *   ERROR: One or more configurations of the directory are invalid.
+     *
+     * <!-- -->
+     *
+     *   CONFIGTRUSTING: A trust relationship is being configured.
+     *
+     * <!-- -->
+     *
+     *   NEEDCONFIGUSER: Users need to be configured for the directory.
+     *
+     * <!-- -->
      * @example REGISTERED
      *
      * @var string

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDesktopGroupsResponseBody extends Model
 {
     /**
-     * @description Details of the desktop groups.
+     * @description The cloud computer pools.
      *
      * @var desktopGroups[]
      */

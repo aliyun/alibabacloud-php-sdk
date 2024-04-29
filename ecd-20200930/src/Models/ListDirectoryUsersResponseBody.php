@@ -28,7 +28,7 @@ class ListDirectoryUsersResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The names of users corresponding to the AD directory. If the AD directory corresponds only to the `Administrator` and `Guest` users, the returned `Users` value is empty.
+     * @description The names of users corresponding to the AD directory. If the AD directory contains only Administrator and Guest, an empty Users array is returned.
      *
      * @var users[]
      */

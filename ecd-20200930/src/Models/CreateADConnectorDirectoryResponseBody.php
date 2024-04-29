@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateADConnectorDirectoryResponseBody extends Model
 {
     /**
-     * @description Details of the AD connectors.
+     * @description The details of AD connectors.
      *
      * @var adConnectors[]
      */

@@ -27,7 +27,7 @@ class CreateDiskEncryptionServiceResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
+     * @description Indicates whether the request was successful.
      *
      * @example true
      *

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeFotaTasksResponseBody extends Model
 {
     /**
-     * @description The operation result. If the request was successful, a success message is returned. If the request failed, an error message is returned.
+     * @description The returned message. If the request was successful, a `success` is returned. If the request failed, an error message is returned.
      *
      * @example success
      *
@@ -26,7 +26,7 @@ class DescribeFotaTasksResponseBody extends Model
     public $fotaTasks;
 
     /**
-     * @description The returned error message. This parameter is not returned if the value of Code is `success`.
+     * @description The returned error message. This parameter is not returned if the Code value is a `success` message.
      *
      * @example success
      *
@@ -35,10 +35,7 @@ class DescribeFotaTasksResponseBody extends Model
     public $message;
 
     /**
-     * @description A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
-     *
-     *   If **NextToken** is empty, no next page exists.
-     *   If a value is returned for **NextToken**, the value is the token that is used for the next query.
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
      *
      * @example AAAAAV3MpHK1AP0pfERHZN5pu6nmB7qrRFJ8vmttjxPL****
      *

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDirectoriesResponseBody extends Model
 {
     /**
-     * @description The hostname of the domain controller. The hostname must comply with the hostname naming convention of Windows.
+     * @description The hostname of the domain controller. The hostname must comply with the hostname naming convention of Windows. This parameter is returned only when the directory type is AD office network.
      *
      * @example cnshsv21hmc****
      *
@@ -19,7 +19,7 @@ class DescribeDirectoriesResponseBody extends Model
     public $adHostname;
 
     /**
-     * @description Details of the directories.
+     * @description The directories.
      *
      * @var directories[]
      */

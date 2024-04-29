@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class adConnectors extends Model
 {
     /**
-     * @description The IP address of the AD connector.
+     * @description The connection address.
      *
      * @example 127.0.**.**
      *

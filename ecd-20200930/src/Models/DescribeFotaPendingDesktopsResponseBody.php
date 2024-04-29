@@ -19,7 +19,7 @@ class DescribeFotaPendingDesktopsResponseBody extends Model
     public $code;
 
     /**
-     * @description The cloud computers whose images can be but are not yet updated to the version that is described in an image update task (TaskUid).
+     * @description The cloud computers whose images can be and are pending to be updated to the version specified in `TaskUid`.
      *
      * @var fotaPendingDesktops[]
      */

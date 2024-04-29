@@ -18,7 +18,7 @@ class ApproveFotaUpdateRequest extends Model
     public $appVersion;
 
     /**
-     * @description The ID of the cloud desktop.
+     * @description The ID of the cloud computer.
      *
      * @example ecd-138dsptkrt00u****
      *
@@ -27,7 +27,7 @@ class ApproveFotaUpdateRequest extends Model
     public $desktopId;
 
     /**
-     * @description The region ID.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the regions supported by WUYING Workspace.
      *
      * @example cn-hangzhou
      *

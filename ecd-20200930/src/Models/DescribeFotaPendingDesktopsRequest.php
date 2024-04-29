@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeFotaPendingDesktopsRequest extends Model
 {
     /**
-     * @description The cloud computer ID.
+     * @description The ID of the cloud computer.
      *
      * @example ecd-gx2x1dhsmucyy****
      *
@@ -18,7 +18,7 @@ class DescribeFotaPendingDesktopsRequest extends Model
     public $desktopId;
 
     /**
-     * @description The cloud computer name.
+     * @description The name of the cloud computer.
      *
      * @example testName
      *
@@ -39,7 +39,7 @@ class DescribeFotaPendingDesktopsRequest extends Model
     public $maxResults;
 
     /**
-     * @description The pagination token that is used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of `NextToken`.
      *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *
@@ -48,7 +48,7 @@ class DescribeFotaPendingDesktopsRequest extends Model
     public $nextToken;
 
     /**
-     * @description The office network ID. You can call the [DescribeOfficeSites](~~216071~~) operation to obtain the office network ID.
+     * @description The ID of the office network. You can call the [DescribeOfficeSites](~~216071~~) operation to obtain the value of this parameter.
      *
      * @example cn-hangzhou+dir-363353****
      *
@@ -57,7 +57,7 @@ class DescribeFotaPendingDesktopsRequest extends Model
     public $officeSiteId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the regions supported by WUYING Workspace.
      *
      * @example cn-hangzhou
      *
@@ -66,7 +66,7 @@ class DescribeFotaPendingDesktopsRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the image update task. You can call the DescribeFotaTasks operation to obtain the task ID.
+     * @description The ID of the image update task. You can call the [DescribeFotaTasks](~~437001~~) operation to obtain the value of this parameter.
      *
      * @example aot-c4khwrp9ocml4****
      *

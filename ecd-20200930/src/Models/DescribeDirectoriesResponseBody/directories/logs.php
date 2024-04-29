@@ -11,6 +11,19 @@ class logs extends Model
     /**
      * @description The level of the log entry.
      *
+     * Valid values:
+     *
+     *   ERROR
+     *
+     * <!-- -->
+     *
+     *   INFO
+     *
+     * <!-- -->
+     *
+     *   WARN
+     *
+     * <!-- -->
      * @example INFO
      *
      * @var string

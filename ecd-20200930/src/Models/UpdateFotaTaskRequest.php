@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateFotaTaskRequest extends Model
 {
     /**
-     * @description The ID of the region. You can call the DescribeRegions operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the regions supported by WUYING Workspace.
      *
      * @example cn-hangzhou
      *
@@ -18,7 +18,7 @@ class UpdateFotaTaskRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the image update task. You can call the DescribeFotaTasks operation to obtain the value of this parameter.
+     * @description The ID of the image update task. You can call the [DescribeFotaTasks](~~437001~~) operation to obtain the value of this parameter.
      *
      * @example aot-c4khwrp9ocml4****
      *
@@ -29,7 +29,11 @@ class UpdateFotaTaskRequest extends Model
     /**
      * @description Specifies whether to automatically push the image update task.
      *
-     * - Pending
+     * Valid values:
+     *
+     *   Running: automatically pushes the image update task.
+     *   Pending: does not automatically push the image update task.
+     *
      * @example Pending
      *
      * @var string
