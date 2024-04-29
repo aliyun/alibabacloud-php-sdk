@@ -32,11 +32,17 @@ class QueryCollectionDataResponseBody extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var int
+     */
+    public $total;
     protected $_name = [
         'matches'   => 'Matches',
         'message'   => 'Message',
         'requestId' => 'RequestId',
         'status'    => 'Status',
+        'total'     => 'Total',
     ];
 
     public function validate()
@@ -57,6 +63,9 @@ class QueryCollectionDataResponseBody extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -81,6 +90,9 @@ class QueryCollectionDataResponseBody extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;

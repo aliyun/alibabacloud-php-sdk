@@ -55,6 +55,11 @@ class QueryContentShrinkRequest extends Model
     public $hybridSearchArgsShrink;
 
     /**
+     * @var string
+     */
+    public $includeMetadataFields;
+
+    /**
      * @var bool
      */
     public $includeVector;
@@ -124,6 +129,7 @@ class QueryContentShrinkRequest extends Model
         'filter'                 => 'Filter',
         'hybridSearch'           => 'HybridSearch',
         'hybridSearchArgsShrink' => 'HybridSearchArgs',
+        'includeMetadataFields'  => 'IncludeMetadataFields',
         'includeVector'          => 'IncludeVector',
         'metrics'                => 'Metrics',
         'namespace'              => 'Namespace',
@@ -166,6 +172,9 @@ class QueryContentShrinkRequest extends Model
         }
         if (null !== $this->hybridSearchArgsShrink) {
             $res['HybridSearchArgs'] = $this->hybridSearchArgsShrink;
+        }
+        if (null !== $this->includeMetadataFields) {
+            $res['IncludeMetadataFields'] = $this->includeMetadataFields;
         }
         if (null !== $this->includeVector) {
             $res['IncludeVector'] = $this->includeVector;
@@ -232,6 +241,9 @@ class QueryContentShrinkRequest extends Model
         }
         if (isset($map['HybridSearchArgs'])) {
             $model->hybridSearchArgsShrink = $map['HybridSearchArgs'];
+        }
+        if (isset($map['IncludeMetadataFields'])) {
+            $model->includeMetadataFields = $map['IncludeMetadataFields'];
         }
         if (isset($map['IncludeVector'])) {
             $model->includeVector = $map['IncludeVector'];

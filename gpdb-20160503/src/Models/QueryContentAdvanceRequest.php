@@ -56,6 +56,11 @@ class QueryContentAdvanceRequest extends Model
     public $hybridSearchArgs;
 
     /**
+     * @var string
+     */
+    public $includeMetadataFields;
+
+    /**
      * @var bool
      */
     public $includeVector;
@@ -117,24 +122,25 @@ class QueryContentAdvanceRequest extends Model
      */
     public $useFullTextRetrieval;
     protected $_name = [
-        'collection'           => 'Collection',
-        'content'              => 'Content',
-        'DBInstanceId'         => 'DBInstanceId',
-        'fileName'             => 'FileName',
-        'fileUrlObject'        => 'FileUrl',
-        'filter'               => 'Filter',
-        'hybridSearch'         => 'HybridSearch',
-        'hybridSearchArgs'     => 'HybridSearchArgs',
-        'includeVector'        => 'IncludeVector',
-        'metrics'              => 'Metrics',
-        'namespace'            => 'Namespace',
-        'namespacePassword'    => 'NamespacePassword',
-        'ownerId'              => 'OwnerId',
-        'recallWindow'         => 'RecallWindow',
-        'regionId'             => 'RegionId',
-        'rerankFactor'         => 'RerankFactor',
-        'topK'                 => 'TopK',
-        'useFullTextRetrieval' => 'UseFullTextRetrieval',
+        'collection'            => 'Collection',
+        'content'               => 'Content',
+        'DBInstanceId'          => 'DBInstanceId',
+        'fileName'              => 'FileName',
+        'fileUrlObject'         => 'FileUrl',
+        'filter'                => 'Filter',
+        'hybridSearch'          => 'HybridSearch',
+        'hybridSearchArgs'      => 'HybridSearchArgs',
+        'includeMetadataFields' => 'IncludeMetadataFields',
+        'includeVector'         => 'IncludeVector',
+        'metrics'               => 'Metrics',
+        'namespace'             => 'Namespace',
+        'namespacePassword'     => 'NamespacePassword',
+        'ownerId'               => 'OwnerId',
+        'recallWindow'          => 'RecallWindow',
+        'regionId'              => 'RegionId',
+        'rerankFactor'          => 'RerankFactor',
+        'topK'                  => 'TopK',
+        'useFullTextRetrieval'  => 'UseFullTextRetrieval',
     ];
 
     public function validate()
@@ -167,6 +173,9 @@ class QueryContentAdvanceRequest extends Model
         }
         if (null !== $this->hybridSearchArgs) {
             $res['HybridSearchArgs'] = $this->hybridSearchArgs;
+        }
+        if (null !== $this->includeMetadataFields) {
+            $res['IncludeMetadataFields'] = $this->includeMetadataFields;
         }
         if (null !== $this->includeVector) {
             $res['IncludeVector'] = $this->includeVector;
@@ -233,6 +242,9 @@ class QueryContentAdvanceRequest extends Model
         }
         if (isset($map['HybridSearchArgs'])) {
             $model->hybridSearchArgs = $map['HybridSearchArgs'];
+        }
+        if (isset($map['IncludeMetadataFields'])) {
+            $model->includeMetadataFields = $map['IncludeMetadataFields'];
         }
         if (isset($map['IncludeVector'])) {
             $model->includeVector = $map['IncludeVector'];

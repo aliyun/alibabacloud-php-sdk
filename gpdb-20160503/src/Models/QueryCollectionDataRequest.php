@@ -47,6 +47,11 @@ class QueryCollectionDataRequest extends Model
     public $hybridSearchArgs;
 
     /**
+     * @var string
+     */
+    public $includeMetadataFields;
+
+    /**
      * @var bool
      */
     public $includeValues;
@@ -73,6 +78,16 @@ class QueryCollectionDataRequest extends Model
     /**
      * @var int
      */
+    public $offset;
+
+    /**
+     * @var string
+     */
+    public $orderBy;
+
+    /**
+     * @var int
+     */
     public $ownerId;
 
     /**
@@ -94,20 +109,23 @@ class QueryCollectionDataRequest extends Model
      */
     public $vector;
     protected $_name = [
-        'collection'        => 'Collection',
-        'content'           => 'Content',
-        'DBInstanceId'      => 'DBInstanceId',
-        'filter'            => 'Filter',
-        'hybridSearch'      => 'HybridSearch',
-        'hybridSearchArgs'  => 'HybridSearchArgs',
-        'includeValues'     => 'IncludeValues',
-        'metrics'           => 'Metrics',
-        'namespace'         => 'Namespace',
-        'namespacePassword' => 'NamespacePassword',
-        'ownerId'           => 'OwnerId',
-        'regionId'          => 'RegionId',
-        'topK'              => 'TopK',
-        'vector'            => 'Vector',
+        'collection'            => 'Collection',
+        'content'               => 'Content',
+        'DBInstanceId'          => 'DBInstanceId',
+        'filter'                => 'Filter',
+        'hybridSearch'          => 'HybridSearch',
+        'hybridSearchArgs'      => 'HybridSearchArgs',
+        'includeMetadataFields' => 'IncludeMetadataFields',
+        'includeValues'         => 'IncludeValues',
+        'metrics'               => 'Metrics',
+        'namespace'             => 'Namespace',
+        'namespacePassword'     => 'NamespacePassword',
+        'offset'                => 'Offset',
+        'orderBy'               => 'OrderBy',
+        'ownerId'               => 'OwnerId',
+        'regionId'              => 'RegionId',
+        'topK'                  => 'TopK',
+        'vector'                => 'Vector',
     ];
 
     public function validate()
@@ -135,6 +153,9 @@ class QueryCollectionDataRequest extends Model
         if (null !== $this->hybridSearchArgs) {
             $res['HybridSearchArgs'] = $this->hybridSearchArgs;
         }
+        if (null !== $this->includeMetadataFields) {
+            $res['IncludeMetadataFields'] = $this->includeMetadataFields;
+        }
         if (null !== $this->includeValues) {
             $res['IncludeValues'] = $this->includeValues;
         }
@@ -146,6 +167,12 @@ class QueryCollectionDataRequest extends Model
         }
         if (null !== $this->namespacePassword) {
             $res['NamespacePassword'] = $this->namespacePassword;
+        }
+        if (null !== $this->offset) {
+            $res['Offset'] = $this->offset;
+        }
+        if (null !== $this->orderBy) {
+            $res['OrderBy'] = $this->orderBy;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -189,6 +216,9 @@ class QueryCollectionDataRequest extends Model
         if (isset($map['HybridSearchArgs'])) {
             $model->hybridSearchArgs = $map['HybridSearchArgs'];
         }
+        if (isset($map['IncludeMetadataFields'])) {
+            $model->includeMetadataFields = $map['IncludeMetadataFields'];
+        }
         if (isset($map['IncludeValues'])) {
             $model->includeValues = $map['IncludeValues'];
         }
@@ -200,6 +230,12 @@ class QueryCollectionDataRequest extends Model
         }
         if (isset($map['NamespacePassword'])) {
             $model->namespacePassword = $map['NamespacePassword'];
+        }
+        if (isset($map['Offset'])) {
+            $model->offset = $map['Offset'];
+        }
+        if (isset($map['OrderBy'])) {
+            $model->orderBy = $map['OrderBy'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];

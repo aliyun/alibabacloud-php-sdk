@@ -6345,6 +6345,9 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->hybridSearchArgsShrink)) {
             $query['HybridSearchArgs'] = $request->hybridSearchArgsShrink;
         }
+        if (!Utils::isUnset($request->includeMetadataFields)) {
+            $query['IncludeMetadataFields'] = $request->includeMetadataFields;
+        }
         if (!Utils::isUnset($request->includeValues)) {
             $query['IncludeValues'] = $request->includeValues;
         }
@@ -6356,6 +6359,12 @@ class Gpdb extends OpenApiClient
         }
         if (!Utils::isUnset($request->namespacePassword)) {
             $query['NamespacePassword'] = $request->namespacePassword;
+        }
+        if (!Utils::isUnset($request->offset)) {
+            $query['Offset'] = $request->offset;
+        }
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
         }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
@@ -6440,6 +6449,9 @@ class Gpdb extends OpenApiClient
         }
         if (!Utils::isUnset($request->hybridSearchArgsShrink)) {
             $query['HybridSearchArgs'] = $request->hybridSearchArgsShrink;
+        }
+        if (!Utils::isUnset($request->includeMetadataFields)) {
+            $query['IncludeMetadataFields'] = $request->includeMetadataFields;
         }
         if (!Utils::isUnset($request->includeVector)) {
             $query['IncludeVector'] = $request->includeVector;
