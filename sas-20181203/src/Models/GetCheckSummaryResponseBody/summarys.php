@@ -38,9 +38,9 @@ class summarys extends Model
     /**
      * @description The type of the check item. Valid values:
      *
-     *   **COMPLIANCE**: compliance
-     *   **RISK**: security risk
-     *   **IDENTITY_PERMISSION**: identity and permission
+     *   **COMPLIANCE**
+     *   **RISK**
+     *   **IDENTITY_PERMISSION**
      *
      * @example IDENTITY_PERMISSION
      *

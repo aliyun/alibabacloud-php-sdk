@@ -27,6 +27,11 @@ class DescribeBruteForceRecordsRequest extends Model
     public $currentPage;
 
     /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
      * @description The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page. We recommend that you do not leave this parameter empty.
      *
      * @example 20
@@ -34,6 +39,11 @@ class DescribeBruteForceRecordsRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $remark;
 
     /**
      * @var int
@@ -55,7 +65,9 @@ class DescribeBruteForceRecordsRequest extends Model
     protected $_name = [
         'blockIp'         => 'BlockIp',
         'currentPage'     => 'CurrentPage',
+        'instanceId'      => 'InstanceId',
         'pageSize'        => 'PageSize',
+        'remark'          => 'Remark',
         'resourceOwnerId' => 'ResourceOwnerId',
         'status'          => 'Status',
     ];
@@ -73,8 +85,14 @@ class DescribeBruteForceRecordsRequest extends Model
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
@@ -100,8 +118,14 @@ class DescribeBruteForceRecordsRequest extends Model
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];

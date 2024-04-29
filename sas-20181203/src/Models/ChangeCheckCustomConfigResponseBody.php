@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
 use AlibabaCloud\SDK\Sas\V20181203\Models\ChangeCheckCustomConfigResponseBody\illegalCustomConfigs;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ChangeCheckCustomConfigResponseBody\illegalRepairConfigs;
 use AlibabaCloud\Tea\Model;
 
 class ChangeCheckCustomConfigResponseBody extends Model
@@ -17,6 +18,11 @@ class ChangeCheckCustomConfigResponseBody extends Model
     public $illegalCustomConfigs;
 
     /**
+     * @var illegalRepairConfigs[]
+     */
+    public $illegalRepairConfigs;
+
+    /**
      * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
      * @example DA8133CC-CCA0-5CF2-BF64-FE7D52C44***
@@ -26,6 +32,7 @@ class ChangeCheckCustomConfigResponseBody extends Model
     public $requestId;
     protected $_name = [
         'illegalCustomConfigs' => 'IllegalCustomConfigs',
+        'illegalRepairConfigs' => 'IllegalRepairConfigs',
         'requestId'            => 'RequestId',
     ];
 
@@ -42,6 +49,15 @@ class ChangeCheckCustomConfigResponseBody extends Model
                 $n = 0;
                 foreach ($this->illegalCustomConfigs as $item) {
                     $res['IllegalCustomConfigs'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->illegalRepairConfigs) {
+            $res['IllegalRepairConfigs'] = [];
+            if (null !== $this->illegalRepairConfigs && \is_array($this->illegalRepairConfigs)) {
+                $n = 0;
+                foreach ($this->illegalRepairConfigs as $item) {
+                    $res['IllegalRepairConfigs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -66,6 +82,15 @@ class ChangeCheckCustomConfigResponseBody extends Model
                 $n                           = 0;
                 foreach ($map['IllegalCustomConfigs'] as $item) {
                     $model->illegalCustomConfigs[$n++] = null !== $item ? illegalCustomConfigs::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['IllegalRepairConfigs'])) {
+            if (!empty($map['IllegalRepairConfigs'])) {
+                $model->illegalRepairConfigs = [];
+                $n                           = 0;
+                foreach ($map['IllegalRepairConfigs'] as $item) {
+                    $model->illegalRepairConfigs[$n++] = null !== $item ? illegalRepairConfigs::fromMap($item) : $item;
                 }
             }
         }

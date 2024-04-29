@@ -18,6 +18,11 @@ class resultList extends Model
     public $code;
 
     /**
+     * @var bool
+     */
+    public $compress;
+
+    /**
      * @description The extended information about the file detection result.
      *
      * @example {"HighLight":[[23245,23212]]}
@@ -100,6 +105,7 @@ class resultList extends Model
     public $virusType;
     protected $_name = [
         'code'      => 'Code',
+        'compress'  => 'Compress',
         'ext'       => 'Ext',
         'hashKey'   => 'HashKey',
         'message'   => 'Message',
@@ -117,6 +123,9 @@ class resultList extends Model
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+        if (null !== $this->compress) {
+            $res['Compress'] = $this->compress;
         }
         if (null !== $this->ext) {
             $res['Ext'] = $this->ext;
@@ -150,6 +159,9 @@ class resultList extends Model
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
+        }
+        if (isset($map['Compress'])) {
+            $model->compress = $map['Compress'];
         }
         if (isset($map['Ext'])) {
             $model->ext = $map['Ext'];

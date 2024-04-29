@@ -18,6 +18,11 @@ class trialRecordList extends Model
     public $authLimit;
 
     /**
+     * @var string
+     */
+    public $authLimitList;
+
+    /**
      * @description The end time of the trial use.
      *
      * @example 1679760000000
@@ -59,11 +64,12 @@ class trialRecordList extends Model
      */
     public $status;
     protected $_name = [
-        'authLimit'  => 'AuthLimit',
-        'gmtEnd'     => 'GmtEnd',
-        'gmtStart'   => 'GmtStart',
-        'moduleCode' => 'ModuleCode',
-        'status'     => 'Status',
+        'authLimit'     => 'AuthLimit',
+        'authLimitList' => 'AuthLimitList',
+        'gmtEnd'        => 'GmtEnd',
+        'gmtStart'      => 'GmtStart',
+        'moduleCode'    => 'ModuleCode',
+        'status'        => 'Status',
     ];
 
     public function validate()
@@ -75,6 +81,9 @@ class trialRecordList extends Model
         $res = [];
         if (null !== $this->authLimit) {
             $res['AuthLimit'] = $this->authLimit;
+        }
+        if (null !== $this->authLimitList) {
+            $res['AuthLimitList'] = $this->authLimitList;
         }
         if (null !== $this->gmtEnd) {
             $res['GmtEnd'] = $this->gmtEnd;
@@ -102,6 +111,9 @@ class trialRecordList extends Model
         $model = new self();
         if (isset($map['AuthLimit'])) {
             $model->authLimit = $map['AuthLimit'];
+        }
+        if (isset($map['AuthLimitList'])) {
+            $model->authLimitList = $map['AuthLimitList'];
         }
         if (isset($map['GmtEnd'])) {
             $model->gmtEnd = $map['GmtEnd'];

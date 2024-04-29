@@ -36,6 +36,11 @@ class DescribeAccesskeyLeakListRequest extends Model
     public $query;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @description The beginning of the time range to query. You can query all AccessKey pair leaks that are detected later than this time point. The value of this parameter is a UNIX timestamp. Unit: milliseconds.
      *
      * @example 1614155361489
@@ -56,11 +61,12 @@ class DescribeAccesskeyLeakListRequest extends Model
      */
     public $status;
     protected $_name = [
-        'currentPage' => 'CurrentPage',
-        'pageSize'    => 'PageSize',
-        'query'       => 'Query',
-        'startTs'     => 'StartTs',
-        'status'      => 'Status',
+        'currentPage'                => 'CurrentPage',
+        'pageSize'                   => 'PageSize',
+        'query'                      => 'Query',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
+        'startTs'                    => 'StartTs',
+        'status'                     => 'Status',
     ];
 
     public function validate()
@@ -78,6 +84,9 @@ class DescribeAccesskeyLeakListRequest extends Model
         }
         if (null !== $this->query) {
             $res['Query'] = $this->query;
+        }
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
         if (null !== $this->startTs) {
             $res['StartTs'] = $this->startTs;
@@ -105,6 +114,9 @@ class DescribeAccesskeyLeakListRequest extends Model
         }
         if (isset($map['Query'])) {
             $model->query = $map['Query'];
+        }
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
         if (isset($map['StartTs'])) {
             $model->startTs = $map['StartTs'];

@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckDetailResponseBody\assistInfo;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckDetailResponseBody\customConfigs;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckDetailResponseBody\description;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckDetailResponseBody\repairSetting;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckDetailResponseBody\solution;
 use AlibabaCloud\Tea\Model;
 
@@ -34,6 +35,21 @@ class GetCheckDetailResponseBody extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $repairReset;
+
+    /**
+     * @var repairSetting
+     */
+    public $repairSetting;
+
+    /**
+     * @var int
+     */
+    public $repairSupportType;
+
+    /**
      * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
      * @example 15A6ED6A-DBFE-5255-A248-289907809BEC
@@ -49,11 +65,14 @@ class GetCheckDetailResponseBody extends Model
      */
     public $solution;
     protected $_name = [
-        'assistInfo'    => 'AssistInfo',
-        'customConfigs' => 'CustomConfigs',
-        'description'   => 'Description',
-        'requestId'     => 'RequestId',
-        'solution'      => 'Solution',
+        'assistInfo'        => 'AssistInfo',
+        'customConfigs'     => 'CustomConfigs',
+        'description'       => 'Description',
+        'repairReset'       => 'RepairReset',
+        'repairSetting'     => 'RepairSetting',
+        'repairSupportType' => 'RepairSupportType',
+        'requestId'         => 'RequestId',
+        'solution'          => 'Solution',
     ];
 
     public function validate()
@@ -77,6 +96,15 @@ class GetCheckDetailResponseBody extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = null !== $this->description ? $this->description->toMap() : null;
+        }
+        if (null !== $this->repairReset) {
+            $res['RepairReset'] = $this->repairReset;
+        }
+        if (null !== $this->repairSetting) {
+            $res['RepairSetting'] = null !== $this->repairSetting ? $this->repairSetting->toMap() : null;
+        }
+        if (null !== $this->repairSupportType) {
+            $res['RepairSupportType'] = $this->repairSupportType;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -110,6 +138,15 @@ class GetCheckDetailResponseBody extends Model
         }
         if (isset($map['Description'])) {
             $model->description = description::fromMap($map['Description']);
+        }
+        if (isset($map['RepairReset'])) {
+            $model->repairReset = $map['RepairReset'];
+        }
+        if (isset($map['RepairSetting'])) {
+            $model->repairSetting = repairSetting::fromMap($map['RepairSetting']);
+        }
+        if (isset($map['RepairSupportType'])) {
+            $model->repairSupportType = $map['RepairSupportType'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

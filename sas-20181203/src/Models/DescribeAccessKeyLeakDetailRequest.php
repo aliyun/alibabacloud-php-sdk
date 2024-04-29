@@ -16,8 +16,14 @@ class DescribeAccessKeyLeakDetailRequest extends Model
      * @var int
      */
     public $id;
+
+    /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
     protected $_name = [
-        'id' => 'Id',
+        'id'                         => 'Id',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
     ];
 
     public function validate()
@@ -29,6 +35,9 @@ class DescribeAccessKeyLeakDetailRequest extends Model
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         return $res;
@@ -44,6 +53,9 @@ class DescribeAccessKeyLeakDetailRequest extends Model
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         return $model;

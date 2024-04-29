@@ -914,6 +914,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ListClusterInterceptionConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListClusterInterceptionConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListClusterPluginInfoRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListClusterPluginInfoResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListCompressFileDetectResultRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListCompressFileDetectResultResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListContainerDefenseRuleClustersResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListContainerDefenseRuleRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListContainerDefenseRuleResponse;
@@ -2751,6 +2753,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->repairConfigs)) {
+            $query['RepairConfigs'] = $request->repairConfigs;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -3518,6 +3523,15 @@ class Sas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->decompress)) {
+            $query['Decompress'] = $request->decompress;
+        }
+        if (!Utils::isUnset($request->decompressMaxFileCount)) {
+            $query['DecompressMaxFileCount'] = $request->decompressMaxFileCount;
+        }
+        if (!Utils::isUnset($request->decompressMaxLayer)) {
+            $query['DecompressMaxLayer'] = $request->decompressMaxLayer;
+        }
         if (!Utils::isUnset($request->downloadUrl)) {
             $query['DownloadUrl'] = $request->downloadUrl;
         }
@@ -6980,6 +6994,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->id)) {
             $query['Id'] = $request->id;
         }
+        if (!Utils::isUnset($request->resourceDirectoryAccountId)) {
+            $query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -7028,6 +7045,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->query)) {
             $query['Query'] = $request->query;
+        }
+        if (!Utils::isUnset($request->resourceDirectoryAccountId)) {
+            $query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
         }
         if (!Utils::isUnset($request->startTs)) {
             $query['StartTs'] = $request->startTs;
@@ -8269,8 +8289,14 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->currentPage)) {
             $query['CurrentPage'] = $request->currentPage;
         }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
@@ -25812,6 +25838,58 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param ListCompressFileDetectResultRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListCompressFileDetectResultResponse
+     */
+    public function listCompressFileDetectResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->hashKey)) {
+            $query['HashKey'] = $request->hashKey;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCompressFileDetectResult',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCompressFileDetectResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCompressFileDetectResultRequest $request
+     *
+     * @return ListCompressFileDetectResultResponse
+     */
+    public function listCompressFileDetectResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCompressFileDetectResultWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListContainerDefenseRuleRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -25973,14 +26051,35 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->currentPage)) {
             $query['CurrentPage'] = $request->currentPage;
         }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->internetIp)) {
+            $query['InternetIp'] = $request->internetIp;
+        }
+        if (!Utils::isUnset($request->intranetIp)) {
+            $query['IntranetIp'] = $request->intranetIp;
+        }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
         if (!Utils::isUnset($request->ruleName)) {
             $query['RuleName'] = $request->ruleName;
         }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->uuid)) {
+            $query['Uuid'] = $request->uuid;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

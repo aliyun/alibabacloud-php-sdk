@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
 use AlibabaCloud\SDK\Sas\V20181203\Models\ChangeCheckCustomConfigRequest\customConfigs;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ChangeCheckCustomConfigRequest\repairConfigs;
 use AlibabaCloud\Tea\Model;
 
 class ChangeCheckCustomConfigRequest extends Model
@@ -37,10 +38,16 @@ class ChangeCheckCustomConfigRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var repairConfigs[]
+     */
+    public $repairConfigs;
     protected $_name = [
         'checkId'       => 'CheckId',
         'customConfigs' => 'CustomConfigs',
         'regionId'      => 'RegionId',
+        'repairConfigs' => 'RepairConfigs',
     ];
 
     public function validate()
@@ -64,6 +71,15 @@ class ChangeCheckCustomConfigRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->repairConfigs) {
+            $res['RepairConfigs'] = [];
+            if (null !== $this->repairConfigs && \is_array($this->repairConfigs)) {
+                $n = 0;
+                foreach ($this->repairConfigs as $item) {
+                    $res['RepairConfigs'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -91,6 +107,15 @@ class ChangeCheckCustomConfigRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RepairConfigs'])) {
+            if (!empty($map['RepairConfigs'])) {
+                $model->repairConfigs = [];
+                $n                    = 0;
+                foreach ($map['RepairConfigs'] as $item) {
+                    $model->repairConfigs[$n++] = null !== $item ? repairConfigs::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

@@ -81,7 +81,7 @@ class typeStatistic extends Model
     public $notPassMediumCount;
 
     /**
-     * @description The number of check items that passed the check.
+     * @description The number of check items that pass the check.
      *
      * @example 3
      *

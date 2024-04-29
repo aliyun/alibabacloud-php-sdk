@@ -214,6 +214,11 @@ class DescribeVersionConfigResponseBody extends Model
     public $MVUnusedAuthCount;
 
     /**
+     * @var int
+     */
+    public $newThreatAnalysis;
+
+    /**
      * @description The timestamp when Security Center is purchased. Unit: milliseconds.
      *
      * @example 1657244824669
@@ -343,6 +348,11 @@ class DescribeVersionConfigResponseBody extends Model
     public $threatAnalysisCapacity;
 
     /**
+     * @var int
+     */
+    public $threatAnalysisFlow;
+
+    /**
      * @description Indicates whether the custom alert feature is enabled. Valid values:
      *
      *   **0**: no
@@ -430,6 +440,7 @@ class DescribeVersionConfigResponseBody extends Model
         'lastTrailEndTime'       => 'LastTrailEndTime',
         'MVAuthCount'            => 'MVAuthCount',
         'MVUnusedAuthCount'      => 'MVUnusedAuthCount',
+        'newThreatAnalysis'      => 'NewThreatAnalysis',
         'openTime'               => 'OpenTime',
         'postPayInstanceId'      => 'PostPayInstanceId',
         'postPayModuleSwitch'    => 'PostPayModuleSwitch',
@@ -443,6 +454,7 @@ class DescribeVersionConfigResponseBody extends Model
         'sdkCapacity'            => 'SdkCapacity',
         'slsCapacity'            => 'SlsCapacity',
         'threatAnalysisCapacity' => 'ThreatAnalysisCapacity',
+        'threatAnalysisFlow'     => 'ThreatAnalysisFlow',
         'userDefinedAlarms'      => 'UserDefinedAlarms',
         'version'                => 'Version',
         'vmCores'                => 'VmCores',
@@ -515,6 +527,9 @@ class DescribeVersionConfigResponseBody extends Model
         if (null !== $this->MVUnusedAuthCount) {
             $res['MVUnusedAuthCount'] = $this->MVUnusedAuthCount;
         }
+        if (null !== $this->newThreatAnalysis) {
+            $res['NewThreatAnalysis'] = $this->newThreatAnalysis;
+        }
         if (null !== $this->openTime) {
             $res['OpenTime'] = $this->openTime;
         }
@@ -553,6 +568,9 @@ class DescribeVersionConfigResponseBody extends Model
         }
         if (null !== $this->threatAnalysisCapacity) {
             $res['ThreatAnalysisCapacity'] = $this->threatAnalysisCapacity;
+        }
+        if (null !== $this->threatAnalysisFlow) {
+            $res['ThreatAnalysisFlow'] = $this->threatAnalysisFlow;
         }
         if (null !== $this->userDefinedAlarms) {
             $res['UserDefinedAlarms'] = $this->userDefinedAlarms;
@@ -641,6 +659,9 @@ class DescribeVersionConfigResponseBody extends Model
         if (isset($map['MVUnusedAuthCount'])) {
             $model->MVUnusedAuthCount = $map['MVUnusedAuthCount'];
         }
+        if (isset($map['NewThreatAnalysis'])) {
+            $model->newThreatAnalysis = $map['NewThreatAnalysis'];
+        }
         if (isset($map['OpenTime'])) {
             $model->openTime = $map['OpenTime'];
         }
@@ -679,6 +700,9 @@ class DescribeVersionConfigResponseBody extends Model
         }
         if (isset($map['ThreatAnalysisCapacity'])) {
             $model->threatAnalysisCapacity = $map['ThreatAnalysisCapacity'];
+        }
+        if (isset($map['ThreatAnalysisFlow'])) {
+            $model->threatAnalysisFlow = $map['ThreatAnalysisFlow'];
         }
         if (isset($map['UserDefinedAlarms'])) {
             $model->userDefinedAlarms = $map['UserDefinedAlarms'];

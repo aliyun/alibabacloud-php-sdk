@@ -12,7 +12,7 @@ use AlibabaCloud\Tea\Model;
 class GetCheckSummaryResponseBody extends Model
 {
     /**
-     * @description The statistics of the check items.
+     * @description The statistics about the number of check items.
      *
      * @var overallItemStatistic
      */

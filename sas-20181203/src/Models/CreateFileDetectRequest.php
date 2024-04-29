@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class CreateFileDetectRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $decompress;
+
+    /**
+     * @var int
+     */
+    public $decompressMaxFileCount;
+
+    /**
+     * @var int
+     */
+    public $decompressMaxLayer;
+
+    /**
      * @description The URL that is used to download the file. You can specify this parameter to trigger file detection without the need to upload the file in advance.
      *
      * @example https://xxxxxxxx.oss-cn-hangzhou-1.aliyuncs.com/xxxxx/xxxxxxxxxxxxxx?Expires=1671448125&OSSAccessKeyId=xxx
@@ -59,11 +74,14 @@ class CreateFileDetectRequest extends Model
      */
     public $type;
     protected $_name = [
-        'downloadUrl' => 'DownloadUrl',
-        'hashKey'     => 'HashKey',
-        'ossKey'      => 'OssKey',
-        'sourceIp'    => 'SourceIp',
-        'type'        => 'Type',
+        'decompress'             => 'Decompress',
+        'decompressMaxFileCount' => 'DecompressMaxFileCount',
+        'decompressMaxLayer'     => 'DecompressMaxLayer',
+        'downloadUrl'            => 'DownloadUrl',
+        'hashKey'                => 'HashKey',
+        'ossKey'                 => 'OssKey',
+        'sourceIp'               => 'SourceIp',
+        'type'                   => 'Type',
     ];
 
     public function validate()
@@ -73,6 +91,15 @@ class CreateFileDetectRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->decompress) {
+            $res['Decompress'] = $this->decompress;
+        }
+        if (null !== $this->decompressMaxFileCount) {
+            $res['DecompressMaxFileCount'] = $this->decompressMaxFileCount;
+        }
+        if (null !== $this->decompressMaxLayer) {
+            $res['DecompressMaxLayer'] = $this->decompressMaxLayer;
+        }
         if (null !== $this->downloadUrl) {
             $res['DownloadUrl'] = $this->downloadUrl;
         }
@@ -100,6 +127,15 @@ class CreateFileDetectRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Decompress'])) {
+            $model->decompress = $map['Decompress'];
+        }
+        if (isset($map['DecompressMaxFileCount'])) {
+            $model->decompressMaxFileCount = $map['DecompressMaxFileCount'];
+        }
+        if (isset($map['DecompressMaxLayer'])) {
+            $model->decompressMaxLayer = $map['DecompressMaxLayer'];
+        }
         if (isset($map['DownloadUrl'])) {
             $model->downloadUrl = $map['DownloadUrl'];
         }

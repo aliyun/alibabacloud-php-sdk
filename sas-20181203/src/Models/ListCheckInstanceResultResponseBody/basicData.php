@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckInstanceResultResponseBody;
 
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckInstanceResultResponseBody\basicData\instanceInfo;
 use AlibabaCloud\Tea\Model;
 
 class basicData extends Model
@@ -25,6 +26,11 @@ class basicData extends Model
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var instanceInfo
+     */
+    public $instanceInfo;
 
     /**
      * @description The instance name.
@@ -70,6 +76,7 @@ class basicData extends Model
     protected $_name = [
         'id'            => 'Id',
         'instanceId'    => 'InstanceId',
+        'instanceInfo'  => 'InstanceInfo',
         'instanceName'  => 'InstanceName',
         'regionId'      => 'RegionId',
         'status'        => 'Status',
@@ -88,6 +95,9 @@ class basicData extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->instanceInfo) {
+            $res['InstanceInfo'] = null !== $this->instanceInfo ? $this->instanceInfo->toMap() : null;
         }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
@@ -118,6 +128,9 @@ class basicData extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['InstanceInfo'])) {
+            $model->instanceInfo = instanceInfo::fromMap($map['InstanceInfo']);
         }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
