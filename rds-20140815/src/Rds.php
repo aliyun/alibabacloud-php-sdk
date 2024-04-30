@@ -77,6 +77,9 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\CreateGadInstanceMemberRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateGadInstanceMemberResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateGADInstanceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateGADInstanceResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CreateMaskingRulesRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CreateMaskingRulesResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CreateMaskingRulesShrinkRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateMigrateTaskRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateMigrateTaskResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateOnlineDatabaseTaskRequest;
@@ -121,6 +124,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteDBProxyEndpointAddressRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteDBProxyEndpointAddressResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteGadInstanceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteGadInstanceResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteMaskingRulesRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteMaskingRulesResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteParameterGroupRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteParameterGroupResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeletePostgresExtensionsRequest;
@@ -133,6 +138,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteUserBackupFileRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteUserBackupFileResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescibeImportsFromDatabaseRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescibeImportsFromDatabaseResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAccountMaskingPrivilegeRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAccountMaskingPrivilegeResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAccountsRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAccountsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeActionEventPolicyRequest;
@@ -291,6 +298,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeLogBackupFilesRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeLogBackupFilesResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeMarketingActivityRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeMarketingActivityResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeMaskingRulesRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeMaskingRulesResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeMetaListRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeMetaListResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeMigrateTaskByIdRequest;
@@ -406,6 +415,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\MigrateToOtherZoneRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\MigrateToOtherZoneResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyAccountDescriptionRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyAccountDescriptionResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyAccountMaskingPrivilegeRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyAccountMaskingPrivilegeResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyActionEventPolicyRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyActionEventPolicyResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyActiveOperationTasksRequest;
@@ -491,6 +502,9 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyInstanceAutoRenewalAttributeRequ
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyInstanceAutoRenewalAttributeResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyInstanceCrossBackupPolicyRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyInstanceCrossBackupPolicyResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyMaskingRulesRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyMaskingRulesResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyMaskingRulesShrinkRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyParameterGroupRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyParameterGroupResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyParameterRequest;
@@ -3638,6 +3652,75 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * @param CreateMaskingRulesRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateMaskingRulesResponse
+     */
+    public function createMaskingRulesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateMaskingRulesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->ruleConfig)) {
+            $request->ruleConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ruleConfig, 'RuleConfig', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->defaultAlgo)) {
+            $query['DefaultAlgo'] = $request->defaultAlgo;
+        }
+        if (!Utils::isUnset($request->maskingAlgo)) {
+            $query['MaskingAlgo'] = $request->maskingAlgo;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->ruleConfigShrink)) {
+            $query['RuleConfig'] = $request->ruleConfigShrink;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateMaskingRules',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateMaskingRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateMaskingRulesRequest $request
+     *
+     * @return CreateMaskingRulesResponse
+     */
+    public function createMaskingRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createMaskingRulesWithOptions($request, $runtime);
+    }
+
+    /**
      * ### [](#)Supported database engine
      *   * SQL Server
      *   * ### [](#)Limits
@@ -5354,6 +5437,61 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * @param DeleteMaskingRulesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteMaskingRulesResponse
+     */
+    public function deleteMaskingRulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteMaskingRules',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteMaskingRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteMaskingRulesRequest $request
+     *
+     * @return DeleteMaskingRulesResponse
+     */
+    public function deleteMaskingRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteMaskingRulesWithOptions($request, $runtime);
+    }
+
+    /**
      * ### [](#)Supported database engines
      *   * *   MySQL
      *   * *   PostgreSQL
@@ -5870,6 +6008,61 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeADInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeAccountMaskingPrivilegeRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeAccountMaskingPrivilegeResponse
+     */
+    public function describeAccountMaskingPrivilegeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->userName)) {
+            $query['UserName'] = $request->userName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAccountMaskingPrivilege',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAccountMaskingPrivilegeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAccountMaskingPrivilegeRequest $request
+     *
+     * @return DescribeAccountMaskingPrivilegeResponse
+     */
+    public function describeAccountMaskingPrivilege($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAccountMaskingPrivilegeWithOptions($request, $runtime);
     }
 
     /**
@@ -11752,6 +11945,61 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * @param DescribeMaskingRulesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeMaskingRulesResponse
+     */
+    public function describeMaskingRulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeMaskingRules',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeMaskingRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeMaskingRulesRequest $request
+     *
+     * @return DescribeMaskingRulesResponse
+     */
+    public function describeMaskingRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeMaskingRulesWithOptions($request, $runtime);
+    }
+
+    /**
      * ### [](#)Supported database engines
      *   * MySQL
      *   * > This operation is available for RDS instances that run MySQL 8.0, MySQL 5.7, and MySQL 5.6 on RDS High-availability Edition with local disks.
@@ -13024,8 +13272,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * Before you call the [CreateDBInstance](~~26228~~) operation to create an RDS instance, you can call the DescribeRegions operation to query the available regions and zones.
-     *   * >  If a zone supports the multi-zone deployment method, the value of the ZoneId parameter for the zone contains an MAZ part. Examples: cn-hangzhou-MAZ6(b,f) and cn-hangzhou-MAZ5(b,e,f).
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * *   MariaDB.
      *   *
      * @param DescribeRegionsRequest $request DescribeRegionsRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -13061,8 +13312,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * Before you call the [CreateDBInstance](~~26228~~) operation to create an RDS instance, you can call the DescribeRegions operation to query the available regions and zones.
-     *   * >  If a zone supports the multi-zone deployment method, the value of the ZoneId parameter for the zone contains an MAZ part. Examples: cn-hangzhou-MAZ6(b,f) and cn-hangzhou-MAZ5(b,e,f).
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * *   MariaDB.
      *   *
      * @param DescribeRegionsRequest $request DescribeRegionsRequest
      *
@@ -16108,6 +16362,67 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyAccountDescriptionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyAccountMaskingPrivilegeRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ModifyAccountMaskingPrivilegeResponse
+     */
+    public function modifyAccountMaskingPrivilegeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->expireTime)) {
+            $query['ExpireTime'] = $request->expireTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->privilege)) {
+            $query['Privilege'] = $request->privilege;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->userName)) {
+            $query['UserName'] = $request->userName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyAccountMaskingPrivilege',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyAccountMaskingPrivilegeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyAccountMaskingPrivilegeRequest $request
+     *
+     * @return ModifyAccountMaskingPrivilegeResponse
+     */
+    public function modifyAccountMaskingPrivilege($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAccountMaskingPrivilegeWithOptions($request, $runtime);
     }
 
     /**
@@ -19437,6 +19752,78 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyInstanceCrossBackupPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyMaskingRulesRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifyMaskingRulesResponse
+     */
+    public function modifyMaskingRulesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ModifyMaskingRulesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->ruleConfig)) {
+            $request->ruleConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ruleConfig, 'RuleConfig', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->defaultAlgo)) {
+            $query['DefaultAlgo'] = $request->defaultAlgo;
+        }
+        if (!Utils::isUnset($request->enabled)) {
+            $query['Enabled'] = $request->enabled;
+        }
+        if (!Utils::isUnset($request->maskingAlgo)) {
+            $query['MaskingAlgo'] = $request->maskingAlgo;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->ruleConfigShrink)) {
+            $query['RuleConfig'] = $request->ruleConfigShrink;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyMaskingRules',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyMaskingRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyMaskingRulesRequest $request
+     *
+     * @return ModifyMaskingRulesResponse
+     */
+    public function modifyMaskingRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyMaskingRulesWithOptions($request, $runtime);
     }
 
     /**

@@ -4,28 +4,22 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
-use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRegionsResponseBody\regions;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeMaskingRulesResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class DescribeRegionsResponseBody extends Model
+class DescribeMaskingRulesResponseBody extends Model
 {
     /**
-     * @description The available regions and zones.
-     *
-     * @var regions
+     * @var data
      */
-    public $regions;
+    public $data;
 
     /**
-     * @description The request ID.
-     *
-     * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'regions'   => 'Regions',
+        'data'      => 'Data',
         'requestId' => 'RequestId',
     ];
 
@@ -36,8 +30,8 @@ class DescribeRegionsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regions) {
-            $res['Regions'] = null !== $this->regions ? $this->regions->toMap() : null;
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -49,13 +43,13 @@ class DescribeRegionsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DescribeRegionsResponseBody
+     * @return DescribeMaskingRulesResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Regions'])) {
-            $model->regions = regions::fromMap($map['Regions']);
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
