@@ -21,6 +21,11 @@ class ModifySnatEntryRequest extends Model
     public $clientToken;
 
     /**
+     * @var int
+     */
+    public $eipAffinity;
+
+    /**
      * @var string
      */
     public $ownerAccount;
@@ -92,6 +97,7 @@ class ModifySnatEntryRequest extends Model
     public $snatTableId;
     protected $_name = [
         'clientToken'          => 'ClientToken',
+        'eipAffinity'          => 'EipAffinity',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
@@ -112,6 +118,9 @@ class ModifySnatEntryRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->eipAffinity) {
+            $res['EipAffinity'] = $this->eipAffinity;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -154,6 +163,9 @@ class ModifySnatEntryRequest extends Model
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['EipAffinity'])) {
+            $model->eipAffinity = $map['EipAffinity'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

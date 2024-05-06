@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnGatewayResponseBody\eniInstanceIds;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnGatewayResponseBody\reservationData;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnGatewayResponseBody\tags;
 use AlibabaCloud\Tea\Model;
@@ -105,6 +106,11 @@ class DescribeVpnGatewayResponseBody extends Model
      * @var int
      */
     public $endTime;
+
+    /**
+     * @var eniInstanceIds
+     */
+    public $eniInstanceIds;
 
     /**
      * @description *   If the VPN gateway supports IPsec-VPN connections in single-tunnel mode, the address is the IP address of the VPN gateway and can be used to create an IPsec-VPN connection or an SSL-VPN connection.
@@ -319,6 +325,7 @@ class DescribeVpnGatewayResponseBody extends Model
         'disasterRecoveryVSwitchId'  => 'DisasterRecoveryVSwitchId',
         'enableBgp'                  => 'EnableBgp',
         'endTime'                    => 'EndTime',
+        'eniInstanceIds'             => 'EniInstanceIds',
         'internetIp'                 => 'InternetIp',
         'ipsecVpn'                   => 'IpsecVpn',
         'name'                       => 'Name',
@@ -372,6 +379,9 @@ class DescribeVpnGatewayResponseBody extends Model
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->eniInstanceIds) {
+            $res['EniInstanceIds'] = null !== $this->eniInstanceIds ? $this->eniInstanceIds->toMap() : null;
         }
         if (null !== $this->internetIp) {
             $res['InternetIp'] = $this->internetIp;
@@ -465,6 +475,9 @@ class DescribeVpnGatewayResponseBody extends Model
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['EniInstanceIds'])) {
+            $model->eniInstanceIds = eniInstanceIds::fromMap($map['EniInstanceIds']);
         }
         if (isset($map['InternetIp'])) {
             $model->internetIp = $map['InternetIp'];

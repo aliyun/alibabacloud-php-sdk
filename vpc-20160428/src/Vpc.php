@@ -24664,6 +24664,9 @@ class Vpc extends OpenApiClient
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
+        if (!Utils::isUnset($request->eipAffinity)) {
+            $query['EipAffinity'] = $request->eipAffinity;
+        }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
         }

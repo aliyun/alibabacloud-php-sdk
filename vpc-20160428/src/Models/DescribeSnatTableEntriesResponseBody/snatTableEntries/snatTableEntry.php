@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class snatTableEntry extends Model
 {
     /**
+     * @var string
+     */
+    public $eipAffinity;
+
+    /**
      * @description The ID of the NAT gateway to which the SNAT entry belongs.
      *
      * @example ngw-bp1uewa15k4iy5770****
@@ -86,6 +91,7 @@ class snatTableEntry extends Model
      */
     public $status;
     protected $_name = [
+        'eipAffinity'     => 'EipAffinity',
         'natGatewayId'    => 'NatGatewayId',
         'snatEntryId'     => 'SnatEntryId',
         'snatEntryName'   => 'SnatEntryName',
@@ -103,6 +109,9 @@ class snatTableEntry extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->eipAffinity) {
+            $res['EipAffinity'] = $this->eipAffinity;
+        }
         if (null !== $this->natGatewayId) {
             $res['NatGatewayId'] = $this->natGatewayId;
         }
@@ -139,6 +148,9 @@ class snatTableEntry extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EipAffinity'])) {
+            $model->eipAffinity = $map['EipAffinity'];
+        }
         if (isset($map['NatGatewayId'])) {
             $model->natGatewayId = $map['NatGatewayId'];
         }
