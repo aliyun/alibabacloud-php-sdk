@@ -28,6 +28,16 @@ class account extends Model
     public $accountName;
 
     /**
+     * @description The deletion status of the member. Valid values:
+     *
+     *   Checking: A deletion check is being performed for the member.
+     *   Deleting: The member is being deleted.
+     *   CheckFailed: The deletion check for the member fails.
+     *   DeleteFailed: The member fails to be deleted.
+     *
+     * >  If deletion is not performed for the member, the value of this parameter is empty.
+     * @example Checking
+     *
      * @var string
      */
     public $deletionStatus;
@@ -90,7 +100,7 @@ class account extends Model
     public $resourceDirectoryId;
 
     /**
-     * @description The path of the member in the resource directory.
+     * @description The RDPath of the member.
      *
      * @example rd-3G****\/r-Wm****\/fd-QRzuim****\/181761095690****
      *
@@ -102,7 +112,7 @@ class account extends Model
      * @description The status of the member. Valid values:
      *
      *   CreateSuccess: The member is created.
-     *   PromoteVerifying: The upgrade of the member is being confirmed.
+     *   PromoteVerifying: The upgrade of the member is under confirmation.
      *   PromoteFailed: The upgrade of the member fails.
      *   PromoteExpired: The upgrade of the member expires.
      *   PromoteCancelled: The upgrade of the member is canceled.

@@ -34,6 +34,13 @@ class CreateResourceAccountRequest extends Model
     public $displayName;
 
     /**
+     * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+     *
+     *   true: performs only a dry run. The system checks whether an identity type can be specified for the member. If the request does not pass the dry run, an error code is returned.
+     *   false (default): performs a dry run and performs the actual request.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;

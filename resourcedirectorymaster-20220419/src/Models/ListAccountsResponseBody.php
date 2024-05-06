@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListAccountsResponseBody extends Model
 {
     /**
-     * @description The members returned.
+     * @description The information about the members.
      *
      * @var accounts
      */

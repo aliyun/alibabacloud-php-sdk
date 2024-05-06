@@ -10,9 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListAccountsForParentRequest extends Model
 {
     /**
-     * @description Specifies whether to return the information of tags. Valid values:
+     * @description Specifies whether to return information about tags. Valid values:
      *
-     * false (default value) true
+     *   false (default value)
+     *   true
+     *
      * @example true
      *
      * @var bool

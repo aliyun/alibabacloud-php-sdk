@@ -60,6 +60,11 @@ class account extends Model
     public $folderId;
 
     /**
+     * @var bool
+     */
+    public $hasSecureMobilePhone;
+
+    /**
      * @description The real-name verification information.
      *
      * @example aliyun-admin
@@ -166,6 +171,7 @@ class account extends Model
         'displayName'           => 'DisplayName',
         'emailStatus'           => 'EmailStatus',
         'folderId'              => 'FolderId',
+        'hasSecureMobilePhone'  => 'HasSecureMobilePhone',
         'identityInformation'   => 'IdentityInformation',
         'joinMethod'            => 'JoinMethod',
         'joinTime'              => 'JoinTime',
@@ -199,6 +205,9 @@ class account extends Model
         }
         if (null !== $this->folderId) {
             $res['FolderId'] = $this->folderId;
+        }
+        if (null !== $this->hasSecureMobilePhone) {
+            $res['HasSecureMobilePhone'] = $this->hasSecureMobilePhone;
         }
         if (null !== $this->identityInformation) {
             $res['IdentityInformation'] = $this->identityInformation;
@@ -262,6 +271,9 @@ class account extends Model
         }
         if (isset($map['FolderId'])) {
             $model->folderId = $map['FolderId'];
+        }
+        if (isset($map['HasSecureMobilePhone'])) {
+            $model->hasSecureMobilePhone = $map['HasSecureMobilePhone'];
         }
         if (isset($map['IdentityInformation'])) {
             $model->identityInformation = $map['IdentityInformation'];
