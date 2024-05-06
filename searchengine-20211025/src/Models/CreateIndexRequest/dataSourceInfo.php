@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class dataSourceInfo extends Model
 {
     /**
-     * @description 是否开启自动全量
+     * @description Specifies whether to enable the automatic full indexing feature.
      *
      * @example true
      *
@@ -20,29 +20,39 @@ class dataSourceInfo extends Model
     public $autoBuildIndex;
 
     /**
-     * @description odps相关
+     * @description The information about the MaxCompute data source.
      *
      * @var config
      */
     public $config;
 
     /**
+     * @example 1709715164
+     *
      * @var int
      */
     public $dataTimeSec;
 
     /**
+     * @description The data center where the data source is deployed.
+     *
+     * @example vpc_hz_domain_1
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description The name of the index.
+     *
+     * @example ha-cn-35t3n1yuj0d_index_1
+     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 数据更新资源数
+     * @description The number of resources used for data update.
      *
      * @example 4
      *
@@ -56,8 +66,8 @@ class dataSourceInfo extends Model
     public $saroConfig;
 
     /**
-     * @description 数据源类型
-     * oss
+     * @description The type of the data source. Valid values: odps, swift, saro, and oss.
+     *
      * @example odps
      *
      * @var string

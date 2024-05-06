@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class config extends Model
 {
     /**
-     * @description odps数据源ak
+     * @description The AccessKey ID of the MaxCompute data source.
      *
      * @example L***p
      *
@@ -18,7 +18,7 @@ class config extends Model
     public $accessKey;
 
     /**
-     * @description odps数据源ak secret
+     * @description The AccessKey secret of the MaxCompute data source.
      *
      * @example 5**9a6
      *
@@ -27,12 +27,16 @@ class config extends Model
     public $accessSecret;
 
     /**
+     * @description oss bucket
+     *
+     * @example test-bucket
+     *
      * @var string
      */
     public $bucket;
 
     /**
-     * @description odps数据源的endpoint, oss数据源的endpoint
+     * @description The endpoint of the MaxCompute or Object Storage Service (OSS) data source.
      *
      * @example https://oss-cn-hangzhou.aliyuncs.com
      *
@@ -41,17 +45,21 @@ class config extends Model
     public $endpoint;
 
     /**
+     * @example test-namespace
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @example /opensearch/oss.json
+     *
      * @var string
      */
     public $ossPath;
 
     /**
-     * @description 数据源为odps时必填
+     * @description The data partition. This parameter is required if type is set to odps.
      *
      * @example ds=20230114
      *
@@ -60,12 +68,14 @@ class config extends Model
     public $partition;
 
     /**
+     * @example test-hdfs-path
+     *
      * @var string
      */
     public $path;
 
     /**
-     * @description odps数据源项目名称
+     * @description The name of the MaxCompute project that is used as the data source.
      *
      * @example bbt_algo_pai
      *
@@ -74,7 +84,7 @@ class config extends Model
     public $project;
 
     /**
-     * @description 表名称
+     * @description The name of the table.
      *
      * @example bbt_rec_swing_u2i2i_score_be_v1
      *

@@ -18,8 +18,6 @@ class components extends Model
     public $code;
 
     /**
-     * @description The value of the specification.
-     *
      * @example ""
      *
      * @var string

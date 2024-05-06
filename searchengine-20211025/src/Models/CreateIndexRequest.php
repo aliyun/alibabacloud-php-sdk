@@ -19,7 +19,7 @@ class CreateIndexRequest extends Model
     public $content;
 
     /**
-     * @description The data source type. Valid values: odps, mns, flink, and streaming. This parameter can be ignored.
+     * @description Optional. The data source, which can be MaxCompute, Message Service (MNS), Realtime Compute for Apache Flink, or StreamCompute.
      *
      * @example test1
      *
@@ -28,14 +28,14 @@ class CreateIndexRequest extends Model
     public $dataSource;
 
     /**
-     * @description 数据源相关信息 （向量检索版新版本必填）
+     * @description The information about the data source, which is required for the new version of OpenSearch Vector Search Edition.
      *
      * @var dataSourceInfo
      */
     public $dataSourceInfo;
 
     /**
-     * @description The data center where the data source is deployed.
+     * @description The data center in which the data source resides.
      *
      * @example vpc_hz_domain_1
      *
@@ -44,8 +44,10 @@ class CreateIndexRequest extends Model
     public $domain;
 
     /**
-     * @description 字段配置的扩展的内容
-     * 需embeding字段(embeding)
+     * @description The extended configurations of the field. Keys such as vector and embedding are included. Vector indicates the vector field. Embedding indicates the field that requires embedding.
+     *
+     * @example {
+     * }
      * @var mixed[]
      */
     public $extend;
@@ -69,8 +71,6 @@ class CreateIndexRequest extends Model
     public $partition;
 
     /**
-     * @description 是否dryRun创建（仅校验数据源是否合法）。取值：-true 是 -false 否
-     *
      * @example true
      *
      * @var bool
