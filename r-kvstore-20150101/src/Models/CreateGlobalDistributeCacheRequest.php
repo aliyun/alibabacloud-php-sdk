@@ -11,6 +11,11 @@ class CreateGlobalDistributeCacheRequest extends Model
     /**
      * @var string
      */
+    public $effectiveTime;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -53,6 +58,7 @@ class CreateGlobalDistributeCacheRequest extends Model
      */
     public $seedSubInstanceId;
     protected $_name = [
+        'effectiveTime'        => 'EffectiveTime',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceGroupId'      => 'ResourceGroupId',
@@ -69,6 +75,9 @@ class CreateGlobalDistributeCacheRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->effectiveTime) {
+            $res['EffectiveTime'] = $this->effectiveTime;
+        }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
@@ -102,6 +111,9 @@ class CreateGlobalDistributeCacheRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EffectiveTime'])) {
+            $model->effectiveTime = $map['EffectiveTime'];
+        }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }

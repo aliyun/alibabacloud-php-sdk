@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class backup extends Model
 {
     /**
-     * @description The databases that are backed up. Default value: **all**, which indicates that all databases are backed up.
+     * @description The names of the databases that are backed up. The default value is **all**, which indicates that all databases are backed up.
      *
      * @example all
      *
@@ -47,7 +47,7 @@ class backup extends Model
     /**
      * @description The internal download URL of the backup file.
      *
-     * >  You can download the backup file by using this URL from the Elastic Compute Service (ECS) instance that is connected to the ApsaraDB for Redis instance. The ECS instance and ApsaraDB for Redis instance must reside in the classic network or the same virtual private cloud (VPC) within the same region.
+     * >  You can use this URL to download the backup file from an Elastic Compute Service (ECS) instance that is connected to the ApsaraDB for Redis instance. The ECS instance must belong to the same classic network or reside in the same virtual private cloud (VPC) as the ApsaraDB for Redis instance.
      * @example https://rdsbak-hk45-v2.oss-cn-hongkong.aliyuncs.com/********
      *
      * @var string
@@ -106,10 +106,10 @@ class backup extends Model
     public $backupStartTime;
 
     /**
-     * @description The state of the backup task. Valid values:
+     * @description The status of the backup. Valid values:
      *
-     *   **Success**: The task is successful.
-     *   **Failed**: The task failed.
+     *   **Success**
+     *   **Failed**
      *
      * @example Success
      *
@@ -118,7 +118,7 @@ class backup extends Model
     public $backupStatus;
 
     /**
-     * @description The backup type of the backup file. Valid values:
+     * @description The backup type. Valid values:
      *
      *   **FullBackup**
      *   **IncrementalBackup**
@@ -130,7 +130,7 @@ class backup extends Model
     public $backupType;
 
     /**
-     * @description The major engine version of the instance.
+     * @description The engine version (major version) of the instance.
      *
      * @example 4.0
      *
@@ -141,7 +141,7 @@ class backup extends Model
     /**
      * @description The node ID.
      *
-     * >  If a standard instance is used, the instance ID is returned.
+     * >  If the instance uses the standard architecture, this parameter returns the instance ID.
      * @example r-bp10noxlhcoim2****-db-1
      *
      * @var string

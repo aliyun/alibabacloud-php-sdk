@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribePriceResponseBody\subOrders\subOrder\moduleInstance;
 
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribePriceResponseBody\subOrders\subOrder\moduleInstance\moduleInstance\depreciateInfo;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribePriceResponseBody\subOrders\subOrder\moduleInstance\moduleInstance\moduleAttrs;
 use AlibabaCloud\Tea\Model;
 
@@ -13,6 +14,11 @@ class moduleInstance extends Model
      * @var bool
      */
     public $contractActivity;
+
+    /**
+     * @var depreciateInfo
+     */
+    public $depreciateInfo;
 
     /**
      * @var float
@@ -65,6 +71,7 @@ class moduleInstance extends Model
     public $totalProductFee;
     protected $_name = [
         'contractActivity' => 'ContractActivity',
+        'depreciateInfo'   => 'DepreciateInfo',
         'discountFee'      => 'DiscountFee',
         'moduleAttrs'      => 'ModuleAttrs',
         'moduleCode'       => 'ModuleCode',
@@ -86,6 +93,9 @@ class moduleInstance extends Model
         $res = [];
         if (null !== $this->contractActivity) {
             $res['ContractActivity'] = $this->contractActivity;
+        }
+        if (null !== $this->depreciateInfo) {
+            $res['DepreciateInfo'] = null !== $this->depreciateInfo ? $this->depreciateInfo->toMap() : null;
         }
         if (null !== $this->discountFee) {
             $res['DiscountFee'] = $this->discountFee;
@@ -131,6 +141,9 @@ class moduleInstance extends Model
         $model = new self();
         if (isset($map['ContractActivity'])) {
             $model->contractActivity = $map['ContractActivity'];
+        }
+        if (isset($map['DepreciateInfo'])) {
+            $model->depreciateInfo = depreciateInfo::fromMap($map['DepreciateInfo']);
         }
         if (isset($map['DiscountFee'])) {
             $model->discountFee = $map['DiscountFee'];

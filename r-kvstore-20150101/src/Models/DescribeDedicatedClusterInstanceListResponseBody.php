@@ -26,7 +26,7 @@ class DescribeDedicatedClusterInstanceListResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 30
      *
@@ -44,7 +44,7 @@ class DescribeDedicatedClusterInstanceListResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of returned entries.
+     * @description The total number of entries returned.
      *
      * @example 1
      *

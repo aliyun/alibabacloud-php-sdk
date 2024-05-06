@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupsResponseBody extends Model
 {
     /**
+     * @description The following parameters are no longer used. Ignore the parameters.
+     *
      * @var accessDeniedDetail
      */
     public $accessDeniedDetail;
@@ -23,16 +25,30 @@ class DescribeBackupsResponseBody extends Model
     public $backups;
 
     /**
+     * @description This parameter does not take effect. Ignore this parameter.
+     *
+     * @example 100000
+     *
      * @var int
      */
     public $freeSize;
 
     /**
+     * @description The size of the full backup file of the instance. Unit: bytes. Full backups originate from scheduled backups, manual backups, and backups generated during cache analysis.
+     *
+     * >  The value of this parameter is independent of the number and size of the returned backup sets. Instead, it reflects the total size of all valid full backups of the instance.
+     * @example 1000
+     *
      * @var int
      */
     public $fullStorageSize;
 
     /**
+     * @description The size of the log backup file of the instance. Unit: bytes. This value is valid only when flashback is enabled.
+     *
+     * >  The value of this parameter is independent of the number and size of the returned backup sets. Instead, it reflects the total size of all valid log backups of the instance.
+     * @example 5000
+     *
      * @var int
      */
     public $logStorageSize;

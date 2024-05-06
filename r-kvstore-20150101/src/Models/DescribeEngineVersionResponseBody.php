@@ -92,6 +92,11 @@ class DescribeEngineVersionResponseBody extends Model
     public $isNewSSLMode;
 
     /**
+     * @var string
+     */
+    public $isOpenNGLB;
+
+    /**
      * @description Indicates whether the instance supports the new SSL encryption feature.
      *
      * @example 1
@@ -171,6 +176,7 @@ class DescribeEngineVersionResponseBody extends Model
         'isAutoUpgradeOpen'         => 'IsAutoUpgradeOpen',
         'isLatestVersion'           => 'IsLatestVersion',
         'isNewSSLMode'              => 'IsNewSSLMode',
+        'isOpenNGLB'                => 'IsOpenNGLB',
         'isRedisCompatibleVersion'  => 'IsRedisCompatibleVersion',
         'isSSLEnable'               => 'IsSSLEnable',
         'majorVersion'              => 'MajorVersion',
@@ -211,6 +217,9 @@ class DescribeEngineVersionResponseBody extends Model
         }
         if (null !== $this->isNewSSLMode) {
             $res['IsNewSSLMode'] = $this->isNewSSLMode;
+        }
+        if (null !== $this->isOpenNGLB) {
+            $res['IsOpenNGLB'] = $this->isOpenNGLB;
         }
         if (null !== $this->isRedisCompatibleVersion) {
             $res['IsRedisCompatibleVersion'] = $this->isRedisCompatibleVersion;
@@ -271,6 +280,9 @@ class DescribeEngineVersionResponseBody extends Model
         }
         if (isset($map['IsNewSSLMode'])) {
             $model->isNewSSLMode = $map['IsNewSSLMode'];
+        }
+        if (isset($map['IsOpenNGLB'])) {
+            $model->isOpenNGLB = $map['IsOpenNGLB'];
         }
         if (isset($map['IsRedisCompatibleVersion'])) {
             $model->isRedisCompatibleVersion = $map['IsRedisCompatibleVersion'];

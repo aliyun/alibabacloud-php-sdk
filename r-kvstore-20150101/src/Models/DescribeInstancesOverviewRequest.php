@@ -46,7 +46,7 @@ class DescribeInstancesOverviewRequest extends Model
     public $editionType;
 
     /**
-     * @description The database engine version of the instance. Valid values: **2.8**, **4.0**, and **5.0**.
+     * @description The database engine version of the instance.
      *
      * @example 4.0
      *

@@ -28,7 +28,7 @@ class KVStoreRegion extends Model
     public $regionEndpoint;
 
     /**
-     * @description The region ID of the instance.
+     * @description The ID of the region.
      *
      * @example cn-hangzhou
      *
@@ -37,14 +37,14 @@ class KVStoreRegion extends Model
     public $regionId;
 
     /**
-     * @description The list of zone IDs.
+     * @description The zone IDs.
      *
      * @var zoneIdList
      */
     public $zoneIdList;
 
     /**
-     * @description The zone ID of the instance.
+     * @description The IDs of the zones in the region.
      *
      * @example cn-hangzhou-h
      *

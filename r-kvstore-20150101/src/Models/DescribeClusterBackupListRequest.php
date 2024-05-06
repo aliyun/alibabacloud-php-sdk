@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterBackupListRequest extends Model
 {
     /**
+     * @description The backup set ID.
+     *
      * @example cb-hyxdof5x9kqbtust
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeClusterBackupListRequest extends Model
     public $clusterBackupId;
 
     /**
+     * @description The end of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC. The end time must be later than the start time.
+     *
      * @example 2021-05-13T00:00:00Z
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeClusterBackupListRequest extends Model
     public $endTime;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example r-t4nj72oug5r5646qog
      *
      * @var string
@@ -40,6 +46,8 @@ class DescribeClusterBackupListRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -47,6 +55,8 @@ class DescribeClusterBackupListRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The maximum number of entries returned per page.
+     *
      * @example 30
      *
      * @var int
@@ -54,6 +64,8 @@ class DescribeClusterBackupListRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~61012~~) operation to query the most recent region list.
+     *
      * @example cn-zhangjiakou
      *
      * @var string
@@ -76,6 +88,8 @@ class DescribeClusterBackupListRequest extends Model
     public $securityToken;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     *
      * @example 2018-12-03T07:01Z
      *
      * @var string

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyBackupPolicyRequest extends Model
 {
     /**
+     * @description The number of days for which data backup files are retained. Valid values: 7 to 730. Default value: 7.
+     *
+     * @example 7
+     *
      * @var int
      */
     public $backupRetentionPeriod;

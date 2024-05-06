@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBNodeDirectVipInfoResponseBody extends Model
 {
     /**
-     * @description The VIPs of shards in the cluster instance.
+     * @description The virtual IP addresses (VIPs) of shards in an ApsaraDB for Redis cluster instance.
      *
      * @var directVipInfo
      */

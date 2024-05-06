@@ -27,7 +27,7 @@ class instanceNodeList extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the node.
+     * @description The node ID.
      *
      * @example 17921111
      *

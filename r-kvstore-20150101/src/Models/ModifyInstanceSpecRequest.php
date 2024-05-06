@@ -112,6 +112,8 @@ class ModifyInstanceSpecRequest extends Model
     public $majorVersion;
 
     /**
+     * @example MASTER_SLAVE
+     *
      * @var string
      */
     public $nodeType;
@@ -141,7 +143,7 @@ class ModifyInstanceSpecRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of read replicas. Valid values: 0 to 5. This parameter applies only to the following scenarios:
+     * @description The number of read replicas in the primary zone. Valid values: 0 to 5. This parameter applies only to the following scenarios:
      *
      *   If the instance is a standard instance that uses cloud disks, you can set this parameter to a value greater than 0 to enable the read/write splitting architecture.
      *   If the instance is a read/write splitting instance that uses cloud disks, you can use this parameter to customize the number of read replicas. You can also set this parameter to 0 to disable the read/write splitting architecture and switch the instance to the standard architecture.
@@ -186,6 +188,8 @@ class ModifyInstanceSpecRequest extends Model
     public $shardCount;
 
     /**
+     * @description The number of read replicas in the secondary zone. This parameter is used to create a read/write splitting instance that is deployed in multiple zones. Valid values: 1 to 9. The sum of the SlaveReadOnlyCount and ReadOnlyCount values cannot be greater than 9.
+     *
      * @example 2
      *
      * @var int

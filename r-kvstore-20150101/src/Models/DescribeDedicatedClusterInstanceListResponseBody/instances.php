@@ -31,7 +31,7 @@ class instances extends Model
     public $characterType;
 
     /**
-     * @description The ID of the dedicated cluster.
+     * @description The ID of the dedicated cluster to which the instance belongs.
      *
      * @example dhg-rx71fc5ndh9o****
      *
@@ -67,7 +67,7 @@ class instances extends Model
     public $createTime;
 
     /**
-     * @description The current bandwidth of the instance, which consists of the default bandwidth and the additional bandwidth. Unit: Mbit/s.
+     * @description The current bandwidth of the instance, which is the sum of the default bandwidth and any extra bandwidth that is purchased. Unit: Mbit/s.
      *
      * @example 50
      *
@@ -76,7 +76,7 @@ class instances extends Model
     public $currentBandWidth;
 
     /**
-     * @description The custom ID that is used for instance internal maintenance.
+     * @description An internal parameter used for the maintenance and management of instances.
      *
      * @example 4652****
      *
@@ -85,7 +85,7 @@ class instances extends Model
     public $customId;
 
     /**
-     * @description The database engine of the instance. The return value is **Redis**.
+     * @description The database engine. The return value is **redis**.
      *
      * @example redis
      *
@@ -103,7 +103,7 @@ class instances extends Model
     public $engineVersion;
 
     /**
-     * @description The instance type of the instance.
+     * @description The instance type.
      *
      * @example redis.cluster.sharding.common.ce
      *
@@ -121,7 +121,7 @@ class instances extends Model
     public $instanceId;
 
     /**
-     * @description The name of the instance.
+     * @description The instance name.
      *
      * @example testdb
      *
@@ -130,7 +130,7 @@ class instances extends Model
     public $instanceName;
 
     /**
-     * @description Details about the nodes.
+     * @description The nodes.
      *
      * @var instanceNodeList[]
      */
@@ -146,13 +146,13 @@ class instances extends Model
      *   **Flushing**: The instance is being released.
      *   **Released**: The instance is released.
      *   **Transforming**: The billing method of the instance is being changed.
-     *   **Unavailable**: The instance is suspended.
+     *   **Unavailable**: The instance is unavailable.
      *   **Error**: The instance failed to be created.
      *   **Migrating**: The instance is being migrated.
      *   **BackupRecovering**: The instance is being restored from a backup.
      *   **MinorVersionUpgrading**: The minor version of the instance is being updated.
      *   **NetworkModifying**: The network type of the instance is being changed.
-     *   **SSLModifying**: The SSL certificate of the instance is being changed.
+     *   **SSLModifying**: The SSL configurations of the instance are being changed.
      *   **MajorVersionUpgrading**: The major version of the instance is being upgraded. The instance remains accessible during the upgrade.
      *
      * @example Normal
@@ -182,8 +182,12 @@ class instances extends Model
     /**
      * @description The number of proxy nodes.
      *
-     * > *   If the return value is **0**, the proxy mode is disabled. If the return value is an integer that is greater than **0**, the proxy mode is enabled. This integer indicates the number of proxy nodes in the instance. For example, a value of **1** indicates that the instance has one proxy node.
-     * > *   This parameter is returned only when the instance is a [cluster instance](~~52228~~).
+     * >
+     *
+     *   If the return value is **0**, the proxy mode is disabled for the instance. If the return value is an integer greater than **0**, such as **1**, the proxy mode is enabled for the instance.
+     *
+     *   This parameter is returned only when the instance is a cluster instance. For more information about cluster instances, see [Cluster master-replica instances](~~52228~~).
+     *
      * @example 1
      *
      * @var int
@@ -191,7 +195,7 @@ class instances extends Model
     public $proxyCount;
 
     /**
-     * @description The region ID of the instance.
+     * @description The ID of the region.
      *
      * @example cn-hangzhou
      *
@@ -202,7 +206,7 @@ class instances extends Model
     /**
      * @description The number of shards.
      *
-     * > This parameter is returned only when the ApsaraDB for Redis instance is a [cluster instance](~~52228~~).
+     * >  This parameter is returned only when the instance is a cluster instance. For more information about cluster instances, see [Cluster master-replica instances](~~52228~~).
      * @example 3
      *
      * @var int
@@ -219,7 +223,7 @@ class instances extends Model
     public $storageType;
 
     /**
-     * @description The ID of the VPC.
+     * @description The VPC ID.
      *
      * @example vpc-t4n2clc70t3hqwsrr****
      *
@@ -228,7 +232,7 @@ class instances extends Model
     public $vpcId;
 
     /**
-     * @description The ID of the vSwitch.
+     * @description The vSwitch ID.
      *
      * @example vsw-t4nvrca24dczppq44****
      *
@@ -237,7 +241,7 @@ class instances extends Model
     public $vswitchId;
 
     /**
-     * @description The zone ID of the instance.
+     * @description The zone ID.
      *
      * @example cn-hangzhou-e
      *

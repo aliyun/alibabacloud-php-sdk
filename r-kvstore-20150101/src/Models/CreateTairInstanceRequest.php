@@ -53,9 +53,9 @@ class CreateTairInstanceRequest extends Model
     public $autoUseCoupon;
 
     /**
-     * @description The ID of the backup set of the source instance. You can call the [DescribeBackups](~~61081~~) operation to query the ID of the backup set.
+     * @description The ID of the backup set of the source instance. If you want to create an instance based on a backup set of a specified instance, you can specify this parameter after you specify the **SrcDBInstanceId** parameter. Then, the system creates an instance based on the backup set that is specified by this parameter. You can call the [DescribeBackups](~~61081~~) operation to query the IDs of backup sets.
      *
-     * > If you want to create an instance based on the backup set of an existing instance, you must specify this parameter after you specify the **SrcDBInstanceId** parameter. The system creates an instance based on the backup set that is specified by this parameter.
+     * >  If you want to create an instance based on a backup set of a specified instance, you must specify this parameter after you use the **SrcDBInstanceId** parameter to specify the ID of the source instance. Then, the system creates an instance based on the backup set that is specified by this parameter.
      * @example 11111111
      *
      * @var string
@@ -93,7 +93,13 @@ class CreateTairInstanceRequest extends Model
     public $clientToken;
 
     /**
-     * @description The backup set ID.
+     * @description This parameter is supported for specific new cluster instances. You can query the backup set ID by using the [DescribeClusterBackupList](~~2679158~~) operation.
+     *
+     *   If this parameter is supported, you can specify the backup set ID. In this case, you do not need to specify the **BackupId** parameter.
+     *
+     * <!---->
+     *
+     *   If this parameter is not supported, set the BackupId parameter to the IDs of backup sets in all shards of the source instance, separated by commas (,). Example: "11101,11102".
      *
      * @example cb-hyxdof5x9kqb****
      *
@@ -295,6 +301,11 @@ class CreateTairInstanceRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @var string
+     */
+    public $restoreTime;
+
+    /**
      * @description The ID of the secondary zone. You can call the [DescribeRegions](~~61012~~) operation to query the ID of the secondary zone.
      *
      * > You cannot specify multiple zone IDs or set this parameter to a value that is the same as that of the ZoneId parameter.
@@ -335,6 +346,9 @@ class CreateTairInstanceRequest extends Model
     public $shardType;
 
     /**
+     * @description The number of read replicas in the secondary zone. This parameter is used to create a read/write splitting instance that is deployed across multiple zones.
+     *
+     * > To create a read/write splitting instance that is deployed across multiple zones, you must specify both SlaveReadOnlyCount and SecondaryZoneId.
      * @example 1
      *
      * @var int
@@ -435,6 +449,7 @@ class CreateTairInstanceRequest extends Model
         'resourceGroupId'        => 'ResourceGroupId',
         'resourceOwnerAccount'   => 'ResourceOwnerAccount',
         'resourceOwnerId'        => 'ResourceOwnerId',
+        'restoreTime'            => 'RestoreTime',
         'secondaryZoneId'        => 'SecondaryZoneId',
         'securityToken'          => 'SecurityToken',
         'shardCount'             => 'ShardCount',
@@ -542,6 +557,9 @@ class CreateTairInstanceRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->restoreTime) {
+            $res['RestoreTime'] = $this->restoreTime;
         }
         if (null !== $this->secondaryZoneId) {
             $res['SecondaryZoneId'] = $this->secondaryZoneId;
@@ -683,6 +701,9 @@ class CreateTairInstanceRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['RestoreTime'])) {
+            $model->restoreTime = $map['RestoreTime'];
         }
         if (isset($map['SecondaryZoneId'])) {
             $model->secondaryZoneId = $map['SecondaryZoneId'];

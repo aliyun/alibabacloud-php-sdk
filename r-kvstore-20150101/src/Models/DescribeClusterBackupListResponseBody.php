@@ -46,6 +46,8 @@ class DescribeClusterBackupListResponseBody extends Model
     public $logStorageSize;
 
     /**
+     * @description The number of entries to return per page. Valid values: 1 to 100.
+     * >If you specify this parameter, PageSize and PageNumber are unavailable.
      * @example 4
      *
      * @var int
@@ -53,6 +55,8 @@ class DescribeClusterBackupListResponseBody extends Model
     public $maxResults;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -60,6 +64,8 @@ class DescribeClusterBackupListResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The maximum number of entries returned per page.
+     *
      * @example 30
      *
      * @var int
@@ -67,6 +73,8 @@ class DescribeClusterBackupListResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example C009DA42-3B19-5B81-963D-1509DE2408DD
      *
      * @var string
