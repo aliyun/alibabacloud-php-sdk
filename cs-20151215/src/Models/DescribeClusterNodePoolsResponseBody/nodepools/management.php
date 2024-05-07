@@ -25,15 +25,15 @@ class management extends Model
     public $autoRepair;
 
     /**
-     * @description 自动修复节点策略。
+     * @description The auto node repair policy.
      *
      * @var autoRepairPolicy
      */
     public $autoRepairPolicy;
 
     /**
-     * @description 是否自动升级。
-     *
+     * @description Specifies whether to enable auto update. Valid values:
+     * - `false`: disables auto update.
      * @example true
      *
      * @var bool
@@ -41,15 +41,15 @@ class management extends Model
     public $autoUpgrade;
 
     /**
-     * @description 自动升级策略。
+     * @description The auto update policy.
      *
      * @var autoUpgradePolicy
      */
     public $autoUpgradePolicy;
 
     /**
-     * @description 是否自动修复CVE。
-     *
+     * @description Specifies whether ACK is allowed to automatically patch CVE vulnerabilities. Valid values:
+     * - `false`: no
      * @example true
      *
      * @var bool
@@ -57,7 +57,7 @@ class management extends Model
     public $autoVulFix;
 
     /**
-     * @description 自动修复CVE策略。
+     * @description The auto CVE patching policy.
      *
      * @var autoVulFixPolicy
      */

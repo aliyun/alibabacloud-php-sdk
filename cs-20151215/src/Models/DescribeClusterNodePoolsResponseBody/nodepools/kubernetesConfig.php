@@ -83,7 +83,7 @@ class kubernetesConfig extends Model
     public $taints;
 
     /**
-     * @description 扩容后的节点是否可调度。
+     * @description Specifies whether the nodes are schedulable after a scale-out activity is performed.
      *
      * @example true
      *

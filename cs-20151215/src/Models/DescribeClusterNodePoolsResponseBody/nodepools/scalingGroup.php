@@ -35,8 +35,9 @@ class scalingGroup extends Model
     public $autoRenewPeriod;
 
     /**
-     * @description 是否开启CIS加固，仅当系统镜像选择Alibaba Cloud Linux 2或Alibaba Cloud Linux 3时，可为节点开启CIS加固。
+     * @description [This parameter is deprecated]
      *
+     * Please replace this parameter with security_hardening_os.
      * @example false
      *
      * @deprecated
@@ -92,8 +93,8 @@ class scalingGroup extends Model
     public $imageId;
 
     /**
-     * @description 操作系统镜像类型。
-     *
+     * @description The type of OS image. You must set this parameter or platform. Valid values:
+     * - ContainerOS: ContainerOS
      * @example AliyunLinux
      *
      * @var string
@@ -150,7 +151,7 @@ class scalingGroup extends Model
     public $keyPair;
 
     /**
-     * @description 弹出的ECS实例是否使用以非root用户登陆。
+     * @description Specifies whether a non-root user can log on to the ECS instance added to the node pool.
      *
      * @example true
      *
@@ -300,13 +301,17 @@ class scalingGroup extends Model
     public $securityGroupIds;
 
     /**
+     * @description Specifies whether to enable Alibaba Cloud Linux Security Hardening.
+     * Default value: false
+     * @example false
+     *
      * @var bool
      */
     public $securityHardeningOs;
 
     /**
-     * @description 是否开启等保加固，仅当系统镜像选择Alibaba Cloud Linux 2或Alibaba Cloud Linux 3时，可为节点开启等保加固。阿里云为Alibaba Cloud Linux 2和Alibaba Cloud Linux 3等保2.0三级版镜像提供等保合规的基线检查标准和扫描程序。
-     *
+     * @description Specifies whether to enable reinforcement based on Multi-Level Protection Scheme (MLPS). For more information, see ACK reinforcement based on classified protection.
+     * Default value: false.
      * @example false
      *
      * @var bool
@@ -356,8 +361,8 @@ class scalingGroup extends Model
     public $spotStrategy;
 
     /**
-     * @description 节点系统盘是否开启Burst（性能突发），磁盘类型为cloud_auto时配置。
-     *
+     * @description Specifies whether to enable the burst feature for system disks. Valid values:
+     * This parameter is supported only when SystemDiskCategory is set to cloud_auto. For more information, see [ESSD AutoPL disks. ](~~368372~~)
      * @example true
      *
      * @var bool
@@ -365,8 +370,8 @@ class scalingGroup extends Model
     public $systemDiskBurstingEnabled;
 
     /**
-     * @description 系统盘的多磁盘类型。当无法使用高优先级的磁盘类型时，自动尝试下一优先级的磁盘类型创建系统盘。取值范围：cloud：普通云盘。cloud_efficiency：高效云盘。cloud_ssd：SSD云盘。cloud_essd：ESSD云盘。
-     *
+     * @description The type of system disk. When a high -priority disk type cannot be used, automatically try the next priority disk type creation system disk. Valid values:
+     * - cloud_essd: ESSD
      * @var string[]
      */
     public $systemDiskCategories;
@@ -384,7 +389,7 @@ class scalingGroup extends Model
     public $systemDiskCategory;
 
     /**
-     * @description 系统盘采用的加密算法。取值范围：aes-256。
+     * @description The algorithm that you want to use to encrypt the system disk. Set the value to aes-256.
      *
      * @example aes-256
      *
@@ -393,8 +398,8 @@ class scalingGroup extends Model
     public $systemDiskEncryptAlgorithm;
 
     /**
-     * @description 是否加密系统盘。取值范围：true：加密。false：不加密。
-     *
+     * @description Specifies whether to encrypt the system disk. Valid values:
+     * - `false`: does not encrypt the system disk.
      * @example false
      *
      * @var bool
@@ -402,7 +407,7 @@ class scalingGroup extends Model
     public $systemDiskEncrypted;
 
     /**
-     * @description 系统盘使用的KMS密钥ID。
+     * @description The ID of the KMS key that you want to use to encrypt the system disk.
      *
      * @example 0e478b7a-4262-4802-b8cb-00d3fb40****
      *
@@ -420,8 +425,8 @@ class scalingGroup extends Model
     public $systemDiskPerformanceLevel;
 
     /**
-     * @description 节点系统盘预配置的读写IOPS，磁盘类型为cloud_auto时配置。
-     *
+     * @description The predefined IOPS of a system disk. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS} Baseline IOPS = min{1,800 + 50 × Capacity, 50,000}
+     * This parameter is supported only when SystemDiskCategory is set to cloud_auto. For more information, see [ESSD AutoPL disks](~~368372~~).
      * @example 1000
      *
      * @var int

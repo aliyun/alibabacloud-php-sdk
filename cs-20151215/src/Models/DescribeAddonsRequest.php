@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeAddonsRequest extends Model
 {
     /**
-     * @description The type of cluster. Valid values:
+     * @description The cluster type. Valid values:
      *
      *   `Default`: ACK managed cluster
      *   `Serverless`: ACK Serverless cluster

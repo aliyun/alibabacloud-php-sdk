@@ -73,6 +73,7 @@ use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterEventsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterEventsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterLogsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolDetailResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodesResponse;
@@ -2632,16 +2633,23 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string         $ClusterId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                          $ClusterId
+     * @param DescribeClusterNodePoolsRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
      *
      * @return DescribeClusterNodePoolsResponse
      */
-    public function describeClusterNodePoolsWithOptions($ClusterId, $headers, $runtime)
+    public function describeClusterNodePoolsWithOptions($ClusterId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->nodepoolName)) {
+            $query['NodepoolName'] = $request->nodepoolName;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeClusterNodePools',
@@ -2659,16 +2667,17 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string $ClusterId
+     * @param string                          $ClusterId
+     * @param DescribeClusterNodePoolsRequest $request
      *
      * @return DescribeClusterNodePoolsResponse
      */
-    public function describeClusterNodePools($ClusterId)
+    public function describeClusterNodePools($ClusterId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeClusterNodePoolsWithOptions($ClusterId, $headers, $runtime);
+        return $this->describeClusterNodePoolsWithOptions($ClusterId, $request, $headers, $runtime);
     }
 
     /**

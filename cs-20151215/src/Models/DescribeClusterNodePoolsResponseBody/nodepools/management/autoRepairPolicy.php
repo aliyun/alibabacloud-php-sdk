@@ -9,8 +9,8 @@ use AlibabaCloud\Tea\Model;
 class autoRepairPolicy extends Model
 {
     /**
-     * @description 是否允许重启节点。
-     *
+     * @description Specifies whether ACK is allowed to automatically restart nodes after repairing the nodes. Valid values:
+     * - `false`: no
      * @example true
      *
      * @var bool
