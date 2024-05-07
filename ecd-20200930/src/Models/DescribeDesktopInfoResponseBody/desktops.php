@@ -30,6 +30,11 @@ class desktops extends Model
     public $currentAppVersion;
 
     /**
+     * @var string
+     */
+    public $desktopGroupId;
+
+    /**
      * @description The cloud computer ID.
      *
      * @example ecd-gx2x1dhsmucyy****
@@ -101,6 +106,7 @@ class desktops extends Model
     protected $_name = [
         'connectionStatus'  => 'ConnectionStatus',
         'currentAppVersion' => 'CurrentAppVersion',
+        'desktopGroupId'    => 'DesktopGroupId',
         'desktopId'         => 'DesktopId',
         'desktopStatus'     => 'DesktopStatus',
         'managementFlag'    => 'ManagementFlag',
@@ -122,6 +128,9 @@ class desktops extends Model
         }
         if (null !== $this->currentAppVersion) {
             $res['CurrentAppVersion'] = $this->currentAppVersion;
+        }
+        if (null !== $this->desktopGroupId) {
+            $res['DesktopGroupId'] = $this->desktopGroupId;
         }
         if (null !== $this->desktopId) {
             $res['DesktopId'] = $this->desktopId;
@@ -161,6 +170,9 @@ class desktops extends Model
         }
         if (isset($map['CurrentAppVersion'])) {
             $model->currentAppVersion = $map['CurrentAppVersion'];
+        }
+        if (isset($map['DesktopGroupId'])) {
+            $model->desktopGroupId = $map['DesktopGroupId'];
         }
         if (isset($map['DesktopId'])) {
             $model->desktopId = $map['DesktopId'];
