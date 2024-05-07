@@ -42,12 +42,19 @@ use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateLayerRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateLayerResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateParamRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateParamResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateResourceRuleItemRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateResourceRuleItemResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateResourceRuleRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateResourceRuleResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateSceneRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateSceneResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateSubCrowdRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateSubCrowdResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateTableMetaRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateTableMetaResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DebugResourceRuleRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DebugResourceRuleResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DebugResourceRuleShrinkRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteABMetricGroupRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteABMetricGroupResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteABMetricRequest;
@@ -65,6 +72,10 @@ use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteLayerRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteLayerResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteParamRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteParamResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteResourceRuleItemRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteResourceRuleItemResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteResourceRuleRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteResourceRuleResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteSceneRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteSceneResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteSubCrowdRequest;
@@ -92,6 +103,8 @@ use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetLaboratoryRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetLaboratoryResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetLayerRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetLayerResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetResourceRuleRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetResourceRuleResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetSceneRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetSceneResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetSubCrowdRequest;
@@ -131,6 +144,8 @@ use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListLayersRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListLayersResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListParamsRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListParamsResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListResourceRulesRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListResourceRulesResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListScenesRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListScenesResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListSubCrowdsRequest;
@@ -151,6 +166,9 @@ use AlibabaCloud\SDK\PaiRecService\V20221213\Models\OnlineLaboratoryRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\OnlineLaboratoryResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\PushAllExperimentRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\PushAllExperimentResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\PushResourceRuleRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\PushResourceRuleResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\PushResourceRuleShrinkRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ReportABMetricGroupRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ReportABMetricGroupResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\SyncFeatureConsistencyCheckJobReplayLogRequest;
@@ -177,6 +195,10 @@ use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateLayerRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateLayerResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateParamRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateParamResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateResourceRuleItemRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateResourceRuleItemResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateResourceRuleRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateResourceRuleResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateSceneRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateSceneResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateTableMetaRequest;
@@ -1411,6 +1433,136 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @param CreateResourceRuleRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateResourceRuleResponse
+     */
+    public function createResourceRuleWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->metricOperationType)) {
+            $body['MetricOperationType'] = $request->metricOperationType;
+        }
+        if (!Utils::isUnset($request->metricPullInfo)) {
+            $body['MetricPullInfo'] = $request->metricPullInfo;
+        }
+        if (!Utils::isUnset($request->metricPullPeriod)) {
+            $body['MetricPullPeriod'] = $request->metricPullPeriod;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->ruleComputingDefinition)) {
+            $body['RuleComputingDefinition'] = $request->ruleComputingDefinition;
+        }
+        if (!Utils::isUnset($request->ruleItems)) {
+            $body['RuleItems'] = $request->ruleItems;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateResourceRule',
+            'version'     => '2022-12-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/resourcerules',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateResourceRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateResourceRuleRequest $request
+     *
+     * @return CreateResourceRuleResponse
+     */
+    public function createResourceRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createResourceRuleWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                        $ResourceRuleId
+     * @param CreateResourceRuleItemRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateResourceRuleItemResponse
+     */
+    public function createResourceRuleItemWithOptions($ResourceRuleId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->maxValue)) {
+            $body['MaxValue'] = $request->maxValue;
+        }
+        if (!Utils::isUnset($request->minValue)) {
+            $body['MinValue'] = $request->minValue;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->value)) {
+            $body['Value'] = $request->value;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateResourceRuleItem',
+            'version'     => '2022-12-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/resourcerules/' . OpenApiUtilClient::getEncodeParam($ResourceRuleId) . '/items',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateResourceRuleItemResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                        $ResourceRuleId
+     * @param CreateResourceRuleItemRequest $request
+     *
+     * @return CreateResourceRuleItemResponse
+     */
+    public function createResourceRuleItem($ResourceRuleId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createResourceRuleItemWithOptions($ResourceRuleId, $request, $headers, $runtime);
+    }
+
+    /**
      * @param CreateSceneRequest $request
      * @param string[]           $headers
      * @param RuntimeOptions     $runtime
@@ -1581,6 +1733,65 @@ class PaiRecService extends OpenApiClient
         $headers = [];
 
         return $this->createTableMetaWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                   $ResourceRuleId
+     * @param DebugResourceRuleRequest $tmpReq
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DebugResourceRuleResponse
+     */
+    public function debugResourceRuleWithOptions($ResourceRuleId, $tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DebugResourceRuleShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->metricInfo)) {
+            $request->metricInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->metricInfo, 'MetricInfo', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->metricInfoShrink)) {
+            $query['MetricInfo'] = $request->metricInfoShrink;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DebugResourceRule',
+            'version'     => '2022-12-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/resourcerules/' . OpenApiUtilClient::getEncodeParam($ResourceRuleId) . '/action/debug',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DebugResourceRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                   $ResourceRuleId
+     * @param DebugResourceRuleRequest $request
+     *
+     * @return DebugResourceRuleResponse
+     */
+    public function debugResourceRule($ResourceRuleId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->debugResourceRuleWithOptions($ResourceRuleId, $request, $headers, $runtime);
     }
 
     /**
@@ -2007,6 +2218,104 @@ class PaiRecService extends OpenApiClient
         $headers = [];
 
         return $this->deleteParamWithOptions($ParamId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                    $ResourceRuleId
+     * @param DeleteResourceRuleRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteResourceRuleResponse
+     */
+    public function deleteResourceRuleWithOptions($ResourceRuleId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteResourceRule',
+            'version'     => '2022-12-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/resourcerules/' . OpenApiUtilClient::getEncodeParam($ResourceRuleId) . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteResourceRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                    $ResourceRuleId
+     * @param DeleteResourceRuleRequest $request
+     *
+     * @return DeleteResourceRuleResponse
+     */
+    public function deleteResourceRule($ResourceRuleId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteResourceRuleWithOptions($ResourceRuleId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                        $ResourceRuleId
+     * @param string                        $ResourceRuleItemId
+     * @param DeleteResourceRuleItemRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteResourceRuleItemResponse
+     */
+    public function deleteResourceRuleItemWithOptions($ResourceRuleId, $ResourceRuleItemId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteResourceRuleItem',
+            'version'     => '2022-12-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/resourcerules/' . OpenApiUtilClient::getEncodeParam($ResourceRuleId) . '/items/' . OpenApiUtilClient::getEncodeParam($ResourceRuleItemId) . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteResourceRuleItemResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                        $ResourceRuleId
+     * @param string                        $ResourceRuleItemId
+     * @param DeleteResourceRuleItemRequest $request
+     *
+     * @return DeleteResourceRuleItemResponse
+     */
+    public function deleteResourceRuleItem($ResourceRuleId, $ResourceRuleItemId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteResourceRuleItemWithOptions($ResourceRuleId, $ResourceRuleItemId, $request, $headers, $runtime);
     }
 
     /**
@@ -2711,6 +3020,54 @@ class PaiRecService extends OpenApiClient
         $headers = [];
 
         return $this->getLayerWithOptions($LayerId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                 $ResourceRuleId
+     * @param GetResourceRuleRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetResourceRuleResponse
+     */
+    public function getResourceRuleWithOptions($ResourceRuleId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetResourceRule',
+            'version'     => '2022-12-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/resourcerules/' . OpenApiUtilClient::getEncodeParam($ResourceRuleId) . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetResourceRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                 $ResourceRuleId
+     * @param GetResourceRuleRequest $request
+     *
+     * @return GetResourceRuleResponse
+     */
+    public function getResourceRule($ResourceRuleId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getResourceRuleWithOptions($ResourceRuleId, $request, $headers, $runtime);
     }
 
     /**
@@ -3765,6 +4122,73 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @param ListResourceRulesRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListResourceRulesResponse
+     */
+    public function listResourceRulesWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceRuleId)) {
+            $query['ResourceRuleId'] = $request->resourceRuleId;
+        }
+        if (!Utils::isUnset($request->resourceRuleName)) {
+            $query['ResourceRuleName'] = $request->resourceRuleName;
+        }
+        if (!Utils::isUnset($request->sortBy)) {
+            $query['SortBy'] = $request->sortBy;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListResourceRules',
+            'version'     => '2022-12-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/resourcerules',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListResourceRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListResourceRulesRequest $request
+     *
+     * @return ListResourceRulesResponse
+     */
+    public function listResourceRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listResourceRulesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param ListScenesRequest $request
      * @param string[]          $headers
      * @param RuntimeOptions    $runtime
@@ -4256,6 +4680,62 @@ class PaiRecService extends OpenApiClient
         $headers = [];
 
         return $this->pushAllExperimentWithOptions($ExperimentId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                  $ResourceRuleId
+     * @param PushResourceRuleRequest $tmpReq
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return PushResourceRuleResponse
+     */
+    public function pushResourceRuleWithOptions($ResourceRuleId, $tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new PushResourceRuleShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->metricInfo)) {
+            $request->metricInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->metricInfo, 'MetricInfo', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->metricInfoShrink)) {
+            $query['MetricInfo'] = $request->metricInfoShrink;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PushResourceRule',
+            'version'     => '2022-12-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/resourcerules/' . OpenApiUtilClient::getEncodeParam($ResourceRuleId) . '/action/push',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return PushResourceRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                  $ResourceRuleId
+     * @param PushResourceRuleRequest $request
+     *
+     * @return PushResourceRuleResponse
+     */
+    public function pushResourceRule($ResourceRuleId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->pushResourceRuleWithOptions($ResourceRuleId, $request, $headers, $runtime);
     }
 
     /**
@@ -5189,6 +5669,137 @@ class PaiRecService extends OpenApiClient
         $headers = [];
 
         return $this->updateParamWithOptions($ParamId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                    $ResourceRuleId
+     * @param UpdateResourceRuleRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateResourceRuleResponse
+     */
+    public function updateResourceRuleWithOptions($ResourceRuleId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->metricOperationType)) {
+            $body['MetricOperationType'] = $request->metricOperationType;
+        }
+        if (!Utils::isUnset($request->metricPullInfo)) {
+            $body['MetricPullInfo'] = $request->metricPullInfo;
+        }
+        if (!Utils::isUnset($request->metricPullPeriod)) {
+            $body['MetricPullPeriod'] = $request->metricPullPeriod;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->ruleComputingDefinition)) {
+            $body['RuleComputingDefinition'] = $request->ruleComputingDefinition;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateResourceRule',
+            'version'     => '2022-12-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/resourcerules/' . OpenApiUtilClient::getEncodeParam($ResourceRuleId) . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateResourceRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                    $ResourceRuleId
+     * @param UpdateResourceRuleRequest $request
+     *
+     * @return UpdateResourceRuleResponse
+     */
+    public function updateResourceRule($ResourceRuleId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateResourceRuleWithOptions($ResourceRuleId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                        $ResourceRuleId
+     * @param string                        $ResourceRuleItemId
+     * @param UpdateResourceRuleItemRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateResourceRuleItemResponse
+     */
+    public function updateResourceRuleItemWithOptions($ResourceRuleId, $ResourceRuleItemId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->maxValue)) {
+            $body['MaxValue'] = $request->maxValue;
+        }
+        if (!Utils::isUnset($request->minValue)) {
+            $body['MinValue'] = $request->minValue;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->value)) {
+            $body['Value'] = $request->value;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateResourceRuleItem',
+            'version'     => '2022-12-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/resourcerules/' . OpenApiUtilClient::getEncodeParam($ResourceRuleId) . '/items/' . OpenApiUtilClient::getEncodeParam($ResourceRuleItemId) . '',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateResourceRuleItemResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                        $ResourceRuleId
+     * @param string                        $ResourceRuleItemId
+     * @param UpdateResourceRuleItemRequest $request
+     *
+     * @return UpdateResourceRuleItemResponse
+     */
+    public function updateResourceRuleItem($ResourceRuleId, $ResourceRuleItemId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateResourceRuleItemWithOptions($ResourceRuleId, $ResourceRuleItemId, $request, $headers, $runtime);
     }
 
     /**
