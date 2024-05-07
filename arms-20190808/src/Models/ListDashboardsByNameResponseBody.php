@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListDashboardsByNameResponseBody extends Model
 {
     /**
-     * @description 状态码。说明 200表示成功。
+     * @description Status Code. Description 200 indicates success.
      *
      * @example 200
      *
@@ -18,6 +18,8 @@ class ListDashboardsByNameResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned struct.
+     *
      * @example [{"name":"Edas Ingress Url Analysis","type":"edas-ingress-url-analysis","url":"https://g.console.aliyun.com/d/1036052989950239-11040375-66-3/edas-ingress-url-analysis?var-clusterId=29ksa&var-regionId=cn-hangzhou"}]
      *
      * @var string
@@ -25,7 +27,7 @@ class ListDashboardsByNameResponseBody extends Model
     public $data;
 
     /**
-     * @description 返回结果的提示信息。
+     * @description Returns a hint message for the result.
      *
      * @example success
      *
@@ -34,6 +36,8 @@ class ListDashboardsByNameResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request, You can use the ID to locate logs and troubleshoot issues.
+     *
      * @example 2983BEF7-4A0D-47A2-94A2-8E9C5E63****
      *
      * @var string

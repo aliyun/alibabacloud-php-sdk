@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class RemoveSourcesFromPrometheusGlobalViewResponseBody extends Model
 {
     /**
+     * @description Status code. 200 is success, other status codes are exceptions.
+     *
      * @example 200
      *
      * @var int
@@ -17,11 +19,15 @@ class RemoveSourcesFromPrometheusGlobalViewResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned struct.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description Returns a hint message for the result.
+     *
      * @example success
      *
      * @var string
@@ -29,6 +35,8 @@ class RemoveSourcesFromPrometheusGlobalViewResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID. You can use the ID to query logs and troubleshoot issues.
+     *
      * @example 9319A57D-2D9E-472A-B69B-CF3CD16D****
      *
      * @var string

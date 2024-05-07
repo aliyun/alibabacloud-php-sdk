@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetPrometheusGlobalViewResponseBody extends Model
 {
     /**
+     * @description Status code. 200 is success, other status codes are exceptions.
+     *
      * @example 200
      *
      * @var int
@@ -16,7 +18,7 @@ class GetPrometheusGlobalViewResponseBody extends Model
     public $code;
 
     /**
-     * @description The returned struct.
+     * @description The struct returned.
      *
      * @example { "clusterId":"The ID of the global aggregation instance.", "groupName":"The name of the global aggregation instance.", "dataSources":\[ { "sourceName":"The name of the data source.- ArmsPrometheus No.1", "sourceType":"AlibabaPrometheus", "userId":"UserID", "clusterId":"ClusterId" }, // more datasources ] }
      *
@@ -25,6 +27,8 @@ class GetPrometheusGlobalViewResponseBody extends Model
     public $data;
 
     /**
+     * @description Returns a hint message for the result.
+     *
      * @example success
      *
      * @var string

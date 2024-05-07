@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteGrafanaResourceResponseBody extends Model
 {
     /**
+     * @description Status code. 200 is success, other status codes are exceptions.
+     *
      * @example 200
      *
      * @var int
@@ -16,7 +18,7 @@ class DeleteGrafanaResourceResponseBody extends Model
     public $code;
 
     /**
-     * @description The returned message.
+     * @description The message returned.
      *
      * @example delete success.
      *
@@ -25,6 +27,8 @@ class DeleteGrafanaResourceResponseBody extends Model
     public $data;
 
     /**
+     * @description Returns a hint message for the result.
+     *
      * @example success
      *
      * @var string

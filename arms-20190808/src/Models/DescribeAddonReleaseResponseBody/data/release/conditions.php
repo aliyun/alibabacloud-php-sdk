@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class conditions extends Model
 {
     /**
-     * @description First transition time.
+     * @description The first transition time.
      *
      * @example 2018-01-31T14:32:19Z
      *
@@ -18,7 +18,7 @@ class conditions extends Model
     public $firstTransitionTime;
 
     /**
-     * @description Last transition time.
+     * @description The last transition time.
      *
      * @example 2018-01-31T14:32:19Z
      *
@@ -27,7 +27,7 @@ class conditions extends Model
     public $lastTransitionTime;
 
     /**
-     * @description COndition details.
+     * @description The detailed information.
      *
      * @example xxxx
      *
@@ -36,7 +36,7 @@ class conditions extends Model
     public $message;
 
     /**
-     * @description Reason of failure.
+     * @description The reason for the failure.
      *
      * @example xxxx
      *
@@ -45,7 +45,7 @@ class conditions extends Model
     public $reason;
 
     /**
-     * @description Condition status.
+     * @description The status of the phase.
      *
      * @example True
      *
@@ -54,7 +54,7 @@ class conditions extends Model
     public $status;
 
     /**
-     * @description Condition type.
+     * @description The type of the phase.
      *
      * @example Loaded
      *

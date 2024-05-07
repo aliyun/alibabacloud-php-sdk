@@ -2249,6 +2249,9 @@ class ARMS extends OpenApiClient
         if (!Utils::isUnset($request->autoAddNewApplication)) {
             $body['AutoAddNewApplication'] = $request->autoAddNewApplication;
         }
+        if (!Utils::isUnset($request->autoAddTargetConfig)) {
+            $body['AutoAddTargetConfig'] = $request->autoAddTargetConfig;
+        }
         if (!Utils::isUnset($request->clusterId)) {
             $body['ClusterId'] = $request->clusterId;
         }
@@ -2290,6 +2293,9 @@ class ARMS extends OpenApiClient
         }
         if (!Utils::isUnset($request->pids)) {
             $body['Pids'] = $request->pids;
+        }
+        if (!Utils::isUnset($request->product)) {
+            $body['Product'] = $request->product;
         }
         if (!Utils::isUnset($request->promQL)) {
             $body['PromQL'] = $request->promQL;
@@ -5471,6 +5477,9 @@ class ARMS extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->aliyunLang)) {
+            $query['AliyunLang'] = $request->aliyunLang;
+        }
         if (!Utils::isUnset($request->environmentId)) {
             $query['EnvironmentId'] = $request->environmentId;
         }
@@ -8653,6 +8662,9 @@ class ARMS extends OpenApiClient
         }
         if (!Utils::isUnset($request->environmentType)) {
             $query['EnvironmentType'] = $request->environmentType;
+        }
+        if (!Utils::isUnset($request->feePackage)) {
+            $query['FeePackage'] = $request->feePackage;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;

@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class AddPrometheusGlobalViewResponseBody extends Model
 {
     /**
+     * @description 状态码。说明 200表示成功。
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
@@ -22,6 +26,10 @@ class AddPrometheusGlobalViewResponseBody extends Model
     public $data;
 
     /**
+     * @description 返回结果的提示信息。
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;

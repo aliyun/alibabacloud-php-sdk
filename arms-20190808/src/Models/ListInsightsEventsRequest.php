@@ -9,22 +9,13 @@ use AlibabaCloud\Tea\Model;
 class ListInsightsEventsRequest extends Model
 {
     /**
-     * @description The details of the event.
+     * @description The end of the time range to query. The value is a timestamp.
      *
      * @example 1480607940000
      *
      * @var string
      */
     public $endTime;
-
-    /**
-     * @description Average response-time spikes of application services.
-     *
-     * @example errorIncrease,topErrorIncrease,topExceptionIncrease,topRtIncrease,rtIncrease
-     *
-     * @var string
-     */
-    public $insightsTypes;
 
     /**
      * @description The types of the events that you want to query. Separate multiple event types with commas (,). If you do not specify this parameter, all events are queried.
@@ -34,6 +25,15 @@ class ListInsightsEventsRequest extends Model
      *   topRtIncrease: API response-time spike events. Examples: HTTP API response-time spike events and Dubbo API response-time spike events.
      *   rtIncrease: the top five API response-time spike events with the highest traffic.
      *
+     * @example errorIncrease,topErrorIncrease,topExceptionIncrease,topRtIncrease,rtIncrease
+     *
+     * @var string
+     */
+    public $insightsTypes;
+
+    /**
+     * @description The ID of the application.
+     *
      * @example aokcdqn3ly@a195c6d6421****
      *
      * @var string
@@ -41,7 +41,7 @@ class ListInsightsEventsRequest extends Model
     public $pid;
 
     /**
-     * @description The end of the time range to query. The value is a timestamp.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -50,7 +50,7 @@ class ListInsightsEventsRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the request.
+     * @description The start of the time range to query. The value is a timestamp.
      *
      * @example 1595174400000
      *

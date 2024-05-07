@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The queried environments.
+     * @description The parameters of the environment instance.
      *
      * @var environments[]
      */

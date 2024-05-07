@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description List of dashboard.
+     * @description The dashboards.
      *
      * @var dashboards[]
      */
     public $dashboards;
 
     /**
-     * @description Total of the dashboards.
+     * @description The total number of entries returned.
      *
      * @example 1
      *

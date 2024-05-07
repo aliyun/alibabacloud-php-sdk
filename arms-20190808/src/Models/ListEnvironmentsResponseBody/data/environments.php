@@ -12,14 +12,14 @@ use AlibabaCloud\Tea\Model;
 class environments extends Model
 {
     /**
-     * @description The queried add-ons.
+     * @description The add-ons.
      *
      * @var addons[]
      */
     public $addons;
 
     /**
-     * @description The ID of the resource associated with the environment, such as the ACK cluster ID or VPC ID.
+     * @description The ID of the resource bound to the environment instance. The resource can be a Kubernetes cluster or a VPC.
      *
      * @example vpc-bp1bgo8ronn
      *
@@ -28,7 +28,7 @@ class environments extends Model
     public $bindResourceId;
 
     /**
-     * @description The profile of the resource.
+     * @description The profile that is bound to the resource.
      *
      * @example xxx
      *
@@ -55,7 +55,7 @@ class environments extends Model
     public $bindVpcCidr;
 
     /**
-     * @description The time when the VPC was created.
+     * @description The time when the environment instance was created.
      *
      * @example 2023-03-24 11:58:35 +0800
      *
@@ -64,7 +64,7 @@ class environments extends Model
     public $createTime;
 
     /**
-     * @description The ID of the user that created the VPC.
+     * @description The user ID.
      *
      * @example 12378523784982
      *
@@ -82,7 +82,7 @@ class environments extends Model
     public $environmentId;
 
     /**
-     * @description The name of the environment.
+     * @description The name of the environment instance.
      *
      * @example feiliks-biz-prod-edas
      *
@@ -91,9 +91,9 @@ class environments extends Model
     public $environmentName;
 
     /**
-     * @description The type of the environment. Valid values:
+     * @description The type of the environment instance. Valid values:
      *
-     *   CS: Container Service for Kubernetes (ACK)
+     *   CS: Container Service
      *   ECS: Elastic Compute Service (ECS)
      *   Cloud: cloud service
      *
@@ -104,11 +104,16 @@ class environments extends Model
     public $environmentType;
 
     /**
-     * @description The features.
+     * @description The parameters of the feature.
      *
      * @var features[]
      */
     public $features;
+
+    /**
+     * @var string
+     */
+    public $feePackage;
 
     /**
      * @description The unique ID of the Grafana data source.
@@ -138,7 +143,7 @@ class environments extends Model
     public $grafanaFolderUid;
 
     /**
-     * @description The time when the add-on was last created.
+     * @description The time when the last add-on was created.
      *
      * @example 2023-09-22T16:56:29+08:00
      *
@@ -148,7 +153,8 @@ class environments extends Model
 
     /**
      * @description type of managed:
-     * - agent-exproter: maanged agent and exporter. default of prometheus for Cloud.
+     *
+     * - agent-exproter: managed agent and exporter. default of prometheus for Cloud.
      * @example agent
      *
      * @var string
@@ -156,7 +162,7 @@ class environments extends Model
     public $managedType;
 
     /**
-     * @description The ID of the Prometheus service.
+     * @description The Prometheus ID.
      *
      * @example 124769812
      *
@@ -227,6 +233,7 @@ class environments extends Model
         'environmentName'         => 'EnvironmentName',
         'environmentType'         => 'EnvironmentType',
         'features'                => 'Features',
+        'feePackage'              => 'FeePackage',
         'grafanaDatasourceUid'    => 'GrafanaDatasourceUid',
         'grafanaFolderTitle'      => 'GrafanaFolderTitle',
         'grafanaFolderUid'        => 'GrafanaFolderUid',
@@ -292,6 +299,9 @@ class environments extends Model
                     $res['Features'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->feePackage) {
+            $res['FeePackage'] = $this->feePackage;
         }
         if (null !== $this->grafanaDatasourceUid) {
             $res['GrafanaDatasourceUid'] = $this->grafanaDatasourceUid;
@@ -391,6 +401,9 @@ class environments extends Model
                     $model->features[$n++] = null !== $item ? features::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['FeePackage'])) {
+            $model->feePackage = $map['FeePackage'];
         }
         if (isset($map['GrafanaDatasourceUid'])) {
             $model->grafanaDatasourceUid = $map['GrafanaDatasourceUid'];

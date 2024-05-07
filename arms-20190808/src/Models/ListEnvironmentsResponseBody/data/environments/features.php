@@ -27,7 +27,7 @@ class features extends Model
     public $description;
 
     /**
-     * @description The URL of the feature icon.
+     * @description The URL of the icon.
      *
      * @example http://xxx
      *

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class InstallAddonResponseBody extends Model
 {
     /**
-     * @description Status code: 200 indicates success.
+     * @description The HTTP status code. The status code 200 indicates that the request was successful.
      *
      * @example 200
      *
@@ -19,14 +19,14 @@ class InstallAddonResponseBody extends Model
     public $code;
 
     /**
-     * @description The returned struct.
+     * @description The returned data.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The message returned.
+     * @description The returned message.
      *
      * @example success
      *
@@ -35,7 +35,7 @@ class InstallAddonResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The ID of the request.
      *
      * @example C21AB7CF-B7AF-410F-BD61-82D1567F****
      *
@@ -44,10 +44,7 @@ class InstallAddonResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the call was successful. Valid values:
-     *
-     *   `true`: The call was successful.
-     *   `false`: The call failed.
+     * @description Indicates whether the request was successful. Valid values: true and false.
      *
      * @example true
      *

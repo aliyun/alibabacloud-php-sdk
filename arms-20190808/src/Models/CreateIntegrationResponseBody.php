@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class CreateIntegrationResponseBody extends Model
 {
     /**
+     * @description The returned information about the alert integration.
+     *
      * @var integration
      */
     public $integration;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 34ED024E-9E31-434A-9E4E-D9D15C3****
      *
      * @var string

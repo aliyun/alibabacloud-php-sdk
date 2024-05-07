@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteRetcodeAppResponseBody extends Model
 {
     /**
-     * @description The status code. The status code 200 indicates that the request was successful. If another status code is returned, the request failed.
+     * @description 状态码。200为成功，其他状态码为异常。
      *
      * @example 200
      *
@@ -30,10 +30,7 @@ class DeleteRetcodeAppResponseBody extends Model
     public $data;
 
     /**
-     * @description The message returned for the operation. Valid values:
-     *
-     *   **Success** is returned if the operation is successful.
-     *   An error message is returned if the operation fails.
+     * @description 附加信息。取值说明如下：请求正常，返回success。请求异常，返回具体异常信息。
      *
      * @example success
      *
@@ -51,9 +48,9 @@ class DeleteRetcodeAppResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
+     * @description 操作是否成功：
      *
-     * false: The request failed.
+     * - `false`：操作失败
      * @example true
      *
      * @var bool

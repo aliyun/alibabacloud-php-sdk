@@ -18,7 +18,7 @@ class ListEnvironmentsShrinkRequest extends Model
     public $addonName;
 
     /**
-     * @description 绑定的资源ID。
+     * @description The ID of the resource.
      *
      * @example cff30f0d67d7542dfb05bd114b4b1d7af
      *
@@ -49,6 +49,11 @@ class ListEnvironmentsShrinkRequest extends Model
     public $environmentType;
 
     /**
+     * @var string
+     */
+    public $feePackage;
+
+    /**
      * @description The region ID.
      *
      * @example cn-hangzhou
@@ -76,6 +81,7 @@ class ListEnvironmentsShrinkRequest extends Model
         'addonName'       => 'AddonName',
         'bindResourceId'  => 'BindResourceId',
         'environmentType' => 'EnvironmentType',
+        'feePackage'      => 'FeePackage',
         'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
         'tagShrink'       => 'Tag',
@@ -96,6 +102,9 @@ class ListEnvironmentsShrinkRequest extends Model
         }
         if (null !== $this->environmentType) {
             $res['EnvironmentType'] = $this->environmentType;
+        }
+        if (null !== $this->feePackage) {
+            $res['FeePackage'] = $this->feePackage;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -126,6 +135,9 @@ class ListEnvironmentsShrinkRequest extends Model
         }
         if (isset($map['EnvironmentType'])) {
             $model->environmentType = $map['EnvironmentType'];
+        }
+        if (isset($map['FeePackage'])) {
+            $model->feePackage = $map['FeePackage'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

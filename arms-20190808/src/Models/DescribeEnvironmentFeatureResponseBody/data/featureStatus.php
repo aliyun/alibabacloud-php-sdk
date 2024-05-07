@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class featureStatus extends Model
 {
     /**
+     * @var string
+     */
+    public $bindResourceId;
+
+    /**
      * @description The containers of the feature.
      *
      * @var featureContainers[]
@@ -35,6 +40,11 @@ class featureStatus extends Model
     public $namespace;
 
     /**
+     * @var string
+     */
+    public $securityGroupId;
+
+    /**
      * @description The status of the agent. Valid values:
      *
      *   Success: The agent is running.
@@ -46,11 +56,19 @@ class featureStatus extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $vSwitchId;
     protected $_name = [
+        'bindResourceId'    => 'BindResourceId',
         'featureContainers' => 'FeatureContainers',
         'name'              => 'Name',
         'namespace'         => 'Namespace',
+        'securityGroupId'   => 'SecurityGroupId',
         'status'            => 'Status',
+        'vSwitchId'         => 'VSwitchId',
     ];
 
     public function validate()
@@ -60,6 +78,9 @@ class featureStatus extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bindResourceId) {
+            $res['BindResourceId'] = $this->bindResourceId;
+        }
         if (null !== $this->featureContainers) {
             $res['FeatureContainers'] = [];
             if (null !== $this->featureContainers && \is_array($this->featureContainers)) {
@@ -75,8 +96,14 @@ class featureStatus extends Model
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
+        if (null !== $this->securityGroupId) {
+            $res['SecurityGroupId'] = $this->securityGroupId;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
         }
 
         return $res;
@@ -90,6 +117,9 @@ class featureStatus extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BindResourceId'])) {
+            $model->bindResourceId = $map['BindResourceId'];
+        }
         if (isset($map['FeatureContainers'])) {
             if (!empty($map['FeatureContainers'])) {
                 $model->featureContainers = [];
@@ -105,8 +135,14 @@ class featureStatus extends Model
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
+        if (isset($map['SecurityGroupId'])) {
+            $model->securityGroupId = $map['SecurityGroupId'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
         }
 
         return $model;

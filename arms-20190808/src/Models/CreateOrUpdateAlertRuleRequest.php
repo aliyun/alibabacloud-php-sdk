@@ -131,6 +131,11 @@ class CreateOrUpdateAlertRuleRequest extends Model
     public $autoAddNewApplication;
 
     /**
+     * @var string
+     */
+    public $autoAddTargetConfig;
+
+    /**
      * @description The ID of the monitored cluster.
      *
      * @example ceba9b9ea5b924dd0b6726d2de6******
@@ -272,6 +277,11 @@ class CreateOrUpdateAlertRuleRequest extends Model
     public $pids;
 
     /**
+     * @var string
+     */
+    public $product;
+
+    /**
      * @description The PromQL statement of the Prometheus alert rule.
      *
      * @example node_memory_MemAvailable_bytes{} / node_memory_MemTotal_bytes{} * 100
@@ -306,6 +316,7 @@ class CreateOrUpdateAlertRuleRequest extends Model
         'alertType'             => 'AlertType',
         'annotations'           => 'Annotations',
         'autoAddNewApplication' => 'AutoAddNewApplication',
+        'autoAddTargetConfig'   => 'AutoAddTargetConfig',
         'clusterId'             => 'ClusterId',
         'dataConfig'            => 'DataConfig',
         'duration'              => 'Duration',
@@ -320,6 +331,7 @@ class CreateOrUpdateAlertRuleRequest extends Model
         'notifyMode'            => 'NotifyMode',
         'notifyStrategy'        => 'NotifyStrategy',
         'pids'                  => 'Pids',
+        'product'               => 'Product',
         'promQL'                => 'PromQL',
         'regionId'              => 'RegionId',
         'tags'                  => 'Tags',
@@ -361,6 +373,9 @@ class CreateOrUpdateAlertRuleRequest extends Model
         }
         if (null !== $this->autoAddNewApplication) {
             $res['AutoAddNewApplication'] = $this->autoAddNewApplication;
+        }
+        if (null !== $this->autoAddTargetConfig) {
+            $res['AutoAddTargetConfig'] = $this->autoAddTargetConfig;
         }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
@@ -409,6 +424,9 @@ class CreateOrUpdateAlertRuleRequest extends Model
         }
         if (null !== $this->pids) {
             $res['Pids'] = $this->pids;
+        }
+        if (null !== $this->product) {
+            $res['Product'] = $this->product;
         }
         if (null !== $this->promQL) {
             $res['PromQL'] = $this->promQL;
@@ -467,6 +485,9 @@ class CreateOrUpdateAlertRuleRequest extends Model
         if (isset($map['AutoAddNewApplication'])) {
             $model->autoAddNewApplication = $map['AutoAddNewApplication'];
         }
+        if (isset($map['AutoAddTargetConfig'])) {
+            $model->autoAddTargetConfig = $map['AutoAddTargetConfig'];
+        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
@@ -514,6 +535,9 @@ class CreateOrUpdateAlertRuleRequest extends Model
         }
         if (isset($map['Pids'])) {
             $model->pids = $map['Pids'];
+        }
+        if (isset($map['Product'])) {
+            $model->product = $map['Product'];
         }
         if (isset($map['PromQL'])) {
             $model->promQL = $map['PromQL'];

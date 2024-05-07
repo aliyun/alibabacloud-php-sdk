@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListEnvironmentDashboardsResponseBody extends Model
 {
     /**
-     * @description Status code: 200 indicates success.
+     * @description The HTTP status code. The status code 200 indicates that the request was successful.
      *
      * @example 200
      *
@@ -19,7 +19,7 @@ class ListEnvironmentDashboardsResponseBody extends Model
     public $code;
 
     /**
-     * @description The returned struct.
+     * @description The result of the operation.
      *
      * @var data
      */
@@ -44,10 +44,10 @@ class ListEnvironmentDashboardsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the call was successful. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   `true`: The call was successful.
-     *   `false`: The call failed.
+     *   true
+     *   false
      *
      * @example true
      *

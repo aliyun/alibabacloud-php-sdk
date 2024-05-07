@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class AddAliClusterIdsToPrometheusGlobalViewResponseBody extends Model
 {
     /**
+     * @description Status code. 200 is success, other status codes are exceptions.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
@@ -22,6 +26,10 @@ class AddAliClusterIdsToPrometheusGlobalViewResponseBody extends Model
     public $data;
 
     /**
+     * @description Returns a hint message for the result.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class dashboards extends Model
 {
     /**
-     * @description Dashboard folder UID.
+     * @description The UID of the folder.
      *
      * @example 1374923841627893
      *
@@ -27,14 +27,14 @@ class dashboards extends Model
     public $region;
 
     /**
-     * @description List of tabs on the dashboard.
+     * @description The keyword.
      *
      * @var string[]
      */
     public $tags;
 
     /**
-     * @description The title on the dashboard.
+     * @description The title of the Grafana dashboard.
      *
      * @example kafka-instance
      *
@@ -43,7 +43,7 @@ class dashboards extends Model
     public $title;
 
     /**
-     * @description The UID on the dashboard.
+     * @description The unique identifier of the dashboard.
      *
      * @example 1537863211936042
      *
@@ -52,7 +52,7 @@ class dashboards extends Model
     public $uid;
 
     /**
-     * @description The URL on the dashboard.
+     * @description The complete URL of the dashboard.
      *
      * @example http://xxx
      *

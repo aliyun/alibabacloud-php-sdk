@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddPrometheusGlobalViewByAliClusterIdsRequest extends Model
 {
     /**
+     * @description The IDs of clusters. Separate multiple IDs with commas (,).
+     *
      * @example cd1d55bef19904324a20ed0ebb86caa5c,c5b48729918ab4745a24482ac29d0973a, c00a94896641449098bf24931e4166003, cd174485c09384060ba542bc1be1185a4
      *
      * @var string
@@ -16,6 +18,8 @@ class AddPrometheusGlobalViewByAliClusterIdsRequest extends Model
     public $clusterIds;
 
     /**
+     * @description The name of the global aggregation instance.
+     *
      * @example zyGlobalView
      *
      * @var string
@@ -23,6 +27,8 @@ class AddPrometheusGlobalViewByAliClusterIdsRequest extends Model
     public $groupName;
 
     /**
+     * @description The identifier to identify the service if custom dashboards are created for the specified clusters.
+     *
      * @example adcp
      *
      * @var string
@@ -30,6 +36,8 @@ class AddPrometheusGlobalViewByAliClusterIdsRequest extends Model
     public $productCode;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string

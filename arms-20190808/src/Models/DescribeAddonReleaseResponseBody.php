@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeAddonReleaseResponseBody extends Model
 {
     /**
-     * @description Status code: 200 indicates success.
+     * @description The HTTP status code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed.
      *
      * @example 200
      *
@@ -19,7 +19,7 @@ class DescribeAddonReleaseResponseBody extends Model
     public $code;
 
     /**
-     * @description The struct returned.
+     * @description The release information.
      *
      * @var data
      */
@@ -35,7 +35,7 @@ class DescribeAddonReleaseResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The ID of the request.
      *
      * @example 78901766-3806-4E96-8E47-CFEF59E4****
      *
@@ -44,10 +44,7 @@ class DescribeAddonReleaseResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the alert rule was deleted. Valid values:
-     *
-     *   `true`: The alert rule was deleted.
-     *   `false`: The alert rule failed to be deleted.
+     * @description Indicates whether the request was successful. Valid values: true and false.
      *
      * @example true
      *

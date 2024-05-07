@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeAddonReleaseRequest extends Model
 {
     /**
-     * @description Environment ID.
+     * @description The environment ID.
      *
      * @example env-xxx
      *
@@ -27,7 +27,7 @@ class DescribeAddonReleaseRequest extends Model
     public $regionId;
 
     /**
-     * @description Name of Release.
+     * @description The name of the add-on release.
      *
      * @example agent-822567d4-2449
      *

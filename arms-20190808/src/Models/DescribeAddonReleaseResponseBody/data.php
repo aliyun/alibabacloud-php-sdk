@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description Config of the Release.
+     * @description The configuration information of the add-on release.
      *
      * @example {"host":"mysql-service.default","port":3306,"username":"root","password":"roots"}
      *
@@ -19,7 +19,7 @@ class data extends Model
     public $config;
 
     /**
-     * @description Release Detail.
+     * @description The release information.
      *
      * @var release
      */

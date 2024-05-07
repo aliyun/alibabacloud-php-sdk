@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class integration extends Model
 {
     /**
+     * @description Indicates whether alert events are automatically cleared. Default value: true. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -16,13 +21,17 @@ class integration extends Model
     public $autoRecover;
 
     /**
-     * @example 测试
+     * @description The description of the alert integration.
+     *
+     * @example Test
      *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the alert integration.
+     *
      * @example 1234
      *
      * @var int
@@ -30,13 +39,20 @@ class integration extends Model
     public $integrationId;
 
     /**
-     * @example 云监控集成
+     * @description The name of the alert integration.
+     *
+     * @example CloudMonitor integration
      *
      * @var string
      */
     public $integrationName;
 
     /**
+     * @description The service of the alert integration. Valid values:
+     *
+     *   CLOUD_MONITOR: CloudMonitor
+     *   LOG_SERVICE: Log Service
+     *
      * @example CLOUD_MONITOR
      *
      * @var string
@@ -44,6 +60,8 @@ class integration extends Model
     public $integrationProductType;
 
     /**
+     * @description The period of time within which alert events are automatically cleared. Unit: seconds. Default value: 300.
+     *
      * @example 300
      *
      * @var int

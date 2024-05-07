@@ -10,8 +10,17 @@ use AlibabaCloud\Tea\Model;
 class CreateEnvironmentRequest extends Model
 {
     /**
-     * @description The language. Valid values: zh and en. Default value: zh.
+     * @description The language. Default value: zh.
      *
+     * Valid values:
+     *
+     *   en
+     *
+     * .
+     *
+     *   zh
+     *
+     * .
      * @example zh
      *
      * @var string
@@ -39,8 +48,8 @@ class CreateEnvironmentRequest extends Model
     /**
      * @description The subtype of the environment. Valid values:
      *
-     *   CS: Container Service for Kubernetes (ACK)
-     *   ECS: Elastic Compute Service (ECS)
+     *   CS: ACK
+     *   ECS: ECS
      *   Cloud: cloud service
      *
      * @example ECS, ACK, etc.
@@ -52,8 +61,8 @@ class CreateEnvironmentRequest extends Model
     /**
      * @description The type of the environment. Valid values:
      *
-     *   CS: Container Service
-     *   ECS: Elastic Compute Service
+     *   CS: ACK
+     *   ECS: ECS
      *   Cloud: cloud service
      *
      * @example CS
@@ -63,13 +72,23 @@ class CreateEnvironmentRequest extends Model
     public $environmentType;
 
     /**
+     * @description Paid packages.
+     *  When EnvironmentType is CS: can be specified as CS_Basic (default) or CS_Pro.
+     * When EnvironmentType is any other value, enter a null value.
+     *
+     * @example CS_Basic
+     *
      * @var string
      */
     public $feePackage;
 
     /**
-     * @description type of managed:
-     * - agent-exproter: maanged agent and exporter. default of prometheus for Cloud.
+     * @description Specifies whether agents or exporters are managed. Valid values:
+     *
+     *   none: No. By default, no managed agents or exporters are provided for ACK clusters.
+     *   agent: Agents are managed. By default, managed agents are provided for ASK clusters, ACS clusters, and ACK One clusters.
+     *   agent-exproter: Agents and exporters are managed. By default, managed agents and exporters are provided for cloud services.
+     *
      * @example none
      *
      * @var string
@@ -77,7 +96,7 @@ class CreateEnvironmentRequest extends Model
     public $managedType;
 
     /**
-     * @description the ID of prometheus instance bound to the environment. If not provided, please call the InitEnvironment interface to complete the initialization of the storage instance.
+     * @description Nullable, the prom instance id for the environment binding. if not provided, call the InitEnvironment interface to complete the initialization of the storage instance.
      *
      * @example c6e9dec475dca4a50a188411d8cbxxx
      *

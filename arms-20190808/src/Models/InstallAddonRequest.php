@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class InstallAddonRequest extends Model
 {
     /**
-     * @description Version of Addon.
+     * @description The version of the add-on.
      *
      * @example 0.0.1
      *
@@ -18,7 +18,7 @@ class InstallAddonRequest extends Model
     public $addonVersion;
 
     /**
-     * @description Locale, the default is Chinese zh.
+     * @description The language. Valid values: zh and en. Default value: zh.
      *
      * @example zh
      *
@@ -27,7 +27,7 @@ class InstallAddonRequest extends Model
     public $aliyunLang;
 
     /**
-     * @description Whether to test run. The default value is false.
+     * @description Specifies whether to perform only a dry run, without performing the actual request. Default value: false.
      *
      * @example false
      *
@@ -36,7 +36,7 @@ class InstallAddonRequest extends Model
     public $dryRun;
 
     /**
-     * @description Environment ID.
+     * @description The environment ID.
      *
      * @example env-xxx
      *
@@ -45,7 +45,7 @@ class InstallAddonRequest extends Model
     public $environmentId;
 
     /**
-     * @description Name of Addon.
+     * @description The name of the add-on.
      *
      * @example mysql
      *
@@ -63,7 +63,7 @@ class InstallAddonRequest extends Model
     public $regionId;
 
     /**
-     * @description The release name after installation, if not specified, generates the default rule name.
+     * @description The name of the add-on after it is installed. If you do not specify this parameter, a default rule name is generated.
      *
      * @example mysql-xxxxx
      *
@@ -72,7 +72,7 @@ class InstallAddonRequest extends Model
     public $releaseName;
 
     /**
-     * @description Config information.
+     * @description The metadata.
      *
      * @example {"host":"mysql-service.default","port":3306,"username":"root","password":"roots"}
      *

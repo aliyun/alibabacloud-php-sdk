@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListEnvironmentDashboardsRequest extends Model
 {
     /**
-     * @description Name of Addon.AddonName and Scene are required.
+     * @description Name of Addon,One of AddonName and Scene must be filled in.
      *
      * @example trace-java
      *
@@ -27,7 +27,7 @@ class ListEnvironmentDashboardsRequest extends Model
     public $environmentId;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID of the instance.
      *
      * @example cn-hangzhou
      *
@@ -36,7 +36,7 @@ class ListEnvironmentDashboardsRequest extends Model
     public $regionId;
 
     /**
-     * @description Scene of Addon.AddonName and Scene are required
+     * @description The scenario of Addon. Either AddonName or Scene is required.
      *
      * @example database
      *

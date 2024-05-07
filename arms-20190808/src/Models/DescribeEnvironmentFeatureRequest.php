@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeEnvironmentFeatureRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $aliyunLang;
+
+    /**
      * @description The environment ID.
      *
      * @example env-xxx
@@ -44,6 +49,7 @@ class DescribeEnvironmentFeatureRequest extends Model
      */
     public $regionId;
     protected $_name = [
+        'aliyunLang'    => 'AliyunLang',
         'environmentId' => 'EnvironmentId',
         'featureName'   => 'FeatureName',
         'regionId'      => 'RegionId',
@@ -56,6 +62,9 @@ class DescribeEnvironmentFeatureRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->aliyunLang) {
+            $res['AliyunLang'] = $this->aliyunLang;
+        }
         if (null !== $this->environmentId) {
             $res['EnvironmentId'] = $this->environmentId;
         }
@@ -77,6 +86,9 @@ class DescribeEnvironmentFeatureRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AliyunLang'])) {
+            $model->aliyunLang = $map['AliyunLang'];
+        }
         if (isset($map['EnvironmentId'])) {
             $model->environmentId = $map['EnvironmentId'];
         }

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListDashboardsByNameRequest extends Model
 {
     /**
+     * @description The ID of the cluster. If the ClusterType parameter is not set to `cloud-product-prometheus` or `cms-enterprise-prometheus`, you must specify the ClusterId parameter.
+     *
      * @example cc7a37ee31aea4ed1a059eff8034b****
      *
      * @var string
@@ -16,6 +18,18 @@ class ListDashboardsByNameRequest extends Model
     public $clusterId;
 
     /**
+     * @description The cluster type. Valid values:
+     *
+     *   vpc-prometheus
+     *   cloud-product-prometheus
+     *   cms-enterprise-prometheus
+     *   ExternalKubernetes
+     *   Ask
+     *   Kubernetes
+     *   ManagedKubernetes
+     *   remote-write-prometheus
+     *   GlobalViewV2
+     *
      * @example cloud-product-prometheus
      *
      * @var string
@@ -23,6 +37,8 @@ class ListDashboardsByNameRequest extends Model
     public $clusterType;
 
     /**
+     * @description The name of the dashboard.
+     *
      * @example edas-ingress-url
      *
      * @var string
@@ -30,6 +46,8 @@ class ListDashboardsByNameRequest extends Model
     public $dashBoardName;
 
     /**
+     * @description The version of the dashboard.
+     *
      * @example latest
      *
      * @var string
@@ -37,6 +55,11 @@ class ListDashboardsByNameRequest extends Model
     public $dashBoardVersion;
 
     /**
+     * @description The type of the data source. Valid values:
+     *
+     *   loki
+     *   prometheus
+     *
      * @example loki
      *
      * @var string
@@ -44,6 +67,8 @@ class ListDashboardsByNameRequest extends Model
     public $dataSourceType;
 
     /**
+     * @description The name of the dashboard group.
+     *
      * @example EDAS
      *
      * @var string
@@ -51,6 +76,8 @@ class ListDashboardsByNameRequest extends Model
     public $groupName;
 
     /**
+     * @description Specifies whether to display the Grafana dashboard only in the Application Real-Time Monitoring Service (ARMS) console.
+     *
      * @example true
      *
      * @var bool
@@ -58,6 +85,8 @@ class ListDashboardsByNameRequest extends Model
     public $onlyQuery;
 
     /**
+     * @description The abbreviation of the Alibaba Cloud service name.
+     *
      * @example edas
      *
      * @var string
@@ -65,6 +94,8 @@ class ListDashboardsByNameRequest extends Model
     public $productCode;
 
     /**
+     * @description The ID of the region.
+     *
      * @example cn-hangzhou
      *
      * @var string

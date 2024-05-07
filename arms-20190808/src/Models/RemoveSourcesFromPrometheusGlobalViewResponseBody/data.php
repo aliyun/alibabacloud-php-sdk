@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The Info-level information.
+     *
+     * @example {regionId: the region where the aggregation instance resides. globalViewClusterId: the ID of the aggregation instance.
+     *
      * @var string
      */
     public $info;
 
     /**
+     * @description The additional information.
+     *
      * @example OK
      *
      * @var string
@@ -21,6 +27,11 @@ class data extends Model
     public $msg;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`
+     *   `false`
+     *
      * @example True
      *
      * @var bool

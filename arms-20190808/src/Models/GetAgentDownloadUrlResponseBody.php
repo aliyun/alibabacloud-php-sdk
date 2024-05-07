@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetAgentDownloadUrlResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The download URL of the ARMS agent.
      *
      * @example http://arms-apm-hangzhou.oss-cn-hangzhou-internal.aliyuncs.com/2.7.1.1/
      *
@@ -18,7 +18,7 @@ class GetAgentDownloadUrlResponseBody extends Model
     public $armsAgentDownloadUrl;
 
     /**
-     * @description Obtains the download URL of the Application Real-Time Monitoring Service (ARMS) agent.
+     * @description The request ID.
      *
      * @example 14043452-D486-4EA1-80C9-BA73FB81****
      *

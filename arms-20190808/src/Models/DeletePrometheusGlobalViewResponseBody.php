@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeletePrometheusGlobalViewResponseBody extends Model
 {
     /**
+     * @description Status code. 200 is success, other status codes are exceptions.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
@@ -23,6 +27,10 @@ class DeletePrometheusGlobalViewResponseBody extends Model
     public $data;
 
     /**
+     * @description Additional Message.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;

@@ -70,6 +70,8 @@ class feature extends Model
     public $latestVersion;
 
     /**
+     * @description Whether or not it is a managed component.
+     *
      * @var bool
      */
     public $managed;

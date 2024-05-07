@@ -19,7 +19,7 @@ class GetPrometheusInstanceResponseBody extends Model
     public $code;
 
     /**
-     * @description The returned information.
+     * @description The returned message.
      *
      * @var data
      */

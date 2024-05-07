@@ -10,14 +10,18 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The number of days for automatic archiving after storage expiration (optional values: 60, 90, 180, 365). 0 means not archive.
+     *
+     * @example 60
+     *
      * @var int
      */
     public $archiveDuration;
 
     /**
-     * @description auth token string.
+     * @description Authorization token.
      *
-     * @example ad32dxxxx
+     * @example GciOiJIUzI1NiJ9***
      *
      * @var string
      */
@@ -65,18 +69,18 @@ class data extends Model
     public $grafanaInstanceId;
 
     /**
-     * @description http api internet url.
+     * @description Http API internet address.
      *
-     * @example http://cn-beijing.arms.aliyuncs.com:9090/api/v1/prometheus/xxx/cn-beijing
+     * @example https://cn-beijing.arms.aliyuncs.com:9443/api/v1/prometheus/xxx
      *
      * @var string
      */
     public $httpApiInterUrl;
 
     /**
-     * @description http api intranet url.
+     * @description Http API intranet address.
      *
-     * @example http://cn-beijing-intranet.arms.aliyuncs.com:9090/api/v1/prometheus/xxx/cn-beijing
+     * @example http://cn-beijing-intranet.arms.aliyuncs.com:9090/api/v1/prometheus/xxx
      *
      * @var string
      */
@@ -95,16 +99,16 @@ class data extends Model
     public $paymentType;
 
     /**
-     * @description push gateway internet url.
+     * @description Push gateway internet address.
      *
-     * @example http://cn-beijing.arms.aliyuncs.com/prometheus/xxx/api/v2
+     * @example https://cn-beijing.arms.aliyuncs.com/prometheus/xxx/api/v2
      *
      * @var string
      */
     public $pushGatewayInterUrl;
 
     /**
-     * @description push gateway intranet url.
+     * @description Push gateway intranet address.
      *
      * @example http://cn-beijing-intranet.arms.aliyuncs.com/prometheus/xxx/api/v2
      *
@@ -122,7 +126,7 @@ class data extends Model
     public $regionId;
 
     /**
-     * @description remote read internet url.
+     * @description Remote read internet address.
      *
      * @example http://cn-beijing.arms.aliyuncs.com:9090/api/v1/prometheus/xxx/api/v1/read
      *
@@ -131,7 +135,7 @@ class data extends Model
     public $remoteReadInterUrl;
 
     /**
-     * @description remote read intranet url.
+     * @description Remote read intranet address.
      *
      * @example http://cn-beijing-intranet.arms.aliyuncs.com:9090/api/v1/prometheus/xxx/api/v1/read
      *
@@ -140,16 +144,16 @@ class data extends Model
     public $remoteReadIntraUrl;
 
     /**
-     * @description remote write internet url.
+     * @description Remote write internet address.
      *
-     * @example http://cn-beijing.arms.aliyuncs.com/prometheus/xxx/api/v3/write
+     * @example https://cn-beijing.arms.aliyuncs.com/prometheus/xxx/api/v3/write
      *
      * @var string
      */
     public $remoteWriteInterUrl;
 
     /**
-     * @description remote write intranet url.
+     * @description Remote write intranet address.
      *
      * @example http://cn-beijing-intranet.arms.aliyuncs.com/prometheus/xxx/api/v3/write
      *
@@ -176,7 +180,7 @@ class data extends Model
     public $resourceType;
 
     /**
-     * @description The ID of the security group.
+     * @description The ID of the security group. This parameter is returned only for Prometheus instances for ECS.
      *
      * @example sg-8vbdgmf4nraiqa9bx0jo
      *
@@ -185,6 +189,10 @@ class data extends Model
     public $securityGroupId;
 
     /**
+     * @description Storage duration (days).
+     *
+     * @example 90
+     *
      * @var int
      */
     public $storageDuration;
@@ -215,7 +223,7 @@ class data extends Model
     public $userId;
 
     /**
-     * @description The ID of the vSwitch.
+     * @description The vSwitch ID. This parameter is returned only for Prometheus instances for ECS.
      *
      * @example vsw-f8z73vcja1tqnw90aav5a
      *
@@ -224,7 +232,7 @@ class data extends Model
     public $vSwitchId;
 
     /**
-     * @description The virtual private cloud (VPC) where the monitoring object resides.
+     * @description The VPC ID. This parameter is returned only for Prometheus instances for ECS.
      *
      * @example vpc-8vb02uk57qbcktqcvqqqj
      *

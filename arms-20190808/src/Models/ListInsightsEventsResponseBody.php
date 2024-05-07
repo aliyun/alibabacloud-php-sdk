@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListInsightsEventsResponseBody extends Model
 {
     /**
-     * @description The event details.
+     * @description The details of the event.
      *
      * @var insightsEvents[]
      */
     public $insightsEvents;
 
     /**
-     * @description The title of the event.
+     * @description The request ID.
      *
      * @example 6F1174DC-6085-5353-AAE7-D4ADCD******
      *

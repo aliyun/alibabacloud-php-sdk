@@ -17,17 +17,25 @@ class ListDashboardsResponseBody extends Model
     public $dashboardVos;
 
     /**
+     * @description The environment ID.
+     *
+     * @example env-ebd54733482581fc8c4237******
+     *
      * @var string
      */
     public $environmentId;
 
     /**
+     * @description Whether to enable Grafana service.
+     *
+     * @example true
+     *
      * @var string
      */
     public $grafanaServiceOpened;
 
     /**
-     * @description The indicators of whether the Prometheus service has been activated.
+     * @description Whether or not to turn on Prometheus service.
      *
      * @example true
      *

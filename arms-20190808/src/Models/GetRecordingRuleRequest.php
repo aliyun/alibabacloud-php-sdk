@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetRecordingRuleRequest extends Model
 {
     /**
-     * @description The cluster ID.
+     * @description The ID of the cluster.
      *
      * @example cc7a37ee31aea4ed1a059eff8034b****
      *

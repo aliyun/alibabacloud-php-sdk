@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class insightsEvents extends Model
 {
     /**
-     * @description The time when the event occurred. The value is a timestamp.
+     * @description The time at which the event occurred. The value is a timestamp.
      *
      * @example 1658890560
      *
@@ -18,9 +18,9 @@ class insightsEvents extends Model
     public $date;
 
     /**
-     * @description The description of the event.
+     * @description The description of the alert event.
      *
-     * @example The severity of the event.
+     * @example The overall response time of the \[HTTP] service of the application \[sd] spikes at \[2022-07-27 10:57:00]
      *
      * @var string
      */
@@ -45,7 +45,7 @@ class insightsEvents extends Model
     public $pid;
 
     /**
-     * @description Problem identification.
+     * @description 问题标识。
      *
      * @example erep3o9zue@01ebe697ab70566|@1499161100890550|@cn-hangzhou|@1701841800000|@1701842040000|@daa6c51a-3c44-4d57-9548-4e212c******
      *
@@ -56,7 +56,7 @@ class insightsEvents extends Model
     /**
      * @description The title of the event.
      *
-     * @example The type of the event.
+     * @example Average response-time spikes of application services
      *
      * @var string
      */
