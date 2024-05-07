@@ -19,7 +19,7 @@ class CreateApplicationRequest extends Model
     public $accessTokenValidity;
 
     /**
-     * @description The name of the application.
+     * @description The application name.
      *
      * The name can be up to 64 characters in length. The name can contain letters, digits, periods (.), underscores (\_), and hyphens (-).
      * @example myapp
@@ -98,6 +98,11 @@ class CreateApplicationRequest extends Model
     public $refreshTokenValidity;
 
     /**
+     * @description The required permission.
+     *
+     * >  If the permission that you specify for the `RequiredScopes` parameter is not included in value of the `PredefinedScopes` parameter, the permission does not take effect.
+     * @example aliuid;profile
+     *
      * @var string
      */
     public $requiredScopes;

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetApplicationResponseBody extends Model
 {
     /**
-     * @description The configuration information about the application.
+     * @description The information about the application.
      *
      * @var application
      */

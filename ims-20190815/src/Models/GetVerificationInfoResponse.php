@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateGroupResponse extends Model
+class GetVerificationInfoResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class CreateGroupResponse extends Model
     public $statusCode;
 
     /**
-     * @var CreateGroupResponseBody
+     * @var GetVerificationInfoResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class CreateGroupResponse extends Model
     /**
      * @param array $map
      *
-     * @return CreateGroupResponse
+     * @return GetVerificationInfoResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class CreateGroupResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = CreateGroupResponseBody::fromMap($map['body']);
+            $model->body = GetVerificationInfoResponseBody::fromMap($map['body']);
         }
 
         return $model;

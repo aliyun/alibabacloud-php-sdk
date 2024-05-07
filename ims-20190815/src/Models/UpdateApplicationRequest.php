@@ -18,7 +18,7 @@ class UpdateApplicationRequest extends Model
     public $appId;
 
     /**
-     * @description The validity period of the new access token.
+     * @description The validity period of the access token.
      *
      * Valid values: 900 to 10800. Unit: seconds.
      * @example 3600
@@ -28,7 +28,7 @@ class UpdateApplicationRequest extends Model
     public $newAccessTokenValidity;
 
     /**
-     * @description The new display name of the application.
+     * @description The display name.
      *
      * @example NewApp
      *
@@ -49,9 +49,9 @@ class UpdateApplicationRequest extends Model
     public $newIsMultiTenant;
 
     /**
-     * @description The new scope of application permissions.
+     * @description The permission that is granted on the application.
      *
-     * If you specify a new permission scope, the new permission scope takes effect. For example, if the original permission scope is `/acs/ccc`, and the new permission scope is `/acs/alidns`, `/acs/alidns` takes effect. If you want to retain the original permission scope, set the new permission scope to `/acs/ccc;/acs/alidns`.
+     * The new value of this parameter overwrites the original value, and the permission specified by the new value takes effect. For example, if the original value is `/acs/ccc`, and the new value is `/acs/alidns`, `/acs/alidns` takes effect. If you want to retain the original permission and the `/acs/alidns` permission, set the value to `/acs/ccc;/acs/alidns`.
      * @example openid
      *
      * @var string
@@ -59,9 +59,9 @@ class UpdateApplicationRequest extends Model
     public $newPredefinedScopes;
 
     /**
-     * @description The new callback URL.
+     * @description The callback URL.
      *
-     * Separate multiple callback URLs with semicolons (;).
+     * If you enter multiple callback URLs, separate them with semicolons (;).
      * @example https://www.example.com
      *
      * @var string
@@ -69,7 +69,7 @@ class UpdateApplicationRequest extends Model
     public $newRedirectUris;
 
     /**
-     * @description The validity period of the refreshed token.
+     * @description The validity period of the refresh token.
      *
      * Valid values: 7200 to 31536000. Unit: seconds.
      * @example 7776000
@@ -79,6 +79,11 @@ class UpdateApplicationRequest extends Model
     public $newRefreshTokenValidity;
 
     /**
+     * @description The required permission.
+     *
+     * >  If the permission that you specify for the `RequiredScopes` parameter is not included in value of the `PredefinedScopes` parameter, the permission does not take effect.
+     * @example profile;aliuid
+     *
      * @var string
      */
     public $newRequiredScopes;

@@ -38,7 +38,7 @@ class application extends Model
     public $appId;
 
     /**
-     * @description The name of the application.
+     * @description The application name.
      *
      * @example myapp
      *
@@ -47,7 +47,7 @@ class application extends Model
     public $appName;
 
     /**
-     * @description The type of the application.
+     * @description The application type.
      *
      * @example WebApp
      *
@@ -65,7 +65,7 @@ class application extends Model
     public $createDate;
 
     /**
-     * @description The information of application permissions.
+     * @description The information about the permissions that are granted on the application.
      *
      * @var delegatedScope
      */
@@ -90,14 +90,14 @@ class application extends Model
     public $isMultiTenant;
 
     /**
-     * @description The callback URL.
+     * @description The callback URLs.
      *
      * @var redirectUris
      */
     public $redirectUris;
 
     /**
-     * @description The validity period of the refreshed token. Unit: seconds.
+     * @description The validity period of the refresh token. Unit: seconds.
      *
      * @example 7776000
      *

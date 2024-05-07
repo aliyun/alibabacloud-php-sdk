@@ -38,7 +38,7 @@ class application extends Model
     public $appId;
 
     /**
-     * @description The name of the application.
+     * @description The application name.
      *
      * @example myapp
      *
@@ -47,7 +47,7 @@ class application extends Model
     public $appName;
 
     /**
-     * @description The type of the application. Valid values:
+     * @description The application type. Valid values:
      *
      *   WebApp: a web application.
      *   NativeApp: a native application that runs on an operating system, such as a desktop or mobile operating system.
@@ -94,7 +94,7 @@ class application extends Model
     public $isMultiTenant;
 
     /**
-     * @description The callback URL.
+     * @description The callback URLs.
      *
      * @var redirectUris
      */

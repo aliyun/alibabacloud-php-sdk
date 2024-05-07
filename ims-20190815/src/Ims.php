@@ -82,6 +82,8 @@ use AlibabaCloud\SDK\Ims\V20190815\Models\GetUserMFAInfoResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetUserRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetUserResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetUserSsoSettingsResponse;
+use AlibabaCloud\SDK\Ims\V20190815\Models\GetVerificationInfoRequest;
+use AlibabaCloud\SDK\Ims\V20190815\Models\GetVerificationInfoResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ListAccessKeysRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ListAccessKeysResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ListApplicationsResponse;
@@ -182,13 +184,10 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * ###
-     *   * This topic provides an example on how to add the client ID `598469743454717****` to the OIDC IdP named `TestOIDCProvider`.
-     *   *
-     * @param AddClientIdToOIDCProviderRequest $request AddClientIdToOIDCProviderRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * @param AddClientIdToOIDCProviderRequest $request
+     * @param RuntimeOptions                   $runtime
      *
-     * @return AddClientIdToOIDCProviderResponse AddClientIdToOIDCProviderResponse
+     * @return AddClientIdToOIDCProviderResponse
      */
     public function addClientIdToOIDCProviderWithOptions($request, $runtime)
     {
@@ -219,12 +218,9 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * ###
-     *   * This topic provides an example on how to add the client ID `598469743454717****` to the OIDC IdP named `TestOIDCProvider`.
-     *   *
-     * @param AddClientIdToOIDCProviderRequest $request AddClientIdToOIDCProviderRequest
+     * @param AddClientIdToOIDCProviderRequest $request
      *
-     * @return AddClientIdToOIDCProviderResponse AddClientIdToOIDCProviderResponse
+     * @return AddClientIdToOIDCProviderResponse
      */
     public function addClientIdToOIDCProvider($request)
     {
@@ -2093,6 +2089,49 @@ class Ims extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getUserSsoSettingsWithOptions($runtime);
+    }
+
+    /**
+     * @param GetVerificationInfoRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetVerificationInfoResponse
+     */
+    public function getVerificationInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->userPrincipalName)) {
+            $query['UserPrincipalName'] = $request->userPrincipalName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetVerificationInfo',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetVerificationInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetVerificationInfoRequest $request
+     *
+     * @return GetVerificationInfoResponse
+     */
+    public function getVerificationInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getVerificationInfoWithOptions($request, $runtime);
     }
 
     /**

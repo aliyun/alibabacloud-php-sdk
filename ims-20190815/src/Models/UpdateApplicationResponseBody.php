@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class UpdateApplicationResponseBody extends Model
 {
     /**
-     * @description The information of the application.
+     * @description The information about the application.
      *
      * @var application
      */
     public $application;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 6616F09B-2768-4C11-8866-A8EE4C4A583E
      *

@@ -27,6 +27,14 @@ class predefinedScope extends Model
     public $name;
 
     /**
+     * @description Indicates whether the permission is automatically selected by default when you install the application. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * `openid` is required by default.
+     * @example true
+     *
      * @var bool
      */
     public $required;
