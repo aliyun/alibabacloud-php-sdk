@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstancesResponseBo
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstancesResponseBody\instances\instanceAttribute\instanceSpecAttributes;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstancesResponseBody\instances\instanceAttribute\networkInterfaceAttributes;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstancesResponseBody\instances\instanceAttribute\privateDnsList;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstancesResponseBody\instances\instanceAttribute\tags;
 use AlibabaCloud\Tea\Model;
 
 class instanceAttribute extends Model
@@ -242,6 +243,11 @@ class instanceAttribute extends Model
     public $supportIpv6;
 
     /**
+     * @var tags
+     */
+    public $tags;
+
+    /**
      * @example vpc-t***hx****yu9****t0g4
      *
      * @var string
@@ -327,6 +333,7 @@ class instanceAttribute extends Model
         'regionId'                   => 'RegionId',
         'status'                     => 'Status',
         'supportIpv6'                => 'SupportIpv6',
+        'tags'                       => 'Tags',
         'userVpcId'                  => 'UserVpcId',
         'userVswitchId'              => 'UserVswitchId',
         'vpcEgressAddress'           => 'VpcEgressAddress',
@@ -445,6 +452,9 @@ class instanceAttribute extends Model
         }
         if (null !== $this->supportIpv6) {
             $res['SupportIpv6'] = $this->supportIpv6;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
         if (null !== $this->userVpcId) {
             $res['UserVpcId'] = $this->userVpcId;
@@ -583,6 +593,9 @@ class instanceAttribute extends Model
         }
         if (isset($map['SupportIpv6'])) {
             $model->supportIpv6 = $map['SupportIpv6'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
         }
         if (isset($map['UserVpcId'])) {
             $model->userVpcId = $map['UserVpcId'];

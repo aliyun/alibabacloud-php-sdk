@@ -146,6 +146,8 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApisBySignatureRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApisBySignatureResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApisByTrafficControlRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApisByTrafficControlResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApisByVpcAccessRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApisByVpcAccessResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiSignaturesRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiSignaturesResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApisRequest;
@@ -4814,6 +4816,58 @@ class CloudAPI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeApisByTrafficControlWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeApisByVpcAccessRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeApisByVpcAccessResponse
+     */
+    public function describeApisByVpcAccessWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->vpcName)) {
+            $query['VpcName'] = $request->vpcName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApisByVpcAccess',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeApisByVpcAccessResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeApisByVpcAccessRequest $request
+     *
+     * @return DescribeApisByVpcAccessResponse
+     */
+    public function describeApisByVpcAccess($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApisByVpcAccessWithOptions($request, $runtime);
     }
 
     /**
