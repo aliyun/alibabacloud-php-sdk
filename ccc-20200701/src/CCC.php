@@ -25,6 +25,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\AddSkillGroupsToUserRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\AddSkillGroupsToUserResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\AddUsersToSkillGroupRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\AddUsersToSkillGroupResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\AnalyzeConversationRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\AnalyzeConversationResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\AnswerCallRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\AnswerCallResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\AppendCasesRequest;
@@ -884,6 +886,58 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addUsersToSkillGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AnalyzeConversationRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return AnalyzeConversationResponse
+     */
+    public function analyzeConversationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->contactId)) {
+            $query['ContactId'] = $request->contactId;
+        }
+        if (!Utils::isUnset($request->fieldListJson)) {
+            $query['FieldListJson'] = $request->fieldListJson;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->taskListJson)) {
+            $query['TaskListJson'] = $request->taskListJson;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AnalyzeConversation',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AnalyzeConversationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AnalyzeConversationRequest $request
+     *
+     * @return AnalyzeConversationResponse
+     */
+    public function analyzeConversation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->analyzeConversationWithOptions($request, $runtime);
     }
 
     /**
