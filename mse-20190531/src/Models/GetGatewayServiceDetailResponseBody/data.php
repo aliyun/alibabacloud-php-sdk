@@ -150,6 +150,11 @@ class data extends Model
     public $ports;
 
     /**
+     * @var string
+     */
+    public $serviceFQDN;
+
+    /**
      * @description The name of the service registered with the service registry.
      *
      * @example test
@@ -215,6 +220,7 @@ class data extends Model
         'namespace'             => 'Namespace',
         'portTrafficPolicyList' => 'PortTrafficPolicyList',
         'ports'                 => 'Ports',
+        'serviceFQDN'           => 'ServiceFQDN',
         'serviceNameInRegistry' => 'ServiceNameInRegistry',
         'serviceProtocol'       => 'ServiceProtocol',
         'sourceId'              => 'SourceId',
@@ -289,6 +295,9 @@ class data extends Model
         }
         if (null !== $this->ports) {
             $res['Ports'] = $this->ports;
+        }
+        if (null !== $this->serviceFQDN) {
+            $res['ServiceFQDN'] = $this->serviceFQDN;
         }
         if (null !== $this->serviceNameInRegistry) {
             $res['ServiceNameInRegistry'] = $this->serviceNameInRegistry;
@@ -395,6 +404,9 @@ class data extends Model
             if (!empty($map['Ports'])) {
                 $model->ports = $map['Ports'];
             }
+        }
+        if (isset($map['ServiceFQDN'])) {
+            $model->serviceFQDN = $map['ServiceFQDN'];
         }
         if (isset($map['ServiceNameInRegistry'])) {
             $model->serviceNameInRegistry = $map['ServiceNameInRegistry'];

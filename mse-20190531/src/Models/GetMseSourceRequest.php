@@ -40,10 +40,16 @@ class GetMseSourceRequest extends Model
      * @var string
      */
     public $type;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
     protected $_name = [
         'acceptLanguage'  => 'AcceptLanguage',
         'gatewayUniqueId' => 'GatewayUniqueId',
         'type'            => 'Type',
+        'vpcId'           => 'VpcId',
     ];
 
     public function validate()
@@ -61,6 +67,9 @@ class GetMseSourceRequest extends Model
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -82,6 +91,9 @@ class GetMseSourceRequest extends Model
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

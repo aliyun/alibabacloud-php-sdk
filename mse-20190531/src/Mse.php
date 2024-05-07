@@ -5845,6 +5845,9 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->type)) {
             $query['Type'] = $request->type;
         }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
