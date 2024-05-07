@@ -14,30 +14,36 @@ class departments extends Model
     public $description;
 
     /**
+     * @example 2020-07-14T14:01:41.000+08:00
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
-     * @var string
-     */
-    public $name;
-
-    /**
+     * @example 2020-07-14T14:01:41.000+08:00
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @example 59b0bbfe-929b-4a8c-9833-3ce70b4bad38
+     *
      * @var string
      */
     public $id;
+
+    /**
+     * @var string
+     */
+    public $name;
     protected $_name = [
         'description' => 'Description',
         'gmtCreate'   => 'GmtCreate',
-        'name'        => 'Name',
         'gmtModified' => 'GmtModified',
         'id'          => 'Id',
+        'name'        => 'Name',
     ];
 
     public function validate()
@@ -53,14 +59,14 @@ class departments extends Model
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
 
         return $res;
@@ -80,14 +86,14 @@ class departments extends Model
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
 
         return $model;

@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class ListDetectionsRequest extends Model
 {
     /**
+     * @example 2020-10-10
+     *
      * @var string
      */
     public $createDateFrom;
 
     /**
+     * @example 2020-10-11
+     *
      * @var string
      */
     public $createDateTo;
 
     /**
+     * @example 59b0bbfe-929b-4a8c-9833-3ce70b4bad38
+     *
      * @var string
      */
     public $departmentId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageIndex;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example local
+     *
      * @var string
      */
     public $recordingType;
 
     /**
+     * @example 59b0bbfe-929b-4a8c-9833-3ce70b4bad38
+     *
      * @var string
      */
     public $ruleId;

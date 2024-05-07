@@ -9,21 +9,45 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example {}
+     *
      * @var string
      */
-    public $draft;
+    public $content;
 
     /**
+     * @example 2020-12-04T14:47:59.000+08:00
+     *
      * @var string
      */
     public $createdAt;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $disabled;
 
     /**
+     * @example {}
+     *
+     * @var string
+     */
+    public $draft;
+
+    /**
+     * @description ID
+     *
+     * @example 0f1c45cd-3eee-4e60-b505-2e330b8755d3
+     *
+     * @var string
+     */
+    public $id;
+
+    /**
+     * @example 987d563d38f5aef27feca8702c689bb1
+     *
      * @var string
      */
     public $md5;
@@ -32,24 +56,14 @@ class data extends Model
      * @var string
      */
     public $name;
-
-    /**
-     * @var string
-     */
-    public $content;
-
-    /**
-     * @var string
-     */
-    public $id;
     protected $_name = [
-        'draft'     => 'Draft',
+        'content'   => 'Content',
         'createdAt' => 'CreatedAt',
         'disabled'  => 'Disabled',
+        'draft'     => 'Draft',
+        'id'        => 'Id',
         'md5'       => 'Md5',
         'name'      => 'Name',
-        'content'   => 'Content',
-        'id'        => 'Id',
     ];
 
     public function validate()
@@ -59,8 +73,8 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->draft) {
-            $res['Draft'] = $this->draft;
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
         }
         if (null !== $this->createdAt) {
             $res['CreatedAt'] = $this->createdAt;
@@ -68,17 +82,17 @@ class data extends Model
         if (null !== $this->disabled) {
             $res['Disabled'] = $this->disabled;
         }
+        if (null !== $this->draft) {
+            $res['Draft'] = $this->draft;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
         if (null !== $this->md5) {
             $res['Md5'] = $this->md5;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
-        }
-        if (null !== $this->content) {
-            $res['Content'] = $this->content;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
         }
 
         return $res;
@@ -92,8 +106,8 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Draft'])) {
-            $model->draft = $map['Draft'];
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
         }
         if (isset($map['CreatedAt'])) {
             $model->createdAt = $map['CreatedAt'];
@@ -101,17 +115,17 @@ class data extends Model
         if (isset($map['Disabled'])) {
             $model->disabled = $map['Disabled'];
         }
+        if (isset($map['Draft'])) {
+            $model->draft = $map['Draft'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
         if (isset($map['Md5'])) {
             $model->md5 = $map['Md5'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
-        }
-        if (isset($map['Content'])) {
-            $model->content = $map['Content'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
         }
 
         return $model;

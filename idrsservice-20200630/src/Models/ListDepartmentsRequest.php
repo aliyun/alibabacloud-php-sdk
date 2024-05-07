@@ -14,16 +14,22 @@ class ListDepartmentsRequest extends Model
     public $name;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageIndex;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 59b0bbfe-929b-4a8c-9833-3ce70b4bad38
+     *
      * @var string
      */
     public $userId;

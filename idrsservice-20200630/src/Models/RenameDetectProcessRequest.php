@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class RenameDetectProcessRequest extends Model
 {
     /**
+     * @description ID
+     *
+     * @example 1q1c45cd-3eee-1e60-b505-2e330b8755d2
+     *
      * @var string
      */
     public $id;

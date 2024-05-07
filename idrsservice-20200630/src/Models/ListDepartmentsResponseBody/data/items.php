@@ -10,16 +10,13 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
-     * @var string
-     */
-    public $description;
-
-    /**
      * @var administrators[]
      */
     public $administrators;
 
     /**
+     * @example 2020-07-14T14:01:41.000+08:00
+     *
      * @var string
      */
     public $createdAt;
@@ -27,7 +24,16 @@ class items extends Model
     /**
      * @var string
      */
-    public $updatedAt;
+    public $description;
+
+    /**
+     * @description ID
+     *
+     * @example 59b0bbfe-929b-4a8c-9833-3ce70b4bad38
+     *
+     * @var string
+     */
+    public $id;
 
     /**
      * @var string
@@ -35,16 +41,18 @@ class items extends Model
     public $name;
 
     /**
+     * @example 2020-07-14T14:01:41.000+08:00
+     *
      * @var string
      */
-    public $id;
+    public $updatedAt;
     protected $_name = [
-        'description'    => 'Description',
         'administrators' => 'Administrators',
         'createdAt'      => 'CreatedAt',
-        'updatedAt'      => 'UpdatedAt',
-        'name'           => 'Name',
+        'description'    => 'Description',
         'id'             => 'Id',
+        'name'           => 'Name',
+        'updatedAt'      => 'UpdatedAt',
     ];
 
     public function validate()
@@ -54,9 +62,6 @@ class items extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
         if (null !== $this->administrators) {
             $res['Administrators'] = [];
             if (null !== $this->administrators && \is_array($this->administrators)) {
@@ -69,14 +74,17 @@ class items extends Model
         if (null !== $this->createdAt) {
             $res['CreatedAt'] = $this->createdAt;
         }
-        if (null !== $this->updatedAt) {
-            $res['UpdatedAt'] = $this->updatedAt;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->updatedAt) {
+            $res['UpdatedAt'] = $this->updatedAt;
         }
 
         return $res;
@@ -90,9 +98,6 @@ class items extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
         if (isset($map['Administrators'])) {
             if (!empty($map['Administrators'])) {
                 $model->administrators = [];
@@ -105,14 +110,17 @@ class items extends Model
         if (isset($map['CreatedAt'])) {
             $model->createdAt = $map['CreatedAt'];
         }
-        if (isset($map['UpdatedAt'])) {
-            $model->updatedAt = $map['UpdatedAt'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['UpdatedAt'])) {
+            $model->updatedAt = $map['UpdatedAt'];
         }
 
         return $model;

@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class GetDetectProcessJsonFileRequest extends Model
 {
     /**
+     * @example {"version":"1.0.0"}
+     *
+     * @var string
+     */
+    public $clientBaseParam;
+
+    /**
+     * @description ID
+     *
+     * @example hpsk3wdo-2020122319
+     *
      * @var string
      */
     public $id;
     protected $_name = [
-        'id' => 'Id',
+        'clientBaseParam' => 'ClientBaseParam',
+        'id'              => 'Id',
     ];
 
     public function validate()
@@ -23,6 +35,9 @@ class GetDetectProcessJsonFileRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientBaseParam) {
+            $res['ClientBaseParam'] = $this->clientBaseParam;
+        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -38,6 +53,9 @@ class GetDetectProcessJsonFileRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientBaseParam'])) {
+            $model->clientBaseParam = $map['ClientBaseParam'];
+        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }

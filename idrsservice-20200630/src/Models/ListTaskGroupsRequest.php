@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListTaskGroupsRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageIndex;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example runnable
+     *
      * @var string
      */
     public $status;

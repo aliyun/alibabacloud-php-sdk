@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class GetTaskGroupRequest extends Model
 {
     /**
+     * @example {"version":"1.0.0"}
+     *
+     * @var string
+     */
+    public $clientBaseParam;
+
+    /**
+     * @example 59b0bbfe-929b-4a8c-9833-3ce70b4bad38
+     *
      * @var string
      */
     public $id;
     protected $_name = [
-        'id' => 'Id',
+        'clientBaseParam' => 'ClientBaseParam',
+        'id'              => 'Id',
     ];
 
     public function validate()
@@ -23,6 +33,9 @@ class GetTaskGroupRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientBaseParam) {
+            $res['ClientBaseParam'] = $this->clientBaseParam;
+        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -38,6 +51,9 @@ class GetTaskGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientBaseParam'])) {
+            $model->clientBaseParam = $map['ClientBaseParam'];
+        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }

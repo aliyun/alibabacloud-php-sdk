@@ -10,31 +10,15 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $departmentName;
-
-    /**
-     * @var tasks[]
-     */
-    public $tasks;
-
-    /**
-     * @var string
-     */
-    public $recordingType;
-
-    /**
+     * @example 2020-07-14T14:01:41.000+08:00
+     *
      * @var string
      */
     public $createdAt;
 
     /**
+     * @example 59b0bbfe-929b-4a8c-9833-3ce70b4bad38
+     *
      * @var string
      */
     public $departmentId;
@@ -42,27 +26,59 @@ class items extends Model
     /**
      * @var string
      */
+    public $departmentName;
+
+    /**
+     * @description ID
+     *
+     * @example 59b0bbfe-929b-4a8c-9833-3ce70b4bad38
+     *
+     * @var string
+     */
     public $id;
 
     /**
+     * @example local
+     *
+     * @var string
+     */
+    public $recordingType;
+
+    /**
+     * @example 59b0bbfe-929b-4a8c-9833-3ce70b4bad38
+     *
+     * @var string
+     */
+    public $ruleId;
+
+    /**
+     * @example default
+     *
      * @var string
      */
     public $ruleName;
 
     /**
+     * @example runnable
+     *
      * @var string
      */
-    public $ruleId;
+    public $status;
+
+    /**
+     * @var tasks[]
+     */
+    public $tasks;
     protected $_name = [
-        'status'         => 'Status',
-        'departmentName' => 'DepartmentName',
-        'tasks'          => 'Tasks',
-        'recordingType'  => 'RecordingType',
         'createdAt'      => 'CreatedAt',
         'departmentId'   => 'DepartmentId',
+        'departmentName' => 'DepartmentName',
         'id'             => 'Id',
-        'ruleName'       => 'RuleName',
+        'recordingType'  => 'RecordingType',
         'ruleId'         => 'RuleId',
+        'ruleName'       => 'RuleName',
+        'status'         => 'Status',
+        'tasks'          => 'Tasks',
     ];
 
     public function validate()
@@ -72,11 +88,29 @@ class items extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->createdAt) {
+            $res['CreatedAt'] = $this->createdAt;
+        }
+        if (null !== $this->departmentId) {
+            $res['DepartmentId'] = $this->departmentId;
         }
         if (null !== $this->departmentName) {
             $res['DepartmentName'] = $this->departmentName;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+        if (null !== $this->recordingType) {
+            $res['RecordingType'] = $this->recordingType;
+        }
+        if (null !== $this->ruleId) {
+            $res['RuleId'] = $this->ruleId;
+        }
+        if (null !== $this->ruleName) {
+            $res['RuleName'] = $this->ruleName;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->tasks) {
             $res['Tasks'] = [];
@@ -86,24 +120,6 @@ class items extends Model
                     $res['Tasks'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->recordingType) {
-            $res['RecordingType'] = $this->recordingType;
-        }
-        if (null !== $this->createdAt) {
-            $res['CreatedAt'] = $this->createdAt;
-        }
-        if (null !== $this->departmentId) {
-            $res['DepartmentId'] = $this->departmentId;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
-        if (null !== $this->ruleName) {
-            $res['RuleName'] = $this->ruleName;
-        }
-        if (null !== $this->ruleId) {
-            $res['RuleId'] = $this->ruleId;
         }
 
         return $res;
@@ -117,11 +133,29 @@ class items extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['CreatedAt'])) {
+            $model->createdAt = $map['CreatedAt'];
+        }
+        if (isset($map['DepartmentId'])) {
+            $model->departmentId = $map['DepartmentId'];
         }
         if (isset($map['DepartmentName'])) {
             $model->departmentName = $map['DepartmentName'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+        if (isset($map['RecordingType'])) {
+            $model->recordingType = $map['RecordingType'];
+        }
+        if (isset($map['RuleId'])) {
+            $model->ruleId = $map['RuleId'];
+        }
+        if (isset($map['RuleName'])) {
+            $model->ruleName = $map['RuleName'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['Tasks'])) {
             if (!empty($map['Tasks'])) {
@@ -131,24 +165,6 @@ class items extends Model
                     $model->tasks[$n++] = null !== $item ? tasks::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['RecordingType'])) {
-            $model->recordingType = $map['RecordingType'];
-        }
-        if (isset($map['CreatedAt'])) {
-            $model->createdAt = $map['CreatedAt'];
-        }
-        if (isset($map['DepartmentId'])) {
-            $model->departmentId = $map['DepartmentId'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
-        if (isset($map['RuleName'])) {
-            $model->ruleName = $map['RuleName'];
-        }
-        if (isset($map['RuleId'])) {
-            $model->ruleId = $map['RuleId'];
         }
 
         return $model;

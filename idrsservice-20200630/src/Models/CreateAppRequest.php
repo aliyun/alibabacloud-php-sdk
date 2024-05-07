@@ -9,16 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateAppRequest extends Model
 {
     /**
+     * @example 4367c30a-c686-4bb2-a45d-5affb87****
+     *
      * @var string
      */
-    public $name;
+    public $clientToken;
 
     /**
-     * @var string
-     */
-    public $packageName;
-
-    /**
+     * @example 4367c30a-c686-4bb2-a45d-5affb87f7aca
+     *
      * @var string
      */
     public $departmentId;
@@ -26,12 +25,19 @@ class CreateAppRequest extends Model
     /**
      * @var string
      */
-    public $clientToken;
+    public $name;
+
+    /**
+     * @example com.test.app
+     *
+     * @var string
+     */
+    public $packageName;
     protected $_name = [
+        'clientToken'  => 'ClientToken',
+        'departmentId' => 'DepartmentId',
         'name'         => 'Name',
         'packageName'  => 'PackageName',
-        'departmentId' => 'DepartmentId',
-        'clientToken'  => 'ClientToken',
     ];
 
     public function validate()
@@ -41,17 +47,17 @@ class CreateAppRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->departmentId) {
+            $res['DepartmentId'] = $this->departmentId;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
         if (null !== $this->packageName) {
             $res['PackageName'] = $this->packageName;
-        }
-        if (null !== $this->departmentId) {
-            $res['DepartmentId'] = $this->departmentId;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
         }
 
         return $res;
@@ -65,17 +71,17 @@ class CreateAppRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['DepartmentId'])) {
+            $model->departmentId = $map['DepartmentId'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
         if (isset($map['PackageName'])) {
             $model->packageName = $map['PackageName'];
-        }
-        if (isset($map['DepartmentId'])) {
-            $model->departmentId = $map['DepartmentId'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
         }
 
         return $model;

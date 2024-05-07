@@ -9,17 +9,23 @@ use AlibabaCloud\Tea\Model;
 class CreateUserDepartmentsRequest extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $userId;
+    public $clientToken;
 
     /**
      * @var string[]
      */
     public $departmentId;
+
+    /**
+     * @var string[]
+     */
+    public $userId;
     protected $_name = [
-        'userId'       => 'UserId',
+        'clientToken'  => 'ClientToken',
         'departmentId' => 'DepartmentId',
+        'userId'       => 'UserId',
     ];
 
     public function validate()
@@ -29,11 +35,14 @@ class CreateUserDepartmentsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->departmentId) {
             $res['DepartmentId'] = $this->departmentId;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -47,14 +56,17 @@ class CreateUserDepartmentsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserId'])) {
-            if (!empty($map['UserId'])) {
-                $model->userId = $map['UserId'];
-            }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['DepartmentId'])) {
             if (!empty($map['DepartmentId'])) {
                 $model->departmentId = $map['DepartmentId'];
+            }
+        }
+        if (isset($map['UserId'])) {
+            if (!empty($map['UserId'])) {
+                $model->userId = $map['UserId'];
             }
         }
 

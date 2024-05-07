@@ -9,17 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ListFilesRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $prefix;
-
-    /**
+     * @example 500
+     *
      * @var int
      */
     public $limit;
+
+    /**
+     * @example 20220110/
+     *
+     * @var string
+     */
+    public $prefix;
     protected $_name = [
-        'prefix' => 'Prefix',
         'limit'  => 'Limit',
+        'prefix' => 'Prefix',
     ];
 
     public function validate()
@@ -29,11 +33,11 @@ class ListFilesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->prefix) {
-            $res['Prefix'] = $this->prefix;
-        }
         if (null !== $this->limit) {
             $res['Limit'] = $this->limit;
+        }
+        if (null !== $this->prefix) {
+            $res['Prefix'] = $this->prefix;
         }
 
         return $res;
@@ -47,11 +51,11 @@ class ListFilesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Prefix'])) {
-            $model->prefix = $map['Prefix'];
-        }
         if (isset($map['Limit'])) {
             $model->limit = $map['Limit'];
+        }
+        if (isset($map['Prefix'])) {
+            $model->prefix = $map['Prefix'];
         }
 
         return $model;

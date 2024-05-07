@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateDetectProcessRequest extends Model
 {
     /**
+     * @example {}
+     *
      * @var string
      */
-    public $name;
+    public $content;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $draft;
@@ -21,11 +25,19 @@ class CreateDetectProcessRequest extends Model
     /**
      * @var string
      */
-    public $content;
+    public $name;
+
+    /**
+     * @example LOCAL
+     *
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'name'    => 'Name',
-        'draft'   => 'Draft',
         'content' => 'Content',
+        'draft'   => 'Draft',
+        'name'    => 'Name',
+        'type'    => 'Type',
     ];
 
     public function validate()
@@ -35,14 +47,17 @@ class CreateDetectProcessRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
         }
         if (null !== $this->draft) {
             $res['Draft'] = $this->draft;
         }
-        if (null !== $this->content) {
-            $res['Content'] = $this->content;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -56,14 +71,17 @@ class CreateDetectProcessRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
         }
         if (isset($map['Draft'])) {
             $model->draft = $map['Draft'];
         }
-        if (isset($map['Content'])) {
-            $model->content = $map['Content'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

@@ -11,15 +11,15 @@ class DeleteUserDepartmentsRequest extends Model
     /**
      * @var string[]
      */
-    public $userId;
+    public $departmentId;
 
     /**
      * @var string[]
      */
-    public $departmentId;
+    public $userId;
     protected $_name = [
-        'userId'       => 'UserId',
         'departmentId' => 'DepartmentId',
+        'userId'       => 'UserId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DeleteUserDepartmentsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
         if (null !== $this->departmentId) {
             $res['DepartmentId'] = $this->departmentId;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -47,14 +47,14 @@ class DeleteUserDepartmentsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserId'])) {
-            if (!empty($map['UserId'])) {
-                $model->userId = $map['UserId'];
-            }
-        }
         if (isset($map['DepartmentId'])) {
             if (!empty($map['DepartmentId'])) {
                 $model->departmentId = $map['DepartmentId'];
+            }
+        }
+        if (isset($map['UserId'])) {
+            if (!empty($map['UserId'])) {
+                $model->userId = $map['UserId'];
             }
         }
 

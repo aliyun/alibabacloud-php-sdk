@@ -11,6 +11,11 @@ class CreateDepartmentRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -22,16 +27,11 @@ class CreateDepartmentRequest extends Model
      * @var string
      */
     public $name;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
     protected $_name = [
+        'clientToken' => 'ClientToken',
         'description' => 'Description',
         'label'       => 'Label',
         'name'        => 'Name',
-        'clientToken' => 'ClientToken',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class CreateDepartmentRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -49,9 +52,6 @@ class CreateDepartmentRequest extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class CreateDepartmentRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
@@ -73,9 +76,6 @@ class CreateDepartmentRequest extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
         }
 
         return $model;

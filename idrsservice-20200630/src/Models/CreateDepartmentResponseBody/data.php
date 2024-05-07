@@ -9,11 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var string
-     */
-    public $description;
-
-    /**
+     * @example 2020-07-14T14:01:41.000+08:00
+     *
      * @var string
      */
     public $createdAt;
@@ -21,17 +18,24 @@ class data extends Model
     /**
      * @var string
      */
-    public $name;
+    public $description;
+
+    /**
+     * @example 63bb629d-92bf-4cdc-ad0b-3032c926d23f
+     *
+     * @var string
+     */
+    public $id;
 
     /**
      * @var string
      */
-    public $id;
+    public $name;
     protected $_name = [
-        'description' => 'Description',
         'createdAt'   => 'CreatedAt',
-        'name'        => 'Name',
+        'description' => 'Description',
         'id'          => 'Id',
+        'name'        => 'Name',
     ];
 
     public function validate()
@@ -41,17 +45,17 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
         if (null !== $this->createdAt) {
             $res['CreatedAt'] = $this->createdAt;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
 
         return $res;
@@ -65,17 +69,17 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
         if (isset($map['CreatedAt'])) {
             $model->createdAt = $map['CreatedAt'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
 
         return $model;

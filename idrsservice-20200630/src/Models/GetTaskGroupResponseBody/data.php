@@ -9,36 +9,24 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var string
-     */
-    public $status;
-
-    /**
+     * @example 1
+     *
      * @var int
      */
     public $completedTasks;
 
     /**
-     * @var int
-     */
-    public $totalTasks;
-
-    /**
+     * @example 2020-07-14T14:01:41.000+08:00
+     *
      * @var string
      */
     public $createdAt;
 
     /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var string[]
-     */
-    public $taskIds;
-
-    /**
+     * @description ID
+     *
+     * @example 59b0bbfe-929b-4a8c-9833-3ce70b4bad38
+     *
      * @var string
      */
     public $id;
@@ -46,22 +34,52 @@ class data extends Model
     /**
      * @var string
      */
+    public $name;
+
+    /**
+     * @example 2020-07-14T14:01:41.000+08:00
+     *
+     * @var string
+     */
     public $ruleId;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $ruleName;
+
+    /**
+     * @example runnable
+     *
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @description -
+     *
+     * @var string[]
+     */
+    public $taskIds;
+
+    /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $totalTasks;
     protected $_name = [
-        'status'         => 'Status',
         'completedTasks' => 'CompletedTasks',
-        'totalTasks'     => 'TotalTasks',
         'createdAt'      => 'CreatedAt',
-        'name'           => 'Name',
-        'taskIds'        => 'TaskIds',
         'id'             => 'Id',
+        'name'           => 'Name',
         'ruleId'         => 'RuleId',
         'ruleName'       => 'RuleName',
+        'status'         => 'Status',
+        'taskIds'        => 'TaskIds',
+        'totalTasks'     => 'TotalTasks',
     ];
 
     public function validate()
@@ -71,32 +89,32 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->completedTasks) {
             $res['CompletedTasks'] = $this->completedTasks;
-        }
-        if (null !== $this->totalTasks) {
-            $res['TotalTasks'] = $this->totalTasks;
         }
         if (null !== $this->createdAt) {
             $res['CreatedAt'] = $this->createdAt;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->taskIds) {
-            $res['TaskIds'] = $this->taskIds;
-        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
         }
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->taskIds) {
+            $res['TaskIds'] = $this->taskIds;
+        }
+        if (null !== $this->totalTasks) {
+            $res['TotalTasks'] = $this->totalTasks;
         }
 
         return $res;
@@ -110,34 +128,34 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['CompletedTasks'])) {
             $model->completedTasks = $map['CompletedTasks'];
-        }
-        if (isset($map['TotalTasks'])) {
-            $model->totalTasks = $map['TotalTasks'];
         }
         if (isset($map['CreatedAt'])) {
             $model->createdAt = $map['CreatedAt'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['TaskIds'])) {
-            if (!empty($map['TaskIds'])) {
-                $model->taskIds = $map['TaskIds'];
-            }
-        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
         }
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['TaskIds'])) {
+            if (!empty($map['TaskIds'])) {
+                $model->taskIds = $map['TaskIds'];
+            }
+        }
+        if (isset($map['TotalTasks'])) {
+            $model->totalTasks = $map['TotalTasks'];
         }
 
         return $model;

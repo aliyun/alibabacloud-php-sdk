@@ -9,9 +9,18 @@ use AlibabaCloud\Tea\Model;
 class UpdateUserRequest extends Model
 {
     /**
+     * @example xxx@xxx.com
+     *
      * @var string
      */
     public $email;
+
+    /**
+     * @example 59b0bbfe-929b-4a8c-9833-3ce70b4bad38
+     *
+     * @var string
+     */
+    public $id;
 
     /**
      * @var string
@@ -24,20 +33,17 @@ class UpdateUserRequest extends Model
     public $phoneNumber;
 
     /**
+     * @example user
+     *
      * @var string
      */
     public $role;
-
-    /**
-     * @var string
-     */
-    public $id;
     protected $_name = [
         'email'       => 'Email',
+        'id'          => 'Id',
         'name'        => 'Name',
         'phoneNumber' => 'PhoneNumber',
         'role'        => 'Role',
-        'id'          => 'Id',
     ];
 
     public function validate()
@@ -50,6 +56,9 @@ class UpdateUserRequest extends Model
         if (null !== $this->email) {
             $res['Email'] = $this->email;
         }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -58,9 +67,6 @@ class UpdateUserRequest extends Model
         }
         if (null !== $this->role) {
             $res['Role'] = $this->role;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
         }
 
         return $res;
@@ -77,6 +83,9 @@ class UpdateUserRequest extends Model
         if (isset($map['Email'])) {
             $model->email = $map['Email'];
         }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
@@ -85,9 +94,6 @@ class UpdateUserRequest extends Model
         }
         if (isset($map['Role'])) {
             $model->role = $map['Role'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
         }
 
         return $model;

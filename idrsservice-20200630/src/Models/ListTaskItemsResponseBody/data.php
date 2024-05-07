@@ -9,11 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var string
-     */
-    public $status;
-
-    /**
+     * @example 2020-07-14T14:01:41.000+08:00
+     *
      * @var string
      */
     public $createdAt;
@@ -26,24 +23,35 @@ class data extends Model
     /**
      * @var string
      */
-    public $output;
-
-    /**
-     * @var string
-     */
     public $name;
 
     /**
+     * @example {}
+     *
+     * @var string
+     */
+    public $output;
+
+    /**
+     * @example 1
+     *
      * @var int
      */
     public $segmentSeq;
+
+    /**
+     * @example completed
+     *
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'status'     => 'Status',
         'createdAt'  => 'CreatedAt',
         'message'    => 'Message',
-        'output'     => 'Output',
         'name'       => 'Name',
+        'output'     => 'Output',
         'segmentSeq' => 'SegmentSeq',
+        'status'     => 'Status',
     ];
 
     public function validate()
@@ -53,23 +61,23 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->createdAt) {
             $res['CreatedAt'] = $this->createdAt;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-        if (null !== $this->output) {
-            $res['Output'] = $this->output;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+        if (null !== $this->output) {
+            $res['Output'] = $this->output;
+        }
         if (null !== $this->segmentSeq) {
             $res['SegmentSeq'] = $this->segmentSeq;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -83,23 +91,23 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['CreatedAt'])) {
             $model->createdAt = $map['CreatedAt'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-        if (isset($map['Output'])) {
-            $model->output = $map['Output'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+        if (isset($map['Output'])) {
+            $model->output = $map['Output'];
+        }
         if (isset($map['SegmentSeq'])) {
             $model->segmentSeq = $map['SegmentSeq'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

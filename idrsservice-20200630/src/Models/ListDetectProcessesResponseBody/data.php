@@ -15,18 +15,22 @@ class data extends Model
     public $items;
 
     /**
-     * @var int
-     */
-    public $totalPages;
-
-    /**
+     * @example 100
+     *
      * @var int
      */
     public $totalElements;
+
+    /**
+     * @example 10
+     *
+     * @var int
+     */
+    public $totalPages;
     protected $_name = [
         'items'         => 'Items',
-        'totalPages'    => 'TotalPages',
         'totalElements' => 'TotalElements',
+        'totalPages'    => 'TotalPages',
     ];
 
     public function validate()
@@ -45,11 +49,11 @@ class data extends Model
                 }
             }
         }
-        if (null !== $this->totalPages) {
-            $res['TotalPages'] = $this->totalPages;
-        }
         if (null !== $this->totalElements) {
             $res['TotalElements'] = $this->totalElements;
+        }
+        if (null !== $this->totalPages) {
+            $res['TotalPages'] = $this->totalPages;
         }
 
         return $res;
@@ -72,11 +76,11 @@ class data extends Model
                 }
             }
         }
-        if (isset($map['TotalPages'])) {
-            $model->totalPages = $map['TotalPages'];
-        }
         if (isset($map['TotalElements'])) {
             $model->totalElements = $map['TotalElements'];
+        }
+        if (isset($map['TotalPages'])) {
+            $model->totalPages = $map['TotalPages'];
         }
 
         return $model;

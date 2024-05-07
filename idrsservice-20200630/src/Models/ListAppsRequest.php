@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListAppsRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageIndex;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

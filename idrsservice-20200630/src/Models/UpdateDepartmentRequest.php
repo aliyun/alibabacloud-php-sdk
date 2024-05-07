@@ -14,6 +14,15 @@ class UpdateDepartmentRequest extends Model
     public $description;
 
     /**
+     * @description ID
+     *
+     * @example 59b0bbfe-929b-4a8c-9833-3ce70b4bad38
+     *
+     * @var string
+     */
+    public $id;
+
+    /**
      * @var string
      */
     public $label;
@@ -22,16 +31,11 @@ class UpdateDepartmentRequest extends Model
      * @var string
      */
     public $name;
-
-    /**
-     * @var string
-     */
-    public $id;
     protected $_name = [
         'description' => 'Description',
+        'id'          => 'Id',
         'label'       => 'Label',
         'name'        => 'Name',
-        'id'          => 'Id',
     ];
 
     public function validate()
@@ -44,14 +48,14 @@ class UpdateDepartmentRequest extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
         if (null !== $this->label) {
             $res['Label'] = $this->label;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
         }
 
         return $res;
@@ -68,14 +72,14 @@ class UpdateDepartmentRequest extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
         }
 
         return $model;

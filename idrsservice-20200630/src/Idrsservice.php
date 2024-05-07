@@ -5,28 +5,42 @@
 namespace AlibabaCloud\SDK\Idrsservice\V20200630;
 
 use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\SDK\Idrsservice\V20200630\Models\CheckServiceLinkedRoleRequest;
-use AlibabaCloud\SDK\Idrsservice\V20200630\Models\CheckServiceLinkedRoleResponse;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\AsrRealtimeRequest;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\AsrRealtimeResponse;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\AsrSentenceRequest;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\AsrSentenceResponse;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\AsrSentenceShrinkRequest;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\AsrTaskRequest;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\AsrTaskResponse;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\AsrTaskShrinkRequest;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\AssociateRoomRequest;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\AssociateRoomResponse;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\CreateAppRequest;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\CreateAppResponse;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\CreateDepartmentRequest;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\CreateDepartmentResponse;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\CreateDetectProcessRequest;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\CreateDetectProcessResponse;
-use AlibabaCloud\SDK\Idrsservice\V20200630\Models\CreateLiveDetectionRequest;
-use AlibabaCloud\SDK\Idrsservice\V20200630\Models\CreateLiveDetectionResponse;
-use AlibabaCloud\SDK\Idrsservice\V20200630\Models\CreateLiveRequest;
-use AlibabaCloud\SDK\Idrsservice\V20200630\Models\CreateLiveResponse;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\CreateRuleRequest;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\CreateRuleResponse;
-use AlibabaCloud\SDK\Idrsservice\V20200630\Models\CreateStatisticsRecordRequest;
-use AlibabaCloud\SDK\Idrsservice\V20200630\Models\CreateStatisticsRecordResponse;
-use AlibabaCloud\SDK\Idrsservice\V20200630\Models\CreateStatisticsTaskRequest;
-use AlibabaCloud\SDK\Idrsservice\V20200630\Models\CreateStatisticsTaskResponse;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\CreateSignatureRequest;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\CreateSignatureResponse;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\CreateTaskGroupRequest;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\CreateTaskGroupResponse;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\CreateTtsQuestionGroupRequest;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\CreateTtsQuestionGroupResponse;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\CreateTtsQuestionGroupShrinkRequest;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\CreateTtsQuestionRequest;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\CreateTtsQuestionResponse;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\CreateTtsQuestionShrinkRequest;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\CreateUserDepartmentsRequest;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\CreateUserDepartmentsResponse;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\CreateVideoMergeTaskRequest;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\CreateVideoMergeTaskResponse;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\CreateVideoMergeTaskShrinkRequest;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\CreateWatermarkRequest;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\CreateWatermarkResponse;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\DeleteAppRequest;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\DeleteAppResponse;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\DeleteDepartmentRequest;
@@ -39,49 +53,57 @@ use AlibabaCloud\SDK\Idrsservice\V20200630\Models\DeleteUserDepartmentsRequest;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\DeleteUserDepartmentsResponse;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\DeleteUserRequest;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\DeleteUserResponse;
-use AlibabaCloud\SDK\Idrsservice\V20200630\Models\ExitLiveRequest;
-use AlibabaCloud\SDK\Idrsservice\V20200630\Models\ExitLiveResponse;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\DeleteWatermarkRequest;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\DeleteWatermarkResponse;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\FaceCompareRequest;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\FaceCompareResponse;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\FaceCompareShrinkRequest;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\FaceLivenessRequest;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\FaceLivenessResponse;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\FaceLivenessShrinkRequest;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\FaceRecognizeRequest;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\FaceRecognizeResponse;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\FaceRecognizeShrinkRequest;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetAppRequest;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetAppResponse;
-use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetBatchSignedUrlRequest;
-use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetBatchSignedUrlResponse;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetAsrResultRequest;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetAsrResultResponse;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetDepartmentRequest;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetDepartmentResponse;
-use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetDetectEvaluationRequest;
-use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetDetectEvaluationResponse;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetDetectionRequest;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetDetectionResponse;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetDetectProcessJsonFileRequest;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetDetectProcessJsonFileResponse;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetDetectProcessRequest;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetDetectProcessResponse;
-use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetDetectProcessTemplateResponse;
-use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetGlobalConfigRequest;
-use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetGlobalConfigResponse;
-use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetModelSignedUrlRequest;
-use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetModelSignedUrlResponse;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetPreSignedUrlRequest;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetPreSignedUrlResponse;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetRecordResultRequest;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetRecordResultResponse;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetRecordsByFeeIdRequest;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetRecordsByFeeIdResponse;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetRecordsByOuterBusinessIdRequest;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetRecordsByOuterBusinessIdResponse;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetRuleRequest;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetRuleResponse;
-use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetServiceConfigurationRequest;
-use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetServiceConfigurationResponse;
-use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetSignedUrlRequest;
-use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetSignedUrlResponse;
-use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetSlrConfigurationRequest;
-use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetSlrConfigurationResponse;
-use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetStatisticsRequest;
-use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetStatisticsResponse;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetStatisticsRecordsByFeeIdRequest;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetStatisticsRecordsByFeeIdResponse;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetTaskGroupRequest;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetTaskGroupResponse;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetTaskRequest;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetTaskResponse;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetTtsQuestionByGroupIdRequest;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetTtsQuestionByGroupIdResponse;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetUserRequest;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetUserResponse;
-use AlibabaCloud\SDK\Idrsservice\V20200630\Models\InitializeServiceLinkedRoleRequest;
-use AlibabaCloud\SDK\Idrsservice\V20200630\Models\InitializeServiceLinkedRoleResponse;
-use AlibabaCloud\SDK\Idrsservice\V20200630\Models\JoinLiveRequest;
-use AlibabaCloud\SDK\Idrsservice\V20200630\Models\JoinLiveResponse;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetVideoMergeTaskRequest;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetVideoMergeTaskResponse;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetWatermarkRequest;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\GetWatermarkResponse;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\JoinRoomRequest;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\JoinRoomResponse;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\LeaveRoomRequest;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\LeaveRoomResponse;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\ListAppsRequest;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\ListAppsResponse;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\ListDepartmentsRequest;
@@ -92,13 +114,10 @@ use AlibabaCloud\SDK\Idrsservice\V20200630\Models\ListDetectProcessesRequest;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\ListDetectProcessesResponse;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\ListFilesRequest;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\ListFilesResponse;
-use AlibabaCloud\SDK\Idrsservice\V20200630\Models\ListLivesRequest;
-use AlibabaCloud\SDK\Idrsservice\V20200630\Models\ListLivesResponse;
-use AlibabaCloud\SDK\Idrsservice\V20200630\Models\ListRolesResponse;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\ListRecordResultsRequest;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\ListRecordResultsResponse;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\ListRulesRequest;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\ListRulesResponse;
-use AlibabaCloud\SDK\Idrsservice\V20200630\Models\ListStatisticsTaskRequest;
-use AlibabaCloud\SDK\Idrsservice\V20200630\Models\ListStatisticsTaskResponse;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\ListTaskGroupsRequest;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\ListTaskGroupsResponse;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\ListTaskItemsRequest;
@@ -107,27 +126,34 @@ use AlibabaCloud\SDK\Idrsservice\V20200630\Models\ListTasksRequest;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\ListTasksResponse;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\ListUsersRequest;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\ListUsersResponse;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\ListWatermarksRequest;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\ListWatermarksResponse;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\RenameDetectProcessRequest;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\RenameDetectProcessResponse;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\TtsCommonRequest;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\TtsCommonResponse;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\TtsCommonShrinkRequest;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\TtsTaskRequest;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\TtsTaskResponse;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\TtsTaskShrinkRequest;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\UpdateAppRequest;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\UpdateAppResponse;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\UpdateDepartmentRequest;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\UpdateDepartmentResponse;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\UpdateDetectProcessRequest;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\UpdateDetectProcessResponse;
-use AlibabaCloud\SDK\Idrsservice\V20200630\Models\UpdateLiveRequest;
-use AlibabaCloud\SDK\Idrsservice\V20200630\Models\UpdateLiveResponse;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\UpdateRuleRequest;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\UpdateRuleResponse;
-use AlibabaCloud\SDK\Idrsservice\V20200630\Models\UpdateServiceConfigurationRequest;
-use AlibabaCloud\SDK\Idrsservice\V20200630\Models\UpdateServiceConfigurationResponse;
-use AlibabaCloud\SDK\Idrsservice\V20200630\Models\UpdateSlrConfigurationRequest;
-use AlibabaCloud\SDK\Idrsservice\V20200630\Models\UpdateSlrConfigurationResponse;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\UpdateUserRequest;
 use AlibabaCloud\SDK\Idrsservice\V20200630\Models\UpdateUserResponse;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\UpdateWatermarkRequest;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\UpdateWatermarkResponse;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\UploadReportRequest;
+use AlibabaCloud\SDK\Idrsservice\V20200630\Models\UploadReportResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Idrsservice extends OpenApiClient
@@ -220,31 +246,239 @@ class Idrsservice extends OpenApiClient
     }
 
     /**
-     * @param CheckServiceLinkedRoleRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param AsrRealtimeRequest $request
+     * @param RuntimeOptions     $runtime
      *
-     * @return CheckServiceLinkedRoleResponse
+     * @return AsrRealtimeResponse
      */
-    public function checkServiceLinkedRoleWithOptions($request, $runtime)
+    public function asrRealtimeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->customizationId)) {
+            $query['CustomizationId'] = $request->customizationId;
+        }
+        if (!Utils::isUnset($request->disfluency)) {
+            $query['Disfluency'] = $request->disfluency;
+        }
+        if (!Utils::isUnset($request->enableIgnoreSentenceTimeout)) {
+            $query['EnableIgnoreSentenceTimeout'] = $request->enableIgnoreSentenceTimeout;
+        }
+        if (!Utils::isUnset($request->enableIntermediateResult)) {
+            $query['EnableIntermediateResult'] = $request->enableIntermediateResult;
+        }
+        if (!Utils::isUnset($request->enableInverseTextNormalization)) {
+            $query['EnableInverseTextNormalization'] = $request->enableInverseTextNormalization;
+        }
+        if (!Utils::isUnset($request->enablePunctuationPrediction)) {
+            $query['EnablePunctuationPrediction'] = $request->enablePunctuationPrediction;
+        }
+        if (!Utils::isUnset($request->enableSemanticSentenceDetection)) {
+            $query['EnableSemanticSentenceDetection'] = $request->enableSemanticSentenceDetection;
+        }
+        if (!Utils::isUnset($request->enableWords)) {
+            $query['EnableWords'] = $request->enableWords;
+        }
+        if (!Utils::isUnset($request->fileUrl)) {
+            $query['FileUrl'] = $request->fileUrl;
+        }
+        if (!Utils::isUnset($request->format)) {
+            $query['Format'] = $request->format;
+        }
+        if (!Utils::isUnset($request->maxSentenceSilence)) {
+            $query['MaxSentenceSilence'] = $request->maxSentenceSilence;
+        }
+        if (!Utils::isUnset($request->sampleRate)) {
+            $query['SampleRate'] = $request->sampleRate;
+        }
+        if (!Utils::isUnset($request->speechNoiseThreshold)) {
+            $query['SpeechNoiseThreshold'] = $request->speechNoiseThreshold;
+        }
+        if (!Utils::isUnset($request->vocabularyId)) {
+            $query['VocabularyId'] = $request->vocabularyId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AsrRealtime',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CheckServiceLinkedRoleResponse::fromMap($this->doRPCRequest('CheckServiceLinkedRole', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AsrRealtimeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CheckServiceLinkedRoleRequest $request
+     * @param AsrRealtimeRequest $request
      *
-     * @return CheckServiceLinkedRoleResponse
+     * @return AsrRealtimeResponse
      */
-    public function checkServiceLinkedRole($request)
+    public function asrRealtime($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->checkServiceLinkedRoleWithOptions($request, $runtime);
+        return $this->asrRealtimeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AsrSentenceRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return AsrSentenceResponse
+     */
+    public function asrSentenceWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new AsrSentenceShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->asrRequest)) {
+            $request->asrRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->asrRequest, 'AsrRequest', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->asrRequestShrink)) {
+            $body['AsrRequest'] = $request->asrRequestShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AsrSentence',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AsrSentenceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AsrSentenceRequest $request
+     *
+     * @return AsrSentenceResponse
+     */
+    public function asrSentence($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->asrSentenceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AsrTaskRequest $tmpReq
+     * @param RuntimeOptions $runtime
+     *
+     * @return AsrTaskResponse
+     */
+    public function asrTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new AsrTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->request)) {
+            $request->requestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->request, 'Request', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->requestShrink)) {
+            $body['Request'] = $request->requestShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AsrTask',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AsrTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AsrTaskRequest $request
+     *
+     * @return AsrTaskResponse
+     */
+    public function asrTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->asrTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AssociateRoomRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return AssociateRoomResponse
+     */
+    public function associateRoomWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->clientBaseParam)) {
+            $query['ClientBaseParam'] = $request->clientBaseParam;
+        }
+        if (!Utils::isUnset($request->clientVersion)) {
+            $query['ClientVersion'] = $request->clientVersion;
+        }
+        if (!Utils::isUnset($request->departmentId)) {
+            $query['DepartmentId'] = $request->departmentId;
+        }
+        if (!Utils::isUnset($request->roomId)) {
+            $query['RoomId'] = $request->roomId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AssociateRoom',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AssociateRoomResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AssociateRoomRequest $request
+     *
+     * @return AssociateRoomResponse
+     */
+    public function associateRoom($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->associateRoomWithOptions($request, $runtime);
     }
 
     /**
@@ -256,11 +490,35 @@ class Idrsservice extends OpenApiClient
     public function createAppWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->departmentId)) {
+            $query['DepartmentId'] = $request->departmentId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->packageName)) {
+            $query['PackageName'] = $request->packageName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateApp',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateAppResponse::fromMap($this->doRPCRequest('CreateApp', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateAppResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -284,11 +542,35 @@ class Idrsservice extends OpenApiClient
     public function createDepartmentWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->label)) {
+            $query['Label'] = $request->label;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDepartment',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateDepartmentResponse::fromMap($this->doRPCRequest('CreateDepartment', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateDepartmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -312,11 +594,35 @@ class Idrsservice extends OpenApiClient
     public function createDetectProcessWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->content)) {
+            $query['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->draft)) {
+            $query['Draft'] = $request->draft;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDetectProcess',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateDetectProcessResponse::fromMap($this->doRPCRequest('CreateDetectProcess', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateDetectProcessResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -332,62 +638,6 @@ class Idrsservice extends OpenApiClient
     }
 
     /**
-     * @param CreateLiveRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return CreateLiveResponse
-     */
-    public function createLiveWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateLiveResponse::fromMap($this->doRPCRequest('CreateLive', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateLiveRequest $request
-     *
-     * @return CreateLiveResponse
-     */
-    public function createLive($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createLiveWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateLiveDetectionRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return CreateLiveDetectionResponse
-     */
-    public function createLiveDetectionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateLiveDetectionResponse::fromMap($this->doRPCRequest('CreateLiveDetection', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateLiveDetectionRequest $request
-     *
-     * @return CreateLiveDetectionResponse
-     */
-    public function createLiveDetection($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createLiveDetectionWithOptions($request, $runtime);
-    }
-
-    /**
      * @param CreateRuleRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -396,11 +646,32 @@ class Idrsservice extends OpenApiClient
     public function createRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->content)) {
+            $query['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateRule',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateRuleResponse::fromMap($this->doRPCRequest('CreateRule', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -416,59 +687,58 @@ class Idrsservice extends OpenApiClient
     }
 
     /**
-     * @param CreateStatisticsRecordRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param CreateSignatureRequest $request
+     * @param RuntimeOptions         $runtime
      *
-     * @return CreateStatisticsRecordResponse
+     * @return CreateSignatureResponse
      */
-    public function createStatisticsRecordWithOptions($request, $runtime)
+    public function createSignatureWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->clientBaseParam)) {
+            $query['ClientBaseParam'] = $request->clientBaseParam;
+        }
+        if (!Utils::isUnset($request->clientVersion)) {
+            $query['ClientVersion'] = $request->clientVersion;
+        }
+        if (!Utils::isUnset($request->expireTime)) {
+            $query['ExpireTime'] = $request->expireTime;
+        }
+        if (!Utils::isUnset($request->uid)) {
+            $query['Uid'] = $request->uid;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSignature',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateStatisticsRecordResponse::fromMap($this->doRPCRequest('CreateStatisticsRecord', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateSignatureResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CreateStatisticsRecordRequest $request
+     * @param CreateSignatureRequest $request
      *
-     * @return CreateStatisticsRecordResponse
+     * @return CreateSignatureResponse
      */
-    public function createStatisticsRecord($request)
+    public function createSignature($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->createStatisticsRecordWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateStatisticsTaskRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return CreateStatisticsTaskResponse
-     */
-    public function createStatisticsTaskWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateStatisticsTaskResponse::fromMap($this->doRPCRequest('CreateStatisticsTask', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateStatisticsTaskRequest $request
-     *
-     * @return CreateStatisticsTaskResponse
-     */
-    public function createStatisticsTask($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createStatisticsTaskWithOptions($request, $runtime);
+        return $this->createSignatureWithOptions($request, $runtime);
     }
 
     /**
@@ -480,11 +750,53 @@ class Idrsservice extends OpenApiClient
     public function createTaskGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->day)) {
+            $query['Day'] = $request->day;
+        }
+        if (!Utils::isUnset($request->expireAt)) {
+            $query['ExpireAt'] = $request->expireAt;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->runnableTimeFrom)) {
+            $query['RunnableTimeFrom'] = $request->runnableTimeFrom;
+        }
+        if (!Utils::isUnset($request->runnableTimeTo)) {
+            $query['RunnableTimeTo'] = $request->runnableTimeTo;
+        }
+        if (!Utils::isUnset($request->triggerPeriod)) {
+            $query['TriggerPeriod'] = $request->triggerPeriod;
+        }
+        if (!Utils::isUnset($request->videoInfo)) {
+            $query['VideoInfo'] = $request->videoInfo;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateTaskGroup',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateTaskGroupResponse::fromMap($this->doRPCRequest('CreateTaskGroup', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateTaskGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -500,6 +812,102 @@ class Idrsservice extends OpenApiClient
     }
 
     /**
+     * @param CreateTtsQuestionRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateTtsQuestionResponse
+     */
+    public function createTtsQuestionWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateTtsQuestionShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->request)) {
+            $request->requestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->request, 'Request', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->requestShrink)) {
+            $body['Request'] = $request->requestShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateTtsQuestion',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateTtsQuestionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateTtsQuestionRequest $request
+     *
+     * @return CreateTtsQuestionResponse
+     */
+    public function createTtsQuestion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createTtsQuestionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateTtsQuestionGroupRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateTtsQuestionGroupResponse
+     */
+    public function createTtsQuestionGroupWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateTtsQuestionGroupShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->request)) {
+            $request->requestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->request, 'Request', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->requestShrink)) {
+            $body['Request'] = $request->requestShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateTtsQuestionGroup',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateTtsQuestionGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateTtsQuestionGroupRequest $request
+     *
+     * @return CreateTtsQuestionGroupResponse
+     */
+    public function createTtsQuestionGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createTtsQuestionGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateUserDepartmentsRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -508,11 +916,32 @@ class Idrsservice extends OpenApiClient
     public function createUserDepartmentsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->departmentId)) {
+            $query['DepartmentId'] = $request->departmentId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateUserDepartments',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateUserDepartmentsResponse::fromMap($this->doRPCRequest('CreateUserDepartments', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateUserDepartmentsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -528,6 +957,100 @@ class Idrsservice extends OpenApiClient
     }
 
     /**
+     * @param CreateVideoMergeTaskRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateVideoMergeTaskResponse
+     */
+    public function createVideoMergeTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateVideoMergeTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->videoMergeRequest)) {
+            $request->videoMergeRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->videoMergeRequest, 'VideoMergeRequest', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->videoMergeRequestShrink)) {
+            $body['VideoMergeRequest'] = $request->videoMergeRequestShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateVideoMergeTask',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateVideoMergeTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateVideoMergeTaskRequest $request
+     *
+     * @return CreateVideoMergeTaskResponse
+     */
+    public function createVideoMergeTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createVideoMergeTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateWatermarkRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateWatermarkResponse
+     */
+    public function createWatermarkWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->value)) {
+            $query['Value'] = $request->value;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateWatermark',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateWatermarkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateWatermarkRequest $request
+     *
+     * @return CreateWatermarkResponse
+     */
+    public function createWatermark($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createWatermarkWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteAppRequest $request
      * @param RuntimeOptions   $runtime
      *
@@ -536,11 +1059,26 @@ class Idrsservice extends OpenApiClient
     public function deleteAppWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteApp',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteAppResponse::fromMap($this->doRPCRequest('DeleteApp', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteAppResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -564,11 +1102,26 @@ class Idrsservice extends OpenApiClient
     public function deleteDepartmentWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDepartment',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteDepartmentResponse::fromMap($this->doRPCRequest('DeleteDepartment', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteDepartmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -592,11 +1145,26 @@ class Idrsservice extends OpenApiClient
     public function deleteDetectProcessWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDetectProcess',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteDetectProcessResponse::fromMap($this->doRPCRequest('DeleteDetectProcess', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteDetectProcessResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -620,11 +1188,26 @@ class Idrsservice extends OpenApiClient
     public function deleteRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteRule',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteRuleResponse::fromMap($this->doRPCRequest('DeleteRule', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -648,11 +1231,26 @@ class Idrsservice extends OpenApiClient
     public function deleteUserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteUser',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteUserResponse::fromMap($this->doRPCRequest('DeleteUser', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -676,11 +1274,31 @@ class Idrsservice extends OpenApiClient
     public function deleteUserDepartmentsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->departmentId)) {
+            $query['DepartmentId'] = $request->departmentId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteUserDepartments',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteUserDepartmentsResponse::fromMap($this->doRPCRequest('DeleteUserDepartments', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteUserDepartmentsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -696,31 +1314,190 @@ class Idrsservice extends OpenApiClient
     }
 
     /**
-     * @param ExitLiveRequest $request
-     * @param RuntimeOptions  $runtime
+     * @param DeleteWatermarkRequest $request
+     * @param RuntimeOptions         $runtime
      *
-     * @return ExitLiveResponse
+     * @return DeleteWatermarkResponse
      */
-    public function exitLiveWithOptions($request, $runtime)
+    public function deleteWatermarkWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->watermarkId)) {
+            $query['WatermarkId'] = $request->watermarkId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteWatermark',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ExitLiveResponse::fromMap($this->doRPCRequest('ExitLive', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteWatermarkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ExitLiveRequest $request
+     * @param DeleteWatermarkRequest $request
      *
-     * @return ExitLiveResponse
+     * @return DeleteWatermarkResponse
      */
-    public function exitLive($request)
+    public function deleteWatermark($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->exitLiveWithOptions($request, $runtime);
+        return $this->deleteWatermarkWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param FaceCompareRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return FaceCompareResponse
+     */
+    public function faceCompareWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new FaceCompareShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->faceRequest)) {
+            $request->faceRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->faceRequest, 'FaceRequest', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->faceRequestShrink)) {
+            $body['FaceRequest'] = $request->faceRequestShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'FaceCompare',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return FaceCompareResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param FaceCompareRequest $request
+     *
+     * @return FaceCompareResponse
+     */
+    public function faceCompare($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->faceCompareWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param FaceLivenessRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return FaceLivenessResponse
+     */
+    public function faceLivenessWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new FaceLivenessShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->faceRequest)) {
+            $request->faceRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->faceRequest, 'FaceRequest', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->faceRequestShrink)) {
+            $body['FaceRequest'] = $request->faceRequestShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'FaceLiveness',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return FaceLivenessResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param FaceLivenessRequest $request
+     *
+     * @return FaceLivenessResponse
+     */
+    public function faceLiveness($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->faceLivenessWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param FaceRecognizeRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return FaceRecognizeResponse
+     */
+    public function faceRecognizeWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new FaceRecognizeShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->faceRequest)) {
+            $request->faceRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->faceRequest, 'FaceRequest', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->faceRequestShrink)) {
+            $body['FaceRequest'] = $request->faceRequestShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'FaceRecognize',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return FaceRecognizeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param FaceRecognizeRequest $request
+     *
+     * @return FaceRecognizeResponse
+     */
+    public function faceRecognize($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->faceRecognizeWithOptions($request, $runtime);
     }
 
     /**
@@ -732,11 +1509,38 @@ class Idrsservice extends OpenApiClient
     public function getAppWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientBaseParam)) {
+            $query['ClientBaseParam'] = $request->clientBaseParam;
+        }
+        if (!Utils::isUnset($request->clientVersion)) {
+            $query['ClientVersion'] = $request->clientVersion;
+        }
+        if (!Utils::isUnset($request->deviceId)) {
+            $query['DeviceId'] = $request->deviceId;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->packageName)) {
+            $query['PackageName'] = $request->packageName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetApp',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetAppResponse::fromMap($this->doRPCRequest('GetApp', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetAppResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -752,31 +1556,46 @@ class Idrsservice extends OpenApiClient
     }
 
     /**
-     * @param GetBatchSignedUrlRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param GetAsrResultRequest $request
+     * @param RuntimeOptions      $runtime
      *
-     * @return GetBatchSignedUrlResponse
+     * @return GetAsrResultResponse
      */
-    public function getBatchSignedUrlWithOptions($request, $runtime)
+    public function getAsrResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->asrTaskId)) {
+            $query['AsrTaskId'] = $request->asrTaskId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAsrResult',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetBatchSignedUrlResponse::fromMap($this->doRPCRequest('GetBatchSignedUrl', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetAsrResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param GetBatchSignedUrlRequest $request
+     * @param GetAsrResultRequest $request
      *
-     * @return GetBatchSignedUrlResponse
+     * @return GetAsrResultResponse
      */
-    public function getBatchSignedUrl($request)
+    public function getAsrResult($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getBatchSignedUrlWithOptions($request, $runtime);
+        return $this->getAsrResultWithOptions($request, $runtime);
     }
 
     /**
@@ -788,11 +1607,29 @@ class Idrsservice extends OpenApiClient
     public function getDepartmentWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientBaseParam)) {
+            $query['ClientBaseParam'] = $request->clientBaseParam;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDepartment',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetDepartmentResponse::fromMap($this->doRPCRequest('GetDepartment', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetDepartmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -808,62 +1645,6 @@ class Idrsservice extends OpenApiClient
     }
 
     /**
-     * @param GetDetectEvaluationRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return GetDetectEvaluationResponse
-     */
-    public function getDetectEvaluationWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetDetectEvaluationResponse::fromMap($this->doRPCRequest('GetDetectEvaluation', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetDetectEvaluationRequest $request
-     *
-     * @return GetDetectEvaluationResponse
-     */
-    public function getDetectEvaluation($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getDetectEvaluationWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetDetectionRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return GetDetectionResponse
-     */
-    public function getDetectionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetDetectionResponse::fromMap($this->doRPCRequest('GetDetection', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetDetectionRequest $request
-     *
-     * @return GetDetectionResponse
-     */
-    public function getDetection($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getDetectionWithOptions($request, $runtime);
-    }
-
-    /**
      * @param GetDetectProcessRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -872,11 +1653,29 @@ class Idrsservice extends OpenApiClient
     public function getDetectProcessWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientBaseParam)) {
+            $query['ClientBaseParam'] = $request->clientBaseParam;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDetectProcess',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetDetectProcessResponse::fromMap($this->doRPCRequest('GetDetectProcess', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetDetectProcessResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -900,11 +1699,31 @@ class Idrsservice extends OpenApiClient
     public function getDetectProcessJsonFileWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientBaseParam)) {
+            $query['ClientBaseParam'] = $request->clientBaseParam;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDetectProcessJsonFile',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetDetectProcessJsonFileResponse::fromMap($this->doRPCRequest('GetDetectProcessJsonFile', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetDetectProcessJsonFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -920,81 +1739,49 @@ class Idrsservice extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param GetDetectionRequest $request
+     * @param RuntimeOptions      $runtime
      *
-     * @return GetDetectProcessTemplateResponse
+     * @return GetDetectionResponse
      */
-    public function getDetectProcessTemplateWithOptions($runtime)
-    {
-        $req = new OpenApiRequest([]);
-
-        return GetDetectProcessTemplateResponse::fromMap($this->doRPCRequest('GetDetectProcessTemplate', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @return GetDetectProcessTemplateResponse
-     */
-    public function getDetectProcessTemplate()
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getDetectProcessTemplateWithOptions($runtime);
-    }
-
-    /**
-     * @param GetGlobalConfigRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return GetGlobalConfigResponse
-     */
-    public function getGlobalConfigWithOptions($request, $runtime)
+    public function getDetectionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientBaseParam)) {
+            $query['ClientBaseParam'] = $request->clientBaseParam;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDetection',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetGlobalConfigResponse::fromMap($this->doRPCRequest('GetGlobalConfig', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetDetectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param GetGlobalConfigRequest $request
+     * @param GetDetectionRequest $request
      *
-     * @return GetGlobalConfigResponse
+     * @return GetDetectionResponse
      */
-    public function getGlobalConfig($request)
+    public function getDetection($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getGlobalConfigWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetModelSignedUrlRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return GetModelSignedUrlResponse
-     */
-    public function getModelSignedUrlWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetModelSignedUrlResponse::fromMap($this->doRPCRequest('GetModelSignedUrl', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetModelSignedUrlRequest $request
-     *
-     * @return GetModelSignedUrlResponse
-     */
-    public function getModelSignedUrl($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getModelSignedUrlWithOptions($request, $runtime);
+        return $this->getDetectionWithOptions($request, $runtime);
     }
 
     /**
@@ -1006,11 +1793,34 @@ class Idrsservice extends OpenApiClient
     public function getPreSignedUrlWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientBaseParam)) {
+            $query['ClientBaseParam'] = $request->clientBaseParam;
+        }
+        if (!Utils::isUnset($request->clientVersion)) {
+            $query['ClientVersion'] = $request->clientVersion;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->prefix)) {
+            $body['Prefix'] = $request->prefix;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPreSignedUrl',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetPreSignedUrlResponse::fromMap($this->doRPCRequest('GetPreSignedUrl', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetPreSignedUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1026,6 +1836,138 @@ class Idrsservice extends OpenApiClient
     }
 
     /**
+     * @param GetRecordResultRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetRecordResultResponse
+     */
+    public function getRecordResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientBaseParam)) {
+            $query['ClientBaseParam'] = $request->clientBaseParam;
+        }
+        if (!Utils::isUnset($request->recordId)) {
+            $query['RecordId'] = $request->recordId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetRecordResult',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetRecordResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetRecordResultRequest $request
+     *
+     * @return GetRecordResultResponse
+     */
+    public function getRecordResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRecordResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetRecordsByFeeIdRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetRecordsByFeeIdResponse
+     */
+    public function getRecordsByFeeIdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->feeId)) {
+            $body['FeeId'] = $request->feeId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetRecordsByFeeId',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetRecordsByFeeIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetRecordsByFeeIdRequest $request
+     *
+     * @return GetRecordsByFeeIdResponse
+     */
+    public function getRecordsByFeeId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRecordsByFeeIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetRecordsByOuterBusinessIdRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetRecordsByOuterBusinessIdResponse
+     */
+    public function getRecordsByOuterBusinessIdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->outerBusinessId)) {
+            $query['OuterBusinessId'] = $request->outerBusinessId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetRecordsByOuterBusinessId',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetRecordsByOuterBusinessIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetRecordsByOuterBusinessIdRequest $request
+     *
+     * @return GetRecordsByOuterBusinessIdResponse
+     */
+    public function getRecordsByOuterBusinessId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRecordsByOuterBusinessIdWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetRuleRequest $request
      * @param RuntimeOptions $runtime
      *
@@ -1034,11 +1976,29 @@ class Idrsservice extends OpenApiClient
     public function getRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientBaseParam)) {
+            $query['ClientBaseParam'] = $request->clientBaseParam;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetRule',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetRuleResponse::fromMap($this->doRPCRequest('GetRule', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1054,115 +2014,46 @@ class Idrsservice extends OpenApiClient
     }
 
     /**
-     * @param GetServiceConfigurationRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param GetStatisticsRecordsByFeeIdRequest $request
+     * @param RuntimeOptions                     $runtime
      *
-     * @return GetServiceConfigurationResponse
+     * @return GetStatisticsRecordsByFeeIdResponse
      */
-    public function getServiceConfigurationWithOptions($request, $runtime)
+    public function getStatisticsRecordsByFeeIdWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->feeId)) {
+            $body['FeeId'] = $request->feeId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetStatisticsRecordsByFeeId',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetServiceConfigurationResponse::fromMap($this->doRPCRequest('GetServiceConfiguration', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetStatisticsRecordsByFeeIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param GetServiceConfigurationRequest $request
+     * @param GetStatisticsRecordsByFeeIdRequest $request
      *
-     * @return GetServiceConfigurationResponse
+     * @return GetStatisticsRecordsByFeeIdResponse
      */
-    public function getServiceConfiguration($request)
+    public function getStatisticsRecordsByFeeId($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getServiceConfigurationWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetSignedUrlRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return GetSignedUrlResponse
-     */
-    public function getSignedUrlWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetSignedUrlResponse::fromMap($this->doRPCRequest('GetSignedUrl', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetSignedUrlRequest $request
-     *
-     * @return GetSignedUrlResponse
-     */
-    public function getSignedUrl($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getSignedUrlWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetSlrConfigurationRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return GetSlrConfigurationResponse
-     */
-    public function getSlrConfigurationWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetSlrConfigurationResponse::fromMap($this->doRPCRequest('GetSlrConfiguration', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetSlrConfigurationRequest $request
-     *
-     * @return GetSlrConfigurationResponse
-     */
-    public function getSlrConfiguration($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getSlrConfigurationWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetStatisticsRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return GetStatisticsResponse
-     */
-    public function getStatisticsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetStatisticsResponse::fromMap($this->doRPCRequest('GetStatistics', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetStatisticsRequest $request
-     *
-     * @return GetStatisticsResponse
-     */
-    public function getStatistics($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getStatisticsWithOptions($request, $runtime);
+        return $this->getStatisticsRecordsByFeeIdWithOptions($request, $runtime);
     }
 
     /**
@@ -1174,11 +2065,29 @@ class Idrsservice extends OpenApiClient
     public function getTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientBaseParam)) {
+            $query['ClientBaseParam'] = $request->clientBaseParam;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTask',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetTaskResponse::fromMap($this->doRPCRequest('GetTask', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1194,31 +2103,96 @@ class Idrsservice extends OpenApiClient
     }
 
     /**
-     * @param GetTaskGroupRequest $request
-     * @param RuntimeOptions      $runtime
+     * **1**.
+     *   *
+     * @param GetTaskGroupRequest $request GetTaskGroupRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTaskGroupResponse
+     * @return GetTaskGroupResponse GetTaskGroupResponse
      */
     public function getTaskGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientBaseParam)) {
+            $query['ClientBaseParam'] = $request->clientBaseParam;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTaskGroup',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetTaskGroupResponse::fromMap($this->doRPCRequest('GetTaskGroup', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetTaskGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param GetTaskGroupRequest $request
+     * **1**.
+     *   *
+     * @param GetTaskGroupRequest $request GetTaskGroupRequest
      *
-     * @return GetTaskGroupResponse
+     * @return GetTaskGroupResponse GetTaskGroupResponse
      */
     public function getTaskGroup($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->getTaskGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetTtsQuestionByGroupIdRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetTtsQuestionByGroupIdResponse
+     */
+    public function getTtsQuestionByGroupIdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $body['GroupId'] = $request->groupId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTtsQuestionByGroupId',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTtsQuestionByGroupIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetTtsQuestionByGroupIdRequest $request
+     *
+     * @return GetTtsQuestionByGroupIdResponse
+     */
+    public function getTtsQuestionByGroupId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTtsQuestionByGroupIdWithOptions($request, $runtime);
     }
 
     /**
@@ -1230,11 +2204,29 @@ class Idrsservice extends OpenApiClient
     public function getUserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientBaseParam)) {
+            $query['ClientBaseParam'] = $request->clientBaseParam;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetUser',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetUserResponse::fromMap($this->doRPCRequest('GetUser', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1250,59 +2242,190 @@ class Idrsservice extends OpenApiClient
     }
 
     /**
-     * @param InitializeServiceLinkedRoleRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param GetVideoMergeTaskRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return InitializeServiceLinkedRoleResponse
+     * @return GetVideoMergeTaskResponse
      */
-    public function initializeServiceLinkedRoleWithOptions($request, $runtime)
+    public function getVideoMergeTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetVideoMergeTask',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return InitializeServiceLinkedRoleResponse::fromMap($this->doRPCRequest('InitializeServiceLinkedRole', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetVideoMergeTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param InitializeServiceLinkedRoleRequest $request
+     * @param GetVideoMergeTaskRequest $request
      *
-     * @return InitializeServiceLinkedRoleResponse
+     * @return GetVideoMergeTaskResponse
      */
-    public function initializeServiceLinkedRole($request)
+    public function getVideoMergeTask($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->initializeServiceLinkedRoleWithOptions($request, $runtime);
+        return $this->getVideoMergeTaskWithOptions($request, $runtime);
     }
 
     /**
-     * @param JoinLiveRequest $request
+     * @param GetWatermarkRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetWatermarkResponse
+     */
+    public function getWatermarkWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientBaseParam)) {
+            $query['ClientBaseParam'] = $request->clientBaseParam;
+        }
+        if (!Utils::isUnset($request->clientVersion)) {
+            $query['ClientVersion'] = $request->clientVersion;
+        }
+        if (!Utils::isUnset($request->watermarkId)) {
+            $query['WatermarkId'] = $request->watermarkId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetWatermark',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetWatermarkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetWatermarkRequest $request
+     *
+     * @return GetWatermarkResponse
+     */
+    public function getWatermark($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getWatermarkWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param JoinRoomRequest $request
      * @param RuntimeOptions  $runtime
      *
-     * @return JoinLiveResponse
+     * @return JoinRoomResponse
      */
-    public function joinLiveWithOptions($request, $runtime)
+    public function joinRoomWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->roomId)) {
+            $query['RoomId'] = $request->roomId;
+        }
+        if (!Utils::isUnset($request->roomToken)) {
+            $query['RoomToken'] = $request->roomToken;
+        }
+        if (!Utils::isUnset($request->streamId)) {
+            $query['StreamId'] = $request->streamId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'JoinRoom',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return JoinLiveResponse::fromMap($this->doRPCRequest('JoinLive', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return JoinRoomResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param JoinLiveRequest $request
+     * @param JoinRoomRequest $request
      *
-     * @return JoinLiveResponse
+     * @return JoinRoomResponse
      */
-    public function joinLive($request)
+    public function joinRoom($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->joinLiveWithOptions($request, $runtime);
+        return $this->joinRoomWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param LeaveRoomRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return LeaveRoomResponse
+     */
+    public function leaveRoomWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->roomId)) {
+            $query['RoomId'] = $request->roomId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'LeaveRoom',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return LeaveRoomResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param LeaveRoomRequest $request
+     *
+     * @return LeaveRoomResponse
+     */
+    public function leaveRoom($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->leaveRoomWithOptions($request, $runtime);
     }
 
     /**
@@ -1314,11 +2437,29 @@ class Idrsservice extends OpenApiClient
     public function listAppsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageIndex)) {
+            $query['PageIndex'] = $request->pageIndex;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListApps',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListAppsResponse::fromMap($this->doRPCRequest('ListApps', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListAppsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1342,11 +2483,35 @@ class Idrsservice extends OpenApiClient
     public function listDepartmentsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageIndex)) {
+            $query['PageIndex'] = $request->pageIndex;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDepartments',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListDepartmentsResponse::fromMap($this->doRPCRequest('ListDepartments', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListDepartmentsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1362,34 +2527,6 @@ class Idrsservice extends OpenApiClient
     }
 
     /**
-     * @param ListDetectionsRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return ListDetectionsResponse
-     */
-    public function listDetectionsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListDetectionsResponse::fromMap($this->doRPCRequest('ListDetections', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListDetectionsRequest $request
-     *
-     * @return ListDetectionsResponse
-     */
-    public function listDetections($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listDetectionsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListDetectProcessesRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -1398,11 +2535,44 @@ class Idrsservice extends OpenApiClient
     public function listDetectProcessesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageIndex)) {
+            $query['PageIndex'] = $request->pageIndex;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->publishStatus)) {
+            $query['PublishStatus'] = $request->publishStatus;
+        }
+        if (!Utils::isUnset($request->sort)) {
+            $query['Sort'] = $request->sort;
+        }
+        if (!Utils::isUnset($request->sortKey)) {
+            $query['SortKey'] = $request->sortKey;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDetectProcesses',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListDetectProcessesResponse::fromMap($this->doRPCRequest('ListDetectProcesses', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListDetectProcessesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1418,6 +2588,67 @@ class Idrsservice extends OpenApiClient
     }
 
     /**
+     * @param ListDetectionsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListDetectionsResponse
+     */
+    public function listDetectionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->createDateFrom)) {
+            $query['CreateDateFrom'] = $request->createDateFrom;
+        }
+        if (!Utils::isUnset($request->createDateTo)) {
+            $query['CreateDateTo'] = $request->createDateTo;
+        }
+        if (!Utils::isUnset($request->departmentId)) {
+            $query['DepartmentId'] = $request->departmentId;
+        }
+        if (!Utils::isUnset($request->pageIndex)) {
+            $query['PageIndex'] = $request->pageIndex;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->recordingType)) {
+            $query['RecordingType'] = $request->recordingType;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDetections',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDetectionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDetectionsRequest $request
+     *
+     * @return ListDetectionsResponse
+     */
+    public function listDetections($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDetectionsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListFilesRequest $request
      * @param RuntimeOptions   $runtime
      *
@@ -1426,11 +2657,29 @@ class Idrsservice extends OpenApiClient
     public function listFilesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->prefix)) {
+            $query['Prefix'] = $request->prefix;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListFiles',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListFilesResponse::fromMap($this->doRPCRequest('ListFiles', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListFilesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1446,53 +2695,67 @@ class Idrsservice extends OpenApiClient
     }
 
     /**
-     * @param ListLivesRequest $request
-     * @param RuntimeOptions   $runtime
+     * @param ListRecordResultsRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return ListLivesResponse
+     * @return ListRecordResultsResponse
      */
-    public function listLivesWithOptions($request, $runtime)
+    public function listRecordResultsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->createDateFrom)) {
+            $query['CreateDateFrom'] = $request->createDateFrom;
+        }
+        if (!Utils::isUnset($request->createDateTo)) {
+            $query['CreateDateTo'] = $request->createDateTo;
+        }
+        if (!Utils::isUnset($request->departmentId)) {
+            $query['DepartmentId'] = $request->departmentId;
+        }
+        if (!Utils::isUnset($request->outerBusinessId)) {
+            $query['OuterBusinessId'] = $request->outerBusinessId;
+        }
+        if (!Utils::isUnset($request->pageIndex)) {
+            $query['PageIndex'] = $request->pageIndex;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->recordId)) {
+            $query['RecordId'] = $request->recordId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListRecordResults',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListLivesResponse::fromMap($this->doRPCRequest('ListLives', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListRecordResultsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ListLivesRequest $request
+     * @param ListRecordResultsRequest $request
      *
-     * @return ListLivesResponse
+     * @return ListRecordResultsResponse
      */
-    public function listLives($request)
+    public function listRecordResults($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listLivesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RuntimeOptions $runtime
-     *
-     * @return ListRolesResponse
-     */
-    public function listRolesWithOptions($runtime)
-    {
-        $req = new OpenApiRequest([]);
-
-        return ListRolesResponse::fromMap($this->doRPCRequest('ListRoles', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @return ListRolesResponse
-     */
-    public function listRoles()
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listRolesWithOptions($runtime);
+        return $this->listRecordResultsWithOptions($request, $runtime);
     }
 
     /**
@@ -1504,11 +2767,29 @@ class Idrsservice extends OpenApiClient
     public function listRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageIndex)) {
+            $query['PageIndex'] = $request->pageIndex;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListRules',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListRulesResponse::fromMap($this->doRPCRequest('ListRules', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1524,34 +2805,6 @@ class Idrsservice extends OpenApiClient
     }
 
     /**
-     * @param ListStatisticsTaskRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ListStatisticsTaskResponse
-     */
-    public function listStatisticsTaskWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListStatisticsTaskResponse::fromMap($this->doRPCRequest('ListStatisticsTask', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListStatisticsTaskRequest $request
-     *
-     * @return ListStatisticsTaskResponse
-     */
-    public function listStatisticsTask($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listStatisticsTaskWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListTaskGroupsRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -1560,11 +2813,32 @@ class Idrsservice extends OpenApiClient
     public function listTaskGroupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageIndex)) {
+            $query['PageIndex'] = $request->pageIndex;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTaskGroups',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListTaskGroupsResponse::fromMap($this->doRPCRequest('ListTaskGroups', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListTaskGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1588,11 +2862,26 @@ class Idrsservice extends OpenApiClient
     public function listTaskItemsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTaskItems',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListTaskItemsResponse::fromMap($this->doRPCRequest('ListTaskItems', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListTaskItemsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1616,11 +2905,32 @@ class Idrsservice extends OpenApiClient
     public function listTasksWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageIndex)) {
+            $query['PageIndex'] = $request->pageIndex;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->taskGroupId)) {
+            $query['TaskGroupId'] = $request->taskGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTasks',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListTasksResponse::fromMap($this->doRPCRequest('ListTasks', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1644,11 +2954,35 @@ class Idrsservice extends OpenApiClient
     public function listUsersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->departmentId)) {
+            $query['DepartmentId'] = $request->departmentId;
+        }
+        if (!Utils::isUnset($request->pageIndex)) {
+            $query['PageIndex'] = $request->pageIndex;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->username)) {
+            $query['Username'] = $request->username;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListUsers',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListUsersResponse::fromMap($this->doRPCRequest('ListUsers', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1664,6 +2998,52 @@ class Idrsservice extends OpenApiClient
     }
 
     /**
+     * @param ListWatermarksRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListWatermarksResponse
+     */
+    public function listWatermarksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageIndex)) {
+            $query['PageIndex'] = $request->pageIndex;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListWatermarks',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListWatermarksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListWatermarksRequest $request
+     *
+     * @return ListWatermarksResponse
+     */
+    public function listWatermarks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listWatermarksWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RenameDetectProcessRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -1672,11 +3052,29 @@ class Idrsservice extends OpenApiClient
     public function renameDetectProcessWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RenameDetectProcess',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RenameDetectProcessResponse::fromMap($this->doRPCRequest('RenameDetectProcess', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RenameDetectProcessResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1692,6 +3090,102 @@ class Idrsservice extends OpenApiClient
     }
 
     /**
+     * @param TtsCommonRequest $tmpReq
+     * @param RuntimeOptions   $runtime
+     *
+     * @return TtsCommonResponse
+     */
+    public function ttsCommonWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new TtsCommonShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->ttsRequest)) {
+            $request->ttsRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ttsRequest, 'TtsRequest', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->ttsRequestShrink)) {
+            $body['TtsRequest'] = $request->ttsRequestShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'TtsCommon',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TtsCommonResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TtsCommonRequest $request
+     *
+     * @return TtsCommonResponse
+     */
+    public function ttsCommon($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->ttsCommonWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param TtsTaskRequest $tmpReq
+     * @param RuntimeOptions $runtime
+     *
+     * @return TtsTaskResponse
+     */
+    public function ttsTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new TtsTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->request)) {
+            $request->requestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->request, 'Request', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->requestShrink)) {
+            $body['Request'] = $request->requestShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'TtsTask',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TtsTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TtsTaskRequest $request
+     *
+     * @return TtsTaskResponse
+     */
+    public function ttsTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->ttsTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateAppRequest $request
      * @param RuntimeOptions   $runtime
      *
@@ -1700,11 +3194,38 @@ class Idrsservice extends OpenApiClient
     public function updateAppWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->departmentId)) {
+            $query['DepartmentId'] = $request->departmentId;
+        }
+        if (!Utils::isUnset($request->disabled)) {
+            $query['Disabled'] = $request->disabled;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->packageName)) {
+            $query['PackageName'] = $request->packageName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateApp',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateAppResponse::fromMap($this->doRPCRequest('UpdateApp', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateAppResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1728,11 +3249,37 @@ class Idrsservice extends OpenApiClient
     public function updateDepartmentWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->label)) {
+            $body['Label'] = $request->label;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDepartment',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateDepartmentResponse::fromMap($this->doRPCRequest('UpdateDepartment', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateDepartmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1748,59 +3295,59 @@ class Idrsservice extends OpenApiClient
     }
 
     /**
-     * @param UpdateDetectProcessRequest $request
-     * @param RuntimeOptions             $runtime
+     * ********
+     *   *
+     * @param UpdateDetectProcessRequest $request UpdateDetectProcessRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateDetectProcessResponse
+     * @return UpdateDetectProcessResponse UpdateDetectProcessResponse
      */
     public function updateDetectProcessWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->content)) {
+            $query['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->draft)) {
+            $query['Draft'] = $request->draft;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDetectProcess',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateDetectProcessResponse::fromMap($this->doRPCRequest('UpdateDetectProcess', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateDetectProcessResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param UpdateDetectProcessRequest $request
+     * ********
+     *   *
+     * @param UpdateDetectProcessRequest $request UpdateDetectProcessRequest
      *
-     * @return UpdateDetectProcessResponse
+     * @return UpdateDetectProcessResponse UpdateDetectProcessResponse
      */
     public function updateDetectProcess($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->updateDetectProcessWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateLiveRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return UpdateLiveResponse
-     */
-    public function updateLiveWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdateLiveResponse::fromMap($this->doRPCRequest('UpdateLive', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateLiveRequest $request
-     *
-     * @return UpdateLiveResponse
-     */
-    public function updateLive($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateLiveWithOptions($request, $runtime);
     }
 
     /**
@@ -1812,11 +3359,32 @@ class Idrsservice extends OpenApiClient
     public function updateRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->content)) {
+            $query['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateRule',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateRuleResponse::fromMap($this->doRPCRequest('UpdateRule', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1832,62 +3400,6 @@ class Idrsservice extends OpenApiClient
     }
 
     /**
-     * @param UpdateServiceConfigurationRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return UpdateServiceConfigurationResponse
-     */
-    public function updateServiceConfigurationWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdateServiceConfigurationResponse::fromMap($this->doRPCRequest('UpdateServiceConfiguration', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateServiceConfigurationRequest $request
-     *
-     * @return UpdateServiceConfigurationResponse
-     */
-    public function updateServiceConfiguration($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateServiceConfigurationWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateSlrConfigurationRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return UpdateSlrConfigurationResponse
-     */
-    public function updateSlrConfigurationWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdateSlrConfigurationResponse::fromMap($this->doRPCRequest('UpdateSlrConfiguration', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateSlrConfigurationRequest $request
-     *
-     * @return UpdateSlrConfigurationResponse
-     */
-    public function updateSlrConfiguration($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateSlrConfigurationWithOptions($request, $runtime);
-    }
-
-    /**
      * @param UpdateUserRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -1896,11 +3408,38 @@ class Idrsservice extends OpenApiClient
     public function updateUserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->email)) {
+            $query['Email'] = $request->email;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
+        }
+        if (!Utils::isUnset($request->role)) {
+            $query['Role'] = $request->role;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateUser',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateUserResponse::fromMap($this->doRPCRequest('UpdateUser', '2020-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1913,5 +3452,148 @@ class Idrsservice extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateWatermarkRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateWatermarkResponse
+     */
+    public function updateWatermarkWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->value)) {
+            $query['Value'] = $request->value;
+        }
+        if (!Utils::isUnset($request->watermarkId)) {
+            $query['WatermarkId'] = $request->watermarkId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateWatermark',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateWatermarkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateWatermarkRequest $request
+     *
+     * @return UpdateWatermarkResponse
+     */
+    public function updateWatermark($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateWatermarkWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UploadReportRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UploadReportResponse
+     */
+    public function uploadReportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->clientBaseParam)) {
+            $query['ClientBaseParam'] = $request->clientBaseParam;
+        }
+        if (!Utils::isUnset($request->clientVersion)) {
+            $query['ClientVersion'] = $request->clientVersion;
+        }
+        if (!Utils::isUnset($request->departmentId)) {
+            $query['DepartmentId'] = $request->departmentId;
+        }
+        if (!Utils::isUnset($request->detectProcessId)) {
+            $query['DetectProcessId'] = $request->detectProcessId;
+        }
+        if (!Utils::isUnset($request->duration)) {
+            $query['Duration'] = $request->duration;
+        }
+        if (!Utils::isUnset($request->feeId)) {
+            $query['FeeId'] = $request->feeId;
+        }
+        if (!Utils::isUnset($request->metaUrl)) {
+            $query['MetaUrl'] = $request->metaUrl;
+        }
+        if (!Utils::isUnset($request->outerBusinessId)) {
+            $query['OuterBusinessId'] = $request->outerBusinessId;
+        }
+        if (!Utils::isUnset($request->recordAt)) {
+            $query['RecordAt'] = $request->recordAt;
+        }
+        if (!Utils::isUnset($request->resultUrl)) {
+            $query['ResultUrl'] = $request->resultUrl;
+        }
+        if (!Utils::isUnset($request->role)) {
+            $query['Role'] = $request->role;
+        }
+        if (!Utils::isUnset($request->roomId)) {
+            $query['RoomId'] = $request->roomId;
+        }
+        if (!Utils::isUnset($request->rtcRecordId)) {
+            $query['RtcRecordId'] = $request->rtcRecordId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        if (!Utils::isUnset($request->videoType)) {
+            $query['VideoType'] = $request->videoType;
+        }
+        if (!Utils::isUnset($request->videoUrl)) {
+            $query['VideoUrl'] = $request->videoUrl;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UploadReport',
+            'version'     => '2020-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UploadReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UploadReportRequest $request
+     *
+     * @return UploadReportResponse
+     */
+    public function uploadReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->uploadReportWithOptions($request, $runtime);
     }
 }

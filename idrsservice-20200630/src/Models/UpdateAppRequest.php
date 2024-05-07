@@ -9,6 +9,22 @@ use AlibabaCloud\Tea\Model;
 class UpdateAppRequest extends Model
 {
     /**
+     * @example 59b0bbfe-929b-4a8c-9833-3ce70b4bad38
+     *
+     * @var string
+     */
+    public $departmentId;
+
+    /**
+     * @example false
+     *
+     * @var bool
+     */
+    public $disabled;
+
+    /**
+     * @example 59b0bbfe-929b-4a8c-9833-3ce70b4bad38
+     *
      * @var string
      */
     public $id;
@@ -19,25 +35,17 @@ class UpdateAppRequest extends Model
     public $name;
 
     /**
-     * @var bool
-     */
-    public $disabled;
-
-    /**
+     * @example com.aliyun.idrs.sdk
+     *
      * @var string
      */
     public $packageName;
-
-    /**
-     * @var string
-     */
-    public $departmentId;
     protected $_name = [
+        'departmentId' => 'DepartmentId',
+        'disabled'     => 'Disabled',
         'id'           => 'Id',
         'name'         => 'Name',
-        'disabled'     => 'Disabled',
         'packageName'  => 'PackageName',
-        'departmentId' => 'DepartmentId',
     ];
 
     public function validate()
@@ -47,20 +55,20 @@ class UpdateAppRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->departmentId) {
+            $res['DepartmentId'] = $this->departmentId;
+        }
+        if (null !== $this->disabled) {
+            $res['Disabled'] = $this->disabled;
+        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->disabled) {
-            $res['Disabled'] = $this->disabled;
-        }
         if (null !== $this->packageName) {
             $res['PackageName'] = $this->packageName;
-        }
-        if (null !== $this->departmentId) {
-            $res['DepartmentId'] = $this->departmentId;
         }
 
         return $res;
@@ -74,20 +82,20 @@ class UpdateAppRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DepartmentId'])) {
+            $model->departmentId = $map['DepartmentId'];
+        }
+        if (isset($map['Disabled'])) {
+            $model->disabled = $map['Disabled'];
+        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['Disabled'])) {
-            $model->disabled = $map['Disabled'];
-        }
         if (isset($map['PackageName'])) {
             $model->packageName = $map['PackageName'];
-        }
-        if (isset($map['DepartmentId'])) {
-            $model->departmentId = $map['DepartmentId'];
         }
 
         return $model;
