@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RefundOrderCmd extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 47821
      *
      * @var int
@@ -23,6 +25,8 @@ class RefundOrderCmd extends Model
     public $applyReasonTips;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +34,8 @@ class RefundOrderCmd extends Model
     public $applyRefundCount;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 100
      *
      * @var int
@@ -37,6 +43,8 @@ class RefundOrderCmd extends Model
     public $applyRefundFee;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +52,8 @@ class RefundOrderCmd extends Model
     public $bizClaimType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -63,6 +73,8 @@ class RefundOrderCmd extends Model
     public $leavePictureLists;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 6692****5458
      *
      * @var string

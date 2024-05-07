@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListSelectionProductsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class ListSelectionProductsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int
@@ -23,6 +27,8 @@ class ListSelectionProductsRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 56****2304
      *
      * @var string

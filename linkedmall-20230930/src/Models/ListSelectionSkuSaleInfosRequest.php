@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListSelectionSkuSaleInfosRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var SkuSaleInfoListQuery
      */
     public $body;

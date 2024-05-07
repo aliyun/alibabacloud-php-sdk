@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryChildDivisionCodeRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var DivisionQuery
      */
     public $body;

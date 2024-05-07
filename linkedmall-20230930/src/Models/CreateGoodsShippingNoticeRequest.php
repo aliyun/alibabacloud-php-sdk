@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateGoodsShippingNoticeRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var GoodsShippingNoticeCreateCmd
      */
     public $body;

@@ -16,11 +16,15 @@ class ProductSaleInfoListQuery extends Model
     public $divisionCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $productIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 22000009
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RenderPurchaseOrderRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var PurchaseOrderRenderQuery
      */
     public $body;

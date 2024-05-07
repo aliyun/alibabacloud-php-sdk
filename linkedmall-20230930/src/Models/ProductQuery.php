@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ProductQuery extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 22000009
      *
      * @var string

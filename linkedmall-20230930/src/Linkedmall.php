@@ -140,11 +140,13 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
+     * @summary 取消逆向单
+     *  *
      * @param string         $disputeId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return CancelRefundOrderResponse
+     * @return CancelRefundOrderResponse CancelRefundOrderResponse
      */
     public function cancelRefundOrderWithOptions($disputeId, $headers, $runtime)
     {
@@ -167,9 +169,11 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
+     * @summary 取消逆向单
+     *  *
      * @param string $disputeId
      *
-     * @return CancelRefundOrderResponse
+     * @return CancelRefundOrderResponse CancelRefundOrderResponse
      */
     public function cancelRefundOrder($disputeId)
     {
@@ -180,11 +184,13 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * @param ConfirmDisburseRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary 确认收货（订单）
+     *  *
+     * @param ConfirmDisburseRequest $request ConfirmDisburseRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ConfirmDisburseResponse
+     * @return ConfirmDisburseResponse ConfirmDisburseResponse
      */
     public function confirmDisburseWithOptions($request, $headers, $runtime)
     {
@@ -209,9 +215,11 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * @param ConfirmDisburseRequest $request
+     * @summary 确认收货（订单）
+     *  *
+     * @param ConfirmDisburseRequest $request ConfirmDisburseRequest
      *
-     * @return ConfirmDisburseResponse
+     * @return ConfirmDisburseResponse ConfirmDisburseResponse
      */
     public function confirmDisburse($request)
     {
@@ -222,11 +230,13 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * @param CreateGoodsShippingNoticeRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
+     * @summary 提交运单信息
+     *  *
+     * @param CreateGoodsShippingNoticeRequest $request CreateGoodsShippingNoticeRequest
+     * @param string[]                         $headers map
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateGoodsShippingNoticeResponse
+     * @return CreateGoodsShippingNoticeResponse CreateGoodsShippingNoticeResponse
      */
     public function createGoodsShippingNoticeWithOptions($request, $headers, $runtime)
     {
@@ -251,9 +261,11 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * @param CreateGoodsShippingNoticeRequest $request
+     * @summary 提交运单信息
+     *  *
+     * @param CreateGoodsShippingNoticeRequest $request CreateGoodsShippingNoticeRequest
      *
-     * @return CreateGoodsShippingNoticeResponse
+     * @return CreateGoodsShippingNoticeResponse CreateGoodsShippingNoticeResponse
      */
     public function createGoodsShippingNotice($request)
     {
@@ -264,11 +276,13 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * @param CreatePurchaseOrderRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @summary 创建采购单
+     *  *
+     * @param CreatePurchaseOrderRequest $request CreatePurchaseOrderRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreatePurchaseOrderResponse
+     * @return CreatePurchaseOrderResponse CreatePurchaseOrderResponse
      */
     public function createPurchaseOrderWithOptions($request, $headers, $runtime)
     {
@@ -293,9 +307,11 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * @param CreatePurchaseOrderRequest $request
+     * @summary 创建采购单
+     *  *
+     * @param CreatePurchaseOrderRequest $request CreatePurchaseOrderRequest
      *
-     * @return CreatePurchaseOrderResponse
+     * @return CreatePurchaseOrderResponse CreatePurchaseOrderResponse
      */
     public function createPurchaseOrder($request)
     {
@@ -306,11 +322,13 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * @param CreateRefundOrderRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @summary 创建逆向单
+     *  *
+     * @param CreateRefundOrderRequest $request CreateRefundOrderRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateRefundOrderResponse
+     * @return CreateRefundOrderResponse CreateRefundOrderResponse
      */
     public function createRefundOrderWithOptions($request, $headers, $runtime)
     {
@@ -335,9 +353,11 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * @param CreateRefundOrderRequest $request
+     * @summary 创建逆向单
+     *  *
+     * @param CreateRefundOrderRequest $request CreateRefundOrderRequest
      *
-     * @return CreateRefundOrderResponse
+     * @return CreateRefundOrderResponse CreateRefundOrderResponse
      */
     public function createRefundOrder($request)
     {
@@ -348,11 +368,13 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
+     * @summary 查询主单详情
+     *  *
      * @param string         $orderId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetOrderResponse
+     * @return GetOrderResponse GetOrderResponse
      */
     public function getOrderWithOptions($orderId, $headers, $runtime)
     {
@@ -375,9 +397,11 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
+     * @summary 查询主单详情
+     *  *
      * @param string $orderId
      *
-     * @return GetOrderResponse
+     * @return GetOrderResponse GetOrderResponse
      */
     public function getOrder($orderId)
     {
@@ -388,11 +412,13 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
+     * @summary 查询采购单状态
+     *  *
      * @param string         $purchaseOrderId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers         map
+     * @param RuntimeOptions $runtime         runtime options for this request RuntimeOptions
      *
-     * @return GetPurchaseOrderStatusResponse
+     * @return GetPurchaseOrderStatusResponse GetPurchaseOrderStatusResponse
      */
     public function getPurchaseOrderStatusWithOptions($purchaseOrderId, $headers, $runtime)
     {
@@ -415,9 +441,11 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
+     * @summary 查询采购单状态
+     *  *
      * @param string $purchaseOrderId
      *
-     * @return GetPurchaseOrderStatusResponse
+     * @return GetPurchaseOrderStatusResponse GetPurchaseOrderStatusResponse
      */
     public function getPurchaseOrderStatus($purchaseOrderId)
     {
@@ -428,11 +456,13 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
+     * @summary 查询分销商店铺
+     *  *
      * @param string         $purchaserId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return GetPurchaserShopResponse
+     * @return GetPurchaserShopResponse GetPurchaserShopResponse
      */
     public function getPurchaserShopWithOptions($purchaserId, $headers, $runtime)
     {
@@ -455,9 +485,11 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
+     * @summary 查询分销商店铺
+     *  *
      * @param string $purchaserId
      *
-     * @return GetPurchaserShopResponse
+     * @return GetPurchaserShopResponse GetPurchaserShopResponse
      */
     public function getPurchaserShop($purchaserId)
     {
@@ -468,11 +500,13 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
+     * @summary 查询逆向单详情
+     *  *
      * @param string         $disputeId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetRefundOrderResponse
+     * @return GetRefundOrderResponse GetRefundOrderResponse
      */
     public function getRefundOrderWithOptions($disputeId, $headers, $runtime)
     {
@@ -495,9 +529,11 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
+     * @summary 查询逆向单详情
+     *  *
      * @param string $disputeId
      *
-     * @return GetRefundOrderResponse
+     * @return GetRefundOrderResponse GetRefundOrderResponse
      */
     public function getRefundOrder($disputeId)
     {
@@ -508,12 +544,14 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
+     * @summary 查询选品池商品详情
+     *  *
      * @param string                     $productId
-     * @param GetSelectionProductRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param GetSelectionProductRequest $request   GetSelectionProductRequest
+     * @param string[]                   $headers   map
+     * @param RuntimeOptions             $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetSelectionProductResponse
+     * @return GetSelectionProductResponse GetSelectionProductResponse
      */
     public function getSelectionProductWithOptions($productId, $request, $headers, $runtime)
     {
@@ -545,10 +583,12 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
+     * @summary 查询选品池商品详情
+     *  *
      * @param string                     $productId
-     * @param GetSelectionProductRequest $request
+     * @param GetSelectionProductRequest $request   GetSelectionProductRequest
      *
-     * @return GetSelectionProductResponse
+     * @return GetSelectionProductResponse GetSelectionProductResponse
      */
     public function getSelectionProduct($productId, $request)
     {
@@ -559,12 +599,14 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
+     * @summary 查询选品池商品库存
+     *  *
      * @param string                             $productId
-     * @param GetSelectionProductSaleInfoRequest $request
-     * @param string[]                           $headers
-     * @param RuntimeOptions                     $runtime
+     * @param GetSelectionProductSaleInfoRequest $request   GetSelectionProductSaleInfoRequest
+     * @param string[]                           $headers   map
+     * @param RuntimeOptions                     $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetSelectionProductSaleInfoResponse
+     * @return GetSelectionProductSaleInfoResponse GetSelectionProductSaleInfoResponse
      */
     public function getSelectionProductSaleInfoWithOptions($productId, $request, $headers, $runtime)
     {
@@ -596,10 +638,12 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
+     * @summary 查询选品池商品库存
+     *  *
      * @param string                             $productId
-     * @param GetSelectionProductSaleInfoRequest $request
+     * @param GetSelectionProductSaleInfoRequest $request   GetSelectionProductSaleInfoRequest
      *
-     * @return GetSelectionProductSaleInfoResponse
+     * @return GetSelectionProductSaleInfoResponse GetSelectionProductSaleInfoResponse
      */
     public function getSelectionProductSaleInfo($productId, $request)
     {
@@ -610,11 +654,13 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * @param ListCategoriesRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary 查询类目
+     *  *
+     * @param ListCategoriesRequest $request ListCategoriesRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCategoriesResponse
+     * @return ListCategoriesResponse ListCategoriesResponse
      */
     public function listCategoriesWithOptions($request, $headers, $runtime)
     {
@@ -639,9 +685,11 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * @param ListCategoriesRequest $request
+     * @summary 查询类目
+     *  *
+     * @param ListCategoriesRequest $request ListCategoriesRequest
      *
-     * @return ListCategoriesResponse
+     * @return ListCategoriesResponse ListCategoriesResponse
      */
     public function listCategories($request)
     {
@@ -652,11 +700,13 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
+     * @summary 查询物流信息（订单）
+     *  *
      * @param string         $orderId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListLogisticsOrdersResponse
+     * @return ListLogisticsOrdersResponse ListLogisticsOrdersResponse
      */
     public function listLogisticsOrdersWithOptions($orderId, $headers, $runtime)
     {
@@ -679,9 +729,11 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
+     * @summary 查询物流信息（订单）
+     *  *
      * @param string $orderId
      *
-     * @return ListLogisticsOrdersResponse
+     * @return ListLogisticsOrdersResponse ListLogisticsOrdersResponse
      */
     public function listLogisticsOrders($orderId)
     {
@@ -692,11 +744,13 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * @param ListPurchaserShopsRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @summary 采购方店铺列表查询
+     *  *
+     * @param ListPurchaserShopsRequest $request ListPurchaserShopsRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPurchaserShopsResponse
+     * @return ListPurchaserShopsResponse ListPurchaserShopsResponse
      */
     public function listPurchaserShopsWithOptions($request, $headers, $runtime)
     {
@@ -728,9 +782,11 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * @param ListPurchaserShopsRequest $request
+     * @summary 采购方店铺列表查询
+     *  *
+     * @param ListPurchaserShopsRequest $request ListPurchaserShopsRequest
      *
-     * @return ListPurchaserShopsResponse
+     * @return ListPurchaserShopsResponse ListPurchaserShopsResponse
      */
     public function listPurchaserShops($request)
     {
@@ -741,11 +797,13 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * @param ListSelectionProductSaleInfosRequest $request
-     * @param string[]                             $headers
-     * @param RuntimeOptions                       $runtime
+     * @summary 批量查询选品池商品库存
+     *  *
+     * @param ListSelectionProductSaleInfosRequest $request ListSelectionProductSaleInfosRequest
+     * @param string[]                             $headers map
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSelectionProductSaleInfosResponse
+     * @return ListSelectionProductSaleInfosResponse ListSelectionProductSaleInfosResponse
      */
     public function listSelectionProductSaleInfosWithOptions($request, $headers, $runtime)
     {
@@ -770,9 +828,11 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * @param ListSelectionProductSaleInfosRequest $request
+     * @summary 批量查询选品池商品库存
+     *  *
+     * @param ListSelectionProductSaleInfosRequest $request ListSelectionProductSaleInfosRequest
      *
-     * @return ListSelectionProductSaleInfosResponse
+     * @return ListSelectionProductSaleInfosResponse ListSelectionProductSaleInfosResponse
      */
     public function listSelectionProductSaleInfos($request)
     {
@@ -783,11 +843,13 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * @param ListSelectionProductsRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @summary 查询商品列表
+     *  *
+     * @param ListSelectionProductsRequest $request ListSelectionProductsRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSelectionProductsResponse
+     * @return ListSelectionProductsResponse ListSelectionProductsResponse
      */
     public function listSelectionProductsWithOptions($request, $headers, $runtime)
     {
@@ -822,9 +884,11 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * @param ListSelectionProductsRequest $request
+     * @summary 查询商品列表
+     *  *
+     * @param ListSelectionProductsRequest $request ListSelectionProductsRequest
      *
-     * @return ListSelectionProductsResponse
+     * @return ListSelectionProductsResponse ListSelectionProductsResponse
      */
     public function listSelectionProducts($request)
     {
@@ -835,11 +899,13 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * @param ListSelectionSkuSaleInfosRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
+     * @summary 批量查询选品池商品SKU库存
+     *  *
+     * @param ListSelectionSkuSaleInfosRequest $request ListSelectionSkuSaleInfosRequest
+     * @param string[]                         $headers map
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSelectionSkuSaleInfosResponse
+     * @return ListSelectionSkuSaleInfosResponse ListSelectionSkuSaleInfosResponse
      */
     public function listSelectionSkuSaleInfosWithOptions($request, $headers, $runtime)
     {
@@ -864,9 +930,11 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * @param ListSelectionSkuSaleInfosRequest $request
+     * @summary 批量查询选品池商品SKU库存
+     *  *
+     * @param ListSelectionSkuSaleInfosRequest $request ListSelectionSkuSaleInfosRequest
      *
-     * @return ListSelectionSkuSaleInfosResponse
+     * @return ListSelectionSkuSaleInfosResponse ListSelectionSkuSaleInfosResponse
      */
     public function listSelectionSkuSaleInfos($request)
     {
@@ -877,11 +945,13 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * @param QueryChildDivisionCodeRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @summary 查询地址divisionCode
+     *  *
+     * @param QueryChildDivisionCodeRequest $request QueryChildDivisionCodeRequest
+     * @param string[]                      $headers map
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryChildDivisionCodeResponse
+     * @return QueryChildDivisionCodeResponse QueryChildDivisionCodeResponse
      */
     public function queryChildDivisionCodeWithOptions($request, $headers, $runtime)
     {
@@ -906,9 +976,11 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * @param QueryChildDivisionCodeRequest $request
+     * @summary 查询地址divisionCode
+     *  *
+     * @param QueryChildDivisionCodeRequest $request QueryChildDivisionCodeRequest
      *
-     * @return QueryChildDivisionCodeResponse
+     * @return QueryChildDivisionCodeResponse QueryChildDivisionCodeResponse
      */
     public function queryChildDivisionCode($request)
     {
@@ -919,11 +991,13 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * @param QueryOrdersRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @summary 查询主单列表
+     *  *
+     * @param QueryOrdersRequest $request QueryOrdersRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryOrdersResponse
+     * @return QueryOrdersResponse QueryOrdersResponse
      */
     public function queryOrdersWithOptions($request, $headers, $runtime)
     {
@@ -948,9 +1022,11 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * @param QueryOrdersRequest $request
+     * @summary 查询主单列表
+     *  *
+     * @param QueryOrdersRequest $request QueryOrdersRequest
      *
-     * @return QueryOrdersResponse
+     * @return QueryOrdersResponse QueryOrdersResponse
      */
     public function queryOrders($request)
     {
@@ -961,11 +1037,13 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * @param RenderPurchaseOrderRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @summary 渲染采购单
+     *  *
+     * @param RenderPurchaseOrderRequest $request RenderPurchaseOrderRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return RenderPurchaseOrderResponse
+     * @return RenderPurchaseOrderResponse RenderPurchaseOrderResponse
      */
     public function renderPurchaseOrderWithOptions($request, $headers, $runtime)
     {
@@ -990,9 +1068,11 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * @param RenderPurchaseOrderRequest $request
+     * @summary 渲染采购单
+     *  *
+     * @param RenderPurchaseOrderRequest $request RenderPurchaseOrderRequest
      *
-     * @return RenderPurchaseOrderResponse
+     * @return RenderPurchaseOrderResponse RenderPurchaseOrderResponse
      */
     public function renderPurchaseOrder($request)
     {
@@ -1003,11 +1083,13 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * @param RenderRefundOrderRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @summary 逆向单渲染
+     *  *
+     * @param RenderRefundOrderRequest $request RenderRefundOrderRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return RenderRefundOrderResponse
+     * @return RenderRefundOrderResponse RenderRefundOrderResponse
      */
     public function renderRefundOrderWithOptions($request, $headers, $runtime)
     {
@@ -1032,9 +1114,11 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * @param RenderRefundOrderRequest $request
+     * @summary 逆向单渲染
+     *  *
+     * @param RenderRefundOrderRequest $request RenderRefundOrderRequest
      *
-     * @return RenderRefundOrderResponse
+     * @return RenderRefundOrderResponse RenderRefundOrderResponse
      */
     public function renderRefundOrder($request)
     {
@@ -1045,11 +1129,13 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * @param SplitPurchaseOrderRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @summary 渲染拆分采购单
+     *  *
+     * @param SplitPurchaseOrderRequest $request SplitPurchaseOrderRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return SplitPurchaseOrderResponse
+     * @return SplitPurchaseOrderResponse SplitPurchaseOrderResponse
      */
     public function splitPurchaseOrderWithOptions($request, $headers, $runtime)
     {
@@ -1074,9 +1160,11 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * @param SplitPurchaseOrderRequest $request
+     * @summary 渲染拆分采购单
+     *  *
+     * @param SplitPurchaseOrderRequest $request SplitPurchaseOrderRequest
      *
-     * @return SplitPurchaseOrderResponse
+     * @return SplitPurchaseOrderResponse SplitPurchaseOrderResponse
      */
     public function splitPurchaseOrder($request)
     {

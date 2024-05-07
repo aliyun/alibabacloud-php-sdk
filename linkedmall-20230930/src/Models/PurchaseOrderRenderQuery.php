@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class PurchaseOrderRenderQuery extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example test1234567
      *
      * @var string
@@ -16,6 +18,8 @@ class PurchaseOrderRenderQuery extends Model
     public $buyerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var AddressInfo
      */
     public $deliveryAddress;
@@ -28,6 +32,8 @@ class PurchaseOrderRenderQuery extends Model
     public $extInfo;
 
     /**
+     * @description This parameter is required.
+     *
      * @var OrderRenderProductDTO[]
      */
     public $productList;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddressInfo extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 陕西省西安市新城区xxx大厦xx室
      *
      * @var string
@@ -30,6 +32,8 @@ class AddressInfo extends Model
     public $divisionCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 任先生
      *
      * @var string
@@ -37,6 +41,8 @@ class AddressInfo extends Model
     public $receiver;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 182***5674
      *
      * @var string

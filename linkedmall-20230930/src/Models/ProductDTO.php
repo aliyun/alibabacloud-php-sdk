@@ -16,6 +16,8 @@ class ProductDTO extends Model
     public $price;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 6600****6736
      *
      * @var string
@@ -23,6 +25,8 @@ class ProductDTO extends Model
     public $productId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 56****2304
      *
      * @var string
@@ -30,6 +34,8 @@ class ProductDTO extends Model
     public $purchaserId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +43,8 @@ class ProductDTO extends Model
     public $quantity;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 6600****6737
      *
      * @var string

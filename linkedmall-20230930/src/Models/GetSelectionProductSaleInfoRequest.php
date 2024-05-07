@@ -16,6 +16,8 @@ class GetSelectionProductSaleInfoRequest extends Model
     public $divisionCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 56****2304
      *
      * @var string

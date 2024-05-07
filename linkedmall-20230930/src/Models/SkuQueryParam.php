@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SkuQueryParam extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 660460842235822080
      *
      * @var string
@@ -16,6 +18,8 @@ class SkuQueryParam extends Model
     public $productId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 660460842235822081
      *
      * @var string

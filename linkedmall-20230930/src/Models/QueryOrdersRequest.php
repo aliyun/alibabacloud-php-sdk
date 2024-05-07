@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryOrdersRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var OrderPageQuery
      */
     public $body;

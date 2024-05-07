@@ -16,6 +16,8 @@ class SkuSaleInfoListQuery extends Model
     public $divisionCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 21000017
      *
      * @var string
@@ -23,6 +25,8 @@ class SkuSaleInfoListQuery extends Model
     public $purchaserId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var SkuQueryParam[]
      */
     public $skuQueryParams;

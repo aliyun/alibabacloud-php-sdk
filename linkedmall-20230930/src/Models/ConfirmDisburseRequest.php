@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ConfirmDisburseRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var ConfirmDisburseCmd
      */
     public $body;
