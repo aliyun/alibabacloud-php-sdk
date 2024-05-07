@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class instanceType extends Model
 {
     /**
-     * @description The baseline vCPU computing performance (overall computing performance of all vCPUs) of the t5 or t6 burstable instance.
+     * @description The baseline vCPU computing performance (overall baseline performance of all vCPUs) per t5 or t6 burstable instance.
      *
      * @example 4
      *
@@ -22,8 +22,8 @@ class instanceType extends Model
     /**
      * @description The CPU architecture. Valid values:
      *
-     *   X86: x86
-     *   ARM: ARM
+     *   X86
+     *   ARM
      *
      * @example X86
      *
@@ -86,7 +86,7 @@ class instanceType extends Model
     public $eniPrivateIpAddressQuantity;
 
     /**
-     * @description The maximum number of ENIs.
+     * @description The maximum number of ENIs per instance.
      *
      * @example 3
      *
@@ -95,9 +95,9 @@ class instanceType extends Model
     public $eniQuantity;
 
     /**
-     * @description The maximum number of NICs, including the primary NIC, ENIs, and trunk NICs.
+     * @description The maximum number of ENIs, including primary, secondary, and trunk ENIs.
      *
-     * >  This parameter is in invitational preview and unavailable for general users.
+     * >  This parameter is in invitational preview and is not publicly available.
      * @example 0
      *
      * @var int
@@ -105,9 +105,9 @@ class instanceType extends Model
     public $eniTotalQuantity;
 
     /**
-     * @description Indicates whether NICs on instances of the instance type support trunking.
+     * @description Indicates whether trunk ENIs are supported.
      *
-     * >  This parameter is in invitational preview and unavailable for general users.
+     * >  This parameter is in invitational preview and is not publicly available.
      * @example true
      *
      * @var bool
@@ -117,7 +117,7 @@ class instanceType extends Model
     /**
      * @description The number of ERIs.
      *
-     * >  This parameter is in invitational preview and unavailable for general users.
+     * >  This parameter is in invitational preview and is not publicly available.
      * @example 0
      *
      * @var int
@@ -134,7 +134,7 @@ class instanceType extends Model
     public $GPUAmount;
 
     /**
-     * @description The amount of GPU memory per GPU. Unit: GiB.
+     * @description The amount of GPU memory per GPU. Unit: GiB
      *
      * @example 32
      *
@@ -152,7 +152,7 @@ class instanceType extends Model
     public $GPUSpec;
 
     /**
-     * @description The initial vCPU credits of a t5 or t6 burstable instance.
+     * @description The initial vCPU credits per t5 or t6 burstable instance.
      *
      * @example 120
      *
@@ -196,7 +196,8 @@ class instanceType extends Model
      *   Compute-optimized with NPU: NPU-accelerated compute-optimized instance type
      *   ECS Bare Metal: ECS Bare Metal Instance type
      *   Super Computing Cluster: SCC instance type
-     * - Cloud Physical Server.
+     *   High Performance Compute: high-performance computing instance type
+     *
      * @example Big data
      *
      * @var string
@@ -207,8 +208,8 @@ class instanceType extends Model
      * @description The level of the instance family. Valid values:
      *
      *   EntryLevel: entry level (shared).
-     *   EnterpriseLevel: enterprise level.
-     *   CreditEntryLevel: credit-based entry level. For more information about instance families of this level, see [Overview](~~59977~~).
+     *   EnterpriseLevel: enterprise level
+     *   CreditEntryLevel: credit-based entry level For more information, see [Overview](~~59977~~).
      *
      * @example EnterpriseLevel
      *
@@ -217,7 +218,7 @@ class instanceType extends Model
     public $instanceFamilyLevel;
 
     /**
-     * @description The inbound packet forwarding rate of the internal network. Unit: pps.
+     * @description The inbound packet forwarding rate over the internal network. Unit: pps.
      *
      * @example 500000
      *
@@ -262,7 +263,7 @@ class instanceType extends Model
     public $localStorageAmount;
 
     /**
-     * @description The capacity of each local disk. Unit: GiB.
+     * @description The capacity of each local disk. Unit: GiB
      *
      * @example 5000
      *
@@ -273,8 +274,8 @@ class instanceType extends Model
     /**
      * @description The category of local disks. For more information, see [Local disks](~~63138~~). Valid values:
      *
-     *   local_hdd_pro: local SATA HDDs, which are used by d1ne or d1 instances
-     *   local_ssd_pro: local NVMe SSDs, which are used by i2, i2g, i1, ga1, or gn5 instances
+     *   local_hdd_pro: local SATA HDDs, which are attached to d1ne or d1 instances
+     *   local_ssd_pro: local NVMe SSDs, which are attached to i2, i2g, i1, ga1, or gn5 instances
      *
      * @example local_ssd_pro
      *
@@ -283,7 +284,7 @@ class instanceType extends Model
     public $localStorageCategory;
 
     /**
-     * @description The maximum number of queues per ENI (including primary and secondary ENIs).
+     * @description The maximum number of queues per ENI, including primary and secondary ENIs.
      *
      * @example 4
      *
@@ -292,7 +293,7 @@ class instanceType extends Model
     public $maximumQueueNumberPerEni;
 
     /**
-     * @description The memory size. Unit: GiB.
+     * @description The memory size. Unit: GiB
      *
      * @example 16
      *
@@ -310,7 +311,7 @@ class instanceType extends Model
     public $networkCardQuantity;
 
     /**
-     * @description Details about the network cards.
+     * @description The information of the network cards.
      *
      * @var networkCards
      */
@@ -319,8 +320,8 @@ class instanceType extends Model
     /**
      * @description Indicates whether to allow network traffic transmitted over virtual private clouds (VPCs) to be encrypted. Valid values:
      *
-     *   true: allows network traffic transmitted over VPCs to be encrypted.
-     *   false: does not allow network traffic transmitted over VPCs to be encrypted.
+     *   true
+     *   false
      *
      * @example true
      *
@@ -329,10 +330,10 @@ class instanceType extends Model
     public $networkEncryptionSupport;
 
     /**
-     * @description Indicates whether the cloud disk can be attached by using the NVMe protocol. Valid values:
+     * @description Indicates whether cloud disks can be attached by using the NVMe protocol. Valid values:
      *
-     *   required: The cloud disk can be attached by using the NVMe protocol.
-     *   unsupported: The cloud disk cannot be attached by using the NVMe protocol.
+     *   required: Cloud disks can be attached by using the NVMe protocol.
+     *   unsupported: Cloud disks cannot be attached by using the NVMe protocol.
      *
      * @example unsupported
      *
@@ -350,7 +351,7 @@ class instanceType extends Model
     public $physicalProcessorModel;
 
     /**
-     * @description The default number of queues per primary NIC.
+     * @description The default number of queues per primary ENI.
      *
      * @example 4
      *
@@ -359,7 +360,7 @@ class instanceType extends Model
     public $primaryEniQueueNumber;
 
     /**
-     * @description The maximum number of QP queues per ERI.
+     * @description The maximum number of QPs per ERI.
      *
      * @example 22
      *
@@ -368,7 +369,7 @@ class instanceType extends Model
     public $queuePairNumber;
 
     /**
-     * @description The default number of queues supported by the secondary ENI.
+     * @description The default number of queues per secondary ENI.
      *
      * @example 4
      *

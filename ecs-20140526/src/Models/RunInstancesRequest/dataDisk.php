@@ -23,7 +23,7 @@ class dataDisk extends Model
      *   true
      *   false
      *
-     * >  This parameter is available only if you set the DataDisk.N.Category parameter to cloud_auto. For more information, see [ESSD AutoPL disks](~~368372~~).
+     * >  This parameter is available only if you set DataDisk.N.Category to cloud_auto. For more information, see [ESSD AutoPL disks](~~368372~~).
      * @example false
      *
      * @var bool
@@ -33,7 +33,7 @@ class dataDisk extends Model
     /**
      * @description The category of data disk N. Valid values:
      *
-     *   cloud_efficiency: ultra disk
+     *   cloud_efficiency: utra disk
      *   cloud_ssd: standard SSD
      *   cloud_essd: ESSD
      *   cloud: basic disk
@@ -75,7 +75,7 @@ class dataDisk extends Model
      *   1st to 25th data disks: /dev/xvd`[b-z]`.
      *   From the 26th data disk on: /dev/xvd`[aa-zz]`. For example, the 26th data disk is named /dev/xvdaa, the 27th data disk is named /dev/xvdab, and so on.
      *
-     * >  This parameter is applicable to scenarios in which a full image is used to create instances. A full image is an image that contains an operating system, application software, and business data. For these scenarios, you can set the parameter to the mount point of data disk N contained in the full image and modify the `DataDisk.N.Size` and `DataDisk.N.Category` parameters to change the category and size of data disk N created based on the image.
+     * >  This parameter is applicable to scenarios in which a full image is used to create instances. A full image is an image that contains an operating system, application software, and business data. For these scenarios, you can set the parameter to the mount point of data disk N contained in the full image and modify `DataDisk.N.Size` and `DataDisk.N.Category` to change the category and size of data disk N created based on the image.
      * @example /dev/xvdb
      *
      * @var string
@@ -83,7 +83,7 @@ class dataDisk extends Model
     public $device;
 
     /**
-     * @description The name of data disk N. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, periods (.), colons (:), underscores (\_), and hyphens (-).
+     * @description The name of data disk N. The name must be 2 to 128 characters in length and support Unicode characters under the Decimal Number category and the categories whose names contain Letter. The name can contain colons (:), underscores (\_), periods (.), and hyphens (-).
      *
      * @example cloud_ssdData
      *
@@ -125,10 +125,10 @@ class dataDisk extends Model
     /**
      * @description The performance level of the ESSD to use as data disk N. The value of N must be the same as that in `DataDisk.N.Category` when DataDisk.N.Category is set to cloud_essd. Valid values:
      *
-     *   PL0: A single ESSD can deliver up to 10000 random read/write IOPS.
-     *   PL1 (default): A single ESSD can deliver up to 50000 random read/write IOPS.
-     *   PL2: A single ESSD can deliver up to 100000 random read/write IOPS.
-     *   PL3: A single ESSD can deliver up to 1000000 random read/write IOPS.
+     *   PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
+     *   PL1 (default): A single ESSD can deliver up to 50,000 random read/write IOPS.
+     *   PL2: A single ESSD can deliver up to 100,000 random read/write IOPS.
+     *   PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
      *
      * For information about ESSD performance levels, see [ESSDs](~~122389~~).
      * @example PL1
@@ -140,7 +140,7 @@ class dataDisk extends Model
     /**
      * @description The provisioned read/write IOPS of the ESSD AutoPL disk to use as data disk N. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS}.
      *
-     * >  This parameter is available only if you set the DataDisk.N.Category parameter to cloud_auto. For more information, see [ESSD AutoPL disks](~~368372~~).
+     * >  This parameter is available only if you set DataDisk.N.Category to cloud_auto. For more information, see [ESSD AutoPL disks](~~368372~~).
      * @example 40000
      *
      * @var int
@@ -156,18 +156,18 @@ class dataDisk extends Model
      *
      *   Valid values when DataDisk.N.Category is set to cloud_essd: vary based on the `DataDisk.N.PerformanceLevel` value.
      *
-     *   Valid values when DataDisk.N.PerformanceLevel is set to PL0: 40 to 32768.
+     *   Valid values when DataDisk.N.PerformanceLevel is set to PL0: 1 to 32768.
      *   Valid values when DataDisk.N.PerformanceLevel is set to PL1: 20 to 32768.
      *   Valid values when DataDisk.N.PerformanceLevel is set to PL2: 461 to 32768.
      *   Valid values when DataDisk.N.PerformanceLevel is set to PL3: 1261 to 32768.
      *
      *   Valid values when DataDisk.N.Category is set to cloud: 5 to 2000.
      *
-     *   Valid values when DataDisk.N.Category is set to cloud_auto: 40 to 32768.
+     *   Valid values when DataDisk.N.Category is set to cloud_auto: 1 to 32768.
      *
      *   Valid values when DataDisk.N.Category is set to cloud_essd_entry: 10 to 32768.
      *
-     * The value of this parameter must be greater than or equal to the size of the snapshot specified by the `DataDisk.N.SnapshotId` parameter.
+     * >  The value of this parameter must be greater than or equal to the size of the snapshot specified by `SnapshotId`.
      * @example 2000
      *
      * @var int
@@ -177,7 +177,7 @@ class dataDisk extends Model
     /**
      * @description The ID of the snapshot to use to create data disk N. Valid values of N: 1 to 16.
      *
-     * When the `DataDisk.N.SnapshotId` parameter is specified, the `DataDisk.N.Size` parameter is ignored. The data disk is created with the size of the specified snapshot. Use snapshots created on or after July 15, 2013. Otherwise, an error is returned and your request is rejected.
+     * When `DataDisk.N.SnapshotId` is specified, `DataDisk.N.Size` is ignored. The data disk is created with the size of the specified snapshot. Use snapshots created on or after July 15, 2013. Otherwise, an error is returned and your request is rejected.
      * @example s-bp17441ohwka0yuh****
      *
      * @var string

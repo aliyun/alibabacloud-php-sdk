@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class systemDisk extends Model
 {
     /**
+     * @var bool
+     */
+    public $burstingEnabled;
+
+    /**
      * @description The algorithm to use to encrypt the system disk. Valid values:
      *
      *   aes-256
@@ -47,10 +52,17 @@ class systemDisk extends Model
      * @var string
      */
     public $KMSKeyId;
+
+    /**
+     * @var int
+     */
+    public $provisionedIops;
     protected $_name = [
+        'burstingEnabled'  => 'BurstingEnabled',
         'encryptAlgorithm' => 'EncryptAlgorithm',
         'encrypted'        => 'Encrypted',
         'KMSKeyId'         => 'KMSKeyId',
+        'provisionedIops'  => 'ProvisionedIops',
     ];
 
     public function validate()
@@ -60,6 +72,9 @@ class systemDisk extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->burstingEnabled) {
+            $res['BurstingEnabled'] = $this->burstingEnabled;
+        }
         if (null !== $this->encryptAlgorithm) {
             $res['EncryptAlgorithm'] = $this->encryptAlgorithm;
         }
@@ -68,6 +83,9 @@ class systemDisk extends Model
         }
         if (null !== $this->KMSKeyId) {
             $res['KMSKeyId'] = $this->KMSKeyId;
+        }
+        if (null !== $this->provisionedIops) {
+            $res['ProvisionedIops'] = $this->provisionedIops;
         }
 
         return $res;
@@ -81,6 +99,9 @@ class systemDisk extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BurstingEnabled'])) {
+            $model->burstingEnabled = $map['BurstingEnabled'];
+        }
         if (isset($map['EncryptAlgorithm'])) {
             $model->encryptAlgorithm = $map['EncryptAlgorithm'];
         }
@@ -89,6 +110,9 @@ class systemDisk extends Model
         }
         if (isset($map['KMSKeyId'])) {
             $model->KMSKeyId = $map['KMSKeyId'];
+        }
+        if (isset($map['ProvisionedIops'])) {
+            $model->provisionedIops = $map['ProvisionedIops'];
         }
 
         return $model;

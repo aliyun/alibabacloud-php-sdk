@@ -4,10 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyNetworkInterfaceAttributeRequest\connectionTrackingConfiguration;
 use AlibabaCloud\Tea\Model;
 
 class ModifyNetworkInterfaceAttributeRequest extends Model
 {
+    /**
+     * @var connectionTrackingConfiguration
+     */
+    public $connectionTrackingConfiguration;
+
     /**
      * @description Specifies whether to release the ENI when the associated instance is released. Valid values:
      *
@@ -129,19 +135,20 @@ class ModifyNetworkInterfaceAttributeRequest extends Model
      */
     public $txQueueSize;
     protected $_name = [
-        'deleteOnRelease'      => 'DeleteOnRelease',
-        'description'          => 'Description',
-        'networkInterfaceId'   => 'NetworkInterfaceId',
-        'networkInterfaceName' => 'NetworkInterfaceName',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'queueNumber'          => 'QueueNumber',
-        'regionId'             => 'RegionId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'rxQueueSize'          => 'RxQueueSize',
-        'securityGroupId'      => 'SecurityGroupId',
-        'txQueueSize'          => 'TxQueueSize',
+        'connectionTrackingConfiguration' => 'ConnectionTrackingConfiguration',
+        'deleteOnRelease'                 => 'DeleteOnRelease',
+        'description'                     => 'Description',
+        'networkInterfaceId'              => 'NetworkInterfaceId',
+        'networkInterfaceName'            => 'NetworkInterfaceName',
+        'ownerAccount'                    => 'OwnerAccount',
+        'ownerId'                         => 'OwnerId',
+        'queueNumber'                     => 'QueueNumber',
+        'regionId'                        => 'RegionId',
+        'resourceOwnerAccount'            => 'ResourceOwnerAccount',
+        'resourceOwnerId'                 => 'ResourceOwnerId',
+        'rxQueueSize'                     => 'RxQueueSize',
+        'securityGroupId'                 => 'SecurityGroupId',
+        'txQueueSize'                     => 'TxQueueSize',
     ];
 
     public function validate()
@@ -151,6 +158,9 @@ class ModifyNetworkInterfaceAttributeRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->connectionTrackingConfiguration) {
+            $res['ConnectionTrackingConfiguration'] = null !== $this->connectionTrackingConfiguration ? $this->connectionTrackingConfiguration->toMap() : null;
+        }
         if (null !== $this->deleteOnRelease) {
             $res['DeleteOnRelease'] = $this->deleteOnRelease;
         }
@@ -202,6 +212,9 @@ class ModifyNetworkInterfaceAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ConnectionTrackingConfiguration'])) {
+            $model->connectionTrackingConfiguration = connectionTrackingConfiguration::fromMap($map['ConnectionTrackingConfiguration']);
+        }
         if (isset($map['DeleteOnRelease'])) {
             $model->deleteOnRelease = $map['DeleteOnRelease'];
         }

@@ -107,8 +107,9 @@ class InvokeCommandShrinkRequest extends Model
     public $frequency;
 
     /**
-     * @description The IDs of the instances on which you want to run the command. You can specify up to 50 instance IDs in each request. Valid values of N: 1 to 50.
+     * @description The IDs of instances on which you want to run the command. You can specify up to 100 instance IDs in each request. Valid values of N: 1 to 100.
      *
+     * You can apply for a quota increase in the Quota Center console. The quota name is Maximum number of instances supported for command execution.
      * @example i-bp185dy2o3o6n****
      *
      * @var string[]

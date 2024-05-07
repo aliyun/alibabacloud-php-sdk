@@ -163,7 +163,7 @@ class RunInstancesRequest extends Model
     public $creditSpecification;
 
     /**
-     * @description Details of the data disks.
+     * @description The data disks.
      *
      * @var dataDisk[]
      */
@@ -354,7 +354,7 @@ class RunInstancesRequest extends Model
     public $instanceChargeType;
 
     /**
-     * @description The name of the instance. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (\_), periods (.), and hyphens (-). The default value of this parameter is the `InstanceId` value.
+     * @description The instance name. The name must be 2 to 128 characters in length and support Unicode characters under the Decimal Number category and the categories whose names contain Letter. The name can contain colons (:), underscores (\_), periods (.), and hyphens (-). The default value of this parameter is the `InstanceId` value.
      *
      * When you batch create instances, you can batch configure sequential names for the instances. For more information, see [Batch configure sequential names or hostnames for multiple instances](~~196048~~).
      * @example k8s-node-[1,4]-alibabacloud
@@ -765,7 +765,7 @@ class RunInstancesRequest extends Model
     public $storageSetPartitionNumber;
 
     /**
-     * @description The tags to add to the instance, disks, and primary ENI. You can specify up to 20 tags.
+     * @description The tags to add to the instance, disks, and primary ENI.
      *
      * @var tag[]
      */

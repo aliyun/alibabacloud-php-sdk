@@ -11,8 +11,8 @@ class DescribeInstanceTypesRequest extends Model
     /**
      * @description The CPU architecture. Valid values:
      *
-     *   X86: x86
-     *   ARM: ARM
+     *   X86
+     *   ARM
      *
      * @example X86
      *
@@ -21,6 +21,13 @@ class DescribeInstanceTypesRequest extends Model
     public $cpuArchitecture;
 
     /**
+     * @description The CPU architectures of instance types. Valid values:
+     *
+     * >  Valid values of N: 1 and 2.
+     *
+     *   X86
+     *   ARM
+     *
      * @var string[]
      */
     public $cpuArchitectures;
@@ -36,11 +43,34 @@ class DescribeInstanceTypesRequest extends Model
     public $GPUSpec;
 
     /**
+     * @description The GPU models of instance types. Valid values of N: 1 to 10.
+     *
      * @var string[]
      */
     public $gpuSpecs;
 
     /**
+     * @description The categories of instance types. Valid values:
+     *
+     * >  Valid values of N: 1 to 10.
+     *
+     *   General-purpose: general-purpose instance type
+     *   Compute-optimized: compute-optimized instance type
+     *   Memory-optimized: memory-optimized instance type
+     *   Big data: big data instance type
+     *   Local SSDs: instance type with local SSDs
+     *   High Clock Speed: instance type with high clock speeds
+     *   Enhanced: enhanced instance type
+     *   Shared: shared instance type
+     *   Compute-optimized with GPU: GPU-accelerated compute-optimized instance type
+     *   Visual Compute-optimized: visual compute-optimized instance type
+     *   Heterogeneous Service: heterogeneous service instance type
+     *   Compute-optimized with FPGA: FPGA-accelerated compute-optimized instance type
+     *   Compute-optimized with NPU: NPU-accelerated compute-optimized instance type
+     *   ECS Bare Metal: ECS Bare Metal Instance type
+     *   Super Computing Cluster: SCC instance type
+     *   High Performance Compute: high-performance computing instance type
+     *
      * @var string[]
      */
     public $instanceCategories;
@@ -63,7 +93,8 @@ class DescribeInstanceTypesRequest extends Model
      *   Compute-optimized with NPU: NPU-accelerated compute-optimized instance type
      *   ECS Bare Metal: ECS Bare Metal Instance type
      *   Super Computing Cluster: Super Computing Cluster (SCC) instance type
-     * - Cloud Physical Server.
+     *   High Performance Compute: high-performance computing instance type
+     *
      * @example Big data
      *
      * @var string
@@ -84,6 +115,8 @@ class DescribeInstanceTypesRequest extends Model
     public $instanceFamilyLevel;
 
     /**
+     * @description The instance families of instance types that you want to query. Valid values of N: 1 to 10.
+     *
      * @var string[]
      */
     public $instanceTypeFamilies;
@@ -108,6 +141,11 @@ class DescribeInstanceTypesRequest extends Model
     public $instanceTypes;
 
     /**
+     * @description The categories of local disks. Valid values of N: 1 and 2. For more information, see [Local disks](~~63138#section_n2w\_8yc\_5u1~~). Valid values:
+     *
+     *   local_hdd_pro: local SATA HDDs, which are attached to d1ne or d1 instances
+     *   local_ssd_pro: local NVMe SSDs, which are attached to i2, i2g, i1, ga1, or gn5 instances
+     *
      * @var string[]
      */
     public $localStorageCategories;
@@ -115,8 +153,13 @@ class DescribeInstanceTypesRequest extends Model
     /**
      * @description The category of local disks. For more information, see [Local disks](~~63138#section_n2w\_8yc\_5u1~~). Valid values:
      *
-     *   local_hdd_pro: local Serial Advanced Technology Attachment (SATA) HDDs, which are used by d1ne or d1 instances
-     *   local_ssd_pro: local Non-Volatile Memory Express (NVMe) SSDs, which are used by i2, i2g, i1, ga1, or gn5 instances
+     *   local_hdd_pro: local Serial Advanced Technology Attachment (SATA) HDDs, which are attached to d1ne or d1 instances.
+     *   local_ssd_pro: local Non-Volatile Memory Express (NVMe) SSDs, which are attached to i2, i2g, i1, ga1, or gn5 instances.
+     *
+     * Enumerated values:
+     *
+     *   local_hdd_pro
+     *   local_ssd_pro
      *
      * @example local_ssd_pro
      *
@@ -125,7 +168,7 @@ class DescribeInstanceTypesRequest extends Model
     public $localStorageCategory;
 
     /**
-     * @description The maximum number of entries to return on each page. Maximum value: 1600.
+     * @description The maximum number of entries per page. Maximum value: 1600.
      *
      * Default value: 1600.
      * @example 10
@@ -405,8 +448,8 @@ class DescribeInstanceTypesRequest extends Model
     /**
      * @description Specifies whether cloud disks can be attached by using the NVMe protocol. Valid values:
      *
-     *   required: The cloud disk can be attached by using the NVMe protocol.
-     *   unsupported: The cloud disk cannot be attached by using the NVMe protocol.
+     *   required: Cloud disks can be attached by using the NVMe protocol.
+     *   unsupported: Cloud disks cannot be attached by using the NVMe protocol.
      *
      * @example required
      *
@@ -435,6 +478,8 @@ class DescribeInstanceTypesRequest extends Model
     public $physicalProcessorModel;
 
     /**
+     * @description The CPU models of instance types. Valid values of N: 1 to 10.
+     *
      * @var string[]
      */
     public $physicalProcessorModels;

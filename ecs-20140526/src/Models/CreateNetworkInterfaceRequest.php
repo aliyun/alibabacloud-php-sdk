@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateNetworkInterfaceRequest\connectionTrackingConfiguration;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateNetworkInterfaceRequest\tag;
 use AlibabaCloud\Tea\Model;
 
@@ -26,6 +27,11 @@ class CreateNetworkInterfaceRequest extends Model
      * @var string
      */
     public $clientToken;
+
+    /**
+     * @var connectionTrackingConfiguration
+     */
+    public $connectionTrackingConfiguration;
 
     /**
      * @description Specifies whether to release the ENI when the associated instance is released. Valid values:
@@ -304,37 +310,38 @@ class CreateNetworkInterfaceRequest extends Model
      */
     public $visible;
     protected $_name = [
-        'businessType'                   => 'BusinessType',
-        'clientToken'                    => 'ClientToken',
-        'deleteOnRelease'                => 'DeleteOnRelease',
-        'description'                    => 'Description',
-        'instanceType'                   => 'InstanceType',
-        'ipv4Prefix'                     => 'Ipv4Prefix',
-        'ipv4PrefixCount'                => 'Ipv4PrefixCount',
-        'ipv6Address'                    => 'Ipv6Address',
-        'ipv6AddressCount'               => 'Ipv6AddressCount',
-        'ipv6Prefix'                     => 'Ipv6Prefix',
-        'ipv6PrefixCount'                => 'Ipv6PrefixCount',
-        'networkInterfaceName'           => 'NetworkInterfaceName',
-        'networkInterfaceTrafficMode'    => 'NetworkInterfaceTrafficMode',
-        'ownerAccount'                   => 'OwnerAccount',
-        'ownerId'                        => 'OwnerId',
-        'primaryIpAddress'               => 'PrimaryIpAddress',
-        'privateIpAddress'               => 'PrivateIpAddress',
-        'queueNumber'                    => 'QueueNumber',
-        'queuePairNumber'                => 'QueuePairNumber',
-        'regionId'                       => 'RegionId',
-        'resourceGroupId'                => 'ResourceGroupId',
-        'resourceOwnerAccount'           => 'ResourceOwnerAccount',
-        'resourceOwnerId'                => 'ResourceOwnerId',
-        'rxQueueSize'                    => 'RxQueueSize',
-        'secondaryPrivateIpAddressCount' => 'SecondaryPrivateIpAddressCount',
-        'securityGroupId'                => 'SecurityGroupId',
-        'securityGroupIds'               => 'SecurityGroupIds',
-        'tag'                            => 'Tag',
-        'txQueueSize'                    => 'TxQueueSize',
-        'vSwitchId'                      => 'VSwitchId',
-        'visible'                        => 'Visible',
+        'businessType'                    => 'BusinessType',
+        'clientToken'                     => 'ClientToken',
+        'connectionTrackingConfiguration' => 'ConnectionTrackingConfiguration',
+        'deleteOnRelease'                 => 'DeleteOnRelease',
+        'description'                     => 'Description',
+        'instanceType'                    => 'InstanceType',
+        'ipv4Prefix'                      => 'Ipv4Prefix',
+        'ipv4PrefixCount'                 => 'Ipv4PrefixCount',
+        'ipv6Address'                     => 'Ipv6Address',
+        'ipv6AddressCount'                => 'Ipv6AddressCount',
+        'ipv6Prefix'                      => 'Ipv6Prefix',
+        'ipv6PrefixCount'                 => 'Ipv6PrefixCount',
+        'networkInterfaceName'            => 'NetworkInterfaceName',
+        'networkInterfaceTrafficMode'     => 'NetworkInterfaceTrafficMode',
+        'ownerAccount'                    => 'OwnerAccount',
+        'ownerId'                         => 'OwnerId',
+        'primaryIpAddress'                => 'PrimaryIpAddress',
+        'privateIpAddress'                => 'PrivateIpAddress',
+        'queueNumber'                     => 'QueueNumber',
+        'queuePairNumber'                 => 'QueuePairNumber',
+        'regionId'                        => 'RegionId',
+        'resourceGroupId'                 => 'ResourceGroupId',
+        'resourceOwnerAccount'            => 'ResourceOwnerAccount',
+        'resourceOwnerId'                 => 'ResourceOwnerId',
+        'rxQueueSize'                     => 'RxQueueSize',
+        'secondaryPrivateIpAddressCount'  => 'SecondaryPrivateIpAddressCount',
+        'securityGroupId'                 => 'SecurityGroupId',
+        'securityGroupIds'                => 'SecurityGroupIds',
+        'tag'                             => 'Tag',
+        'txQueueSize'                     => 'TxQueueSize',
+        'vSwitchId'                       => 'VSwitchId',
+        'visible'                         => 'Visible',
     ];
 
     public function validate()
@@ -349,6 +356,9 @@ class CreateNetworkInterfaceRequest extends Model
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->connectionTrackingConfiguration) {
+            $res['ConnectionTrackingConfiguration'] = null !== $this->connectionTrackingConfiguration ? $this->connectionTrackingConfiguration->toMap() : null;
         }
         if (null !== $this->deleteOnRelease) {
             $res['DeleteOnRelease'] = $this->deleteOnRelease;
@@ -460,6 +470,9 @@ class CreateNetworkInterfaceRequest extends Model
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['ConnectionTrackingConfiguration'])) {
+            $model->connectionTrackingConfiguration = connectionTrackingConfiguration::fromMap($map['ConnectionTrackingConfiguration']);
         }
         if (isset($map['DeleteOnRelease'])) {
             $model->deleteOnRelease = $map['DeleteOnRelease'];

@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfaceAttributeResponseBody\associatedPublicIp;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfaceAttributeResponseBody\attachment;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfaceAttributeResponseBody\bondInterfaceSpecification;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfaceAttributeResponseBody\connectionTrackingConfiguration;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfaceAttributeResponseBody\ipv4PrefixSets;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfaceAttributeResponseBody\ipv6PrefixSets;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfaceAttributeResponseBody\ipv6Sets;
@@ -38,6 +39,11 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
      * @var bondInterfaceSpecification
      */
     public $bondInterfaceSpecification;
+
+    /**
+     * @var connectionTrackingConfiguration
+     */
+    public $connectionTrackingConfiguration;
 
     /**
      * @description The time when the ENI was created.
@@ -319,38 +325,39 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
      */
     public $zoneId;
     protected $_name = [
-        'associatedPublicIp'          => 'AssociatedPublicIp',
-        'attachment'                  => 'Attachment',
-        'bondInterfaceSpecification'  => 'BondInterfaceSpecification',
-        'creationTime'                => 'CreationTime',
-        'deleteOnRelease'             => 'DeleteOnRelease',
-        'description'                 => 'Description',
-        'instanceId'                  => 'InstanceId',
-        'ipv4PrefixSets'              => 'Ipv4PrefixSets',
-        'ipv6PrefixSets'              => 'Ipv6PrefixSets',
-        'ipv6Sets'                    => 'Ipv6Sets',
-        'macAddress'                  => 'MacAddress',
-        'networkInterfaceId'          => 'NetworkInterfaceId',
-        'networkInterfaceName'        => 'NetworkInterfaceName',
-        'networkInterfaceTrafficMode' => 'NetworkInterfaceTrafficMode',
-        'ownerId'                     => 'OwnerId',
-        'privateIpAddress'            => 'PrivateIpAddress',
-        'privateIpSets'               => 'PrivateIpSets',
-        'queueNumber'                 => 'QueueNumber',
-        'queuePairNumber'             => 'QueuePairNumber',
-        'requestId'                   => 'RequestId',
-        'resourceGroupId'             => 'ResourceGroupId',
-        'securityGroupIds'            => 'SecurityGroupIds',
-        'serviceID'                   => 'ServiceID',
-        'serviceManaged'              => 'ServiceManaged',
-        'slaveInterfaceSpecification' => 'SlaveInterfaceSpecification',
-        'status'                      => 'Status',
-        'tags'                        => 'Tags',
-        'tcpOptionAddressEnabled'     => 'TcpOptionAddressEnabled',
-        'type'                        => 'Type',
-        'vSwitchId'                   => 'VSwitchId',
-        'vpcId'                       => 'VpcId',
-        'zoneId'                      => 'ZoneId',
+        'associatedPublicIp'              => 'AssociatedPublicIp',
+        'attachment'                      => 'Attachment',
+        'bondInterfaceSpecification'      => 'BondInterfaceSpecification',
+        'connectionTrackingConfiguration' => 'ConnectionTrackingConfiguration',
+        'creationTime'                    => 'CreationTime',
+        'deleteOnRelease'                 => 'DeleteOnRelease',
+        'description'                     => 'Description',
+        'instanceId'                      => 'InstanceId',
+        'ipv4PrefixSets'                  => 'Ipv4PrefixSets',
+        'ipv6PrefixSets'                  => 'Ipv6PrefixSets',
+        'ipv6Sets'                        => 'Ipv6Sets',
+        'macAddress'                      => 'MacAddress',
+        'networkInterfaceId'              => 'NetworkInterfaceId',
+        'networkInterfaceName'            => 'NetworkInterfaceName',
+        'networkInterfaceTrafficMode'     => 'NetworkInterfaceTrafficMode',
+        'ownerId'                         => 'OwnerId',
+        'privateIpAddress'                => 'PrivateIpAddress',
+        'privateIpSets'                   => 'PrivateIpSets',
+        'queueNumber'                     => 'QueueNumber',
+        'queuePairNumber'                 => 'QueuePairNumber',
+        'requestId'                       => 'RequestId',
+        'resourceGroupId'                 => 'ResourceGroupId',
+        'securityGroupIds'                => 'SecurityGroupIds',
+        'serviceID'                       => 'ServiceID',
+        'serviceManaged'                  => 'ServiceManaged',
+        'slaveInterfaceSpecification'     => 'SlaveInterfaceSpecification',
+        'status'                          => 'Status',
+        'tags'                            => 'Tags',
+        'tcpOptionAddressEnabled'         => 'TcpOptionAddressEnabled',
+        'type'                            => 'Type',
+        'vSwitchId'                       => 'VSwitchId',
+        'vpcId'                           => 'VpcId',
+        'zoneId'                          => 'ZoneId',
     ];
 
     public function validate()
@@ -368,6 +375,9 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
         }
         if (null !== $this->bondInterfaceSpecification) {
             $res['BondInterfaceSpecification'] = null !== $this->bondInterfaceSpecification ? $this->bondInterfaceSpecification->toMap() : null;
+        }
+        if (null !== $this->connectionTrackingConfiguration) {
+            $res['ConnectionTrackingConfiguration'] = null !== $this->connectionTrackingConfiguration ? $this->connectionTrackingConfiguration->toMap() : null;
         }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
@@ -476,6 +486,9 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
         }
         if (isset($map['BondInterfaceSpecification'])) {
             $model->bondInterfaceSpecification = bondInterfaceSpecification::fromMap($map['BondInterfaceSpecification']);
+        }
+        if (isset($map['ConnectionTrackingConfiguration'])) {
+            $model->connectionTrackingConfiguration = connectionTrackingConfiguration::fromMap($map['ConnectionTrackingConfiguration']);
         }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];

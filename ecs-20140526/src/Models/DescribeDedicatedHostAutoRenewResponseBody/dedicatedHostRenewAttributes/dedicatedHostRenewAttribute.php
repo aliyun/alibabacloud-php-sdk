@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class dedicatedHostRenewAttribute extends Model
 {
     /**
-     * @description Indicates whether the subscription dedicated host is automatically renewed along with the subscription Elastic Compute Service (ECS) instances hosted on it if the new expiration time of the renewed instances is later than the expiration time of the dedicated host. Valid values:
+     * @description Indicates whether auto-renewal is enabled. Valid values:
      *
-     *   AutoRenewWithEcs: The subscription dedicated host is automatically renewed along with the subscription ECS instances hosted on it.
-     *   StopRenewWithEcs: The subscription dedicated host is not automatically renewed along with the subscription ECS instances hosted on it.
+     *   true
+     *   false
      *
      * @example false
      *
@@ -21,6 +21,11 @@ class dedicatedHostRenewAttribute extends Model
     public $autoRenewEnabled;
 
     /**
+     * @description Indicates whether the dedicated host is automatically renewed if a subscription ECS instance it hosts, after being automatically renewed, has a new expiration time that is later than that of the dedicated host. Valid values:
+     *
+     *   AutoRenewWithEcs: The dedicated host is automatically renewed along with the ECS instance.
+     *   StopRenewWithEcs: The dedicated host is not automatically renewed along with the ECS instance.
+     *
      * @example StopRenewWithEcs
      *
      * @var string
@@ -28,11 +33,7 @@ class dedicatedHostRenewAttribute extends Model
     public $autoRenewWithEcs;
 
     /**
-     * @description Indicates whether the subscription dedicated host is automatically renewed. Valid values:
-     *
-     *   AutoRenewal: The dedicated host is automatically renewed.
-     *   Normal: The dedicated host is not automatically renewed, and you will receive notifications for renewal.
-     *   NotRenewal: The dedicated host is not renewed, and no expiration notification is sent. Notifications for renewal are automatically sent three days before the dedicated host expires. You can change the value of this parameter from NotRenewal to Normal for the dedicated host and manually renew it by calling the [RenewDedicatedHosts](~~93287~~) operation. Alternatively, you can set this parameter to AutoRenewal to configure the dedicated host to be automatically renewed.
+     * @description The ID of the dedicated host.
      *
      * @example dh-bp165p6xk2tlw61e****
      *
@@ -41,7 +42,7 @@ class dedicatedHostRenewAttribute extends Model
     public $dedicatedHostId;
 
     /**
-     * @description The ID of the dedicated host.
+     * @description The auto-renewal period.
      *
      * @example 0
      *
@@ -50,7 +51,10 @@ class dedicatedHostRenewAttribute extends Model
     public $duration;
 
     /**
-     * @description The auto-renewal period.
+     * @description The unit of the auto-renewal duration. Valid values:
+     *
+     *   Week
+     *   Month
      *
      * @example Month
      *
@@ -61,8 +65,9 @@ class dedicatedHostRenewAttribute extends Model
     /**
      * @description Indicates whether the subscription dedicated host is automatically renewed. Valid values:
      *
-     *   true: The dedicated host is automatically renewed.
-     *   false: The dedicated host is not automatically renewed.
+     *   AutoRenewal: The dedicated host is automatically renewed.
+     *   Normal: The dedicated host is not automatically renewed, but renewal notifications are sent.
+     *   NotRenewal: The dedicated host is not automatically renewed, and no expiration notification is sent. Alibaba Cloud sends only a non-renewal notice three days before the host expires. If the renewal status of a dedicated host is NotRenewal, you can change the value to Normal and then call [RenewDedicatedHosts](~~93287~~) to manually renew the dedicated host, or directly change the value to AutoRenewal.
      *
      * @example Normal
      *

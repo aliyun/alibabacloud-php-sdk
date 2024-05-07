@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class dataDisk extends Model
 {
     /**
+     * @var bool
+     */
+    public $burstingEnabled;
+
+    /**
      * @description The category of data disk N. Valid values of N: 1 to 16. Valid values:
      *
      *   cloud_efficiency: ultra disk
@@ -71,6 +76,11 @@ class dataDisk extends Model
     public $diskName;
 
     /**
+     * @var string
+     */
+    public $encryptAlgorithm;
+
+    /**
      * @description Specifies whether to encrypt data disk N. Valid values:
      *
      *   true
@@ -112,6 +122,11 @@ class dataDisk extends Model
     public $performanceLevel;
 
     /**
+     * @var int
+     */
+    public $provisionedIops;
+
+    /**
      * @description The size of data disk N. Valid values of N: 1 to 16. Unit: GiB. Valid values:
      *
      *   Valid values when LaunchConfiguration.DataDisk.N.Category is set to cloud_efficiency: 20 to 32768.
@@ -148,14 +163,17 @@ class dataDisk extends Model
      */
     public $snapshotId;
     protected $_name = [
+        'burstingEnabled'    => 'BurstingEnabled',
         'category'           => 'Category',
         'deleteWithInstance' => 'DeleteWithInstance',
         'description'        => 'Description',
         'device'             => 'Device',
         'diskName'           => 'DiskName',
+        'encryptAlgorithm'   => 'EncryptAlgorithm',
         'encrypted'          => 'Encrypted',
         'kmsKeyId'           => 'KmsKeyId',
         'performanceLevel'   => 'PerformanceLevel',
+        'provisionedIops'    => 'ProvisionedIops',
         'size'               => 'Size',
         'snapshotId'         => 'SnapshotId',
     ];
@@ -167,6 +185,9 @@ class dataDisk extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->burstingEnabled) {
+            $res['BurstingEnabled'] = $this->burstingEnabled;
+        }
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
@@ -182,6 +203,9 @@ class dataDisk extends Model
         if (null !== $this->diskName) {
             $res['DiskName'] = $this->diskName;
         }
+        if (null !== $this->encryptAlgorithm) {
+            $res['EncryptAlgorithm'] = $this->encryptAlgorithm;
+        }
         if (null !== $this->encrypted) {
             $res['Encrypted'] = $this->encrypted;
         }
@@ -190,6 +214,9 @@ class dataDisk extends Model
         }
         if (null !== $this->performanceLevel) {
             $res['PerformanceLevel'] = $this->performanceLevel;
+        }
+        if (null !== $this->provisionedIops) {
+            $res['ProvisionedIops'] = $this->provisionedIops;
         }
         if (null !== $this->size) {
             $res['Size'] = $this->size;
@@ -209,6 +236,9 @@ class dataDisk extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BurstingEnabled'])) {
+            $model->burstingEnabled = $map['BurstingEnabled'];
+        }
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
@@ -224,6 +254,9 @@ class dataDisk extends Model
         if (isset($map['DiskName'])) {
             $model->diskName = $map['DiskName'];
         }
+        if (isset($map['EncryptAlgorithm'])) {
+            $model->encryptAlgorithm = $map['EncryptAlgorithm'];
+        }
         if (isset($map['Encrypted'])) {
             $model->encrypted = $map['Encrypted'];
         }
@@ -232,6 +265,9 @@ class dataDisk extends Model
         }
         if (isset($map['PerformanceLevel'])) {
             $model->performanceLevel = $map['PerformanceLevel'];
+        }
+        if (isset($map['ProvisionedIops'])) {
+            $model->provisionedIops = $map['ProvisionedIops'];
         }
         if (isset($map['Size'])) {
             $model->size = $map['Size'];

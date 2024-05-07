@@ -56,28 +56,9 @@ class CreateImageRequest extends Model
     public $description;
 
     /**
-     * @description The mode that you want to use to check the source image. If you do not specify this parameter, the source image is not checked. Only Linux images can be checked. Set the value to Standard, which indicates standard check mode.
+     * @description The mode in which to check the custom image. If you do not specify this parameter, the image is not checked. Only the standard check mode is supported.
      *
-     * The following items are checked in standard check mode:
-     *
-     *   Virtio: whether the virtio driver is installed.
-     *   Fstab: whether mounting configurations in the fstab file are correct.
-     *   Grub: whether GRand Unified Bootloader (GRUB) configurations are correct.
-     *   SystemImage: whether the image is valid. Do not import images that are in the ISO format or empty.
-     *   CloudInit: whether cloud-init is installed.
-     *   NVMe: whether the Non-Volatile Memory Express (NVMe) driver is installed.
-     *   Selinux: whether SElinux is enabled.
-     *   OnlineResizeFS: whether the root partition can be automatically resized.
-     *   Dhcp: whether Dynamic Host Configuration Protocol (DHCP) is enabled for network interface controllers (NICs).
-     *   RtcTimeMode: the RTC time mode.
-     *   Platform: the platform. Examples: Linux and Windows.
-     *   OSVersion: the operating system version. Example: Centos 7.9.
-     *   Architecture: the architecture. Examples: ARM and x86\_64.
-     *   BootMode: the boot mode. Examples: UEFI and Legacy.
-     *   KernelVersion: the kernel version.
-     *   CloudAssistant: whether the Cloud Assistant client is installed.
-     *   SecurityCenterAgent: whether the Security Center agent is installed.
-     *
+     * >  This parameter is supported for most Linux and Windows operating system versions. For information about image check items and operating system limits for image check, see [Overview of image check](~~439819~~) and [Operating system limits for image check](~~475800~~).
      * @example Standard
      *
      * @var string
@@ -85,14 +66,14 @@ class CreateImageRequest extends Model
     public $detectionStrategy;
 
     /**
-     * @description The custom images.
+     * @description The information about the custom image.
      *
      * @var diskDeviceMapping[]
      */
     public $diskDeviceMapping;
 
     /**
-     * @description The name of the image family. The name must be 2 to 128 characters in length and can contain digits, colons (:), underscores (\_), and hyphens (-). The name must start with a letter and cannot start with acs: or aliyun. It cannot contain [http:// or https://.](http://https://。、（:）、（\_）（-）。)
+     * @description The name of the image family. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with acs: or aliyun. The name cannot contain http:// or https://. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
      *
      * @example hangzhou-daily-update
      *
@@ -101,7 +82,7 @@ class CreateImageRequest extends Model
     public $imageFamily;
 
     /**
-     * @description The image name. The name must be 2 to 128 characters in length and can contain digits, colons (:), underscores (\_), and hyphens (-). The name must start with a letter but cannot start with [http:// or https://.](http://https://。、（:）、（\_）（-）。)
+     * @description The name of the custom image. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with http:// or https://. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
      *
      * @example TestCentOS
      *
@@ -139,20 +120,34 @@ class CreateImageRequest extends Model
     public $ownerId;
 
     /**
-     * @description The distribution of the operating system for the system disk in the custom image. If you specify a data disk snapshot to create the system disk of the custom image, you must use Platform to specify the distribution of the operating system for the system disk. Valid values:
+     * @description The operating system distribution for the system disk in the custom image. If you specify a data disk snapshot to create the system disk of the custom image, use Platform to specify the operating system distribution for the system disk. Valid values:
      *
+     *   Aliyun
+     *   Anolis
      *   CentOS
      *   Ubuntu
-     *   SUSE
-     *   OpenSUSE
-     *   RedHat
-     *   Debian
      *   CoreOS
-     *   Aliyun
-     *   Windows Server 2012
-     *   Windows 7
+     *   SUSE
+     *   Debian
+     *   OpenSUSE
+     *   FreeBSD
+     *   RedHat
+     *   Kylin
+     *   UOS
+     *   Fedora
+     *   Fedora CoreOS
+     *   CentOS Stream
+     *   AlmaLinux
+     *   Rocky Linux
+     *   Gentoo
      *   Customized Linux
      *   Others Linux
+     *   Windows Server 2022
+     *   Windows Server 2019
+     *   Windows Server 2016
+     *   Windows Server 2012
+     *   Windows Server 2008
+     *   Windows Server 2003
      *
      * Default value: Others Linux.
      * @example CentOS
@@ -171,9 +166,9 @@ class CreateImageRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which you want to assign the custom image. If you leave this parameter empty, the image is assigned to the default resource group.
+     * @description The ID of the resource group to which to assign the custom image. If you do not specify this parameter, the image is assigned to the default resource group.
      *
-     * > If you call the CreateImage operation as a RAM user who is not authorized to manage the default resource group and leave `ResourceGroupId` empty, the `Forbidden: User not authorized to operate on the specified resource` error message is returned. Before you call the CreateImage operation again, you must specify the ID of a resource group that the RAM user is authorized to manage or authorize the RAM user to manage the default resource group.
+     * >  If you call the CreateImage operation as a Resource Access Management (RAM) user who does not have the permissions to manage the default resource group and do not specify `ResourceGroupId`, the `Forbbiden: User not authorized to operate on the specified resource` error message is returned. You must specify the ID of a resource group that the RAM user has the permissions to manage or grant the RAM user the permissions to manage the default resource group before you call the CreateImage operation again.
      * @example rg-bp67acfmxazb4p****
      *
      * @var string
@@ -191,7 +186,7 @@ class CreateImageRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the snapshot that is used to create the custom image.
+     * @description The ID of the snapshot that you want to use to create the custom image.
      *
      * @example s-bp17441ohwkdca0****
      *
