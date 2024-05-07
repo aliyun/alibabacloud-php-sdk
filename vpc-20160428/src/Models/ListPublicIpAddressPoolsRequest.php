@@ -122,6 +122,13 @@ class ListPublicIpAddressPoolsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description Specifies whether to enable Anti-DDoS Pro/Premium. Valid values:
+     *
+     *   **false**
+     *   **true**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $securityProtectionEnabled;

@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyNatGatewayAttributeRequest\logDelivery;
 use AlibabaCloud\Tea\Model;
 
-class ModifyNatGatewayAttributeRequest extends Model
+class ModifyNatGatewayAttributeShrinkRequest extends Model
 {
     /**
      * @description The description of the NAT gateway.
@@ -55,9 +54,9 @@ class ModifyNatGatewayAttributeRequest extends Model
     public $icmpReplyEnabled;
 
     /**
-     * @var logDelivery
+     * @var string
      */
-    public $logDelivery;
+    public $logDeliveryShrink;
 
     /**
      * @description The name of the NAT gateway.
@@ -112,7 +111,7 @@ class ModifyNatGatewayAttributeRequest extends Model
         'eipBindMode'          => 'EipBindMode',
         'enableSessionLog'     => 'EnableSessionLog',
         'icmpReplyEnabled'     => 'IcmpReplyEnabled',
-        'logDelivery'          => 'LogDelivery',
+        'logDeliveryShrink'    => 'LogDelivery',
         'name'                 => 'Name',
         'natGatewayId'         => 'NatGatewayId',
         'ownerAccount'         => 'OwnerAccount',
@@ -141,8 +140,8 @@ class ModifyNatGatewayAttributeRequest extends Model
         if (null !== $this->icmpReplyEnabled) {
             $res['IcmpReplyEnabled'] = $this->icmpReplyEnabled;
         }
-        if (null !== $this->logDelivery) {
-            $res['LogDelivery'] = null !== $this->logDelivery ? $this->logDelivery->toMap() : null;
+        if (null !== $this->logDeliveryShrink) {
+            $res['LogDelivery'] = $this->logDeliveryShrink;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -172,7 +171,7 @@ class ModifyNatGatewayAttributeRequest extends Model
     /**
      * @param array $map
      *
-     * @return ModifyNatGatewayAttributeRequest
+     * @return ModifyNatGatewayAttributeShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -190,7 +189,7 @@ class ModifyNatGatewayAttributeRequest extends Model
             $model->icmpReplyEnabled = $map['IcmpReplyEnabled'];
         }
         if (isset($map['LogDelivery'])) {
-            $model->logDelivery = logDelivery::fromMap($map['LogDelivery']);
+            $model->logDeliveryShrink = $map['LogDelivery'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

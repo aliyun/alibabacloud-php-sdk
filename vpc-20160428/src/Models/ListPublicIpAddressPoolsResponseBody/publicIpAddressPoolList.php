@@ -10,10 +10,10 @@ use AlibabaCloud\Tea\Model;
 class publicIpAddressPoolList extends Model
 {
     /**
-     * @description The service type of the IP address pool. Valid values:
+     * @description The service type of the IP address pool.
      *
-     *   **CloudBox**: the cloud box service type. Only cloud box users can select this type.
-     *   **Default** (default): the general service type.
+     *   **CloudBox** Only cloud box users can select this type.
+     *   **Default** (default)
      *
      * @example CloudBox
      *
@@ -31,7 +31,7 @@ class publicIpAddressPoolList extends Model
     public $creationTime;
 
     /**
-     * @description The information about the IP address pool.
+     * @description The description of the IP address pool.
      *
      * @example AddressPoolDescription
      *
@@ -40,7 +40,7 @@ class publicIpAddressPoolList extends Model
     public $description;
 
     /**
-     * @description Indicates whether the IP address pool has idle IP addresses. Valid values:
+     * @description Indicates whether idle IP addresses exist.
      *
      *   **true**
      *   **false**
@@ -52,10 +52,10 @@ class publicIpAddressPoolList extends Model
     public $ipAddressRemaining;
 
     /**
-     * @description The line type. Valid values:
+     * @description The line type.
      *
-     *   **BGP**: BGP (Multi-ISP) line
-     *   **BGP_PRO**: BGP (Multi-ISP) Pro line
+     *   **BGP**: BGP (Multi-ISP)
+     *   **BGP_PRO**: BGP (Multi-ISP) Pro
      *
      * If you are allowed to use single-ISP bandwidth, one of the following values may be returned:
      *
@@ -101,7 +101,7 @@ class publicIpAddressPoolList extends Model
     public $publicIpAddressPoolId;
 
     /**
-     * @description The ID of the region in which the IP address pool that you want to query resides.
+     * @description The region ID of the IP address pool.
      *
      * @example cn-chengdu
      *
@@ -119,15 +119,20 @@ class publicIpAddressPoolList extends Model
     public $resourceGroupId;
 
     /**
+     * @description The edition of Anti-DDoS.
+     *
+     *   If you do not set this parameter, Anti-DDoS Origin Basic is used.
+     *   If the value is set to **AntiDDoS_Enhanced**, Anti-DDoS Pro/Premium is used.
+     *
      * @var string[]
      */
     public $securityProtectionTypes;
 
     /**
-     * @description Indicates whether the IP address pool is shared.
+     * @description The sharing type of the IP address pool.
      *
-     *   Only **Shared** may be returned.
-     *   An empty value indicates that the IP address pool is not shared.
+     *   If **Shared** is returned, the IP address pool is shared.
+     *   If an empty value is returned, the IP address pool is not shared.
      *
      * @example Shared
      *
@@ -136,7 +141,7 @@ class publicIpAddressPoolList extends Model
     public $shareType;
 
     /**
-     * @description The status of the IP address pool. Valid values:
+     * @description The status of the IP address pool.
      *
      *   **Created**
      *   **Deleting**
@@ -149,14 +154,14 @@ class publicIpAddressPoolList extends Model
     public $status;
 
     /**
-     * @description The tags.
+     * @description The tag list.
      *
      * @var tags[]
      */
     public $tags;
 
     /**
-     * @description The total number of IP addresses in the public IP address pool.
+     * @description The total number of available IP addresses in the public IP address pool.
      *
      * @example 100
      *
@@ -165,7 +170,7 @@ class publicIpAddressPoolList extends Model
     public $totalIpNum;
 
     /**
-     * @description The number of occupied IP addresses in the public IP address pool.
+     * @description The number of used IP addresses in the public IP address pool.
      *
      * @example 20
      *
@@ -176,8 +181,8 @@ class publicIpAddressPoolList extends Model
     /**
      * @description The user type. Valid values:
      *
-     *   **admin**: administrator. An administrator can delete, modify, and query IP address pools and allocate elastic IP addresses (EIPs) to IP address pools.
-     *   **user**: regular user. A regular user can only allocate EIPs to IP address pools and query IP address pools. A regular user cannot modify or delete IP address pools.
+     *   **admin**: An administrator can delete, modify, and query IP address pools, and can assign elastic IP addresses (EIPs) to the pool.
+     *   **user**: A user can only assign EIPs to the IP address pool and query the IP address pool, but cannot modify or delete the IP address pool.
      *
      * @example admin
      *
@@ -186,7 +191,7 @@ class publicIpAddressPoolList extends Model
     public $userType;
 
     /**
-     * @description The zones of the IP address pool. This parameter is returned only when BizType is set to CloudBox.
+     * @description The zone of the IP address pool. This parameter is returned only when the service type of the IP address pool is CloudBox.
      *
      * @var string[]
      */

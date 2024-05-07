@@ -94,6 +94,11 @@ class natGateway extends Model
     public $eipBindMode;
 
     /**
+     * @var string
+     */
+    public $enableSessionLog;
+
+    /**
      * @description The time when the NAT gateway expires.
      *
      * @example 2021-08-26T16:00Z
@@ -312,6 +317,7 @@ class natGateway extends Model
         'description'               => 'Description',
         'ecsMetricEnabled'          => 'EcsMetricEnabled',
         'eipBindMode'               => 'EipBindMode',
+        'enableSessionLog'          => 'EnableSessionLog',
         'expiredTime'               => 'ExpiredTime',
         'forwardTableIds'           => 'ForwardTableIds',
         'fullNatTableIds'           => 'FullNatTableIds',
@@ -363,6 +369,9 @@ class natGateway extends Model
         }
         if (null !== $this->eipBindMode) {
             $res['EipBindMode'] = $this->eipBindMode;
+        }
+        if (null !== $this->enableSessionLog) {
+            $res['EnableSessionLog'] = $this->enableSessionLog;
         }
         if (null !== $this->expiredTime) {
             $res['ExpiredTime'] = $this->expiredTime;
@@ -462,6 +471,9 @@ class natGateway extends Model
         }
         if (isset($map['EipBindMode'])) {
             $model->eipBindMode = $map['EipBindMode'];
+        }
+        if (isset($map['EnableSessionLog'])) {
+            $model->enableSessionLog = $map['EnableSessionLog'];
         }
         if (isset($map['ExpiredTime'])) {
             $model->expiredTime = $map['ExpiredTime'];

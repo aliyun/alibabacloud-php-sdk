@@ -9,6 +9,7 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\GetNatGatewayAttributeResponseBody\del
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetNatGatewayAttributeResponseBody\forwardTable;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetNatGatewayAttributeResponseBody\fullNatTable;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetNatGatewayAttributeResponseBody\ipList;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\GetNatGatewayAttributeResponseBody\logDelivery;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetNatGatewayAttributeResponseBody\privateInfo;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetNatGatewayAttributeResponseBody\snatTable;
 use AlibabaCloud\Tea\Model;
@@ -72,6 +73,11 @@ class GetNatGatewayAttributeResponseBody extends Model
     public $ecsMetricEnabled;
 
     /**
+     * @var bool
+     */
+    public $enableSessionLog;
+
+    /**
      * @description The time when the NAT gateway expires.
      *
      * @example 2021-12-26T12:20:20Z
@@ -100,6 +106,11 @@ class GetNatGatewayAttributeResponseBody extends Model
      * @var ipList[]
      */
     public $ipList;
+
+    /**
+     * @var logDelivery
+     */
+    public $logDelivery;
 
     /**
      * @description The name of the NAT gateway.
@@ -235,10 +246,12 @@ class GetNatGatewayAttributeResponseBody extends Model
         'deletionProtectionInfo' => 'DeletionProtectionInfo',
         'description'            => 'Description',
         'ecsMetricEnabled'       => 'EcsMetricEnabled',
+        'enableSessionLog'       => 'EnableSessionLog',
         'expiredTime'            => 'ExpiredTime',
         'forwardTable'           => 'ForwardTable',
         'fullNatTable'           => 'FullNatTable',
         'ipList'                 => 'IpList',
+        'logDelivery'            => 'LogDelivery',
         'name'                   => 'Name',
         'natGatewayId'           => 'NatGatewayId',
         'natType'                => 'NatType',
@@ -279,6 +292,9 @@ class GetNatGatewayAttributeResponseBody extends Model
         if (null !== $this->ecsMetricEnabled) {
             $res['EcsMetricEnabled'] = $this->ecsMetricEnabled;
         }
+        if (null !== $this->enableSessionLog) {
+            $res['EnableSessionLog'] = $this->enableSessionLog;
+        }
         if (null !== $this->expiredTime) {
             $res['ExpiredTime'] = $this->expiredTime;
         }
@@ -296,6 +312,9 @@ class GetNatGatewayAttributeResponseBody extends Model
                     $res['IpList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->logDelivery) {
+            $res['LogDelivery'] = null !== $this->logDelivery ? $this->logDelivery->toMap() : null;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -366,6 +385,9 @@ class GetNatGatewayAttributeResponseBody extends Model
         if (isset($map['EcsMetricEnabled'])) {
             $model->ecsMetricEnabled = $map['EcsMetricEnabled'];
         }
+        if (isset($map['EnableSessionLog'])) {
+            $model->enableSessionLog = $map['EnableSessionLog'];
+        }
         if (isset($map['ExpiredTime'])) {
             $model->expiredTime = $map['ExpiredTime'];
         }
@@ -383,6 +405,9 @@ class GetNatGatewayAttributeResponseBody extends Model
                     $model->ipList[$n++] = null !== $item ? ipList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['LogDelivery'])) {
+            $model->logDelivery = logDelivery::fromMap($map['LogDelivery']);
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

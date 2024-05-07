@@ -612,6 +612,7 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyIPv6TranslatorEntryRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyIPv6TranslatorEntryResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyNatGatewayAttributeRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyNatGatewayAttributeResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyNatGatewayAttributeShrinkRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyNatGatewaySpecRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyNatGatewaySpecResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyNatIpAttributeRequest;
@@ -23855,14 +23856,19 @@ class Vpc extends OpenApiClient
      * ## [](#)Description
      *   * You can call this operation to query an Internet NAT gateway or a virtual private cloud (VPC) NAT gateway. The term NAT gateway in this topic refers to both NAT gateway types.
      *   *
-     * @param ModifyNatGatewayAttributeRequest $request ModifyNatGatewayAttributeRequest
+     * @param ModifyNatGatewayAttributeRequest $tmpReq  ModifyNatGatewayAttributeRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
      * @return ModifyNatGatewayAttributeResponse ModifyNatGatewayAttributeResponse
      */
-    public function modifyNatGatewayAttributeWithOptions($request, $runtime)
+    public function modifyNatGatewayAttributeWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new ModifyNatGatewayAttributeShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->logDelivery)) {
+            $request->logDeliveryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->logDelivery, 'LogDelivery', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
@@ -23870,8 +23876,14 @@ class Vpc extends OpenApiClient
         if (!Utils::isUnset($request->eipBindMode)) {
             $query['EipBindMode'] = $request->eipBindMode;
         }
+        if (!Utils::isUnset($request->enableSessionLog)) {
+            $query['EnableSessionLog'] = $request->enableSessionLog;
+        }
         if (!Utils::isUnset($request->icmpReplyEnabled)) {
             $query['IcmpReplyEnabled'] = $request->icmpReplyEnabled;
+        }
+        if (!Utils::isUnset($request->logDeliveryShrink)) {
+            $query['LogDelivery'] = $request->logDeliveryShrink;
         }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
