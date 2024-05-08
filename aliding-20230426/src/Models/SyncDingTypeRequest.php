@@ -17,6 +17,13 @@ class SyncDingTypeRequest extends Model
     public $dingType;
 
     /**
+     * @example y
+     *
+     * @var string
+     */
+    public $isDimission;
+
+    /**
      * @example antding
      *
      * @var string
@@ -36,6 +43,7 @@ class SyncDingTypeRequest extends Model
     public $workNo;
     protected $_name = [
         'dingType'      => 'DingType',
+        'isDimission'   => 'IsDimission',
         'source'        => 'Source',
         'tenantContext' => 'TenantContext',
         'workNo'        => 'WorkNo',
@@ -50,6 +58,9 @@ class SyncDingTypeRequest extends Model
         $res = [];
         if (null !== $this->dingType) {
             $res['DingType'] = $this->dingType;
+        }
+        if (null !== $this->isDimission) {
+            $res['IsDimission'] = $this->isDimission;
         }
         if (null !== $this->source) {
             $res['Source'] = $this->source;
@@ -74,6 +85,9 @@ class SyncDingTypeRequest extends Model
         $model = new self();
         if (isset($map['DingType'])) {
             $model->dingType = $map['DingType'];
+        }
+        if (isset($map['IsDimission'])) {
+            $model->isDimission = $map['IsDimission'];
         }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];

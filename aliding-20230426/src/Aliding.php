@@ -12537,6 +12537,9 @@ class Aliding extends OpenApiClient
         if (!Utils::isUnset($request->dingType)) {
             $body['DingType'] = $request->dingType;
         }
+        if (!Utils::isUnset($request->isDimission)) {
+            $body['IsDimission'] = $request->isDimission;
+        }
         if (!Utils::isUnset($request->source)) {
             $body['Source'] = $request->source;
         }
