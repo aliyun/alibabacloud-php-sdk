@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class dedicatedHostType extends Model
 {
     /**
-     * @description The number of cores in a single physical CPU.
+     * @description The number of cores per physical CPU.
      *
      * @example 2
      *
@@ -29,7 +29,7 @@ class dedicatedHostType extends Model
     public $cpuOverCommitRatioRange;
 
     /**
-     * @description The type of the dedicated host. You can submit a ticket to request more dedicated host types.
+     * @description The dedicated host type.
      *
      * @example ddh.sn1ne
      *
@@ -65,7 +65,7 @@ class dedicatedHostType extends Model
     public $localStorageCapacity;
 
     /**
-     * @description The category of the local disks.
+     * @description The category of local disks.
      *
      * @example local
      *
@@ -74,7 +74,7 @@ class dedicatedHostType extends Model
     public $localStorageCategory;
 
     /**
-     * @description The size of the memory. Unit: GiB.
+     * @description The memory size. Unit: GiB.
      *
      * @example 112.0
      *
@@ -101,7 +101,7 @@ class dedicatedHostType extends Model
     public $sockets;
 
     /**
-     * @description Indicates whether the CPU overcommit ratio setting is supported.
+     * @description Indicates whether the CPU overcommit ratio settings are supported.
      *
      * @example true
      *
@@ -110,14 +110,14 @@ class dedicatedHostType extends Model
     public $supportCpuOverCommitRatio;
 
     /**
-     * @description The ECS instance families supported by the dedicated host.
+     * @description The ECS instance families supported by the dedicated host type.
      *
      * @var supportedInstanceTypeFamilies
      */
     public $supportedInstanceTypeFamilies;
 
     /**
-     * @description The ECS instance types supported by the dedicated host.
+     * @description The ECS instance types supported by the dedicated host type.
      *
      * @var supportedInstanceTypesList
      */

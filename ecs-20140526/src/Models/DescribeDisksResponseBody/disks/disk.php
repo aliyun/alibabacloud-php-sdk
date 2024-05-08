@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDisksResponseBody\disks;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDisksResponseBody\disks\disk\attachments;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDisksResponseBody\disks\disk\mountInstances;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDisksResponseBody\disks\disk\operationLocks;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDisksResponseBody\disks\disk\placement;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDisksResponseBody\disks\disk\tags;
 use AlibabaCloud\Tea\Model;
 
@@ -314,6 +315,11 @@ class disk extends Model
     public $performanceLevel;
 
     /**
+     * @var placement
+     */
+    public $placement;
+
+    /**
      * @description Indicates whether the disk is removable.
      *
      * @example false
@@ -515,6 +521,7 @@ class disk extends Model
         'multiAttach'                   => 'MultiAttach',
         'operationLocks'                => 'OperationLocks',
         'performanceLevel'              => 'PerformanceLevel',
+        'placement'                     => 'Placement',
         'portable'                      => 'Portable',
         'productCode'                   => 'ProductCode',
         'provisionedIops'               => 'ProvisionedIops',
@@ -631,6 +638,9 @@ class disk extends Model
         }
         if (null !== $this->performanceLevel) {
             $res['PerformanceLevel'] = $this->performanceLevel;
+        }
+        if (null !== $this->placement) {
+            $res['Placement'] = null !== $this->placement ? $this->placement->toMap() : null;
         }
         if (null !== $this->portable) {
             $res['Portable'] = $this->portable;
@@ -787,6 +797,9 @@ class disk extends Model
         }
         if (isset($map['PerformanceLevel'])) {
             $model->performanceLevel = $map['PerformanceLevel'];
+        }
+        if (isset($map['Placement'])) {
+            $model->placement = placement::fromMap($map['Placement']);
         }
         if (isset($map['Portable'])) {
             $model->portable = $map['Portable'];

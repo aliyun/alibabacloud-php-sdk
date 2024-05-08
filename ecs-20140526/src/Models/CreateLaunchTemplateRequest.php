@@ -21,9 +21,9 @@ class CreateLaunchTemplateRequest extends Model
     /**
      * @description The automatic release time of the instance. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
-     *   If the value of seconds (`ss`) is not `00`, the time is automatically rounded to the nearest minute based on the value of minutes (`mm`).
-     *   The release time must be at least 30 minutes later than the current time.
-     *   The release time must be at most three years from the current time.
+     *   If the value of `ss` is not `00`, the time is automatically rounded down to the nearest minute based on the value of `mm`.
+     *   The specified time must be at least 30 minutes later than the current time.
+     *   The specified time can be at most three years later than the current time.
      *
      * @example 2018-01-01T12:05:00Z
      *
@@ -34,8 +34,8 @@ class CreateLaunchTemplateRequest extends Model
     /**
      * @description The performance mode of the burstable instance. Valid values:
      *
-     *   Standard: the standard mode. For more information, see the "Standard mode" section in [Burstable instances](~~59977~~).
-     *   Unlimited: the unlimited mode. For more information, see the "Unlimited mode" section in [Burstable instances](~~59977~~).
+     *   Standard: the standard mode. For more information, see the "Standard mode" section in [Overview of burstable instances](~~59977~~).
+     *   Unlimited: the unlimited mode. For more information, see the "Unlimited mode" section in [Overview of burstable instances](~~59977~~).
      *
      * @example Standard
      *
@@ -51,9 +51,12 @@ class CreateLaunchTemplateRequest extends Model
     public $dataDisk;
 
     /**
-     * @description Specifies whether to enable release protection for the instance. This parameter determines whether you can use the ECS console or call the [DeleteInstance](~~25507~~) operation to release the instance. Valid values:
+     * @description Specifies whether to enable release protection for the instance. This parameter specifies whether you can use the ECS console or call the [DeleteInstance](~~25507~~) operation to release the instance. Valid values:
      *
-     * >This parameter is applicable only to pay-as-you-go instances. It can protect instances against manual releases, but not against automatic releases.
+     *   true
+     *   false
+     *
+     * >  This parameter is applicable only to pay-as-you-go instances. The release protection feature can protect instances against manual releases, but not against automatic releases.
      * @example false
      *
      * @var bool
@@ -113,10 +116,10 @@ class CreateLaunchTemplateRequest extends Model
     /**
      * @description The source of the image. Valid values:
      *
-     *   system: public images provided by Alibaba Cloud
-     *   self: custom images that you create.
-     *   others: shared images from other Alibaba Cloud accounts.
-     *   marketplace: [Alibaba Cloud Marketplace](https://market.aliyun.com/) images. If Alibaba Cloud Marketplace images are found, you can use these images without prior subscription. You must pay attention to the billing details of Alibaba Cloud Marketplace images.
+     *   system: public image provided by Alibaba Cloud.
+     *   self: custom image that you created.
+     *   others: shared image from another Alibaba Cloud account.
+     *   marketplace:[Alibaba Cloud Marketplace](https://marketplace.alibabacloud.com/) image. If Alibaba Cloud Marketplace images are available, you can use the images without the need to subscribe to the images. Take note of the billing details of Alibaba Cloud Marketplace images.
      *
      * @example system
      *
@@ -127,7 +130,7 @@ class CreateLaunchTemplateRequest extends Model
     /**
      * @description The billing method of the instance. Valid values:
      *
-     *   PrePaid: subscription. If you set this parameter to PrePaid, make sure that you have sufficient balance and credit in your account. Otherwise, an `InvalidPayMethod` error is returned.
+     *   PrePaid: subscription. If you set this parameter to PrePaid, make sure that your account has sufficient credits.Otherwise, an `InvalidPayMethod` error is returned.
      *   PostPaid: pay-as-you-go.
      *
      * @example PrePaid
@@ -137,7 +140,7 @@ class CreateLaunchTemplateRequest extends Model
     public $instanceChargeType;
 
     /**
-     * @description The name of the instance. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The name of the instance. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
      *
      * @example testInstanceName
      *
@@ -222,7 +225,7 @@ class CreateLaunchTemplateRequest extends Model
     public $keyPairName;
 
     /**
-     * @description The name of the launch template. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The name of the launch template. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
      *
      * @example testLaunchTemplateName
      *
@@ -231,7 +234,7 @@ class CreateLaunchTemplateRequest extends Model
     public $launchTemplateName;
 
     /**
-     * @description The information of the ENI.
+     * @description The information of the ENIs.
      *
      * @var networkInterface[]
      */
@@ -360,7 +363,10 @@ class CreateLaunchTemplateRequest extends Model
     /**
      * @description The protection period of the preemptible instance. Unit: hours. Default value: 1. Valid values:
      *
-     * >If you set SpotStrategy to SpotWithPriceLimit or SpotAsPriceGo, this parameter takes effect.
+     *   1: After a preemptible instance is created, Alibaba Cloud ensures that the instance is not automatically released within 1 hour. After the 1-hour protection period ends, the system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
+     *   0: After a preemptible instance is created, Alibaba Cloud does not ensure that the instance runs for 1 hour. The system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
+     *
+     * >  This parameter takes effect only if you set SpotStrategy to SpotWithPriceLimit or SpotAsPriceGo.
      * @example 1
      *
      * @var int

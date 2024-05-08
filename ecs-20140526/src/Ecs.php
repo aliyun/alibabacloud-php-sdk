@@ -1838,6 +1838,9 @@ class Ecs extends OpenApiClient
         if (!Utils::isUnset($request->diskId)) {
             $query['DiskId'] = $request->diskId;
         }
+        if (!Utils::isUnset($request->force)) {
+            $query['Force'] = $request->force;
+        }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
@@ -5577,7 +5580,8 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * If you want to modify the parameters of a launch template version, you can create another version with different parameter settings for the launch template. A maximum of 30 versions can be created for each launch template.
+     * ## [](#)Usage notes
+     *   * If you want to modify the parameters of a launch template version, you can create another version with different parameter settings for the launch template. You can create up to 30 versions for each launch template.
      *   *
      * @param CreateLaunchTemplateVersionRequest $request CreateLaunchTemplateVersionRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -5748,7 +5752,8 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * If you want to modify the parameters of a launch template version, you can create another version with different parameter settings for the launch template. A maximum of 30 versions can be created for each launch template.
+     * ## [](#)Usage notes
+     *   * If you want to modify the parameters of a launch template version, you can create another version with different parameter settings for the launch template. You can create up to 30 versions for each launch template.
      *   *
      * @param CreateLaunchTemplateVersionRequest $request CreateLaunchTemplateVersionRequest
      *

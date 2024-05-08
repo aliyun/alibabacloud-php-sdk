@@ -35,9 +35,11 @@ class systemDisk extends Model
      *   cloud: basic disk.
      *   cloud_efficiency: ultra disk.
      *   cloud_ssd: standard SSD.
-     *   cloud_essd: enhanced SSD (ESSD). You can use the `SystemDisk.PerformanceLevel` parameter to set the performance level of the ESSD to use as the system disk. cloud_auto: ESSD AutoPL disk.
+     *   cloud_essd: enhanced SSD (ESSD). You can use `SystemDisk.PerformanceLevel` to set the performance level of the ESSD to use as the system disk.
+     *   cloud_auto: ESSD AutoPL disk.
+     *   cloud_essd_entry: ESSD Entry disk.
      *
-     * For non-I/O optimized instances of a retired instance type, the default value is cloud. For other types of instances, the default value is cloud_efficiency.
+     * For non-I/O optimized instances of retired instance types, the default value is cloud. For other types of instances, the default value is cloud_efficiency.
      * @example cloud_ssd
      *
      * @var string
@@ -47,8 +49,8 @@ class systemDisk extends Model
     /**
      * @description Specifies whether to release the system disk when the instance is released. Valid values:
      *
-     *   true: releases the system disk when the instance is released.
-     *   false: does not release the system disk when the instance is released.
+     *   true
+     *   false
      *
      * Default value: true.
      * @example true
@@ -67,7 +69,7 @@ class systemDisk extends Model
     public $description;
 
     /**
-     * @description The name of the system disk. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The name of the system disk. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
      *
      * @example testSystemDiskName
      *
@@ -76,9 +78,12 @@ class systemDisk extends Model
     public $diskName;
 
     /**
-     * @description 系统盘是否加密。取值范围：
+     * @description Specifies whether to encrypt the system disk. Valid values:
      *
-     * >中国香港D可用区、新加坡A可用区暂不支持在创建实例时加密系统盘。
+     *   true
+     *   false
+     *
+     * >  If you create an instance in Hong Kong Zone D or Singapore Zone A, you cannot encrypt the system disk.
      * @example false
      *
      * @var string
@@ -120,9 +125,12 @@ class systemDisk extends Model
     public $provisionedIops;
 
     /**
-     * @description The size of the system disk. Unit: GiB. Valid values: 20 to 500.
+     * @description The size of the system disk. Unit: GiB. Valid values:
      *
-     * The value of this parameter must be at least 20 and greater than or equal to the size of the specified image.
+     *   Valid values if you set SystemDisk.Category to cloud: 20 to 500.
+     *   Valid values if you set SystemDisk.Category to other disk categories: 20 to 2048.
+     *
+     * The value of this parameter must be at least 20 and greater than or equal to the size of the image.
      * @example 40
      *
      * @var int

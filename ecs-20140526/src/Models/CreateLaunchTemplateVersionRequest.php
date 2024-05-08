@@ -18,11 +18,11 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $systemDisk;
 
     /**
-     * @description The automatic release time of the instance. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * @description The automatic release time of the instance. Specify the time in the [ISO 8601 standard](~~25696~~) in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
-     *   If the value of `ss` is not `00`, the time is automatically rounded to the nearest minute based on the value of `mm`.
+     *   If the value of `ss` is not `00`, the time is automatically rounded down to the nearest minute based on the value of `mm`.
      *   The specified time must be at least 30 minutes later than the current time.
-     *   The specified time can be at most three years from the current time.
+     *   The specified time can be at most three years later than the current time.
      *
      * @example 2018-01-01T12:05:00Z
      *
@@ -33,8 +33,8 @@ class CreateLaunchTemplateVersionRequest extends Model
     /**
      * @description The performance mode of the burstable instance. Valid values:
      *
-     *   Standard: the standard mode. For more information, see the "Standard mode" section in [Burstable instances](~~59977~~).
-     *   Unlimited: the unlimited mode. For more information, see the "Unlimited mode" section in [Burstable instances](~~59977~~).
+     *   Standard: the standard mode. For more information, see the "Standard mode" section in [Overview of burstable instances](~~59977~~).
+     *   Unlimited: the unlimited mode. For more information, see the "Unlimited mode" section in [Overview of burstable instances](~~59977~~).
      *
      * @example Standard
      *
@@ -50,9 +50,12 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $dataDisk;
 
     /**
-     * @description Specifies whether to enable release protection for the instance. This parameter determines whether you can use the ECS console or call the [DeleteInstance](~~25507~~) operation to release the instance. Valid values:
+     * @description Specifies whether to enable release protection for the instance. This parameter specifies whether you can use the ECS console or call the [DeleteInstance](~~25507~~) operation to release the instance. Valid values:
      *
-     * >This parameter is applicable only to pay-as-you-go instances. It can protect instances against manual releases, but not against automatic releases.
+     *   true
+     *   false
+     *
+     * >  This parameter is applicable only to pay-as-you-go instances. The release protection feature can protect instances against manual releases, but not against automatic releases.
      * @example false
      *
      * @var bool
@@ -131,7 +134,7 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $instanceChargeType;
 
     /**
-     * @description The instance name. The name must be 2 to 128 characters in length, It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The name of the instance. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
      *
      * @example testInstanceName
      *
@@ -216,7 +219,7 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $keyPairName;
 
     /**
-     * @description The ID of the launch template. For more information, see [DescribeLaunchTemplates](~~73759~~). You must specify `LaunchTemplateId` or `LaunchTemplateName` to specify a launch template.
+     * @description The ID of the launch template. For more information, call the [DescribeLaunchTemplates](~~73759~~) operation. You must specify `LaunchTemplateId` or `LaunchTemplateName` to specify a launch template.
      *
      * @example lt-m5eiaupmvm2op9d****
      *
@@ -225,7 +228,7 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $launchTemplateId;
 
     /**
-     * @description The name of the launch template. The name must be 2 to 128 characters in length, It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The name of the launch template. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
      *
      * @example testLaunchTemplateName
      *
@@ -234,7 +237,7 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $launchTemplateName;
 
     /**
-     * @description The information of the ENI.
+     * @description The information of the elastic network interfaces (ENIs).
      *
      * @var networkInterface[]
      */
@@ -265,10 +268,10 @@ class CreateLaunchTemplateVersionRequest extends Model
     /**
      * @description Specifies whether to use the password that is preconfigured in the image. Valid values:
      *
-     *   true: uses the password that is preconfigured in the mage.
-     *   false: does not use the password that is preconfigured in the image.
+     *   true
+     *   false
      *
-     * > If the PasswordInherit parameter is specified, you must leave the Password parameter empty. Before you use this parameter, make sure that a password is preset for the image.
+     * >  If you specify PasswordInherit, you must leave Password empty and make sure that a password is preconfigured for the image.
      * @example false
      *
      * @var bool
@@ -364,12 +367,12 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $securityGroupIds;
 
     /**
-     * @description The retention period of the preemptible instance. Unit: hours. Valid values: 0, 1, 2, 3, 4, 5, and 6
+     * @description The protection period of the preemptible instance. Unit: hours. Default value: 1. Valid values:
      *
-     *   The following protection periods are available in invitational preview: 2, 3, 4, 5, and 6 hours. If you want to set this parameter to one of these values, submit a ticket.
-     *   A value of 0 indicates that no protection period is configured for the preemptible instance.
+     *   1: After a preemptible instance is created, Alibaba Cloud ensures that the instance is not automatically released within 1 hour. After the 1-hour protection period ends, the system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
+     *   0: After a preemptible instance is created, Alibaba Cloud does not ensure that the instance runs for 1 hour. The system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
      *
-     * Default value: 1.
+     * >  This parameter takes effect only if you set SpotStrategy to SpotWithPriceLimit or SpotAsPriceGo.
      * @example 1
      *
      * @var int

@@ -18,8 +18,14 @@ class networkInterface extends Model
     public $description;
 
     /**
-     * @description The instance type.
+     * @description The type of ENI N. Valid values of N: 1 and 2. If the value of N is 1, you can configure a primary or secondary ENI. If the value of N is 2, you must configure a primary ENI and a secondary ENI.
      *
+     * Valid values:
+     *
+     *   Primary
+     *   Secondary
+     *
+     * Default value: Secondary.
      * @example ecs.g5.large
      *
      * @var string
@@ -39,7 +45,7 @@ class networkInterface extends Model
      * @description The communication mode of the primary ENI. Valid values:
      *
      *   Standard: uses the TCP communication mode.
-     *   HighPerformance: enables Elastic RDMA Interface (ERI) and uses the remote direct memory access (RDMA) communication mode.
+     *   HighPerformance: uses the remote direct memory access (RDMA) communication mode with Elastic RDMA Interface (ERI) enabled.
      *
      * @example Standard
      *
@@ -59,7 +65,7 @@ class networkInterface extends Model
     /**
      * @description The ID of the security group to which to assign the secondary ENI. The security groups of the secondary ENI and of the instance must belong to the same VPC. The value of N in `NetworkInterface.N` cannot be greater than 1.
      *
-     * > The `NetworkInterface.N.SecurityGroupId` parameter and the `NetworkInterface.N.SecurityGroupIds.N` parameter are mutually exclusive.
+     * >  You cannot specify both `NetworkInterface.N.SecurityGroupId` and `NetworkInterface.N.SecurityGroupIds.N`.
      * @example sg-bp15ed6xe1yxeycg****
      *
      * @var string
@@ -67,9 +73,9 @@ class networkInterface extends Model
     public $securityGroupId;
 
     /**
-     * @description The ID of security group N to which to assign the secondary ENI. The security group and the secondary ENI must belong to the same VPC. The valid values of N in `SecurityGroupIds.N` depend on the maximum number of security groups to which the secondary ENI can belong. For more information, see the "Security group limits" section in [Limits](~~25412~~). The value of N in `NetworkInterface.N` cannot be greater than 1.
+     * @description The IDs of the security groups to which to assign the secondary ENI. The security group and the secondary ENI must belong to the same VPC. The valid values of N in `SecurityGroupIds.N` vary based on the maximum number of security groups to which a secondary ENI can belong. For more information, see the "Security group limits" section in [Limits](~~25412~~). The value of N in `NetworkInterface.N` cannot be greater than 1.
      *
-     * > The `NetworkInterface.N.SecurityGroupId` parameter and the `NetworkInterface.N.SecurityGroupIds.N` parameter are mutually exclusive.
+     * >  You cannot specify both `NetworkInterface.N.SecurityGroupId` and `NetworkInterface.N.SecurityGroupIds.N`.
      * @example sg-bp67acfmxazb4p****
      *
      * @var string[]
@@ -77,7 +83,7 @@ class networkInterface extends Model
     public $securityGroupIds;
 
     /**
-     * @description The ID of the vSwitch to which to connect the secondary ENI. The instance and the ENI must be located within the same zone of the same VPC, but they can be connected to different vSwitches. The value of N in `NetworkInterface.N` cannot be greater than 1.
+     * @description The ID of the vSwitch to which to connect the secondary ENI. The instance and the secondary ENI must reside in the same zone of the same VPC, but they can be connected to different vSwitches. The value of N in `NetworkInterface.N` cannot be greater than 1.
      *
      * @example vsw-bp1s5fnvk4gn2tws0****
      *

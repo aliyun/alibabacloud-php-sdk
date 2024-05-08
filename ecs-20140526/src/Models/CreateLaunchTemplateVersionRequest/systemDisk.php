@@ -32,13 +32,14 @@ class systemDisk extends Model
     /**
      * @description The category of the system disk. Valid values:
      *
-     *   cloud: basic disk
-     *   cloud_efficiency: ultra disk
-     *   cloud_ssd: standard SSD
-     *   cloud_auto: ESSD AutoPL disk
-     *   cloud_essd: enhanced SSD (ESSD). You can use the `SystemDisk.PerformanceLevel` parameter to set the performance level of the ESSD to use as the system disk.
+     *   cloud: basic disk.
+     *   cloud_efficiency: ultra disk.
+     *   cloud_ssd: standard SSD.
+     *   cloud_auto: enhanced SSD (ESSD) AutoPL disk.
+     *   cloud_essd: ESSD. You can use `SystemDisk.PerformanceLevel` to set the performance level of the ESSD to use as the system disk.
+     *   cloud_essd_entry: ESSD Entry disk.
      *
-     * For non-I/O optimized instances of a retired instance type, the default value is cloud. For other types of instances, the default value is cloud_efficiency.
+     * For non-I/O optimized instances of retired instance types, the default value is cloud. For other types of instances, the default value is cloud_efficiency.
      * @example cloud_ssd
      *
      * @var string
@@ -48,8 +49,8 @@ class systemDisk extends Model
     /**
      * @description Specifies whether to release the system disk when the instance is released. Valid values:
      *
-     *   true: releases data disk N when the instance is released.
-     *   false: does not release data disk N when the instance is released.
+     *   true
+     *   false
      *
      * Default value: true.
      * @example true
@@ -68,7 +69,7 @@ class systemDisk extends Model
     public $description;
 
     /**
-     * @description The name of the system disk. The name must be 2 to 128 characters in length, It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The name of the system disk. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
      *
      * @example cloud_ssdSystem
      *
@@ -90,7 +91,7 @@ class systemDisk extends Model
     public $encrypted;
 
     /**
-     * @description > This parameter is unavailable.
+     * @description >  This parameter is not publicly available.
      *
      * @example 30000
      *
@@ -124,9 +125,12 @@ class systemDisk extends Model
     public $provisionedIops;
 
     /**
-     * @description The size of the system disk. Unit: GiB. Valid values: 20 to 500.
+     * @description The size of the system disk. Unit: GiB. Valid values:
      *
-     * The value of this parameter must be at least 20 and greater than or equal to the size of the specified image.
+     *   Valid values if you set SystemDisk.Category to cloud: 20 to 500.
+     *   Valid values if you set SystemDisk.Category to other disk categories: 20 to 2048.
+     *
+     * The value of this parameter must be at least 20 and greater than or equal to the size of the image.
      * @example 40
      *
      * @var int

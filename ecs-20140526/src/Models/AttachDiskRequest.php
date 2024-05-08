@@ -56,6 +56,11 @@ class AttachDiskRequest extends Model
     public $diskId;
 
     /**
+     * @var bool
+     */
+    public $force;
+
+    /**
      * @description The ID of the instance to which you want to attach the disk.
      *
      * @example i-bp1dq5lozx5f4pmd****
@@ -112,6 +117,7 @@ class AttachDiskRequest extends Model
         'deleteWithInstance'   => 'DeleteWithInstance',
         'device'               => 'Device',
         'diskId'               => 'DiskId',
+        'force'                => 'Force',
         'instanceId'           => 'InstanceId',
         'keyPairName'          => 'KeyPairName',
         'ownerAccount'         => 'OwnerAccount',
@@ -139,6 +145,9 @@ class AttachDiskRequest extends Model
         }
         if (null !== $this->diskId) {
             $res['DiskId'] = $this->diskId;
+        }
+        if (null !== $this->force) {
+            $res['Force'] = $this->force;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -184,6 +193,9 @@ class AttachDiskRequest extends Model
         }
         if (isset($map['DiskId'])) {
             $model->diskId = $map['DiskId'];
+        }
+        if (isset($map['Force'])) {
+            $model->force = $map['Force'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
