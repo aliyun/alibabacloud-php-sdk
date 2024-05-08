@@ -63,6 +63,11 @@ class CreateSecretRequest extends Model
     public $extendedConfig;
 
     /**
+     * @var string
+     */
+    public $policy;
+
+    /**
      * @description The name of the secret.
      *
      * @example 30d
@@ -184,6 +189,7 @@ class CreateSecretRequest extends Model
         'enableAutomaticRotation' => 'EnableAutomaticRotation',
         'encryptionKeyId'         => 'EncryptionKeyId',
         'extendedConfig'          => 'ExtendedConfig',
+        'policy'                  => 'Policy',
         'rotationInterval'        => 'RotationInterval',
         'secretData'              => 'SecretData',
         'secretDataType'          => 'SecretDataType',
@@ -214,6 +220,9 @@ class CreateSecretRequest extends Model
         }
         if (null !== $this->extendedConfig) {
             $res['ExtendedConfig'] = $this->extendedConfig;
+        }
+        if (null !== $this->policy) {
+            $res['Policy'] = $this->policy;
         }
         if (null !== $this->rotationInterval) {
             $res['RotationInterval'] = $this->rotationInterval;
@@ -262,6 +271,9 @@ class CreateSecretRequest extends Model
         }
         if (isset($map['ExtendedConfig'])) {
             $model->extendedConfig = $map['ExtendedConfig'];
+        }
+        if (isset($map['Policy'])) {
+            $model->policy = $map['Policy'];
         }
         if (isset($map['RotationInterval'])) {
             $model->rotationInterval = $map['RotationInterval'];

@@ -69,6 +69,11 @@ class CreateKeyRequest extends Model
     public $origin;
 
     /**
+     * @var string
+     */
+    public $policy;
+
+    /**
      * @description You do not need to specify this parameter. KMS sets a protection level for your key.
      *
      * > - If you do not specify DKMSInstanceId, we recommend that you do not specify this parameter. KMS sets a protection level for your key. If managed hardware security modules (HSMs) exist in the region of your KMS instance, set the value to HSM. If managed HSMs do not exist in the region of your KMS instance, set the value to SOFTWARE. For more information, see Managed HSM overview.
@@ -104,6 +109,7 @@ class CreateKeyRequest extends Model
         'keySpec'                 => 'KeySpec',
         'keyUsage'                => 'KeyUsage',
         'origin'                  => 'Origin',
+        'policy'                  => 'Policy',
         'protectionLevel'         => 'ProtectionLevel',
         'rotationInterval'        => 'RotationInterval',
         'tags'                    => 'Tags',
@@ -133,6 +139,9 @@ class CreateKeyRequest extends Model
         }
         if (null !== $this->origin) {
             $res['Origin'] = $this->origin;
+        }
+        if (null !== $this->policy) {
+            $res['Policy'] = $this->policy;
         }
         if (null !== $this->protectionLevel) {
             $res['ProtectionLevel'] = $this->protectionLevel;
@@ -172,6 +181,9 @@ class CreateKeyRequest extends Model
         }
         if (isset($map['Origin'])) {
             $model->origin = $map['Origin'];
+        }
+        if (isset($map['Policy'])) {
+            $model->policy = $map['Policy'];
         }
         if (isset($map['ProtectionLevel'])) {
             $model->protectionLevel = $map['ProtectionLevel'];
