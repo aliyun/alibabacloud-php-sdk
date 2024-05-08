@@ -18,9 +18,9 @@ class ModifyInstanceMaintainTimeRequest extends Model
     public $instanceId;
 
     /**
-     * @description The end time of the maintenance window. The time is in the *HH:mm*Z format. The time is displayed in UTC. For example, if you want the maintenance to end at 2:00 (UTC+8), set this parameter to `18:00Z`.
+     * @description The end time of the maintenance window. The time is in the *HH:mm*Z format. The time is displayed in UTC. For example, if you want the maintenance window to end at 2:00 (UTC+8), set this parameter to `18:00Z`.
      *
-     * > The end time must be one hour later than the start time. For example, if the value of the MaintainStartTime parameter is `17:00Z`, the value of the MaintainEndTime parameter must be `18:00Z`.
+     * >  The interval between the start time and the end time cannot be less than 1 hour.
      * @example 04:00Z
      *
      * @var string

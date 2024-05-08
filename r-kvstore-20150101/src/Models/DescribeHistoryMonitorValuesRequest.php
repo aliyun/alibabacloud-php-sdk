@@ -66,6 +66,11 @@ class DescribeHistoryMonitorValuesRequest extends Model
     /**
      * @var string
      */
+    public $nodeRole;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -102,6 +107,7 @@ class DescribeHistoryMonitorValuesRequest extends Model
         'intervalForHistory'   => 'IntervalForHistory',
         'monitorKeys'          => 'MonitorKeys',
         'nodeId'               => 'NodeId',
+        'nodeRole'             => 'NodeRole',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -131,6 +137,9 @@ class DescribeHistoryMonitorValuesRequest extends Model
         }
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
+        }
+        if (null !== $this->nodeRole) {
+            $res['NodeRole'] = $this->nodeRole;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -176,6 +185,9 @@ class DescribeHistoryMonitorValuesRequest extends Model
         }
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
+        }
+        if (isset($map['NodeRole'])) {
+            $model->nodeRole = $map['NodeRole'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

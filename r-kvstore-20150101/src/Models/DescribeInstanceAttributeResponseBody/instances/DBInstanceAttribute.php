@@ -189,7 +189,7 @@ class DBInstanceAttribute extends Model
     public $instanceClass;
 
     /**
-     * @description The instance ID.
+     * @description The ID of the instance.
      *
      * @example r-bp1d72gwl41z7f****
      *
@@ -348,7 +348,7 @@ class DBInstanceAttribute extends Model
     public $packageType;
 
     /**
-     * @description The service port of the ApsaraDB for Redis instance.
+     * @description The service port of the instance.
      *
      * @example 6379
      *
@@ -462,6 +462,10 @@ class DBInstanceAttribute extends Model
     public $shardCount;
 
     /**
+     * @description The number of read replicas in the secondary zone. This parameter is returned only after read/write splitting is enabled for the instance across multiple zones.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $slaveReadOnlyCount;
@@ -492,7 +496,7 @@ class DBInstanceAttribute extends Model
     public $tags;
 
     /**
-     * @description The vSwitch ID.
+     * @description The ID of the vSwitch.
      *
      * @example vsw-bp1e7clcw529l773d****
      *

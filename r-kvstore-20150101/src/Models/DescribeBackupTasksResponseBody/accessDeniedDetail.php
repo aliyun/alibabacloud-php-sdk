@@ -9,49 +9,63 @@ use AlibabaCloud\Tea\Model;
 class accessDeniedDetail extends Model
 {
     /**
-     * @description An internal parameter. Ignore this parameter.
+     * @description This parameter is no longer used. Ignore this parameter.
+     *
+     * @example _
      *
      * @var string
      */
     public $authAction;
 
     /**
-     * @description An internal parameter. Ignore this parameter.
+     * @description This parameter is no longer used. Ignore this parameter.
+     *
+     * @example _
      *
      * @var string
      */
     public $authPrincipalDisplayName;
 
     /**
-     * @description An internal parameter. Ignore this parameter.
+     * @description This parameter is no longer used. Ignore this parameter.
+     *
+     * @example _
      *
      * @var string
      */
     public $authPrincipalOwnerId;
 
     /**
-     * @description An internal parameter. Ignore this parameter.
+     * @description This parameter is no longer used. Ignore this parameter.
+     *
+     * @example _
      *
      * @var string
      */
     public $authPrincipalType;
 
     /**
-     * @description An internal parameter. Ignore this parameter.
+     * @description This parameter is no longer used. Ignore this parameter.
+     *
+     * @example _
      *
      * @var string
      */
     public $encodedDiagnosticMessage;
 
     /**
-     * @description An internal parameter. Ignore this parameter.
+     * @description This parameter is no longer used. Ignore this parameter.
+     *
+     * @example _
      *
      * @var string
      */
     public $noPermissionType;
 
     /**
-     * @description An internal parameter. Ignore this parameter.
+     * @description This parameter is no longer used. Ignore this parameter.
+     *
+     * @example _
      *
      * @var string
      */

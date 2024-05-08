@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupPolicyResponseBody extends Model
 {
     /**
+     * @description The following parameters are no longer used. Ignore the parameters.
+     *
      * @var accessDeniedDetail
      */
     public $accessDeniedDetail;
@@ -24,6 +26,13 @@ class DescribeBackupPolicyResponseBody extends Model
     public $backupRetentionPeriod;
 
     /**
+     * @description Indicates whether the backup-as-a-service feature is enabled for the instance. Valid values:
+     *
+     *   **1**: The backup-as-a-service feature is enabled for the instance.
+     *   **0**: The backup-as-a-service feature is disabled for the instance.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $dbsInstance;

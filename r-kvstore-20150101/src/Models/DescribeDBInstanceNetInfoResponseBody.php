@@ -22,7 +22,7 @@ class DescribeDBInstanceNetInfoResponseBody extends Model
     public $instanceNetworkType;
 
     /**
-     * @description The list of network information about the instance.
+     * @description The network information about the instance.
      *
      * @var netInfoItems
      */

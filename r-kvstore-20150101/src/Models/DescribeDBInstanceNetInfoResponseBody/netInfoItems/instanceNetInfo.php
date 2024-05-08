@@ -18,11 +18,11 @@ class instanceNetInfo extends Model
     public $connectionString;
 
     /**
-     * @description The network type of the endpoint. Valid values:
+     * @description The network type of the instance. Valid values:
      *
-     *   **0**: the Internet.
-     *   **1**: classic network.
-     *   **2**: VPC.
+     *   **0**: Internet
+     *   **1**: classic network
+     *   **2**: Virtual Private Cloud (VPC)
      *
      * @example 1
      *
@@ -33,8 +33,8 @@ class instanceNetInfo extends Model
     /**
      * @description Indicates whether the address is a private endpoint. Valid values:
      *
-     *   **0**: no.
-     *   **1**: yes.
+     *   **0**: The address is not a private endpoint.
+     *   **1**: The address is a private endpoint.
      *
      * @example 0
      *
@@ -43,7 +43,7 @@ class instanceNetInfo extends Model
     public $directConnection;
 
     /**
-     * @description The expiration time of the classic network address of an ApsaraDB for Redis instance. Unit: seconds.
+     * @description The expiration time of the classic network endpoint. Unit: seconds.
      *
      * @example 5183779
      *
@@ -63,9 +63,9 @@ class instanceNetInfo extends Model
     /**
      * @description The network type of the IP address. Valid values:
      *
-     *   **Public**: Internet.
-     *   **Inner**: classic network.
-     *   **Private**: VPC.
+     *   **Public**: Internet
+     *   **Inner**: classic network
+     *   **Private**: VPC
      *
      * @example Inner
      *
@@ -74,12 +74,17 @@ class instanceNetInfo extends Model
     public $IPType;
 
     /**
+     * @description Indicates whether the address is the endpoint for the secondary zone. Valid values: 1 and 0. A value of 1 indicates that the address is the endpoint for the secondary zone.
+     *
+     * >  This parameter is returned only after you enable the multi-zone read/write splitting architecture for the instance.
+     * @example 1
+     *
      * @var int
      */
     public $isSlaveProxy;
 
     /**
-     * @description The service port of the ApsaraDB for Redis instance.
+     * @description The service port of the instance.
      *
      * @example 6379
      *
@@ -88,9 +93,9 @@ class instanceNetInfo extends Model
     public $port;
 
     /**
-     * @description The remaining validity period of the endpoint of the classic network. Unit: seconds.
+     * @description The remaining validity period of the classic network endpoint. Unit: seconds.
      *
-     * >  A value of **0** indicates that the endpoint never expires.
+     * >  **A value of 0 indicates that the endpoint never expires.
      * @example 0
      *
      * @var string
@@ -98,7 +103,7 @@ class instanceNetInfo extends Model
     public $upgradeable;
 
     /**
-     * @description The ID of the VPC where the instance is deployed.
+     * @description The ID of the VPC to which the instance belongs.
      *
      * @example vpc-bp1nme44gek34slfc****
      *
@@ -107,7 +112,7 @@ class instanceNetInfo extends Model
     public $VPCId;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example r-bp1ky7j6qc7umk****
      *
