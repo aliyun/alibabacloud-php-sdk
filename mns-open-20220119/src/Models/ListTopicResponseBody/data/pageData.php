@@ -51,11 +51,21 @@ class pageData extends Model
     public $messageRetentionPeriod;
 
     /**
+     * @var string
+     */
+    public $topicInnerUrl;
+
+    /**
      * @example demo-topic
      *
      * @var string
      */
     public $topicName;
+
+    /**
+     * @var string
+     */
+    public $topicUrl;
     protected $_name = [
         'createTime'             => 'CreateTime',
         'lastModifyTime'         => 'LastModifyTime',
@@ -63,7 +73,9 @@ class pageData extends Model
         'maxMessageSize'         => 'MaxMessageSize',
         'messageCount'           => 'MessageCount',
         'messageRetentionPeriod' => 'MessageRetentionPeriod',
+        'topicInnerUrl'          => 'TopicInnerUrl',
         'topicName'              => 'TopicName',
+        'topicUrl'               => 'TopicUrl',
     ];
 
     public function validate()
@@ -91,8 +103,14 @@ class pageData extends Model
         if (null !== $this->messageRetentionPeriod) {
             $res['MessageRetentionPeriod'] = $this->messageRetentionPeriod;
         }
+        if (null !== $this->topicInnerUrl) {
+            $res['TopicInnerUrl'] = $this->topicInnerUrl;
+        }
         if (null !== $this->topicName) {
             $res['TopicName'] = $this->topicName;
+        }
+        if (null !== $this->topicUrl) {
+            $res['TopicUrl'] = $this->topicUrl;
         }
 
         return $res;
@@ -124,8 +142,14 @@ class pageData extends Model
         if (isset($map['MessageRetentionPeriod'])) {
             $model->messageRetentionPeriod = $map['MessageRetentionPeriod'];
         }
+        if (isset($map['TopicInnerUrl'])) {
+            $model->topicInnerUrl = $map['TopicInnerUrl'];
+        }
         if (isset($map['TopicName'])) {
             $model->topicName = $map['TopicName'];
+        }
+        if (isset($map['TopicUrl'])) {
+            $model->topicUrl = $map['TopicUrl'];
         }
 
         return $model;
