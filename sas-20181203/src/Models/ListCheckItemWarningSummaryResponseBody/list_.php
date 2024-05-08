@@ -102,6 +102,11 @@ class list_ extends Model
     public $description;
 
     /**
+     * @var string[]
+     */
+    public $enableRisks;
+
+    /**
      * @description The type of the baseline.
      *
      * @example weak_password
@@ -141,6 +146,7 @@ class list_ extends Model
         'checkType'           => 'CheckType',
         'containerCheckItem'  => 'ContainerCheckItem',
         'description'         => 'Description',
+        'enableRisks'         => 'EnableRisks',
         'riskType'            => 'RiskType',
         'status'              => 'Status',
         'warningMachineCount' => 'WarningMachineCount',
@@ -182,6 +188,9 @@ class list_ extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->enableRisks) {
+            $res['EnableRisks'] = $this->enableRisks;
         }
         if (null !== $this->riskType) {
             $res['RiskType'] = $this->riskType;
@@ -237,6 +246,11 @@ class list_ extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['EnableRisks'])) {
+            if (!empty($map['EnableRisks'])) {
+                $model->enableRisks = $map['EnableRisks'];
+            }
         }
         if (isset($map['RiskType'])) {
             $model->riskType = $map['RiskType'];
