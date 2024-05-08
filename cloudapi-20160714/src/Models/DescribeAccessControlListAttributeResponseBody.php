@@ -35,6 +35,11 @@ class DescribeAccessControlListAttributeResponseBody extends Model
     public $aclName;
 
     /**
+     * @var string
+     */
+    public $addressIPVersion;
+
+    /**
      * @description The ID of the request.
      *
      * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ015
@@ -43,10 +48,11 @@ class DescribeAccessControlListAttributeResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'aclEntrys' => 'AclEntrys',
-        'aclId'     => 'AclId',
-        'aclName'   => 'AclName',
-        'requestId' => 'RequestId',
+        'aclEntrys'        => 'AclEntrys',
+        'aclId'            => 'AclId',
+        'aclName'          => 'AclName',
+        'addressIPVersion' => 'AddressIPVersion',
+        'requestId'        => 'RequestId',
     ];
 
     public function validate()
@@ -64,6 +70,9 @@ class DescribeAccessControlListAttributeResponseBody extends Model
         }
         if (null !== $this->aclName) {
             $res['AclName'] = $this->aclName;
+        }
+        if (null !== $this->addressIPVersion) {
+            $res['AddressIPVersion'] = $this->addressIPVersion;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -88,6 +97,9 @@ class DescribeAccessControlListAttributeResponseBody extends Model
         }
         if (isset($map['AclName'])) {
             $model->aclName = $map['AclName'];
+        }
+        if (isset($map['AddressIPVersion'])) {
+            $model->addressIPVersion = $map['AddressIPVersion'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
