@@ -1,3 +1,7 @@
+2024-05-09 Version: 1.7.0
+- Support API DescribeDBResourceManagementMode.
+
+
 2024-04-29 Version: 1.6.4
 - Update API QueryCollectionData: add param IncludeMetadataFields.
 - Update API QueryCollectionData: add param Offset.

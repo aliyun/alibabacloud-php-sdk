@@ -97,6 +97,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceSSLRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceSSLResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceSupportMaxPerformanceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceSupportMaxPerformanceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBResourceManagementModeRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBResourceManagementModeResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBVersionInfosRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBVersionInfosResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDiagnosisDimensionsRequest;
@@ -2959,6 +2961,46 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDBInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDBResourceManagementModeRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeDBResourceManagementModeResponse
+     */
+    public function describeDBResourceManagementModeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDBResourceManagementMode',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDBResourceManagementModeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDBResourceManagementModeRequest $request
+     *
+     * @return DescribeDBResourceManagementModeResponse
+     */
+    public function describeDBResourceManagementMode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBResourceManagementModeWithOptions($request, $runtime);
     }
 
     /**
