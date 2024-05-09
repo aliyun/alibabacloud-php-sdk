@@ -92,6 +92,10 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\CreatePrometheusMonitoringRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreatePrometheusMonitoringResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateRetcodeAppRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateRetcodeAppResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateRumAppRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateRumAppResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateRumUploadFileUrlRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateRumUploadFileUrlResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateSyntheticTaskRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateSyntheticTaskResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateSyntheticTaskShrinkRequest;
@@ -158,6 +162,10 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\DeletePrometheusRemoteWriteRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeletePrometheusRemoteWriteResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteRetcodeAppRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteRetcodeAppResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteRumAppRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteRumAppResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteRumUploadFileRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteRumUploadFileResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteScenarioRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteScenarioResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteSilencePolicyRequest;
@@ -252,6 +260,16 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\GetRetcodeLogstoreRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetRetcodeLogstoreResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetRetcodeShareUrlRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetRetcodeShareUrlResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetRumAppInfoRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetRumAppInfoResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetRumAppsRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetRumAppsResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetRumDataForPageRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetRumDataForPageResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetRumExceptionStackRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetRumExceptionStackResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetRumUploadFilesRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetRumUploadFilesResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetSourceMapInfoRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetSourceMapInfoResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetStackRequest;
@@ -478,6 +496,10 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdatePrometheusMonitoringStatusReque
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdatePrometheusMonitoringStatusResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdatePrometheusRemoteWriteRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdatePrometheusRemoteWriteResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateRumAppRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateRumAppResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateRumFileStatusRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateRumFileStatusResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateTimingSyntheticTaskRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateTimingSyntheticTaskResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateTimingSyntheticTaskShrinkRequest;
@@ -2359,6 +2381,9 @@ class ARMS extends OpenApiClient
         if (!Utils::isUnset($request->contactName)) {
             $body['ContactName'] = $request->contactName;
         }
+        if (!Utils::isUnset($request->corpUserId)) {
+            $body['CorpUserId'] = $request->corpUserId;
+        }
         if (!Utils::isUnset($request->email)) {
             $body['Email'] = $request->email;
         }
@@ -3051,6 +3076,137 @@ class ARMS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createRetcodeAppWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateRumAppRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateRumAppResponse
+     */
+    public function createRumAppWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appGroup)) {
+            $query['AppGroup'] = $request->appGroup;
+        }
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->packageName)) {
+            $query['PackageName'] = $request->packageName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->siteType)) {
+            $query['SiteType'] = $request->siteType;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateRumApp',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateRumAppResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateRumAppRequest $request
+     *
+     * @return CreateRumAppResponse
+     */
+    public function createRumApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRumAppWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateRumUploadFileUrlRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateRumUploadFileUrlResponse
+     */
+    public function createRumUploadFileUrlWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->contentType)) {
+            $query['ContentType'] = $request->contentType;
+        }
+        if (!Utils::isUnset($request->fileName)) {
+            $query['FileName'] = $request->fileName;
+        }
+        if (!Utils::isUnset($request->pid)) {
+            $query['Pid'] = $request->pid;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->sourcemapType)) {
+            $query['SourcemapType'] = $request->sourcemapType;
+        }
+        if (!Utils::isUnset($request->uuid)) {
+            $query['Uuid'] = $request->uuid;
+        }
+        if (!Utils::isUnset($request->versionId)) {
+            $query['VersionId'] = $request->versionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateRumUploadFileUrl',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateRumUploadFileUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateRumUploadFileUrlRequest $request
+     *
+     * @return CreateRumUploadFileUrlResponse
+     */
+    public function createRumUploadFileUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRumUploadFileUrlWithOptions($request, $runtime);
     }
 
     /**
@@ -4705,6 +4861,110 @@ class ARMS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteRetcodeAppWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteRumAppRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteRumAppResponse
+     */
+    public function deleteRumAppWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appGroup)) {
+            $query['AppGroup'] = $request->appGroup;
+        }
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteRumApp',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteRumAppResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteRumAppRequest $request
+     *
+     * @return DeleteRumAppResponse
+     */
+    public function deleteRumApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRumAppWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteRumUploadFileRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteRumUploadFileResponse
+     */
+    public function deleteRumUploadFileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->fileName)) {
+            $query['FileName'] = $request->fileName;
+        }
+        if (!Utils::isUnset($request->pid)) {
+            $query['Pid'] = $request->pid;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->uuid)) {
+            $query['Uuid'] = $request->uuid;
+        }
+        if (!Utils::isUnset($request->versionId)) {
+            $query['VersionId'] = $request->versionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteRumUploadFile',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteRumUploadFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteRumUploadFileRequest $request
+     *
+     * @return DeleteRumUploadFileResponse
+     */
+    public function deleteRumUploadFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRumUploadFileWithOptions($request, $runtime);
     }
 
     /**
@@ -6977,6 +7237,281 @@ class ARMS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getRetcodeShareUrlWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetRumAppInfoRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetRumAppInfoResponse
+     */
+    public function getRumAppInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appGroup)) {
+            $query['AppGroup'] = $request->appGroup;
+        }
+        if (!Utils::isUnset($request->pid)) {
+            $query['Pid'] = $request->pid;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetRumAppInfo',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetRumAppInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetRumAppInfoRequest $request
+     *
+     * @return GetRumAppInfoResponse
+     */
+    public function getRumAppInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRumAppInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetRumAppsRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetRumAppsResponse
+     */
+    public function getRumAppsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appGroup)) {
+            $query['AppGroup'] = $request->appGroup;
+        }
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetRumApps',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetRumAppsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetRumAppsRequest $request
+     *
+     * @return GetRumAppsResponse
+     */
+    public function getRumApps($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRumAppsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetRumDataForPageRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetRumDataForPageResponse
+     */
+    public function getRumDataForPageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appGroup)) {
+            $query['AppGroup'] = $request->appGroup;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->pid)) {
+            $query['Pid'] = $request->pid;
+        }
+        if (!Utils::isUnset($request->query)) {
+            $query['Query'] = $request->query;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetRumDataForPage',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetRumDataForPageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetRumDataForPageRequest $request
+     *
+     * @return GetRumDataForPageResponse
+     */
+    public function getRumDataForPage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRumDataForPageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetRumExceptionStackRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetRumExceptionStackResponse
+     */
+    public function getRumExceptionStackWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->exceptionBinaryImages)) {
+            $query['ExceptionBinaryImages'] = $request->exceptionBinaryImages;
+        }
+        if (!Utils::isUnset($request->exceptionStack)) {
+            $query['ExceptionStack'] = $request->exceptionStack;
+        }
+        if (!Utils::isUnset($request->exceptionThreadId)) {
+            $query['ExceptionThreadId'] = $request->exceptionThreadId;
+        }
+        if (!Utils::isUnset($request->pid)) {
+            $query['Pid'] = $request->pid;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetRumExceptionStack',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetRumExceptionStackResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetRumExceptionStackRequest $request
+     *
+     * @return GetRumExceptionStackResponse
+     */
+    public function getRumExceptionStack($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRumExceptionStackWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetRumUploadFilesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetRumUploadFilesResponse
+     */
+    public function getRumUploadFilesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appType)) {
+            $query['AppType'] = $request->appType;
+        }
+        if (!Utils::isUnset($request->pid)) {
+            $query['Pid'] = $request->pid;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetRumUploadFiles',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetRumUploadFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetRumUploadFilesRequest $request
+     *
+     * @return GetRumUploadFilesResponse
+     */
+    public function getRumUploadFiles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRumUploadFilesWithOptions($request, $runtime);
     }
 
     /**
@@ -12998,6 +13533,134 @@ class ARMS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updatePrometheusRemoteWriteWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateRumAppRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdateRumAppResponse
+     */
+    public function updateRumAppWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->autoRestart)) {
+            $query['AutoRestart'] = $request->autoRestart;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->isSubscribe)) {
+            $query['IsSubscribe'] = $request->isSubscribe;
+        }
+        if (!Utils::isUnset($request->nickname)) {
+            $query['Nickname'] = $request->nickname;
+        }
+        if (!Utils::isUnset($request->pid)) {
+            $query['Pid'] = $request->pid;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->restart)) {
+            $query['Restart'] = $request->restart;
+        }
+        if (!Utils::isUnset($request->serviceDomainOperationJson)) {
+            $query['ServiceDomainOperationJson'] = $request->serviceDomainOperationJson;
+        }
+        if (!Utils::isUnset($request->stop)) {
+            $query['Stop'] = $request->stop;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateRumApp',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateRumAppResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateRumAppRequest $request
+     *
+     * @return UpdateRumAppResponse
+     */
+    public function updateRumApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateRumAppWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateRumFileStatusRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateRumFileStatusResponse
+     */
+    public function updateRumFileStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->fileName)) {
+            $query['FileName'] = $request->fileName;
+        }
+        if (!Utils::isUnset($request->pid)) {
+            $query['Pid'] = $request->pid;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->size)) {
+            $query['Size'] = $request->size;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->uuid)) {
+            $query['Uuid'] = $request->uuid;
+        }
+        if (!Utils::isUnset($request->versionId)) {
+            $query['VersionId'] = $request->versionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateRumFileStatus',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateRumFileStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateRumFileStatusRequest $request
+     *
+     * @return UpdateRumFileStatusResponse
+     */
+    public function updateRumFileStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateRumFileStatusWithOptions($request, $runtime);
     }
 
     /**

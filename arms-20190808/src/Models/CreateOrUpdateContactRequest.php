@@ -30,6 +30,11 @@ class CreateOrUpdateContactRequest extends Model
     public $contactName;
 
     /**
+     * @var string
+     */
+    public $corpUserId;
+
+    /**
      * @description The webhook URL of the DingTalk chatbot.
      *
      * @example https://oapi.dingtalk.com/robot/send?access_token=69d4e0******
@@ -92,6 +97,7 @@ class CreateOrUpdateContactRequest extends Model
     protected $_name = [
         'contactId'         => 'ContactId',
         'contactName'       => 'ContactName',
+        'corpUserId'        => 'CorpUserId',
         'dingRobotUrl'      => 'DingRobotUrl',
         'email'             => 'Email',
         'isEmailVerify'     => 'IsEmailVerify',
@@ -112,6 +118,9 @@ class CreateOrUpdateContactRequest extends Model
         }
         if (null !== $this->contactName) {
             $res['ContactName'] = $this->contactName;
+        }
+        if (null !== $this->corpUserId) {
+            $res['CorpUserId'] = $this->corpUserId;
         }
         if (null !== $this->dingRobotUrl) {
             $res['DingRobotUrl'] = $this->dingRobotUrl;
@@ -148,6 +157,9 @@ class CreateOrUpdateContactRequest extends Model
         }
         if (isset($map['ContactName'])) {
             $model->contactName = $map['ContactName'];
+        }
+        if (isset($map['CorpUserId'])) {
+            $model->corpUserId = $map['CorpUserId'];
         }
         if (isset($map['DingRobotUrl'])) {
             $model->dingRobotUrl = $map['DingRobotUrl'];

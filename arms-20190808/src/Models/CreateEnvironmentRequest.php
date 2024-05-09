@@ -48,7 +48,7 @@ class CreateEnvironmentRequest extends Model
     /**
      * @description The subtype of the environment. Valid values:
      *
-     *   CS: ACK
+     *   CS: ACK, One
      *   ECS: ECS
      *   Cloud: cloud service
      *
@@ -72,9 +72,10 @@ class CreateEnvironmentRequest extends Model
     public $environmentType;
 
     /**
-     * @description Paid packages.
-     *  When EnvironmentType is CS: can be specified as CS_Basic (default) or CS_Pro.
-     * When EnvironmentType is any other value, enter a null value.
+     * @description The payable resource plan. Valid values:
+     *
+     *   If the EnvironmentType parameter is set to CS, set the value to CS_Basic or CS_Pro. Default value: CS_Basic.
+     *   Otherwise, leave the parameter empty.
      *
      * @example CS_Basic
      *
@@ -96,7 +97,7 @@ class CreateEnvironmentRequest extends Model
     public $managedType;
 
     /**
-     * @description Nullable, the prom instance id for the environment binding. if not provided, call the InitEnvironment interface to complete the initialization of the storage instance.
+     * @description The ID of the Prometheus instance. If no Prometheus instance is created, call the InitEnvironment operation to initialize a storage instance.
      *
      * @example c6e9dec475dca4a50a188411d8cbxxx
      *
