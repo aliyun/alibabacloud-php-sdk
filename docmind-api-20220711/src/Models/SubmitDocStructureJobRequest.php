@@ -30,14 +30,20 @@ class SubmitDocStructureJobRequest extends Model
     public $fileUrl;
 
     /**
+     * @var bool
+     */
+    public $formulaEnhancement;
+
+    /**
      * @var string
      */
     public $structureType;
     protected $_name = [
-        'fileName'          => 'FileName',
-        'fileNameExtension' => 'FileNameExtension',
-        'fileUrl'           => 'FileUrl',
-        'structureType'     => 'StructureType',
+        'fileName'           => 'FileName',
+        'fileNameExtension'  => 'FileNameExtension',
+        'fileUrl'            => 'FileUrl',
+        'formulaEnhancement' => 'FormulaEnhancement',
+        'structureType'      => 'StructureType',
     ];
 
     public function validate()
@@ -55,6 +61,9 @@ class SubmitDocStructureJobRequest extends Model
         }
         if (null !== $this->fileUrl) {
             $res['FileUrl'] = $this->fileUrl;
+        }
+        if (null !== $this->formulaEnhancement) {
+            $res['FormulaEnhancement'] = $this->formulaEnhancement;
         }
         if (null !== $this->structureType) {
             $res['StructureType'] = $this->structureType;
@@ -79,6 +88,9 @@ class SubmitDocStructureJobRequest extends Model
         }
         if (isset($map['FileUrl'])) {
             $model->fileUrl = $map['FileUrl'];
+        }
+        if (isset($map['FormulaEnhancement'])) {
+            $model->formulaEnhancement = $map['FormulaEnhancement'];
         }
         if (isset($map['StructureType'])) {
             $model->structureType = $map['StructureType'];

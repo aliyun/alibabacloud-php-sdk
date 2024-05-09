@@ -31,14 +31,20 @@ class SubmitDocStructureJobAdvanceRequest extends Model
     public $fileUrlObject;
 
     /**
+     * @var bool
+     */
+    public $formulaEnhancement;
+
+    /**
      * @var string
      */
     public $structureType;
     protected $_name = [
-        'fileName'          => 'FileName',
-        'fileNameExtension' => 'FileNameExtension',
-        'fileUrlObject'     => 'FileUrl',
-        'structureType'     => 'StructureType',
+        'fileName'           => 'FileName',
+        'fileNameExtension'  => 'FileNameExtension',
+        'fileUrlObject'      => 'FileUrl',
+        'formulaEnhancement' => 'FormulaEnhancement',
+        'structureType'      => 'StructureType',
     ];
 
     public function validate()
@@ -56,6 +62,9 @@ class SubmitDocStructureJobAdvanceRequest extends Model
         }
         if (null !== $this->fileUrlObject) {
             $res['FileUrl'] = $this->fileUrlObject;
+        }
+        if (null !== $this->formulaEnhancement) {
+            $res['FormulaEnhancement'] = $this->formulaEnhancement;
         }
         if (null !== $this->structureType) {
             $res['StructureType'] = $this->structureType;
@@ -80,6 +89,9 @@ class SubmitDocStructureJobAdvanceRequest extends Model
         }
         if (isset($map['FileUrl'])) {
             $model->fileUrlObject = $map['FileUrl'];
+        }
+        if (isset($map['FormulaEnhancement'])) {
+            $model->formulaEnhancement = $map['FormulaEnhancement'];
         }
         if (isset($map['StructureType'])) {
             $model->structureType = $map['StructureType'];

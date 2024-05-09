@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Docmindapi\V20220711\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class SubmitConvertPdfToExcelJobResponse extends Model
+class SubmitConvertImageToMarkdownJobResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class SubmitConvertPdfToExcelJobResponse extends Model
     public $statusCode;
 
     /**
-     * @var SubmitConvertPdfToExcelJobResponseBody
+     * @var SubmitConvertImageToMarkdownJobResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class SubmitConvertPdfToExcelJobResponse extends Model
     /**
      * @param array $map
      *
-     * @return SubmitConvertPdfToExcelJobResponse
+     * @return SubmitConvertImageToMarkdownJobResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class SubmitConvertPdfToExcelJobResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = SubmitConvertPdfToExcelJobResponseBody::fromMap($map['body']);
+            $model->body = SubmitConvertImageToMarkdownJobResponseBody::fromMap($map['body']);
         }
 
         return $model;

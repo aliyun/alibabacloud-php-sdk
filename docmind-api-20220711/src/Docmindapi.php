@@ -24,6 +24,9 @@ use AlibabaCloud\SDK\Docmindapi\V20220711\Models\GetTableUnderstandingResultResp
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitConvertImageToExcelJobRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitConvertImageToExcelJobResponse;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitConvertImageToExcelJobShrinkRequest;
+use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitConvertImageToMarkdownJobRequest;
+use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitConvertImageToMarkdownJobResponse;
+use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitConvertImageToMarkdownJobShrinkRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitConvertImageToPdfJobRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitConvertImageToPdfJobResponse;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitConvertImageToPdfJobShrinkRequest;
@@ -36,6 +39,9 @@ use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitConvertPdfToExcelJobRespo
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitConvertPdfToImageJobAdvanceRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitConvertPdfToImageJobRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitConvertPdfToImageJobResponse;
+use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitConvertPdfToMarkdownJobAdvanceRequest;
+use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitConvertPdfToMarkdownJobRequest;
+use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitConvertPdfToMarkdownJobResponse;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitConvertPdfToWordJobAdvanceRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitConvertPdfToWordJobRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitConvertPdfToWordJobResponse;
@@ -543,6 +549,63 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
+     * @param SubmitConvertImageToMarkdownJobRequest $tmpReq
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return SubmitConvertImageToMarkdownJobResponse
+     */
+    public function submitConvertImageToMarkdownJobWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SubmitConvertImageToMarkdownJobShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->imageNames)) {
+            $request->imageNamesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->imageNames, 'ImageNames', 'simple');
+        }
+        if (!Utils::isUnset($tmpReq->imageUrls)) {
+            $request->imageUrlsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->imageUrls, 'ImageUrls', 'simple');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->imageNameExtension)) {
+            $query['ImageNameExtension'] = $request->imageNameExtension;
+        }
+        if (!Utils::isUnset($request->imageNamesShrink)) {
+            $query['ImageNames'] = $request->imageNamesShrink;
+        }
+        if (!Utils::isUnset($request->imageUrlsShrink)) {
+            $query['ImageUrls'] = $request->imageUrlsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitConvertImageToMarkdownJob',
+            'version'     => '2022-07-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitConvertImageToMarkdownJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SubmitConvertImageToMarkdownJobRequest $request
+     *
+     * @return SubmitConvertImageToMarkdownJobResponse
+     */
+    public function submitConvertImageToMarkdownJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitConvertImageToMarkdownJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SubmitConvertImageToPdfJobRequest $tmpReq
      * @param RuntimeOptions                    $runtime
      *
@@ -911,6 +974,130 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
+     * @param SubmitConvertPdfToMarkdownJobRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return SubmitConvertPdfToMarkdownJobResponse
+     */
+    public function submitConvertPdfToMarkdownJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->fileName)) {
+            $query['FileName'] = $request->fileName;
+        }
+        if (!Utils::isUnset($request->fileUrl)) {
+            $query['FileUrl'] = $request->fileUrl;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitConvertPdfToMarkdownJob',
+            'version'     => '2022-07-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitConvertPdfToMarkdownJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SubmitConvertPdfToMarkdownJobRequest $request
+     *
+     * @return SubmitConvertPdfToMarkdownJobResponse
+     */
+    public function submitConvertPdfToMarkdownJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitConvertPdfToMarkdownJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitConvertPdfToMarkdownJobAdvanceRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return SubmitConvertPdfToMarkdownJobResponse
+     */
+    public function submitConvertPdfToMarkdownJobAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $securityToken        = $this->_credential->getSecurityToken();
+        $credentialType       = $this->_credential->getType();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        if (Utils::isUnset($credentialType)) {
+            $credentialType = 'access_key';
+        }
+        $authConfig = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken'   => $securityToken,
+            'type'            => $credentialType,
+            'endpoint'        => $openPlatformEndpoint,
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'docmind-api',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $submitConvertPdfToMarkdownJobReq = new SubmitConvertPdfToMarkdownJobRequest([]);
+        OpenApiUtilClient::convert($request, $submitConvertPdfToMarkdownJobReq);
+        if (!Utils::isUnset($request->fileUrlObject)) {
+            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossClient              = new OSS($ossConfig);
+            $fileObj                = new FileField([
+                'filename'    => $authResponse->body->objectKey,
+                'content'     => $request->fileUrlObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
+                'file'                => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->body->bucket,
+                'header'     => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $submitConvertPdfToMarkdownJobReq->fileUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+        }
+
+        return $this->submitConvertPdfToMarkdownJobWithOptions($submitConvertPdfToMarkdownJobReq, $runtime);
+    }
+
+    /**
      * @param SubmitConvertPdfToWordJobRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -1188,6 +1375,9 @@ class Docmindapi extends OpenApiClient
         }
         if (!Utils::isUnset($request->fileUrl)) {
             $query['FileUrl'] = $request->fileUrl;
+        }
+        if (!Utils::isUnset($request->formulaEnhancement)) {
+            $query['FormulaEnhancement'] = $request->formulaEnhancement;
         }
         if (!Utils::isUnset($request->structureType)) {
             $query['StructureType'] = $request->structureType;
