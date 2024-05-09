@@ -50,10 +50,16 @@ class ConfigL7RsPolicyRequest extends Model
      * @var string
      */
     public $resourceGroupId;
+
+    /**
+     * @var int
+     */
+    public $upstreamRetry;
     protected $_name = [
         'domain'          => 'Domain',
         'policy'          => 'Policy',
         'resourceGroupId' => 'ResourceGroupId',
+        'upstreamRetry'   => 'UpstreamRetry',
     ];
 
     public function validate()
@@ -71,6 +77,9 @@ class ConfigL7RsPolicyRequest extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->upstreamRetry) {
+            $res['UpstreamRetry'] = $this->upstreamRetry;
         }
 
         return $res;
@@ -92,6 +101,9 @@ class ConfigL7RsPolicyRequest extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['UpstreamRetry'])) {
+            $model->upstreamRetry = $map['UpstreamRetry'];
         }
 
         return $model;

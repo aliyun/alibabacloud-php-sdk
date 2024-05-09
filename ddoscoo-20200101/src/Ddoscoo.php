@@ -637,6 +637,9 @@ class Ddoscoo extends OpenApiClient
         if (!Utils::isUnset($request->resourceGroupId)) {
             $query['ResourceGroupId'] = $request->resourceGroupId;
         }
+        if (!Utils::isUnset($request->upstreamRetry)) {
+            $query['UpstreamRetry'] = $request->upstreamRetry;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);

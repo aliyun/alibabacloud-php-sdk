@@ -37,10 +37,16 @@ class DescribeL7RsPolicyResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var int
+     */
+    public $upstreamRetry;
     protected $_name = [
-        'attributes' => 'Attributes',
-        'proxyMode'  => 'ProxyMode',
-        'requestId'  => 'RequestId',
+        'attributes'    => 'Attributes',
+        'proxyMode'     => 'ProxyMode',
+        'requestId'     => 'RequestId',
+        'upstreamRetry' => 'UpstreamRetry',
     ];
 
     public function validate()
@@ -64,6 +70,9 @@ class DescribeL7RsPolicyResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->upstreamRetry) {
+            $res['UpstreamRetry'] = $this->upstreamRetry;
         }
 
         return $res;
@@ -91,6 +100,9 @@ class DescribeL7RsPolicyResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['UpstreamRetry'])) {
+            $model->upstreamRetry = $map['UpstreamRetry'];
         }
 
         return $model;
