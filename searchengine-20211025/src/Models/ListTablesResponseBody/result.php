@@ -21,9 +21,15 @@ class result extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
         'indexStatus' => 'indexStatus',
         'name'        => 'name',
+        'status'      => 'status',
     ];
 
     public function validate()
@@ -38,6 +44,9 @@ class result extends Model
         }
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
         }
 
         return $res;
@@ -56,6 +65,9 @@ class result extends Model
         }
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+        if (isset($map['status'])) {
+            $model->status = $map['status'];
         }
 
         return $model;

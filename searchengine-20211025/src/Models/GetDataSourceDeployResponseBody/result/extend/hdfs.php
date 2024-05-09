@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class hdfs extends Model
 {
     /**
+     * @example dist-dmj-job/src/main/java
+     *
      * @var string
      */
     public $path;

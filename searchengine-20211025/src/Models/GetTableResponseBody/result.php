@@ -62,6 +62,11 @@ class result extends Model
     public $rawSchema;
 
     /**
+     * @var string
+     */
+    public $status;
+
+    /**
      * @var vectorIndex[]
      */
     public $vectorIndex;
@@ -74,6 +79,7 @@ class result extends Model
         'partitionCount'     => 'partitionCount',
         'primaryKey'         => 'primaryKey',
         'rawSchema'          => 'rawSchema',
+        'status'             => 'status',
         'vectorIndex'        => 'vectorIndex',
     ];
 
@@ -113,6 +119,9 @@ class result extends Model
         }
         if (null !== $this->rawSchema) {
             $res['rawSchema'] = $this->rawSchema;
+        }
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
         }
         if (null !== $this->vectorIndex) {
             $res['vectorIndex'] = [];
@@ -164,6 +173,9 @@ class result extends Model
         }
         if (isset($map['rawSchema'])) {
             $model->rawSchema = $map['rawSchema'];
+        }
+        if (isset($map['status'])) {
+            $model->status = $map['status'];
         }
         if (isset($map['vectorIndex'])) {
             if (!empty($map['vectorIndex'])) {

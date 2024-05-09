@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetDataSourceDeployResponseBody extends Model
 {
     /**
+     * @description requestId
+     *
+     * @example 2AE63638-5420-56DC-BF59-37D8174039A0
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Deploy
+     *
      * @var result
      */
     public $result;

@@ -9,51 +9,79 @@ use AlibabaCloud\Tea\Model;
 class storage extends Model
 {
     /**
+     * @description AK
+     *
+     * @example ak
+     *
      * @var string
      */
     public $accessKey;
 
     /**
+     * @description AS
+     *
+     * @example as
+     *
      * @var string
      */
     public $accessSecret;
 
     /**
+     * @description oss bucket
+     *
+     * @example antsys-miniapp-chongwen-static
+     *
      * @var string
      */
     public $bucket;
 
     /**
+     * @description odps endpoint
+     *
+     * @example http://service.cn-hangzhou.maxcompute.aliyun-inc.com/api
+     *
      * @var string
      */
     public $endpoint;
 
     /**
+     * @example lazada-campaign-flink
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @example oss://opensearch
+     *
      * @var string
      */
     public $ossPath;
 
     /**
+     * @example ds=20220926
+     *
      * @var string
      */
     public $partition;
 
     /**
+     * @example /beiming_xobject/dwd_xobjectsandbox__list_create_action_by_new/
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @example wireless_1688_personal_rec
+     *
      * @var string
      */
     public $project;
 
     /**
+     * @example behavior
+     *
      * @var string
      */
     public $table;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class swift extends Model
 {
     /**
+     * @description topic
+     *
+     * @example topic
+     *
      * @var string
      */
     public $topic;
 
     /**
+     * @description zk
+     *
+     * @example zk
+     *
      * @var string
      */
     public $zk;

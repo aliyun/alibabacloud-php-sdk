@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class processor extends Model
 {
     /**
+     * @example {}
+     *
      * @var string
      */
     public $args;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $resource;

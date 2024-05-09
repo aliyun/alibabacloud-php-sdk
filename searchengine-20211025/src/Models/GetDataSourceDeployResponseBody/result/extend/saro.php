@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class saro extends Model
 {
     /**
+     * @example dist-dmj-job/src/main/java
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @example 0.6.0
+     *
      * @var string
      */
     public $version;
