@@ -120,6 +120,16 @@ class ApplyAddRequest extends Model
     public $limitTraveler;
 
     /**
+     * @var string
+     */
+    public $paymentDepartmentId;
+
+    /**
+     * @var string
+     */
+    public $paymentDepartmentName;
+
+    /**
      * @example 0
      *
      * @var int
@@ -241,6 +251,8 @@ class ApplyAddRequest extends Model
         'itineraryRule'             => 'itinerary_rule',
         'itinerarySetList'          => 'itinerary_set_list',
         'limitTraveler'             => 'limit_traveler',
+        'paymentDepartmentId'       => 'payment_department_id',
+        'paymentDepartmentName'     => 'payment_department_name',
         'status'                    => 'status',
         'subCorpId'                 => 'sub_corp_id',
         'thirdpartApplyId'          => 'thirdpart_apply_id',
@@ -335,6 +347,12 @@ class ApplyAddRequest extends Model
         }
         if (null !== $this->limitTraveler) {
             $res['limit_traveler'] = $this->limitTraveler;
+        }
+        if (null !== $this->paymentDepartmentId) {
+            $res['payment_department_id'] = $this->paymentDepartmentId;
+        }
+        if (null !== $this->paymentDepartmentName) {
+            $res['payment_department_name'] = $this->paymentDepartmentName;
         }
         if (null !== $this->status) {
             $res['status'] = $this->status;
@@ -479,6 +497,12 @@ class ApplyAddRequest extends Model
         }
         if (isset($map['limit_traveler'])) {
             $model->limitTraveler = $map['limit_traveler'];
+        }
+        if (isset($map['payment_department_id'])) {
+            $model->paymentDepartmentId = $map['payment_department_id'];
+        }
+        if (isset($map['payment_department_name'])) {
+            $model->paymentDepartmentName = $map['payment_department_name'];
         }
         if (isset($map['status'])) {
             $model->status = $map['status'];

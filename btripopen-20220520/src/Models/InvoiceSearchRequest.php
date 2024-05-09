@@ -11,6 +11,11 @@ class InvoiceSearchRequest extends Model
     /**
      * @var string
      */
+    public $thirdPartId;
+
+    /**
+     * @var string
+     */
     public $title;
 
     /**
@@ -20,8 +25,9 @@ class InvoiceSearchRequest extends Model
      */
     public $userId;
     protected $_name = [
-        'title'  => 'title',
-        'userId' => 'user_id',
+        'thirdPartId' => 'third_part_id',
+        'title'       => 'title',
+        'userId'      => 'user_id',
     ];
 
     public function validate()
@@ -31,6 +37,9 @@ class InvoiceSearchRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->thirdPartId) {
+            $res['third_part_id'] = $this->thirdPartId;
+        }
         if (null !== $this->title) {
             $res['title'] = $this->title;
         }
@@ -49,6 +58,9 @@ class InvoiceSearchRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['third_part_id'])) {
+            $model->thirdPartId = $map['third_part_id'];
+        }
         if (isset($map['title'])) {
             $model->title = $map['title'];
         }

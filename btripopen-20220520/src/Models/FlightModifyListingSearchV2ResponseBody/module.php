@@ -16,6 +16,21 @@ class module extends Model
     public $directFlightList;
 
     /**
+     * @var int
+     */
+    public $nextReqWaitTime;
+
+    /**
+     * @var bool
+     */
+    public $retry;
+
+    /**
+     * @var string
+     */
+    public $searchRetryToken;
+
+    /**
      * @example a2ffebfe733742aab5c491d960ba3d59
      *
      * @var string
@@ -33,6 +48,9 @@ class module extends Model
     public $transferTitle;
     protected $_name = [
         'directFlightList'   => 'direct_flight_list',
+        'nextReqWaitTime'    => 'next_req_wait_time',
+        'retry'              => 'retry',
+        'searchRetryToken'   => 'search_retry_token',
         'sessionId'          => 'session_id',
         'transferFlightList' => 'transfer_flight_list',
         'transferTitle'      => 'transfer_title',
@@ -53,6 +71,15 @@ class module extends Model
                     $res['direct_flight_list'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->nextReqWaitTime) {
+            $res['next_req_wait_time'] = $this->nextReqWaitTime;
+        }
+        if (null !== $this->retry) {
+            $res['retry'] = $this->retry;
+        }
+        if (null !== $this->searchRetryToken) {
+            $res['search_retry_token'] = $this->searchRetryToken;
         }
         if (null !== $this->sessionId) {
             $res['session_id'] = $this->sessionId;
@@ -89,6 +116,15 @@ class module extends Model
                     $model->directFlightList[$n++] = null !== $item ? directFlightList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['next_req_wait_time'])) {
+            $model->nextReqWaitTime = $map['next_req_wait_time'];
+        }
+        if (isset($map['retry'])) {
+            $model->retry = $map['retry'];
+        }
+        if (isset($map['search_retry_token'])) {
+            $model->searchRetryToken = $map['search_retry_token'];
         }
         if (isset($map['session_id'])) {
             $model->sessionId = $map['session_id'];

@@ -467,15 +467,54 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TicketChangingPayHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TicketChangingPayRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TicketChangingPayResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TicketChangingPayShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainApplyChangeHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainApplyChangeRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainApplyChangeResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainApplyChangeShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainApplyRefundHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainApplyRefundRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainApplyRefundResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainApplyRefundShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainBillSettlementQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainBillSettlementQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainBillSettlementQueryResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainExceedApplyQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainExceedApplyQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainExceedApplyQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainFeeCalculateChangeHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainFeeCalculateChangeRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainFeeCalculateChangeResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainFeeCalculateChangeShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainFeeCalculateRefundHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainFeeCalculateRefundRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainFeeCalculateRefundResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainFeeCalculateRefundShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainNoInfoSearchHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainNoInfoSearchRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainNoInfoSearchResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainNoListSearchHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainNoListSearchRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainNoListSearchResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainNoListSearchShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainOrderCancelHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainOrderCancelRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainOrderCancelResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainOrderChangeConfirmHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainOrderChangeConfirmRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainOrderChangeConfirmResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainOrderCreateHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainOrderCreateRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainOrderCreateResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainOrderCreateShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainOrderDetailQueryHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainOrderDetailQueryRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainOrderDetailQueryResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainOrderListQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainOrderListQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainOrderListQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainOrderPayHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainOrderPayRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainOrderPayResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainOrderQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainOrderQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainOrderQueryResponse;
@@ -485,6 +524,9 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainOrderQueryV2Response;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainStationSearchHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainStationSearchRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainStationSearchResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainStopoverSearchHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainStopoverSearchRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainStopoverSearchResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainTicketScanQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainTicketScanQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainTicketScanQueryResponse;
@@ -935,6 +977,12 @@ class BtripOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->limitTraveler)) {
             $body['limit_traveler'] = $request->limitTraveler;
+        }
+        if (!Utils::isUnset($request->paymentDepartmentId)) {
+            $body['payment_department_id'] = $request->paymentDepartmentId;
+        }
+        if (!Utils::isUnset($request->paymentDepartmentName)) {
+            $body['payment_department_name'] = $request->paymentDepartmentName;
         }
         if (!Utils::isUnset($request->status)) {
             $body['status'] = $request->status;
@@ -1392,6 +1440,12 @@ class BtripOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->limitTraveler)) {
             $body['limit_traveler'] = $request->limitTraveler;
+        }
+        if (!Utils::isUnset($request->paymentDepartmentId)) {
+            $body['payment_department_id'] = $request->paymentDepartmentId;
+        }
+        if (!Utils::isUnset($request->paymentDepartmentName)) {
+            $body['payment_department_name'] = $request->paymentDepartmentName;
         }
         if (!Utils::isUnset($request->status)) {
             $body['status'] = $request->status;
@@ -4168,6 +4222,9 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->depDateShrink)) {
             $query['dep_date'] = $request->depDateShrink;
         }
+        if (!Utils::isUnset($request->interfaceCallerIsSupportRetry)) {
+            $query['interface_caller_is_support_retry'] = $request->interfaceCallerIsSupportRetry;
+        }
         if (!Utils::isUnset($request->isvName)) {
             $query['isv_name'] = $request->isvName;
         }
@@ -4182,6 +4239,9 @@ class BtripOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->searchMode)) {
             $query['search_mode'] = $request->searchMode;
+        }
+        if (!Utils::isUnset($request->searchRetryToken)) {
+            $query['search_retry_token'] = $request->searchRetryToken;
         }
         if (!Utils::isUnset($request->selectedSegmentsShrink)) {
             $query['selected_segments'] = $request->selectedSegmentsShrink;
@@ -9001,6 +9061,9 @@ class BtripOpen extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->thirdPartId)) {
+            $query['third_part_id'] = $request->thirdPartId;
+        }
         if (!Utils::isUnset($request->title)) {
             $query['title'] = $request->title;
         }
@@ -10348,6 +10411,151 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * @param TrainApplyChangeRequest $tmpReq
+     * @param TrainApplyChangeHeaders $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return TrainApplyChangeResponse
+     */
+    public function trainApplyChangeWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new TrainApplyChangeShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->changeTrainInfoS)) {
+            $request->changeTrainInfoSShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->changeTrainInfoS, 'change_train_info_s', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->changeTrainInfoSShrink)) {
+            $query['change_train_info_s'] = $request->changeTrainInfoSShrink;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->acceptNoSeat)) {
+            $body['accept_no_seat'] = $request->acceptNoSeat;
+        }
+        if (!Utils::isUnset($request->forceMatch)) {
+            $body['force_match'] = $request->forceMatch;
+        }
+        if (!Utils::isUnset($request->isPayNow)) {
+            $body['is_pay_now'] = $request->isPayNow;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $body['order_id'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->outChangeApplyId)) {
+            $body['out_change_apply_id'] = $request->outChangeApplyId;
+        }
+        if (!Utils::isUnset($request->outOrderId)) {
+            $body['out_order_id'] = $request->outOrderId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'TrainApplyChange',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/train/v1/change/apply',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TrainApplyChangeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TrainApplyChangeRequest $request
+     *
+     * @return TrainApplyChangeResponse
+     */
+    public function trainApplyChange($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new TrainApplyChangeHeaders([]);
+
+        return $this->trainApplyChangeWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param TrainApplyRefundRequest $tmpReq
+     * @param TrainApplyRefundHeaders $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return TrainApplyRefundResponse
+     */
+    public function trainApplyRefundWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new TrainApplyRefundShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->refundTrainInfos)) {
+            $request->refundTrainInfosShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->refundTrainInfos, 'refund_train_infos', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $body['order_id'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->outOrderId)) {
+            $body['out_order_id'] = $request->outOrderId;
+        }
+        if (!Utils::isUnset($request->outRefundId)) {
+            $body['out_refund_id'] = $request->outRefundId;
+        }
+        if (!Utils::isUnset($request->refundTrainInfosShrink)) {
+            $body['refund_train_infos'] = $request->refundTrainInfosShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'TrainApplyRefund',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/train/v1/refund/apply',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TrainApplyRefundResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TrainApplyRefundRequest $request
+     *
+     * @return TrainApplyRefundResponse
+     */
+    public function trainApplyRefund($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new TrainApplyRefundHeaders([]);
+
+        return $this->trainApplyRefundWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param TrainBillSettlementQueryRequest $request
      * @param TrainBillSettlementQueryHeaders $headers
      * @param RuntimeOptions                  $runtime
@@ -10463,6 +10671,555 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * @param TrainFeeCalculateChangeRequest $tmpReq
+     * @param TrainFeeCalculateChangeHeaders $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return TrainFeeCalculateChangeResponse
+     */
+    public function trainFeeCalculateChangeWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new TrainFeeCalculateChangeShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->changeTrainDetails)) {
+            $request->changeTrainDetailsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->changeTrainDetails, 'change_train_details', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->changeTrainDetailsShrink)) {
+            $body['change_train_details'] = $request->changeTrainDetailsShrink;
+        }
+        if (!Utils::isUnset($request->distributeOrderId)) {
+            $body['distribute_order_id'] = $request->distributeOrderId;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $body['order_id'] = $request->orderId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'TrainFeeCalculateChange',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/train/v1/change/fee',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TrainFeeCalculateChangeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TrainFeeCalculateChangeRequest $request
+     *
+     * @return TrainFeeCalculateChangeResponse
+     */
+    public function trainFeeCalculateChange($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new TrainFeeCalculateChangeHeaders([]);
+
+        return $this->trainFeeCalculateChangeWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param TrainFeeCalculateRefundRequest $tmpReq
+     * @param TrainFeeCalculateRefundHeaders $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return TrainFeeCalculateRefundResponse
+     */
+    public function trainFeeCalculateRefundWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new TrainFeeCalculateRefundShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->refundTrainInfos)) {
+            $request->refundTrainInfosShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->refundTrainInfos, 'refund_train_infos', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->distributeOrderId)) {
+            $body['distribute_order_id'] = $request->distributeOrderId;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $body['order_id'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->refundTrainInfosShrink)) {
+            $body['refund_train_infos'] = $request->refundTrainInfosShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'TrainFeeCalculateRefund',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/train/v1/refund/fee',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TrainFeeCalculateRefundResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TrainFeeCalculateRefundRequest $request
+     *
+     * @return TrainFeeCalculateRefundResponse
+     */
+    public function trainFeeCalculateRefund($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new TrainFeeCalculateRefundHeaders([]);
+
+        return $this->trainFeeCalculateRefundWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param TrainNoInfoSearchRequest $request
+     * @param TrainNoInfoSearchHeaders $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return TrainNoInfoSearchResponse
+     */
+    public function trainNoInfoSearchWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->arrLocation)) {
+            $body['arr_location'] = $request->arrLocation;
+        }
+        if (!Utils::isUnset($request->depDate)) {
+            $body['dep_date'] = $request->depDate;
+        }
+        if (!Utils::isUnset($request->depLocation)) {
+            $body['dep_location'] = $request->depLocation;
+        }
+        if (!Utils::isUnset($request->lineKey)) {
+            $body['line_key'] = $request->lineKey;
+        }
+        if (!Utils::isUnset($request->middleDate)) {
+            $body['middle_date'] = $request->middleDate;
+        }
+        if (!Utils::isUnset($request->middleStation)) {
+            $body['middle_station'] = $request->middleStation;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $body['order_id'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->trainNo)) {
+            $body['train_no'] = $request->trainNo;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'TrainNoInfoSearch',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/train/v1/search/info',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TrainNoInfoSearchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TrainNoInfoSearchRequest $request
+     *
+     * @return TrainNoInfoSearchResponse
+     */
+    public function trainNoInfoSearch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new TrainNoInfoSearchHeaders([]);
+
+        return $this->trainNoInfoSearchWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param TrainNoListSearchRequest $tmpReq
+     * @param TrainNoListSearchHeaders $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return TrainNoListSearchResponse
+     */
+    public function trainNoListSearchWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new TrainNoListSearchShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->option)) {
+            $request->optionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->option, 'option', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->arrLocation)) {
+            $body['arr_location'] = $request->arrLocation;
+        }
+        if (!Utils::isUnset($request->depDate)) {
+            $body['dep_date'] = $request->depDate;
+        }
+        if (!Utils::isUnset($request->depLocation)) {
+            $body['dep_location'] = $request->depLocation;
+        }
+        if (!Utils::isUnset($request->optionShrink)) {
+            $body['option'] = $request->optionShrink;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $body['order_id'] = $request->orderId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'TrainNoListSearch',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/train/v1/search/list',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TrainNoListSearchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TrainNoListSearchRequest $request
+     *
+     * @return TrainNoListSearchResponse
+     */
+    public function trainNoListSearch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new TrainNoListSearchHeaders([]);
+
+        return $this->trainNoListSearchWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param TrainOrderCancelRequest $request
+     * @param TrainOrderCancelHeaders $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return TrainOrderCancelResponse
+     */
+    public function trainOrderCancelWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->changeOrderId)) {
+            $body['change_order_id'] = $request->changeOrderId;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $body['order_id'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->outChangeOrderId)) {
+            $body['out_change_order_id'] = $request->outChangeOrderId;
+        }
+        if (!Utils::isUnset($request->outOrderId)) {
+            $body['out_order_id'] = $request->outOrderId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'TrainOrderCancel',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/train/v1/order/cancel',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TrainOrderCancelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TrainOrderCancelRequest $request
+     *
+     * @return TrainOrderCancelResponse
+     */
+    public function trainOrderCancel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new TrainOrderCancelHeaders([]);
+
+        return $this->trainOrderCancelWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param TrainOrderChangeConfirmRequest $request
+     * @param TrainOrderChangeConfirmHeaders $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return TrainOrderChangeConfirmResponse
+     */
+    public function trainOrderChangeConfirmWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->changeApplyId)) {
+            $body['change_apply_id'] = $request->changeApplyId;
+        }
+        if (!Utils::isUnset($request->changeSettleAmount)) {
+            $body['change_settle_amount'] = $request->changeSettleAmount;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $body['order_id'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->outChangeApplyId)) {
+            $body['out_change_apply_id'] = $request->outChangeApplyId;
+        }
+        if (!Utils::isUnset($request->outOrderId)) {
+            $body['out_order_id'] = $request->outOrderId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'TrainOrderChangeConfirm',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/train/v1/change/confirm',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TrainOrderChangeConfirmResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TrainOrderChangeConfirmRequest $request
+     *
+     * @return TrainOrderChangeConfirmResponse
+     */
+    public function trainOrderChangeConfirm($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new TrainOrderChangeConfirmHeaders([]);
+
+        return $this->trainOrderChangeConfirmWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param TrainOrderCreateRequest $tmpReq
+     * @param TrainOrderCreateHeaders $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return TrainOrderCreateResponse
+     */
+    public function trainOrderCreateWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new TrainOrderCreateShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->bookTrainInfos)) {
+            $request->bookTrainInfosShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->bookTrainInfos, 'book_train_infos', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->businessInfo)) {
+            $request->businessInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->businessInfo, 'business_info', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->contactInfo)) {
+            $request->contactInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->contactInfo, 'contact_info', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->passengerOpenInfoS)) {
+            $request->passengerOpenInfoSShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->passengerOpenInfoS, 'passenger_open_info_s', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->acceptNoSeat)) {
+            $body['accept_no_seat'] = $request->acceptNoSeat;
+        }
+        if (!Utils::isUnset($request->bookTrainInfosShrink)) {
+            $body['book_train_infos'] = $request->bookTrainInfosShrink;
+        }
+        if (!Utils::isUnset($request->btripUserId)) {
+            $body['btrip_user_id'] = $request->btripUserId;
+        }
+        if (!Utils::isUnset($request->btripUserName)) {
+            $body['btrip_user_name'] = $request->btripUserName;
+        }
+        if (!Utils::isUnset($request->businessInfoShrink)) {
+            $body['business_info'] = $request->businessInfoShrink;
+        }
+        if (!Utils::isUnset($request->contactInfoShrink)) {
+            $body['contact_info'] = $request->contactInfoShrink;
+        }
+        if (!Utils::isUnset($request->forceMatch)) {
+            $body['force_match'] = $request->forceMatch;
+        }
+        if (!Utils::isUnset($request->isPayNow)) {
+            $body['is_pay_now'] = $request->isPayNow;
+        }
+        if (!Utils::isUnset($request->outOrderId)) {
+            $body['out_order_id'] = $request->outOrderId;
+        }
+        if (!Utils::isUnset($request->passengerOpenInfoSShrink)) {
+            $body['passenger_open_info_s'] = $request->passengerOpenInfoSShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'TrainOrderCreate',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/train/v1/order/create',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TrainOrderCreateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TrainOrderCreateRequest $request
+     *
+     * @return TrainOrderCreateResponse
+     */
+    public function trainOrderCreate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new TrainOrderCreateHeaders([]);
+
+        return $this->trainOrderCreateWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param TrainOrderDetailQueryRequest $request
+     * @param TrainOrderDetailQueryHeaders $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return TrainOrderDetailQueryResponse
+     */
+    public function trainOrderDetailQueryWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $body['order_id'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->outOrderId)) {
+            $body['out_order_id'] = $request->outOrderId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'TrainOrderDetailQuery',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/train/v1/order/query',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TrainOrderDetailQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TrainOrderDetailQueryRequest $request
+     *
+     * @return TrainOrderDetailQueryResponse
+     */
+    public function trainOrderDetailQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new TrainOrderDetailQueryHeaders([]);
+
+        return $this->trainOrderDetailQueryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param TrainOrderListQueryRequest $request
      * @param TrainOrderListQueryHeaders $headers
      * @param RuntimeOptions             $runtime
@@ -10543,6 +11300,65 @@ class BtripOpen extends OpenApiClient
         $headers = new TrainOrderListQueryHeaders([]);
 
         return $this->trainOrderListQueryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param TrainOrderPayRequest $request
+     * @param TrainOrderPayHeaders $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return TrainOrderPayResponse
+     */
+    public function trainOrderPayWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $body['order_id'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->outOrderId)) {
+            $body['out_order_id'] = $request->outOrderId;
+        }
+        if (!Utils::isUnset($request->payAmount)) {
+            $body['pay_amount'] = $request->payAmount;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'TrainOrderPay',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/train/v1/order/pay',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TrainOrderPayResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TrainOrderPayRequest $request
+     *
+     * @return TrainOrderPayResponse
+     */
+    public function trainOrderPay($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new TrainOrderPayHeaders([]);
+
+        return $this->trainOrderPayWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -10708,6 +11524,68 @@ class BtripOpen extends OpenApiClient
         $headers = new TrainStationSearchHeaders([]);
 
         return $this->trainStationSearchWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param TrainStopoverSearchRequest $request
+     * @param TrainStopoverSearchHeaders $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return TrainStopoverSearchResponse
+     */
+    public function trainStopoverSearchWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->arrStation)) {
+            $body['arr_station'] = $request->arrStation;
+        }
+        if (!Utils::isUnset($request->depStation)) {
+            $body['dep_station'] = $request->depStation;
+        }
+        if (!Utils::isUnset($request->trainDate)) {
+            $body['train_date'] = $request->trainDate;
+        }
+        if (!Utils::isUnset($request->trainNo)) {
+            $body['train_no'] = $request->trainNo;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'TrainStopoverSearch',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/train/v1/search/stopover',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TrainStopoverSearchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TrainStopoverSearchRequest $request
+     *
+     * @return TrainStopoverSearchResponse
+     */
+    public function trainStopoverSearch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new TrainStopoverSearchHeaders([]);
+
+        return $this->trainStopoverSearchWithOptions($request, $headers, $runtime);
     }
 
     /**

@@ -21,6 +21,11 @@ class FlightModifyListingSearchV2Request extends Model
     public $depDate;
 
     /**
+     * @var bool
+     */
+    public $interfaceCallerIsSupportRetry;
+
+    /**
      * @example name
      *
      * @var string
@@ -54,6 +59,11 @@ class FlightModifyListingSearchV2Request extends Model
     public $searchMode;
 
     /**
+     * @var string
+     */
+    public $searchRetryToken;
+
+    /**
      * @var selectedSegments[]
      */
     public $selectedSegments;
@@ -72,16 +82,18 @@ class FlightModifyListingSearchV2Request extends Model
      */
     public $voluntary;
     protected $_name = [
-        'cabinClass'                => 'cabin_class',
-        'depDate'                   => 'dep_date',
-        'isvName'                   => 'isv_name',
-        'orderId'                   => 'order_id',
-        'outOrderId'                => 'out_order_id',
-        'passengerSegmentRelations' => 'passenger_segment_relations',
-        'searchMode'                => 'search_mode',
-        'selectedSegments'          => 'selected_segments',
-        'sessionId'                 => 'session_id',
-        'voluntary'                 => 'voluntary',
+        'cabinClass'                    => 'cabin_class',
+        'depDate'                       => 'dep_date',
+        'interfaceCallerIsSupportRetry' => 'interface_caller_is_support_retry',
+        'isvName'                       => 'isv_name',
+        'orderId'                       => 'order_id',
+        'outOrderId'                    => 'out_order_id',
+        'passengerSegmentRelations'     => 'passenger_segment_relations',
+        'searchMode'                    => 'search_mode',
+        'searchRetryToken'              => 'search_retry_token',
+        'selectedSegments'              => 'selected_segments',
+        'sessionId'                     => 'session_id',
+        'voluntary'                     => 'voluntary',
     ];
 
     public function validate()
@@ -96,6 +108,9 @@ class FlightModifyListingSearchV2Request extends Model
         }
         if (null !== $this->depDate) {
             $res['dep_date'] = $this->depDate;
+        }
+        if (null !== $this->interfaceCallerIsSupportRetry) {
+            $res['interface_caller_is_support_retry'] = $this->interfaceCallerIsSupportRetry;
         }
         if (null !== $this->isvName) {
             $res['isv_name'] = $this->isvName;
@@ -117,6 +132,9 @@ class FlightModifyListingSearchV2Request extends Model
         }
         if (null !== $this->searchMode) {
             $res['search_mode'] = $this->searchMode;
+        }
+        if (null !== $this->searchRetryToken) {
+            $res['search_retry_token'] = $this->searchRetryToken;
         }
         if (null !== $this->selectedSegments) {
             $res['selected_segments'] = [];
@@ -155,6 +173,9 @@ class FlightModifyListingSearchV2Request extends Model
                 $model->depDate = $map['dep_date'];
             }
         }
+        if (isset($map['interface_caller_is_support_retry'])) {
+            $model->interfaceCallerIsSupportRetry = $map['interface_caller_is_support_retry'];
+        }
         if (isset($map['isv_name'])) {
             $model->isvName = $map['isv_name'];
         }
@@ -175,6 +196,9 @@ class FlightModifyListingSearchV2Request extends Model
         }
         if (isset($map['search_mode'])) {
             $model->searchMode = $map['search_mode'];
+        }
+        if (isset($map['search_retry_token'])) {
+            $model->searchRetryToken = $map['search_retry_token'];
         }
         if (isset($map['selected_segments'])) {
             if (!empty($map['selected_segments'])) {

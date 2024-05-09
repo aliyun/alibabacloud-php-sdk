@@ -113,6 +113,16 @@ class moduleList extends Model
     public $jobNo;
 
     /**
+     * @var string
+     */
+    public $paymentDepartmentId;
+
+    /**
+     * @var string
+     */
+    public $paymentDepartmentName;
+
+    /**
      * @example 1
      *
      * @var int
@@ -186,34 +196,36 @@ class moduleList extends Model
      */
     public $userName;
     protected $_name = [
-        'applyShowId'          => 'apply_show_id',
-        'approverList'         => 'approver_list',
-        'carRule'              => 'car_rule',
-        'corpId'               => 'corp_id',
-        'corpName'             => 'corp_name',
-        'departId'             => 'depart_id',
-        'departName'           => 'depart_name',
-        'externalTravelerList' => 'external_traveler_list',
-        'flowCode'             => 'flow_code',
-        'gmtCreate'            => 'gmt_create',
-        'gmtModified'          => 'gmt_modified',
-        'id'                   => 'id',
-        'itineraryList'        => 'itinerary_list',
-        'itineraryRule'        => 'itinerary_rule',
-        'itinerarySetList'     => 'itinerary_set_list',
-        'jobNo'                => 'job_no',
-        'status'               => 'status',
-        'statusDesc'           => 'status_desc',
-        'thirdpartBusinessId'  => 'thirdpart_business_id',
-        'thirdpartId'          => 'thirdpart_id',
-        'travelerList'         => 'traveler_list',
-        'tripCause'            => 'trip_cause',
-        'tripDay'              => 'trip_day',
-        'tripTitle'            => 'trip_title',
-        'type'                 => 'type',
-        'unionNo'              => 'union_no',
-        'userId'               => 'user_id',
-        'userName'             => 'user_name',
+        'applyShowId'           => 'apply_show_id',
+        'approverList'          => 'approver_list',
+        'carRule'               => 'car_rule',
+        'corpId'                => 'corp_id',
+        'corpName'              => 'corp_name',
+        'departId'              => 'depart_id',
+        'departName'            => 'depart_name',
+        'externalTravelerList'  => 'external_traveler_list',
+        'flowCode'              => 'flow_code',
+        'gmtCreate'             => 'gmt_create',
+        'gmtModified'           => 'gmt_modified',
+        'id'                    => 'id',
+        'itineraryList'         => 'itinerary_list',
+        'itineraryRule'         => 'itinerary_rule',
+        'itinerarySetList'      => 'itinerary_set_list',
+        'jobNo'                 => 'job_no',
+        'paymentDepartmentId'   => 'payment_department_id',
+        'paymentDepartmentName' => 'payment_department_name',
+        'status'                => 'status',
+        'statusDesc'            => 'status_desc',
+        'thirdpartBusinessId'   => 'thirdpart_business_id',
+        'thirdpartId'           => 'thirdpart_id',
+        'travelerList'          => 'traveler_list',
+        'tripCause'             => 'trip_cause',
+        'tripDay'               => 'trip_day',
+        'tripTitle'             => 'trip_title',
+        'type'                  => 'type',
+        'unionNo'               => 'union_no',
+        'userId'                => 'user_id',
+        'userName'              => 'user_name',
     ];
 
     public function validate()
@@ -294,6 +306,12 @@ class moduleList extends Model
         }
         if (null !== $this->jobNo) {
             $res['job_no'] = $this->jobNo;
+        }
+        if (null !== $this->paymentDepartmentId) {
+            $res['payment_department_id'] = $this->paymentDepartmentId;
+        }
+        if (null !== $this->paymentDepartmentName) {
+            $res['payment_department_name'] = $this->paymentDepartmentName;
         }
         if (null !== $this->status) {
             $res['status'] = $this->status;
@@ -420,6 +438,12 @@ class moduleList extends Model
         }
         if (isset($map['job_no'])) {
             $model->jobNo = $map['job_no'];
+        }
+        if (isset($map['payment_department_id'])) {
+            $model->paymentDepartmentId = $map['payment_department_id'];
+        }
+        if (isset($map['payment_department_name'])) {
+            $model->paymentDepartmentName = $map['payment_department_name'];
         }
         if (isset($map['status'])) {
             $model->status = $map['status'];

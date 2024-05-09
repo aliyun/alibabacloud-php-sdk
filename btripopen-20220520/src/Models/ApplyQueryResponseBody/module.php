@@ -151,6 +151,16 @@ class module extends Model
     public $limitTraveler;
 
     /**
+     * @var string
+     */
+    public $paymentDepartmentId;
+
+    /**
+     * @var string
+     */
+    public $paymentDepartmentName;
+
+    /**
      * @example 1
      *
      * @var int
@@ -245,42 +255,44 @@ class module extends Model
      */
     public $vehicleBudget;
     protected $_name = [
-        'applyShowId'          => 'apply_show_id',
-        'approverList'         => 'approver_list',
-        'budget'               => 'budget',
-        'budgetMerge'          => 'budget_merge',
-        'carRule'              => 'car_rule',
-        'corpId'               => 'corp_id',
-        'corpName'             => 'corp_name',
-        'departId'             => 'depart_id',
-        'departName'           => 'depart_name',
-        'extendField'          => 'extend_field',
-        'externalTravelerList' => 'external_traveler_list',
-        'flightBudget'         => 'flight_budget',
-        'gmtCreate'            => 'gmt_create',
-        'gmtModified'          => 'gmt_modified',
-        'hotelBudget'          => 'hotel_budget',
-        'hotelShare'           => 'hotel_share',
-        'id'                   => 'id',
-        'itineraryList'        => 'itinerary_list',
-        'itineraryRule'        => 'itinerary_rule',
-        'itinerarySetList'     => 'itinerary_set_list',
-        'limitTraveler'        => 'limit_traveler',
-        'status'               => 'status',
-        'statusDesc'           => 'status_desc',
-        'thirdpartBusinessId'  => 'thirdpart_business_id',
-        'thirdpartId'          => 'thirdpart_id',
-        'togetherBookRule'     => 'together_book_rule',
-        'trainBudget'          => 'train_budget',
-        'travelerList'         => 'traveler_list',
-        'tripCause'            => 'trip_cause',
-        'tripDay'              => 'trip_day',
-        'tripTitle'            => 'trip_title',
-        'type'                 => 'type',
-        'unionNo'              => 'union_no',
-        'userId'               => 'user_id',
-        'userName'             => 'user_name',
-        'vehicleBudget'        => 'vehicle_budget',
+        'applyShowId'           => 'apply_show_id',
+        'approverList'          => 'approver_list',
+        'budget'                => 'budget',
+        'budgetMerge'           => 'budget_merge',
+        'carRule'               => 'car_rule',
+        'corpId'                => 'corp_id',
+        'corpName'              => 'corp_name',
+        'departId'              => 'depart_id',
+        'departName'            => 'depart_name',
+        'extendField'           => 'extend_field',
+        'externalTravelerList'  => 'external_traveler_list',
+        'flightBudget'          => 'flight_budget',
+        'gmtCreate'             => 'gmt_create',
+        'gmtModified'           => 'gmt_modified',
+        'hotelBudget'           => 'hotel_budget',
+        'hotelShare'            => 'hotel_share',
+        'id'                    => 'id',
+        'itineraryList'         => 'itinerary_list',
+        'itineraryRule'         => 'itinerary_rule',
+        'itinerarySetList'      => 'itinerary_set_list',
+        'limitTraveler'         => 'limit_traveler',
+        'paymentDepartmentId'   => 'payment_department_id',
+        'paymentDepartmentName' => 'payment_department_name',
+        'status'                => 'status',
+        'statusDesc'            => 'status_desc',
+        'thirdpartBusinessId'   => 'thirdpart_business_id',
+        'thirdpartId'           => 'thirdpart_id',
+        'togetherBookRule'      => 'together_book_rule',
+        'trainBudget'           => 'train_budget',
+        'travelerList'          => 'traveler_list',
+        'tripCause'             => 'trip_cause',
+        'tripDay'               => 'trip_day',
+        'tripTitle'             => 'trip_title',
+        'type'                  => 'type',
+        'unionNo'               => 'union_no',
+        'userId'                => 'user_id',
+        'userName'              => 'user_name',
+        'vehicleBudget'         => 'vehicle_budget',
     ];
 
     public function validate()
@@ -376,6 +388,12 @@ class module extends Model
         }
         if (null !== $this->limitTraveler) {
             $res['limit_traveler'] = $this->limitTraveler;
+        }
+        if (null !== $this->paymentDepartmentId) {
+            $res['payment_department_id'] = $this->paymentDepartmentId;
+        }
+        if (null !== $this->paymentDepartmentName) {
+            $res['payment_department_name'] = $this->paymentDepartmentName;
         }
         if (null !== $this->status) {
             $res['status'] = $this->status;
@@ -526,6 +544,12 @@ class module extends Model
         }
         if (isset($map['limit_traveler'])) {
             $model->limitTraveler = $map['limit_traveler'];
+        }
+        if (isset($map['payment_department_id'])) {
+            $model->paymentDepartmentId = $map['payment_department_id'];
+        }
+        if (isset($map['payment_department_name'])) {
+            $model->paymentDepartmentName = $map['payment_department_name'];
         }
         if (isset($map['status'])) {
             $model->status = $map['status'];

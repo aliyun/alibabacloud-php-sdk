@@ -29,6 +29,11 @@ class itineraryList extends Model
     public $arrDate;
 
     /**
+     * @var string
+     */
+    public $attribute;
+
+    /**
      * @example accac
      *
      * @var string
@@ -103,6 +108,7 @@ class itineraryList extends Model
         'arrCity'                 => 'arr_city',
         'arrCityCode'             => 'arr_city_code',
         'arrDate'                 => 'arr_date',
+        'attribute'               => 'attribute',
         'costCenterName'          => 'cost_center_name',
         'depCity'                 => 'dep_city',
         'depCityCode'             => 'dep_city_code',
@@ -132,6 +138,9 @@ class itineraryList extends Model
         }
         if (null !== $this->arrDate) {
             $res['arr_date'] = $this->arrDate;
+        }
+        if (null !== $this->attribute) {
+            $res['attribute'] = $this->attribute;
         }
         if (null !== $this->costCenterName) {
             $res['cost_center_name'] = $this->costCenterName;
@@ -189,6 +198,9 @@ class itineraryList extends Model
         }
         if (isset($map['arr_date'])) {
             $model->arrDate = $map['arr_date'];
+        }
+        if (isset($map['attribute'])) {
+            $model->attribute = $map['attribute'];
         }
         if (isset($map['cost_center_name'])) {
             $model->costCenterName = $map['cost_center_name'];

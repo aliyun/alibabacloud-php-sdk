@@ -17,6 +17,11 @@ class itinerarySetList extends Model
     public $arrDate;
 
     /**
+     * @var string
+     */
+    public $attribute;
+
+    /**
      * @example BJS，HGH
      *
      * @var string
@@ -82,6 +87,7 @@ class itinerarySetList extends Model
     public $trafficType;
     protected $_name = [
         'arrDate'                 => 'arr_date',
+        'attribute'               => 'attribute',
         'cityCodeSet'             => 'city_code_set',
         'citySet'                 => 'city_set',
         'costCenterName'          => 'cost_center_name',
@@ -104,6 +110,9 @@ class itinerarySetList extends Model
         $res = [];
         if (null !== $this->arrDate) {
             $res['arr_date'] = $this->arrDate;
+        }
+        if (null !== $this->attribute) {
+            $res['attribute'] = $this->attribute;
         }
         if (null !== $this->cityCodeSet) {
             $res['city_code_set'] = $this->cityCodeSet;
@@ -152,6 +161,9 @@ class itinerarySetList extends Model
         $model = new self();
         if (isset($map['arr_date'])) {
             $model->arrDate = $map['arr_date'];
+        }
+        if (isset($map['attribute'])) {
+            $model->attribute = $map['attribute'];
         }
         if (isset($map['city_code_set'])) {
             $model->cityCodeSet = $map['city_code_set'];

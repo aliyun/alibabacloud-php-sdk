@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderDetailInfoRespon
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderDetailInfoResponseBody\module\btripHotelCancelPolicyDTO;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderDetailInfoResponseBody\module\cancelInfo;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderDetailInfoResponseBody\module\hotelDetailInfo;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderDetailInfoResponseBody\module\hotelSaleOrderRoomInfos;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderDetailInfoResponseBody\module\invoiceInfo;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderDetailInfoResponseBody\module\occupantInfoList;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderDetailInfoResponseBody\module\roomNightPriceInfoList;
@@ -117,6 +118,11 @@ class module extends Model
      * @var hotelDetailInfo
      */
     public $hotelDetailInfo;
+
+    /**
+     * @var hotelSaleOrderRoomInfos[]
+     */
+    public $hotelSaleOrderRoomInfos;
 
     /**
      * @var invoiceInfo
@@ -271,6 +277,7 @@ class module extends Model
         'earlyDeparture'            => 'early_departure',
         'guestCount'                => 'guest_count',
         'hotelDetailInfo'           => 'hotel_detail_info',
+        'hotelSaleOrderRoomInfos'   => 'hotel_sale_order_room_infos',
         'invoiceInfo'               => 'invoice_info',
         'itemId'                    => 'item_id',
         'lastArrivalTime'           => 'last_arrival_time',
@@ -348,6 +355,15 @@ class module extends Model
         }
         if (null !== $this->hotelDetailInfo) {
             $res['hotel_detail_info'] = null !== $this->hotelDetailInfo ? $this->hotelDetailInfo->toMap() : null;
+        }
+        if (null !== $this->hotelSaleOrderRoomInfos) {
+            $res['hotel_sale_order_room_infos'] = [];
+            if (null !== $this->hotelSaleOrderRoomInfos && \is_array($this->hotelSaleOrderRoomInfos)) {
+                $n = 0;
+                foreach ($this->hotelSaleOrderRoomInfos as $item) {
+                    $res['hotel_sale_order_room_infos'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->invoiceInfo) {
             $res['invoice_info'] = null !== $this->invoiceInfo ? $this->invoiceInfo->toMap() : null;
@@ -483,6 +499,15 @@ class module extends Model
         }
         if (isset($map['hotel_detail_info'])) {
             $model->hotelDetailInfo = hotelDetailInfo::fromMap($map['hotel_detail_info']);
+        }
+        if (isset($map['hotel_sale_order_room_infos'])) {
+            if (!empty($map['hotel_sale_order_room_infos'])) {
+                $model->hotelSaleOrderRoomInfos = [];
+                $n                              = 0;
+                foreach ($map['hotel_sale_order_room_infos'] as $item) {
+                    $model->hotelSaleOrderRoomInfos[$n++] = null !== $item ? hotelSaleOrderRoomInfos::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['invoice_info'])) {
             $model->invoiceInfo = invoiceInfo::fromMap($map['invoice_info']);

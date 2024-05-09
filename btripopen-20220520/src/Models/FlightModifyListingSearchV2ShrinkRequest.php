@@ -19,6 +19,11 @@ class FlightModifyListingSearchV2ShrinkRequest extends Model
     public $depDateShrink;
 
     /**
+     * @var bool
+     */
+    public $interfaceCallerIsSupportRetry;
+
+    /**
      * @example name
      *
      * @var string
@@ -54,6 +59,11 @@ class FlightModifyListingSearchV2ShrinkRequest extends Model
     /**
      * @var string
      */
+    public $searchRetryToken;
+
+    /**
+     * @var string
+     */
     public $selectedSegmentsShrink;
 
     /**
@@ -72,11 +82,13 @@ class FlightModifyListingSearchV2ShrinkRequest extends Model
     protected $_name = [
         'cabinClassShrink'                => 'cabin_class',
         'depDateShrink'                   => 'dep_date',
+        'interfaceCallerIsSupportRetry'   => 'interface_caller_is_support_retry',
         'isvName'                         => 'isv_name',
         'orderId'                         => 'order_id',
         'outOrderId'                      => 'out_order_id',
         'passengerSegmentRelationsShrink' => 'passenger_segment_relations',
         'searchMode'                      => 'search_mode',
+        'searchRetryToken'                => 'search_retry_token',
         'selectedSegmentsShrink'          => 'selected_segments',
         'sessionId'                       => 'session_id',
         'voluntary'                       => 'voluntary',
@@ -95,6 +107,9 @@ class FlightModifyListingSearchV2ShrinkRequest extends Model
         if (null !== $this->depDateShrink) {
             $res['dep_date'] = $this->depDateShrink;
         }
+        if (null !== $this->interfaceCallerIsSupportRetry) {
+            $res['interface_caller_is_support_retry'] = $this->interfaceCallerIsSupportRetry;
+        }
         if (null !== $this->isvName) {
             $res['isv_name'] = $this->isvName;
         }
@@ -109,6 +124,9 @@ class FlightModifyListingSearchV2ShrinkRequest extends Model
         }
         if (null !== $this->searchMode) {
             $res['search_mode'] = $this->searchMode;
+        }
+        if (null !== $this->searchRetryToken) {
+            $res['search_retry_token'] = $this->searchRetryToken;
         }
         if (null !== $this->selectedSegmentsShrink) {
             $res['selected_segments'] = $this->selectedSegmentsShrink;
@@ -137,6 +155,9 @@ class FlightModifyListingSearchV2ShrinkRequest extends Model
         if (isset($map['dep_date'])) {
             $model->depDateShrink = $map['dep_date'];
         }
+        if (isset($map['interface_caller_is_support_retry'])) {
+            $model->interfaceCallerIsSupportRetry = $map['interface_caller_is_support_retry'];
+        }
         if (isset($map['isv_name'])) {
             $model->isvName = $map['isv_name'];
         }
@@ -151,6 +172,9 @@ class FlightModifyListingSearchV2ShrinkRequest extends Model
         }
         if (isset($map['search_mode'])) {
             $model->searchMode = $map['search_mode'];
+        }
+        if (isset($map['search_retry_token'])) {
+            $model->searchRetryToken = $map['search_retry_token'];
         }
         if (isset($map['selected_segments'])) {
             $model->selectedSegmentsShrink = $map['selected_segments'];

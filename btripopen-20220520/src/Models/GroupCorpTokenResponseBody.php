@@ -36,6 +36,11 @@ class GroupCorpTokenResponseBody extends Model
     public $requestId;
 
     /**
+     * @var string
+     */
+    public $success;
+
+    /**
      * @description traceId
      *
      * @example 210f079e16603757182131635d866a
@@ -48,6 +53,7 @@ class GroupCorpTokenResponseBody extends Model
         'message'   => 'message',
         'module'    => 'module',
         'requestId' => 'requestId',
+        'success'   => 'success',
         'traceId'   => 'traceId',
     ];
 
@@ -69,6 +75,9 @@ class GroupCorpTokenResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['success'] = $this->success;
         }
         if (null !== $this->traceId) {
             $res['traceId'] = $this->traceId;
@@ -96,6 +105,9 @@ class GroupCorpTokenResponseBody extends Model
         }
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
+        }
+        if (isset($map['success'])) {
+            $model->success = $map['success'];
         }
         if (isset($map['traceId'])) {
             $model->traceId = $map['traceId'];

@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\QueryReimbursementOrderResponseBody\module;
 
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\QueryReimbursementOrderResponseBody\module\expenses\expenseCompositions;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\QueryReimbursementOrderResponseBody\module\expenses\invoiceInfos;
 use AlibabaCloud\Tea\Model;
 
 class expenses extends Model
@@ -51,6 +52,11 @@ class expenses extends Model
     public $expenseTypeCode;
 
     /**
+     * @var invoiceInfos[]
+     */
+    public $invoiceInfos;
+
+    /**
      * @var int
      */
     public $reimbExpenseId;
@@ -72,6 +78,7 @@ class expenses extends Model
         'expenseTime'         => 'expense_time',
         'expenseType'         => 'expense_type',
         'expenseTypeCode'     => 'expense_type_code',
+        'invoiceInfos'        => 'invoice_infos',
         'reimbExpenseId'      => 'reimb_expense_id',
         'remark'              => 'remark',
         'settlementType'      => 'settlement_type',
@@ -110,6 +117,15 @@ class expenses extends Model
         }
         if (null !== $this->expenseTypeCode) {
             $res['expense_type_code'] = $this->expenseTypeCode;
+        }
+        if (null !== $this->invoiceInfos) {
+            $res['invoice_infos'] = [];
+            if (null !== $this->invoiceInfos && \is_array($this->invoiceInfos)) {
+                $n = 0;
+                foreach ($this->invoiceInfos as $item) {
+                    $res['invoice_infos'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->reimbExpenseId) {
             $res['reimb_expense_id'] = $this->reimbExpenseId;
@@ -158,6 +174,15 @@ class expenses extends Model
         }
         if (isset($map['expense_type_code'])) {
             $model->expenseTypeCode = $map['expense_type_code'];
+        }
+        if (isset($map['invoice_infos'])) {
+            if (!empty($map['invoice_infos'])) {
+                $model->invoiceInfos = [];
+                $n                   = 0;
+                foreach ($map['invoice_infos'] as $item) {
+                    $model->invoiceInfos[$n++] = null !== $item ? invoiceInfos::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['reimb_expense_id'])) {
             $model->reimbExpenseId = $map['reimb_expense_id'];
