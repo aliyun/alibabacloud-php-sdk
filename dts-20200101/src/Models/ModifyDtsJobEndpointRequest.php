@@ -84,6 +84,11 @@ class ModifyDtsJobEndpointRequest extends Model
     public $endpointRegionId;
 
     /**
+     * @var bool
+     */
+    public $modifyAccount;
+
+    /**
      * @example DTStest****
      *
      * @var string
@@ -148,6 +153,7 @@ class ModifyDtsJobEndpointRequest extends Model
         'endpointIp'               => 'EndpointIp',
         'endpointPort'             => 'EndpointPort',
         'endpointRegionId'         => 'EndpointRegionId',
+        'modifyAccount'            => 'ModifyAccount',
         'password'                 => 'Password',
         'regionId'                 => 'RegionId',
         'resourceGroupId'          => 'ResourceGroupId',
@@ -197,6 +203,9 @@ class ModifyDtsJobEndpointRequest extends Model
         }
         if (null !== $this->endpointRegionId) {
             $res['EndpointRegionId'] = $this->endpointRegionId;
+        }
+        if (null !== $this->modifyAccount) {
+            $res['ModifyAccount'] = $this->modifyAccount;
         }
         if (null !== $this->password) {
             $res['Password'] = $this->password;
@@ -266,6 +275,9 @@ class ModifyDtsJobEndpointRequest extends Model
         }
         if (isset($map['EndpointRegionId'])) {
             $model->endpointRegionId = $map['EndpointRegionId'];
+        }
+        if (isset($map['ModifyAccount'])) {
+            $model->modifyAccount = $map['ModifyAccount'];
         }
         if (isset($map['Password'])) {
             $model->password = $map['Password'];

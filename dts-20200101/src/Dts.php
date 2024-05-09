@@ -134,6 +134,8 @@ use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeSynchronizationJobStatusReques
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeSynchronizationJobStatusResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeSynchronizationObjectModifyStatusRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeSynchronizationObjectModifyStatusResponse;
+use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeSyncStatusRequest;
+use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeSyncStatusResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeTagKeysRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeTagKeysResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeTagValuesRequest;
@@ -4480,6 +4482,61 @@ class Dts extends OpenApiClient
     }
 
     /**
+     * @param DescribeSyncStatusRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeSyncStatusResponse
+     */
+    public function describeSyncStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
+        }
+        if (!Utils::isUnset($request->dtsInstanceId)) {
+            $query['DtsInstanceId'] = $request->dtsInstanceId;
+        }
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSyncStatus',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSyncStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSyncStatusRequest $request
+     *
+     * @return DescribeSyncStatusResponse
+     */
+    public function describeSyncStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSyncStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeSynchronizationJobAlertRequest $request
      * @param RuntimeOptions                         $runtime
      *
@@ -5838,6 +5895,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->endpointRegionId)) {
             $query['EndpointRegionId'] = $request->endpointRegionId;
+        }
+        if (!Utils::isUnset($request->modifyAccount)) {
+            $query['ModifyAccount'] = $request->modifyAccount;
         }
         if (!Utils::isUnset($request->password)) {
             $query['Password'] = $request->password;
