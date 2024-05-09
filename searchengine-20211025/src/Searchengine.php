@@ -16,12 +16,17 @@ use AlibabaCloud\SDK\Searchengine\V20211025\Models\CreateIndexRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\CreateIndexResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\CreateInstanceRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\CreateInstanceResponse;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\CreateTableRequest;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\CreateTableResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\DeleteAdvanceConfigResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\DeleteDataSourceResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\DeleteIndexRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\DeleteIndexResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\DeleteIndexVersionResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\DeleteInstanceResponse;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\DeleteTableResponse;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\DescribeRegionsRequest;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ForceSwitchResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetAdvanceConfigFileRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetAdvanceConfigFileResponse;
@@ -39,6 +44,8 @@ use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetIndexVersionResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetInstanceResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetNodeConfigRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetNodeConfigResponse;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetTableGenerationResponse;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetTableResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListAdvanceConfigDirRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListAdvanceConfigDirResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListAdvanceConfigsRequest;
@@ -62,6 +69,9 @@ use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListOnlineConfigsRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListOnlineConfigsResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListQueryResultRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListQueryResultResponse;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListTableGenerationsResponse;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListTablesRequest;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListTablesResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyAdvanceConfigFileRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyAdvanceConfigFileResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyClusterDescRequest;
@@ -84,12 +94,16 @@ use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyOnlineConfigRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyOnlineConfigResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyPasswordRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyPasswordResponse;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyTableRequest;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyTableResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\PublishAdvanceConfigRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\PublishAdvanceConfigResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\PublishIndexVersionRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\PublishIndexVersionResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\RecoverIndexRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\RecoverIndexResponse;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\ReindexRequest;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\ReindexResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\RemoveClusterResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\StopTaskResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\UpdateInstanceRequest;
@@ -499,6 +513,83 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @param string             $instanceId
+     * @param CreateTableRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateTableResponse
+     */
+    public function createTableWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['dryRun'] = $request->dryRun;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->dataProcessConfig)) {
+            $body['dataProcessConfig'] = $request->dataProcessConfig;
+        }
+        if (!Utils::isUnset($request->dataProcessorCount)) {
+            $body['dataProcessorCount'] = $request->dataProcessorCount;
+        }
+        if (!Utils::isUnset($request->dataSource)) {
+            $body['dataSource'] = $request->dataSource;
+        }
+        if (!Utils::isUnset($request->fieldSchema)) {
+            $body['fieldSchema'] = $request->fieldSchema;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->partitionCount)) {
+            $body['partitionCount'] = $request->partitionCount;
+        }
+        if (!Utils::isUnset($request->primaryKey)) {
+            $body['primaryKey'] = $request->primaryKey;
+        }
+        if (!Utils::isUnset($request->rawSchema)) {
+            $body['rawSchema'] = $request->rawSchema;
+        }
+        if (!Utils::isUnset($request->vectorIndex)) {
+            $body['vectorIndex'] = $request->vectorIndex;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateTable',
+            'version'     => '2021-10-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/tables',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateTableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string             $instanceId
+     * @param CreateTableRequest $request
+     *
+     * @return CreateTableResponse
+     */
+    public function createTable($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createTableWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
      * ## Method
      *   *     DELETE
      *   * ## URI
@@ -767,6 +858,94 @@ class Searchengine extends OpenApiClient
         $headers = [];
 
         return $this->deleteInstanceWithOptions($instanceId, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $instanceId
+     * @param string         $tableName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteTableResponse
+     */
+    public function deleteTableWithOptions($instanceId, $tableName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteTable',
+            'version'     => '2021-10-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/tables/' . OpenApiUtilClient::getEncodeParam($tableName) . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteTableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $instanceId
+     * @param string $tableName
+     *
+     * @return DeleteTableResponse
+     */
+    public function deleteTable($instanceId, $tableName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteTableWithOptions($instanceId, $tableName, $headers, $runtime);
+    }
+
+    /**
+     * @param DescribeRegionsRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeRegionsResponse
+     */
+    public function describeRegionsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['acceptLanguage'] = $request->acceptLanguage;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRegions',
+            'version'     => '2021-10-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/ha3/regions',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRegionsRequest $request
+     *
+     * @return DescribeRegionsResponse
+     */
+    public function describeRegions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeRegionsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1459,6 +1638,92 @@ class Searchengine extends OpenApiClient
         $headers = [];
 
         return $this->getNodeConfigWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $instanceId
+     * @param string         $tableName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetTableResponse
+     */
+    public function getTableWithOptions($instanceId, $tableName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetTable',
+            'version'     => '2021-10-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/tables/' . OpenApiUtilClient::getEncodeParam($tableName) . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $instanceId
+     * @param string $tableName
+     *
+     * @return GetTableResponse
+     */
+    public function getTable($instanceId, $tableName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getTableWithOptions($instanceId, $tableName, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $instanceId
+     * @param string         $tableName
+     * @param string         $generationId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetTableGenerationResponse
+     */
+    public function getTableGenerationWithOptions($instanceId, $tableName, $generationId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetTableGeneration',
+            'version'     => '2021-10-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/tables/' . OpenApiUtilClient::getEncodeParam($tableName) . '/index_versions/' . OpenApiUtilClient::getEncodeParam($generationId) . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTableGenerationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $instanceId
+     * @param string $tableName
+     * @param string $generationId
+     *
+     * @return GetTableGenerationResponse
+     */
+    public function getTableGeneration($instanceId, $tableName, $generationId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getTableGenerationWithOptions($instanceId, $tableName, $generationId, $headers, $runtime);
     }
 
     /**
@@ -2292,6 +2557,96 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @param string         $instanceId
+     * @param string         $tableName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListTableGenerationsResponse
+     */
+    public function listTableGenerationsWithOptions($instanceId, $tableName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'ListTableGenerations',
+            'version'     => '2021-10-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/tables/' . OpenApiUtilClient::getEncodeParam($tableName) . '/index_versions',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTableGenerationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $instanceId
+     * @param string $tableName
+     *
+     * @return ListTableGenerationsResponse
+     */
+    public function listTableGenerations($instanceId, $tableName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listTableGenerationsWithOptions($instanceId, $tableName, $headers, $runtime);
+    }
+
+    /**
+     * @param string            $instanceId
+     * @param ListTablesRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListTablesResponse
+     */
+    public function listTablesWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->newMode)) {
+            $query['newMode'] = $request->newMode;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTables',
+            'version'     => '2021-10-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/tables',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTablesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string            $instanceId
+     * @param ListTablesRequest $request
+     *
+     * @return ListTablesResponse
+     */
+    public function listTables($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listTablesWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
      * ## Method
      *   *     put
      *   * ## URI
@@ -3043,6 +3398,79 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @param string             $instanceId
+     * @param string             $tableName
+     * @param ModifyTableRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ModifyTableResponse
+     */
+    public function modifyTableWithOptions($instanceId, $tableName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['dryRun'] = $request->dryRun;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->dataProcessConfig)) {
+            $body['dataProcessConfig'] = $request->dataProcessConfig;
+        }
+        if (!Utils::isUnset($request->dataSource)) {
+            $body['dataSource'] = $request->dataSource;
+        }
+        if (!Utils::isUnset($request->fieldSchema)) {
+            $body['fieldSchema'] = $request->fieldSchema;
+        }
+        if (!Utils::isUnset($request->partitionCount)) {
+            $body['partitionCount'] = $request->partitionCount;
+        }
+        if (!Utils::isUnset($request->primaryKey)) {
+            $body['primaryKey'] = $request->primaryKey;
+        }
+        if (!Utils::isUnset($request->rawSchema)) {
+            $body['rawSchema'] = $request->rawSchema;
+        }
+        if (!Utils::isUnset($request->vectorIndex)) {
+            $body['vectorIndex'] = $request->vectorIndex;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyTable',
+            'version'     => '2021-10-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/tables/' . OpenApiUtilClient::getEncodeParam($tableName) . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyTableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string             $instanceId
+     * @param string             $tableName
+     * @param ModifyTableRequest $request
+     *
+     * @return ModifyTableResponse
+     */
+    public function modifyTable($instanceId, $tableName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modifyTableWithOptions($instanceId, $tableName, $request, $headers, $runtime);
+    }
+
+    /**
      * ## Method
      *   * ~~~
      *   * POST
@@ -3235,6 +3663,62 @@ class Searchengine extends OpenApiClient
         $headers = [];
 
         return $this->recoverIndexWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $instanceId
+     * @param string         $tableName
+     * @param ReindexRequest $request
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ReindexResponse
+     */
+    public function reindexWithOptions($instanceId, $tableName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->dataTimeSec)) {
+            $body['dataTimeSec'] = $request->dataTimeSec;
+        }
+        if (!Utils::isUnset($request->ossDataPath)) {
+            $body['ossDataPath'] = $request->ossDataPath;
+        }
+        if (!Utils::isUnset($request->partition)) {
+            $body['partition'] = $request->partition;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'Reindex',
+            'version'     => '2021-10-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/tables/' . OpenApiUtilClient::getEncodeParam($tableName) . '/reindex',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ReindexResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string         $instanceId
+     * @param string         $tableName
+     * @param ReindexRequest $request
+     *
+     * @return ReindexResponse
+     */
+    public function reindex($instanceId, $tableName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->reindexWithOptions($instanceId, $tableName, $request, $headers, $runtime);
     }
 
     /**
