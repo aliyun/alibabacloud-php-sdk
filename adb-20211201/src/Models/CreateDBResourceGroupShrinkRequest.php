@@ -36,6 +36,11 @@ class CreateDBResourceGroupShrinkRequest extends Model
     public $DBClusterId;
 
     /**
+     * @description Specifies whether to enable the preemptible instance feature for the resource group. After you enable the preemptible instance feature, you are charged for resources at a lower unit price but the resources are probably released. You can enable the preemptible instance feature only for job resource groups. Valid values:
+     *
+     *   **True**
+     *   **False**
+     *
      * @example True
      *
      * @var bool
@@ -121,6 +126,8 @@ class CreateDBResourceGroupShrinkRequest extends Model
     public $regionId;
 
     /**
+     * @description The job resubmission rules.
+     *
      * @var string
      */
     public $rulesShrink;

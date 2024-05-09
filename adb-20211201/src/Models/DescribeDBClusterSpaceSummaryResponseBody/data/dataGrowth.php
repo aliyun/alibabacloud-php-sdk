@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class dataGrowth extends Model
 {
     /**
+     * @description The data growth within the last day. Unit: bytes.
+     *
+     * >  Formula: Data growth within the last day = Current data size - Data size one day ago.
      * @example 1048576
      *
      * @var int
@@ -16,6 +19,9 @@ class dataGrowth extends Model
     public $dayGrowth;
 
     /**
+     * @description The daily data growth within the last seven days. Unit: bytes.
+     *
+     * >  Formula: Daily data growth within the last seven days = (Current data size - Data size seven days ago)/7.
      * @example 1048576
      *
      * @var int

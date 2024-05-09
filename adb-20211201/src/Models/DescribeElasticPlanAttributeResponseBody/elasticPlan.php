@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class elasticPlan extends Model
 {
     /**
-     * @description Indicates whether **Proportional Default Scaling for EIUs** is enabled.
+     * @description Indicates whether **Default Proportional Scaling for EIUs** is enabled. Valid values: true: Default Proportional Scaling for EIUs is enabled. If you set this parameter to true, storage resources are scaled along with computing resources. false: Default Proportional Scaling for EIUs is not enabled.
      *
-     * >  You can enable Proportional Default Scaling for EIUs for only a single scaling plan of a cluster.
+     * >  You can enable Default Proportional Scaling for EIUs for only a single scaling plan of a cluster. After you enable a scaling plan of the Default Proportional Scaling for EIUs type, you cannot enable scaling plans of other types.
      * @example false
      *
      * @var bool
@@ -37,7 +37,7 @@ class elasticPlan extends Model
     public $elasticPlanName;
 
     /**
-     * @description Indicates whether the scaling plan was enabled.
+     * @description Indicates whether the scaling plan is enabled.
      *
      * @example true
      *
@@ -56,7 +56,7 @@ class elasticPlan extends Model
     public $endTime;
 
     /**
-     * @description The name of the resource group.
+     * @description The name of the resource group used by the scaling plan.
      *
      * @example test
      *

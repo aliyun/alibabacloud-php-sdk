@@ -339,10 +339,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param AllocateClusterPublicConnectionRequest $request
-     * @param RuntimeOptions                         $runtime
+     * For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
+     *   *
+     * @param AllocateClusterPublicConnectionRequest $request AllocateClusterPublicConnectionRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return AllocateClusterPublicConnectionResponse
+     * @return AllocateClusterPublicConnectionResponse AllocateClusterPublicConnectionResponse
      */
     public function allocateClusterPublicConnectionWithOptions($request, $runtime)
     {
@@ -373,9 +375,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param AllocateClusterPublicConnectionRequest $request
+     * For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
+     *   *
+     * @param AllocateClusterPublicConnectionRequest $request AllocateClusterPublicConnectionRequest
      *
-     * @return AllocateClusterPublicConnectionResponse
+     * @return AllocateClusterPublicConnectionResponse AllocateClusterPublicConnectionResponse
      */
     public function allocateClusterPublicConnection($request)
     {
@@ -385,10 +389,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param AttachUserENIRequest $request
-     * @param RuntimeOptions       $runtime
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param AttachUserENIRequest $request AttachUserENIRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return AttachUserENIResponse
+     * @return AttachUserENIResponse AttachUserENIResponse
      */
     public function attachUserENIWithOptions($request, $runtime)
     {
@@ -416,9 +422,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param AttachUserENIRequest $request
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param AttachUserENIRequest $request AttachUserENIRequest
      *
-     * @return AttachUserENIResponse
+     * @return AttachUserENIResponse AttachUserENIResponse
      */
     public function attachUserENI($request)
     {
@@ -428,10 +436,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param BindAccountRequest $request
-     * @param RuntimeOptions     $runtime
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param BindAccountRequest $request BindAccountRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return BindAccountResponse
+     * @return BindAccountResponse BindAccountResponse
      */
     public function bindAccountWithOptions($request, $runtime)
     {
@@ -465,9 +475,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param BindAccountRequest $request
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param BindAccountRequest $request BindAccountRequest
      *
-     * @return BindAccountResponse
+     * @return BindAccountResponse BindAccountResponse
      */
     public function bindAccount($request)
     {
@@ -477,10 +489,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param BindDBResourceGroupWithUserRequest $request
-     * @param RuntimeOptions                     $runtime
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param BindDBResourceGroupWithUserRequest $request BindDBResourceGroupWithUserRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return BindDBResourceGroupWithUserResponse
+     * @return BindDBResourceGroupWithUserResponse BindDBResourceGroupWithUserResponse
      */
     public function bindDBResourceGroupWithUserWithOptions($request, $runtime)
     {
@@ -514,9 +528,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param BindDBResourceGroupWithUserRequest $request
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param BindDBResourceGroupWithUserRequest $request BindDBResourceGroupWithUserRequest
      *
-     * @return BindDBResourceGroupWithUserResponse
+     * @return BindDBResourceGroupWithUserResponse BindDBResourceGroupWithUserResponse
      */
     public function bindDBResourceGroupWithUser($request)
     {
@@ -526,10 +542,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param CheckBindRamUserRequest $request
-     * @param RuntimeOptions          $runtime
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param CheckBindRamUserRequest $request CheckBindRamUserRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckBindRamUserResponse
+     * @return CheckBindRamUserResponse CheckBindRamUserResponse
      */
     public function checkBindRamUserWithOptions($request, $runtime)
     {
@@ -560,9 +578,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param CheckBindRamUserRequest $request
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param CheckBindRamUserRequest $request CheckBindRamUserRequest
      *
-     * @return CheckBindRamUserResponse
+     * @return CheckBindRamUserResponse CheckBindRamUserResponse
      */
     public function checkBindRamUser($request)
     {
@@ -572,10 +592,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param CheckSampleDataSetRequest $request
-     * @param RuntimeOptions            $runtime
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param CheckSampleDataSetRequest $request CheckSampleDataSetRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckSampleDataSetResponse
+     * @return CheckSampleDataSetResponse CheckSampleDataSetResponse
      */
     public function checkSampleDataSetWithOptions($request, $runtime)
     {
@@ -603,9 +625,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param CheckSampleDataSetRequest $request
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param CheckSampleDataSetRequest $request CheckSampleDataSetRequest
      *
-     * @return CheckSampleDataSetResponse
+     * @return CheckSampleDataSetResponse CheckSampleDataSetResponse
      */
     public function checkSampleDataSet($request)
     {
@@ -615,10 +639,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param CreateAccountRequest $request
-     * @param RuntimeOptions       $runtime
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param CreateAccountRequest $request CreateAccountRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAccountResponse
+     * @return CreateAccountResponse CreateAccountResponse
      */
     public function createAccountWithOptions($request, $runtime)
     {
@@ -658,9 +684,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param CreateAccountRequest $request
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param CreateAccountRequest $request CreateAccountRequest
      *
-     * @return CreateAccountResponse
+     * @return CreateAccountResponse CreateAccountResponse
      */
     public function createAccount($request)
     {
@@ -670,10 +698,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param CreateDBClusterRequest $request
-     * @param RuntimeOptions         $runtime
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param CreateDBClusterRequest $request CreateDBClusterRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDBClusterResponse
+     * @return CreateDBClusterResponse CreateDBClusterResponse
      */
     public function createDBClusterWithOptions($request, $runtime)
     {
@@ -703,8 +733,17 @@ class Adb extends OpenApiClient
         if (!Utils::isUnset($request->period)) {
             $query['Period'] = $request->period;
         }
+        if (!Utils::isUnset($request->productForm)) {
+            $query['ProductForm'] = $request->productForm;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->reservedNodeCount)) {
+            $query['ReservedNodeCount'] = $request->reservedNodeCount;
+        }
+        if (!Utils::isUnset($request->reservedNodeSize)) {
+            $query['ReservedNodeSize'] = $request->reservedNodeSize;
         }
         if (!Utils::isUnset($request->resourceGroupId)) {
             $query['ResourceGroupId'] = $request->resourceGroupId;
@@ -755,9 +794,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param CreateDBClusterRequest $request
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param CreateDBClusterRequest $request CreateDBClusterRequest
      *
-     * @return CreateDBClusterResponse
+     * @return CreateDBClusterResponse CreateDBClusterResponse
      */
     public function createDBCluster($request)
     {
@@ -767,10 +808,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param CreateDBResourceGroupRequest $tmpReq
-     * @param RuntimeOptions               $runtime
+     * For information about the endpoints of the current service, see [Endpoints](~~612373~~).
+     *   *
+     * @param CreateDBResourceGroupRequest $tmpReq  CreateDBResourceGroupRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDBResourceGroupResponse
+     * @return CreateDBResourceGroupResponse CreateDBResourceGroupResponse
      */
     public function createDBResourceGroupWithOptions($tmpReq, $runtime)
     {
@@ -836,9 +879,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param CreateDBResourceGroupRequest $request
+     * For information about the endpoints of the current service, see [Endpoints](~~612373~~).
+     *   *
+     * @param CreateDBResourceGroupRequest $request CreateDBResourceGroupRequest
      *
-     * @return CreateDBResourceGroupResponse
+     * @return CreateDBResourceGroupResponse CreateDBResourceGroupResponse
      */
     public function createDBResourceGroup($request)
     {
@@ -848,10 +893,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param CreateElasticPlanRequest $request
-     * @param RuntimeOptions           $runtime
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param CreateElasticPlanRequest $request CreateElasticPlanRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateElasticPlanResponse
+     * @return CreateElasticPlanResponse CreateElasticPlanResponse
      */
     public function createElasticPlanWithOptions($request, $runtime)
     {
@@ -906,9 +953,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param CreateElasticPlanRequest $request
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param CreateElasticPlanRequest $request CreateElasticPlanRequest
      *
-     * @return CreateElasticPlanResponse
+     * @return CreateElasticPlanResponse CreateElasticPlanResponse
      */
     public function createElasticPlan($request)
     {
@@ -918,10 +967,14 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param CreateOssSubDirectoryRequest $request
-     * @param RuntimeOptions               $runtime
+     * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param CreateOssSubDirectoryRequest $request CreateOssSubDirectoryRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateOssSubDirectoryResponse
+     * @return CreateOssSubDirectoryResponse CreateOssSubDirectoryResponse
      */
     public function createOssSubDirectoryWithOptions($request, $runtime)
     {
@@ -952,9 +1005,13 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param CreateOssSubDirectoryRequest $request
+     * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param CreateOssSubDirectoryRequest $request CreateOssSubDirectoryRequest
      *
-     * @return CreateOssSubDirectoryResponse
+     * @return CreateOssSubDirectoryResponse CreateOssSubDirectoryResponse
      */
     public function createOssSubDirectory($request)
     {
@@ -964,10 +1021,14 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param CreateSparkTemplateRequest $request
-     * @param RuntimeOptions             $runtime
+     * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param CreateSparkTemplateRequest $request CreateSparkTemplateRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateSparkTemplateResponse
+     * @return CreateSparkTemplateResponse CreateSparkTemplateResponse
      */
     public function createSparkTemplateWithOptions($request, $runtime)
     {
@@ -1007,9 +1068,13 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param CreateSparkTemplateRequest $request
+     * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param CreateSparkTemplateRequest $request CreateSparkTemplateRequest
      *
-     * @return CreateSparkTemplateResponse
+     * @return CreateSparkTemplateResponse CreateSparkTemplateResponse
      */
     public function createSparkTemplate($request)
     {
@@ -1065,8 +1130,9 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * ###
-     *   * You can call this operation to delete only subscription clusters.
+     * ### [](#)
+     *   * *   You can call this operation to delete only subscription clusters.
+     *   * *   For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
      *   *
      * @param DeleteDBClusterRequest $request DeleteDBClusterRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -1099,8 +1165,9 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * ###
-     *   * You can call this operation to delete only subscription clusters.
+     * ### [](#)
+     *   * *   You can call this operation to delete only subscription clusters.
+     *   * *   For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
      *   *
      * @param DeleteDBClusterRequest $request DeleteDBClusterRequest
      *
@@ -1114,10 +1181,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DeleteDBResourceGroupRequest $request
-     * @param RuntimeOptions               $runtime
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param DeleteDBResourceGroupRequest $request DeleteDBResourceGroupRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDBResourceGroupResponse
+     * @return DeleteDBResourceGroupResponse DeleteDBResourceGroupResponse
      */
     public function deleteDBResourceGroupWithOptions($request, $runtime)
     {
@@ -1148,9 +1217,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DeleteDBResourceGroupRequest $request
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param DeleteDBResourceGroupRequest $request DeleteDBResourceGroupRequest
      *
-     * @return DeleteDBResourceGroupResponse
+     * @return DeleteDBResourceGroupResponse DeleteDBResourceGroupResponse
      */
     public function deleteDBResourceGroup($request)
     {
@@ -1160,10 +1231,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DeleteElasticPlanRequest $request
-     * @param RuntimeOptions           $runtime
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param DeleteElasticPlanRequest $request DeleteElasticPlanRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteElasticPlanResponse
+     * @return DeleteElasticPlanResponse DeleteElasticPlanResponse
      */
     public function deleteElasticPlanWithOptions($request, $runtime)
     {
@@ -1194,9 +1267,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DeleteElasticPlanRequest $request
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param DeleteElasticPlanRequest $request DeleteElasticPlanRequest
      *
-     * @return DeleteElasticPlanResponse
+     * @return DeleteElasticPlanResponse DeleteElasticPlanResponse
      */
     public function deleteElasticPlan($request)
     {
@@ -1206,10 +1281,13 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DeleteProcessInstanceRequest $request
-     * @param RuntimeOptions               $runtime
+     * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param DeleteProcessInstanceRequest $request DeleteProcessInstanceRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteProcessInstanceResponse
+     * @return DeleteProcessInstanceResponse DeleteProcessInstanceResponse
      */
     public function deleteProcessInstanceWithOptions($request, $runtime)
     {
@@ -1246,9 +1324,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DeleteProcessInstanceRequest $request
+     * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param DeleteProcessInstanceRequest $request DeleteProcessInstanceRequest
      *
-     * @return DeleteProcessInstanceResponse
+     * @return DeleteProcessInstanceResponse DeleteProcessInstanceResponse
      */
     public function deleteProcessInstance($request)
     {
@@ -1258,10 +1339,14 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DeleteSparkTemplateRequest $request
-     * @param RuntimeOptions             $runtime
+     * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
+     *   *
+     * @param DeleteSparkTemplateRequest $request DeleteSparkTemplateRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteSparkTemplateResponse
+     * @return DeleteSparkTemplateResponse DeleteSparkTemplateResponse
      */
     public function deleteSparkTemplateWithOptions($request, $runtime)
     {
@@ -1292,9 +1377,13 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DeleteSparkTemplateRequest $request
+     * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
+     *   *
+     * @param DeleteSparkTemplateRequest $request DeleteSparkTemplateRequest
      *
-     * @return DeleteSparkTemplateResponse
+     * @return DeleteSparkTemplateResponse DeleteSparkTemplateResponse
      */
     public function deleteSparkTemplate($request)
     {
@@ -1350,10 +1439,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeAccountAllPrivilegesRequest $request
-     * @param RuntimeOptions                      $runtime
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param DescribeAccountAllPrivilegesRequest $request DescribeAccountAllPrivilegesRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAccountAllPrivilegesResponse
+     * @return DescribeAccountAllPrivilegesResponse DescribeAccountAllPrivilegesResponse
      */
     public function describeAccountAllPrivilegesWithOptions($request, $runtime)
     {
@@ -1390,9 +1481,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeAccountAllPrivilegesRequest $request
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param DescribeAccountAllPrivilegesRequest $request DescribeAccountAllPrivilegesRequest
      *
-     * @return DescribeAccountAllPrivilegesResponse
+     * @return DescribeAccountAllPrivilegesResponse DescribeAccountAllPrivilegesResponse
      */
     public function describeAccountAllPrivileges($request)
     {
@@ -1402,10 +1495,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeAccountPrivilegeObjectsRequest $request
-     * @param RuntimeOptions                         $runtime
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param DescribeAccountPrivilegeObjectsRequest $request DescribeAccountPrivilegeObjectsRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAccountPrivilegeObjectsResponse
+     * @return DescribeAccountPrivilegeObjectsResponse DescribeAccountPrivilegeObjectsResponse
      */
     public function describeAccountPrivilegeObjectsWithOptions($request, $runtime)
     {
@@ -1457,9 +1552,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeAccountPrivilegeObjectsRequest $request
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param DescribeAccountPrivilegeObjectsRequest $request DescribeAccountPrivilegeObjectsRequest
      *
-     * @return DescribeAccountPrivilegeObjectsResponse
+     * @return DescribeAccountPrivilegeObjectsResponse DescribeAccountPrivilegeObjectsResponse
      */
     public function describeAccountPrivilegeObjects($request)
     {
@@ -1536,10 +1633,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeAccountsRequest $request
-     * @param RuntimeOptions          $runtime
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param DescribeAccountsRequest $request DescribeAccountsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAccountsResponse
+     * @return DescribeAccountsResponse DescribeAccountsResponse
      */
     public function describeAccountsWithOptions($request, $runtime)
     {
@@ -1573,9 +1672,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeAccountsRequest $request
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param DescribeAccountsRequest $request DescribeAccountsRequest
      *
-     * @return DescribeAccountsResponse
+     * @return DescribeAccountsResponse DescribeAccountsResponse
      */
     public function describeAccounts($request)
     {
@@ -1866,10 +1967,13 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeApsResourceGroupsRequest $request
-     * @param RuntimeOptions                   $runtime
+     * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param DescribeApsResourceGroupsRequest $request DescribeApsResourceGroupsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeApsResourceGroupsResponse
+     * @return DescribeApsResourceGroupsResponse DescribeApsResourceGroupsResponse
      */
     public function describeApsResourceGroupsWithOptions($request, $runtime)
     {
@@ -1903,9 +2007,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeApsResourceGroupsRequest $request
+     * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param DescribeApsResourceGroupsRequest $request DescribeApsResourceGroupsRequest
      *
-     * @return DescribeApsResourceGroupsResponse
+     * @return DescribeApsResourceGroupsResponse DescribeApsResourceGroupsResponse
      */
     public function describeApsResourceGroups($request)
     {
@@ -1915,7 +2022,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * SQL audit logs can be queried only when SQL audit is enabled. Only SQL audit logs within the last 30 days can be queried. If SQL audit was disabled and re-enabled, only SQL audit logs from the time when SQL audit was re-enabled can be queried. The following operations are not recorded in SQL audit logs: **INSERT INTO VALUES**, **REPLACE INTO VALUES**, and **UPSERT INTO VALUES**.
+     * *   SQL audit logs can be queried only when SQL audit is enabled. Only SQL audit logs within the last 30 days can be queried. If SQL audit was disabled and re-enabled, only SQL audit logs from the time when SQL audit was re-enabled can be queried. The following operations are not recorded in SQL audit logs: **INSERT INTO VALUES**, **REPLACE INTO VALUES**, and **UPSERT INTO VALUES**.
+     *   * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *   *
      * @param DescribeAuditLogRecordsRequest $request DescribeAuditLogRecordsRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -2002,7 +2112,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * SQL audit logs can be queried only when SQL audit is enabled. Only SQL audit logs within the last 30 days can be queried. If SQL audit was disabled and re-enabled, only SQL audit logs from the time when SQL audit was re-enabled can be queried. The following operations are not recorded in SQL audit logs: **INSERT INTO VALUES**, **REPLACE INTO VALUES**, and **UPSERT INTO VALUES**.
+     * *   SQL audit logs can be queried only when SQL audit is enabled. Only SQL audit logs within the last 30 days can be queried. If SQL audit was disabled and re-enabled, only SQL audit logs from the time when SQL audit was re-enabled can be queried. The following operations are not recorded in SQL audit logs: **INSERT INTO VALUES**, **REPLACE INTO VALUES**, and **UPSERT INTO VALUES**.
+     *   * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *   *
      * @param DescribeAuditLogRecordsRequest $request DescribeAuditLogRecordsRequest
      *
@@ -2016,10 +2129,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupPolicyRequest $request
-     * @param RuntimeOptions              $runtime
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param DescribeBackupPolicyRequest $request DescribeBackupPolicyRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackupPolicyResponse
+     * @return DescribeBackupPolicyResponse DescribeBackupPolicyResponse
      */
     public function describeBackupPolicyWithOptions($request, $runtime)
     {
@@ -2059,9 +2174,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupPolicyRequest $request
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param DescribeBackupPolicyRequest $request DescribeBackupPolicyRequest
      *
-     * @return DescribeBackupPolicyResponse
+     * @return DescribeBackupPolicyResponse DescribeBackupPolicyResponse
      */
     public function describeBackupPolicy($request)
     {
@@ -2071,10 +2188,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupsRequest $request
-     * @param RuntimeOptions         $runtime
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param DescribeBackupsRequest $request DescribeBackupsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackupsResponse
+     * @return DescribeBackupsResponse DescribeBackupsResponse
      */
     public function describeBackupsWithOptions($request, $runtime)
     {
@@ -2129,9 +2248,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupsRequest $request
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param DescribeBackupsRequest $request DescribeBackupsRequest
      *
-     * @return DescribeBackupsResponse
+     * @return DescribeBackupsResponse DescribeBackupsResponse
      */
     public function describeBackups($request)
     {
@@ -2141,10 +2262,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeClusterAccessWhiteListRequest $request
-     * @param RuntimeOptions                        $runtime
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param DescribeClusterAccessWhiteListRequest $request DescribeClusterAccessWhiteListRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterAccessWhiteListResponse
+     * @return DescribeClusterAccessWhiteListResponse DescribeClusterAccessWhiteListResponse
      */
     public function describeClusterAccessWhiteListWithOptions($request, $runtime)
     {
@@ -2175,9 +2298,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeClusterAccessWhiteListRequest $request
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param DescribeClusterAccessWhiteListRequest $request DescribeClusterAccessWhiteListRequest
      *
-     * @return DescribeClusterAccessWhiteListResponse
+     * @return DescribeClusterAccessWhiteListResponse DescribeClusterAccessWhiteListResponse
      */
     public function describeClusterAccessWhiteList($request)
     {
@@ -2187,10 +2312,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeClusterNetInfoRequest $request
-     * @param RuntimeOptions                $runtime
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param DescribeClusterNetInfoRequest $request DescribeClusterNetInfoRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterNetInfoResponse
+     * @return DescribeClusterNetInfoResponse DescribeClusterNetInfoResponse
      */
     public function describeClusterNetInfoWithOptions($request, $runtime)
     {
@@ -2218,9 +2345,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeClusterNetInfoRequest $request
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param DescribeClusterNetInfoRequest $request DescribeClusterNetInfoRequest
      *
-     * @return DescribeClusterNetInfoResponse
+     * @return DescribeClusterNetInfoResponse DescribeClusterNetInfoResponse
      */
     public function describeClusterNetInfo($request)
     {
@@ -2417,10 +2546,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterAttributeRequest $request
-     * @param RuntimeOptions                    $runtime
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param DescribeDBClusterAttributeRequest $request DescribeDBClusterAttributeRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBClusterAttributeResponse
+     * @return DescribeDBClusterAttributeResponse DescribeDBClusterAttributeResponse
      */
     public function describeDBClusterAttributeWithOptions($request, $runtime)
     {
@@ -2448,9 +2579,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterAttributeRequest $request
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param DescribeDBClusterAttributeRequest $request DescribeDBClusterAttributeRequest
      *
-     * @return DescribeDBClusterAttributeResponse
+     * @return DescribeDBClusterAttributeResponse DescribeDBClusterAttributeResponse
      */
     public function describeDBClusterAttribute($request)
     {
@@ -2460,10 +2593,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterHealthStatusRequest $request
-     * @param RuntimeOptions                       $runtime
+     * For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
+     *   *
+     * @param DescribeDBClusterHealthStatusRequest $request DescribeDBClusterHealthStatusRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBClusterHealthStatusResponse
+     * @return DescribeDBClusterHealthStatusResponse DescribeDBClusterHealthStatusResponse
      */
     public function describeDBClusterHealthStatusWithOptions($request, $runtime)
     {
@@ -2494,9 +2629,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterHealthStatusRequest $request
+     * For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
+     *   *
+     * @param DescribeDBClusterHealthStatusRequest $request DescribeDBClusterHealthStatusRequest
      *
-     * @return DescribeDBClusterHealthStatusResponse
+     * @return DescribeDBClusterHealthStatusResponse DescribeDBClusterHealthStatusResponse
      */
     public function describeDBClusterHealthStatus($request)
     {
@@ -2506,10 +2643,14 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterPerformanceRequest $request
-     * @param RuntimeOptions                      $runtime
+     * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param DescribeDBClusterPerformanceRequest $request DescribeDBClusterPerformanceRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBClusterPerformanceResponse
+     * @return DescribeDBClusterPerformanceResponse DescribeDBClusterPerformanceResponse
      */
     public function describeDBClusterPerformanceWithOptions($request, $runtime)
     {
@@ -2552,9 +2693,13 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterPerformanceRequest $request
+     * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param DescribeDBClusterPerformanceRequest $request DescribeDBClusterPerformanceRequest
      *
-     * @return DescribeDBClusterPerformanceResponse
+     * @return DescribeDBClusterPerformanceResponse DescribeDBClusterPerformanceResponse
      */
     public function describeDBClusterPerformance($request)
     {
@@ -2564,10 +2709,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterSpaceSummaryRequest $request
-     * @param RuntimeOptions                       $runtime
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param DescribeDBClusterSpaceSummaryRequest $request DescribeDBClusterSpaceSummaryRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBClusterSpaceSummaryResponse
+     * @return DescribeDBClusterSpaceSummaryResponse DescribeDBClusterSpaceSummaryResponse
      */
     public function describeDBClusterSpaceSummaryWithOptions($request, $runtime)
     {
@@ -2610,9 +2757,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterSpaceSummaryRequest $request
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param DescribeDBClusterSpaceSummaryRequest $request DescribeDBClusterSpaceSummaryRequest
      *
-     * @return DescribeDBClusterSpaceSummaryResponse
+     * @return DescribeDBClusterSpaceSummaryResponse DescribeDBClusterSpaceSummaryResponse
      */
     public function describeDBClusterSpaceSummary($request)
     {
@@ -2622,10 +2771,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterStatusRequest $request
-     * @param RuntimeOptions                 $runtime
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param DescribeDBClusterStatusRequest $request DescribeDBClusterStatusRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBClusterStatusResponse
+     * @return DescribeDBClusterStatusResponse DescribeDBClusterStatusResponse
      */
     public function describeDBClusterStatusWithOptions($request, $runtime)
     {
@@ -2653,9 +2804,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterStatusRequest $request
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param DescribeDBClusterStatusRequest $request DescribeDBClusterStatusRequest
      *
-     * @return DescribeDBClusterStatusResponse
+     * @return DescribeDBClusterStatusResponse DescribeDBClusterStatusResponse
      */
     public function describeDBClusterStatus($request)
     {
@@ -2665,10 +2818,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClustersRequest $request
-     * @param RuntimeOptions            $runtime
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param DescribeDBClustersRequest $request DescribeDBClustersRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBClustersResponse
+     * @return DescribeDBClustersResponse DescribeDBClustersResponse
      */
     public function describeDBClustersWithOptions($request, $runtime)
     {
@@ -2683,11 +2838,17 @@ class Adb extends OpenApiClient
         if (!Utils::isUnset($request->DBClusterStatus)) {
             $query['DBClusterStatus'] = $request->DBClusterStatus;
         }
+        if (!Utils::isUnset($request->DBClusterVersion)) {
+            $query['DBClusterVersion'] = $request->DBClusterVersion;
+        }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productVersion)) {
+            $query['ProductVersion'] = $request->productVersion;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
@@ -2717,9 +2878,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClustersRequest $request
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param DescribeDBClustersRequest $request DescribeDBClustersRequest
      *
-     * @return DescribeDBClustersResponse
+     * @return DescribeDBClustersResponse DescribeDBClustersResponse
      */
     public function describeDBClusters($request)
     {
@@ -2729,10 +2892,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBResourceGroupRequest $request
-     * @param RuntimeOptions                 $runtime
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param DescribeDBResourceGroupRequest $request DescribeDBResourceGroupRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBResourceGroupResponse
+     * @return DescribeDBResourceGroupResponse DescribeDBResourceGroupResponse
      */
     public function describeDBResourceGroupWithOptions($request, $runtime)
     {
@@ -2772,9 +2937,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBResourceGroupRequest $request
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param DescribeDBResourceGroupRequest $request DescribeDBResourceGroupRequest
      *
-     * @return DescribeDBResourceGroupResponse
+     * @return DescribeDBResourceGroupResponse DescribeDBResourceGroupResponse
      */
     public function describeDBResourceGroup($request)
     {
@@ -2784,10 +2951,14 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDiagnosisDimensionsRequest $request
-     * @param RuntimeOptions                     $runtime
+     * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param DescribeDiagnosisDimensionsRequest $request DescribeDiagnosisDimensionsRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDiagnosisDimensionsResponse
+     * @return DescribeDiagnosisDimensionsResponse DescribeDiagnosisDimensionsResponse
      */
     public function describeDiagnosisDimensionsWithOptions($request, $runtime)
     {
@@ -2830,9 +3001,13 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDiagnosisDimensionsRequest $request
+     * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param DescribeDiagnosisDimensionsRequest $request DescribeDiagnosisDimensionsRequest
      *
-     * @return DescribeDiagnosisDimensionsResponse
+     * @return DescribeDiagnosisDimensionsResponse DescribeDiagnosisDimensionsResponse
      */
     public function describeDiagnosisDimensions($request)
     {
@@ -2842,10 +3017,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDiagnosisRecordsRequest $request
-     * @param RuntimeOptions                  $runtime
+     * For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
+     *   *
+     * @param DescribeDiagnosisRecordsRequest $request DescribeDiagnosisRecordsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDiagnosisRecordsResponse
+     * @return DescribeDiagnosisRecordsResponse DescribeDiagnosisRecordsResponse
      */
     public function describeDiagnosisRecordsWithOptions($request, $runtime)
     {
@@ -2927,9 +3104,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDiagnosisRecordsRequest $request
+     * For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
+     *   *
+     * @param DescribeDiagnosisRecordsRequest $request DescribeDiagnosisRecordsRequest
      *
-     * @return DescribeDiagnosisRecordsResponse
+     * @return DescribeDiagnosisRecordsResponse DescribeDiagnosisRecordsResponse
      */
     public function describeDiagnosisRecords($request)
     {
@@ -2939,10 +3118,14 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDiagnosisSQLInfoRequest $request
-     * @param RuntimeOptions                  $runtime
+     * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param DescribeDiagnosisSQLInfoRequest $request DescribeDiagnosisSQLInfoRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDiagnosisSQLInfoResponse
+     * @return DescribeDiagnosisSQLInfoResponse DescribeDiagnosisSQLInfoResponse
      */
     public function describeDiagnosisSQLInfoWithOptions($request, $runtime)
     {
@@ -2967,9 +3150,13 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDiagnosisSQLInfoRequest $request
+     * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param DescribeDiagnosisSQLInfoRequest $request DescribeDiagnosisSQLInfoRequest
      *
-     * @return DescribeDiagnosisSQLInfoResponse
+     * @return DescribeDiagnosisSQLInfoResponse DescribeDiagnosisSQLInfoResponse
      */
     public function describeDiagnosisSQLInfo($request)
     {
@@ -3028,10 +3215,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeElasticPlanAttributeRequest $request
-     * @param RuntimeOptions                      $runtime
+     * For information about the endpoints of AnalyticDB for MySQL, see DescribeElasticPlanAttribute.
+     *   *
+     * @param DescribeElasticPlanAttributeRequest $request DescribeElasticPlanAttributeRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeElasticPlanAttributeResponse
+     * @return DescribeElasticPlanAttributeResponse DescribeElasticPlanAttributeResponse
      */
     public function describeElasticPlanAttributeWithOptions($request, $runtime)
     {
@@ -3062,9 +3251,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeElasticPlanAttributeRequest $request
+     * For information about the endpoints of AnalyticDB for MySQL, see DescribeElasticPlanAttribute.
+     *   *
+     * @param DescribeElasticPlanAttributeRequest $request DescribeElasticPlanAttributeRequest
      *
-     * @return DescribeElasticPlanAttributeResponse
+     * @return DescribeElasticPlanAttributeResponse DescribeElasticPlanAttributeResponse
      */
     public function describeElasticPlanAttribute($request)
     {
@@ -3074,10 +3265,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeElasticPlanJobsRequest $request
-     * @param RuntimeOptions                 $runtime
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param DescribeElasticPlanJobsRequest $request DescribeElasticPlanJobsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeElasticPlanJobsResponse
+     * @return DescribeElasticPlanJobsResponse DescribeElasticPlanJobsResponse
      */
     public function describeElasticPlanJobsWithOptions($request, $runtime)
     {
@@ -3123,9 +3316,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeElasticPlanJobsRequest $request
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param DescribeElasticPlanJobsRequest $request DescribeElasticPlanJobsRequest
      *
-     * @return DescribeElasticPlanJobsResponse
+     * @return DescribeElasticPlanJobsResponse DescribeElasticPlanJobsResponse
      */
     public function describeElasticPlanJobs($request)
     {
@@ -3334,10 +3529,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribePatternPerformanceRequest $request
-     * @param RuntimeOptions                    $runtime
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param DescribePatternPerformanceRequest $request DescribePatternPerformanceRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePatternPerformanceResponse
+     * @return DescribePatternPerformanceResponse DescribePatternPerformanceResponse
      */
     public function describePatternPerformanceWithOptions($request, $runtime)
     {
@@ -3377,9 +3574,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribePatternPerformanceRequest $request
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param DescribePatternPerformanceRequest $request DescribePatternPerformanceRequest
      *
-     * @return DescribePatternPerformanceResponse
+     * @return DescribePatternPerformanceResponse DescribePatternPerformanceResponse
      */
     public function describePatternPerformance($request)
     {
@@ -3389,10 +3588,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
-     * @param RuntimeOptions         $runtime
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
@@ -3432,9 +3633,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -3606,10 +3809,13 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeSparkCodeOutputRequest $request
-     * @param RuntimeOptions                 $runtime
+     * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param DescribeSparkCodeOutputRequest $request DescribeSparkCodeOutputRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSparkCodeOutputResponse
+     * @return DescribeSparkCodeOutputResponse DescribeSparkCodeOutputResponse
      */
     public function describeSparkCodeOutputWithOptions($request, $runtime)
     {
@@ -3643,9 +3849,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeSparkCodeOutputRequest $request
+     * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param DescribeSparkCodeOutputRequest $request DescribeSparkCodeOutputRequest
      *
-     * @return DescribeSparkCodeOutputResponse
+     * @return DescribeSparkCodeOutputResponse DescribeSparkCodeOutputResponse
      */
     public function describeSparkCodeOutput($request)
     {
@@ -3704,10 +3913,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeSqlPatternRequest $request
-     * @param RuntimeOptions            $runtime
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param DescribeSqlPatternRequest $request DescribeSqlPatternRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSqlPatternResponse
+     * @return DescribeSqlPatternResponse DescribeSqlPatternResponse
      */
     public function describeSqlPatternWithOptions($request, $runtime)
     {
@@ -3756,9 +3967,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeSqlPatternRequest $request
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param DescribeSqlPatternRequest $request DescribeSqlPatternRequest
      *
-     * @return DescribeSqlPatternResponse
+     * @return DescribeSqlPatternResponse DescribeSqlPatternResponse
      */
     public function describeSqlPattern($request)
     {
@@ -3817,10 +4030,14 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeTableAccessCountRequest $request
-     * @param RuntimeOptions                  $runtime
+     * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param DescribeTableAccessCountRequest $request DescribeTableAccessCountRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTableAccessCountResponse
+     * @return DescribeTableAccessCountResponse DescribeTableAccessCountResponse
      */
     public function describeTableAccessCountWithOptions($request, $runtime)
     {
@@ -3866,9 +4083,13 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeTableAccessCountRequest $request
+     * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param DescribeTableAccessCountRequest $request DescribeTableAccessCountRequest
      *
-     * @return DescribeTableAccessCountResponse
+     * @return DescribeTableAccessCountResponse DescribeTableAccessCountResponse
      */
     public function describeTableAccessCount($request)
     {
@@ -3927,10 +4148,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeUserQuotaRequest $request
-     * @param RuntimeOptions           $runtime
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param DescribeUserQuotaRequest $request DescribeUserQuotaRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeUserQuotaResponse
+     * @return DescribeUserQuotaResponse DescribeUserQuotaResponse
      */
     public function describeUserQuotaWithOptions($request, $runtime)
     {
@@ -3955,9 +4178,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeUserQuotaRequest $request
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param DescribeUserQuotaRequest $request DescribeUserQuotaRequest
      *
-     * @return DescribeUserQuotaResponse
+     * @return DescribeUserQuotaResponse DescribeUserQuotaResponse
      */
     public function describeUserQuota($request)
     {
@@ -3967,10 +4192,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DetachUserENIRequest $request
-     * @param RuntimeOptions       $runtime
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param DetachUserENIRequest $request DetachUserENIRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetachUserENIResponse
+     * @return DetachUserENIResponse DetachUserENIResponse
      */
     public function detachUserENIWithOptions($request, $runtime)
     {
@@ -3998,9 +4225,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DetachUserENIRequest $request
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param DetachUserENIRequest $request DetachUserENIRequest
      *
-     * @return DetachUserENIResponse
+     * @return DetachUserENIResponse DetachUserENIResponse
      */
     public function detachUserENI($request)
     {
@@ -4010,10 +4239,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DisableElasticPlanRequest $request
-     * @param RuntimeOptions            $runtime
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param DisableElasticPlanRequest $request DisableElasticPlanRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableElasticPlanResponse
+     * @return DisableElasticPlanResponse DisableElasticPlanResponse
      */
     public function disableElasticPlanWithOptions($request, $runtime)
     {
@@ -4044,9 +4275,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DisableElasticPlanRequest $request
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param DisableElasticPlanRequest $request DisableElasticPlanRequest
      *
-     * @return DisableElasticPlanResponse
+     * @return DisableElasticPlanResponse DisableElasticPlanResponse
      */
     public function disableElasticPlan($request)
     {
@@ -4056,10 +4289,14 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DownloadDiagnosisRecordsRequest $request
-     * @param RuntimeOptions                  $runtime
+     * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param DownloadDiagnosisRecordsRequest $request DownloadDiagnosisRecordsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DownloadDiagnosisRecordsResponse
+     * @return DownloadDiagnosisRecordsResponse DownloadDiagnosisRecordsResponse
      */
     public function downloadDiagnosisRecordsWithOptions($request, $runtime)
     {
@@ -4129,9 +4366,13 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DownloadDiagnosisRecordsRequest $request
+     * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param DownloadDiagnosisRecordsRequest $request DownloadDiagnosisRecordsRequest
      *
-     * @return DownloadDiagnosisRecordsResponse
+     * @return DownloadDiagnosisRecordsResponse DownloadDiagnosisRecordsResponse
      */
     public function downloadDiagnosisRecords($request)
     {
@@ -4141,10 +4382,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param EnableElasticPlanRequest $request
-     * @param RuntimeOptions           $runtime
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param EnableElasticPlanRequest $request EnableElasticPlanRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableElasticPlanResponse
+     * @return EnableElasticPlanResponse EnableElasticPlanResponse
      */
     public function enableElasticPlanWithOptions($request, $runtime)
     {
@@ -4175,9 +4418,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param EnableElasticPlanRequest $request
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param EnableElasticPlanRequest $request EnableElasticPlanRequest
      *
-     * @return EnableElasticPlanResponse
+     * @return EnableElasticPlanResponse EnableElasticPlanResponse
      */
     public function enableElasticPlan($request)
     {
@@ -4233,10 +4478,13 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param GetDatabaseObjectsRequest $request
-     * @param RuntimeOptions            $runtime
+     * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param GetDatabaseObjectsRequest $request GetDatabaseObjectsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDatabaseObjectsResponse
+     * @return GetDatabaseObjectsResponse GetDatabaseObjectsResponse
      */
     public function getDatabaseObjectsWithOptions($request, $runtime)
     {
@@ -4282,9 +4530,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param GetDatabaseObjectsRequest $request
+     * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param GetDatabaseObjectsRequest $request GetDatabaseObjectsRequest
      *
-     * @return GetDatabaseObjectsResponse
+     * @return GetDatabaseObjectsResponse GetDatabaseObjectsResponse
      */
     public function getDatabaseObjects($request)
     {
@@ -4294,10 +4545,14 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param GetSparkAppAttemptLogRequest $request
-     * @param RuntimeOptions               $runtime
+     * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param GetSparkAppAttemptLogRequest $request GetSparkAppAttemptLogRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSparkAppAttemptLogResponse
+     * @return GetSparkAppAttemptLogResponse GetSparkAppAttemptLogResponse
      */
     public function getSparkAppAttemptLogWithOptions($request, $runtime)
     {
@@ -4336,9 +4591,13 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param GetSparkAppAttemptLogRequest $request
+     * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param GetSparkAppAttemptLogRequest $request GetSparkAppAttemptLogRequest
      *
-     * @return GetSparkAppAttemptLogResponse
+     * @return GetSparkAppAttemptLogResponse GetSparkAppAttemptLogResponse
      */
     public function getSparkAppAttemptLog($request)
     {
@@ -4396,10 +4655,14 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param GetSparkAppLogRequest $request
-     * @param RuntimeOptions        $runtime
+     * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param GetSparkAppLogRequest $request GetSparkAppLogRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSparkAppLogResponse
+     * @return GetSparkAppLogResponse GetSparkAppLogResponse
      */
     public function getSparkAppLogWithOptions($request, $runtime)
     {
@@ -4441,9 +4704,13 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param GetSparkAppLogRequest $request
+     * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param GetSparkAppLogRequest $request GetSparkAppLogRequest
      *
-     * @return GetSparkAppLogResponse
+     * @return GetSparkAppLogResponse GetSparkAppLogResponse
      */
     public function getSparkAppLog($request)
     {
@@ -4453,10 +4720,14 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param GetSparkAppMetricsRequest $request
-     * @param RuntimeOptions            $runtime
+     * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param GetSparkAppMetricsRequest $request GetSparkAppMetricsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSparkAppMetricsResponse
+     * @return GetSparkAppMetricsResponse GetSparkAppMetricsResponse
      */
     public function getSparkAppMetricsWithOptions($request, $runtime)
     {
@@ -4489,9 +4760,13 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param GetSparkAppMetricsRequest $request
+     * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param GetSparkAppMetricsRequest $request GetSparkAppMetricsRequest
      *
-     * @return GetSparkAppMetricsResponse
+     * @return GetSparkAppMetricsResponse GetSparkAppMetricsResponse
      */
     public function getSparkAppMetrics($request)
     {
@@ -4501,10 +4776,14 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param GetSparkAppStateRequest $request
-     * @param RuntimeOptions          $runtime
+     * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param GetSparkAppStateRequest $request GetSparkAppStateRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSparkAppStateResponse
+     * @return GetSparkAppStateResponse GetSparkAppStateResponse
      */
     public function getSparkAppStateWithOptions($request, $runtime)
     {
@@ -4537,9 +4816,13 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param GetSparkAppStateRequest $request
+     * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param GetSparkAppStateRequest $request GetSparkAppStateRequest
      *
-     * @return GetSparkAppStateResponse
+     * @return GetSparkAppStateResponse GetSparkAppStateResponse
      */
     public function getSparkAppState($request)
     {
@@ -4549,10 +4832,14 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param GetSparkAppWebUiAddressRequest $request
-     * @param RuntimeOptions                 $runtime
+     * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param GetSparkAppWebUiAddressRequest $request GetSparkAppWebUiAddressRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSparkAppWebUiAddressResponse
+     * @return GetSparkAppWebUiAddressResponse GetSparkAppWebUiAddressResponse
      */
     public function getSparkAppWebUiAddressWithOptions($request, $runtime)
     {
@@ -4585,9 +4872,13 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param GetSparkAppWebUiAddressRequest $request
+     * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param GetSparkAppWebUiAddressRequest $request GetSparkAppWebUiAddressRequest
      *
-     * @return GetSparkAppWebUiAddressResponse
+     * @return GetSparkAppWebUiAddressResponse GetSparkAppWebUiAddressResponse
      */
     public function getSparkAppWebUiAddress($request)
     {
@@ -4597,10 +4888,14 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param GetSparkConfigLogPathRequest $request
-     * @param RuntimeOptions               $runtime
+     * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
+     *   *
+     * @param GetSparkConfigLogPathRequest $request GetSparkConfigLogPathRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSparkConfigLogPathResponse
+     * @return GetSparkConfigLogPathResponse GetSparkConfigLogPathResponse
      */
     public function getSparkConfigLogPathWithOptions($request, $runtime)
     {
@@ -4628,9 +4923,13 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param GetSparkConfigLogPathRequest $request
+     * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
+     *   *
+     * @param GetSparkConfigLogPathRequest $request GetSparkConfigLogPathRequest
      *
-     * @return GetSparkConfigLogPathResponse
+     * @return GetSparkConfigLogPathResponse GetSparkConfigLogPathResponse
      */
     public function getSparkConfigLogPath($request)
     {
@@ -4640,10 +4939,14 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param GetSparkDefinitionsRequest $request
-     * @param RuntimeOptions             $runtime
+     * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param GetSparkDefinitionsRequest $request GetSparkDefinitionsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSparkDefinitionsResponse
+     * @return GetSparkDefinitionsResponse GetSparkDefinitionsResponse
      */
     public function getSparkDefinitionsWithOptions($request, $runtime)
     {
@@ -4671,9 +4974,13 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param GetSparkDefinitionsRequest $request
+     * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param GetSparkDefinitionsRequest $request GetSparkDefinitionsRequest
      *
-     * @return GetSparkDefinitionsResponse
+     * @return GetSparkDefinitionsResponse GetSparkDefinitionsResponse
      */
     public function getSparkDefinitions($request)
     {
@@ -4683,10 +4990,14 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param GetSparkLogAnalyzeTaskRequest $request
-     * @param RuntimeOptions                $runtime
+     * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param GetSparkLogAnalyzeTaskRequest $request GetSparkLogAnalyzeTaskRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSparkLogAnalyzeTaskResponse
+     * @return GetSparkLogAnalyzeTaskResponse GetSparkLogAnalyzeTaskResponse
      */
     public function getSparkLogAnalyzeTaskWithOptions($request, $runtime)
     {
@@ -4714,9 +5025,13 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param GetSparkLogAnalyzeTaskRequest $request
+     * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param GetSparkLogAnalyzeTaskRequest $request GetSparkLogAnalyzeTaskRequest
      *
-     * @return GetSparkLogAnalyzeTaskResponse
+     * @return GetSparkLogAnalyzeTaskResponse GetSparkLogAnalyzeTaskResponse
      */
     public function getSparkLogAnalyzeTask($request)
     {
@@ -4772,10 +5087,14 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param GetSparkTemplateFileContentRequest $request
-     * @param RuntimeOptions                     $runtime
+     * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param GetSparkTemplateFileContentRequest $request GetSparkTemplateFileContentRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSparkTemplateFileContentResponse
+     * @return GetSparkTemplateFileContentResponse GetSparkTemplateFileContentResponse
      */
     public function getSparkTemplateFileContentWithOptions($request, $runtime)
     {
@@ -4806,9 +5125,13 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param GetSparkTemplateFileContentRequest $request
+     * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param GetSparkTemplateFileContentRequest $request GetSparkTemplateFileContentRequest
      *
-     * @return GetSparkTemplateFileContentResponse
+     * @return GetSparkTemplateFileContentResponse GetSparkTemplateFileContentResponse
      */
     public function getSparkTemplateFileContent($request)
     {
@@ -4818,8 +5141,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * ### [](#)Usage notes
-     *   * You can call this operation to query the directory structure but not application data in the directory. To query the directory structure that contains application data, call the [GetSparkTemplateFullTree](~~612467~~) operation.
+     * *   You can call this operation to query the directory structure but not application data in the directory. To query the directory structure that contains application data, call the [GetSparkTemplateFullTree](~~612467~~) operation.
+     *   * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *   *
      * @param GetSparkTemplateFolderTreeRequest $request GetSparkTemplateFolderTreeRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -4852,8 +5177,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * ### [](#)Usage notes
-     *   * You can call this operation to query the directory structure but not application data in the directory. To query the directory structure that contains application data, call the [GetSparkTemplateFullTree](~~612467~~) operation.
+     * *   You can call this operation to query the directory structure but not application data in the directory. To query the directory structure that contains application data, call the [GetSparkTemplateFullTree](~~612467~~) operation.
+     *   * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *   *
      * @param GetSparkTemplateFolderTreeRequest $request GetSparkTemplateFolderTreeRequest
      *
@@ -4867,10 +5194,14 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param GetSparkTemplateFullTreeRequest $request
-     * @param RuntimeOptions                  $runtime
+     * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param GetSparkTemplateFullTreeRequest $request GetSparkTemplateFullTreeRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSparkTemplateFullTreeResponse
+     * @return GetSparkTemplateFullTreeResponse GetSparkTemplateFullTreeResponse
      */
     public function getSparkTemplateFullTreeWithOptions($request, $runtime)
     {
@@ -4898,9 +5229,13 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param GetSparkTemplateFullTreeRequest $request
+     * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param GetSparkTemplateFullTreeRequest $request GetSparkTemplateFullTreeRequest
      *
-     * @return GetSparkTemplateFullTreeResponse
+     * @return GetSparkTemplateFullTreeResponse GetSparkTemplateFullTreeResponse
      */
     public function getSparkTemplateFullTree($request)
     {
@@ -5153,10 +5488,13 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param GetViewDDLRequest $request
-     * @param RuntimeOptions    $runtime
+     * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param GetViewDDLRequest $request GetViewDDLRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetViewDDLResponse
+     * @return GetViewDDLResponse GetViewDDLResponse
      */
     public function getViewDDLWithOptions($request, $runtime)
     {
@@ -5193,9 +5531,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param GetViewDDLRequest $request
+     * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param GetViewDDLRequest $request GetViewDDLRequest
      *
-     * @return GetViewDDLResponse
+     * @return GetViewDDLResponse GetViewDDLResponse
      */
     public function getViewDDL($request)
     {
@@ -5205,10 +5546,13 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param GetViewObjectsRequest $request
-     * @param RuntimeOptions        $runtime
+     * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param GetViewObjectsRequest $request GetViewObjectsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetViewObjectsResponse
+     * @return GetViewObjectsResponse GetViewObjectsResponse
      */
     public function getViewObjectsWithOptions($request, $runtime)
     {
@@ -5260,9 +5604,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param GetViewObjectsRequest $request
+     * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param GetViewObjectsRequest $request GetViewObjectsRequest
      *
-     * @return GetViewObjectsResponse
+     * @return GetViewObjectsResponse GetViewObjectsResponse
      */
     public function getViewObjects($request)
     {
@@ -5272,10 +5619,14 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param KillSparkAppRequest $request
-     * @param RuntimeOptions      $runtime
+     * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param KillSparkAppRequest $request KillSparkAppRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return KillSparkAppResponse
+     * @return KillSparkAppResponse KillSparkAppResponse
      */
     public function killSparkAppWithOptions($request, $runtime)
     {
@@ -5308,9 +5659,13 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param KillSparkAppRequest $request
+     * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param KillSparkAppRequest $request KillSparkAppRequest
      *
-     * @return KillSparkAppResponse
+     * @return KillSparkAppResponse KillSparkAppResponse
      */
     public function killSparkApp($request)
     {
@@ -5320,10 +5675,14 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param KillSparkLogAnalyzeTaskRequest $request
-     * @param RuntimeOptions                 $runtime
+     * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param KillSparkLogAnalyzeTaskRequest $request KillSparkLogAnalyzeTaskRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return KillSparkLogAnalyzeTaskResponse
+     * @return KillSparkLogAnalyzeTaskResponse KillSparkLogAnalyzeTaskResponse
      */
     public function killSparkLogAnalyzeTaskWithOptions($request, $runtime)
     {
@@ -5351,9 +5710,13 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param KillSparkLogAnalyzeTaskRequest $request
+     * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param KillSparkLogAnalyzeTaskRequest $request KillSparkLogAnalyzeTaskRequest
      *
-     * @return KillSparkLogAnalyzeTaskResponse
+     * @return KillSparkLogAnalyzeTaskResponse KillSparkLogAnalyzeTaskResponse
      */
     public function killSparkLogAnalyzeTask($request)
     {
@@ -5363,10 +5726,14 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param KillSparkSQLEngineRequest $request
-     * @param RuntimeOptions            $runtime
+     * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param KillSparkSQLEngineRequest $request KillSparkSQLEngineRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return KillSparkSQLEngineResponse
+     * @return KillSparkSQLEngineResponse KillSparkSQLEngineResponse
      */
     public function killSparkSQLEngineWithOptions($request, $runtime)
     {
@@ -5397,9 +5764,13 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param KillSparkSQLEngineRequest $request
+     * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param KillSparkSQLEngineRequest $request KillSparkSQLEngineRequest
      *
-     * @return KillSparkSQLEngineResponse
+     * @return KillSparkSQLEngineResponse KillSparkSQLEngineResponse
      */
     public function killSparkSQLEngine($request)
     {
@@ -5409,10 +5780,14 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ListSparkAppAttemptsRequest $request
-     * @param RuntimeOptions              $runtime
+     * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param ListSparkAppAttemptsRequest $request ListSparkAppAttemptsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSparkAppAttemptsResponse
+     * @return ListSparkAppAttemptsResponse ListSparkAppAttemptsResponse
      */
     public function listSparkAppAttemptsWithOptions($request, $runtime)
     {
@@ -5449,9 +5824,13 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ListSparkAppAttemptsRequest $request
+     * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param ListSparkAppAttemptsRequest $request ListSparkAppAttemptsRequest
      *
-     * @return ListSparkAppAttemptsResponse
+     * @return ListSparkAppAttemptsResponse ListSparkAppAttemptsResponse
      */
     public function listSparkAppAttempts($request)
     {
@@ -5513,10 +5892,14 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ListSparkLogAnalyzeTasksRequest $request
-     * @param RuntimeOptions                  $runtime
+     * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param ListSparkLogAnalyzeTasksRequest $request ListSparkLogAnalyzeTasksRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSparkLogAnalyzeTasksResponse
+     * @return ListSparkLogAnalyzeTasksResponse ListSparkLogAnalyzeTasksResponse
      */
     public function listSparkLogAnalyzeTasksWithOptions($request, $runtime)
     {
@@ -5550,9 +5933,13 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ListSparkLogAnalyzeTasksRequest $request
+     * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param ListSparkLogAnalyzeTasksRequest $request ListSparkLogAnalyzeTasksRequest
      *
-     * @return ListSparkLogAnalyzeTasksResponse
+     * @return ListSparkLogAnalyzeTasksResponse ListSparkLogAnalyzeTasksResponse
      */
     public function listSparkLogAnalyzeTasks($request)
     {
@@ -5562,10 +5949,14 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ListSparkTemplateFileIdsRequest $request
-     * @param RuntimeOptions                  $runtime
+     * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param ListSparkTemplateFileIdsRequest $request ListSparkTemplateFileIdsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSparkTemplateFileIdsResponse
+     * @return ListSparkTemplateFileIdsResponse ListSparkTemplateFileIdsResponse
      */
     public function listSparkTemplateFileIdsWithOptions($request, $runtime)
     {
@@ -5593,9 +5984,13 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ListSparkTemplateFileIdsRequest $request
+     * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param ListSparkTemplateFileIdsRequest $request ListSparkTemplateFileIdsRequest
      *
-     * @return ListSparkTemplateFileIdsResponse
+     * @return ListSparkTemplateFileIdsResponse ListSparkTemplateFileIdsResponse
      */
     public function listSparkTemplateFileIds($request)
     {
@@ -5605,10 +6000,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param LoadSampleDataSetRequest $request
-     * @param RuntimeOptions           $runtime
+     * For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
+     *   *
+     * @param LoadSampleDataSetRequest $request LoadSampleDataSetRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return LoadSampleDataSetResponse
+     * @return LoadSampleDataSetResponse LoadSampleDataSetResponse
      */
     public function loadSampleDataSetWithOptions($request, $runtime)
     {
@@ -5636,9 +6033,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param LoadSampleDataSetRequest $request
+     * For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
+     *   *
+     * @param LoadSampleDataSetRequest $request LoadSampleDataSetRequest
      *
-     * @return LoadSampleDataSetResponse
+     * @return LoadSampleDataSetResponse LoadSampleDataSetResponse
      */
     public function loadSampleDataSet($request)
     {
@@ -5648,10 +6047,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ModifyAccountDescriptionRequest $request
-     * @param RuntimeOptions                  $runtime
+     * For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
+     *   *
+     * @param ModifyAccountDescriptionRequest $request ModifyAccountDescriptionRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyAccountDescriptionResponse
+     * @return ModifyAccountDescriptionResponse ModifyAccountDescriptionResponse
      */
     public function modifyAccountDescriptionWithOptions($request, $runtime)
     {
@@ -5685,9 +6086,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ModifyAccountDescriptionRequest $request
+     * For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
+     *   *
+     * @param ModifyAccountDescriptionRequest $request ModifyAccountDescriptionRequest
      *
-     * @return ModifyAccountDescriptionResponse
+     * @return ModifyAccountDescriptionResponse ModifyAccountDescriptionResponse
      */
     public function modifyAccountDescription($request)
     {
@@ -5815,10 +6218,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ModifyBackupPolicyRequest $request
-     * @param RuntimeOptions            $runtime
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param ModifyBackupPolicyRequest $request ModifyBackupPolicyRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyBackupPolicyResponse
+     * @return ModifyBackupPolicyResponse ModifyBackupPolicyResponse
      */
     public function modifyBackupPolicyWithOptions($request, $runtime)
     {
@@ -5873,9 +6278,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ModifyBackupPolicyRequest $request
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param ModifyBackupPolicyRequest $request ModifyBackupPolicyRequest
      *
-     * @return ModifyBackupPolicyResponse
+     * @return ModifyBackupPolicyResponse ModifyBackupPolicyResponse
      */
     public function modifyBackupPolicy($request)
     {
@@ -5885,10 +6292,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ModifyClusterAccessWhiteListRequest $request
-     * @param RuntimeOptions                      $runtime
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param ModifyClusterAccessWhiteListRequest $request ModifyClusterAccessWhiteListRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyClusterAccessWhiteListResponse
+     * @return ModifyClusterAccessWhiteListResponse ModifyClusterAccessWhiteListResponse
      */
     public function modifyClusterAccessWhiteListWithOptions($request, $runtime)
     {
@@ -5928,9 +6337,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ModifyClusterAccessWhiteListRequest $request
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param ModifyClusterAccessWhiteListRequest $request ModifyClusterAccessWhiteListRequest
      *
-     * @return ModifyClusterAccessWhiteListResponse
+     * @return ModifyClusterAccessWhiteListResponse ModifyClusterAccessWhiteListResponse
      */
     public function modifyClusterAccessWhiteList($request)
     {
@@ -5940,10 +6351,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ModifyClusterConnectionStringRequest $request
-     * @param RuntimeOptions                       $runtime
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param ModifyClusterConnectionStringRequest $request ModifyClusterConnectionStringRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyClusterConnectionStringResponse
+     * @return ModifyClusterConnectionStringResponse ModifyClusterConnectionStringResponse
      */
     public function modifyClusterConnectionStringWithOptions($request, $runtime)
     {
@@ -5980,9 +6393,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ModifyClusterConnectionStringRequest $request
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param ModifyClusterConnectionStringRequest $request ModifyClusterConnectionStringRequest
      *
-     * @return ModifyClusterConnectionStringResponse
+     * @return ModifyClusterConnectionStringResponse ModifyClusterConnectionStringResponse
      */
     public function modifyClusterConnectionString($request)
     {
@@ -6025,6 +6440,12 @@ class Adb extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->reservedNodeCount)) {
+            $query['ReservedNodeCount'] = $request->reservedNodeCount;
+        }
+        if (!Utils::isUnset($request->reservedNodeSize)) {
+            $query['ReservedNodeSize'] = $request->reservedNodeSize;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -6070,10 +6491,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterDescriptionRequest $request
-     * @param RuntimeOptions                    $runtime
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param ModifyDBClusterDescriptionRequest $request ModifyDBClusterDescriptionRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBClusterDescriptionResponse
+     * @return ModifyDBClusterDescriptionResponse ModifyDBClusterDescriptionResponse
      */
     public function modifyDBClusterDescriptionWithOptions($request, $runtime)
     {
@@ -6104,9 +6527,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterDescriptionRequest $request
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param ModifyDBClusterDescriptionRequest $request ModifyDBClusterDescriptionRequest
      *
-     * @return ModifyDBClusterDescriptionResponse
+     * @return ModifyDBClusterDescriptionResponse ModifyDBClusterDescriptionResponse
      */
     public function modifyDBClusterDescription($request)
     {
@@ -6116,10 +6541,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterMaintainTimeRequest $request
-     * @param RuntimeOptions                     $runtime
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param ModifyDBClusterMaintainTimeRequest $request ModifyDBClusterMaintainTimeRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBClusterMaintainTimeResponse
+     * @return ModifyDBClusterMaintainTimeResponse ModifyDBClusterMaintainTimeResponse
      */
     public function modifyDBClusterMaintainTimeWithOptions($request, $runtime)
     {
@@ -6150,9 +6577,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterMaintainTimeRequest $request
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param ModifyDBClusterMaintainTimeRequest $request ModifyDBClusterMaintainTimeRequest
      *
-     * @return ModifyDBClusterMaintainTimeResponse
+     * @return ModifyDBClusterMaintainTimeResponse ModifyDBClusterMaintainTimeResponse
      */
     public function modifyDBClusterMaintainTime($request)
     {
@@ -6162,10 +6591,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBResourceGroupRequest $tmpReq
-     * @param RuntimeOptions               $runtime
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param ModifyDBResourceGroupRequest $tmpReq  ModifyDBResourceGroupRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBResourceGroupResponse
+     * @return ModifyDBResourceGroupResponse ModifyDBResourceGroupResponse
      */
     public function modifyDBResourceGroupWithOptions($tmpReq, $runtime)
     {
@@ -6231,9 +6662,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBResourceGroupRequest $request
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param ModifyDBResourceGroupRequest $request ModifyDBResourceGroupRequest
      *
-     * @return ModifyDBResourceGroupResponse
+     * @return ModifyDBResourceGroupResponse ModifyDBResourceGroupResponse
      */
     public function modifyDBResourceGroup($request)
     {
@@ -6243,10 +6676,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ModifyElasticPlanRequest $request
-     * @param RuntimeOptions           $runtime
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param ModifyElasticPlanRequest $request ModifyElasticPlanRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyElasticPlanResponse
+     * @return ModifyElasticPlanResponse ModifyElasticPlanResponse
      */
     public function modifyElasticPlanWithOptions($request, $runtime)
     {
@@ -6289,9 +6724,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ModifyElasticPlanRequest $request
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param ModifyElasticPlanRequest $request ModifyElasticPlanRequest
      *
-     * @return ModifyElasticPlanResponse
+     * @return ModifyElasticPlanResponse ModifyElasticPlanResponse
      */
     public function modifyElasticPlan($request)
     {
@@ -6493,10 +6930,14 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param SetSparkAppLogRootPathRequest $request
-     * @param RuntimeOptions                $runtime
+     * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param SetSparkAppLogRootPathRequest $request SetSparkAppLogRootPathRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetSparkAppLogRootPathResponse
+     * @return SetSparkAppLogRootPathResponse SetSparkAppLogRootPathResponse
      */
     public function setSparkAppLogRootPathWithOptions($request, $runtime)
     {
@@ -6530,9 +6971,13 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param SetSparkAppLogRootPathRequest $request
+     * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param SetSparkAppLogRootPathRequest $request SetSparkAppLogRootPathRequest
      *
-     * @return SetSparkAppLogRootPathResponse
+     * @return SetSparkAppLogRootPathResponse SetSparkAppLogRootPathResponse
      */
     public function setSparkAppLogRootPath($request)
     {
@@ -6542,10 +6987,14 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param StartSparkSQLEngineRequest $request
-     * @param RuntimeOptions             $runtime
+     * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param StartSparkSQLEngineRequest $request StartSparkSQLEngineRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartSparkSQLEngineResponse
+     * @return StartSparkSQLEngineResponse StartSparkSQLEngineResponse
      */
     public function startSparkSQLEngineWithOptions($request, $runtime)
     {
@@ -6591,9 +7040,13 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param StartSparkSQLEngineRequest $request
+     * *   General endpoint: `adb.aliyuncs.com`.
+     *   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   *
+     * @param StartSparkSQLEngineRequest $request StartSparkSQLEngineRequest
      *
-     * @return StartSparkSQLEngineResponse
+     * @return StartSparkSQLEngineResponse StartSparkSQLEngineResponse
      */
     public function startSparkSQLEngine($request)
     {
@@ -6603,10 +7056,14 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param SubmitSparkAppRequest $request
-     * @param RuntimeOptions        $runtime
+     * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
+     *   *
+     * @param SubmitSparkAppRequest $request SubmitSparkAppRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitSparkAppResponse
+     * @return SubmitSparkAppResponse SubmitSparkAppResponse
      */
     public function submitSparkAppWithOptions($request, $runtime)
     {
@@ -6655,9 +7112,13 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param SubmitSparkAppRequest $request
+     * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
+     *   *
+     * @param SubmitSparkAppRequest $request SubmitSparkAppRequest
      *
-     * @return SubmitSparkAppResponse
+     * @return SubmitSparkAppResponse SubmitSparkAppResponse
      */
     public function submitSparkApp($request)
     {
@@ -6710,10 +7171,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param UnbindAccountRequest $request
-     * @param RuntimeOptions       $runtime
+     * For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
+     *   *
+     * @param UnbindAccountRequest $request UnbindAccountRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnbindAccountResponse
+     * @return UnbindAccountResponse UnbindAccountResponse
      */
     public function unbindAccountWithOptions($request, $runtime)
     {
@@ -6744,9 +7207,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param UnbindAccountRequest $request
+     * For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
+     *   *
+     * @param UnbindAccountRequest $request UnbindAccountRequest
      *
-     * @return UnbindAccountResponse
+     * @return UnbindAccountResponse UnbindAccountResponse
      */
     public function unbindAccount($request)
     {
@@ -6756,10 +7221,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param UnbindDBResourceGroupWithUserRequest $request
-     * @param RuntimeOptions                       $runtime
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param UnbindDBResourceGroupWithUserRequest $request UnbindDBResourceGroupWithUserRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnbindDBResourceGroupWithUserResponse
+     * @return UnbindDBResourceGroupWithUserResponse UnbindDBResourceGroupWithUserResponse
      */
     public function unbindDBResourceGroupWithUserWithOptions($request, $runtime)
     {
@@ -6793,9 +7260,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param UnbindDBResourceGroupWithUserRequest $request
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+     *   *
+     * @param UnbindDBResourceGroupWithUserRequest $request UnbindDBResourceGroupWithUserRequest
      *
-     * @return UnbindDBResourceGroupWithUserResponse
+     * @return UnbindDBResourceGroupWithUserResponse UnbindDBResourceGroupWithUserResponse
      */
     public function unbindDBResourceGroupWithUser($request)
     {
@@ -6805,10 +7274,14 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param UpdateSparkTemplateFileRequest $request
-     * @param RuntimeOptions                 $runtime
+     * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
+     *   *
+     * @param UpdateSparkTemplateFileRequest $request UpdateSparkTemplateFileRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateSparkTemplateFileResponse
+     * @return UpdateSparkTemplateFileResponse UpdateSparkTemplateFileResponse
      */
     public function updateSparkTemplateFileWithOptions($request, $runtime)
     {
@@ -6845,9 +7318,13 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param UpdateSparkTemplateFileRequest $request
+     * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     *   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *   * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
+     *   *
+     * @param UpdateSparkTemplateFileRequest $request UpdateSparkTemplateFileRequest
      *
-     * @return UpdateSparkTemplateFileResponse
+     * @return UpdateSparkTemplateFileResponse UpdateSparkTemplateFileResponse
      */
     public function updateSparkTemplateFile($request)
     {

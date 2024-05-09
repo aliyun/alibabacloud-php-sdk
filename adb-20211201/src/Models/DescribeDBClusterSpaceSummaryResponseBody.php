@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterSpaceSummaryResponseBody extends Model
 {
     /**
+     * @description The queried storage overview information.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
      *
      * @var string

@@ -60,6 +60,11 @@ class DescribeDBClustersRequest extends Model
     public $DBClusterStatus;
 
     /**
+     * @var string
+     */
+    public $DBClusterVersion;
+
+    /**
      * @description The page number. Pages start from page 1. Default value: **1**.
      *
      * @example 1
@@ -80,6 +85,11 @@ class DescribeDBClustersRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $productVersion;
 
     /**
      * @description The region ID of the cluster.
@@ -110,8 +120,10 @@ class DescribeDBClustersRequest extends Model
         'DBClusterDescription' => 'DBClusterDescription',
         'DBClusterIds'         => 'DBClusterIds',
         'DBClusterStatus'      => 'DBClusterStatus',
+        'DBClusterVersion'     => 'DBClusterVersion',
         'pageNumber'           => 'PageNumber',
         'pageSize'             => 'PageSize',
+        'productVersion'       => 'ProductVersion',
         'regionId'             => 'RegionId',
         'resourceGroupId'      => 'ResourceGroupId',
         'tag'                  => 'Tag',
@@ -133,11 +145,17 @@ class DescribeDBClustersRequest extends Model
         if (null !== $this->DBClusterStatus) {
             $res['DBClusterStatus'] = $this->DBClusterStatus;
         }
+        if (null !== $this->DBClusterVersion) {
+            $res['DBClusterVersion'] = $this->DBClusterVersion;
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->productVersion) {
+            $res['ProductVersion'] = $this->productVersion;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -175,11 +193,17 @@ class DescribeDBClustersRequest extends Model
         if (isset($map['DBClusterStatus'])) {
             $model->DBClusterStatus = $map['DBClusterStatus'];
         }
+        if (isset($map['DBClusterVersion'])) {
+            $model->DBClusterVersion = $map['DBClusterVersion'];
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ProductVersion'])) {
+            $model->productVersion = $map['ProductVersion'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

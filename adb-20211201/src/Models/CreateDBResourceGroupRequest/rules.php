@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class rules extends Model
 {
     /**
+     * @description The name of the resource group.
+     *
+     *   The name can be up to 255 characters in length.
+     *   The name must start with a letter or digit.
+     *   The name can contain letters, digits, hyphens (\_), and underscores (\_).
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The execution duration of the query. Unit: milliseconds.
+     *
      * @var string
      */
     public $queryTime;
 
     /**
+     * @description The name of the destination resource group.
+     *
      * @var string
      */
     public $targetGroupName;

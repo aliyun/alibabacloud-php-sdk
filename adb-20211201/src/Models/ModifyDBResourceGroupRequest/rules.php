@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class rules extends Model
 {
     /**
+     * @description The name of the resource group.
+     *
+     * @example user_default
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The execution duration of the query. Unit: milliseconds.
+     *
+     * @example 180000
+     *
      * @var string
      */
     public $queryTime;
 
     /**
+     * @description The name of the destination resource group.
+     *
+     * @example job
+     *
      * @var string
      */
     public $targetGroupName;

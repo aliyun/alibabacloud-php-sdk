@@ -24,6 +24,10 @@ class DescribeApsResourceGroupsRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the data synchronization job.
+     *
+     * @example aps-hz1686v37sx****
+     *
      * @var string
      */
     public $workloadId;

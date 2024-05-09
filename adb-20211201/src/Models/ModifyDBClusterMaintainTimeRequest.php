@@ -20,7 +20,7 @@ class ModifyDBClusterMaintainTimeRequest extends Model
     /**
      * @description The maintenance window of the cluster. It must be in the hh:mmZ-hh:mmZ format.
      *
-     * > The interval must be 1 hour on the hour.
+     * > The interval must be 1 hour and start and end at the beginning of an hour.
      * @example 22:00Z-23:00Z
      *
      * @var string

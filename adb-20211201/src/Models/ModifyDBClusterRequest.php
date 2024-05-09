@@ -61,6 +61,16 @@ class ModifyDBClusterRequest extends Model
     public $regionId;
 
     /**
+     * @var int
+     */
+    public $reservedNodeCount;
+
+    /**
+     * @var string
+     */
+    public $reservedNodeSize;
+
+    /**
      * @var string
      */
     public $resourceOwnerAccount;
@@ -81,6 +91,8 @@ class ModifyDBClusterRequest extends Model
         'ownerAccount'              => 'OwnerAccount',
         'ownerId'                   => 'OwnerId',
         'regionId'                  => 'RegionId',
+        'reservedNodeCount'         => 'ReservedNodeCount',
+        'reservedNodeSize'          => 'ReservedNodeSize',
         'resourceOwnerAccount'      => 'ResourceOwnerAccount',
         'storageResource'           => 'StorageResource',
     ];
@@ -109,6 +121,12 @@ class ModifyDBClusterRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->reservedNodeCount) {
+            $res['ReservedNodeCount'] = $this->reservedNodeCount;
+        }
+        if (null !== $this->reservedNodeSize) {
+            $res['ReservedNodeSize'] = $this->reservedNodeSize;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -145,6 +163,12 @@ class ModifyDBClusterRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ReservedNodeCount'])) {
+            $model->reservedNodeCount = $map['ReservedNodeCount'];
+        }
+        if (isset($map['ReservedNodeSize'])) {
+            $model->reservedNodeSize = $map['ReservedNodeSize'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

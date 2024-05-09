@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class hotData extends Model
 {
     /**
+     * @description The data size of table records. Unit: bytes.
+     *
      * @example 1048576
      *
      * @var int
@@ -16,6 +18,8 @@ class hotData extends Model
     public $dataSize;
 
     /**
+     * @description The data size of regular indexes. Unit: bytes.
+     *
      * @example 1048576
      *
      * @var int
@@ -23,6 +27,8 @@ class hotData extends Model
     public $indexSize;
 
     /**
+     * @description The data size of other data. Unit: bytes.
+     *
      * @example 1048576
      *
      * @var int
@@ -30,6 +36,8 @@ class hotData extends Model
     public $otherSize;
 
     /**
+     * @description The data size of primary key indexes. Unit: bytes.
+     *
      * @example 1048576
      *
      * @var int
@@ -37,6 +45,9 @@ class hotData extends Model
     public $primaryKeyIndexSize;
 
     /**
+     * @description The hot data size. Unit: bytes.
+     *
+     * >  Formula: Hot data size = Data size of table records + Data size of regular indexes + Data size of primary key indexes + Data size of other data.
      * @example 4194304
      *
      * @var int

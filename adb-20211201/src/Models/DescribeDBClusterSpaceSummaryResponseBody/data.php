@@ -12,21 +12,30 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The cold data.
+     *
      * @var coldData
      */
     public $coldData;
 
     /**
+     * @description The data growth.
+     *
      * @var dataGrowth
      */
     public $dataGrowth;
 
     /**
+     * @description The hot data.
+     *
      * @var hotData
      */
     public $hotData;
 
     /**
+     * @description The total data size. Unit: bytes.
+     *
+     * >  Formula: Total data size = Hot data size+ Cold data size.
      * @example 8388608
      *
      * @var string

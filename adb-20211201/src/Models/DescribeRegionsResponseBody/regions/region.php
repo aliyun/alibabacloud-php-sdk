@@ -28,7 +28,7 @@ class region extends Model
     public $regionEndpoint;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -37,7 +37,7 @@ class region extends Model
     public $regionId;
 
     /**
-     * @description Details of the zones.
+     * @description The queried zones.
      *
      * @var zones
      */

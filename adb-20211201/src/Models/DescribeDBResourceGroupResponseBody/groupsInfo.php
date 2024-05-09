@@ -37,7 +37,7 @@ class groupsInfo extends Model
     public $createTime;
 
     /**
-     * @description The minimum amount of elastic computing resources. Unit: ACU.
+     * @description The minimum amount of elastic computing resources. Unit: ACUs.
      *
      * @example 16ACU
      *
@@ -46,6 +46,12 @@ class groupsInfo extends Model
     public $elasticMinComputeResource;
 
     /**
+     * @description Indicates whether the preemptible instance feature is enabled for the resource group. After the preemptible instance feature is enabled, you are charged for resources at a lower unit price but the resources are probably released. Valid values:
+     *
+     *   **True**
+     *   **False**
+     *
+     * The True value is returned only for job resource groups.
      * @example True
      *
      * @var string
@@ -93,7 +99,7 @@ class groupsInfo extends Model
     public $maxClusterCount;
 
     /**
-     * @description The maximum amount of reserved computing resources. Unit: ACU.
+     * @description The maximum amount of reserved computing resources. Unit: ACUs.
      *
      * @example 512ACU
      *
@@ -111,7 +117,7 @@ class groupsInfo extends Model
     public $minClusterCount;
 
     /**
-     * @description The minimum amount of reserved computing resources. Unit: AnalyticDB compute unit (ACU).
+     * @description The minimum amount of reserved computing resources. Unit: AnalyticDB compute units (ACUs).
      *
      * @example 0ACU
      *
@@ -120,6 +126,8 @@ class groupsInfo extends Model
     public $minComputeResource;
 
     /**
+     * @description The job resubmission rules.
+     *
      * @var rules[]
      */
     public $rules;

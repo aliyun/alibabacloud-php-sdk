@@ -20,8 +20,8 @@ class zone extends Model
     /**
      * @description Indicates whether Virtual Private Cloud (VPC) is supported in the zone. Valid values:
      *
-     *   **true**: VPC is supported.
-     *   **false**: VPC is not supported.
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -30,7 +30,7 @@ class zone extends Model
     public $vpcEnabled;
 
     /**
-     * @description The ID of the zone.
+     * @description The zone ID.
      *
      * @example cn-hangzhou-h
      *

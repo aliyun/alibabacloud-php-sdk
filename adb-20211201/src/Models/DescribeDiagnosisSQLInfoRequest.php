@@ -63,7 +63,7 @@ class DescribeDiagnosisSQLInfoRequest extends Model
     public $processStartTime;
 
     /**
-     * @description The state of the SQL statement. Valid values:
+     * @description The status of the SQL statement. Valid values:
      *
      *   **running**
      *   **finished**

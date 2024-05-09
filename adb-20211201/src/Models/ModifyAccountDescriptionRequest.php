@@ -23,7 +23,7 @@ class ModifyAccountDescriptionRequest extends Model
     /**
      * @description The name of the database account.
      *
-     * > You can call the [DescribeAccounts](~~612430~~) operation to query the information about database accounts in a cluster, including the database account name.
+     * >  You can call the [DescribeAccounts](~~612430~~) operation to query the information about database accounts of an AnalyticDB for MySQL cluster, including database account names.
      * @example testacc
      *
      * @var string

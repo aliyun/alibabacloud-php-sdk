@@ -157,12 +157,8 @@ class DBCluster extends Model
      *   **true**
      *   **false**
      *
-     * >
      *
-     *   If the cluster has expired, the system locks or releases the cluster within a period of time. We recommend that you renew the expired cluster. For more information, see [Renewal policy](~~135248~~).
-     *
-     *   This parameter is not returned for pay-as-you-go clusters.
-     *
+     * > - This parameter is not returned for pay-as-you-go clusters.
      * @example false
      *
      * @var string
@@ -233,6 +229,11 @@ class DBCluster extends Model
     public $port;
 
     /**
+     * @var string
+     */
+    public $productForm;
+
+    /**
      * @description The region ID of the cluster.
      *
      * @example cn-hangzhou
@@ -249,6 +250,16 @@ class DBCluster extends Model
      * @var string
      */
     public $reservedACU;
+
+    /**
+     * @var int
+     */
+    public $reservedNodeCount;
+
+    /**
+     * @var string
+     */
+    public $reservedNodeSize;
 
     /**
      * @description The resource group ID.
@@ -351,8 +362,11 @@ class DBCluster extends Model
         'mode'                 => 'Mode',
         'payType'              => 'PayType',
         'port'                 => 'Port',
+        'productForm'          => 'ProductForm',
         'regionId'             => 'RegionId',
         'reservedACU'          => 'ReservedACU',
+        'reservedNodeCount'    => 'ReservedNodeCount',
+        'reservedNodeSize'     => 'ReservedNodeSize',
         'resourceGroupId'      => 'ResourceGroupId',
         'storageResource'      => 'StorageResource',
         'storageResourceTotal' => 'StorageResourceTotal',
@@ -434,11 +448,20 @@ class DBCluster extends Model
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
+        if (null !== $this->productForm) {
+            $res['ProductForm'] = $this->productForm;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->reservedACU) {
             $res['ReservedACU'] = $this->reservedACU;
+        }
+        if (null !== $this->reservedNodeCount) {
+            $res['ReservedNodeCount'] = $this->reservedNodeCount;
+        }
+        if (null !== $this->reservedNodeSize) {
+            $res['ReservedNodeSize'] = $this->reservedNodeSize;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -542,11 +565,20 @@ class DBCluster extends Model
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
+        if (isset($map['ProductForm'])) {
+            $model->productForm = $map['ProductForm'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
         if (isset($map['ReservedACU'])) {
             $model->reservedACU = $map['ReservedACU'];
+        }
+        if (isset($map['ReservedNodeCount'])) {
+            $model->reservedNodeCount = $map['ReservedNodeCount'];
+        }
+        if (isset($map['ReservedNodeSize'])) {
+            $model->reservedNodeSize = $map['ReservedNodeSize'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];

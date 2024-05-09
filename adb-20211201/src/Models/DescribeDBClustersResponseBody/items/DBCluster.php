@@ -5,10 +5,16 @@
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBClustersResponseBody\items;
 
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBClustersResponseBody\items\DBCluster\tags;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBClustersResponseBody\items\DBCluster\taskInfo;
 use AlibabaCloud\Tea\Model;
 
 class DBCluster extends Model
 {
+    /**
+     * @var string
+     */
+    public $category;
+
     /**
      * @description The billing method of the cluster. Valid values:
      *
@@ -113,6 +119,21 @@ class DBCluster extends Model
     public $DBClusterType;
 
     /**
+     * @var string
+     */
+    public $DBNodeClass;
+
+    /**
+     * @var int
+     */
+    public $DBNodeCount;
+
+    /**
+     * @var int
+     */
+    public $DBNodeStorage;
+
+    /**
      * @description The version of AnalyticDB for MySQL Data Lakehouse Edition. **5.0** is returned.
      *
      * @example 5.0
@@ -122,6 +143,21 @@ class DBCluster extends Model
     public $DBVersion;
 
     /**
+     * @var string
+     */
+    public $diskType;
+
+    /**
+     * @var string
+     */
+    public $dtsJobId;
+
+    /**
+     * @var int
+     */
+    public $elasticIOResource;
+
+    /**
      * @description The database engine of the cluster. **AnalyticDB** is returned.
      *
      * @example AnalyticDB
@@ -129,6 +165,11 @@ class DBCluster extends Model
      * @var string
      */
     public $engine;
+
+    /**
+     * @var string
+     */
+    public $executorCount;
 
     /**
      * @description The time when the cluster expired. The time follows the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time is displayed in UTC.
@@ -152,6 +193,16 @@ class DBCluster extends Model
      * @var string
      */
     public $expired;
+
+    /**
+     * @var string
+     */
+    public $innerIp;
+
+    /**
+     * @var string
+     */
+    public $innerPort;
 
     /**
      * @description The lock state of the cluster. Valid values:
@@ -207,6 +258,16 @@ class DBCluster extends Model
     public $port;
 
     /**
+     * @var string
+     */
+    public $productForm;
+
+    /**
+     * @var string
+     */
+    public $rdsInstanceId;
+
+    /**
      * @description The region ID of the cluster.
      *
      * @example cn-hangzhou
@@ -223,6 +284,16 @@ class DBCluster extends Model
      * @var string
      */
     public $reservedACU;
+
+    /**
+     * @var int
+     */
+    public $reservedNodeCount;
+
+    /**
+     * @var string
+     */
+    public $reservedNodeSize;
 
     /**
      * @description The resource group ID.
@@ -248,6 +319,16 @@ class DBCluster extends Model
      * @var tags
      */
     public $tags;
+
+    /**
+     * @var taskInfo
+     */
+    public $taskInfo;
+
+    /**
+     * @var string
+     */
+    public $VPCCloudInstanceId;
 
     /**
      * @description The virtual private cloud (VPC) ID of the cluster.
@@ -276,6 +357,7 @@ class DBCluster extends Model
      */
     public $zoneId;
     protected $_name = [
+        'category'             => 'Category',
         'commodityCode'        => 'CommodityCode',
         'computeResource'      => 'ComputeResource',
         'connectionString'     => 'ConnectionString',
@@ -285,20 +367,35 @@ class DBCluster extends Model
         'DBClusterNetworkType' => 'DBClusterNetworkType',
         'DBClusterStatus'      => 'DBClusterStatus',
         'DBClusterType'        => 'DBClusterType',
+        'DBNodeClass'          => 'DBNodeClass',
+        'DBNodeCount'          => 'DBNodeCount',
+        'DBNodeStorage'        => 'DBNodeStorage',
         'DBVersion'            => 'DBVersion',
+        'diskType'             => 'DiskType',
+        'dtsJobId'             => 'DtsJobId',
+        'elasticIOResource'    => 'ElasticIOResource',
         'engine'               => 'Engine',
+        'executorCount'        => 'ExecutorCount',
         'expireTime'           => 'ExpireTime',
         'expired'              => 'Expired',
+        'innerIp'              => 'InnerIp',
+        'innerPort'            => 'InnerPort',
         'lockMode'             => 'LockMode',
         'lockReason'           => 'LockReason',
         'mode'                 => 'Mode',
         'payType'              => 'PayType',
         'port'                 => 'Port',
+        'productForm'          => 'ProductForm',
+        'rdsInstanceId'        => 'RdsInstanceId',
         'regionId'             => 'RegionId',
         'reservedACU'          => 'ReservedACU',
+        'reservedNodeCount'    => 'ReservedNodeCount',
+        'reservedNodeSize'     => 'ReservedNodeSize',
         'resourceGroupId'      => 'ResourceGroupId',
         'storageResource'      => 'StorageResource',
         'tags'                 => 'Tags',
+        'taskInfo'             => 'TaskInfo',
+        'VPCCloudInstanceId'   => 'VPCCloudInstanceId',
         'VPCId'                => 'VPCId',
         'vSwitchId'            => 'VSwitchId',
         'zoneId'               => 'ZoneId',
@@ -311,6 +408,9 @@ class DBCluster extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
+        }
         if (null !== $this->commodityCode) {
             $res['CommodityCode'] = $this->commodityCode;
         }
@@ -338,17 +438,44 @@ class DBCluster extends Model
         if (null !== $this->DBClusterType) {
             $res['DBClusterType'] = $this->DBClusterType;
         }
+        if (null !== $this->DBNodeClass) {
+            $res['DBNodeClass'] = $this->DBNodeClass;
+        }
+        if (null !== $this->DBNodeCount) {
+            $res['DBNodeCount'] = $this->DBNodeCount;
+        }
+        if (null !== $this->DBNodeStorage) {
+            $res['DBNodeStorage'] = $this->DBNodeStorage;
+        }
         if (null !== $this->DBVersion) {
             $res['DBVersion'] = $this->DBVersion;
         }
+        if (null !== $this->diskType) {
+            $res['DiskType'] = $this->diskType;
+        }
+        if (null !== $this->dtsJobId) {
+            $res['DtsJobId'] = $this->dtsJobId;
+        }
+        if (null !== $this->elasticIOResource) {
+            $res['ElasticIOResource'] = $this->elasticIOResource;
+        }
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
+        }
+        if (null !== $this->executorCount) {
+            $res['ExecutorCount'] = $this->executorCount;
         }
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
         }
         if (null !== $this->expired) {
             $res['Expired'] = $this->expired;
+        }
+        if (null !== $this->innerIp) {
+            $res['InnerIp'] = $this->innerIp;
+        }
+        if (null !== $this->innerPort) {
+            $res['InnerPort'] = $this->innerPort;
         }
         if (null !== $this->lockMode) {
             $res['LockMode'] = $this->lockMode;
@@ -365,11 +492,23 @@ class DBCluster extends Model
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
+        if (null !== $this->productForm) {
+            $res['ProductForm'] = $this->productForm;
+        }
+        if (null !== $this->rdsInstanceId) {
+            $res['RdsInstanceId'] = $this->rdsInstanceId;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->reservedACU) {
             $res['ReservedACU'] = $this->reservedACU;
+        }
+        if (null !== $this->reservedNodeCount) {
+            $res['ReservedNodeCount'] = $this->reservedNodeCount;
+        }
+        if (null !== $this->reservedNodeSize) {
+            $res['ReservedNodeSize'] = $this->reservedNodeSize;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -379,6 +518,12 @@ class DBCluster extends Model
         }
         if (null !== $this->tags) {
             $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
+        }
+        if (null !== $this->taskInfo) {
+            $res['TaskInfo'] = null !== $this->taskInfo ? $this->taskInfo->toMap() : null;
+        }
+        if (null !== $this->VPCCloudInstanceId) {
+            $res['VPCCloudInstanceId'] = $this->VPCCloudInstanceId;
         }
         if (null !== $this->VPCId) {
             $res['VPCId'] = $this->VPCId;
@@ -401,6 +546,9 @@ class DBCluster extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
+        }
         if (isset($map['CommodityCode'])) {
             $model->commodityCode = $map['CommodityCode'];
         }
@@ -428,17 +576,44 @@ class DBCluster extends Model
         if (isset($map['DBClusterType'])) {
             $model->DBClusterType = $map['DBClusterType'];
         }
+        if (isset($map['DBNodeClass'])) {
+            $model->DBNodeClass = $map['DBNodeClass'];
+        }
+        if (isset($map['DBNodeCount'])) {
+            $model->DBNodeCount = $map['DBNodeCount'];
+        }
+        if (isset($map['DBNodeStorage'])) {
+            $model->DBNodeStorage = $map['DBNodeStorage'];
+        }
         if (isset($map['DBVersion'])) {
             $model->DBVersion = $map['DBVersion'];
         }
+        if (isset($map['DiskType'])) {
+            $model->diskType = $map['DiskType'];
+        }
+        if (isset($map['DtsJobId'])) {
+            $model->dtsJobId = $map['DtsJobId'];
+        }
+        if (isset($map['ElasticIOResource'])) {
+            $model->elasticIOResource = $map['ElasticIOResource'];
+        }
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
+        }
+        if (isset($map['ExecutorCount'])) {
+            $model->executorCount = $map['ExecutorCount'];
         }
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
         }
         if (isset($map['Expired'])) {
             $model->expired = $map['Expired'];
+        }
+        if (isset($map['InnerIp'])) {
+            $model->innerIp = $map['InnerIp'];
+        }
+        if (isset($map['InnerPort'])) {
+            $model->innerPort = $map['InnerPort'];
         }
         if (isset($map['LockMode'])) {
             $model->lockMode = $map['LockMode'];
@@ -455,11 +630,23 @@ class DBCluster extends Model
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
+        if (isset($map['ProductForm'])) {
+            $model->productForm = $map['ProductForm'];
+        }
+        if (isset($map['RdsInstanceId'])) {
+            $model->rdsInstanceId = $map['RdsInstanceId'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
         if (isset($map['ReservedACU'])) {
             $model->reservedACU = $map['ReservedACU'];
+        }
+        if (isset($map['ReservedNodeCount'])) {
+            $model->reservedNodeCount = $map['ReservedNodeCount'];
+        }
+        if (isset($map['ReservedNodeSize'])) {
+            $model->reservedNodeSize = $map['ReservedNodeSize'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
@@ -469,6 +656,12 @@ class DBCluster extends Model
         }
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);
+        }
+        if (isset($map['TaskInfo'])) {
+            $model->taskInfo = taskInfo::fromMap($map['TaskInfo']);
+        }
+        if (isset($map['VPCCloudInstanceId'])) {
+            $model->VPCCloudInstanceId = $map['VPCCloudInstanceId'];
         }
         if (isset($map['VPCId'])) {
             $model->VPCId = $map['VPCId'];

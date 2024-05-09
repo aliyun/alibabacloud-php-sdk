@@ -97,6 +97,13 @@ class CreateDBClusterRequest extends Model
     public $period;
 
     /**
+     * @example LegacyForm
+     *
+     * @var string
+     */
+    public $productForm;
+
+    /**
      * @description The region ID.
      *
      * >  You can call the [DescribeRegions](~~454314~~) operation to query the most recent region list.
@@ -105,6 +112,16 @@ class CreateDBClusterRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var int
+     */
+    public $reservedNodeCount;
+
+    /**
+     * @var string
+     */
+    public $reservedNodeSize;
 
     /**
      * @description The resource group ID.
@@ -211,7 +228,10 @@ class CreateDBClusterRequest extends Model
         'enableDefaultResourcePool' => 'EnableDefaultResourcePool',
         'payType'                   => 'PayType',
         'period'                    => 'Period',
+        'productForm'               => 'ProductForm',
         'regionId'                  => 'RegionId',
+        'reservedNodeCount'         => 'ReservedNodeCount',
+        'reservedNodeSize'          => 'ReservedNodeSize',
         'resourceGroupId'           => 'ResourceGroupId',
         'restoreToTime'             => 'RestoreToTime',
         'restoreType'               => 'RestoreType',
@@ -255,8 +275,17 @@ class CreateDBClusterRequest extends Model
         if (null !== $this->period) {
             $res['Period'] = $this->period;
         }
+        if (null !== $this->productForm) {
+            $res['ProductForm'] = $this->productForm;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->reservedNodeCount) {
+            $res['ReservedNodeCount'] = $this->reservedNodeCount;
+        }
+        if (null !== $this->reservedNodeSize) {
+            $res['ReservedNodeSize'] = $this->reservedNodeSize;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -330,8 +359,17 @@ class CreateDBClusterRequest extends Model
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
         }
+        if (isset($map['ProductForm'])) {
+            $model->productForm = $map['ProductForm'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ReservedNodeCount'])) {
+            $model->reservedNodeCount = $map['ReservedNodeCount'];
+        }
+        if (isset($map['ReservedNodeSize'])) {
+            $model->reservedNodeSize = $map['ReservedNodeSize'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];

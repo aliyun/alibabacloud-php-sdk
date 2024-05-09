@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeElasticPlanAttributeResponseBody extends Model
 {
     /**
-     * @description Details of the scaling plan.
+     * @description The queried scaling plan.
      *
      * @var elasticPlan
      */
     public $elasticPlan;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example A5C433C2-001F-58E3-99F5-3274C14DF8BD
      *

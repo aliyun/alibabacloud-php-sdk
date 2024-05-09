@@ -41,6 +41,11 @@ class DescribeDBResourceGroupRequest extends Model
     public $groupType;
 
     /**
+     * @description The region ID of the cluster.
+     *
+     * >  You can call the [DescribeRegions](~~612393~~) operation to query the most recent region list.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
