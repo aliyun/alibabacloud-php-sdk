@@ -1522,10 +1522,16 @@ class CS extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new DeleteClusterShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->deleteOptions)) {
+            $request->deleteOptionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deleteOptions, 'delete_options', 'json');
+        }
         if (!Utils::isUnset($tmpReq->retainResources)) {
             $request->retainResourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->retainResources, 'retain_resources', 'json');
         }
         $query = [];
+        if (!Utils::isUnset($request->deleteOptionsShrink)) {
+            $query['delete_options'] = $request->deleteOptionsShrink;
+        }
         if (!Utils::isUnset($request->keepSlb)) {
             $query['keep_slb'] = $request->keepSlb;
         }

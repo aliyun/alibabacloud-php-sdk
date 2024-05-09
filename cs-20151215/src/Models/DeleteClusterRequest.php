@@ -4,10 +4,16 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
+use AlibabaCloud\SDK\CS\V20151215\Models\DeleteClusterRequest\deleteOptions;
 use AlibabaCloud\Tea\Model;
 
 class DeleteClusterRequest extends Model
 {
+    /**
+     * @var deleteOptions[]
+     */
+    public $deleteOptions;
+
     /**
      * @description Specifies whether to retain the Server Load Balancer (SLB) resources that are created by the cluster.
      *
@@ -43,6 +49,7 @@ class DeleteClusterRequest extends Model
      */
     public $retainResources;
     protected $_name = [
+        'deleteOptions'      => 'delete_options',
         'keepSlb'            => 'keep_slb',
         'retainAllResources' => 'retain_all_resources',
         'retainResources'    => 'retain_resources',
@@ -55,6 +62,15 @@ class DeleteClusterRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->deleteOptions) {
+            $res['delete_options'] = [];
+            if (null !== $this->deleteOptions && \is_array($this->deleteOptions)) {
+                $n = 0;
+                foreach ($this->deleteOptions as $item) {
+                    $res['delete_options'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->keepSlb) {
             $res['keep_slb'] = $this->keepSlb;
         }
@@ -76,6 +92,15 @@ class DeleteClusterRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['delete_options'])) {
+            if (!empty($map['delete_options'])) {
+                $model->deleteOptions = [];
+                $n                    = 0;
+                foreach ($map['delete_options'] as $item) {
+                    $model->deleteOptions[$n++] = null !== $item ? deleteOptions::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['keep_slb'])) {
             $model->keepSlb = $map['keep_slb'];
         }

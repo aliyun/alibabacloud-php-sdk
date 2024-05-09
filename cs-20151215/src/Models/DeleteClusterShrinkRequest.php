@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteClusterShrinkRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $deleteOptionsShrink;
+
+    /**
      * @description Specifies whether to retain the Server Load Balancer (SLB) resources that are created by the cluster.
      *
      *   `true`: retains the SLB resources that are created by the cluster.
@@ -43,6 +48,7 @@ class DeleteClusterShrinkRequest extends Model
      */
     public $retainResourcesShrink;
     protected $_name = [
+        'deleteOptionsShrink'   => 'delete_options',
         'keepSlb'               => 'keep_slb',
         'retainAllResources'    => 'retain_all_resources',
         'retainResourcesShrink' => 'retain_resources',
@@ -55,6 +61,9 @@ class DeleteClusterShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->deleteOptionsShrink) {
+            $res['delete_options'] = $this->deleteOptionsShrink;
+        }
         if (null !== $this->keepSlb) {
             $res['keep_slb'] = $this->keepSlb;
         }
@@ -76,6 +85,9 @@ class DeleteClusterShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['delete_options'])) {
+            $model->deleteOptionsShrink = $map['delete_options'];
+        }
         if (isset($map['keep_slb'])) {
             $model->keepSlb = $map['keep_slb'];
         }
