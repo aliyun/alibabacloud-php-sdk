@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class bookuserList extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $entityId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $entityType;

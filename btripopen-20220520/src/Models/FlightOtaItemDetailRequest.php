@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class FlightOtaItemDetailRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example cheshi
      *
      * @var string
@@ -16,6 +18,8 @@ class FlightOtaItemDetailRequest extends Model
     public $isvName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 68cdc6b37c87484c98b479b49306ffbb_0
      *
      * @var string

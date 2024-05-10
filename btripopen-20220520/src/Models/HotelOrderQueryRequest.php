@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class HotelOrderQueryRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1002145190081005400
      *
      * @var int

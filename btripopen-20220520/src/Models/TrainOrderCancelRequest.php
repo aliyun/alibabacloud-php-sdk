@@ -16,6 +16,8 @@ class TrainOrderCancelRequest extends Model
     public $changeOrderId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1002145190081005400
      *
      * @var string
@@ -30,6 +32,8 @@ class TrainOrderCancelRequest extends Model
     public $outChangeOrderId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123456
      *
      * @var string

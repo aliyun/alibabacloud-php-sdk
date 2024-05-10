@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class WaitApplyInvoiceTaskDetailQueryRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 2022-12-01
      *
      * @var string

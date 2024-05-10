@@ -586,11 +586,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param AccessTokenRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @summary 换取accessToken接口
+     *  *
+     * @param AccessTokenRequest $request AccessTokenRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return AccessTokenResponse
+     * @return AccessTokenResponse AccessTokenResponse
      */
     public function accessTokenWithOptions($request, $headers, $runtime)
     {
@@ -619,9 +621,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param AccessTokenRequest $request
+     * @summary 换取accessToken接口
+     *  *
+     * @param AccessTokenRequest $request AccessTokenRequest
      *
-     * @return AccessTokenResponse
+     * @return AccessTokenResponse AccessTokenResponse
      */
     public function accessToken($request)
     {
@@ -632,11 +636,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param AddInvoiceEntityRequest $tmpReq
-     * @param AddInvoiceEntityHeaders $headers
-     * @param RuntimeOptions          $runtime
+     * @summary 新增发票抬头适用人员
+     *  *
+     * @param AddInvoiceEntityRequest $tmpReq  AddInvoiceEntityRequest
+     * @param AddInvoiceEntityHeaders $headers AddInvoiceEntityHeaders
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddInvoiceEntityResponse
+     * @return AddInvoiceEntityResponse AddInvoiceEntityResponse
      */
     public function addInvoiceEntityWithOptions($tmpReq, $headers, $runtime)
     {
@@ -680,9 +686,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param AddInvoiceEntityRequest $request
+     * @summary 新增发票抬头适用人员
+     *  *
+     * @param AddInvoiceEntityRequest $request AddInvoiceEntityRequest
      *
-     * @return AddInvoiceEntityResponse
+     * @return AddInvoiceEntityResponse AddInvoiceEntityResponse
      */
     public function addInvoiceEntity($request)
     {
@@ -693,11 +701,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param AddressGetRequest $request
-     * @param AddressGetHeaders $headers
-     * @param RuntimeOptions    $runtime
+     * @summary 商旅功能页跳转
+     *  *
+     * @param AddressGetRequest $request AddressGetRequest
+     * @param AddressGetHeaders $headers AddressGetHeaders
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddressGetResponse
+     * @return AddressGetResponse AddressGetResponse
      */
     public function addressGetWithOptions($request, $headers, $runtime)
     {
@@ -778,9 +788,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param AddressGetRequest $request
+     * @summary 商旅功能页跳转
+     *  *
+     * @param AddressGetRequest $request AddressGetRequest
      *
-     * @return AddressGetResponse
+     * @return AddressGetResponse AddressGetResponse
      */
     public function addressGet($request)
     {
@@ -791,11 +803,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param AirportSearchRequest $request
-     * @param AirportSearchHeaders $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 查询机场数据
+     *  *
+     * @param AirportSearchRequest $request AirportSearchRequest
+     * @param AirportSearchHeaders $headers AirportSearchHeaders
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return AirportSearchResponse
+     * @return AirportSearchResponse AirportSearchResponse
      */
     public function airportSearchWithOptions($request, $headers, $runtime)
     {
@@ -834,9 +848,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param AirportSearchRequest $request
+     * @summary 查询机场数据
+     *  *
+     * @param AirportSearchRequest $request AirportSearchRequest
      *
-     * @return AirportSearchResponse
+     * @return AirportSearchResponse AirportSearchResponse
      */
     public function airportSearch($request)
     {
@@ -847,10 +863,12 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param AllBaseCityInfoQueryHeaders $headers
-     * @param RuntimeOptions              $runtime
+     * @summary 全量查询商旅城市行政区划编码信息
+     *  *
+     * @param AllBaseCityInfoQueryHeaders $headers AllBaseCityInfoQueryHeaders
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return AllBaseCityInfoQueryResponse
+     * @return AllBaseCityInfoQueryResponse AllBaseCityInfoQueryResponse
      */
     public function allBaseCityInfoQueryWithOptions($headers, $runtime)
     {
@@ -880,7 +898,9 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @return AllBaseCityInfoQueryResponse
+     * @summary 全量查询商旅城市行政区划编码信息
+     *  *
+     * @return AllBaseCityInfoQueryResponse AllBaseCityInfoQueryResponse
      */
     public function allBaseCityInfoQuery()
     {
@@ -891,11 +911,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param ApplyAddRequest $tmpReq
-     * @param ApplyAddHeaders $headers
-     * @param RuntimeOptions  $runtime
+     * @summary 新建出差审批单
+     *  *
+     * @param ApplyAddRequest $tmpReq  ApplyAddRequest
+     * @param ApplyAddHeaders $headers ApplyAddHeaders
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ApplyAddResponse
+     * @return ApplyAddResponse ApplyAddResponse
      */
     public function applyAddWithOptions($tmpReq, $headers, $runtime)
     {
@@ -1062,9 +1084,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param ApplyAddRequest $request
+     * @summary 新建出差审批单
+     *  *
+     * @param ApplyAddRequest $request ApplyAddRequest
      *
-     * @return ApplyAddResponse
+     * @return ApplyAddResponse ApplyAddResponse
      */
     public function applyAdd($request)
     {
@@ -1075,11 +1099,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param ApplyApproveRequest $request
-     * @param ApplyApproveHeaders $headers
-     * @param RuntimeOptions      $runtime
+     * @summary 更新出差审批单（状态）
+     *  *
+     * @param ApplyApproveRequest $request ApplyApproveRequest
+     * @param ApplyApproveHeaders $headers ApplyApproveHeaders
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ApplyApproveResponse
+     * @return ApplyApproveResponse ApplyApproveResponse
      */
     public function applyApproveWithOptions($request, $headers, $runtime)
     {
@@ -1133,9 +1159,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param ApplyApproveRequest $request
+     * @summary 更新出差审批单（状态）
+     *  *
+     * @param ApplyApproveRequest $request ApplyApproveRequest
      *
-     * @return ApplyApproveResponse
+     * @return ApplyApproveResponse ApplyApproveResponse
      */
     public function applyApprove($request)
     {
@@ -1146,11 +1174,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param ApplyExternalNodeStatusUpdateRequest $tmpReq
-     * @param ApplyExternalNodeStatusUpdateHeaders $headers
-     * @param RuntimeOptions                       $runtime
+     * @summary 外部审批节点状态同步
+     *  *
+     * @param ApplyExternalNodeStatusUpdateRequest $tmpReq  ApplyExternalNodeStatusUpdateRequest
+     * @param ApplyExternalNodeStatusUpdateHeaders $headers ApplyExternalNodeStatusUpdateHeaders
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ApplyExternalNodeStatusUpdateResponse
+     * @return ApplyExternalNodeStatusUpdateResponse ApplyExternalNodeStatusUpdateResponse
      */
     public function applyExternalNodeStatusUpdateWithOptions($tmpReq, $headers, $runtime)
     {
@@ -1197,9 +1227,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param ApplyExternalNodeStatusUpdateRequest $request
+     * @summary 外部审批节点状态同步
+     *  *
+     * @param ApplyExternalNodeStatusUpdateRequest $request ApplyExternalNodeStatusUpdateRequest
      *
-     * @return ApplyExternalNodeStatusUpdateResponse
+     * @return ApplyExternalNodeStatusUpdateResponse ApplyExternalNodeStatusUpdateResponse
      */
     public function applyExternalNodeStatusUpdate($request)
     {
@@ -1210,11 +1242,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param ApplyInvoiceTaskRequest $tmpReq
-     * @param ApplyInvoiceTaskHeaders $headers
-     * @param RuntimeOptions          $runtime
+     * @summary 申请发票
+     *  *
+     * @param ApplyInvoiceTaskRequest $tmpReq  ApplyInvoiceTaskRequest
+     * @param ApplyInvoiceTaskHeaders $headers ApplyInvoiceTaskHeaders
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ApplyInvoiceTaskResponse
+     * @return ApplyInvoiceTaskResponse ApplyInvoiceTaskResponse
      */
     public function applyInvoiceTaskWithOptions($tmpReq, $headers, $runtime)
     {
@@ -1258,9 +1292,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param ApplyInvoiceTaskRequest $request
+     * @summary 申请发票
+     *  *
+     * @param ApplyInvoiceTaskRequest $request ApplyInvoiceTaskRequest
      *
-     * @return ApplyInvoiceTaskResponse
+     * @return ApplyInvoiceTaskResponse ApplyInvoiceTaskResponse
      */
     public function applyInvoiceTask($request)
     {
@@ -1271,11 +1307,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param ApplyListQueryRequest $request
-     * @param ApplyListQueryHeaders $headers
-     * @param RuntimeOptions        $runtime
+     * @summary 查询出差审批单列表
+     *  *
+     * @param ApplyListQueryRequest $request ApplyListQueryRequest
+     * @param ApplyListQueryHeaders $headers ApplyListQueryHeaders
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ApplyListQueryResponse
+     * @return ApplyListQueryResponse ApplyListQueryResponse
      */
     public function applyListQueryWithOptions($request, $headers, $runtime)
     {
@@ -1344,9 +1382,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param ApplyListQueryRequest $request
+     * @summary 查询出差审批单列表
+     *  *
+     * @param ApplyListQueryRequest $request ApplyListQueryRequest
      *
-     * @return ApplyListQueryResponse
+     * @return ApplyListQueryResponse ApplyListQueryResponse
      */
     public function applyListQuery($request)
     {
@@ -1357,11 +1397,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param ApplyModifyRequest $tmpReq
-     * @param ApplyModifyHeaders $headers
-     * @param RuntimeOptions     $runtime
+     * @summary 更新出差审批单
+     *  *
+     * @param ApplyModifyRequest $tmpReq  ApplyModifyRequest
+     * @param ApplyModifyHeaders $headers ApplyModifyHeaders
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ApplyModifyResponse
+     * @return ApplyModifyResponse ApplyModifyResponse
      */
     public function applyModifyWithOptions($tmpReq, $headers, $runtime)
     {
@@ -1522,9 +1564,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param ApplyModifyRequest $request
+     * @summary 更新出差审批单
+     *  *
+     * @param ApplyModifyRequest $request ApplyModifyRequest
      *
-     * @return ApplyModifyResponse
+     * @return ApplyModifyResponse ApplyModifyResponse
      */
     public function applyModify($request)
     {
@@ -1535,11 +1579,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param ApplyQueryRequest $request
-     * @param ApplyQueryHeaders $headers
-     * @param RuntimeOptions    $runtime
+     * @summary 查询出差审批单详情
+     *  *
+     * @param ApplyQueryRequest $request ApplyQueryRequest
+     * @param ApplyQueryHeaders $headers ApplyQueryHeaders
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ApplyQueryResponse
+     * @return ApplyQueryResponse ApplyQueryResponse
      */
     public function applyQueryWithOptions($request, $headers, $runtime)
     {
@@ -1587,9 +1633,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param ApplyQueryRequest $request
+     * @summary 查询出差审批单详情
+     *  *
+     * @param ApplyQueryRequest $request ApplyQueryRequest
      *
-     * @return ApplyQueryResponse
+     * @return ApplyQueryResponse ApplyQueryResponse
      */
     public function applyQuery($request)
     {
@@ -1600,11 +1648,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param BaseCityInfoSearchRequest $request
-     * @param BaseCityInfoSearchHeaders $headers
-     * @param RuntimeOptions            $runtime
+     * @summary 搜索国内/国际（港澳台）城市基础行政区划数据
+     *  *
+     * @param BaseCityInfoSearchRequest $request BaseCityInfoSearchRequest
+     * @param BaseCityInfoSearchHeaders $headers BaseCityInfoSearchHeaders
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return BaseCityInfoSearchResponse
+     * @return BaseCityInfoSearchResponse BaseCityInfoSearchResponse
      */
     public function baseCityInfoSearchWithOptions($request, $headers, $runtime)
     {
@@ -1643,9 +1693,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param BaseCityInfoSearchRequest $request
+     * @summary 搜索国内/国际（港澳台）城市基础行政区划数据
+     *  *
+     * @param BaseCityInfoSearchRequest $request BaseCityInfoSearchRequest
      *
-     * @return BaseCityInfoSearchResponse
+     * @return BaseCityInfoSearchResponse BaseCityInfoSearchResponse
      */
     public function baseCityInfoSearch($request)
     {
@@ -1656,11 +1708,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param BtripBillInfoAdjustRequest $request
-     * @param BtripBillInfoAdjustHeaders $headers
-     * @param RuntimeOptions             $runtime
+     * @summary 商旅账单内容修改
+     *  *
+     * @param BtripBillInfoAdjustRequest $request BtripBillInfoAdjustRequest
+     * @param BtripBillInfoAdjustHeaders $headers BtripBillInfoAdjustHeaders
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return BtripBillInfoAdjustResponse
+     * @return BtripBillInfoAdjustResponse BtripBillInfoAdjustResponse
      */
     public function btripBillInfoAdjustWithOptions($request, $headers, $runtime)
     {
@@ -1711,9 +1765,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param BtripBillInfoAdjustRequest $request
+     * @summary 商旅账单内容修改
+     *  *
+     * @param BtripBillInfoAdjustRequest $request BtripBillInfoAdjustRequest
      *
-     * @return BtripBillInfoAdjustResponse
+     * @return BtripBillInfoAdjustResponse BtripBillInfoAdjustResponse
      */
     public function btripBillInfoAdjust($request)
     {
@@ -1724,11 +1780,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CarApplyAddRequest $tmpReq
-     * @param CarApplyAddHeaders $headers
-     * @param RuntimeOptions     $runtime
+     * @summary 同步市内用车审批单
+     *  *
+     * @param CarApplyAddRequest $tmpReq  CarApplyAddRequest
+     * @param CarApplyAddHeaders $headers CarApplyAddHeaders
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CarApplyAddResponse
+     * @return CarApplyAddResponse CarApplyAddResponse
      */
     public function carApplyAddWithOptions($tmpReq, $headers, $runtime)
     {
@@ -1817,9 +1875,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CarApplyAddRequest $request
+     * @summary 同步市内用车审批单
+     *  *
+     * @param CarApplyAddRequest $request CarApplyAddRequest
      *
-     * @return CarApplyAddResponse
+     * @return CarApplyAddResponse CarApplyAddResponse
      */
     public function carApplyAdd($request)
     {
@@ -1830,11 +1890,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CarApplyModifyRequest $request
-     * @param CarApplyModifyHeaders $headers
-     * @param RuntimeOptions        $runtime
+     * @summary 更新市内用车审批单
+     *  *
+     * @param CarApplyModifyRequest $request CarApplyModifyRequest
+     * @param CarApplyModifyHeaders $headers CarApplyModifyHeaders
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CarApplyModifyResponse
+     * @return CarApplyModifyResponse CarApplyModifyResponse
      */
     public function carApplyModifyWithOptions($request, $headers, $runtime)
     {
@@ -1882,9 +1944,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CarApplyModifyRequest $request
+     * @summary 更新市内用车审批单
+     *  *
+     * @param CarApplyModifyRequest $request CarApplyModifyRequest
      *
-     * @return CarApplyModifyResponse
+     * @return CarApplyModifyResponse CarApplyModifyResponse
      */
     public function carApplyModify($request)
     {
@@ -1895,11 +1959,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CarApplyQueryRequest $request
-     * @param CarApplyQueryHeaders $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 查询市内用车审批单
+     *  *
+     * @param CarApplyQueryRequest $request CarApplyQueryRequest
+     * @param CarApplyQueryHeaders $headers CarApplyQueryHeaders
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CarApplyQueryResponse
+     * @return CarApplyQueryResponse CarApplyQueryResponse
      */
     public function carApplyQueryWithOptions($request, $headers, $runtime)
     {
@@ -1950,9 +2016,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CarApplyQueryRequest $request
+     * @summary 查询市内用车审批单
+     *  *
+     * @param CarApplyQueryRequest $request CarApplyQueryRequest
      *
-     * @return CarApplyQueryResponse
+     * @return CarApplyQueryResponse CarApplyQueryResponse
      */
     public function carApplyQuery($request)
     {
@@ -1963,11 +2031,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CarBillSettlementQueryRequest $request
-     * @param CarBillSettlementQueryHeaders $headers
-     * @param RuntimeOptions                $runtime
+     * @summary 查询用车记账数据
+     *  *
+     * @param CarBillSettlementQueryRequest $request CarBillSettlementQueryRequest
+     * @param CarBillSettlementQueryHeaders $headers CarBillSettlementQueryHeaders
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CarBillSettlementQueryResponse
+     * @return CarBillSettlementQueryResponse CarBillSettlementQueryResponse
      */
     public function carBillSettlementQueryWithOptions($request, $headers, $runtime)
     {
@@ -2012,9 +2082,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CarBillSettlementQueryRequest $request
+     * @summary 查询用车记账数据
+     *  *
+     * @param CarBillSettlementQueryRequest $request CarBillSettlementQueryRequest
      *
-     * @return CarBillSettlementQueryResponse
+     * @return CarBillSettlementQueryResponse CarBillSettlementQueryResponse
      */
     public function carBillSettlementQuery($request)
     {
@@ -2025,11 +2097,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CarOrderListQueryRequest $request
-     * @param CarOrderListQueryHeaders $headers
-     * @param RuntimeOptions           $runtime
+     * @summary 查询用车订单列表
+     *  *
+     * @param CarOrderListQueryRequest $request CarOrderListQueryRequest
+     * @param CarOrderListQueryHeaders $headers CarOrderListQueryHeaders
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CarOrderListQueryResponse
+     * @return CarOrderListQueryResponse CarOrderListQueryResponse
      */
     public function carOrderListQueryWithOptions($request, $headers, $runtime)
     {
@@ -2095,9 +2169,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CarOrderListQueryRequest $request
+     * @summary 查询用车订单列表
+     *  *
+     * @param CarOrderListQueryRequest $request CarOrderListQueryRequest
      *
-     * @return CarOrderListQueryResponse
+     * @return CarOrderListQueryResponse CarOrderListQueryResponse
      */
     public function carOrderListQuery($request)
     {
@@ -2108,11 +2184,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CarOrderQueryRequest $request
-     * @param CarOrderQueryHeaders $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 用车订单查询
+     *  *
+     * @param CarOrderQueryRequest $request CarOrderQueryRequest
+     * @param CarOrderQueryHeaders $headers CarOrderQueryHeaders
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CarOrderQueryResponse
+     * @return CarOrderQueryResponse CarOrderQueryResponse
      */
     public function carOrderQueryWithOptions($request, $headers, $runtime)
     {
@@ -2151,9 +2229,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CarOrderQueryRequest $request
+     * @summary 用车订单查询
+     *  *
+     * @param CarOrderQueryRequest $request CarOrderQueryRequest
      *
-     * @return CarOrderQueryResponse
+     * @return CarOrderQueryResponse CarOrderQueryResponse
      */
     public function carOrderQuery($request)
     {
@@ -2164,10 +2244,12 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CarSceneQueryHeaders $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 查询企业用车场景
+     *  *
+     * @param CarSceneQueryHeaders $headers CarSceneQueryHeaders
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CarSceneQueryResponse
+     * @return CarSceneQueryResponse CarSceneQueryResponse
      */
     public function carSceneQueryWithOptions($headers, $runtime)
     {
@@ -2197,7 +2279,9 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @return CarSceneQueryResponse
+     * @summary 查询企业用车场景
+     *  *
+     * @return CarSceneQueryResponse CarSceneQueryResponse
      */
     public function carSceneQuery()
     {
@@ -2208,11 +2292,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CitySearchRequest $request
-     * @param CitySearchHeaders $headers
-     * @param RuntimeOptions    $runtime
+     * @summary 查询行政区划（市，区）基础数据
+     *  *
+     * @param CitySearchRequest $request CitySearchRequest
+     * @param CitySearchHeaders $headers CitySearchHeaders
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CitySearchResponse
+     * @return CitySearchResponse CitySearchResponse
      */
     public function citySearchWithOptions($request, $headers, $runtime)
     {
@@ -2248,9 +2334,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CitySearchRequest $request
+     * @summary 查询行政区划（市，区）基础数据
+     *  *
+     * @param CitySearchRequest $request CitySearchRequest
      *
-     * @return CitySearchResponse
+     * @return CitySearchResponse CitySearchResponse
      */
     public function citySearch($request)
     {
@@ -2261,11 +2349,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CommonApplyQueryRequest $request
-     * @param CommonApplyQueryHeaders $headers
-     * @param RuntimeOptions          $runtime
+     * @summary 查询退改审批信息
+     *  *
+     * @param CommonApplyQueryRequest $request CommonApplyQueryRequest
+     * @param CommonApplyQueryHeaders $headers CommonApplyQueryHeaders
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CommonApplyQueryResponse
+     * @return CommonApplyQueryResponse CommonApplyQueryResponse
      */
     public function commonApplyQueryWithOptions($request, $headers, $runtime)
     {
@@ -2307,9 +2397,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CommonApplyQueryRequest $request
+     * @summary 查询退改审批信息
+     *  *
+     * @param CommonApplyQueryRequest $request CommonApplyQueryRequest
      *
-     * @return CommonApplyQueryResponse
+     * @return CommonApplyQueryResponse CommonApplyQueryResponse
      */
     public function commonApplyQuery($request)
     {
@@ -2320,11 +2412,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CommonApplySyncRequest $request
-     * @param CommonApplySyncHeaders $headers
-     * @param RuntimeOptions         $runtime
+     * @summary 退改审批结果同步
+     *  *
+     * @param CommonApplySyncRequest $request CommonApplySyncRequest
+     * @param CommonApplySyncHeaders $headers CommonApplySyncHeaders
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CommonApplySyncResponse
+     * @return CommonApplySyncResponse CommonApplySyncResponse
      */
     public function commonApplySyncWithOptions($request, $headers, $runtime)
     {
@@ -2375,9 +2469,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CommonApplySyncRequest $request
+     * @summary 退改审批结果同步
+     *  *
+     * @param CommonApplySyncRequest $request CommonApplySyncRequest
      *
-     * @return CommonApplySyncResponse
+     * @return CommonApplySyncResponse CommonApplySyncResponse
      */
     public function commonApplySync($request)
     {
@@ -2388,11 +2484,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CooperatorFlightBillSettlementQueryRequest $request
-     * @param CooperatorFlightBillSettlementQueryHeaders $headers
-     * @param RuntimeOptions                             $runtime
+     * @summary 查询服务商机票记账数据
+     *  *
+     * @param CooperatorFlightBillSettlementQueryRequest $request CooperatorFlightBillSettlementQueryRequest
+     * @param CooperatorFlightBillSettlementQueryHeaders $headers CooperatorFlightBillSettlementQueryHeaders
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CooperatorFlightBillSettlementQueryResponse
+     * @return CooperatorFlightBillSettlementQueryResponse CooperatorFlightBillSettlementQueryResponse
      */
     public function cooperatorFlightBillSettlementQueryWithOptions($request, $headers, $runtime)
     {
@@ -2440,9 +2538,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CooperatorFlightBillSettlementQueryRequest $request
+     * @summary 查询服务商机票记账数据
+     *  *
+     * @param CooperatorFlightBillSettlementQueryRequest $request CooperatorFlightBillSettlementQueryRequest
      *
-     * @return CooperatorFlightBillSettlementQueryResponse
+     * @return CooperatorFlightBillSettlementQueryResponse CooperatorFlightBillSettlementQueryResponse
      */
     public function cooperatorFlightBillSettlementQuery($request)
     {
@@ -2453,11 +2553,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CooperatorHotelBillSettlementQueryRequest $request
-     * @param CooperatorHotelBillSettlementQueryHeaders $headers
-     * @param RuntimeOptions                            $runtime
+     * @summary 查询服务商酒店记账数据
+     *  *
+     * @param CooperatorHotelBillSettlementQueryRequest $request CooperatorHotelBillSettlementQueryRequest
+     * @param CooperatorHotelBillSettlementQueryHeaders $headers CooperatorHotelBillSettlementQueryHeaders
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CooperatorHotelBillSettlementQueryResponse
+     * @return CooperatorHotelBillSettlementQueryResponse CooperatorHotelBillSettlementQueryResponse
      */
     public function cooperatorHotelBillSettlementQueryWithOptions($request, $headers, $runtime)
     {
@@ -2505,9 +2607,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CooperatorHotelBillSettlementQueryRequest $request
+     * @summary 查询服务商酒店记账数据
+     *  *
+     * @param CooperatorHotelBillSettlementQueryRequest $request CooperatorHotelBillSettlementQueryRequest
      *
-     * @return CooperatorHotelBillSettlementQueryResponse
+     * @return CooperatorHotelBillSettlementQueryResponse CooperatorHotelBillSettlementQueryResponse
      */
     public function cooperatorHotelBillSettlementQuery($request)
     {
@@ -2518,10 +2622,12 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @summary 获取关联可调用企业接口
+     *  *
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return CorpAuthLinkInfoQueryResponse
+     * @return CorpAuthLinkInfoQueryResponse CorpAuthLinkInfoQueryResponse
      */
     public function corpAuthLinkInfoQueryWithOptions($headers, $runtime)
     {
@@ -2544,7 +2650,9 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @return CorpAuthLinkInfoQueryResponse
+     * @summary 获取关联可调用企业接口
+     *  *
+     * @return CorpAuthLinkInfoQueryResponse CorpAuthLinkInfoQueryResponse
      */
     public function corpAuthLinkInfoQuery()
     {
@@ -2555,11 +2663,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CorpTokenRequest $request
-     * @param CorpTokenHeaders $headers
-     * @param RuntimeOptions   $runtime
+     * @summary 换取CorpToken接口
+     *  *
+     * @param CorpTokenRequest $request CorpTokenRequest
+     * @param CorpTokenHeaders $headers CorpTokenHeaders
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CorpTokenResponse
+     * @return CorpTokenResponse CorpTokenResponse
      */
     public function corpTokenWithOptions($request, $headers, $runtime)
     {
@@ -2601,9 +2711,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CorpTokenRequest $request
+     * @summary 换取CorpToken接口
+     *  *
+     * @param CorpTokenRequest $request CorpTokenRequest
      *
-     * @return CorpTokenResponse
+     * @return CorpTokenResponse CorpTokenResponse
      */
     public function corpToken($request)
     {
@@ -2614,11 +2726,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CostCenterDeleteRequest $request
-     * @param CostCenterDeleteHeaders $headers
-     * @param RuntimeOptions          $runtime
+     * @summary 删除成本中心
+     *  *
+     * @param CostCenterDeleteRequest $request CostCenterDeleteRequest
+     * @param CostCenterDeleteHeaders $headers CostCenterDeleteHeaders
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CostCenterDeleteResponse
+     * @return CostCenterDeleteResponse CostCenterDeleteResponse
      */
     public function costCenterDeleteWithOptions($request, $headers, $runtime)
     {
@@ -2654,9 +2768,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CostCenterDeleteRequest $request
+     * @summary 删除成本中心
+     *  *
+     * @param CostCenterDeleteRequest $request CostCenterDeleteRequest
      *
-     * @return CostCenterDeleteResponse
+     * @return CostCenterDeleteResponse CostCenterDeleteResponse
      */
     public function costCenterDelete($request)
     {
@@ -2667,11 +2783,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CostCenterModifyRequest $request
-     * @param CostCenterModifyHeaders $headers
-     * @param RuntimeOptions          $runtime
+     * @summary 修改成本中心
+     *  *
+     * @param CostCenterModifyRequest $request CostCenterModifyRequest
+     * @param CostCenterModifyHeaders $headers CostCenterModifyHeaders
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CostCenterModifyResponse
+     * @return CostCenterModifyResponse CostCenterModifyResponse
      */
     public function costCenterModifyWithOptions($request, $headers, $runtime)
     {
@@ -2722,9 +2840,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CostCenterModifyRequest $request
+     * @summary 修改成本中心
+     *  *
+     * @param CostCenterModifyRequest $request CostCenterModifyRequest
      *
-     * @return CostCenterModifyResponse
+     * @return CostCenterModifyResponse CostCenterModifyResponse
      */
     public function costCenterModify($request)
     {
@@ -2735,11 +2855,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CostCenterQueryRequest $request
-     * @param CostCenterQueryHeaders $headers
-     * @param RuntimeOptions         $runtime
+     * @summary 查看成本中心
+     *  *
+     * @param CostCenterQueryRequest $request CostCenterQueryRequest
+     * @param CostCenterQueryHeaders $headers CostCenterQueryHeaders
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CostCenterQueryResponse
+     * @return CostCenterQueryResponse CostCenterQueryResponse
      */
     public function costCenterQueryWithOptions($request, $headers, $runtime)
     {
@@ -2787,9 +2909,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CostCenterQueryRequest $request
+     * @summary 查看成本中心
+     *  *
+     * @param CostCenterQueryRequest $request CostCenterQueryRequest
      *
-     * @return CostCenterQueryResponse
+     * @return CostCenterQueryResponse CostCenterQueryResponse
      */
     public function costCenterQuery($request)
     {
@@ -2800,11 +2924,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CostCenterSaveRequest $request
-     * @param CostCenterSaveHeaders $headers
-     * @param RuntimeOptions        $runtime
+     * @summary 保存成本中心
+     *  *
+     * @param CostCenterSaveRequest $request CostCenterSaveRequest
+     * @param CostCenterSaveHeaders $headers CostCenterSaveHeaders
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CostCenterSaveResponse
+     * @return CostCenterSaveResponse CostCenterSaveResponse
      */
     public function costCenterSaveWithOptions($request, $headers, $runtime)
     {
@@ -2855,9 +2981,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CostCenterSaveRequest $request
+     * @summary 保存成本中心
+     *  *
+     * @param CostCenterSaveRequest $request CostCenterSaveRequest
      *
-     * @return CostCenterSaveResponse
+     * @return CostCenterSaveResponse CostCenterSaveResponse
      */
     public function costCenterSave($request)
     {
@@ -2868,11 +2996,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CreateSubCorpRequest $request
-     * @param CreateSubCorpHeaders $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 创建子企业
+     *  *
+     * @param CreateSubCorpRequest $request CreateSubCorpRequest
+     * @param CreateSubCorpHeaders $headers CreateSubCorpHeaders
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateSubCorpResponse
+     * @return CreateSubCorpResponse CreateSubCorpResponse
      */
     public function createSubCorpWithOptions($request, $headers, $runtime)
     {
@@ -2914,9 +3044,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param CreateSubCorpRequest $request
+     * @summary 创建子企业
+     *  *
+     * @param CreateSubCorpRequest $request CreateSubCorpRequest
      *
-     * @return CreateSubCorpResponse
+     * @return CreateSubCorpResponse CreateSubCorpResponse
      */
     public function createSubCorp($request)
     {
@@ -2927,11 +3059,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param DeleteInvoiceEntityRequest $tmpReq
-     * @param DeleteInvoiceEntityHeaders $headers
-     * @param RuntimeOptions             $runtime
+     * @summary 删除发票抬头适用人员
+     *  *
+     * @param DeleteInvoiceEntityRequest $tmpReq  DeleteInvoiceEntityRequest
+     * @param DeleteInvoiceEntityHeaders $headers DeleteInvoiceEntityHeaders
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteInvoiceEntityResponse
+     * @return DeleteInvoiceEntityResponse DeleteInvoiceEntityResponse
      */
     public function deleteInvoiceEntityWithOptions($tmpReq, $headers, $runtime)
     {
@@ -2978,9 +3112,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param DeleteInvoiceEntityRequest $request
+     * @summary 删除发票抬头适用人员
+     *  *
+     * @param DeleteInvoiceEntityRequest $request DeleteInvoiceEntityRequest
      *
-     * @return DeleteInvoiceEntityResponse
+     * @return DeleteInvoiceEntityResponse DeleteInvoiceEntityResponse
      */
     public function deleteInvoiceEntity($request)
     {
@@ -2991,11 +3127,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param DepartmentSaveRequest $tmpReq
-     * @param DepartmentSaveHeaders $headers
-     * @param RuntimeOptions        $runtime
+     * @summary 同步外部平台部门信息至商旅内部
+     *  *
+     * @param DepartmentSaveRequest $tmpReq  DepartmentSaveRequest
+     * @param DepartmentSaveHeaders $headers DepartmentSaveHeaders
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DepartmentSaveResponse
+     * @return DepartmentSaveResponse DepartmentSaveResponse
      */
     public function departmentSaveWithOptions($tmpReq, $headers, $runtime)
     {
@@ -3036,9 +3174,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param DepartmentSaveRequest $request
+     * @summary 同步外部平台部门信息至商旅内部
+     *  *
+     * @param DepartmentSaveRequest $request DepartmentSaveRequest
      *
-     * @return DepartmentSaveResponse
+     * @return DepartmentSaveResponse DepartmentSaveResponse
      */
     public function departmentSave($request)
     {
@@ -3049,11 +3189,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param EntityAddRequest $tmpReq
-     * @param EntityAddHeaders $headers
-     * @param RuntimeOptions   $runtime
+     * @summary 增加成本中心人员信息
+     *  *
+     * @param EntityAddRequest $tmpReq  EntityAddRequest
+     * @param EntityAddHeaders $headers EntityAddHeaders
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return EntityAddResponse
+     * @return EntityAddResponse EntityAddResponse
      */
     public function entityAddWithOptions($tmpReq, $headers, $runtime)
     {
@@ -3097,9 +3239,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param EntityAddRequest $request
+     * @summary 增加成本中心人员信息
+     *  *
+     * @param EntityAddRequest $request EntityAddRequest
      *
-     * @return EntityAddResponse
+     * @return EntityAddResponse EntityAddResponse
      */
     public function entityAdd($request)
     {
@@ -3110,11 +3254,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param EntityDeleteRequest $tmpReq
-     * @param EntityDeleteHeaders $headers
-     * @param RuntimeOptions      $runtime
+     * @summary 删除成本中心人员信息
+     *  *
+     * @param EntityDeleteRequest $tmpReq  EntityDeleteRequest
+     * @param EntityDeleteHeaders $headers EntityDeleteHeaders
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return EntityDeleteResponse
+     * @return EntityDeleteResponse EntityDeleteResponse
      */
     public function entityDeleteWithOptions($tmpReq, $headers, $runtime)
     {
@@ -3163,9 +3309,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param EntityDeleteRequest $request
+     * @summary 删除成本中心人员信息
+     *  *
+     * @param EntityDeleteRequest $request EntityDeleteRequest
      *
-     * @return EntityDeleteResponse
+     * @return EntityDeleteResponse EntityDeleteResponse
      */
     public function entityDelete($request)
     {
@@ -3176,11 +3324,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param EntitySetRequest $tmpReq
-     * @param EntitySetHeaders $headers
-     * @param RuntimeOptions   $runtime
+     * @summary 设置成本中心人员信息
+     *  *
+     * @param EntitySetRequest $tmpReq  EntitySetRequest
+     * @param EntitySetHeaders $headers EntitySetHeaders
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return EntitySetResponse
+     * @return EntitySetResponse EntitySetResponse
      */
     public function entitySetWithOptions($tmpReq, $headers, $runtime)
     {
@@ -3224,9 +3374,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param EntitySetRequest $request
+     * @summary 设置成本中心人员信息
+     *  *
+     * @param EntitySetRequest $request EntitySetRequest
      *
-     * @return EntitySetResponse
+     * @return EntitySetResponse EntitySetResponse
      */
     public function entitySet($request)
     {
@@ -3237,11 +3389,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param EstimatedPriceQueryRequest $request
-     * @param EstimatedPriceQueryHeaders $headers
-     * @param RuntimeOptions             $runtime
+     * @summary 预估价格查询
+     *  *
+     * @param EstimatedPriceQueryRequest $request EstimatedPriceQueryRequest
+     * @param EstimatedPriceQueryHeaders $headers EstimatedPriceQueryHeaders
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return EstimatedPriceQueryResponse
+     * @return EstimatedPriceQueryResponse EstimatedPriceQueryResponse
      */
     public function estimatedPriceQueryWithOptions($request, $headers, $runtime)
     {
@@ -3298,9 +3452,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param EstimatedPriceQueryRequest $request
+     * @summary 预估价格查询
+     *  *
+     * @param EstimatedPriceQueryRequest $request EstimatedPriceQueryRequest
      *
-     * @return EstimatedPriceQueryResponse
+     * @return EstimatedPriceQueryResponse EstimatedPriceQueryResponse
      */
     public function estimatedPriceQuery($request)
     {
@@ -3311,11 +3467,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param ExceedApplySyncRequest $request
-     * @param ExceedApplySyncHeaders $headers
-     * @param RuntimeOptions         $runtime
+     * @summary 超标审批结果同步
+     *  *
+     * @param ExceedApplySyncRequest $request ExceedApplySyncRequest
+     * @param ExceedApplySyncHeaders $headers ExceedApplySyncHeaders
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ExceedApplySyncResponse
+     * @return ExceedApplySyncResponse ExceedApplySyncResponse
      */
     public function exceedApplySyncWithOptions($request, $headers, $runtime)
     {
@@ -3366,9 +3524,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param ExceedApplySyncRequest $request
+     * @summary 超标审批结果同步
+     *  *
+     * @param ExceedApplySyncRequest $request ExceedApplySyncRequest
      *
-     * @return ExceedApplySyncResponse
+     * @return ExceedApplySyncResponse ExceedApplySyncResponse
      */
     public function exceedApplySync($request)
     {
@@ -3379,11 +3539,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightBillSettlementQueryRequest $request
-     * @param FlightBillSettlementQueryHeaders $headers
-     * @param RuntimeOptions                   $runtime
+     * @summary 查询机票记账数据
+     *  *
+     * @param FlightBillSettlementQueryRequest $request FlightBillSettlementQueryRequest
+     * @param FlightBillSettlementQueryHeaders $headers FlightBillSettlementQueryHeaders
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return FlightBillSettlementQueryResponse
+     * @return FlightBillSettlementQueryResponse FlightBillSettlementQueryResponse
      */
     public function flightBillSettlementQueryWithOptions($request, $headers, $runtime)
     {
@@ -3428,9 +3590,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightBillSettlementQueryRequest $request
+     * @summary 查询机票记账数据
+     *  *
+     * @param FlightBillSettlementQueryRequest $request FlightBillSettlementQueryRequest
      *
-     * @return FlightBillSettlementQueryResponse
+     * @return FlightBillSettlementQueryResponse FlightBillSettlementQueryResponse
      */
     public function flightBillSettlementQuery($request)
     {
@@ -3441,11 +3605,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightCancelOrderRequest $request
-     * @param FlightCancelOrderHeaders $headers
-     * @param RuntimeOptions           $runtime
+     * @summary 航班订单取消
+     *  *
+     * @param FlightCancelOrderRequest $request FlightCancelOrderRequest
+     * @param FlightCancelOrderHeaders $headers FlightCancelOrderHeaders
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return FlightCancelOrderResponse
+     * @return FlightCancelOrderResponse FlightCancelOrderResponse
      */
     public function flightCancelOrderWithOptions($request, $headers, $runtime)
     {
@@ -3481,9 +3647,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightCancelOrderRequest $request
+     * @summary 航班订单取消
+     *  *
+     * @param FlightCancelOrderRequest $request FlightCancelOrderRequest
      *
-     * @return FlightCancelOrderResponse
+     * @return FlightCancelOrderResponse FlightCancelOrderResponse
      */
     public function flightCancelOrder($request)
     {
@@ -3494,11 +3662,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightCancelOrderV2Request $request
-     * @param FlightCancelOrderV2Headers $headers
-     * @param RuntimeOptions             $runtime
+     * @summary 机票订单取消
+     *  *
+     * @param FlightCancelOrderV2Request $request FlightCancelOrderV2Request
+     * @param FlightCancelOrderV2Headers $headers FlightCancelOrderV2Headers
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return FlightCancelOrderV2Response
+     * @return FlightCancelOrderV2Response FlightCancelOrderV2Response
      */
     public function flightCancelOrderV2WithOptions($request, $headers, $runtime)
     {
@@ -3540,9 +3710,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightCancelOrderV2Request $request
+     * @summary 机票订单取消
+     *  *
+     * @param FlightCancelOrderV2Request $request FlightCancelOrderV2Request
      *
-     * @return FlightCancelOrderV2Response
+     * @return FlightCancelOrderV2Response FlightCancelOrderV2Response
      */
     public function flightCancelOrderV2($request)
     {
@@ -3553,11 +3725,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightCreateOrderRequest $tmpReq
-     * @param FlightCreateOrderHeaders $headers
-     * @param RuntimeOptions           $runtime
+     * @summary 航班订单创建
+     *  *
+     * @param FlightCreateOrderRequest $tmpReq  FlightCreateOrderRequest
+     * @param FlightCreateOrderHeaders $headers FlightCreateOrderHeaders
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return FlightCreateOrderResponse
+     * @return FlightCreateOrderResponse FlightCreateOrderResponse
      */
     public function flightCreateOrderWithOptions($tmpReq, $headers, $runtime)
     {
@@ -3658,9 +3832,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightCreateOrderRequest $request
+     * @summary 航班订单创建
+     *  *
+     * @param FlightCreateOrderRequest $request FlightCreateOrderRequest
      *
-     * @return FlightCreateOrderResponse
+     * @return FlightCreateOrderResponse FlightCreateOrderResponse
      */
     public function flightCreateOrder($request)
     {
@@ -3671,11 +3847,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightCreateOrderV2Request $tmpReq
-     * @param FlightCreateOrderV2Headers $headers
-     * @param RuntimeOptions             $runtime
+     * @summary 机票订单创建
+     *  *
+     * @param FlightCreateOrderV2Request $tmpReq  FlightCreateOrderV2Request
+     * @param FlightCreateOrderV2Headers $headers FlightCreateOrderV2Headers
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return FlightCreateOrderV2Response
+     * @return FlightCreateOrderV2Response FlightCreateOrderV2Response
      */
     public function flightCreateOrderV2WithOptions($tmpReq, $headers, $runtime)
     {
@@ -3746,9 +3924,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightCreateOrderV2Request $request
+     * @summary 机票订单创建
+     *  *
+     * @param FlightCreateOrderV2Request $request FlightCreateOrderV2Request
      *
-     * @return FlightCreateOrderV2Response
+     * @return FlightCreateOrderV2Response FlightCreateOrderV2Response
      */
     public function flightCreateOrderV2($request)
     {
@@ -3759,11 +3939,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightExceedApplyQueryRequest $request
-     * @param FlightExceedApplyQueryHeaders $headers
-     * @param RuntimeOptions                $runtime
+     * @summary 查询飞机超标审批详情
+     *  *
+     * @param FlightExceedApplyQueryRequest $request FlightExceedApplyQueryRequest
+     * @param FlightExceedApplyQueryHeaders $headers FlightExceedApplyQueryHeaders
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return FlightExceedApplyQueryResponse
+     * @return FlightExceedApplyQueryResponse FlightExceedApplyQueryResponse
      */
     public function flightExceedApplyQueryWithOptions($request, $headers, $runtime)
     {
@@ -3799,9 +3981,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightExceedApplyQueryRequest $request
+     * @summary 查询飞机超标审批详情
+     *  *
+     * @param FlightExceedApplyQueryRequest $request FlightExceedApplyQueryRequest
      *
-     * @return FlightExceedApplyQueryResponse
+     * @return FlightExceedApplyQueryResponse FlightExceedApplyQueryResponse
      */
     public function flightExceedApplyQuery($request)
     {
@@ -3812,11 +3996,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightItineraryScanQueryRequest $request
-     * @param FlightItineraryScanQueryHeaders $headers
-     * @param RuntimeOptions                  $runtime
+     * @summary 查询机票行程单扫描件
+     *  *
+     * @param FlightItineraryScanQueryRequest $request FlightItineraryScanQueryRequest
+     * @param FlightItineraryScanQueryHeaders $headers FlightItineraryScanQueryHeaders
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return FlightItineraryScanQueryResponse
+     * @return FlightItineraryScanQueryResponse FlightItineraryScanQueryResponse
      */
     public function flightItineraryScanQueryWithOptions($request, $headers, $runtime)
     {
@@ -3870,9 +4056,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightItineraryScanQueryRequest $request
+     * @summary 查询机票行程单扫描件
+     *  *
+     * @param FlightItineraryScanQueryRequest $request FlightItineraryScanQueryRequest
      *
-     * @return FlightItineraryScanQueryResponse
+     * @return FlightItineraryScanQueryResponse FlightItineraryScanQueryResponse
      */
     public function flightItineraryScanQuery($request)
     {
@@ -3883,11 +4071,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightListingSearchRequest $request
-     * @param FlightListingSearchHeaders $headers
-     * @param RuntimeOptions             $runtime
+     * @summary 航班列表搜索
+     *  *
+     * @param FlightListingSearchRequest $request FlightListingSearchRequest
+     * @param FlightListingSearchHeaders $headers FlightListingSearchHeaders
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return FlightListingSearchResponse
+     * @return FlightListingSearchResponse FlightListingSearchResponse
      */
     public function flightListingSearchWithOptions($request, $headers, $runtime)
     {
@@ -3935,9 +4125,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightListingSearchRequest $request
+     * @summary 航班列表搜索
+     *  *
+     * @param FlightListingSearchRequest $request FlightListingSearchRequest
      *
-     * @return FlightListingSearchResponse
+     * @return FlightListingSearchResponse FlightListingSearchResponse
      */
     public function flightListingSearch($request)
     {
@@ -3948,11 +4140,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightListingSearchV2Request $tmpReq
-     * @param FlightListingSearchV2Headers $headers
-     * @param RuntimeOptions               $runtime
+     * @summary 航班列表搜索
+     *  *
+     * @param FlightListingSearchV2Request $tmpReq  FlightListingSearchV2Request
+     * @param FlightListingSearchV2Headers $headers FlightListingSearchV2Headers
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return FlightListingSearchV2Response
+     * @return FlightListingSearchV2Response FlightListingSearchV2Response
      */
     public function flightListingSearchV2WithOptions($tmpReq, $headers, $runtime)
     {
@@ -4026,9 +4220,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightListingSearchV2Request $request
+     * @summary 航班列表搜索
+     *  *
+     * @param FlightListingSearchV2Request $request FlightListingSearchV2Request
      *
-     * @return FlightListingSearchV2Response
+     * @return FlightListingSearchV2Response FlightListingSearchV2Response
      */
     public function flightListingSearchV2($request)
     {
@@ -4039,11 +4235,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightModifyApplyV2Request $tmpReq
-     * @param FlightModifyApplyV2Headers $headers
-     * @param RuntimeOptions             $runtime
+     * @summary 机票改签申请
+     *  *
+     * @param FlightModifyApplyV2Request $tmpReq  FlightModifyApplyV2Request
+     * @param FlightModifyApplyV2Headers $headers FlightModifyApplyV2Headers
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return FlightModifyApplyV2Response
+     * @return FlightModifyApplyV2Response FlightModifyApplyV2Response
      */
     public function flightModifyApplyV2WithOptions($tmpReq, $headers, $runtime)
     {
@@ -4114,9 +4312,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightModifyApplyV2Request $request
+     * @summary 机票改签申请
+     *  *
+     * @param FlightModifyApplyV2Request $request FlightModifyApplyV2Request
      *
-     * @return FlightModifyApplyV2Response
+     * @return FlightModifyApplyV2Response FlightModifyApplyV2Response
      */
     public function flightModifyApplyV2($request)
     {
@@ -4127,11 +4327,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightModifyCancelV2Request $request
-     * @param FlightModifyCancelV2Headers $headers
-     * @param RuntimeOptions              $runtime
+     * @summary 机票改签取消
+     *  *
+     * @param FlightModifyCancelV2Request $request FlightModifyCancelV2Request
+     * @param FlightModifyCancelV2Headers $headers FlightModifyCancelV2Headers
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return FlightModifyCancelV2Response
+     * @return FlightModifyCancelV2Response FlightModifyCancelV2Response
      */
     public function flightModifyCancelV2WithOptions($request, $headers, $runtime)
     {
@@ -4179,9 +4381,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightModifyCancelV2Request $request
+     * @summary 机票改签取消
+     *  *
+     * @param FlightModifyCancelV2Request $request FlightModifyCancelV2Request
      *
-     * @return FlightModifyCancelV2Response
+     * @return FlightModifyCancelV2Response FlightModifyCancelV2Response
      */
     public function flightModifyCancelV2($request)
     {
@@ -4192,11 +4396,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightModifyListingSearchV2Request $tmpReq
-     * @param FlightModifyListingSearchV2Headers $headers
-     * @param RuntimeOptions                     $runtime
+     * @summary 机票改签列表搜索
+     *  *
+     * @param FlightModifyListingSearchV2Request $tmpReq  FlightModifyListingSearchV2Request
+     * @param FlightModifyListingSearchV2Headers $headers FlightModifyListingSearchV2Headers
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return FlightModifyListingSearchV2Response
+     * @return FlightModifyListingSearchV2Response FlightModifyListingSearchV2Response
      */
     public function flightModifyListingSearchV2WithOptions($tmpReq, $headers, $runtime)
     {
@@ -4279,9 +4485,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightModifyListingSearchV2Request $request
+     * @summary 机票改签列表搜索
+     *  *
+     * @param FlightModifyListingSearchV2Request $request FlightModifyListingSearchV2Request
      *
-     * @return FlightModifyListingSearchV2Response
+     * @return FlightModifyListingSearchV2Response FlightModifyListingSearchV2Response
      */
     public function flightModifyListingSearchV2($request)
     {
@@ -4292,11 +4500,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightModifyOrderDetailV2Request $request
-     * @param FlightModifyOrderDetailV2Headers $headers
-     * @param RuntimeOptions                   $runtime
+     * @summary 机票改签详情
+     *  *
+     * @param FlightModifyOrderDetailV2Request $request FlightModifyOrderDetailV2Request
+     * @param FlightModifyOrderDetailV2Headers $headers FlightModifyOrderDetailV2Headers
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return FlightModifyOrderDetailV2Response
+     * @return FlightModifyOrderDetailV2Response FlightModifyOrderDetailV2Response
      */
     public function flightModifyOrderDetailV2WithOptions($request, $headers, $runtime)
     {
@@ -4341,9 +4551,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightModifyOrderDetailV2Request $request
+     * @summary 机票改签详情
+     *  *
+     * @param FlightModifyOrderDetailV2Request $request FlightModifyOrderDetailV2Request
      *
-     * @return FlightModifyOrderDetailV2Response
+     * @return FlightModifyOrderDetailV2Response FlightModifyOrderDetailV2Response
      */
     public function flightModifyOrderDetailV2($request)
     {
@@ -4354,11 +4566,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightModifyOtaSearchV2Request $tmpReq
-     * @param FlightModifyOtaSearchV2Headers $headers
-     * @param RuntimeOptions                 $runtime
+     * @summary 机票改签报价搜索
+     *  *
+     * @param FlightModifyOtaSearchV2Request $tmpReq  FlightModifyOtaSearchV2Request
+     * @param FlightModifyOtaSearchV2Headers $headers FlightModifyOtaSearchV2Headers
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return FlightModifyOtaSearchV2Response
+     * @return FlightModifyOtaSearchV2Response FlightModifyOtaSearchV2Response
      */
     public function flightModifyOtaSearchV2WithOptions($tmpReq, $headers, $runtime)
     {
@@ -4432,9 +4646,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightModifyOtaSearchV2Request $request
+     * @summary 机票改签报价搜索
+     *  *
+     * @param FlightModifyOtaSearchV2Request $request FlightModifyOtaSearchV2Request
      *
-     * @return FlightModifyOtaSearchV2Response
+     * @return FlightModifyOtaSearchV2Response FlightModifyOtaSearchV2Response
      */
     public function flightModifyOtaSearchV2($request)
     {
@@ -4445,11 +4661,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightModifyPayV2Request $tmpReq
-     * @param FlightModifyPayV2Headers $headers
-     * @param RuntimeOptions           $runtime
+     * @summary 机票改签支付
+     *  *
+     * @param FlightModifyPayV2Request $tmpReq  FlightModifyPayV2Request
+     * @param FlightModifyPayV2Headers $headers FlightModifyPayV2Headers
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return FlightModifyPayV2Response
+     * @return FlightModifyPayV2Response FlightModifyPayV2Response
      */
     public function flightModifyPayV2WithOptions($tmpReq, $headers, $runtime)
     {
@@ -4508,9 +4726,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightModifyPayV2Request $request
+     * @summary 机票改签支付
+     *  *
+     * @param FlightModifyPayV2Request $request FlightModifyPayV2Request
      *
-     * @return FlightModifyPayV2Response
+     * @return FlightModifyPayV2Response FlightModifyPayV2Response
      */
     public function flightModifyPayV2($request)
     {
@@ -4521,11 +4741,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightOrderDetailInfoRequest $request
-     * @param FlightOrderDetailInfoHeaders $headers
-     * @param RuntimeOptions               $runtime
+     * @summary 航班订单明细信息
+     *  *
+     * @param FlightOrderDetailInfoRequest $request FlightOrderDetailInfoRequest
+     * @param FlightOrderDetailInfoHeaders $headers FlightOrderDetailInfoHeaders
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return FlightOrderDetailInfoResponse
+     * @return FlightOrderDetailInfoResponse FlightOrderDetailInfoResponse
      */
     public function flightOrderDetailInfoWithOptions($request, $headers, $runtime)
     {
@@ -4561,9 +4783,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightOrderDetailInfoRequest $request
+     * @summary 航班订单明细信息
+     *  *
+     * @param FlightOrderDetailInfoRequest $request FlightOrderDetailInfoRequest
      *
-     * @return FlightOrderDetailInfoResponse
+     * @return FlightOrderDetailInfoResponse FlightOrderDetailInfoResponse
      */
     public function flightOrderDetailInfo($request)
     {
@@ -4574,11 +4798,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightOrderDetailV2Request $request
-     * @param FlightOrderDetailV2Headers $headers
-     * @param RuntimeOptions             $runtime
+     * @summary 机票订单详情
+     *  *
+     * @param FlightOrderDetailV2Request $request FlightOrderDetailV2Request
+     * @param FlightOrderDetailV2Headers $headers FlightOrderDetailV2Headers
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return FlightOrderDetailV2Response
+     * @return FlightOrderDetailV2Response FlightOrderDetailV2Response
      */
     public function flightOrderDetailV2WithOptions($request, $headers, $runtime)
     {
@@ -4620,9 +4846,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightOrderDetailV2Request $request
+     * @summary 机票订单详情
+     *  *
+     * @param FlightOrderDetailV2Request $request FlightOrderDetailV2Request
      *
-     * @return FlightOrderDetailV2Response
+     * @return FlightOrderDetailV2Response FlightOrderDetailV2Response
      */
     public function flightOrderDetailV2($request)
     {
@@ -4633,11 +4861,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightOrderListQueryRequest $request
-     * @param FlightOrderListQueryHeaders $headers
-     * @param RuntimeOptions              $runtime
+     * @summary 查询机票订单列表
+     *  *
+     * @param FlightOrderListQueryRequest $request FlightOrderListQueryRequest
+     * @param FlightOrderListQueryHeaders $headers FlightOrderListQueryHeaders
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return FlightOrderListQueryResponse
+     * @return FlightOrderListQueryResponse FlightOrderListQueryResponse
      */
     public function flightOrderListQueryWithOptions($request, $headers, $runtime)
     {
@@ -4703,9 +4933,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightOrderListQueryRequest $request
+     * @summary 查询机票订单列表
+     *  *
+     * @param FlightOrderListQueryRequest $request FlightOrderListQueryRequest
      *
-     * @return FlightOrderListQueryResponse
+     * @return FlightOrderListQueryResponse FlightOrderListQueryResponse
      */
     public function flightOrderListQuery($request)
     {
@@ -4716,11 +4948,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightOrderQueryRequest $request
-     * @param FlightOrderQueryHeaders $headers
-     * @param RuntimeOptions          $runtime
+     * @summary 查询机票订单详情（含票信息）
+     *  *
+     * @param FlightOrderQueryRequest $request FlightOrderQueryRequest
+     * @param FlightOrderQueryHeaders $headers FlightOrderQueryHeaders
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return FlightOrderQueryResponse
+     * @return FlightOrderQueryResponse FlightOrderQueryResponse
      */
     public function flightOrderQueryWithOptions($request, $headers, $runtime)
     {
@@ -4759,9 +4993,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightOrderQueryRequest $request
+     * @summary 查询机票订单详情（含票信息）
+     *  *
+     * @param FlightOrderQueryRequest $request FlightOrderQueryRequest
      *
-     * @return FlightOrderQueryResponse
+     * @return FlightOrderQueryResponse FlightOrderQueryResponse
      */
     public function flightOrderQuery($request)
     {
@@ -4772,11 +5008,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightOtaItemDetailRequest $request
-     * @param FlightOtaItemDetailHeaders $headers
-     * @param RuntimeOptions             $runtime
+     * @summary 查询退改规则行李额
+     *  *
+     * @param FlightOtaItemDetailRequest $request FlightOtaItemDetailRequest
+     * @param FlightOtaItemDetailHeaders $headers FlightOtaItemDetailHeaders
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return FlightOtaItemDetailResponse
+     * @return FlightOtaItemDetailResponse FlightOtaItemDetailResponse
      */
     public function flightOtaItemDetailWithOptions($request, $headers, $runtime)
     {
@@ -4815,9 +5053,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightOtaItemDetailRequest $request
+     * @summary 查询退改规则行李额
+     *  *
+     * @param FlightOtaItemDetailRequest $request FlightOtaItemDetailRequest
      *
-     * @return FlightOtaItemDetailResponse
+     * @return FlightOtaItemDetailResponse FlightOtaItemDetailResponse
      */
     public function flightOtaItemDetail($request)
     {
@@ -4828,11 +5068,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightOtaSearchRequest $request
-     * @param FlightOtaSearchHeaders $headers
-     * @param RuntimeOptions         $runtime
+     * @summary 航班最低价搜索
+     *  *
+     * @param FlightOtaSearchRequest $request FlightOtaSearchRequest
+     * @param FlightOtaSearchHeaders $headers FlightOtaSearchHeaders
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return FlightOtaSearchResponse
+     * @return FlightOtaSearchResponse FlightOtaSearchResponse
      */
     public function flightOtaSearchWithOptions($request, $headers, $runtime)
     {
@@ -4886,9 +5128,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightOtaSearchRequest $request
+     * @summary 航班最低价搜索
+     *  *
+     * @param FlightOtaSearchRequest $request FlightOtaSearchRequest
      *
-     * @return FlightOtaSearchResponse
+     * @return FlightOtaSearchResponse FlightOtaSearchResponse
      */
     public function flightOtaSearch($request)
     {
@@ -4899,11 +5143,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightOtaSearchV2Request $tmpReq
-     * @param FlightOtaSearchV2Headers $headers
-     * @param RuntimeOptions           $runtime
+     * @summary 单航班报价搜索
+     *  *
+     * @param FlightOtaSearchV2Request $tmpReq  FlightOtaSearchV2Request
+     * @param FlightOtaSearchV2Headers $headers FlightOtaSearchV2Headers
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return FlightOtaSearchV2Response
+     * @return FlightOtaSearchV2Response FlightOtaSearchV2Response
      */
     public function flightOtaSearchV2WithOptions($tmpReq, $headers, $runtime)
     {
@@ -4965,9 +5211,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightOtaSearchV2Request $request
+     * @summary 单航班报价搜索
+     *  *
+     * @param FlightOtaSearchV2Request $request FlightOtaSearchV2Request
      *
-     * @return FlightOtaSearchV2Response
+     * @return FlightOtaSearchV2Response FlightOtaSearchV2Response
      */
     public function flightOtaSearchV2($request)
     {
@@ -4978,11 +5226,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightPayOrderRequest $tmpReq
-     * @param FlightPayOrderHeaders $headers
-     * @param RuntimeOptions        $runtime
+     * @summary 航班订单支付
+     *  *
+     * @param FlightPayOrderRequest $tmpReq  FlightPayOrderRequest
+     * @param FlightPayOrderHeaders $headers FlightPayOrderHeaders
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return FlightPayOrderResponse
+     * @return FlightPayOrderResponse FlightPayOrderResponse
      */
     public function flightPayOrderWithOptions($tmpReq, $headers, $runtime)
     {
@@ -5035,9 +5285,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightPayOrderRequest $request
+     * @summary 航班订单支付
+     *  *
+     * @param FlightPayOrderRequest $request FlightPayOrderRequest
      *
-     * @return FlightPayOrderResponse
+     * @return FlightPayOrderResponse FlightPayOrderResponse
      */
     public function flightPayOrder($request)
     {
@@ -5048,11 +5300,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightPayOrderV2Request $request
-     * @param FlightPayOrderV2Headers $headers
-     * @param RuntimeOptions          $runtime
+     * @summary 机票订单支付
+     *  *
+     * @param FlightPayOrderV2Request $request FlightPayOrderV2Request
+     * @param FlightPayOrderV2Headers $headers FlightPayOrderV2Headers
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return FlightPayOrderV2Response
+     * @return FlightPayOrderV2Response FlightPayOrderV2Response
      */
     public function flightPayOrderV2WithOptions($request, $headers, $runtime)
     {
@@ -5100,9 +5354,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightPayOrderV2Request $request
+     * @summary 机票订单支付
+     *  *
+     * @param FlightPayOrderV2Request $request FlightPayOrderV2Request
      *
-     * @return FlightPayOrderV2Response
+     * @return FlightPayOrderV2Response FlightPayOrderV2Response
      */
     public function flightPayOrderV2($request)
     {
@@ -5113,11 +5369,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightRefundApplyRequest $tmpReq
-     * @param FlightRefundApplyHeaders $headers
-     * @param RuntimeOptions           $runtime
+     * @summary 航班退票申请
+     *  *
+     * @param FlightRefundApplyRequest $tmpReq  FlightRefundApplyRequest
+     * @param FlightRefundApplyHeaders $headers FlightRefundApplyHeaders
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return FlightRefundApplyResponse
+     * @return FlightRefundApplyResponse FlightRefundApplyResponse
      */
     public function flightRefundApplyWithOptions($tmpReq, $headers, $runtime)
     {
@@ -5203,9 +5461,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightRefundApplyRequest $request
+     * @summary 航班退票申请
+     *  *
+     * @param FlightRefundApplyRequest $request FlightRefundApplyRequest
      *
-     * @return FlightRefundApplyResponse
+     * @return FlightRefundApplyResponse FlightRefundApplyResponse
      */
     public function flightRefundApply($request)
     {
@@ -5216,11 +5476,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightRefundApplyV2Request $tmpReq
-     * @param FlightRefundApplyV2Headers $headers
-     * @param RuntimeOptions             $runtime
+     * @summary 机票退票申请
+     *  *
+     * @param FlightRefundApplyV2Request $tmpReq  FlightRefundApplyV2Request
+     * @param FlightRefundApplyV2Headers $headers FlightRefundApplyV2Headers
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return FlightRefundApplyV2Response
+     * @return FlightRefundApplyV2Response FlightRefundApplyV2Response
      */
     public function flightRefundApplyV2WithOptions($tmpReq, $headers, $runtime)
     {
@@ -5297,9 +5559,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightRefundApplyV2Request $request
+     * @summary 机票退票申请
+     *  *
+     * @param FlightRefundApplyV2Request $request FlightRefundApplyV2Request
      *
-     * @return FlightRefundApplyV2Response
+     * @return FlightRefundApplyV2Response FlightRefundApplyV2Response
      */
     public function flightRefundApplyV2($request)
     {
@@ -5310,11 +5574,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightRefundDetailRequest $request
-     * @param FlightRefundDetailHeaders $headers
-     * @param RuntimeOptions            $runtime
+     * @summary 航班退票详情
+     *  *
+     * @param FlightRefundDetailRequest $request FlightRefundDetailRequest
+     * @param FlightRefundDetailHeaders $headers FlightRefundDetailHeaders
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return FlightRefundDetailResponse
+     * @return FlightRefundDetailResponse FlightRefundDetailResponse
      */
     public function flightRefundDetailWithOptions($request, $headers, $runtime)
     {
@@ -5353,9 +5619,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightRefundDetailRequest $request
+     * @summary 航班退票详情
+     *  *
+     * @param FlightRefundDetailRequest $request FlightRefundDetailRequest
      *
-     * @return FlightRefundDetailResponse
+     * @return FlightRefundDetailResponse FlightRefundDetailResponse
      */
     public function flightRefundDetail($request)
     {
@@ -5366,11 +5634,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightRefundDetailV2Request $request
-     * @param FlightRefundDetailV2Headers $headers
-     * @param RuntimeOptions              $runtime
+     * @summary 机票退票详情
+     *  *
+     * @param FlightRefundDetailV2Request $request FlightRefundDetailV2Request
+     * @param FlightRefundDetailV2Headers $headers FlightRefundDetailV2Headers
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return FlightRefundDetailV2Response
+     * @return FlightRefundDetailV2Response FlightRefundDetailV2Response
      */
     public function flightRefundDetailV2WithOptions($request, $headers, $runtime)
     {
@@ -5412,9 +5682,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightRefundDetailV2Request $request
+     * @summary 机票退票详情
+     *  *
+     * @param FlightRefundDetailV2Request $request FlightRefundDetailV2Request
      *
-     * @return FlightRefundDetailV2Response
+     * @return FlightRefundDetailV2Response FlightRefundDetailV2Response
      */
     public function flightRefundDetailV2($request)
     {
@@ -5425,11 +5697,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightRefundPreCalRequest $tmpReq
-     * @param FlightRefundPreCalHeaders $headers
-     * @param RuntimeOptions            $runtime
+     * @summary 机票退票预计算
+     *  *
+     * @param FlightRefundPreCalRequest $tmpReq  FlightRefundPreCalRequest
+     * @param FlightRefundPreCalHeaders $headers FlightRefundPreCalHeaders
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return FlightRefundPreCalResponse
+     * @return FlightRefundPreCalResponse FlightRefundPreCalResponse
      */
     public function flightRefundPreCalWithOptions($tmpReq, $headers, $runtime)
     {
@@ -5476,9 +5750,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightRefundPreCalRequest $request
+     * @summary 机票退票预计算
+     *  *
+     * @param FlightRefundPreCalRequest $request FlightRefundPreCalRequest
      *
-     * @return FlightRefundPreCalResponse
+     * @return FlightRefundPreCalResponse FlightRefundPreCalResponse
      */
     public function flightRefundPreCal($request)
     {
@@ -5489,11 +5765,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightRefundPreCalV2Request $tmpReq
-     * @param FlightRefundPreCalV2Headers $headers
-     * @param RuntimeOptions              $runtime
+     * @summary 机票退票费用预计算
+     *  *
+     * @param FlightRefundPreCalV2Request $tmpReq  FlightRefundPreCalV2Request
+     * @param FlightRefundPreCalV2Headers $headers FlightRefundPreCalV2Headers
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return FlightRefundPreCalV2Response
+     * @return FlightRefundPreCalV2Response FlightRefundPreCalV2Response
      */
     public function flightRefundPreCalV2WithOptions($tmpReq, $headers, $runtime)
     {
@@ -5555,9 +5833,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightRefundPreCalV2Request $request
+     * @summary 机票退票费用预计算
+     *  *
+     * @param FlightRefundPreCalV2Request $request FlightRefundPreCalV2Request
      *
-     * @return FlightRefundPreCalV2Response
+     * @return FlightRefundPreCalV2Response FlightRefundPreCalV2Response
      */
     public function flightRefundPreCalV2($request)
     {
@@ -5568,11 +5848,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightSearchListRequest $request
-     * @param FlightSearchListHeaders $headers
-     * @param RuntimeOptions          $runtime
+     * @summary 航班列表搜索
+     *  *
+     * @param FlightSearchListRequest $request FlightSearchListRequest
+     * @param FlightSearchListHeaders $headers FlightSearchListHeaders
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return FlightSearchListResponse
+     * @return FlightSearchListResponse FlightSearchListResponse
      */
     public function flightSearchListWithOptions($request, $headers, $runtime)
     {
@@ -5647,9 +5929,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightSearchListRequest $request
+     * @summary 航班列表搜索
+     *  *
+     * @param FlightSearchListRequest $request FlightSearchListRequest
      *
-     * @return FlightSearchListResponse
+     * @return FlightSearchListResponse FlightSearchListResponse
      */
     public function flightSearchList($request)
     {
@@ -5660,11 +5944,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param GroupCorpTokenRequest $request
-     * @param GroupCorpTokenHeaders $headers
-     * @param RuntimeOptions        $runtime
+     * @summary 换取GroupCorpToken接口
+     *  *
+     * @param GroupCorpTokenRequest $request GroupCorpTokenRequest
+     * @param GroupCorpTokenHeaders $headers GroupCorpTokenHeaders
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GroupCorpTokenResponse
+     * @return GroupCorpTokenResponse GroupCorpTokenResponse
      */
     public function groupCorpTokenWithOptions($request, $headers, $runtime)
     {
@@ -5706,9 +5992,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param GroupCorpTokenRequest $request
+     * @summary 换取GroupCorpToken接口
+     *  *
+     * @param GroupCorpTokenRequest $request GroupCorpTokenRequest
      *
-     * @return GroupCorpTokenResponse
+     * @return GroupCorpTokenResponse GroupCorpTokenResponse
      */
     public function groupCorpToken($request)
     {
@@ -5719,11 +6007,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param GroupDepartSaveRequest $tmpReq
-     * @param GroupDepartSaveHeaders $headers
-     * @param RuntimeOptions         $runtime
+     * @summary 集团部门同步
+     *  *
+     * @param GroupDepartSaveRequest $tmpReq  GroupDepartSaveRequest
+     * @param GroupDepartSaveHeaders $headers GroupDepartSaveHeaders
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GroupDepartSaveResponse
+     * @return GroupDepartSaveResponse GroupDepartSaveResponse
      */
     public function groupDepartSaveWithOptions($tmpReq, $headers, $runtime)
     {
@@ -5782,9 +6072,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param GroupDepartSaveRequest $request
+     * @summary 集团部门同步
+     *  *
+     * @param GroupDepartSaveRequest $request GroupDepartSaveRequest
      *
-     * @return GroupDepartSaveResponse
+     * @return GroupDepartSaveResponse GroupDepartSaveResponse
      */
     public function groupDepartSave($request)
     {
@@ -5795,11 +6087,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param GroupUserSaveRequest $tmpReq
-     * @param GroupUserSaveHeaders $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 集团人员同步
+     *  *
+     * @param GroupUserSaveRequest $tmpReq  GroupUserSaveRequest
+     * @param GroupUserSaveHeaders $headers GroupUserSaveHeaders
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GroupUserSaveResponse
+     * @return GroupUserSaveResponse GroupUserSaveResponse
      */
     public function groupUserSaveWithOptions($tmpReq, $headers, $runtime)
     {
@@ -5870,9 +6164,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param GroupUserSaveRequest $request
+     * @summary 集团人员同步
+     *  *
+     * @param GroupUserSaveRequest $request GroupUserSaveRequest
      *
-     * @return GroupUserSaveResponse
+     * @return GroupUserSaveResponse GroupUserSaveResponse
      */
     public function groupUserSave($request)
     {
@@ -5883,11 +6179,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param HotelAskingPriceRequest $tmpReq
-     * @param HotelAskingPriceHeaders $headers
-     * @param RuntimeOptions          $runtime
+     * @summary 酒店起价
+     *  *
+     * @param HotelAskingPriceRequest $tmpReq  HotelAskingPriceRequest
+     * @param HotelAskingPriceHeaders $headers HotelAskingPriceHeaders
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return HotelAskingPriceResponse
+     * @return HotelAskingPriceResponse HotelAskingPriceResponse
      */
     public function hotelAskingPriceWithOptions($tmpReq, $headers, $runtime)
     {
@@ -5961,9 +6259,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param HotelAskingPriceRequest $request
+     * @summary 酒店起价
+     *  *
+     * @param HotelAskingPriceRequest $request HotelAskingPriceRequest
      *
-     * @return HotelAskingPriceResponse
+     * @return HotelAskingPriceResponse HotelAskingPriceResponse
      */
     public function hotelAskingPrice($request)
     {
@@ -5974,11 +6274,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param HotelBillSettlementQueryRequest $request
-     * @param HotelBillSettlementQueryHeaders $headers
-     * @param RuntimeOptions                  $runtime
+     * @summary 查询酒店记账数据
+     *  *
+     * @param HotelBillSettlementQueryRequest $request HotelBillSettlementQueryRequest
+     * @param HotelBillSettlementQueryHeaders $headers HotelBillSettlementQueryHeaders
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return HotelBillSettlementQueryResponse
+     * @return HotelBillSettlementQueryResponse HotelBillSettlementQueryResponse
      */
     public function hotelBillSettlementQueryWithOptions($request, $headers, $runtime)
     {
@@ -6023,9 +6325,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param HotelBillSettlementQueryRequest $request
+     * @summary 查询酒店记账数据
+     *  *
+     * @param HotelBillSettlementQueryRequest $request HotelBillSettlementQueryRequest
      *
-     * @return HotelBillSettlementQueryResponse
+     * @return HotelBillSettlementQueryResponse HotelBillSettlementQueryResponse
      */
     public function hotelBillSettlementQuery($request)
     {
@@ -6036,11 +6340,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param HotelCityCodeListRequest $request
-     * @param HotelCityCodeListHeaders $headers
-     * @param RuntimeOptions           $runtime
+     * @summary 酒店城市列表
+     *  *
+     * @param HotelCityCodeListRequest $request HotelCityCodeListRequest
+     * @param HotelCityCodeListHeaders $headers HotelCityCodeListHeaders
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return HotelCityCodeListResponse
+     * @return HotelCityCodeListResponse HotelCityCodeListResponse
      */
     public function hotelCityCodeListWithOptions($request, $headers, $runtime)
     {
@@ -6076,9 +6382,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param HotelCityCodeListRequest $request
+     * @summary 酒店城市列表
+     *  *
+     * @param HotelCityCodeListRequest $request HotelCityCodeListRequest
      *
-     * @return HotelCityCodeListResponse
+     * @return HotelCityCodeListResponse HotelCityCodeListResponse
      */
     public function hotelCityCodeList($request)
     {
@@ -6089,11 +6397,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param HotelExceedApplyQueryRequest $request
-     * @param HotelExceedApplyQueryHeaders $headers
-     * @param RuntimeOptions               $runtime
+     * @summary 查询酒店超标审批详情
+     *  *
+     * @param HotelExceedApplyQueryRequest $request HotelExceedApplyQueryRequest
+     * @param HotelExceedApplyQueryHeaders $headers HotelExceedApplyQueryHeaders
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return HotelExceedApplyQueryResponse
+     * @return HotelExceedApplyQueryResponse HotelExceedApplyQueryResponse
      */
     public function hotelExceedApplyQueryWithOptions($request, $headers, $runtime)
     {
@@ -6129,9 +6439,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param HotelExceedApplyQueryRequest $request
+     * @summary 查询酒店超标审批详情
+     *  *
+     * @param HotelExceedApplyQueryRequest $request HotelExceedApplyQueryRequest
      *
-     * @return HotelExceedApplyQueryResponse
+     * @return HotelExceedApplyQueryResponse HotelExceedApplyQueryResponse
      */
     public function hotelExceedApplyQuery($request)
     {
@@ -6142,11 +6454,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param HotelGoodsQueryRequest $request
-     * @param HotelGoodsQueryHeaders $headers
-     * @param RuntimeOptions         $runtime
+     * @summary 酒店详情页报价接口(直连)
+     *  *
+     * @param HotelGoodsQueryRequest $request HotelGoodsQueryRequest
+     * @param HotelGoodsQueryHeaders $headers HotelGoodsQueryHeaders
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return HotelGoodsQueryResponse
+     * @return HotelGoodsQueryResponse HotelGoodsQueryResponse
      */
     public function hotelGoodsQueryWithOptions($request, $headers, $runtime)
     {
@@ -6215,9 +6529,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param HotelGoodsQueryRequest $request
+     * @summary 酒店详情页报价接口(直连)
+     *  *
+     * @param HotelGoodsQueryRequest $request HotelGoodsQueryRequest
      *
-     * @return HotelGoodsQueryResponse
+     * @return HotelGoodsQueryResponse HotelGoodsQueryResponse
      */
     public function hotelGoodsQuery($request)
     {
@@ -6228,11 +6544,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param HotelIndexInfoRequest $request
-     * @param HotelIndexInfoHeaders $headers
-     * @param RuntimeOptions        $runtime
+     * @summary 获取酒店清单
+     *  *
+     * @param HotelIndexInfoRequest $request HotelIndexInfoRequest
+     * @param HotelIndexInfoHeaders $headers HotelIndexInfoHeaders
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return HotelIndexInfoResponse
+     * @return HotelIndexInfoResponse HotelIndexInfoResponse
      */
     public function hotelIndexInfoWithOptions($request, $headers, $runtime)
     {
@@ -6277,9 +6595,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param HotelIndexInfoRequest $request
+     * @summary 获取酒店清单
+     *  *
+     * @param HotelIndexInfoRequest $request HotelIndexInfoRequest
      *
-     * @return HotelIndexInfoResponse
+     * @return HotelIndexInfoResponse HotelIndexInfoResponse
      */
     public function hotelIndexInfo($request)
     {
@@ -6290,11 +6610,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param HotelOrderCancelRequest $request
-     * @param HotelOrderCancelHeaders $headers
-     * @param RuntimeOptions          $runtime
+     * @summary 酒店订单取消
+     *  *
+     * @param HotelOrderCancelRequest $request HotelOrderCancelRequest
+     * @param HotelOrderCancelHeaders $headers HotelOrderCancelHeaders
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return HotelOrderCancelResponse
+     * @return HotelOrderCancelResponse HotelOrderCancelResponse
      */
     public function hotelOrderCancelWithOptions($request, $headers, $runtime)
     {
@@ -6333,9 +6655,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param HotelOrderCancelRequest $request
+     * @summary 酒店订单取消
+     *  *
+     * @param HotelOrderCancelRequest $request HotelOrderCancelRequest
      *
-     * @return HotelOrderCancelResponse
+     * @return HotelOrderCancelResponse HotelOrderCancelResponse
      */
     public function hotelOrderCancel($request)
     {
@@ -6346,11 +6670,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param HotelOrderCreateRequest $tmpReq
-     * @param HotelOrderCreateHeaders $headers
-     * @param RuntimeOptions          $runtime
+     * @summary 酒店订单创建
+     *  *
+     * @param HotelOrderCreateRequest $tmpReq  HotelOrderCreateRequest
+     * @param HotelOrderCreateHeaders $headers HotelOrderCreateHeaders
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return HotelOrderCreateResponse
+     * @return HotelOrderCreateResponse HotelOrderCreateResponse
      */
     public function hotelOrderCreateWithOptions($tmpReq, $headers, $runtime)
     {
@@ -6460,9 +6786,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param HotelOrderCreateRequest $request
+     * @summary 酒店订单创建
+     *  *
+     * @param HotelOrderCreateRequest $request HotelOrderCreateRequest
      *
-     * @return HotelOrderCreateResponse
+     * @return HotelOrderCreateResponse HotelOrderCreateResponse
      */
     public function hotelOrderCreate($request)
     {
@@ -6473,11 +6801,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param HotelOrderDetailInfoRequest $request
-     * @param HotelOrderDetailInfoHeaders $headers
-     * @param RuntimeOptions              $runtime
+     * @summary 酒店订单明细信息
+     *  *
+     * @param HotelOrderDetailInfoRequest $request HotelOrderDetailInfoRequest
+     * @param HotelOrderDetailInfoHeaders $headers HotelOrderDetailInfoHeaders
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return HotelOrderDetailInfoResponse
+     * @return HotelOrderDetailInfoResponse HotelOrderDetailInfoResponse
      */
     public function hotelOrderDetailInfoWithOptions($request, $headers, $runtime)
     {
@@ -6516,9 +6846,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param HotelOrderDetailInfoRequest $request
+     * @summary 酒店订单明细信息
+     *  *
+     * @param HotelOrderDetailInfoRequest $request HotelOrderDetailInfoRequest
      *
-     * @return HotelOrderDetailInfoResponse
+     * @return HotelOrderDetailInfoResponse HotelOrderDetailInfoResponse
      */
     public function hotelOrderDetailInfo($request)
     {
@@ -6529,11 +6861,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param HotelOrderListQueryRequest $request
-     * @param HotelOrderListQueryHeaders $headers
-     * @param RuntimeOptions             $runtime
+     * @summary 查询酒店订单列表
+     *  *
+     * @param HotelOrderListQueryRequest $request HotelOrderListQueryRequest
+     * @param HotelOrderListQueryHeaders $headers HotelOrderListQueryHeaders
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return HotelOrderListQueryResponse
+     * @return HotelOrderListQueryResponse HotelOrderListQueryResponse
      */
     public function hotelOrderListQueryWithOptions($request, $headers, $runtime)
     {
@@ -6599,9 +6933,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param HotelOrderListQueryRequest $request
+     * @summary 查询酒店订单列表
+     *  *
+     * @param HotelOrderListQueryRequest $request HotelOrderListQueryRequest
      *
-     * @return HotelOrderListQueryResponse
+     * @return HotelOrderListQueryResponse HotelOrderListQueryResponse
      */
     public function hotelOrderListQuery($request)
     {
@@ -6612,11 +6948,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param HotelOrderPayRequest $request
-     * @param HotelOrderPayHeaders $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 酒店订单支付
+     *  *
+     * @param HotelOrderPayRequest $request HotelOrderPayRequest
+     * @param HotelOrderPayHeaders $headers HotelOrderPayHeaders
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return HotelOrderPayResponse
+     * @return HotelOrderPayResponse HotelOrderPayResponse
      */
     public function hotelOrderPayWithOptions($request, $headers, $runtime)
     {
@@ -6670,9 +7008,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param HotelOrderPayRequest $request
+     * @summary 酒店订单支付
+     *  *
+     * @param HotelOrderPayRequest $request HotelOrderPayRequest
      *
-     * @return HotelOrderPayResponse
+     * @return HotelOrderPayResponse HotelOrderPayResponse
      */
     public function hotelOrderPay($request)
     {
@@ -6683,11 +7023,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param HotelOrderPreValidateRequest $tmpReq
-     * @param HotelOrderPreValidateHeaders $headers
-     * @param RuntimeOptions               $runtime
+     * @summary 酒店下单前校验
+     *  *
+     * @param HotelOrderPreValidateRequest $tmpReq  HotelOrderPreValidateRequest
+     * @param HotelOrderPreValidateHeaders $headers HotelOrderPreValidateHeaders
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return HotelOrderPreValidateResponse
+     * @return HotelOrderPreValidateResponse HotelOrderPreValidateResponse
      */
     public function hotelOrderPreValidateWithOptions($tmpReq, $headers, $runtime)
     {
@@ -6767,9 +7109,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param HotelOrderPreValidateRequest $request
+     * @summary 酒店下单前校验
+     *  *
+     * @param HotelOrderPreValidateRequest $request HotelOrderPreValidateRequest
      *
-     * @return HotelOrderPreValidateResponse
+     * @return HotelOrderPreValidateResponse HotelOrderPreValidateResponse
      */
     public function hotelOrderPreValidate($request)
     {
@@ -6780,11 +7124,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param HotelOrderQueryRequest $request
-     * @param HotelOrderQueryHeaders $headers
-     * @param RuntimeOptions         $runtime
+     * @summary 酒店订单查询
+     *  *
+     * @param HotelOrderQueryRequest $request HotelOrderQueryRequest
+     * @param HotelOrderQueryHeaders $headers HotelOrderQueryHeaders
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return HotelOrderQueryResponse
+     * @return HotelOrderQueryResponse HotelOrderQueryResponse
      */
     public function hotelOrderQueryWithOptions($request, $headers, $runtime)
     {
@@ -6820,9 +7166,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param HotelOrderQueryRequest $request
+     * @summary 酒店订单查询
+     *  *
+     * @param HotelOrderQueryRequest $request HotelOrderQueryRequest
      *
-     * @return HotelOrderQueryResponse
+     * @return HotelOrderQueryResponse HotelOrderQueryResponse
      */
     public function hotelOrderQuery($request)
     {
@@ -6833,11 +7181,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param HotelPricePullRequest $tmpReq
-     * @param HotelPricePullHeaders $headers
-     * @param RuntimeOptions        $runtime
+     * @summary 酒店拉动态拉取价格接口(落地)
+     *  *
+     * @param HotelPricePullRequest $tmpReq  HotelPricePullRequest
+     * @param HotelPricePullHeaders $headers HotelPricePullHeaders
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return HotelPricePullResponse
+     * @return HotelPricePullResponse HotelPricePullResponse
      */
     public function hotelPricePullWithOptions($tmpReq, $headers, $runtime)
     {
@@ -6893,9 +7243,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param HotelPricePullRequest $request
+     * @summary 酒店拉动态拉取价格接口(落地)
+     *  *
+     * @param HotelPricePullRequest $request HotelPricePullRequest
      *
-     * @return HotelPricePullResponse
+     * @return HotelPricePullResponse HotelPricePullResponse
      */
     public function hotelPricePull($request)
     {
@@ -6906,11 +7258,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param HotelRoomInfoRequest $tmpReq
-     * @param HotelRoomInfoHeaders $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 获取酒店静态房型详情
+     *  *
+     * @param HotelRoomInfoRequest $tmpReq  HotelRoomInfoRequest
+     * @param HotelRoomInfoHeaders $headers HotelRoomInfoHeaders
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return HotelRoomInfoResponse
+     * @return HotelRoomInfoResponse HotelRoomInfoResponse
      */
     public function hotelRoomInfoWithOptions($tmpReq, $headers, $runtime)
     {
@@ -6951,9 +7305,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param HotelRoomInfoRequest $request
+     * @summary 获取酒店静态房型详情
+     *  *
+     * @param HotelRoomInfoRequest $request HotelRoomInfoRequest
      *
-     * @return HotelRoomInfoResponse
+     * @return HotelRoomInfoResponse HotelRoomInfoResponse
      */
     public function hotelRoomInfo($request)
     {
@@ -6964,11 +7320,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param HotelSearchRequest $tmpReq
-     * @param HotelSearchHeaders $headers
-     * @param RuntimeOptions     $runtime
+     * @summary 酒店列表搜索接口(直连)
+     *  *
+     * @param HotelSearchRequest $tmpReq  HotelSearchRequest
+     * @param HotelSearchHeaders $headers HotelSearchHeaders
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return HotelSearchResponse
+     * @return HotelSearchResponse HotelSearchResponse
      */
     public function hotelSearchWithOptions($tmpReq, $headers, $runtime)
     {
@@ -7075,9 +7433,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param HotelSearchRequest $request
+     * @summary 酒店列表搜索接口(直连)
+     *  *
+     * @param HotelSearchRequest $request HotelSearchRequest
      *
-     * @return HotelSearchResponse
+     * @return HotelSearchResponse HotelSearchResponse
      */
     public function hotelSearch($request)
     {
@@ -7088,11 +7448,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param HotelStaticInfoRequest $tmpReq
-     * @param HotelStaticInfoHeaders $headers
-     * @param RuntimeOptions         $runtime
+     * @summary 查询酒店静态详情
+     *  *
+     * @param HotelStaticInfoRequest $tmpReq  HotelStaticInfoRequest
+     * @param HotelStaticInfoHeaders $headers HotelStaticInfoHeaders
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return HotelStaticInfoResponse
+     * @return HotelStaticInfoResponse HotelStaticInfoResponse
      */
     public function hotelStaticInfoWithOptions($tmpReq, $headers, $runtime)
     {
@@ -7133,9 +7495,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param HotelStaticInfoRequest $request
+     * @summary 查询酒店静态详情
+     *  *
+     * @param HotelStaticInfoRequest $request HotelStaticInfoRequest
      *
-     * @return HotelStaticInfoResponse
+     * @return HotelStaticInfoResponse HotelStaticInfoResponse
      */
     public function hotelStaticInfo($request)
     {
@@ -7146,11 +7510,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param IeFlightBillSettlementQueryRequest $request
-     * @param IeFlightBillSettlementQueryHeaders $headers
-     * @param RuntimeOptions                     $runtime
+     * @summary 查询国际机票记账数据
+     *  *
+     * @param IeFlightBillSettlementQueryRequest $request IeFlightBillSettlementQueryRequest
+     * @param IeFlightBillSettlementQueryHeaders $headers IeFlightBillSettlementQueryHeaders
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return IeFlightBillSettlementQueryResponse
+     * @return IeFlightBillSettlementQueryResponse IeFlightBillSettlementQueryResponse
      */
     public function ieFlightBillSettlementQueryWithOptions($request, $headers, $runtime)
     {
@@ -7195,9 +7561,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param IeFlightBillSettlementQueryRequest $request
+     * @summary 查询国际机票记账数据
+     *  *
+     * @param IeFlightBillSettlementQueryRequest $request IeFlightBillSettlementQueryRequest
      *
-     * @return IeFlightBillSettlementQueryResponse
+     * @return IeFlightBillSettlementQueryResponse IeFlightBillSettlementQueryResponse
      */
     public function ieFlightBillSettlementQuery($request)
     {
@@ -7208,11 +7576,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param IeHotelBillSettlementQueryRequest $request
-     * @param IeHotelBillSettlementQueryHeaders $headers
-     * @param RuntimeOptions                    $runtime
+     * @summary 查询国际/中国港澳台酒店记账数据
+     *  *
+     * @param IeHotelBillSettlementQueryRequest $request IeHotelBillSettlementQueryRequest
+     * @param IeHotelBillSettlementQueryHeaders $headers IeHotelBillSettlementQueryHeaders
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return IeHotelBillSettlementQueryResponse
+     * @return IeHotelBillSettlementQueryResponse IeHotelBillSettlementQueryResponse
      */
     public function ieHotelBillSettlementQueryWithOptions($request, $headers, $runtime)
     {
@@ -7260,9 +7630,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param IeHotelBillSettlementQueryRequest $request
+     * @summary 查询国际/中国港澳台酒店记账数据
+     *  *
+     * @param IeHotelBillSettlementQueryRequest $request IeHotelBillSettlementQueryRequest
      *
-     * @return IeHotelBillSettlementQueryResponse
+     * @return IeHotelBillSettlementQueryResponse IeHotelBillSettlementQueryResponse
      */
     public function ieHotelBillSettlementQuery($request)
     {
@@ -7273,11 +7645,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param InsInvoiceScanQueryRequest $request
-     * @param InsInvoiceScanQueryHeaders $headers
-     * @param RuntimeOptions             $runtime
+     * @summary 查询保险电子发票
+     *  *
+     * @param InsInvoiceScanQueryRequest $request InsInvoiceScanQueryRequest
+     * @param InsInvoiceScanQueryHeaders $headers InsInvoiceScanQueryHeaders
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return InsInvoiceScanQueryResponse
+     * @return InsInvoiceScanQueryResponse InsInvoiceScanQueryResponse
      */
     public function insInvoiceScanQueryWithOptions($request, $headers, $runtime)
     {
@@ -7325,9 +7699,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param InsInvoiceScanQueryRequest $request
+     * @summary 查询保险电子发票
+     *  *
+     * @param InsInvoiceScanQueryRequest $request InsInvoiceScanQueryRequest
      *
-     * @return InsInvoiceScanQueryResponse
+     * @return InsInvoiceScanQueryResponse InsInvoiceScanQueryResponse
      */
     public function insInvoiceScanQuery($request)
     {
@@ -7338,11 +7714,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param InsureOrderApplyRequest $request
-     * @param InsureOrderApplyHeaders $headers
-     * @param RuntimeOptions          $runtime
+     * @summary 保险订单申请
+     *  *
+     * @param InsureOrderApplyRequest $request InsureOrderApplyRequest
+     * @param InsureOrderApplyHeaders $headers InsureOrderApplyHeaders
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return InsureOrderApplyResponse
+     * @return InsureOrderApplyResponse InsureOrderApplyResponse
      */
     public function insureOrderApplyWithOptions($request, $headers, $runtime)
     {
@@ -7396,9 +7774,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param InsureOrderApplyRequest $request
+     * @summary 保险订单申请
+     *  *
+     * @param InsureOrderApplyRequest $request InsureOrderApplyRequest
      *
-     * @return InsureOrderApplyResponse
+     * @return InsureOrderApplyResponse InsureOrderApplyResponse
      */
     public function insureOrderApply($request)
     {
@@ -7409,12 +7789,14 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * @summary 保险订单取消
+     *  *
      * @param string                   $insOrderId
-     * @param InsureOrderCancelRequest $request
-     * @param InsureOrderCancelHeaders $headers
-     * @param RuntimeOptions           $runtime
+     * @param InsureOrderCancelRequest $request    InsureOrderCancelRequest
+     * @param InsureOrderCancelHeaders $headers    InsureOrderCancelHeaders
+     * @param RuntimeOptions           $runtime    runtime options for this request RuntimeOptions
      *
-     * @return InsureOrderCancelResponse
+     * @return InsureOrderCancelResponse InsureOrderCancelResponse
      */
     public function insureOrderCancelWithOptions($insOrderId, $request, $headers, $runtime)
     {
@@ -7459,10 +7841,12 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * @summary 保险订单取消
+     *  *
      * @param string                   $insOrderId
-     * @param InsureOrderCancelRequest $request
+     * @param InsureOrderCancelRequest $request    InsureOrderCancelRequest
      *
-     * @return InsureOrderCancelResponse
+     * @return InsureOrderCancelResponse InsureOrderCancelResponse
      */
     public function insureOrderCancel($insOrderId, $request)
     {
@@ -7473,11 +7857,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param InsureOrderCreateRequest $tmpReq
-     * @param InsureOrderCreateHeaders $headers
-     * @param RuntimeOptions           $runtime
+     * @summary 保险订单创建
+     *  *
+     * @param InsureOrderCreateRequest $tmpReq  InsureOrderCreateRequest
+     * @param InsureOrderCreateHeaders $headers InsureOrderCreateHeaders
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return InsureOrderCreateResponse
+     * @return InsureOrderCreateResponse InsureOrderCreateResponse
      */
     public function insureOrderCreateWithOptions($tmpReq, $headers, $runtime)
     {
@@ -7545,9 +7931,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param InsureOrderCreateRequest $request
+     * @summary 保险订单创建
+     *  *
+     * @param InsureOrderCreateRequest $request InsureOrderCreateRequest
      *
-     * @return InsureOrderCreateResponse
+     * @return InsureOrderCreateResponse InsureOrderCreateResponse
      */
     public function insureOrderCreate($request)
     {
@@ -7558,11 +7946,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param InsureOrderDetailRequest $request
-     * @param InsureOrderDetailHeaders $headers
-     * @param RuntimeOptions           $runtime
+     * @summary 保险订单查询
+     *  *
+     * @param InsureOrderDetailRequest $request InsureOrderDetailRequest
+     * @param InsureOrderDetailHeaders $headers InsureOrderDetailHeaders
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return InsureOrderDetailResponse
+     * @return InsureOrderDetailResponse InsureOrderDetailResponse
      */
     public function insureOrderDetailWithOptions($request, $headers, $runtime)
     {
@@ -7610,9 +8000,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param InsureOrderDetailRequest $request
+     * @summary 保险订单查询
+     *  *
+     * @param InsureOrderDetailRequest $request InsureOrderDetailRequest
      *
-     * @return InsureOrderDetailResponse
+     * @return InsureOrderDetailResponse InsureOrderDetailResponse
      */
     public function insureOrderDetail($request)
     {
@@ -7623,12 +8015,14 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * @summary 保险订单支付
+     *  *
      * @param string                $insOrderId
-     * @param InsureOrderPayRequest $request
-     * @param InsureOrderPayHeaders $headers
-     * @param RuntimeOptions        $runtime
+     * @param InsureOrderPayRequest $request    InsureOrderPayRequest
+     * @param InsureOrderPayHeaders $headers    InsureOrderPayHeaders
+     * @param RuntimeOptions        $runtime    runtime options for this request RuntimeOptions
      *
-     * @return InsureOrderPayResponse
+     * @return InsureOrderPayResponse InsureOrderPayResponse
      */
     public function insureOrderPayWithOptions($insOrderId, $request, $headers, $runtime)
     {
@@ -7682,10 +8076,12 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * @summary 保险订单支付
+     *  *
      * @param string                $insOrderId
-     * @param InsureOrderPayRequest $request
+     * @param InsureOrderPayRequest $request    InsureOrderPayRequest
      *
-     * @return InsureOrderPayResponse
+     * @return InsureOrderPayResponse InsureOrderPayResponse
      */
     public function insureOrderPay($insOrderId, $request)
     {
@@ -7696,12 +8092,14 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * @summary 保险订单退保
+     *  *
      * @param string                   $insOrderId
-     * @param InsureOrderRefundRequest $tmpReq
-     * @param InsureOrderRefundHeaders $headers
-     * @param RuntimeOptions           $runtime
+     * @param InsureOrderRefundRequest $tmpReq     InsureOrderRefundRequest
+     * @param InsureOrderRefundHeaders $headers    InsureOrderRefundHeaders
+     * @param RuntimeOptions           $runtime    runtime options for this request RuntimeOptions
      *
-     * @return InsureOrderRefundResponse
+     * @return InsureOrderRefundResponse InsureOrderRefundResponse
      */
     public function insureOrderRefundWithOptions($insOrderId, $tmpReq, $headers, $runtime)
     {
@@ -7763,10 +8161,12 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * @summary 保险订单退保
+     *  *
      * @param string                   $insOrderId
-     * @param InsureOrderRefundRequest $request
+     * @param InsureOrderRefundRequest $request    InsureOrderRefundRequest
      *
-     * @return InsureOrderRefundResponse
+     * @return InsureOrderRefundResponse InsureOrderRefundResponse
      */
     public function insureOrderRefund($insOrderId, $request)
     {
@@ -7777,11 +8177,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * @summary 查询保单详情链接
+     *  *
      * @param string                      $insOrderId
-     * @param InsureOrderUrlDetailHeaders $headers
-     * @param RuntimeOptions              $runtime
+     * @param InsureOrderUrlDetailHeaders $headers    InsureOrderUrlDetailHeaders
+     * @param RuntimeOptions              $runtime    runtime options for this request RuntimeOptions
      *
-     * @return InsureOrderUrlDetailResponse
+     * @return InsureOrderUrlDetailResponse InsureOrderUrlDetailResponse
      */
     public function insureOrderUrlDetailWithOptions($insOrderId, $headers, $runtime)
     {
@@ -7811,9 +8213,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * @summary 查询保单详情链接
+     *  *
      * @param string $insOrderId
      *
-     * @return InsureOrderUrlDetailResponse
+     * @return InsureOrderUrlDetailResponse InsureOrderUrlDetailResponse
      */
     public function insureOrderUrlDetail($insOrderId)
     {
@@ -7824,11 +8228,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param InsureRefundDetailRequest $request
-     * @param InsureRefundDetailHeaders $headers
-     * @param RuntimeOptions            $runtime
+     * @summary 退保详情查询
+     *  *
+     * @param InsureRefundDetailRequest $request InsureRefundDetailRequest
+     * @param InsureRefundDetailHeaders $headers InsureRefundDetailHeaders
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return InsureRefundDetailResponse
+     * @return InsureRefundDetailResponse InsureRefundDetailResponse
      */
     public function insureRefundDetailWithOptions($request, $headers, $runtime)
     {
@@ -7882,9 +8288,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param InsureRefundDetailRequest $request
+     * @summary 退保详情查询
+     *  *
+     * @param InsureRefundDetailRequest $request InsureRefundDetailRequest
      *
-     * @return InsureRefundDetailResponse
+     * @return InsureRefundDetailResponse InsureRefundDetailResponse
      */
     public function insureRefundDetail($request)
     {
@@ -7895,11 +8303,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param IntlFlightCreateOrderRequest $tmpReq
-     * @param IntlFlightCreateOrderHeaders $headers
-     * @param RuntimeOptions               $runtime
+     * @summary 国际机票创建订单
+     *  *
+     * @param IntlFlightCreateOrderRequest $tmpReq  IntlFlightCreateOrderRequest
+     * @param IntlFlightCreateOrderHeaders $headers IntlFlightCreateOrderHeaders
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return IntlFlightCreateOrderResponse
+     * @return IntlFlightCreateOrderResponse IntlFlightCreateOrderResponse
      */
     public function intlFlightCreateOrderWithOptions($tmpReq, $headers, $runtime)
     {
@@ -7988,9 +8398,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param IntlFlightCreateOrderRequest $request
+     * @summary 国际机票创建订单
+     *  *
+     * @param IntlFlightCreateOrderRequest $request IntlFlightCreateOrderRequest
      *
-     * @return IntlFlightCreateOrderResponse
+     * @return IntlFlightCreateOrderResponse IntlFlightCreateOrderResponse
      */
     public function intlFlightCreateOrder($request)
     {
@@ -8001,11 +8413,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param IntlFlightInventoryPriceCheckRequest $tmpReq
-     * @param IntlFlightInventoryPriceCheckHeaders $headers
-     * @param RuntimeOptions                       $runtime
+     * @summary 国际机票验舱验价
+     *  *
+     * @param IntlFlightInventoryPriceCheckRequest $tmpReq  IntlFlightInventoryPriceCheckRequest
+     * @param IntlFlightInventoryPriceCheckHeaders $headers IntlFlightInventoryPriceCheckHeaders
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return IntlFlightInventoryPriceCheckResponse
+     * @return IntlFlightInventoryPriceCheckResponse IntlFlightInventoryPriceCheckResponse
      */
     public function intlFlightInventoryPriceCheckWithOptions($tmpReq, $headers, $runtime)
     {
@@ -8064,9 +8478,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param IntlFlightInventoryPriceCheckRequest $request
+     * @summary 国际机票验舱验价
+     *  *
+     * @param IntlFlightInventoryPriceCheckRequest $request IntlFlightInventoryPriceCheckRequest
      *
-     * @return IntlFlightInventoryPriceCheckResponse
+     * @return IntlFlightInventoryPriceCheckResponse IntlFlightInventoryPriceCheckResponse
      */
     public function intlFlightInventoryPriceCheck($request)
     {
@@ -8077,11 +8493,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param IntlFlightListingSearchRequest $tmpReq
-     * @param IntlFlightListingSearchHeaders $headers
-     * @param RuntimeOptions                 $runtime
+     * @summary 国际机票航班搜索
+     *  *
+     * @param IntlFlightListingSearchRequest $tmpReq  IntlFlightListingSearchRequest
+     * @param IntlFlightListingSearchHeaders $headers IntlFlightListingSearchHeaders
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return IntlFlightListingSearchResponse
+     * @return IntlFlightListingSearchResponse IntlFlightListingSearchResponse
      */
     public function intlFlightListingSearchWithOptions($tmpReq, $headers, $runtime)
     {
@@ -8167,9 +8585,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param IntlFlightListingSearchRequest $request
+     * @summary 国际机票航班搜索
+     *  *
+     * @param IntlFlightListingSearchRequest $request IntlFlightListingSearchRequest
      *
-     * @return IntlFlightListingSearchResponse
+     * @return IntlFlightListingSearchResponse IntlFlightListingSearchResponse
      */
     public function intlFlightListingSearch($request)
     {
@@ -8180,11 +8600,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param IntlFlightOrderCancelRequest $request
-     * @param IntlFlightOrderCancelHeaders $headers
-     * @param RuntimeOptions               $runtime
+     * @summary 国际机票订单取消
+     *  *
+     * @param IntlFlightOrderCancelRequest $request IntlFlightOrderCancelRequest
+     * @param IntlFlightOrderCancelHeaders $headers IntlFlightOrderCancelHeaders
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return IntlFlightOrderCancelResponse
+     * @return IntlFlightOrderCancelResponse IntlFlightOrderCancelResponse
      */
     public function intlFlightOrderCancelWithOptions($request, $headers, $runtime)
     {
@@ -8229,9 +8651,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param IntlFlightOrderCancelRequest $request
+     * @summary 国际机票订单取消
+     *  *
+     * @param IntlFlightOrderCancelRequest $request IntlFlightOrderCancelRequest
      *
-     * @return IntlFlightOrderCancelResponse
+     * @return IntlFlightOrderCancelResponse IntlFlightOrderCancelResponse
      */
     public function intlFlightOrderCancel($request)
     {
@@ -8242,11 +8666,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param IntlFlightOrderDetailRequest $request
-     * @param IntlFlightOrderDetailHeaders $headers
-     * @param RuntimeOptions               $runtime
+     * @summary 国际机票订单详情
+     *  *
+     * @param IntlFlightOrderDetailRequest $request IntlFlightOrderDetailRequest
+     * @param IntlFlightOrderDetailHeaders $headers IntlFlightOrderDetailHeaders
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return IntlFlightOrderDetailResponse
+     * @return IntlFlightOrderDetailResponse IntlFlightOrderDetailResponse
      */
     public function intlFlightOrderDetailWithOptions($request, $headers, $runtime)
     {
@@ -8288,9 +8714,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param IntlFlightOrderDetailRequest $request
+     * @summary 国际机票订单详情
+     *  *
+     * @param IntlFlightOrderDetailRequest $request IntlFlightOrderDetailRequest
      *
-     * @return IntlFlightOrderDetailResponse
+     * @return IntlFlightOrderDetailResponse IntlFlightOrderDetailResponse
      */
     public function intlFlightOrderDetail($request)
     {
@@ -8301,11 +8729,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param IntlFlightOrderPayRequest $tmpReq
-     * @param IntlFlightOrderPayHeaders $headers
-     * @param RuntimeOptions            $runtime
+     * @summary 国际机票订单支付
+     *  *
+     * @param IntlFlightOrderPayRequest $tmpReq  IntlFlightOrderPayRequest
+     * @param IntlFlightOrderPayHeaders $headers IntlFlightOrderPayHeaders
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return IntlFlightOrderPayResponse
+     * @return IntlFlightOrderPayResponse IntlFlightOrderPayResponse
      */
     public function intlFlightOrderPayWithOptions($tmpReq, $headers, $runtime)
     {
@@ -8358,9 +8788,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param IntlFlightOrderPayRequest $request
+     * @summary 国际机票订单支付
+     *  *
+     * @param IntlFlightOrderPayRequest $request IntlFlightOrderPayRequest
      *
-     * @return IntlFlightOrderPayResponse
+     * @return IntlFlightOrderPayResponse IntlFlightOrderPayResponse
      */
     public function intlFlightOrderPay($request)
     {
@@ -8371,11 +8803,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param IntlFlightOrderPayCheckRequest $request
-     * @param IntlFlightOrderPayCheckHeaders $headers
-     * @param RuntimeOptions                 $runtime
+     * @summary 国际机票订单支付前校验
+     *  *
+     * @param IntlFlightOrderPayCheckRequest $request IntlFlightOrderPayCheckRequest
+     * @param IntlFlightOrderPayCheckHeaders $headers IntlFlightOrderPayCheckHeaders
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return IntlFlightOrderPayCheckResponse
+     * @return IntlFlightOrderPayCheckResponse IntlFlightOrderPayCheckResponse
      */
     public function intlFlightOrderPayCheckWithOptions($request, $headers, $runtime)
     {
@@ -8417,9 +8851,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param IntlFlightOrderPayCheckRequest $request
+     * @summary 国际机票订单支付前校验
+     *  *
+     * @param IntlFlightOrderPayCheckRequest $request IntlFlightOrderPayCheckRequest
      *
-     * @return IntlFlightOrderPayCheckResponse
+     * @return IntlFlightOrderPayCheckResponse IntlFlightOrderPayCheckResponse
      */
     public function intlFlightOrderPayCheck($request)
     {
@@ -8430,12 +8866,14 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * @summary 国际机票报价商品详情
+     *  *
      * @param string                         $otaItemId
-     * @param IntlFlightOtaItemDetailRequest $request
-     * @param IntlFlightOtaItemDetailHeaders $headers
-     * @param RuntimeOptions                 $runtime
+     * @param IntlFlightOtaItemDetailRequest $request   IntlFlightOtaItemDetailRequest
+     * @param IntlFlightOtaItemDetailHeaders $headers   IntlFlightOtaItemDetailHeaders
+     * @param RuntimeOptions                 $runtime   runtime options for this request RuntimeOptions
      *
-     * @return IntlFlightOtaItemDetailResponse
+     * @return IntlFlightOtaItemDetailResponse IntlFlightOtaItemDetailResponse
      */
     public function intlFlightOtaItemDetailWithOptions($otaItemId, $request, $headers, $runtime)
     {
@@ -8483,10 +8921,12 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * @summary 国际机票报价商品详情
+     *  *
      * @param string                         $otaItemId
-     * @param IntlFlightOtaItemDetailRequest $request
+     * @param IntlFlightOtaItemDetailRequest $request   IntlFlightOtaItemDetailRequest
      *
-     * @return IntlFlightOtaItemDetailResponse
+     * @return IntlFlightOtaItemDetailResponse IntlFlightOtaItemDetailResponse
      */
     public function intlFlightOtaItemDetail($otaItemId, $request)
     {
@@ -8497,11 +8937,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param IntlFlightOtaSearchRequest $tmpReq
-     * @param IntlFlightOtaSearchHeaders $headers
-     * @param RuntimeOptions             $runtime
+     * @summary 国际机票航班报价查询
+     *  *
+     * @param IntlFlightOtaSearchRequest $tmpReq  IntlFlightOtaSearchRequest
+     * @param IntlFlightOtaSearchHeaders $headers IntlFlightOtaSearchHeaders
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return IntlFlightOtaSearchResponse
+     * @return IntlFlightOtaSearchResponse IntlFlightOtaSearchResponse
      */
     public function intlFlightOtaSearchWithOptions($tmpReq, $headers, $runtime)
     {
@@ -8575,9 +9017,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param IntlFlightOtaSearchRequest $request
+     * @summary 国际机票航班报价查询
+     *  *
+     * @param IntlFlightOtaSearchRequest $request IntlFlightOtaSearchRequest
      *
-     * @return IntlFlightOtaSearchResponse
+     * @return IntlFlightOtaSearchResponse IntlFlightOtaSearchResponse
      */
     public function intlFlightOtaSearch($request)
     {
@@ -8588,12 +9032,14 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * @summary 国际机票航班可用证件查询
+     *  *
      * @param string                                $otaItemId
-     * @param IntlFlightSegmentAvailableCertRequest $request
-     * @param IntlFlightSegmentAvailableCertHeaders $headers
-     * @param RuntimeOptions                        $runtime
+     * @param IntlFlightSegmentAvailableCertRequest $request   IntlFlightSegmentAvailableCertRequest
+     * @param IntlFlightSegmentAvailableCertHeaders $headers   IntlFlightSegmentAvailableCertHeaders
+     * @param RuntimeOptions                        $runtime   runtime options for this request RuntimeOptions
      *
-     * @return IntlFlightSegmentAvailableCertResponse
+     * @return IntlFlightSegmentAvailableCertResponse IntlFlightSegmentAvailableCertResponse
      */
     public function intlFlightSegmentAvailableCertWithOptions($otaItemId, $request, $headers, $runtime)
     {
@@ -8638,10 +9084,12 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * @summary 国际机票航班可用证件查询
+     *  *
      * @param string                                $otaItemId
-     * @param IntlFlightSegmentAvailableCertRequest $request
+     * @param IntlFlightSegmentAvailableCertRequest $request   IntlFlightSegmentAvailableCertRequest
      *
-     * @return IntlFlightSegmentAvailableCertResponse
+     * @return IntlFlightSegmentAvailableCertResponse IntlFlightSegmentAvailableCertResponse
      */
     public function intlFlightSegmentAvailableCert($otaItemId, $request)
     {
@@ -8652,11 +9100,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param InvoiceAddRequest $request
-     * @param InvoiceAddHeaders $headers
-     * @param RuntimeOptions    $runtime
+     * @summary 新增发票配置
+     *  *
+     * @param InvoiceAddRequest $request InvoiceAddRequest
+     * @param InvoiceAddHeaders $headers InvoiceAddHeaders
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return InvoiceAddResponse
+     * @return InvoiceAddResponse InvoiceAddResponse
      */
     public function invoiceAddWithOptions($request, $headers, $runtime)
     {
@@ -8716,9 +9166,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param InvoiceAddRequest $request
+     * @summary 新增发票配置
+     *  *
+     * @param InvoiceAddRequest $request InvoiceAddRequest
      *
-     * @return InvoiceAddResponse
+     * @return InvoiceAddResponse InvoiceAddResponse
      */
     public function invoiceAdd($request)
     {
@@ -8729,11 +9181,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param InvoiceDeleteRequest $request
-     * @param InvoiceDeleteHeaders $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 删除发票抬头
+     *  *
+     * @param InvoiceDeleteRequest $request InvoiceDeleteRequest
+     * @param InvoiceDeleteHeaders $headers InvoiceDeleteHeaders
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return InvoiceDeleteResponse
+     * @return InvoiceDeleteResponse InvoiceDeleteResponse
      */
     public function invoiceDeleteWithOptions($request, $headers, $runtime)
     {
@@ -8769,9 +9223,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param InvoiceDeleteRequest $request
+     * @summary 删除发票抬头
+     *  *
+     * @param InvoiceDeleteRequest $request InvoiceDeleteRequest
      *
-     * @return InvoiceDeleteResponse
+     * @return InvoiceDeleteResponse InvoiceDeleteResponse
      */
     public function invoiceDelete($request)
     {
@@ -8782,11 +9238,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param InvoiceModifyRequest $request
-     * @param InvoiceModifyHeaders $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 修改发票配置
+     *  *
+     * @param InvoiceModifyRequest $request InvoiceModifyRequest
+     * @param InvoiceModifyHeaders $headers InvoiceModifyHeaders
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return InvoiceModifyResponse
+     * @return InvoiceModifyResponse InvoiceModifyResponse
      */
     public function invoiceModifyWithOptions($request, $headers, $runtime)
     {
@@ -8846,9 +9304,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param InvoiceModifyRequest $request
+     * @summary 修改发票配置
+     *  *
+     * @param InvoiceModifyRequest $request InvoiceModifyRequest
      *
-     * @return InvoiceModifyResponse
+     * @return InvoiceModifyResponse InvoiceModifyResponse
      */
     public function invoiceModify($request)
     {
@@ -8859,11 +9319,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param InvoiceRuleAddRequest $tmpReq
-     * @param InvoiceRuleAddHeaders $headers
-     * @param RuntimeOptions        $runtime
+     * @summary 新增发票抬头可用员工
+     *  *
+     * @param InvoiceRuleAddRequest $tmpReq  InvoiceRuleAddRequest
+     * @param InvoiceRuleAddHeaders $headers InvoiceRuleAddHeaders
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return InvoiceRuleAddResponse
+     * @return InvoiceRuleAddResponse InvoiceRuleAddResponse
      */
     public function invoiceRuleAddWithOptions($tmpReq, $headers, $runtime)
     {
@@ -8907,9 +9369,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param InvoiceRuleAddRequest $request
+     * @summary 新增发票抬头可用员工
+     *  *
+     * @param InvoiceRuleAddRequest $request InvoiceRuleAddRequest
      *
-     * @return InvoiceRuleAddResponse
+     * @return InvoiceRuleAddResponse InvoiceRuleAddResponse
      */
     public function invoiceRuleAdd($request)
     {
@@ -8920,11 +9384,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param InvoiceRuleDeleteRequest $tmpReq
-     * @param InvoiceRuleDeleteHeaders $headers
-     * @param RuntimeOptions           $runtime
+     * @summary 删除发票抬头可用员工
+     *  *
+     * @param InvoiceRuleDeleteRequest $tmpReq  InvoiceRuleDeleteRequest
+     * @param InvoiceRuleDeleteHeaders $headers InvoiceRuleDeleteHeaders
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return InvoiceRuleDeleteResponse
+     * @return InvoiceRuleDeleteResponse InvoiceRuleDeleteResponse
      */
     public function invoiceRuleDeleteWithOptions($tmpReq, $headers, $runtime)
     {
@@ -8971,9 +9437,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param InvoiceRuleDeleteRequest $request
+     * @summary 删除发票抬头可用员工
+     *  *
+     * @param InvoiceRuleDeleteRequest $request InvoiceRuleDeleteRequest
      *
-     * @return InvoiceRuleDeleteResponse
+     * @return InvoiceRuleDeleteResponse InvoiceRuleDeleteResponse
      */
     public function invoiceRuleDelete($request)
     {
@@ -8984,11 +9452,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param InvoiceRuleSaveRequest $tmpReq
-     * @param InvoiceRuleSaveHeaders $headers
-     * @param RuntimeOptions         $runtime
+     * @summary 保存发票规则
+     *  *
+     * @param InvoiceRuleSaveRequest $tmpReq  InvoiceRuleSaveRequest
+     * @param InvoiceRuleSaveHeaders $headers InvoiceRuleSaveHeaders
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return InvoiceRuleSaveResponse
+     * @return InvoiceRuleSaveResponse InvoiceRuleSaveResponse
      */
     public function invoiceRuleSaveWithOptions($tmpReq, $headers, $runtime)
     {
@@ -9038,9 +9508,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param InvoiceRuleSaveRequest $request
+     * @summary 保存发票规则
+     *  *
+     * @param InvoiceRuleSaveRequest $request InvoiceRuleSaveRequest
      *
-     * @return InvoiceRuleSaveResponse
+     * @return InvoiceRuleSaveResponse InvoiceRuleSaveResponse
      */
     public function invoiceRuleSave($request)
     {
@@ -9051,11 +9523,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param InvoiceSearchRequest $request
-     * @param InvoiceSearchHeaders $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 搜索用户可用发票抬头
+     *  *
+     * @param InvoiceSearchRequest $request InvoiceSearchRequest
+     * @param InvoiceSearchHeaders $headers InvoiceSearchHeaders
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return InvoiceSearchResponse
+     * @return InvoiceSearchResponse InvoiceSearchResponse
      */
     public function invoiceSearchWithOptions($request, $headers, $runtime)
     {
@@ -9097,9 +9571,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param InvoiceSearchRequest $request
+     * @summary 搜索用户可用发票抬头
+     *  *
+     * @param InvoiceSearchRequest $request InvoiceSearchRequest
      *
-     * @return InvoiceSearchResponse
+     * @return InvoiceSearchResponse InvoiceSearchResponse
      */
     public function invoiceSearch($request)
     {
@@ -9110,11 +9586,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param IsvRuleSaveRequest $tmpReq
-     * @param IsvRuleSaveHeaders $headers
-     * @param RuntimeOptions     $runtime
+     * @summary 员工特殊角色修改
+     *  *
+     * @param IsvRuleSaveRequest $tmpReq  IsvRuleSaveRequest
+     * @param IsvRuleSaveHeaders $headers IsvRuleSaveHeaders
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return IsvRuleSaveResponse
+     * @return IsvRuleSaveResponse IsvRuleSaveResponse
      */
     public function isvRuleSaveWithOptions($tmpReq, $headers, $runtime)
     {
@@ -9170,9 +9648,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param IsvRuleSaveRequest $request
+     * @summary 员工特殊角色修改
+     *  *
+     * @param IsvRuleSaveRequest $request IsvRuleSaveRequest
      *
-     * @return IsvRuleSaveResponse
+     * @return IsvRuleSaveResponse IsvRuleSaveResponse
      */
     public function isvRuleSave($request)
     {
@@ -9183,11 +9663,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param IsvUserSaveRequest $tmpReq
-     * @param IsvUserSaveHeaders $headers
-     * @param RuntimeOptions     $runtime
+     * @summary 用户同步
+     *  *
+     * @param IsvUserSaveRequest $tmpReq  IsvUserSaveRequest
+     * @param IsvUserSaveHeaders $headers IsvUserSaveHeaders
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return IsvUserSaveResponse
+     * @return IsvUserSaveResponse IsvUserSaveResponse
      */
     public function isvUserSaveWithOptions($tmpReq, $headers, $runtime)
     {
@@ -9228,9 +9710,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param IsvUserSaveRequest $request
+     * @summary 用户同步
+     *  *
+     * @param IsvUserSaveRequest $request IsvUserSaveRequest
      *
-     * @return IsvUserSaveResponse
+     * @return IsvUserSaveResponse IsvUserSaveResponse
      */
     public function isvUserSave($request)
     {
@@ -9241,11 +9725,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param MealBillSettlementQueryRequest $request
-     * @param MealBillSettlementQueryHeaders $headers
-     * @param RuntimeOptions                 $runtime
+     * @summary 查询因公用餐记账数据
+     *  *
+     * @param MealBillSettlementQueryRequest $request MealBillSettlementQueryRequest
+     * @param MealBillSettlementQueryHeaders $headers MealBillSettlementQueryHeaders
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return MealBillSettlementQueryResponse
+     * @return MealBillSettlementQueryResponse MealBillSettlementQueryResponse
      */
     public function mealBillSettlementQueryWithOptions($request, $headers, $runtime)
     {
@@ -9290,9 +9776,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param MealBillSettlementQueryRequest $request
+     * @summary 查询因公用餐记账数据
+     *  *
+     * @param MealBillSettlementQueryRequest $request MealBillSettlementQueryRequest
      *
-     * @return MealBillSettlementQueryResponse
+     * @return MealBillSettlementQueryResponse MealBillSettlementQueryResponse
      */
     public function mealBillSettlementQuery($request)
     {
@@ -9303,12 +9791,14 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * @summary 获取用餐订单详情
+     *  *
      * @param string                      $orderId
-     * @param MealOrderDetailQueryRequest $request
-     * @param MealOrderDetailQueryHeaders $headers
-     * @param RuntimeOptions              $runtime
+     * @param MealOrderDetailQueryRequest $request MealOrderDetailQueryRequest
+     * @param MealOrderDetailQueryHeaders $headers MealOrderDetailQueryHeaders
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return MealOrderDetailQueryResponse
+     * @return MealOrderDetailQueryResponse MealOrderDetailQueryResponse
      */
     public function mealOrderDetailQueryWithOptions($orderId, $request, $headers, $runtime)
     {
@@ -9344,10 +9834,12 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * @summary 获取用餐订单详情
+     *  *
      * @param string                      $orderId
-     * @param MealOrderDetailQueryRequest $request
+     * @param MealOrderDetailQueryRequest $request MealOrderDetailQueryRequest
      *
-     * @return MealOrderDetailQueryResponse
+     * @return MealOrderDetailQueryResponse MealOrderDetailQueryResponse
      */
     public function mealOrderDetailQuery($orderId, $request)
     {
@@ -9358,11 +9850,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param MealOrderListQueryRequest $request
-     * @param MealOrderListQueryHeaders $headers
-     * @param RuntimeOptions            $runtime
+     * @summary 获取用餐订单列表
+     *  *
+     * @param MealOrderListQueryRequest $request MealOrderListQueryRequest
+     * @param MealOrderListQueryHeaders $headers MealOrderListQueryHeaders
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return MealOrderListQueryResponse
+     * @return MealOrderListQueryResponse MealOrderListQueryResponse
      */
     public function mealOrderListQueryWithOptions($request, $headers, $runtime)
     {
@@ -9398,9 +9892,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param MealOrderListQueryRequest $request
+     * @summary 获取用餐订单列表
+     *  *
+     * @param MealOrderListQueryRequest $request MealOrderListQueryRequest
      *
-     * @return MealOrderListQueryResponse
+     * @return MealOrderListQueryResponse MealOrderListQueryResponse
      */
     public function mealOrderListQuery($request)
     {
@@ -9411,11 +9907,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param MonthBillConfirmRequest $request
-     * @param MonthBillConfirmHeaders $headers
-     * @param RuntimeOptions          $runtime
+     * @summary 月账单确认
+     *  *
+     * @param MonthBillConfirmRequest $request MonthBillConfirmRequest
+     * @param MonthBillConfirmHeaders $headers MonthBillConfirmHeaders
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return MonthBillConfirmResponse
+     * @return MonthBillConfirmResponse MonthBillConfirmResponse
      */
     public function monthBillConfirmWithOptions($request, $headers, $runtime)
     {
@@ -9454,9 +9952,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param MonthBillConfirmRequest $request
+     * @summary 月账单确认
+     *  *
+     * @param MonthBillConfirmRequest $request MonthBillConfirmRequest
      *
-     * @return MonthBillConfirmResponse
+     * @return MonthBillConfirmResponse MonthBillConfirmResponse
      */
     public function monthBillConfirm($request)
     {
@@ -9467,11 +9967,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param MonthBillGetRequest $request
-     * @param MonthBillGetHeaders $headers
-     * @param RuntimeOptions      $runtime
+     * @summary 查询企业月账单
+     *  *
+     * @param MonthBillGetRequest $request MonthBillGetRequest
+     * @param MonthBillGetHeaders $headers MonthBillGetHeaders
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return MonthBillGetResponse
+     * @return MonthBillGetResponse MonthBillGetResponse
      */
     public function monthBillGetWithOptions($request, $headers, $runtime)
     {
@@ -9507,9 +10009,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param MonthBillGetRequest $request
+     * @summary 查询企业月账单
+     *  *
+     * @param MonthBillGetRequest $request MonthBillGetRequest
      *
-     * @return MonthBillGetResponse
+     * @return MonthBillGetResponse MonthBillGetResponse
      */
     public function monthBillGet($request)
     {
@@ -9520,11 +10024,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param ProjectAddRequest $request
-     * @param ProjectAddHeaders $headers
-     * @param RuntimeOptions    $runtime
+     * @summary 添加项目
+     *  *
+     * @param ProjectAddRequest $request ProjectAddRequest
+     * @param ProjectAddHeaders $headers ProjectAddHeaders
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ProjectAddResponse
+     * @return ProjectAddResponse ProjectAddResponse
      */
     public function projectAddWithOptions($request, $headers, $runtime)
     {
@@ -9572,9 +10078,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param ProjectAddRequest $request
+     * @summary 添加项目
+     *  *
+     * @param ProjectAddRequest $request ProjectAddRequest
      *
-     * @return ProjectAddResponse
+     * @return ProjectAddResponse ProjectAddResponse
      */
     public function projectAdd($request)
     {
@@ -9585,11 +10093,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param ProjectDeleteRequest $request
-     * @param ProjectDeleteHeaders $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 删除项目
+     *  *
+     * @param ProjectDeleteRequest $request ProjectDeleteRequest
+     * @param ProjectDeleteHeaders $headers ProjectDeleteHeaders
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ProjectDeleteResponse
+     * @return ProjectDeleteResponse ProjectDeleteResponse
      */
     public function projectDeleteWithOptions($request, $headers, $runtime)
     {
@@ -9625,9 +10135,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param ProjectDeleteRequest $request
+     * @summary 删除项目
+     *  *
+     * @param ProjectDeleteRequest $request ProjectDeleteRequest
      *
-     * @return ProjectDeleteResponse
+     * @return ProjectDeleteResponse ProjectDeleteResponse
      */
     public function projectDelete($request)
     {
@@ -9638,11 +10150,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param ProjectModifyRequest $request
-     * @param ProjectModifyHeaders $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 变更项目
+     *  *
+     * @param ProjectModifyRequest $request ProjectModifyRequest
+     * @param ProjectModifyHeaders $headers ProjectModifyHeaders
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ProjectModifyResponse
+     * @return ProjectModifyResponse ProjectModifyResponse
      */
     public function projectModifyWithOptions($request, $headers, $runtime)
     {
@@ -9690,9 +10204,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param ProjectModifyRequest $request
+     * @summary 变更项目
+     *  *
+     * @param ProjectModifyRequest $request ProjectModifyRequest
      *
-     * @return ProjectModifyResponse
+     * @return ProjectModifyResponse ProjectModifyResponse
      */
     public function projectModify($request)
     {
@@ -9703,11 +10219,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param QueryReimbursementOrderRequest $request
-     * @param QueryReimbursementOrderHeaders $headers
-     * @param RuntimeOptions                 $runtime
+     * @summary 报销单查询
+     *  *
+     * @param QueryReimbursementOrderRequest $request QueryReimbursementOrderRequest
+     * @param QueryReimbursementOrderHeaders $headers QueryReimbursementOrderHeaders
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryReimbursementOrderResponse
+     * @return QueryReimbursementOrderResponse QueryReimbursementOrderResponse
      */
     public function queryReimbursementOrderWithOptions($request, $headers, $runtime)
     {
@@ -9746,9 +10264,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param QueryReimbursementOrderRequest $request
+     * @summary 报销单查询
+     *  *
+     * @param QueryReimbursementOrderRequest $request QueryReimbursementOrderRequest
      *
-     * @return QueryReimbursementOrderResponse
+     * @return QueryReimbursementOrderResponse QueryReimbursementOrderResponse
      */
     public function queryReimbursementOrder($request)
     {
@@ -9759,11 +10279,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param SyncSingleUserRequest $tmpReq
-     * @param SyncSingleUserHeaders $headers
-     * @param RuntimeOptions        $runtime
+     * @summary 单个人员同步
+     *  *
+     * @param SyncSingleUserRequest $tmpReq  SyncSingleUserRequest
+     * @param SyncSingleUserHeaders $headers SyncSingleUserHeaders
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return SyncSingleUserResponse
+     * @return SyncSingleUserResponse SyncSingleUserResponse
      */
     public function syncSingleUserWithOptions($tmpReq, $headers, $runtime)
     {
@@ -9834,9 +10356,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param SyncSingleUserRequest $request
+     * @summary 单个人员同步
+     *  *
+     * @param SyncSingleUserRequest $request SyncSingleUserRequest
      *
-     * @return SyncSingleUserResponse
+     * @return SyncSingleUserResponse SyncSingleUserResponse
      */
     public function syncSingleUser($request)
     {
@@ -9847,11 +10371,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param SyncThirdUserMappingRequest $request
-     * @param SyncThirdUserMappingHeaders $headers
-     * @param RuntimeOptions              $runtime
+     * @summary 同步三方用户映射关系
+     *  *
+     * @param SyncThirdUserMappingRequest $request SyncThirdUserMappingRequest
+     * @param SyncThirdUserMappingHeaders $headers SyncThirdUserMappingHeaders
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return SyncThirdUserMappingResponse
+     * @return SyncThirdUserMappingResponse SyncThirdUserMappingResponse
      */
     public function syncThirdUserMappingWithOptions($request, $headers, $runtime)
     {
@@ -9896,9 +10422,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param SyncThirdUserMappingRequest $request
+     * @summary 同步三方用户映射关系
+     *  *
+     * @param SyncThirdUserMappingRequest $request SyncThirdUserMappingRequest
      *
-     * @return SyncThirdUserMappingResponse
+     * @return SyncThirdUserMappingResponse SyncThirdUserMappingResponse
      */
     public function syncThirdUserMapping($request)
     {
@@ -9909,11 +10437,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * @summary 查询淘宝账号信息
+     *  *
      * @param string                    $userId
-     * @param TBAccountInfoQueryHeaders $headers
-     * @param RuntimeOptions            $runtime
+     * @param TBAccountInfoQueryHeaders $headers TBAccountInfoQueryHeaders
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return TBAccountInfoQueryResponse
+     * @return TBAccountInfoQueryResponse TBAccountInfoQueryResponse
      */
     public function tBAccountInfoQueryWithOptions($userId, $headers, $runtime)
     {
@@ -9943,9 +10473,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * @summary 查询淘宝账号信息
+     *  *
      * @param string $userId
      *
-     * @return TBAccountInfoQueryResponse
+     * @return TBAccountInfoQueryResponse TBAccountInfoQueryResponse
      */
     public function tBAccountInfoQuery($userId)
     {
@@ -9956,11 +10488,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * @summary 解绑淘宝账号
+     *  *
      * @param string                 $userId
-     * @param TBAccountUnbindHeaders $headers
-     * @param RuntimeOptions         $runtime
+     * @param TBAccountUnbindHeaders $headers TBAccountUnbindHeaders
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return TBAccountUnbindResponse
+     * @return TBAccountUnbindResponse TBAccountUnbindResponse
      */
     public function tBAccountUnbindWithOptions($userId, $headers, $runtime)
     {
@@ -9990,9 +10524,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * @summary 解绑淘宝账号
+     *  *
      * @param string $userId
      *
-     * @return TBAccountUnbindResponse
+     * @return TBAccountUnbindResponse TBAccountUnbindResponse
      */
     public function tBAccountUnbind($userId)
     {
@@ -10003,11 +10539,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TicketChangingApplyRequest $tmpReq
-     * @param TicketChangingApplyHeaders $headers
-     * @param RuntimeOptions             $runtime
+     * @summary 机票改签申请
+     *  *
+     * @param TicketChangingApplyRequest $tmpReq  TicketChangingApplyRequest
+     * @param TicketChangingApplyHeaders $headers TicketChangingApplyHeaders
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return TicketChangingApplyResponse
+     * @return TicketChangingApplyResponse TicketChangingApplyResponse
      */
     public function ticketChangingApplyWithOptions($tmpReq, $headers, $runtime)
     {
@@ -10069,9 +10607,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TicketChangingApplyRequest $request
+     * @summary 机票改签申请
+     *  *
+     * @param TicketChangingApplyRequest $request TicketChangingApplyRequest
      *
-     * @return TicketChangingApplyResponse
+     * @return TicketChangingApplyResponse TicketChangingApplyResponse
      */
     public function ticketChangingApply($request)
     {
@@ -10082,11 +10622,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TicketChangingCancelRequest $request
-     * @param TicketChangingCancelHeaders $headers
-     * @param RuntimeOptions              $runtime
+     * @summary 机票改签取消
+     *  *
+     * @param TicketChangingCancelRequest $request TicketChangingCancelRequest
+     * @param TicketChangingCancelHeaders $headers TicketChangingCancelHeaders
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return TicketChangingCancelResponse
+     * @return TicketChangingCancelResponse TicketChangingCancelResponse
      */
     public function ticketChangingCancelWithOptions($request, $headers, $runtime)
     {
@@ -10125,9 +10667,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TicketChangingCancelRequest $request
+     * @summary 机票改签取消
+     *  *
+     * @param TicketChangingCancelRequest $request TicketChangingCancelRequest
      *
-     * @return TicketChangingCancelResponse
+     * @return TicketChangingCancelResponse TicketChangingCancelResponse
      */
     public function ticketChangingCancel($request)
     {
@@ -10138,11 +10682,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TicketChangingDetailRequest $request
-     * @param TicketChangingDetailHeaders $headers
-     * @param RuntimeOptions              $runtime
+     * @summary 机票改签详情
+     *  *
+     * @param TicketChangingDetailRequest $request TicketChangingDetailRequest
+     * @param TicketChangingDetailHeaders $headers TicketChangingDetailHeaders
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return TicketChangingDetailResponse
+     * @return TicketChangingDetailResponse TicketChangingDetailResponse
      */
     public function ticketChangingDetailWithOptions($request, $headers, $runtime)
     {
@@ -10181,9 +10727,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TicketChangingDetailRequest $request
+     * @summary 机票改签详情
+     *  *
+     * @param TicketChangingDetailRequest $request TicketChangingDetailRequest
      *
-     * @return TicketChangingDetailResponse
+     * @return TicketChangingDetailResponse TicketChangingDetailResponse
      */
     public function ticketChangingDetail($request)
     {
@@ -10194,11 +10742,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TicketChangingEnquiryRequest $request
-     * @param TicketChangingEnquiryHeaders $headers
-     * @param RuntimeOptions               $runtime
+     * @summary 机票改签询价
+     *  *
+     * @param TicketChangingEnquiryRequest $request TicketChangingEnquiryRequest
+     * @param TicketChangingEnquiryHeaders $headers TicketChangingEnquiryHeaders
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return TicketChangingEnquiryResponse
+     * @return TicketChangingEnquiryResponse TicketChangingEnquiryResponse
      */
     public function ticketChangingEnquiryWithOptions($request, $headers, $runtime)
     {
@@ -10252,9 +10802,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TicketChangingEnquiryRequest $request
+     * @summary 机票改签询价
+     *  *
+     * @param TicketChangingEnquiryRequest $request TicketChangingEnquiryRequest
      *
-     * @return TicketChangingEnquiryResponse
+     * @return TicketChangingEnquiryResponse TicketChangingEnquiryResponse
      */
     public function ticketChangingEnquiry($request)
     {
@@ -10265,11 +10817,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TicketChangingFlightListRequest $tmpReq
-     * @param TicketChangingFlightListHeaders $headers
-     * @param RuntimeOptions                  $runtime
+     * @summary 机票改签可改签航班列表
+     *  *
+     * @param TicketChangingFlightListRequest $tmpReq  TicketChangingFlightListRequest
+     * @param TicketChangingFlightListHeaders $headers TicketChangingFlightListHeaders
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return TicketChangingFlightListResponse
+     * @return TicketChangingFlightListResponse TicketChangingFlightListResponse
      */
     public function ticketChangingFlightListWithOptions($tmpReq, $headers, $runtime)
     {
@@ -10325,9 +10879,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TicketChangingFlightListRequest $request
+     * @summary 机票改签可改签航班列表
+     *  *
+     * @param TicketChangingFlightListRequest $request TicketChangingFlightListRequest
      *
-     * @return TicketChangingFlightListResponse
+     * @return TicketChangingFlightListResponse TicketChangingFlightListResponse
      */
     public function ticketChangingFlightList($request)
     {
@@ -10338,11 +10894,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TicketChangingPayRequest $tmpReq
-     * @param TicketChangingPayHeaders $headers
-     * @param RuntimeOptions           $runtime
+     * @summary 机票改签航班支付
+     *  *
+     * @param TicketChangingPayRequest $tmpReq  TicketChangingPayRequest
+     * @param TicketChangingPayHeaders $headers TicketChangingPayHeaders
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return TicketChangingPayResponse
+     * @return TicketChangingPayResponse TicketChangingPayResponse
      */
     public function ticketChangingPayWithOptions($tmpReq, $headers, $runtime)
     {
@@ -10398,9 +10956,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TicketChangingPayRequest $request
+     * @summary 机票改签航班支付
+     *  *
+     * @param TicketChangingPayRequest $request TicketChangingPayRequest
      *
-     * @return TicketChangingPayResponse
+     * @return TicketChangingPayResponse TicketChangingPayResponse
      */
     public function ticketChangingPay($request)
     {
@@ -10411,11 +10971,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TrainApplyChangeRequest $tmpReq
-     * @param TrainApplyChangeHeaders $headers
-     * @param RuntimeOptions          $runtime
+     * @summary 火车票改签申请
+     *  *
+     * @param TrainApplyChangeRequest $tmpReq  TrainApplyChangeRequest
+     * @param TrainApplyChangeHeaders $headers TrainApplyChangeHeaders
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return TrainApplyChangeResponse
+     * @return TrainApplyChangeResponse TrainApplyChangeResponse
      */
     public function trainApplyChangeWithOptions($tmpReq, $headers, $runtime)
     {
@@ -10476,9 +11038,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TrainApplyChangeRequest $request
+     * @summary 火车票改签申请
+     *  *
+     * @param TrainApplyChangeRequest $request TrainApplyChangeRequest
      *
-     * @return TrainApplyChangeResponse
+     * @return TrainApplyChangeResponse TrainApplyChangeResponse
      */
     public function trainApplyChange($request)
     {
@@ -10489,11 +11053,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TrainApplyRefundRequest $tmpReq
-     * @param TrainApplyRefundHeaders $headers
-     * @param RuntimeOptions          $runtime
+     * @summary 火车票退票申请
+     *  *
+     * @param TrainApplyRefundRequest $tmpReq  TrainApplyRefundRequest
+     * @param TrainApplyRefundHeaders $headers TrainApplyRefundHeaders
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return TrainApplyRefundResponse
+     * @return TrainApplyRefundResponse TrainApplyRefundResponse
      */
     public function trainApplyRefundWithOptions($tmpReq, $headers, $runtime)
     {
@@ -10543,9 +11109,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TrainApplyRefundRequest $request
+     * @summary 火车票退票申请
+     *  *
+     * @param TrainApplyRefundRequest $request TrainApplyRefundRequest
      *
-     * @return TrainApplyRefundResponse
+     * @return TrainApplyRefundResponse TrainApplyRefundResponse
      */
     public function trainApplyRefund($request)
     {
@@ -10556,11 +11124,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TrainBillSettlementQueryRequest $request
-     * @param TrainBillSettlementQueryHeaders $headers
-     * @param RuntimeOptions                  $runtime
+     * @summary 查询火车票记账数据
+     *  *
+     * @param TrainBillSettlementQueryRequest $request TrainBillSettlementQueryRequest
+     * @param TrainBillSettlementQueryHeaders $headers TrainBillSettlementQueryHeaders
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return TrainBillSettlementQueryResponse
+     * @return TrainBillSettlementQueryResponse TrainBillSettlementQueryResponse
      */
     public function trainBillSettlementQueryWithOptions($request, $headers, $runtime)
     {
@@ -10605,9 +11175,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TrainBillSettlementQueryRequest $request
+     * @summary 查询火车票记账数据
+     *  *
+     * @param TrainBillSettlementQueryRequest $request TrainBillSettlementQueryRequest
      *
-     * @return TrainBillSettlementQueryResponse
+     * @return TrainBillSettlementQueryResponse TrainBillSettlementQueryResponse
      */
     public function trainBillSettlementQuery($request)
     {
@@ -10618,11 +11190,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TrainExceedApplyQueryRequest $request
-     * @param TrainExceedApplyQueryHeaders $headers
-     * @param RuntimeOptions               $runtime
+     * @summary 查询火车超标审批详情
+     *  *
+     * @param TrainExceedApplyQueryRequest $request TrainExceedApplyQueryRequest
+     * @param TrainExceedApplyQueryHeaders $headers TrainExceedApplyQueryHeaders
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return TrainExceedApplyQueryResponse
+     * @return TrainExceedApplyQueryResponse TrainExceedApplyQueryResponse
      */
     public function trainExceedApplyQueryWithOptions($request, $headers, $runtime)
     {
@@ -10658,9 +11232,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TrainExceedApplyQueryRequest $request
+     * @summary 查询火车超标审批详情
+     *  *
+     * @param TrainExceedApplyQueryRequest $request TrainExceedApplyQueryRequest
      *
-     * @return TrainExceedApplyQueryResponse
+     * @return TrainExceedApplyQueryResponse TrainExceedApplyQueryResponse
      */
     public function trainExceedApplyQuery($request)
     {
@@ -10671,11 +11247,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TrainFeeCalculateChangeRequest $tmpReq
-     * @param TrainFeeCalculateChangeHeaders $headers
-     * @param RuntimeOptions                 $runtime
+     * @summary 火车票改签费用预估
+     *  *
+     * @param TrainFeeCalculateChangeRequest $tmpReq  TrainFeeCalculateChangeRequest
+     * @param TrainFeeCalculateChangeHeaders $headers TrainFeeCalculateChangeHeaders
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return TrainFeeCalculateChangeResponse
+     * @return TrainFeeCalculateChangeResponse TrainFeeCalculateChangeResponse
      */
     public function trainFeeCalculateChangeWithOptions($tmpReq, $headers, $runtime)
     {
@@ -10722,9 +11300,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TrainFeeCalculateChangeRequest $request
+     * @summary 火车票改签费用预估
+     *  *
+     * @param TrainFeeCalculateChangeRequest $request TrainFeeCalculateChangeRequest
      *
-     * @return TrainFeeCalculateChangeResponse
+     * @return TrainFeeCalculateChangeResponse TrainFeeCalculateChangeResponse
      */
     public function trainFeeCalculateChange($request)
     {
@@ -10735,11 +11315,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TrainFeeCalculateRefundRequest $tmpReq
-     * @param TrainFeeCalculateRefundHeaders $headers
-     * @param RuntimeOptions                 $runtime
+     * @summary 火车票退票费用预估
+     *  *
+     * @param TrainFeeCalculateRefundRequest $tmpReq  TrainFeeCalculateRefundRequest
+     * @param TrainFeeCalculateRefundHeaders $headers TrainFeeCalculateRefundHeaders
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return TrainFeeCalculateRefundResponse
+     * @return TrainFeeCalculateRefundResponse TrainFeeCalculateRefundResponse
      */
     public function trainFeeCalculateRefundWithOptions($tmpReq, $headers, $runtime)
     {
@@ -10786,9 +11368,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TrainFeeCalculateRefundRequest $request
+     * @summary 火车票退票费用预估
+     *  *
+     * @param TrainFeeCalculateRefundRequest $request TrainFeeCalculateRefundRequest
      *
-     * @return TrainFeeCalculateRefundResponse
+     * @return TrainFeeCalculateRefundResponse TrainFeeCalculateRefundResponse
      */
     public function trainFeeCalculateRefund($request)
     {
@@ -10799,11 +11383,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TrainNoInfoSearchRequest $request
-     * @param TrainNoInfoSearchHeaders $headers
-     * @param RuntimeOptions           $runtime
+     * @summary 火车票车次详情查询
+     *  *
+     * @param TrainNoInfoSearchRequest $request TrainNoInfoSearchRequest
+     * @param TrainNoInfoSearchHeaders $headers TrainNoInfoSearchHeaders
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return TrainNoInfoSearchResponse
+     * @return TrainNoInfoSearchResponse TrainNoInfoSearchResponse
      */
     public function trainNoInfoSearchWithOptions($request, $headers, $runtime)
     {
@@ -10860,9 +11446,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TrainNoInfoSearchRequest $request
+     * @summary 火车票车次详情查询
+     *  *
+     * @param TrainNoInfoSearchRequest $request TrainNoInfoSearchRequest
      *
-     * @return TrainNoInfoSearchResponse
+     * @return TrainNoInfoSearchResponse TrainNoInfoSearchResponse
      */
     public function trainNoInfoSearch($request)
     {
@@ -10873,11 +11461,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TrainNoListSearchRequest $tmpReq
-     * @param TrainNoListSearchHeaders $headers
-     * @param RuntimeOptions           $runtime
+     * @summary 火车票车次列表查询
+     *  *
+     * @param TrainNoListSearchRequest $tmpReq  TrainNoListSearchRequest
+     * @param TrainNoListSearchHeaders $headers TrainNoListSearchHeaders
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return TrainNoListSearchResponse
+     * @return TrainNoListSearchResponse TrainNoListSearchResponse
      */
     public function trainNoListSearchWithOptions($tmpReq, $headers, $runtime)
     {
@@ -10930,9 +11520,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TrainNoListSearchRequest $request
+     * @summary 火车票车次列表查询
+     *  *
+     * @param TrainNoListSearchRequest $request TrainNoListSearchRequest
      *
-     * @return TrainNoListSearchResponse
+     * @return TrainNoListSearchResponse TrainNoListSearchResponse
      */
     public function trainNoListSearch($request)
     {
@@ -10943,11 +11535,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TrainOrderCancelRequest $request
-     * @param TrainOrderCancelHeaders $headers
-     * @param RuntimeOptions          $runtime
+     * @summary 火车票订单取消
+     *  *
+     * @param TrainOrderCancelRequest $request TrainOrderCancelRequest
+     * @param TrainOrderCancelHeaders $headers TrainOrderCancelHeaders
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return TrainOrderCancelResponse
+     * @return TrainOrderCancelResponse TrainOrderCancelResponse
      */
     public function trainOrderCancelWithOptions($request, $headers, $runtime)
     {
@@ -10992,9 +11586,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TrainOrderCancelRequest $request
+     * @summary 火车票订单取消
+     *  *
+     * @param TrainOrderCancelRequest $request TrainOrderCancelRequest
      *
-     * @return TrainOrderCancelResponse
+     * @return TrainOrderCancelResponse TrainOrderCancelResponse
      */
     public function trainOrderCancel($request)
     {
@@ -11005,11 +11601,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TrainOrderChangeConfirmRequest $request
-     * @param TrainOrderChangeConfirmHeaders $headers
-     * @param RuntimeOptions                 $runtime
+     * @summary 火车票改签确认
+     *  *
+     * @param TrainOrderChangeConfirmRequest $request TrainOrderChangeConfirmRequest
+     * @param TrainOrderChangeConfirmHeaders $headers TrainOrderChangeConfirmHeaders
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return TrainOrderChangeConfirmResponse
+     * @return TrainOrderChangeConfirmResponse TrainOrderChangeConfirmResponse
      */
     public function trainOrderChangeConfirmWithOptions($request, $headers, $runtime)
     {
@@ -11057,9 +11655,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TrainOrderChangeConfirmRequest $request
+     * @summary 火车票改签确认
+     *  *
+     * @param TrainOrderChangeConfirmRequest $request TrainOrderChangeConfirmRequest
      *
-     * @return TrainOrderChangeConfirmResponse
+     * @return TrainOrderChangeConfirmResponse TrainOrderChangeConfirmResponse
      */
     public function trainOrderChangeConfirm($request)
     {
@@ -11070,11 +11670,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TrainOrderCreateRequest $tmpReq
-     * @param TrainOrderCreateHeaders $headers
-     * @param RuntimeOptions          $runtime
+     * @summary 火车票正向预订
+     *  *
+     * @param TrainOrderCreateRequest $tmpReq  TrainOrderCreateRequest
+     * @param TrainOrderCreateHeaders $headers TrainOrderCreateHeaders
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return TrainOrderCreateResponse
+     * @return TrainOrderCreateResponse TrainOrderCreateResponse
      */
     public function trainOrderCreateWithOptions($tmpReq, $headers, $runtime)
     {
@@ -11151,9 +11753,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TrainOrderCreateRequest $request
+     * @summary 火车票正向预订
+     *  *
+     * @param TrainOrderCreateRequest $request TrainOrderCreateRequest
      *
-     * @return TrainOrderCreateResponse
+     * @return TrainOrderCreateResponse TrainOrderCreateResponse
      */
     public function trainOrderCreate($request)
     {
@@ -11164,11 +11768,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TrainOrderDetailQueryRequest $request
-     * @param TrainOrderDetailQueryHeaders $headers
-     * @param RuntimeOptions               $runtime
+     * @summary 火车票订单详情
+     *  *
+     * @param TrainOrderDetailQueryRequest $request TrainOrderDetailQueryRequest
+     * @param TrainOrderDetailQueryHeaders $headers TrainOrderDetailQueryHeaders
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return TrainOrderDetailQueryResponse
+     * @return TrainOrderDetailQueryResponse TrainOrderDetailQueryResponse
      */
     public function trainOrderDetailQueryWithOptions($request, $headers, $runtime)
     {
@@ -11207,9 +11813,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TrainOrderDetailQueryRequest $request
+     * @summary 火车票订单详情
+     *  *
+     * @param TrainOrderDetailQueryRequest $request TrainOrderDetailQueryRequest
      *
-     * @return TrainOrderDetailQueryResponse
+     * @return TrainOrderDetailQueryResponse TrainOrderDetailQueryResponse
      */
     public function trainOrderDetailQuery($request)
     {
@@ -11220,11 +11828,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TrainOrderListQueryRequest $request
-     * @param TrainOrderListQueryHeaders $headers
-     * @param RuntimeOptions             $runtime
+     * @summary 查询火车票订单列表
+     *  *
+     * @param TrainOrderListQueryRequest $request TrainOrderListQueryRequest
+     * @param TrainOrderListQueryHeaders $headers TrainOrderListQueryHeaders
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return TrainOrderListQueryResponse
+     * @return TrainOrderListQueryResponse TrainOrderListQueryResponse
      */
     public function trainOrderListQueryWithOptions($request, $headers, $runtime)
     {
@@ -11290,9 +11900,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TrainOrderListQueryRequest $request
+     * @summary 查询火车票订单列表
+     *  *
+     * @param TrainOrderListQueryRequest $request TrainOrderListQueryRequest
      *
-     * @return TrainOrderListQueryResponse
+     * @return TrainOrderListQueryResponse TrainOrderListQueryResponse
      */
     public function trainOrderListQuery($request)
     {
@@ -11303,11 +11915,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TrainOrderPayRequest $request
-     * @param TrainOrderPayHeaders $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 火车票订单支付
+     *  *
+     * @param TrainOrderPayRequest $request TrainOrderPayRequest
+     * @param TrainOrderPayHeaders $headers TrainOrderPayHeaders
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return TrainOrderPayResponse
+     * @return TrainOrderPayResponse TrainOrderPayResponse
      */
     public function trainOrderPayWithOptions($request, $headers, $runtime)
     {
@@ -11349,9 +11963,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TrainOrderPayRequest $request
+     * @summary 火车票订单支付
+     *  *
+     * @param TrainOrderPayRequest $request TrainOrderPayRequest
      *
-     * @return TrainOrderPayResponse
+     * @return TrainOrderPayResponse TrainOrderPayResponse
      */
     public function trainOrderPay($request)
     {
@@ -11362,11 +11978,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TrainOrderQueryRequest $request
-     * @param TrainOrderQueryHeaders $headers
-     * @param RuntimeOptions         $runtime
+     * @summary 查询火车票订单详情（含票信息）
+     *  *
+     * @param TrainOrderQueryRequest $request TrainOrderQueryRequest
+     * @param TrainOrderQueryHeaders $headers TrainOrderQueryHeaders
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return TrainOrderQueryResponse
+     * @return TrainOrderQueryResponse TrainOrderQueryResponse
      */
     public function trainOrderQueryWithOptions($request, $headers, $runtime)
     {
@@ -11405,9 +12023,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TrainOrderQueryRequest $request
+     * @summary 查询火车票订单详情（含票信息）
+     *  *
+     * @param TrainOrderQueryRequest $request TrainOrderQueryRequest
      *
-     * @return TrainOrderQueryResponse
+     * @return TrainOrderQueryResponse TrainOrderQueryResponse
      */
     public function trainOrderQuery($request)
     {
@@ -11418,11 +12038,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TrainOrderQueryV2Request $request
-     * @param TrainOrderQueryV2Headers $headers
-     * @param RuntimeOptions           $runtime
+     * @summary 火车票订单查询V2
+     *  *
+     * @param TrainOrderQueryV2Request $request TrainOrderQueryV2Request
+     * @param TrainOrderQueryV2Headers $headers TrainOrderQueryV2Headers
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return TrainOrderQueryV2Response
+     * @return TrainOrderQueryV2Response TrainOrderQueryV2Response
      */
     public function trainOrderQueryV2WithOptions($request, $headers, $runtime)
     {
@@ -11461,9 +12083,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TrainOrderQueryV2Request $request
+     * @summary 火车票订单查询V2
+     *  *
+     * @param TrainOrderQueryV2Request $request TrainOrderQueryV2Request
      *
-     * @return TrainOrderQueryV2Response
+     * @return TrainOrderQueryV2Response TrainOrderQueryV2Response
      */
     public function trainOrderQueryV2($request)
     {
@@ -11474,11 +12098,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TrainStationSearchRequest $request
-     * @param TrainStationSearchHeaders $headers
-     * @param RuntimeOptions            $runtime
+     * @summary 查询火车站数据
+     *  *
+     * @param TrainStationSearchRequest $request TrainStationSearchRequest
+     * @param TrainStationSearchHeaders $headers TrainStationSearchHeaders
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return TrainStationSearchResponse
+     * @return TrainStationSearchResponse TrainStationSearchResponse
      */
     public function trainStationSearchWithOptions($request, $headers, $runtime)
     {
@@ -11514,9 +12140,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TrainStationSearchRequest $request
+     * @summary 查询火车站数据
+     *  *
+     * @param TrainStationSearchRequest $request TrainStationSearchRequest
      *
-     * @return TrainStationSearchResponse
+     * @return TrainStationSearchResponse TrainStationSearchResponse
      */
     public function trainStationSearch($request)
     {
@@ -11527,11 +12155,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TrainStopoverSearchRequest $request
-     * @param TrainStopoverSearchHeaders $headers
-     * @param RuntimeOptions             $runtime
+     * @summary 火车票经停站查询
+     *  *
+     * @param TrainStopoverSearchRequest $request TrainStopoverSearchRequest
+     * @param TrainStopoverSearchHeaders $headers TrainStopoverSearchHeaders
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return TrainStopoverSearchResponse
+     * @return TrainStopoverSearchResponse TrainStopoverSearchResponse
      */
     public function trainStopoverSearchWithOptions($request, $headers, $runtime)
     {
@@ -11576,9 +12206,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TrainStopoverSearchRequest $request
+     * @summary 火车票经停站查询
+     *  *
+     * @param TrainStopoverSearchRequest $request TrainStopoverSearchRequest
      *
-     * @return TrainStopoverSearchResponse
+     * @return TrainStopoverSearchResponse TrainStopoverSearchResponse
      */
     public function trainStopoverSearch($request)
     {
@@ -11589,11 +12221,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TrainTicketScanQueryRequest $request
-     * @param TrainTicketScanQueryHeaders $headers
-     * @param RuntimeOptions              $runtime
+     * @summary 查询火车票凭证扫描件
+     *  *
+     * @param TrainTicketScanQueryRequest $request TrainTicketScanQueryRequest
+     * @param TrainTicketScanQueryHeaders $headers TrainTicketScanQueryHeaders
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return TrainTicketScanQueryResponse
+     * @return TrainTicketScanQueryResponse TrainTicketScanQueryResponse
      */
     public function trainTicketScanQueryWithOptions($request, $headers, $runtime)
     {
@@ -11647,9 +12281,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TrainTicketScanQueryRequest $request
+     * @summary 查询火车票凭证扫描件
+     *  *
+     * @param TrainTicketScanQueryRequest $request TrainTicketScanQueryRequest
      *
-     * @return TrainTicketScanQueryResponse
+     * @return TrainTicketScanQueryResponse TrainTicketScanQueryResponse
      */
     public function trainTicketScanQuery($request)
     {
@@ -11660,11 +12296,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TravelStandardListQueryRequest $request
-     * @param TravelStandardListQueryHeaders $headers
-     * @param RuntimeOptions                 $runtime
+     * @summary 查询差标列表
+     *  *
+     * @param TravelStandardListQueryRequest $request TravelStandardListQueryRequest
+     * @param TravelStandardListQueryHeaders $headers TravelStandardListQueryHeaders
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return TravelStandardListQueryResponse
+     * @return TravelStandardListQueryResponse TravelStandardListQueryResponse
      */
     public function travelStandardListQueryWithOptions($request, $headers, $runtime)
     {
@@ -11709,9 +12347,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TravelStandardListQueryRequest $request
+     * @summary 查询差标列表
+     *  *
+     * @param TravelStandardListQueryRequest $request TravelStandardListQueryRequest
      *
-     * @return TravelStandardListQueryResponse
+     * @return TravelStandardListQueryResponse TravelStandardListQueryResponse
      */
     public function travelStandardListQuery($request)
     {
@@ -11722,11 +12362,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TravelStandardQueryRequest $tmpReq
-     * @param TravelStandardQueryHeaders $headers
-     * @param RuntimeOptions             $runtime
+     * @summary 查询差标详情
+     *  *
+     * @param TravelStandardQueryRequest $tmpReq  TravelStandardQueryRequest
+     * @param TravelStandardQueryHeaders $headers TravelStandardQueryHeaders
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return TravelStandardQueryResponse
+     * @return TravelStandardQueryResponse TravelStandardQueryResponse
      */
     public function travelStandardQueryWithOptions($tmpReq, $headers, $runtime)
     {
@@ -11773,9 +12415,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param TravelStandardQueryRequest $request
+     * @summary 查询差标详情
+     *  *
+     * @param TravelStandardQueryRequest $request TravelStandardQueryRequest
      *
-     * @return TravelStandardQueryResponse
+     * @return TravelStandardQueryResponse TravelStandardQueryResponse
      */
     public function travelStandardQuery($request)
     {
@@ -11786,11 +12430,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param UserQueryRequest $request
-     * @param UserQueryHeaders $headers
-     * @param RuntimeOptions   $runtime
+     * @summary 人员查询
+     *  *
+     * @param UserQueryRequest $request UserQueryRequest
+     * @param UserQueryHeaders $headers UserQueryHeaders
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return UserQueryResponse
+     * @return UserQueryResponse UserQueryResponse
      */
     public function userQueryWithOptions($request, $headers, $runtime)
     {
@@ -11835,9 +12481,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param UserQueryRequest $request
+     * @summary 人员查询
+     *  *
+     * @param UserQueryRequest $request UserQueryRequest
      *
-     * @return UserQueryResponse
+     * @return UserQueryResponse UserQueryResponse
      */
     public function userQuery($request)
     {
@@ -11848,11 +12496,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param VatInvoiceScanQueryRequest $request
-     * @param VatInvoiceScanQueryHeaders $headers
-     * @param RuntimeOptions             $runtime
+     * @summary 查询增值税发票扫描件
+     *  *
+     * @param VatInvoiceScanQueryRequest $request VatInvoiceScanQueryRequest
+     * @param VatInvoiceScanQueryHeaders $headers VatInvoiceScanQueryHeaders
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return VatInvoiceScanQueryResponse
+     * @return VatInvoiceScanQueryResponse VatInvoiceScanQueryResponse
      */
     public function vatInvoiceScanQueryWithOptions($request, $headers, $runtime)
     {
@@ -11900,9 +12550,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param VatInvoiceScanQueryRequest $request
+     * @summary 查询增值税发票扫描件
+     *  *
+     * @param VatInvoiceScanQueryRequest $request VatInvoiceScanQueryRequest
      *
-     * @return VatInvoiceScanQueryResponse
+     * @return VatInvoiceScanQueryResponse VatInvoiceScanQueryResponse
      */
     public function vatInvoiceScanQuery($request)
     {
@@ -11913,11 +12565,13 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param WaitApplyInvoiceTaskDetailQueryRequest $request
-     * @param WaitApplyInvoiceTaskDetailQueryHeaders $headers
-     * @param RuntimeOptions                         $runtime
+     * @summary 查询账期待申请的发票数据
+     *  *
+     * @param WaitApplyInvoiceTaskDetailQueryRequest $request WaitApplyInvoiceTaskDetailQueryRequest
+     * @param WaitApplyInvoiceTaskDetailQueryHeaders $headers WaitApplyInvoiceTaskDetailQueryHeaders
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return WaitApplyInvoiceTaskDetailQueryResponse
+     * @return WaitApplyInvoiceTaskDetailQueryResponse WaitApplyInvoiceTaskDetailQueryResponse
      */
     public function waitApplyInvoiceTaskDetailQueryWithOptions($request, $headers, $runtime)
     {
@@ -11953,9 +12607,11 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param WaitApplyInvoiceTaskDetailQueryRequest $request
+     * @summary 查询账期待申请的发票数据
+     *  *
+     * @param WaitApplyInvoiceTaskDetailQueryRequest $request WaitApplyInvoiceTaskDetailQueryRequest
      *
-     * @return WaitApplyInvoiceTaskDetailQueryResponse
+     * @return WaitApplyInvoiceTaskDetailQueryResponse WaitApplyInvoiceTaskDetailQueryResponse
      */
     public function waitApplyInvoiceTaskDetailQuery($request)
     {

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class FlightOrderDetailV2Request extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example cheshiapi
      *
      * @var string

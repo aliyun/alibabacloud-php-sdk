@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ApplyExternalNodeStatusUpdateShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 123
      *
      * @var string
@@ -21,6 +23,8 @@ class ApplyExternalNodeStatusUpdateShrinkRequest extends Model
     public $operationRecordsShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example PROCESS_AGREE
      *
      * @var string

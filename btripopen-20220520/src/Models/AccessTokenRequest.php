@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AccessTokenRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ggZADkghsadgogeDxdaD
      *
      * @var string

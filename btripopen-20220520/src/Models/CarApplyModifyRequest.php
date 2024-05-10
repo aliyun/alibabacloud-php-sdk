@@ -21,6 +21,8 @@ class CarApplyModifyRequest extends Model
     public $remark;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -28,6 +30,8 @@ class CarApplyModifyRequest extends Model
     public $status;
 
     /**
+     * @description This parameter is required.
+     *
      * @example IRGS1413
      *
      * @var string
@@ -35,6 +39,8 @@ class CarApplyModifyRequest extends Model
     public $thirdPartApplyId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example open62141
      *
      * @var string

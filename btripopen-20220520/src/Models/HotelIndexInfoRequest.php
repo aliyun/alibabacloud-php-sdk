@@ -23,6 +23,8 @@ class HotelIndexInfoRequest extends Model
     public $hotelStatus;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 20
      *
      * @var int

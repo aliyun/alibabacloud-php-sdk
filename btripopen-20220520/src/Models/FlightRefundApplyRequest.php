@@ -17,6 +17,8 @@ class FlightRefundApplyRequest extends Model
     public $corpRefundPrice;
 
     /**
+     * @description This parameter is required.
+     *
      * @example dis123
      *
      * @var string
@@ -24,6 +26,8 @@ class FlightRefundApplyRequest extends Model
     public $disOrderId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example refu123
      *
      * @var string
@@ -31,6 +35,8 @@ class FlightRefundApplyRequest extends Model
     public $disSubOrderId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 100
      *
      * @var string
@@ -43,6 +49,8 @@ class FlightRefundApplyRequest extends Model
     public $extra;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0
      *
      * @var int
@@ -50,6 +58,8 @@ class FlightRefundApplyRequest extends Model
     public $isVoluntary;
 
     /**
+     * @description This parameter is required.
+     *
      * @example FlightItem_9966772382
      *
      * @var string
@@ -74,6 +84,8 @@ class FlightRefundApplyRequest extends Model
     public $reasonDetail;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -86,6 +98,8 @@ class FlightRefundApplyRequest extends Model
     public $refundVoucherInfo;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0f9418cd2ce34af49ab0de16fea166d1
      *
      * @var string

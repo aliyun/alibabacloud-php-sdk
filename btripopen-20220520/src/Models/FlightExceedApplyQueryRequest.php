@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class FlightExceedApplyQueryRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 175634
      *
      * @var int

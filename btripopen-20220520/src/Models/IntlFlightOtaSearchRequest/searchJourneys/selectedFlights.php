@@ -16,6 +16,8 @@ class selectedFlights extends Model
     public $arrAirportCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example NNG
      *
      * @var string
@@ -37,6 +39,8 @@ class selectedFlights extends Model
     public $depAirportCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example CTU
      *
      * @var string
@@ -44,6 +48,8 @@ class selectedFlights extends Model
     public $depCityCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2023-08-15 12:00:00
      *
      * @var string
@@ -51,6 +57,8 @@ class selectedFlights extends Model
     public $flightTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example KA5809
      *
      * @var string

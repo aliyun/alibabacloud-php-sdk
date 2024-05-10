@@ -28,6 +28,8 @@ class CostCenterModifyRequest extends Model
     public $number;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -35,6 +37,8 @@ class CostCenterModifyRequest extends Model
     public $scope;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 340049
      *
      * @var string
@@ -42,6 +46,8 @@ class CostCenterModifyRequest extends Model
     public $thirdpartId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $title;

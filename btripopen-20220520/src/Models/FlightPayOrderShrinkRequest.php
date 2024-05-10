@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class FlightPayOrderShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 100
      *
      * @var int
@@ -16,6 +18,8 @@ class FlightPayOrderShrinkRequest extends Model
     public $corpPayPrice;
 
     /**
+     * @description This parameter is required.
+     *
      * @example dis123
      *
      * @var string
@@ -28,6 +32,8 @@ class FlightPayOrderShrinkRequest extends Model
     public $extraShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 100
      *
      * @var int
@@ -35,6 +41,8 @@ class FlightPayOrderShrinkRequest extends Model
     public $personalPayPrice;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 100
      *
      * @var int

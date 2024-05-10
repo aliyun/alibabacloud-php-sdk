@@ -15,6 +15,8 @@ class travelerStandard extends Model
     public $carCitySet;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $userId;

@@ -16,6 +16,8 @@ class FlightSearchListRequest extends Model
     public $airlineCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example HGH
      *
      * @var string
@@ -44,6 +46,8 @@ class FlightSearchListRequest extends Model
     public $cabinClass;
 
     /**
+     * @description This parameter is required.
+     *
      * @example HGH
      *
      * @var string
@@ -58,6 +62,8 @@ class FlightSearchListRequest extends Model
     public $depCityName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2000-00-00 00:00:00
      *
      * @var string
@@ -100,6 +106,8 @@ class FlightSearchListRequest extends Model
     public $transferLeaveDate;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0
      *
      * @var string

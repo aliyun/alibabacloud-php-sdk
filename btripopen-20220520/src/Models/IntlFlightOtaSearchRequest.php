@@ -23,6 +23,8 @@ class IntlFlightOtaSearchRequest extends Model
     public $buyerName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0
      *
      * @var int
@@ -56,6 +58,8 @@ class IntlFlightOtaSearchRequest extends Model
     public $needShareFlight;
 
     /**
+     * @description This parameter is required.
+     *
      * @var searchJourneys[]
      */
     public $searchJourneys;
@@ -73,6 +77,8 @@ class IntlFlightOtaSearchRequest extends Model
     public $supplierCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int

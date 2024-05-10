@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class bookTrainInfos extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example BDC
      *
      * @var string
@@ -17,6 +19,8 @@ class bookTrainInfos extends Model
     public $arrStationCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @var bookTicketInfos[]
      */
     public $bookTicketInfos;
@@ -36,6 +40,8 @@ class bookTrainInfos extends Model
     public $chooseSeats;
 
     /**
+     * @description This parameter is required.
+     *
      * @example BTC
      *
      * @var string
@@ -43,6 +49,8 @@ class bookTrainInfos extends Model
     public $depStationCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2024-05-06 15:19:01
      *
      * @var string
@@ -50,6 +58,8 @@ class bookTrainInfos extends Model
     public $depTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example K123456
      *
      * @var string

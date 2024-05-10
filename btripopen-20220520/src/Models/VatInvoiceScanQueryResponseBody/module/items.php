@@ -211,6 +211,11 @@ class items extends Model
      * @var string
      */
     public $totalAmountInWords;
+
+    /**
+     * @var string
+     */
+    public $xmlOssUrl;
     protected $_name = [
         'amountWithTax'            => 'amount_with_tax',
         'amountWithoutTax'         => 'amount_without_tax',
@@ -245,6 +250,7 @@ class items extends Model
         'taxAmount'                => 'tax_amount',
         'taxRate'                  => 'tax_rate',
         'totalAmountInWords'       => 'total_amount_in_words',
+        'xmlOssUrl'                => 'xml_oss_url',
     ];
 
     public function validate()
@@ -358,6 +364,9 @@ class items extends Model
         }
         if (null !== $this->totalAmountInWords) {
             $res['total_amount_in_words'] = $this->totalAmountInWords;
+        }
+        if (null !== $this->xmlOssUrl) {
+            $res['xml_oss_url'] = $this->xmlOssUrl;
         }
 
         return $res;
@@ -475,6 +484,9 @@ class items extends Model
         }
         if (isset($map['total_amount_in_words'])) {
             $model->totalAmountInWords = $map['total_amount_in_words'];
+        }
+        if (isset($map['xml_oss_url'])) {
+            $model->xmlOssUrl = $map['xml_oss_url'];
         }
 
         return $model;

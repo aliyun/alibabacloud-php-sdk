@@ -20,11 +20,15 @@ class TrainOrderCreateRequest extends Model
     public $acceptNoSeat;
 
     /**
+     * @description This parameter is required.
+     *
      * @var bookTrainInfos[]
      */
     public $bookTrainInfos;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 12344321
      *
      * @var string
@@ -32,6 +36,8 @@ class TrainOrderCreateRequest extends Model
     public $btripUserId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $btripUserName;
@@ -42,6 +48,8 @@ class TrainOrderCreateRequest extends Model
     public $businessInfo;
 
     /**
+     * @description This parameter is required.
+     *
      * @var contactInfo
      */
     public $contactInfo;
@@ -61,6 +69,8 @@ class TrainOrderCreateRequest extends Model
     public $isPayNow;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123456
      *
      * @var string
@@ -68,6 +78,8 @@ class TrainOrderCreateRequest extends Model
     public $outOrderId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var passengerOpenInfoS[]
      */
     public $passengerOpenInfoS;

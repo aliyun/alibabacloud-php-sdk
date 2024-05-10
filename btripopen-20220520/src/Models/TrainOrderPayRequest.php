@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class TrainOrderPayRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1379598062646
      *
      * @var string
@@ -16,6 +18,8 @@ class TrainOrderPayRequest extends Model
     public $orderId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123456
      *
      * @var string
@@ -23,6 +27,8 @@ class TrainOrderPayRequest extends Model
     public $outOrderId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 100
      *
      * @var int

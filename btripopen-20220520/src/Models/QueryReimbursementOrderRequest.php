@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryReimbursementOrderRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example RT204396
      *
      * @var string

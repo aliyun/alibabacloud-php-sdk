@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class HotelOrderPreValidateRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 23141
      *
      * @var string
@@ -18,6 +20,8 @@ class HotelOrderPreValidateRequest extends Model
     public $btripUserId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2022-05-15
      *
      * @var string
@@ -25,6 +29,8 @@ class HotelOrderPreValidateRequest extends Model
     public $checkIn;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2022-05-15
      *
      * @var string
@@ -32,11 +38,15 @@ class HotelOrderPreValidateRequest extends Model
     public $checkOut;
 
     /**
+     * @description This parameter is required.
+     *
      * @var dailyList[]
      */
     public $dailyList;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 612673015638
      *
      * @var int
@@ -56,6 +66,8 @@ class HotelOrderPreValidateRequest extends Model
     public $occupantInfoList;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 239872781
      *
      * @var int
@@ -63,6 +75,8 @@ class HotelOrderPreValidateRequest extends Model
     public $ratePlanId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 71652158
      *
      * @var int
@@ -70,6 +84,8 @@ class HotelOrderPreValidateRequest extends Model
     public $roomId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -77,6 +93,8 @@ class HotelOrderPreValidateRequest extends Model
     public $roomNum;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1000
      *
      * @var int
@@ -84,6 +102,8 @@ class HotelOrderPreValidateRequest extends Model
     public $searchRoomPrice;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2088441675613762
      *
      * @var int
@@ -91,6 +111,8 @@ class HotelOrderPreValidateRequest extends Model
     public $sellerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 52302073
      *
      * @var int

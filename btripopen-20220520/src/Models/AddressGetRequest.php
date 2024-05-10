@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddressGetRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -92,6 +94,8 @@ class AddressGetRequest extends Model
     public $useBookingProxy;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $userId;

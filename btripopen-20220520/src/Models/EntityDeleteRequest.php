@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class EntityDeleteRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example true
      *
      * @var bool
@@ -22,6 +24,8 @@ class EntityDeleteRequest extends Model
     public $entityDOList;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 12345
      *
      * @var string

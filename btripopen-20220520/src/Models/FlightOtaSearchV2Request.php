@@ -22,6 +22,8 @@ class FlightOtaSearchV2Request extends Model
     public $directOnly;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cheshi
      *
      * @var string
@@ -36,11 +38,15 @@ class FlightOtaSearchV2Request extends Model
     public $needShareFlight;
 
     /**
+     * @description This parameter is required.
+     *
      * @var searchJourneys[]
      */
     public $searchJourneys;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0
      *
      * @var int
@@ -48,6 +54,8 @@ class FlightOtaSearchV2Request extends Model
     public $searchMode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int

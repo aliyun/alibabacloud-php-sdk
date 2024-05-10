@@ -11,6 +11,8 @@ class TravelStandardListQueryHeaders extends Model
     public $commonHeaders;
 
     /**
+     * @description This parameter is required.
+     *
      * @example feth00jqwls
      *
      * @var string

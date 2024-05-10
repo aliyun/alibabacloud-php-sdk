@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class TrainBillSettlementQueryRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class TrainBillSettlementQueryRequest extends Model
     public $pageNo;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 20
      *
      * @var int
@@ -23,6 +27,8 @@ class TrainBillSettlementQueryRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2021-10-02
      *
      * @var string
@@ -30,6 +36,8 @@ class TrainBillSettlementQueryRequest extends Model
     public $periodEnd;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2021-10-01
      *
      * @var string

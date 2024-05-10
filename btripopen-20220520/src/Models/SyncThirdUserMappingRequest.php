@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SyncThirdUserMappingRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +18,8 @@ class SyncThirdUserMappingRequest extends Model
     public $status;
 
     /**
+     * @description This parameter is required.
+     *
      * @example weCom
      *
      * @var string
@@ -23,6 +27,8 @@ class SyncThirdUserMappingRequest extends Model
     public $thirdChannelType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123
      *
      * @var string
@@ -30,6 +36,8 @@ class SyncThirdUserMappingRequest extends Model
     public $thirdUserId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123
      *
      * @var string

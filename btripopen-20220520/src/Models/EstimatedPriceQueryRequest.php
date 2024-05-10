@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class EstimatedPriceQueryRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $arrCity;
 
     /**
+     * @description This parameter is required.
+     *
      * @example flight
      *
      * @var string
@@ -21,11 +25,15 @@ class EstimatedPriceQueryRequest extends Model
     public $category;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $depCity;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1670601600000
      *
      * @var int
@@ -40,6 +48,8 @@ class EstimatedPriceQueryRequest extends Model
     public $itineraryId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1670428800000
      *
      * @var int
@@ -54,6 +64,8 @@ class EstimatedPriceQueryRequest extends Model
     public $subCorpId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 12345678910
      *
      * @var string

@@ -70,11 +70,15 @@ class occupantInfoList extends Model
     public $lastName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 18277123451
      *
      * @var string

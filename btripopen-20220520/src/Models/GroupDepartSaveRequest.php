@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GroupDepartSaveRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $deptName;
@@ -19,6 +21,8 @@ class GroupDepartSaveRequest extends Model
     public $managerIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 001
      *
      * @var string
@@ -33,6 +37,8 @@ class GroupDepartSaveRequest extends Model
     public $outerDeptPid;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0
      *
      * @var int

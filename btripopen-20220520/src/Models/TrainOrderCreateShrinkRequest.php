@@ -16,11 +16,15 @@ class TrainOrderCreateShrinkRequest extends Model
     public $acceptNoSeat;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $bookTrainInfosShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 12344321
      *
      * @var string
@@ -28,6 +32,8 @@ class TrainOrderCreateShrinkRequest extends Model
     public $btripUserId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $btripUserName;
@@ -38,6 +44,8 @@ class TrainOrderCreateShrinkRequest extends Model
     public $businessInfoShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $contactInfoShrink;
@@ -57,6 +65,8 @@ class TrainOrderCreateShrinkRequest extends Model
     public $isPayNow;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123456
      *
      * @var string
@@ -64,6 +74,8 @@ class TrainOrderCreateShrinkRequest extends Model
     public $outOrderId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $passengerOpenInfoSShrink;

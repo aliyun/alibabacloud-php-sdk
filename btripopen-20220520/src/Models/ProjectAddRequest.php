@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ProjectAddRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example pro_code
      *
      * @var string
@@ -16,6 +18,8 @@ class ProjectAddRequest extends Model
     public $code;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $projectName;
@@ -28,6 +32,8 @@ class ProjectAddRequest extends Model
     public $thirdPartCostCenterId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var string

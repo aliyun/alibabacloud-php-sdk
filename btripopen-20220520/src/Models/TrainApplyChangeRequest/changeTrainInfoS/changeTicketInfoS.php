@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class changeTicketInfoS extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var passengerInfo
      */
     public $passengerInfo;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 14
      *
      * @var string
@@ -22,6 +26,8 @@ class changeTicketInfoS extends Model
     public $seatType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 100
      *
      * @var string
@@ -29,6 +35,8 @@ class changeTicketInfoS extends Model
     public $ticketPrice;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0
      *
      * @var string

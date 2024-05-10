@@ -16,6 +16,8 @@ class certInfo extends Model
     public $certNation;
 
     /**
+     * @description This parameter is required.
+     *
      * @example H123456
      *
      * @var string
@@ -23,6 +25,8 @@ class certInfo extends Model
     public $certNo;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +41,8 @@ class certInfo extends Model
     public $certValidDate;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ZHANG/SAN
      *
      * @var string

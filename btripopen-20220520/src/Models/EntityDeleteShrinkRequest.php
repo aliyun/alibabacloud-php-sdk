@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class EntityDeleteShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example true
      *
      * @var bool
@@ -21,6 +23,8 @@ class EntityDeleteShrinkRequest extends Model
     public $entityDOListShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 12345
      *
      * @var string

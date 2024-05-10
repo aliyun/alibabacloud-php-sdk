@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class TicketChangingEnquiryRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example BJS
      *
      * @var string
@@ -16,6 +18,8 @@ class TicketChangingEnquiryRequest extends Model
     public $arrCity;
 
     /**
+     * @description This parameter is required.
+     *
      * @example HGH
      *
      * @var string
@@ -23,6 +27,8 @@ class TicketChangingEnquiryRequest extends Model
     public $depCity;
 
     /**
+     * @description This parameter is required.
+     *
      * @example dis123
      *
      * @var string
@@ -30,6 +36,8 @@ class TicketChangingEnquiryRequest extends Model
     public $disOrderId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +45,8 @@ class TicketChangingEnquiryRequest extends Model
     public $isVoluntary;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2000-00-00 00:00:00
      *
      * @var string
@@ -44,6 +54,8 @@ class TicketChangingEnquiryRequest extends Model
     public $modifyDepartDate;
 
     /**
+     * @description This parameter is required.
+     *
      * @example CA1704
      *
      * @var string
@@ -51,6 +63,8 @@ class TicketChangingEnquiryRequest extends Model
     public $modifyFlightNo;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ece19e8b1047898a5a98b6487348c2
      *
      * @var string

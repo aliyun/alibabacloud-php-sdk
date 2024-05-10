@@ -21,6 +21,8 @@ class travelerInfoList extends Model
     public $certNation;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1262651555151
      *
      * @var string
@@ -28,6 +30,8 @@ class travelerInfoList extends Model
     public $certNo;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -42,6 +46,8 @@ class travelerInfoList extends Model
     public $certValidDate;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $name;
@@ -65,6 +71,8 @@ class travelerInfoList extends Model
     public $nationalityCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1234
      *
      * @var string
@@ -72,6 +80,8 @@ class travelerInfoList extends Model
     public $outUserId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 12341231232
      *
      * @var string
@@ -86,6 +96,8 @@ class travelerInfoList extends Model
     public $sex;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var string

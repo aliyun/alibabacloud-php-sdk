@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class InsureOrderCreateShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $applicantShrink;
@@ -26,11 +28,15 @@ class InsureOrderCreateShrinkRequest extends Model
     public $buyerName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $insPersonAndSegmentListShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example PostalSavingsBank
      *
      * @var string
@@ -45,6 +51,8 @@ class InsureOrderCreateShrinkRequest extends Model
     public $outInsOrderId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 202310101026030
      *
      * @var string

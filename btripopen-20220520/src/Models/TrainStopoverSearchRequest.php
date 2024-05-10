@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class TrainStopoverSearchRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $arrStation;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $depStation;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2024-05-08
      *
      * @var string
@@ -26,6 +32,8 @@ class TrainStopoverSearchRequest extends Model
     public $trainDate;
 
     /**
+     * @description This parameter is required.
+     *
      * @example k2345
      *
      * @var string

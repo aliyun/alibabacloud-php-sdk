@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class searchPassengerList extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 13412341234
      *
      * @var string
@@ -16,6 +18,8 @@ class searchPassengerList extends Model
     public $certNo;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0
      *
      * @var int
@@ -23,6 +27,8 @@ class searchPassengerList extends Model
     public $certType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ZHANGSAN
      *
      * @var string
@@ -30,6 +36,8 @@ class searchPassengerList extends Model
     public $fullName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0
      *
      * @var int

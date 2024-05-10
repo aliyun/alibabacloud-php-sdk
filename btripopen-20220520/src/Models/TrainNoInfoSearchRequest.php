@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class TrainNoInfoSearchRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $arrLocation;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2023-08-15
      *
      * @var string
@@ -21,6 +25,8 @@ class TrainNoInfoSearchRequest extends Model
     public $depDate;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $depLocation;

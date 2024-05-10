@@ -31,6 +31,8 @@ class IntlFlightInventoryPriceCheckRequest extends Model
     public $orderPrice;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 22111acaf9ea47c09ed0db6abc45be2d_0
      *
      * @var string
@@ -38,6 +40,8 @@ class IntlFlightInventoryPriceCheckRequest extends Model
     public $otaItemId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var passengerList[]
      */
     public $passengerList;

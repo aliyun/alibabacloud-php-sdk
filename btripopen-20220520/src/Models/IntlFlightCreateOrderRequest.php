@@ -19,6 +19,8 @@ class IntlFlightCreateOrderRequest extends Model
     public $asyncCreateOrderKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example false
      *
      * @var bool

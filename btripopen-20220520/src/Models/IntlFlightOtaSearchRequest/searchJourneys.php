@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class searchJourneys extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ZQZ
      *
      * @var string
@@ -17,6 +19,8 @@ class searchJourneys extends Model
     public $arrCityCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example HGH
      *
      * @var string
@@ -24,6 +28,8 @@ class searchJourneys extends Model
     public $depCityCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2023-08-15
      *
      * @var string
@@ -31,6 +37,8 @@ class searchJourneys extends Model
     public $depDate;
 
     /**
+     * @description This parameter is required.
+     *
      * @var selectedFlights[]
      */
     public $selectedFlights;

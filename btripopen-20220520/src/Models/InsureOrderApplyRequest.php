@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class InsureOrderApplyRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 100000102
      *
      * @var string
@@ -21,6 +23,8 @@ class InsureOrderApplyRequest extends Model
     public $buyerName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1000003000000490
      *
      * @var string

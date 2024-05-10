@@ -16,6 +16,8 @@ class IeHotelBillSettlementQueryRequest extends Model
     public $category;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +32,8 @@ class IeHotelBillSettlementQueryRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2021-10-02
      *
      * @var string
@@ -37,6 +41,8 @@ class IeHotelBillSettlementQueryRequest extends Model
     public $periodEnd;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2021-10-01
      *
      * @var string

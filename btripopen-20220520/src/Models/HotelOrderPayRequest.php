@@ -11,6 +11,7 @@ class HotelOrderPayRequest extends Model
     /**
      * @description 供应商订单号（取自创单返回的订单号）
      *
+     * This parameter is required.
      * @example 1002202194207077022
      *
      * @var int
@@ -18,6 +19,8 @@ class HotelOrderPayRequest extends Model
     public $btripOrderId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 23918781
      *
      * @var string
@@ -25,6 +28,8 @@ class HotelOrderPayRequest extends Model
     public $btripUserId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 100
      *
      * @var int
@@ -32,6 +37,8 @@ class HotelOrderPayRequest extends Model
     public $companyPayFee;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 100
      *
      * @var int
@@ -53,6 +60,8 @@ class HotelOrderPayRequest extends Model
     public $thirdTradeNo;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 100
      *
      * @var int

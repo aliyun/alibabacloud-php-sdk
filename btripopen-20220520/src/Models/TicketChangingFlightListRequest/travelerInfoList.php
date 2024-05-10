@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class travelerInfoList extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example BJS
      *
      * @var string
@@ -16,6 +18,8 @@ class travelerInfoList extends Model
     public $arrCity;
 
     /**
+     * @description This parameter is required.
+     *
      * @example HGH
      *
      * @var string
@@ -35,6 +39,8 @@ class travelerInfoList extends Model
     public $type;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 23231
      *
      * @var string

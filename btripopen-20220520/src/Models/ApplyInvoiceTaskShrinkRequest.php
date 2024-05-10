@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ApplyInvoiceTaskShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 2022-12-01
      *
      * @var string
@@ -16,6 +18,8 @@ class ApplyInvoiceTaskShrinkRequest extends Model
     public $billDate;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $invoiceTaskListShrink;

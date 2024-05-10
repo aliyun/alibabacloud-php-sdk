@@ -14,6 +14,8 @@ class EntityAddShrinkRequest extends Model
     public $entityDOListShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 340049
      *
      * @var string

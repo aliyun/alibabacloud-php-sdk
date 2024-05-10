@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CarApplyAddShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $cause;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $city;
@@ -24,6 +28,8 @@ class CarApplyAddShrinkRequest extends Model
     public $cityCodeSet;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2022-07-12 14:52:52
      *
      * @var string
@@ -50,6 +56,8 @@ class CarApplyAddShrinkRequest extends Model
     public $projectName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0
      *
      * @var int
@@ -57,6 +65,8 @@ class CarApplyAddShrinkRequest extends Model
     public $status;
 
     /**
+     * @description This parameter is required.
+     *
      * @example IRGS1413
      *
      * @var string
@@ -78,6 +88,8 @@ class CarApplyAddShrinkRequest extends Model
     public $thirdPartInvoiceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -85,6 +97,8 @@ class CarApplyAddShrinkRequest extends Model
     public $timesTotal;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -92,6 +106,8 @@ class CarApplyAddShrinkRequest extends Model
     public $timesType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -99,6 +115,8 @@ class CarApplyAddShrinkRequest extends Model
     public $timesUsed;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $title;
@@ -109,6 +127,8 @@ class CarApplyAddShrinkRequest extends Model
     public $travelerStandardShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example OPEN1415614
      *
      * @var string

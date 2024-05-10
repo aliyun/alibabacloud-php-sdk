@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class refundTrainInfos extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 2024-05-06 15:19:01
      *
      * @var string
@@ -17,11 +19,15 @@ class refundTrainInfos extends Model
     public $depTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @var refundPassengerInfos[]
      */
     public $refundPassengerInfos;
 
     /**
+     * @description This parameter is required.
+     *
      * @example K234
      *
      * @var string

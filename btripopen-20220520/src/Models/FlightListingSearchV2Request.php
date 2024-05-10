@@ -29,6 +29,8 @@ class FlightListingSearchV2Request extends Model
     public $directOnly;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cheshi
      *
      * @var string
@@ -64,11 +66,15 @@ class FlightListingSearchV2Request extends Model
     public $needYCBestPrice;
 
     /**
+     * @description This parameter is required.
+     *
      * @var searchJourneys[]
      */
     public $searchJourneys;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0
      *
      * @var int
@@ -76,6 +82,8 @@ class FlightListingSearchV2Request extends Model
     public $searchMode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int

@@ -15,6 +15,8 @@ class EntitySetRequest extends Model
     public $entityDOList;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 340049
      *
      * @var string

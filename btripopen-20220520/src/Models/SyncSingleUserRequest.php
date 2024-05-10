@@ -66,6 +66,8 @@ class SyncSingleUserRequest extends Model
     public $thirdDepartIdList;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 573263
      *
      * @var string
@@ -73,6 +75,8 @@ class SyncSingleUserRequest extends Model
     public $userId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $userName;

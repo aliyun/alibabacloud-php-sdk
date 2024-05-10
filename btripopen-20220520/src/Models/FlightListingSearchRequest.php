@@ -16,6 +16,8 @@ class FlightListingSearchRequest extends Model
     public $airlineCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example HGH
      *
      * @var string
@@ -30,6 +32,8 @@ class FlightListingSearchRequest extends Model
     public $cabinClass;
 
     /**
+     * @description This parameter is required.
+     *
      * @example BJS
      *
      * @var string
@@ -37,6 +41,8 @@ class FlightListingSearchRequest extends Model
     public $depCityCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2023-02-26
      *
      * @var string

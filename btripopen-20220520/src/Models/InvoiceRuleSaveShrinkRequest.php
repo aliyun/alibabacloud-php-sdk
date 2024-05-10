@@ -26,6 +26,8 @@ class InvoiceRuleSaveShrinkRequest extends Model
     public $scope;
 
     /**
+     * @description This parameter is required.
+     *
      * @example i123
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ApplyInvoiceTaskRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 2022-12-01
      *
      * @var string
@@ -17,6 +19,8 @@ class ApplyInvoiceTaskRequest extends Model
     public $billDate;
 
     /**
+     * @description This parameter is required.
+     *
      * @var invoiceTaskList[]
      */
     public $invoiceTaskList;

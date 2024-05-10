@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class HotelOrderCreateRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 123122
      *
      * @var string
@@ -19,6 +21,8 @@ class HotelOrderCreateRequest extends Model
     public $btripUserId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2020-10-20
      *
      * @var string
@@ -26,6 +30,8 @@ class HotelOrderCreateRequest extends Model
     public $checkIn;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2020-10-20
      *
      * @var string
@@ -45,6 +51,8 @@ class HotelOrderCreateRequest extends Model
     public $contractName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 19281772123
      *
      * @var string
@@ -52,6 +60,8 @@ class HotelOrderCreateRequest extends Model
     public $contractPhone;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 100
      *
      * @var int
@@ -59,6 +69,8 @@ class HotelOrderCreateRequest extends Model
     public $corpPayPrice;
 
     /**
+     * @description This parameter is required.
+     *
      * @example dis123
      *
      * @var string
@@ -76,6 +88,8 @@ class HotelOrderCreateRequest extends Model
     public $invoiceInfo;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 671570615157
      *
      * @var int
@@ -83,6 +97,8 @@ class HotelOrderCreateRequest extends Model
     public $itemId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example fb5e1abf33924b6c912bd6d80deec0eb-1
      *
      * @var string
@@ -90,11 +106,15 @@ class HotelOrderCreateRequest extends Model
     public $itineraryNo;
 
     /**
+     * @description This parameter is required.
+     *
      * @var occupantInfoList[]
      */
     public $occupantInfoList;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1000
      *
      * @var int
@@ -107,6 +127,8 @@ class HotelOrderCreateRequest extends Model
     public $promotionInfo;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1399417428510
      *
      * @var int
@@ -114,6 +136,8 @@ class HotelOrderCreateRequest extends Model
     public $ratePlanId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 187211
      *
      * @var int
@@ -121,6 +145,8 @@ class HotelOrderCreateRequest extends Model
     public $roomId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -128,6 +154,8 @@ class HotelOrderCreateRequest extends Model
     public $roomNum;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2088441675613762
      *
      * @var int
@@ -135,6 +163,8 @@ class HotelOrderCreateRequest extends Model
     public $sellerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2198781
      *
      * @var int
@@ -142,6 +172,8 @@ class HotelOrderCreateRequest extends Model
     public $shid;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 100
      *
      * @var int
@@ -149,6 +181,8 @@ class HotelOrderCreateRequest extends Model
     public $totalOrderPrice;
 
     /**
+     * @description This parameter is required.
+     *
      * @example nonUltron_1673575241156_d91ea8ad16735752359161037bf6cf_c54d3768312a4b249b719f126377bf82
      *
      * @var string

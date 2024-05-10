@@ -44,6 +44,8 @@ class selectedFlights extends Model
     public $flightTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example HO3925
      *
      * @var string

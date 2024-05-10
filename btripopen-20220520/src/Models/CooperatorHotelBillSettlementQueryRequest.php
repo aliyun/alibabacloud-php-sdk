@@ -16,6 +16,8 @@ class CooperatorHotelBillSettlementQueryRequest extends Model
     public $cooperatorId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +25,8 @@ class CooperatorHotelBillSettlementQueryRequest extends Model
     public $pageNo;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 100
      *
      * @var int
@@ -30,6 +34,8 @@ class CooperatorHotelBillSettlementQueryRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2021-10-02
      *
      * @var string

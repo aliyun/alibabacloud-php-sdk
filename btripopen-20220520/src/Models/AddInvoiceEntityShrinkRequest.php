@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class AddInvoiceEntityShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $entitiesShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 4854821
      *
      * @var string

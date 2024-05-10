@@ -19,6 +19,8 @@ class subCorpIdList extends Model
     public $email;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0
      *
      * @var int
@@ -40,6 +42,8 @@ class subCorpIdList extends Model
     public $positionLevel;
 
     /**
+     * @description This parameter is required.
+     *
      * @example btrip123
      *
      * @var string

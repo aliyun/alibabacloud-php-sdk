@@ -134,6 +134,8 @@ class ApplyAddShrinkRequest extends Model
     public $subCorpId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 12345
      *
      * @var string
@@ -177,6 +179,8 @@ class ApplyAddShrinkRequest extends Model
     public $travelerStandardShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $tripCause;
@@ -189,6 +193,8 @@ class ApplyAddShrinkRequest extends Model
     public $tripDay;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $tripTitle;
@@ -208,6 +214,8 @@ class ApplyAddShrinkRequest extends Model
     public $unionNo;
 
     /**
+     * @description This parameter is required.
+     *
      * @example thridpart12138
      *
      * @var string

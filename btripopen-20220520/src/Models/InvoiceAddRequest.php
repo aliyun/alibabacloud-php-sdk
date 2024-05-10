@@ -42,6 +42,8 @@ class InvoiceAddRequest extends Model
     public $tel;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 340049
      *
      * @var string
@@ -49,11 +51,15 @@ class InvoiceAddRequest extends Model
     public $thirdPartId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int

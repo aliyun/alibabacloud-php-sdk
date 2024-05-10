@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class MonthBillConfirmRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 20221001
      *
      * @var int

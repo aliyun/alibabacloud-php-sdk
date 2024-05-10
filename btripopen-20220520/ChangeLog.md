@@ -1,3 +1,7 @@
+2024-05-10 Version: 2.7.1
+- Update API VatInvoiceScanQuery: update response param.
+
+
 2024-05-09 Version: 2.7.0
 - Support API TrainApplyChange.
 - Support API TrainApplyRefund.

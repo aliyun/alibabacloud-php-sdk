@@ -23,7 +23,7 @@ class CommonApplySyncResponseBody extends Model
     /**
      * @description module。
      *
-     * @example {\"list\": [], \"pageSize\": 20, \"pageNo\": 1}
+     * @example {\\"list\\": [], \\"pageSize\\": 20, \\"pageNo\\": 1}
      *
      * @var bool
      */

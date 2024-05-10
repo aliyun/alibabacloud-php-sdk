@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CommonApplyQueryRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1003366164
      *
      * @var int
@@ -16,6 +18,8 @@ class CommonApplyQueryRequest extends Model
     public $applyId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 3
      *
      * @var int

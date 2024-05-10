@@ -16,6 +16,8 @@ class ProjectModifyRequest extends Model
     public $code;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $projectName;
@@ -28,6 +30,8 @@ class ProjectModifyRequest extends Model
     public $thirdPartCostCenterId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 340049
      *
      * @var string

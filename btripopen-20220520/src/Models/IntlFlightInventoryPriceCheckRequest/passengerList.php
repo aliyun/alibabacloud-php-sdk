@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class passengerList extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 2020-01-01
      *
      * @var string
@@ -30,6 +32,8 @@ class passengerList extends Model
     public $cascadeDeptName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var certInfo
      */
     public $certInfo;
@@ -104,6 +108,8 @@ class passengerList extends Model
     public $nationalityCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0
      *
      * @var int
@@ -111,6 +117,8 @@ class passengerList extends Model
     public $passengerType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 18012341234
      *
      * @var string
@@ -135,6 +143,8 @@ class passengerList extends Model
     public $subsidiaryCertInfoList;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10001
      *
      * @var string

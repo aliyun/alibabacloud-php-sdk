@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class TrainNoListSearchShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $arrLocation;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2024-05-16
      *
      * @var string
@@ -21,11 +25,15 @@ class TrainNoListSearchShrinkRequest extends Model
     public $depDate;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $depLocation;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $optionShrink;

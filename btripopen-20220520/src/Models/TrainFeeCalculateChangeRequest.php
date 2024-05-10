@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class TrainFeeCalculateChangeRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var changeTrainDetails[]
      */
     public $changeTrainDetails;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 12345
      *
      * @var string
@@ -22,6 +26,8 @@ class TrainFeeCalculateChangeRequest extends Model
     public $distributeOrderId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2627694109810885616
      *
      * @var string

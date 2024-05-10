@@ -23,6 +23,8 @@ class TicketChangingFlightListShrinkRequest extends Model
     public $depCity;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2000-00-00 00:00:00
      *
      * @var string
@@ -30,6 +32,8 @@ class TicketChangingFlightListShrinkRequest extends Model
     public $depDate;
 
     /**
+     * @description This parameter is required.
+     *
      * @example dis123
      *
      * @var string

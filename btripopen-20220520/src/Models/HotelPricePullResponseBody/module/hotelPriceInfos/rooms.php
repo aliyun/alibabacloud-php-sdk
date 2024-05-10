@@ -27,7 +27,7 @@ class rooms extends Model
     public $bedTypeString;
 
     /**
-     * @example {\"bathtub\":true}
+     * @example {\\"bathtub\\":true}
      *
      * @var string
      */

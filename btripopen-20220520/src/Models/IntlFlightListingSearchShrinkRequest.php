@@ -23,6 +23,8 @@ class IntlFlightListingSearchShrinkRequest extends Model
     public $buyerName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0
      *
      * @var int
@@ -37,6 +39,8 @@ class IntlFlightListingSearchShrinkRequest extends Model
     public $directOnly;
 
     /**
+     * @description This parameter is required.
+     *
      * @example TEST
      *
      * @var string
@@ -56,6 +60,8 @@ class IntlFlightListingSearchShrinkRequest extends Model
     public $needShareFlight;
 
     /**
+     * @description This parameter is required.
+     *
      * @example false
      *
      * @var bool
@@ -70,11 +76,15 @@ class IntlFlightListingSearchShrinkRequest extends Model
     public $queryRecordId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $searchJourneysShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0
      *
      * @var int
@@ -101,6 +111,8 @@ class IntlFlightListingSearchShrinkRequest extends Model
     public $token;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int

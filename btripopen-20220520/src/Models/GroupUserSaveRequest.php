@@ -52,11 +52,15 @@ class GroupUserSaveRequest extends Model
     public $realNameEn;
 
     /**
+     * @description This parameter is required.
+     *
      * @var subCorpIdList[]
      */
     public $subCorpIdList;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123
      *
      * @var string
@@ -64,6 +68,8 @@ class GroupUserSaveRequest extends Model
     public $userId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $userName;

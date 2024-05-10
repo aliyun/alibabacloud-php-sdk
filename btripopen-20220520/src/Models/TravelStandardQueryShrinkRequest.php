@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class TravelStandardQueryShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example false
      *
      * @var bool
@@ -16,6 +18,8 @@ class TravelStandardQueryShrinkRequest extends Model
     public $fromGroup;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2006523763
      *
      * @var int
@@ -23,6 +27,8 @@ class TravelStandardQueryShrinkRequest extends Model
     public $ruleCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $serviceTypeListShrink;

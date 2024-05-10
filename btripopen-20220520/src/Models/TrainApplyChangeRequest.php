@@ -17,6 +17,8 @@ class TrainApplyChangeRequest extends Model
     public $acceptNoSeat;
 
     /**
+     * @description This parameter is required.
+     *
      * @var changeTrainInfoS[]
      */
     public $changeTrainInfoS;
@@ -36,6 +38,8 @@ class TrainApplyChangeRequest extends Model
     public $isPayNow;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1017028198411054446
      *
      * @var string
@@ -43,6 +47,8 @@ class TrainApplyChangeRequest extends Model
     public $orderId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 12345
      *
      * @var string
@@ -50,6 +56,8 @@ class TrainApplyChangeRequest extends Model
     public $outChangeApplyId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123456
      *
      * @var string

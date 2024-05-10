@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ExceedApplySyncRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 823744
      *
      * @var int
@@ -28,6 +30,8 @@ class ExceedApplySyncRequest extends Model
     public $remark;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -42,6 +46,8 @@ class ExceedApplySyncRequest extends Model
     public $thirdpartyFlowId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example open5145141
      *
      * @var string

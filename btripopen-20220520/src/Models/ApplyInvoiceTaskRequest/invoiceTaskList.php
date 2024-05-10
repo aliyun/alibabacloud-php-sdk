@@ -59,6 +59,8 @@ class invoiceTaskList extends Model
     public $internationalHotelInvoiceFee;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123
      *
      * @var string

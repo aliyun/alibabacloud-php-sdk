@@ -21,6 +21,8 @@ class IntlFlightOtaSearchShrinkRequest extends Model
     public $buyerName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0
      *
      * @var int
@@ -54,6 +56,8 @@ class IntlFlightOtaSearchShrinkRequest extends Model
     public $needShareFlight;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $searchJourneysShrink;
@@ -71,6 +75,8 @@ class IntlFlightOtaSearchShrinkRequest extends Model
     public $supplierCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int

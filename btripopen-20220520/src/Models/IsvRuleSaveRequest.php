@@ -15,6 +15,8 @@ class IsvRuleSaveRequest extends Model
     public $applyNeed;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $bookType;
@@ -30,6 +32,8 @@ class IsvRuleSaveRequest extends Model
     public $ruleNeed;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +41,8 @@ class IsvRuleSaveRequest extends Model
     public $status;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123
      *
      * @var string

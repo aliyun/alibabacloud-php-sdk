@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class entities extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 12345
      *
      * @var string
@@ -16,11 +18,15 @@ class entities extends Model
     public $entityId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $entityName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var string

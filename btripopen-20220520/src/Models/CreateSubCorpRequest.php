@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateSubCorpRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example corp123
      *
      * @var string
@@ -16,11 +18,15 @@ class CreateSubCorpRequest extends Model
     public $outerCorpId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $outerCorpName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GroupCorpTokenRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ZzljczY5dnFjNDAwVlNofiwoWX5ZWCxlcjVTKnVoZS0
      *
      * @var string
@@ -16,6 +18,8 @@ class GroupCorpTokenRequest extends Model
     public $appSecret;
 
     /**
+     * @description This parameter is required.
+     *
      * @example open12g9sfbmm5i07v10wDzRSK9w00
      *
      * @var string
@@ -23,6 +27,8 @@ class GroupCorpTokenRequest extends Model
     public $corpId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example btripuyxmbg3cs286734u_mow6q
      *
      * @var string

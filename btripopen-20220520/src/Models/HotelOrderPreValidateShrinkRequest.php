@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class HotelOrderPreValidateShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 23141
      *
      * @var string
@@ -16,6 +18,8 @@ class HotelOrderPreValidateShrinkRequest extends Model
     public $btripUserId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2022-05-15
      *
      * @var string
@@ -23,6 +27,8 @@ class HotelOrderPreValidateShrinkRequest extends Model
     public $checkIn;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2022-05-15
      *
      * @var string
@@ -30,11 +36,15 @@ class HotelOrderPreValidateShrinkRequest extends Model
     public $checkOut;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $dailyListShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 612673015638
      *
      * @var int
@@ -54,6 +64,8 @@ class HotelOrderPreValidateShrinkRequest extends Model
     public $occupantInfoListShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 239872781
      *
      * @var int
@@ -61,6 +73,8 @@ class HotelOrderPreValidateShrinkRequest extends Model
     public $ratePlanId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 71652158
      *
      * @var int
@@ -68,6 +82,8 @@ class HotelOrderPreValidateShrinkRequest extends Model
     public $roomId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -75,6 +91,8 @@ class HotelOrderPreValidateShrinkRequest extends Model
     public $roomNum;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1000
      *
      * @var int
@@ -82,6 +100,8 @@ class HotelOrderPreValidateShrinkRequest extends Model
     public $searchRoomPrice;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2088441675613762
      *
      * @var int
@@ -89,6 +109,8 @@ class HotelOrderPreValidateShrinkRequest extends Model
     public $sellerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 52302073
      *
      * @var int

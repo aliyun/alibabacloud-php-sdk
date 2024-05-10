@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class TrainOrderQueryV2Request extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 12342123212
      *
      * @var int

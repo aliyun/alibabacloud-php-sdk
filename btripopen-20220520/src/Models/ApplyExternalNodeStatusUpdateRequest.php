@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ApplyExternalNodeStatusUpdateRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 123
      *
      * @var string
@@ -22,6 +24,8 @@ class ApplyExternalNodeStatusUpdateRequest extends Model
     public $operationRecords;
 
     /**
+     * @description This parameter is required.
+     *
      * @example PROCESS_AGREE
      *
      * @var string

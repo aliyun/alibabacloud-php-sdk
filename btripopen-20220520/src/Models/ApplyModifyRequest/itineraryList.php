@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class itineraryList extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $arrCity;
@@ -22,6 +24,8 @@ class itineraryList extends Model
     public $arrCityCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2022-07-12 00:00:00
      *
      * @var string
@@ -41,6 +45,8 @@ class itineraryList extends Model
     public $costCenterId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $depCity;
@@ -53,6 +59,8 @@ class itineraryList extends Model
     public $depCityCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2022-07-12 00:00:00
      *
      * @var string
@@ -67,6 +75,8 @@ class itineraryList extends Model
     public $invoiceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2000131
      *
      * @var string
@@ -119,6 +129,8 @@ class itineraryList extends Model
     public $thirdpartCostCenterId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0
      *
      * @var int
@@ -126,6 +138,8 @@ class itineraryList extends Model
     public $trafficType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0
      *
      * @var int

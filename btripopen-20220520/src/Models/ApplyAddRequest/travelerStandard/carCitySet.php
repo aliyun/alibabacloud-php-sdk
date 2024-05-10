@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class carCitySet extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $cityCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $cityName;

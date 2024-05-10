@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class FlightRefundPreCalRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example dis123
      *
      * @var string
@@ -24,6 +26,8 @@ class FlightRefundPreCalRequest extends Model
     public $isVoluntary;
 
     /**
+     * @description This parameter is required.
+     *
      * @var passengerSegmentInfoList[]
      */
     public $passengerSegmentInfoList;

@@ -22,6 +22,8 @@ class passengerOpenInfoS extends Model
     public $countryCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 291487e553c5abde3b611aae283e2526f0d733ab55094aadc0b5ba587222a233c
      *
      * @var string
@@ -29,6 +31,8 @@ class passengerOpenInfoS extends Model
     public $passengerCertNo;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 949c9f34f677a0e5d249dfc94f5e62cc7
      *
      * @var string
@@ -36,6 +40,8 @@ class passengerOpenInfoS extends Model
     public $passengerCertType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123456
      *
      * @var string
@@ -50,6 +56,8 @@ class passengerOpenInfoS extends Model
     public $passengerMobile;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 949c9f34f677a0e5d249dfc94f5e62cc7
      *
      * @var string

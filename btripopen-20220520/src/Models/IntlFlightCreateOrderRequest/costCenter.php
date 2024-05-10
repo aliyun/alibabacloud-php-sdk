@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class costCenter extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $costCenterName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 312434
      *
      * @var string

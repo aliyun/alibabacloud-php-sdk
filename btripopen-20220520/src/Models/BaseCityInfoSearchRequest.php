@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class BaseCityInfoSearchRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $keyword;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0
      *
      * @var string

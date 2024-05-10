@@ -16,6 +16,8 @@ class TicketChangingPayRequest extends Model
     public $corpPayPrice;
 
     /**
+     * @description This parameter is required.
+     *
      * @example dis123
      *
      * @var string
@@ -23,6 +25,8 @@ class TicketChangingPayRequest extends Model
     public $disOrderId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example refun123
      *
      * @var string
@@ -42,6 +46,8 @@ class TicketChangingPayRequest extends Model
     public $personalPayPrice;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 100
      *
      * @var int

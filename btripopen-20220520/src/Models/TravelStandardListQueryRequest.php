@@ -16,6 +16,8 @@ class TravelStandardListQueryRequest extends Model
     public $fromGroup;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +25,8 @@ class TravelStandardListQueryRequest extends Model
     public $pageNo;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int

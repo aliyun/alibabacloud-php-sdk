@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class TicketChangingApplyShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example dis1234
      *
      * @var string
@@ -16,6 +18,8 @@ class TicketChangingApplyShrinkRequest extends Model
     public $disOrderId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example mid1243
      *
      * @var string
@@ -28,11 +32,15 @@ class TicketChangingApplyShrinkRequest extends Model
     public $isVoluntary;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $modifyFlightInfoListShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1s8837sh991hsj92h
      *
      * @var string
@@ -45,6 +53,8 @@ class TicketChangingApplyShrinkRequest extends Model
     public $reason;
 
     /**
+     * @description This parameter is required.
+     *
      * @example us88s2bsbin22hjusd8i
      *
      * @var string

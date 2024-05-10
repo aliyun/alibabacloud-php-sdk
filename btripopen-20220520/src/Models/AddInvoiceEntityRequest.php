@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class AddInvoiceEntityRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var entities[]
      */
     public $entities;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 4854821
      *
      * @var string

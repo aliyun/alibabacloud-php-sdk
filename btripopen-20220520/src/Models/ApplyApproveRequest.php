@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ApplyApproveRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example sdfg
      *
      * @var string
@@ -21,6 +23,8 @@ class ApplyApproveRequest extends Model
     public $note;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2022-07-12 16:12:53
      *
      * @var string
@@ -28,6 +32,8 @@ class ApplyApproveRequest extends Model
     public $operateTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -42,6 +48,8 @@ class ApplyApproveRequest extends Model
     public $subCorpId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example thirdpart12138
      *
      * @var string

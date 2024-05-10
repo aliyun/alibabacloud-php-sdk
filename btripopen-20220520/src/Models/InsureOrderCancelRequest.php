@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class InsureOrderCancelRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 2000310301
      *
      * @var string

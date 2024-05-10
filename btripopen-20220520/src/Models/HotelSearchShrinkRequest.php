@@ -28,6 +28,8 @@ class HotelSearchShrinkRequest extends Model
     public $btripUserId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2023-02-22
      *
      * @var string
@@ -35,6 +37,8 @@ class HotelSearchShrinkRequest extends Model
     public $checkInDate;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2023-02-22
      *
      * @var string
@@ -110,6 +114,8 @@ class HotelSearchShrinkRequest extends Model
     public $minPrice;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -117,6 +123,8 @@ class HotelSearchShrinkRequest extends Model
     public $pageNo;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 20
      *
      * @var int
@@ -143,6 +151,8 @@ class HotelSearchShrinkRequest extends Model
     public $shidsShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0
      *
      * @var int

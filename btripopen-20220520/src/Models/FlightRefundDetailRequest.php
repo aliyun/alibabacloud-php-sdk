@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class FlightRefundDetailRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example dis123
      *
      * @var string
@@ -16,6 +18,8 @@ class FlightRefundDetailRequest extends Model
     public $disOrderId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example refun123
      *
      * @var string

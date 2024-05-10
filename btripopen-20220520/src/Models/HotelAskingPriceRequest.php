@@ -23,6 +23,8 @@ class HotelAskingPriceRequest extends Model
     public $btripUserId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2023-02-22 00:00:00
      *
      * @var string
@@ -30,6 +32,8 @@ class HotelAskingPriceRequest extends Model
     public $checkInDate;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2023-02-22 00:00:00
      *
      * @var string
@@ -77,6 +81,8 @@ class HotelAskingPriceRequest extends Model
     public $paymentType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int[]
      */
     public $shids;

@@ -23,6 +23,8 @@ class HotelGoodsQueryRequest extends Model
     public $agreementPrice;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2023-02-27
      *
      * @var string
@@ -37,6 +39,8 @@ class HotelGoodsQueryRequest extends Model
     public $breakfastIncluded;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 100
      *
      * @var string
@@ -51,6 +55,8 @@ class HotelGoodsQueryRequest extends Model
     public $cityCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2023-02-28
      *
      * @var string
@@ -58,6 +64,8 @@ class HotelGoodsQueryRequest extends Model
     public $endDate;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 182873
      *
      * @var string

@@ -18,6 +18,8 @@ class FlightCreateOrderRequest extends Model
     public $arrAirportCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example HGH
      *
      * @var string
@@ -37,6 +39,8 @@ class FlightCreateOrderRequest extends Model
     public $buyerName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123
      *
      * @var string
@@ -44,6 +48,8 @@ class FlightCreateOrderRequest extends Model
     public $buyerUniqueKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @var contactInfo
      */
     public $contactInfo;
@@ -56,6 +62,8 @@ class FlightCreateOrderRequest extends Model
     public $depAirportCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example BJS
      *
      * @var string
@@ -63,6 +71,8 @@ class FlightCreateOrderRequest extends Model
     public $depCityCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2000-00-00 00:00:00
      *
      * @var string
@@ -70,6 +80,8 @@ class FlightCreateOrderRequest extends Model
     public $depDate;
 
     /**
+     * @description This parameter is required.
+     *
      * @example dis123
      *
      * @var string
@@ -82,6 +94,8 @@ class FlightCreateOrderRequest extends Model
     public $orderAttr;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1000_1_0
      *
      * @var string
@@ -89,6 +103,8 @@ class FlightCreateOrderRequest extends Model
     public $orderParams;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 7fb731deeb4510b86c17e8c8c25740_11
      *
      * @var string
@@ -96,6 +112,8 @@ class FlightCreateOrderRequest extends Model
     public $otaItemId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1000
      *
      * @var int
@@ -120,11 +138,15 @@ class FlightCreateOrderRequest extends Model
     public $receiptTitle;
 
     /**
+     * @description This parameter is required.
+     *
      * @var travelerInfoList[]
      */
     public $travelerInfoList;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0
      *
      * @var int

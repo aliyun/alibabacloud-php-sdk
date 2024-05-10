@@ -16,6 +16,8 @@ class FlightOtaSearchRequest extends Model
     public $airlineCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example BJS
      *
      * @var string
@@ -37,6 +39,8 @@ class FlightOtaSearchRequest extends Model
     public $carrierFlightNo;
 
     /**
+     * @description This parameter is required.
+     *
      * @example HGH
      *
      * @var string
@@ -44,6 +48,8 @@ class FlightOtaSearchRequest extends Model
     public $depCityCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2023-08-15 19:30:00
      *
      * @var string
@@ -51,6 +57,8 @@ class FlightOtaSearchRequest extends Model
     public $depDate;
 
     /**
+     * @description This parameter is required.
+     *
      * @example CA2323
      *
      * @var string

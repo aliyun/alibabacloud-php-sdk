@@ -142,6 +142,8 @@ class ApplyAddRequest extends Model
     public $subCorpId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 12345
      *
      * @var string
@@ -185,6 +187,8 @@ class ApplyAddRequest extends Model
     public $travelerStandard;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $tripCause;
@@ -197,6 +201,8 @@ class ApplyAddRequest extends Model
     public $tripDay;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $tripTitle;
@@ -216,6 +222,8 @@ class ApplyAddRequest extends Model
     public $unionNo;
 
     /**
+     * @description This parameter is required.
+     *
      * @example thridpart12138
      *
      * @var string

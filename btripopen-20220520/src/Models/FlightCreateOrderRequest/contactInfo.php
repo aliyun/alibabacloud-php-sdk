@@ -16,11 +16,15 @@ class contactInfo extends Model
     public $contactEmail;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $contactName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 12312345211
      *
      * @var string

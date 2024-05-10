@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class FlightCancelOrderRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example dis123
      *
      * @var string

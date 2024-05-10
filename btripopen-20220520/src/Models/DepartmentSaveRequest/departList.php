@@ -16,6 +16,8 @@ class departList extends Model
     public $departId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $departName;

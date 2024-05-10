@@ -31,11 +31,15 @@ class FlightCreateOrderV2ShrinkRequest extends Model
     public $buyerName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $contactInfoShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cheshiapi
      *
      * @var string
@@ -43,6 +47,8 @@ class FlightCreateOrderV2ShrinkRequest extends Model
     public $isvName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 7fb731deeb4510b86c17e8c8c25740_11
      *
      * @var string
@@ -50,6 +56,8 @@ class FlightCreateOrderV2ShrinkRequest extends Model
     public $otaItemId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $outOrderId;
@@ -60,6 +68,8 @@ class FlightCreateOrderV2ShrinkRequest extends Model
     public $totalPriceCent;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $travelersShrink;

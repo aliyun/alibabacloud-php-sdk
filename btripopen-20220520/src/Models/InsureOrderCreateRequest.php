@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class InsureOrderCreateRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var applicant
      */
     public $applicant;
@@ -28,11 +30,15 @@ class InsureOrderCreateRequest extends Model
     public $buyerName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var insPersonAndSegmentList[]
      */
     public $insPersonAndSegmentList;
 
     /**
+     * @description This parameter is required.
+     *
      * @example PostalSavingsBank
      *
      * @var string
@@ -47,6 +53,8 @@ class InsureOrderCreateRequest extends Model
     public $outInsOrderId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 202310101026030
      *
      * @var string

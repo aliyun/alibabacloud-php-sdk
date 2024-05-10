@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class TrainApplyRefundRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1002145190081005400
      *
      * @var string
@@ -17,6 +19,8 @@ class TrainApplyRefundRequest extends Model
     public $orderId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123456
      *
      * @var string
@@ -24,6 +28,8 @@ class TrainApplyRefundRequest extends Model
     public $outOrderId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123456778
      *
      * @var string
@@ -31,6 +37,8 @@ class TrainApplyRefundRequest extends Model
     public $outRefundId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var refundTrainInfos[]
      */
     public $refundTrainInfos;

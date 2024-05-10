@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class modifyFlightInfoList extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example BJS
      *
      * @var string
@@ -24,6 +26,8 @@ class modifyFlightInfoList extends Model
     public $cabin;
 
     /**
+     * @description This parameter is required.
+     *
      * @example HGH
      *
      * @var string
@@ -31,6 +35,8 @@ class modifyFlightInfoList extends Model
     public $depCity;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0000-00-00 00:00:00
      *
      * @var string
@@ -38,6 +44,8 @@ class modifyFlightInfoList extends Model
     public $depDate;
 
     /**
+     * @description This parameter is required.
+     *
      * @example CA1704
      *
      * @var string
@@ -45,6 +53,8 @@ class modifyFlightInfoList extends Model
     public $flightNo;
 
     /**
+     * @description This parameter is required.
+     *
      * @var passengerInfoList[]
      */
     public $passengerInfoList;

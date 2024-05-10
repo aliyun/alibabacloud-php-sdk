@@ -16,6 +16,8 @@ class CorpTokenRequest extends Model
     public $appSecret;
 
     /**
+     * @description This parameter is required.
+     *
      * @example open324dfsdafsgcxvxv
      *
      * @var string
@@ -23,6 +25,8 @@ class CorpTokenRequest extends Model
     public $corpId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0
      *
      * @var int

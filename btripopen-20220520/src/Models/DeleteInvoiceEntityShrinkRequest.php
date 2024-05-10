@@ -21,6 +21,8 @@ class DeleteInvoiceEntityShrinkRequest extends Model
     public $entitiesShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 340049
      *
      * @var string

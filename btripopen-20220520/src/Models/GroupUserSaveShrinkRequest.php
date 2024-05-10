@@ -50,11 +50,15 @@ class GroupUserSaveShrinkRequest extends Model
     public $realNameEn;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $subCorpIdListShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123
      *
      * @var string
@@ -62,6 +66,8 @@ class GroupUserSaveShrinkRequest extends Model
     public $userId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $userName;
