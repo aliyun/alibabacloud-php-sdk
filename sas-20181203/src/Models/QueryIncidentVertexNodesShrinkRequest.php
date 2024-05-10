@@ -36,7 +36,7 @@ class QueryIncidentVertexNodesShrinkRequest extends Model
     /**
      * @description The ID of the node that you want to query.
      *
-     * >  You can call the [QueryIncidentTracingDetail](~~QueryIncidentTracingDetail~~) operation to query the node ID.
+     * This parameter is required.
      * @example d6d7738a34cc252219866d223c0093f8
      *
      * @var string
@@ -52,6 +52,7 @@ class QueryIncidentVertexNodesShrinkRequest extends Model
      *   **ip**
      *   **domain**
      *
+     * This parameter is required.
      * @example process
      *
      * @var string

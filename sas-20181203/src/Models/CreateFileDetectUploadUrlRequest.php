@@ -36,6 +36,8 @@ class CreateFileDetectUploadUrlRequest extends Model
      *   **4**: script file
      *
      * > If you do not know the type of the file, set this parameter to **0**.
+     *
+     * This parameter is required.
      * @example 0
      *
      * @var int

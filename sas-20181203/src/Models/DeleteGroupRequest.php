@@ -11,7 +11,7 @@ class DeleteGroupRequest extends Model
     /**
      * @description The ID of the server group that you want to delete.
      *
-     * >  To delete a server group, you must provide the ID of the server group. You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query the ID.
+     * This parameter is required.
      * @example 9454789
      *
      * @var int

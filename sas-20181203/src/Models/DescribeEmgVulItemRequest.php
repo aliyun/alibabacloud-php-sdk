@@ -51,7 +51,7 @@ class DescribeEmgVulItemRequest extends Model
     public $pageSize;
 
     /**
-     * @description Specifies whether the vulnerability poses risks.\
+     * @description Specifies whether the vulnerability poses risks.\\
      * If you do not specify this parameter, all vulnerabilities are queried regardless of whether the vulnerabilities pose risks. Valid values:
      *
      *   **y**: yes
@@ -64,7 +64,7 @@ class DescribeEmgVulItemRequest extends Model
     public $riskStatus;
 
     /**
-     * @description The method that is used to detect the vulnerability.\
+     * @description The method that is used to detect the vulnerability.\\
      * If you do not specify this parameter, all vulnerabilities are queried regardless of which method is used. Valid values:
      *
      *   **python**: The Version method is used. Security Center checks the software versions of your server to check whether disclosed vulnerabilities exist on your server.

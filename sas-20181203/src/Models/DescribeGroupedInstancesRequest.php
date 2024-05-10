@@ -33,6 +33,7 @@ class DescribeGroupedInstancesRequest extends Model
      *   **regionId**: the region in which the assets reside
      *   **vpcInstanceId**: the virtual private cloud (VPC) in which the assets reside
      *
+     * This parameter is required.
      * @example groupId
      *
      * @var string

@@ -23,7 +23,7 @@ class scope extends Model
     /**
      * @description The ID of the cluster.
      *
-     * >  You can call the [DescribeGroupedContainerInstances](~~182997~~) operation to query the IDs of clusters.
+     * >  You can call the [DescribeGroupedContainerInstances](https://help.aliyun.com/document_detail/182997.html) operation to query the IDs of clusters.
      * @example 8e2***75b
      *
      * @var string

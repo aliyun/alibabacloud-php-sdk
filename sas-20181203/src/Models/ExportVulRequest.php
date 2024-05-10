@@ -155,6 +155,7 @@ class ExportVulRequest extends Model
      *   **app**: application vulnerability
      *   **emg**: urgent vulnerability
      *
+     * This parameter is required.
      * @example app
      *
      * @var string

@@ -19,6 +19,7 @@ class ModifySecurityCheckScheduleConfigRequest extends Model
      *   **6**: Saturday
      *   **7**: Sunday
      *
+     * This parameter is required.
      * @example 4,5,6
      *
      * @var string
@@ -33,6 +34,7 @@ class ModifySecurityCheckScheduleConfigRequest extends Model
      *   **12**: 12:00 to 18:00
      *   **18**: 18:00 to 24:00
      *
+     * This parameter is required.
      * @example 12
      *
      * @var int
@@ -73,6 +75,7 @@ class ModifySecurityCheckScheduleConfigRequest extends Model
      *   **12**: 12:00 to 18:00
      *   **18**: 18:00 to 24:00
      *
+     * This parameter is required.
      * @example 6
      *
      * @var int

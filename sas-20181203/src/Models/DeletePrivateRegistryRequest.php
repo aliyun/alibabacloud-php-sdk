@@ -11,7 +11,7 @@ class DeletePrivateRegistryRequest extends Model
     /**
      * @description The ID of the image repository.
      *
-     * > You can call the [PageImageRegistry](~~PageImageRegistry~~) operation to query the IDs of image repositories.
+     * This parameter is required.
      * @example 22233
      *
      * @var int

@@ -11,7 +11,7 @@ class ListAegisContainerPluginRuleRequest extends Model
     /**
      * @description The query condition.
      *
-     * @example [{\"name\": \"name\", \"value\": \"test-1818\"}]
+     * @example [{\\"name\\": \\"name\\", \\"value\\": \\"test-1818\\"}]
      *
      * @var string
      */
@@ -20,6 +20,7 @@ class ListAegisContainerPluginRuleRequest extends Model
     /**
      * @description The page number.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -41,6 +42,7 @@ class ListAegisContainerPluginRuleRequest extends Model
     /**
      * @description The number of entries per page.
      *
+     * This parameter is required.
      * @example 20
      *
      * @var int

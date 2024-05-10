@@ -11,7 +11,7 @@ class GetInterceptionSummaryRequest extends Model
     /**
      * @description The ID of the cluster.
      *
-     * > You can call the [DescribeGroupedContainerInstances](~~421736~~) operation to query the IDs of clusters.
+     * > You can call the [DescribeGroupedContainerInstances](https://help.aliyun.com/document_detail/421736.html) operation to query the IDs of clusters.
      * @example c2999***bb61b
      *
      * @var string

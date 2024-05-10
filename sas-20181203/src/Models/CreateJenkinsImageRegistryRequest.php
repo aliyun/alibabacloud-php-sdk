@@ -23,7 +23,7 @@ class CreateJenkinsImageRegistryRequest extends Model
      *   **namespace**: the namespace
      *   **authToken**: the authorization token
      *
-     * @example [{\"namespace\":\"aa\",\"authToken\":\"aa\"}]
+     * @example [{\\"namespace\\":\\"aa\\",\\"authToken\\":\\"aa\\"}]
      *
      * @var string
      */

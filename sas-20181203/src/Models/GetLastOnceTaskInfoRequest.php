@@ -20,10 +20,11 @@ class GetLastOnceTaskInfoRequest extends Model
     /**
      * @description The name of the task. Valid values:
      *
-     *   **CLIENT\_PROBLEM_CHECK**: client diagnosis task
-     *   **CLIENT\_DEV_OPS**: O\&M task of Cloud Assistant
+     *   **CLIENT_PROBLEM_CHECK**: client diagnosis task
+     *   **CLIENT_DEV_OPS**: O\\&M task of Cloud Assistant
      *   **ASSETS_COLLECTION**: asset collection task
      *
+     * This parameter is required.
      * @example ASSETS_COLLECTION
      *
      * @var string
@@ -33,10 +34,11 @@ class GetLastOnceTaskInfoRequest extends Model
     /**
      * @description The type of the task. Valid values:
      *
-     *   **CLIENT\_PROBLEM_CHECK**: client diagnosis task
-     *   **CLIENT\_DEV_OPS**: O\&M task of Cloud Assistant
-     *   **ASSETS\_COLLECTION**: asset collection task
+     *   **CLIENT_PROBLEM_CHECK**: client diagnosis task
+     *   **CLIENT_DEV_OPS**: O\\&M task of Cloud Assistant
+     *   **ASSETS_COLLECTION**: asset collection task
      *
+     * This parameter is required.
      * @example ASSETS_COLLECTION
      *
      * @var string

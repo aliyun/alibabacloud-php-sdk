@@ -16,7 +16,7 @@ class CreateSimilarSecurityEventsQueryTaskRequest extends Model
     /**
      * @description The ID of the alert event.
      *
-     * >  You must specify at least one of the SecurityEventId and SimilarEventScenarioCode parameters.
+     * This parameter is required.
      * @example 14323
      *
      * @var int

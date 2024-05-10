@@ -11,6 +11,7 @@ class GetOnceTaskResultInfoRequest extends Model
     /**
      * @description The ID of the scan task.
      *
+     * This parameter is required.
      * @example 9dfa3a7eb9547781632785b49003****
      *
      * @var string
@@ -20,10 +21,11 @@ class GetOnceTaskResultInfoRequest extends Model
     /**
      * @description The name of the task. Valid values:
      *
-     *   **CLIENT\_PROBLEM_CHECK**: a task of the Security Center agent
-     *   **CLIENT\_DEV_OPS**: an O\&M task of Cloud Assistant
-     *   **ASSET\_SECURITY_CHECK**: a task of asset information collection
+     *   **CLIENT_PROBLEM_CHECK**: a task of the Security Center agent
+     *   **CLIENT_DEV_OPS**: an O\\&M task of Cloud Assistant
+     *   **ASSET_SECURITY_CHECK**: a task of asset information collection
      *
+     * This parameter is required.
      * @example ASSETS_COLLECTION
      *
      * @var string
@@ -33,10 +35,11 @@ class GetOnceTaskResultInfoRequest extends Model
     /**
      * @description The type of the task. Valid values:
      *
-     *   **CLIENT\_PROBLEM_CHECK**: a task of the Security Center agent
-     *   **CLIENT\_DEV_OPS**: an O\&M task of Cloud Assistant
-     *   **ASSET\_SECURITY_CHECK**: a task of asset information collection
+     *   **CLIENT_PROBLEM_CHECK**: a task of the Security Center agent
+     *   **CLIENT_DEV_OPS**: an O\\&M task of Cloud Assistant
+     *   **ASSET_SECURITY_CHECK**: a task of asset information collection
      *
+     * This parameter is required.
      * @example ASSETS_COLLECTION
      *
      * @var string

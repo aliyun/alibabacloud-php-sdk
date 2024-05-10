@@ -20,7 +20,7 @@ class DescribeRiskCheckItemResultRequest extends Model
     /**
      * @description The ID of the check item.
      *
-     * > For more information about the IDs and details of the check items that can be used in configuration assessment, see [DescribeRiskCheckResult](~~DescribeRiskCheckResult~~).
+     * This parameter is required.
      * @example 2
      *
      * @var int

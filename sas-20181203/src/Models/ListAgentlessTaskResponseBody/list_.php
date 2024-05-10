@@ -65,7 +65,7 @@ class list_ extends Model
     /**
      * @description The execution progress of the inspection items.
      *
-     * @example "{\"scaVul\":100,\"binary\":100,\"baseline\":100,\"vul\":100,\"webshell\":100,\"script\":100,\"sensitiveInfo\":100}"
+     * @example "{\\"scaVul\\":100,\\"binary\\":100,\\"baseline\\":100,\\"vul\\":100,\\"webshell\\":100,\\"script\\":100,\\"sensitiveInfo\\":100}"
      *
      * @var string
      */

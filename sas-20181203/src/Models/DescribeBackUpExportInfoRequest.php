@@ -22,6 +22,7 @@ class DescribeBackUpExportInfoRequest extends Model
      *
      *   **suspiciousExport**: alert event
      *
+     * This parameter is required.
      * @example suspiciousExport
      *
      * @var string

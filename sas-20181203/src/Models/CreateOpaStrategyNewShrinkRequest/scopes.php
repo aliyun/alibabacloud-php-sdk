@@ -33,7 +33,7 @@ class scopes extends Model
     /**
      * @description The ID of the cluster that is specified in the rule.
      *
-     * >  You can call the [DescribeGroupedContainerInstances](~~421736~~) operation to query the cluster ID.
+     * >  You can call the [DescribeGroupedContainerInstances](https://help.aliyun.com/document_detail/421736.html) operation to query the cluster ID.
      * @example cc50d***015d2
      *
      * @var string

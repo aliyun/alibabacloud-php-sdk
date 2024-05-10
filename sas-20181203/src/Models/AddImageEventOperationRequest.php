@@ -15,7 +15,7 @@ class AddImageEventOperationRequest extends Model
      *   **type**: the matching type.
      *   **value**: the matching value.
      *
-     * @example [{\"condition\": \"MD5\", \"type\": \"equals\", \"value\": \"0083a31cc0083a31ccf7c10367a6e783e\"}]
+     * @example [{\\"condition\\": \\"MD5\\", \\"type\\": \\"equals\\", \\"value\\": \\"0083a31cc0083a31ccf7c10367a6e783e\\"}]
      *
      * @var string
      */
@@ -67,7 +67,7 @@ class AddImageEventOperationRequest extends Model
      *   **type**
      *   **value**
      *
-     * @example {\"type\": \"repo\", \"value\": \"test-aaa/shenzhen-repo-01\"}
+     * @example {\\"type\\": \\"repo\\", \\"value\\": \\"test-aaa/shenzhen-repo-01\\"}
      *
      * @var string
      */

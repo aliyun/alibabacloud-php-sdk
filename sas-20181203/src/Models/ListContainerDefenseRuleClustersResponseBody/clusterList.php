@@ -39,7 +39,7 @@ class clusterList extends Model
     /**
      * @description The ID of the rule.
      *
-     * >  You can call the [ListInterceptionRulePage](~~2590599~~) operation to query the IDs of rules.
+     * >  You can call the [ListInterceptionRulePage](https://help.aliyun.com/document_detail/2590599.html) operation to query the IDs of rules.
      * @example 403178
      *
      * @var int

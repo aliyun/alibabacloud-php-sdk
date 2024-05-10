@@ -11,6 +11,7 @@ class DescribeExcludeSystemPathRequest extends Model
     /**
      * @description The number of the page to return. Default value: 1.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -20,6 +21,7 @@ class DescribeExcludeSystemPathRequest extends Model
     /**
      * @description The number of entries to return on each page.
      *
+     * This parameter is required.
      * @example 20
      *
      * @var int

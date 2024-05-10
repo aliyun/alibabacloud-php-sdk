@@ -61,6 +61,7 @@ class ModifyAntiBruteForceRuleRequest extends Model
     /**
      * @description The ID of the defense rule.
      *
+     * This parameter is required.
      * @example 65778
      *
      * @var int

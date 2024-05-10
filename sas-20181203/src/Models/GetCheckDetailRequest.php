@@ -11,6 +11,7 @@ class GetCheckDetailRequest extends Model
     /**
      * @description The ID of the check item.
      *
+     * This parameter is required.
      * @example 2
      *
      * @var int

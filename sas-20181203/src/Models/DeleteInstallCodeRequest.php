@@ -11,7 +11,7 @@ class DeleteInstallCodeRequest extends Model
     /**
      * @description The installation command.
      *
-     * >  You can call the [DescribeInstallCodes](~~DescribeInstallCodes~~) operation to query installation commands.
+     * This parameter is required.
      * @example 1q****
      *
      * @var string

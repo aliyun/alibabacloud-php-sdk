@@ -30,7 +30,7 @@ class CreateUniRestorePlanRequest extends Model
     /**
      * @description The ID of the anti-ransomware policy.
      *
-     * >  You can call the [DescribeUniBackupPolicies](~~DescribeUniBackupPolicies~~) operation to query the ID.
+     * This parameter is required.
      * @example 123
      *
      * @var int
@@ -64,7 +64,7 @@ class CreateUniRestorePlanRequest extends Model
      *   **files**: the path to the database files
      *
      * >  You can call the [DescribeUniRecoverableList](~~DescribeUniRecoverableList~~) operation to query the information.
-     * @example {"files": {"qtc":"F:\\database\\qtc.mdf","qtc_log":"F:\\database\\qtc_0.ldf"},
+     * @example {"files": {"qtc":"F:\\\\database\\\\qtc.mdf","qtc_log":"F:\\\\database\\\\qtc_0.ldf"},
      * "name":"qtc"}
      * @var string
      */
@@ -73,7 +73,7 @@ class CreateUniRestorePlanRequest extends Model
     /**
      * @description The point in time to which you want to restore data.
      *
-     * >  You can call the [DescribeRestorePlans](~~DescribeRestorePlans~~) operation to query the point in time.
+     * This parameter is required.
      * @example 1656957664000
      *
      * @var int

@@ -11,7 +11,7 @@ class GetLogMetaRequest extends Model
     /**
      * @description The name of the dedicated Logstore in which logs are stored.
      *
-     * >  You can call the [DescribeLogMeta](~~DescribeLogMeta~~) operation to query the name of the Logstore.
+     * This parameter is required.
      * @example aegis-log-login
      *
      * @var string

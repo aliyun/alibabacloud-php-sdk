@@ -21,8 +21,8 @@ class taskInfo extends Model
      * @description The result of the scan task. Valid values:
      *
      *   **SUCCESS**: The task is successful.
-     *   **TASK\_NOT\_SUPPORT_REGION**: The images are deployed in a region that is not supported by container image scan.
-     *   **TASK\_NOT_EXISTS**: The task does not exist.
+     *   **TASK_NOT_SUPPORT_REGION**: The images are deployed in a region that is not supported by container image scan.
+     *   **TASK_NOT_EXISTS**: The task does not exist.
      *
      * @example SUCCESS
      *

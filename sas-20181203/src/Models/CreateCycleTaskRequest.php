@@ -14,6 +14,7 @@ class CreateCycleTaskRequest extends Model
      *   **1**: yes
      *   **0**: no
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -23,6 +24,7 @@ class CreateCycleTaskRequest extends Model
     /**
      * @description The first time when the task is performed.
      *
+     * This parameter is required.
      * @example 1650556800000
      *
      * @var int
@@ -32,6 +34,7 @@ class CreateCycleTaskRequest extends Model
     /**
      * @description The interval of the task.
      *
+     * This parameter is required.
      * @example 7
      *
      * @var int
@@ -57,6 +60,7 @@ class CreateCycleTaskRequest extends Model
      *   **day**: days
      *   **hour**: hours
      *
+     * This parameter is required.
      * @example day
      *
      * @var string
@@ -75,6 +79,7 @@ class CreateCycleTaskRequest extends Model
     /**
      * @description The time when the task ends. Unit: hours.
      *
+     * This parameter is required.
      * @example 6
      *
      * @var int
@@ -84,6 +89,7 @@ class CreateCycleTaskRequest extends Model
     /**
      * @description The time when the task is started. Unit: hours.
      *
+     * This parameter is required.
      * @example 0
      *
      * @var int
@@ -97,6 +103,7 @@ class CreateCycleTaskRequest extends Model
      *   **IMAGE_SCAN**: image scan task
      *   **EMG_VUL_SCHEDULE_SCAN**: urgent vulnerability scan task
      *
+     * This parameter is required.
      * @example EMG_VUL_SCHEDULE_SCAN
      *
      * @var string
@@ -110,6 +117,7 @@ class CreateCycleTaskRequest extends Model
      *   **IMAGE_SCAN**: image scan task
      *   **EMG_VUL_SCHEDULE_SCAN**: urgent vulnerability scan task
      *
+     * This parameter is required.
      * @example VIRUS_VUL_SCHEDULE_SCAN
      *
      * @var string

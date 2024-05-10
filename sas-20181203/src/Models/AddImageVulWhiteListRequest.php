@@ -45,7 +45,7 @@ class AddImageVulWhiteListRequest extends Model
      *   **type**: the object type. The value is fixed to repo.
      *   **target**: the object content. The value is in the Namespace/Image repository format.
      *
-     * @example {\"type\":\"repo\",\"target\":[\"sas_test/script_0209\",\"sas_test/script\"]}
+     * @example {\\"type\\":\\"repo\\",\\"target\\":[\\"sas_test/script_0209\\",\\"sas_test/script\\"]}
      *
      * @var string
      */
@@ -70,7 +70,7 @@ class AddImageVulWhiteListRequest extends Model
      *   **Name**: the name of the vulnerability that is specified in Common Vulnerabilities and Exposures (CVE).
      *   **AliasName**: the alias of the vulnerability that is specified in CVE.
      *
-     * @example [{\"Type\":\"sca\",\"Name\":\"imgsca:java:spring-core:AVD-2022-1124599\",\"AliasName\":\"Spring Framework JDK >= 9 (CVE-2022-22965)\"}]
+     * @example [{\\"Type\\":\\"sca\\",\\"Name\\":\\"imgsca:java:spring-core:AVD-2022-1124599\\",\\"AliasName\\":\\"Spring Framework JDK >= 9 (CVE-2022-22965)\\"}]
      *
      * @var string
      */

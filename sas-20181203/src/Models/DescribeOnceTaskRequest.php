@@ -66,9 +66,9 @@ class DescribeOnceTaskRequest extends Model
     /**
      * @description The type of the task. Valid values:
      *
-     *   **CLIENT\_PROBLEM_CHECK**: a task of the Security Center agent
-     *   **CLIENT\_DEV_OPS**: an O\&M task of Cloud Assistant
-     *   **ASSET\_SECURITY_CHECK**: a task of asset information collection
+     *   **CLIENT_PROBLEM_CHECK**: a task of the Security Center agent
+     *   **CLIENT_DEV_OPS**: an O\\&M task of Cloud Assistant
+     *   **ASSET_SECURITY_CHECK**: a task of asset information collection
      *
      * > You must specify at least one of the **TaskType** and **RootTaskId** parameters.
      * @example CLIENT_PROBLEM_CHECK

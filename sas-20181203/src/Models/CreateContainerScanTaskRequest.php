@@ -11,7 +11,7 @@ class CreateContainerScanTaskRequest extends Model
     /**
      * @description The ID of the cluster to which the container belongs.
      *
-     * > You can call the [DescribeGroupedContainerInstances](~~182997~~) operation to query the IDs of clusters.
+     * > You can call the [DescribeGroupedContainerInstances](https://help.aliyun.com/document_detail/182997.html) operation to query the IDs of clusters.
      * @example c22143730ab6e40b09ec7c1c51d4d****
      *
      * @var string

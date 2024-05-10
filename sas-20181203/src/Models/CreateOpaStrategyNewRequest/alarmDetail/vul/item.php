@@ -11,7 +11,7 @@ class item extends Model
     /**
      * @description The vulnerability ID.
      *
-     * >  You can call the [DescribeVulListPage](~~471928~~) operation to query the vulnerability ID.
+     * >  You can call the [DescribeVulListPage](https://help.aliyun.com/document_detail/471928.html) operation to query the vulnerability ID.
      * @example CVE-2023-36034
      *
      * @var string
@@ -21,7 +21,7 @@ class item extends Model
     /**
      * @description The vulnerability name.
      *
-     * >  You can call the [DescribeVulListPage](~~471928~~) operation to query the vulnerability name.
+     * >  You can call the [DescribeVulListPage](https://help.aliyun.com/document_detail/471928.html) operation to query the vulnerability name.
      * @example Microsoft Edge vul
      *
      * @var string

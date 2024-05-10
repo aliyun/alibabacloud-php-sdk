@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyStrategyTargetRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example {"strategyId":8070645}
      *
      * @var string
@@ -23,6 +25,8 @@ class ModifyStrategyTargetRequest extends Model
     public $sourceIp;
 
     /**
+     * @description This parameter is required.
+     *
      * @example [{"Target":"9273980","BindUuidCount":5320,"TargetType":"groupId","Flag":"del"},{"Target":"9677606","TargetType":"groupId","Flag":"del"},{"Target":"10121607","BindUuidCount":7,"TargetType":"groupId","Flag":"add"},{"Target":"10670708","BindUuidCount":2,"TargetType":"groupId","Flag":"del"},{"Target":"11246338","BindUuidCount":6,"TargetType":"groupId","Flag":"del"},{"Target":"11291161","BindUuidCount":13,"TargetType":"groupId","Flag":"del"}]
      *
      * @var string
@@ -30,6 +34,8 @@ class ModifyStrategyTargetRequest extends Model
     public $target;
 
     /**
+     * @description This parameter is required.
+     *
      * @example hc_strategy
      *
      * @var string

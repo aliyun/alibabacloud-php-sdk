@@ -37,7 +37,7 @@ class ModifyOperateVulRequest extends Model
      *   **0**: no
      *   **1**: yes
      *
-     * >  You can fix multiple vulnerabilities at a time. Separate the details of multiple vulnerabilities with commas (,). You can call the [DescribeVulLIst](~~DescribeVulList~~) operation to query the details of vulnerabilities.
+     * This parameter is required.
      * @example [{"name":"alilinux2:2.1903:ALINUX2-SA-2022:0007","uuid":"a3bb82a8-a3bd-4546-acce-45ac34af****","tag":"oval","isFront":0},{"name":"alilinux2:2.1903:ALINUX2-SA-2022:0007","uuid":"98a6fecc-88cd-46f2-8e35-f808a388****","tag":"oval","isFront":0}]
      *
      * @var string
@@ -50,9 +50,10 @@ class ModifyOperateVulRequest extends Model
      *   **vul_fix**: fixes the vulnerability.
      *   **vul_verify**: verifies the vulnerability fix.
      *   **vul_ignore**: ignores the vulnerability.
-     *   **vul\_undo_ignore**: cancels ignoring the vulnerability.
+     *   **vul_undo_ignore**: cancels ignoring the vulnerability.
      *   **vul_delete**: deletes the vulnerability.
      *
+     * This parameter is required.
      * @example vul_fix
      *
      * @var string
@@ -79,7 +80,7 @@ class ModifyOperateVulRequest extends Model
      *   **app**: application vulnerability
      *   **sca**: vulnerability that is detected based on software component analysis
      *
-     * >  You cannot fix the urgent vulnerabilities, application vulnerabilities, or vulnerabilities that are detected based on software component analysis.
+     * This parameter is required.
      * @example cve
      *
      * @var string

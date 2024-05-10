@@ -47,7 +47,7 @@ class list_ extends Model
     /**
      * @description The highlighted JSON string.
      *
-     * @example {\"highlight\":{\"ruleVersion\":\"20230223\",\"ruleId\":600139,\"events\":[[207,284]]}}
+     * @example {\\"highlight\\":{\\"ruleVersion\\":\\"20230223\\",\\"ruleId\\":600139,\\"events\\":[[207,284]]}}
      *
      * @var string
      */

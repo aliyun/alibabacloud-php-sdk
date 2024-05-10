@@ -11,6 +11,7 @@ class MarkMonitorAccountsRequest extends Model
     /**
      * @description The IDs of the members.
      *
+     * This parameter is required.
      * @example 131331822340XXXX,140649175187XXXX
      *
      * @var string

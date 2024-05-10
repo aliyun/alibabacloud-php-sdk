@@ -10,7 +10,7 @@ class DescribeBackupClientsRequest extends Model
 {
     /**
      * @description The region in which the anti-ransomware feature is supported.
-     * > You can call the [DescribeSupportRegion](~~DescribeSupportRegion~~) operation to query the regions in which the anti-ransomware feature is supported.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

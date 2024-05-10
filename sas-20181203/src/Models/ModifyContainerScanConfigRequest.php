@@ -11,7 +11,7 @@ class ModifyContainerScanConfigRequest extends Model
     /**
      * @description The name of the container application.
      *
-     * @example [\"logtail-ds\",\"alicloud-monitor-controller\",\"storage-snapshot-manager\"]
+     * @example [\\"logtail-ds\\",\\"alicloud-monitor-controller\\",\\"storage-snapshot-manager\\"]
      *
      * @var string
      */

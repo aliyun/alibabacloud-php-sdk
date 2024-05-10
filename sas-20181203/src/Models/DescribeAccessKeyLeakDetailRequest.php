@@ -11,6 +11,7 @@ class DescribeAccessKeyLeakDetailRequest extends Model
     /**
      * @description The ID of the AccessKey pair leak.
      *
+     * This parameter is required.
      * @example 389357
      *
      * @var int

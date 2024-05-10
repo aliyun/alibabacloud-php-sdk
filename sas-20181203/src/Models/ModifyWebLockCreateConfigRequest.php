@@ -14,6 +14,7 @@ class ModifyWebLockCreateConfigRequest extends Model
      *   **block**: Interception Mode
      *   **audit**: Alert Mode
      *
+     * This parameter is required.
      * @example block
      *
      * @var string
@@ -23,6 +24,7 @@ class ModifyWebLockCreateConfigRequest extends Model
     /**
      * @description The directory that you want to protect.
      *
+     * This parameter is required.
      * @example /home/admin/tomcat
      *
      * @var string
@@ -124,6 +126,7 @@ class ModifyWebLockCreateConfigRequest extends Model
     /**
      * @description The local path to the backup files of the protected directory.
      *
+     * This parameter is required.
      * @example /usr/local/backup
      *
      * @var string
@@ -154,7 +157,7 @@ class ModifyWebLockCreateConfigRequest extends Model
     /**
      * @description The UUID of the server for which you want to add a directory to protect.
      *
-     * > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+     * This parameter is required.
      * @example inet-12345****
      *
      * @var string

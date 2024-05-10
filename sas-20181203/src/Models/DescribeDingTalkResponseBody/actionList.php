@@ -29,7 +29,7 @@ class actionList extends Model
     /**
      * @description The list of notification settings.
      *
-     * @example [{\"type\":\"vul\",\"configItemList\":[{\"key\":\"key\", \"valueList\":\"123\"}]}]
+     * @example [{\\"type\\":\\"vul\\",\\"configItemList\\":[{\\"key\\":\\"key\\", \\"valueList\\":\\"123\\"}]}]
      *
      * @var string
      */

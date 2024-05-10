@@ -19,6 +19,7 @@ class ModifySasContainerWebDefenseRuleRequest extends Model
     /**
      * @description The ID of the rule.
      *
+     * This parameter is required.
      * @example 200634
      *
      * @var int

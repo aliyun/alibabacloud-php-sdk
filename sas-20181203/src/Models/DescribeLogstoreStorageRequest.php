@@ -11,6 +11,7 @@ class DescribeLogstoreStorageRequest extends Model
     /**
      * @description The ID of the request source. Set the value to **sas**.
      *
+     * This parameter is required.
      * @example sas
      *
      * @var string

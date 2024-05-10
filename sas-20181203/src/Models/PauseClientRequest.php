@@ -11,6 +11,7 @@ class PauseClientRequest extends Model
     /**
      * @description The UUIDs of servers for which you want to enable or disable the Security Center agent.
      *
+     * This parameter is required.
      * @example uuid-1211-sadsd-2131
      *
      * @var string
@@ -23,6 +24,7 @@ class PauseClientRequest extends Model
      *   **0**: disabled
      *   **1**: enabled
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string

@@ -35,6 +35,7 @@ class InstallPmAgentRequest extends Model
      *   **aliyun_assist**: Cloud Assistant client
      *   **aliyun_monitor**: CloudMonitor client
      *
+     * This parameter is required.
      * @example aliyun_monitor
      *
      * @var string
@@ -44,6 +45,7 @@ class InstallPmAgentRequest extends Model
     /**
      * @description The UUID of the server. If you specify multiple UUIDs, separate the UUIDs with commas (,).
      *
+     * This parameter is required.
      * @example inet-a6444920-d303-4ccf-ab87-a1d3cd49****
      *
      * @var string

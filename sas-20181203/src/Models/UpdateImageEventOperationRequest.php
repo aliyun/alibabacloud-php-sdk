@@ -23,7 +23,7 @@ class UpdateImageEventOperationRequest extends Model
      *   **type**
      *   **value**
      *
-     * @example {\"type\": \"repo\", \"value\": \"test-aaa/shenzhen-repo-01\"}
+     * @example {\\"type\\": \\"repo\\", \\"value\\": \\"test-aaa/shenzhen-repo-01\\"}
      *
      * @var string
      */

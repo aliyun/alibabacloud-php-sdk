@@ -16,7 +16,7 @@ class DescribeSecurityEventOperationStatusRequest extends Model
     /**
      * @description The IDs of the alert events.
      *
-     * >  You must specify at least one of the TaskId and SecurityEventIds parameters.
+     * This parameter is required.
      * @example ["909361"]
      *
      * @var string[]
@@ -35,7 +35,7 @@ class DescribeSecurityEventOperationStatusRequest extends Model
     /**
      * @description The ID of the task that handles the alert events.
      *
-     * >  You must specify at least one of the TaskId and SecurityEventIds parameters.
+     * This parameter is required.
      * @example 12121
      *
      * @var int

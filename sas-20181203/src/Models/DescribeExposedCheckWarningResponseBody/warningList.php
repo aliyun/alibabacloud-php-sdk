@@ -11,7 +11,7 @@ class warningList extends Model
     /**
      * @description The ID of the baseline.
      *
-     * >  You can call the [DescribeCheckWarningSummary](~~116179~~) operation to query the IDs of baselines.
+     * >  You can call the [DescribeCheckWarningSummary](https://help.aliyun.com/document_detail/116179.html) operation to query the IDs of baselines.
      * @example 107
      *
      * @var int

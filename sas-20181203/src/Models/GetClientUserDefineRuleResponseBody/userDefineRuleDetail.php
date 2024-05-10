@@ -95,7 +95,7 @@ class userDefineRuleDetail extends Model
     /**
      * @description The name of the custom defense rule.
      *
-     * @example Rule\*\*\*\*
+     * @example Rule\\*\\*\\*\\*
      *
      * @var string
      */

@@ -62,7 +62,7 @@ class edgeList extends Model
     /**
      * @description The text that contains the properties of the current edge.
      *
-     * @example {\"bandWidth\":\"8192\",\"internetIp\":\"8.211.13.50\",\"changeReason\":\"EIP_BIND\",\"bindInstanceId\":\"i-gw887xhzjvyjfv7vdfs3\",\"bindType\":\"EIP_ECS\"}
+     * @example {\\"bandWidth\\":\\"8192\\",\\"internetIp\\":\\"8.211.13.50\\",\\"changeReason\\":\\"EIP_BIND\\",\\"bindInstanceId\\":\\"i-gw887xhzjvyjfv7vdfs3\\",\\"bindType\\":\\"EIP_ECS\\"}
      *
      * @var string
      */
@@ -71,7 +71,7 @@ class edgeList extends Model
     /**
      * @description The property of the current edge.
      *
-     * @example {\"coverage\":\"global\"}
+     * @example {\\"coverage\\":\\"global\\"}
      *
      * @var mixed[]
      */

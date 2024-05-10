@@ -11,6 +11,7 @@ class ModifyRiskSingleResultStatusRequest extends Model
     /**
      * @description The IDs of the affected assets.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $ids;
@@ -47,6 +48,7 @@ class ModifyRiskSingleResultStatusRequest extends Model
      *   **ignored**: ignores the risk item.
      *   **failed**: cancels ignoring the risk item.
      *
+     * This parameter is required.
      * @example ignored
      *
      * @var string
@@ -56,6 +58,7 @@ class ModifyRiskSingleResultStatusRequest extends Model
     /**
      * @description The ID of the check task to which the affected assets belong.
      *
+     * This parameter is required.
      * @example 57
      *
      * @var int

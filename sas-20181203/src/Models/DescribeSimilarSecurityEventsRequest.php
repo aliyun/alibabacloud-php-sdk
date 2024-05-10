@@ -55,6 +55,7 @@ class DescribeSimilarSecurityEventsRequest extends Model
     /**
      * @description The task ID. You can call the [CreateSimilarSecurityEventsQueryTask](~~CreateSimilarSecurityEventsQueryTask~~) operation to obtain the task ID.
      *
+     * This parameter is required.
      * @example 1689135
      *
      * @var int

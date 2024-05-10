@@ -11,7 +11,7 @@ class UploadedHoneyPotFileRequest extends Model
     /**
      * @description The file key that you use to upload the file.
      *
-     * >  The key is in the format of HONEYPOT_FILE/{Timestamp}\_{Custom file name}.
+     * This parameter is required.
      * @example HONEYPOT_FILE/1601097845544644_********
      *
      * @var string
@@ -21,6 +21,7 @@ class UploadedHoneyPotFileRequest extends Model
     /**
      * @description The name of the file that you want to upload.
      *
+     * This parameter is required.
      * @example trojan.zip
      *
      * @var string
@@ -30,6 +31,7 @@ class UploadedHoneyPotFileRequest extends Model
     /**
      * @description The file type.
      *
+     * This parameter is required.
      * @example application/zip
      *
      * @var string
@@ -39,6 +41,7 @@ class UploadedHoneyPotFileRequest extends Model
     /**
      * @description The name of the honeypot image.
      *
+     * This parameter is required.
      * @example ruoyi
      *
      * @var string
@@ -70,7 +73,8 @@ class UploadedHoneyPotFileRequest extends Model
     /**
      * @description The prompt template that corresponds to the file.
      *
-     * @example {\"help\":\".zip\",\"label\":\"file\",\"type\":\"file\",\"key\":\"ftpfiles.zip\"}
+     * This parameter is required.
+     * @example {\\"help\\":\\".zip\\",\\"label\\":\\"file\\",\\"type\\":\\"file\\",\\"key\\":\\"ftpfiles.zip\\"}
      *
      * @var string
      */

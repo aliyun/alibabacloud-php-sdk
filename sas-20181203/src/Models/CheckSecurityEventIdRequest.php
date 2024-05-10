@@ -21,7 +21,7 @@ class CheckSecurityEventIdRequest extends Model
     /**
      * @description The UUID of the server.
      *
-     * > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+     * This parameter is required.
      * @example 96ad2473-bc60-45ba-ad1c-932e2866****
      *
      * @var string

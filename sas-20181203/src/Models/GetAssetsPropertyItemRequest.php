@@ -15,6 +15,7 @@ class GetAssetsPropertyItemRequest extends Model
      *   **autorun**: startup item
      *   **web_server**: website
      *
+     * This parameter is required.
      * @example lkm
      *
      * @var string

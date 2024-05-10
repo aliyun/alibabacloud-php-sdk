@@ -29,7 +29,7 @@ class DescribeAccessKeyLeakDetailResponseBody extends Model
     /**
      * @description The code snippet that is leaked.
      *
-     * @example \n1231 \nak=LTAI4G4VjkC9wenfEvgX**** \n12311123 \nsk1999 \nsk1999sk1999 \nsk1999sk1999 \n\n\ntest001 ak hht \nak=LTAI4G4VjkC9wenfEvgX**** \nsk=AjEhS9XmnIzllpAx2LxMTMdrTG****
+     * @example \\n1231 \\nak=LTAI4G4VjkC9wenfEvgX**** \\n12311123 \\nsk1999 \\nsk1999sk1999 \\nsk1999sk1999 \\n\\n\\ntest001 ak hht \\nak=LTAI4G4VjkC9wenfEvgX**** \\nsk=AjEhS9XmnIzllpAx2LxMTMdrTG****
      *
      * @var string
      */

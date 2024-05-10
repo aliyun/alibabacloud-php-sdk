@@ -86,7 +86,7 @@ class DescribeCanFixVulListRequest extends Model
     /**
      * @description The ID of the container image.
      *
-     * >  You can call the [ListRepository](~~451339~~) operation of Container Registry and obtain the ID of the container image from **InstanceId** in the response.
+     * >  You can call the [ListRepository](https://help.aliyun.com/document_detail/451339.html) operation of Container Registry and obtain the ID of the container image from **InstanceId** in the response.
      * @example cri-rv4nvbv8iju4****
      *
      * @var string
@@ -169,7 +169,7 @@ class DescribeCanFixVulListRequest extends Model
     /**
      * @description The ID of the image repository.
      *
-     * >  You can call the [ListRepository](~~145293~~) operation of Container Registry and obtain the ID of the image repository from **RepoId** in the response.
+     * >  You can call the [ListRepository](https://help.aliyun.com/document_detail/145293.html) operation of Container Registry and obtain the ID of the image repository from **RepoId** in the response.
      * @example crr-avo7qp02simz2njo
      *
      * @var string
@@ -179,7 +179,7 @@ class DescribeCanFixVulListRequest extends Model
     /**
      * @description The ID of the container image.
      *
-     * >  You can call the [ListRepository](~~451339~~) operation of Container Registry and obtain the ID of the container image from **InstanceId** in the response.
+     * >  You can call the [ListRepository](https://help.aliyun.com/document_detail/451339.html) operation of Container Registry and obtain the ID of the container image from **InstanceId** in the response.
      * @example cri-rv4nvbv8iju4****
      *
      * @var string
@@ -267,6 +267,7 @@ class DescribeCanFixVulListRequest extends Model
      *   **cve**: system vulnerability
      *   **sca**: application vulnerability
      *
+     * This parameter is required.
      * @example cve
      *
      * @var string

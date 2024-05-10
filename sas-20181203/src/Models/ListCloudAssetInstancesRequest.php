@@ -29,7 +29,7 @@ class ListCloudAssetInstancesRequest extends Model
      *   **AND**: The search conditions use a logical **AND**.
      *
      * > You can call the [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~) operation to query supported search conditions.
-     * @example [{\"name\":\"internetIp\",\"value\":\"192.168\",\"logicalExp\":\"OR\"}]
+     * @example [{\\"name\\":\\"internetIp\\",\\"value\\":\\"192.168\\",\\"logicalExp\\":\\"OR\\"}]
      *
      * @var string
      */

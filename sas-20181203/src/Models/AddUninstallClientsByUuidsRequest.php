@@ -47,7 +47,7 @@ class AddUninstallClientsByUuidsRequest extends Model
     /**
      * @description The UUID of the server that you want to unbind. Separate multiple UUIDs with commas (,).
      *
-     * >  You can call the [DescribeCloudCenterInstances](~~141932~~) operation to query the UUIDs of servers.
+     * This parameter is required.
      * @example inet-183707ae-3bdf-4db0-b771-3e9962bf****,inet-49dceccc-4f01-469b-8411-2416ea12****
      *
      * @var string

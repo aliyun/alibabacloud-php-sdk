@@ -11,6 +11,7 @@ class ListCheckItemWarningMachineRequest extends Model
     /**
      * @description The ID of the check item.
      *
+     * This parameter is required.
      * @example 8
      *
      * @var int
@@ -47,7 +48,7 @@ class ListCheckItemWarningMachineRequest extends Model
     /**
      * @description The ID of the asset group.
      *
-     * > You can call the [DescribeAllGroups](~~130972~~) operation to query the ID of the asset group.
+     * > You can call the [DescribeAllGroups](https://help.aliyun.com/document_detail/130972.html) operation to query the ID of the asset group.
      * @example 1161****
      *
      * @var int

@@ -11,6 +11,7 @@ class DeleteAntiBruteForceRuleRequest extends Model
     /**
      * @description The IDs of the defense rules against brute-force attacks to delete.
      *
+     * This parameter is required.
      * @var int[]
      */
     public $ids;

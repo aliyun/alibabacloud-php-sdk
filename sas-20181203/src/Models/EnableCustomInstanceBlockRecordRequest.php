@@ -11,6 +11,7 @@ class EnableCustomInstanceBlockRecordRequest extends Model
     /**
      * @description The IP address that you want to block.
      *
+     * This parameter is required.
      * @example 192.168.xx.xx
      *
      * @var string
@@ -37,6 +38,7 @@ class EnableCustomInstanceBlockRecordRequest extends Model
     /**
      * @description The UUID of the server.
      *
+     * This parameter is required.
      * @example 50d213b4-3a35-427a-b8a5-04b0c7e1****
      *
      * @var string

@@ -11,7 +11,7 @@ class CreateInterceptionRuleRequest extends Model
     /**
      * @description The ID of the container cluster.
      *
-     * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of container clusters.
+     * This parameter is required.
      * @example c35xxxa416
      *
      * @var string
@@ -21,6 +21,7 @@ class CreateInterceptionRuleRequest extends Model
     /**
      * @description The name of the cluster.
      *
+     * This parameter is required.
      * @example sas-test-cnnf
      *
      * @var string
@@ -46,6 +47,7 @@ class CreateInterceptionRuleRequest extends Model
      *   **2**: allows traffic and generates alerts.
      *   **3**: allows traffic and does not generate alerts.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -55,6 +57,7 @@ class CreateInterceptionRuleRequest extends Model
     /**
      * @description The priority of the defense rule. Valid values: 1 to 1000. A smaller value indicates a higher priority.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -64,6 +67,7 @@ class CreateInterceptionRuleRequest extends Model
     /**
      * @description The name of the defense rule.
      *
+     * This parameter is required.
      * @example test-rule-1
      *
      * @var string
@@ -76,6 +80,7 @@ class CreateInterceptionRuleRequest extends Model
      *   **0**: disables the rule.
      *   **1**: enables the rule.
      *
+     * This parameter is required.
      * @example 0
      *
      * @var int

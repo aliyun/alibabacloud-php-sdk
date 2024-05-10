@@ -32,6 +32,7 @@ class DescribeAssetDetailByUuidsRequest extends Model
     /**
      * @description The UUIDs of the ECS instances. Separate multiple UUIDs with commas (,).
      *
+     * This parameter is required.
      * @example 0687b17f-2a36-4e5****,0687b17f-2a36-4e****
      *
      * @var string

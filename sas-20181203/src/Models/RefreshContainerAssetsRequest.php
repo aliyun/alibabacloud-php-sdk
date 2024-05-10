@@ -14,6 +14,7 @@ class RefreshContainerAssetsRequest extends Model
      *   **IMAGE**
      *   **CONTAINER**
      *
+     * This parameter is required.
      * @example IMAGE
      *
      * @var string

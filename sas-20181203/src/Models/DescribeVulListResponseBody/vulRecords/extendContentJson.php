@@ -40,7 +40,7 @@ class extendContentJson extends Model
     /**
      * @description The returned message that indicates the urgent vulnerability.
      *
-     * @example com.xxl.rpc.util.XxlRpcException: xxl-rpc request data is empty.\n\tat com.xxl.rpc.remoting.net.impl.servlet.serve"
+     * @example com.xxl.rpc.util.XxlRpcException: xxl-rpc request data is empty.\\n\\tat com.xxl.rpc.remoting.net.impl.servlet.serve"
      *
      * @var string
      */

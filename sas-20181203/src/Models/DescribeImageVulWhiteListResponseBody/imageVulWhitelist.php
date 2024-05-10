@@ -50,7 +50,7 @@ class imageVulWhitelist extends Model
      *   **type**: the object type. The value is fixed to repo.
      *   **target**: the object content. The value is in the Namespace/Image repository format.
      *
-     * @example {\"type\":\"repo\",\"target\":[\"sas_test/script_0209\",\"sas_test/script\"]}
+     * @example {\\"type\\":\\"repo\\",\\"target\\":[\\"sas_test/script_0209\\",\\"sas_test/script\\"]}
      *
      * @var string
      */

@@ -17,9 +17,11 @@ class FixCheckWarningsRequest extends Model
      *
      *   **value**: specifies whether a fix method is selected. Valid values: **0** and **1**. The value 0 indicates that no fix method is selected and the value 1 indicates that a fix method is selected.
      *   **ruleId**: the ID of the fix method.
-     *   **paramList**: an array that consists of the details about the fix method.\
-     * • **paramName**: the name of the fix method.\
+     *   **paramList**: an array that consists of the details about the fix method.\\
+     * • **paramName**: the name of the fix method.\\
      * • **value**: the value of the fix method.
+     *
+     * This parameter is required.
      * @example [{"checkId":8,"rules":[{"ruleId":"rule.ssh_Idle.interval","value":1,"paramList":[{"paramName":"range_val","value":"600"},{"paramName":"range_val","value":"600"}]},{"ruleId":"rule.ssh_Idle.count","value":1,"paramList":[{"paramName":"range_val","value":"3"}]}]}]
      *
      * @var string
@@ -60,6 +62,7 @@ class FixCheckWarningsRequest extends Model
     /**
      * @description The UUID of the asset for which you want to fix the baseline risk item. You can call the [DescribeWarningMachines](~~DescribeWarningMachines~~) operation to query the UUIDs of assets.
      *
+     * This parameter is required.
      * @example 75a417dda5f25edb5bed8f208a9a****,c7e10fd794262a1510d5648f9e5d****
      *
      * @var string

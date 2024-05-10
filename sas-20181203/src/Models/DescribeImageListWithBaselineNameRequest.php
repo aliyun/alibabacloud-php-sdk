@@ -11,6 +11,7 @@ class DescribeImageListWithBaselineNameRequest extends Model
     /**
      * @description The name of the image baseline.
      *
+     * This parameter is required.
      * @example ak_leak
      *
      * @var string

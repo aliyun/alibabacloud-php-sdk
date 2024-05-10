@@ -51,16 +51,17 @@ class HandleSecurityEventsRequest extends Model
      * @description The operation that you want to perform to handle the alert events. Valid values:
      *
      *   **block_ip**: blocks the source IP address.
-     *   **advance\_mark\_mis_info**: adds the alert events to the whitelist.
+     *   **advance_mark_mis_info**: adds the alert events to the whitelist.
      *   **ignore**: ignores the alert events.
      *   **manual_handled**: marks the alert events as manually handled.
      *   **kill_process**: terminates the malicious process.
      *   **cleanup**: performs in-depth virus detection and removal.
-     *   **kill\_and_quara**: kills the malicious processes and quarantines the source file.
-     *   **disable\_malicious_defense**: stops the container on which the alerting files or processes exist.
-     *   **client\_problem_check**: performs troubleshooting.
+     *   **kill_and_quara**: kills the malicious processes and quarantines the source file.
+     *   **disable_malicious_defense**: stops the container on which the alerting files or processes exist.
+     *   **client_problem_check**: performs troubleshooting.
      *   **quara**: quarantines the source file of the malicious process.
      *
+     * This parameter is required.
      * @example block_ip
      *
      * @var string
@@ -89,6 +90,7 @@ class HandleSecurityEventsRequest extends Model
     /**
      * @description The IDs of the alert events.
      *
+     * This parameter is required.
      * @example ["909361"]
      *
      * @var string[]

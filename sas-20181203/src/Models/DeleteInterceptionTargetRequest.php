@@ -11,6 +11,7 @@ class DeleteInterceptionTargetRequest extends Model
     /**
      * @description The IDs of the network objects that you want to remove. You can call the [ListInterceptionTargetPage](~~ListInterceptionTargetPage~~) operation to query the IDs of the network objects.
      *
+     * This parameter is required.
      * @example 1,11,111
      *
      * @var string

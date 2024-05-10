@@ -14,7 +14,7 @@ class SetSensitiveDefineRuleConfigRequest extends Model
      *   **classKey**: the category keyword of the check rule.
      *   **ruleList**: the keyword of the check rule.
      *
-     * @example [{\"classKey\": \"password\", \"ruleList\": [\"huaweicloud_ak\", \"ak_leak\"]}]
+     * @example [{\\"classKey\\": \\"password\\", \\"ruleList\\": [\\"huaweicloud_ak\\", \\"ak_leak\\"]}]
      *
      * @var string
      */

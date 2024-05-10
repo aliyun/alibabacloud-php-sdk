@@ -20,7 +20,7 @@ class DescribeImageInstancesRequest extends Model
      *   **OR**: The search conditions use a logical **OR**.
      *   **AND**: The search conditions use a logical **AND**.
      *
-     * > You can call the [DescribeImageCriteria](~~471822~~) operation to query the supported search conditions.
+     * > You can call the [DescribeImageCriteria](https://help.aliyun.com/document_detail/471822.html) operation to query the supported search conditions.
      * @example [{"name":"instanceId","value":"390100182","logicalExp":"AND"}]
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeScanTaskProgressRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 282832
      *
      * @var int

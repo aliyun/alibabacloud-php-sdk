@@ -20,6 +20,7 @@ class CreateOssBucketScanTaskRequest extends Model
     /**
      * @description The names of the buckets.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $bucketNameList;
@@ -61,6 +62,7 @@ class CreateOssBucketScanTaskRequest extends Model
      *   **1**: checks all objects in the bucket.
      *   **2**: checks only new objects in the bucket.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

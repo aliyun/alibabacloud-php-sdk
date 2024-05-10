@@ -35,7 +35,7 @@ class ModifyImageFixCycleConfigRequest extends Model
      *   **type**: The type of the image. The value is fixed to repo.
      *   **target**: The content of the image. The value is in the format of Namespace/Image repository.
      *
-     * @example {\"type\":\"repo\",\"target\":[\"cdp-uat/zentao\",\"qa-dac/yyuan9\",\"cafdms-qa/xxl-job-admin\"]}
+     * @example {\\"type\\":\\"repo\\",\\"target\\":[\\"cdp-uat/zentao\\",\\"qa-dac/yyuan9\\",\\"cafdms-qa/xxl-job-admin\\"]}
      *
      * @var string
      */

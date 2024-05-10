@@ -302,7 +302,7 @@ class restoreJobs extends Model
     /**
      * @description The path to the source file that you want to restore.
      *
-     * @example ["/home/admin","\\\\servername\\sharename"]
+     * @example ["/home/admin","\\\\\\\\servername\\\\sharename"]
      *
      * @var string
      */

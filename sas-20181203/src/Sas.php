@@ -1412,10 +1412,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param AddAssetSelectionCriteriaRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Select an operation for assets.
+     *  *
+     * @param AddAssetSelectionCriteriaRequest $request AddAssetSelectionCriteriaRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddAssetSelectionCriteriaResponse
+     * @return AddAssetSelectionCriteriaResponse AddAssetSelectionCriteriaResponse
      */
     public function addAssetSelectionCriteriaWithOptions($request, $runtime)
     {
@@ -1452,9 +1454,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param AddAssetSelectionCriteriaRequest $request
+     * @summary Select an operation for assets.
+     *  *
+     * @param AddAssetSelectionCriteriaRequest $request AddAssetSelectionCriteriaRequest
      *
-     * @return AddAssetSelectionCriteriaResponse
+     * @return AddAssetSelectionCriteriaResponse AddAssetSelectionCriteriaResponse
      */
     public function addAssetSelectionCriteria($request)
     {
@@ -1464,10 +1468,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param AddCheckInstanceResultWhiteListRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary Adds check items to the whitelist for instances.
+     *  *
+     * @param AddCheckInstanceResultWhiteListRequest $request AddCheckInstanceResultWhiteListRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddCheckInstanceResultWhiteListResponse
+     * @return AddCheckInstanceResultWhiteListResponse AddCheckInstanceResultWhiteListResponse
      */
     public function addCheckInstanceResultWhiteListWithOptions($request, $runtime)
     {
@@ -1501,9 +1507,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param AddCheckInstanceResultWhiteListRequest $request
+     * @summary Adds check items to the whitelist for instances.
+     *  *
+     * @param AddCheckInstanceResultWhiteListRequest $request AddCheckInstanceResultWhiteListRequest
      *
-     * @return AddCheckInstanceResultWhiteListResponse
+     * @return AddCheckInstanceResultWhiteListResponse AddCheckInstanceResultWhiteListResponse
      */
     public function addCheckInstanceResultWhiteList($request)
     {
@@ -1513,10 +1521,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param AddCheckResultWhiteListRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Adds check items to the whitelist.
+     *  *
+     * @param AddCheckResultWhiteListRequest $request AddCheckResultWhiteListRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddCheckResultWhiteListResponse
+     * @return AddCheckResultWhiteListResponse AddCheckResultWhiteListResponse
      */
     public function addCheckResultWhiteListWithOptions($request, $runtime)
     {
@@ -1544,9 +1554,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param AddCheckResultWhiteListRequest $request
+     * @summary Adds check items to the whitelist.
+     *  *
+     * @param AddCheckResultWhiteListRequest $request AddCheckResultWhiteListRequest
      *
-     * @return AddCheckResultWhiteListResponse
+     * @return AddCheckResultWhiteListResponse AddCheckResultWhiteListResponse
      */
     public function addCheckResultWhiteList($request)
     {
@@ -1556,10 +1568,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param AddClientUserDefineRuleRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Creates a custom defense rule.
+     *  *
+     * @param AddClientUserDefineRuleRequest $request AddClientUserDefineRuleRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddClientUserDefineRuleResponse
+     * @return AddClientUserDefineRuleResponse AddClientUserDefineRuleResponse
      */
     public function addClientUserDefineRuleWithOptions($request, $runtime)
     {
@@ -1635,9 +1649,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param AddClientUserDefineRuleRequest $request
+     * @summary Creates a custom defense rule.
+     *  *
+     * @param AddClientUserDefineRuleRequest $request AddClientUserDefineRuleRequest
      *
-     * @return AddClientUserDefineRuleResponse
+     * @return AddClientUserDefineRuleResponse AddClientUserDefineRuleResponse
      */
     public function addClientUserDefineRule($request)
     {
@@ -1647,10 +1663,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param AddContainerDefenseRuleRequest $tmpReq
-     * @param RuntimeOptions                 $runtime
+     * @summary Creates a rule for non-image program defense.
+     *  *
+     * @param AddContainerDefenseRuleRequest $tmpReq  AddContainerDefenseRuleRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddContainerDefenseRuleResponse
+     * @return AddContainerDefenseRuleResponse AddContainerDefenseRuleResponse
      */
     public function addContainerDefenseRuleWithOptions($tmpReq, $runtime)
     {
@@ -1704,9 +1722,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param AddContainerDefenseRuleRequest $request
+     * @summary Creates a rule for non-image program defense.
+     *  *
+     * @param AddContainerDefenseRuleRequest $request AddContainerDefenseRuleRequest
      *
-     * @return AddContainerDefenseRuleResponse
+     * @return AddContainerDefenseRuleResponse AddContainerDefenseRuleResponse
      */
     public function addContainerDefenseRule($request)
     {
@@ -1716,10 +1736,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param AddContainerPluginRuleRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Creates a defense rule against container escapes.
+     *  *
+     * @param AddContainerPluginRuleRequest $request AddContainerPluginRuleRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddContainerPluginRuleResponse
+     * @return AddContainerPluginRuleResponse AddContainerPluginRuleResponse
      */
     public function addContainerPluginRuleWithOptions($request, $runtime)
     {
@@ -1765,9 +1787,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param AddContainerPluginRuleRequest $request
+     * @summary Creates a defense rule against container escapes.
+     *  *
+     * @param AddContainerPluginRuleRequest $request AddContainerPluginRuleRequest
      *
-     * @return AddContainerPluginRuleResponse
+     * @return AddContainerPluginRuleResponse AddContainerPluginRuleResponse
      */
     public function addContainerPluginRule($request)
     {
@@ -1777,10 +1801,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param AddImageEventOperationRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Creates an alert handling rule.
+     *  *
+     * @param AddImageEventOperationRequest $request AddImageEventOperationRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddImageEventOperationResponse
+     * @return AddImageEventOperationResponse AddImageEventOperationResponse
      */
     public function addImageEventOperationWithOptions($request, $runtime)
     {
@@ -1823,9 +1849,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param AddImageEventOperationRequest $request
+     * @summary Creates an alert handling rule.
+     *  *
+     * @param AddImageEventOperationRequest $request AddImageEventOperationRequest
      *
-     * @return AddImageEventOperationResponse
+     * @return AddImageEventOperationResponse AddImageEventOperationResponse
      */
     public function addImageEventOperation($request)
     {
@@ -1835,10 +1863,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param AddImageVulWhiteListRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Adds image vulnerabilities to the whitelist.
+     *  *
+     * @param AddImageVulWhiteListRequest $request AddImageVulWhiteListRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddImageVulWhiteListResponse
+     * @return AddImageVulWhiteListResponse AddImageVulWhiteListResponse
      */
     public function addImageVulWhiteListWithOptions($request, $runtime)
     {
@@ -1881,9 +1911,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param AddImageVulWhiteListRequest $request
+     * @summary Adds image vulnerabilities to the whitelist.
+     *  *
+     * @param AddImageVulWhiteListRequest $request AddImageVulWhiteListRequest
      *
-     * @return AddImageVulWhiteListResponse
+     * @return AddImageVulWhiteListResponse AddImageVulWhiteListResponse
      */
     public function addImageVulWhiteList($request)
     {
@@ -1893,10 +1925,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param AddInstallCodeRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Creates a command that is used to install the Security Center agent.
+     *  *
+     * @param AddInstallCodeRequest $request AddInstallCodeRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddInstallCodeResponse
+     * @return AddInstallCodeResponse AddInstallCodeResponse
      */
     public function addInstallCodeWithOptions($request, $runtime)
     {
@@ -1939,9 +1973,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param AddInstallCodeRequest $request
+     * @summary Creates a command that is used to install the Security Center agent.
+     *  *
+     * @param AddInstallCodeRequest $request AddInstallCodeRequest
      *
-     * @return AddInstallCodeResponse
+     * @return AddInstallCodeResponse AddInstallCodeResponse
      */
     public function addInstallCode($request)
     {
@@ -1951,10 +1987,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param AddPrivateRegistryRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Adds a self-managed image repository.
+     *  *
+     * @param AddPrivateRegistryRequest $request AddPrivateRegistryRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddPrivateRegistryResponse
+     * @return AddPrivateRegistryResponse AddPrivateRegistryResponse
      */
     public function addPrivateRegistryWithOptions($request, $runtime)
     {
@@ -2018,9 +2056,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param AddPrivateRegistryRequest $request
+     * @summary Adds a self-managed image repository.
+     *  *
+     * @param AddPrivateRegistryRequest $request AddPrivateRegistryRequest
      *
-     * @return AddPrivateRegistryResponse
+     * @return AddPrivateRegistryResponse AddPrivateRegistryResponse
      */
     public function addPrivateRegistry($request)
     {
@@ -2030,10 +2070,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param AddSasContainerWebDefenseRuleRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Creates a rule for container tamper-proofing.
+     *  *
+     * @param AddSasContainerWebDefenseRuleRequest $request AddSasContainerWebDefenseRuleRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddSasContainerWebDefenseRuleResponse
+     * @return AddSasContainerWebDefenseRuleResponse AddSasContainerWebDefenseRuleResponse
      */
     public function addSasContainerWebDefenseRuleWithOptions($request, $runtime)
     {
@@ -2064,9 +2106,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param AddSasContainerWebDefenseRuleRequest $request
+     * @summary Creates a rule for container tamper-proofing.
+     *  *
+     * @param AddSasContainerWebDefenseRuleRequest $request AddSasContainerWebDefenseRuleRequest
      *
-     * @return AddSasContainerWebDefenseRuleResponse
+     * @return AddSasContainerWebDefenseRuleResponse AddSasContainerWebDefenseRuleResponse
      */
     public function addSasContainerWebDefenseRule($request)
     {
@@ -2076,10 +2120,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param AddSasModuleTrialRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Enables the trial use of Security Center value-added features, including vulnerability fixing and threat analysis.
+     *  *
+     * @param AddSasModuleTrialRequest $request AddSasModuleTrialRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddSasModuleTrialResponse
+     * @return AddSasModuleTrialResponse AddSasModuleTrialResponse
      */
     public function addSasModuleTrialWithOptions($request, $runtime)
     {
@@ -2110,9 +2156,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param AddSasModuleTrialRequest $request
+     * @summary Enables the trial use of Security Center value-added features, including vulnerability fixing and threat analysis.
+     *  *
+     * @param AddSasModuleTrialRequest $request AddSasModuleTrialRequest
      *
-     * @return AddSasModuleTrialResponse
+     * @return AddSasModuleTrialResponse AddSasModuleTrialResponse
      */
     public function addSasModuleTrial($request)
     {
@@ -2122,8 +2170,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Security Center provides asset importance tags and custom tags. You can call the AddTagWithUuid operation to add only a custom tag to assets.
-     *   *
+     * @summary Adds a tag to assets.
+     *  *
+     * @description Security Center provides asset importance tags and custom tags. You can call the AddTagWithUuid operation to add only a custom tag to assets.
+     *  *
      * @param AddTagWithUuidRequest $request AddTagWithUuidRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -2158,8 +2208,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Security Center provides asset importance tags and custom tags. You can call the AddTagWithUuid operation to add only a custom tag to assets.
-     *   *
+     * @summary Adds a tag to assets.
+     *  *
+     * @description Security Center provides asset importance tags and custom tags. You can call the AddTagWithUuid operation to add only a custom tag to assets.
+     *  *
      * @param AddTagWithUuidRequest $request AddTagWithUuidRequest
      *
      * @return AddTagWithUuidResponse AddTagWithUuidResponse
@@ -2172,10 +2224,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param AddUninstallClientsByUuidsRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Adds servers from which you want to uninstall the Security Center agent.
+     *  *
+     * @param AddUninstallClientsByUuidsRequest $request AddUninstallClientsByUuidsRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddUninstallClientsByUuidsResponse
+     * @return AddUninstallClientsByUuidsResponse AddUninstallClientsByUuidsResponse
      */
     public function addUninstallClientsByUuidsWithOptions($request, $runtime)
     {
@@ -2215,9 +2269,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param AddUninstallClientsByUuidsRequest $request
+     * @summary Adds servers from which you want to uninstall the Security Center agent.
+     *  *
+     * @param AddUninstallClientsByUuidsRequest $request AddUninstallClientsByUuidsRequest
      *
-     * @return AddUninstallClientsByUuidsResponse
+     * @return AddUninstallClientsByUuidsResponse AddUninstallClientsByUuidsResponse
      */
     public function addUninstallClientsByUuids($request)
     {
@@ -2227,10 +2283,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param AddVpcHoneyPotRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Creates a honeypot.
+     *  *
+     * @param AddVpcHoneyPotRequest $request AddVpcHoneyPotRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddVpcHoneyPotResponse
+     * @return AddVpcHoneyPotResponse AddVpcHoneyPotResponse
      */
     public function addVpcHoneyPotWithOptions($request, $runtime)
     {
@@ -2258,9 +2316,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param AddVpcHoneyPotRequest $request
+     * @summary Creates a honeypot.
+     *  *
+     * @param AddVpcHoneyPotRequest $request AddVpcHoneyPotRequest
      *
-     * @return AddVpcHoneyPotResponse
+     * @return AddVpcHoneyPotResponse AddVpcHoneyPotResponse
      */
     public function addVpcHoneyPot($request)
     {
@@ -2270,10 +2330,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param AdvanceSecurityEventOperationsRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Queries the configurations of an advanced whitelist rule.
+     *  *
+     * @param AdvanceSecurityEventOperationsRequest $request AdvanceSecurityEventOperationsRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return AdvanceSecurityEventOperationsResponse
+     * @return AdvanceSecurityEventOperationsResponse AdvanceSecurityEventOperationsResponse
      */
     public function advanceSecurityEventOperationsWithOptions($request, $runtime)
     {
@@ -2310,9 +2372,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param AdvanceSecurityEventOperationsRequest $request
+     * @summary Queries the configurations of an advanced whitelist rule.
+     *  *
+     * @param AdvanceSecurityEventOperationsRequest $request AdvanceSecurityEventOperationsRequest
      *
-     * @return AdvanceSecurityEventOperationsResponse
+     * @return AdvanceSecurityEventOperationsResponse AdvanceSecurityEventOperationsResponse
      */
     public function advanceSecurityEventOperations($request)
     {
@@ -2322,10 +2386,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param BatchDeleteMaliciousFileWhitelistConfigRequest $request
-     * @param RuntimeOptions                                 $runtime
+     * @summary Deletes whitelist rules for alerts generated for sensitive files that are detected by using the agentless detection feature in batches.
+     *  *
+     * @param BatchDeleteMaliciousFileWhitelistConfigRequest $request BatchDeleteMaliciousFileWhitelistConfigRequest
+     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchDeleteMaliciousFileWhitelistConfigResponse
+     * @return BatchDeleteMaliciousFileWhitelistConfigResponse BatchDeleteMaliciousFileWhitelistConfigResponse
      */
     public function batchDeleteMaliciousFileWhitelistConfigWithOptions($request, $runtime)
     {
@@ -2353,9 +2419,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param BatchDeleteMaliciousFileWhitelistConfigRequest $request
+     * @summary Deletes whitelist rules for alerts generated for sensitive files that are detected by using the agentless detection feature in batches.
+     *  *
+     * @param BatchDeleteMaliciousFileWhitelistConfigRequest $request BatchDeleteMaliciousFileWhitelistConfigRequest
      *
-     * @return BatchDeleteMaliciousFileWhitelistConfigResponse
+     * @return BatchDeleteMaliciousFileWhitelistConfigResponse BatchDeleteMaliciousFileWhitelistConfigResponse
      */
     public function batchDeleteMaliciousFileWhitelistConfig($request)
     {
@@ -2365,10 +2433,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param BatchOperateCommonOverallConfigRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary Enables or disables multiple features in proactive defense at a time.
+     *  *
+     * @param BatchOperateCommonOverallConfigRequest $request BatchOperateCommonOverallConfigRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchOperateCommonOverallConfigResponse
+     * @return BatchOperateCommonOverallConfigResponse BatchOperateCommonOverallConfigResponse
      */
     public function batchOperateCommonOverallConfigWithOptions($request, $runtime)
     {
@@ -2399,9 +2469,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param BatchOperateCommonOverallConfigRequest $request
+     * @summary Enables or disables multiple features in proactive defense at a time.
+     *  *
+     * @param BatchOperateCommonOverallConfigRequest $request BatchOperateCommonOverallConfigRequest
      *
-     * @return BatchOperateCommonOverallConfigResponse
+     * @return BatchOperateCommonOverallConfigResponse BatchOperateCommonOverallConfigResponse
      */
     public function batchOperateCommonOverallConfig($request)
     {
@@ -2411,10 +2483,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param BatchUpdateMaliciousFileWhitelistConfigRequest $request
-     * @param RuntimeOptions                                 $runtime
+     * @summary Modifies multiple alert whitelist rules of sensitive files that are detected by using the agentless detection feature at a time.
+     *  *
+     * @param BatchUpdateMaliciousFileWhitelistConfigRequest $request BatchUpdateMaliciousFileWhitelistConfigRequest
+     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchUpdateMaliciousFileWhitelistConfigResponse
+     * @return BatchUpdateMaliciousFileWhitelistConfigResponse BatchUpdateMaliciousFileWhitelistConfigResponse
      */
     public function batchUpdateMaliciousFileWhitelistConfigWithOptions($request, $runtime)
     {
@@ -2442,9 +2516,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param BatchUpdateMaliciousFileWhitelistConfigRequest $request
+     * @summary Modifies multiple alert whitelist rules of sensitive files that are detected by using the agentless detection feature at a time.
+     *  *
+     * @param BatchUpdateMaliciousFileWhitelistConfigRequest $request BatchUpdateMaliciousFileWhitelistConfigRequest
      *
-     * @return BatchUpdateMaliciousFileWhitelistConfigResponse
+     * @return BatchUpdateMaliciousFileWhitelistConfigResponse BatchUpdateMaliciousFileWhitelistConfigResponse
      */
     public function batchUpdateMaliciousFileWhitelistConfig($request)
     {
@@ -2454,10 +2530,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param BindAuthToMachineRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Binds servers to Security Center or unbinds servers from Security Center.
+     *  *
+     * @param BindAuthToMachineRequest $request BindAuthToMachineRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return BindAuthToMachineResponse
+     * @return BindAuthToMachineResponse BindAuthToMachineResponse
      */
     public function bindAuthToMachineWithOptions($request, $runtime)
     {
@@ -2512,9 +2590,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param BindAuthToMachineRequest $request
+     * @summary Binds servers to Security Center or unbinds servers from Security Center.
+     *  *
+     * @param BindAuthToMachineRequest $request BindAuthToMachineRequest
      *
-     * @return BindAuthToMachineResponse
+     * @return BindAuthToMachineResponse BindAuthToMachineResponse
      */
     public function bindAuthToMachine($request)
     {
@@ -2524,10 +2604,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param BindHybridProxyRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Adds servers to Security Center over a proxy server. After you create a proxy cluster and deploy a proxy server, you can connect a server to the proxy cluster as a client. This way, the server is added to Security Center over the proxy server and is protected.
+     *  *
+     * @param BindHybridProxyRequest $request BindHybridProxyRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return BindHybridProxyResponse
+     * @return BindHybridProxyResponse BindHybridProxyResponse
      */
     public function bindHybridProxyWithOptions($request, $runtime)
     {
@@ -2558,9 +2640,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param BindHybridProxyRequest $request
+     * @summary Adds servers to Security Center over a proxy server. After you create a proxy cluster and deploy a proxy server, you can connect a server to the proxy cluster as a client. This way, the server is added to Security Center over the proxy server and is protected.
+     *  *
+     * @param BindHybridProxyRequest $request BindHybridProxyRequest
      *
-     * @return BindHybridProxyResponse
+     * @return BindHybridProxyResponse BindHybridProxyResponse
      */
     public function bindHybridProxy($request)
     {
@@ -2570,10 +2654,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CancelOnceTaskRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Cancels the main task.
+     *  *
+     * @param CancelOnceTaskRequest $request CancelOnceTaskRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelOnceTaskResponse
+     * @return CancelOnceTaskResponse CancelOnceTaskResponse
      */
     public function cancelOnceTaskWithOptions($request, $runtime)
     {
@@ -2601,9 +2687,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CancelOnceTaskRequest $request
+     * @summary Cancels the main task.
+     *  *
+     * @param CancelOnceTaskRequest $request CancelOnceTaskRequest
      *
-     * @return CancelOnceTaskResponse
+     * @return CancelOnceTaskResponse CancelOnceTaskResponse
      */
     public function cancelOnceTask($request)
     {
@@ -2613,10 +2701,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ChangeAssetRefreshTaskConfigRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Modifies the interval of asset synchronization configurations.
+     *  *
+     * @param ChangeAssetRefreshTaskConfigRequest $request ChangeAssetRefreshTaskConfigRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ChangeAssetRefreshTaskConfigResponse
+     * @return ChangeAssetRefreshTaskConfigResponse ChangeAssetRefreshTaskConfigResponse
      */
     public function changeAssetRefreshTaskConfigWithOptions($request, $runtime)
     {
@@ -2647,9 +2737,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ChangeAssetRefreshTaskConfigRequest $request
+     * @summary Modifies the interval of asset synchronization configurations.
+     *  *
+     * @param ChangeAssetRefreshTaskConfigRequest $request ChangeAssetRefreshTaskConfigRequest
      *
-     * @return ChangeAssetRefreshTaskConfigResponse
+     * @return ChangeAssetRefreshTaskConfigResponse ChangeAssetRefreshTaskConfigResponse
      */
     public function changeAssetRefreshTaskConfig($request)
     {
@@ -2659,10 +2751,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ChangeCheckConfigRequest $tmpReq
-     * @param RuntimeOptions           $runtime
+     * @summary Modifies the configuration items of the configuration assessment feature.
+     *  *
+     * @param ChangeCheckConfigRequest $tmpReq  ChangeCheckConfigRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ChangeCheckConfigResponse
+     * @return ChangeCheckConfigResponse ChangeCheckConfigResponse
      */
     public function changeCheckConfigWithOptions($tmpReq, $runtime)
     {
@@ -2734,9 +2828,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ChangeCheckConfigRequest $request
+     * @summary Modifies the configuration items of the configuration assessment feature.
+     *  *
+     * @param ChangeCheckConfigRequest $request ChangeCheckConfigRequest
      *
-     * @return ChangeCheckConfigResponse
+     * @return ChangeCheckConfigResponse ChangeCheckConfigResponse
      */
     public function changeCheckConfig($request)
     {
@@ -2746,10 +2842,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ChangeCheckCustomConfigRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Modifies the custom configuration items of a check item.
+     *  *
+     * @param ChangeCheckCustomConfigRequest $request ChangeCheckCustomConfigRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ChangeCheckCustomConfigResponse
+     * @return ChangeCheckCustomConfigResponse ChangeCheckCustomConfigResponse
      */
     public function changeCheckCustomConfigWithOptions($request, $runtime)
     {
@@ -2786,9 +2884,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ChangeCheckCustomConfigRequest $request
+     * @summary Modifies the custom configuration items of a check item.
+     *  *
+     * @param ChangeCheckCustomConfigRequest $request ChangeCheckCustomConfigRequest
      *
-     * @return ChangeCheckCustomConfigResponse
+     * @return ChangeCheckCustomConfigResponse ChangeCheckCustomConfigResponse
      */
     public function changeCheckCustomConfig($request)
     {
@@ -2798,10 +2898,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ChangeSecurityScoreRuleRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Modifies the details of the deduction modules of the security score feature, including custom settings.
+     *  *
+     * @param ChangeSecurityScoreRuleRequest $request ChangeSecurityScoreRuleRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ChangeSecurityScoreRuleResponse
+     * @return ChangeSecurityScoreRuleResponse ChangeSecurityScoreRuleResponse
      */
     public function changeSecurityScoreRuleWithOptions($request, $runtime)
     {
@@ -2832,9 +2934,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ChangeSecurityScoreRuleRequest $request
+     * @summary Modifies the details of the deduction modules of the security score feature, including custom settings.
+     *  *
+     * @param ChangeSecurityScoreRuleRequest $request ChangeSecurityScoreRuleRequest
      *
-     * @return ChangeSecurityScoreRuleResponse
+     * @return ChangeSecurityScoreRuleResponse ChangeSecurityScoreRuleResponse
      */
     public function changeSecurityScoreRule($request)
     {
@@ -2844,10 +2948,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ChangeUserLangRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Modifies the language settings of log analysis. The modification on the language settings takes effect within 12 hours and affects only the language of the descriptions for security events in security logs.
+     *  *
+     * @param ChangeUserLangRequest $request ChangeUserLangRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ChangeUserLangResponse
+     * @return ChangeUserLangResponse ChangeUserLangResponse
      */
     public function changeUserLangWithOptions($request, $runtime)
     {
@@ -2875,9 +2981,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ChangeUserLangRequest $request
+     * @summary Modifies the language settings of log analysis. The modification on the language settings takes effect within 12 hours and affects only the language of the descriptions for security events in security logs.
+     *  *
+     * @param ChangeUserLangRequest $request ChangeUserLangRequest
      *
-     * @return ChangeUserLangResponse
+     * @return ChangeUserLangResponse ChangeUserLangResponse
      */
     public function changeUserLang($request)
     {
@@ -2887,10 +2995,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CheckQuaraFileIdRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Checks whether the IDs of quarantined files are valid.
+     *  *
+     * @param CheckQuaraFileIdRequest $request CheckQuaraFileIdRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckQuaraFileIdResponse
+     * @return CheckQuaraFileIdResponse CheckQuaraFileIdResponse
      */
     public function checkQuaraFileIdWithOptions($request, $runtime)
     {
@@ -2921,9 +3031,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CheckQuaraFileIdRequest $request
+     * @summary Checks whether the IDs of quarantined files are valid.
+     *  *
+     * @param CheckQuaraFileIdRequest $request CheckQuaraFileIdRequest
      *
-     * @return CheckQuaraFileIdResponse
+     * @return CheckQuaraFileIdResponse CheckQuaraFileIdResponse
      */
     public function checkQuaraFileId($request)
     {
@@ -2933,10 +3045,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CheckSecurityEventIdRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Checks whether one or more alert events are generated on a specified server based on the IDs of the alert events.
+     *  *
+     * @param CheckSecurityEventIdRequest $request CheckSecurityEventIdRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckSecurityEventIdResponse
+     * @return CheckSecurityEventIdResponse CheckSecurityEventIdResponse
      */
     public function checkSecurityEventIdWithOptions($request, $runtime)
     {
@@ -2967,9 +3081,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CheckSecurityEventIdRequest $request
+     * @summary Checks whether one or more alert events are generated on a specified server based on the IDs of the alert events.
+     *  *
+     * @param CheckSecurityEventIdRequest $request CheckSecurityEventIdRequest
      *
-     * @return CheckSecurityEventIdResponse
+     * @return CheckSecurityEventIdResponse CheckSecurityEventIdResponse
      */
     public function checkSecurityEventId($request)
     {
@@ -2979,10 +3095,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CheckUserHasEcsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Checks whether Elastic Compute Service (ECS) instances exist.
+     *  *
+     * @param CheckUserHasEcsRequest $request CheckUserHasEcsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckUserHasEcsResponse
+     * @return CheckUserHasEcsResponse CheckUserHasEcsResponse
      */
     public function checkUserHasEcsWithOptions($request, $runtime)
     {
@@ -3010,9 +3128,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CheckUserHasEcsRequest $request
+     * @summary Checks whether Elastic Compute Service (ECS) instances exist.
+     *  *
+     * @param CheckUserHasEcsRequest $request CheckUserHasEcsRequest
      *
-     * @return CheckUserHasEcsResponse
+     * @return CheckUserHasEcsResponse CheckUserHasEcsResponse
      */
     public function checkUserHasEcs($request)
     {
@@ -3022,10 +3142,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ConfirmVirusEventsRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Confirms the alert events that you want to handle.
+     *  *
+     * @param ConfirmVirusEventsRequest $request ConfirmVirusEventsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ConfirmVirusEventsResponse
+     * @return ConfirmVirusEventsResponse ConfirmVirusEventsResponse
      */
     public function confirmVirusEventsWithOptions($request, $runtime)
     {
@@ -3059,9 +3181,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ConfirmVirusEventsRequest $request
+     * @summary Confirms the alert events that you want to handle.
+     *  *
+     * @param ConfirmVirusEventsRequest $request ConfirmVirusEventsRequest
      *
-     * @return ConfirmVirusEventsResponse
+     * @return ConfirmVirusEventsResponse ConfirmVirusEventsResponse
      */
     public function confirmVirusEvents($request)
     {
@@ -3071,10 +3195,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateAgentlessScanTaskRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Creates an agentless detection task.
+     *  *
+     * @param CreateAgentlessScanTaskRequest $request CreateAgentlessScanTaskRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAgentlessScanTaskResponse
+     * @return CreateAgentlessScanTaskResponse CreateAgentlessScanTaskResponse
      */
     public function createAgentlessScanTaskWithOptions($request, $runtime)
     {
@@ -3114,9 +3240,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateAgentlessScanTaskRequest $request
+     * @summary Creates an agentless detection task.
+     *  *
+     * @param CreateAgentlessScanTaskRequest $request CreateAgentlessScanTaskRequest
      *
-     * @return CreateAgentlessScanTaskResponse
+     * @return CreateAgentlessScanTaskResponse CreateAgentlessScanTaskResponse
      */
     public function createAgentlessScanTask($request)
     {
@@ -3126,10 +3254,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateAntiBruteForceRuleRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Creates a defense rule against brute-force attacks.
+     *  *
+     * @param CreateAntiBruteForceRuleRequest $request CreateAntiBruteForceRuleRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAntiBruteForceRuleResponse
+     * @return CreateAntiBruteForceRuleResponse CreateAntiBruteForceRuleResponse
      */
     public function createAntiBruteForceRuleWithOptions($request, $runtime)
     {
@@ -3178,9 +3308,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateAntiBruteForceRuleRequest $request
+     * @summary Creates a defense rule against brute-force attacks.
+     *  *
+     * @param CreateAntiBruteForceRuleRequest $request CreateAntiBruteForceRuleRequest
      *
-     * @return CreateAntiBruteForceRuleResponse
+     * @return CreateAntiBruteForceRuleResponse CreateAntiBruteForceRuleResponse
      */
     public function createAntiBruteForceRule($request)
     {
@@ -3190,10 +3322,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateAssetSelectionConfigRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Create asset selection configurations.
+     *  *
+     * @param CreateAssetSelectionConfigRequest $request CreateAssetSelectionConfigRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAssetSelectionConfigResponse
+     * @return CreateAssetSelectionConfigResponse CreateAssetSelectionConfigResponse
      */
     public function createAssetSelectionConfigWithOptions($request, $runtime)
     {
@@ -3224,9 +3358,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateAssetSelectionConfigRequest $request
+     * @summary Create asset selection configurations.
+     *  *
+     * @param CreateAssetSelectionConfigRequest $request CreateAssetSelectionConfigRequest
      *
-     * @return CreateAssetSelectionConfigResponse
+     * @return CreateAssetSelectionConfigResponse CreateAssetSelectionConfigResponse
      */
     public function createAssetSelectionConfig($request)
     {
@@ -3236,10 +3372,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateBackupPolicyRequest $tmpReq
-     * @param RuntimeOptions            $runtime
+     * @summary Creates an anti-ransomware policy for servers.
+     *  *
+     * @param CreateBackupPolicyRequest $tmpReq  CreateBackupPolicyRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateBackupPolicyResponse
+     * @return CreateBackupPolicyResponse CreateBackupPolicyResponse
      */
     public function createBackupPolicyWithOptions($tmpReq, $runtime)
     {
@@ -3284,9 +3422,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateBackupPolicyRequest $request
+     * @summary Creates an anti-ransomware policy for servers.
+     *  *
+     * @param CreateBackupPolicyRequest $request CreateBackupPolicyRequest
      *
-     * @return CreateBackupPolicyResponse
+     * @return CreateBackupPolicyResponse CreateBackupPolicyResponse
      */
     public function createBackupPolicy($request)
     {
@@ -3296,10 +3436,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateContainerScanTaskRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Creates a container scan task.
+     *  *
+     * @param CreateContainerScanTaskRequest $request CreateContainerScanTaskRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateContainerScanTaskResponse
+     * @return CreateContainerScanTaskResponse CreateContainerScanTaskResponse
      */
     public function createContainerScanTaskWithOptions($request, $runtime)
     {
@@ -3333,9 +3475,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateContainerScanTaskRequest $request
+     * @summary Creates a container scan task.
+     *  *
+     * @param CreateContainerScanTaskRequest $request CreateContainerScanTaskRequest
      *
-     * @return CreateContainerScanTaskResponse
+     * @return CreateContainerScanTaskResponse CreateContainerScanTaskResponse
      */
     public function createContainerScanTask($request)
     {
@@ -3345,10 +3489,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateContainerScanTaskByAppNameRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary Creates a scan task for a running container application based on the application name.
+     *  *
+     * @param CreateContainerScanTaskByAppNameRequest $request CreateContainerScanTaskByAppNameRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateContainerScanTaskByAppNameResponse
+     * @return CreateContainerScanTaskByAppNameResponse CreateContainerScanTaskByAppNameResponse
      */
     public function createContainerScanTaskByAppNameWithOptions($request, $runtime)
     {
@@ -3382,9 +3528,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateContainerScanTaskByAppNameRequest $request
+     * @summary Creates a scan task for a running container application based on the application name.
+     *  *
+     * @param CreateContainerScanTaskByAppNameRequest $request CreateContainerScanTaskByAppNameRequest
      *
-     * @return CreateContainerScanTaskByAppNameResponse
+     * @return CreateContainerScanTaskByAppNameResponse CreateContainerScanTaskByAppNameResponse
      */
     public function createContainerScanTaskByAppName($request)
     {
@@ -3394,10 +3542,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateCustomBlockRecordRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Creates an IP address blocking policy for one or more servers.
+     *  *
+     * @param CreateCustomBlockRecordRequest $request CreateCustomBlockRecordRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateCustomBlockRecordResponse
+     * @return CreateCustomBlockRecordResponse CreateCustomBlockRecordResponse
      */
     public function createCustomBlockRecordWithOptions($request, $runtime)
     {
@@ -3437,9 +3587,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateCustomBlockRecordRequest $request
+     * @summary Creates an IP address blocking policy for one or more servers.
+     *  *
+     * @param CreateCustomBlockRecordRequest $request CreateCustomBlockRecordRequest
      *
-     * @return CreateCustomBlockRecordResponse
+     * @return CreateCustomBlockRecordResponse CreateCustomBlockRecordResponse
      */
     public function createCustomBlockRecord($request)
     {
@@ -3449,10 +3601,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateCycleTaskRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Creates a periodic scan task. The task can be an image scan task, urgent vulnerability scan task, or virus scan task.
+     *  *
+     * @param CreateCycleTaskRequest $request CreateCycleTaskRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateCycleTaskResponse
+     * @return CreateCycleTaskResponse CreateCycleTaskResponse
      */
     public function createCycleTaskWithOptions($request, $runtime)
     {
@@ -3507,9 +3661,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateCycleTaskRequest $request
+     * @summary Creates a periodic scan task. The task can be an image scan task, urgent vulnerability scan task, or virus scan task.
+     *  *
+     * @param CreateCycleTaskRequest $request CreateCycleTaskRequest
      *
-     * @return CreateCycleTaskResponse
+     * @return CreateCycleTaskResponse CreateCycleTaskResponse
      */
     public function createCycleTask($request)
     {
@@ -3519,12 +3675,14 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * You can call this operation to push a file to the cloud for detection. Before you call this operation, make sure that the file is uploaded. You can call the CreateFileDetectUploadUrl operation to upload the file.
-     *   * The HashKey parameter is included in all API operations that are related to the file detection feature. The parameter specifies the unique identifier of a file. Only hexadecimal MD5 hash values of complete file content are supported. You must calculate the MD5 hash value before you call this operation.
-     *   * To calculate the hexadecimal MD5 hash value for a file, you can perform the following steps:
-     *   * 1\\. Use the MD5 algorithm to encrypt data and generate a 128-bit hash value. You can use a tool such as MessageDigest for Java and the hashlib module for Python.
-     *   * 2\\. Convert the hash value to a hexadecimal string. You can use a tool such as Codec for Java and the hex() function for Python.
-     *   *
+     * @summary Pushes a file to the cloud for detection.
+     *  *
+     * @description You can call this operation to push a file to the cloud for detection. Before you call this operation, make sure that the file is uploaded. You can call the CreateFileDetectUploadUrl operation to upload the file.
+     * The HashKey parameter is included in all API operations that are related to the file detection feature. The parameter specifies the unique identifier of a file. Only hexadecimal MD5 hash values of complete file content are supported. You must calculate the MD5 hash value before you call this operation.
+     * To calculate the hexadecimal MD5 hash value for a file, you can perform the following steps:
+     * 1\\. Use the MD5 algorithm to encrypt data and generate a 128-bit hash value. You can use a tool such as MessageDigest for Java and the hashlib module for Python.
+     * 2\\. Convert the hash value to a hexadecimal string. You can use a tool such as Codec for Java and the hex() function for Python.
+     *  *
      * @param CreateFileDetectRequest $request CreateFileDetectRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -3577,12 +3735,14 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * You can call this operation to push a file to the cloud for detection. Before you call this operation, make sure that the file is uploaded. You can call the CreateFileDetectUploadUrl operation to upload the file.
-     *   * The HashKey parameter is included in all API operations that are related to the file detection feature. The parameter specifies the unique identifier of a file. Only hexadecimal MD5 hash values of complete file content are supported. You must calculate the MD5 hash value before you call this operation.
-     *   * To calculate the hexadecimal MD5 hash value for a file, you can perform the following steps:
-     *   * 1\\. Use the MD5 algorithm to encrypt data and generate a 128-bit hash value. You can use a tool such as MessageDigest for Java and the hashlib module for Python.
-     *   * 2\\. Convert the hash value to a hexadecimal string. You can use a tool such as Codec for Java and the hex() function for Python.
-     *   *
+     * @summary Pushes a file to the cloud for detection.
+     *  *
+     * @description You can call this operation to push a file to the cloud for detection. Before you call this operation, make sure that the file is uploaded. You can call the CreateFileDetectUploadUrl operation to upload the file.
+     * The HashKey parameter is included in all API operations that are related to the file detection feature. The parameter specifies the unique identifier of a file. Only hexadecimal MD5 hash values of complete file content are supported. You must calculate the MD5 hash value before you call this operation.
+     * To calculate the hexadecimal MD5 hash value for a file, you can perform the following steps:
+     * 1\\. Use the MD5 algorithm to encrypt data and generate a 128-bit hash value. You can use a tool such as MessageDigest for Java and the hashlib module for Python.
+     * 2\\. Convert the hash value to a hexadecimal string. You can use a tool such as Codec for Java and the hex() function for Python.
+     *  *
      * @param CreateFileDetectRequest $request CreateFileDetectRequest
      *
      * @return CreateFileDetectResponse CreateFileDetectResponse
@@ -3595,10 +3755,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the parameters that are required to upload a file for detection. If the value of the response parameter FileExist is true, the file that you want to upload for detection already exists in the cloud. In this case, you can directly push the file for detection. If the value of the response parameter FileExist is false, you must use the form upload method to upload the file to the specified Object Storage Service (OSS) bucket based on the response parameters of this operation.
-     *   * The form upload method is provided by OSS. For more information, see [Form upload](~~84788~~).
-     *   * The HashKey parameter is included in all API operations that are related to the file detection feature. The parameter specifies the unique identifier of a file. Only MD5 hash values are supported. Before you call this operation, calculate the MD5 hash value of the file.
-     *   *
+     * @summary Queries the parameters that are required to upload a file for detection.
+     *  *
+     * @description You can call this operation to query the parameters that are required to upload a file for detection. If the value of the response parameter FileExist is true, the file that you want to upload for detection already exists in the cloud. In this case, you can directly push the file for detection. If the value of the response parameter FileExist is false, you must use the form upload method to upload the file to the specified Object Storage Service (OSS) bucket based on the response parameters of this operation.
+     * The form upload method is provided by OSS. For more information, see [Form upload](https://help.aliyun.com/document_detail/84788.html).
+     * The HashKey parameter is included in all API operations that are related to the file detection feature. The parameter specifies the unique identifier of a file. Only MD5 hash values are supported. Before you call this operation, calculate the MD5 hash value of the file.
+     *  *
      * @param CreateFileDetectUploadUrlRequest $request CreateFileDetectUploadUrlRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -3636,10 +3798,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the parameters that are required to upload a file for detection. If the value of the response parameter FileExist is true, the file that you want to upload for detection already exists in the cloud. In this case, you can directly push the file for detection. If the value of the response parameter FileExist is false, you must use the form upload method to upload the file to the specified Object Storage Service (OSS) bucket based on the response parameters of this operation.
-     *   * The form upload method is provided by OSS. For more information, see [Form upload](~~84788~~).
-     *   * The HashKey parameter is included in all API operations that are related to the file detection feature. The parameter specifies the unique identifier of a file. Only MD5 hash values are supported. Before you call this operation, calculate the MD5 hash value of the file.
-     *   *
+     * @summary Queries the parameters that are required to upload a file for detection.
+     *  *
+     * @description You can call this operation to query the parameters that are required to upload a file for detection. If the value of the response parameter FileExist is true, the file that you want to upload for detection already exists in the cloud. In this case, you can directly push the file for detection. If the value of the response parameter FileExist is false, you must use the form upload method to upload the file to the specified Object Storage Service (OSS) bucket based on the response parameters of this operation.
+     * The form upload method is provided by OSS. For more information, see [Form upload](https://help.aliyun.com/document_detail/84788.html).
+     * The HashKey parameter is included in all API operations that are related to the file detection feature. The parameter specifies the unique identifier of a file. Only MD5 hash values are supported. Before you call this operation, calculate the MD5 hash value of the file.
+     *  *
      * @param CreateFileDetectUploadUrlRequest $request CreateFileDetectUploadUrlRequest
      *
      * @return CreateFileDetectUploadUrlResponse CreateFileDetectUploadUrlResponse
@@ -3652,10 +3816,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateFileProtectRuleRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Creates a core file monitoring rule.
+     *  *
+     * @param CreateFileProtectRuleRequest $request CreateFileProtectRuleRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateFileProtectRuleResponse
+     * @return CreateFileProtectRuleResponse CreateFileProtectRuleResponse
      */
     public function createFileProtectRuleWithOptions($request, $runtime)
     {
@@ -3704,9 +3870,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateFileProtectRuleRequest $request
+     * @summary Creates a core file monitoring rule.
+     *  *
+     * @param CreateFileProtectRuleRequest $request CreateFileProtectRuleRequest
      *
-     * @return CreateFileProtectRuleResponse
+     * @return CreateFileProtectRuleResponse CreateFileProtectRuleResponse
      */
     public function createFileProtectRule($request)
     {
@@ -3716,10 +3884,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateFileUploadLimitRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Specifies the queries per second (QPS) limit on the files uploaded from the client.
+     *  *
+     * @param CreateFileUploadLimitRequest $request CreateFileUploadLimitRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateFileUploadLimitResponse
+     * @return CreateFileUploadLimitResponse CreateFileUploadLimitResponse
      */
     public function createFileUploadLimitWithOptions($request, $runtime)
     {
@@ -3747,9 +3917,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateFileUploadLimitRequest $request
+     * @summary Specifies the queries per second (QPS) limit on the files uploaded from the client.
+     *  *
+     * @param CreateFileUploadLimitRequest $request CreateFileUploadLimitRequest
      *
-     * @return CreateFileUploadLimitResponse
+     * @return CreateFileUploadLimitResponse CreateFileUploadLimitResponse
      */
     public function createFileUploadLimit($request)
     {
@@ -3759,10 +3931,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateHoneypotRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Creates a honeypot.
+     *  *
+     * @param CreateHoneypotRequest $request CreateHoneypotRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateHoneypotResponse
+     * @return CreateHoneypotResponse CreateHoneypotResponse
      */
     public function createHoneypotWithOptions($request, $runtime)
     {
@@ -3802,9 +3976,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateHoneypotRequest $request
+     * @summary Creates a honeypot.
+     *  *
+     * @param CreateHoneypotRequest $request CreateHoneypotRequest
      *
-     * @return CreateHoneypotResponse
+     * @return CreateHoneypotResponse CreateHoneypotResponse
      */
     public function createHoneypot($request)
     {
@@ -3814,10 +3990,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateHoneypotNodeRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Creates a management node.
+     *  *
+     * @param CreateHoneypotNodeRequest $request CreateHoneypotNodeRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateHoneypotNodeResponse
+     * @return CreateHoneypotNodeResponse CreateHoneypotNodeResponse
      */
     public function createHoneypotNodeWithOptions($request, $runtime)
     {
@@ -3854,9 +4032,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateHoneypotNodeRequest $request
+     * @summary Creates a management node.
+     *  *
+     * @param CreateHoneypotNodeRequest $request CreateHoneypotNodeRequest
      *
-     * @return CreateHoneypotNodeResponse
+     * @return CreateHoneypotNodeResponse CreateHoneypotNodeResponse
      */
     public function createHoneypotNode($request)
     {
@@ -3866,10 +4046,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateHoneypotPresetRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Creates a honeypot template.
+     *  *
+     * @param CreateHoneypotPresetRequest $request CreateHoneypotPresetRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateHoneypotPresetResponse
+     * @return CreateHoneypotPresetResponse CreateHoneypotPresetResponse
      */
     public function createHoneypotPresetWithOptions($request, $runtime)
     {
@@ -3909,9 +4091,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateHoneypotPresetRequest $request
+     * @summary Creates a honeypot template.
+     *  *
+     * @param CreateHoneypotPresetRequest $request CreateHoneypotPresetRequest
      *
-     * @return CreateHoneypotPresetResponse
+     * @return CreateHoneypotPresetResponse CreateHoneypotPresetResponse
      */
     public function createHoneypotPreset($request)
     {
@@ -3921,10 +4105,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateHoneypotProbeRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Creates a probe.
+     *  *
+     * @param CreateHoneypotProbeRequest $request CreateHoneypotProbeRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateHoneypotProbeResponse
+     * @return CreateHoneypotProbeResponse CreateHoneypotProbeResponse
      */
     public function createHoneypotProbeWithOptions($request, $runtime)
     {
@@ -3982,9 +4168,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateHoneypotProbeRequest $request
+     * @summary Creates a probe.
+     *  *
+     * @param CreateHoneypotProbeRequest $request CreateHoneypotProbeRequest
      *
-     * @return CreateHoneypotProbeResponse
+     * @return CreateHoneypotProbeResponse CreateHoneypotProbeResponse
      */
     public function createHoneypotProbe($request)
     {
@@ -3994,10 +4182,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateHoneypotProbeBindRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Creates a monitoring or forwarding service for a probe.
+     *  *
+     * @param CreateHoneypotProbeBindRequest $request CreateHoneypotProbeBindRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateHoneypotProbeBindResponse
+     * @return CreateHoneypotProbeBindResponse CreateHoneypotProbeBindResponse
      */
     public function createHoneypotProbeBindWithOptions($request, $runtime)
     {
@@ -4037,9 +4227,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateHoneypotProbeBindRequest $request
+     * @summary Creates a monitoring or forwarding service for a probe.
+     *  *
+     * @param CreateHoneypotProbeBindRequest $request CreateHoneypotProbeBindRequest
      *
-     * @return CreateHoneypotProbeBindResponse
+     * @return CreateHoneypotProbeBindResponse CreateHoneypotProbeBindResponse
      */
     public function createHoneypotProbeBind($request)
     {
@@ -4049,10 +4241,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateInterceptionRuleRequest $tmpReq
-     * @param RuntimeOptions                $runtime
+     * @summary Creates a defense rule in the container firewall module.
+     *  *
+     * @param CreateInterceptionRuleRequest $tmpReq  CreateInterceptionRuleRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateInterceptionRuleResponse
+     * @return CreateInterceptionRuleResponse CreateInterceptionRuleResponse
      */
     public function createInterceptionRuleWithOptions($tmpReq, $runtime)
     {
@@ -4112,9 +4306,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateInterceptionRuleRequest $request
+     * @summary Creates a defense rule in the container firewall module.
+     *  *
+     * @param CreateInterceptionRuleRequest $request CreateInterceptionRuleRequest
      *
-     * @return CreateInterceptionRuleResponse
+     * @return CreateInterceptionRuleResponse CreateInterceptionRuleResponse
      */
     public function createInterceptionRule($request)
     {
@@ -4124,10 +4320,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateInterceptionTargetRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Creates a defense object.
+     *  *
+     * @param CreateInterceptionTargetRequest $request CreateInterceptionTargetRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateInterceptionTargetResponse
+     * @return CreateInterceptionTargetResponse CreateInterceptionTargetResponse
      */
     public function createInterceptionTargetWithOptions($request, $runtime)
     {
@@ -4176,9 +4374,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateInterceptionTargetRequest $request
+     * @summary Creates a defense object.
+     *  *
+     * @param CreateInterceptionTargetRequest $request CreateInterceptionTargetRequest
      *
-     * @return CreateInterceptionTargetResponse
+     * @return CreateInterceptionTargetResponse CreateInterceptionTargetResponse
      */
     public function createInterceptionTarget($request)
     {
@@ -4188,10 +4388,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateJenkinsImageRegistryRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Creates a Jenkins image repository.
+     *  *
+     * @param CreateJenkinsImageRegistryRequest $request CreateJenkinsImageRegistryRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateJenkinsImageRegistryResponse
+     * @return CreateJenkinsImageRegistryResponse CreateJenkinsImageRegistryResponse
      */
     public function createJenkinsImageRegistryWithOptions($request, $runtime)
     {
@@ -4266,9 +4468,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateJenkinsImageRegistryRequest $request
+     * @summary Creates a Jenkins image repository.
+     *  *
+     * @param CreateJenkinsImageRegistryRequest $request CreateJenkinsImageRegistryRequest
      *
-     * @return CreateJenkinsImageRegistryResponse
+     * @return CreateJenkinsImageRegistryResponse CreateJenkinsImageRegistryResponse
      */
     public function createJenkinsImageRegistry($request)
     {
@@ -4278,10 +4482,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateMaliciousFileWhitelistConfigRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @summary Creates an alert whitelist rule of sensitive files that are detected by using the agentless detection feature.
+     *  *
+     * @param CreateMaliciousFileWhitelistConfigRequest $request CreateMaliciousFileWhitelistConfigRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateMaliciousFileWhitelistConfigResponse
+     * @return CreateMaliciousFileWhitelistConfigResponse CreateMaliciousFileWhitelistConfigResponse
      */
     public function createMaliciousFileWhitelistConfigWithOptions($request, $runtime)
     {
@@ -4327,9 +4533,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateMaliciousFileWhitelistConfigRequest $request
+     * @summary Creates an alert whitelist rule of sensitive files that are detected by using the agentless detection feature.
+     *  *
+     * @param CreateMaliciousFileWhitelistConfigRequest $request CreateMaliciousFileWhitelistConfigRequest
      *
-     * @return CreateMaliciousFileWhitelistConfigResponse
+     * @return CreateMaliciousFileWhitelistConfigResponse CreateMaliciousFileWhitelistConfigResponse
      */
     public function createMaliciousFileWhitelistConfig($request)
     {
@@ -4339,10 +4547,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateMaliciousNoteRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Adds remarks to alert events for agentless detection.
+     *  *
+     * @param CreateMaliciousNoteRequest $request CreateMaliciousNoteRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateMaliciousNoteResponse
+     * @return CreateMaliciousNoteResponse CreateMaliciousNoteResponse
      */
     public function createMaliciousNoteWithOptions($request, $runtime)
     {
@@ -4373,9 +4583,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateMaliciousNoteRequest $request
+     * @summary Adds remarks to alert events for agentless detection.
+     *  *
+     * @param CreateMaliciousNoteRequest $request CreateMaliciousNoteRequest
      *
-     * @return CreateMaliciousNoteResponse
+     * @return CreateMaliciousNoteResponse CreateMaliciousNoteResponse
      */
     public function createMaliciousNote($request)
     {
@@ -4385,10 +4597,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateOpaClusterPluginRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Installs the components that are required by at-risk image blocking. The components are policy-template-controller, gatekeeper, and logtail-ds.
+     *  *
+     * @param CreateOpaClusterPluginRequest $request CreateOpaClusterPluginRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateOpaClusterPluginResponse
+     * @return CreateOpaClusterPluginResponse CreateOpaClusterPluginResponse
      */
     public function createOpaClusterPluginWithOptions($request, $runtime)
     {
@@ -4416,9 +4630,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateOpaClusterPluginRequest $request
+     * @summary Installs the components that are required by at-risk image blocking. The components are policy-template-controller, gatekeeper, and logtail-ds.
+     *  *
+     * @param CreateOpaClusterPluginRequest $request CreateOpaClusterPluginRequest
      *
-     * @return CreateOpaClusterPluginResponse
+     * @return CreateOpaClusterPluginResponse CreateOpaClusterPluginResponse
      */
     public function createOpaClusterPlugin($request)
     {
@@ -4428,10 +4644,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateOpaStrategyNewRequest $tmpReq
-     * @param RuntimeOptions              $runtime
+     * @summary Creates a rule to block at-risk images.
+     *  *
+     * @param CreateOpaStrategyNewRequest $tmpReq  CreateOpaStrategyNewRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateOpaStrategyNewResponse
+     * @return CreateOpaStrategyNewResponse CreateOpaStrategyNewResponse
      */
     public function createOpaStrategyNewWithOptions($tmpReq, $runtime)
     {
@@ -4503,9 +4721,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateOpaStrategyNewRequest $request
+     * @summary Creates a rule to block at-risk images.
+     *  *
+     * @param CreateOpaStrategyNewRequest $request CreateOpaStrategyNewRequest
      *
-     * @return CreateOpaStrategyNewResponse
+     * @return CreateOpaStrategyNewResponse CreateOpaStrategyNewResponse
      */
     public function createOpaStrategyNew($request)
     {
@@ -4515,8 +4735,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * A server can belong only to one server group. If you call the CreateOrUpdateAssetGroup operation and the server specified in request parameters belongs to Server Group A, the server is removed from Server Group A and then added to the newly created or specified server group after the call is complete.
-     *   *
+     * @summary Modifies the mapping between an asset and an asset group. For example, you can call this operation to modify the server group to which the asset belongs or the asset list of the asset group.
+     *  *
+     * @description A server can belong only to one server group. If you call the CreateOrUpdateAssetGroup operation and the server specified in request parameters belongs to Server Group A, the server is removed from Server Group A and then added to the newly created or specified server group after the call is complete.
+     *  *
      * @param CreateOrUpdateAssetGroupRequest $request CreateOrUpdateAssetGroupRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -4554,8 +4776,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * A server can belong only to one server group. If you call the CreateOrUpdateAssetGroup operation and the server specified in request parameters belongs to Server Group A, the server is removed from Server Group A and then added to the newly created or specified server group after the call is complete.
-     *   *
+     * @summary Modifies the mapping between an asset and an asset group. For example, you can call this operation to modify the server group to which the asset belongs or the asset list of the asset group.
+     *  *
+     * @description A server can belong only to one server group. If you call the CreateOrUpdateAssetGroup operation and the server specified in request parameters belongs to Server Group A, the server is removed from Server Group A and then added to the newly created or specified server group after the call is complete.
+     *  *
      * @param CreateOrUpdateAssetGroupRequest $request CreateOrUpdateAssetGroupRequest
      *
      * @return CreateOrUpdateAssetGroupResponse CreateOrUpdateAssetGroupResponse
@@ -4568,10 +4792,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateOrUpdateDingTalkRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Creates or modifies a DingTalk chatbot that sends notifications.
+     *  *
+     * @param CreateOrUpdateDingTalkRequest $request CreateOrUpdateDingTalkRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateOrUpdateDingTalkResponse
+     * @return CreateOrUpdateDingTalkResponse CreateOrUpdateDingTalkResponse
      */
     public function createOrUpdateDingTalkWithOptions($request, $runtime)
     {
@@ -4617,9 +4843,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateOrUpdateDingTalkRequest $request
+     * @summary Creates or modifies a DingTalk chatbot that sends notifications.
+     *  *
+     * @param CreateOrUpdateDingTalkRequest $request CreateOrUpdateDingTalkRequest
      *
-     * @return CreateOrUpdateDingTalkResponse
+     * @return CreateOrUpdateDingTalkResponse CreateOrUpdateDingTalkResponse
      */
     public function createOrUpdateDingTalk($request)
     {
@@ -4629,10 +4857,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateOssBucketScanTaskRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Creates a bucket check task.
+     *  *
+     * @param CreateOssBucketScanTaskRequest $request CreateOssBucketScanTaskRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateOssBucketScanTaskResponse
+     * @return CreateOssBucketScanTaskResponse CreateOssBucketScanTaskResponse
      */
     public function createOssBucketScanTaskWithOptions($request, $runtime)
     {
@@ -4681,9 +4911,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateOssBucketScanTaskRequest $request
+     * @summary Creates a bucket check task.
+     *  *
+     * @param CreateOssBucketScanTaskRequest $request CreateOssBucketScanTaskRequest
      *
-     * @return CreateOssBucketScanTaskResponse
+     * @return CreateOssBucketScanTaskResponse CreateOssBucketScanTaskResponse
      */
     public function createOssBucketScanTask($request)
     {
@@ -4693,10 +4925,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateOssScanConfigRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Creates a scan policy.
+     *  *
+     * @param CreateOssScanConfigRequest $request CreateOssScanConfigRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateOssScanConfigResponse
+     * @return CreateOssScanConfigResponse CreateOssScanConfigResponse
      */
     public function createOssScanConfigWithOptions($request, $runtime)
     {
@@ -4754,9 +4988,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateOssScanConfigRequest $request
+     * @summary Creates a scan policy.
+     *  *
+     * @param CreateOssScanConfigRequest $request CreateOssScanConfigRequest
      *
-     * @return CreateOssScanConfigResponse
+     * @return CreateOssScanConfigResponse CreateOssScanConfigResponse
      */
     public function createOssScanConfig($request)
     {
@@ -4766,10 +5002,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateRestoreJobRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Creates a restoration task.
+     *  *
+     * @param CreateRestoreJobRequest $request CreateRestoreJobRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateRestoreJobResponse
+     * @return CreateRestoreJobResponse CreateRestoreJobResponse
      */
     public function createRestoreJobWithOptions($request, $runtime)
     {
@@ -4818,9 +5056,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateRestoreJobRequest $request
+     * @summary Creates a restoration task.
+     *  *
+     * @param CreateRestoreJobRequest $request CreateRestoreJobRequest
      *
-     * @return CreateRestoreJobResponse
+     * @return CreateRestoreJobResponse CreateRestoreJobResponse
      */
     public function createRestoreJob($request)
     {
@@ -4830,8 +5070,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * For more information about service-linked roles, see [Service-linked roles](~~160674~~).
-     *   *
+     * @summary Creates a service-linked role and authorizes Security Center to access cloud resources.
+     *  *
+     * @description For more information about service-linked roles, see [Service-linked roles](https://help.aliyun.com/document_detail/160674.html).
+     *  *
      * @param CreateServiceLinkedRoleRequest $request CreateServiceLinkedRoleRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -4863,8 +5105,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * For more information about service-linked roles, see [Service-linked roles](~~160674~~).
-     *   *
+     * @summary Creates a service-linked role and authorizes Security Center to access cloud resources.
+     *  *
+     * @description For more information about service-linked roles, see [Service-linked roles](https://help.aliyun.com/document_detail/160674.html).
+     *  *
      * @param CreateServiceLinkedRoleRequest $request CreateServiceLinkedRoleRequest
      *
      * @return CreateServiceLinkedRoleResponse CreateServiceLinkedRoleResponse
@@ -4877,10 +5121,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateServiceTrailRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Create a service trail.
+     *  *
+     * @param CreateServiceTrailRequest $request CreateServiceTrailRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateServiceTrailResponse
+     * @return CreateServiceTrailResponse CreateServiceTrailResponse
      */
     public function createServiceTrailWithOptions($request, $runtime)
     {
@@ -4908,9 +5154,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateServiceTrailRequest $request
+     * @summary Create a service trail.
+     *  *
+     * @param CreateServiceTrailRequest $request CreateServiceTrailRequest
      *
-     * @return CreateServiceTrailResponse
+     * @return CreateServiceTrailResponse CreateServiceTrailResponse
      */
     public function createServiceTrail($request)
     {
@@ -4920,10 +5168,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateSimilarSecurityEventsQueryTaskRequest $request
-     * @param RuntimeOptions                              $runtime
+     * @summary Creates a task to query alert events that are triggered by the same rule or of the same alert type.
+     *  *
+     * @param CreateSimilarSecurityEventsQueryTaskRequest $request CreateSimilarSecurityEventsQueryTaskRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateSimilarSecurityEventsQueryTaskResponse
+     * @return CreateSimilarSecurityEventsQueryTaskResponse CreateSimilarSecurityEventsQueryTaskResponse
      */
     public function createSimilarSecurityEventsQueryTaskWithOptions($request, $runtime)
     {
@@ -4960,9 +5210,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateSimilarSecurityEventsQueryTaskRequest $request
+     * @summary Creates a task to query alert events that are triggered by the same rule or of the same alert type.
+     *  *
+     * @param CreateSimilarSecurityEventsQueryTaskRequest $request CreateSimilarSecurityEventsQueryTaskRequest
      *
-     * @return CreateSimilarSecurityEventsQueryTaskResponse
+     * @return CreateSimilarSecurityEventsQueryTaskResponse CreateSimilarSecurityEventsQueryTaskResponse
      */
     public function createSimilarSecurityEventsQueryTask($request)
     {
@@ -4972,10 +5224,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateSuspEventNoteRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Adds remarks to an alert event.
+     *  *
+     * @param CreateSuspEventNoteRequest $request CreateSuspEventNoteRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateSuspEventNoteResponse
+     * @return CreateSuspEventNoteResponse CreateSuspEventNoteResponse
      */
     public function createSuspEventNoteWithOptions($request, $runtime)
     {
@@ -5006,9 +5260,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateSuspEventNoteRequest $request
+     * @summary Adds remarks to an alert event.
+     *  *
+     * @param CreateSuspEventNoteRequest $request CreateSuspEventNoteRequest
      *
-     * @return CreateSuspEventNoteResponse
+     * @return CreateSuspEventNoteResponse CreateSuspEventNoteResponse
      */
     public function createSuspEventNote($request)
     {
@@ -5018,10 +5274,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateUniBackupPolicyRequest $tmpReq
-     * @param RuntimeOptions               $runtime
+     * @summary Creates an anti-ransomware policy for a database.
+     *  *
+     * @param CreateUniBackupPolicyRequest $tmpReq  CreateUniBackupPolicyRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateUniBackupPolicyResponse
+     * @return CreateUniBackupPolicyResponse CreateUniBackupPolicyResponse
      */
     public function createUniBackupPolicyWithOptions($tmpReq, $runtime)
     {
@@ -5090,9 +5348,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateUniBackupPolicyRequest $request
+     * @summary Creates an anti-ransomware policy for a database.
+     *  *
+     * @param CreateUniBackupPolicyRequest $request CreateUniBackupPolicyRequest
      *
-     * @return CreateUniBackupPolicyResponse
+     * @return CreateUniBackupPolicyResponse CreateUniBackupPolicyResponse
      */
     public function createUniBackupPolicy($request)
     {
@@ -5102,10 +5362,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateUniRestorePlanRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Creates a restoration task for a database.
+     *  *
+     * @param CreateUniRestorePlanRequest $request CreateUniRestorePlanRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateUniRestorePlanResponse
+     * @return CreateUniRestorePlanResponse CreateUniRestorePlanResponse
      */
     public function createUniRestorePlanWithOptions($request, $runtime)
     {
@@ -5151,9 +5413,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateUniRestorePlanRequest $request
+     * @summary Creates a restoration task for a database.
+     *  *
+     * @param CreateUniRestorePlanRequest $request CreateUniRestorePlanRequest
      *
-     * @return CreateUniRestorePlanResponse
+     * @return CreateUniRestorePlanResponse CreateUniRestorePlanResponse
      */
     public function createUniRestorePlan($request)
     {
@@ -5163,10 +5427,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateVirusScanOnceTaskRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Creates a one-time virus scan task that is immediately executed.
+     *  *
+     * @param CreateVirusScanOnceTaskRequest $request CreateVirusScanOnceTaskRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateVirusScanOnceTaskResponse
+     * @return CreateVirusScanOnceTaskResponse CreateVirusScanOnceTaskResponse
      */
     public function createVirusScanOnceTaskWithOptions($request, $runtime)
     {
@@ -5200,9 +5466,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateVirusScanOnceTaskRequest $request
+     * @summary Creates a one-time virus scan task that is immediately executed.
+     *  *
+     * @param CreateVirusScanOnceTaskRequest $request CreateVirusScanOnceTaskRequest
      *
-     * @return CreateVirusScanOnceTaskResponse
+     * @return CreateVirusScanOnceTaskResponse CreateVirusScanOnceTaskResponse
      */
     public function createVirusScanOnceTask($request)
     {
@@ -5212,10 +5480,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateVulAutoRepairConfigRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Creates a list of vulnerabilities that can be automatically fixed. After the list is created, you can select the list when you create a vulnerability fixing task on the Playbook page.
+     *  *
+     * @param CreateVulAutoRepairConfigRequest $request CreateVulAutoRepairConfigRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateVulAutoRepairConfigResponse
+     * @return CreateVulAutoRepairConfigResponse CreateVulAutoRepairConfigResponse
      */
     public function createVulAutoRepairConfigWithOptions($request, $runtime)
     {
@@ -5249,9 +5519,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateVulAutoRepairConfigRequest $request
+     * @summary Creates a list of vulnerabilities that can be automatically fixed. After the list is created, you can select the list when you create a vulnerability fixing task on the Playbook page.
+     *  *
+     * @param CreateVulAutoRepairConfigRequest $request CreateVulAutoRepairConfigRequest
      *
-     * @return CreateVulAutoRepairConfigResponse
+     * @return CreateVulAutoRepairConfigResponse CreateVulAutoRepairConfigResponse
      */
     public function createVulAutoRepairConfig($request)
     {
@@ -5261,10 +5533,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteAntiBruteForceRuleRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Deletes the specified defense rules against brute-force attacks.
+     *  *
+     * @param DeleteAntiBruteForceRuleRequest $request DeleteAntiBruteForceRuleRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAntiBruteForceRuleResponse
+     * @return DeleteAntiBruteForceRuleResponse DeleteAntiBruteForceRuleResponse
      */
     public function deleteAntiBruteForceRuleWithOptions($request, $runtime)
     {
@@ -5292,9 +5566,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteAntiBruteForceRuleRequest $request
+     * @summary Deletes the specified defense rules against brute-force attacks.
+     *  *
+     * @param DeleteAntiBruteForceRuleRequest $request DeleteAntiBruteForceRuleRequest
      *
-     * @return DeleteAntiBruteForceRuleResponse
+     * @return DeleteAntiBruteForceRuleResponse DeleteAntiBruteForceRuleResponse
      */
     public function deleteAntiBruteForceRule($request)
     {
@@ -5304,10 +5580,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteBackupPolicyRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Deletes an anti-ransomware policy.
+     *  *
+     * @param DeleteBackupPolicyRequest $request DeleteBackupPolicyRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteBackupPolicyResponse
+     * @return DeleteBackupPolicyResponse DeleteBackupPolicyResponse
      */
     public function deleteBackupPolicyWithOptions($request, $runtime)
     {
@@ -5338,9 +5616,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteBackupPolicyRequest $request
+     * @summary Deletes an anti-ransomware policy.
+     *  *
+     * @param DeleteBackupPolicyRequest $request DeleteBackupPolicyRequest
      *
-     * @return DeleteBackupPolicyResponse
+     * @return DeleteBackupPolicyResponse DeleteBackupPolicyResponse
      */
     public function deleteBackupPolicy($request)
     {
@@ -5350,10 +5630,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteBackupPolicyMachineRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Disables a specified anti-ransomware policy that is applied to specified servers and uninstalls the anti-ransomware agent from the servers. If the backup vaults of the servers contain only backup data of the servers, the backup vaults are deleted.
+     *  *
+     * @param DeleteBackupPolicyMachineRequest $request DeleteBackupPolicyMachineRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteBackupPolicyMachineResponse
+     * @return DeleteBackupPolicyMachineResponse DeleteBackupPolicyMachineResponse
      */
     public function deleteBackupPolicyMachineWithOptions($request, $runtime)
     {
@@ -5390,9 +5672,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteBackupPolicyMachineRequest $request
+     * @summary Disables a specified anti-ransomware policy that is applied to specified servers and uninstalls the anti-ransomware agent from the servers. If the backup vaults of the servers contain only backup data of the servers, the backup vaults are deleted.
+     *  *
+     * @param DeleteBackupPolicyMachineRequest $request DeleteBackupPolicyMachineRequest
      *
-     * @return DeleteBackupPolicyMachineResponse
+     * @return DeleteBackupPolicyMachineResponse DeleteBackupPolicyMachineResponse
      */
     public function deleteBackupPolicyMachine($request)
     {
@@ -5402,10 +5686,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteBinarySecurityPolicyRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Deletes a binary security policy from the container signature feature.
+     *  *
+     * @param DeleteBinarySecurityPolicyRequest $request DeleteBinarySecurityPolicyRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteBinarySecurityPolicyResponse
+     * @return DeleteBinarySecurityPolicyResponse DeleteBinarySecurityPolicyResponse
      */
     public function deleteBinarySecurityPolicyWithOptions($request, $runtime)
     {
@@ -5439,9 +5725,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteBinarySecurityPolicyRequest $request
+     * @summary Deletes a binary security policy from the container signature feature.
+     *  *
+     * @param DeleteBinarySecurityPolicyRequest $request DeleteBinarySecurityPolicyRequest
      *
-     * @return DeleteBinarySecurityPolicyResponse
+     * @return DeleteBinarySecurityPolicyResponse DeleteBinarySecurityPolicyResponse
      */
     public function deleteBinarySecurityPolicy($request)
     {
@@ -5451,10 +5739,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteClientUserDefineRuleRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Deletes specified custom defense rules.
+     *  *
+     * @param DeleteClientUserDefineRuleRequest $request DeleteClientUserDefineRuleRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteClientUserDefineRuleResponse
+     * @return DeleteClientUserDefineRuleResponse DeleteClientUserDefineRuleResponse
      */
     public function deleteClientUserDefineRuleWithOptions($request, $runtime)
     {
@@ -5482,9 +5772,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteClientUserDefineRuleRequest $request
+     * @summary Deletes specified custom defense rules.
+     *  *
+     * @param DeleteClientUserDefineRuleRequest $request DeleteClientUserDefineRuleRequest
      *
-     * @return DeleteClientUserDefineRuleResponse
+     * @return DeleteClientUserDefineRuleResponse DeleteClientUserDefineRuleResponse
      */
     public function deleteClientUserDefineRule($request)
     {
@@ -5494,10 +5786,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteContainerDefenseRuleRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Deletes a rule for non-image program defense.
+     *  *
+     * @param DeleteContainerDefenseRuleRequest $request DeleteContainerDefenseRuleRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteContainerDefenseRuleResponse
+     * @return DeleteContainerDefenseRuleResponse DeleteContainerDefenseRuleResponse
      */
     public function deleteContainerDefenseRuleWithOptions($request, $runtime)
     {
@@ -5525,9 +5819,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteContainerDefenseRuleRequest $request
+     * @summary Deletes a rule for non-image program defense.
+     *  *
+     * @param DeleteContainerDefenseRuleRequest $request DeleteContainerDefenseRuleRequest
      *
-     * @return DeleteContainerDefenseRuleResponse
+     * @return DeleteContainerDefenseRuleResponse DeleteContainerDefenseRuleResponse
      */
     public function deleteContainerDefenseRule($request)
     {
@@ -5537,10 +5833,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteContainerPluginRuleRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Deletes a defense rule against container escapes.
+     *  *
+     * @param DeleteContainerPluginRuleRequest $request DeleteContainerPluginRuleRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteContainerPluginRuleResponse
+     * @return DeleteContainerPluginRuleResponse DeleteContainerPluginRuleResponse
      */
     public function deleteContainerPluginRuleWithOptions($request, $runtime)
     {
@@ -5571,9 +5869,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteContainerPluginRuleRequest $request
+     * @summary Deletes a defense rule against container escapes.
+     *  *
+     * @param DeleteContainerPluginRuleRequest $request DeleteContainerPluginRuleRequest
      *
-     * @return DeleteContainerPluginRuleResponse
+     * @return DeleteContainerPluginRuleResponse DeleteContainerPluginRuleResponse
      */
     public function deleteContainerPluginRule($request)
     {
@@ -5583,10 +5883,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteCustomBlockRecordRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Deletes a specified IP address blocking policy from one or more servers.
+     *  *
+     * @param DeleteCustomBlockRecordRequest $request DeleteCustomBlockRecordRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteCustomBlockRecordResponse
+     * @return DeleteCustomBlockRecordResponse DeleteCustomBlockRecordResponse
      */
     public function deleteCustomBlockRecordWithOptions($request, $runtime)
     {
@@ -5617,9 +5919,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteCustomBlockRecordRequest $request
+     * @summary Deletes a specified IP address blocking policy from one or more servers.
+     *  *
+     * @param DeleteCustomBlockRecordRequest $request DeleteCustomBlockRecordRequest
      *
-     * @return DeleteCustomBlockRecordResponse
+     * @return DeleteCustomBlockRecordResponse DeleteCustomBlockRecordResponse
      */
     public function deleteCustomBlockRecord($request)
     {
@@ -5629,10 +5933,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteCycleTaskRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Deletes a periodic scan task. The task can be an image scan task, urgent vulnerability scan task, or virus scan task.
+     *  *
+     * @param DeleteCycleTaskRequest $request DeleteCycleTaskRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteCycleTaskResponse
+     * @return DeleteCycleTaskResponse DeleteCycleTaskResponse
      */
     public function deleteCycleTaskWithOptions($request, $runtime)
     {
@@ -5660,9 +5966,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteCycleTaskRequest $request
+     * @summary Deletes a periodic scan task. The task can be an image scan task, urgent vulnerability scan task, or virus scan task.
+     *  *
+     * @param DeleteCycleTaskRequest $request DeleteCycleTaskRequest
      *
-     * @return DeleteCycleTaskResponse
+     * @return DeleteCycleTaskResponse DeleteCycleTaskResponse
      */
     public function deleteCycleTask($request)
     {
@@ -5672,10 +5980,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteFileProtectRuleRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Deletes core file monitoring rules.
+     *  *
+     * @param DeleteFileProtectRuleRequest $request DeleteFileProtectRuleRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteFileProtectRuleResponse
+     * @return DeleteFileProtectRuleResponse DeleteFileProtectRuleResponse
      */
     public function deleteFileProtectRuleWithOptions($request, $runtime)
     {
@@ -5703,9 +6013,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteFileProtectRuleRequest $request
+     * @summary Deletes core file monitoring rules.
+     *  *
+     * @param DeleteFileProtectRuleRequest $request DeleteFileProtectRuleRequest
      *
-     * @return DeleteFileProtectRuleResponse
+     * @return DeleteFileProtectRuleResponse DeleteFileProtectRuleResponse
      */
     public function deleteFileProtectRule($request)
     {
@@ -5715,8 +6027,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * The **Default** server group that is provided by Security Center cannot be deleted. After you delete a group, the assets in this group are moved to the **Default** group.
-     *   *
+     * @summary Deletes a server group.
+     *  *
+     * @description The **Default** server group that is provided by Security Center cannot be deleted. After you delete a group, the assets in this group are moved to the **Default** group.
+     *  *
      * @param DeleteGroupRequest $request DeleteGroupRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
@@ -5751,8 +6065,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * The **Default** server group that is provided by Security Center cannot be deleted. After you delete a group, the assets in this group are moved to the **Default** group.
-     *   *
+     * @summary Deletes a server group.
+     *  *
+     * @description The **Default** server group that is provided by Security Center cannot be deleted. After you delete a group, the assets in this group are moved to the **Default** group.
+     *  *
      * @param DeleteGroupRequest $request DeleteGroupRequest
      *
      * @return DeleteGroupResponse DeleteGroupResponse
@@ -5765,10 +6081,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteHoneypotRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Deletes a specified honeypot.
+     *  *
+     * @param DeleteHoneypotRequest $request DeleteHoneypotRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteHoneypotResponse
+     * @return DeleteHoneypotResponse DeleteHoneypotResponse
      */
     public function deleteHoneypotWithOptions($request, $runtime)
     {
@@ -5799,9 +6117,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteHoneypotRequest $request
+     * @summary Deletes a specified honeypot.
+     *  *
+     * @param DeleteHoneypotRequest $request DeleteHoneypotRequest
      *
-     * @return DeleteHoneypotResponse
+     * @return DeleteHoneypotResponse DeleteHoneypotResponse
      */
     public function deleteHoneypot($request)
     {
@@ -5811,10 +6131,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteHoneypotNodeRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Deletes a specified management node.
+     *  *
+     * @param DeleteHoneypotNodeRequest $request DeleteHoneypotNodeRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteHoneypotNodeResponse
+     * @return DeleteHoneypotNodeResponse DeleteHoneypotNodeResponse
      */
     public function deleteHoneypotNodeWithOptions($request, $runtime)
     {
@@ -5845,9 +6167,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteHoneypotNodeRequest $request
+     * @summary Deletes a specified management node.
+     *  *
+     * @param DeleteHoneypotNodeRequest $request DeleteHoneypotNodeRequest
      *
-     * @return DeleteHoneypotNodeResponse
+     * @return DeleteHoneypotNodeResponse DeleteHoneypotNodeResponse
      */
     public function deleteHoneypotNode($request)
     {
@@ -5857,10 +6181,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteHoneypotPresetRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Deletes a specified honeypot template.
+     *  *
+     * @param DeleteHoneypotPresetRequest $request DeleteHoneypotPresetRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteHoneypotPresetResponse
+     * @return DeleteHoneypotPresetResponse DeleteHoneypotPresetResponse
      */
     public function deleteHoneypotPresetWithOptions($request, $runtime)
     {
@@ -5891,9 +6217,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteHoneypotPresetRequest $request
+     * @summary Deletes a specified honeypot template.
+     *  *
+     * @param DeleteHoneypotPresetRequest $request DeleteHoneypotPresetRequest
      *
-     * @return DeleteHoneypotPresetResponse
+     * @return DeleteHoneypotPresetResponse DeleteHoneypotPresetResponse
      */
     public function deleteHoneypotPreset($request)
     {
@@ -5903,10 +6231,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteHoneypotProbeRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Deletes a specified probe.
+     *  *
+     * @param DeleteHoneypotProbeRequest $request DeleteHoneypotProbeRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteHoneypotProbeResponse
+     * @return DeleteHoneypotProbeResponse DeleteHoneypotProbeResponse
      */
     public function deleteHoneypotProbeWithOptions($request, $runtime)
     {
@@ -5937,9 +6267,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteHoneypotProbeRequest $request
+     * @summary Deletes a specified probe.
+     *  *
+     * @param DeleteHoneypotProbeRequest $request DeleteHoneypotProbeRequest
      *
-     * @return DeleteHoneypotProbeResponse
+     * @return DeleteHoneypotProbeResponse DeleteHoneypotProbeResponse
      */
     public function deleteHoneypotProbe($request)
     {
@@ -5949,10 +6281,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteHoneypotProbeBindRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Delete the probe service.
+     *  *
+     * @param DeleteHoneypotProbeBindRequest $request DeleteHoneypotProbeBindRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteHoneypotProbeBindResponse
+     * @return DeleteHoneypotProbeBindResponse DeleteHoneypotProbeBindResponse
      */
     public function deleteHoneypotProbeBindWithOptions($request, $runtime)
     {
@@ -5986,9 +6320,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteHoneypotProbeBindRequest $request
+     * @summary Delete the probe service.
+     *  *
+     * @param DeleteHoneypotProbeBindRequest $request DeleteHoneypotProbeBindRequest
      *
-     * @return DeleteHoneypotProbeBindResponse
+     * @return DeleteHoneypotProbeBindResponse DeleteHoneypotProbeBindResponse
      */
     public function deleteHoneypotProbeBind($request)
     {
@@ -5998,10 +6334,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteImageEventOperationRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Deletes an alert handling rule.
+     *  *
+     * @param DeleteImageEventOperationRequest $request DeleteImageEventOperationRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteImageEventOperationResponse
+     * @return DeleteImageEventOperationResponse DeleteImageEventOperationResponse
      */
     public function deleteImageEventOperationWithOptions($request, $runtime)
     {
@@ -6029,9 +6367,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteImageEventOperationRequest $request
+     * @summary Deletes an alert handling rule.
+     *  *
+     * @param DeleteImageEventOperationRequest $request DeleteImageEventOperationRequest
      *
-     * @return DeleteImageEventOperationResponse
+     * @return DeleteImageEventOperationResponse DeleteImageEventOperationResponse
      */
     public function deleteImageEventOperation($request)
     {
@@ -6041,10 +6381,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteImageVulWhitelistRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Deletes an image vulnerability whitelist.
+     *  *
+     * @param DeleteImageVulWhitelistRequest $request DeleteImageVulWhitelistRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteImageVulWhitelistResponse
+     * @return DeleteImageVulWhitelistResponse DeleteImageVulWhitelistResponse
      */
     public function deleteImageVulWhitelistWithOptions($request, $runtime)
     {
@@ -6075,9 +6417,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteImageVulWhitelistRequest $request
+     * @summary Deletes an image vulnerability whitelist.
+     *  *
+     * @param DeleteImageVulWhitelistRequest $request DeleteImageVulWhitelistRequest
      *
-     * @return DeleteImageVulWhitelistResponse
+     * @return DeleteImageVulWhitelistResponse DeleteImageVulWhitelistResponse
      */
     public function deleteImageVulWhitelist($request)
     {
@@ -6087,10 +6431,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteInstallCodeRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Deletes the command that is used to install the Security Center agent.
+     *  *
+     * @param DeleteInstallCodeRequest $request DeleteInstallCodeRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteInstallCodeResponse
+     * @return DeleteInstallCodeResponse DeleteInstallCodeResponse
      */
     public function deleteInstallCodeWithOptions($request, $runtime)
     {
@@ -6118,9 +6464,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteInstallCodeRequest $request
+     * @summary Deletes the command that is used to install the Security Center agent.
+     *  *
+     * @param DeleteInstallCodeRequest $request DeleteInstallCodeRequest
      *
-     * @return DeleteInstallCodeResponse
+     * @return DeleteInstallCodeResponse DeleteInstallCodeResponse
      */
     public function deleteInstallCode($request)
     {
@@ -6130,10 +6478,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteInterceptionRuleRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Deletes a defense rule in the container firewall module.
+     *  *
+     * @param DeleteInterceptionRuleRequest $request DeleteInterceptionRuleRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteInterceptionRuleResponse
+     * @return DeleteInterceptionRuleResponse DeleteInterceptionRuleResponse
      */
     public function deleteInterceptionRuleWithOptions($request, $runtime)
     {
@@ -6164,9 +6514,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteInterceptionRuleRequest $request
+     * @summary Deletes a defense rule in the container firewall module.
+     *  *
+     * @param DeleteInterceptionRuleRequest $request DeleteInterceptionRuleRequest
      *
-     * @return DeleteInterceptionRuleResponse
+     * @return DeleteInterceptionRuleResponse DeleteInterceptionRuleResponse
      */
     public function deleteInterceptionRule($request)
     {
@@ -6176,10 +6528,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteInterceptionTargetRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Removes the network objects that are in effect in the container firewall.
+     *  *
+     * @param DeleteInterceptionTargetRequest $request DeleteInterceptionTargetRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteInterceptionTargetResponse
+     * @return DeleteInterceptionTargetResponse DeleteInterceptionTargetResponse
      */
     public function deleteInterceptionTargetWithOptions($request, $runtime)
     {
@@ -6207,9 +6561,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteInterceptionTargetRequest $request
+     * @summary Removes the network objects that are in effect in the container firewall.
+     *  *
+     * @param DeleteInterceptionTargetRequest $request DeleteInterceptionTargetRequest
      *
-     * @return DeleteInterceptionTargetResponse
+     * @return DeleteInterceptionTargetResponse DeleteInterceptionTargetResponse
      */
     public function deleteInterceptionTarget($request)
     {
@@ -6219,10 +6575,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteK8sAccessInfoRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Deletes the Kubernetes access information.
+     *  *
+     * @param DeleteK8sAccessInfoRequest $request DeleteK8sAccessInfoRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteK8sAccessInfoResponse
+     * @return DeleteK8sAccessInfoResponse DeleteK8sAccessInfoResponse
      */
     public function deleteK8sAccessInfoWithOptions($request, $runtime)
     {
@@ -6259,9 +6617,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteK8sAccessInfoRequest $request
+     * @summary Deletes the Kubernetes access information.
+     *  *
+     * @param DeleteK8sAccessInfoRequest $request DeleteK8sAccessInfoRequest
      *
-     * @return DeleteK8sAccessInfoResponse
+     * @return DeleteK8sAccessInfoResponse DeleteK8sAccessInfoResponse
      */
     public function deleteK8sAccessInfo($request)
     {
@@ -6271,10 +6631,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteLoginBaseConfigRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Deletes the basic configuration information from the logon security configurations for a specific asset.
+     *  *
+     * @param DeleteLoginBaseConfigRequest $request DeleteLoginBaseConfigRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteLoginBaseConfigResponse
+     * @return DeleteLoginBaseConfigResponse DeleteLoginBaseConfigResponse
      */
     public function deleteLoginBaseConfigWithOptions($request, $runtime)
     {
@@ -6308,9 +6670,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteLoginBaseConfigRequest $request
+     * @summary Deletes the basic configuration information from the logon security configurations for a specific asset.
+     *  *
+     * @param DeleteLoginBaseConfigRequest $request DeleteLoginBaseConfigRequest
      *
-     * @return DeleteLoginBaseConfigResponse
+     * @return DeleteLoginBaseConfigResponse DeleteLoginBaseConfigResponse
      */
     public function deleteLoginBaseConfig($request)
     {
@@ -6320,10 +6684,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteMaliciousFileWhitelistConfigRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @summary Deletes a whitelist rule for alerts generated for sensitive files that are detected by using the agentless detection feature.
+     *  *
+     * @param DeleteMaliciousFileWhitelistConfigRequest $request DeleteMaliciousFileWhitelistConfigRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteMaliciousFileWhitelistConfigResponse
+     * @return DeleteMaliciousFileWhitelistConfigResponse DeleteMaliciousFileWhitelistConfigResponse
      */
     public function deleteMaliciousFileWhitelistConfigWithOptions($request, $runtime)
     {
@@ -6351,9 +6717,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteMaliciousFileWhitelistConfigRequest $request
+     * @summary Deletes a whitelist rule for alerts generated for sensitive files that are detected by using the agentless detection feature.
+     *  *
+     * @param DeleteMaliciousFileWhitelistConfigRequest $request DeleteMaliciousFileWhitelistConfigRequest
      *
-     * @return DeleteMaliciousFileWhitelistConfigResponse
+     * @return DeleteMaliciousFileWhitelistConfigResponse DeleteMaliciousFileWhitelistConfigResponse
      */
     public function deleteMaliciousFileWhitelistConfig($request)
     {
@@ -6363,10 +6731,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteMaliciousNoteRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Removes the remarks added to alert events that are generated by the agentless detection feature.
+     *  *
+     * @param DeleteMaliciousNoteRequest $request DeleteMaliciousNoteRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteMaliciousNoteResponse
+     * @return DeleteMaliciousNoteResponse DeleteMaliciousNoteResponse
      */
     public function deleteMaliciousNoteWithOptions($request, $runtime)
     {
@@ -6394,9 +6764,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteMaliciousNoteRequest $request
+     * @summary Removes the remarks added to alert events that are generated by the agentless detection feature.
+     *  *
+     * @param DeleteMaliciousNoteRequest $request DeleteMaliciousNoteRequest
      *
-     * @return DeleteMaliciousNoteResponse
+     * @return DeleteMaliciousNoteResponse DeleteMaliciousNoteResponse
      */
     public function deleteMaliciousNote($request)
     {
@@ -6406,10 +6778,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteOpaStrategyNewRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Deletes rules of the at-risk image blocking type.
+     *  *
+     * @param DeleteOpaStrategyNewRequest $request DeleteOpaStrategyNewRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteOpaStrategyNewResponse
+     * @return DeleteOpaStrategyNewResponse DeleteOpaStrategyNewResponse
      */
     public function deleteOpaStrategyNewWithOptions($request, $runtime)
     {
@@ -6437,9 +6811,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteOpaStrategyNewRequest $request
+     * @summary Deletes rules of the at-risk image blocking type.
+     *  *
+     * @param DeleteOpaStrategyNewRequest $request DeleteOpaStrategyNewRequest
      *
-     * @return DeleteOpaStrategyNewResponse
+     * @return DeleteOpaStrategyNewResponse DeleteOpaStrategyNewResponse
      */
     public function deleteOpaStrategyNew($request)
     {
@@ -6449,10 +6825,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteOssScanConfigRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Delete oss scan policy.
+     *  *
+     * @param DeleteOssScanConfigRequest $request DeleteOssScanConfigRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteOssScanConfigResponse
+     * @return DeleteOssScanConfigResponse DeleteOssScanConfigResponse
      */
     public function deleteOssScanConfigWithOptions($request, $runtime)
     {
@@ -6480,9 +6858,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteOssScanConfigRequest $request
+     * @summary Delete oss scan policy.
+     *  *
+     * @param DeleteOssScanConfigRequest $request DeleteOssScanConfigRequest
      *
-     * @return DeleteOssScanConfigResponse
+     * @return DeleteOssScanConfigResponse DeleteOssScanConfigResponse
      */
     public function deleteOssScanConfig($request)
     {
@@ -6492,10 +6872,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeletePrivateRegistryRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Deletes a private image repository by using the ID of the image repository.
+     *  *
+     * @param DeletePrivateRegistryRequest $request DeletePrivateRegistryRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeletePrivateRegistryResponse
+     * @return DeletePrivateRegistryResponse DeletePrivateRegistryResponse
      */
     public function deletePrivateRegistryWithOptions($request, $runtime)
     {
@@ -6523,9 +6905,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeletePrivateRegistryRequest $request
+     * @summary Deletes a private image repository by using the ID of the image repository.
+     *  *
+     * @param DeletePrivateRegistryRequest $request DeletePrivateRegistryRequest
      *
-     * @return DeletePrivateRegistryResponse
+     * @return DeletePrivateRegistryResponse DeletePrivateRegistryResponse
      */
     public function deletePrivateRegistry($request)
     {
@@ -6535,10 +6919,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteSasContainerWebDefenseRuleRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary Deletes a rule for container tamper-proofing.
+     *  *
+     * @param DeleteSasContainerWebDefenseRuleRequest $request DeleteSasContainerWebDefenseRuleRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteSasContainerWebDefenseRuleResponse
+     * @return DeleteSasContainerWebDefenseRuleResponse DeleteSasContainerWebDefenseRuleResponse
      */
     public function deleteSasContainerWebDefenseRuleWithOptions($request, $runtime)
     {
@@ -6566,9 +6952,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteSasContainerWebDefenseRuleRequest $request
+     * @summary Deletes a rule for container tamper-proofing.
+     *  *
+     * @param DeleteSasContainerWebDefenseRuleRequest $request DeleteSasContainerWebDefenseRuleRequest
      *
-     * @return DeleteSasContainerWebDefenseRuleResponse
+     * @return DeleteSasContainerWebDefenseRuleResponse DeleteSasContainerWebDefenseRuleResponse
      */
     public function deleteSasContainerWebDefenseRule($request)
     {
@@ -6578,10 +6966,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteSecurityEventMarkMissListRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary Deletes multiple custom defense rules at a time. The custom defense rules are used to add false positive alerts to the whitelist.
+     *  *
+     * @param DeleteSecurityEventMarkMissListRequest $request DeleteSecurityEventMarkMissListRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteSecurityEventMarkMissListResponse
+     * @return DeleteSecurityEventMarkMissListResponse DeleteSecurityEventMarkMissListResponse
      */
     public function deleteSecurityEventMarkMissListWithOptions($request, $runtime)
     {
@@ -6612,9 +7002,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteSecurityEventMarkMissListRequest $request
+     * @summary Deletes multiple custom defense rules at a time. The custom defense rules are used to add false positive alerts to the whitelist.
+     *  *
+     * @param DeleteSecurityEventMarkMissListRequest $request DeleteSecurityEventMarkMissListRequest
      *
-     * @return DeleteSecurityEventMarkMissListResponse
+     * @return DeleteSecurityEventMarkMissListResponse DeleteSecurityEventMarkMissListResponse
      */
     public function deleteSecurityEventMarkMissList($request)
     {
@@ -6624,10 +7016,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteServiceTrailRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Deletes a service trail.
+     *  *
+     * @param DeleteServiceTrailRequest $request DeleteServiceTrailRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteServiceTrailResponse
+     * @return DeleteServiceTrailResponse DeleteServiceTrailResponse
      */
     public function deleteServiceTrailWithOptions($request, $runtime)
     {
@@ -6655,9 +7049,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteServiceTrailRequest $request
+     * @summary Deletes a service trail.
+     *  *
+     * @param DeleteServiceTrailRequest $request DeleteServiceTrailRequest
      *
-     * @return DeleteServiceTrailResponse
+     * @return DeleteServiceTrailResponse DeleteServiceTrailResponse
      */
     public function deleteServiceTrail($request)
     {
@@ -6667,10 +7063,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteStrategyRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Deletes a baseline check policy.
+     *  *
+     * @param DeleteStrategyRequest $request DeleteStrategyRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteStrategyResponse
+     * @return DeleteStrategyResponse DeleteStrategyResponse
      */
     public function deleteStrategyWithOptions($request, $runtime)
     {
@@ -6704,9 +7102,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteStrategyRequest $request
+     * @summary Deletes a baseline check policy.
+     *  *
+     * @param DeleteStrategyRequest $request DeleteStrategyRequest
      *
-     * @return DeleteStrategyResponse
+     * @return DeleteStrategyResponse DeleteStrategyResponse
      */
     public function deleteStrategy($request)
     {
@@ -6716,10 +7116,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteSuspEventNodeRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Deletes the description of an alert.
+     *  *
+     * @param DeleteSuspEventNodeRequest $request DeleteSuspEventNodeRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteSuspEventNodeResponse
+     * @return DeleteSuspEventNodeResponse DeleteSuspEventNodeResponse
      */
     public function deleteSuspEventNodeWithOptions($request, $runtime)
     {
@@ -6747,9 +7149,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteSuspEventNodeRequest $request
+     * @summary Deletes the description of an alert.
+     *  *
+     * @param DeleteSuspEventNodeRequest $request DeleteSuspEventNodeRequest
      *
-     * @return DeleteSuspEventNodeResponse
+     * @return DeleteSuspEventNodeResponse DeleteSuspEventNodeResponse
      */
     public function deleteSuspEventNode($request)
     {
@@ -6759,8 +7163,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Security Center provides asset importance tags and custom tags. You can call this operation to remove only the custom tag that is added to an asset.
-     *   *
+     * @summary Removes custom tags from assets.
+     *  *
+     * @description Security Center provides asset importance tags and custom tags. You can call this operation to remove only the custom tag that is added to an asset.
+     *  *
      * @param DeleteTagWithUuidRequest $request DeleteTagWithUuidRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -6795,8 +7201,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Security Center provides asset importance tags and custom tags. You can call this operation to remove only the custom tag that is added to an asset.
-     *   *
+     * @summary Removes custom tags from assets.
+     *  *
+     * @description Security Center provides asset importance tags and custom tags. You can call this operation to remove only the custom tag that is added to an asset.
+     *  *
      * @param DeleteTagWithUuidRequest $request DeleteTagWithUuidRequest
      *
      * @return DeleteTagWithUuidResponse DeleteTagWithUuidResponse
@@ -6809,10 +7217,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteUniBackupPolicyRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Deletes anti-ransomware policies that are created for databases.
+     *  *
+     * @param DeleteUniBackupPolicyRequest $request DeleteUniBackupPolicyRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteUniBackupPolicyResponse
+     * @return DeleteUniBackupPolicyResponse DeleteUniBackupPolicyResponse
      */
     public function deleteUniBackupPolicyWithOptions($request, $runtime)
     {
@@ -6843,9 +7253,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteUniBackupPolicyRequest $request
+     * @summary Deletes anti-ransomware policies that are created for databases.
+     *  *
+     * @param DeleteUniBackupPolicyRequest $request DeleteUniBackupPolicyRequest
      *
-     * @return DeleteUniBackupPolicyResponse
+     * @return DeleteUniBackupPolicyResponse DeleteUniBackupPolicyResponse
      */
     public function deleteUniBackupPolicy($request)
     {
@@ -6855,10 +7267,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteVpcHoneyPotRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Deletes a honeypot.
+     *  *
+     * @param DeleteVpcHoneyPotRequest $request DeleteVpcHoneyPotRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteVpcHoneyPotResponse
+     * @return DeleteVpcHoneyPotResponse DeleteVpcHoneyPotResponse
      */
     public function deleteVpcHoneyPotWithOptions($request, $runtime)
     {
@@ -6886,9 +7300,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteVpcHoneyPotRequest $request
+     * @summary Deletes a honeypot.
+     *  *
+     * @param DeleteVpcHoneyPotRequest $request DeleteVpcHoneyPotRequest
      *
-     * @return DeleteVpcHoneyPotResponse
+     * @return DeleteVpcHoneyPotResponse DeleteVpcHoneyPotResponse
      */
     public function deleteVpcHoneyPot($request)
     {
@@ -6898,10 +7314,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteVulAutoRepairConfigRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Delete a list of vulnerabilities that can be automatically fixed. After the list is deleted, you can not select the list when you create a vulnerability fixing task on the Playbook page.
+     *  *
+     * @param DeleteVulAutoRepairConfigRequest $request DeleteVulAutoRepairConfigRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteVulAutoRepairConfigResponse
+     * @return DeleteVulAutoRepairConfigResponse DeleteVulAutoRepairConfigResponse
      */
     public function deleteVulAutoRepairConfigWithOptions($request, $runtime)
     {
@@ -6935,9 +7353,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteVulAutoRepairConfigRequest $request
+     * @summary Delete a list of vulnerabilities that can be automatically fixed. After the list is deleted, you can not select the list when you create a vulnerability fixing task on the Playbook page.
+     *  *
+     * @param DeleteVulAutoRepairConfigRequest $request DeleteVulAutoRepairConfigRequest
      *
-     * @return DeleteVulAutoRepairConfigResponse
+     * @return DeleteVulAutoRepairConfigResponse DeleteVulAutoRepairConfigResponse
      */
     public function deleteVulAutoRepairConfig($request)
     {
@@ -6947,10 +7367,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteVulWhitelistRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Deletes a specified vulnerability whitelist.
+     *  *
+     * @param DeleteVulWhitelistRequest $request DeleteVulWhitelistRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteVulWhitelistResponse
+     * @return DeleteVulWhitelistResponse DeleteVulWhitelistResponse
      */
     public function deleteVulWhitelistWithOptions($request, $runtime)
     {
@@ -6981,9 +7403,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DeleteVulWhitelistRequest $request
+     * @summary Deletes a specified vulnerability whitelist.
+     *  *
+     * @param DeleteVulWhitelistRequest $request DeleteVulWhitelistRequest
      *
-     * @return DeleteVulWhitelistResponse
+     * @return DeleteVulWhitelistResponse DeleteVulWhitelistResponse
      */
     public function deleteVulWhitelist($request)
     {
@@ -6993,10 +7417,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAccessKeyLeakDetailRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries the details of AccessKey pair leaks.
+     *  *
+     * @param DescribeAccessKeyLeakDetailRequest $request DescribeAccessKeyLeakDetailRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAccessKeyLeakDetailResponse
+     * @return DescribeAccessKeyLeakDetailResponse DescribeAccessKeyLeakDetailResponse
      */
     public function describeAccessKeyLeakDetailWithOptions($request, $runtime)
     {
@@ -7027,9 +7453,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAccessKeyLeakDetailRequest $request
+     * @summary Queries the details of AccessKey pair leaks.
+     *  *
+     * @param DescribeAccessKeyLeakDetailRequest $request DescribeAccessKeyLeakDetailRequest
      *
-     * @return DescribeAccessKeyLeakDetailResponse
+     * @return DescribeAccessKeyLeakDetailResponse DescribeAccessKeyLeakDetailResponse
      */
     public function describeAccessKeyLeakDetail($request)
     {
@@ -7039,10 +7467,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAccesskeyLeakListRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the AccessKey pair leaks that are detected on your assets.
+     *  *
+     * @param DescribeAccesskeyLeakListRequest $request DescribeAccesskeyLeakListRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAccesskeyLeakListResponse
+     * @return DescribeAccesskeyLeakListResponse DescribeAccesskeyLeakListResponse
      */
     public function describeAccesskeyLeakListWithOptions($request, $runtime)
     {
@@ -7085,9 +7515,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAccesskeyLeakListRequest $request
+     * @summary Queries the AccessKey pair leaks that are detected on your assets.
+     *  *
+     * @param DescribeAccesskeyLeakListRequest $request DescribeAccesskeyLeakListRequest
      *
-     * @return DescribeAccesskeyLeakListResponse
+     * @return DescribeAccesskeyLeakListResponse DescribeAccesskeyLeakListResponse
      */
     public function describeAccesskeyLeakList($request)
     {
@@ -7097,10 +7529,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAffectedAssetsRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries the affected servers in the result of a virus scan task.
+     *  *
+     * @param DescribeAffectedAssetsRequest $request DescribeAffectedAssetsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAffectedAssetsResponse
+     * @return DescribeAffectedAssetsResponse DescribeAffectedAssetsResponse
      */
     public function describeAffectedAssetsWithOptions($request, $runtime)
     {
@@ -7134,9 +7568,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAffectedAssetsRequest $request
+     * @summary Queries the affected servers in the result of a virus scan task.
+     *  *
+     * @param DescribeAffectedAssetsRequest $request DescribeAffectedAssetsRequest
      *
-     * @return DescribeAffectedAssetsResponse
+     * @return DescribeAffectedAssetsResponse DescribeAffectedAssetsResponse
      */
     public function describeAffectedAssets($request)
     {
@@ -7146,10 +7582,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAffectedMaliciousFileImagesRequest $request
-     * @param RuntimeOptions                             $runtime
+     * @summary Queries the details of malicious image samples.
+     *  *
+     * @param DescribeAffectedMaliciousFileImagesRequest $request DescribeAffectedMaliciousFileImagesRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAffectedMaliciousFileImagesResponse
+     * @return DescribeAffectedMaliciousFileImagesResponse DescribeAffectedMaliciousFileImagesResponse
      */
     public function describeAffectedMaliciousFileImagesWithOptions($request, $runtime)
     {
@@ -7237,9 +7675,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAffectedMaliciousFileImagesRequest $request
+     * @summary Queries the details of malicious image samples.
+     *  *
+     * @param DescribeAffectedMaliciousFileImagesRequest $request DescribeAffectedMaliciousFileImagesRequest
      *
-     * @return DescribeAffectedMaliciousFileImagesResponse
+     * @return DescribeAffectedMaliciousFileImagesResponse DescribeAffectedMaliciousFileImagesResponse
      */
     public function describeAffectedMaliciousFileImages($request)
     {
@@ -7249,10 +7689,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAgentInstallStatusRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the installation status of the Security Center agent after you run an installation command by using Cloud Assistant.
+     *  *
+     * @param DescribeAgentInstallStatusRequest $request DescribeAgentInstallStatusRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAgentInstallStatusResponse
+     * @return DescribeAgentInstallStatusResponse DescribeAgentInstallStatusResponse
      */
     public function describeAgentInstallStatusWithOptions($request, $runtime)
     {
@@ -7286,9 +7728,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAgentInstallStatusRequest $request
+     * @summary Queries the installation status of the Security Center agent after you run an installation command by using Cloud Assistant.
+     *  *
+     * @param DescribeAgentInstallStatusRequest $request DescribeAgentInstallStatusRequest
      *
-     * @return DescribeAgentInstallStatusResponse
+     * @return DescribeAgentInstallStatusResponse DescribeAgentInstallStatusResponse
      */
     public function describeAgentInstallStatus($request)
     {
@@ -7298,10 +7742,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAlarmEventDetailRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the details of an alert event. An alert event consists of alerts and exceptions. Each alert event is associated with multiple exceptions.
+     *  *
+     * @param DescribeAlarmEventDetailRequest $request DescribeAlarmEventDetailRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAlarmEventDetailResponse
+     * @return DescribeAlarmEventDetailResponse DescribeAlarmEventDetailResponse
      */
     public function describeAlarmEventDetailWithOptions($request, $runtime)
     {
@@ -7338,9 +7784,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAlarmEventDetailRequest $request
+     * @summary Queries the details of an alert event. An alert event consists of alerts and exceptions. Each alert event is associated with multiple exceptions.
+     *  *
+     * @param DescribeAlarmEventDetailRequest $request DescribeAlarmEventDetailRequest
      *
-     * @return DescribeAlarmEventDetailResponse
+     * @return DescribeAlarmEventDetailResponse DescribeAlarmEventDetailResponse
      */
     public function describeAlarmEventDetail($request)
     {
@@ -7350,10 +7798,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAlarmEventStackInfoRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries the stack information about an alert event.
+     *  *
+     * @param DescribeAlarmEventStackInfoRequest $request DescribeAlarmEventStackInfoRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAlarmEventStackInfoResponse
+     * @return DescribeAlarmEventStackInfoResponse DescribeAlarmEventStackInfoResponse
      */
     public function describeAlarmEventStackInfoWithOptions($request, $runtime)
     {
@@ -7396,9 +7846,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAlarmEventStackInfoRequest $request
+     * @summary Queries the stack information about an alert event.
+     *  *
+     * @param DescribeAlarmEventStackInfoRequest $request DescribeAlarmEventStackInfoRequest
      *
-     * @return DescribeAlarmEventStackInfoResponse
+     * @return DescribeAlarmEventStackInfoResponse DescribeAlarmEventStackInfoResponse
      */
     public function describeAlarmEventStackInfo($request)
     {
@@ -7408,9 +7860,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the information about all server assets, including the asset group IDs and asset names.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAllEntityResponse
+     * @return DescribeAllEntityResponse DescribeAllEntityResponse
      */
     public function describeAllEntityWithOptions($runtime)
     {
@@ -7431,7 +7885,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return DescribeAllEntityResponse
+     * @summary Queries the information about all server assets, including the asset group IDs and asset names.
+     *  *
+     * @return DescribeAllEntityResponse DescribeAllEntityResponse
      */
     public function describeAllEntity()
     {
@@ -7441,10 +7897,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAllGroupsRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries the information about all server groups.
+     *  *
+     * @param DescribeAllGroupsRequest $request DescribeAllGroupsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAllGroupsResponse
+     * @return DescribeAllGroupsResponse DescribeAllGroupsResponse
      */
     public function describeAllGroupsWithOptions($request, $runtime)
     {
@@ -7472,9 +7930,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAllGroupsRequest $request
+     * @summary Queries the information about all server groups.
+     *  *
+     * @param DescribeAllGroupsRequest $request DescribeAllGroupsRequest
      *
-     * @return DescribeAllGroupsResponse
+     * @return DescribeAllGroupsResponse DescribeAllGroupsResponse
      */
     public function describeAllGroups($request)
     {
@@ -7484,10 +7944,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAllImageBaselineRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries baselines that are used in image baseline checks.
+     *  *
+     * @param DescribeAllImageBaselineRequest $request DescribeAllImageBaselineRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAllImageBaselineResponse
+     * @return DescribeAllImageBaselineResponse DescribeAllImageBaselineResponse
      */
     public function describeAllImageBaselineWithOptions($request, $runtime)
     {
@@ -7515,9 +7977,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAllImageBaselineRequest $request
+     * @summary Queries baselines that are used in image baseline checks.
+     *  *
+     * @param DescribeAllImageBaselineRequest $request DescribeAllImageBaselineRequest
      *
-     * @return DescribeAllImageBaselineResponse
+     * @return DescribeAllImageBaselineResponse DescribeAllImageBaselineResponse
      */
     public function describeAllImageBaseline($request)
     {
@@ -7527,10 +7991,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntiBruteForceRulesRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries created defense rules against brute-force attacks.
+     *  *
+     * @param DescribeAntiBruteForceRulesRequest $request DescribeAntiBruteForceRulesRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAntiBruteForceRulesResponse
+     * @return DescribeAntiBruteForceRulesResponse DescribeAntiBruteForceRulesResponse
      */
     public function describeAntiBruteForceRulesWithOptions($request, $runtime)
     {
@@ -7573,9 +8039,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntiBruteForceRulesRequest $request
+     * @summary Queries created defense rules against brute-force attacks.
+     *  *
+     * @param DescribeAntiBruteForceRulesRequest $request DescribeAntiBruteForceRulesRequest
      *
-     * @return DescribeAntiBruteForceRulesResponse
+     * @return DescribeAntiBruteForceRulesResponse DescribeAntiBruteForceRulesResponse
      */
     public function describeAntiBruteForceRules($request)
     {
@@ -7585,9 +8053,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the scan cycle for application vulnerabilities.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAppVulScanCycleResponse
+     * @return DescribeAppVulScanCycleResponse DescribeAppVulScanCycleResponse
      */
     public function describeAppVulScanCycleWithOptions($runtime)
     {
@@ -7608,7 +8078,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return DescribeAppVulScanCycleResponse
+     * @summary Queries the scan cycle for application vulnerabilities.
+     *  *
+     * @return DescribeAppVulScanCycleResponse DescribeAppVulScanCycleResponse
      */
     public function describeAppVulScanCycle()
     {
@@ -7618,10 +8090,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAssetDetailByUuidRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the details of a server and the extended information about the server by using the UUID of the server.
+     *  *
+     * @param DescribeAssetDetailByUuidRequest $request DescribeAssetDetailByUuidRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAssetDetailByUuidResponse
+     * @return DescribeAssetDetailByUuidResponse DescribeAssetDetailByUuidResponse
      */
     public function describeAssetDetailByUuidWithOptions($request, $runtime)
     {
@@ -7655,9 +8129,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAssetDetailByUuidRequest $request
+     * @summary Queries the details of a server and the extended information about the server by using the UUID of the server.
+     *  *
+     * @param DescribeAssetDetailByUuidRequest $request DescribeAssetDetailByUuidRequest
      *
-     * @return DescribeAssetDetailByUuidResponse
+     * @return DescribeAssetDetailByUuidResponse DescribeAssetDetailByUuidResponse
      */
     public function describeAssetDetailByUuid($request)
     {
@@ -7667,10 +8143,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAssetDetailByUuidsRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the details of Elastic Compute Service (ECS) instances.
+     *  *
+     * @param DescribeAssetDetailByUuidsRequest $request DescribeAssetDetailByUuidsRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAssetDetailByUuidsResponse
+     * @return DescribeAssetDetailByUuidsResponse DescribeAssetDetailByUuidsResponse
      */
     public function describeAssetDetailByUuidsWithOptions($request, $runtime)
     {
@@ -7704,9 +8182,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAssetDetailByUuidsRequest $request
+     * @summary Queries the details of Elastic Compute Service (ECS) instances.
+     *  *
+     * @param DescribeAssetDetailByUuidsRequest $request DescribeAssetDetailByUuidsRequest
      *
-     * @return DescribeAssetDetailByUuidsResponse
+     * @return DescribeAssetDetailByUuidsResponse DescribeAssetDetailByUuidsResponse
      */
     public function describeAssetDetailByUuids($request)
     {
@@ -7716,9 +8196,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary The ID of the request, which is used to locate and troubleshoot issues.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAssetSummaryResponse
+     * @return DescribeAssetSummaryResponse DescribeAssetSummaryResponse
      */
     public function describeAssetSummaryWithOptions($runtime)
     {
@@ -7739,7 +8221,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return DescribeAssetSummaryResponse
+     * @summary The ID of the request, which is used to locate and troubleshoot issues.
+     *  *
+     * @return DescribeAssetSummaryResponse DescribeAssetSummaryResponse
      */
     public function describeAssetSummary()
     {
@@ -7749,10 +8233,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAssetsSecurityEventSummaryRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @summary Queries the risk information about containers.
+     *  *
+     * @param DescribeAssetsSecurityEventSummaryRequest $request DescribeAssetsSecurityEventSummaryRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAssetsSecurityEventSummaryResponse
+     * @return DescribeAssetsSecurityEventSummaryResponse DescribeAssetsSecurityEventSummaryResponse
      */
     public function describeAssetsSecurityEventSummaryWithOptions($request, $runtime)
     {
@@ -7792,9 +8278,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAssetsSecurityEventSummaryRequest $request
+     * @summary Queries the risk information about containers.
+     *  *
+     * @param DescribeAssetsSecurityEventSummaryRequest $request DescribeAssetsSecurityEventSummaryRequest
      *
-     * @return DescribeAssetsSecurityEventSummaryResponse
+     * @return DescribeAssetsSecurityEventSummaryResponse DescribeAssetsSecurityEventSummaryResponse
      */
     public function describeAssetsSecurityEventSummary($request)
     {
@@ -7804,10 +8292,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAttachRecordsRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the results of automatically connecting applications on Elastic Compute Service (ECS) instances to the application protection feature after the Runtime Application Self-Protection (RASP) agent is installed on the ECS instances.
+     *  *
+     * @param DescribeAttachRecordsRequest $request DescribeAttachRecordsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAttachRecordsResponse
+     * @return DescribeAttachRecordsResponse DescribeAttachRecordsResponse
      */
     public function describeAttachRecordsWithOptions($request, $runtime)
     {
@@ -7838,9 +8328,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAttachRecordsRequest $request
+     * @summary Queries the results of automatically connecting applications on Elastic Compute Service (ECS) instances to the application protection feature after the Runtime Application Self-Protection (RASP) agent is installed on the ECS instances.
+     *  *
+     * @param DescribeAttachRecordsRequest $request DescribeAttachRecordsRequest
      *
-     * @return DescribeAttachRecordsResponse
+     * @return DescribeAttachRecordsResponse DescribeAttachRecordsResponse
      */
     public function describeAttachRecords($request)
     {
@@ -7850,10 +8342,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAttackAnalysisDataRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the statistics of attack analysis.
+     *  *
+     * @param DescribeAttackAnalysisDataRequest $request DescribeAttackAnalysisDataRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAttackAnalysisDataResponse
+     * @return DescribeAttackAnalysisDataResponse DescribeAttackAnalysisDataResponse
      */
     public function describeAttackAnalysisDataWithOptions($request, $runtime)
     {
@@ -7902,9 +8396,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAttackAnalysisDataRequest $request
+     * @summary Queries the statistics of attack analysis.
+     *  *
+     * @param DescribeAttackAnalysisDataRequest $request DescribeAttackAnalysisDataRequest
      *
-     * @return DescribeAttackAnalysisDataResponse
+     * @return DescribeAttackAnalysisDataResponse DescribeAttackAnalysisDataResponse
      */
     public function describeAttackAnalysisData($request)
     {
@@ -7914,9 +8410,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the number of days during which a detected vulnerability is retained before the vulnerability is automatically deleted.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAutoDelConfigResponse
+     * @return DescribeAutoDelConfigResponse DescribeAutoDelConfigResponse
      */
     public function describeAutoDelConfigWithOptions($runtime)
     {
@@ -7937,7 +8435,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return DescribeAutoDelConfigResponse
+     * @summary Queries the number of days during which a detected vulnerability is retained before the vulnerability is automatically deleted.
+     *  *
+     * @return DescribeAutoDelConfigResponse DescribeAutoDelConfigResponse
      */
     public function describeAutoDelConfig()
     {
@@ -7947,10 +8447,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackUpExportInfoRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the information about a file to which archived alert events are exported.
+     *  *
+     * @param DescribeBackUpExportInfoRequest $request DescribeBackUpExportInfoRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackUpExportInfoResponse
+     * @return DescribeBackUpExportInfoResponse DescribeBackUpExportInfoResponse
      */
     public function describeBackUpExportInfoWithOptions($request, $runtime)
     {
@@ -7987,9 +8489,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackUpExportInfoRequest $request
+     * @summary Queries the information about a file to which archived alert events are exported.
+     *  *
+     * @param DescribeBackUpExportInfoRequest $request DescribeBackUpExportInfoRequest
      *
-     * @return DescribeBackUpExportInfoResponse
+     * @return DescribeBackUpExportInfoResponse DescribeBackUpExportInfoResponse
      */
     public function describeBackUpExportInfo($request)
     {
@@ -7999,8 +8503,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeBackupClients operation to query the servers on which the anti-ransomware agent is installed in a specified region.
-     *   *
+     * @summary Queries the servers on which the anti-ransomware agent is installed in a specified region.
+     *  *
+     * @description You can call the DescribeBackupClients operation to query the servers on which the anti-ransomware agent is installed in a specified region.
+     *  *
      * @param DescribeBackupClientsRequest $request DescribeBackupClientsRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -8032,8 +8538,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeBackupClients operation to query the servers on which the anti-ransomware agent is installed in a specified region.
-     *   *
+     * @summary Queries the servers on which the anti-ransomware agent is installed in a specified region.
+     *  *
+     * @description You can call the DescribeBackupClients operation to query the servers on which the anti-ransomware agent is installed in a specified region.
+     *  *
      * @param DescribeBackupClientsRequest $request DescribeBackupClientsRequest
      *
      * @return DescribeBackupClientsResponse DescribeBackupClientsResponse
@@ -8046,10 +8554,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupFilesRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries backup files.
+     *  *
+     * @param DescribeBackupFilesRequest $request DescribeBackupFilesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackupFilesResponse
+     * @return DescribeBackupFilesResponse DescribeBackupFilesResponse
      */
     public function describeBackupFilesWithOptions($request, $runtime)
     {
@@ -8089,9 +8599,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupFilesRequest $request
+     * @summary Queries backup files.
+     *  *
+     * @param DescribeBackupFilesRequest $request DescribeBackupFilesRequest
      *
-     * @return DescribeBackupFilesResponse
+     * @return DescribeBackupFilesResponse DescribeBackupFilesResponse
      */
     public function describeBackupFiles($request)
     {
@@ -8101,10 +8613,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupMachineStatusRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries the backup status of a sever to which an anti-ransomware policy is applied.
+     *  *
+     * @param DescribeBackupMachineStatusRequest $request DescribeBackupMachineStatusRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackupMachineStatusResponse
+     * @return DescribeBackupMachineStatusResponse DescribeBackupMachineStatusResponse
      */
     public function describeBackupMachineStatusWithOptions($request, $runtime)
     {
@@ -8138,9 +8652,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupMachineStatusRequest $request
+     * @summary Queries the backup status of a sever to which an anti-ransomware policy is applied.
+     *  *
+     * @param DescribeBackupMachineStatusRequest $request DescribeBackupMachineStatusRequest
      *
-     * @return DescribeBackupMachineStatusResponse
+     * @return DescribeBackupMachineStatusResponse DescribeBackupMachineStatusResponse
      */
     public function describeBackupMachineStatus($request)
     {
@@ -8150,10 +8666,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupPoliciesRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries anti-ransomware policies.
+     *  *
+     * @param DescribeBackupPoliciesRequest $request DescribeBackupPoliciesRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackupPoliciesResponse
+     * @return DescribeBackupPoliciesResponse DescribeBackupPoliciesResponse
      */
     public function describeBackupPoliciesWithOptions($request, $runtime)
     {
@@ -8193,9 +8711,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupPoliciesRequest $request
+     * @summary Queries anti-ransomware policies.
+     *  *
+     * @param DescribeBackupPoliciesRequest $request DescribeBackupPoliciesRequest
      *
-     * @return DescribeBackupPoliciesResponse
+     * @return DescribeBackupPoliciesResponse DescribeBackupPoliciesResponse
      */
     public function describeBackupPolicies($request)
     {
@@ -8205,10 +8725,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupPolicyRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the details of an anti-ransomware policy for servers.
+     *  *
+     * @param DescribeBackupPolicyRequest $request DescribeBackupPolicyRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackupPolicyResponse
+     * @return DescribeBackupPolicyResponse DescribeBackupPolicyResponse
      */
     public function describeBackupPolicyWithOptions($request, $runtime)
     {
@@ -8236,9 +8758,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupPolicyRequest $request
+     * @summary Queries the details of an anti-ransomware policy for servers.
+     *  *
+     * @param DescribeBackupPolicyRequest $request DescribeBackupPolicyRequest
      *
-     * @return DescribeBackupPolicyResponse
+     * @return DescribeBackupPolicyResponse DescribeBackupPolicyResponse
      */
     public function describeBackupPolicy($request)
     {
@@ -8248,8 +8772,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * If you have created restoration tasks, you can call this operation to query the number of restoration tasks that are in the **restored** or **being restored** state.
-     *   *
+     * @summary Queries the statistics of restoration tasks.
+     *  *
+     * @description If you have created restoration tasks, you can call this operation to query the number of restoration tasks that are in the **restored** or **being restored** state.
+     *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
      * @return DescribeBackupRestoreCountResponse DescribeBackupRestoreCountResponse
@@ -8273,8 +8799,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * If you have created restoration tasks, you can call this operation to query the number of restoration tasks that are in the **restored** or **being restored** state.
-     *   *
+     * @summary Queries the statistics of restoration tasks.
+     *  *
+     * @description If you have created restoration tasks, you can call this operation to query the number of restoration tasks that are in the **restored** or **being restored** state.
+     *  *
      * @return DescribeBackupRestoreCountResponse DescribeBackupRestoreCountResponse
      */
     public function describeBackupRestoreCount()
@@ -8285,10 +8813,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeBruteForceRecordsRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the IP addresses that are blocked by a defense rule against brute-force attacks.
+     *  *
+     * @param DescribeBruteForceRecordsRequest $request DescribeBruteForceRecordsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBruteForceRecordsResponse
+     * @return DescribeBruteForceRecordsResponse DescribeBruteForceRecordsResponse
      */
     public function describeBruteForceRecordsWithOptions($request, $runtime)
     {
@@ -8334,9 +8864,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeBruteForceRecordsRequest $request
+     * @summary Queries the IP addresses that are blocked by a defense rule against brute-force attacks.
+     *  *
+     * @param DescribeBruteForceRecordsRequest $request DescribeBruteForceRecordsRequest
      *
-     * @return DescribeBruteForceRecordsResponse
+     * @return DescribeBruteForceRecordsResponse DescribeBruteForceRecordsResponse
      */
     public function describeBruteForceRecords($request)
     {
@@ -8346,10 +8878,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeBruteForceSummaryRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary The source IP address of the request.
+     *  *
+     * @param DescribeBruteForceSummaryRequest $request DescribeBruteForceSummaryRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBruteForceSummaryResponse
+     * @return DescribeBruteForceSummaryResponse DescribeBruteForceSummaryResponse
      */
     public function describeBruteForceSummaryWithOptions($request, $runtime)
     {
@@ -8380,9 +8914,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeBruteForceSummaryRequest $request
+     * @summary The source IP address of the request.
+     *  *
+     * @param DescribeBruteForceSummaryRequest $request DescribeBruteForceSummaryRequest
      *
-     * @return DescribeBruteForceSummaryResponse
+     * @return DescribeBruteForceSummaryResponse DescribeBruteForceSummaryResponse
      */
     public function describeBruteForceSummary($request)
     {
@@ -8392,10 +8928,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeCanFixVulListRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the list of fixable vulnerabilities.
+     *  *
+     * @param DescribeCanFixVulListRequest $request DescribeCanFixVulListRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCanFixVulListResponse
+     * @return DescribeCanFixVulListResponse DescribeCanFixVulListResponse
      */
     public function describeCanFixVulListWithOptions($request, $runtime)
     {
@@ -8501,9 +9039,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeCanFixVulListRequest $request
+     * @summary Queries the list of fixable vulnerabilities.
+     *  *
+     * @param DescribeCanFixVulListRequest $request DescribeCanFixVulListRequest
      *
-     * @return DescribeCanFixVulListResponse
+     * @return DescribeCanFixVulListResponse DescribeCanFixVulListResponse
      */
     public function describeCanFixVulList($request)
     {
@@ -8513,10 +9053,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeCheckEcsWarningsRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 查询分类并附带每个分类的未处理异常数量
+     *  *
+     * @param DescribeCheckEcsWarningsRequest $request DescribeCheckEcsWarningsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCheckEcsWarningsResponse
+     * @return DescribeCheckEcsWarningsResponse DescribeCheckEcsWarningsResponse
      */
     public function describeCheckEcsWarningsWithOptions($request, $runtime)
     {
@@ -8544,9 +9086,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeCheckEcsWarningsRequest $request
+     * @summary 查询分类并附带每个分类的未处理异常数量
+     *  *
+     * @param DescribeCheckEcsWarningsRequest $request DescribeCheckEcsWarningsRequest
      *
-     * @return DescribeCheckEcsWarningsResponse
+     * @return DescribeCheckEcsWarningsResponse DescribeCheckEcsWarningsResponse
      */
     public function describeCheckEcsWarnings($request)
     {
@@ -8556,10 +9100,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeCheckFixDetailsRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the parameters that you can configure to fix specified risk items.
+     *  *
+     * @param DescribeCheckFixDetailsRequest $request DescribeCheckFixDetailsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCheckFixDetailsResponse
+     * @return DescribeCheckFixDetailsResponse DescribeCheckFixDetailsResponse
      */
     public function describeCheckFixDetailsWithOptions($request, $runtime)
     {
@@ -8593,9 +9139,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeCheckFixDetailsRequest $request
+     * @summary Queries the parameters that you can configure to fix specified risk items.
+     *  *
+     * @param DescribeCheckFixDetailsRequest $request DescribeCheckFixDetailsRequest
      *
-     * @return DescribeCheckFixDetailsResponse
+     * @return DescribeCheckFixDetailsResponse DescribeCheckFixDetailsResponse
      */
     public function describeCheckFixDetails($request)
     {
@@ -8605,10 +9153,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeCheckWarningDetailRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the details about a specified check item.
+     *  *
+     * @param DescribeCheckWarningDetailRequest $request DescribeCheckWarningDetailRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCheckWarningDetailResponse
+     * @return DescribeCheckWarningDetailResponse DescribeCheckWarningDetailResponse
      */
     public function describeCheckWarningDetailWithOptions($request, $runtime)
     {
@@ -8651,9 +9201,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeCheckWarningDetailRequest $request
+     * @summary Queries the details about a specified check item.
+     *  *
+     * @param DescribeCheckWarningDetailRequest $request DescribeCheckWarningDetailRequest
      *
-     * @return DescribeCheckWarningDetailResponse
+     * @return DescribeCheckWarningDetailResponse DescribeCheckWarningDetailResponse
      */
     public function describeCheckWarningDetail($request)
     {
@@ -8663,10 +9215,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeCheckWarningMachinesRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries the servers on which the same risk item is detected by specifying a baseline and a check item.
+     *  *
+     * @param DescribeCheckWarningMachinesRequest $request DescribeCheckWarningMachinesRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCheckWarningMachinesResponse
+     * @return DescribeCheckWarningMachinesResponse DescribeCheckWarningMachinesResponse
      */
     public function describeCheckWarningMachinesWithOptions($request, $runtime)
     {
@@ -8706,9 +9260,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeCheckWarningMachinesRequest $request
+     * @summary Queries the servers on which the same risk item is detected by specifying a baseline and a check item.
+     *  *
+     * @param DescribeCheckWarningMachinesRequest $request DescribeCheckWarningMachinesRequest
      *
-     * @return DescribeCheckWarningMachinesResponse
+     * @return DescribeCheckWarningMachinesResponse DescribeCheckWarningMachinesResponse
      */
     public function describeCheckWarningMachines($request)
     {
@@ -8718,10 +9274,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeCheckWarningSummaryRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries the statistical information about baseline check results. The information includes the number of servers on which a baseline check is performed, the number of baseline check items, and the pass rate of check items in the last baseline check.
+     *  *
+     * @param DescribeCheckWarningSummaryRequest $request DescribeCheckWarningSummaryRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCheckWarningSummaryResponse
+     * @return DescribeCheckWarningSummaryResponse DescribeCheckWarningSummaryResponse
      */
     public function describeCheckWarningSummaryWithOptions($request, $runtime)
     {
@@ -8791,9 +9349,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeCheckWarningSummaryRequest $request
+     * @summary Queries the statistical information about baseline check results. The information includes the number of servers on which a baseline check is performed, the number of baseline check items, and the pass rate of check items in the last baseline check.
+     *  *
+     * @param DescribeCheckWarningSummaryRequest $request DescribeCheckWarningSummaryRequest
      *
-     * @return DescribeCheckWarningSummaryResponse
+     * @return DescribeCheckWarningSummaryResponse DescribeCheckWarningSummaryResponse
      */
     public function describeCheckWarningSummary($request)
     {
@@ -8803,10 +9363,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeCheckWarningsRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries information about specified risk items and the check items of a specified server.
+     *  *
+     * @param DescribeCheckWarningsRequest $request DescribeCheckWarningsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCheckWarningsResponse
+     * @return DescribeCheckWarningsResponse DescribeCheckWarningsResponse
      */
     public function describeCheckWarningsWithOptions($request, $runtime)
     {
@@ -8864,9 +9426,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeCheckWarningsRequest $request
+     * @summary Queries information about specified risk items and the check items of a specified server.
+     *  *
+     * @param DescribeCheckWarningsRequest $request DescribeCheckWarningsRequest
      *
-     * @return DescribeCheckWarningsResponse
+     * @return DescribeCheckWarningsResponse DescribeCheckWarningsResponse
      */
     public function describeCheckWarnings($request)
     {
@@ -8876,10 +9440,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeClientConfSetupRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the configurations of the Security Center agent.
+     *  *
+     * @param DescribeClientConfSetupRequest $request DescribeClientConfSetupRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeClientConfSetupResponse
+     * @return DescribeClientConfSetupResponse DescribeClientConfSetupResponse
      */
     public function describeClientConfSetupWithOptions($request, $runtime)
     {
@@ -8910,9 +9476,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeClientConfSetupRequest $request
+     * @summary Queries the configurations of the Security Center agent.
+     *  *
+     * @param DescribeClientConfSetupRequest $request DescribeClientConfSetupRequest
      *
-     * @return DescribeClientConfSetupResponse
+     * @return DescribeClientConfSetupResponse DescribeClientConfSetupResponse
      */
     public function describeClientConfSetup($request)
     {
@@ -8922,10 +9490,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeClientConfStrategyRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the configurations of servers to which different tags are added.
+     *  *
+     * @param DescribeClientConfStrategyRequest $request DescribeClientConfStrategyRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeClientConfStrategyResponse
+     * @return DescribeClientConfStrategyResponse DescribeClientConfStrategyResponse
      */
     public function describeClientConfStrategyWithOptions($request, $runtime)
     {
@@ -8956,9 +9526,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeClientConfStrategyRequest $request
+     * @summary Queries the configurations of servers to which different tags are added.
+     *  *
+     * @param DescribeClientConfStrategyRequest $request DescribeClientConfStrategyRequest
      *
-     * @return DescribeClientConfStrategyResponse
+     * @return DescribeClientConfStrategyResponse DescribeClientConfStrategyResponse
      */
     public function describeClientConfStrategy($request)
     {
@@ -8968,8 +9540,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * You can search for an asset by using search conditions, such as the instance ID, instance name, virtual private cloud (VPC) ID, region, and public IP address. You can also configure a logical relationship between multiple search conditions to search for the assets that meet the search conditions.
-     *   *
+     * @summary Queries the information about assets that meet specific search conditions. For example, you can search for assets by the instance name or region of the asset.
+     *  *
+     * @description You can search for an asset by using search conditions, such as the instance ID, instance name, virtual private cloud (VPC) ID, region, and public IP address. You can also configure a logical relationship between multiple search conditions to search for the assets that meet the search conditions.
+     *  *
      * @param DescribeCloudCenterInstancesRequest $request DescribeCloudCenterInstancesRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -9034,8 +9608,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * You can search for an asset by using search conditions, such as the instance ID, instance name, virtual private cloud (VPC) ID, region, and public IP address. You can also configure a logical relationship between multiple search conditions to search for the assets that meet the search conditions.
-     *   *
+     * @summary Queries the information about assets that meet specific search conditions. For example, you can search for assets by the instance name or region of the asset.
+     *  *
+     * @description You can search for an asset by using search conditions, such as the instance ID, instance name, virtual private cloud (VPC) ID, region, and public IP address. You can also configure a logical relationship between multiple search conditions to search for the assets that meet the search conditions.
+     *  *
      * @param DescribeCloudCenterInstancesRequest $request DescribeCloudCenterInstancesRequest
      *
      * @return DescribeCloudCenterInstancesResponse DescribeCloudCenterInstancesResponse
@@ -9048,8 +9624,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @deprecated : DescribeCloudProductFieldStatistics is deprecated, please use Sas::2018-12-03::GetCloudAssetSummary instead.
-     *   *
+     * @deprecated openAPI DescribeCloudProductFieldStatistics is deprecated, please use Sas::2018-12-03::GetCloudAssetSummary instead
+     *  *
+     * @summary Queries the statistics of cloud services.
+     *  *
      * Deprecated
      *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
@@ -9075,8 +9653,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @deprecated : DescribeCloudProductFieldStatistics is deprecated, please use Sas::2018-12-03::GetCloudAssetSummary instead.
-     *   *
+     * @deprecated openAPI DescribeCloudProductFieldStatistics is deprecated, please use Sas::2018-12-03::GetCloudAssetSummary instead
+     *  *
+     * @summary Queries the statistics of cloud services.
+     *  *
      * Deprecated
      *
      * @return DescribeCloudProductFieldStatisticsResponse DescribeCloudProductFieldStatisticsResponse
@@ -9089,10 +9669,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeClusterBasicInfoRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the information about an cluster based on the cluster ID.
+     *  *
+     * @param DescribeClusterBasicInfoRequest $request DescribeClusterBasicInfoRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterBasicInfoResponse
+     * @return DescribeClusterBasicInfoResponse DescribeClusterBasicInfoResponse
      */
     public function describeClusterBasicInfoWithOptions($request, $runtime)
     {
@@ -9126,9 +9708,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeClusterBasicInfoRequest $request
+     * @summary Queries the information about an cluster based on the cluster ID.
+     *  *
+     * @param DescribeClusterBasicInfoRequest $request DescribeClusterBasicInfoRequest
      *
-     * @return DescribeClusterBasicInfoResponse
+     * @return DescribeClusterBasicInfoResponse DescribeClusterBasicInfoResponse
      */
     public function describeClusterBasicInfo($request)
     {
@@ -9138,10 +9722,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeClusterInfoListRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the information about a cluster.
+     *  *
+     * @param DescribeClusterInfoListRequest $request DescribeClusterInfoListRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterInfoListResponse
+     * @return DescribeClusterInfoListResponse DescribeClusterInfoListResponse
      */
     public function describeClusterInfoListWithOptions($request, $runtime)
     {
@@ -9175,9 +9761,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeClusterInfoListRequest $request
+     * @summary Queries the information about a cluster.
+     *  *
+     * @param DescribeClusterInfoListRequest $request DescribeClusterInfoListRequest
      *
-     * @return DescribeClusterInfoListResponse
+     * @return DescribeClusterInfoListResponse DescribeClusterInfoListResponse
      */
     public function describeClusterInfoList($request)
     {
@@ -9187,10 +9775,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeClusterNetworkRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries information about the network topology edge by cluster.
+     *  *
+     * @param DescribeClusterNetworkRequest $request DescribeClusterNetworkRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterNetworkResponse
+     * @return DescribeClusterNetworkResponse DescribeClusterNetworkResponse
      */
     public function describeClusterNetworkWithOptions($request, $runtime)
     {
@@ -9221,9 +9811,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeClusterNetworkRequest $request
+     * @summary Queries information about the network topology edge by cluster.
+     *  *
+     * @param DescribeClusterNetworkRequest $request DescribeClusterNetworkRequest
      *
-     * @return DescribeClusterNetworkResponse
+     * @return DescribeClusterNetworkResponse DescribeClusterNetworkResponse
      */
     public function describeClusterNetwork($request)
     {
@@ -9233,10 +9825,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeClusterVulStatisticsRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries the statistics of vulnerabilities that are detected on a cluster.
+     *  *
+     * @param DescribeClusterVulStatisticsRequest $request DescribeClusterVulStatisticsRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterVulStatisticsResponse
+     * @return DescribeClusterVulStatisticsResponse DescribeClusterVulStatisticsResponse
      */
     public function describeClusterVulStatisticsWithOptions($request, $runtime)
     {
@@ -9267,9 +9861,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeClusterVulStatisticsRequest $request
+     * @summary Queries the statistics of vulnerabilities that are detected on a cluster.
+     *  *
+     * @param DescribeClusterVulStatisticsRequest $request DescribeClusterVulStatisticsRequest
      *
-     * @return DescribeClusterVulStatisticsResponse
+     * @return DescribeClusterVulStatisticsResponse DescribeClusterVulStatisticsResponse
      */
     public function describeClusterVulStatistics($request)
     {
@@ -9279,10 +9875,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeCommonOverallConfigRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries the information about a specified feature.
+     *  *
+     * @param DescribeCommonOverallConfigRequest $request DescribeCommonOverallConfigRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCommonOverallConfigResponse
+     * @return DescribeCommonOverallConfigResponse DescribeCommonOverallConfigResponse
      */
     public function describeCommonOverallConfigWithOptions($request, $runtime)
     {
@@ -9313,9 +9911,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeCommonOverallConfigRequest $request
+     * @summary Queries the information about a specified feature.
+     *  *
+     * @param DescribeCommonOverallConfigRequest $request DescribeCommonOverallConfigRequest
      *
-     * @return DescribeCommonOverallConfigResponse
+     * @return DescribeCommonOverallConfigResponse DescribeCommonOverallConfigResponse
      */
     public function describeCommonOverallConfig($request)
     {
@@ -9325,10 +9925,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeCommonOverallConfigListRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary Queries the configurations of features in proactive defense.
+     *  *
+     * @param DescribeCommonOverallConfigListRequest $request DescribeCommonOverallConfigListRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCommonOverallConfigListResponse
+     * @return DescribeCommonOverallConfigListResponse DescribeCommonOverallConfigListResponse
      */
     public function describeCommonOverallConfigListWithOptions($request, $runtime)
     {
@@ -9359,9 +9961,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeCommonOverallConfigListRequest $request
+     * @summary Queries the configurations of features in proactive defense.
+     *  *
+     * @param DescribeCommonOverallConfigListRequest $request DescribeCommonOverallConfigListRequest
      *
-     * @return DescribeCommonOverallConfigListResponse
+     * @return DescribeCommonOverallConfigListResponse DescribeCommonOverallConfigListResponse
      */
     public function describeCommonOverallConfigList($request)
     {
@@ -9371,10 +9975,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeCommonTargetConfigRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the configurations of the proactive defense feature.
+     *  *
+     * @param DescribeCommonTargetConfigRequest $request DescribeCommonTargetConfigRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCommonTargetConfigResponse
+     * @return DescribeCommonTargetConfigResponse DescribeCommonTargetConfigResponse
      */
     public function describeCommonTargetConfigWithOptions($request, $runtime)
     {
@@ -9402,9 +10008,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeCommonTargetConfigRequest $request
+     * @summary Queries the configurations of the proactive defense feature.
+     *  *
+     * @param DescribeCommonTargetConfigRequest $request DescribeCommonTargetConfigRequest
      *
-     * @return DescribeCommonTargetConfigResponse
+     * @return DescribeCommonTargetConfigResponse DescribeCommonTargetConfigResponse
      */
     public function describeCommonTargetConfig($request)
     {
@@ -9414,10 +10022,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeCommonTargetResultListRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Queries the information about the servers based on the specified configuration item.
+     *  *
+     * @param DescribeCommonTargetResultListRequest $request DescribeCommonTargetResultListRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCommonTargetResultListResponse
+     * @return DescribeCommonTargetResultListResponse DescribeCommonTargetResultListResponse
      */
     public function describeCommonTargetResultListWithOptions($request, $runtime)
     {
@@ -9448,9 +10058,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeCommonTargetResultListRequest $request
+     * @summary Queries the information about the servers based on the specified configuration item.
+     *  *
+     * @param DescribeCommonTargetResultListRequest $request DescribeCommonTargetResultListRequest
      *
-     * @return DescribeCommonTargetResultListResponse
+     * @return DescribeCommonTargetResultListResponse DescribeCommonTargetResultListResponse
      */
     public function describeCommonTargetResultList($request)
     {
@@ -9460,10 +10072,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeConcernNecessityRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the priorities to fix vulnerabilities.
+     *  *
+     * @param DescribeConcernNecessityRequest $request DescribeConcernNecessityRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeConcernNecessityResponse
+     * @return DescribeConcernNecessityResponse DescribeConcernNecessityResponse
      */
     public function describeConcernNecessityWithOptions($request, $runtime)
     {
@@ -9491,9 +10105,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeConcernNecessityRequest $request
+     * @summary Queries the priorities to fix vulnerabilities.
+     *  *
+     * @param DescribeConcernNecessityRequest $request DescribeConcernNecessityRequest
      *
-     * @return DescribeConcernNecessityResponse
+     * @return DescribeConcernNecessityResponse DescribeConcernNecessityResponse
      */
     public function describeConcernNecessity($request)
     {
@@ -9503,10 +10119,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeContainerAppsRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the information about a containerized application.
+     *  *
+     * @param DescribeContainerAppsRequest $request DescribeContainerAppsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeContainerAppsResponse
+     * @return DescribeContainerAppsResponse DescribeContainerAppsResponse
      */
     public function describeContainerAppsWithOptions($request, $runtime)
     {
@@ -9543,9 +10161,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeContainerAppsRequest $request
+     * @summary Queries the information about a containerized application.
+     *  *
+     * @param DescribeContainerAppsRequest $request DescribeContainerAppsRequest
      *
-     * @return DescribeContainerAppsResponse
+     * @return DescribeContainerAppsResponse DescribeContainerAppsResponse
      */
     public function describeContainerApps($request)
     {
@@ -9555,10 +10175,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeContainerCriteriaRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Obtains the filter conditions that you can use to filter the containers.
+     *  *
+     * @param DescribeContainerCriteriaRequest $request DescribeContainerCriteriaRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeContainerCriteriaResponse
+     * @return DescribeContainerCriteriaResponse DescribeContainerCriteriaResponse
      */
     public function describeContainerCriteriaWithOptions($request, $runtime)
     {
@@ -9589,9 +10211,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeContainerCriteriaRequest $request
+     * @summary Obtains the filter conditions that you can use to filter the containers.
+     *  *
+     * @param DescribeContainerCriteriaRequest $request DescribeContainerCriteriaRequest
      *
-     * @return DescribeContainerCriteriaResponse
+     * @return DescribeContainerCriteriaResponse DescribeContainerCriteriaResponse
      */
     public function describeContainerCriteria($request)
     {
@@ -9601,10 +10225,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeContainerInstancesRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the information about containers.
+     *  *
+     * @param DescribeContainerInstancesRequest $request DescribeContainerInstancesRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeContainerInstancesResponse
+     * @return DescribeContainerInstancesResponse DescribeContainerInstancesResponse
      */
     public function describeContainerInstancesWithOptions($request, $runtime)
     {
@@ -9641,9 +10267,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeContainerInstancesRequest $request
+     * @summary Queries the information about containers.
+     *  *
+     * @param DescribeContainerInstancesRequest $request DescribeContainerInstancesRequest
      *
-     * @return DescribeContainerInstancesResponse
+     * @return DescribeContainerInstancesResponse DescribeContainerInstancesResponse
      */
     public function describeContainerInstances($request)
     {
@@ -9653,10 +10281,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeContainerScanConfigRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries the configurations of the vulnerability scan of one or more running container applications.
+     *  *
+     * @param DescribeContainerScanConfigRequest $request DescribeContainerScanConfigRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeContainerScanConfigResponse
+     * @return DescribeContainerScanConfigResponse DescribeContainerScanConfigResponse
      */
     public function describeContainerScanConfigWithOptions($request, $runtime)
     {
@@ -9684,9 +10314,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeContainerScanConfigRequest $request
+     * @summary Queries the configurations of the vulnerability scan of one or more running container applications.
+     *  *
+     * @param DescribeContainerScanConfigRequest $request DescribeContainerScanConfigRequest
      *
-     * @return DescribeContainerScanConfigResponse
+     * @return DescribeContainerScanConfigResponse DescribeContainerScanConfigResponse
      */
     public function describeContainerScanConfig($request)
     {
@@ -9696,8 +10328,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Only users who created a Container Registry Enterprise Edition instance can call this operation.
-     *   *
+     * @summary Queries the alert statistics on container assets.
+     *  *
+     * @description Only users who created a Container Registry Enterprise Edition instance can call this operation.
+     *  *
      * @param DescribeContainerStatisticsRequest $request DescribeContainerStatisticsRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -9729,8 +10363,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Only users who created a Container Registry Enterprise Edition instance can call this operation.
-     *   *
+     * @summary Queries the alert statistics on container assets.
+     *  *
+     * @description Only users who created a Container Registry Enterprise Edition instance can call this operation.
+     *  *
      * @param DescribeContainerStatisticsRequest $request DescribeContainerStatisticsRequest
      *
      * @return DescribeContainerStatisticsResponse DescribeContainerStatisticsResponse
@@ -9743,10 +10379,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeContainerTagsRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the details of container assets by using an attribute.
+     *  *
+     * @param DescribeContainerTagsRequest $request DescribeContainerTagsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeContainerTagsResponse
+     * @return DescribeContainerTagsResponse DescribeContainerTagsResponse
      */
     public function describeContainerTagsWithOptions($request, $runtime)
     {
@@ -9792,9 +10430,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeContainerTagsRequest $request
+     * @summary Queries the details of container assets by using an attribute.
+     *  *
+     * @param DescribeContainerTagsRequest $request DescribeContainerTagsRequest
      *
-     * @return DescribeContainerTagsResponse
+     * @return DescribeContainerTagsResponse DescribeContainerTagsResponse
      */
     public function describeContainerTags($request)
     {
@@ -9804,9 +10444,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the number of images that are not scanned.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCountNotScannedImageResponse
+     * @return DescribeCountNotScannedImageResponse DescribeCountNotScannedImageResponse
      */
     public function describeCountNotScannedImageWithOptions($runtime)
     {
@@ -9827,7 +10469,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return DescribeCountNotScannedImageResponse
+     * @summary Queries the number of images that are not scanned.
+     *  *
+     * @return DescribeCountNotScannedImageResponse DescribeCountNotScannedImageResponse
      */
     public function describeCountNotScannedImage()
     {
@@ -9837,9 +10481,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the number of images that are scanned.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCountScannedImageResponse
+     * @return DescribeCountScannedImageResponse DescribeCountScannedImageResponse
      */
     public function describeCountScannedImageWithOptions($runtime)
     {
@@ -9860,7 +10506,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return DescribeCountScannedImageResponse
+     * @summary Queries the number of images that are scanned.
+     *  *
+     * @return DescribeCountScannedImageResponse DescribeCountScannedImageResponse
      */
     public function describeCountScannedImage()
     {
@@ -9870,10 +10518,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeCriteriaRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the filter conditions that are used to search for assets in fuzzy match mode.
+     *  *
+     * @param DescribeCriteriaRequest $request DescribeCriteriaRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCriteriaResponse
+     * @return DescribeCriteriaResponse DescribeCriteriaResponse
      */
     public function describeCriteriaWithOptions($request, $runtime)
     {
@@ -9907,9 +10557,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeCriteriaRequest $request
+     * @summary Queries the filter conditions that are used to search for assets in fuzzy match mode.
+     *  *
+     * @param DescribeCriteriaRequest $request DescribeCriteriaRequest
      *
-     * @return DescribeCriteriaResponse
+     * @return DescribeCriteriaResponse DescribeCriteriaResponse
      */
     public function describeCriteria($request)
     {
@@ -9919,10 +10571,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeCustomBlockInstancesRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries the list of servers on which the custom defense rule against brute-force attacks takes effect.
+     *  *
+     * @param DescribeCustomBlockInstancesRequest $request DescribeCustomBlockInstancesRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCustomBlockInstancesResponse
+     * @return DescribeCustomBlockInstancesResponse DescribeCustomBlockInstancesResponse
      */
     public function describeCustomBlockInstancesWithOptions($request, $runtime)
     {
@@ -9965,9 +10619,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeCustomBlockInstancesRequest $request
+     * @summary Queries the list of servers on which the custom defense rule against brute-force attacks takes effect.
+     *  *
+     * @param DescribeCustomBlockInstancesRequest $request DescribeCustomBlockInstancesRequest
      *
-     * @return DescribeCustomBlockInstancesResponse
+     * @return DescribeCustomBlockInstancesResponse DescribeCustomBlockInstancesResponse
      */
     public function describeCustomBlockInstances($request)
     {
@@ -9977,10 +10633,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeCustomBlockRecordsRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the defense rules against brute-force attacks that are applied to one or more servers.
+     *  *
+     * @param DescribeCustomBlockRecordsRequest $request DescribeCustomBlockRecordsRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCustomBlockRecordsResponse
+     * @return DescribeCustomBlockRecordsResponse DescribeCustomBlockRecordsResponse
      */
     public function describeCustomBlockRecordsWithOptions($request, $runtime)
     {
@@ -10020,9 +10678,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeCustomBlockRecordsRequest $request
+     * @summary Queries the defense rules against brute-force attacks that are applied to one or more servers.
+     *  *
+     * @param DescribeCustomBlockRecordsRequest $request DescribeCustomBlockRecordsRequest
      *
-     * @return DescribeCustomBlockRecordsResponse
+     * @return DescribeCustomBlockRecordsResponse DescribeCustomBlockRecordsResponse
      */
     public function describeCustomBlockRecords($request)
     {
@@ -10032,10 +10692,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeCycleTaskListRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries periodic scan tasks. The tasks include image scan tasks, urgent vulnerability scan tasks, and virus scan tasks.
+     *  *
+     * @param DescribeCycleTaskListRequest $request DescribeCycleTaskListRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCycleTaskListResponse
+     * @return DescribeCycleTaskListResponse DescribeCycleTaskListResponse
      */
     public function describeCycleTaskListWithOptions($request, $runtime)
     {
@@ -10072,9 +10734,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeCycleTaskListRequest $request
+     * @summary Queries periodic scan tasks. The tasks include image scan tasks, urgent vulnerability scan tasks, and virus scan tasks.
+     *  *
+     * @param DescribeCycleTaskListRequest $request DescribeCycleTaskListRequest
      *
-     * @return DescribeCycleTaskListResponse
+     * @return DescribeCycleTaskListResponse DescribeCycleTaskListResponse
      */
     public function describeCycleTaskList($request)
     {
@@ -10084,9 +10748,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the default installation version of the proxy that is used in hybrid-cloud scenarios.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDefaultProxyInstallVersionResponse
+     * @return DescribeDefaultProxyInstallVersionResponse DescribeDefaultProxyInstallVersionResponse
      */
     public function describeDefaultProxyInstallVersionWithOptions($runtime)
     {
@@ -10107,7 +10773,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return DescribeDefaultProxyInstallVersionResponse
+     * @summary Queries the default installation version of the proxy that is used in hybrid-cloud scenarios.
+     *  *
+     * @return DescribeDefaultProxyInstallVersionResponse DescribeDefaultProxyInstallVersionResponse
      */
     public function describeDefaultProxyInstallVersion()
     {
@@ -10117,10 +10785,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeDingTalkRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Obtains DingTalk notifications.
+     *  *
+     * @param DescribeDingTalkRequest $request DescribeDingTalkRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDingTalkResponse
+     * @return DescribeDingTalkResponse DescribeDingTalkResponse
      */
     public function describeDingTalkWithOptions($request, $runtime)
     {
@@ -10154,9 +10824,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeDingTalkRequest $request
+     * @summary Obtains DingTalk notifications.
+     *  *
+     * @param DescribeDingTalkRequest $request DescribeDingTalkRequest
      *
-     * @return DescribeDingTalkResponse
+     * @return DescribeDingTalkResponse DescribeDingTalkResponse
      */
     public function describeDingTalk($request)
     {
@@ -10166,10 +10838,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainCountRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the number of domain assets within your Alibaba Cloud account.
+     *  *
+     * @param DescribeDomainCountRequest $request DescribeDomainCountRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDomainCountResponse
+     * @return DescribeDomainCountResponse DescribeDomainCountResponse
      */
     public function describeDomainCountWithOptions($request, $runtime)
     {
@@ -10197,9 +10871,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainCountRequest $request
+     * @summary Queries the number of domain assets within your Alibaba Cloud account.
+     *  *
+     * @param DescribeDomainCountRequest $request DescribeDomainCountRequest
      *
-     * @return DescribeDomainCountResponse
+     * @return DescribeDomainCountResponse DescribeDomainCountResponse
      */
     public function describeDomainCount($request)
     {
@@ -10209,10 +10885,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainDetailRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the details of domain assets within your Alibaba Cloud account.
+     *  *
+     * @param DescribeDomainDetailRequest $request DescribeDomainDetailRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDomainDetailResponse
+     * @return DescribeDomainDetailResponse DescribeDomainDetailResponse
      */
     public function describeDomainDetailWithOptions($request, $runtime)
     {
@@ -10243,9 +10921,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainDetailRequest $request
+     * @summary Queries the details of domain assets within your Alibaba Cloud account.
+     *  *
+     * @param DescribeDomainDetailRequest $request DescribeDomainDetailRequest
      *
-     * @return DescribeDomainDetailResponse
+     * @return DescribeDomainDetailResponse DescribeDomainDetailResponse
      */
     public function describeDomainDetail($request)
     {
@@ -10255,10 +10935,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainListRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the information about the domain assets within your Alibaba Cloud account.
+     *  *
+     * @param DescribeDomainListRequest $request DescribeDomainListRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDomainListResponse
+     * @return DescribeDomainListResponse DescribeDomainListResponse
      */
     public function describeDomainListWithOptions($request, $runtime)
     {
@@ -10298,9 +10980,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainListRequest $request
+     * @summary Queries the information about the domain assets within your Alibaba Cloud account.
+     *  *
+     * @param DescribeDomainListRequest $request DescribeDomainListRequest
      *
-     * @return DescribeDomainListResponse
+     * @return DescribeDomainListResponse DescribeDomainListResponse
      */
     public function describeDomainList($request)
     {
@@ -10310,9 +10994,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries whether Security Center is authorized to scan for urgent vulnerabilities.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEmgUserAgreementResponse
+     * @return DescribeEmgUserAgreementResponse DescribeEmgUserAgreementResponse
      */
     public function describeEmgUserAgreementWithOptions($runtime)
     {
@@ -10333,7 +11019,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return DescribeEmgUserAgreementResponse
+     * @summary Queries whether Security Center is authorized to scan for urgent vulnerabilities.
+     *  *
+     * @return DescribeEmgUserAgreementResponse DescribeEmgUserAgreementResponse
      */
     public function describeEmgUserAgreement()
     {
@@ -10343,10 +11031,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeEmgVulItemRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the details of urgent vulnerabilities.
+     *  *
+     * @param DescribeEmgVulItemRequest $request DescribeEmgVulItemRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEmgVulItemResponse
+     * @return DescribeEmgVulItemResponse DescribeEmgVulItemResponse
      */
     public function describeEmgVulItemWithOptions($request, $runtime)
     {
@@ -10392,9 +11082,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeEmgVulItemRequest $request
+     * @summary Queries the details of urgent vulnerabilities.
+     *  *
+     * @param DescribeEmgVulItemRequest $request DescribeEmgVulItemRequest
      *
-     * @return DescribeEmgVulItemResponse
+     * @return DescribeEmgVulItemResponse DescribeEmgVulItemResponse
      */
     public function describeEmgVulItem($request)
     {
@@ -10404,10 +11096,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeEventLevelCountRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the statistics of alert events by risk level.
+     *  *
+     * @param DescribeEventLevelCountRequest $request DescribeEventLevelCountRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEventLevelCountResponse
+     * @return DescribeEventLevelCountResponse DescribeEventLevelCountResponse
      */
     public function describeEventLevelCountWithOptions($request, $runtime)
     {
@@ -10450,9 +11144,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeEventLevelCountRequest $request
+     * @summary Queries the statistics of alert events by risk level.
+     *  *
+     * @param DescribeEventLevelCountRequest $request DescribeEventLevelCountRequest
      *
-     * @return DescribeEventLevelCountResponse
+     * @return DescribeEventLevelCountResponse DescribeEventLevelCountResponse
      */
     public function describeEventLevelCount($request)
     {
@@ -10462,10 +11158,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeEventOnStageRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the platforms that are supported by the feature of container threat detection.
+     *  *
+     * @param DescribeEventOnStageRequest $request DescribeEventOnStageRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEventOnStageResponse
+     * @return DescribeEventOnStageResponse DescribeEventOnStageResponse
      */
     public function describeEventOnStageWithOptions($request, $runtime)
     {
@@ -10493,9 +11191,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeEventOnStageRequest $request
+     * @summary Queries the platforms that are supported by the feature of container threat detection.
+     *  *
+     * @param DescribeEventOnStageRequest $request DescribeEventOnStageRequest
      *
-     * @return DescribeEventOnStageResponse
+     * @return DescribeEventOnStageResponse DescribeEventOnStageResponse
      */
     public function describeEventOnStage($request)
     {
@@ -10505,10 +11205,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeExcludeSystemPathRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the directories that are excluded from anti-ransomware.
+     *  *
+     * @param DescribeExcludeSystemPathRequest $request DescribeExcludeSystemPathRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeExcludeSystemPathResponse
+     * @return DescribeExcludeSystemPathResponse DescribeExcludeSystemPathResponse
      */
     public function describeExcludeSystemPathWithOptions($request, $runtime)
     {
@@ -10539,9 +11241,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeExcludeSystemPathRequest $request
+     * @summary Queries the directories that are excluded from anti-ransomware.
+     *  *
+     * @param DescribeExcludeSystemPathRequest $request DescribeExcludeSystemPathRequest
      *
-     * @return DescribeExcludeSystemPathResponse
+     * @return DescribeExcludeSystemPathResponse DescribeExcludeSystemPathResponse
      */
     public function describeExcludeSystemPath($request)
     {
@@ -10551,10 +11255,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeExportInfoRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the progress of a task that exports your assets to an Excel file.
+     *  *
+     * @param DescribeExportInfoRequest $request DescribeExportInfoRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeExportInfoResponse
+     * @return DescribeExportInfoResponse DescribeExportInfoResponse
      */
     public function describeExportInfoWithOptions($request, $runtime)
     {
@@ -10582,9 +11288,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeExportInfoRequest $request
+     * @summary Queries the progress of a task that exports your assets to an Excel file.
+     *  *
+     * @param DescribeExportInfoRequest $request DescribeExportInfoRequest
      *
-     * @return DescribeExportInfoResponse
+     * @return DescribeExportInfoResponse DescribeExportInfoResponse
      */
     public function describeExportInfo($request)
     {
@@ -10594,10 +11302,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeExposedCheckWarningRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries the weak password-related risks of a specified server that is exposed on the Internet.
+     *  *
+     * @param DescribeExposedCheckWarningRequest $request DescribeExposedCheckWarningRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeExposedCheckWarningResponse
+     * @return DescribeExposedCheckWarningResponse DescribeExposedCheckWarningResponse
      */
     public function describeExposedCheckWarningWithOptions($request, $runtime)
     {
@@ -10631,9 +11341,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeExposedCheckWarningRequest $request
+     * @summary Queries the weak password-related risks of a specified server that is exposed on the Internet.
+     *  *
+     * @param DescribeExposedCheckWarningRequest $request DescribeExposedCheckWarningRequest
      *
-     * @return DescribeExposedCheckWarningResponse
+     * @return DescribeExposedCheckWarningResponse DescribeExposedCheckWarningResponse
      */
     public function describeExposedCheckWarning($request)
     {
@@ -10643,10 +11355,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeExposedInstanceCriteriaRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary Queries the search conditions that are used to search for exposed assets.
+     *  *
+     * @param DescribeExposedInstanceCriteriaRequest $request DescribeExposedInstanceCriteriaRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeExposedInstanceCriteriaResponse
+     * @return DescribeExposedInstanceCriteriaResponse DescribeExposedInstanceCriteriaResponse
      */
     public function describeExposedInstanceCriteriaWithOptions($request, $runtime)
     {
@@ -10677,9 +11391,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeExposedInstanceCriteriaRequest $request
+     * @summary Queries the search conditions that are used to search for exposed assets.
+     *  *
+     * @param DescribeExposedInstanceCriteriaRequest $request DescribeExposedInstanceCriteriaRequest
      *
-     * @return DescribeExposedInstanceCriteriaResponse
+     * @return DescribeExposedInstanceCriteriaResponse DescribeExposedInstanceCriteriaResponse
      */
     public function describeExposedInstanceCriteria($request)
     {
@@ -10689,10 +11405,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeExposedInstanceDetailRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Queries the details about a specified server that is exposed on the Internet.
+     *  *
+     * @param DescribeExposedInstanceDetailRequest $request DescribeExposedInstanceDetailRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeExposedInstanceDetailResponse
+     * @return DescribeExposedInstanceDetailResponse DescribeExposedInstanceDetailResponse
      */
     public function describeExposedInstanceDetailWithOptions($request, $runtime)
     {
@@ -10723,9 +11441,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeExposedInstanceDetailRequest $request
+     * @summary Queries the details about a specified server that is exposed on the Internet.
+     *  *
+     * @param DescribeExposedInstanceDetailRequest $request DescribeExposedInstanceDetailRequest
      *
-     * @return DescribeExposedInstanceDetailResponse
+     * @return DescribeExposedInstanceDetailResponse DescribeExposedInstanceDetailResponse
      */
     public function describeExposedInstanceDetail($request)
     {
@@ -10735,10 +11455,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeExposedInstanceListRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries the information about the servers that are exposed on the Internet.
+     *  *
+     * @param DescribeExposedInstanceListRequest $request DescribeExposedInstanceListRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeExposedInstanceListResponse
+     * @return DescribeExposedInstanceListResponse DescribeExposedInstanceListResponse
      */
     public function describeExposedInstanceListWithOptions($request, $runtime)
     {
@@ -10796,9 +11518,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeExposedInstanceListRequest $request
+     * @summary Queries the information about the servers that are exposed on the Internet.
+     *  *
+     * @param DescribeExposedInstanceListRequest $request DescribeExposedInstanceListRequest
      *
-     * @return DescribeExposedInstanceListResponse
+     * @return DescribeExposedInstanceListResponse DescribeExposedInstanceListResponse
      */
     public function describeExposedInstanceList($request)
     {
@@ -10808,9 +11532,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the exposure statistics of the assets on the Internet.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeExposedStatisticsResponse
+     * @return DescribeExposedStatisticsResponse DescribeExposedStatisticsResponse
      */
     public function describeExposedStatisticsWithOptions($runtime)
     {
@@ -10831,7 +11557,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return DescribeExposedStatisticsResponse
+     * @summary Queries the exposure statistics of the assets on the Internet.
+     *  *
+     * @return DescribeExposedStatisticsResponse DescribeExposedStatisticsResponse
      */
     public function describeExposedStatistics()
     {
@@ -10841,10 +11569,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeExposedStatisticsDetailRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary Queries the gateway assets, ports, system components, or public IP addresses that are exposed on the Internet.
+     *  *
+     * @param DescribeExposedStatisticsDetailRequest $request DescribeExposedStatisticsDetailRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeExposedStatisticsDetailResponse
+     * @return DescribeExposedStatisticsDetailResponse DescribeExposedStatisticsDetailResponse
      */
     public function describeExposedStatisticsDetailWithOptions($request, $runtime)
     {
@@ -10887,9 +11617,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeExposedStatisticsDetailRequest $request
+     * @summary Queries the gateway assets, ports, system components, or public IP addresses that are exposed on the Internet.
+     *  *
+     * @param DescribeExposedStatisticsDetailRequest $request DescribeExposedStatisticsDetailRequest
      *
-     * @return DescribeExposedStatisticsDetailResponse
+     * @return DescribeExposedStatisticsDetailResponse DescribeExposedStatisticsDetailResponse
      */
     public function describeExposedStatisticsDetail($request)
     {
@@ -10899,10 +11631,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFieldStatisticsRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the statistics of servers.
+     *  *
+     * @param DescribeFieldStatisticsRequest $request DescribeFieldStatisticsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFieldStatisticsResponse
+     * @return DescribeFieldStatisticsResponse DescribeFieldStatisticsResponse
      */
     public function describeFieldStatisticsWithOptions($request, $runtime)
     {
@@ -10936,9 +11670,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFieldStatisticsRequest $request
+     * @summary Queries the statistics of servers.
+     *  *
+     * @param DescribeFieldStatisticsRequest $request DescribeFieldStatisticsRequest
      *
-     * @return DescribeFieldStatisticsResponse
+     * @return DescribeFieldStatisticsResponse DescribeFieldStatisticsResponse
      */
     public function describeFieldStatistics($request)
     {
@@ -10948,9 +11684,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary 查看漏洞修复使用次数
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFixUsedCountResponse
+     * @return DescribeFixUsedCountResponse DescribeFixUsedCountResponse
      */
     public function describeFixUsedCountWithOptions($runtime)
     {
@@ -10971,7 +11709,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return DescribeFixUsedCountResponse
+     * @summary 查看漏洞修复使用次数
+     *  *
+     * @return DescribeFixUsedCountResponse DescribeFixUsedCountResponse
      */
     public function describeFixUsedCount()
     {
@@ -10981,10 +11721,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFrontVulPatchListRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the pre-patches that are required to fix a specified Windows system vulnerability.
+     *  *
+     * @param DescribeFrontVulPatchListRequest $request DescribeFrontVulPatchListRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFrontVulPatchListResponse
+     * @return DescribeFrontVulPatchListResponse DescribeFrontVulPatchListResponse
      */
     public function describeFrontVulPatchListWithOptions($request, $runtime)
     {
@@ -11021,9 +11763,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFrontVulPatchListRequest $request
+     * @summary Queries the pre-patches that are required to fix a specified Windows system vulnerability.
+     *  *
+     * @param DescribeFrontVulPatchListRequest $request DescribeFrontVulPatchListRequest
      *
-     * @return DescribeFrontVulPatchListResponse
+     * @return DescribeFrontVulPatchListResponse DescribeFrontVulPatchListResponse
      */
     public function describeFrontVulPatchList($request)
     {
@@ -11033,10 +11777,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeGroupStructRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the structure of a group.
+     *  *
+     * @param DescribeGroupStructRequest $request DescribeGroupStructRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeGroupStructResponse
+     * @return DescribeGroupStructResponse DescribeGroupStructResponse
      */
     public function describeGroupStructWithOptions($request, $runtime)
     {
@@ -11064,9 +11810,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeGroupStructRequest $request
+     * @summary Queries the structure of a group.
+     *  *
+     * @param DescribeGroupStructRequest $request DescribeGroupStructRequest
      *
-     * @return DescribeGroupStructResponse
+     * @return DescribeGroupStructResponse DescribeGroupStructResponse
      */
     public function describeGroupStruct($request)
     {
@@ -11076,10 +11824,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeGroupedContainerInstancesRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @summary Queries containers by group type.
+     *  *
+     * @param DescribeGroupedContainerInstancesRequest $request DescribeGroupedContainerInstancesRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeGroupedContainerInstancesResponse
+     * @return DescribeGroupedContainerInstancesResponse DescribeGroupedContainerInstancesResponse
      */
     public function describeGroupedContainerInstancesWithOptions($request, $runtime)
     {
@@ -11122,9 +11872,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeGroupedContainerInstancesRequest $request
+     * @summary Queries containers by group type.
+     *  *
+     * @param DescribeGroupedContainerInstancesRequest $request DescribeGroupedContainerInstancesRequest
      *
-     * @return DescribeGroupedContainerInstancesResponse
+     * @return DescribeGroupedContainerInstancesResponse DescribeGroupedContainerInstancesResponse
      */
     public function describeGroupedContainerInstances($request)
     {
@@ -11134,10 +11886,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeGroupedInstancesRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the statistical information about assets based on a specified filter condition.
+     *  *
+     * @param DescribeGroupedInstancesRequest $request DescribeGroupedInstancesRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeGroupedInstancesResponse
+     * @return DescribeGroupedInstancesResponse DescribeGroupedInstancesResponse
      */
     public function describeGroupedInstancesWithOptions($request, $runtime)
     {
@@ -11192,9 +11946,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeGroupedInstancesRequest $request
+     * @summary Queries the statistical information about assets based on a specified filter condition.
+     *  *
+     * @param DescribeGroupedInstancesRequest $request DescribeGroupedInstancesRequest
      *
-     * @return DescribeGroupedInstancesResponse
+     * @return DescribeGroupedInstancesResponse DescribeGroupedInstancesResponse
      */
     public function describeGroupedInstances($request)
     {
@@ -11204,10 +11960,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeGroupedMaliciousFilesRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Queries a list of malicious image samples.
+     *  *
+     * @param DescribeGroupedMaliciousFilesRequest $request DescribeGroupedMaliciousFilesRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeGroupedMaliciousFilesResponse
+     * @return DescribeGroupedMaliciousFilesResponse DescribeGroupedMaliciousFilesResponse
      */
     public function describeGroupedMaliciousFilesWithOptions($request, $runtime)
     {
@@ -11280,9 +12038,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeGroupedMaliciousFilesRequest $request
+     * @summary Queries a list of malicious image samples.
+     *  *
+     * @param DescribeGroupedMaliciousFilesRequest $request DescribeGroupedMaliciousFilesRequest
      *
-     * @return DescribeGroupedMaliciousFilesResponse
+     * @return DescribeGroupedMaliciousFilesResponse DescribeGroupedMaliciousFilesResponse
      */
     public function describeGroupedMaliciousFiles($request)
     {
@@ -11292,10 +12052,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeGroupedTagsRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the statistics of asset tags.
+     *  *
+     * @param DescribeGroupedTagsRequest $request DescribeGroupedTagsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeGroupedTagsResponse
+     * @return DescribeGroupedTagsResponse DescribeGroupedTagsResponse
      */
     public function describeGroupedTagsWithOptions($request, $runtime)
     {
@@ -11323,9 +12085,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeGroupedTagsRequest $request
+     * @summary Queries the statistics of asset tags.
+     *  *
+     * @param DescribeGroupedTagsRequest $request DescribeGroupedTagsRequest
      *
-     * @return DescribeGroupedTagsResponse
+     * @return DescribeGroupedTagsResponse DescribeGroupedTagsResponse
      */
     public function describeGroupedTags($request)
     {
@@ -11335,10 +12099,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeGroupedVulRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries vulnerabilities by group.
+     *  *
+     * @param DescribeGroupedVulRequest $request DescribeGroupedVulRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeGroupedVulResponse
+     * @return DescribeGroupedVulResponse DescribeGroupedVulResponse
      */
     public function describeGroupedVulWithOptions($request, $runtime)
     {
@@ -11408,9 +12174,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeGroupedVulRequest $request
+     * @summary Queries vulnerabilities by group.
+     *  *
+     * @param DescribeGroupedVulRequest $request DescribeGroupedVulRequest
      *
-     * @return DescribeGroupedVulResponse
+     * @return DescribeGroupedVulResponse DescribeGroupedVulResponse
      */
     public function describeGroupedVul($request)
     {
@@ -11420,10 +12188,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeHcExportInfoRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the information about baseline export, including the name of the file to which baselines are exported and the download URL for the file.
+     *  *
+     * @param DescribeHcExportInfoRequest $request DescribeHcExportInfoRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeHcExportInfoResponse
+     * @return DescribeHcExportInfoResponse DescribeHcExportInfoResponse
      */
     public function describeHcExportInfoWithOptions($request, $runtime)
     {
@@ -11451,9 +12221,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeHcExportInfoRequest $request
+     * @summary Queries the information about baseline export, including the name of the file to which baselines are exported and the download URL for the file.
+     *  *
+     * @param DescribeHcExportInfoRequest $request DescribeHcExportInfoRequest
      *
-     * @return DescribeHcExportInfoResponse
+     * @return DescribeHcExportInfoResponse DescribeHcExportInfoResponse
      */
     public function describeHcExportInfo($request)
     {
@@ -11463,10 +12235,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeHoneyPotAuthRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries statistics on the quota of honeypots.
+     *  *
+     * @param DescribeHoneyPotAuthRequest $request DescribeHoneyPotAuthRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeHoneyPotAuthResponse
+     * @return DescribeHoneyPotAuthResponse DescribeHoneyPotAuthResponse
      */
     public function describeHoneyPotAuthWithOptions($request, $runtime)
     {
@@ -11494,9 +12268,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeHoneyPotAuthRequest $request
+     * @summary Queries statistics on the quota of honeypots.
+     *  *
+     * @param DescribeHoneyPotAuthRequest $request DescribeHoneyPotAuthRequest
      *
-     * @return DescribeHoneyPotAuthResponse
+     * @return DescribeHoneyPotAuthResponse DescribeHoneyPotAuthResponse
      */
     public function describeHoneyPotAuth($request)
     {
@@ -11506,10 +12282,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeHoneyPotSuspStatisticsRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Queries the top five virtual private clouds (VPCs) or assets for which alerts are most frequently generated.
+     *  *
+     * @param DescribeHoneyPotSuspStatisticsRequest $request DescribeHoneyPotSuspStatisticsRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeHoneyPotSuspStatisticsResponse
+     * @return DescribeHoneyPotSuspStatisticsResponse DescribeHoneyPotSuspStatisticsResponse
      */
     public function describeHoneyPotSuspStatisticsWithOptions($request, $runtime)
     {
@@ -11546,9 +12324,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeHoneyPotSuspStatisticsRequest $request
+     * @summary Queries the top five virtual private clouds (VPCs) or assets for which alerts are most frequently generated.
+     *  *
+     * @param DescribeHoneyPotSuspStatisticsRequest $request DescribeHoneyPotSuspStatisticsRequest
      *
-     * @return DescribeHoneyPotSuspStatisticsResponse
+     * @return DescribeHoneyPotSuspStatisticsResponse DescribeHoneyPotSuspStatisticsResponse
      */
     public function describeHoneyPotSuspStatistics($request)
     {
@@ -11558,10 +12338,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Queries an image digest.
+     *  *
+     * @param DescribeImageRequest $request DescribeImageRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeImageResponse
+     * @return DescribeImageResponse DescribeImageResponse
      */
     public function describeImageWithOptions($request, $runtime)
     {
@@ -11598,9 +12380,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageRequest $request
+     * @summary Queries an image digest.
+     *  *
+     * @param DescribeImageRequest $request DescribeImageRequest
      *
-     * @return DescribeImageResponse
+     * @return DescribeImageResponse DescribeImageResponse
      */
     public function describeImage($request)
     {
@@ -11610,10 +12394,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageBaselineCheckResultRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary Queries the security scan results of images.
+     *  *
+     * @param DescribeImageBaselineCheckResultRequest $request DescribeImageBaselineCheckResultRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeImageBaselineCheckResultResponse
+     * @return DescribeImageBaselineCheckResultResponse DescribeImageBaselineCheckResultResponse
      */
     public function describeImageBaselineCheckResultWithOptions($request, $runtime)
     {
@@ -11662,9 +12448,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageBaselineCheckResultRequest $request
+     * @summary Queries the security scan results of images.
+     *  *
+     * @param DescribeImageBaselineCheckResultRequest $request DescribeImageBaselineCheckResultRequest
      *
-     * @return DescribeImageBaselineCheckResultResponse
+     * @return DescribeImageBaselineCheckResultResponse DescribeImageBaselineCheckResultResponse
      */
     public function describeImageBaselineCheckResult($request)
     {
@@ -11674,10 +12462,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageBaselineCheckSummaryRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @summary Queries the check results of image baselines that are included in an image scan task.
+     *  *
+     * @param DescribeImageBaselineCheckSummaryRequest $request DescribeImageBaselineCheckSummaryRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeImageBaselineCheckSummaryResponse
+     * @return DescribeImageBaselineCheckSummaryResponse DescribeImageBaselineCheckSummaryResponse
      */
     public function describeImageBaselineCheckSummaryWithOptions($request, $runtime)
     {
@@ -11726,9 +12516,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageBaselineCheckSummaryRequest $request
+     * @summary Queries the check results of image baselines that are included in an image scan task.
+     *  *
+     * @param DescribeImageBaselineCheckSummaryRequest $request DescribeImageBaselineCheckSummaryRequest
      *
-     * @return DescribeImageBaselineCheckSummaryResponse
+     * @return DescribeImageBaselineCheckSummaryResponse DescribeImageBaselineCheckSummaryResponse
      */
     public function describeImageBaselineCheckSummary($request)
     {
@@ -11738,10 +12530,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageBaselineDetailRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries the details about the baseline check result for an image.
+     *  *
+     * @param DescribeImageBaselineDetailRequest $request DescribeImageBaselineDetailRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeImageBaselineDetailResponse
+     * @return DescribeImageBaselineDetailResponse DescribeImageBaselineDetailResponse
      */
     public function describeImageBaselineDetailWithOptions($request, $runtime)
     {
@@ -11775,9 +12569,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageBaselineDetailRequest $request
+     * @summary Queries the details about the baseline check result for an image.
+     *  *
+     * @param DescribeImageBaselineDetailRequest $request DescribeImageBaselineDetailRequest
      *
-     * @return DescribeImageBaselineDetailResponse
+     * @return DescribeImageBaselineDetailResponse DescribeImageBaselineDetailResponse
      */
     public function describeImageBaselineDetail($request)
     {
@@ -11787,10 +12583,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageBaselineItemListRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Queries baseline check results based on images.
+     *  *
+     * @param DescribeImageBaselineItemListRequest $request DescribeImageBaselineItemListRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeImageBaselineItemListResponse
+     * @return DescribeImageBaselineItemListResponse DescribeImageBaselineItemListResponse
      */
     public function describeImageBaselineItemListWithOptions($request, $runtime)
     {
@@ -11842,9 +12640,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageBaselineItemListRequest $request
+     * @summary Queries baseline check results based on images.
+     *  *
+     * @param DescribeImageBaselineItemListRequest $request DescribeImageBaselineItemListRequest
      *
-     * @return DescribeImageBaselineItemListResponse
+     * @return DescribeImageBaselineItemListResponse DescribeImageBaselineItemListResponse
      */
     public function describeImageBaselineItemList($request)
     {
@@ -11854,10 +12654,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageBaselineStrategyRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Queries the information about a baseline check policy for images.
+     *  *
+     * @param DescribeImageBaselineStrategyRequest $request DescribeImageBaselineStrategyRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeImageBaselineStrategyResponse
+     * @return DescribeImageBaselineStrategyResponse DescribeImageBaselineStrategyResponse
      */
     public function describeImageBaselineStrategyWithOptions($request, $runtime)
     {
@@ -11891,9 +12693,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageBaselineStrategyRequest $request
+     * @summary Queries the information about a baseline check policy for images.
+     *  *
+     * @param DescribeImageBaselineStrategyRequest $request DescribeImageBaselineStrategyRequest
      *
-     * @return DescribeImageBaselineStrategyResponse
+     * @return DescribeImageBaselineStrategyResponse DescribeImageBaselineStrategyResponse
      */
     public function describeImageBaselineStrategy($request)
     {
@@ -11903,10 +12707,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageCriteriaRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the search conditions that are used to query images.
+     *  *
+     * @param DescribeImageCriteriaRequest $request DescribeImageCriteriaRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeImageCriteriaResponse
+     * @return DescribeImageCriteriaResponse DescribeImageCriteriaResponse
      */
     public function describeImageCriteriaWithOptions($request, $runtime)
     {
@@ -11934,9 +12740,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageCriteriaRequest $request
+     * @summary Queries the search conditions that are used to query images.
+     *  *
+     * @param DescribeImageCriteriaRequest $request DescribeImageCriteriaRequest
      *
-     * @return DescribeImageCriteriaResponse
+     * @return DescribeImageCriteriaResponse DescribeImageCriteriaResponse
      */
     public function describeImageCriteria($request)
     {
@@ -11946,10 +12754,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageEventOperationConditionRequest $request
-     * @param RuntimeOptions                              $runtime
+     * @summary Queries the conditions for handling alert events in an image.
+     *  *
+     * @param DescribeImageEventOperationConditionRequest $request DescribeImageEventOperationConditionRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeImageEventOperationConditionResponse
+     * @return DescribeImageEventOperationConditionResponse DescribeImageEventOperationConditionResponse
      */
     public function describeImageEventOperationConditionWithOptions($request, $runtime)
     {
@@ -11980,9 +12790,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageEventOperationConditionRequest $request
+     * @summary Queries the conditions for handling alert events in an image.
+     *  *
+     * @param DescribeImageEventOperationConditionRequest $request DescribeImageEventOperationConditionRequest
      *
-     * @return DescribeImageEventOperationConditionResponse
+     * @return DescribeImageEventOperationConditionResponse DescribeImageEventOperationConditionResponse
      */
     public function describeImageEventOperationCondition($request)
     {
@@ -11992,10 +12804,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageEventOperationPageRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary Queries alert handling rules by page.
+     *  *
+     * @param DescribeImageEventOperationPageRequest $request DescribeImageEventOperationPageRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeImageEventOperationPageResponse
+     * @return DescribeImageEventOperationPageResponse DescribeImageEventOperationPageResponse
      */
     public function describeImageEventOperationPageWithOptions($request, $runtime)
     {
@@ -12041,9 +12855,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageEventOperationPageRequest $request
+     * @summary Queries alert handling rules by page.
+     *  *
+     * @param DescribeImageEventOperationPageRequest $request DescribeImageEventOperationPageRequest
      *
-     * @return DescribeImageEventOperationPageResponse
+     * @return DescribeImageEventOperationPageResponse DescribeImageEventOperationPageResponse
      */
     public function describeImageEventOperationPage($request)
     {
@@ -12053,9 +12869,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the configurations of the scheduled fix of image risks.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeImageFixCycleConfigResponse
+     * @return DescribeImageFixCycleConfigResponse DescribeImageFixCycleConfigResponse
      */
     public function describeImageFixCycleConfigWithOptions($runtime)
     {
@@ -12076,7 +12894,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return DescribeImageFixCycleConfigResponse
+     * @summary Queries the configurations of the scheduled fix of image risks.
+     *  *
+     * @return DescribeImageFixCycleConfigResponse DescribeImageFixCycleConfigResponse
      */
     public function describeImageFixCycleConfig()
     {
@@ -12086,10 +12906,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageFixTaskRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the tasks that you create to fix image risks.
+     *  *
+     * @param DescribeImageFixTaskRequest $request DescribeImageFixTaskRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeImageFixTaskResponse
+     * @return DescribeImageFixTaskResponse DescribeImageFixTaskResponse
      */
     public function describeImageFixTaskWithOptions($request, $runtime)
     {
@@ -12129,9 +12951,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageFixTaskRequest $request
+     * @summary Queries the tasks that you create to fix image risks.
+     *  *
+     * @param DescribeImageFixTaskRequest $request DescribeImageFixTaskRequest
      *
-     * @return DescribeImageFixTaskResponse
+     * @return DescribeImageFixTaskResponse DescribeImageFixTaskResponse
      */
     public function describeImageFixTask($request)
     {
@@ -12141,10 +12965,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageGroupedVulListRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries image vulnerabilities.
+     *  *
+     * @param DescribeImageGroupedVulListRequest $request DescribeImageGroupedVulListRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeImageGroupedVulListResponse
+     * @return DescribeImageGroupedVulListResponse DescribeImageGroupedVulListResponse
      */
     public function describeImageGroupedVulListWithOptions($request, $runtime)
     {
@@ -12235,9 +13061,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageGroupedVulListRequest $request
+     * @summary Queries image vulnerabilities.
+     *  *
+     * @param DescribeImageGroupedVulListRequest $request DescribeImageGroupedVulListRequest
      *
-     * @return DescribeImageGroupedVulListResponse
+     * @return DescribeImageGroupedVulListResponse DescribeImageGroupedVulListResponse
      */
     public function describeImageGroupedVulList($request)
     {
@@ -12247,10 +13075,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageInfoListRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries images.
+     *  *
+     * @param DescribeImageInfoListRequest $request DescribeImageInfoListRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeImageInfoListResponse
+     * @return DescribeImageInfoListResponse DescribeImageInfoListResponse
      */
     public function describeImageInfoListWithOptions($request, $runtime)
     {
@@ -12278,9 +13108,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageInfoListRequest $request
+     * @summary Queries images.
+     *  *
+     * @param DescribeImageInfoListRequest $request DescribeImageInfoListRequest
      *
-     * @return DescribeImageInfoListResponse
+     * @return DescribeImageInfoListResponse DescribeImageInfoListResponse
      */
     public function describeImageInfoList($request)
     {
@@ -12290,10 +13122,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageInstancesRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries information about images.
+     *  *
+     * @param DescribeImageInstancesRequest $request DescribeImageInstancesRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeImageInstancesResponse
+     * @return DescribeImageInstancesResponse DescribeImageInstancesResponse
      */
     public function describeImageInstancesWithOptions($request, $runtime)
     {
@@ -12333,9 +13167,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageInstancesRequest $request
+     * @summary Queries information about images.
+     *  *
+     * @param DescribeImageInstancesRequest $request DescribeImageInstancesRequest
      *
-     * @return DescribeImageInstancesResponse
+     * @return DescribeImageInstancesResponse DescribeImageInstancesResponse
      */
     public function describeImageInstances($request)
     {
@@ -12345,10 +13181,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageLatestScanTaskRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries the most recent scan task that is created for an image.
+     *  *
+     * @param DescribeImageLatestScanTaskRequest $request DescribeImageLatestScanTaskRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeImageLatestScanTaskResponse
+     * @return DescribeImageLatestScanTaskResponse DescribeImageLatestScanTaskResponse
      */
     public function describeImageLatestScanTaskWithOptions($request, $runtime)
     {
@@ -12376,9 +13214,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageLatestScanTaskRequest $request
+     * @summary Queries the most recent scan task that is created for an image.
+     *  *
+     * @param DescribeImageLatestScanTaskRequest $request DescribeImageLatestScanTaskRequest
      *
-     * @return DescribeImageLatestScanTaskResponse
+     * @return DescribeImageLatestScanTaskResponse DescribeImageLatestScanTaskResponse
      */
     public function describeImageLatestScanTask($request)
     {
@@ -12388,10 +13228,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageListBySensitiveFileRequest $tmpReq
-     * @param RuntimeOptions                          $runtime
+     * @summary Queries information about images that are affected by sensitive files.
+     *  *
+     * @param DescribeImageListBySensitiveFileRequest $tmpReq  DescribeImageListBySensitiveFileRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeImageListBySensitiveFileResponse
+     * @return DescribeImageListBySensitiveFileResponse DescribeImageListBySensitiveFileResponse
      */
     public function describeImageListBySensitiveFileWithOptions($tmpReq, $runtime)
     {
@@ -12454,9 +13296,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageListBySensitiveFileRequest $request
+     * @summary Queries information about images that are affected by sensitive files.
+     *  *
+     * @param DescribeImageListBySensitiveFileRequest $request DescribeImageListBySensitiveFileRequest
      *
-     * @return DescribeImageListBySensitiveFileResponse
+     * @return DescribeImageListBySensitiveFileResponse DescribeImageListBySensitiveFileResponse
      */
     public function describeImageListBySensitiveFile($request)
     {
@@ -12466,10 +13310,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageListWithBaselineNameRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @summary Queries the details about images in the results of image baseline checks.
+     *  *
+     * @param DescribeImageListWithBaselineNameRequest $request DescribeImageListWithBaselineNameRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeImageListWithBaselineNameResponse
+     * @return DescribeImageListWithBaselineNameResponse DescribeImageListWithBaselineNameResponse
      */
     public function describeImageListWithBaselineNameWithOptions($request, $runtime)
     {
@@ -12545,9 +13391,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageListWithBaselineNameRequest $request
+     * @summary Queries the details about images in the results of image baseline checks.
+     *  *
+     * @param DescribeImageListWithBaselineNameRequest $request DescribeImageListWithBaselineNameRequest
      *
-     * @return DescribeImageListWithBaselineNameResponse
+     * @return DescribeImageListWithBaselineNameResponse DescribeImageListWithBaselineNameResponse
      */
     public function describeImageListWithBaselineName($request)
     {
@@ -12557,10 +13405,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageRepoCriteriaRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Obtains the filter conditions that are supported by the image repository.
+     *  *
+     * @param DescribeImageRepoCriteriaRequest $request DescribeImageRepoCriteriaRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeImageRepoCriteriaResponse
+     * @return DescribeImageRepoCriteriaResponse DescribeImageRepoCriteriaResponse
      */
     public function describeImageRepoCriteriaWithOptions($request, $runtime)
     {
@@ -12588,9 +13438,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageRepoCriteriaRequest $request
+     * @summary Obtains the filter conditions that are supported by the image repository.
+     *  *
+     * @param DescribeImageRepoCriteriaRequest $request DescribeImageRepoCriteriaRequest
      *
-     * @return DescribeImageRepoCriteriaResponse
+     * @return DescribeImageRepoCriteriaResponse DescribeImageRepoCriteriaResponse
      */
     public function describeImageRepoCriteria($request)
     {
@@ -12600,10 +13452,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageRepoDetailListRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries the information about image repositories.
+     *  *
+     * @param DescribeImageRepoDetailListRequest $request DescribeImageRepoDetailListRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeImageRepoDetailListResponse
+     * @return DescribeImageRepoDetailListResponse DescribeImageRepoDetailListResponse
      */
     public function describeImageRepoDetailListWithOptions($request, $runtime)
     {
@@ -12640,9 +13494,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageRepoDetailListRequest $request
+     * @summary Queries the information about image repositories.
+     *  *
+     * @param DescribeImageRepoDetailListRequest $request DescribeImageRepoDetailListRequest
      *
-     * @return DescribeImageRepoDetailListResponse
+     * @return DescribeImageRepoDetailListResponse DescribeImageRepoDetailListResponse
      */
     public function describeImageRepoDetailList($request)
     {
@@ -12652,10 +13508,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageRepoListRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the statistics and configurations of the feature that protects images.
+     *  *
+     * @param DescribeImageRepoListRequest $request DescribeImageRepoListRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeImageRepoListResponse
+     * @return DescribeImageRepoListResponse DescribeImageRepoListResponse
      */
     public function describeImageRepoListWithOptions($request, $runtime)
     {
@@ -12707,9 +13565,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageRepoListRequest $request
+     * @summary Queries the statistics and configurations of the feature that protects images.
+     *  *
+     * @param DescribeImageRepoListRequest $request DescribeImageRepoListRequest
      *
-     * @return DescribeImageRepoListResponse
+     * @return DescribeImageRepoListResponse DescribeImageRepoListResponse
      */
     public function describeImageRepoList($request)
     {
@@ -12719,9 +13579,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary The quota for container image scan.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeImageScanAuthCountResponse
+     * @return DescribeImageScanAuthCountResponse DescribeImageScanAuthCountResponse
      */
     public function describeImageScanAuthCountWithOptions($runtime)
     {
@@ -12742,7 +13604,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return DescribeImageScanAuthCountResponse
+     * @summary The quota for container image scan.
+     *  *
+     * @return DescribeImageScanAuthCountResponse DescribeImageScanAuthCountResponse
      */
     public function describeImageScanAuthCount()
     {
@@ -12752,9 +13616,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries whether Security Center is authorized to scan images.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeImageScanAuthorizationResponse
+     * @return DescribeImageScanAuthorizationResponse DescribeImageScanAuthorizationResponse
      */
     public function describeImageScanAuthorizationWithOptions($runtime)
     {
@@ -12775,7 +13641,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return DescribeImageScanAuthorizationResponse
+     * @summary Queries whether Security Center is authorized to scan images.
+     *  *
+     * @return DescribeImageScanAuthorizationResponse DescribeImageScanAuthorizationResponse
      */
     public function describeImageScanAuthorization()
     {
@@ -12785,10 +13653,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageSensitiveFileByKeyRequest $tmpReq
-     * @param RuntimeOptions                         $runtime
+     * @summary Queries the sensitive files in an image.
+     *  *
+     * @param DescribeImageSensitiveFileByKeyRequest $tmpReq  DescribeImageSensitiveFileByKeyRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeImageSensitiveFileByKeyResponse
+     * @return DescribeImageSensitiveFileByKeyResponse DescribeImageSensitiveFileByKeyResponse
      */
     public function describeImageSensitiveFileByKeyWithOptions($tmpReq, $runtime)
     {
@@ -12836,9 +13706,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageSensitiveFileByKeyRequest $request
+     * @summary Queries the sensitive files in an image.
+     *  *
+     * @param DescribeImageSensitiveFileByKeyRequest $request DescribeImageSensitiveFileByKeyRequest
      *
-     * @return DescribeImageSensitiveFileByKeyResponse
+     * @return DescribeImageSensitiveFileByKeyResponse DescribeImageSensitiveFileByKeyResponse
      */
     public function describeImageSensitiveFileByKey($request)
     {
@@ -12848,10 +13720,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageSensitiveFileListRequest $tmpReq
-     * @param RuntimeOptions                        $runtime
+     * @summary Queries information about sensitive files.
+     *  *
+     * @param DescribeImageSensitiveFileListRequest $tmpReq  DescribeImageSensitiveFileListRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeImageSensitiveFileListResponse
+     * @return DescribeImageSensitiveFileListResponse DescribeImageSensitiveFileListResponse
      */
     public function describeImageSensitiveFileListWithOptions($tmpReq, $runtime)
     {
@@ -12905,9 +13779,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageSensitiveFileListRequest $request
+     * @summary Queries information about sensitive files.
+     *  *
+     * @param DescribeImageSensitiveFileListRequest $request DescribeImageSensitiveFileListRequest
      *
-     * @return DescribeImageSensitiveFileListResponse
+     * @return DescribeImageSensitiveFileListResponse DescribeImageSensitiveFileListResponse
      */
     public function describeImageSensitiveFileList($request)
     {
@@ -12917,9 +13793,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Security Center can scan for security risks and collect statistics only for **Container Registry Enterprise Edition instances**.
-     *   * >  Security Center cannot scan for security risks or collect statistics for **default** Container Registry instances.
-     *   *
+     * @summary Queries the risk statistics on container images.
+     *  *
+     * @description Security Center can scan for security risks and collect statistics only for **Container Registry Enterprise Edition instances**.
+     * >  Security Center cannot scan for security risks or collect statistics for **default** Container Registry instances.
+     *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
      * @return DescribeImageStatisticsResponse DescribeImageStatisticsResponse
@@ -12943,9 +13821,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Security Center can scan for security risks and collect statistics only for **Container Registry Enterprise Edition instances**.
-     *   * >  Security Center cannot scan for security risks or collect statistics for **default** Container Registry instances.
-     *   *
+     * @summary Queries the risk statistics on container images.
+     *  *
+     * @description Security Center can scan for security risks and collect statistics only for **Container Registry Enterprise Edition instances**.
+     * >  Security Center cannot scan for security risks or collect statistics for **default** Container Registry instances.
+     *  *
      * @return DescribeImageStatisticsResponse DescribeImageStatisticsResponse
      */
     public function describeImageStatistics()
@@ -12956,8 +13836,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * To query the information about the recently detected image vulnerabilities, call the [PublicCreateImageScanTask](~~PublicCreateImageScanTask~~) operation. Wait 1 to 5 minutes until the call is successful and call the DescribeImageVulList operation.
-     *   *
+     * @summary Queries information about the vulnerabilities that are detected by using container image scan and the affected images.
+     *  *
+     * @description To query the information about the recently detected image vulnerabilities, call the [PublicCreateImageScanTask](~~PublicCreateImageScanTask~~) operation. Wait 1 to 5 minutes until the call is successful and call the DescribeImageVulList operation.
+     *  *
      * @param DescribeImageVulListRequest $request DescribeImageVulListRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -13070,8 +13952,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * To query the information about the recently detected image vulnerabilities, call the [PublicCreateImageScanTask](~~PublicCreateImageScanTask~~) operation. Wait 1 to 5 minutes until the call is successful and call the DescribeImageVulList operation.
-     *   *
+     * @summary Queries information about the vulnerabilities that are detected by using container image scan and the affected images.
+     *  *
+     * @description To query the information about the recently detected image vulnerabilities, call the [PublicCreateImageScanTask](~~PublicCreateImageScanTask~~) operation. Wait 1 to 5 minutes until the call is successful and call the DescribeImageVulList operation.
+     *  *
      * @param DescribeImageVulListRequest $request DescribeImageVulListRequest
      *
      * @return DescribeImageVulListResponse DescribeImageVulListResponse
@@ -13084,10 +13968,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageVulWhiteListRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the whitelist of image vulnerabilities.
+     *  *
+     * @param DescribeImageVulWhiteListRequest $request DescribeImageVulWhiteListRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeImageVulWhiteListResponse
+     * @return DescribeImageVulWhiteListResponse DescribeImageVulWhiteListResponse
      */
     public function describeImageVulWhiteListWithOptions($request, $runtime)
     {
@@ -13127,9 +14013,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageVulWhiteListRequest $request
+     * @summary Queries the whitelist of image vulnerabilities.
+     *  *
+     * @param DescribeImageVulWhiteListRequest $request DescribeImageVulWhiteListRequest
      *
-     * @return DescribeImageVulWhiteListResponse
+     * @return DescribeImageVulWhiteListResponse DescribeImageVulWhiteListResponse
      */
     public function describeImageVulWhiteList($request)
     {
@@ -13139,10 +14027,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstallCaptchaRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries the verification codes that are used to manually install the Security Center agent.
+     *  *
+     * @param DescribeInstallCaptchaRequest $request DescribeInstallCaptchaRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstallCaptchaResponse
+     * @return DescribeInstallCaptchaResponse DescribeInstallCaptchaResponse
      */
     public function describeInstallCaptchaWithOptions($request, $runtime)
     {
@@ -13176,9 +14066,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstallCaptchaRequest $request
+     * @summary Queries the verification codes that are used to manually install the Security Center agent.
+     *  *
+     * @param DescribeInstallCaptchaRequest $request DescribeInstallCaptchaRequest
      *
-     * @return DescribeInstallCaptchaResponse
+     * @return DescribeInstallCaptchaResponse DescribeInstallCaptchaResponse
      */
     public function describeInstallCaptcha($request)
     {
@@ -13188,9 +14080,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the installation verification code that is used to run the installation command of the Security Center agent.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstallCodeResponse
+     * @return DescribeInstallCodeResponse DescribeInstallCodeResponse
      */
     public function describeInstallCodeWithOptions($runtime)
     {
@@ -13211,7 +14105,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return DescribeInstallCodeResponse
+     * @summary Queries the installation verification code that is used to run the installation command of the Security Center agent.
+     *  *
+     * @return DescribeInstallCodeResponse DescribeInstallCodeResponse
      */
     public function describeInstallCode()
     {
@@ -13221,10 +14117,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the commands that are used to manually install the Security Center agent on the server. The return result contains the installation verification code and the server information. If you want to manually install the Security Center agent on your server, you can call this operation to query installation commands.
-     *   * ### QPS limit
-     *   * You can call this operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
-     *   *
+     * @summary Queries the commands that are used to manually install the Security Center Agent.
+     *  *
+     * @description You can call this operation to query the commands that are used to manually install the Security Center agent on the server. The return result contains the installation verification code and the server information. If you want to manually install the Security Center agent on your server, you can call this operation to query installation commands.
+     * ### QPS limit
+     * You can call this operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+     *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
      * @return DescribeInstallCodesResponse DescribeInstallCodesResponse
@@ -13248,10 +14146,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the commands that are used to manually install the Security Center agent on the server. The return result contains the installation verification code and the server information. If you want to manually install the Security Center agent on your server, you can call this operation to query installation commands.
-     *   * ### QPS limit
-     *   * You can call this operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
-     *   *
+     * @summary Queries the commands that are used to manually install the Security Center Agent.
+     *  *
+     * @description You can call this operation to query the commands that are used to manually install the Security Center agent on the server. The return result contains the installation verification code and the server information. If you want to manually install the Security Center agent on your server, you can call this operation to query installation commands.
+     * ### QPS limit
+     * You can call this operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+     *  *
      * @return DescribeInstallCodesResponse DescribeInstallCodesResponse
      */
     public function describeInstallCodes()
@@ -13262,10 +14162,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceAntiBruteForceRulesRequest $request
-     * @param RuntimeOptions                             $runtime
+     * @summary Queries the information about servers to which a defense rule against brute-force attacks is applied.
+     *  *
+     * @param DescribeInstanceAntiBruteForceRulesRequest $request DescribeInstanceAntiBruteForceRulesRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceAntiBruteForceRulesResponse
+     * @return DescribeInstanceAntiBruteForceRulesResponse DescribeInstanceAntiBruteForceRulesResponse
      */
     public function describeInstanceAntiBruteForceRulesWithOptions($request, $runtime)
     {
@@ -13305,9 +14207,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceAntiBruteForceRulesRequest $request
+     * @summary Queries the information about servers to which a defense rule against brute-force attacks is applied.
+     *  *
+     * @param DescribeInstanceAntiBruteForceRulesRequest $request DescribeInstanceAntiBruteForceRulesRequest
      *
-     * @return DescribeInstanceAntiBruteForceRulesResponse
+     * @return DescribeInstanceAntiBruteForceRulesResponse DescribeInstanceAntiBruteForceRulesResponse
      */
     public function describeInstanceAntiBruteForceRules($request)
     {
@@ -13317,10 +14221,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceRebootStatusRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries the status of the instance that you restart.
+     *  *
+     * @param DescribeInstanceRebootStatusRequest $request DescribeInstanceRebootStatusRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceRebootStatusResponse
+     * @return DescribeInstanceRebootStatusResponse DescribeInstanceRebootStatusResponse
      */
     public function describeInstanceRebootStatusWithOptions($request, $runtime)
     {
@@ -13348,9 +14254,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceRebootStatusRequest $request
+     * @summary Queries the status of the instance that you restart.
+     *  *
+     * @param DescribeInstanceRebootStatusRequest $request DescribeInstanceRebootStatusRequest
      *
-     * @return DescribeInstanceRebootStatusResponse
+     * @return DescribeInstanceRebootStatusResponse DescribeInstanceRebootStatusResponse
      */
     public function describeInstanceRebootStatus($request)
     {
@@ -13360,10 +14268,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceStatisticsRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the statistics of assets that are protected by Security Center.
+     *  *
+     * @param DescribeInstanceStatisticsRequest $request DescribeInstanceStatisticsRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceStatisticsResponse
+     * @return DescribeInstanceStatisticsResponse DescribeInstanceStatisticsResponse
      */
     public function describeInstanceStatisticsWithOptions($request, $runtime)
     {
@@ -13400,9 +14310,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceStatisticsRequest $request
+     * @summary Queries the statistics of assets that are protected by Security Center.
+     *  *
+     * @param DescribeInstanceStatisticsRequest $request DescribeInstanceStatisticsRequest
      *
-     * @return DescribeInstanceStatisticsResponse
+     * @return DescribeInstanceStatisticsResponse DescribeInstanceStatisticsResponse
      */
     public function describeInstanceStatistics($request)
     {
@@ -13412,10 +14324,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeIpTagsRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Checks whether an IP address is related to an alert event.
+     *  *
+     * @param DescribeIpTagsRequest $request DescribeIpTagsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeIpTagsResponse
+     * @return DescribeIpTagsResponse DescribeIpTagsResponse
      */
     public function describeIpTagsWithOptions($request, $runtime)
     {
@@ -13446,9 +14360,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeIpTagsRequest $request
+     * @summary Checks whether an IP address is related to an alert event.
+     *  *
+     * @param DescribeIpTagsRequest $request DescribeIpTagsRequest
      *
-     * @return DescribeIpTagsResponse
+     * @return DescribeIpTagsResponse DescribeIpTagsResponse
      */
     public function describeIpTags($request)
     {
@@ -13458,9 +14374,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary 查询最新病毒扫描
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeLatestScanTaskResponse
+     * @return DescribeLatestScanTaskResponse DescribeLatestScanTaskResponse
      */
     public function describeLatestScanTaskWithOptions($runtime)
     {
@@ -13481,7 +14399,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return DescribeLatestScanTaskResponse
+     * @summary 查询最新病毒扫描
+     *  *
+     * @return DescribeLatestScanTaskResponse DescribeLatestScanTaskResponse
      */
     public function describeLatestScanTask()
     {
@@ -13491,10 +14411,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeLogMetaRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries the configurations of the log analysis feature provided by Security Center.
+     *  *
+     * @param DescribeLogMetaRequest $request DescribeLogMetaRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeLogMetaResponse
+     * @return DescribeLogMetaResponse DescribeLogMetaResponse
      */
     public function describeLogMetaWithOptions($request, $runtime)
     {
@@ -13528,9 +14450,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeLogMetaRequest $request
+     * @summary Queries the configurations of the log analysis feature provided by Security Center.
+     *  *
+     * @param DescribeLogMetaRequest $request DescribeLogMetaRequest
      *
-     * @return DescribeLogMetaResponse
+     * @return DescribeLogMetaResponse DescribeLogMetaResponse
      */
     public function describeLogMeta($request)
     {
@@ -13540,10 +14464,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeLogShipperStatusRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the status information about the log analysis feature.
+     *  *
+     * @param DescribeLogShipperStatusRequest $request DescribeLogShipperStatusRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeLogShipperStatusResponse
+     * @return DescribeLogShipperStatusResponse DescribeLogShipperStatusResponse
      */
     public function describeLogShipperStatusWithOptions($request, $runtime)
     {
@@ -13571,9 +14497,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeLogShipperStatusRequest $request
+     * @summary Queries the status information about the log analysis feature.
+     *  *
+     * @param DescribeLogShipperStatusRequest $request DescribeLogShipperStatusRequest
      *
-     * @return DescribeLogShipperStatusResponse
+     * @return DescribeLogShipperStatusResponse DescribeLogShipperStatusResponse
      */
     public function describeLogShipperStatus($request)
     {
@@ -13583,10 +14511,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeLoginBaseConfigsRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the information about the configurations that are used to detect unusual logons to your servers.
+     *  *
+     * @param DescribeLoginBaseConfigsRequest $request DescribeLoginBaseConfigsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeLoginBaseConfigsResponse
+     * @return DescribeLoginBaseConfigsResponse DescribeLoginBaseConfigsResponse
      */
     public function describeLoginBaseConfigsWithOptions($request, $runtime)
     {
@@ -13623,9 +14553,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeLoginBaseConfigsRequest $request
+     * @summary Queries the information about the configurations that are used to detect unusual logons to your servers.
+     *  *
+     * @param DescribeLoginBaseConfigsRequest $request DescribeLoginBaseConfigsRequest
      *
-     * @return DescribeLoginBaseConfigsResponse
+     * @return DescribeLoginBaseConfigsResponse DescribeLoginBaseConfigsResponse
      */
     public function describeLoginBaseConfigs($request)
     {
@@ -13635,9 +14567,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the alerting status for unapproved logon IP addresses, unapproved logon time ranges, or unapproved logon accounts.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeLoginSwitchConfigsResponse
+     * @return DescribeLoginSwitchConfigsResponse DescribeLoginSwitchConfigsResponse
      */
     public function describeLoginSwitchConfigsWithOptions($runtime)
     {
@@ -13658,7 +14592,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return DescribeLoginSwitchConfigsResponse
+     * @summary Queries the alerting status for unapproved logon IP addresses, unapproved logon time ranges, or unapproved logon accounts.
+     *  *
+     * @return DescribeLoginSwitchConfigsResponse DescribeLoginSwitchConfigsResponse
      */
     public function describeLoginSwitchConfigs()
     {
@@ -13668,10 +14604,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeLogstoreStorageRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the purchased log storage capacity.
+     *  *
+     * @param DescribeLogstoreStorageRequest $request DescribeLogstoreStorageRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeLogstoreStorageResponse
+     * @return DescribeLogstoreStorageResponse DescribeLogstoreStorageResponse
      */
     public function describeLogstoreStorageWithOptions($request, $runtime)
     {
@@ -13702,9 +14640,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeLogstoreStorageRequest $request
+     * @summary Queries the purchased log storage capacity.
+     *  *
+     * @param DescribeLogstoreStorageRequest $request DescribeLogstoreStorageRequest
      *
-     * @return DescribeLogstoreStorageResponse
+     * @return DescribeLogstoreStorageResponse DescribeLogstoreStorageResponse
      */
     public function describeLogstoreStorage($request)
     {
@@ -13714,10 +14654,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeMachineCanRebootRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries whether a server can be restarted after the vulnerabilities on the server are fixed. The fixes take effect only after the server is restarted.
+     *  *
+     * @param DescribeMachineCanRebootRequest $request DescribeMachineCanRebootRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMachineCanRebootResponse
+     * @return DescribeMachineCanRebootResponse DescribeMachineCanRebootResponse
      */
     public function describeMachineCanRebootWithOptions($request, $runtime)
     {
@@ -13748,9 +14690,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeMachineCanRebootRequest $request
+     * @summary Queries whether a server can be restarted after the vulnerabilities on the server are fixed. The fixes take effect only after the server is restarted.
+     *  *
+     * @param DescribeMachineCanRebootRequest $request DescribeMachineCanRebootRequest
      *
-     * @return DescribeMachineCanRebootResponse
+     * @return DescribeMachineCanRebootResponse DescribeMachineCanRebootResponse
      */
     public function describeMachineCanReboot($request)
     {
@@ -13760,10 +14704,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeMatchedMaliciousNamesRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary 查询恶意文件类型列表。
+     *  *
+     * @param DescribeMatchedMaliciousNamesRequest $request DescribeMatchedMaliciousNamesRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMatchedMaliciousNamesResponse
+     * @return DescribeMatchedMaliciousNamesResponse DescribeMatchedMaliciousNamesResponse
      */
     public function describeMatchedMaliciousNamesWithOptions($request, $runtime)
     {
@@ -13794,9 +14740,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeMatchedMaliciousNamesRequest $request
+     * @summary 查询恶意文件类型列表。
+     *  *
+     * @param DescribeMatchedMaliciousNamesRequest $request DescribeMatchedMaliciousNamesRequest
      *
-     * @return DescribeMatchedMaliciousNamesResponse
+     * @return DescribeMatchedMaliciousNamesResponse DescribeMatchedMaliciousNamesResponse
      */
     public function describeMatchedMaliciousNames($request)
     {
@@ -13806,9 +14754,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary The ID of the server.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeModuleConfigResponse
+     * @return DescribeModuleConfigResponse DescribeModuleConfigResponse
      */
     public function describeModuleConfigWithOptions($runtime)
     {
@@ -13829,7 +14779,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return DescribeModuleConfigResponse
+     * @summary The ID of the server.
+     *  *
+     * @return DescribeModuleConfigResponse DescribeModuleConfigResponse
      */
     public function describeModuleConfig()
     {
@@ -13839,9 +14791,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the list of accounts that are added to the multi-account management feature as members.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMonitorAccountsResponse
+     * @return DescribeMonitorAccountsResponse DescribeMonitorAccountsResponse
      */
     public function describeMonitorAccountsWithOptions($runtime)
     {
@@ -13862,7 +14816,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return DescribeMonitorAccountsResponse
+     * @summary Queries the list of accounts that are added to the multi-account management feature as members.
+     *  *
+     * @return DescribeMonitorAccountsResponse DescribeMonitorAccountsResponse
      */
     public function describeMonitorAccounts()
     {
@@ -13872,10 +14828,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeNoticeConfigRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries notification settings.
+     *  *
+     * @param DescribeNoticeConfigRequest $request DescribeNoticeConfigRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeNoticeConfigResponse
+     * @return DescribeNoticeConfigResponse DescribeNoticeConfigResponse
      */
     public function describeNoticeConfigWithOptions($request, $runtime)
     {
@@ -13903,9 +14861,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeNoticeConfigRequest $request
+     * @summary Queries notification settings.
+     *  *
+     * @param DescribeNoticeConfigRequest $request DescribeNoticeConfigRequest
      *
-     * @return DescribeNoticeConfigResponse
+     * @return DescribeNoticeConfigResponse DescribeNoticeConfigResponse
      */
     public function describeNoticeConfig($request)
     {
@@ -13915,10 +14875,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeNsasSuspEventTypeRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the information about an alert type.
+     *  *
+     * @param DescribeNsasSuspEventTypeRequest $request DescribeNsasSuspEventTypeRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeNsasSuspEventTypeResponse
+     * @return DescribeNsasSuspEventTypeResponse DescribeNsasSuspEventTypeResponse
      */
     public function describeNsasSuspEventTypeWithOptions($request, $runtime)
     {
@@ -13967,9 +14929,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeNsasSuspEventTypeRequest $request
+     * @summary Queries the information about an alert type.
+     *  *
+     * @param DescribeNsasSuspEventTypeRequest $request DescribeNsasSuspEventTypeRequest
      *
-     * @return DescribeNsasSuspEventTypeResponse
+     * @return DescribeNsasSuspEventTypeResponse DescribeNsasSuspEventTypeResponse
      */
     public function describeNsasSuspEventType($request)
     {
@@ -13979,10 +14943,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeOfflineMachinesRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the information about the servers whose Security Center agent status is Offline.
+     *  *
+     * @param DescribeOfflineMachinesRequest $request DescribeOfflineMachinesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeOfflineMachinesResponse
+     * @return DescribeOfflineMachinesResponse DescribeOfflineMachinesResponse
      */
     public function describeOfflineMachinesWithOptions($request, $runtime)
     {
@@ -14031,9 +14997,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeOfflineMachinesRequest $request
+     * @summary Queries the information about the servers whose Security Center agent status is Offline.
+     *  *
+     * @param DescribeOfflineMachinesRequest $request DescribeOfflineMachinesRequest
      *
-     * @return DescribeOfflineMachinesResponse
+     * @return DescribeOfflineMachinesResponse DescribeOfflineMachinesResponse
      */
     public function describeOfflineMachines($request)
     {
@@ -14043,10 +15011,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeOnceTaskRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries troubleshooting tasks for the Security Center agent.
+     *  *
+     * @param DescribeOnceTaskRequest $request DescribeOnceTaskRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeOnceTaskResponse
+     * @return DescribeOnceTaskResponse DescribeOnceTaskResponse
      */
     public function describeOnceTaskWithOptions($request, $runtime)
     {
@@ -14092,9 +15062,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeOnceTaskRequest $request
+     * @summary Queries troubleshooting tasks for the Security Center agent.
+     *  *
+     * @param DescribeOnceTaskRequest $request DescribeOnceTaskRequest
      *
-     * @return DescribeOnceTaskResponse
+     * @return DescribeOnceTaskResponse DescribeOnceTaskResponse
      */
     public function describeOnceTask($request)
     {
@@ -14104,10 +15076,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeOnceTaskLeafRecordPageRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Queries the sub-task information of one-time scan task. A sub-task can be an image scan task or an image asset synchronization task.
+     *  *
+     * @param DescribeOnceTaskLeafRecordPageRequest $request DescribeOnceTaskLeafRecordPageRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeOnceTaskLeafRecordPageResponse
+     * @return DescribeOnceTaskLeafRecordPageResponse DescribeOnceTaskLeafRecordPageResponse
      */
     public function describeOnceTaskLeafRecordPageWithOptions($request, $runtime)
     {
@@ -14159,9 +15133,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeOnceTaskLeafRecordPageRequest $request
+     * @summary Queries the sub-task information of one-time scan task. A sub-task can be an image scan task or an image asset synchronization task.
+     *  *
+     * @param DescribeOnceTaskLeafRecordPageRequest $request DescribeOnceTaskLeafRecordPageRequest
      *
-     * @return DescribeOnceTaskLeafRecordPageResponse
+     * @return DescribeOnceTaskLeafRecordPageResponse DescribeOnceTaskLeafRecordPageResponse
      */
     public function describeOnceTaskLeafRecordPage($request)
     {
@@ -14171,10 +15147,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribePropertyCountRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the statistics of asset fingerprints. The assets include processes, ports, software, accounts, middleware, websites, web services, scheduled tasks, startup items, and databases.
+     *  *
+     * @param DescribePropertyCountRequest $request DescribePropertyCountRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePropertyCountResponse
+     * @return DescribePropertyCountResponse DescribePropertyCountResponse
      */
     public function describePropertyCountWithOptions($request, $runtime)
     {
@@ -14205,9 +15183,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribePropertyCountRequest $request
+     * @summary Queries the statistics of asset fingerprints. The assets include processes, ports, software, accounts, middleware, websites, web services, scheduled tasks, startup items, and databases.
+     *  *
+     * @param DescribePropertyCountRequest $request DescribePropertyCountRequest
      *
-     * @return DescribePropertyCountResponse
+     * @return DescribePropertyCountResponse DescribePropertyCountResponse
      */
     public function describePropertyCount($request)
     {
@@ -14217,10 +15197,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribePropertyCronDetailRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the details of scheduled tasks on the Host page.
+     *  *
+     * @param DescribePropertyCronDetailRequest $request DescribePropertyCronDetailRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePropertyCronDetailResponse
+     * @return DescribePropertyCronDetailResponse DescribePropertyCronDetailResponse
      */
     public function describePropertyCronDetailWithOptions($request, $runtime)
     {
@@ -14266,9 +15248,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribePropertyCronDetailRequest $request
+     * @summary Queries the details of scheduled tasks on the Host page.
+     *  *
+     * @param DescribePropertyCronDetailRequest $request DescribePropertyCronDetailRequest
      *
-     * @return DescribePropertyCronDetailResponse
+     * @return DescribePropertyCronDetailResponse DescribePropertyCronDetailResponse
      */
     public function describePropertyCronDetail($request)
     {
@@ -14278,10 +15262,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribePropertyCronItemRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the scheduled tasks of your assets.
+     *  *
+     * @param DescribePropertyCronItemRequest $request DescribePropertyCronItemRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePropertyCronItemResponse
+     * @return DescribePropertyCronItemResponse DescribePropertyCronItemResponse
      */
     public function describePropertyCronItemWithOptions($request, $runtime)
     {
@@ -14318,9 +15304,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribePropertyCronItemRequest $request
+     * @summary Queries the scheduled tasks of your assets.
+     *  *
+     * @param DescribePropertyCronItemRequest $request DescribePropertyCronItemRequest
      *
-     * @return DescribePropertyCronItemResponse
+     * @return DescribePropertyCronItemResponse DescribePropertyCronItemResponse
      */
     public function describePropertyCronItem($request)
     {
@@ -14330,10 +15318,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribePropertyPortDetailRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the fingerprints of ports on a specified server.
+     *  *
+     * @param DescribePropertyPortDetailRequest $request DescribePropertyPortDetailRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePropertyPortDetailResponse
+     * @return DescribePropertyPortDetailResponse DescribePropertyPortDetailResponse
      */
     public function describePropertyPortDetailWithOptions($request, $runtime)
     {
@@ -14385,9 +15375,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribePropertyPortDetailRequest $request
+     * @summary Queries the fingerprints of ports on a specified server.
+     *  *
+     * @param DescribePropertyPortDetailRequest $request DescribePropertyPortDetailRequest
      *
-     * @return DescribePropertyPortDetailResponse
+     * @return DescribePropertyPortDetailResponse DescribePropertyPortDetailResponse
      */
     public function describePropertyPortDetail($request)
     {
@@ -14397,10 +15389,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribePropertyPortItemRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries information about all ports.
+     *  *
+     * @param DescribePropertyPortItemRequest $request DescribePropertyPortItemRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePropertyPortItemResponse
+     * @return DescribePropertyPortItemResponse DescribePropertyPortItemResponse
      */
     public function describePropertyPortItemWithOptions($request, $runtime)
     {
@@ -14437,9 +15431,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribePropertyPortItemRequest $request
+     * @summary Queries information about all ports.
+     *  *
+     * @param DescribePropertyPortItemRequest $request DescribePropertyPortItemRequest
      *
-     * @return DescribePropertyPortItemResponse
+     * @return DescribePropertyPortItemResponse DescribePropertyPortItemResponse
      */
     public function describePropertyPortItem($request)
     {
@@ -14449,10 +15445,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribePropertyProcDetailRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the fingerprints of processes on a specified server.
+     *  *
+     * @param DescribePropertyProcDetailRequest $request DescribePropertyProcDetailRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePropertyProcDetailResponse
+     * @return DescribePropertyProcDetailResponse DescribePropertyProcDetailResponse
      */
     public function describePropertyProcDetailWithOptions($request, $runtime)
     {
@@ -14510,9 +15508,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribePropertyProcDetailRequest $request
+     * @summary Queries the fingerprints of processes on a specified server.
+     *  *
+     * @param DescribePropertyProcDetailRequest $request DescribePropertyProcDetailRequest
      *
-     * @return DescribePropertyProcDetailResponse
+     * @return DescribePropertyProcDetailResponse DescribePropertyProcDetailResponse
      */
     public function describePropertyProcDetail($request)
     {
@@ -14522,10 +15522,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribePropertyProcItemRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries information about all processes.
+     *  *
+     * @param DescribePropertyProcItemRequest $request DescribePropertyProcItemRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePropertyProcItemResponse
+     * @return DescribePropertyProcItemResponse DescribePropertyProcItemResponse
      */
     public function describePropertyProcItemWithOptions($request, $runtime)
     {
@@ -14562,9 +15564,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribePropertyProcItemRequest $request
+     * @summary Queries information about all processes.
+     *  *
+     * @param DescribePropertyProcItemRequest $request DescribePropertyProcItemRequest
      *
-     * @return DescribePropertyProcItemResponse
+     * @return DescribePropertyProcItemResponse DescribePropertyProcItemResponse
      */
     public function describePropertyProcItem($request)
     {
@@ -14574,10 +15578,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribePropertyScaDetailRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries middleware fingerprints.
+     *  *
+     * @param DescribePropertyScaDetailRequest $request DescribePropertyScaDetailRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePropertyScaDetailResponse
+     * @return DescribePropertyScaDetailResponse DescribePropertyScaDetailResponse
      */
     public function describePropertyScaDetailWithOptions($request, $runtime)
     {
@@ -14662,9 +15668,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribePropertyScaDetailRequest $request
+     * @summary Queries middleware fingerprints.
+     *  *
+     * @param DescribePropertyScaDetailRequest $request DescribePropertyScaDetailRequest
      *
-     * @return DescribePropertyScaDetailResponse
+     * @return DescribePropertyScaDetailResponse DescribePropertyScaDetailResponse
      */
     public function describePropertyScaDetail($request)
     {
@@ -14674,10 +15682,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribePropertyScaItemRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries middleware fingerprints.
+     *  *
+     * @param DescribePropertyScaItemRequest $request DescribePropertyScaItemRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePropertyScaItemResponse
+     * @return DescribePropertyScaItemResponse DescribePropertyScaItemResponse
      */
     public function describePropertyScaItemWithOptions($request, $runtime)
     {
@@ -14723,9 +15733,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribePropertyScaItemRequest $request
+     * @summary Queries middleware fingerprints.
+     *  *
+     * @param DescribePropertyScaItemRequest $request DescribePropertyScaItemRequest
      *
-     * @return DescribePropertyScaItemResponse
+     * @return DescribePropertyScaItemResponse DescribePropertyScaItemResponse
      */
     public function describePropertyScaItem($request)
     {
@@ -14735,10 +15747,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribePropertyScheduleConfigRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Queries the configurations of scheduled tasks of asset fingerprint collection.
+     *  *
+     * @param DescribePropertyScheduleConfigRequest $request DescribePropertyScheduleConfigRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePropertyScheduleConfigResponse
+     * @return DescribePropertyScheduleConfigResponse DescribePropertyScheduleConfigResponse
      */
     public function describePropertyScheduleConfigWithOptions($request, $runtime)
     {
@@ -14766,9 +15780,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribePropertyScheduleConfigRequest $request
+     * @summary Queries the configurations of scheduled tasks of asset fingerprint collection.
+     *  *
+     * @param DescribePropertyScheduleConfigRequest $request DescribePropertyScheduleConfigRequest
      *
-     * @return DescribePropertyScheduleConfigResponse
+     * @return DescribePropertyScheduleConfigResponse DescribePropertyScheduleConfigResponse
      */
     public function describePropertyScheduleConfig($request)
     {
@@ -14778,10 +15794,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribePropertySoftwareDetailRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Queries the details of a software asset.
+     *  *
+     * @param DescribePropertySoftwareDetailRequest $request DescribePropertySoftwareDetailRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePropertySoftwareDetailResponse
+     * @return DescribePropertySoftwareDetailResponse DescribePropertySoftwareDetailResponse
      */
     public function describePropertySoftwareDetailWithOptions($request, $runtime)
     {
@@ -14836,9 +15854,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribePropertySoftwareDetailRequest $request
+     * @summary Queries the details of a software asset.
+     *  *
+     * @param DescribePropertySoftwareDetailRequest $request DescribePropertySoftwareDetailRequest
      *
-     * @return DescribePropertySoftwareDetailResponse
+     * @return DescribePropertySoftwareDetailResponse DescribePropertySoftwareDetailResponse
      */
     public function describePropertySoftwareDetail($request)
     {
@@ -14848,10 +15868,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribePropertySoftwareItemRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries information about all software assets.
+     *  *
+     * @param DescribePropertySoftwareItemRequest $request DescribePropertySoftwareItemRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePropertySoftwareItemResponse
+     * @return DescribePropertySoftwareItemResponse DescribePropertySoftwareItemResponse
      */
     public function describePropertySoftwareItemWithOptions($request, $runtime)
     {
@@ -14888,9 +15910,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribePropertySoftwareItemRequest $request
+     * @summary Queries information about all software assets.
+     *  *
+     * @param DescribePropertySoftwareItemRequest $request DescribePropertySoftwareItemRequest
      *
-     * @return DescribePropertySoftwareItemResponse
+     * @return DescribePropertySoftwareItemResponse DescribePropertySoftwareItemResponse
      */
     public function describePropertySoftwareItem($request)
     {
@@ -14900,10 +15924,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribePropertyTypeScaItemRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries middleware types.
+     *  *
+     * @param DescribePropertyTypeScaItemRequest $request DescribePropertyTypeScaItemRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePropertyTypeScaItemResponse
+     * @return DescribePropertyTypeScaItemResponse DescribePropertyTypeScaItemResponse
      */
     public function describePropertyTypeScaItemWithOptions($request, $runtime)
     {
@@ -14937,9 +15963,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribePropertyTypeScaItemRequest $request
+     * @summary Queries middleware types.
+     *  *
+     * @param DescribePropertyTypeScaItemRequest $request DescribePropertyTypeScaItemRequest
      *
-     * @return DescribePropertyTypeScaItemResponse
+     * @return DescribePropertyTypeScaItemResponse DescribePropertyTypeScaItemResponse
      */
     public function describePropertyTypeScaItem($request)
     {
@@ -14949,10 +15977,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribePropertyUsageNewestRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary 查询资产指纹用户创建时间统计
+     *  *
+     * @param DescribePropertyUsageNewestRequest $request DescribePropertyUsageNewestRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePropertyUsageNewestResponse
+     * @return DescribePropertyUsageNewestResponse DescribePropertyUsageNewestResponse
      */
     public function describePropertyUsageNewestWithOptions($request, $runtime)
     {
@@ -14980,9 +16010,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribePropertyUsageNewestRequest $request
+     * @summary 查询资产指纹用户创建时间统计
+     *  *
+     * @param DescribePropertyUsageNewestRequest $request DescribePropertyUsageNewestRequest
      *
-     * @return DescribePropertyUsageNewestResponse
+     * @return DescribePropertyUsageNewestResponse DescribePropertyUsageNewestResponse
      */
     public function describePropertyUsageNewest($request)
     {
@@ -14992,10 +16024,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribePropertyUserDetailRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the asset fingerprints for an account to which a server belongs.
+     *  *
+     * @param DescribePropertyUserDetailRequest $request DescribePropertyUserDetailRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePropertyUserDetailResponse
+     * @return DescribePropertyUserDetailResponse DescribePropertyUserDetailResponse
      */
     public function describePropertyUserDetailWithOptions($request, $runtime)
     {
@@ -15047,9 +16081,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribePropertyUserDetailRequest $request
+     * @summary Queries the asset fingerprints for an account to which a server belongs.
+     *  *
+     * @param DescribePropertyUserDetailRequest $request DescribePropertyUserDetailRequest
      *
-     * @return DescribePropertyUserDetailResponse
+     * @return DescribePropertyUserDetailResponse DescribePropertyUserDetailResponse
      */
     public function describePropertyUserDetail($request)
     {
@@ -15059,10 +16095,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribePropertyUserItemRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries information about an account.
+     *  *
+     * @param DescribePropertyUserItemRequest $request DescribePropertyUserItemRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePropertyUserItemResponse
+     * @return DescribePropertyUserItemResponse DescribePropertyUserItemResponse
      */
     public function describePropertyUserItemWithOptions($request, $runtime)
     {
@@ -15099,9 +16137,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribePropertyUserItemRequest $request
+     * @summary Queries information about an account.
+     *  *
+     * @param DescribePropertyUserItemRequest $request DescribePropertyUserItemRequest
      *
-     * @return DescribePropertyUserItemResponse
+     * @return DescribePropertyUserItemResponse DescribePropertyUserItemResponse
      */
     public function describePropertyUserItem($request)
     {
@@ -15111,10 +16151,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeQuaraFileDownloadInfoRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Queries the download information about a quarantined file.
+     *  *
+     * @param DescribeQuaraFileDownloadInfoRequest $request DescribeQuaraFileDownloadInfoRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeQuaraFileDownloadInfoResponse
+     * @return DescribeQuaraFileDownloadInfoResponse DescribeQuaraFileDownloadInfoResponse
      */
     public function describeQuaraFileDownloadInfoWithOptions($request, $runtime)
     {
@@ -15145,9 +16187,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeQuaraFileDownloadInfoRequest $request
+     * @summary Queries the download information about a quarantined file.
+     *  *
+     * @param DescribeQuaraFileDownloadInfoRequest $request DescribeQuaraFileDownloadInfoRequest
      *
-     * @return DescribeQuaraFileDownloadInfoResponse
+     * @return DescribeQuaraFileDownloadInfoResponse DescribeQuaraFileDownloadInfoResponse
      */
     public function describeQuaraFileDownloadInfo($request)
     {
@@ -15157,9 +16201,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * If the data on your servers is encrypted by ransomware, you can create a restoration task to restore the data on your servers by using backup data in Security Center.
-     *   * >  After you enable an anti-ransomware policy, the data on your servers is backed up based on the policy. For more information about anti-ransomware policies, see [Manage protection policies](~~164781~~).
-     *   *
+     * @summary Queries the details about restoration tasks.
+     *  *
+     * @description If the data on your servers is encrypted by ransomware, you can create a restoration task to restore the data on your servers by using backup data in Security Center.
+     * >  After you enable an anti-ransomware policy, the data on your servers is backed up based on the policy. For more information about anti-ransomware policies, see [Manage protection policies](https://help.aliyun.com/document_detail/164781.html).
+     *  *
      * @param DescribeRestoreJobsRequest $request DescribeRestoreJobsRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -15200,9 +16246,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * If the data on your servers is encrypted by ransomware, you can create a restoration task to restore the data on your servers by using backup data in Security Center.
-     *   * >  After you enable an anti-ransomware policy, the data on your servers is backed up based on the policy. For more information about anti-ransomware policies, see [Manage protection policies](~~164781~~).
-     *   *
+     * @summary Queries the details about restoration tasks.
+     *  *
+     * @description If the data on your servers is encrypted by ransomware, you can create a restoration task to restore the data on your servers by using backup data in Security Center.
+     * >  After you enable an anti-ransomware policy, the data on your servers is backed up based on the policy. For more information about anti-ransomware policies, see [Manage protection policies](https://help.aliyun.com/document_detail/164781.html).
+     *  *
      * @param DescribeRestoreJobsRequest $request DescribeRestoreJobsRequest
      *
      * @return DescribeRestoreJobsResponse DescribeRestoreJobsResponse
@@ -15215,10 +16263,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeRestorePlansRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries restoration tasks.
+     *  *
+     * @param DescribeRestorePlansRequest $request DescribeRestorePlansRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRestorePlansResponse
+     * @return DescribeRestorePlansResponse DescribeRestorePlansResponse
      */
     public function describeRestorePlansWithOptions($request, $runtime)
     {
@@ -15255,9 +16305,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeRestorePlansRequest $request
+     * @summary Queries restoration tasks.
+     *  *
+     * @param DescribeRestorePlansRequest $request DescribeRestorePlansRequest
      *
-     * @return DescribeRestorePlansResponse
+     * @return DescribeRestorePlansResponse DescribeRestorePlansResponse
      */
     public function describeRestorePlans($request)
     {
@@ -15267,9 +16319,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   * This operation is phased out. You can use the ListCheckInstanceResult operation.
-     *   *
+     * @deprecated OpenAPI DescribeRiskCheckItemResult is deprecated
+     *  *
+     * @summary Queries the assets that are affected by the risk item detected in configuration assessment based on a specified check item.
+     *  *
+     * @description This operation is phased out. You can use the ListCheckInstanceResult operation.
+     *  *
      * Deprecated
      *
      * @param DescribeRiskCheckItemResultRequest $request DescribeRiskCheckItemResultRequest
@@ -15318,9 +16373,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   * This operation is phased out. You can use the ListCheckInstanceResult operation.
-     *   *
+     * @deprecated OpenAPI DescribeRiskCheckItemResult is deprecated
+     *  *
+     * @summary Queries the assets that are affected by the risk item detected in configuration assessment based on a specified check item.
+     *  *
+     * @description This operation is phased out. You can use the ListCheckInstanceResult operation.
+     *  *
      * Deprecated
      *
      * @param DescribeRiskCheckItemResultRequest $request DescribeRiskCheckItemResultRequest
@@ -15335,9 +16393,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   * This operation is phased out. You can use the [ListCheckResult](~~ListCheckResult~~) operation.
-     *   *
+     * @deprecated OpenAPI DescribeRiskCheckResult is deprecated
+     *  *
+     * @summary Queries the check results of cloud service configurations by check item type or name.
+     *  *
+     * @description This operation is phased out. You can use the [ListCheckResult](~~ListCheckResult~~) operation.
+     *  *
      * Deprecated
      *
      * @param DescribeRiskCheckResultRequest $request DescribeRiskCheckResultRequest
@@ -15404,9 +16465,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   * This operation is phased out. You can use the [ListCheckResult](~~ListCheckResult~~) operation.
-     *   *
+     * @deprecated OpenAPI DescribeRiskCheckResult is deprecated
+     *  *
+     * @summary Queries the check results of cloud service configurations by check item type or name.
+     *  *
+     * @description This operation is phased out. You can use the [ListCheckResult](~~ListCheckResult~~) operation.
+     *  *
      * Deprecated
      *
      * @param DescribeRiskCheckResultRequest $request DescribeRiskCheckResultRequest
@@ -15421,9 +16485,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   * This operation is phased out. You can use the GetCheckSummary operation.
-     *   *
+     * @deprecated OpenAPI DescribeRiskCheckSummary is deprecated
+     *  *
+     * @summary Queries the summary information about the check results of cloud service configurations. The information includes the number of risk items, the risk rate, the number of affected assets, the check time, and the statistics for each type of check item.
+     *  *
+     * @description This operation is phased out. You can use the GetCheckSummary operation.
+     *  *
      * Deprecated
      *
      * @param DescribeRiskCheckSummaryRequest $request DescribeRiskCheckSummaryRequest
@@ -15466,9 +16533,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   * This operation is phased out. You can use the GetCheckSummary operation.
-     *   *
+     * @deprecated OpenAPI DescribeRiskCheckSummary is deprecated
+     *  *
+     * @summary Queries the summary information about the check results of cloud service configurations. The information includes the number of risk items, the risk rate, the number of affected assets, the check time, and the statistics for each type of check item.
+     *  *
+     * @description This operation is phased out. You can use the GetCheckSummary operation.
+     *  *
      * Deprecated
      *
      * @param DescribeRiskCheckSummaryRequest $request DescribeRiskCheckSummaryRequest
@@ -15483,9 +16553,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   * This operation is phased out. You can use the ListCheckStandard operation instead.
-     *   *
+     * @deprecated OpenAPI DescribeRiskItemType is deprecated
+     *  *
+     * @summary Queries the types of check items in configuration assessment.
+     *  *
+     * @description This operation is phased out. You can use the ListCheckStandard operation instead.
+     *  *
      * Deprecated
      *
      * @param DescribeRiskItemTypeRequest $request DescribeRiskItemTypeRequest
@@ -15525,9 +16598,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   * This operation is phased out. You can use the ListCheckStandard operation instead.
-     *   *
+     * @deprecated OpenAPI DescribeRiskItemType is deprecated
+     *  *
+     * @summary Queries the types of check items in configuration assessment.
+     *  *
+     * @description This operation is phased out. You can use the ListCheckStandard operation instead.
+     *  *
      * Deprecated
      *
      * @param DescribeRiskItemTypeRequest $request DescribeRiskItemTypeRequest
@@ -15542,9 +16618,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   * This operation is phased out. You can use the ListCheckResult operation. When you call the ListCheckResult operation, set the Statuses parameter to NOT_PASS.
-     *   *
+     * @deprecated OpenAPI DescribeRiskListCheckResult is deprecated
+     *  *
+     * @summary Queries the number of risk items detected in the configuration assessment of one or more cloud services by using the instance IDs of the cloud services.
+     *  *
+     * @description This operation is phased out. You can use the ListCheckResult operation. When you call the ListCheckResult operation, set the Statuses parameter to NOT_PASS.
+     *  *
      * Deprecated
      *
      * @param DescribeRiskListCheckResultRequest $request DescribeRiskListCheckResultRequest
@@ -15593,9 +16672,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   * This operation is phased out. You can use the ListCheckResult operation. When you call the ListCheckResult operation, set the Statuses parameter to NOT_PASS.
-     *   *
+     * @deprecated OpenAPI DescribeRiskListCheckResult is deprecated
+     *  *
+     * @summary Queries the number of risk items detected in the configuration assessment of one or more cloud services by using the instance IDs of the cloud services.
+     *  *
+     * @description This operation is phased out. You can use the ListCheckResult operation. When you call the ListCheckResult operation, set the Statuses parameter to NOT_PASS.
+     *  *
      * Deprecated
      *
      * @param DescribeRiskListCheckResultRequest $request DescribeRiskListCheckResultRequest
@@ -15610,10 +16692,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeRiskTypeRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries baseline types.
+     *  *
+     * @param DescribeRiskTypeRequest $request DescribeRiskTypeRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRiskTypeResponse
+     * @return DescribeRiskTypeResponse DescribeRiskTypeResponse
      */
     public function describeRiskTypeWithOptions($request, $runtime)
     {
@@ -15647,9 +16731,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeRiskTypeRequest $request
+     * @summary Queries baseline types.
+     *  *
+     * @param DescribeRiskTypeRequest $request DescribeRiskTypeRequest
      *
-     * @return DescribeRiskTypeResponse
+     * @return DescribeRiskTypeResponse DescribeRiskTypeResponse
      */
     public function describeRiskType($request)
     {
@@ -15659,10 +16745,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeRisksRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Queries the information about baselines based on baseline IDs or names.
+     *  *
+     * @param DescribeRisksRequest $request DescribeRisksRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRisksResponse
+     * @return DescribeRisksResponse DescribeRisksResponse
      */
     public function describeRisksWithOptions($request, $runtime)
     {
@@ -15702,9 +16790,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeRisksRequest $request
+     * @summary Queries the information about baselines based on baseline IDs or names.
+     *  *
+     * @param DescribeRisksRequest $request DescribeRisksRequest
      *
-     * @return DescribeRisksResponse
+     * @return DescribeRisksResponse DescribeRisksResponse
      */
     public function describeRisks($request)
     {
@@ -15714,10 +16804,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeSasPmAgentListRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries the servers on which you want to install Cloud Assistant or the CloudMonitor agent.
+     *  *
+     * @param DescribeSasPmAgentListRequest $request DescribeSasPmAgentListRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSasPmAgentListResponse
+     * @return DescribeSasPmAgentListResponse DescribeSasPmAgentListResponse
      */
     public function describeSasPmAgentListWithOptions($request, $runtime)
     {
@@ -15748,9 +16840,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeSasPmAgentListRequest $request
+     * @summary Queries the servers on which you want to install Cloud Assistant or the CloudMonitor agent.
+     *  *
+     * @param DescribeSasPmAgentListRequest $request DescribeSasPmAgentListRequest
      *
-     * @return DescribeSasPmAgentListResponse
+     * @return DescribeSasPmAgentListResponse DescribeSasPmAgentListResponse
      */
     public function describeSasPmAgentList($request)
     {
@@ -15760,10 +16854,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeScanTaskProgressRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary DescribeScanTaskProgress
+     *  *
+     * @param DescribeScanTaskProgressRequest $request DescribeScanTaskProgressRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeScanTaskProgressResponse
+     * @return DescribeScanTaskProgressResponse DescribeScanTaskProgressResponse
      */
     public function describeScanTaskProgressWithOptions($request, $runtime)
     {
@@ -15791,9 +16887,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeScanTaskProgressRequest $request
+     * @summary DescribeScanTaskProgress
+     *  *
+     * @param DescribeScanTaskProgressRequest $request DescribeScanTaskProgressRequest
      *
-     * @return DescribeScanTaskProgressResponse
+     * @return DescribeScanTaskProgressResponse DescribeScanTaskProgressResponse
      */
     public function describeScanTaskProgress($request)
     {
@@ -15803,10 +16901,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeScanTaskStatisticsRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the statistics of virus detection tasks.
+     *  *
+     * @param DescribeScanTaskStatisticsRequest $request DescribeScanTaskStatisticsRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeScanTaskStatisticsResponse
+     * @return DescribeScanTaskStatisticsResponse DescribeScanTaskStatisticsResponse
      */
     public function describeScanTaskStatisticsWithOptions($request, $runtime)
     {
@@ -15834,9 +16934,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeScanTaskStatisticsRequest $request
+     * @summary Queries the statistics of virus detection tasks.
+     *  *
+     * @param DescribeScanTaskStatisticsRequest $request DescribeScanTaskStatisticsRequest
      *
-     * @return DescribeScanTaskStatisticsResponse
+     * @return DescribeScanTaskStatisticsResponse DescribeScanTaskStatisticsResponse
      */
     public function describeScanTaskStatistics($request)
     {
@@ -15846,10 +16948,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeSearchConditionRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 查询资产的筛选条件
+     *  *
+     * @param DescribeSearchConditionRequest $request DescribeSearchConditionRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSearchConditionResponse
+     * @return DescribeSearchConditionResponse DescribeSearchConditionResponse
      */
     public function describeSearchConditionWithOptions($request, $runtime)
     {
@@ -15883,9 +16987,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeSearchConditionRequest $request
+     * @summary 查询资产的筛选条件
+     *  *
+     * @param DescribeSearchConditionRequest $request DescribeSearchConditionRequest
      *
-     * @return DescribeSearchConditionResponse
+     * @return DescribeSearchConditionResponse DescribeSearchConditionResponse
      */
     public function describeSearchCondition($request)
     {
@@ -15895,10 +17001,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeSecureSuggestionRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries suggestions on how to handle the risks that affect the security score.
+     *  *
+     * @param DescribeSecureSuggestionRequest $request DescribeSecureSuggestionRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSecureSuggestionResponse
+     * @return DescribeSecureSuggestionResponse DescribeSecureSuggestionResponse
      */
     public function describeSecureSuggestionWithOptions($request, $runtime)
     {
@@ -15929,9 +17037,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeSecureSuggestionRequest $request
+     * @summary Queries suggestions on how to handle the risks that affect the security score.
+     *  *
+     * @param DescribeSecureSuggestionRequest $request DescribeSecureSuggestionRequest
      *
-     * @return DescribeSecureSuggestionResponse
+     * @return DescribeSecureSuggestionResponse DescribeSecureSuggestionResponse
      */
     public function describeSecureSuggestion($request)
     {
@@ -15941,9 +17051,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   * This operation is phased out. You can use the GetCheckConfig operation.
-     *   *
+     * @deprecated OpenAPI DescribeSecurityCheckScheduleConfig is deprecated
+     *  *
+     * @summary Queries the day of a week when custom check tasks are performed and the time range during which the custom check tasks are performed.
+     *  *
+     * @description This operation is phased out. You can use the GetCheckConfig operation.
+     *  *
      * Deprecated
      *
      * @param DescribeSecurityCheckScheduleConfigRequest $request DescribeSecurityCheckScheduleConfigRequest
@@ -15983,9 +17096,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   * This operation is phased out. You can use the GetCheckConfig operation.
-     *   *
+     * @deprecated OpenAPI DescribeSecurityCheckScheduleConfig is deprecated
+     *  *
+     * @summary Queries the day of a week when custom check tasks are performed and the time range during which the custom check tasks are performed.
+     *  *
+     * @description This operation is phased out. You can use the GetCheckConfig operation.
+     *  *
      * Deprecated
      *
      * @param DescribeSecurityCheckScheduleConfigRequest $request DescribeSecurityCheckScheduleConfigRequest
@@ -16000,10 +17116,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeSecurityEventMarkMissListRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @summary Queries the list of whitelist rules.
+     *  *
+     * @param DescribeSecurityEventMarkMissListRequest $request DescribeSecurityEventMarkMissListRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSecurityEventMarkMissListResponse
+     * @return DescribeSecurityEventMarkMissListResponse DescribeSecurityEventMarkMissListResponse
      */
     public function describeSecurityEventMarkMissListWithOptions($request, $runtime)
     {
@@ -16046,9 +17164,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeSecurityEventMarkMissListRequest $request
+     * @summary Queries the list of whitelist rules.
+     *  *
+     * @param DescribeSecurityEventMarkMissListRequest $request DescribeSecurityEventMarkMissListRequest
      *
-     * @return DescribeSecurityEventMarkMissListResponse
+     * @return DescribeSecurityEventMarkMissListResponse DescribeSecurityEventMarkMissListResponse
      */
     public function describeSecurityEventMarkMissList($request)
     {
@@ -16058,10 +17178,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeSecurityEventOperationStatusRequest $request
-     * @param RuntimeOptions                              $runtime
+     * @summary Queries the alert events that are triggered by the same IP address rule or of the same alert type as a specific alert event if you want to handle the specific alert event in batch operation mode.
+     *  *
+     * @param DescribeSecurityEventOperationStatusRequest $request DescribeSecurityEventOperationStatusRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSecurityEventOperationStatusResponse
+     * @return DescribeSecurityEventOperationStatusResponse DescribeSecurityEventOperationStatusResponse
      */
     public function describeSecurityEventOperationStatusWithOptions($request, $runtime)
     {
@@ -16098,9 +17220,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeSecurityEventOperationStatusRequest $request
+     * @summary Queries the alert events that are triggered by the same IP address rule or of the same alert type as a specific alert event if you want to handle the specific alert event in batch operation mode.
+     *  *
+     * @param DescribeSecurityEventOperationStatusRequest $request DescribeSecurityEventOperationStatusRequest
      *
-     * @return DescribeSecurityEventOperationStatusResponse
+     * @return DescribeSecurityEventOperationStatusResponse DescribeSecurityEventOperationStatusResponse
      */
     public function describeSecurityEventOperationStatus($request)
     {
@@ -16110,10 +17234,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeSecurityEventOperationsRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary Queries the operations that you can perform to handle an alert event.
+     *  *
+     * @param DescribeSecurityEventOperationsRequest $request DescribeSecurityEventOperationsRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSecurityEventOperationsResponse
+     * @return DescribeSecurityEventOperationsResponse DescribeSecurityEventOperationsResponse
      */
     public function describeSecurityEventOperationsWithOptions($request, $runtime)
     {
@@ -16150,9 +17276,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeSecurityEventOperationsRequest $request
+     * @summary Queries the operations that you can perform to handle an alert event.
+     *  *
+     * @param DescribeSecurityEventOperationsRequest $request DescribeSecurityEventOperationsRequest
      *
-     * @return DescribeSecurityEventOperationsResponse
+     * @return DescribeSecurityEventOperationsResponse DescribeSecurityEventOperationsResponse
      */
     public function describeSecurityEventOperations($request)
     {
@@ -16162,10 +17290,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeSecurityStatInfoRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the statistics of each security check item and the daily statistics in the trend chart based on each security check item.
+     *  *
+     * @param DescribeSecurityStatInfoRequest $request DescribeSecurityStatInfoRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSecurityStatInfoResponse
+     * @return DescribeSecurityStatInfoResponse DescribeSecurityStatInfoResponse
      */
     public function describeSecurityStatInfoWithOptions($request, $runtime)
     {
@@ -16199,9 +17329,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeSecurityStatInfoRequest $request
+     * @summary Queries the statistics of each security check item and the daily statistics in the trend chart based on each security check item.
+     *  *
+     * @param DescribeSecurityStatInfoRequest $request DescribeSecurityStatInfoRequest
      *
-     * @return DescribeSecurityStatInfoResponse
+     * @return DescribeSecurityStatInfoResponse DescribeSecurityStatInfoResponse
      */
     public function describeSecurityStatInfo($request)
     {
@@ -16211,10 +17343,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeServiceLinkedRoleStatusRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary Checks whether a service-linked role is created for Security Center.
+     *  *
+     * @param DescribeServiceLinkedRoleStatusRequest $request DescribeServiceLinkedRoleStatusRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeServiceLinkedRoleStatusResponse
+     * @return DescribeServiceLinkedRoleStatusResponse DescribeServiceLinkedRoleStatusResponse
      */
     public function describeServiceLinkedRoleStatusWithOptions($request, $runtime)
     {
@@ -16242,9 +17376,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeServiceLinkedRoleStatusRequest $request
+     * @summary Checks whether a service-linked role is created for Security Center.
+     *  *
+     * @param DescribeServiceLinkedRoleStatusRequest $request DescribeServiceLinkedRoleStatusRequest
      *
-     * @return DescribeServiceLinkedRoleStatusResponse
+     * @return DescribeServiceLinkedRoleStatusResponse DescribeServiceLinkedRoleStatusResponse
      */
     public function describeServiceLinkedRoleStatus($request)
     {
@@ -16254,10 +17390,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeSimilarEventScenariosRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Alibaba Cloud CLI is a tool used to manage and configure Alibaba Cloud resources. After simple installation and configuration, you can use Alibaba Cloud CLI to manage multiple Alibaba Cloud products and services and migrate your data and business to the cloud with ease.
+     *  *
+     * @param DescribeSimilarEventScenariosRequest $request DescribeSimilarEventScenariosRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSimilarEventScenariosResponse
+     * @return DescribeSimilarEventScenariosResponse DescribeSimilarEventScenariosResponse
      */
     public function describeSimilarEventScenariosWithOptions($request, $runtime)
     {
@@ -16291,9 +17429,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeSimilarEventScenariosRequest $request
+     * @summary Alibaba Cloud CLI is a tool used to manage and configure Alibaba Cloud resources. After simple installation and configuration, you can use Alibaba Cloud CLI to manage multiple Alibaba Cloud products and services and migrate your data and business to the cloud with ease.
+     *  *
+     * @param DescribeSimilarEventScenariosRequest $request DescribeSimilarEventScenariosRequest
      *
-     * @return DescribeSimilarEventScenariosResponse
+     * @return DescribeSimilarEventScenariosResponse DescribeSimilarEventScenariosResponse
      */
     public function describeSimilarEventScenarios($request)
     {
@@ -16303,10 +17443,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeSimilarSecurityEventsRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Queries alert events that are triggered by the same rule or of the same alert type.
+     *  *
+     * @param DescribeSimilarSecurityEventsRequest $request DescribeSimilarSecurityEventsRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSimilarSecurityEventsResponse
+     * @return DescribeSimilarSecurityEventsResponse DescribeSimilarSecurityEventsResponse
      */
     public function describeSimilarSecurityEventsWithOptions($request, $runtime)
     {
@@ -16349,9 +17491,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeSimilarSecurityEventsRequest $request
+     * @summary Queries alert events that are triggered by the same rule or of the same alert type.
+     *  *
+     * @param DescribeSimilarSecurityEventsRequest $request DescribeSimilarSecurityEventsRequest
      *
-     * @return DescribeSimilarSecurityEventsResponse
+     * @return DescribeSimilarSecurityEventsResponse DescribeSimilarSecurityEventsResponse
      */
     public function describeSimilarSecurityEvents($request)
     {
@@ -16361,10 +17505,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeSnapshotsRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries the backup snapshots that are created for anti-ransomware.
+     *  *
+     * @param DescribeSnapshotsRequest $request DescribeSnapshotsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSnapshotsResponse
+     * @return DescribeSnapshotsResponse DescribeSnapshotsResponse
      */
     public function describeSnapshotsWithOptions($request, $runtime)
     {
@@ -16416,9 +17562,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeSnapshotsRequest $request
+     * @summary Queries the backup snapshots that are created for anti-ransomware.
+     *  *
+     * @param DescribeSnapshotsRequest $request DescribeSnapshotsRequest
      *
-     * @return DescribeSnapshotsResponse
+     * @return DescribeSnapshotsResponse DescribeSnapshotsResponse
      */
     public function describeSnapshots($request)
     {
@@ -16428,10 +17576,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeStrategyRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the details about baseline check policies.
+     *  *
+     * @param DescribeStrategyRequest $request DescribeStrategyRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeStrategyResponse
+     * @return DescribeStrategyResponse DescribeStrategyResponse
      */
     public function describeStrategyWithOptions($request, $runtime)
     {
@@ -16468,9 +17618,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeStrategyRequest $request
+     * @summary Queries the details about baseline check policies.
+     *  *
+     * @param DescribeStrategyRequest $request DescribeStrategyRequest
      *
-     * @return DescribeStrategyResponse
+     * @return DescribeStrategyResponse DescribeStrategyResponse
      */
     public function describeStrategy($request)
     {
@@ -16480,10 +17632,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeStrategyDetailRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries the information about a baseline check policy.
+     *  *
+     * @param DescribeStrategyDetailRequest $request DescribeStrategyDetailRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeStrategyDetailResponse
+     * @return DescribeStrategyDetailResponse DescribeStrategyDetailResponse
      */
     public function describeStrategyDetailWithOptions($request, $runtime)
     {
@@ -16517,9 +17671,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeStrategyDetailRequest $request
+     * @summary Queries the information about a baseline check policy.
+     *  *
+     * @param DescribeStrategyDetailRequest $request DescribeStrategyDetailRequest
      *
-     * @return DescribeStrategyDetailResponse
+     * @return DescribeStrategyDetailResponse DescribeStrategyDetailResponse
      */
     public function describeStrategyDetail($request)
     {
@@ -16529,10 +17685,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeStrategyExecDetailRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary 查询单个基线检查策略的检查结果
+     *  *
+     * @param DescribeStrategyExecDetailRequest $request DescribeStrategyExecDetailRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeStrategyExecDetailResponse
+     * @return DescribeStrategyExecDetailResponse DescribeStrategyExecDetailResponse
      */
     public function describeStrategyExecDetailWithOptions($request, $runtime)
     {
@@ -16569,9 +17727,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeStrategyExecDetailRequest $request
+     * @summary 查询单个基线检查策略的检查结果
+     *  *
+     * @param DescribeStrategyExecDetailRequest $request DescribeStrategyExecDetailRequest
      *
-     * @return DescribeStrategyExecDetailResponse
+     * @return DescribeStrategyExecDetailResponse DescribeStrategyExecDetailResponse
      */
     public function describeStrategyExecDetail($request)
     {
@@ -16581,10 +17741,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeStrategyTargetRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries the information about the assets to which a baseline check policy is applied.
+     *  *
+     * @param DescribeStrategyTargetRequest $request DescribeStrategyTargetRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeStrategyTargetResponse
+     * @return DescribeStrategyTargetResponse DescribeStrategyTargetResponse
      */
     public function describeStrategyTargetWithOptions($request, $runtime)
     {
@@ -16618,9 +17780,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeStrategyTargetRequest $request
+     * @summary Queries the information about the assets to which a baseline check policy is applied.
+     *  *
+     * @param DescribeStrategyTargetRequest $request DescribeStrategyTargetRequest
      *
-     * @return DescribeStrategyTargetResponse
+     * @return DescribeStrategyTargetResponse DescribeStrategyTargetResponse
      */
     public function describeStrategyTarget($request)
     {
@@ -16630,10 +17794,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeSummaryInfoRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the security information about your assets. The information includes the security score and the numbers of protected and unprotected assets.
+     *  *
+     * @param DescribeSummaryInfoRequest $request DescribeSummaryInfoRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSummaryInfoResponse
+     * @return DescribeSummaryInfoResponse DescribeSummaryInfoResponse
      */
     public function describeSummaryInfoWithOptions($request, $runtime)
     {
@@ -16664,9 +17830,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeSummaryInfoRequest $request
+     * @summary Queries the security information about your assets. The information includes the security score and the numbers of protected and unprotected assets.
+     *  *
+     * @param DescribeSummaryInfoRequest $request DescribeSummaryInfoRequest
      *
-     * @return DescribeSummaryInfoResponse
+     * @return DescribeSummaryInfoResponse DescribeSummaryInfoResponse
      */
     public function describeSummaryInfo($request)
     {
@@ -16676,9 +17844,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary 查询防勒索支持地域
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSupportRegionResponse
+     * @return DescribeSupportRegionResponse DescribeSupportRegionResponse
      */
     public function describeSupportRegionWithOptions($runtime)
     {
@@ -16699,7 +17869,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return DescribeSupportRegionResponse
+     * @summary 查询防勒索支持地域
+     *  *
+     * @return DescribeSupportRegionResponse DescribeSupportRegionResponse
      */
     public function describeSupportRegion()
     {
@@ -16709,10 +17881,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeSuspEventDetailRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the details of an exception. An alert event consists of an alert and exceptions. Each alert event is associated with multiple exceptions.
+     *  *
+     * @param DescribeSuspEventDetailRequest $request DescribeSuspEventDetailRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSuspEventDetailResponse
+     * @return DescribeSuspEventDetailResponse DescribeSuspEventDetailResponse
      */
     public function describeSuspEventDetailWithOptions($request, $runtime)
     {
@@ -16752,9 +17926,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeSuspEventDetailRequest $request
+     * @summary Queries the details of an exception. An alert event consists of an alert and exceptions. Each alert event is associated with multiple exceptions.
+     *  *
+     * @param DescribeSuspEventDetailRequest $request DescribeSuspEventDetailRequest
      *
-     * @return DescribeSuspEventDetailResponse
+     * @return DescribeSuspEventDetailResponse DescribeSuspEventDetailResponse
      */
     public function describeSuspEventDetail($request)
     {
@@ -16764,10 +17940,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeSuspEventExportInfoRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries the information about an export task of exceptions.
+     *  *
+     * @param DescribeSuspEventExportInfoRequest $request DescribeSuspEventExportInfoRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSuspEventExportInfoResponse
+     * @return DescribeSuspEventExportInfoResponse DescribeSuspEventExportInfoResponse
      */
     public function describeSuspEventExportInfoWithOptions($request, $runtime)
     {
@@ -16795,9 +17973,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeSuspEventExportInfoRequest $request
+     * @summary Queries the information about an export task of exceptions.
+     *  *
+     * @param DescribeSuspEventExportInfoRequest $request DescribeSuspEventExportInfoRequest
      *
-     * @return DescribeSuspEventExportInfoResponse
+     * @return DescribeSuspEventExportInfoResponse DescribeSuspEventExportInfoResponse
      */
     public function describeSuspEventExportInfo($request)
     {
@@ -16807,10 +17987,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeSuspEventQuaraFilesRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries quarantined files by page.
+     *  *
+     * @param DescribeSuspEventQuaraFilesRequest $request DescribeSuspEventQuaraFilesRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSuspEventQuaraFilesResponse
+     * @return DescribeSuspEventQuaraFilesResponse DescribeSuspEventQuaraFilesResponse
      */
     public function describeSuspEventQuaraFilesWithOptions($request, $runtime)
     {
@@ -16859,9 +18041,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeSuspEventQuaraFilesRequest $request
+     * @summary Queries quarantined files by page.
+     *  *
+     * @param DescribeSuspEventQuaraFilesRequest $request DescribeSuspEventQuaraFilesRequest
      *
-     * @return DescribeSuspEventQuaraFilesResponse
+     * @return DescribeSuspEventQuaraFilesResponse DescribeSuspEventQuaraFilesResponse
      */
     public function describeSuspEventQuaraFiles($request)
     {
@@ -16871,10 +18055,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeSuspEventUserSettingRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries the user settings for exceptions.
+     *  *
+     * @param DescribeSuspEventUserSettingRequest $request DescribeSuspEventUserSettingRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSuspEventUserSettingResponse
+     * @return DescribeSuspEventUserSettingResponse DescribeSuspEventUserSettingResponse
      */
     public function describeSuspEventUserSettingWithOptions($request, $runtime)
     {
@@ -16908,9 +18094,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeSuspEventUserSettingRequest $request
+     * @summary Queries the user settings for exceptions.
+     *  *
+     * @param DescribeSuspEventUserSettingRequest $request DescribeSuspEventUserSettingRequest
      *
-     * @return DescribeSuspEventUserSettingResponse
+     * @return DescribeSuspEventUserSettingResponse DescribeSuspEventUserSettingResponse
      */
     public function describeSuspEventUserSetting($request)
     {
@@ -16920,10 +18108,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeSuspEventsRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries a list of alert events that are generated without aggregation.
+     *  *
+     * @param DescribeSuspEventsRequest $request DescribeSuspEventsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSuspEventsResponse
+     * @return DescribeSuspEventsResponse DescribeSuspEventsResponse
      */
     public function describeSuspEventsWithOptions($request, $runtime)
     {
@@ -17046,9 +18236,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeSuspEventsRequest $request
+     * @summary Queries a list of alert events that are generated without aggregation.
+     *  *
+     * @param DescribeSuspEventsRequest $request DescribeSuspEventsRequest
      *
-     * @return DescribeSuspEventsResponse
+     * @return DescribeSuspEventsResponse DescribeSuspEventsResponse
      */
     public function describeSuspEvents($request)
     {
@@ -17058,10 +18250,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeSuspiciousOverallConfigRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary Queries the configuration of a specified feature.
+     *  *
+     * @param DescribeSuspiciousOverallConfigRequest $request DescribeSuspiciousOverallConfigRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSuspiciousOverallConfigResponse
+     * @return DescribeSuspiciousOverallConfigResponse DescribeSuspiciousOverallConfigResponse
      */
     public function describeSuspiciousOverallConfigWithOptions($request, $runtime)
     {
@@ -17092,9 +18286,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeSuspiciousOverallConfigRequest $request
+     * @summary Queries the configuration of a specified feature.
+     *  *
+     * @param DescribeSuspiciousOverallConfigRequest $request DescribeSuspiciousOverallConfigRequest
      *
-     * @return DescribeSuspiciousOverallConfigResponse
+     * @return DescribeSuspiciousOverallConfigResponse DescribeSuspiciousOverallConfigResponse
      */
     public function describeSuspiciousOverallConfig($request)
     {
@@ -17104,10 +18300,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeSuspiciousUUIDConfigRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries the UUIDs of servers on which proactive defense of a specified type takes effect.
+     *  *
+     * @param DescribeSuspiciousUUIDConfigRequest $request DescribeSuspiciousUUIDConfigRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSuspiciousUUIDConfigResponse
+     * @return DescribeSuspiciousUUIDConfigResponse DescribeSuspiciousUUIDConfigResponse
      */
     public function describeSuspiciousUUIDConfigWithOptions($request, $runtime)
     {
@@ -17135,9 +18333,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeSuspiciousUUIDConfigRequest $request
+     * @summary Queries the UUIDs of servers on which proactive defense of a specified type takes effect.
+     *  *
+     * @param DescribeSuspiciousUUIDConfigRequest $request DescribeSuspiciousUUIDConfigRequest
      *
-     * @return DescribeSuspiciousUUIDConfigResponse
+     * @return DescribeSuspiciousUUIDConfigResponse DescribeSuspiciousUUIDConfigResponse
      */
     public function describeSuspiciousUUIDConfig($request)
     {
@@ -17147,10 +18347,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeTargetRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Queries the servers on which vulnerability scan is enabled.
+     *  *
+     * @param DescribeTargetRequest $request DescribeTargetRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTargetResponse
+     * @return DescribeTargetResponse DescribeTargetResponse
      */
     public function describeTargetWithOptions($request, $runtime)
     {
@@ -17181,9 +18383,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeTargetRequest $request
+     * @summary Queries the servers on which vulnerability scan is enabled.
+     *  *
+     * @param DescribeTargetRequest $request DescribeTargetRequest
      *
-     * @return DescribeTargetResponse
+     * @return DescribeTargetResponse DescribeTargetResponse
      */
     public function describeTarget($request)
     {
@@ -17193,10 +18397,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeTaskErrorLogRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the error logs on a task that failed to fix image vulnerabilities.
+     *  *
+     * @param DescribeTaskErrorLogRequest $request DescribeTaskErrorLogRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTaskErrorLogResponse
+     * @return DescribeTaskErrorLogResponse DescribeTaskErrorLogResponse
      */
     public function describeTaskErrorLogWithOptions($request, $runtime)
     {
@@ -17224,9 +18430,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeTaskErrorLogRequest $request
+     * @summary Queries the error logs on a task that failed to fix image vulnerabilities.
+     *  *
+     * @param DescribeTaskErrorLogRequest $request DescribeTaskErrorLogRequest
      *
-     * @return DescribeTaskErrorLogResponse
+     * @return DescribeTaskErrorLogResponse DescribeTaskErrorLogResponse
      */
     public function describeTaskErrorLog($request)
     {
@@ -17236,10 +18444,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeTotalStatisticsRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries event statistics.
+     *  *
+     * @param DescribeTotalStatisticsRequest $request DescribeTotalStatisticsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTotalStatisticsResponse
+     * @return DescribeTotalStatisticsResponse DescribeTotalStatisticsResponse
      */
     public function describeTotalStatisticsWithOptions($request, $runtime)
     {
@@ -17273,9 +18483,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeTotalStatisticsRequest $request
+     * @summary Queries event statistics.
+     *  *
+     * @param DescribeTotalStatisticsRequest $request DescribeTotalStatisticsRequest
      *
-     * @return DescribeTotalStatisticsResponse
+     * @return DescribeTotalStatisticsResponse DescribeTotalStatisticsResponse
      */
     public function describeTotalStatistics($request)
     {
@@ -17285,10 +18497,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeTraceInfoDetailRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the trace information about alerts.
+     *  *
+     * @param DescribeTraceInfoDetailRequest $request DescribeTraceInfoDetailRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTraceInfoDetailResponse
+     * @return DescribeTraceInfoDetailResponse DescribeTraceInfoDetailResponse
      */
     public function describeTraceInfoDetailWithOptions($request, $runtime)
     {
@@ -17334,9 +18548,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeTraceInfoDetailRequest $request
+     * @summary Queries the trace information about alerts.
+     *  *
+     * @param DescribeTraceInfoDetailRequest $request DescribeTraceInfoDetailRequest
      *
-     * @return DescribeTraceInfoDetailResponse
+     * @return DescribeTraceInfoDetailResponse DescribeTraceInfoDetailResponse
      */
     public function describeTraceInfoDetail($request)
     {
@@ -17346,10 +18562,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeTraceInfoNodeRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the details about a trace node.
+     *  *
+     * @param DescribeTraceInfoNodeRequest $request DescribeTraceInfoNodeRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTraceInfoNodeResponse
+     * @return DescribeTraceInfoNodeResponse DescribeTraceInfoNodeResponse
      */
     public function describeTraceInfoNodeWithOptions($request, $runtime)
     {
@@ -17398,9 +18616,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeTraceInfoNodeRequest $request
+     * @summary Queries the details about a trace node.
+     *  *
+     * @param DescribeTraceInfoNodeRequest $request DescribeTraceInfoNodeRequest
      *
-     * @return DescribeTraceInfoNodeResponse
+     * @return DescribeTraceInfoNodeResponse DescribeTraceInfoNodeResponse
      */
     public function describeTraceInfoNode($request)
     {
@@ -17410,10 +18630,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeUniBackupDatabaseRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the information about databases for which anti-ransomware policies are created.
+     *  *
+     * @param DescribeUniBackupDatabaseRequest $request DescribeUniBackupDatabaseRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeUniBackupDatabaseResponse
+     * @return DescribeUniBackupDatabaseResponse DescribeUniBackupDatabaseResponse
      */
     public function describeUniBackupDatabaseWithOptions($request, $runtime)
     {
@@ -17456,9 +18678,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeUniBackupDatabaseRequest $request
+     * @summary Queries the information about databases for which anti-ransomware policies are created.
+     *  *
+     * @param DescribeUniBackupDatabaseRequest $request DescribeUniBackupDatabaseRequest
      *
-     * @return DescribeUniBackupDatabaseResponse
+     * @return DescribeUniBackupDatabaseResponse DescribeUniBackupDatabaseResponse
      */
     public function describeUniBackupDatabase($request)
     {
@@ -17468,10 +18692,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeUniBackupPoliciesRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the anti-ransomware policies that are created for databases.
+     *  *
+     * @param DescribeUniBackupPoliciesRequest $request DescribeUniBackupPoliciesRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeUniBackupPoliciesResponse
+     * @return DescribeUniBackupPoliciesResponse DescribeUniBackupPoliciesResponse
      */
     public function describeUniBackupPoliciesWithOptions($request, $runtime)
     {
@@ -17505,9 +18731,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeUniBackupPoliciesRequest $request
+     * @summary Queries the anti-ransomware policies that are created for databases.
+     *  *
+     * @param DescribeUniBackupPoliciesRequest $request DescribeUniBackupPoliciesRequest
      *
-     * @return DescribeUniBackupPoliciesResponse
+     * @return DescribeUniBackupPoliciesResponse DescribeUniBackupPoliciesResponse
      */
     public function describeUniBackupPolicies($request)
     {
@@ -17517,10 +18745,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeUniBackupPolicyDetailRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Queries the details of an anti-ransomware policy for databases.
+     *  *
+     * @param DescribeUniBackupPolicyDetailRequest $request DescribeUniBackupPolicyDetailRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeUniBackupPolicyDetailResponse
+     * @return DescribeUniBackupPolicyDetailResponse DescribeUniBackupPolicyDetailResponse
      */
     public function describeUniBackupPolicyDetailWithOptions($request, $runtime)
     {
@@ -17548,9 +18778,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeUniBackupPolicyDetailRequest $request
+     * @summary Queries the details of an anti-ransomware policy for databases.
+     *  *
+     * @param DescribeUniBackupPolicyDetailRequest $request DescribeUniBackupPolicyDetailRequest
      *
-     * @return DescribeUniBackupPolicyDetailResponse
+     * @return DescribeUniBackupPolicyDetailResponse DescribeUniBackupPolicyDetailResponse
      */
     public function describeUniBackupPolicyDetail($request)
     {
@@ -17560,10 +18792,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeUniRecoverableListRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the backup snapshots from which the data of a database can be restored.
+     *  *
+     * @param DescribeUniRecoverableListRequest $request DescribeUniRecoverableListRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeUniRecoverableListResponse
+     * @return DescribeUniRecoverableListResponse DescribeUniRecoverableListResponse
      */
     public function describeUniRecoverableListWithOptions($request, $runtime)
     {
@@ -17600,9 +18834,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeUniRecoverableListRequest $request
+     * @summary Queries the backup snapshots from which the data of a database can be restored.
+     *  *
+     * @param DescribeUniRecoverableListRequest $request DescribeUniRecoverableListRequest
      *
-     * @return DescribeUniRecoverableListResponse
+     * @return DescribeUniRecoverableListResponse DescribeUniRecoverableListResponse
      */
     public function describeUniRecoverableList($request)
     {
@@ -17612,9 +18848,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the region that is supported by anti-ransomware for databases.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeUniSupportRegionResponse
+     * @return DescribeUniSupportRegionResponse DescribeUniSupportRegionResponse
      */
     public function describeUniSupportRegionWithOptions($runtime)
     {
@@ -17635,7 +18873,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return DescribeUniSupportRegionResponse
+     * @summary Queries the region that is supported by anti-ransomware for databases.
+     *  *
+     * @return DescribeUniSupportRegionResponse DescribeUniSupportRegionResponse
      */
     public function describeUniSupportRegion()
     {
@@ -17645,9 +18885,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the information about the servers to which an anti-ransomware policy is applied.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeUserBackupMachinesResponse
+     * @return DescribeUserBackupMachinesResponse DescribeUserBackupMachinesResponse
      */
     public function describeUserBackupMachinesWithOptions($runtime)
     {
@@ -17668,7 +18910,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return DescribeUserBackupMachinesResponse
+     * @summary Queries the information about the servers to which an anti-ransomware policy is applied.
+     *  *
+     * @return DescribeUserBackupMachinesResponse DescribeUserBackupMachinesResponse
      */
     public function describeUserBackupMachines()
     {
@@ -17678,10 +18922,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeUserBaselineAuthorizationRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @summary The source IP address of the request.
+     *  *
+     * @param DescribeUserBaselineAuthorizationRequest $request DescribeUserBaselineAuthorizationRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeUserBaselineAuthorizationResponse
+     * @return DescribeUserBaselineAuthorizationResponse DescribeUserBaselineAuthorizationResponse
      */
     public function describeUserBaselineAuthorizationWithOptions($request, $runtime)
     {
@@ -17715,9 +18961,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeUserBaselineAuthorizationRequest $request
+     * @summary The source IP address of the request.
+     *  *
+     * @param DescribeUserBaselineAuthorizationRequest $request DescribeUserBaselineAuthorizationRequest
      *
-     * @return DescribeUserBaselineAuthorizationResponse
+     * @return DescribeUserBaselineAuthorizationResponse DescribeUserBaselineAuthorizationResponse
      */
     public function describeUserBaselineAuthorization($request)
     {
@@ -17727,10 +18975,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeUserLayoutAuthorizationRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary Queries whether the brute-force attacks protection feature has been authorized. The brute-force attacks protection feature cannot be used without authorization.
+     *  *
+     * @param DescribeUserLayoutAuthorizationRequest $request DescribeUserLayoutAuthorizationRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeUserLayoutAuthorizationResponse
+     * @return DescribeUserLayoutAuthorizationResponse DescribeUserLayoutAuthorizationResponse
      */
     public function describeUserLayoutAuthorizationWithOptions($request, $runtime)
     {
@@ -17764,9 +19014,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeUserLayoutAuthorizationRequest $request
+     * @summary Queries whether the brute-force attacks protection feature has been authorized. The brute-force attacks protection feature cannot be used without authorization.
+     *  *
+     * @param DescribeUserLayoutAuthorizationRequest $request DescribeUserLayoutAuthorizationRequest
      *
-     * @return DescribeUserLayoutAuthorizationResponse
+     * @return DescribeUserLayoutAuthorizationResponse DescribeUserLayoutAuthorizationResponse
      */
     public function describeUserLayoutAuthorization($request)
     {
@@ -17776,10 +19028,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeUuidsByVulNamesRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries a list of assets that support fixing based on vulnerability names.
+     *  *
+     * @param DescribeUuidsByVulNamesRequest $request DescribeUuidsByVulNamesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeUuidsByVulNamesResponse
+     * @return DescribeUuidsByVulNamesResponse DescribeUuidsByVulNamesResponse
      */
     public function describeUuidsByVulNamesWithOptions($request, $runtime)
     {
@@ -17849,9 +19103,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeUuidsByVulNamesRequest $request
+     * @summary Queries a list of assets that support fixing based on vulnerability names.
+     *  *
+     * @param DescribeUuidsByVulNamesRequest $request DescribeUuidsByVulNamesRequest
      *
-     * @return DescribeUuidsByVulNamesResponse
+     * @return DescribeUuidsByVulNamesResponse DescribeUuidsByVulNamesResponse
      */
     public function describeUuidsByVulNames($request)
     {
@@ -17861,9 +19117,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the service providers whose assets can be added to Security Center.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVendorListResponse
+     * @return DescribeVendorListResponse DescribeVendorListResponse
      */
     public function describeVendorListWithOptions($runtime)
     {
@@ -17884,7 +19142,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return DescribeVendorListResponse
+     * @summary Queries the service providers whose assets can be added to Security Center.
+     *  *
+     * @return DescribeVendorListResponse DescribeVendorListResponse
      */
     public function describeVendorList()
     {
@@ -17894,10 +19154,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeVersionConfigRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the details about the edition of purchased Security Center.
+     *  *
+     * @param DescribeVersionConfigRequest $request DescribeVersionConfigRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVersionConfigResponse
+     * @return DescribeVersionConfigResponse DescribeVersionConfigResponse
      */
     public function describeVersionConfigWithOptions($request, $runtime)
     {
@@ -17928,9 +19190,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeVersionConfigRequest $request
+     * @summary Queries the details about the edition of purchased Security Center.
+     *  *
+     * @param DescribeVersionConfigRequest $request DescribeVersionConfigRequest
      *
-     * @return DescribeVersionConfigResponse
+     * @return DescribeVersionConfigResponse DescribeVersionConfigResponse
      */
     public function describeVersionConfig($request)
     {
@@ -17940,10 +19204,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeVpcHoneyPotCriteriaRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries the search conditions that can be used to query honeypots.
+     *  *
+     * @param DescribeVpcHoneyPotCriteriaRequest $request DescribeVpcHoneyPotCriteriaRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVpcHoneyPotCriteriaResponse
+     * @return DescribeVpcHoneyPotCriteriaResponse DescribeVpcHoneyPotCriteriaResponse
      */
     public function describeVpcHoneyPotCriteriaWithOptions($request, $runtime)
     {
@@ -17971,9 +19237,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeVpcHoneyPotCriteriaRequest $request
+     * @summary Queries the search conditions that can be used to query honeypots.
+     *  *
+     * @param DescribeVpcHoneyPotCriteriaRequest $request DescribeVpcHoneyPotCriteriaRequest
      *
-     * @return DescribeVpcHoneyPotCriteriaResponse
+     * @return DescribeVpcHoneyPotCriteriaResponse DescribeVpcHoneyPotCriteriaResponse
      */
     public function describeVpcHoneyPotCriteria($request)
     {
@@ -17983,8 +19251,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * If you specify only the Action request parameter in your request, Security Center returns the list of all VPCs regardless of whether a honeypot is deployed on a VPC.
-     *   *
+     * @summary Queries virtual private clouds (VPCs) on which honeypots are deployed.
+     *  *
+     * @description If you specify only the Action request parameter in your request, Security Center returns the list of all VPCs regardless of whether a honeypot is deployed on a VPC.
+     *  *
      * @param DescribeVpcHoneyPotListRequest $request DescribeVpcHoneyPotListRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -18031,8 +19301,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * If you specify only the Action request parameter in your request, Security Center returns the list of all VPCs regardless of whether a honeypot is deployed on a VPC.
-     *   *
+     * @summary Queries virtual private clouds (VPCs) on which honeypots are deployed.
+     *  *
+     * @description If you specify only the Action request parameter in your request, Security Center returns the list of all VPCs regardless of whether a honeypot is deployed on a VPC.
+     *  *
      * @param DescribeVpcHoneyPotListRequest $request DescribeVpcHoneyPotListRequest
      *
      * @return DescribeVpcHoneyPotListResponse DescribeVpcHoneyPotListResponse
@@ -18045,9 +19317,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the information about virtual private clouds (VPCs).
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVpcListResponse
+     * @return DescribeVpcListResponse DescribeVpcListResponse
      */
     public function describeVpcListWithOptions($runtime)
     {
@@ -18068,7 +19342,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return DescribeVpcListResponse
+     * @summary Queries the information about virtual private clouds (VPCs).
+     *  *
+     * @return DescribeVpcListResponse DescribeVpcListResponse
      */
     public function describeVpcList()
     {
@@ -18078,10 +19354,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeVulCheckTaskStatusDetailRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary Queries the status information about vulnerability scan tasks on a server.
+     *  *
+     * @param DescribeVulCheckTaskStatusDetailRequest $request DescribeVulCheckTaskStatusDetailRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVulCheckTaskStatusDetailResponse
+     * @return DescribeVulCheckTaskStatusDetailResponse DescribeVulCheckTaskStatusDetailResponse
      */
     public function describeVulCheckTaskStatusDetailWithOptions($request, $runtime)
     {
@@ -18115,9 +19393,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeVulCheckTaskStatusDetailRequest $request
+     * @summary Queries the status information about vulnerability scan tasks on a server.
+     *  *
+     * @param DescribeVulCheckTaskStatusDetailRequest $request DescribeVulCheckTaskStatusDetailRequest
      *
-     * @return DescribeVulCheckTaskStatusDetailResponse
+     * @return DescribeVulCheckTaskStatusDetailResponse DescribeVulCheckTaskStatusDetailResponse
      */
     public function describeVulCheckTaskStatusDetail($request)
     {
@@ -18127,10 +19407,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeVulConfigRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries the configurations of vulnerability management.
+     *  *
+     * @param DescribeVulConfigRequest $request DescribeVulConfigRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVulConfigResponse
+     * @return DescribeVulConfigResponse DescribeVulConfigResponse
      */
     public function describeVulConfigWithOptions($request, $runtime)
     {
@@ -18161,9 +19443,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeVulConfigRequest $request
+     * @summary Queries the configurations of vulnerability management.
+     *  *
+     * @param DescribeVulConfigRequest $request DescribeVulConfigRequest
      *
-     * @return DescribeVulConfigResponse
+     * @return DescribeVulConfigResponse DescribeVulConfigResponse
      */
     public function describeVulConfig($request)
     {
@@ -18173,10 +19457,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeVulDetailsRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the details about a vulnerability.
+     *  *
+     * @param DescribeVulDetailsRequest $request DescribeVulDetailsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVulDetailsResponse
+     * @return DescribeVulDetailsResponse DescribeVulDetailsResponse
      */
     public function describeVulDetailsWithOptions($request, $runtime)
     {
@@ -18216,9 +19502,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeVulDetailsRequest $request
+     * @summary Queries the details about a vulnerability.
+     *  *
+     * @param DescribeVulDetailsRequest $request DescribeVulDetailsRequest
      *
-     * @return DescribeVulDetailsResponse
+     * @return DescribeVulDetailsResponse DescribeVulDetailsResponse
      */
     public function describeVulDetails($request)
     {
@@ -18228,8 +19516,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * If the value of ExportStatus is success, the URL at which you can download the exported Excel file is returned.
-     *   *
+     * @summary Queries the progress of a task that exports vulnerabilities.
+     *  *
+     * @description If the value of ExportStatus is success, the URL at which you can download the exported Excel file is returned.
+     *  *
      * @param DescribeVulExportInfoRequest $request DescribeVulExportInfoRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -18261,8 +19551,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * If the value of ExportStatus is success, the URL at which you can download the exported Excel file is returned.
-     *   *
+     * @summary Queries the progress of a task that exports vulnerabilities.
+     *  *
+     * @description If the value of ExportStatus is success, the URL at which you can download the exported Excel file is returned.
+     *  *
      * @param DescribeVulExportInfoRequest $request DescribeVulExportInfoRequest
      *
      * @return DescribeVulExportInfoResponse DescribeVulExportInfoResponse
@@ -18275,9 +19567,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the statistics of vulnerability fixes.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVulFixStatisticsResponse
+     * @return DescribeVulFixStatisticsResponse DescribeVulFixStatisticsResponse
      */
     public function describeVulFixStatisticsWithOptions($runtime)
     {
@@ -18298,7 +19592,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return DescribeVulFixStatisticsResponse
+     * @summary Queries the statistics of vulnerability fixes.
+     *  *
+     * @return DescribeVulFixStatisticsResponse DescribeVulFixStatisticsResponse
      */
     public function describeVulFixStatistics()
     {
@@ -18308,10 +19604,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeVulListRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries vulnerabilities by type.
+     *  *
+     * @param DescribeVulListRequest $request DescribeVulListRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVulListResponse
+     * @return DescribeVulListResponse DescribeVulListResponse
      */
     public function describeVulListWithOptions($request, $runtime)
     {
@@ -18390,9 +19688,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeVulListRequest $request
+     * @summary Queries vulnerabilities by type.
+     *  *
+     * @param DescribeVulListRequest $request DescribeVulListRequest
      *
-     * @return DescribeVulListResponse
+     * @return DescribeVulListResponse DescribeVulListResponse
      */
     public function describeVulList($request)
     {
@@ -18402,10 +19702,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeVulListPageRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the vulnerabilities that can be detected.
+     *  *
+     * @param DescribeVulListPageRequest $request DescribeVulListPageRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVulListPageResponse
+     * @return DescribeVulListPageResponse DescribeVulListPageResponse
      */
     public function describeVulListPageWithOptions($request, $runtime)
     {
@@ -18442,9 +19744,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeVulListPageRequest $request
+     * @summary Queries the vulnerabilities that can be detected.
+     *  *
+     * @param DescribeVulListPageRequest $request DescribeVulListPageRequest
      *
-     * @return DescribeVulListPageResponse
+     * @return DescribeVulListPageResponse DescribeVulListPageResponse
      */
     public function describeVulListPage($request)
     {
@@ -18454,10 +19758,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeVulNumStatisticsRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the statistics of vulnerabilities.
+     *  *
+     * @param DescribeVulNumStatisticsRequest $request DescribeVulNumStatisticsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVulNumStatisticsResponse
+     * @return DescribeVulNumStatisticsResponse DescribeVulNumStatisticsResponse
      */
     public function describeVulNumStatisticsWithOptions($request, $runtime)
     {
@@ -18485,9 +19791,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeVulNumStatisticsRequest $request
+     * @summary Queries the statistics of vulnerabilities.
+     *  *
+     * @param DescribeVulNumStatisticsRequest $request DescribeVulNumStatisticsRequest
      *
-     * @return DescribeVulNumStatisticsResponse
+     * @return DescribeVulNumStatisticsResponse DescribeVulNumStatisticsResponse
      */
     public function describeVulNumStatistics($request)
     {
@@ -18497,10 +19805,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeVulTargetConfigRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the configurations of the vulnerability scan feature for a server.
+     *  *
+     * @param DescribeVulTargetConfigRequest $request DescribeVulTargetConfigRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVulTargetConfigResponse
+     * @return DescribeVulTargetConfigResponse DescribeVulTargetConfigResponse
      */
     public function describeVulTargetConfigWithOptions($request, $runtime)
     {
@@ -18531,9 +19841,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeVulTargetConfigRequest $request
+     * @summary Queries the configurations of the vulnerability scan feature for a server.
+     *  *
+     * @param DescribeVulTargetConfigRequest $request DescribeVulTargetConfigRequest
      *
-     * @return DescribeVulTargetConfigResponse
+     * @return DescribeVulTargetConfigResponse DescribeVulTargetConfigResponse
      */
     public function describeVulTargetConfig($request)
     {
@@ -18543,10 +19855,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeVulTargetStatisticsRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries the configurations of the vulnerability scan feature.
+     *  *
+     * @param DescribeVulTargetStatisticsRequest $request DescribeVulTargetStatisticsRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVulTargetStatisticsResponse
+     * @return DescribeVulTargetStatisticsResponse DescribeVulTargetStatisticsResponse
      */
     public function describeVulTargetStatisticsWithOptions($request, $runtime)
     {
@@ -18574,9 +19888,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeVulTargetStatisticsRequest $request
+     * @summary Queries the configurations of the vulnerability scan feature.
+     *  *
+     * @param DescribeVulTargetStatisticsRequest $request DescribeVulTargetStatisticsRequest
      *
-     * @return DescribeVulTargetStatisticsResponse
+     * @return DescribeVulTargetStatisticsResponse DescribeVulTargetStatisticsResponse
      */
     public function describeVulTargetStatistics($request)
     {
@@ -18586,10 +19902,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeVulWhitelistRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the whitelist of vulnerabilities by page.
+     *  *
+     * @param DescribeVulWhitelistRequest $request DescribeVulWhitelistRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVulWhitelistResponse
+     * @return DescribeVulWhitelistResponse DescribeVulWhitelistResponse
      */
     public function describeVulWhitelistWithOptions($request, $runtime)
     {
@@ -18620,9 +19938,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeVulWhitelistRequest $request
+     * @summary Queries the whitelist of vulnerabilities by page.
+     *  *
+     * @param DescribeVulWhitelistRequest $request DescribeVulWhitelistRequest
      *
-     * @return DescribeVulWhitelistResponse
+     * @return DescribeVulWhitelistResponse DescribeVulWhitelistResponse
      */
     public function describeVulWhitelist($request)
     {
@@ -18632,10 +19952,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeWarningExportInfoRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the progress of a export task for a baseline check result.
+     *  *
+     * @param DescribeWarningExportInfoRequest $request DescribeWarningExportInfoRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeWarningExportInfoResponse
+     * @return DescribeWarningExportInfoResponse DescribeWarningExportInfoResponse
      */
     public function describeWarningExportInfoWithOptions($request, $runtime)
     {
@@ -18663,9 +19985,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeWarningExportInfoRequest $request
+     * @summary Queries the progress of a export task for a baseline check result.
+     *  *
+     * @param DescribeWarningExportInfoRequest $request DescribeWarningExportInfoRequest
      *
-     * @return DescribeWarningExportInfoResponse
+     * @return DescribeWarningExportInfoResponse DescribeWarningExportInfoResponse
      */
     public function describeWarningExportInfo($request)
     {
@@ -18675,10 +19999,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeWarningMachinesRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries information about servers on which a baseline check is performed. The information includes the IDs of the servers, the statistics of a risk item, and the status of the risk item.
+     *  *
+     * @param DescribeWarningMachinesRequest $request DescribeWarningMachinesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeWarningMachinesResponse
+     * @return DescribeWarningMachinesResponse DescribeWarningMachinesResponse
      */
     public function describeWarningMachinesWithOptions($request, $runtime)
     {
@@ -18745,9 +20071,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeWarningMachinesRequest $request
+     * @summary Queries information about servers on which a baseline check is performed. The information includes the IDs of the servers, the statistics of a risk item, and the status of the risk item.
+     *  *
+     * @param DescribeWarningMachinesRequest $request DescribeWarningMachinesRequest
      *
-     * @return DescribeWarningMachinesResponse
+     * @return DescribeWarningMachinesResponse DescribeWarningMachinesResponse
      */
     public function describeWarningMachines($request)
     {
@@ -18757,10 +20085,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeWebLockBindListRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the information about the servers that have web tamper proofing enabled.
+     *  *
+     * @param DescribeWebLockBindListRequest $request DescribeWebLockBindListRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeWebLockBindListResponse
+     * @return DescribeWebLockBindListResponse DescribeWebLockBindListResponse
      */
     public function describeWebLockBindListWithOptions($request, $runtime)
     {
@@ -18803,9 +20133,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeWebLockBindListRequest $request
+     * @summary Queries the information about the servers that have web tamper proofing enabled.
+     *  *
+     * @param DescribeWebLockBindListRequest $request DescribeWebLockBindListRequest
      *
-     * @return DescribeWebLockBindListResponse
+     * @return DescribeWebLockBindListResponse DescribeWebLockBindListResponse
      */
     public function describeWebLockBindList($request)
     {
@@ -18815,10 +20147,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeWebLockConfigListRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the configurations of web tamper proofing for a specified server.
+     *  *
+     * @param DescribeWebLockConfigListRequest $request DescribeWebLockConfigListRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeWebLockConfigListResponse
+     * @return DescribeWebLockConfigListResponse DescribeWebLockConfigListResponse
      */
     public function describeWebLockConfigListWithOptions($request, $runtime)
     {
@@ -18852,9 +20186,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeWebLockConfigListRequest $request
+     * @summary Queries the configurations of web tamper proofing for a specified server.
+     *  *
+     * @param DescribeWebLockConfigListRequest $request DescribeWebLockConfigListRequest
      *
-     * @return DescribeWebLockConfigListResponse
+     * @return DescribeWebLockConfigListResponse DescribeWebLockConfigListResponse
      */
     public function describeWebLockConfigList($request)
     {
@@ -18864,9 +20200,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary 查询排除文件类型
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeWebLockExclusiveFileTypeResponse
+     * @return DescribeWebLockExclusiveFileTypeResponse DescribeWebLockExclusiveFileTypeResponse
      */
     public function describeWebLockExclusiveFileTypeWithOptions($runtime)
     {
@@ -18887,7 +20225,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return DescribeWebLockExclusiveFileTypeResponse
+     * @summary 查询排除文件类型
+     *  *
+     * @return DescribeWebLockExclusiveFileTypeResponse DescribeWebLockExclusiveFileTypeResponse
      */
     public function describeWebLockExclusiveFileType()
     {
@@ -18897,10 +20237,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeWebLockFileChangeStatisticsRequest $request
-     * @param RuntimeOptions                             $runtime
+     * @summary Queries the statistics on changes to the files that are protected by web tamper proofing.
+     *  *
+     * @param DescribeWebLockFileChangeStatisticsRequest $request DescribeWebLockFileChangeStatisticsRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeWebLockFileChangeStatisticsResponse
+     * @return DescribeWebLockFileChangeStatisticsResponse DescribeWebLockFileChangeStatisticsResponse
      */
     public function describeWebLockFileChangeStatisticsWithOptions($request, $runtime)
     {
@@ -18931,9 +20273,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeWebLockFileChangeStatisticsRequest $request
+     * @summary Queries the statistics on changes to the files that are protected by web tamper proofing.
+     *  *
+     * @param DescribeWebLockFileChangeStatisticsRequest $request DescribeWebLockFileChangeStatisticsRequest
      *
-     * @return DescribeWebLockFileChangeStatisticsResponse
+     * @return DescribeWebLockFileChangeStatisticsResponse DescribeWebLockFileChangeStatisticsResponse
      */
     public function describeWebLockFileChangeStatistics($request)
     {
@@ -18943,10 +20287,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeWebLockFileEventsRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries events on web tamper proofing.
+     *  *
+     * @param DescribeWebLockFileEventsRequest $request DescribeWebLockFileEventsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeWebLockFileEventsResponse
+     * @return DescribeWebLockFileEventsResponse DescribeWebLockFileEventsResponse
      */
     public function describeWebLockFileEventsWithOptions($request, $runtime)
     {
@@ -18992,9 +20338,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeWebLockFileEventsRequest $request
+     * @summary Queries events on web tamper proofing.
+     *  *
+     * @param DescribeWebLockFileEventsRequest $request DescribeWebLockFileEventsRequest
      *
-     * @return DescribeWebLockFileEventsResponse
+     * @return DescribeWebLockFileEventsResponse DescribeWebLockFileEventsResponse
      */
     public function describeWebLockFileEvents($request)
     {
@@ -19004,9 +20352,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary The number of attempts.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeWebLockFileTypeSummaryResponse
+     * @return DescribeWebLockFileTypeSummaryResponse DescribeWebLockFileTypeSummaryResponse
      */
     public function describeWebLockFileTypeSummaryWithOptions($runtime)
     {
@@ -19027,7 +20377,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return DescribeWebLockFileTypeSummaryResponse
+     * @summary The number of attempts.
+     *  *
+     * @return DescribeWebLockFileTypeSummaryResponse DescribeWebLockFileTypeSummaryResponse
      */
     public function describeWebLockFileTypeSummary()
     {
@@ -19037,9 +20389,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the types of files that can be protected by web tamper proofing.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeWebLockInclusiveFileTypeResponse
+     * @return DescribeWebLockInclusiveFileTypeResponse DescribeWebLockInclusiveFileTypeResponse
      */
     public function describeWebLockInclusiveFileTypeWithOptions($runtime)
     {
@@ -19060,7 +20414,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return DescribeWebLockInclusiveFileTypeResponse
+     * @summary Queries the types of files that can be protected by web tamper proofing.
+     *  *
+     * @return DescribeWebLockInclusiveFileTypeResponse DescribeWebLockInclusiveFileTypeResponse
      */
     public function describeWebLockInclusiveFileType()
     {
@@ -19070,10 +20426,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeWebLockProcessBlockStatisticsRequest $request
-     * @param RuntimeOptions                               $runtime
+     * @summary Queries the statistics on processes for web tamper proofing.
+     *  *
+     * @param DescribeWebLockProcessBlockStatisticsRequest $request DescribeWebLockProcessBlockStatisticsRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeWebLockProcessBlockStatisticsResponse
+     * @return DescribeWebLockProcessBlockStatisticsResponse DescribeWebLockProcessBlockStatisticsResponse
      */
     public function describeWebLockProcessBlockStatisticsWithOptions($request, $runtime)
     {
@@ -19104,9 +20462,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeWebLockProcessBlockStatisticsRequest $request
+     * @summary Queries the statistics on processes for web tamper proofing.
+     *  *
+     * @param DescribeWebLockProcessBlockStatisticsRequest $request DescribeWebLockProcessBlockStatisticsRequest
      *
-     * @return DescribeWebLockProcessBlockStatisticsResponse
+     * @return DescribeWebLockProcessBlockStatisticsResponse DescribeWebLockProcessBlockStatisticsResponse
      */
     public function describeWebLockProcessBlockStatistics($request)
     {
@@ -19116,10 +20476,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeWebLockProcessListRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the processes for web tamper proofing.
+     *  *
+     * @param DescribeWebLockProcessListRequest $request DescribeWebLockProcessListRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeWebLockProcessListResponse
+     * @return DescribeWebLockProcessListResponse DescribeWebLockProcessListResponse
      */
     public function describeWebLockProcessListWithOptions($request, $runtime)
     {
@@ -19156,9 +20518,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeWebLockProcessListRequest $request
+     * @summary Queries the processes for web tamper proofing.
+     *  *
+     * @param DescribeWebLockProcessListRequest $request DescribeWebLockProcessListRequest
      *
-     * @return DescribeWebLockProcessListResponse
+     * @return DescribeWebLockProcessListResponse DescribeWebLockProcessListResponse
      */
     public function describeWebLockProcessList($request)
     {
@@ -19168,10 +20532,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeWebLockStatusRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the status of web tamper proofing.
+     *  *
+     * @param DescribeWebLockStatusRequest $request DescribeWebLockStatusRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeWebLockStatusResponse
+     * @return DescribeWebLockStatusResponse DescribeWebLockStatusResponse
      */
     public function describeWebLockStatusWithOptions($request, $runtime)
     {
@@ -19205,9 +20571,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeWebLockStatusRequest $request
+     * @summary Queries the status of web tamper proofing.
+     *  *
+     * @param DescribeWebLockStatusRequest $request DescribeWebLockStatusRequest
      *
-     * @return DescribeWebLockStatusResponse
+     * @return DescribeWebLockStatusResponse DescribeWebLockStatusResponse
      */
     public function describeWebLockStatus($request)
     {
@@ -19217,9 +20585,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the number of times that the files protected by web tamper proofing are changed.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeWebLockTotalFileChangeCountResponse
+     * @return DescribeWebLockTotalFileChangeCountResponse DescribeWebLockTotalFileChangeCountResponse
      */
     public function describeWebLockTotalFileChangeCountWithOptions($runtime)
     {
@@ -19240,7 +20610,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return DescribeWebLockTotalFileChangeCountResponse
+     * @summary Queries the number of times that the files protected by web tamper proofing are changed.
+     *  *
+     * @return DescribeWebLockTotalFileChangeCountResponse DescribeWebLockTotalFileChangeCountResponse
      */
     public function describeWebLockTotalFileChangeCount()
     {
@@ -19250,10 +20622,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeWebPathRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries the custom web directories that are scanned based on the alerting feature.
+     *  *
+     * @param DescribeWebPathRequest $request DescribeWebPathRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeWebPathResponse
+     * @return DescribeWebPathResponse DescribeWebPathResponse
      */
     public function describeWebPathWithOptions($request, $runtime)
     {
@@ -19287,9 +20661,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeWebPathRequest $request
+     * @summary Queries the custom web directories that are scanned based on the alerting feature.
+     *  *
+     * @param DescribeWebPathRequest $request DescribeWebPathRequest
      *
-     * @return DescribeWebPathResponse
+     * @return DescribeWebPathResponse DescribeWebPathResponse
      */
     public function describeWebPath($request)
     {
@@ -19299,10 +20675,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DisableBruteForceRecordRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Disables an IP address blocking policy that is in effect.
+     *  *
+     * @param DisableBruteForceRecordRequest $request DisableBruteForceRecordRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableBruteForceRecordResponse
+     * @return DisableBruteForceRecordResponse DisableBruteForceRecordResponse
      */
     public function disableBruteForceRecordWithOptions($request, $runtime)
     {
@@ -19345,9 +20723,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DisableBruteForceRecordRequest $request
+     * @summary Disables an IP address blocking policy that is in effect.
+     *  *
+     * @param DisableBruteForceRecordRequest $request DisableBruteForceRecordRequest
      *
-     * @return DisableBruteForceRecordResponse
+     * @return DisableBruteForceRecordResponse DisableBruteForceRecordResponse
      */
     public function disableBruteForceRecord($request)
     {
@@ -19357,10 +20737,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DisableCustomBlockRecordRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Disables a custom IP address blocking policy for servers.
+     *  *
+     * @param DisableCustomBlockRecordRequest $request DisableCustomBlockRecordRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableCustomBlockRecordResponse
+     * @return DisableCustomBlockRecordResponse DisableCustomBlockRecordResponse
      */
     public function disableCustomBlockRecordWithOptions($request, $runtime)
     {
@@ -19394,9 +20776,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DisableCustomBlockRecordRequest $request
+     * @summary Disables a custom IP address blocking policy for servers.
+     *  *
+     * @param DisableCustomBlockRecordRequest $request DisableCustomBlockRecordRequest
      *
-     * @return DisableCustomBlockRecordResponse
+     * @return DisableCustomBlockRecordResponse DisableCustomBlockRecordResponse
      */
     public function disableCustomBlockRecord($request)
     {
@@ -19406,10 +20790,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param EnableBruteForceRecordRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Enables an IP address blocking policy for a specified server.
+     *  *
+     * @param EnableBruteForceRecordRequest $request EnableBruteForceRecordRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableBruteForceRecordResponse
+     * @return EnableBruteForceRecordResponse EnableBruteForceRecordResponse
      */
     public function enableBruteForceRecordWithOptions($request, $runtime)
     {
@@ -19452,9 +20838,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param EnableBruteForceRecordRequest $request
+     * @summary Enables an IP address blocking policy for a specified server.
+     *  *
+     * @param EnableBruteForceRecordRequest $request EnableBruteForceRecordRequest
      *
-     * @return EnableBruteForceRecordResponse
+     * @return EnableBruteForceRecordResponse EnableBruteForceRecordResponse
      */
     public function enableBruteForceRecord($request)
     {
@@ -19464,10 +20852,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param EnableCustomBlockRecordRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Enables a custom IP address blocking policy.
+     *  *
+     * @param EnableCustomBlockRecordRequest $request EnableCustomBlockRecordRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableCustomBlockRecordResponse
+     * @return EnableCustomBlockRecordResponse EnableCustomBlockRecordResponse
      */
     public function enableCustomBlockRecordWithOptions($request, $runtime)
     {
@@ -19501,9 +20891,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param EnableCustomBlockRecordRequest $request
+     * @summary Enables a custom IP address blocking policy.
+     *  *
+     * @param EnableCustomBlockRecordRequest $request EnableCustomBlockRecordRequest
      *
-     * @return EnableCustomBlockRecordResponse
+     * @return EnableCustomBlockRecordResponse EnableCustomBlockRecordResponse
      */
     public function enableCustomBlockRecord($request)
     {
@@ -19513,10 +20905,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param EnableCustomInstanceBlockRecordRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary Enables a custom rule for an instance.
+     *  *
+     * @param EnableCustomInstanceBlockRecordRequest $request EnableCustomInstanceBlockRecordRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableCustomInstanceBlockRecordResponse
+     * @return EnableCustomInstanceBlockRecordResponse EnableCustomInstanceBlockRecordResponse
      */
     public function enableCustomInstanceBlockRecordWithOptions($request, $runtime)
     {
@@ -19553,9 +20947,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param EnableCustomInstanceBlockRecordRequest $request
+     * @summary Enables a custom rule for an instance.
+     *  *
+     * @param EnableCustomInstanceBlockRecordRequest $request EnableCustomInstanceBlockRecordRequest
      *
-     * @return EnableCustomInstanceBlockRecordResponse
+     * @return EnableCustomInstanceBlockRecordResponse EnableCustomInstanceBlockRecordResponse
      */
     public function enableCustomInstanceBlockRecord($request)
     {
@@ -19565,10 +20961,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ExecStrategyRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Performs a baseline check on servers to which a specified baseline check policy is applied.
+     *  *
+     * @param ExecStrategyRequest $request ExecStrategyRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ExecStrategyResponse
+     * @return ExecStrategyResponse ExecStrategyResponse
      */
     public function execStrategyWithOptions($request, $runtime)
     {
@@ -19599,9 +20997,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ExecStrategyRequest $request
+     * @summary Performs a baseline check on servers to which a specified baseline check policy is applied.
+     *  *
+     * @param ExecStrategyRequest $request ExecStrategyRequest
      *
-     * @return ExecStrategyResponse
+     * @return ExecStrategyResponse ExecStrategyResponse
      */
     public function execStrategy($request)
     {
@@ -19611,12 +21011,14 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * You can call the operation to export the following check result lists:
-     *   * *   The list of servers on the Host page.
-     *   * *   The lists of image system vulnerabilities, image application vulnerabilities, image baseline check results, and malicious image samples on the Image Security page.
-     *   * *   The list of attack analysis data on the Attack Awareness page.
-     *   * *   The list of check results for AccessKey pair leaks on the AK leak detection page.
-     *   *
+     * @summary Exports the check results on the Host, Cloud Platform Configuration Assessment, Image Security, Attack Awareness, and AK leak detection pages to Excel files.
+     *  *
+     * @description You can call the operation to export the following check result lists:
+     * *   The list of servers on the Host page.
+     * *   The lists of image system vulnerabilities, image application vulnerabilities, image baseline check results, and malicious image samples on the Image Security page.
+     * *   The list of attack analysis data on the Attack Awareness page.
+     * *   The list of check results for AccessKey pair leaks on the AK leak detection page.
+     *  *
      * @param ExportRecordRequest $request ExportRecordRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -19657,12 +21059,14 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * You can call the operation to export the following check result lists:
-     *   * *   The list of servers on the Host page.
-     *   * *   The lists of image system vulnerabilities, image application vulnerabilities, image baseline check results, and malicious image samples on the Image Security page.
-     *   * *   The list of attack analysis data on the Attack Awareness page.
-     *   * *   The list of check results for AccessKey pair leaks on the AK leak detection page.
-     *   *
+     * @summary Exports the check results on the Host, Cloud Platform Configuration Assessment, Image Security, Attack Awareness, and AK leak detection pages to Excel files.
+     *  *
+     * @description You can call the operation to export the following check result lists:
+     * *   The list of servers on the Host page.
+     * *   The lists of image system vulnerabilities, image application vulnerabilities, image baseline check results, and malicious image samples on the Image Security page.
+     * *   The list of attack analysis data on the Attack Awareness page.
+     * *   The list of check results for AccessKey pair leaks on the AK leak detection page.
+     *  *
      * @param ExportRecordRequest $request ExportRecordRequest
      *
      * @return ExportRecordResponse ExportRecordResponse
@@ -19675,10 +21079,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ExportSuspEventsRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Exports the information about exceptions to a file.
+     *  *
+     * @param ExportSuspEventsRequest $request ExportSuspEventsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ExportSuspEventsResponse
+     * @return ExportSuspEventsResponse ExportSuspEventsResponse
      */
     public function exportSuspEventsWithOptions($request, $runtime)
     {
@@ -19772,9 +21178,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ExportSuspEventsRequest $request
+     * @summary Exports the information about exceptions to a file.
+     *  *
+     * @param ExportSuspEventsRequest $request ExportSuspEventsRequest
      *
-     * @return ExportSuspEventsResponse
+     * @return ExportSuspEventsResponse ExportSuspEventsResponse
      */
     public function exportSuspEvents($request)
     {
@@ -19784,11 +21192,13 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * You can call the ExportVul operation to export the following types of vulnerabilities: Linux software vulnerabilities, Windows system vulnerabilities, Web-CMS vulnerabilities, application vulnerabilities, and urgent vulnerabilities.
-     *   * You can use this operation together with the DescribeVulExportInfo operation. After you call the ExportVul operation to create a vulnerability export task, you can call the DescribeVulExportInfo operation to query the progress of the task by specifying the ID of the task.
-     *   * ### Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Exports vulnerabilities.
+     *  *
+     * @description You can call the ExportVul operation to export the following types of vulnerabilities: Linux software vulnerabilities, Windows system vulnerabilities, Web-CMS vulnerabilities, application vulnerabilities, and urgent vulnerabilities.
+     * You can use this operation together with the DescribeVulExportInfo operation. After you call the ExportVul operation to create a vulnerability export task, you can call the DescribeVulExportInfo operation to query the progress of the task by specifying the ID of the task.
+     * ### Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ExportVulRequest $request ExportVulRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
@@ -19865,11 +21275,13 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * You can call the ExportVul operation to export the following types of vulnerabilities: Linux software vulnerabilities, Windows system vulnerabilities, Web-CMS vulnerabilities, application vulnerabilities, and urgent vulnerabilities.
-     *   * You can use this operation together with the DescribeVulExportInfo operation. After you call the ExportVul operation to create a vulnerability export task, you can call the DescribeVulExportInfo operation to query the progress of the task by specifying the ID of the task.
-     *   * ### Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Exports vulnerabilities.
+     *  *
+     * @description You can call the ExportVul operation to export the following types of vulnerabilities: Linux software vulnerabilities, Windows system vulnerabilities, Web-CMS vulnerabilities, application vulnerabilities, and urgent vulnerabilities.
+     * You can use this operation together with the DescribeVulExportInfo operation. After you call the ExportVul operation to create a vulnerability export task, you can call the DescribeVulExportInfo operation to query the progress of the task by specifying the ID of the task.
+     * ### Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ExportVulRequest $request ExportVulRequest
      *
      * @return ExportVulResponse ExportVulResponse
@@ -19882,10 +21294,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ExportWarningRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Exports baseline check results.
+     *  *
+     * @param ExportWarningRequest $request ExportWarningRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ExportWarningResponse
+     * @return ExportWarningResponse ExportWarningResponse
      */
     public function exportWarningWithOptions($request, $runtime)
     {
@@ -19958,9 +21372,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ExportWarningRequest $request
+     * @summary Exports baseline check results.
+     *  *
+     * @param ExportWarningRequest $request ExportWarningRequest
      *
-     * @return ExportWarningResponse
+     * @return ExportWarningResponse ExportWarningResponse
      */
     public function exportWarning($request)
     {
@@ -19970,10 +21386,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param FindContainerNetworkConnectRequest $tmpReq
-     * @param RuntimeOptions                     $runtime
+     * @summary 容器网络连接
+     *  *
+     * @param FindContainerNetworkConnectRequest $tmpReq  FindContainerNetworkConnectRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return FindContainerNetworkConnectResponse
+     * @return FindContainerNetworkConnectResponse FindContainerNetworkConnectResponse
      */
     public function findContainerNetworkConnectWithOptions($tmpReq, $runtime)
     {
@@ -20027,9 +21445,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param FindContainerNetworkConnectRequest $request
+     * @summary 容器网络连接
+     *  *
+     * @param FindContainerNetworkConnectRequest $request FindContainerNetworkConnectRequest
      *
-     * @return FindContainerNetworkConnectResponse
+     * @return FindContainerNetworkConnectResponse FindContainerNetworkConnectResponse
      */
     public function findContainerNetworkConnect($request)
     {
@@ -20039,10 +21459,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param FixCheckWarningsRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Fixes a baseline risk item.
+     *  *
+     * @param FixCheckWarningsRequest $request FixCheckWarningsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return FixCheckWarningsResponse
+     * @return FixCheckWarningsResponse FixCheckWarningsResponse
      */
     public function fixCheckWarningsWithOptions($request, $runtime)
     {
@@ -20082,9 +21504,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param FixCheckWarningsRequest $request
+     * @summary Fixes a baseline risk item.
+     *  *
+     * @param FixCheckWarningsRequest $request FixCheckWarningsRequest
      *
-     * @return FixCheckWarningsResponse
+     * @return FixCheckWarningsResponse FixCheckWarningsResponse
      */
     public function fixCheckWarnings($request)
     {
@@ -20094,10 +21518,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GenerateK8sAccessInfoRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Generates a command that is used to add a self-managed Kubernetes cluster.
+     *  *
+     * @param GenerateK8sAccessInfoRequest $request GenerateK8sAccessInfoRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GenerateK8sAccessInfoResponse
+     * @return GenerateK8sAccessInfoResponse GenerateK8sAccessInfoResponse
      */
     public function generateK8sAccessInfoWithOptions($request, $runtime)
     {
@@ -20152,9 +21578,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GenerateK8sAccessInfoRequest $request
+     * @summary Generates a command that is used to add a self-managed Kubernetes cluster.
+     *  *
+     * @param GenerateK8sAccessInfoRequest $request GenerateK8sAccessInfoRequest
      *
-     * @return GenerateK8sAccessInfoResponse
+     * @return GenerateK8sAccessInfoResponse GenerateK8sAccessInfoResponse
      */
     public function generateK8sAccessInfo($request)
     {
@@ -20164,10 +21592,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GenerateOnceTaskRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Creates a one-time scan task.
+     *  *
+     * @param GenerateOnceTaskRequest $request GenerateOnceTaskRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GenerateOnceTaskResponse
+     * @return GenerateOnceTaskResponse GenerateOnceTaskResponse
      */
     public function generateOnceTaskWithOptions($request, $runtime)
     {
@@ -20204,9 +21634,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GenerateOnceTaskRequest $request
+     * @summary Creates a one-time scan task.
+     *  *
+     * @param GenerateOnceTaskRequest $request GenerateOnceTaskRequest
      *
-     * @return GenerateOnceTaskResponse
+     * @return GenerateOnceTaskResponse GenerateOnceTaskResponse
      */
     public function generateOnceTask($request)
     {
@@ -20216,10 +21648,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetAegisContainerPluginRuleCriteriaRequest $request
-     * @param RuntimeOptions                             $runtime
+     * @summary Queries search conditions that can be used to search for container file protection rules.
+     *  *
+     * @param GetAegisContainerPluginRuleCriteriaRequest $request GetAegisContainerPluginRuleCriteriaRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAegisContainerPluginRuleCriteriaResponse
+     * @return GetAegisContainerPluginRuleCriteriaResponse GetAegisContainerPluginRuleCriteriaResponse
      */
     public function getAegisContainerPluginRuleCriteriaWithOptions($request, $runtime)
     {
@@ -20250,9 +21684,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetAegisContainerPluginRuleCriteriaRequest $request
+     * @summary Queries search conditions that can be used to search for container file protection rules.
+     *  *
+     * @param GetAegisContainerPluginRuleCriteriaRequest $request GetAegisContainerPluginRuleCriteriaRequest
      *
-     * @return GetAegisContainerPluginRuleCriteriaResponse
+     * @return GetAegisContainerPluginRuleCriteriaResponse GetAegisContainerPluginRuleCriteriaResponse
      */
     public function getAegisContainerPluginRuleCriteria($request)
     {
@@ -20262,9 +21698,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the number of agentless detection tasks.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAgentlessTaskCountResponse
+     * @return GetAgentlessTaskCountResponse GetAgentlessTaskCountResponse
      */
     public function getAgentlessTaskCountWithOptions($runtime)
     {
@@ -20285,7 +21723,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return GetAgentlessTaskCountResponse
+     * @summary Queries the number of agentless detection tasks.
+     *  *
+     * @return GetAgentlessTaskCountResponse GetAgentlessTaskCountResponse
      */
     public function getAgentlessTaskCount()
     {
@@ -20295,10 +21735,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetAlarmMachineCountRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the number of servers on which alerts are generated.
+     *  *
+     * @param GetAlarmMachineCountRequest $request GetAlarmMachineCountRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAlarmMachineCountResponse
+     * @return GetAlarmMachineCountResponse GetAlarmMachineCountResponse
      */
     public function getAlarmMachineCountWithOptions($request, $runtime)
     {
@@ -20326,9 +21768,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetAlarmMachineCountRequest $request
+     * @summary Queries the number of servers on which alerts are generated.
+     *  *
+     * @param GetAlarmMachineCountRequest $request GetAlarmMachineCountRequest
      *
-     * @return GetAlarmMachineCountResponse
+     * @return GetAlarmMachineCountResponse GetAlarmMachineCountResponse
      */
     public function getAlarmMachineCount($request)
     {
@@ -20338,10 +21782,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetAppNetworkRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Queries the network topology between containerized applications.
+     *  *
+     * @param GetAppNetworkRequest $request GetAppNetworkRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAppNetworkResponse
+     * @return GetAppNetworkResponse GetAppNetworkResponse
      */
     public function getAppNetworkWithOptions($request, $runtime)
     {
@@ -20366,9 +21812,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetAppNetworkRequest $request
+     * @summary Queries the network topology between containerized applications.
+     *  *
+     * @param GetAppNetworkRequest $request GetAppNetworkRequest
      *
-     * @return GetAppNetworkResponse
+     * @return GetAppNetworkResponse GetAppNetworkResponse
      */
     public function getAppNetwork($request)
     {
@@ -20378,10 +21826,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetAssetDetailByUuidRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the details of a server and the extended information about the server by using the UUID of the server.
+     *  *
+     * @param GetAssetDetailByUuidRequest $request GetAssetDetailByUuidRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAssetDetailByUuidResponse
+     * @return GetAssetDetailByUuidResponse GetAssetDetailByUuidResponse
      */
     public function getAssetDetailByUuidWithOptions($request, $runtime)
     {
@@ -20415,9 +21865,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetAssetDetailByUuidRequest $request
+     * @summary Queries the details of a server and the extended information about the server by using the UUID of the server.
+     *  *
+     * @param GetAssetDetailByUuidRequest $request GetAssetDetailByUuidRequest
      *
-     * @return GetAssetDetailByUuidResponse
+     * @return GetAssetDetailByUuidResponse GetAssetDetailByUuidResponse
      */
     public function getAssetDetailByUuid($request)
     {
@@ -20427,10 +21879,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetAssetSelectionConfigRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries asset selection configurations.
+     *  *
+     * @param GetAssetSelectionConfigRequest $request GetAssetSelectionConfigRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAssetSelectionConfigResponse
+     * @return GetAssetSelectionConfigResponse GetAssetSelectionConfigResponse
      */
     public function getAssetSelectionConfigWithOptions($request, $runtime)
     {
@@ -20458,9 +21912,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetAssetSelectionConfigRequest $request
+     * @summary Queries asset selection configurations.
+     *  *
+     * @param GetAssetSelectionConfigRequest $request GetAssetSelectionConfigRequest
      *
-     * @return GetAssetSelectionConfigResponse
+     * @return GetAssetSelectionConfigResponse GetAssetSelectionConfigResponse
      */
     public function getAssetSelectionConfig($request)
     {
@@ -20470,10 +21926,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetAssetsPropertyDetailRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the details about the asset fingerprints of the startup item, kernel module, or website type.
+     *  *
+     * @param GetAssetsPropertyDetailRequest $request GetAssetsPropertyDetailRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAssetsPropertyDetailResponse
+     * @return GetAssetsPropertyDetailResponse GetAssetsPropertyDetailResponse
      */
     public function getAssetsPropertyDetailWithOptions($request, $runtime)
     {
@@ -20522,9 +21980,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetAssetsPropertyDetailRequest $request
+     * @summary Queries the details about the asset fingerprints of the startup item, kernel module, or website type.
+     *  *
+     * @param GetAssetsPropertyDetailRequest $request GetAssetsPropertyDetailRequest
      *
-     * @return GetAssetsPropertyDetailResponse
+     * @return GetAssetsPropertyDetailResponse GetAssetsPropertyDetailResponse
      */
     public function getAssetsPropertyDetail($request)
     {
@@ -20534,10 +21994,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetAssetsPropertyItemRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the aggregation information about the asset fingerprints of the startup item, kernel module, or website type.
+     *  *
+     * @param GetAssetsPropertyItemRequest $request GetAssetsPropertyItemRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAssetsPropertyItemResponse
+     * @return GetAssetsPropertyItemResponse GetAssetsPropertyItemResponse
      */
     public function getAssetsPropertyItemWithOptions($request, $runtime)
     {
@@ -20583,9 +22045,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetAssetsPropertyItemRequest $request
+     * @summary Queries the aggregation information about the asset fingerprints of the startup item, kernel module, or website type.
+     *  *
+     * @param GetAssetsPropertyItemRequest $request GetAssetsPropertyItemRequest
      *
-     * @return GetAssetsPropertyItemResponse
+     * @return GetAssetsPropertyItemResponse GetAssetsPropertyItemResponse
      */
     public function getAssetsPropertyItem($request)
     {
@@ -20595,9 +22059,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the statistics about the numbers of assets protected by each edition of Security Center.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAuthVersionStatisticResponse
+     * @return GetAuthVersionStatisticResponse GetAuthVersionStatisticResponse
      */
     public function getAuthVersionStatisticWithOptions($runtime)
     {
@@ -20618,7 +22084,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return GetAuthVersionStatisticResponse
+     * @summary Queries the statistics about the numbers of assets protected by each edition of Security Center.
+     *  *
+     * @return GetAuthVersionStatisticResponse GetAuthVersionStatisticResponse
      */
     public function getAuthVersionStatistic()
     {
@@ -20628,9 +22096,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary 查询防勒索存储统计
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetBackupStorageCountResponse
+     * @return GetBackupStorageCountResponse GetBackupStorageCountResponse
      */
     public function getBackupStorageCountWithOptions($runtime)
     {
@@ -20651,7 +22121,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return GetBackupStorageCountResponse
+     * @summary 查询防勒索存储统计
+     *  *
+     * @return GetBackupStorageCountResponse GetBackupStorageCountResponse
      */
     public function getBackupStorageCount()
     {
@@ -20661,9 +22133,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the information about an automatic configuration check on cloud services.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetCheckConfigResponse
+     * @return GetCheckConfigResponse GetCheckConfigResponse
      */
     public function getCheckConfigWithOptions($runtime)
     {
@@ -20684,7 +22158,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return GetCheckConfigResponse
+     * @summary Queries the information about an automatic configuration check on cloud services.
+     *  *
+     * @return GetCheckConfigResponse GetCheckConfigResponse
      */
     public function getCheckConfig()
     {
@@ -20694,10 +22170,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetCheckDetailRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Queries the details about a check item that is used for configuration assessment.
+     *  *
+     * @param GetCheckDetailRequest $request GetCheckDetailRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetCheckDetailResponse
+     * @return GetCheckDetailResponse GetCheckDetailResponse
      */
     public function getCheckDetailWithOptions($request, $runtime)
     {
@@ -20731,9 +22209,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetCheckDetailRequest $request
+     * @summary Queries the details about a check item that is used for configuration assessment.
+     *  *
+     * @param GetCheckDetailRequest $request GetCheckDetailRequest
      *
-     * @return GetCheckDetailResponse
+     * @return GetCheckDetailResponse GetCheckDetailResponse
      */
     public function getCheckDetail($request)
     {
@@ -20743,10 +22223,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetCheckProcessRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries the progress of a configuration check task on cloud services.
+     *  *
+     * @param GetCheckProcessRequest $request GetCheckProcessRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetCheckProcessResponse
+     * @return GetCheckProcessResponse GetCheckProcessResponse
      */
     public function getCheckProcessWithOptions($request, $runtime)
     {
@@ -20774,9 +22256,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetCheckProcessRequest $request
+     * @summary Queries the progress of a configuration check task on cloud services.
+     *  *
+     * @param GetCheckProcessRequest $request GetCheckProcessRequest
      *
-     * @return GetCheckProcessResponse
+     * @return GetCheckProcessResponse GetCheckProcessResponse
      */
     public function getCheckProcess($request)
     {
@@ -20786,10 +22270,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetCheckRiskStatisticsRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries the statistics on risk scenarios and check items that are used in the risk scenarios, including the statistics on low-risk, medium-risk, and high-risk items by baseline type.
+     *  *
+     * @param GetCheckRiskStatisticsRequest $request GetCheckRiskStatisticsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetCheckRiskStatisticsResponse
+     * @return GetCheckRiskStatisticsResponse GetCheckRiskStatisticsResponse
      */
     public function getCheckRiskStatisticsWithOptions($request, $runtime)
     {
@@ -20823,9 +22309,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetCheckRiskStatisticsRequest $request
+     * @summary Queries the statistics on risk scenarios and check items that are used in the risk scenarios, including the statistics on low-risk, medium-risk, and high-risk items by baseline type.
+     *  *
+     * @param GetCheckRiskStatisticsRequest $request GetCheckRiskStatisticsRequest
      *
-     * @return GetCheckRiskStatisticsResponse
+     * @return GetCheckRiskStatisticsResponse GetCheckRiskStatisticsResponse
      */
     public function getCheckRiskStatistics($request)
     {
@@ -20835,10 +22323,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetCheckSaleRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Queries the sales information about the configuration assessment feature, including the purchased quota and the consumed quota.
+     *  *
+     * @param GetCheckSaleRequest $request GetCheckSaleRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetCheckSaleResponse
+     * @return GetCheckSaleResponse GetCheckSaleResponse
      */
     public function getCheckSaleWithOptions($request, $runtime)
     {
@@ -20866,9 +22356,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetCheckSaleRequest $request
+     * @summary Queries the sales information about the configuration assessment feature, including the purchased quota and the consumed quota.
+     *  *
+     * @param GetCheckSaleRequest $request GetCheckSaleRequest
      *
-     * @return GetCheckSaleResponse
+     * @return GetCheckSaleResponse GetCheckSaleResponse
      */
     public function getCheckSale($request)
     {
@@ -20878,10 +22370,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetCheckSummaryRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries the summary information about the configuration checks on cloud services.
+     *  *
+     * @param GetCheckSummaryRequest $request GetCheckSummaryRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetCheckSummaryResponse
+     * @return GetCheckSummaryResponse GetCheckSummaryResponse
      */
     public function getCheckSummaryWithOptions($request, $runtime)
     {
@@ -20918,9 +22412,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetCheckSummaryRequest $request
+     * @summary Queries the summary information about the configuration checks on cloud services.
+     *  *
+     * @param GetCheckSummaryRequest $request GetCheckSummaryRequest
      *
-     * @return GetCheckSummaryResponse
+     * @return GetCheckSummaryResponse GetCheckSummaryResponse
      */
     public function getCheckSummary($request)
     {
@@ -20930,8 +22426,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @deprecated : GetClientInstallationStatistic is deprecated, please use Sas::2018-12-03::GetClientRatioStatistic instead.
-     *   *
+     * @deprecated openAPI GetClientInstallationStatistic is deprecated, please use Sas::2018-12-03::GetClientRatioStatistic instead
+     *  *
+     * @summary Queries the installation rate of the client on cloud assets in the specified period of time.
+     *  *
      * Deprecated
      *
      * @param GetClientInstallationStatisticRequest $request GetClientInstallationStatisticRequest
@@ -20968,8 +22466,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @deprecated : GetClientInstallationStatistic is deprecated, please use Sas::2018-12-03::GetClientRatioStatistic instead.
-     *   *
+     * @deprecated openAPI GetClientInstallationStatistic is deprecated, please use Sas::2018-12-03::GetClientRatioStatistic instead
+     *  *
+     * @summary Queries the installation rate of the client on cloud assets in the specified period of time.
+     *  *
      * Deprecated
      *
      * @param GetClientInstallationStatisticRequest $request GetClientInstallationStatisticRequest
@@ -20984,10 +22484,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetClientRatioStatisticRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the installation rate and online rate of the agent.
+     *  *
+     * @param GetClientRatioStatisticRequest $request GetClientRatioStatisticRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetClientRatioStatisticResponse
+     * @return GetClientRatioStatisticResponse GetClientRatioStatisticResponse
      */
     public function getClientRatioStatisticWithOptions($request, $runtime)
     {
@@ -21024,9 +22526,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetClientRatioStatisticRequest $request
+     * @summary Queries the installation rate and online rate of the agent.
+     *  *
+     * @param GetClientRatioStatisticRequest $request GetClientRatioStatisticRequest
      *
-     * @return GetClientRatioStatisticResponse
+     * @return GetClientRatioStatisticResponse GetClientRatioStatisticResponse
      */
     public function getClientRatioStatistic($request)
     {
@@ -21036,10 +22540,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetClientUserDefineRuleRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the information about a custom defense rule.
+     *  *
+     * @param GetClientUserDefineRuleRequest $request GetClientUserDefineRuleRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetClientUserDefineRuleResponse
+     * @return GetClientUserDefineRuleResponse GetClientUserDefineRuleResponse
      */
     public function getClientUserDefineRuleWithOptions($request, $runtime)
     {
@@ -21067,9 +22573,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetClientUserDefineRuleRequest $request
+     * @summary Queries the information about a custom defense rule.
+     *  *
+     * @param GetClientUserDefineRuleRequest $request GetClientUserDefineRuleRequest
      *
-     * @return GetClientUserDefineRuleResponse
+     * @return GetClientUserDefineRuleResponse GetClientUserDefineRuleResponse
      */
     public function getClientUserDefineRule($request)
     {
@@ -21079,10 +22587,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetCloudAssetCriteriaRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the filter conditions that are used to search for cloud assets.
+     *  *
+     * @param GetCloudAssetCriteriaRequest $request GetCloudAssetCriteriaRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetCloudAssetCriteriaResponse
+     * @return GetCloudAssetCriteriaResponse GetCloudAssetCriteriaResponse
      */
     public function getCloudAssetCriteriaWithOptions($request, $runtime)
     {
@@ -21113,9 +22623,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetCloudAssetCriteriaRequest $request
+     * @summary Queries the filter conditions that are used to search for cloud assets.
+     *  *
+     * @param GetCloudAssetCriteriaRequest $request GetCloudAssetCriteriaRequest
      *
-     * @return GetCloudAssetCriteriaResponse
+     * @return GetCloudAssetCriteriaResponse GetCloudAssetCriteriaResponse
      */
     public function getCloudAssetCriteria($request)
     {
@@ -21125,10 +22637,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetCloudAssetDetailRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Obtains the details of cloud assets.
+     *  *
+     * @param GetCloudAssetDetailRequest $request GetCloudAssetDetailRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetCloudAssetDetailResponse
+     * @return GetCloudAssetDetailResponse GetCloudAssetDetailResponse
      */
     public function getCloudAssetDetailWithOptions($request, $runtime)
     {
@@ -21165,9 +22679,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetCloudAssetDetailRequest $request
+     * @summary Obtains the details of cloud assets.
+     *  *
+     * @param GetCloudAssetDetailRequest $request GetCloudAssetDetailRequest
      *
-     * @return GetCloudAssetDetailResponse
+     * @return GetCloudAssetDetailResponse GetCloudAssetDetailResponse
      */
     public function getCloudAssetDetail($request)
     {
@@ -21177,10 +22693,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetCloudAssetSummaryRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary The total number of instances that are at risk.
+     *  *
+     * @param GetCloudAssetSummaryRequest $request GetCloudAssetSummaryRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetCloudAssetSummaryResponse
+     * @return GetCloudAssetSummaryResponse GetCloudAssetSummaryResponse
      */
     public function getCloudAssetSummaryWithOptions($request, $runtime)
     {
@@ -21208,9 +22726,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetCloudAssetSummaryRequest $request
+     * @summary The total number of instances that are at risk.
+     *  *
+     * @param GetCloudAssetSummaryRequest $request GetCloudAssetSummaryRequest
      *
-     * @return GetCloudAssetSummaryResponse
+     * @return GetCloudAssetSummaryResponse GetCloudAssetSummaryResponse
      */
     public function getCloudAssetSummary($request)
     {
@@ -21220,10 +22740,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetClusterCheckItemWarningStatisticsRequest $request
-     * @param RuntimeOptions                              $runtime
+     * @summary Queries the statistics on baseline risk items of container clusters.
+     *  *
+     * @param GetClusterCheckItemWarningStatisticsRequest $request GetClusterCheckItemWarningStatisticsRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetClusterCheckItemWarningStatisticsResponse
+     * @return GetClusterCheckItemWarningStatisticsResponse GetClusterCheckItemWarningStatisticsResponse
      */
     public function getClusterCheckItemWarningStatisticsWithOptions($request, $runtime)
     {
@@ -21254,9 +22776,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetClusterCheckItemWarningStatisticsRequest $request
+     * @summary Queries the statistics on baseline risk items of container clusters.
+     *  *
+     * @param GetClusterCheckItemWarningStatisticsRequest $request GetClusterCheckItemWarningStatisticsRequest
      *
-     * @return GetClusterCheckItemWarningStatisticsResponse
+     * @return GetClusterCheckItemWarningStatisticsResponse GetClusterCheckItemWarningStatisticsResponse
      */
     public function getClusterCheckItemWarningStatistics($request)
     {
@@ -21266,10 +22790,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetClusterRuleSummaryRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the overall information about cluster defense rules that are configured for the container firewall feature.
+     *  *
+     * @param GetClusterRuleSummaryRequest $request GetClusterRuleSummaryRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetClusterRuleSummaryResponse
+     * @return GetClusterRuleSummaryResponse GetClusterRuleSummaryResponse
      */
     public function getClusterRuleSummaryWithOptions($request, $runtime)
     {
@@ -21297,9 +22823,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetClusterRuleSummaryRequest $request
+     * @summary Queries the overall information about cluster defense rules that are configured for the container firewall feature.
+     *  *
+     * @param GetClusterRuleSummaryRequest $request GetClusterRuleSummaryRequest
      *
-     * @return GetClusterRuleSummaryResponse
+     * @return GetClusterRuleSummaryResponse GetClusterRuleSummaryResponse
      */
     public function getClusterRuleSummary($request)
     {
@@ -21309,9 +22837,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the number of policies in each cluster.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetClusterStrategyCountResponse
+     * @return GetClusterStrategyCountResponse GetClusterStrategyCountResponse
      */
     public function getClusterStrategyCountWithOptions($runtime)
     {
@@ -21332,7 +22862,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return GetClusterStrategyCountResponse
+     * @summary Queries the number of policies in each cluster.
+     *  *
+     * @return GetClusterStrategyCountResponse GetClusterStrategyCountResponse
      */
     public function getClusterStrategyCount()
     {
@@ -21342,10 +22874,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetClusterSuspEventStatisticsRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Queries the statistics on alert events that are generated for containers.
+     *  *
+     * @param GetClusterSuspEventStatisticsRequest $request GetClusterSuspEventStatisticsRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetClusterSuspEventStatisticsResponse
+     * @return GetClusterSuspEventStatisticsResponse GetClusterSuspEventStatisticsResponse
      */
     public function getClusterSuspEventStatisticsWithOptions($request, $runtime)
     {
@@ -21376,9 +22910,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetClusterSuspEventStatisticsRequest $request
+     * @summary Queries the statistics on alert events that are generated for containers.
+     *  *
+     * @param GetClusterSuspEventStatisticsRequest $request GetClusterSuspEventStatisticsRequest
      *
-     * @return GetClusterSuspEventStatisticsResponse
+     * @return GetClusterSuspEventStatisticsResponse GetClusterSuspEventStatisticsResponse
      */
     public function getClusterSuspEventStatistics($request)
     {
@@ -21388,10 +22924,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetCommonSwitchConfigRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the configuration of a common switch.
+     *  *
+     * @param GetCommonSwitchConfigRequest $request GetCommonSwitchConfigRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetCommonSwitchConfigResponse
+     * @return GetCommonSwitchConfigResponse GetCommonSwitchConfigResponse
      */
     public function getCommonSwitchConfigWithOptions($request, $runtime)
     {
@@ -21419,9 +22957,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetCommonSwitchConfigRequest $request
+     * @summary Queries the configuration of a common switch.
+     *  *
+     * @param GetCommonSwitchConfigRequest $request GetCommonSwitchConfigRequest
      *
-     * @return GetCommonSwitchConfigResponse
+     * @return GetCommonSwitchConfigResponse GetCommonSwitchConfigResponse
      */
     public function getCommonSwitchConfig($request)
     {
@@ -21431,10 +22971,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetContainerDefenseRuleDetailRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Queries the details of a rule for non-image program defense.
+     *  *
+     * @param GetContainerDefenseRuleDetailRequest $request GetContainerDefenseRuleDetailRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetContainerDefenseRuleDetailResponse
+     * @return GetContainerDefenseRuleDetailResponse GetContainerDefenseRuleDetailResponse
      */
     public function getContainerDefenseRuleDetailWithOptions($request, $runtime)
     {
@@ -21462,9 +23004,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetContainerDefenseRuleDetailRequest $request
+     * @summary Queries the details of a rule for non-image program defense.
+     *  *
+     * @param GetContainerDefenseRuleDetailRequest $request GetContainerDefenseRuleDetailRequest
      *
-     * @return GetContainerDefenseRuleDetailResponse
+     * @return GetContainerDefenseRuleDetailResponse GetContainerDefenseRuleDetailResponse
      */
     public function getContainerDefenseRuleDetail($request)
     {
@@ -21474,9 +23018,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Obtains the usage information of the malicious file detection SDK.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetFileDetectApiInvokeInfoResponse
+     * @return GetFileDetectApiInvokeInfoResponse GetFileDetectApiInvokeInfoResponse
      */
     public function getFileDetectApiInvokeInfoWithOptions($runtime)
     {
@@ -21497,7 +23043,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return GetFileDetectApiInvokeInfoResponse
+     * @summary Obtains the usage information of the malicious file detection SDK.
+     *  *
+     * @return GetFileDetectApiInvokeInfoResponse GetFileDetectApiInvokeInfoResponse
      */
     public function getFileDetectApiInvokeInfo()
     {
@@ -21507,10 +23055,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetFileDetectReportRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the cloud sandbox check results of malicious files.
+     *  *
+     * @param GetFileDetectReportRequest $request GetFileDetectReportRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetFileDetectReportResponse
+     * @return GetFileDetectReportResponse GetFileDetectReportResponse
      */
     public function getFileDetectReportWithOptions($request, $runtime)
     {
@@ -21550,9 +23100,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetFileDetectReportRequest $request
+     * @summary Queries the cloud sandbox check results of malicious files.
+     *  *
+     * @param GetFileDetectReportRequest $request GetFileDetectReportRequest
      *
-     * @return GetFileDetectReportResponse
+     * @return GetFileDetectReportResponse GetFileDetectReportResponse
      */
     public function getFileDetectReport($request)
     {
@@ -21562,8 +23114,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * The HashKey parameter is included in all API operations that are related to the file detection feature. The parameter specifies the unique identifier of a file. Only MD5 hash values are supported. Before you call this operation, calculate the MD5 hash value of the file.
-     *   *
+     * @summary Obtains file detection results.
+     *  *
+     * @description The HashKey parameter is included in all API operations that are related to the file detection feature. The parameter specifies the unique identifier of a file. Only MD5 hash values are supported. Before you call this operation, calculate the MD5 hash value of the file.
+     *  *
      * @param GetFileDetectResultRequest $request GetFileDetectResultRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -21601,8 +23155,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * The HashKey parameter is included in all API operations that are related to the file detection feature. The parameter specifies the unique identifier of a file. Only MD5 hash values are supported. Before you call this operation, calculate the MD5 hash value of the file.
-     *   *
+     * @summary Obtains file detection results.
+     *  *
+     * @description The HashKey parameter is included in all API operations that are related to the file detection feature. The parameter specifies the unique identifier of a file. Only MD5 hash values are supported. Before you call this operation, calculate the MD5 hash value of the file.
+     *  *
      * @param GetFileDetectResultRequest $request GetFileDetectResultRequest
      *
      * @return GetFileDetectResultResponse GetFileDetectResultResponse
@@ -21615,9 +23171,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries information about the core file monitoring feature, including the number of effective rules and the installation status of the Security Center agent on servers.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetFileProtectDashboardResponse
+     * @return GetFileProtectDashboardResponse GetFileProtectDashboardResponse
      */
     public function getFileProtectDashboardWithOptions($runtime)
     {
@@ -21638,7 +23196,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return GetFileProtectDashboardResponse
+     * @summary Queries information about the core file monitoring feature, including the number of effective rules and the installation status of the Security Center agent on servers.
+     *  *
+     * @return GetFileProtectDashboardResponse GetFileProtectDashboardResponse
      */
     public function getFileProtectDashboard()
     {
@@ -21648,10 +23208,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetFileProtectEventRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries information about core file monitoring events.
+     *  *
+     * @param GetFileProtectEventRequest $request GetFileProtectEventRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetFileProtectEventResponse
+     * @return GetFileProtectEventResponse GetFileProtectEventResponse
      */
     public function getFileProtectEventWithOptions($request, $runtime)
     {
@@ -21679,9 +23241,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetFileProtectEventRequest $request
+     * @summary Queries information about core file monitoring events.
+     *  *
+     * @param GetFileProtectEventRequest $request GetFileProtectEventRequest
      *
-     * @return GetFileProtectEventResponse
+     * @return GetFileProtectEventResponse GetFileProtectEventResponse
      */
     public function getFileProtectEvent($request)
     {
@@ -21691,10 +23255,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetFileProtectEventCountRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the total number of core file monitoring events by filter condition.
+     *  *
+     * @param GetFileProtectEventCountRequest $request GetFileProtectEventCountRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetFileProtectEventCountResponse
+     * @return GetFileProtectEventCountResponse GetFileProtectEventCountResponse
      */
     public function getFileProtectEventCountWithOptions($request, $runtime)
     {
@@ -21722,9 +23288,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetFileProtectEventCountRequest $request
+     * @summary Queries the total number of core file monitoring events by filter condition.
+     *  *
+     * @param GetFileProtectEventCountRequest $request GetFileProtectEventCountRequest
      *
-     * @return GetFileProtectEventCountResponse
+     * @return GetFileProtectEventCountResponse GetFileProtectEventCountResponse
      */
     public function getFileProtectEventCount($request)
     {
@@ -21734,10 +23302,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetFileProtectRuleRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the information about a core file monitoring rule based on the ID of the rule.
+     *  *
+     * @param GetFileProtectRuleRequest $request GetFileProtectRuleRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetFileProtectRuleResponse
+     * @return GetFileProtectRuleResponse GetFileProtectRuleResponse
      */
     public function getFileProtectRuleWithOptions($request, $runtime)
     {
@@ -21765,9 +23335,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetFileProtectRuleRequest $request
+     * @summary Queries the information about a core file monitoring rule based on the ID of the rule.
+     *  *
+     * @param GetFileProtectRuleRequest $request GetFileProtectRuleRequest
      *
-     * @return GetFileProtectRuleResponse
+     * @return GetFileProtectRuleResponse GetFileProtectRuleResponse
      */
     public function getFileProtectRule($request)
     {
@@ -21777,9 +23349,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the queries per second (QPS) limit on the files uploaded from the client.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetFileUploadLimitResponse
+     * @return GetFileUploadLimitResponse GetFileUploadLimitResponse
      */
     public function getFileUploadLimitWithOptions($runtime)
     {
@@ -21800,7 +23374,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return GetFileUploadLimitResponse
+     * @summary Queries the queries per second (QPS) limit on the files uploaded from the client.
+     *  *
+     * @return GetFileUploadLimitResponse GetFileUploadLimitResponse
      */
     public function getFileUploadLimit()
     {
@@ -21810,10 +23386,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetHoneyPotUploadPolicyInfoRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Obtains the URL that is used to upload a file to a honeypot.
+     *  *
+     * @param GetHoneyPotUploadPolicyInfoRequest $request GetHoneyPotUploadPolicyInfoRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetHoneyPotUploadPolicyInfoResponse
+     * @return GetHoneyPotUploadPolicyInfoResponse GetHoneyPotUploadPolicyInfoResponse
      */
     public function getHoneyPotUploadPolicyInfoWithOptions($request, $runtime)
     {
@@ -21841,9 +23419,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetHoneyPotUploadPolicyInfoRequest $request
+     * @summary Obtains the URL that is used to upload a file to a honeypot.
+     *  *
+     * @param GetHoneyPotUploadPolicyInfoRequest $request GetHoneyPotUploadPolicyInfoRequest
      *
-     * @return GetHoneyPotUploadPolicyInfoResponse
+     * @return GetHoneyPotUploadPolicyInfoResponse GetHoneyPotUploadPolicyInfoResponse
      */
     public function getHoneyPotUploadPolicyInfo($request)
     {
@@ -21853,10 +23433,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetHoneypotAttackStatisticsRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param GetHoneypotAttackStatisticsRequest $request GetHoneypotAttackStatisticsRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetHoneypotAttackStatisticsResponse
+     * @return GetHoneypotAttackStatisticsResponse GetHoneypotAttackStatisticsResponse
      */
     public function getHoneypotAttackStatisticsWithOptions($request, $runtime)
     {
@@ -21905,9 +23485,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetHoneypotAttackStatisticsRequest $request
+     * @param GetHoneypotAttackStatisticsRequest $request GetHoneypotAttackStatisticsRequest
      *
-     * @return GetHoneypotAttackStatisticsResponse
+     * @return GetHoneypotAttackStatisticsResponse GetHoneypotAttackStatisticsResponse
      */
     public function getHoneypotAttackStatistics($request)
     {
@@ -21917,10 +23497,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetHoneypotEventTrendRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Obtain attack trend statistics for a single attack source.
+     *  *
+     * @param GetHoneypotEventTrendRequest $request GetHoneypotEventTrendRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetHoneypotEventTrendResponse
+     * @return GetHoneypotEventTrendResponse GetHoneypotEventTrendResponse
      */
     public function getHoneypotEventTrendWithOptions($request, $runtime)
     {
@@ -21960,9 +23542,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetHoneypotEventTrendRequest $request
+     * @summary Obtain attack trend statistics for a single attack source.
+     *  *
+     * @param GetHoneypotEventTrendRequest $request GetHoneypotEventTrendRequest
      *
-     * @return GetHoneypotEventTrendResponse
+     * @return GetHoneypotEventTrendResponse GetHoneypotEventTrendResponse
      */
     public function getHoneypotEventTrend($request)
     {
@@ -21972,10 +23556,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetHoneypotNodeRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries the details of a specified management node.
+     *  *
+     * @param GetHoneypotNodeRequest $request GetHoneypotNodeRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetHoneypotNodeResponse
+     * @return GetHoneypotNodeResponse GetHoneypotNodeResponse
      */
     public function getHoneypotNodeWithOptions($request, $runtime)
     {
@@ -22006,9 +23592,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetHoneypotNodeRequest $request
+     * @summary Queries the details of a specified management node.
+     *  *
+     * @param GetHoneypotNodeRequest $request GetHoneypotNodeRequest
      *
-     * @return GetHoneypotNodeResponse
+     * @return GetHoneypotNodeResponse GetHoneypotNodeResponse
      */
     public function getHoneypotNode($request)
     {
@@ -22018,10 +23606,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetHoneypotNodeMetricListRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the monitoring data of management nodes to which the cloud honeypot belongs.
+     *  *
+     * @param GetHoneypotNodeMetricListRequest $request GetHoneypotNodeMetricListRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetHoneypotNodeMetricListResponse
+     * @return GetHoneypotNodeMetricListResponse GetHoneypotNodeMetricListResponse
      */
     public function getHoneypotNodeMetricListWithOptions($request, $runtime)
     {
@@ -22070,9 +23660,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetHoneypotNodeMetricListRequest $request
+     * @summary Queries the monitoring data of management nodes to which the cloud honeypot belongs.
+     *  *
+     * @param GetHoneypotNodeMetricListRequest $request GetHoneypotNodeMetricListRequest
      *
-     * @return GetHoneypotNodeMetricListResponse
+     * @return GetHoneypotNodeMetricListResponse GetHoneypotNodeMetricListResponse
      */
     public function getHoneypotNodeMetricList($request)
     {
@@ -22082,10 +23674,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetHoneypotPresetRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries the configurations of a specified honeypot template.
+     *  *
+     * @param GetHoneypotPresetRequest $request GetHoneypotPresetRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetHoneypotPresetResponse
+     * @return GetHoneypotPresetResponse GetHoneypotPresetResponse
      */
     public function getHoneypotPresetWithOptions($request, $runtime)
     {
@@ -22116,9 +23710,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetHoneypotPresetRequest $request
+     * @summary Queries the configurations of a specified honeypot template.
+     *  *
+     * @param GetHoneypotPresetRequest $request GetHoneypotPresetRequest
      *
-     * @return GetHoneypotPresetResponse
+     * @return GetHoneypotPresetResponse GetHoneypotPresetResponse
      */
     public function getHoneypotPreset($request)
     {
@@ -22128,10 +23724,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetHoneypotProbeRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the details about a specified probe.
+     *  *
+     * @param GetHoneypotProbeRequest $request GetHoneypotProbeRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetHoneypotProbeResponse
+     * @return GetHoneypotProbeResponse GetHoneypotProbeResponse
      */
     public function getHoneypotProbeWithOptions($request, $runtime)
     {
@@ -22162,9 +23760,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetHoneypotProbeRequest $request
+     * @summary Queries the details about a specified probe.
+     *  *
+     * @param GetHoneypotProbeRequest $request GetHoneypotProbeRequest
      *
-     * @return GetHoneypotProbeResponse
+     * @return GetHoneypotProbeResponse GetHoneypotProbeResponse
      */
     public function getHoneypotProbe($request)
     {
@@ -22174,10 +23774,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetHoneypotStatisticsRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 获取蜜罐使用量的统计数据
+     *  *
+     * @param GetHoneypotStatisticsRequest $request GetHoneypotStatisticsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetHoneypotStatisticsResponse
+     * @return GetHoneypotStatisticsResponse GetHoneypotStatisticsResponse
      */
     public function getHoneypotStatisticsWithOptions($request, $runtime)
     {
@@ -22205,9 +23807,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetHoneypotStatisticsRequest $request
+     * @summary 获取蜜罐使用量的统计数据
+     *  *
+     * @param GetHoneypotStatisticsRequest $request GetHoneypotStatisticsRequest
      *
-     * @return GetHoneypotStatisticsResponse
+     * @return GetHoneypotStatisticsResponse GetHoneypotStatisticsResponse
      */
     public function getHoneypotStatistics($request)
     {
@@ -22217,10 +23821,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetImageEventOperationRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries alert handling rules.
+     *  *
+     * @param GetImageEventOperationRequest $request GetImageEventOperationRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetImageEventOperationResponse
+     * @return GetImageEventOperationResponse GetImageEventOperationResponse
      */
     public function getImageEventOperationWithOptions($request, $runtime)
     {
@@ -22251,9 +23857,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetImageEventOperationRequest $request
+     * @summary Queries alert handling rules.
+     *  *
+     * @param GetImageEventOperationRequest $request GetImageEventOperationRequest
      *
-     * @return GetImageEventOperationResponse
+     * @return GetImageEventOperationResponse GetImageEventOperationResponse
      */
     public function getImageEventOperation($request)
     {
@@ -22263,10 +23871,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetImageScanNumInPeriodRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the number of image scans that are performed within the last several days.
+     *  *
+     * @param GetImageScanNumInPeriodRequest $request GetImageScanNumInPeriodRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetImageScanNumInPeriodResponse
+     * @return GetImageScanNumInPeriodResponse GetImageScanNumInPeriodResponse
      */
     public function getImageScanNumInPeriodWithOptions($request, $runtime)
     {
@@ -22294,9 +23904,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetImageScanNumInPeriodRequest $request
+     * @summary Queries the number of image scans that are performed within the last several days.
+     *  *
+     * @param GetImageScanNumInPeriodRequest $request GetImageScanNumInPeriodRequest
      *
-     * @return GetImageScanNumInPeriodResponse
+     * @return GetImageScanNumInPeriodResponse GetImageScanNumInPeriodResponse
      */
     public function getImageScanNumInPeriod($request)
     {
@@ -22306,10 +23918,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetInterceptionRuleDetailRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the details of a microsegmentation defense rule.
+     *  *
+     * @param GetInterceptionRuleDetailRequest $request GetInterceptionRuleDetailRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetInterceptionRuleDetailResponse
+     * @return GetInterceptionRuleDetailResponse GetInterceptionRuleDetailResponse
      */
     public function getInterceptionRuleDetailWithOptions($request, $runtime)
     {
@@ -22340,9 +23954,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetInterceptionRuleDetailRequest $request
+     * @summary Queries the details of a microsegmentation defense rule.
+     *  *
+     * @param GetInterceptionRuleDetailRequest $request GetInterceptionRuleDetailRequest
      *
-     * @return GetInterceptionRuleDetailResponse
+     * @return GetInterceptionRuleDetailResponse GetInterceptionRuleDetailResponse
      */
     public function getInterceptionRuleDetail($request)
     {
@@ -22352,10 +23968,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetInterceptionSummaryRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries the statistics of the container firewall feature.
+     *  *
+     * @param GetInterceptionSummaryRequest $request GetInterceptionSummaryRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetInterceptionSummaryResponse
+     * @return GetInterceptionSummaryResponse GetInterceptionSummaryResponse
      */
     public function getInterceptionSummaryWithOptions($request, $runtime)
     {
@@ -22383,9 +24001,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetInterceptionSummaryRequest $request
+     * @summary Queries the statistics of the container firewall feature.
+     *  *
+     * @param GetInterceptionSummaryRequest $request GetInterceptionSummaryRequest
      *
-     * @return GetInterceptionSummaryResponse
+     * @return GetInterceptionSummaryResponse GetInterceptionSummaryResponse
      */
     public function getInterceptionSummary($request)
     {
@@ -22395,10 +24015,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetInterceptionTargetDetailRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries the information about a specified network object that is protected by the container firewall feature.
+     *  *
+     * @param GetInterceptionTargetDetailRequest $request GetInterceptionTargetDetailRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetInterceptionTargetDetailResponse
+     * @return GetInterceptionTargetDetailResponse GetInterceptionTargetDetailResponse
      */
     public function getInterceptionTargetDetailWithOptions($request, $runtime)
     {
@@ -22426,9 +24048,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetInterceptionTargetDetailRequest $request
+     * @summary Queries the information about a specified network object that is protected by the container firewall feature.
+     *  *
+     * @param GetInterceptionTargetDetailRequest $request GetInterceptionTargetDetailRequest
      *
-     * @return GetInterceptionTargetDetailResponse
+     * @return GetInterceptionTargetDetailResponse GetInterceptionTargetDetailResponse
      */
     public function getInterceptionTargetDetail($request)
     {
@@ -22438,10 +24062,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetLastOnceTaskInfoRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries information about the latest scan task to determine whether the task is complete.
+     *  *
+     * @param GetLastOnceTaskInfoRequest $request GetLastOnceTaskInfoRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetLastOnceTaskInfoResponse
+     * @return GetLastOnceTaskInfoResponse GetLastOnceTaskInfoResponse
      */
     public function getLastOnceTaskInfoWithOptions($request, $runtime)
     {
@@ -22475,9 +24101,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetLastOnceTaskInfoRequest $request
+     * @summary Queries information about the latest scan task to determine whether the task is complete.
+     *  *
+     * @param GetLastOnceTaskInfoRequest $request GetLastOnceTaskInfoRequest
      *
-     * @return GetLastOnceTaskInfoResponse
+     * @return GetLastOnceTaskInfoResponse GetLastOnceTaskInfoResponse
      */
     public function getLastOnceTaskInfo($request)
     {
@@ -22487,10 +24115,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetLogMetaRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Queries the status of a data shipping task of a log.
+     *  *
+     * @param GetLogMetaRequest $request GetLogMetaRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetLogMetaResponse
+     * @return GetLogMetaResponse GetLogMetaResponse
      */
     public function getLogMetaWithOptions($request, $runtime)
     {
@@ -22518,9 +24148,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetLogMetaRequest $request
+     * @summary Queries the status of a data shipping task of a log.
+     *  *
+     * @param GetLogMetaRequest $request GetLogMetaRequest
      *
-     * @return GetLogMetaResponse
+     * @return GetLogMetaResponse GetLogMetaResponse
      */
     public function getLogMeta($request)
     {
@@ -22530,10 +24162,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetMaliciousFileWhitelistConfigRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary Queries an alert whitelist rule of sensitive files that are detected by using the agentless detection feature.
+     *  *
+     * @param GetMaliciousFileWhitelistConfigRequest $request GetMaliciousFileWhitelistConfigRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMaliciousFileWhitelistConfigResponse
+     * @return GetMaliciousFileWhitelistConfigResponse GetMaliciousFileWhitelistConfigResponse
      */
     public function getMaliciousFileWhitelistConfigWithOptions($request, $runtime)
     {
@@ -22561,9 +24195,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetMaliciousFileWhitelistConfigRequest $request
+     * @summary Queries an alert whitelist rule of sensitive files that are detected by using the agentless detection feature.
+     *  *
+     * @param GetMaliciousFileWhitelistConfigRequest $request GetMaliciousFileWhitelistConfigRequest
      *
-     * @return GetMaliciousFileWhitelistConfigResponse
+     * @return GetMaliciousFileWhitelistConfigResponse GetMaliciousFileWhitelistConfigResponse
      */
     public function getMaliciousFileWhitelistConfig($request)
     {
@@ -22573,10 +24209,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetModuleConfigRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries the configurations of a module.
+     *  *
+     * @param GetModuleConfigRequest $request GetModuleConfigRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetModuleConfigResponse
+     * @return GetModuleConfigResponse GetModuleConfigResponse
      */
     public function getModuleConfigWithOptions($request, $runtime)
     {
@@ -22607,9 +24245,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetModuleConfigRequest $request
+     * @summary Queries the configurations of a module.
+     *  *
+     * @param GetModuleConfigRequest $request GetModuleConfigRequest
      *
-     * @return GetModuleConfigResponse
+     * @return GetModuleConfigResponse GetModuleConfigResponse
      */
     public function getModuleConfig($request)
     {
@@ -22619,10 +24259,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetModuleTrialAuthInfoRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries the qualification information about the trial use of Security Center value-added features, including vulnerability fixing and threat analysis.
+     *  *
+     * @param GetModuleTrialAuthInfoRequest $request GetModuleTrialAuthInfoRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetModuleTrialAuthInfoResponse
+     * @return GetModuleTrialAuthInfoResponse GetModuleTrialAuthInfoResponse
      */
     public function getModuleTrialAuthInfoWithOptions($request, $runtime)
     {
@@ -22653,9 +24295,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetModuleTrialAuthInfoRequest $request
+     * @summary Queries the qualification information about the trial use of Security Center value-added features, including vulnerability fixing and threat analysis.
+     *  *
+     * @param GetModuleTrialAuthInfoRequest $request GetModuleTrialAuthInfoRequest
      *
-     * @return GetModuleTrialAuthInfoResponse
+     * @return GetModuleTrialAuthInfoResponse GetModuleTrialAuthInfoResponse
      */
     public function getModuleTrialAuthInfo($request)
     {
@@ -22665,10 +24309,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetObjectScanEventRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the details of an alert event that is generated for a malicious object.
+     *  *
+     * @param GetObjectScanEventRequest $request GetObjectScanEventRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetObjectScanEventResponse
+     * @return GetObjectScanEventResponse GetObjectScanEventResponse
      */
     public function getObjectScanEventWithOptions($request, $runtime)
     {
@@ -22699,9 +24345,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetObjectScanEventRequest $request
+     * @summary Queries the details of an alert event that is generated for a malicious object.
+     *  *
+     * @param GetObjectScanEventRequest $request GetObjectScanEventRequest
      *
-     * @return GetObjectScanEventResponse
+     * @return GetObjectScanEventResponse GetObjectScanEventResponse
      */
     public function getObjectScanEvent($request)
     {
@@ -22711,10 +24359,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetOnceTaskResultInfoRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the execution result of a one-time scan task, such as asset fingerprint collection, vulnerability scan, and image security scan.
+     *  *
+     * @param GetOnceTaskResultInfoRequest $request GetOnceTaskResultInfoRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetOnceTaskResultInfoResponse
+     * @return GetOnceTaskResultInfoResponse GetOnceTaskResultInfoResponse
      */
     public function getOnceTaskResultInfoWithOptions($request, $runtime)
     {
@@ -22748,9 +24398,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetOnceTaskResultInfoRequest $request
+     * @summary Queries the execution result of a one-time scan task, such as asset fingerprint collection, vulnerability scan, and image security scan.
+     *  *
+     * @param GetOnceTaskResultInfoRequest $request GetOnceTaskResultInfoRequest
      *
-     * @return GetOnceTaskResultInfoResponse
+     * @return GetOnceTaskResultInfoResponse GetOnceTaskResultInfoResponse
      */
     public function getOnceTaskResultInfo($request)
     {
@@ -22760,9 +24412,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the baselines that are supported by at-risk image blocking.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetOpaClusterBaseLineListResponse
+     * @return GetOpaClusterBaseLineListResponse GetOpaClusterBaseLineListResponse
      */
     public function getOpaClusterBaseLineListWithOptions($runtime)
     {
@@ -22783,7 +24437,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return GetOpaClusterBaseLineListResponse
+     * @summary Queries the baselines that are supported by at-risk image blocking.
+     *  *
+     * @return GetOpaClusterBaseLineListResponse GetOpaClusterBaseLineListResponse
      */
     public function getOpaClusterBaseLineList()
     {
@@ -22793,10 +24449,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetOpaClusterImageListRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 查询集群镜像
+     *  *
+     * @param GetOpaClusterImageListRequest $request GetOpaClusterImageListRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetOpaClusterImageListResponse
+     * @return GetOpaClusterImageListResponse GetOpaClusterImageListResponse
      */
     public function getOpaClusterImageListWithOptions($request, $runtime)
     {
@@ -22833,9 +24491,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetOpaClusterImageListRequest $request
+     * @summary 查询集群镜像
+     *  *
+     * @param GetOpaClusterImageListRequest $request GetOpaClusterImageListRequest
      *
-     * @return GetOpaClusterImageListResponse
+     * @return GetOpaClusterImageListResponse GetOpaClusterImageListResponse
      */
     public function getOpaClusterImageList($request)
     {
@@ -22845,10 +24505,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetOpaClusterLabelListRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries information about the tags that are added to containers based on the feature of proactive defense for containers.
+     *  *
+     * @param GetOpaClusterLabelListRequest $request GetOpaClusterLabelListRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetOpaClusterLabelListResponse
+     * @return GetOpaClusterLabelListResponse GetOpaClusterLabelListResponse
      */
     public function getOpaClusterLabelListWithOptions($request, $runtime)
     {
@@ -22885,9 +24547,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetOpaClusterLabelListRequest $request
+     * @summary Queries information about the tags that are added to containers based on the feature of proactive defense for containers.
+     *  *
+     * @param GetOpaClusterLabelListRequest $request GetOpaClusterLabelListRequest
      *
-     * @return GetOpaClusterLabelListResponse
+     * @return GetOpaClusterLabelListResponse GetOpaClusterLabelListResponse
      */
     public function getOpaClusterLabelList($request)
     {
@@ -22897,10 +24561,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetOpaClusterNamespaceListRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries information about the namespaces of clusters for which the rules of the at-risk image blocking type are configured in proactive defense for containers.
+     *  *
+     * @param GetOpaClusterNamespaceListRequest $request GetOpaClusterNamespaceListRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetOpaClusterNamespaceListResponse
+     * @return GetOpaClusterNamespaceListResponse GetOpaClusterNamespaceListResponse
      */
     public function getOpaClusterNamespaceListWithOptions($request, $runtime)
     {
@@ -22937,9 +24603,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetOpaClusterNamespaceListRequest $request
+     * @summary Queries information about the namespaces of clusters for which the rules of the at-risk image blocking type are configured in proactive defense for containers.
+     *  *
+     * @param GetOpaClusterNamespaceListRequest $request GetOpaClusterNamespaceListRequest
      *
-     * @return GetOpaClusterNamespaceListResponse
+     * @return GetOpaClusterNamespaceListResponse GetOpaClusterNamespaceListResponse
      */
     public function getOpaClusterNamespaceList($request)
     {
@@ -22949,10 +24617,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetOpaPluginStatusRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the installation status of the components that are required for clusters protected by proactive defense for containers.
+     *  *
+     * @param GetOpaPluginStatusRequest $request GetOpaPluginStatusRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetOpaPluginStatusResponse
+     * @return GetOpaPluginStatusResponse GetOpaPluginStatusResponse
      */
     public function getOpaPluginStatusWithOptions($request, $runtime)
     {
@@ -22980,9 +24650,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetOpaPluginStatusRequest $request
+     * @summary Queries the installation status of the components that are required for clusters protected by proactive defense for containers.
+     *  *
+     * @param GetOpaPluginStatusRequest $request GetOpaPluginStatusRequest
      *
-     * @return GetOpaPluginStatusResponse
+     * @return GetOpaPluginStatusResponse GetOpaPluginStatusResponse
      */
     public function getOpaPluginStatus($request)
     {
@@ -22992,10 +24664,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetOpaStrategyDetailNewRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the details of the rule that is used to block at-risk images.
+     *  *
+     * @param GetOpaStrategyDetailNewRequest $request GetOpaStrategyDetailNewRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetOpaStrategyDetailNewResponse
+     * @return GetOpaStrategyDetailNewResponse GetOpaStrategyDetailNewResponse
      */
     public function getOpaStrategyDetailNewWithOptions($request, $runtime)
     {
@@ -23023,9 +24697,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetOpaStrategyDetailNewRequest $request
+     * @summary Queries the details of the rule that is used to block at-risk images.
+     *  *
+     * @param GetOpaStrategyDetailNewRequest $request GetOpaStrategyDetailNewRequest
      *
-     * @return GetOpaStrategyDetailNewResponse
+     * @return GetOpaStrategyDetailNewResponse GetOpaStrategyDetailNewResponse
      */
     public function getOpaStrategyDetailNew($request)
     {
@@ -23035,9 +24711,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the usage statistics about the templates provided in the feature of proactive defense for containers for rules of the at-risk image blocking type.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetOpaStrategyTemplateSummaryResponse
+     * @return GetOpaStrategyTemplateSummaryResponse GetOpaStrategyTemplateSummaryResponse
      */
     public function getOpaStrategyTemplateSummaryWithOptions($runtime)
     {
@@ -23058,7 +24736,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return GetOpaStrategyTemplateSummaryResponse
+     * @summary Queries the usage statistics about the templates provided in the feature of proactive defense for containers for rules of the at-risk image blocking type.
+     *  *
+     * @return GetOpaStrategyTemplateSummaryResponse GetOpaStrategyTemplateSummaryResponse
      */
     public function getOpaStrategyTemplateSummary()
     {
@@ -23068,10 +24748,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetOssBucketScanStatisticRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the statistics about an Object Storage Service (OSS) bucket check.
+     *  *
+     * @param GetOssBucketScanStatisticRequest $request GetOssBucketScanStatisticRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetOssBucketScanStatisticResponse
+     * @return GetOssBucketScanStatisticResponse GetOssBucketScanStatisticResponse
      */
     public function getOssBucketScanStatisticWithOptions($request, $runtime)
     {
@@ -23099,9 +24781,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetOssBucketScanStatisticRequest $request
+     * @summary Queries the statistics about an Object Storage Service (OSS) bucket check.
+     *  *
+     * @param GetOssBucketScanStatisticRequest $request GetOssBucketScanStatisticRequest
      *
-     * @return GetOssBucketScanStatisticResponse
+     * @return GetOssBucketScanStatisticResponse GetOssBucketScanStatisticResponse
      */
     public function getOssBucketScanStatistic($request)
     {
@@ -23111,10 +24795,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetOssScanConfigRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the configurations of an Object Storage Service (OSS) bucket check policy.
+     *  *
+     * @param GetOssScanConfigRequest $request GetOssScanConfigRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetOssScanConfigResponse
+     * @return GetOssScanConfigResponse GetOssScanConfigResponse
      */
     public function getOssScanConfigWithOptions($request, $runtime)
     {
@@ -23145,9 +24831,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetOssScanConfigRequest $request
+     * @summary Queries the configurations of an Object Storage Service (OSS) bucket check policy.
+     *  *
+     * @param GetOssScanConfigRequest $request GetOssScanConfigRequest
      *
-     * @return GetOssScanConfigResponse
+     * @return GetOssScanConfigResponse GetOssScanConfigResponse
      */
     public function getOssScanConfig($request)
     {
@@ -23157,10 +24845,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetPropertyScheduleConfigRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the configurations for the collection frequency of asset fingerprints.
+     *  *
+     * @param GetPropertyScheduleConfigRequest $request GetPropertyScheduleConfigRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPropertyScheduleConfigResponse
+     * @return GetPropertyScheduleConfigResponse GetPropertyScheduleConfigResponse
      */
     public function getPropertyScheduleConfigWithOptions($request, $runtime)
     {
@@ -23191,9 +24881,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetPropertyScheduleConfigRequest $request
+     * @summary Queries the configurations for the collection frequency of asset fingerprints.
+     *  *
+     * @param GetPropertyScheduleConfigRequest $request GetPropertyScheduleConfigRequest
      *
-     * @return GetPropertyScheduleConfigResponse
+     * @return GetPropertyScheduleConfigResponse GetPropertyScheduleConfigResponse
      */
     public function getPropertyScheduleConfig($request)
     {
@@ -23203,9 +24895,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the numbers of system defense rules and custom defense rules.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetRulesCountResponse
+     * @return GetRulesCountResponse GetRulesCountResponse
      */
     public function getRulesCountWithOptions($runtime)
     {
@@ -23226,7 +24920,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return GetRulesCountResponse
+     * @summary Queries the numbers of system defense rules and custom defense rules.
+     *  *
+     * @return GetRulesCountResponse GetRulesCountResponse
      */
     public function getRulesCount()
     {
@@ -23236,10 +24932,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetSasContainerWebDefenseRuleApplicationRequest $request
-     * @param RuntimeOptions                                  $runtime
+     * @summary Queries the applications that are specified in a rule for container tamper-proofing.
+     *  *
+     * @param GetSasContainerWebDefenseRuleApplicationRequest $request GetSasContainerWebDefenseRuleApplicationRequest
+     * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSasContainerWebDefenseRuleApplicationResponse
+     * @return GetSasContainerWebDefenseRuleApplicationResponse GetSasContainerWebDefenseRuleApplicationResponse
      */
     public function getSasContainerWebDefenseRuleApplicationWithOptions($request, $runtime)
     {
@@ -23267,9 +24965,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetSasContainerWebDefenseRuleApplicationRequest $request
+     * @summary Queries the applications that are specified in a rule for container tamper-proofing.
+     *  *
+     * @param GetSasContainerWebDefenseRuleApplicationRequest $request GetSasContainerWebDefenseRuleApplicationRequest
      *
-     * @return GetSasContainerWebDefenseRuleApplicationResponse
+     * @return GetSasContainerWebDefenseRuleApplicationResponse GetSasContainerWebDefenseRuleApplicationResponse
      */
     public function getSasContainerWebDefenseRuleApplication($request)
     {
@@ -23279,10 +24979,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetSasContainerWebDefenseRuleCriteriaRequest $request
-     * @param RuntimeOptions                               $runtime
+     * @summary Queries search conditions that can be used to search for container file protection rules.
+     *  *
+     * @param GetSasContainerWebDefenseRuleCriteriaRequest $request GetSasContainerWebDefenseRuleCriteriaRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSasContainerWebDefenseRuleCriteriaResponse
+     * @return GetSasContainerWebDefenseRuleCriteriaResponse GetSasContainerWebDefenseRuleCriteriaResponse
      */
     public function getSasContainerWebDefenseRuleCriteriaWithOptions($request, $runtime)
     {
@@ -23310,9 +25012,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetSasContainerWebDefenseRuleCriteriaRequest $request
+     * @summary Queries search conditions that can be used to search for container file protection rules.
+     *  *
+     * @param GetSasContainerWebDefenseRuleCriteriaRequest $request GetSasContainerWebDefenseRuleCriteriaRequest
      *
-     * @return GetSasContainerWebDefenseRuleCriteriaResponse
+     * @return GetSasContainerWebDefenseRuleCriteriaResponse GetSasContainerWebDefenseRuleCriteriaResponse
      */
     public function getSasContainerWebDefenseRuleCriteria($request)
     {
@@ -23322,10 +25026,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetSecurityScoreRuleRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the details of the deduction modules of the security score feature, including custom settings.
+     *  *
+     * @param GetSecurityScoreRuleRequest $request GetSecurityScoreRuleRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSecurityScoreRuleResponse
+     * @return GetSecurityScoreRuleResponse GetSecurityScoreRuleResponse
      */
     public function getSecurityScoreRuleWithOptions($request, $runtime)
     {
@@ -23353,9 +25059,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetSecurityScoreRuleRequest $request
+     * @summary Queries the details of the deduction modules of the security score feature, including custom settings.
+     *  *
+     * @param GetSecurityScoreRuleRequest $request GetSecurityScoreRuleRequest
      *
-     * @return GetSecurityScoreRuleResponse
+     * @return GetSecurityScoreRuleResponse GetSecurityScoreRuleResponse
      */
     public function getSecurityScoreRule($request)
     {
@@ -23365,10 +25073,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetSensitiveDefineRuleConfigRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries the check rules of sensitive files.
+     *  *
+     * @param GetSensitiveDefineRuleConfigRequest $request GetSensitiveDefineRuleConfigRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSensitiveDefineRuleConfigResponse
+     * @return GetSensitiveDefineRuleConfigResponse GetSensitiveDefineRuleConfigResponse
      */
     public function getSensitiveDefineRuleConfigWithOptions($request, $runtime)
     {
@@ -23396,9 +25106,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetSensitiveDefineRuleConfigRequest $request
+     * @summary Queries the check rules of sensitive files.
+     *  *
+     * @param GetSensitiveDefineRuleConfigRequest $request GetSensitiveDefineRuleConfigRequest
      *
-     * @return GetSensitiveDefineRuleConfigResponse
+     * @return GetSensitiveDefineRuleConfigResponse GetSensitiveDefineRuleConfigResponse
      */
     public function getSensitiveDefineRuleConfig($request)
     {
@@ -23408,10 +25120,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetServiceTrailRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries the service trail that was delivered to ActionTrail.
+     *  *
+     * @param GetServiceTrailRequest $request GetServiceTrailRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetServiceTrailResponse
+     * @return GetServiceTrailResponse GetServiceTrailResponse
      */
     public function getServiceTrailWithOptions($request, $runtime)
     {
@@ -23439,9 +25153,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetServiceTrailRequest $request
+     * @summary Queries the service trail that was delivered to ActionTrail.
+     *  *
+     * @param GetServiceTrailRequest $request GetServiceTrailRequest
      *
-     * @return GetServiceTrailResponse
+     * @return GetServiceTrailResponse GetServiceTrailResponse
      */
     public function getServiceTrail($request)
     {
@@ -23451,10 +25167,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetStrategyTemplateDetailRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the usage details of templates provided in the feature of proactive defense for containers for rules.
+     *  *
+     * @param GetStrategyTemplateDetailRequest $request GetStrategyTemplateDetailRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetStrategyTemplateDetailResponse
+     * @return GetStrategyTemplateDetailResponse GetStrategyTemplateDetailResponse
      */
     public function getStrategyTemplateDetailWithOptions($request, $runtime)
     {
@@ -23482,9 +25200,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetStrategyTemplateDetailRequest $request
+     * @summary Queries the usage details of templates provided in the feature of proactive defense for containers for rules.
+     *  *
+     * @param GetStrategyTemplateDetailRequest $request GetStrategyTemplateDetailRequest
      *
-     * @return GetStrategyTemplateDetailResponse
+     * @return GetStrategyTemplateDetailResponse GetStrategyTemplateDetailResponse
      */
     public function getStrategyTemplateDetail($request)
     {
@@ -23494,10 +25214,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetSuspiciousStatisticsRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the statistics on alerts in one or more asset groups.
+     *  *
+     * @param GetSuspiciousStatisticsRequest $request GetSuspiciousStatisticsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSuspiciousStatisticsResponse
+     * @return GetSuspiciousStatisticsResponse GetSuspiciousStatisticsResponse
      */
     public function getSuspiciousStatisticsWithOptions($request, $runtime)
     {
@@ -23528,9 +25250,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetSuspiciousStatisticsRequest $request
+     * @summary Queries the statistics on alerts in one or more asset groups.
+     *  *
+     * @param GetSuspiciousStatisticsRequest $request GetSuspiciousStatisticsRequest
      *
-     * @return GetSuspiciousStatisticsResponse
+     * @return GetSuspiciousStatisticsResponse GetSuspiciousStatisticsResponse
      */
     public function getSuspiciousStatistics($request)
     {
@@ -23540,10 +25264,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetSwitchRegionDetailRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the status and progress of the task that is run to migrate a server from a region inside the Chinese mainland to the Singapore region.
+     *  *
+     * @param GetSwitchRegionDetailRequest $request GetSwitchRegionDetailRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSwitchRegionDetailResponse
+     * @return GetSwitchRegionDetailResponse GetSwitchRegionDetailResponse
      */
     public function getSwitchRegionDetailWithOptions($request, $runtime)
     {
@@ -23571,9 +25297,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetSwitchRegionDetailRequest $request
+     * @summary Queries the status and progress of the task that is run to migrate a server from a region inside the Chinese mainland to the Singapore region.
+     *  *
+     * @param GetSwitchRegionDetailRequest $request GetSwitchRegionDetailRequest
      *
-     * @return GetSwitchRegionDetailResponse
+     * @return GetSwitchRegionDetailResponse GetSwitchRegionDetailResponse
      */
     public function getSwitchRegionDetail($request)
     {
@@ -23583,9 +25311,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the language settings of log analysis.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetUserLangResponse
+     * @return GetUserLangResponse GetUserLangResponse
      */
     public function getUserLangWithOptions($runtime)
     {
@@ -23606,7 +25336,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return GetUserLangResponse
+     * @summary Queries the language settings of log analysis.
+     *  *
+     * @return GetUserLangResponse GetUserLangResponse
      */
     public function getUserLang()
     {
@@ -23616,10 +25348,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetVirusScanConfigRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the configurations of a periodic virus scan task.
+     *  *
+     * @param GetVirusScanConfigRequest $request GetVirusScanConfigRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetVirusScanConfigResponse
+     * @return GetVirusScanConfigResponse GetVirusScanConfigResponse
      */
     public function getVirusScanConfigWithOptions($request, $runtime)
     {
@@ -23647,9 +25381,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetVirusScanConfigRequest $request
+     * @summary Queries the configurations of a periodic virus scan task.
+     *  *
+     * @param GetVirusScanConfigRequest $request GetVirusScanConfigRequest
      *
-     * @return GetVirusScanConfigResponse
+     * @return GetVirusScanConfigResponse GetVirusScanConfigResponse
      */
     public function getVirusScanConfig($request)
     {
@@ -23659,9 +25395,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the information about the latest virus scan task.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetVirusScanLatestTaskStatisticResponse
+     * @return GetVirusScanLatestTaskStatisticResponse GetVirusScanLatestTaskStatisticResponse
      */
     public function getVirusScanLatestTaskStatisticWithOptions($runtime)
     {
@@ -23682,7 +25420,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return GetVirusScanLatestTaskStatisticResponse
+     * @summary Queries the information about the latest virus scan task.
+     *  *
+     * @return GetVirusScanLatestTaskStatisticResponse GetVirusScanLatestTaskStatisticResponse
      */
     public function getVirusScanLatestTaskStatistic()
     {
@@ -23692,10 +25432,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetVulStatisticsRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the statistics on vulnerabilities in asset groups.
+     *  *
+     * @param GetVulStatisticsRequest $request GetVulStatisticsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetVulStatisticsResponse
+     * @return GetVulStatisticsResponse GetVulStatisticsResponse
      */
     public function getVulStatisticsWithOptions($request, $runtime)
     {
@@ -23729,9 +25471,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetVulStatisticsRequest $request
+     * @summary Queries the statistics on vulnerabilities in asset groups.
+     *  *
+     * @param GetVulStatisticsRequest $request GetVulStatisticsRequest
      *
-     * @return GetVulStatisticsResponse
+     * @return GetVulStatisticsResponse GetVulStatisticsResponse
      */
     public function getVulStatistics($request)
     {
@@ -23741,10 +25485,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetVulWhitelistRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries information about a vulnerability whitelist.
+     *  *
+     * @param GetVulWhitelistRequest $request GetVulWhitelistRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetVulWhitelistResponse
+     * @return GetVulWhitelistResponse GetVulWhitelistResponse
      */
     public function getVulWhitelistWithOptions($request, $runtime)
     {
@@ -23772,9 +25518,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetVulWhitelistRequest $request
+     * @summary Queries information about a vulnerability whitelist.
+     *  *
+     * @param GetVulWhitelistRequest $request GetVulWhitelistRequest
      *
-     * @return GetVulWhitelistResponse
+     * @return GetVulWhitelistResponse GetVulWhitelistResponse
      */
     public function getVulWhitelist($request)
     {
@@ -23784,10 +25532,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param HandleSecurityEventsRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Handles alert events.
+     *  *
+     * @param HandleSecurityEventsRequest $request HandleSecurityEventsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return HandleSecurityEventsResponse
+     * @return HandleSecurityEventsResponse HandleSecurityEventsResponse
      */
     public function handleSecurityEventsWithOptions($request, $runtime)
     {
@@ -23833,9 +25583,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param HandleSecurityEventsRequest $request
+     * @summary Handles alert events.
+     *  *
+     * @param HandleSecurityEventsRequest $request HandleSecurityEventsRequest
      *
-     * @return HandleSecurityEventsResponse
+     * @return HandleSecurityEventsResponse HandleSecurityEventsResponse
      */
     public function handleSecurityEvents($request)
     {
@@ -23845,10 +25597,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param HandleSimilarSecurityEventsRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Handles multiple alert events that are triggered by the same IP address rule or IP address rules of the same type at a time.
+     *  *
+     * @param HandleSimilarSecurityEventsRequest $request HandleSimilarSecurityEventsRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return HandleSimilarSecurityEventsResponse
+     * @return HandleSimilarSecurityEventsResponse HandleSimilarSecurityEventsResponse
      */
     public function handleSimilarSecurityEventsWithOptions($request, $runtime)
     {
@@ -23894,9 +25648,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param HandleSimilarSecurityEventsRequest $request
+     * @summary Handles multiple alert events that are triggered by the same IP address rule or IP address rules of the same type at a time.
+     *  *
+     * @param HandleSimilarSecurityEventsRequest $request HandleSimilarSecurityEventsRequest
      *
-     * @return HandleSimilarSecurityEventsResponse
+     * @return HandleSimilarSecurityEventsResponse HandleSimilarSecurityEventsResponse
      */
     public function handleSimilarSecurityEvents($request)
     {
@@ -23906,10 +25662,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param IgnoreCheckItemsRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Adds risk items to the whitelist or removes risk items from the whitelist by specifying servers and risk items.
+     *  *
+     * @param IgnoreCheckItemsRequest $request IgnoreCheckItemsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return IgnoreCheckItemsResponse
+     * @return IgnoreCheckItemsResponse IgnoreCheckItemsResponse
      */
     public function ignoreCheckItemsWithOptions($request, $runtime)
     {
@@ -23955,9 +25713,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param IgnoreCheckItemsRequest $request
+     * @summary Adds risk items to the whitelist or removes risk items from the whitelist by specifying servers and risk items.
+     *  *
+     * @param IgnoreCheckItemsRequest $request IgnoreCheckItemsRequest
      *
-     * @return IgnoreCheckItemsResponse
+     * @return IgnoreCheckItemsResponse IgnoreCheckItemsResponse
      */
     public function ignoreCheckItems($request)
     {
@@ -23967,10 +25727,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param IgnoreHcCheckWarningsRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Ignores multiple baseline risk items at a time or cancels the ignore action that is performed on multiple baseline risk items at a time.
+     *  *
+     * @param IgnoreHcCheckWarningsRequest $request IgnoreHcCheckWarningsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return IgnoreHcCheckWarningsResponse
+     * @return IgnoreHcCheckWarningsResponse IgnoreHcCheckWarningsResponse
      */
     public function ignoreHcCheckWarningsWithOptions($request, $runtime)
     {
@@ -24016,9 +25778,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param IgnoreHcCheckWarningsRequest $request
+     * @summary Ignores multiple baseline risk items at a time or cancels the ignore action that is performed on multiple baseline risk items at a time.
+     *  *
+     * @param IgnoreHcCheckWarningsRequest $request IgnoreHcCheckWarningsRequest
      *
-     * @return IgnoreHcCheckWarningsResponse
+     * @return IgnoreHcCheckWarningsResponse IgnoreHcCheckWarningsResponse
      */
     public function ignoreHcCheckWarnings($request)
     {
@@ -24028,10 +25792,13 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param InstallBackupClientRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary The UUID of the server on which you want to install the anti-ransomware agent. You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+     * >  You must specify at least one of the UuidList and Uuid parameters.
+     *  *
+     * @param InstallBackupClientRequest $request InstallBackupClientRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return InstallBackupClientResponse
+     * @return InstallBackupClientResponse InstallBackupClientResponse
      */
     public function installBackupClientWithOptions($request, $runtime)
     {
@@ -24065,9 +25832,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param InstallBackupClientRequest $request
+     * @summary The UUID of the server on which you want to install the anti-ransomware agent. You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+     * >  You must specify at least one of the UuidList and Uuid parameters.
+     *  *
+     * @param InstallBackupClientRequest $request InstallBackupClientRequest
      *
-     * @return InstallBackupClientResponse
+     * @return InstallBackupClientResponse InstallBackupClientResponse
      */
     public function installBackupClient($request)
     {
@@ -24077,8 +25847,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * > Before you call this operation, make sure that the Security Center agent on your servers is online and the servers can access Alibaba Cloud services.
-     *   *
+     * @summary Installs the CloudMonitor agent on specified servers.
+     *  *
+     * @description > Before you call this operation, make sure that the Security Center agent on your servers is online and the servers can access Alibaba Cloud services.
+     *  *
      * @param InstallCloudMonitorRequest $request InstallCloudMonitorRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -24122,8 +25894,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * > Before you call this operation, make sure that the Security Center agent on your servers is online and the servers can access Alibaba Cloud services.
-     *   *
+     * @summary Installs the CloudMonitor agent on specified servers.
+     *  *
+     * @description > Before you call this operation, make sure that the Security Center agent on your servers is online and the servers can access Alibaba Cloud services.
+     *  *
      * @param InstallCloudMonitorRequest $request InstallCloudMonitorRequest
      *
      * @return InstallCloudMonitorResponse InstallCloudMonitorResponse
@@ -24136,10 +25910,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param InstallHybridProxyRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Installs the Security Center agent on a proxy server in a hybrid cloud.
+     *  *
+     * @param InstallHybridProxyRequest $request InstallHybridProxyRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return InstallHybridProxyResponse
+     * @return InstallHybridProxyResponse InstallHybridProxyResponse
      */
     public function installHybridProxyWithOptions($request, $runtime)
     {
@@ -24173,9 +25949,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param InstallHybridProxyRequest $request
+     * @summary Installs the Security Center agent on a proxy server in a hybrid cloud.
+     *  *
+     * @param InstallHybridProxyRequest $request InstallHybridProxyRequest
      *
-     * @return InstallHybridProxyResponse
+     * @return InstallHybridProxyResponse InstallHybridProxyResponse
      */
     public function installHybridProxy($request)
     {
@@ -24185,10 +25963,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param InstallPmAgentRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Installs the CloudMonitor agent on a server that is not deployed on Alibaba Cloud.
+     *  *
+     * @param InstallPmAgentRequest $request InstallPmAgentRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return InstallPmAgentResponse
+     * @return InstallPmAgentResponse InstallPmAgentResponse
      */
     public function installPmAgentWithOptions($request, $runtime)
     {
@@ -24225,9 +26005,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param InstallPmAgentRequest $request
+     * @summary Installs the CloudMonitor agent on a server that is not deployed on Alibaba Cloud.
+     *  *
+     * @param InstallPmAgentRequest $request InstallPmAgentRequest
      *
-     * @return InstallPmAgentResponse
+     * @return InstallPmAgentResponse InstallPmAgentResponse
      */
     public function installPmAgent($request)
     {
@@ -24237,10 +26019,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param InstallRaspAttachRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Installs the Runtime Application Self-Protection (RASP) agent on Elastic Compute Service (ECS) instances to enable automatic application protection.
+     *  *
+     * @param InstallRaspAttachRequest $request InstallRaspAttachRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return InstallRaspAttachResponse
+     * @return InstallRaspAttachResponse InstallRaspAttachResponse
      */
     public function installRaspAttachWithOptions($request, $runtime)
     {
@@ -24271,9 +26055,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param InstallRaspAttachRequest $request
+     * @summary Installs the Runtime Application Self-Protection (RASP) agent on Elastic Compute Service (ECS) instances to enable automatic application protection.
+     *  *
+     * @param InstallRaspAttachRequest $request InstallRaspAttachRequest
      *
-     * @return InstallRaspAttachResponse
+     * @return InstallRaspAttachResponse InstallRaspAttachResponse
      */
     public function installRaspAttach($request)
     {
@@ -24283,10 +26069,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param InstallUniBackupAgentRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Installs the anti-ransomware agent for databases.
+     *  *
+     * @param InstallUniBackupAgentRequest $request InstallUniBackupAgentRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return InstallUniBackupAgentResponse
+     * @return InstallUniBackupAgentResponse InstallUniBackupAgentResponse
      */
     public function installUniBackupAgentWithOptions($request, $runtime)
     {
@@ -24314,9 +26102,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param InstallUniBackupAgentRequest $request
+     * @summary Installs the anti-ransomware agent for databases.
+     *  *
+     * @param InstallUniBackupAgentRequest $request InstallUniBackupAgentRequest
      *
-     * @return InstallUniBackupAgentResponse
+     * @return InstallUniBackupAgentResponse InstallUniBackupAgentResponse
      */
     public function installUniBackupAgent($request)
     {
@@ -24326,10 +26116,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param JoinWebLockProcessWhiteListRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Adds processes to the process whitelist of web tamper proofing.
+     *  *
+     * @param JoinWebLockProcessWhiteListRequest $request JoinWebLockProcessWhiteListRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return JoinWebLockProcessWhiteListResponse
+     * @return JoinWebLockProcessWhiteListResponse JoinWebLockProcessWhiteListResponse
      */
     public function joinWebLockProcessWhiteListWithOptions($request, $runtime)
     {
@@ -24360,9 +26152,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param JoinWebLockProcessWhiteListRequest $request
+     * @summary Adds processes to the process whitelist of web tamper proofing.
+     *  *
+     * @param JoinWebLockProcessWhiteListRequest $request JoinWebLockProcessWhiteListRequest
      *
-     * @return JoinWebLockProcessWhiteListResponse
+     * @return JoinWebLockProcessWhiteListResponse JoinWebLockProcessWhiteListResponse
      */
     public function joinWebLockProcessWhiteList($request)
     {
@@ -24372,10 +26166,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListAegisContainerPluginRuleRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries defense rules against container escapes.
+     *  *
+     * @param ListAegisContainerPluginRuleRequest $request ListAegisContainerPluginRuleRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAegisContainerPluginRuleResponse
+     * @return ListAegisContainerPluginRuleResponse ListAegisContainerPluginRuleResponse
      */
     public function listAegisContainerPluginRuleWithOptions($request, $runtime)
     {
@@ -24415,9 +26211,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListAegisContainerPluginRuleRequest $request
+     * @summary Queries defense rules against container escapes.
+     *  *
+     * @param ListAegisContainerPluginRuleRequest $request ListAegisContainerPluginRuleRequest
      *
-     * @return ListAegisContainerPluginRuleResponse
+     * @return ListAegisContainerPluginRuleResponse ListAegisContainerPluginRuleResponse
      */
     public function listAegisContainerPluginRule($request)
     {
@@ -24427,10 +26225,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListAgentlessMaliciousFilesRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries malicious files that are detected by agentless detection tasks.
+     *  *
+     * @param ListAgentlessMaliciousFilesRequest $request ListAgentlessMaliciousFilesRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAgentlessMaliciousFilesResponse
+     * @return ListAgentlessMaliciousFilesResponse ListAgentlessMaliciousFilesResponse
      */
     public function listAgentlessMaliciousFilesWithOptions($request, $runtime)
     {
@@ -24488,9 +26288,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListAgentlessMaliciousFilesRequest $request
+     * @summary Queries malicious files that are detected by agentless detection tasks.
+     *  *
+     * @param ListAgentlessMaliciousFilesRequest $request ListAgentlessMaliciousFilesRequest
      *
-     * @return ListAgentlessMaliciousFilesResponse
+     * @return ListAgentlessMaliciousFilesResponse ListAgentlessMaliciousFilesResponse
      */
     public function listAgentlessMaliciousFiles($request)
     {
@@ -24500,9 +26302,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the regions that are supported by the agentless detection feature.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAgentlessRegionResponse
+     * @return ListAgentlessRegionResponse ListAgentlessRegionResponse
      */
     public function listAgentlessRegionWithOptions($runtime)
     {
@@ -24523,7 +26327,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return ListAgentlessRegionResponse
+     * @summary Queries the regions that are supported by the agentless detection feature.
+     *  *
+     * @return ListAgentlessRegionResponse ListAgentlessRegionResponse
      */
     public function listAgentlessRegion()
     {
@@ -24533,10 +26339,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListAgentlessRelateMaliciousRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Obtains the risks associated with an agentless detection event.
+     *  *
+     * @param ListAgentlessRelateMaliciousRequest $request ListAgentlessRelateMaliciousRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAgentlessRelateMaliciousResponse
+     * @return ListAgentlessRelateMaliciousResponse ListAgentlessRelateMaliciousResponse
      */
     public function listAgentlessRelateMaliciousWithOptions($request, $runtime)
     {
@@ -24570,9 +26378,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListAgentlessRelateMaliciousRequest $request
+     * @summary Obtains the risks associated with an agentless detection event.
+     *  *
+     * @param ListAgentlessRelateMaliciousRequest $request ListAgentlessRelateMaliciousRequest
      *
-     * @return ListAgentlessRelateMaliciousResponse
+     * @return ListAgentlessRelateMaliciousResponse ListAgentlessRelateMaliciousResponse
      */
     public function listAgentlessRelateMalicious($request)
     {
@@ -24582,10 +26392,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListAgentlessRiskUuidRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries at-risk hosts that are detected by the agentless detection feature.
+     *  *
+     * @param ListAgentlessRiskUuidRequest $request ListAgentlessRiskUuidRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAgentlessRiskUuidResponse
+     * @return ListAgentlessRiskUuidResponse ListAgentlessRiskUuidResponse
      */
     public function listAgentlessRiskUuidWithOptions($request, $runtime)
     {
@@ -24631,9 +26443,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListAgentlessRiskUuidRequest $request
+     * @summary Queries at-risk hosts that are detected by the agentless detection feature.
+     *  *
+     * @param ListAgentlessRiskUuidRequest $request ListAgentlessRiskUuidRequest
      *
-     * @return ListAgentlessRiskUuidResponse
+     * @return ListAgentlessRiskUuidResponse ListAgentlessRiskUuidResponse
      */
     public function listAgentlessRiskUuid($request)
     {
@@ -24643,10 +26457,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListAgentlessTaskRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries agentless detection tasks.
+     *  *
+     * @param ListAgentlessTaskRequest $request ListAgentlessTaskRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAgentlessTaskResponse
+     * @return ListAgentlessTaskResponse ListAgentlessTaskResponse
      */
     public function listAgentlessTaskWithOptions($request, $runtime)
     {
@@ -24716,9 +26532,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListAgentlessTaskRequest $request
+     * @summary Queries agentless detection tasks.
+     *  *
+     * @param ListAgentlessTaskRequest $request ListAgentlessTaskRequest
      *
-     * @return ListAgentlessTaskResponse
+     * @return ListAgentlessTaskResponse ListAgentlessTaskResponse
      */
     public function listAgentlessTask($request)
     {
@@ -24728,9 +26546,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the configurations for cleaning offline hosts whose provider cannot be identified.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAssetCleanConfigResponse
+     * @return ListAssetCleanConfigResponse ListAssetCleanConfigResponse
      */
     public function listAssetCleanConfigWithOptions($runtime)
     {
@@ -24751,7 +26571,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return ListAssetCleanConfigResponse
+     * @summary Queries the configurations for cleaning offline hosts whose provider cannot be identified.
+     *  *
+     * @return ListAssetCleanConfigResponse ListAssetCleanConfigResponse
      */
     public function listAssetCleanConfig()
     {
@@ -24761,10 +26583,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListAssetRefreshTaskConfigRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the configurations of asset synchronization.
+     *  *
+     * @param ListAssetRefreshTaskConfigRequest $request ListAssetRefreshTaskConfigRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAssetRefreshTaskConfigResponse
+     * @return ListAssetRefreshTaskConfigResponse ListAssetRefreshTaskConfigResponse
      */
     public function listAssetRefreshTaskConfigWithOptions($request, $runtime)
     {
@@ -24798,9 +26622,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListAssetRefreshTaskConfigRequest $request
+     * @summary Queries the configurations of asset synchronization.
+     *  *
+     * @param ListAssetRefreshTaskConfigRequest $request ListAssetRefreshTaskConfigRequest
      *
-     * @return ListAssetRefreshTaskConfigResponse
+     * @return ListAssetRefreshTaskConfigResponse ListAssetRefreshTaskConfigResponse
      */
     public function listAssetRefreshTaskConfig($request)
     {
@@ -24810,10 +26636,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListAssetSelectionSelectedTargetRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary Queries the selected assets.
+     *  *
+     * @param ListAssetSelectionSelectedTargetRequest $request ListAssetSelectionSelectedTargetRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAssetSelectionSelectedTargetResponse
+     * @return ListAssetSelectionSelectedTargetResponse ListAssetSelectionSelectedTargetResponse
      */
     public function listAssetSelectionSelectedTargetWithOptions($request, $runtime)
     {
@@ -24844,9 +26672,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListAssetSelectionSelectedTargetRequest $request
+     * @summary Queries the selected assets.
+     *  *
+     * @param ListAssetSelectionSelectedTargetRequest $request ListAssetSelectionSelectedTargetRequest
      *
-     * @return ListAssetSelectionSelectedTargetResponse
+     * @return ListAssetSelectionSelectedTargetResponse ListAssetSelectionSelectedTargetResponse
      */
     public function listAssetSelectionSelectedTarget($request)
     {
@@ -24856,10 +26686,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListAssetSelectionTargetRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the required asset.
+     *  *
+     * @param ListAssetSelectionTargetRequest $request ListAssetSelectionTargetRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAssetSelectionTargetResponse
+     * @return ListAssetSelectionTargetResponse ListAssetSelectionTargetResponse
      */
     public function listAssetSelectionTargetWithOptions($request, $runtime)
     {
@@ -24893,9 +26725,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListAssetSelectionTargetRequest $request
+     * @summary Queries the required asset.
+     *  *
+     * @param ListAssetSelectionTargetRequest $request ListAssetSelectionTargetRequest
      *
-     * @return ListAssetSelectionTargetResponse
+     * @return ListAssetSelectionTargetResponse ListAssetSelectionTargetResponse
      */
     public function listAssetSelectionTarget($request)
     {
@@ -24905,10 +26739,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListAvailableHoneypotRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the information about available honeypot templates.
+     *  *
+     * @param ListAvailableHoneypotRequest $request ListAvailableHoneypotRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAvailableHoneypotResponse
+     * @return ListAvailableHoneypotResponse ListAvailableHoneypotResponse
      */
     public function listAvailableHoneypotWithOptions($request, $runtime)
     {
@@ -24936,9 +26772,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListAvailableHoneypotRequest $request
+     * @summary Queries the information about available honeypot templates.
+     *  *
+     * @param ListAvailableHoneypotRequest $request ListAvailableHoneypotRequest
      *
-     * @return ListAvailableHoneypotResponse
+     * @return ListAvailableHoneypotResponse ListAvailableHoneypotResponse
      */
     public function listAvailableHoneypot($request)
     {
@@ -24948,10 +26786,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListBackupRecordRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries backup records.
+     *  *
+     * @param ListBackupRecordRequest $request ListBackupRecordRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListBackupRecordResponse
+     * @return ListBackupRecordResponse ListBackupRecordResponse
      */
     public function listBackupRecordWithOptions($request, $runtime)
     {
@@ -24994,9 +26834,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListBackupRecordRequest $request
+     * @summary Queries backup records.
+     *  *
+     * @param ListBackupRecordRequest $request ListBackupRecordRequest
      *
-     * @return ListBackupRecordResponse
+     * @return ListBackupRecordResponse ListBackupRecordResponse
      */
     public function listBackupRecord($request)
     {
@@ -25006,10 +26848,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListCheckInstanceResultRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the instances that failed a specified check item of configuration assessment.
+     *  *
+     * @param ListCheckInstanceResultRequest $request ListCheckInstanceResultRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCheckInstanceResultResponse
+     * @return ListCheckInstanceResultResponse ListCheckInstanceResultResponse
      */
     public function listCheckInstanceResultWithOptions($request, $runtime)
     {
@@ -25064,9 +26908,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListCheckInstanceResultRequest $request
+     * @summary Queries the instances that failed a specified check item of configuration assessment.
+     *  *
+     * @param ListCheckInstanceResultRequest $request ListCheckInstanceResultRequest
      *
-     * @return ListCheckInstanceResultResponse
+     * @return ListCheckInstanceResultResponse ListCheckInstanceResultResponse
      */
     public function listCheckInstanceResult($request)
     {
@@ -25076,10 +26922,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListCheckItemRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Queries the check items that can be customized.
+     *  *
+     * @param ListCheckItemRequest $request ListCheckItemRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCheckItemResponse
+     * @return ListCheckItemResponse ListCheckItemResponse
      */
     public function listCheckItemWithOptions($request, $runtime)
     {
@@ -25113,9 +26961,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListCheckItemRequest $request
+     * @summary Queries the check items that can be customized.
+     *  *
+     * @param ListCheckItemRequest $request ListCheckItemRequest
      *
-     * @return ListCheckItemResponse
+     * @return ListCheckItemResponse ListCheckItemResponse
      */
     public function listCheckItem($request)
     {
@@ -25125,10 +26975,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListCheckItemWarningMachineRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries the servers that are affected by baseline risks.
+     *  *
+     * @param ListCheckItemWarningMachineRequest $request ListCheckItemWarningMachineRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCheckItemWarningMachineResponse
+     * @return ListCheckItemWarningMachineResponse ListCheckItemWarningMachineResponse
      */
     public function listCheckItemWarningMachineWithOptions($request, $runtime)
     {
@@ -25189,9 +27041,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListCheckItemWarningMachineRequest $request
+     * @summary Queries the servers that are affected by baseline risks.
+     *  *
+     * @param ListCheckItemWarningMachineRequest $request ListCheckItemWarningMachineRequest
      *
-     * @return ListCheckItemWarningMachineResponse
+     * @return ListCheckItemWarningMachineResponse ListCheckItemWarningMachineResponse
      */
     public function listCheckItemWarningMachine($request)
     {
@@ -25201,10 +27055,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListCheckItemWarningSummaryRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries the risk statistics of check items by page.
+     *  *
+     * @param ListCheckItemWarningSummaryRequest $request ListCheckItemWarningSummaryRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCheckItemWarningSummaryResponse
+     * @return ListCheckItemWarningSummaryResponse ListCheckItemWarningSummaryResponse
      */
     public function listCheckItemWarningSummaryWithOptions($request, $runtime)
     {
@@ -25268,9 +27124,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListCheckItemWarningSummaryRequest $request
+     * @summary Queries the risk statistics of check items by page.
+     *  *
+     * @param ListCheckItemWarningSummaryRequest $request ListCheckItemWarningSummaryRequest
      *
-     * @return ListCheckItemWarningSummaryResponse
+     * @return ListCheckItemWarningSummaryResponse ListCheckItemWarningSummaryResponse
      */
     public function listCheckItemWarningSummary($request)
     {
@@ -25280,10 +27138,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListCheckResultRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries the details of the risk items that are detected in the configuration checks on cloud services.
+     *  *
+     * @param ListCheckResultRequest $request ListCheckResultRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCheckResultResponse
+     * @return ListCheckResultResponse ListCheckResultResponse
      */
     public function listCheckResultWithOptions($request, $runtime)
     {
@@ -25353,9 +27213,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListCheckResultRequest $request
+     * @summary Queries the details of the risk items that are detected in the configuration checks on cloud services.
+     *  *
+     * @param ListCheckResultRequest $request ListCheckResultRequest
      *
-     * @return ListCheckResultResponse
+     * @return ListCheckResultResponse ListCheckResultResponse
      */
     public function listCheckResult($request)
     {
@@ -25365,10 +27227,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListCheckStandardRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries the standards of configuration checks.
+     *  *
+     * @param ListCheckStandardRequest $request ListCheckStandardRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCheckStandardResponse
+     * @return ListCheckStandardResponse ListCheckStandardResponse
      */
     public function listCheckStandardWithOptions($request, $runtime)
     {
@@ -25408,9 +27272,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListCheckStandardRequest $request
+     * @summary Queries the standards of configuration checks.
+     *  *
+     * @param ListCheckStandardRequest $request ListCheckStandardRequest
      *
-     * @return ListCheckStandardResponse
+     * @return ListCheckStandardResponse ListCheckStandardResponse
      */
     public function listCheckStandard($request)
     {
@@ -25420,10 +27286,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListCheckTypesRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Queries the types of check items that meet the specified conditions based on the ID of a baseline.
+     *  *
+     * @param ListCheckTypesRequest $request ListCheckTypesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCheckTypesResponse
+     * @return ListCheckTypesResponse ListCheckTypesResponse
      */
     public function listCheckTypesWithOptions($request, $runtime)
     {
@@ -25469,9 +27337,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListCheckTypesRequest $request
+     * @summary Queries the types of check items that meet the specified conditions based on the ID of a baseline.
+     *  *
+     * @param ListCheckTypesRequest $request ListCheckTypesRequest
      *
-     * @return ListCheckTypesResponse
+     * @return ListCheckTypesResponse ListCheckTypesResponse
      */
     public function listCheckTypes($request)
     {
@@ -25481,10 +27351,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListClientAlertModeRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the alert settings of assets. By default, the balanced mode is enabled. A detected list of assets can be returned only in strict mode.
+     *  *
+     * @param ListClientAlertModeRequest $request ListClientAlertModeRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListClientAlertModeResponse
+     * @return ListClientAlertModeResponse ListClientAlertModeResponse
      */
     public function listClientAlertModeWithOptions($request, $runtime)
     {
@@ -25509,9 +27381,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListClientAlertModeRequest $request
+     * @summary Queries the alert settings of assets. By default, the balanced mode is enabled. A detected list of assets can be returned only in strict mode.
+     *  *
+     * @param ListClientAlertModeRequest $request ListClientAlertModeRequest
      *
-     * @return ListClientAlertModeResponse
+     * @return ListClientAlertModeResponse ListClientAlertModeResponse
      */
     public function listClientAlertMode($request)
     {
@@ -25521,9 +27395,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary 获取客户端支持的所有用户自定义类型
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListClientUserDefineRuleTypesResponse
+     * @return ListClientUserDefineRuleTypesResponse ListClientUserDefineRuleTypesResponse
      */
     public function listClientUserDefineRuleTypesWithOptions($runtime)
     {
@@ -25544,7 +27420,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return ListClientUserDefineRuleTypesResponse
+     * @summary 获取客户端支持的所有用户自定义类型
+     *  *
+     * @return ListClientUserDefineRuleTypesResponse ListClientUserDefineRuleTypesResponse
      */
     public function listClientUserDefineRuleTypes()
     {
@@ -25554,10 +27432,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListClientUserDefineRulesRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries custom defense rules.
+     *  *
+     * @param ListClientUserDefineRulesRequest $request ListClientUserDefineRulesRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListClientUserDefineRulesResponse
+     * @return ListClientUserDefineRulesResponse ListClientUserDefineRulesResponse
      */
     public function listClientUserDefineRulesWithOptions($request, $runtime)
     {
@@ -25594,9 +27474,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListClientUserDefineRulesRequest $request
+     * @summary Queries custom defense rules.
+     *  *
+     * @param ListClientUserDefineRulesRequest $request ListClientUserDefineRulesRequest
      *
-     * @return ListClientUserDefineRulesResponse
+     * @return ListClientUserDefineRulesResponse ListClientUserDefineRulesResponse
      */
     public function listClientUserDefineRules($request)
     {
@@ -25606,10 +27488,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListCloudAssetInstancesRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries cloud service assets.
+     *  *
+     * @param ListCloudAssetInstancesRequest $request ListCloudAssetInstancesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCloudAssetInstancesResponse
+     * @return ListCloudAssetInstancesResponse ListCloudAssetInstancesResponse
      */
     public function listCloudAssetInstancesWithOptions($request, $runtime)
     {
@@ -25652,9 +27536,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListCloudAssetInstancesRequest $request
+     * @summary Queries cloud service assets.
+     *  *
+     * @param ListCloudAssetInstancesRequest $request ListCloudAssetInstancesRequest
      *
-     * @return ListCloudAssetInstancesResponse
+     * @return ListCloudAssetInstancesResponse ListCloudAssetInstancesResponse
      */
     public function listCloudAssetInstances($request)
     {
@@ -25664,10 +27550,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListCloudVendorRegionsRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries the synchronization region configurations of other clouds on a site.
+     *  *
+     * @param ListCloudVendorRegionsRequest $request ListCloudVendorRegionsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCloudVendorRegionsResponse
+     * @return ListCloudVendorRegionsResponse ListCloudVendorRegionsResponse
      */
     public function listCloudVendorRegionsWithOptions($request, $runtime)
     {
@@ -25698,9 +27586,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListCloudVendorRegionsRequest $request
+     * @summary Queries the synchronization region configurations of other clouds on a site.
+     *  *
+     * @param ListCloudVendorRegionsRequest $request ListCloudVendorRegionsRequest
      *
-     * @return ListCloudVendorRegionsResponse
+     * @return ListCloudVendorRegionsResponse ListCloudVendorRegionsResponse
      */
     public function listCloudVendorRegions($request)
     {
@@ -25710,10 +27600,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListClusterCnnfStatusDetailRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries the protection status of the container firewall.
+     *  *
+     * @param ListClusterCnnfStatusDetailRequest $request ListClusterCnnfStatusDetailRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListClusterCnnfStatusDetailResponse
+     * @return ListClusterCnnfStatusDetailResponse ListClusterCnnfStatusDetailResponse
      */
     public function listClusterCnnfStatusDetailWithOptions($request, $runtime)
     {
@@ -25741,9 +27633,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListClusterCnnfStatusDetailRequest $request
+     * @summary Queries the protection status of the container firewall.
+     *  *
+     * @param ListClusterCnnfStatusDetailRequest $request ListClusterCnnfStatusDetailRequest
      *
-     * @return ListClusterCnnfStatusDetailResponse
+     * @return ListClusterCnnfStatusDetailResponse ListClusterCnnfStatusDetailResponse
      */
     public function listClusterCnnfStatusDetail($request)
     {
@@ -25753,10 +27647,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListClusterInterceptionConfigRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Queries the defense rules that are created for a cluster.
+     *  *
+     * @param ListClusterInterceptionConfigRequest $request ListClusterInterceptionConfigRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListClusterInterceptionConfigResponse
+     * @return ListClusterInterceptionConfigResponse ListClusterInterceptionConfigResponse
      */
     public function listClusterInterceptionConfigWithOptions($request, $runtime)
     {
@@ -25796,9 +27692,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListClusterInterceptionConfigRequest $request
+     * @summary Queries the defense rules that are created for a cluster.
+     *  *
+     * @param ListClusterInterceptionConfigRequest $request ListClusterInterceptionConfigRequest
      *
-     * @return ListClusterInterceptionConfigResponse
+     * @return ListClusterInterceptionConfigResponse ListClusterInterceptionConfigResponse
      */
     public function listClusterInterceptionConfig($request)
     {
@@ -25808,10 +27706,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListClusterPluginInfoRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the status of plug-ins on clusters.
+     *  *
+     * @param ListClusterPluginInfoRequest $request ListClusterPluginInfoRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListClusterPluginInfoResponse
+     * @return ListClusterPluginInfoResponse ListClusterPluginInfoResponse
      */
     public function listClusterPluginInfoWithOptions($request, $runtime)
     {
@@ -25845,9 +27745,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListClusterPluginInfoRequest $request
+     * @summary Queries the status of plug-ins on clusters.
+     *  *
+     * @param ListClusterPluginInfoRequest $request ListClusterPluginInfoRequest
      *
-     * @return ListClusterPluginInfoResponse
+     * @return ListClusterPluginInfoResponse ListClusterPluginInfoResponse
      */
     public function listClusterPluginInfo($request)
     {
@@ -25857,10 +27759,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListCompressFileDetectResultRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary 获取压缩包检测结果。
+     *  *
+     * @param ListCompressFileDetectResultRequest $request ListCompressFileDetectResultRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCompressFileDetectResultResponse
+     * @return ListCompressFileDetectResultResponse ListCompressFileDetectResultResponse
      */
     public function listCompressFileDetectResultWithOptions($request, $runtime)
     {
@@ -25897,9 +27801,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListCompressFileDetectResultRequest $request
+     * @summary 获取压缩包检测结果。
+     *  *
+     * @param ListCompressFileDetectResultRequest $request ListCompressFileDetectResultRequest
      *
-     * @return ListCompressFileDetectResultResponse
+     * @return ListCompressFileDetectResultResponse ListCompressFileDetectResultResponse
      */
     public function listCompressFileDetectResult($request)
     {
@@ -25909,10 +27815,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListContainerDefenseRuleRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries a list of rules for non-image program defense.
+     *  *
+     * @param ListContainerDefenseRuleRequest $request ListContainerDefenseRuleRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListContainerDefenseRuleResponse
+     * @return ListContainerDefenseRuleResponse ListContainerDefenseRuleResponse
      */
     public function listContainerDefenseRuleWithOptions($request, $runtime)
     {
@@ -25955,9 +27863,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListContainerDefenseRuleRequest $request
+     * @summary Queries a list of rules for non-image program defense.
+     *  *
+     * @param ListContainerDefenseRuleRequest $request ListContainerDefenseRuleRequest
      *
-     * @return ListContainerDefenseRuleResponse
+     * @return ListContainerDefenseRuleResponse ListContainerDefenseRuleResponse
      */
     public function listContainerDefenseRule($request)
     {
@@ -25967,9 +27877,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries a list of clusters that are included in a rule for non-image program defense.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListContainerDefenseRuleClustersResponse
+     * @return ListContainerDefenseRuleClustersResponse ListContainerDefenseRuleClustersResponse
      */
     public function listContainerDefenseRuleClustersWithOptions($runtime)
     {
@@ -25990,7 +27902,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return ListContainerDefenseRuleClustersResponse
+     * @summary Queries a list of clusters that are included in a rule for non-image program defense.
+     *  *
+     * @return ListContainerDefenseRuleClustersResponse ListContainerDefenseRuleClustersResponse
      */
     public function listContainerDefenseRuleClusters()
     {
@@ -26000,10 +27914,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListCriteriaStrategyRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the IDs and names of rules configured for proactive defense for containers.
+     *  *
+     * @param ListCriteriaStrategyRequest $request ListCriteriaStrategyRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCriteriaStrategyResponse
+     * @return ListCriteriaStrategyResponse ListCriteriaStrategyResponse
      */
     public function listCriteriaStrategyWithOptions($request, $runtime)
     {
@@ -26043,9 +27959,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListCriteriaStrategyRequest $request
+     * @summary Queries the IDs and names of rules configured for proactive defense for containers.
+     *  *
+     * @param ListCriteriaStrategyRequest $request ListCriteriaStrategyRequest
      *
-     * @return ListCriteriaStrategyResponse
+     * @return ListCriteriaStrategyResponse ListCriteriaStrategyResponse
      */
     public function listCriteriaStrategy($request)
     {
@@ -26055,10 +27973,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListFileProtectEventRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries core file monitoring rules that meet the specified filter condition.
+     *  *
+     * @param ListFileProtectEventRequest $request ListFileProtectEventRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListFileProtectEventResponse
+     * @return ListFileProtectEventResponse ListFileProtectEventResponse
      */
     public function listFileProtectEventWithOptions($request, $runtime)
     {
@@ -26119,9 +28039,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListFileProtectEventRequest $request
+     * @summary Queries core file monitoring rules that meet the specified filter condition.
+     *  *
+     * @param ListFileProtectEventRequest $request ListFileProtectEventRequest
      *
-     * @return ListFileProtectEventResponse
+     * @return ListFileProtectEventResponse ListFileProtectEventResponse
      */
     public function listFileProtectEvent($request)
     {
@@ -26131,10 +28053,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListFileProtectPluginStatusRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries information about the Security Center agent installed on servers on which core file monitoring rules take effect. The information includes the installation status of the Security Center agent and whether the core file monitoring feature is supported.
+     *  *
+     * @param ListFileProtectPluginStatusRequest $request ListFileProtectPluginStatusRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListFileProtectPluginStatusResponse
+     * @return ListFileProtectPluginStatusResponse ListFileProtectPluginStatusResponse
      */
     public function listFileProtectPluginStatusWithOptions($request, $runtime)
     {
@@ -26168,9 +28092,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListFileProtectPluginStatusRequest $request
+     * @summary Queries information about the Security Center agent installed on servers on which core file monitoring rules take effect. The information includes the installation status of the Security Center agent and whether the core file monitoring feature is supported.
+     *  *
+     * @param ListFileProtectPluginStatusRequest $request ListFileProtectPluginStatusRequest
      *
-     * @return ListFileProtectPluginStatusResponse
+     * @return ListFileProtectPluginStatusResponse ListFileProtectPluginStatusResponse
      */
     public function listFileProtectPluginStatus($request)
     {
@@ -26180,10 +28106,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListFileProtectRuleRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries core file monitoring rules.
+     *  *
+     * @param ListFileProtectRuleRequest $request ListFileProtectRuleRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListFileProtectRuleResponse
+     * @return ListFileProtectRuleResponse ListFileProtectRuleResponse
      */
     public function listFileProtectRuleWithOptions($request, $runtime)
     {
@@ -26223,9 +28151,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListFileProtectRuleRequest $request
+     * @summary Queries core file monitoring rules.
+     *  *
+     * @param ListFileProtectRuleRequest $request ListFileProtectRuleRequest
      *
-     * @return ListFileProtectRuleResponse
+     * @return ListFileProtectRuleResponse ListFileProtectRuleResponse
      */
     public function listFileProtectRule($request)
     {
@@ -26235,10 +28165,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListGroupsRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Queries the server groups.
+     *  *
+     * @param ListGroupsRequest $request ListGroupsRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListGroupsResponse
+     * @return ListGroupsResponse ListGroupsResponse
      */
     public function listGroupsWithOptions($request, $runtime)
     {
@@ -26278,9 +28210,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListGroupsRequest $request
+     * @summary Queries the server groups.
+     *  *
+     * @param ListGroupsRequest $request ListGroupsRequest
      *
-     * @return ListGroupsResponse
+     * @return ListGroupsResponse ListGroupsResponse
      */
     public function listGroups($request)
     {
@@ -26290,10 +28224,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListHoneypotRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Queries the information about honeypots.
+     *  *
+     * @param ListHoneypotRequest $request ListHoneypotRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListHoneypotResponse
+     * @return ListHoneypotResponse ListHoneypotResponse
      */
     public function listHoneypotWithOptions($request, $runtime)
     {
@@ -26336,9 +28272,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListHoneypotRequest $request
+     * @summary Queries the information about honeypots.
+     *  *
+     * @param ListHoneypotRequest $request ListHoneypotRequest
      *
-     * @return ListHoneypotResponse
+     * @return ListHoneypotResponse ListHoneypotResponse
      */
     public function listHoneypot($request)
     {
@@ -26348,10 +28286,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListHoneypotAlarmEventsRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the information about alert events that are generated.
+     *  *
+     * @param ListHoneypotAlarmEventsRequest $request ListHoneypotAlarmEventsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListHoneypotAlarmEventsResponse
+     * @return ListHoneypotAlarmEventsResponse ListHoneypotAlarmEventsResponse
      */
     public function listHoneypotAlarmEventsWithOptions($request, $runtime)
     {
@@ -26376,9 +28316,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListHoneypotAlarmEventsRequest $request
+     * @summary Queries the information about alert events that are generated.
+     *  *
+     * @param ListHoneypotAlarmEventsRequest $request ListHoneypotAlarmEventsRequest
      *
-     * @return ListHoneypotAlarmEventsResponse
+     * @return ListHoneypotAlarmEventsResponse ListHoneypotAlarmEventsResponse
      */
     public function listHoneypotAlarmEvents($request)
     {
@@ -26388,10 +28330,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListHoneypotAttackerPortraitRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries the attacker profile based on the source IP address of the attack.
+     *  *
+     * @param ListHoneypotAttackerPortraitRequest $request ListHoneypotAttackerPortraitRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListHoneypotAttackerPortraitResponse
+     * @return ListHoneypotAttackerPortraitResponse ListHoneypotAttackerPortraitResponse
      */
     public function listHoneypotAttackerPortraitWithOptions($request, $runtime)
     {
@@ -26434,9 +28378,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListHoneypotAttackerPortraitRequest $request
+     * @summary Queries the attacker profile based on the source IP address of the attack.
+     *  *
+     * @param ListHoneypotAttackerPortraitRequest $request ListHoneypotAttackerPortraitRequest
      *
-     * @return ListHoneypotAttackerPortraitResponse
+     * @return ListHoneypotAttackerPortraitResponse ListHoneypotAttackerPortraitResponse
      */
     public function listHoneypotAttackerPortrait($request)
     {
@@ -26446,10 +28392,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListHoneypotAttackerSourceRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the attack source IP addresses that are used to attack a honeypot.
+     *  *
+     * @param ListHoneypotAttackerSourceRequest $request ListHoneypotAttackerSourceRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListHoneypotAttackerSourceResponse
+     * @return ListHoneypotAttackerSourceResponse ListHoneypotAttackerSourceResponse
      */
     public function listHoneypotAttackerSourceWithOptions($request, $runtime)
     {
@@ -26495,9 +28443,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListHoneypotAttackerSourceRequest $request
+     * @summary Queries the attack source IP addresses that are used to attack a honeypot.
+     *  *
+     * @param ListHoneypotAttackerSourceRequest $request ListHoneypotAttackerSourceRequest
      *
-     * @return ListHoneypotAttackerSourceResponse
+     * @return ListHoneypotAttackerSourceResponse ListHoneypotAttackerSourceResponse
      */
     public function listHoneypotAttackerSource($request)
     {
@@ -26507,10 +28457,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListHoneypotEventFlowsRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries the details of an intrusion event in a honeypot.
+     *  *
+     * @param ListHoneypotEventFlowsRequest $request ListHoneypotEventFlowsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListHoneypotEventFlowsResponse
+     * @return ListHoneypotEventFlowsResponse ListHoneypotEventFlowsResponse
      */
     public function listHoneypotEventFlowsWithOptions($request, $runtime)
     {
@@ -26535,9 +28487,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListHoneypotEventFlowsRequest $request
+     * @summary Queries the details of an intrusion event in a honeypot.
+     *  *
+     * @param ListHoneypotEventFlowsRequest $request ListHoneypotEventFlowsRequest
      *
-     * @return ListHoneypotEventFlowsResponse
+     * @return ListHoneypotEventFlowsResponse ListHoneypotEventFlowsResponse
      */
     public function listHoneypotEventFlows($request)
     {
@@ -26547,10 +28501,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListHoneypotEventsRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the intrusion events detected by honeypots.
+     *  *
+     * @param ListHoneypotEventsRequest $request ListHoneypotEventsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListHoneypotEventsResponse
+     * @return ListHoneypotEventsResponse ListHoneypotEventsResponse
      */
     public function listHoneypotEventsWithOptions($request, $runtime)
     {
@@ -26575,9 +28531,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListHoneypotEventsRequest $request
+     * @summary Queries the intrusion events detected by honeypots.
+     *  *
+     * @param ListHoneypotEventsRequest $request ListHoneypotEventsRequest
      *
-     * @return ListHoneypotEventsResponse
+     * @return ListHoneypotEventsResponse ListHoneypotEventsResponse
      */
     public function listHoneypotEvents($request)
     {
@@ -26587,10 +28545,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListHoneypotNodeRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the information about management nodes.
+     *  *
+     * @param ListHoneypotNodeRequest $request ListHoneypotNodeRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListHoneypotNodeResponse
+     * @return ListHoneypotNodeResponse ListHoneypotNodeResponse
      */
     public function listHoneypotNodeWithOptions($request, $runtime)
     {
@@ -26627,9 +28587,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListHoneypotNodeRequest $request
+     * @summary Queries the information about management nodes.
+     *  *
+     * @param ListHoneypotNodeRequest $request ListHoneypotNodeRequest
      *
-     * @return ListHoneypotNodeResponse
+     * @return ListHoneypotNodeResponse ListHoneypotNodeResponse
      */
     public function listHoneypotNode($request)
     {
@@ -26639,10 +28601,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListHoneypotPresetRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries honeypot templates.
+     *  *
+     * @param ListHoneypotPresetRequest $request ListHoneypotPresetRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListHoneypotPresetResponse
+     * @return ListHoneypotPresetResponse ListHoneypotPresetResponse
      */
     public function listHoneypotPresetWithOptions($request, $runtime)
     {
@@ -26688,9 +28652,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListHoneypotPresetRequest $request
+     * @summary Queries honeypot templates.
+     *  *
+     * @param ListHoneypotPresetRequest $request ListHoneypotPresetRequest
      *
-     * @return ListHoneypotPresetResponse
+     * @return ListHoneypotPresetResponse ListHoneypotPresetResponse
      */
     public function listHoneypotPreset($request)
     {
@@ -26700,10 +28666,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListHoneypotProbeRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries probes.
+     *  *
+     * @param ListHoneypotProbeRequest $request ListHoneypotProbeRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListHoneypotProbeResponse
+     * @return ListHoneypotProbeResponse ListHoneypotProbeResponse
      */
     public function listHoneypotProbeWithOptions($request, $runtime)
     {
@@ -26746,9 +28714,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListHoneypotProbeRequest $request
+     * @summary Queries probes.
+     *  *
+     * @param ListHoneypotProbeRequest $request ListHoneypotProbeRequest
      *
-     * @return ListHoneypotProbeResponse
+     * @return ListHoneypotProbeResponse ListHoneypotProbeResponse
      */
     public function listHoneypotProbe($request)
     {
@@ -26758,10 +28728,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListHoneypotProbeUuidRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 查询已安装的探针
+     *  *
+     * @param ListHoneypotProbeUuidRequest $request ListHoneypotProbeUuidRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListHoneypotProbeUuidResponse
+     * @return ListHoneypotProbeUuidResponse ListHoneypotProbeUuidResponse
      */
     public function listHoneypotProbeUuidWithOptions($request, $runtime)
     {
@@ -26795,9 +28767,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListHoneypotProbeUuidRequest $request
+     * @summary 查询已安装的探针
+     *  *
+     * @param ListHoneypotProbeUuidRequest $request ListHoneypotProbeUuidRequest
      *
-     * @return ListHoneypotProbeUuidResponse
+     * @return ListHoneypotProbeUuidResponse ListHoneypotProbeUuidResponse
      */
     public function listHoneypotProbeUuid($request)
     {
@@ -26807,10 +28781,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListImageBuildRiskItemRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary List image risk items.
+     *  *
+     * @param ListImageBuildRiskItemRequest $request ListImageBuildRiskItemRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListImageBuildRiskItemResponse
+     * @return ListImageBuildRiskItemResponse ListImageBuildRiskItemResponse
      */
     public function listImageBuildRiskItemWithOptions($request, $runtime)
     {
@@ -26838,9 +28814,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListImageBuildRiskItemRequest $request
+     * @summary List image risk items.
+     *  *
+     * @param ListImageBuildRiskItemRequest $request ListImageBuildRiskItemRequest
      *
-     * @return ListImageBuildRiskItemResponse
+     * @return ListImageBuildRiskItemResponse ListImageBuildRiskItemResponse
      */
     public function listImageBuildRiskItem($request)
     {
@@ -26850,9 +28828,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary The region ID of the image.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListImageRegistryRegionResponse
+     * @return ListImageRegistryRegionResponse ListImageRegistryRegionResponse
      */
     public function listImageRegistryRegionWithOptions($runtime)
     {
@@ -26873,7 +28853,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return ListImageRegistryRegionResponse
+     * @summary The region ID of the image.
+     *  *
+     * @return ListImageRegistryRegionResponse ListImageRegistryRegionResponse
      */
     public function listImageRegistryRegion()
     {
@@ -26883,10 +28865,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListImageRiskRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Queries security information about a container image.
+     *  *
+     * @param ListImageRiskRequest $request ListImageRiskRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListImageRiskResponse
+     * @return ListImageRiskResponse ListImageRiskResponse
      */
     public function listImageRiskWithOptions($request, $runtime)
     {
@@ -26929,9 +28913,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListImageRiskRequest $request
+     * @summary Queries security information about a container image.
+     *  *
+     * @param ListImageRiskRequest $request ListImageRiskRequest
      *
-     * @return ListImageRiskResponse
+     * @return ListImageRiskResponse ListImageRiskResponse
      */
     public function listImageRisk($request)
     {
@@ -26941,10 +28927,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListInstanceCatalogRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the asset types and asset subtypes for configuration assessment.
+     *  *
+     * @param ListInstanceCatalogRequest $request ListInstanceCatalogRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListInstanceCatalogResponse
+     * @return ListInstanceCatalogResponse ListInstanceCatalogResponse
      */
     public function listInstanceCatalogWithOptions($request, $runtime)
     {
@@ -26984,9 +28972,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListInstanceCatalogRequest $request
+     * @summary Queries the asset types and asset subtypes for configuration assessment.
+     *  *
+     * @param ListInstanceCatalogRequest $request ListInstanceCatalogRequest
      *
-     * @return ListInstanceCatalogResponse
+     * @return ListInstanceCatalogResponse ListInstanceCatalogResponse
      */
     public function listInstanceCatalog($request)
     {
@@ -26996,10 +28986,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListInstanceRiskLevelsRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries the risk levels of instances.
+     *  *
+     * @param ListInstanceRiskLevelsRequest $request ListInstanceRiskLevelsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListInstanceRiskLevelsResponse
+     * @return ListInstanceRiskLevelsResponse ListInstanceRiskLevelsResponse
      */
     public function listInstanceRiskLevelsWithOptions($request, $runtime)
     {
@@ -27027,9 +29019,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListInstanceRiskLevelsRequest $request
+     * @summary Queries the risk levels of instances.
+     *  *
+     * @param ListInstanceRiskLevelsRequest $request ListInstanceRiskLevelsRequest
      *
-     * @return ListInstanceRiskLevelsResponse
+     * @return ListInstanceRiskLevelsResponse ListInstanceRiskLevelsResponse
      */
     public function listInstanceRiskLevels($request)
     {
@@ -27039,10 +29033,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListInstanceRiskNumRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the statistics about risks in instances.
+     *  *
+     * @param ListInstanceRiskNumRequest $request ListInstanceRiskNumRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListInstanceRiskNumResponse
+     * @return ListInstanceRiskNumResponse ListInstanceRiskNumResponse
      */
     public function listInstanceRiskNumWithOptions($request, $runtime)
     {
@@ -27070,9 +29066,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListInstanceRiskNumRequest $request
+     * @summary Queries the statistics about risks in instances.
+     *  *
+     * @param ListInstanceRiskNumRequest $request ListInstanceRiskNumRequest
      *
-     * @return ListInstanceRiskNumResponse
+     * @return ListInstanceRiskNumResponse ListInstanceRiskNumResponse
      */
     public function listInstanceRiskNum($request)
     {
@@ -27082,10 +29080,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListInterceptionHistoryRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the alerts generated by defense rules.
+     *  *
+     * @param ListInterceptionHistoryRequest $request ListInterceptionHistoryRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListInterceptionHistoryResponse
+     * @return ListInterceptionHistoryResponse ListInterceptionHistoryResponse
      */
     public function listInterceptionHistoryWithOptions($request, $runtime)
     {
@@ -27134,9 +29134,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListInterceptionHistoryRequest $request
+     * @summary Queries the alerts generated by defense rules.
+     *  *
+     * @param ListInterceptionHistoryRequest $request ListInterceptionHistoryRequest
      *
-     * @return ListInterceptionHistoryResponse
+     * @return ListInterceptionHistoryResponse ListInterceptionHistoryResponse
      */
     public function listInterceptionHistory($request)
     {
@@ -27146,10 +29148,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListInterceptionRulePageRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries defense rules that are configured for the container firewall feature.
+     *  *
+     * @param ListInterceptionRulePageRequest $request ListInterceptionRulePageRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListInterceptionRulePageResponse
+     * @return ListInterceptionRulePageResponse ListInterceptionRulePageResponse
      */
     public function listInterceptionRulePageWithOptions($request, $runtime)
     {
@@ -27189,9 +29193,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListInterceptionRulePageRequest $request
+     * @summary Queries defense rules that are configured for the container firewall feature.
+     *  *
+     * @param ListInterceptionRulePageRequest $request ListInterceptionRulePageRequest
      *
-     * @return ListInterceptionRulePageResponse
+     * @return ListInterceptionRulePageResponse ListInterceptionRulePageResponse
      */
     public function listInterceptionRulePage($request)
     {
@@ -27201,10 +29207,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListInterceptionTargetPageRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the network objects that are protected by the container firewall feature.
+     *  *
+     * @param ListInterceptionTargetPageRequest $request ListInterceptionTargetPageRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListInterceptionTargetPageResponse
+     * @return ListInterceptionTargetPageResponse ListInterceptionTargetPageResponse
      */
     public function listInterceptionTargetPageWithOptions($request, $runtime)
     {
@@ -27253,9 +29261,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListInterceptionTargetPageRequest $request
+     * @summary Queries the network objects that are protected by the container firewall feature.
+     *  *
+     * @param ListInterceptionTargetPageRequest $request ListInterceptionTargetPageRequest
      *
-     * @return ListInterceptionTargetPageResponse
+     * @return ListInterceptionTargetPageResponse ListInterceptionTargetPageResponse
      */
     public function listInterceptionTargetPage($request)
     {
@@ -27265,8 +29275,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * You can use this operation to query the access information about Kubernetes clusters.
-     *   *
+     * @summary Queries the information about Kubernetes clusters that are added to Security Center.
+     *  *
+     * @description You can use this operation to query the access information about Kubernetes clusters.
+     *  *
      * @param ListK8sAccessInfoRequest $request ListK8sAccessInfoRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -27307,8 +29319,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * You can use this operation to query the access information about Kubernetes clusters.
-     *   *
+     * @summary Queries the information about Kubernetes clusters that are added to Security Center.
+     *  *
+     * @description You can use this operation to query the access information about Kubernetes clusters.
+     *  *
      * @param ListK8sAccessInfoRequest $request ListK8sAccessInfoRequest
      *
      * @return ListK8sAccessInfoResponse ListK8sAccessInfoResponse
@@ -27321,10 +29335,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListMaliciousFileWhitelistConfigsRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @summary Queries the alert whitelist rules of sensitive files that are detected by using the agentless detection feature.
+     *  *
+     * @param ListMaliciousFileWhitelistConfigsRequest $request ListMaliciousFileWhitelistConfigsRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListMaliciousFileWhitelistConfigsResponse
+     * @return ListMaliciousFileWhitelistConfigsResponse ListMaliciousFileWhitelistConfigsResponse
      */
     public function listMaliciousFileWhitelistConfigsWithOptions($request, $runtime)
     {
@@ -27364,9 +29380,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListMaliciousFileWhitelistConfigsRequest $request
+     * @summary Queries the alert whitelist rules of sensitive files that are detected by using the agentless detection feature.
+     *  *
+     * @param ListMaliciousFileWhitelistConfigsRequest $request ListMaliciousFileWhitelistConfigsRequest
      *
-     * @return ListMaliciousFileWhitelistConfigsResponse
+     * @return ListMaliciousFileWhitelistConfigsResponse ListMaliciousFileWhitelistConfigsResponse
      */
     public function listMaliciousFileWhitelistConfigs($request)
     {
@@ -27376,10 +29394,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListObjectScanEventRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries alerts that are generated for malicious files.
+     *  *
+     * @param ListObjectScanEventRequest $request ListObjectScanEventRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListObjectScanEventResponse
+     * @return ListObjectScanEventResponse ListObjectScanEventResponse
      */
     public function listObjectScanEventWithOptions($request, $runtime)
     {
@@ -27440,9 +29460,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListObjectScanEventRequest $request
+     * @summary Queries alerts that are generated for malicious files.
+     *  *
+     * @param ListObjectScanEventRequest $request ListObjectScanEventRequest
      *
-     * @return ListObjectScanEventResponse
+     * @return ListObjectScanEventResponse ListObjectScanEventResponse
      */
     public function listObjectScanEvent($request)
     {
@@ -27452,10 +29474,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListOpaClusterStrategyNewRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries at-risk image blocking rules.
+     *  *
+     * @param ListOpaClusterStrategyNewRequest $request ListOpaClusterStrategyNewRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListOpaClusterStrategyNewResponse
+     * @return ListOpaClusterStrategyNewResponse ListOpaClusterStrategyNewResponse
      */
     public function listOpaClusterStrategyNewWithOptions($request, $runtime)
     {
@@ -27495,9 +29519,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListOpaClusterStrategyNewRequest $request
+     * @summary Queries at-risk image blocking rules.
+     *  *
+     * @param ListOpaClusterStrategyNewRequest $request ListOpaClusterStrategyNewRequest
      *
-     * @return ListOpaClusterStrategyNewResponse
+     * @return ListOpaClusterStrategyNewResponse ListOpaClusterStrategyNewResponse
      */
     public function listOpaClusterStrategyNew($request)
     {
@@ -27507,10 +29533,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListOssBucketRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Queries Object Storage Service (OSS) buckets.
+     *  *
+     * @param ListOssBucketRequest $request ListOssBucketRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListOssBucketResponse
+     * @return ListOssBucketResponse ListOssBucketResponse
      */
     public function listOssBucketWithOptions($request, $runtime)
     {
@@ -27541,9 +29569,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListOssBucketRequest $request
+     * @summary Queries Object Storage Service (OSS) buckets.
+     *  *
+     * @param ListOssBucketRequest $request ListOssBucketRequest
      *
-     * @return ListOssBucketResponse
+     * @return ListOssBucketResponse ListOssBucketResponse
      */
     public function listOssBucket($request)
     {
@@ -27553,10 +29583,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListOssBucketScanInfoRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the risk information of an Object Storage Service (OSS) bucket.
+     *  *
+     * @param ListOssBucketScanInfoRequest $request ListOssBucketScanInfoRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListOssBucketScanInfoResponse
+     * @return ListOssBucketScanInfoResponse ListOssBucketScanInfoResponse
      */
     public function listOssBucketScanInfoWithOptions($request, $runtime)
     {
@@ -27602,9 +29634,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListOssBucketScanInfoRequest $request
+     * @summary Queries the risk information of an Object Storage Service (OSS) bucket.
+     *  *
+     * @param ListOssBucketScanInfoRequest $request ListOssBucketScanInfoRequest
      *
-     * @return ListOssBucketScanInfoResponse
+     * @return ListOssBucketScanInfoResponse ListOssBucketScanInfoResponse
      */
     public function listOssBucketScanInfo($request)
     {
@@ -27614,10 +29648,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListOssScanConfigRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries oss scan policies.
+     *  *
+     * @param ListOssScanConfigRequest $request ListOssScanConfigRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListOssScanConfigResponse
+     * @return ListOssScanConfigResponse ListOssScanConfigResponse
      */
     public function listOssScanConfigWithOptions($request, $runtime)
     {
@@ -27642,9 +29678,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListOssScanConfigRequest $request
+     * @summary Queries oss scan policies.
+     *  *
+     * @param ListOssScanConfigRequest $request ListOssScanConfigRequest
      *
-     * @return ListOssScanConfigResponse
+     * @return ListOssScanConfigResponse ListOssScanConfigResponse
      */
     public function listOssScanConfig($request)
     {
@@ -27654,10 +29692,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListPluginForUuidRequest $tmpReq
-     * @param RuntimeOptions           $runtime
+     * @summary Queries the information about plug-ins on a server.
+     *  *
+     * @param ListPluginForUuidRequest $tmpReq  ListPluginForUuidRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPluginForUuidResponse
+     * @return ListPluginForUuidResponse ListPluginForUuidResponse
      */
     public function listPluginForUuidWithOptions($tmpReq, $runtime)
     {
@@ -27693,9 +29733,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListPluginForUuidRequest $request
+     * @summary Queries the information about plug-ins on a server.
+     *  *
+     * @param ListPluginForUuidRequest $request ListPluginForUuidRequest
      *
-     * @return ListPluginForUuidResponse
+     * @return ListPluginForUuidResponse ListPluginForUuidResponse
      */
     public function listPluginForUuid($request)
     {
@@ -27705,10 +29747,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListPodRiskRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Queries the security risks of a pod.
+     *  *
+     * @param ListPodRiskRequest $request ListPodRiskRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPodRiskResponse
+     * @return ListPodRiskResponse ListPodRiskResponse
      */
     public function listPodRiskWithOptions($request, $runtime)
     {
@@ -27751,9 +29795,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListPodRiskRequest $request
+     * @summary Queries the security risks of a pod.
+     *  *
+     * @param ListPodRiskRequest $request ListPodRiskRequest
      *
-     * @return ListPodRiskResponse
+     * @return ListPodRiskResponse ListPodRiskResponse
      */
     public function listPodRisk($request)
     {
@@ -27763,10 +29809,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListPrivateRegistryListRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries image repositories.
+     *  *
+     * @param ListPrivateRegistryListRequest $request ListPrivateRegistryListRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPrivateRegistryListResponse
+     * @return ListPrivateRegistryListResponse ListPrivateRegistryListResponse
      */
     public function listPrivateRegistryListWithOptions($request, $runtime)
     {
@@ -27794,9 +29842,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListPrivateRegistryListRequest $request
+     * @summary Queries image repositories.
+     *  *
+     * @param ListPrivateRegistryListRequest $request ListPrivateRegistryListRequest
      *
-     * @return ListPrivateRegistryListResponse
+     * @return ListPrivateRegistryListResponse ListPrivateRegistryListResponse
      */
     public function listPrivateRegistryList($request)
     {
@@ -27806,10 +29856,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListPrivateRegistryTypeRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the number of image repositories of each type.
+     *  *
+     * @param ListPrivateRegistryTypeRequest $request ListPrivateRegistryTypeRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPrivateRegistryTypeResponse
+     * @return ListPrivateRegistryTypeResponse ListPrivateRegistryTypeResponse
      */
     public function listPrivateRegistryTypeWithOptions($request, $runtime)
     {
@@ -27837,9 +29889,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListPrivateRegistryTypeRequest $request
+     * @summary Queries the number of image repositories of each type.
+     *  *
+     * @param ListPrivateRegistryTypeRequest $request ListPrivateRegistryTypeRequest
      *
-     * @return ListPrivateRegistryTypeResponse
+     * @return ListPrivateRegistryTypeResponse ListPrivateRegistryTypeResponse
      */
     public function listPrivateRegistryType($request)
     {
@@ -27849,10 +29903,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListQueryRaspAppInfoRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the installation information of one or more Runtime Application Self-protection-enabled (RASP-enabled) applications.
+     *  *
+     * @param ListQueryRaspAppInfoRequest $request ListQueryRaspAppInfoRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListQueryRaspAppInfoResponse
+     * @return ListQueryRaspAppInfoResponse ListQueryRaspAppInfoResponse
      */
     public function listQueryRaspAppInfoWithOptions($request, $runtime)
     {
@@ -27883,9 +29939,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListQueryRaspAppInfoRequest $request
+     * @summary Queries the installation information of one or more Runtime Application Self-protection-enabled (RASP-enabled) applications.
+     *  *
+     * @param ListQueryRaspAppInfoRequest $request ListQueryRaspAppInfoRequest
      *
-     * @return ListQueryRaspAppInfoResponse
+     * @return ListQueryRaspAppInfoResponse ListQueryRaspAppInfoResponse
      */
     public function listQueryRaspAppInfo($request)
     {
@@ -27895,10 +29953,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListRuleTargetAllRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries the network objects based on which a specified cluster is protected.
+     *  *
+     * @param ListRuleTargetAllRequest $request ListRuleTargetAllRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListRuleTargetAllResponse
+     * @return ListRuleTargetAllResponse ListRuleTargetAllResponse
      */
     public function listRuleTargetAllWithOptions($request, $runtime)
     {
@@ -27926,9 +29986,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListRuleTargetAllRequest $request
+     * @summary Queries the network objects based on which a specified cluster is protected.
+     *  *
+     * @param ListRuleTargetAllRequest $request ListRuleTargetAllRequest
      *
-     * @return ListRuleTargetAllResponse
+     * @return ListRuleTargetAllResponse ListRuleTargetAllResponse
      */
     public function listRuleTargetAll($request)
     {
@@ -27938,10 +30000,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListSasContainerWebDefenseRuleRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Queries rules for container tamper-proofing.
+     *  *
+     * @param ListSasContainerWebDefenseRuleRequest $request ListSasContainerWebDefenseRuleRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSasContainerWebDefenseRuleResponse
+     * @return ListSasContainerWebDefenseRuleResponse ListSasContainerWebDefenseRuleResponse
      */
     public function listSasContainerWebDefenseRuleWithOptions($request, $runtime)
     {
@@ -27978,9 +30042,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListSasContainerWebDefenseRuleRequest $request
+     * @summary Queries rules for container tamper-proofing.
+     *  *
+     * @param ListSasContainerWebDefenseRuleRequest $request ListSasContainerWebDefenseRuleRequest
      *
-     * @return ListSasContainerWebDefenseRuleResponse
+     * @return ListSasContainerWebDefenseRuleResponse ListSasContainerWebDefenseRuleResponse
      */
     public function listSasContainerWebDefenseRule($request)
     {
@@ -27990,9 +30056,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries supported file suffixes.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSupportObjectSuffixResponse
+     * @return ListSupportObjectSuffixResponse ListSupportObjectSuffixResponse
      */
     public function listSupportObjectSuffixWithOptions($runtime)
     {
@@ -28013,7 +30081,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return ListSupportObjectSuffixResponse
+     * @summary Queries supported file suffixes.
+     *  *
+     * @return ListSupportObjectSuffixResponse ListSupportObjectSuffixResponse
      */
     public function listSupportObjectSuffix()
     {
@@ -28023,10 +30093,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListSystemAggregationRulesRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the details about the aggregation types of system defense rules.
+     *  *
+     * @param ListSystemAggregationRulesRequest $request ListSystemAggregationRulesRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSystemAggregationRulesResponse
+     * @return ListSystemAggregationRulesResponse ListSystemAggregationRulesResponse
      */
     public function listSystemAggregationRulesWithOptions($request, $runtime)
     {
@@ -28051,9 +30123,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListSystemAggregationRulesRequest $request
+     * @summary Queries the details about the aggregation types of system defense rules.
+     *  *
+     * @param ListSystemAggregationRulesRequest $request ListSystemAggregationRulesRequest
      *
-     * @return ListSystemAggregationRulesResponse
+     * @return ListSystemAggregationRulesResponse ListSystemAggregationRulesResponse
      */
     public function listSystemAggregationRules($request)
     {
@@ -28063,9 +30137,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary 查询对用户生效的系统规则类型
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSystemClientRuleTypesResponse
+     * @return ListSystemClientRuleTypesResponse ListSystemClientRuleTypesResponse
      */
     public function listSystemClientRuleTypesWithOptions($runtime)
     {
@@ -28086,7 +30162,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return ListSystemClientRuleTypesResponse
+     * @summary 查询对用户生效的系统规则类型
+     *  *
+     * @return ListSystemClientRuleTypesResponse ListSystemClientRuleTypesResponse
      */
     public function listSystemClientRuleTypes()
     {
@@ -28096,10 +30174,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListSystemClientRulesRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries system defense rules.
+     *  *
+     * @param ListSystemClientRulesRequest $request ListSystemClientRulesRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSystemClientRulesResponse
+     * @return ListSystemClientRulesResponse ListSystemClientRulesResponse
      */
     public function listSystemClientRulesWithOptions($request, $runtime)
     {
@@ -28148,9 +30228,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListSystemClientRulesRequest $request
+     * @summary Queries system defense rules.
+     *  *
+     * @param ListSystemClientRulesRequest $request ListSystemClientRulesRequest
      *
-     * @return ListSystemClientRulesResponse
+     * @return ListSystemClientRulesResponse ListSystemClientRulesResponse
      */
     public function listSystemClientRules($request)
     {
@@ -28160,10 +30242,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListSystemRuleAggregationTypesRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Queries the aggregation types of system defense rules.
+     *  *
+     * @param ListSystemRuleAggregationTypesRequest $request ListSystemRuleAggregationTypesRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSystemRuleAggregationTypesResponse
+     * @return ListSystemRuleAggregationTypesResponse ListSystemRuleAggregationTypesResponse
      */
     public function listSystemRuleAggregationTypesWithOptions($request, $runtime)
     {
@@ -28188,9 +30272,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListSystemRuleAggregationTypesRequest $request
+     * @summary Queries the aggregation types of system defense rules.
+     *  *
+     * @param ListSystemRuleAggregationTypesRequest $request ListSystemRuleAggregationTypesRequest
      *
-     * @return ListSystemRuleAggregationTypesResponse
+     * @return ListSystemRuleAggregationTypesResponse ListSystemRuleAggregationTypesResponse
      */
     public function listSystemRuleAggregationTypes($request)
     {
@@ -28200,10 +30286,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListUnfinishedOnceTaskRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries tasks that are not complete by task type.
+     *  *
+     * @param ListUnfinishedOnceTaskRequest $request ListUnfinishedOnceTaskRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUnfinishedOnceTaskResponse
+     * @return ListUnfinishedOnceTaskResponse ListUnfinishedOnceTaskResponse
      */
     public function listUnfinishedOnceTaskWithOptions($request, $runtime)
     {
@@ -28234,9 +30322,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListUnfinishedOnceTaskRequest $request
+     * @summary Queries tasks that are not complete by task type.
+     *  *
+     * @param ListUnfinishedOnceTaskRequest $request ListUnfinishedOnceTaskRequest
      *
-     * @return ListUnfinishedOnceTaskResponse
+     * @return ListUnfinishedOnceTaskResponse ListUnfinishedOnceTaskResponse
      */
     public function listUnfinishedOnceTask($request)
     {
@@ -28246,10 +30336,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListUninstallAegisMachinesRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the information about the servers whose Security Center agent is not installed.
+     *  *
+     * @param ListUninstallAegisMachinesRequest $request ListUninstallAegisMachinesRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUninstallAegisMachinesResponse
+     * @return ListUninstallAegisMachinesResponse ListUninstallAegisMachinesResponse
      */
     public function listUninstallAegisMachinesWithOptions($request, $runtime)
     {
@@ -28298,9 +30390,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListUninstallAegisMachinesRequest $request
+     * @summary Queries the information about the servers whose Security Center agent is not installed.
+     *  *
+     * @param ListUninstallAegisMachinesRequest $request ListUninstallAegisMachinesRequest
      *
-     * @return ListUninstallAegisMachinesResponse
+     * @return ListUninstallAegisMachinesResponse ListUninstallAegisMachinesResponse
      */
     public function listUninstallAegisMachines($request)
     {
@@ -28310,10 +30404,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListUuidsByWebPathRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries protected assets by using the paths to specific web directories.
+     *  *
+     * @param ListUuidsByWebPathRequest $request ListUuidsByWebPathRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUuidsByWebPathResponse
+     * @return ListUuidsByWebPathResponse ListUuidsByWebPathResponse
      */
     public function listUuidsByWebPathWithOptions($request, $runtime)
     {
@@ -28350,9 +30446,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListUuidsByWebPathRequest $request
+     * @summary Queries protected assets by using the paths to specific web directories.
+     *  *
+     * @param ListUuidsByWebPathRequest $request ListUuidsByWebPathRequest
      *
-     * @return ListUuidsByWebPathResponse
+     * @return ListUuidsByWebPathResponse ListUuidsByWebPathResponse
      */
     public function listUuidsByWebPath($request)
     {
@@ -28362,10 +30460,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListVirusScanMachineRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries servers on which virus detection and removal tasks are performed.
+     *  *
+     * @param ListVirusScanMachineRequest $request ListVirusScanMachineRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListVirusScanMachineResponse
+     * @return ListVirusScanMachineResponse ListVirusScanMachineResponse
      */
     public function listVirusScanMachineWithOptions($request, $runtime)
     {
@@ -28402,9 +30502,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListVirusScanMachineRequest $request
+     * @summary Queries servers on which virus detection and removal tasks are performed.
+     *  *
+     * @param ListVirusScanMachineRequest $request ListVirusScanMachineRequest
      *
-     * @return ListVirusScanMachineResponse
+     * @return ListVirusScanMachineResponse ListVirusScanMachineResponse
      */
     public function listVirusScanMachine($request)
     {
@@ -28414,10 +30516,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListVirusScanMachineEventRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the alert events that are generated for viruses detected on a server.
+     *  *
+     * @param ListVirusScanMachineEventRequest $request ListVirusScanMachineEventRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListVirusScanMachineEventResponse
+     * @return ListVirusScanMachineEventResponse ListVirusScanMachineEventResponse
      */
     public function listVirusScanMachineEventWithOptions($request, $runtime)
     {
@@ -28457,9 +30561,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListVirusScanMachineEventRequest $request
+     * @summary Queries the alert events that are generated for viruses detected on a server.
+     *  *
+     * @param ListVirusScanMachineEventRequest $request ListVirusScanMachineEventRequest
      *
-     * @return ListVirusScanMachineEventResponse
+     * @return ListVirusScanMachineEventResponse ListVirusScanMachineEventResponse
      */
     public function listVirusScanMachineEvent($request)
     {
@@ -28469,10 +30575,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListVirusScanTaskRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries virus scan tasks based on conditions such as the task type, task status, and server information.
+     *  *
+     * @param ListVirusScanTaskRequest $request ListVirusScanTaskRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListVirusScanTaskResponse
+     * @return ListVirusScanTaskResponse ListVirusScanTaskResponse
      */
     public function listVirusScanTaskWithOptions($request, $runtime)
     {
@@ -28539,9 +30647,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListVirusScanTaskRequest $request
+     * @summary Queries virus scan tasks based on conditions such as the task type, task status, and server information.
+     *  *
+     * @param ListVirusScanTaskRequest $request ListVirusScanTaskRequest
      *
-     * @return ListVirusScanTaskResponse
+     * @return ListVirusScanTaskResponse ListVirusScanTaskResponse
      */
     public function listVirusScanTask($request)
     {
@@ -28551,10 +30661,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListVulAutoRepairConfigRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the existing configurations of vulnerabilities that can be automatically fixed.
+     *  *
+     * @param ListVulAutoRepairConfigRequest $request ListVulAutoRepairConfigRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListVulAutoRepairConfigResponse
+     * @return ListVulAutoRepairConfigResponse ListVulAutoRepairConfigResponse
      */
     public function listVulAutoRepairConfigWithOptions($request, $runtime)
     {
@@ -28591,9 +30703,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListVulAutoRepairConfigRequest $request
+     * @summary Queries the existing configurations of vulnerabilities that can be automatically fixed.
+     *  *
+     * @param ListVulAutoRepairConfigRequest $request ListVulAutoRepairConfigRequest
      *
-     * @return ListVulAutoRepairConfigResponse
+     * @return ListVulAutoRepairConfigResponse ListVulAutoRepairConfigResponse
      */
     public function listVulAutoRepairConfig($request)
     {
@@ -28603,10 +30717,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListVulGlobalConfigRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the global configurations of vulnerability detection.
+     *  *
+     * @param ListVulGlobalConfigRequest $request ListVulGlobalConfigRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListVulGlobalConfigResponse
+     * @return ListVulGlobalConfigResponse ListVulGlobalConfigResponse
      */
     public function listVulGlobalConfigWithOptions($request, $runtime)
     {
@@ -28634,9 +30750,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListVulGlobalConfigRequest $request
+     * @summary Queries the global configurations of vulnerability detection.
+     *  *
+     * @param ListVulGlobalConfigRequest $request ListVulGlobalConfigRequest
      *
-     * @return ListVulGlobalConfigResponse
+     * @return ListVulGlobalConfigResponse ListVulGlobalConfigResponse
      */
     public function listVulGlobalConfig($request)
     {
@@ -28646,10 +30764,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param MarkMonitorAccountsRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Marks members for multi-account management. You can call this operation to mark selected members as followed. In the Security Center console, the drop-down list above the left-side navigation pane displays the followed members.
+     *  *
+     * @param MarkMonitorAccountsRequest $request MarkMonitorAccountsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return MarkMonitorAccountsResponse
+     * @return MarkMonitorAccountsResponse MarkMonitorAccountsResponse
      */
     public function markMonitorAccountsWithOptions($request, $runtime)
     {
@@ -28677,9 +30797,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param MarkMonitorAccountsRequest $request
+     * @summary Marks members for multi-account management. You can call this operation to mark selected members as followed. In the Security Center console, the drop-down list above the left-side navigation pane displays the followed members.
+     *  *
+     * @param MarkMonitorAccountsRequest $request MarkMonitorAccountsRequest
      *
-     * @return MarkMonitorAccountsResponse
+     * @return MarkMonitorAccountsResponse MarkMonitorAccountsResponse
      */
     public function markMonitorAccounts($request)
     {
@@ -28689,10 +30811,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyAccessKeyLeakDealRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Handles AccessKey pair leaks.
+     *  *
+     * @param ModifyAccessKeyLeakDealRequest $request ModifyAccessKeyLeakDealRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyAccessKeyLeakDealResponse
+     * @return ModifyAccessKeyLeakDealResponse ModifyAccessKeyLeakDealResponse
      */
     public function modifyAccessKeyLeakDealWithOptions($request, $runtime)
     {
@@ -28729,9 +30853,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyAccessKeyLeakDealRequest $request
+     * @summary Handles AccessKey pair leaks.
+     *  *
+     * @param ModifyAccessKeyLeakDealRequest $request ModifyAccessKeyLeakDealRequest
      *
-     * @return ModifyAccessKeyLeakDealResponse
+     * @return ModifyAccessKeyLeakDealResponse ModifyAccessKeyLeakDealResponse
      */
     public function modifyAccessKeyLeakDeal($request)
     {
@@ -28741,10 +30867,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyAntiBruteForceRuleRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Modifies a defense rule against brute-force attacks.
+     *  *
+     * @param ModifyAntiBruteForceRuleRequest $request ModifyAntiBruteForceRuleRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyAntiBruteForceRuleResponse
+     * @return ModifyAntiBruteForceRuleResponse ModifyAntiBruteForceRuleResponse
      */
     public function modifyAntiBruteForceRuleWithOptions($request, $runtime)
     {
@@ -28796,9 +30924,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyAntiBruteForceRuleRequest $request
+     * @summary Modifies a defense rule against brute-force attacks.
+     *  *
+     * @param ModifyAntiBruteForceRuleRequest $request ModifyAntiBruteForceRuleRequest
      *
-     * @return ModifyAntiBruteForceRuleResponse
+     * @return ModifyAntiBruteForceRuleResponse ModifyAntiBruteForceRuleResponse
      */
     public function modifyAntiBruteForceRule($request)
     {
@@ -28808,10 +30938,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyAppVulScanCycleRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Configures a scan cycle for application vulnerabilities.
+     *  *
+     * @param ModifyAppVulScanCycleRequest $request ModifyAppVulScanCycleRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyAppVulScanCycleResponse
+     * @return ModifyAppVulScanCycleResponse ModifyAppVulScanCycleResponse
      */
     public function modifyAppVulScanCycleWithOptions($request, $runtime)
     {
@@ -28839,9 +30971,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyAppVulScanCycleRequest $request
+     * @summary Configures a scan cycle for application vulnerabilities.
+     *  *
+     * @param ModifyAppVulScanCycleRequest $request ModifyAppVulScanCycleRequest
      *
-     * @return ModifyAppVulScanCycleResponse
+     * @return ModifyAppVulScanCycleResponse ModifyAppVulScanCycleResponse
      */
     public function modifyAppVulScanCycle($request)
     {
@@ -28851,10 +30985,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyAssetCleanConfigRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Modifies the configurations for cleaning offline hosts whose provider cannot be identified.
+     *  *
+     * @param ModifyAssetCleanConfigRequest $request ModifyAssetCleanConfigRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyAssetCleanConfigResponse
+     * @return ModifyAssetCleanConfigResponse ModifyAssetCleanConfigResponse
      */
     public function modifyAssetCleanConfigWithOptions($request, $runtime)
     {
@@ -28882,9 +31018,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyAssetCleanConfigRequest $request
+     * @summary Modifies the configurations for cleaning offline hosts whose provider cannot be identified.
+     *  *
+     * @param ModifyAssetCleanConfigRequest $request ModifyAssetCleanConfigRequest
      *
-     * @return ModifyAssetCleanConfigResponse
+     * @return ModifyAssetCleanConfigResponse ModifyAssetCleanConfigResponse
      */
     public function modifyAssetCleanConfig($request)
     {
@@ -28894,10 +31032,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * You can call the ModifyAssetGroup operation to change the server group to which one or more servers belong. After you create a server group by calling the [CreateOrUpdateAssetGroup](~~CreateOrUpdateAssetGroup~~) operation, you can call the ModifyAssetGroup operation to change the server group to which your servers belong.
-     *   * ### Limits
-     *   * You can call this API operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Changes the server group to which specified servers belong.
+     *  *
+     * @description You can call the ModifyAssetGroup operation to change the server group to which one or more servers belong. After you create a server group by calling the [CreateOrUpdateAssetGroup](~~CreateOrUpdateAssetGroup~~) operation, you can call the ModifyAssetGroup operation to change the server group to which your servers belong.
+     * ### Limits
+     * You can call this API operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ModifyAssetGroupRequest $request ModifyAssetGroupRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -28935,10 +31075,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * You can call the ModifyAssetGroup operation to change the server group to which one or more servers belong. After you create a server group by calling the [CreateOrUpdateAssetGroup](~~CreateOrUpdateAssetGroup~~) operation, you can call the ModifyAssetGroup operation to change the server group to which your servers belong.
-     *   * ### Limits
-     *   * You can call this API operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Changes the server group to which specified servers belong.
+     *  *
+     * @description You can call the ModifyAssetGroup operation to change the server group to which one or more servers belong. After you create a server group by calling the [CreateOrUpdateAssetGroup](~~CreateOrUpdateAssetGroup~~) operation, you can call the ModifyAssetGroup operation to change the server group to which your servers belong.
+     * ### Limits
+     * You can call this API operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ModifyAssetGroupRequest $request ModifyAssetGroupRequest
      *
      * @return ModifyAssetGroupResponse ModifyAssetGroupResponse
@@ -28951,10 +31093,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyAssetImportantRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Modifies the importance of an asset.
+     *  *
+     * @param ModifyAssetImportantRequest $request ModifyAssetImportantRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyAssetImportantResponse
+     * @return ModifyAssetImportantResponse ModifyAssetImportantResponse
      */
     public function modifyAssetImportantWithOptions($request, $runtime)
     {
@@ -28985,9 +31129,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyAssetImportantRequest $request
+     * @summary Modifies the importance of an asset.
+     *  *
+     * @param ModifyAssetImportantRequest $request ModifyAssetImportantRequest
      *
-     * @return ModifyAssetImportantResponse
+     * @return ModifyAssetImportantResponse ModifyAssetImportantResponse
      */
     public function modifyAssetImportant($request)
     {
@@ -28997,10 +31143,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyAutoDelConfigRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Specifies the number of days after which a detected vulnerability is automatically deleted.
+     *  *
+     * @param ModifyAutoDelConfigRequest $request ModifyAutoDelConfigRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyAutoDelConfigResponse
+     * @return ModifyAutoDelConfigResponse ModifyAutoDelConfigResponse
      */
     public function modifyAutoDelConfigWithOptions($request, $runtime)
     {
@@ -29028,9 +31176,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyAutoDelConfigRequest $request
+     * @summary Specifies the number of days after which a detected vulnerability is automatically deleted.
+     *  *
+     * @param ModifyAutoDelConfigRequest $request ModifyAutoDelConfigRequest
      *
-     * @return ModifyAutoDelConfigResponse
+     * @return ModifyAutoDelConfigResponse ModifyAutoDelConfigResponse
      */
     public function modifyAutoDelConfig($request)
     {
@@ -29040,10 +31190,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyBackupPolicyRequest $tmpReq
-     * @param RuntimeOptions            $runtime
+     * @summary Modifies an anti-ransomware policy.
+     *  *
+     * @param ModifyBackupPolicyRequest $tmpReq  ModifyBackupPolicyRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyBackupPolicyResponse
+     * @return ModifyBackupPolicyResponse ModifyBackupPolicyResponse
      */
     public function modifyBackupPolicyWithOptions($tmpReq, $runtime)
     {
@@ -29091,9 +31243,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyBackupPolicyRequest $request
+     * @summary Modifies an anti-ransomware policy.
+     *  *
+     * @param ModifyBackupPolicyRequest $request ModifyBackupPolicyRequest
      *
-     * @return ModifyBackupPolicyResponse
+     * @return ModifyBackupPolicyResponse ModifyBackupPolicyResponse
      */
     public function modifyBackupPolicy($request)
     {
@@ -29103,10 +31257,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyBackupPolicyStatusRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Enables or disables an anti-ransomware policy.
+     *  *
+     * @param ModifyBackupPolicyStatusRequest $request ModifyBackupPolicyStatusRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyBackupPolicyStatusResponse
+     * @return ModifyBackupPolicyStatusResponse ModifyBackupPolicyStatusResponse
      */
     public function modifyBackupPolicyStatusWithOptions($request, $runtime)
     {
@@ -29140,9 +31296,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyBackupPolicyStatusRequest $request
+     * @summary Enables or disables an anti-ransomware policy.
+     *  *
+     * @param ModifyBackupPolicyStatusRequest $request ModifyBackupPolicyStatusRequest
      *
-     * @return ModifyBackupPolicyStatusResponse
+     * @return ModifyBackupPolicyStatusResponse ModifyBackupPolicyStatusResponse
      */
     public function modifyBackupPolicyStatus($request)
     {
@@ -29152,10 +31310,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyClearLogstoreStorageRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary 修改日志容量
+     *  *
+     * @param ModifyClearLogstoreStorageRequest $request ModifyClearLogstoreStorageRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyClearLogstoreStorageResponse
+     * @return ModifyClearLogstoreStorageResponse ModifyClearLogstoreStorageResponse
      */
     public function modifyClearLogstoreStorageWithOptions($request, $runtime)
     {
@@ -29192,9 +31352,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyClearLogstoreStorageRequest $request
+     * @summary 修改日志容量
+     *  *
+     * @param ModifyClearLogstoreStorageRequest $request ModifyClearLogstoreStorageRequest
      *
-     * @return ModifyClearLogstoreStorageResponse
+     * @return ModifyClearLogstoreStorageResponse ModifyClearLogstoreStorageResponse
      */
     public function modifyClearLogstoreStorage($request)
     {
@@ -29204,10 +31366,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyClientConfSetupRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Modifies the resource configurations of the Security Center agent.
+     *  *
+     * @param ModifyClientConfSetupRequest $request ModifyClientConfSetupRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyClientConfSetupResponse
+     * @return ModifyClientConfSetupResponse ModifyClientConfSetupResponse
      */
     public function modifyClientConfSetupWithOptions($request, $runtime)
     {
@@ -29241,9 +31405,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyClientConfSetupRequest $request
+     * @summary Modifies the resource configurations of the Security Center agent.
+     *  *
+     * @param ModifyClientConfSetupRequest $request ModifyClientConfSetupRequest
      *
-     * @return ModifyClientConfSetupResponse
+     * @return ModifyClientConfSetupResponse ModifyClientConfSetupResponse
      */
     public function modifyClientConfSetup($request)
     {
@@ -29253,10 +31419,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyClientConfStrategyRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Modifies an agent configuration policy.
+     *  *
+     * @param ModifyClientConfStrategyRequest $request ModifyClientConfStrategyRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyClientConfStrategyResponse
+     * @return ModifyClientConfStrategyResponse ModifyClientConfStrategyResponse
      */
     public function modifyClientConfStrategyWithOptions($request, $runtime)
     {
@@ -29296,9 +31464,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyClientConfStrategyRequest $request
+     * @summary Modifies an agent configuration policy.
+     *  *
+     * @param ModifyClientConfStrategyRequest $request ModifyClientConfStrategyRequest
      *
-     * @return ModifyClientConfStrategyResponse
+     * @return ModifyClientConfStrategyResponse ModifyClientConfStrategyResponse
      */
     public function modifyClientConfStrategy($request)
     {
@@ -29308,10 +31478,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyClientUserDefineRuleRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Modifies a custom defense rule.
+     *  *
+     * @param ModifyClientUserDefineRuleRequest $request ModifyClientUserDefineRuleRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyClientUserDefineRuleResponse
+     * @return ModifyClientUserDefineRuleResponse ModifyClientUserDefineRuleResponse
      */
     public function modifyClientUserDefineRuleWithOptions($request, $runtime)
     {
@@ -29390,9 +31562,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyClientUserDefineRuleRequest $request
+     * @summary Modifies a custom defense rule.
+     *  *
+     * @param ModifyClientUserDefineRuleRequest $request ModifyClientUserDefineRuleRequest
      *
-     * @return ModifyClientUserDefineRuleResponse
+     * @return ModifyClientUserDefineRuleResponse ModifyClientUserDefineRuleResponse
      */
     public function modifyClientUserDefineRule($request)
     {
@@ -29402,10 +31576,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyClusterCnnfStatusUserConfirmRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @summary Fixes the blocking status of clusters whose status is Normal to be confirmed.
+     *  *
+     * @param ModifyClusterCnnfStatusUserConfirmRequest $request ModifyClusterCnnfStatusUserConfirmRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyClusterCnnfStatusUserConfirmResponse
+     * @return ModifyClusterCnnfStatusUserConfirmResponse ModifyClusterCnnfStatusUserConfirmResponse
      */
     public function modifyClusterCnnfStatusUserConfirmWithOptions($request, $runtime)
     {
@@ -29436,9 +31612,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyClusterCnnfStatusUserConfirmRequest $request
+     * @summary Fixes the blocking status of clusters whose status is Normal to be confirmed.
+     *  *
+     * @param ModifyClusterCnnfStatusUserConfirmRequest $request ModifyClusterCnnfStatusUserConfirmRequest
      *
-     * @return ModifyClusterCnnfStatusUserConfirmResponse
+     * @return ModifyClusterCnnfStatusUserConfirmResponse ModifyClusterCnnfStatusUserConfirmResponse
      */
     public function modifyClusterCnnfStatusUserConfirm($request)
     {
@@ -29448,10 +31626,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyConcernNecessityRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Modifies the priority to fix vulnerabilities.
+     *  *
+     * @param ModifyConcernNecessityRequest $request ModifyConcernNecessityRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyConcernNecessityResponse
+     * @return ModifyConcernNecessityResponse ModifyConcernNecessityResponse
      */
     public function modifyConcernNecessityWithOptions($request, $runtime)
     {
@@ -29479,9 +31659,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyConcernNecessityRequest $request
+     * @summary Modifies the priority to fix vulnerabilities.
+     *  *
+     * @param ModifyConcernNecessityRequest $request ModifyConcernNecessityRequest
      *
-     * @return ModifyConcernNecessityResponse
+     * @return ModifyConcernNecessityResponse ModifyConcernNecessityResponse
      */
     public function modifyConcernNecessity($request)
     {
@@ -29491,10 +31673,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyContainerDefenseRuleRequest $tmpReq
-     * @param RuntimeOptions                    $runtime
+     * @summary Modifies a rule for non-image program defense.
+     *  *
+     * @param ModifyContainerDefenseRuleRequest $tmpReq  ModifyContainerDefenseRuleRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyContainerDefenseRuleResponse
+     * @return ModifyContainerDefenseRuleResponse ModifyContainerDefenseRuleResponse
      */
     public function modifyContainerDefenseRuleWithOptions($tmpReq, $runtime)
     {
@@ -29548,9 +31732,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyContainerDefenseRuleRequest $request
+     * @summary Modifies a rule for non-image program defense.
+     *  *
+     * @param ModifyContainerDefenseRuleRequest $request ModifyContainerDefenseRuleRequest
      *
-     * @return ModifyContainerDefenseRuleResponse
+     * @return ModifyContainerDefenseRuleResponse ModifyContainerDefenseRuleResponse
      */
     public function modifyContainerDefenseRule($request)
     {
@@ -29560,10 +31746,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyContainerDefenseRuleSwitchRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary Changes the status of rules for non-image program defense.
+     *  *
+     * @param ModifyContainerDefenseRuleSwitchRequest $request ModifyContainerDefenseRuleSwitchRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyContainerDefenseRuleSwitchResponse
+     * @return ModifyContainerDefenseRuleSwitchResponse ModifyContainerDefenseRuleSwitchResponse
      */
     public function modifyContainerDefenseRuleSwitchWithOptions($request, $runtime)
     {
@@ -29594,9 +31782,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyContainerDefenseRuleSwitchRequest $request
+     * @summary Changes the status of rules for non-image program defense.
+     *  *
+     * @param ModifyContainerDefenseRuleSwitchRequest $request ModifyContainerDefenseRuleSwitchRequest
      *
-     * @return ModifyContainerDefenseRuleSwitchResponse
+     * @return ModifyContainerDefenseRuleSwitchResponse ModifyContainerDefenseRuleSwitchResponse
      */
     public function modifyContainerDefenseRuleSwitch($request)
     {
@@ -29606,10 +31796,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyContainerPluginRuleRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Modifies the defense rule against container escapes.
+     *  *
+     * @param ModifyContainerPluginRuleRequest $request ModifyContainerPluginRuleRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyContainerPluginRuleResponse
+     * @return ModifyContainerPluginRuleResponse ModifyContainerPluginRuleResponse
      */
     public function modifyContainerPluginRuleWithOptions($request, $runtime)
     {
@@ -29655,9 +31847,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyContainerPluginRuleRequest $request
+     * @summary Modifies the defense rule against container escapes.
+     *  *
+     * @param ModifyContainerPluginRuleRequest $request ModifyContainerPluginRuleRequest
      *
-     * @return ModifyContainerPluginRuleResponse
+     * @return ModifyContainerPluginRuleResponse ModifyContainerPluginRuleResponse
      */
     public function modifyContainerPluginRule($request)
     {
@@ -29667,10 +31861,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyContainerScanConfigRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Modifies the configurations of vulnerability scan for a running container.
+     *  *
+     * @param ModifyContainerScanConfigRequest $request ModifyContainerScanConfigRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyContainerScanConfigResponse
+     * @return ModifyContainerScanConfigResponse ModifyContainerScanConfigResponse
      */
     public function modifyContainerScanConfigWithOptions($request, $runtime)
     {
@@ -29704,9 +31900,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyContainerScanConfigRequest $request
+     * @summary Modifies the configurations of vulnerability scan for a running container.
+     *  *
+     * @param ModifyContainerScanConfigRequest $request ModifyContainerScanConfigRequest
      *
-     * @return ModifyContainerScanConfigResponse
+     * @return ModifyContainerScanConfigResponse ModifyContainerScanConfigResponse
      */
     public function modifyContainerScanConfig($request)
     {
@@ -29716,10 +31914,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyCreateVulWhitelistRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Adds vulnerabilities to the whitelist. After you add the vulnerabilities to the whitelist, Security Center no longer generates alerts for the vulnerabilities.
+     *  *
+     * @param ModifyCreateVulWhitelistRequest $request ModifyCreateVulWhitelistRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyCreateVulWhitelistResponse
+     * @return ModifyCreateVulWhitelistResponse ModifyCreateVulWhitelistResponse
      */
     public function modifyCreateVulWhitelistWithOptions($request, $runtime)
     {
@@ -29753,9 +31953,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyCreateVulWhitelistRequest $request
+     * @summary Adds vulnerabilities to the whitelist. After you add the vulnerabilities to the whitelist, Security Center no longer generates alerts for the vulnerabilities.
+     *  *
+     * @param ModifyCreateVulWhitelistRequest $request ModifyCreateVulWhitelistRequest
      *
-     * @return ModifyCreateVulWhitelistResponse
+     * @return ModifyCreateVulWhitelistResponse ModifyCreateVulWhitelistResponse
      */
     public function modifyCreateVulWhitelist($request)
     {
@@ -29765,10 +31967,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyCustomBlockRecordRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Modifies a custom IP address blocking policy.
+     *  *
+     * @param ModifyCustomBlockRecordRequest $request ModifyCustomBlockRecordRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyCustomBlockRecordResponse
+     * @return ModifyCustomBlockRecordResponse ModifyCustomBlockRecordResponse
      */
     public function modifyCustomBlockRecordWithOptions($request, $runtime)
     {
@@ -29808,9 +32012,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyCustomBlockRecordRequest $request
+     * @summary Modifies a custom IP address blocking policy.
+     *  *
+     * @param ModifyCustomBlockRecordRequest $request ModifyCustomBlockRecordRequest
      *
-     * @return ModifyCustomBlockRecordResponse
+     * @return ModifyCustomBlockRecordResponse ModifyCustomBlockRecordResponse
      */
     public function modifyCustomBlockRecord($request)
     {
@@ -29820,10 +32026,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyCycleTaskRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Modifies the execution cycle of periodic tasks, including image scan, urgent vulnerability scan, and virus detection tasks.
+     *  *
+     * @param ModifyCycleTaskRequest $request ModifyCycleTaskRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyCycleTaskResponse
+     * @return ModifyCycleTaskResponse ModifyCycleTaskResponse
      */
     public function modifyCycleTaskWithOptions($request, $runtime)
     {
@@ -29878,9 +32086,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyCycleTaskRequest $request
+     * @summary Modifies the execution cycle of periodic tasks, including image scan, urgent vulnerability scan, and virus detection tasks.
+     *  *
+     * @param ModifyCycleTaskRequest $request ModifyCycleTaskRequest
      *
-     * @return ModifyCycleTaskResponse
+     * @return ModifyCycleTaskResponse ModifyCycleTaskResponse
      */
     public function modifyCycleTask($request)
     {
@@ -29890,10 +32100,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyEmgVulSubmitRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Runs a scan task for urgent vulnerabilities.
+     *  *
+     * @param ModifyEmgVulSubmitRequest $request ModifyEmgVulSubmitRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyEmgVulSubmitResponse
+     * @return ModifyEmgVulSubmitResponse ModifyEmgVulSubmitResponse
      */
     public function modifyEmgVulSubmitWithOptions($request, $runtime)
     {
@@ -29927,9 +32139,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyEmgVulSubmitRequest $request
+     * @summary Runs a scan task for urgent vulnerabilities.
+     *  *
+     * @param ModifyEmgVulSubmitRequest $request ModifyEmgVulSubmitRequest
      *
-     * @return ModifyEmgVulSubmitResponse
+     * @return ModifyEmgVulSubmitResponse ModifyEmgVulSubmitResponse
      */
     public function modifyEmgVulSubmit($request)
     {
@@ -29939,10 +32153,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyGroupPropertyRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Changes the name of a server group.
+     *  *
+     * @param ModifyGroupPropertyRequest $request ModifyGroupPropertyRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyGroupPropertyResponse
+     * @return ModifyGroupPropertyResponse ModifyGroupPropertyResponse
      */
     public function modifyGroupPropertyWithOptions($request, $runtime)
     {
@@ -29970,9 +32186,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyGroupPropertyRequest $request
+     * @summary Changes the name of a server group.
+     *  *
+     * @param ModifyGroupPropertyRequest $request ModifyGroupPropertyRequest
      *
-     * @return ModifyGroupPropertyResponse
+     * @return ModifyGroupPropertyResponse ModifyGroupPropertyResponse
      */
     public function modifyGroupProperty($request)
     {
@@ -29982,10 +32200,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyImageFixCycleConfigRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Modifies the configurations of a scheduled image fix.
+     *  *
+     * @param ModifyImageFixCycleConfigRequest $request ModifyImageFixCycleConfigRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyImageFixCycleConfigResponse
+     * @return ModifyImageFixCycleConfigResponse ModifyImageFixCycleConfigResponse
      */
     public function modifyImageFixCycleConfigWithOptions($request, $runtime)
     {
@@ -30022,9 +32242,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyImageFixCycleConfigRequest $request
+     * @summary Modifies the configurations of a scheduled image fix.
+     *  *
+     * @param ModifyImageFixCycleConfigRequest $request ModifyImageFixCycleConfigRequest
      *
-     * @return ModifyImageFixCycleConfigResponse
+     * @return ModifyImageFixCycleConfigResponse ModifyImageFixCycleConfigResponse
      */
     public function modifyImageFixCycleConfig($request)
     {
@@ -30034,10 +32256,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyImageRegistryRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Modifies the transfer time of an image repository.
+     *  *
+     * @param ModifyImageRegistryRequest $request ModifyImageRegistryRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyImageRegistryResponse
+     * @return ModifyImageRegistryResponse ModifyImageRegistryResponse
      */
     public function modifyImageRegistryWithOptions($request, $runtime)
     {
@@ -30074,9 +32298,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyImageRegistryRequest $request
+     * @summary Modifies the transfer time of an image repository.
+     *  *
+     * @param ModifyImageRegistryRequest $request ModifyImageRegistryRequest
      *
-     * @return ModifyImageRegistryResponse
+     * @return ModifyImageRegistryResponse ModifyImageRegistryResponse
      */
     public function modifyImageRegistry($request)
     {
@@ -30086,10 +32312,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceAntiBruteForceRuleRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary Modifies the defense rule against brute-force attacks that is applied to a specified server.
+     *  *
+     * @param ModifyInstanceAntiBruteForceRuleRequest $request ModifyInstanceAntiBruteForceRuleRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyInstanceAntiBruteForceRuleResponse
+     * @return ModifyInstanceAntiBruteForceRuleResponse ModifyInstanceAntiBruteForceRuleResponse
      */
     public function modifyInstanceAntiBruteForceRuleWithOptions($request, $runtime)
     {
@@ -30126,9 +32354,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceAntiBruteForceRuleRequest $request
+     * @summary Modifies the defense rule against brute-force attacks that is applied to a specified server.
+     *  *
+     * @param ModifyInstanceAntiBruteForceRuleRequest $request ModifyInstanceAntiBruteForceRuleRequest
      *
-     * @return ModifyInstanceAntiBruteForceRuleResponse
+     * @return ModifyInstanceAntiBruteForceRuleResponse ModifyInstanceAntiBruteForceRuleResponse
      */
     public function modifyInstanceAntiBruteForceRule($request)
     {
@@ -30138,10 +32368,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyInterceptionRuleRequest $tmpReq
-     * @param RuntimeOptions                $runtime
+     * @summary Modifies a proactive defense rule for containers.
+     *  *
+     * @param ModifyInterceptionRuleRequest $tmpReq  ModifyInterceptionRuleRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyInterceptionRuleResponse
+     * @return ModifyInterceptionRuleResponse ModifyInterceptionRuleResponse
      */
     public function modifyInterceptionRuleWithOptions($tmpReq, $runtime)
     {
@@ -30198,9 +32430,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyInterceptionRuleRequest $request
+     * @summary Modifies a proactive defense rule for containers.
+     *  *
+     * @param ModifyInterceptionRuleRequest $request ModifyInterceptionRuleRequest
      *
-     * @return ModifyInterceptionRuleResponse
+     * @return ModifyInterceptionRuleResponse ModifyInterceptionRuleResponse
      */
     public function modifyInterceptionRule($request)
     {
@@ -30210,10 +32444,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyInterceptionRuleSwitchRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Enables or disables a proactive defense rule for containers.
+     *  *
+     * @param ModifyInterceptionRuleSwitchRequest $request ModifyInterceptionRuleSwitchRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyInterceptionRuleSwitchResponse
+     * @return ModifyInterceptionRuleSwitchResponse ModifyInterceptionRuleSwitchResponse
      */
     public function modifyInterceptionRuleSwitchWithOptions($request, $runtime)
     {
@@ -30247,9 +32483,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyInterceptionRuleSwitchRequest $request
+     * @summary Enables or disables a proactive defense rule for containers.
+     *  *
+     * @param ModifyInterceptionRuleSwitchRequest $request ModifyInterceptionRuleSwitchRequest
      *
-     * @return ModifyInterceptionRuleSwitchResponse
+     * @return ModifyInterceptionRuleSwitchResponse ModifyInterceptionRuleSwitchResponse
      */
     public function modifyInterceptionRuleSwitch($request)
     {
@@ -30259,10 +32497,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyInterceptionTargetRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Modifies the information about a network object of the container firewall feature.
+     *  *
+     * @param ModifyInterceptionTargetRequest $request ModifyInterceptionTargetRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyInterceptionTargetResponse
+     * @return ModifyInterceptionTargetResponse ModifyInterceptionTargetResponse
      */
     public function modifyInterceptionTargetWithOptions($request, $runtime)
     {
@@ -30308,9 +32548,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyInterceptionTargetRequest $request
+     * @summary Modifies the information about a network object of the container firewall feature.
+     *  *
+     * @param ModifyInterceptionTargetRequest $request ModifyInterceptionTargetRequest
      *
-     * @return ModifyInterceptionTargetResponse
+     * @return ModifyInterceptionTargetResponse ModifyInterceptionTargetResponse
      */
     public function modifyInterceptionTarget($request)
     {
@@ -30320,10 +32562,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyLogMetaStatusRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Enables or disables the log analysis feature.
+     *  *
+     * @param ModifyLogMetaStatusRequest $request ModifyLogMetaStatusRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyLogMetaStatusResponse
+     * @return ModifyLogMetaStatusResponse ModifyLogMetaStatusResponse
      */
     public function modifyLogMetaStatusWithOptions($request, $runtime)
     {
@@ -30360,9 +32604,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyLogMetaStatusRequest $request
+     * @summary Enables or disables the log analysis feature.
+     *  *
+     * @param ModifyLogMetaStatusRequest $request ModifyLogMetaStatusRequest
      *
-     * @return ModifyLogMetaStatusResponse
+     * @return ModifyLogMetaStatusResponse ModifyLogMetaStatusResponse
      */
     public function modifyLogMetaStatus($request)
     {
@@ -30372,10 +32618,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyLoginBaseConfigRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Modifies the logon configuration for a specified asset.
+     *  *
+     * @param ModifyLoginBaseConfigRequest $request ModifyLoginBaseConfigRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyLoginBaseConfigResponse
+     * @return ModifyLoginBaseConfigResponse ModifyLoginBaseConfigResponse
      */
     public function modifyLoginBaseConfigWithOptions($request, $runtime)
     {
@@ -30409,9 +32657,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyLoginBaseConfigRequest $request
+     * @summary Modifies the logon configuration for a specified asset.
+     *  *
+     * @param ModifyLoginBaseConfigRequest $request ModifyLoginBaseConfigRequest
      *
-     * @return ModifyLoginBaseConfigResponse
+     * @return ModifyLoginBaseConfigResponse ModifyLoginBaseConfigResponse
      */
     public function modifyLoginBaseConfig($request)
     {
@@ -30421,10 +32671,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyLoginSwitchConfigRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Enables or disables the logon security settings for an asset.
+     *  *
+     * @param ModifyLoginSwitchConfigRequest $request ModifyLoginSwitchConfigRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyLoginSwitchConfigResponse
+     * @return ModifyLoginSwitchConfigResponse ModifyLoginSwitchConfigResponse
      */
     public function modifyLoginSwitchConfigWithOptions($request, $runtime)
     {
@@ -30455,9 +32707,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyLoginSwitchConfigRequest $request
+     * @summary Enables or disables the logon security settings for an asset.
+     *  *
+     * @param ModifyLoginSwitchConfigRequest $request ModifyLoginSwitchConfigRequest
      *
-     * @return ModifyLoginSwitchConfigResponse
+     * @return ModifyLoginSwitchConfigResponse ModifyLoginSwitchConfigResponse
      */
     public function modifyLoginSwitchConfig($request)
     {
@@ -30467,10 +32721,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyNoticeConfigRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Modifies notification settings.
+     *  *
+     * @param ModifyNoticeConfigRequest $request ModifyNoticeConfigRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyNoticeConfigResponse
+     * @return ModifyNoticeConfigResponse ModifyNoticeConfigResponse
      */
     public function modifyNoticeConfigWithOptions($request, $runtime)
     {
@@ -30507,9 +32763,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyNoticeConfigRequest $request
+     * @summary Modifies notification settings.
+     *  *
+     * @param ModifyNoticeConfigRequest $request ModifyNoticeConfigRequest
      *
-     * @return ModifyNoticeConfigResponse
+     * @return ModifyNoticeConfigResponse ModifyNoticeConfigResponse
      */
     public function modifyNoticeConfig($request)
     {
@@ -30519,8 +32777,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * **Prerequisites** [Simple Log Service](https://www.alibabacloud.com/help/en/log-service/latest/billable-items) is activated. A service-linked role for Security Center is created, and Security Center is authorized to access cloud resources. You can call the [CreateServiceLinkedRole](~~CreateServiceLinkedRole~~) operation to create a service-linked role for Security Center and authorize Security Center to access cloud resources. **Scenarios** Before you use the log analysis feature of Security Center, you must call the [ModifyOpenLogShipper](~~ModifyOpenLogShipper~~) operation to activate Simple Log Service.
-     *   *
+     * @summary Activates Simple Log Service.
+     *  *
+     * @description **Prerequisites** [Simple Log Service](https://www.alibabacloud.com/help/en/log-service/latest/billable-items) is activated. A service-linked role for Security Center is created, and Security Center is authorized to access cloud resources. You can call the [CreateServiceLinkedRole](~~CreateServiceLinkedRole~~) operation to create a service-linked role for Security Center and authorize Security Center to access cloud resources. **Scenarios** Before you use the log analysis feature of Security Center, you must call the [ModifyOpenLogShipper](~~ModifyOpenLogShipper~~) operation to activate Simple Log Service.
+     *  *
      * @param ModifyOpenLogShipperRequest $request ModifyOpenLogShipperRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -30552,8 +32812,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * **Prerequisites** [Simple Log Service](https://www.alibabacloud.com/help/en/log-service/latest/billable-items) is activated. A service-linked role for Security Center is created, and Security Center is authorized to access cloud resources. You can call the [CreateServiceLinkedRole](~~CreateServiceLinkedRole~~) operation to create a service-linked role for Security Center and authorize Security Center to access cloud resources. **Scenarios** Before you use the log analysis feature of Security Center, you must call the [ModifyOpenLogShipper](~~ModifyOpenLogShipper~~) operation to activate Simple Log Service.
-     *   *
+     * @summary Activates Simple Log Service.
+     *  *
+     * @description **Prerequisites** [Simple Log Service](https://www.alibabacloud.com/help/en/log-service/latest/billable-items) is activated. A service-linked role for Security Center is created, and Security Center is authorized to access cloud resources. You can call the [CreateServiceLinkedRole](~~CreateServiceLinkedRole~~) operation to create a service-linked role for Security Center and authorize Security Center to access cloud resources. **Scenarios** Before you use the log analysis feature of Security Center, you must call the [ModifyOpenLogShipper](~~ModifyOpenLogShipper~~) operation to activate Simple Log Service.
+     *  *
      * @param ModifyOpenLogShipperRequest $request ModifyOpenLogShipperRequest
      *
      * @return ModifyOpenLogShipperResponse ModifyOpenLogShipperResponse
@@ -30566,10 +32828,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyOperateVulRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Handles detected vulnerabilities. You can fix, check, or ignore the vulnerabilities.
+     *  *
+     * @param ModifyOperateVulRequest $request ModifyOperateVulRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyOperateVulResponse
+     * @return ModifyOperateVulResponse ModifyOperateVulResponse
      */
     public function modifyOperateVulWithOptions($request, $runtime)
     {
@@ -30609,9 +32873,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyOperateVulRequest $request
+     * @summary Handles detected vulnerabilities. You can fix, check, or ignore the vulnerabilities.
+     *  *
+     * @param ModifyOperateVulRequest $request ModifyOperateVulRequest
      *
-     * @return ModifyOperateVulResponse
+     * @return ModifyOperateVulResponse ModifyOperateVulResponse
      */
     public function modifyOperateVul($request)
     {
@@ -30621,10 +32887,18 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyPropertyScheduleConfigRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary The new collection frequency of asset fingerprints. Valid values:
+     * *   **0**: disabled, which indicates that the asset fingerprints are not automatically or periodically collected.
+     * *   **1**: collects asset fingerprints once an hour.
+     * *   **3**: collects asset fingerprints once every 3 hours.
+     * *   **12**: collects asset fingerprints once every 12 hours.
+     * *   **24**: collects asset fingerprints once a day.
+     * *   **168**: collects asset fingerprints once every 7 days.
+     *  *
+     * @param ModifyPropertyScheduleConfigRequest $request ModifyPropertyScheduleConfigRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyPropertyScheduleConfigResponse
+     * @return ModifyPropertyScheduleConfigResponse ModifyPropertyScheduleConfigResponse
      */
     public function modifyPropertyScheduleConfigWithOptions($request, $runtime)
     {
@@ -30655,9 +32929,17 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyPropertyScheduleConfigRequest $request
+     * @summary The new collection frequency of asset fingerprints. Valid values:
+     * *   **0**: disabled, which indicates that the asset fingerprints are not automatically or periodically collected.
+     * *   **1**: collects asset fingerprints once an hour.
+     * *   **3**: collects asset fingerprints once every 3 hours.
+     * *   **12**: collects asset fingerprints once every 12 hours.
+     * *   **24**: collects asset fingerprints once a day.
+     * *   **168**: collects asset fingerprints once every 7 days.
+     *  *
+     * @param ModifyPropertyScheduleConfigRequest $request ModifyPropertyScheduleConfigRequest
      *
-     * @return ModifyPropertyScheduleConfigResponse
+     * @return ModifyPropertyScheduleConfigResponse ModifyPropertyScheduleConfigResponse
      */
     public function modifyPropertyScheduleConfig($request)
     {
@@ -30667,10 +32949,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyPushAllTaskRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Performs security check tasks on servers with a few clicks.
+     *  *
+     * @param ModifyPushAllTaskRequest $request ModifyPushAllTaskRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyPushAllTaskResponse
+     * @return ModifyPushAllTaskResponse ModifyPushAllTaskResponse
      */
     public function modifyPushAllTaskWithOptions($request, $runtime)
     {
@@ -30704,9 +32988,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyPushAllTaskRequest $request
+     * @summary Performs security check tasks on servers with a few clicks.
+     *  *
+     * @param ModifyPushAllTaskRequest $request ModifyPushAllTaskRequest
      *
-     * @return ModifyPushAllTaskResponse
+     * @return ModifyPushAllTaskResponse ModifyPushAllTaskResponse
      */
     public function modifyPushAllTask($request)
     {
@@ -30716,10 +33002,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyRefreshProcessInfoRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Refreshes the list of processes that are associated with a Linux software vulnerability.
+     *  *
+     * @param ModifyRefreshProcessInfoRequest $request ModifyRefreshProcessInfoRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyRefreshProcessInfoResponse
+     * @return ModifyRefreshProcessInfoResponse ModifyRefreshProcessInfoResponse
      */
     public function modifyRefreshProcessInfoWithOptions($request, $runtime)
     {
@@ -30747,9 +33035,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyRefreshProcessInfoRequest $request
+     * @summary Refreshes the list of processes that are associated with a Linux software vulnerability.
+     *  *
+     * @param ModifyRefreshProcessInfoRequest $request ModifyRefreshProcessInfoRequest
      *
-     * @return ModifyRefreshProcessInfoResponse
+     * @return ModifyRefreshProcessInfoResponse ModifyRefreshProcessInfoResponse
      */
     public function modifyRefreshProcessInfo($request)
     {
@@ -30759,11 +33049,14 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   * This operation is phased out. You can use the following operations:
-     *   * \\-To **ignore a check item**, use the AddCheckResultWhiteList operation.
-     *   * \\-To **cancel ignoring a check item**, use the RemoveCheckResultWhiteList operation.
-     *   *
+     * @deprecated OpenAPI ModifyRiskCheckStatus is deprecated
+     *  *
+     * @summary Changes the status of a check item in the results of a check task. You can ignore or cancel ignoring a check item.
+     *  *
+     * @description This operation is phased out. You can use the following operations:
+     * \\-To **ignore a check item**, use the AddCheckResultWhiteList operation.
+     * \\-To **cancel ignoring a check item**, use the RemoveCheckResultWhiteList operation.
+     *  *
      * Deprecated
      *
      * @param ModifyRiskCheckStatusRequest $request ModifyRiskCheckStatusRequest
@@ -30812,11 +33105,14 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   * This operation is phased out. You can use the following operations:
-     *   * \\-To **ignore a check item**, use the AddCheckResultWhiteList operation.
-     *   * \\-To **cancel ignoring a check item**, use the RemoveCheckResultWhiteList operation.
-     *   *
+     * @deprecated OpenAPI ModifyRiskCheckStatus is deprecated
+     *  *
+     * @summary Changes the status of a check item in the results of a check task. You can ignore or cancel ignoring a check item.
+     *  *
+     * @description This operation is phased out. You can use the following operations:
+     * \\-To **ignore a check item**, use the AddCheckResultWhiteList operation.
+     * \\-To **cancel ignoring a check item**, use the RemoveCheckResultWhiteList operation.
+     *  *
      * Deprecated
      *
      * @param ModifyRiskCheckStatusRequest $request ModifyRiskCheckStatusRequest
@@ -30831,11 +33127,14 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   * This operation is phased out. You can use the following operations:
-     *   * \\-To **ignore a risk item**, use the AddCheckInstanceResultWhiteList operation.
-     *   * \\-To **cancel ignoring a risk item**, use the RemoveCheckInstanceResultWhiteList operation.
-     *   *
+     * @deprecated OpenAPI ModifyRiskSingleResultStatus is deprecated
+     *  *
+     * @summary Modifies the status of a risk item that affects your assets. You can ignore the risk item or cancel ignoring the risk item.
+     *  *
+     * @description This operation is phased out. You can use the following operations:
+     * \\-To **ignore a risk item**, use the AddCheckInstanceResultWhiteList operation.
+     * \\-To **cancel ignoring a risk item**, use the RemoveCheckInstanceResultWhiteList operation.
+     *  *
      * Deprecated
      *
      * @param ModifyRiskSingleResultStatusRequest $request ModifyRiskSingleResultStatusRequest
@@ -30884,11 +33183,14 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   * This operation is phased out. You can use the following operations:
-     *   * \\-To **ignore a risk item**, use the AddCheckInstanceResultWhiteList operation.
-     *   * \\-To **cancel ignoring a risk item**, use the RemoveCheckInstanceResultWhiteList operation.
-     *   *
+     * @deprecated OpenAPI ModifyRiskSingleResultStatus is deprecated
+     *  *
+     * @summary Modifies the status of a risk item that affects your assets. You can ignore the risk item or cancel ignoring the risk item.
+     *  *
+     * @description This operation is phased out. You can use the following operations:
+     * \\-To **ignore a risk item**, use the AddCheckInstanceResultWhiteList operation.
+     * \\-To **cancel ignoring a risk item**, use the RemoveCheckInstanceResultWhiteList operation.
+     *  *
      * Deprecated
      *
      * @param ModifyRiskSingleResultStatusRequest $request ModifyRiskSingleResultStatusRequest
@@ -30903,10 +33205,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifySasContainerWebDefenseRuleRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary Modifies a rule for container tamper-proofing.
+     *  *
+     * @param ModifySasContainerWebDefenseRuleRequest $request ModifySasContainerWebDefenseRuleRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifySasContainerWebDefenseRuleResponse
+     * @return ModifySasContainerWebDefenseRuleResponse ModifySasContainerWebDefenseRuleResponse
      */
     public function modifySasContainerWebDefenseRuleWithOptions($request, $runtime)
     {
@@ -30940,9 +33244,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifySasContainerWebDefenseRuleRequest $request
+     * @summary Modifies a rule for container tamper-proofing.
+     *  *
+     * @param ModifySasContainerWebDefenseRuleRequest $request ModifySasContainerWebDefenseRuleRequest
      *
-     * @return ModifySasContainerWebDefenseRuleResponse
+     * @return ModifySasContainerWebDefenseRuleResponse ModifySasContainerWebDefenseRuleResponse
      */
     public function modifySasContainerWebDefenseRule($request)
     {
@@ -30952,9 +33258,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   * This operation is phased out. You can use the ChangeCheckConfig operation.
-     *   *
+     * @deprecated OpenAPI ModifySecurityCheckScheduleConfig is deprecated
+     *  *
+     * @summary Specifies the time when an automatic configuration check is performed on cloud services.
+     *  *
+     * @description This operation is phased out. You can use the ChangeCheckConfig operation.
+     *  *
      * Deprecated
      *
      * @param ModifySecurityCheckScheduleConfigRequest $request ModifySecurityCheckScheduleConfigRequest
@@ -31003,9 +33312,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   * This operation is phased out. You can use the ChangeCheckConfig operation.
-     *   *
+     * @deprecated OpenAPI ModifySecurityCheckScheduleConfig is deprecated
+     *  *
+     * @summary Specifies the time when an automatic configuration check is performed on cloud services.
+     *  *
+     * @description This operation is phased out. You can use the ChangeCheckConfig operation.
+     *  *
      * Deprecated
      *
      * @param ModifySecurityCheckScheduleConfigRequest $request ModifySecurityCheckScheduleConfigRequest
@@ -31020,10 +33332,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifySecurityEventMarkMissIndividuallyRequest $request
-     * @param RuntimeOptions                                 $runtime
+     * @summary Modifies the alert handling rule for alerts that are added to the whitelist by asset.
+     *  *
+     * @param ModifySecurityEventMarkMissIndividuallyRequest $request ModifySecurityEventMarkMissIndividuallyRequest
+     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifySecurityEventMarkMissIndividuallyResponse
+     * @return ModifySecurityEventMarkMissIndividuallyResponse ModifySecurityEventMarkMissIndividuallyResponse
      */
     public function modifySecurityEventMarkMissIndividuallyWithOptions($request, $runtime)
     {
@@ -31065,9 +33379,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifySecurityEventMarkMissIndividuallyRequest $request
+     * @summary Modifies the alert handling rule for alerts that are added to the whitelist by asset.
+     *  *
+     * @param ModifySecurityEventMarkMissIndividuallyRequest $request ModifySecurityEventMarkMissIndividuallyRequest
      *
-     * @return ModifySecurityEventMarkMissIndividuallyResponse
+     * @return ModifySecurityEventMarkMissIndividuallyResponse ModifySecurityEventMarkMissIndividuallyResponse
      */
     public function modifySecurityEventMarkMissIndividually($request)
     {
@@ -31077,10 +33393,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyStartVulScanRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Enables the quick scan feature. You can also enable the feature on the Vulnerabilities page of the Security Center console.
+     *  *
+     * @param ModifyStartVulScanRequest $request ModifyStartVulScanRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyStartVulScanResponse
+     * @return ModifyStartVulScanResponse ModifyStartVulScanResponse
      */
     public function modifyStartVulScanWithOptions($request, $runtime)
     {
@@ -31111,9 +33429,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyStartVulScanRequest $request
+     * @summary Enables the quick scan feature. You can also enable the feature on the Vulnerabilities page of the Security Center console.
+     *  *
+     * @param ModifyStartVulScanRequest $request ModifyStartVulScanRequest
      *
-     * @return ModifyStartVulScanResponse
+     * @return ModifyStartVulScanResponse ModifyStartVulScanResponse
      */
     public function modifyStartVulScan($request)
     {
@@ -31123,10 +33443,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyStrategyRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Modifies a baseline check policy.
+     *  *
+     * @param ModifyStrategyRequest $request ModifyStrategyRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyStrategyResponse
+     * @return ModifyStrategyResponse ModifyStrategyResponse
      */
     public function modifyStrategyWithOptions($request, $runtime)
     {
@@ -31184,9 +33506,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyStrategyRequest $request
+     * @summary Modifies a baseline check policy.
+     *  *
+     * @param ModifyStrategyRequest $request ModifyStrategyRequest
      *
-     * @return ModifyStrategyResponse
+     * @return ModifyStrategyResponse ModifyStrategyResponse
      */
     public function modifyStrategy($request)
     {
@@ -31196,10 +33520,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyStrategyTargetRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary The source IP address of the request.
+     *  *
+     * @param ModifyStrategyTargetRequest $request ModifyStrategyTargetRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyStrategyTargetResponse
+     * @return ModifyStrategyTargetResponse ModifyStrategyTargetResponse
      */
     public function modifyStrategyTargetWithOptions($request, $runtime)
     {
@@ -31236,9 +33562,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyStrategyTargetRequest $request
+     * @summary The source IP address of the request.
+     *  *
+     * @param ModifyStrategyTargetRequest $request ModifyStrategyTargetRequest
      *
-     * @return ModifyStrategyTargetResponse
+     * @return ModifyStrategyTargetResponse ModifyStrategyTargetResponse
      */
     public function modifyStrategyTarget($request)
     {
@@ -31248,10 +33576,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyTagWithUuidRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Modifies the names of the tags that are added to assets, or modifies the tags for assets.
+     *  *
+     * @param ModifyTagWithUuidRequest $request ModifyTagWithUuidRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyTagWithUuidResponse
+     * @return ModifyTagWithUuidResponse ModifyTagWithUuidResponse
      */
     public function modifyTagWithUuidWithOptions($request, $runtime)
     {
@@ -31291,9 +33621,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyTagWithUuidRequest $request
+     * @summary Modifies the names of the tags that are added to assets, or modifies the tags for assets.
+     *  *
+     * @param ModifyTagWithUuidRequest $request ModifyTagWithUuidRequest
      *
-     * @return ModifyTagWithUuidResponse
+     * @return ModifyTagWithUuidResponse ModifyTagWithUuidResponse
      */
     public function modifyTagWithUuid($request)
     {
@@ -31303,10 +33635,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyUniBackupPolicyRequest $tmpReq
-     * @param RuntimeOptions               $runtime
+     * @summary Modifies an anti-ransomware policy for databases.
+     *  *
+     * @param ModifyUniBackupPolicyRequest $tmpReq  ModifyUniBackupPolicyRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyUniBackupPolicyResponse
+     * @return ModifyUniBackupPolicyResponse ModifyUniBackupPolicyResponse
      */
     public function modifyUniBackupPolicyWithOptions($tmpReq, $runtime)
     {
@@ -31366,9 +33700,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyUniBackupPolicyRequest $request
+     * @summary Modifies an anti-ransomware policy for databases.
+     *  *
+     * @param ModifyUniBackupPolicyRequest $request ModifyUniBackupPolicyRequest
      *
-     * @return ModifyUniBackupPolicyResponse
+     * @return ModifyUniBackupPolicyResponse ModifyUniBackupPolicyResponse
      */
     public function modifyUniBackupPolicy($request)
     {
@@ -31378,10 +33714,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyVpcHoneyPotRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Enables or disables a honeypot.
+     *  *
+     * @param ModifyVpcHoneyPotRequest $request ModifyVpcHoneyPotRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyVpcHoneyPotResponse
+     * @return ModifyVpcHoneyPotResponse ModifyVpcHoneyPotResponse
      */
     public function modifyVpcHoneyPotWithOptions($request, $runtime)
     {
@@ -31412,9 +33750,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyVpcHoneyPotRequest $request
+     * @summary Enables or disables a honeypot.
+     *  *
+     * @param ModifyVpcHoneyPotRequest $request ModifyVpcHoneyPotRequest
      *
-     * @return ModifyVpcHoneyPotResponse
+     * @return ModifyVpcHoneyPotResponse ModifyVpcHoneyPotResponse
      */
     public function modifyVpcHoneyPot($request)
     {
@@ -31424,10 +33764,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyVulConfigRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Modifies the configurations of the vulnerability scan feature.
+     *  *
+     * @param ModifyVulConfigRequest $request ModifyVulConfigRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyVulConfigResponse
+     * @return ModifyVulConfigResponse ModifyVulConfigResponse
      */
     public function modifyVulConfigWithOptions($request, $runtime)
     {
@@ -31458,9 +33800,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyVulConfigRequest $request
+     * @summary Modifies the configurations of the vulnerability scan feature.
+     *  *
+     * @param ModifyVulConfigRequest $request ModifyVulConfigRequest
      *
-     * @return ModifyVulConfigResponse
+     * @return ModifyVulConfigResponse ModifyVulConfigResponse
      */
     public function modifyVulConfig($request)
     {
@@ -31470,10 +33814,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyVulTargetRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Modifies the configurations of the vulnerability scan feature for a server.
+     *  *
+     * @param ModifyVulTargetRequest $request ModifyVulTargetRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyVulTargetResponse
+     * @return ModifyVulTargetResponse ModifyVulTargetResponse
      */
     public function modifyVulTargetWithOptions($request, $runtime)
     {
@@ -31504,9 +33850,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyVulTargetRequest $request
+     * @summary Modifies the configurations of the vulnerability scan feature for a server.
+     *  *
+     * @param ModifyVulTargetRequest $request ModifyVulTargetRequest
      *
-     * @return ModifyVulTargetResponse
+     * @return ModifyVulTargetResponse ModifyVulTargetResponse
      */
     public function modifyVulTarget($request)
     {
@@ -31516,10 +33864,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyVulTargetConfigRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Configures vulnerability scan for a server.
+     *  *
+     * @param ModifyVulTargetConfigRequest $request ModifyVulTargetConfigRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyVulTargetConfigResponse
+     * @return ModifyVulTargetConfigResponse ModifyVulTargetConfigResponse
      */
     public function modifyVulTargetConfigWithOptions($request, $runtime)
     {
@@ -31556,9 +33906,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyVulTargetConfigRequest $request
+     * @summary Configures vulnerability scan for a server.
+     *  *
+     * @param ModifyVulTargetConfigRequest $request ModifyVulTargetConfigRequest
      *
-     * @return ModifyVulTargetConfigResponse
+     * @return ModifyVulTargetConfigResponse ModifyVulTargetConfigResponse
      */
     public function modifyVulTargetConfig($request)
     {
@@ -31568,10 +33920,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyVulWhitelistTargetRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Modifies the servers that are added to a vulnerability whitelist.
+     *  *
+     * @param ModifyVulWhitelistTargetRequest $request ModifyVulWhitelistTargetRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyVulWhitelistTargetResponse
+     * @return ModifyVulWhitelistTargetResponse ModifyVulWhitelistTargetResponse
      */
     public function modifyVulWhitelistTargetWithOptions($request, $runtime)
     {
@@ -31608,9 +33962,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyVulWhitelistTargetRequest $request
+     * @summary Modifies the servers that are added to a vulnerability whitelist.
+     *  *
+     * @param ModifyVulWhitelistTargetRequest $request ModifyVulWhitelistTargetRequest
      *
-     * @return ModifyVulWhitelistTargetResponse
+     * @return ModifyVulWhitelistTargetResponse ModifyVulWhitelistTargetResponse
      */
     public function modifyVulWhitelistTarget($request)
     {
@@ -31620,10 +33976,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyWebLockCreateConfigRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Adds a directory to protect for a specified server.
+     *  *
+     * @param ModifyWebLockCreateConfigRequest $request ModifyWebLockCreateConfigRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyWebLockCreateConfigResponse
+     * @return ModifyWebLockCreateConfigResponse ModifyWebLockCreateConfigResponse
      */
     public function modifyWebLockCreateConfigWithOptions($request, $runtime)
     {
@@ -31684,9 +34042,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyWebLockCreateConfigRequest $request
+     * @summary Adds a directory to protect for a specified server.
+     *  *
+     * @param ModifyWebLockCreateConfigRequest $request ModifyWebLockCreateConfigRequest
      *
-     * @return ModifyWebLockCreateConfigResponse
+     * @return ModifyWebLockCreateConfigResponse ModifyWebLockCreateConfigResponse
      */
     public function modifyWebLockCreateConfig($request)
     {
@@ -31696,8 +34056,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * After you delete a directory that has web tamper proofing enabled on a server, files in the directory are no longer protected by web tamper proofing. The information about the websites that are hosted on the server may be maliciously modified by attackers. Proceed with caution.
-     *   *
+     * @summary Deletes a directory on a specified server from the protected directories of web tamper proofing.
+     *  *
+     * @description After you delete a directory that has web tamper proofing enabled on a server, files in the directory are no longer protected by web tamper proofing. The information about the websites that are hosted on the server may be maliciously modified by attackers. Proceed with caution.
+     *  *
      * @param ModifyWebLockDeleteConfigRequest $request ModifyWebLockDeleteConfigRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -31738,8 +34100,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * After you delete a directory that has web tamper proofing enabled on a server, files in the directory are no longer protected by web tamper proofing. The information about the websites that are hosted on the server may be maliciously modified by attackers. Proceed with caution.
-     *   *
+     * @summary Deletes a directory on a specified server from the protected directories of web tamper proofing.
+     *  *
+     * @description After you delete a directory that has web tamper proofing enabled on a server, files in the directory are no longer protected by web tamper proofing. The information about the websites that are hosted on the server may be maliciously modified by attackers. Proceed with caution.
+     *  *
      * @param ModifyWebLockDeleteConfigRequest $request ModifyWebLockDeleteConfigRequest
      *
      * @return ModifyWebLockDeleteConfigResponse ModifyWebLockDeleteConfigResponse
@@ -31752,10 +34116,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyWebLockProcessStatusRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Changes the status of processes for web tamper proofing.
+     *  *
+     * @param ModifyWebLockProcessStatusRequest $request ModifyWebLockProcessStatusRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyWebLockProcessStatusResponse
+     * @return ModifyWebLockProcessStatusResponse ModifyWebLockProcessStatusResponse
      */
     public function modifyWebLockProcessStatusWithOptions($request, $runtime)
     {
@@ -31795,9 +34161,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyWebLockProcessStatusRequest $request
+     * @summary Changes the status of processes for web tamper proofing.
+     *  *
+     * @param ModifyWebLockProcessStatusRequest $request ModifyWebLockProcessStatusRequest
      *
-     * @return ModifyWebLockProcessStatusResponse
+     * @return ModifyWebLockProcessStatusResponse ModifyWebLockProcessStatusResponse
      */
     public function modifyWebLockProcessStatus($request)
     {
@@ -31807,10 +34175,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyWebLockStartRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Enables web tamper proofing for a specified server.
+     *  *
+     * @param ModifyWebLockStartRequest $request ModifyWebLockStartRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyWebLockStartResponse
+     * @return ModifyWebLockStartResponse ModifyWebLockStartResponse
      */
     public function modifyWebLockStartWithOptions($request, $runtime)
     {
@@ -31862,9 +34232,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyWebLockStartRequest $request
+     * @summary Enables web tamper proofing for a specified server.
+     *  *
+     * @param ModifyWebLockStartRequest $request ModifyWebLockStartRequest
      *
-     * @return ModifyWebLockStartResponse
+     * @return ModifyWebLockStartResponse ModifyWebLockStartResponse
      */
     public function modifyWebLockStart($request)
     {
@@ -31874,10 +34246,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyWebLockStatusRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Enables or disables web tamper proofing for a server.
+     *  *
+     * @param ModifyWebLockStatusRequest $request ModifyWebLockStatusRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyWebLockStatusResponse
+     * @return ModifyWebLockStatusResponse ModifyWebLockStatusResponse
      */
     public function modifyWebLockStatusWithOptions($request, $runtime)
     {
@@ -31914,9 +34288,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyWebLockStatusRequest $request
+     * @summary Enables or disables web tamper proofing for a server.
+     *  *
+     * @param ModifyWebLockStatusRequest $request ModifyWebLockStatusRequest
      *
-     * @return ModifyWebLockStatusResponse
+     * @return ModifyWebLockStatusResponse ModifyWebLockStatusResponse
      */
     public function modifyWebLockStatus($request)
     {
@@ -31926,10 +34302,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyWebLockUnbindRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Disables web tamper proofing for a specified server.
+     *  *
+     * @param ModifyWebLockUnbindRequest $request ModifyWebLockUnbindRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyWebLockUnbindResponse
+     * @return ModifyWebLockUnbindResponse ModifyWebLockUnbindResponse
      */
     public function modifyWebLockUnbindWithOptions($request, $runtime)
     {
@@ -31957,9 +34335,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyWebLockUnbindRequest $request
+     * @summary Disables web tamper proofing for a specified server.
+     *  *
+     * @param ModifyWebLockUnbindRequest $request ModifyWebLockUnbindRequest
      *
-     * @return ModifyWebLockUnbindResponse
+     * @return ModifyWebLockUnbindResponse ModifyWebLockUnbindResponse
      */
     public function modifyWebLockUnbind($request)
     {
@@ -31969,10 +34349,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyWebLockUpdateConfigRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Modifies the protection policy for a specified server.
+     *  *
+     * @param ModifyWebLockUpdateConfigRequest $request ModifyWebLockUpdateConfigRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyWebLockUpdateConfigResponse
+     * @return ModifyWebLockUpdateConfigResponse ModifyWebLockUpdateConfigResponse
      */
     public function modifyWebLockUpdateConfigWithOptions($request, $runtime)
     {
@@ -32036,9 +34418,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyWebLockUpdateConfigRequest $request
+     * @summary Modifies the protection policy for a specified server.
+     *  *
+     * @param ModifyWebLockUpdateConfigRequest $request ModifyWebLockUpdateConfigRequest
      *
-     * @return ModifyWebLockUpdateConfigResponse
+     * @return ModifyWebLockUpdateConfigResponse ModifyWebLockUpdateConfigResponse
      */
     public function modifyWebLockUpdateConfig($request)
     {
@@ -32048,10 +34432,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyWebPathRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Modifies a custom web directory.
+     *  *
+     * @param ModifyWebPathRequest $request ModifyWebPathRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyWebPathResponse
+     * @return ModifyWebPathResponse ModifyWebPathResponse
      */
     public function modifyWebPathWithOptions($request, $runtime)
     {
@@ -32085,9 +34471,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ModifyWebPathRequest $request
+     * @summary Modifies a custom web directory.
+     *  *
+     * @param ModifyWebPathRequest $request ModifyWebPathRequest
      *
-     * @return ModifyWebPathResponse
+     * @return ModifyWebPathResponse ModifyWebPathResponse
      */
     public function modifyWebPath($request)
     {
@@ -32097,10 +34485,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param OpenPartialBuyRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 开启按量购买。
+     *  *
+     * @param OpenPartialBuyRequest $request OpenPartialBuyRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return OpenPartialBuyResponse
+     * @return OpenPartialBuyResponse OpenPartialBuyResponse
      */
     public function openPartialBuyWithOptions($request, $runtime)
     {
@@ -32128,9 +34518,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param OpenPartialBuyRequest $request
+     * @summary 开启按量购买。
+     *  *
+     * @param OpenPartialBuyRequest $request OpenPartialBuyRequest
      *
-     * @return OpenPartialBuyResponse
+     * @return OpenPartialBuyResponse OpenPartialBuyResponse
      */
     public function openPartialBuy($request)
     {
@@ -32140,10 +34532,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param OpenSensitiveFileScanRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Enables or disables sensitive file scan.
+     *  *
+     * @param OpenSensitiveFileScanRequest $request OpenSensitiveFileScanRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return OpenSensitiveFileScanResponse
+     * @return OpenSensitiveFileScanResponse OpenSensitiveFileScanResponse
      */
     public function openSensitiveFileScanWithOptions($request, $runtime)
     {
@@ -32171,9 +34565,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param OpenSensitiveFileScanRequest $request
+     * @summary Enables or disables sensitive file scan.
+     *  *
+     * @param OpenSensitiveFileScanRequest $request OpenSensitiveFileScanRequest
      *
-     * @return OpenSensitiveFileScanResponse
+     * @return OpenSensitiveFileScanResponse OpenSensitiveFileScanResponse
      */
     public function openSensitiveFileScan($request)
     {
@@ -32183,10 +34579,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param OperateAgentClientInstallRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Installs the Security Center agent on servers.
+     *  *
+     * @param OperateAgentClientInstallRequest $request OperateAgentClientInstallRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return OperateAgentClientInstallResponse
+     * @return OperateAgentClientInstallResponse OperateAgentClientInstallResponse
      */
     public function operateAgentClientInstallWithOptions($request, $runtime)
     {
@@ -32226,9 +34624,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param OperateAgentClientInstallRequest $request
+     * @summary Installs the Security Center agent on servers.
+     *  *
+     * @param OperateAgentClientInstallRequest $request OperateAgentClientInstallRequest
      *
-     * @return OperateAgentClientInstallResponse
+     * @return OperateAgentClientInstallResponse OperateAgentClientInstallResponse
      */
     public function operateAgentClientInstall($request)
     {
@@ -32238,10 +34638,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param OperateApplicationRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Adds or deletes container applications for tamper proofing.
+     *  *
+     * @param OperateApplicationRequest $request OperateApplicationRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return OperateApplicationResponse
+     * @return OperateApplicationResponse OperateApplicationResponse
      */
     public function operateApplicationWithOptions($request, $runtime)
     {
@@ -32272,9 +34674,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param OperateApplicationRequest $request
+     * @summary Adds or deletes container applications for tamper proofing.
+     *  *
+     * @param OperateApplicationRequest $request OperateApplicationRequest
      *
-     * @return OperateApplicationResponse
+     * @return OperateApplicationResponse OperateApplicationResponse
      */
     public function operateApplication($request)
     {
@@ -32284,10 +34688,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param OperateBucketScanTaskRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Manages an Object Storage Service (OSS) bucket check task.
+     *  *
+     * @param OperateBucketScanTaskRequest $request OperateBucketScanTaskRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return OperateBucketScanTaskResponse
+     * @return OperateBucketScanTaskResponse OperateBucketScanTaskResponse
      */
     public function operateBucketScanTaskWithOptions($request, $runtime)
     {
@@ -32318,9 +34724,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param OperateBucketScanTaskRequest $request
+     * @summary Manages an Object Storage Service (OSS) bucket check task.
+     *  *
+     * @param OperateBucketScanTaskRequest $request OperateBucketScanTaskRequest
      *
-     * @return OperateBucketScanTaskResponse
+     * @return OperateBucketScanTaskResponse OperateBucketScanTaskResponse
      */
     public function operateBucketScanTask($request)
     {
@@ -32330,10 +34738,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param OperateCommonOverallConfigRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Enables or disables a feature by type.
+     *  *
+     * @param OperateCommonOverallConfigRequest $request OperateCommonOverallConfigRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return OperateCommonOverallConfigResponse
+     * @return OperateCommonOverallConfigResponse OperateCommonOverallConfigResponse
      */
     public function operateCommonOverallConfigWithOptions($request, $runtime)
     {
@@ -32370,9 +34780,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param OperateCommonOverallConfigRequest $request
+     * @summary Enables or disables a feature by type.
+     *  *
+     * @param OperateCommonOverallConfigRequest $request OperateCommonOverallConfigRequest
      *
-     * @return OperateCommonOverallConfigResponse
+     * @return OperateCommonOverallConfigResponse OperateCommonOverallConfigResponse
      */
     public function operateCommonOverallConfig($request)
     {
@@ -32382,10 +34794,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param OperateCommonTargetConfigRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Configures features by type. The features include container image scan, local file detection, container network visualization, and container escape prevention.
+     *  *
+     * @param OperateCommonTargetConfigRequest $request OperateCommonTargetConfigRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return OperateCommonTargetConfigResponse
+     * @return OperateCommonTargetConfigResponse OperateCommonTargetConfigResponse
      */
     public function operateCommonTargetConfigWithOptions($request, $runtime)
     {
@@ -32428,9 +34842,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param OperateCommonTargetConfigRequest $request
+     * @summary Configures features by type. The features include container image scan, local file detection, container network visualization, and container escape prevention.
+     *  *
+     * @param OperateCommonTargetConfigRequest $request OperateCommonTargetConfigRequest
      *
-     * @return OperateCommonTargetConfigResponse
+     * @return OperateCommonTargetConfigResponse OperateCommonTargetConfigResponse
      */
     public function operateCommonTargetConfig($request)
     {
@@ -32440,10 +34856,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param OperateImageBaselineWhitelistRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Adds a check item of an image baseline to the whitelist, or removes a check item of an image baseline from the whitelist.
+     *  *
+     * @param OperateImageBaselineWhitelistRequest $request OperateImageBaselineWhitelistRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return OperateImageBaselineWhitelistResponse
+     * @return OperateImageBaselineWhitelistResponse OperateImageBaselineWhitelistResponse
      */
     public function operateImageBaselineWhitelistWithOptions($request, $runtime)
     {
@@ -32483,9 +34901,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param OperateImageBaselineWhitelistRequest $request
+     * @summary Adds a check item of an image baseline to the whitelist, or removes a check item of an image baseline from the whitelist.
+     *  *
+     * @param OperateImageBaselineWhitelistRequest $request OperateImageBaselineWhitelistRequest
      *
-     * @return OperateImageBaselineWhitelistResponse
+     * @return OperateImageBaselineWhitelistResponse OperateImageBaselineWhitelistResponse
      */
     public function operateImageBaselineWhitelist($request)
     {
@@ -32495,10 +34915,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param OperateImageVulRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Handles an image vulnerability, such as fixing the image vulnerability, verifying the fix of the image vulnerability, ignoring the image vulnerability, or canceling ignoring the image vulnerability.
+     *  *
+     * @param OperateImageVulRequest $request OperateImageVulRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return OperateImageVulResponse
+     * @return OperateImageVulResponse OperateImageVulResponse
      */
     public function operateImageVulWithOptions($request, $runtime)
     {
@@ -32532,9 +34954,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param OperateImageVulRequest $request
+     * @summary Handles an image vulnerability, such as fixing the image vulnerability, verifying the fix of the image vulnerability, ignoring the image vulnerability, or canceling ignoring the image vulnerability.
+     *  *
+     * @param OperateImageVulRequest $request OperateImageVulRequest
      *
-     * @return OperateImageVulResponse
+     * @return OperateImageVulResponse OperateImageVulResponse
      */
     public function operateImageVul($request)
     {
@@ -32544,10 +34968,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param OperateSuspiciousOverallConfigRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Enables or disables a feature that detects exceptions.
+     *  *
+     * @param OperateSuspiciousOverallConfigRequest $request OperateSuspiciousOverallConfigRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return OperateSuspiciousOverallConfigResponse
+     * @return OperateSuspiciousOverallConfigResponse OperateSuspiciousOverallConfigResponse
      */
     public function operateSuspiciousOverallConfigWithOptions($request, $runtime)
     {
@@ -32587,9 +35013,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param OperateSuspiciousOverallConfigRequest $request
+     * @summary Enables or disables a feature that detects exceptions.
+     *  *
+     * @param OperateSuspiciousOverallConfigRequest $request OperateSuspiciousOverallConfigRequest
      *
-     * @return OperateSuspiciousOverallConfigResponse
+     * @return OperateSuspiciousOverallConfigResponse OperateSuspiciousOverallConfigResponse
      */
     public function operateSuspiciousOverallConfig($request)
     {
@@ -32599,10 +35027,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param OperateSuspiciousTargetConfigRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Configures the scope on which proactive defense takes effect.
+     *  *
+     * @param OperateSuspiciousTargetConfigRequest $request OperateSuspiciousTargetConfigRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return OperateSuspiciousTargetConfigResponse
+     * @return OperateSuspiciousTargetConfigResponse OperateSuspiciousTargetConfigResponse
      */
     public function operateSuspiciousTargetConfigWithOptions($request, $runtime)
     {
@@ -32642,9 +35072,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param OperateSuspiciousTargetConfigRequest $request
+     * @summary Configures the scope on which proactive defense takes effect.
+     *  *
+     * @param OperateSuspiciousTargetConfigRequest $request OperateSuspiciousTargetConfigRequest
      *
-     * @return OperateSuspiciousTargetConfigResponse
+     * @return OperateSuspiciousTargetConfigResponse OperateSuspiciousTargetConfigResponse
      */
     public function operateSuspiciousTargetConfig($request)
     {
@@ -32654,10 +35086,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param OperateSwitchStatusRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Change the rule status for non-image program defense.
+     *  *
+     * @param OperateSwitchStatusRequest $request OperateSwitchStatusRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return OperateSwitchStatusResponse
+     * @return OperateSwitchStatusResponse OperateSwitchStatusResponse
      */
     public function operateSwitchStatusWithOptions($request, $runtime)
     {
@@ -32688,9 +35122,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param OperateSwitchStatusRequest $request
+     * @summary Change the rule status for non-image program defense.
+     *  *
+     * @param OperateSwitchStatusRequest $request OperateSwitchStatusRequest
      *
-     * @return OperateSwitchStatusResponse
+     * @return OperateSwitchStatusResponse OperateSwitchStatusResponse
      */
     public function operateSwitchStatus($request)
     {
@@ -32700,10 +35136,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param OperateVirusEventsRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Handles alert events that are generated by the antivirus feature. You can perform in-depth detection and removal, add alert events to the whitelist, ignore alert events, or manually handle alert events.
+     *  *
+     * @param OperateVirusEventsRequest $request OperateVirusEventsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return OperateVirusEventsResponse
+     * @return OperateVirusEventsResponse OperateVirusEventsResponse
      */
     public function operateVirusEventsWithOptions($request, $runtime)
     {
@@ -32737,9 +35175,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param OperateVirusEventsRequest $request
+     * @summary Handles alert events that are generated by the antivirus feature. You can perform in-depth detection and removal, add alert events to the whitelist, ignore alert events, or manually handle alert events.
+     *  *
+     * @param OperateVirusEventsRequest $request OperateVirusEventsRequest
      *
-     * @return OperateVirusEventsResponse
+     * @return OperateVirusEventsResponse OperateVirusEventsResponse
      */
     public function operateVirusEvents($request)
     {
@@ -32749,10 +35189,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param OperateVulsRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Fixes Linux software vulnerabilities.
+     *  *
+     * @param OperateVulsRequest $request OperateVulsRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return OperateVulsResponse
+     * @return OperateVulsResponse OperateVulsResponse
      */
     public function operateVulsWithOptions($request, $runtime)
     {
@@ -32789,9 +35231,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param OperateVulsRequest $request
+     * @summary Fixes Linux software vulnerabilities.
+     *  *
+     * @param OperateVulsRequest $request OperateVulsRequest
      *
-     * @return OperateVulsResponse
+     * @return OperateVulsResponse OperateVulsResponse
      */
     public function operateVuls($request)
     {
@@ -32801,10 +35245,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param OperateWebLockFileEventsRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Handles alert events that are generated for web tamper proofing.
+     *  *
+     * @param OperateWebLockFileEventsRequest $request OperateWebLockFileEventsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return OperateWebLockFileEventsResponse
+     * @return OperateWebLockFileEventsResponse OperateWebLockFileEventsResponse
      */
     public function operateWebLockFileEventsWithOptions($request, $runtime)
     {
@@ -32838,9 +35284,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param OperateWebLockFileEventsRequest $request
+     * @summary Handles alert events that are generated for web tamper proofing.
+     *  *
+     * @param OperateWebLockFileEventsRequest $request OperateWebLockFileEventsRequest
      *
-     * @return OperateWebLockFileEventsResponse
+     * @return OperateWebLockFileEventsResponse OperateWebLockFileEventsResponse
      */
     public function operateWebLockFileEvents($request)
     {
@@ -32850,10 +35298,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param OperationCancelIgnoreSuspEventRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Cancels ignoring alert events.
+     *  *
+     * @param OperationCancelIgnoreSuspEventRequest $request OperationCancelIgnoreSuspEventRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return OperationCancelIgnoreSuspEventResponse
+     * @return OperationCancelIgnoreSuspEventResponse OperationCancelIgnoreSuspEventResponse
      */
     public function operationCancelIgnoreSuspEventWithOptions($request, $runtime)
     {
@@ -32884,9 +35334,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param OperationCancelIgnoreSuspEventRequest $request
+     * @summary Cancels ignoring alert events.
+     *  *
+     * @param OperationCancelIgnoreSuspEventRequest $request OperationCancelIgnoreSuspEventRequest
      *
-     * @return OperationCancelIgnoreSuspEventResponse
+     * @return OperationCancelIgnoreSuspEventResponse OperationCancelIgnoreSuspEventResponse
      */
     public function operationCancelIgnoreSuspEvent($request)
     {
@@ -32896,10 +35348,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param OperationSuspEventsRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Handles multiple exceptions at a time.
+     *  *
+     * @param OperationSuspEventsRequest $request OperationSuspEventsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return OperationSuspEventsResponse
+     * @return OperationSuspEventsResponse OperationSuspEventsResponse
      */
     public function operationSuspEventsWithOptions($request, $runtime)
     {
@@ -32942,9 +35396,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param OperationSuspEventsRequest $request
+     * @summary Handles multiple exceptions at a time.
+     *  *
+     * @param OperationSuspEventsRequest $request OperationSuspEventsRequest
      *
-     * @return OperationSuspEventsResponse
+     * @return OperationSuspEventsResponse OperationSuspEventsResponse
      */
     public function operationSuspEvents($request)
     {
@@ -32954,10 +35410,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param PageImageRegistryRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries image repositories by page.
+     *  *
+     * @param PageImageRegistryRequest $request PageImageRegistryRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return PageImageRegistryResponse
+     * @return PageImageRegistryResponse PageImageRegistryResponse
      */
     public function pageImageRegistryWithOptions($request, $runtime)
     {
@@ -33002,9 +35460,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param PageImageRegistryRequest $request
+     * @summary Queries image repositories by page.
+     *  *
+     * @param PageImageRegistryRequest $request PageImageRegistryRequest
      *
-     * @return PageImageRegistryResponse
+     * @return PageImageRegistryResponse PageImageRegistryResponse
      */
     public function pageImageRegistry($request)
     {
@@ -33014,10 +35474,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param PauseClientRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Enables or disables the Security Center agent.
+     *  *
+     * @param PauseClientRequest $request PauseClientRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return PauseClientResponse
+     * @return PauseClientResponse PauseClientResponse
      */
     public function pauseClientWithOptions($request, $runtime)
     {
@@ -33048,9 +35510,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param PauseClientRequest $request
+     * @summary Enables or disables the Security Center agent.
+     *  *
+     * @param PauseClientRequest $request PauseClientRequest
      *
-     * @return PauseClientResponse
+     * @return PauseClientResponse PauseClientResponse
      */
     public function pauseClient($request)
     {
@@ -33060,8 +35524,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Before you call the PublicCreateImageScanTask operation, we recommend that you call the [PublicPreCheckImageScanTask](~~PublicPreCheckImageScanTask~~) operation to query the number of images to scan and the quota for container image scan to be consumed by the image scan task. Make sure that the remaining quota for container image scan is sufficient. This prevents the task from being stopped due to an insufficient quota.
-     *   *
+     * @summary Creates an image scan task.
+     *  *
+     * @description Before you call the PublicCreateImageScanTask operation, we recommend that you call the [PublicPreCheckImageScanTask](~~PublicPreCheckImageScanTask~~) operation to query the number of images to scan and the quota for container image scan to be consumed by the image scan task. Make sure that the remaining quota for container image scan is sufficient. This prevents the task from being stopped due to an insufficient quota.
+     *  *
      * @param PublicCreateImageScanTaskRequest $request PublicCreateImageScanTaskRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -33117,8 +35583,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Before you call the PublicCreateImageScanTask operation, we recommend that you call the [PublicPreCheckImageScanTask](~~PublicPreCheckImageScanTask~~) operation to query the number of images to scan and the quota for container image scan to be consumed by the image scan task. Make sure that the remaining quota for container image scan is sufficient. This prevents the task from being stopped due to an insufficient quota.
-     *   *
+     * @summary Creates an image scan task.
+     *  *
+     * @description Before you call the PublicCreateImageScanTask operation, we recommend that you call the [PublicPreCheckImageScanTask](~~PublicPreCheckImageScanTask~~) operation to query the number of images to scan and the quota for container image scan to be consumed by the image scan task. Make sure that the remaining quota for container image scan is sufficient. This prevents the task from being stopped due to an insufficient quota.
+     *  *
      * @param PublicCreateImageScanTaskRequest $request PublicCreateImageScanTaskRequest
      *
      * @return PublicCreateImageScanTaskResponse PublicCreateImageScanTaskResponse
@@ -33131,10 +35599,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param PublicPreCheckImageScanTaskRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary 预检测，不会实际创建扫描任务，返回本次扫描涉及的镜像数量和消耗授权数量。
+     *  *
+     * @param PublicPreCheckImageScanTaskRequest $request PublicPreCheckImageScanTaskRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return PublicPreCheckImageScanTaskResponse
+     * @return PublicPreCheckImageScanTaskResponse PublicPreCheckImageScanTaskResponse
      */
     public function publicPreCheckImageScanTaskWithOptions($request, $runtime)
     {
@@ -33186,9 +35656,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param PublicPreCheckImageScanTaskRequest $request
+     * @summary 预检测，不会实际创建扫描任务，返回本次扫描涉及的镜像数量和消耗授权数量。
+     *  *
+     * @param PublicPreCheckImageScanTaskRequest $request PublicPreCheckImageScanTaskRequest
      *
-     * @return PublicPreCheckImageScanTaskResponse
+     * @return PublicPreCheckImageScanTaskResponse PublicPreCheckImageScanTaskResponse
      */
     public function publicPreCheckImageScanTask($request)
     {
@@ -33198,10 +35670,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param PublicSyncAndCreateImageScanTaskRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary Adds images to Security Center and creates an image scan task to scan the images.
+     *  *
+     * @param PublicSyncAndCreateImageScanTaskRequest $request PublicSyncAndCreateImageScanTaskRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return PublicSyncAndCreateImageScanTaskResponse
+     * @return PublicSyncAndCreateImageScanTaskResponse PublicSyncAndCreateImageScanTaskResponse
      */
     public function publicSyncAndCreateImageScanTaskWithOptions($request, $runtime)
     {
@@ -33232,9 +35706,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param PublicSyncAndCreateImageScanTaskRequest $request
+     * @summary Adds images to Security Center and creates an image scan task to scan the images.
+     *  *
+     * @param PublicSyncAndCreateImageScanTaskRequest $request PublicSyncAndCreateImageScanTaskRequest
      *
-     * @return PublicSyncAndCreateImageScanTaskResponse
+     * @return PublicSyncAndCreateImageScanTaskResponse PublicSyncAndCreateImageScanTaskResponse
      */
     public function publicSyncAndCreateImageScanTask($request)
     {
@@ -33244,10 +35720,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param QueryAttackCountRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the number of alert events in each attack phase.
+     *  *
+     * @param QueryAttackCountRequest $request QueryAttackCountRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryAttackCountResponse
+     * @return QueryAttackCountResponse QueryAttackCountResponse
      */
     public function queryAttackCountWithOptions($request, $runtime)
     {
@@ -33286,9 +35764,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param QueryAttackCountRequest $request
+     * @summary Queries the number of alert events in each attack phase.
+     *  *
+     * @param QueryAttackCountRequest $request QueryAttackCountRequest
      *
-     * @return QueryAttackCountResponse
+     * @return QueryAttackCountResponse QueryAttackCountResponse
      */
     public function queryAttackCount($request)
     {
@@ -33298,10 +35778,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param QueryDiscoverDatabaseRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the progress of a database scan task.
+     *  *
+     * @param QueryDiscoverDatabaseRequest $request QueryDiscoverDatabaseRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDiscoverDatabaseResponse
+     * @return QueryDiscoverDatabaseResponse QueryDiscoverDatabaseResponse
      */
     public function queryDiscoverDatabaseWithOptions($request, $runtime)
     {
@@ -33329,9 +35811,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param QueryDiscoverDatabaseRequest $request
+     * @summary Queries the progress of a database scan task.
+     *  *
+     * @param QueryDiscoverDatabaseRequest $request QueryDiscoverDatabaseRequest
      *
-     * @return QueryDiscoverDatabaseResponse
+     * @return QueryDiscoverDatabaseResponse QueryDiscoverDatabaseResponse
      */
     public function queryDiscoverDatabase($request)
     {
@@ -33341,10 +35825,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * You can call the QueryGroupIdByGroupName operation to query the ID of an asset group to which your assets belong by using the name of the asset group. When you call operations such as [GetSuspiciousStatistics](~~GetSuspiciousStatistics~~) and [DeleteGroup](~~DeleteGroup~~), you must specify the ID of the asset group. To query the ID of an asset group, call the QueryGroupIdByGroupName operation.
-     *   * ### Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the ID of an asset group by using the name of the asset group.
+     *  *
+     * @description You can call the QueryGroupIdByGroupName operation to query the ID of an asset group to which your assets belong by using the name of the asset group. When you call operations such as [GetSuspiciousStatistics](~~GetSuspiciousStatistics~~) and [DeleteGroup](~~DeleteGroup~~), you must specify the ID of the asset group. To query the ID of an asset group, call the QueryGroupIdByGroupName operation.
+     * ### Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param QueryGroupIdByGroupNameRequest $request QueryGroupIdByGroupNameRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -33379,10 +35865,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * You can call the QueryGroupIdByGroupName operation to query the ID of an asset group to which your assets belong by using the name of the asset group. When you call operations such as [GetSuspiciousStatistics](~~GetSuspiciousStatistics~~) and [DeleteGroup](~~DeleteGroup~~), you must specify the ID of the asset group. To query the ID of an asset group, call the QueryGroupIdByGroupName operation.
-     *   * ### Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the ID of an asset group by using the name of the asset group.
+     *  *
+     * @description You can call the QueryGroupIdByGroupName operation to query the ID of an asset group to which your assets belong by using the name of the asset group. When you call operations such as [GetSuspiciousStatistics](~~GetSuspiciousStatistics~~) and [DeleteGroup](~~DeleteGroup~~), you must specify the ID of the asset group. To query the ID of an asset group, call the QueryGroupIdByGroupName operation.
+     * ### Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param QueryGroupIdByGroupNameRequest $request QueryGroupIdByGroupNameRequest
      *
      * @return QueryGroupIdByGroupNameResponse QueryGroupIdByGroupNameResponse
@@ -33395,10 +35883,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param QueryGroupedSecurityEventMarkMissListRequest $request
-     * @param RuntimeOptions                               $runtime
+     * @summary Queries whitelist rules.
+     *  *
+     * @param QueryGroupedSecurityEventMarkMissListRequest $request QueryGroupedSecurityEventMarkMissListRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryGroupedSecurityEventMarkMissListResponse
+     * @return QueryGroupedSecurityEventMarkMissListResponse QueryGroupedSecurityEventMarkMissListResponse
      */
     public function queryGroupedSecurityEventMarkMissListWithOptions($request, $runtime)
     {
@@ -33449,9 +35939,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param QueryGroupedSecurityEventMarkMissListRequest $request
+     * @summary Queries whitelist rules.
+     *  *
+     * @param QueryGroupedSecurityEventMarkMissListRequest $request QueryGroupedSecurityEventMarkMissListRequest
      *
-     * @return QueryGroupedSecurityEventMarkMissListResponse
+     * @return QueryGroupedSecurityEventMarkMissListResponse QueryGroupedSecurityEventMarkMissListResponse
      */
     public function queryGroupedSecurityEventMarkMissList($request)
     {
@@ -33461,9 +35953,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the icons that correspond to nodes and edges.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryIncidentIconListResponse
+     * @return QueryIncidentIconListResponse QueryIncidentIconListResponse
      */
     public function queryIncidentIconListWithOptions($runtime)
     {
@@ -33484,7 +35978,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return QueryIncidentIconListResponse
+     * @summary Queries the icons that correspond to nodes and edges.
+     *  *
+     * @return QueryIncidentIconListResponse QueryIncidentIconListResponse
      */
     public function queryIncidentIconList()
     {
@@ -33494,10 +35990,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param QueryIncidentSubNodesCountRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries whether a node can be drilled down.
+     *  *
+     * @param QueryIncidentSubNodesCountRequest $request QueryIncidentSubNodesCountRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryIncidentSubNodesCountResponse
+     * @return QueryIncidentSubNodesCountResponse QueryIncidentSubNodesCountResponse
      */
     public function queryIncidentSubNodesCountWithOptions($request, $runtime)
     {
@@ -33525,9 +36023,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param QueryIncidentSubNodesCountRequest $request
+     * @summary Queries whether a node can be drilled down.
+     *  *
+     * @param QueryIncidentSubNodesCountRequest $request QueryIncidentSubNodesCountRequest
      *
-     * @return QueryIncidentSubNodesCountResponse
+     * @return QueryIncidentSubNodesCountResponse QueryIncidentSubNodesCountResponse
      */
     public function queryIncidentSubNodesCount($request)
     {
@@ -33537,10 +36037,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param QueryIncidentTracingDetailRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the provenance graph of an event by using the event ID.
+     *  *
+     * @param QueryIncidentTracingDetailRequest $request QueryIncidentTracingDetailRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryIncidentTracingDetailResponse
+     * @return QueryIncidentTracingDetailResponse QueryIncidentTracingDetailResponse
      */
     public function queryIncidentTracingDetailWithOptions($request, $runtime)
     {
@@ -33568,9 +36070,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param QueryIncidentTracingDetailRequest $request
+     * @summary Queries the provenance graph of an event by using the event ID.
+     *  *
+     * @param QueryIncidentTracingDetailRequest $request QueryIncidentTracingDetailRequest
      *
-     * @return QueryIncidentTracingDetailResponse
+     * @return QueryIncidentTracingDetailResponse QueryIncidentTracingDetailResponse
      */
     public function queryIncidentTracingDetail($request)
     {
@@ -33580,10 +36084,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param QueryIncidentTracingJudgeRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries whether an event has a provenance graph based on the event ID.
+     *  *
+     * @param QueryIncidentTracingJudgeRequest $request QueryIncidentTracingJudgeRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryIncidentTracingJudgeResponse
+     * @return QueryIncidentTracingJudgeResponse QueryIncidentTracingJudgeResponse
      */
     public function queryIncidentTracingJudgeWithOptions($request, $runtime)
     {
@@ -33611,9 +36117,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param QueryIncidentTracingJudgeRequest $request
+     * @summary Queries whether an event has a provenance graph based on the event ID.
+     *  *
+     * @param QueryIncidentTracingJudgeRequest $request QueryIncidentTracingJudgeRequest
      *
-     * @return QueryIncidentTracingJudgeResponse
+     * @return QueryIncidentTracingJudgeResponse QueryIncidentTracingJudgeResponse
      */
     public function queryIncidentTracingJudge($request)
     {
@@ -33623,10 +36131,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param QueryIncidentVertexExtendInfoRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Queries the extended information about an event node.
+     *  *
+     * @param QueryIncidentVertexExtendInfoRequest $request QueryIncidentVertexExtendInfoRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryIncidentVertexExtendInfoResponse
+     * @return QueryIncidentVertexExtendInfoResponse QueryIncidentVertexExtendInfoResponse
      */
     public function queryIncidentVertexExtendInfoWithOptions($request, $runtime)
     {
@@ -33666,9 +36176,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param QueryIncidentVertexExtendInfoRequest $request
+     * @summary Queries the extended information about an event node.
+     *  *
+     * @param QueryIncidentVertexExtendInfoRequest $request QueryIncidentVertexExtendInfoRequest
      *
-     * @return QueryIncidentVertexExtendInfoResponse
+     * @return QueryIncidentVertexExtendInfoResponse QueryIncidentVertexExtendInfoResponse
      */
     public function queryIncidentVertexExtendInfo($request)
     {
@@ -33678,10 +36190,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param QueryIncidentVertexNodesRequest $tmpReq
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the detailed information about an event node.
+     *  *
+     * @param QueryIncidentVertexNodesRequest $tmpReq  QueryIncidentVertexNodesRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryIncidentVertexNodesResponse
+     * @return QueryIncidentVertexNodesResponse QueryIncidentVertexNodesResponse
      */
     public function queryIncidentVertexNodesWithOptions($tmpReq, $runtime)
     {
@@ -33726,9 +36240,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param QueryIncidentVertexNodesRequest $request
+     * @summary Queries the detailed information about an event node.
+     *  *
+     * @param QueryIncidentVertexNodesRequest $request QueryIncidentVertexNodesRequest
      *
-     * @return QueryIncidentVertexNodesResponse
+     * @return QueryIncidentVertexNodesResponse QueryIncidentVertexNodesResponse
      */
     public function queryIncidentVertexNodes($request)
     {
@@ -33738,10 +36254,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param QueryJenkinsImageRegistryPersistenceDayRequest $request
-     * @param RuntimeOptions                                 $runtime
+     * @summary Queries the retention period of images that are stored in a Jenkins image repository.
+     *  *
+     * @param QueryJenkinsImageRegistryPersistenceDayRequest $request QueryJenkinsImageRegistryPersistenceDayRequest
+     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryJenkinsImageRegistryPersistenceDayResponse
+     * @return QueryJenkinsImageRegistryPersistenceDayResponse QueryJenkinsImageRegistryPersistenceDayResponse
      */
     public function queryJenkinsImageRegistryPersistenceDayWithOptions($request, $runtime)
     {
@@ -33769,9 +36287,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param QueryJenkinsImageRegistryPersistenceDayRequest $request
+     * @summary Queries the retention period of images that are stored in a Jenkins image repository.
+     *  *
+     * @param QueryJenkinsImageRegistryPersistenceDayRequest $request QueryJenkinsImageRegistryPersistenceDayRequest
      *
-     * @return QueryJenkinsImageRegistryPersistenceDayResponse
+     * @return QueryJenkinsImageRegistryPersistenceDayResponse QueryJenkinsImageRegistryPersistenceDayResponse
      */
     public function queryJenkinsImageRegistryPersistenceDay($request)
     {
@@ -33781,10 +36301,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param QueryPreCheckDatabaseRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the result of a database precheck task.
+     *  *
+     * @param QueryPreCheckDatabaseRequest $request QueryPreCheckDatabaseRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryPreCheckDatabaseResponse
+     * @return QueryPreCheckDatabaseResponse QueryPreCheckDatabaseResponse
      */
     public function queryPreCheckDatabaseWithOptions($request, $runtime)
     {
@@ -33818,9 +36340,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param QueryPreCheckDatabaseRequest $request
+     * @summary Queries the result of a database precheck task.
+     *  *
+     * @param QueryPreCheckDatabaseRequest $request QueryPreCheckDatabaseRequest
      *
-     * @return QueryPreCheckDatabaseResponse
+     * @return QueryPreCheckDatabaseResponse QueryPreCheckDatabaseResponse
      */
     public function queryPreCheckDatabase($request)
     {
@@ -33830,10 +36354,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RebootMachineRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Restarts a server. Only Windows servers are supported.
+     *  *
+     * @param RebootMachineRequest $request RebootMachineRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return RebootMachineResponse
+     * @return RebootMachineResponse RebootMachineResponse
      */
     public function rebootMachineWithOptions($request, $runtime)
     {
@@ -33861,9 +36387,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RebootMachineRequest $request
+     * @summary Restarts a server. Only Windows servers are supported.
+     *  *
+     * @param RebootMachineRequest $request RebootMachineRequest
      *
-     * @return RebootMachineResponse
+     * @return RebootMachineResponse RebootMachineResponse
      */
     public function rebootMachine($request)
     {
@@ -33873,10 +36401,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RefreshAssetsRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Synchronizes assets.
+     *  *
+     * @param RefreshAssetsRequest $request RefreshAssetsRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return RefreshAssetsResponse
+     * @return RefreshAssetsResponse RefreshAssetsResponse
      */
     public function refreshAssetsWithOptions($request, $runtime)
     {
@@ -33913,9 +36443,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RefreshAssetsRequest $request
+     * @summary Synchronizes assets.
+     *  *
+     * @param RefreshAssetsRequest $request RefreshAssetsRequest
      *
-     * @return RefreshAssetsResponse
+     * @return RefreshAssetsResponse RefreshAssetsResponse
      */
     public function refreshAssets($request)
     {
@@ -33925,10 +36457,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RefreshContainerAssetsRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Refreshes the statistics of container assets in the Assets module.
+     *  *
+     * @param RefreshContainerAssetsRequest $request RefreshContainerAssetsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return RefreshContainerAssetsResponse
+     * @return RefreshContainerAssetsResponse RefreshContainerAssetsResponse
      */
     public function refreshContainerAssetsWithOptions($request, $runtime)
     {
@@ -33956,9 +36490,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RefreshContainerAssetsRequest $request
+     * @summary Refreshes the statistics of container assets in the Assets module.
+     *  *
+     * @param RefreshContainerAssetsRequest $request RefreshContainerAssetsRequest
      *
-     * @return RefreshContainerAssetsResponse
+     * @return RefreshContainerAssetsResponse RefreshContainerAssetsResponse
      */
     public function refreshContainerAssets($request)
     {
@@ -33968,9 +36504,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Refreshes the list of Object Storage Service (OSS) buckets.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return RefreshOssBucketScanInfoResponse
+     * @return RefreshOssBucketScanInfoResponse RefreshOssBucketScanInfoResponse
      */
     public function refreshOssBucketScanInfoWithOptions($runtime)
     {
@@ -33991,7 +36529,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return RefreshOssBucketScanInfoResponse
+     * @summary Refreshes the list of Object Storage Service (OSS) buckets.
+     *  *
+     * @return RefreshOssBucketScanInfoResponse RefreshOssBucketScanInfoResponse
      */
     public function refreshOssBucketScanInfo()
     {
@@ -34001,10 +36541,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ReleaseSasInstanceRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 释放云安全中心实例
+     *  *
+     * @param ReleaseSasInstanceRequest $request ReleaseSasInstanceRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReleaseSasInstanceResponse
+     * @return ReleaseSasInstanceResponse ReleaseSasInstanceResponse
      */
     public function releaseSasInstanceWithOptions($request, $runtime)
     {
@@ -34035,9 +36577,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ReleaseSasInstanceRequest $request
+     * @summary 释放云安全中心实例
+     *  *
+     * @param ReleaseSasInstanceRequest $request ReleaseSasInstanceRequest
      *
-     * @return ReleaseSasInstanceResponse
+     * @return ReleaseSasInstanceResponse ReleaseSasInstanceResponse
      */
     public function releaseSasInstance($request)
     {
@@ -34047,10 +36591,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RemoveCheckInstanceResultWhiteListRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @summary Removes an instance from the whitelist.
+     *  *
+     * @param RemoveCheckInstanceResultWhiteListRequest $request RemoveCheckInstanceResultWhiteListRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveCheckInstanceResultWhiteListResponse
+     * @return RemoveCheckInstanceResultWhiteListResponse RemoveCheckInstanceResultWhiteListResponse
      */
     public function removeCheckInstanceResultWhiteListWithOptions($request, $runtime)
     {
@@ -34081,9 +36627,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RemoveCheckInstanceResultWhiteListRequest $request
+     * @summary Removes an instance from the whitelist.
+     *  *
+     * @param RemoveCheckInstanceResultWhiteListRequest $request RemoveCheckInstanceResultWhiteListRequest
      *
-     * @return RemoveCheckInstanceResultWhiteListResponse
+     * @return RemoveCheckInstanceResultWhiteListResponse RemoveCheckInstanceResultWhiteListResponse
      */
     public function removeCheckInstanceResultWhiteList($request)
     {
@@ -34093,10 +36641,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RemoveCheckResultWhiteListRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Removes check items from the whitelist.
+     *  *
+     * @param RemoveCheckResultWhiteListRequest $request RemoveCheckResultWhiteListRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveCheckResultWhiteListResponse
+     * @return RemoveCheckResultWhiteListResponse RemoveCheckResultWhiteListResponse
      */
     public function removeCheckResultWhiteListWithOptions($request, $runtime)
     {
@@ -34130,9 +36680,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RemoveCheckResultWhiteListRequest $request
+     * @summary Removes check items from the whitelist.
+     *  *
+     * @param RemoveCheckResultWhiteListRequest $request RemoveCheckResultWhiteListRequest
      *
-     * @return RemoveCheckResultWhiteListResponse
+     * @return RemoveCheckResultWhiteListResponse RemoveCheckResultWhiteListResponse
      */
     public function removeCheckResultWhiteList($request)
     {
@@ -34142,10 +36694,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ResetHoneypotRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Reset the honeypot.
+     *  *
+     * @param ResetHoneypotRequest $request ResetHoneypotRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResetHoneypotResponse
+     * @return ResetHoneypotResponse ResetHoneypotResponse
      */
     public function resetHoneypotWithOptions($request, $runtime)
     {
@@ -34176,9 +36730,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ResetHoneypotRequest $request
+     * @summary Reset the honeypot.
+     *  *
+     * @param ResetHoneypotRequest $request ResetHoneypotRequest
      *
-     * @return ResetHoneypotResponse
+     * @return ResetHoneypotResponse ResetHoneypotResponse
      */
     public function resetHoneypot($request)
     {
@@ -34188,10 +36744,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RetryAgentlessTaskRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Retries agentless detection tasks.
+     *  *
+     * @param RetryAgentlessTaskRequest $request RetryAgentlessTaskRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return RetryAgentlessTaskResponse
+     * @return RetryAgentlessTaskResponse RetryAgentlessTaskResponse
      */
     public function retryAgentlessTaskWithOptions($request, $runtime)
     {
@@ -34219,9 +36777,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RetryAgentlessTaskRequest $request
+     * @summary Retries agentless detection tasks.
+     *  *
+     * @param RetryAgentlessTaskRequest $request RetryAgentlessTaskRequest
      *
-     * @return RetryAgentlessTaskResponse
+     * @return RetryAgentlessTaskResponse RetryAgentlessTaskResponse
      */
     public function retryAgentlessTask($request)
     {
@@ -34231,10 +36791,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RetryInstallProbeRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Retry installing the honeypot probe.
+     *  *
+     * @param RetryInstallProbeRequest $request RetryInstallProbeRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return RetryInstallProbeResponse
+     * @return RetryInstallProbeResponse RetryInstallProbeResponse
      */
     public function retryInstallProbeWithOptions($request, $runtime)
     {
@@ -34262,9 +36824,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RetryInstallProbeRequest $request
+     * @summary Retry installing the honeypot probe.
+     *  *
+     * @param RetryInstallProbeRequest $request RetryInstallProbeRequest
      *
-     * @return RetryInstallProbeResponse
+     * @return RetryInstallProbeResponse RetryInstallProbeResponse
      */
     public function retryInstallProbe($request)
     {
@@ -34274,10 +36838,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RollbackSuspEventQuaraFileRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary 取消对文件隔离箱中文件的隔离
+     *  *
+     * @param RollbackSuspEventQuaraFileRequest $request RollbackSuspEventQuaraFileRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return RollbackSuspEventQuaraFileResponse
+     * @return RollbackSuspEventQuaraFileResponse RollbackSuspEventQuaraFileResponse
      */
     public function rollbackSuspEventQuaraFileWithOptions($request, $runtime)
     {
@@ -34311,9 +36877,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RollbackSuspEventQuaraFileRequest $request
+     * @summary 取消对文件隔离箱中文件的隔离
+     *  *
+     * @param RollbackSuspEventQuaraFileRequest $request RollbackSuspEventQuaraFileRequest
      *
-     * @return RollbackSuspEventQuaraFileResponse
+     * @return RollbackSuspEventQuaraFileResponse RollbackSuspEventQuaraFileResponse
      */
     public function rollbackSuspEventQuaraFile($request)
     {
@@ -34323,10 +36891,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param SasInstallCodeRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary SasInstallCode
+     *  *
+     * @param SasInstallCodeRequest $request SasInstallCodeRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return SasInstallCodeResponse
+     * @return SasInstallCodeResponse SasInstallCodeResponse
      */
     public function sasInstallCodeWithOptions($request, $runtime)
     {
@@ -34354,9 +36924,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param SasInstallCodeRequest $request
+     * @summary SasInstallCode
+     *  *
+     * @param SasInstallCodeRequest $request SasInstallCodeRequest
      *
-     * @return SasInstallCodeResponse
+     * @return SasInstallCodeResponse SasInstallCodeResponse
      */
     public function sasInstallCode($request)
     {
@@ -34366,10 +36938,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param SaveImageBaselineStrategyRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Saves a baseline check policy for images.
+     *  *
+     * @param SaveImageBaselineStrategyRequest $request SaveImageBaselineStrategyRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveImageBaselineStrategyResponse
+     * @return SaveImageBaselineStrategyResponse SaveImageBaselineStrategyResponse
      */
     public function saveImageBaselineStrategyWithOptions($request, $runtime)
     {
@@ -34409,9 +36983,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param SaveImageBaselineStrategyRequest $request
+     * @summary Saves a baseline check policy for images.
+     *  *
+     * @param SaveImageBaselineStrategyRequest $request SaveImageBaselineStrategyRequest
      *
-     * @return SaveImageBaselineStrategyResponse
+     * @return SaveImageBaselineStrategyResponse SaveImageBaselineStrategyResponse
      */
     public function saveImageBaselineStrategy($request)
     {
@@ -34421,10 +36997,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param SaveSuspEventUserSettingRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Saves alert settings.
+     *  *
+     * @param SaveSuspEventUserSettingRequest $request SaveSuspEventUserSettingRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveSuspEventUserSettingResponse
+     * @return SaveSuspEventUserSettingResponse SaveSuspEventUserSettingResponse
      */
     public function saveSuspEventUserSettingWithOptions($request, $runtime)
     {
@@ -34455,9 +37033,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param SaveSuspEventUserSettingRequest $request
+     * @summary Saves alert settings.
+     *  *
+     * @param SaveSuspEventUserSettingRequest $request SaveSuspEventUserSettingRequest
      *
-     * @return SaveSuspEventUserSettingResponse
+     * @return SaveSuspEventUserSettingResponse SaveSuspEventUserSettingResponse
      */
     public function saveSuspEventUserSetting($request)
     {
@@ -34467,10 +37047,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param SetClusterInterceptionConfigRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Configures the status of the container firewall feature.
+     *  *
+     * @param SetClusterInterceptionConfigRequest $request SetClusterInterceptionConfigRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetClusterInterceptionConfigResponse
+     * @return SetClusterInterceptionConfigResponse SetClusterInterceptionConfigResponse
      */
     public function setClusterInterceptionConfigWithOptions($request, $runtime)
     {
@@ -34504,9 +37086,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param SetClusterInterceptionConfigRequest $request
+     * @summary Configures the status of the container firewall feature.
+     *  *
+     * @param SetClusterInterceptionConfigRequest $request SetClusterInterceptionConfigRequest
      *
-     * @return SetClusterInterceptionConfigResponse
+     * @return SetClusterInterceptionConfigResponse SetClusterInterceptionConfigResponse
      */
     public function setClusterInterceptionConfig($request)
     {
@@ -34516,10 +37100,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param SetImageSensitiveFileStatusRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Modifies the status of sensitive files in an image.
+     *  *
+     * @param SetImageSensitiveFileStatusRequest $request SetImageSensitiveFileStatusRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetImageSensitiveFileStatusResponse
+     * @return SetImageSensitiveFileStatusResponse SetImageSensitiveFileStatusResponse
      */
     public function setImageSensitiveFileStatusWithOptions($request, $runtime)
     {
@@ -34553,9 +37139,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param SetImageSensitiveFileStatusRequest $request
+     * @summary Modifies the status of sensitive files in an image.
+     *  *
+     * @param SetImageSensitiveFileStatusRequest $request SetImageSensitiveFileStatusRequest
      *
-     * @return SetImageSensitiveFileStatusResponse
+     * @return SetImageSensitiveFileStatusResponse SetImageSensitiveFileStatusResponse
      */
     public function setImageSensitiveFileStatus($request)
     {
@@ -34565,10 +37153,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param SetRegistryScanDayNumRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Specifies a cycle to scan images for image repositories. Unit: days.
+     *  *
+     * @param SetRegistryScanDayNumRequest $request SetRegistryScanDayNumRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetRegistryScanDayNumResponse
+     * @return SetRegistryScanDayNumResponse SetRegistryScanDayNumResponse
      */
     public function setRegistryScanDayNumWithOptions($request, $runtime)
     {
@@ -34596,9 +37186,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param SetRegistryScanDayNumRequest $request
+     * @summary Specifies a cycle to scan images for image repositories. Unit: days.
+     *  *
+     * @param SetRegistryScanDayNumRequest $request SetRegistryScanDayNumRequest
      *
-     * @return SetRegistryScanDayNumResponse
+     * @return SetRegistryScanDayNumResponse SetRegistryScanDayNumResponse
      */
     public function setRegistryScanDayNum($request)
     {
@@ -34608,10 +37200,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param SetSensitiveDefineRuleConfigRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Configure the check rules of sensitive files.
+     *  *
+     * @param SetSensitiveDefineRuleConfigRequest $request SetSensitiveDefineRuleConfigRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetSensitiveDefineRuleConfigResponse
+     * @return SetSensitiveDefineRuleConfigResponse SetSensitiveDefineRuleConfigResponse
      */
     public function setSensitiveDefineRuleConfigWithOptions($request, $runtime)
     {
@@ -34639,9 +37233,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param SetSensitiveDefineRuleConfigRequest $request
+     * @summary Configure the check rules of sensitive files.
+     *  *
+     * @param SetSensitiveDefineRuleConfigRequest $request SetSensitiveDefineRuleConfigRequest
      *
-     * @return SetSensitiveDefineRuleConfigResponse
+     * @return SetSensitiveDefineRuleConfigResponse SetSensitiveDefineRuleConfigResponse
      */
     public function setSensitiveDefineRuleConfig($request)
     {
@@ -34651,8 +37247,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI StartBaselineSecurityCheck is deprecated
+     *  *
+     * @summary Checks cloud service configurations. You can check all items or a single item and verify whether an item is checked.
+     *  *
      * Deprecated
      *
      * @param StartBaselineSecurityCheckRequest $request StartBaselineSecurityCheckRequest
@@ -34698,8 +37296,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI StartBaselineSecurityCheck is deprecated
+     *  *
+     * @summary Checks cloud service configurations. You can check all items or a single item and verify whether an item is checked.
+     *  *
      * Deprecated
      *
      * @param StartBaselineSecurityCheckRequest $request StartBaselineSecurityCheckRequest
@@ -34714,9 +37314,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Starts a database scan task.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartDiscoverDatabaseTaskResponse
+     * @return StartDiscoverDatabaseTaskResponse StartDiscoverDatabaseTaskResponse
      */
     public function startDiscoverDatabaseTaskWithOptions($runtime)
     {
@@ -34737,7 +37339,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @return StartDiscoverDatabaseTaskResponse
+     * @summary Starts a database scan task.
+     *  *
+     * @return StartDiscoverDatabaseTaskResponse StartDiscoverDatabaseTaskResponse
      */
     public function startDiscoverDatabaseTask()
     {
@@ -34747,10 +37351,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param StartHoneypotRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Start the honeypot.
+     *  *
+     * @param StartHoneypotRequest $request StartHoneypotRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartHoneypotResponse
+     * @return StartHoneypotResponse StartHoneypotResponse
      */
     public function startHoneypotWithOptions($request, $runtime)
     {
@@ -34781,9 +37387,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param StartHoneypotRequest $request
+     * @summary Start the honeypot.
+     *  *
+     * @param StartHoneypotRequest $request StartHoneypotRequest
      *
-     * @return StartHoneypotResponse
+     * @return StartHoneypotResponse StartHoneypotResponse
      */
     public function startHoneypot($request)
     {
@@ -34793,10 +37401,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param StartPreCheckDatabaseRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Starts a database precheck task.
+     *  *
+     * @param StartPreCheckDatabaseRequest $request StartPreCheckDatabaseRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartPreCheckDatabaseResponse
+     * @return StartPreCheckDatabaseResponse StartPreCheckDatabaseResponse
      */
     public function startPreCheckDatabaseWithOptions($request, $runtime)
     {
@@ -34830,9 +37440,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param StartPreCheckDatabaseRequest $request
+     * @summary Starts a database precheck task.
+     *  *
+     * @param StartPreCheckDatabaseRequest $request StartPreCheckDatabaseRequest
      *
-     * @return StartPreCheckDatabaseResponse
+     * @return StartPreCheckDatabaseResponse StartPreCheckDatabaseResponse
      */
     public function startPreCheckDatabase($request)
     {
@@ -34842,10 +37454,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param StartVirusScanTaskRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Performs a virus scan task on a server or multiple servers.
+     *  *
+     * @param StartVirusScanTaskRequest $request StartVirusScanTaskRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartVirusScanTaskResponse
+     * @return StartVirusScanTaskResponse StartVirusScanTaskResponse
      */
     public function startVirusScanTaskWithOptions($request, $runtime)
     {
@@ -34873,9 +37487,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param StartVirusScanTaskRequest $request
+     * @summary Performs a virus scan task on a server or multiple servers.
+     *  *
+     * @param StartVirusScanTaskRequest $request StartVirusScanTaskRequest
      *
-     * @return StartVirusScanTaskResponse
+     * @return StartVirusScanTaskResponse StartVirusScanTaskResponse
      */
     public function startVirusScanTask($request)
     {
@@ -34885,10 +37501,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param StopHoneypotRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Stops a honeypot.
+     *  *
+     * @param StopHoneypotRequest $request StopHoneypotRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopHoneypotResponse
+     * @return StopHoneypotResponse StopHoneypotResponse
      */
     public function stopHoneypotWithOptions($request, $runtime)
     {
@@ -34919,9 +37537,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param StopHoneypotRequest $request
+     * @summary Stops a honeypot.
+     *  *
+     * @param StopHoneypotRequest $request StopHoneypotRequest
      *
-     * @return StopHoneypotResponse
+     * @return StopHoneypotResponse StopHoneypotResponse
      */
     public function stopHoneypot($request)
     {
@@ -34931,10 +37551,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param SubmitCheckRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Submits a configuration assessment task.
+     *  *
+     * @param SubmitCheckRequest $request SubmitCheckRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitCheckResponse
+     * @return SubmitCheckResponse SubmitCheckResponse
      */
     public function submitCheckWithOptions($request, $runtime)
     {
@@ -34962,9 +37584,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param SubmitCheckRequest $request
+     * @summary Submits a configuration assessment task.
+     *  *
+     * @param SubmitCheckRequest $request SubmitCheckRequest
      *
-     * @return SubmitCheckResponse
+     * @return SubmitCheckResponse SubmitCheckResponse
      */
     public function submitCheck($request)
     {
@@ -34974,10 +37598,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UnMarkMonitorAccountsRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Cancel marking for members. You can call this operation to remove followed members from the list. In the Security Center console, the drop-down list above the left-side navigation pane no longer displays the members.
+     *  *
+     * @param UnMarkMonitorAccountsRequest $request UnMarkMonitorAccountsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnMarkMonitorAccountsResponse
+     * @return UnMarkMonitorAccountsResponse UnMarkMonitorAccountsResponse
      */
     public function unMarkMonitorAccountsWithOptions($request, $runtime)
     {
@@ -35005,9 +37631,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UnMarkMonitorAccountsRequest $request
+     * @summary Cancel marking for members. You can call this operation to remove followed members from the list. In the Security Center console, the drop-down list above the left-side navigation pane no longer displays the members.
+     *  *
+     * @param UnMarkMonitorAccountsRequest $request UnMarkMonitorAccountsRequest
      *
-     * @return UnMarkMonitorAccountsResponse
+     * @return UnMarkMonitorAccountsResponse UnMarkMonitorAccountsResponse
      */
     public function unMarkMonitorAccounts($request)
     {
@@ -35017,12 +37645,14 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * If you no longer require protection for servers that are not deployed on Alibaba Cloud, you can call this operation to unbind the servers from Security Center. After you unbind a server that is not deployed on Alibaba Cloud from Security Center, the server no longer consumes the quota of protected servers or protected server vCPUs. This way, you can install the Security Center agent on other servers to meet your business requirements.
-     *   * > You can unbind only the servers that are not deployed on Alibaba Cloud from Security Center. If you use an Alibaba Cloud Elastic Compute Service (ECS) instance, you do not need to unbind the ECS instance. If you uninstall the Security Center agent from an ECS instance, the ECS instance still exists as a disconnected server in the asset list of the Security Center console. The ECS instance is not removed from the asset list.
-     *   * **Prerequisites**
-     *   * *   The server that you want to unbind from Security Center is not deployed on Alibaba Cloud and the Security Center agent is disabled for the server. In this case, the agent is in the Close state and Security Center does not protect the server. You can call the [PauseClient](~~PauseClient~~) operation to disable the agent.
-     *   * *   The client protection feature is disabled for the server that you want to unbind from Security Center. For more information about how to disable the client protection feature, see [Use the client protection feature](https://www.alibabacloud.com/help/en/security-center/latest/local-file-detection-engine).
-     *   *
+     * @summary Unbinds servers that are not deployed on Alibaba Cloud from Security Center.
+     *  *
+     * @description If you no longer require protection for servers that are not deployed on Alibaba Cloud, you can call this operation to unbind the servers from Security Center. After you unbind a server that is not deployed on Alibaba Cloud from Security Center, the server no longer consumes the quota of protected servers or protected server vCPUs. This way, you can install the Security Center agent on other servers to meet your business requirements.
+     * > You can unbind only the servers that are not deployed on Alibaba Cloud from Security Center. If you use an Alibaba Cloud Elastic Compute Service (ECS) instance, you do not need to unbind the ECS instance. If you uninstall the Security Center agent from an ECS instance, the ECS instance still exists as a disconnected server in the asset list of the Security Center console. The ECS instance is not removed from the asset list.
+     * **Prerequisites**
+     * *   The server that you want to unbind from Security Center is not deployed on Alibaba Cloud and the Security Center agent is disabled for the server. In this case, the agent is in the Close state and Security Center does not protect the server. You can call the [PauseClient](~~PauseClient~~) operation to disable the agent.
+     * *   The client protection feature is disabled for the server that you want to unbind from Security Center. For more information about how to disable the client protection feature, see [Use the client protection feature](https://www.alibabacloud.com/help/en/security-center/latest/local-file-detection-engine).
+     *  *
      * @param UnbindAegisRequest $request UnbindAegisRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
@@ -35054,12 +37684,14 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * If you no longer require protection for servers that are not deployed on Alibaba Cloud, you can call this operation to unbind the servers from Security Center. After you unbind a server that is not deployed on Alibaba Cloud from Security Center, the server no longer consumes the quota of protected servers or protected server vCPUs. This way, you can install the Security Center agent on other servers to meet your business requirements.
-     *   * > You can unbind only the servers that are not deployed on Alibaba Cloud from Security Center. If you use an Alibaba Cloud Elastic Compute Service (ECS) instance, you do not need to unbind the ECS instance. If you uninstall the Security Center agent from an ECS instance, the ECS instance still exists as a disconnected server in the asset list of the Security Center console. The ECS instance is not removed from the asset list.
-     *   * **Prerequisites**
-     *   * *   The server that you want to unbind from Security Center is not deployed on Alibaba Cloud and the Security Center agent is disabled for the server. In this case, the agent is in the Close state and Security Center does not protect the server. You can call the [PauseClient](~~PauseClient~~) operation to disable the agent.
-     *   * *   The client protection feature is disabled for the server that you want to unbind from Security Center. For more information about how to disable the client protection feature, see [Use the client protection feature](https://www.alibabacloud.com/help/en/security-center/latest/local-file-detection-engine).
-     *   *
+     * @summary Unbinds servers that are not deployed on Alibaba Cloud from Security Center.
+     *  *
+     * @description If you no longer require protection for servers that are not deployed on Alibaba Cloud, you can call this operation to unbind the servers from Security Center. After you unbind a server that is not deployed on Alibaba Cloud from Security Center, the server no longer consumes the quota of protected servers or protected server vCPUs. This way, you can install the Security Center agent on other servers to meet your business requirements.
+     * > You can unbind only the servers that are not deployed on Alibaba Cloud from Security Center. If you use an Alibaba Cloud Elastic Compute Service (ECS) instance, you do not need to unbind the ECS instance. If you uninstall the Security Center agent from an ECS instance, the ECS instance still exists as a disconnected server in the asset list of the Security Center console. The ECS instance is not removed from the asset list.
+     * **Prerequisites**
+     * *   The server that you want to unbind from Security Center is not deployed on Alibaba Cloud and the Security Center agent is disabled for the server. In this case, the agent is in the Close state and Security Center does not protect the server. You can call the [PauseClient](~~PauseClient~~) operation to disable the agent.
+     * *   The client protection feature is disabled for the server that you want to unbind from Security Center. For more information about how to disable the client protection feature, see [Use the client protection feature](https://www.alibabacloud.com/help/en/security-center/latest/local-file-detection-engine).
+     *  *
      * @param UnbindAegisRequest $request UnbindAegisRequest
      *
      * @return UnbindAegisResponse UnbindAegisResponse
@@ -35072,10 +37704,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UninstallBackupClientRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Uninstalls the anti-ransomware agent.
+     *  *
+     * @param UninstallBackupClientRequest $request UninstallBackupClientRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return UninstallBackupClientResponse
+     * @return UninstallBackupClientResponse UninstallBackupClientResponse
      */
     public function uninstallBackupClientWithOptions($request, $runtime)
     {
@@ -35109,9 +37743,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UninstallBackupClientRequest $request
+     * @summary Uninstalls the anti-ransomware agent.
+     *  *
+     * @param UninstallBackupClientRequest $request UninstallBackupClientRequest
      *
-     * @return UninstallBackupClientResponse
+     * @return UninstallBackupClientResponse UninstallBackupClientResponse
      */
     public function uninstallBackupClient($request)
     {
@@ -35121,10 +37757,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UninstallRaspAttachRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Uninstalls the Runtime Application Self-Protection (RASP) agent that is installed on Elastic Compute Service (ECS) instances to enable automatic application protection.
+     *  *
+     * @param UninstallRaspAttachRequest $request UninstallRaspAttachRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UninstallRaspAttachResponse
+     * @return UninstallRaspAttachResponse UninstallRaspAttachResponse
      */
     public function uninstallRaspAttachWithOptions($request, $runtime)
     {
@@ -35155,9 +37793,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UninstallRaspAttachRequest $request
+     * @summary Uninstalls the Runtime Application Self-Protection (RASP) agent that is installed on Elastic Compute Service (ECS) instances to enable automatic application protection.
+     *  *
+     * @param UninstallRaspAttachRequest $request UninstallRaspAttachRequest
      *
-     * @return UninstallRaspAttachResponse
+     * @return UninstallRaspAttachResponse UninstallRaspAttachResponse
      */
     public function uninstallRaspAttach($request)
     {
@@ -35167,10 +37807,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UninstallUniBackupAgentRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Uninstalls the database backup agent.
+     *  *
+     * @param UninstallUniBackupAgentRequest $request UninstallUniBackupAgentRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return UninstallUniBackupAgentResponse
+     * @return UninstallUniBackupAgentResponse UninstallUniBackupAgentResponse
      */
     public function uninstallUniBackupAgentWithOptions($request, $runtime)
     {
@@ -35198,9 +37840,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UninstallUniBackupAgentRequest $request
+     * @summary Uninstalls the database backup agent.
+     *  *
+     * @param UninstallUniBackupAgentRequest $request UninstallUniBackupAgentRequest
      *
-     * @return UninstallUniBackupAgentResponse
+     * @return UninstallUniBackupAgentResponse UninstallUniBackupAgentResponse
      */
     public function uninstallUniBackupAgent($request)
     {
@@ -35210,10 +37854,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UpdateAlarmEventRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Updates the status of the honeypot installation time.
+     *  *
+     * @param UpdateAlarmEventRequest $request UpdateAlarmEventRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateAlarmEventResponse
+     * @return UpdateAlarmEventResponse UpdateAlarmEventResponse
      */
     public function updateAlarmEventWithOptions($request, $runtime)
     {
@@ -35247,9 +37893,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UpdateAlarmEventRequest $request
+     * @summary Updates the status of the honeypot installation time.
+     *  *
+     * @param UpdateAlarmEventRequest $request UpdateAlarmEventRequest
      *
-     * @return UpdateAlarmEventResponse
+     * @return UpdateAlarmEventResponse UpdateAlarmEventResponse
      */
     public function updateAlarmEvent($request)
     {
@@ -35259,10 +37907,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UpdateClientAlertModeRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Modifies alerting settings for servers.
+     *  *
+     * @param UpdateClientAlertModeRequest $request UpdateClientAlertModeRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateClientAlertModeResponse
+     * @return UpdateClientAlertModeResponse UpdateClientAlertModeResponse
      */
     public function updateClientAlertModeWithOptions($request, $runtime)
     {
@@ -35293,9 +37943,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UpdateClientAlertModeRequest $request
+     * @summary Modifies alerting settings for servers.
+     *  *
+     * @param UpdateClientAlertModeRequest $request UpdateClientAlertModeRequest
      *
-     * @return UpdateClientAlertModeResponse
+     * @return UpdateClientAlertModeResponse UpdateClientAlertModeResponse
      */
     public function updateClientAlertMode($request)
     {
@@ -35305,10 +37957,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UpdateCommonSwitchConfigRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Modifies the settings of common switches.
+     *  *
+     * @param UpdateCommonSwitchConfigRequest $request UpdateCommonSwitchConfigRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateCommonSwitchConfigResponse
+     * @return UpdateCommonSwitchConfigResponse UpdateCommonSwitchConfigResponse
      */
     public function updateCommonSwitchConfigWithOptions($request, $runtime)
     {
@@ -35339,9 +37993,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UpdateCommonSwitchConfigRequest $request
+     * @summary Modifies the settings of common switches.
+     *  *
+     * @param UpdateCommonSwitchConfigRequest $request UpdateCommonSwitchConfigRequest
      *
-     * @return UpdateCommonSwitchConfigResponse
+     * @return UpdateCommonSwitchConfigResponse UpdateCommonSwitchConfigResponse
      */
     public function updateCommonSwitchConfig($request)
     {
@@ -35351,10 +38007,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UpdateFileProtectEventStatusRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Modifies the status of core file monitoring events reported by the Security Center agent.
+     *  *
+     * @param UpdateFileProtectEventStatusRequest $request UpdateFileProtectEventStatusRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateFileProtectEventStatusResponse
+     * @return UpdateFileProtectEventStatusResponse UpdateFileProtectEventStatusResponse
      */
     public function updateFileProtectEventStatusWithOptions($request, $runtime)
     {
@@ -35385,9 +38043,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UpdateFileProtectEventStatusRequest $request
+     * @summary Modifies the status of core file monitoring events reported by the Security Center agent.
+     *  *
+     * @param UpdateFileProtectEventStatusRequest $request UpdateFileProtectEventStatusRequest
      *
-     * @return UpdateFileProtectEventStatusResponse
+     * @return UpdateFileProtectEventStatusResponse UpdateFileProtectEventStatusResponse
      */
     public function updateFileProtectEventStatus($request)
     {
@@ -35397,10 +38057,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UpdateFileProtectRemarkRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Adds remarks to core file monitoring events reported by the Security Center agent.
+     *  *
+     * @param UpdateFileProtectRemarkRequest $request UpdateFileProtectRemarkRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateFileProtectRemarkResponse
+     * @return UpdateFileProtectRemarkResponse UpdateFileProtectRemarkResponse
      */
     public function updateFileProtectRemarkWithOptions($request, $runtime)
     {
@@ -35431,9 +38093,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UpdateFileProtectRemarkRequest $request
+     * @summary Adds remarks to core file monitoring events reported by the Security Center agent.
+     *  *
+     * @param UpdateFileProtectRemarkRequest $request UpdateFileProtectRemarkRequest
      *
-     * @return UpdateFileProtectRemarkResponse
+     * @return UpdateFileProtectRemarkResponse UpdateFileProtectRemarkResponse
      */
     public function updateFileProtectRemark($request)
     {
@@ -35443,10 +38107,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UpdateFileProtectRuleRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Modifies the content of a core file monitoring rule based on the ID of the rule.
+     *  *
+     * @param UpdateFileProtectRuleRequest $request UpdateFileProtectRuleRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateFileProtectRuleResponse
+     * @return UpdateFileProtectRuleResponse UpdateFileProtectRuleResponse
      */
     public function updateFileProtectRuleWithOptions($request, $runtime)
     {
@@ -35495,9 +38161,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UpdateFileProtectRuleRequest $request
+     * @summary Modifies the content of a core file monitoring rule based on the ID of the rule.
+     *  *
+     * @param UpdateFileProtectRuleRequest $request UpdateFileProtectRuleRequest
      *
-     * @return UpdateFileProtectRuleResponse
+     * @return UpdateFileProtectRuleResponse UpdateFileProtectRuleResponse
      */
     public function updateFileProtectRule($request)
     {
@@ -35507,10 +38175,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UpdateFileUploadLimitRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Modifies the queries per second (QPS) limit on the files uploaded from the client.
+     *  *
+     * @param UpdateFileUploadLimitRequest $request UpdateFileUploadLimitRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateFileUploadLimitResponse
+     * @return UpdateFileUploadLimitResponse UpdateFileUploadLimitResponse
      */
     public function updateFileUploadLimitWithOptions($request, $runtime)
     {
@@ -35538,9 +38208,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UpdateFileUploadLimitRequest $request
+     * @summary Modifies the queries per second (QPS) limit on the files uploaded from the client.
+     *  *
+     * @param UpdateFileUploadLimitRequest $request UpdateFileUploadLimitRequest
      *
-     * @return UpdateFileUploadLimitResponse
+     * @return UpdateFileUploadLimitResponse UpdateFileUploadLimitResponse
      */
     public function updateFileUploadLimit($request)
     {
@@ -35550,10 +38222,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UpdateHoneypotRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Modifies the configuration of a specified honeypot.
+     *  *
+     * @param UpdateHoneypotRequest $request UpdateHoneypotRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateHoneypotResponse
+     * @return UpdateHoneypotResponse UpdateHoneypotResponse
      */
     public function updateHoneypotWithOptions($request, $runtime)
     {
@@ -35590,9 +38264,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UpdateHoneypotRequest $request
+     * @summary Modifies the configuration of a specified honeypot.
+     *  *
+     * @param UpdateHoneypotRequest $request UpdateHoneypotRequest
      *
-     * @return UpdateHoneypotResponse
+     * @return UpdateHoneypotResponse UpdateHoneypotResponse
      */
     public function updateHoneypot($request)
     {
@@ -35602,10 +38278,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UpdateHoneypotNodeRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Modifies the configuration of a specified management node.
+     *  *
+     * @param UpdateHoneypotNodeRequest $request UpdateHoneypotNodeRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateHoneypotNodeResponse
+     * @return UpdateHoneypotNodeResponse UpdateHoneypotNodeResponse
      */
     public function updateHoneypotNodeWithOptions($request, $runtime)
     {
@@ -35642,9 +38320,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UpdateHoneypotNodeRequest $request
+     * @summary Modifies the configuration of a specified management node.
+     *  *
+     * @param UpdateHoneypotNodeRequest $request UpdateHoneypotNodeRequest
      *
-     * @return UpdateHoneypotNodeResponse
+     * @return UpdateHoneypotNodeResponse UpdateHoneypotNodeResponse
      */
     public function updateHoneypotNode($request)
     {
@@ -35654,10 +38334,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UpdateHoneypotPresetRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Modifies the configurations of the specified honeypot template.
+     *  *
+     * @param UpdateHoneypotPresetRequest $request UpdateHoneypotPresetRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateHoneypotPresetResponse
+     * @return UpdateHoneypotPresetResponse UpdateHoneypotPresetResponse
      */
     public function updateHoneypotPresetWithOptions($request, $runtime)
     {
@@ -35697,9 +38379,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UpdateHoneypotPresetRequest $request
+     * @summary Modifies the configurations of the specified honeypot template.
+     *  *
+     * @param UpdateHoneypotPresetRequest $request UpdateHoneypotPresetRequest
      *
-     * @return UpdateHoneypotPresetResponse
+     * @return UpdateHoneypotPresetResponse UpdateHoneypotPresetResponse
      */
     public function updateHoneypotPreset($request)
     {
@@ -35709,10 +38393,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UpdateHoneypotProbeRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Modifies the attributes of a specified probe.
+     *  *
+     * @param UpdateHoneypotProbeRequest $request UpdateHoneypotProbeRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateHoneypotProbeResponse
+     * @return UpdateHoneypotProbeResponse UpdateHoneypotProbeResponse
      */
     public function updateHoneypotProbeWithOptions($request, $runtime)
     {
@@ -35755,9 +38441,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UpdateHoneypotProbeRequest $request
+     * @summary Modifies the attributes of a specified probe.
+     *  *
+     * @param UpdateHoneypotProbeRequest $request UpdateHoneypotProbeRequest
      *
-     * @return UpdateHoneypotProbeResponse
+     * @return UpdateHoneypotProbeResponse UpdateHoneypotProbeResponse
      */
     public function updateHoneypotProbe($request)
     {
@@ -35767,10 +38455,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UpdateHoneypotProbeBindRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Modifies a probe service.
+     *  *
+     * @param UpdateHoneypotProbeBindRequest $request UpdateHoneypotProbeBindRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateHoneypotProbeBindResponse
+     * @return UpdateHoneypotProbeBindResponse UpdateHoneypotProbeBindResponse
      */
     public function updateHoneypotProbeBindWithOptions($request, $runtime)
     {
@@ -35831,9 +38521,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UpdateHoneypotProbeBindRequest $request
+     * @summary Modifies a probe service.
+     *  *
+     * @param UpdateHoneypotProbeBindRequest $request UpdateHoneypotProbeBindRequest
      *
-     * @return UpdateHoneypotProbeBindResponse
+     * @return UpdateHoneypotProbeBindResponse UpdateHoneypotProbeBindResponse
      */
     public function updateHoneypotProbeBind($request)
     {
@@ -35843,10 +38535,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UpdateImageEventOperationRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Updates an alert handling rule.
+     *  *
+     * @param UpdateImageEventOperationRequest $request UpdateImageEventOperationRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateImageEventOperationResponse
+     * @return UpdateImageEventOperationResponse UpdateImageEventOperationResponse
      */
     public function updateImageEventOperationWithOptions($request, $runtime)
     {
@@ -35877,9 +38571,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UpdateImageEventOperationRequest $request
+     * @summary Updates an alert handling rule.
+     *  *
+     * @param UpdateImageEventOperationRequest $request UpdateImageEventOperationRequest
      *
-     * @return UpdateImageEventOperationResponse
+     * @return UpdateImageEventOperationResponse UpdateImageEventOperationResponse
      */
     public function updateImageEventOperation($request)
     {
@@ -35889,10 +38585,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UpdateImageVulWhitelistTargetRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Updates the vulnerability whitelist of an image.
+     *  *
+     * @param UpdateImageVulWhitelistTargetRequest $request UpdateImageVulWhitelistTargetRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateImageVulWhitelistTargetResponse
+     * @return UpdateImageVulWhitelistTargetResponse UpdateImageVulWhitelistTargetResponse
      */
     public function updateImageVulWhitelistTargetWithOptions($request, $runtime)
     {
@@ -35932,9 +38630,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UpdateImageVulWhitelistTargetRequest $request
+     * @summary Updates the vulnerability whitelist of an image.
+     *  *
+     * @param UpdateImageVulWhitelistTargetRequest $request UpdateImageVulWhitelistTargetRequest
      *
-     * @return UpdateImageVulWhitelistTargetResponse
+     * @return UpdateImageVulWhitelistTargetResponse UpdateImageVulWhitelistTargetResponse
      */
     public function updateImageVulWhitelistTarget($request)
     {
@@ -35944,10 +38644,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UpdateJenkinsImageRegistryNameRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Modifies the name of a Jenkins image repository.
+     *  *
+     * @param UpdateJenkinsImageRegistryNameRequest $request UpdateJenkinsImageRegistryNameRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateJenkinsImageRegistryNameResponse
+     * @return UpdateJenkinsImageRegistryNameResponse UpdateJenkinsImageRegistryNameResponse
      */
     public function updateJenkinsImageRegistryNameWithOptions($request, $runtime)
     {
@@ -35983,9 +38685,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UpdateJenkinsImageRegistryNameRequest $request
+     * @summary Modifies the name of a Jenkins image repository.
+     *  *
+     * @param UpdateJenkinsImageRegistryNameRequest $request UpdateJenkinsImageRegistryNameRequest
      *
-     * @return UpdateJenkinsImageRegistryNameResponse
+     * @return UpdateJenkinsImageRegistryNameResponse UpdateJenkinsImageRegistryNameResponse
      */
     public function updateJenkinsImageRegistryName($request)
     {
@@ -35995,10 +38699,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UpdateJenkinsImageRegistryPersistenceDayRequest $request
-     * @param RuntimeOptions                                  $runtime
+     * @summary Modifies the retention period of images that are stored in a Jenkins image repository.
+     *  *
+     * @param UpdateJenkinsImageRegistryPersistenceDayRequest $request UpdateJenkinsImageRegistryPersistenceDayRequest
+     * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateJenkinsImageRegistryPersistenceDayResponse
+     * @return UpdateJenkinsImageRegistryPersistenceDayResponse UpdateJenkinsImageRegistryPersistenceDayResponse
      */
     public function updateJenkinsImageRegistryPersistenceDayWithOptions($request, $runtime)
     {
@@ -36034,9 +38740,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UpdateJenkinsImageRegistryPersistenceDayRequest $request
+     * @summary Modifies the retention period of images that are stored in a Jenkins image repository.
+     *  *
+     * @param UpdateJenkinsImageRegistryPersistenceDayRequest $request UpdateJenkinsImageRegistryPersistenceDayRequest
      *
-     * @return UpdateJenkinsImageRegistryPersistenceDayResponse
+     * @return UpdateJenkinsImageRegistryPersistenceDayResponse UpdateJenkinsImageRegistryPersistenceDayResponse
      */
     public function updateJenkinsImageRegistryPersistenceDay($request)
     {
@@ -36046,10 +38754,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UpdateMaliciousFileWhitelistConfigRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @summary Modifies an alert whitelist rule of sensitive files that are detected by using the agentless detection feature.
+     *  *
+     * @param UpdateMaliciousFileWhitelistConfigRequest $request UpdateMaliciousFileWhitelistConfigRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateMaliciousFileWhitelistConfigResponse
+     * @return UpdateMaliciousFileWhitelistConfigResponse UpdateMaliciousFileWhitelistConfigResponse
      */
     public function updateMaliciousFileWhitelistConfigWithOptions($request, $runtime)
     {
@@ -36098,9 +38808,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UpdateMaliciousFileWhitelistConfigRequest $request
+     * @summary Modifies an alert whitelist rule of sensitive files that are detected by using the agentless detection feature.
+     *  *
+     * @param UpdateMaliciousFileWhitelistConfigRequest $request UpdateMaliciousFileWhitelistConfigRequest
      *
-     * @return UpdateMaliciousFileWhitelistConfigResponse
+     * @return UpdateMaliciousFileWhitelistConfigResponse UpdateMaliciousFileWhitelistConfigResponse
      */
     public function updateMaliciousFileWhitelistConfig($request)
     {
@@ -36110,10 +38822,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UpdateOpaStrategyNewRequest $tmpReq
-     * @param RuntimeOptions              $runtime
+     * @summary Updates the blocking rule for at-risk images.
+     *  *
+     * @param UpdateOpaStrategyNewRequest $tmpReq  UpdateOpaStrategyNewRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateOpaStrategyNewResponse
+     * @return UpdateOpaStrategyNewResponse UpdateOpaStrategyNewResponse
      */
     public function updateOpaStrategyNewWithOptions($tmpReq, $runtime)
     {
@@ -36185,9 +38899,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UpdateOpaStrategyNewRequest $request
+     * @summary Updates the blocking rule for at-risk images.
+     *  *
+     * @param UpdateOpaStrategyNewRequest $request UpdateOpaStrategyNewRequest
      *
-     * @return UpdateOpaStrategyNewResponse
+     * @return UpdateOpaStrategyNewResponse UpdateOpaStrategyNewResponse
      */
     public function updateOpaStrategyNew($request)
     {
@@ -36197,10 +38913,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UpdateOssScanConfigRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Updates the configurations of a bucket check policy.
+     *  *
+     * @param UpdateOssScanConfigRequest $request UpdateOssScanConfigRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateOssScanConfigResponse
+     * @return UpdateOssScanConfigResponse UpdateOssScanConfigResponse
      */
     public function updateOssScanConfigWithOptions($request, $runtime)
     {
@@ -36261,9 +38979,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UpdateOssScanConfigRequest $request
+     * @summary Updates the configurations of a bucket check policy.
+     *  *
+     * @param UpdateOssScanConfigRequest $request UpdateOssScanConfigRequest
      *
-     * @return UpdateOssScanConfigResponse
+     * @return UpdateOssScanConfigResponse UpdateOssScanConfigResponse
      */
     public function updateOssScanConfig($request)
     {
@@ -36273,10 +38993,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UpdateSelectionKeyByTypeRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Updates the unique identifier of an asset selection.
+     *  *
+     * @param UpdateSelectionKeyByTypeRequest $request UpdateSelectionKeyByTypeRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateSelectionKeyByTypeResponse
+     * @return UpdateSelectionKeyByTypeResponse UpdateSelectionKeyByTypeResponse
      */
     public function updateSelectionKeyByTypeWithOptions($request, $runtime)
     {
@@ -36307,9 +39029,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UpdateSelectionKeyByTypeRequest $request
+     * @summary Updates the unique identifier of an asset selection.
+     *  *
+     * @param UpdateSelectionKeyByTypeRequest $request UpdateSelectionKeyByTypeRequest
      *
-     * @return UpdateSelectionKeyByTypeResponse
+     * @return UpdateSelectionKeyByTypeResponse UpdateSelectionKeyByTypeResponse
      */
     public function updateSelectionKeyByType($request)
     {
@@ -36319,10 +39043,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UpgradeBackupPolicyVersionRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Upgrades the version of an anti-ransomware policy.
+     *  *
+     * @param UpgradeBackupPolicyVersionRequest $request UpgradeBackupPolicyVersionRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpgradeBackupPolicyVersionResponse
+     * @return UpgradeBackupPolicyVersionResponse UpgradeBackupPolicyVersionResponse
      */
     public function upgradeBackupPolicyVersionWithOptions($request, $runtime)
     {
@@ -36350,9 +39076,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UpgradeBackupPolicyVersionRequest $request
+     * @summary Upgrades the version of an anti-ransomware policy.
+     *  *
+     * @param UpgradeBackupPolicyVersionRequest $request UpgradeBackupPolicyVersionRequest
      *
-     * @return UpgradeBackupPolicyVersionResponse
+     * @return UpgradeBackupPolicyVersionResponse UpgradeBackupPolicyVersionResponse
      */
     public function upgradeBackupPolicyVersion($request)
     {
@@ -36362,10 +39090,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UploadedHoneyPotFileRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Uploads a honeypot file.
+     *  *
+     * @param UploadedHoneyPotFileRequest $request UploadedHoneyPotFileRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return UploadedHoneyPotFileResponse
+     * @return UploadedHoneyPotFileResponse UploadedHoneyPotFileResponse
      */
     public function uploadedHoneyPotFileWithOptions($request, $runtime)
     {
@@ -36411,9 +39141,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param UploadedHoneyPotFileRequest $request
+     * @summary Uploads a honeypot file.
+     *  *
+     * @param UploadedHoneyPotFileRequest $request UploadedHoneyPotFileRequest
      *
-     * @return UploadedHoneyPotFileResponse
+     * @return UploadedHoneyPotFileResponse UploadedHoneyPotFileResponse
      */
     public function uploadedHoneyPotFile($request)
     {
@@ -36423,10 +39155,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ValidateHcWarningsRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Verifies whether risk items are fixed. If a risk item is fixed, the status of the related check item is updated to Passed.
+     *  *
+     * @param ValidateHcWarningsRequest $request ValidateHcWarningsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ValidateHcWarningsResponse
+     * @return ValidateHcWarningsResponse ValidateHcWarningsResponse
      */
     public function validateHcWarningsWithOptions($request, $runtime)
     {
@@ -36460,9 +39194,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ValidateHcWarningsRequest $request
+     * @summary Verifies whether risk items are fixed. If a risk item is fixed, the status of the related check item is updated to Passed.
+     *  *
+     * @param ValidateHcWarningsRequest $request ValidateHcWarningsRequest
      *
-     * @return ValidateHcWarningsResponse
+     * @return ValidateHcWarningsResponse ValidateHcWarningsResponse
      */
     public function validateHcWarnings($request)
     {
@@ -36472,10 +39208,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param VerifyCheckInstanceResultRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Verifies the instances on which risks are detected based on a check item.
+     *  *
+     * @param VerifyCheckInstanceResultRequest $request VerifyCheckInstanceResultRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return VerifyCheckInstanceResultResponse
+     * @return VerifyCheckInstanceResultResponse VerifyCheckInstanceResultResponse
      */
     public function verifyCheckInstanceResultWithOptions($request, $runtime)
     {
@@ -36506,9 +39244,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param VerifyCheckInstanceResultRequest $request
+     * @summary Verifies the instances on which risks are detected based on a check item.
+     *  *
+     * @param VerifyCheckInstanceResultRequest $request VerifyCheckInstanceResultRequest
      *
-     * @return VerifyCheckInstanceResultResponse
+     * @return VerifyCheckInstanceResultResponse VerifyCheckInstanceResultResponse
      */
     public function verifyCheckInstanceResult($request)
     {
@@ -36518,10 +39258,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param VerifyCheckResultRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Verifies risk items that are detected based on check items.
+     *  *
+     * @param VerifyCheckResultRequest $request VerifyCheckResultRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return VerifyCheckResultResponse
+     * @return VerifyCheckResultResponse VerifyCheckResultResponse
      */
     public function verifyCheckResultWithOptions($request, $runtime)
     {
@@ -36549,9 +39291,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param VerifyCheckResultRequest $request
+     * @summary Verifies risk items that are detected based on check items.
+     *  *
+     * @param VerifyCheckResultRequest $request VerifyCheckResultRequest
      *
-     * @return VerifyCheckResultResponse
+     * @return VerifyCheckResultResponse VerifyCheckResultResponse
      */
     public function verifyCheckResult($request)
     {

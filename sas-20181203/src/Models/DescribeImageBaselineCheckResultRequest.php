@@ -41,6 +41,7 @@ class DescribeImageBaselineCheckResultRequest extends Model
     /**
      * @description The UUID of the image.
      *
+     * This parameter is required.
      * @example a910053dd4710173ecc9e9d8931f****
      *
      * @var string

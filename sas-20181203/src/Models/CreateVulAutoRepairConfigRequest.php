@@ -21,6 +21,7 @@ class CreateVulAutoRepairConfigRequest extends Model
     /**
      * @description The type of the vulnerability. Valid values: -**cve**: Linux software vulnerability -**sys**: Windows system vulnerability
      *
+     * This parameter is required.
      * @example cve
      *
      * @var string
@@ -30,6 +31,7 @@ class CreateVulAutoRepairConfigRequest extends Model
     /**
      * @description The vulnerabilities that can be automatically fixed.
      *
+     * This parameter is required.
      * @var vulAutoRepairConfigList[]
      */
     public $vulAutoRepairConfigList;

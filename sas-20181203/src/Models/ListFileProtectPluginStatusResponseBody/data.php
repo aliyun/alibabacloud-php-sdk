@@ -20,7 +20,7 @@ class data extends Model
     /**
      * @description The returned code after you install the Security Center agent. Valid values:
      *
-     * 2.  \-2: The kernel does not support the installation.
+     * 2.  \\-2: The kernel does not support the installation.
      * @example -2
      *
      * @var string

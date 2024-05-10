@@ -33,7 +33,7 @@ class ModifyContainerDefenseRuleShrinkRequest extends Model
     /**
      * @description The ID of the rule.
      *
-     * >  You can call the [ListContainerDefenseRule](~~2590599~~) operation to query the IDs of rules.
+     * >  You can call the [ListContainerDefenseRule](https://help.aliyun.com/document_detail/2590599.html) operation to query the IDs of rules.
      * @example 123
      *
      * @var int

@@ -20,7 +20,7 @@ class containerWebDefenseAppList extends Model
     /**
      * @description The ID of the container cluster.
      *
-     * >  The IDs of clusters can be obtained by using the [DescribeGroupedContainerInstances](~~182997~~) operation.
+     * >  The IDs of clusters can be obtained by using the [DescribeGroupedContainerInstances](https://help.aliyun.com/document_detail/182997.html) operation.
      * @example cfb41a869c71e4678a97021582dd8****
      *
      * @var string

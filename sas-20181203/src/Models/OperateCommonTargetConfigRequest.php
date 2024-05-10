@@ -45,6 +45,7 @@ class OperateCommonTargetConfigRequest extends Model
      *   **target**: specifies the UUID of the server for which you want to configure proactive defense.
      *   **flag**: specifies whether to enable or disable proactive defense for your server. Valid values are **add** and **del**. The value add indicates that proactive defense will be enabled for your server. The value del indicates that proactive defense will be disabled for your server.
      *
+     * This parameter is required.
      * @example [
      * "targetType": "uuid",
      * "target": "f329a044-6a2f-49a0-9d33-352f6c1d****",
@@ -81,6 +82,7 @@ class OperateCommonTargetConfigRequest extends Model
      *   **aliscriptengine**: in-depth detection engine
      *   **containerNetwork**: container network visualization
      *
+     * This parameter is required.
      * @example alidetect
      *
      * @var string

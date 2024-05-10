@@ -11,7 +11,7 @@ class ModifyCycleTaskRequest extends Model
     /**
      * @description The ID of the task configuration.
      *
-     * >  You can call the [DescribeCycleTaskList](~~DescribeCycleTaskList~~) operation to query the IDs of task configurations.
+     * This parameter is required.
      * @example 00cfa8161da093089e6804ba6a33****
      *
      * @var string

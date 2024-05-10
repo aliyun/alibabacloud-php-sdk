@@ -20,7 +20,7 @@ class aggregationList extends Model
     /**
      * @description The name of the aggregation type.
      *
-     * @example Remote control\*\*\*\*
+     * @example Remote control\\*\\*\\*\\*
      *
      * @var string
      */

@@ -14,6 +14,7 @@ class UninstallBackupClientRequest extends Model
      *   **1.0.0**
      *   **2.0.0**
      *
+     * This parameter is required.
      * @example 2.0.0
      *
      * @var string

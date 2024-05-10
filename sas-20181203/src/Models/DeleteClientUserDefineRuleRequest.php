@@ -11,6 +11,7 @@ class DeleteClientUserDefineRuleRequest extends Model
     /**
      * @description The IDs of the custom defense rules.
      *
+     * This parameter is required.
      * @var int[]
      */
     public $idList;

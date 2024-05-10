@@ -11,6 +11,7 @@ class ModifyRiskCheckStatusRequest extends Model
     /**
      * @description The ID of the check item.
      *
+     * This parameter is required.
      * @example 37
      *
      * @var int
@@ -49,6 +50,7 @@ class ModifyRiskCheckStatusRequest extends Model
      *   **ignored**: ignores the check item
      *   **reset**: cancels ignoring the check item
      *
+     * This parameter is required.
      * @example ignored
      *
      * @var string
@@ -58,6 +60,7 @@ class ModifyRiskCheckStatusRequest extends Model
     /**
      * @description The ID of the check task to which the check item belongs.
      *
+     * This parameter is required.
      * @example 57
      *
      * @var int

@@ -11,6 +11,7 @@ class DescribeInstanceRebootStatusRequest extends Model
     /**
      * @description The UUIDs of the servers that you restart. Separate multiple UUIDs with commas (,).
      *
+     * This parameter is required.
      * @example d77f7802-4f0a-4221-ab02-4d999e****
      *
      * @var string

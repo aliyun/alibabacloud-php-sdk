@@ -95,7 +95,7 @@ class UpdateOpaStrategyNewRequest extends Model
     /**
      * @description The rule ID.
      *
-     * >  You can call the [ListOpaClusterStrategyNew](~~2623574~~) operation to query the rule ID.
+     * >  You can call the [ListOpaClusterStrategyNew](https://help.aliyun.com/document_detail/2623574.html) operation to query the rule ID.
      * @example 1003
      *
      * @var int
@@ -114,7 +114,7 @@ class UpdateOpaStrategyNewRequest extends Model
     /**
      * @description The ID of the rule template.
      *
-     * >  You can call the [GetOpaStrategyTemplateSummary](~~2539952~~) operation to query the ID of the rule template.
+     * >  You can call the [GetOpaStrategyTemplateSummary](https://help.aliyun.com/document_detail/2539952.html) operation to query the ID of the rule template.
      * @example 109
      *
      * @var int

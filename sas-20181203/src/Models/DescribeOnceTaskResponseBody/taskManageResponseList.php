@@ -138,7 +138,7 @@ class taskManageResponseList extends Model
      * @description The type of the task. Valid values:
      *
      *   **CLIENT_PROBLEM_CHECK**: a task of the Security Center client
-     *   **CLIENT_DEV_OPS**: an O\&M task of Cloud Assistant
+     *   **CLIENT_DEV_OPS**: an O\\&M task of Cloud Assistant
      *   **ASSET_SECURITY_CHECK**: a task for asset information collection
      *
      * @example CLIENT_PROBLEM_CHECK

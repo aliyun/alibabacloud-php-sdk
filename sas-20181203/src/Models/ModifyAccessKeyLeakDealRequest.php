@@ -41,6 +41,7 @@ class ModifyAccessKeyLeakDealRequest extends Model
      *   **disable**: disable
      *   **add-whitelist**: add to the whitelist
      *
+     * This parameter is required.
      * @example disable
      *
      * @var string

@@ -32,6 +32,7 @@ class pathConfDTOList extends Model
     /**
      * @description The path that you want to protect.
      *
+     * This parameter is required.
      * @example /usr/test/
      *
      * @var string
@@ -71,6 +72,7 @@ class pathConfDTOList extends Model
      *   **0**: basic mode (whitelist)
      *   **1**: complex mode (blacklist)
      *
+     * This parameter is required.
      * @example 0
      *
      * @var int
@@ -98,6 +100,7 @@ class pathConfDTOList extends Model
     /**
      * @description The processes that you want to add to the whitelist.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $processPathList;

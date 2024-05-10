@@ -11,6 +11,7 @@ class CreateFileUploadLimitRequest extends Model
     /**
      * @description The QPS limit on the files uploaded from the client. Valid values: 100 to 10000.
      *
+     * This parameter is required.
      * @example 100
      *
      * @var int

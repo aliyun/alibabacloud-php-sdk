@@ -50,6 +50,7 @@ class DescribeGroupedContainerInstancesRequest extends Model
      *   **namespace**
      *   **clusterId**
      *
+     * This parameter is required.
      * @example pod
      *
      * @var string

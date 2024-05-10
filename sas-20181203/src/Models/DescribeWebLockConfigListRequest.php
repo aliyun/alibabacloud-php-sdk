@@ -32,6 +32,7 @@ class DescribeWebLockConfigListRequest extends Model
     /**
      * @description The UUID of the server.
      *
+     * This parameter is required.
      * @example inet-1234567****
      *
      * @var string

@@ -21,7 +21,7 @@ class ruleList extends Model
     /**
      * @description The description of the system defense rule.
      *
-     * @example Supports alerting or blocking of images that have high-risk vulnerabilities\*\*\*\*
+     * @example Supports alerting or blocking of images that have high-risk vulnerabilities\\*\\*\\*\\*
      *
      * @var string
      */
@@ -59,7 +59,7 @@ class ruleList extends Model
     /**
      * @description The name of the system defense rule.
      *
-     * @example Rule\*\*\*\*
+     * @example Rule\\*\\*\\*\\*
      *
      * @var string
      */

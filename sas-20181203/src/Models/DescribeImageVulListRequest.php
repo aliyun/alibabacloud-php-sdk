@@ -239,6 +239,7 @@ class DescribeImageVulListRequest extends Model
     /**
      * @description The type of the vulnerability. Set the value to **cve**, which indicates image vulnerabilities.
      *
+     * This parameter is required.
      * @example cve
      *
      * @var string

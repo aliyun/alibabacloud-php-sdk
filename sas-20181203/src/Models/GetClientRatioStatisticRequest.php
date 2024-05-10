@@ -27,6 +27,7 @@ class GetClientRatioStatisticRequest extends Model
     /**
      * @description The timestamp that specifies the end of the time range to collect statistics. Unit: milliseconds.
      *
+     * This parameter is required.
      * @example 1686412799999
      *
      * @var int
@@ -36,6 +37,7 @@ class GetClientRatioStatisticRequest extends Model
     /**
      * @description The timestamp that specifies the beginning of the time range to collect statistics. Unit: milliseconds.
      *
+     * This parameter is required.
      * @example 1671382800000
      *
      * @var int

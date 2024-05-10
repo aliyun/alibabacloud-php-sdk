@@ -11,7 +11,7 @@ class DeleteHoneypotPresetRequest extends Model
     /**
      * @description The ID of the honeypot template.
      *
-     * > You can call the [ListHoneypotPreset](~~ListHoneypotPreset~~) operation to query the IDs of honeypot templates.
+     * This parameter is required.
      * @example 84104b7b-a2bc-41df-a190-12298f99xxxx
      *
      * @var string

@@ -11,6 +11,7 @@ class DescribeSuspEventDetailRequest extends Model
     /**
      * @description The data source of the exception. Set the value to sas.
      *
+     * This parameter is required.
      * @example sas
      *
      * @var string
@@ -51,6 +52,7 @@ class DescribeSuspEventDetailRequest extends Model
     /**
      * @description The ID of the exception.
      *
+     * This parameter is required.
      * @example 32750999
      *
      * @var int

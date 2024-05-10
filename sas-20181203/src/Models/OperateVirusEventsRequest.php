@@ -14,6 +14,7 @@ class OperateVirusEventsRequest extends Model
      *   **1**: yes
      *   **0**: no
      *
+     * This parameter is required.
      * @example 0
      *
      * @var int
@@ -28,6 +29,7 @@ class OperateVirusEventsRequest extends Model
      *   **advance_mark_mis_info**: adds the alert events to the whitelist
      *   **manual_handled**: marks the alert events as manually handled
      *
+     * This parameter is required.
      * @example default
      *
      * @var string
@@ -37,7 +39,7 @@ class OperateVirusEventsRequest extends Model
     /**
      * @description The handling scope.
      *
-     * @example [{\"type\":\"machine\",\"list\":[\"xxxxxxxxx-4cbf-4ca6-a1b7-8a09d1f86ab0\"]}]
+     * @example [{\\"type\\":\\"machine\\",\\"list\\":[\\"xxxxxxxxx-4cbf-4ca6-a1b7-8a09d1f86ab0\\"]}]
      *
      * @var string
      */

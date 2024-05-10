@@ -154,6 +154,7 @@ class DescribeVulListRequest extends Model
      *   **emg**: urgent vulnerability.
      *   **sca**: application vulnerability that is detected by using software component analysis
      *
+     * This parameter is required.
      * @example cve
      *
      * @var string

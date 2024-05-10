@@ -11,6 +11,7 @@ class GenerateOnceTaskRequest extends Model
     /**
      * @description The additional information.
      *
+     * This parameter is required.
      * @example {"mode":1,"problemType":"offline","uuids":"inet-795dcad1-360f-49d2-b01e-b7da7f1c****"}
      *
      * @var string
@@ -29,10 +30,11 @@ class GenerateOnceTaskRequest extends Model
     /**
      * @description The name of the scan task. Valid values:
      *
-     *   **CLIENT\_PROBLEM_CHECK**: a client diagnosis task
-     *   **CLIENT\_DEV_OPS**: an O\&M task of Cloud Assistant
-     *   **ASSET\_SECURITY_CHECK**: a task of asset information collection
+     *   **CLIENT_PROBLEM_CHECK**: a client diagnosis task
+     *   **CLIENT_DEV_OPS**: an O\\&M task of Cloud Assistant
+     *   **ASSET_SECURITY_CHECK**: a task of asset information collection
      *
+     * This parameter is required.
      * @example CLIENT_PROBLEM_CHECK
      *
      * @var string
@@ -42,10 +44,11 @@ class GenerateOnceTaskRequest extends Model
     /**
      * @description The type of the scan task. Valid values:
      *
-     *   **CLIENT\_PROBLEM_CHECK**: a client diagnosis task
-     *   **CLIENT\_DEV_OPS**: an O\&M task of Cloud Assistant
-     *   **ASSET\_SECURITY_CHECK**: a task of asset information collection
+     *   **CLIENT_PROBLEM_CHECK**: a client diagnosis task
+     *   **CLIENT_DEV_OPS**: an O\\&M task of Cloud Assistant
+     *   **ASSET_SECURITY_CHECK**: a task of asset information collection
      *
+     * This parameter is required.
      * @example CLIENT_PROBLEM_CHECK
      *
      * @var string

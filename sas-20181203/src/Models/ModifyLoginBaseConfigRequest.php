@@ -32,7 +32,7 @@ class ModifyLoginBaseConfigRequest extends Model
      *
      *   **account**: the common logon account.
      *
-     * > You must specify this field if the Type parameter is set to login_common_account.
+     * This parameter is required.
      * @example {"totalCount":174,"uuidCount":4,"location":"Montenegro","id":0}
      *
      * @var string
@@ -54,6 +54,7 @@ class ModifyLoginBaseConfigRequest extends Model
      *   **del**: removes the server from the configuration.
      *   **add**: adds the server to the configuration.
      *
+     * This parameter is required.
      * @example [{"target":"inet-7c676676-06fa-442e-90fb-b802e5d6****","targetType":"uuid","flag":"add"}]
      *
      * @var string
@@ -63,11 +64,12 @@ class ModifyLoginBaseConfigRequest extends Model
     /**
      * @description The logon type of the configuration to modify. Valid values:
      *
-     *   **login\_common_location**: common logon location
-     *   **login\_common_ip**: common logon IP address
-     *   **login\_common_time**: common logon time range
-     *   **login\_common_account**: common logon account
+     *   **login_common_location**: common logon location
+     *   **login_common_ip**: common logon IP address
+     *   **login_common_time**: common logon time range
+     *   **login_common_account**: common logon account
      *
+     * This parameter is required.
      * @example login_common_location
      *
      * @var string

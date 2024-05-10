@@ -23,6 +23,7 @@ class ListUnfinishedOnceTaskRequest extends Model
      *   **ASSETS_COLLECTION**: asset information collection task
      *   **IMAGE_SCAN**: image scan task
      *
+     * This parameter is required.
      * @example IMAGE_SCAN
      *
      * @var string

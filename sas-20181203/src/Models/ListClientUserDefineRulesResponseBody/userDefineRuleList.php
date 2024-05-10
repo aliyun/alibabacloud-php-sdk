@@ -32,7 +32,7 @@ class userDefineRuleList extends Model
     /**
      * @description The name of the rule.
      *
-     * @example Rule\*\*\*\*
+     * @example Rule\\*\\*\\*\\*
      *
      * @var string
      */

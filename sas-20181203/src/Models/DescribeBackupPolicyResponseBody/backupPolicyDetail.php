@@ -44,13 +44,13 @@ class backupPolicyDetail extends Model
      *   **1**: recommended policy
      *   **0**: custom policy
      *
-     *   **Include**: the format of the files that you want to protect. If you want to protect the files in all formats, set this field to \[].
+     *   **Include**: the format of the files that you want to protect. If you want to protect the files in all formats, set this field to [].
      *
-     *   **Source**: the directory that you want to protect. If you want to protect all directories, set this field to \[].
+     *   **Source**: the directory that you want to protect. If you want to protect all directories, set this field to [].
      *
      *   **ExcludeSystemPath**: specifies whether to exclude a specific directory from the anti-ransomware policy. If you want to exclude a directory, set this field to **true**. If you do not want to exclude a directory, leave this field empty.
      *
-     *   **Exclude**: the directory that you want to exclude from the anti-ransomware policy. If you do not want to exclude a directory, set this field to \[].
+     *   **Exclude**: the directory that you want to exclude from the anti-ransomware policy. If you do not want to exclude a directory, set this field to [].
      *
      *   **Schedule**: the start time and interval of a data backup task. We recommend that you specify a start time that begins during off-peak hours but does not start on the hour. Examples:
      *
@@ -68,11 +68,11 @@ class backupPolicyDetail extends Model
      *
      * >  The VSS feature is available only if you create the anti-ransomware policy for Windows servers. After you enable the feature, the number of backup failures due to running processes is significantly reduced. We recommend that you enable the VSS feature. After you enable the feature, the data of disks that are in the exFAT and FAT32 formats cannot be backed up.
      * @example {
-     * "System Volume Information\\",
-     * "Users\\Administrator\\NTUSER.DAT*",
+     * "System Volume Information\\\\",
+     * "Users\\\\Administrator\\\\NTUSER.DAT*",
      * "pagefile.sys",
-     * "Users\\Default\\NTUSER.DAT*",
-     * "Users\\Administrator\\ntuser.*"
+     * "Users\\\\Default\\\\NTUSER.DAT*",
+     * "Users\\\\Administrator\\\\ntuser.*"
      * }
      * @var string
      */

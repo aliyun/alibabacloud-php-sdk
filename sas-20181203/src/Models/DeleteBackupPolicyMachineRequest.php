@@ -11,7 +11,7 @@ class DeleteBackupPolicyMachineRequest extends Model
     /**
      * @description The ID of the anti-ransomware policy.
      *
-     * > You can call the [DescribeBackupPolicies](~~DescribeBackupPolicies~~) operation to query the IDs of anti-ransomware policies.
+     * This parameter is required.
      * @example 11
      *
      * @var int
@@ -24,7 +24,7 @@ class DeleteBackupPolicyMachineRequest extends Model
      *   **1.0.0**
      *   **2.0.0**
      *
-     * >  You can call the [DescribeBackupPolicies](~~DescribeBackupPolicies~~) operation to query the versions of anti-ransomware policies.
+     * This parameter is required.
      * @example 2.0.0
      *
      * @var string

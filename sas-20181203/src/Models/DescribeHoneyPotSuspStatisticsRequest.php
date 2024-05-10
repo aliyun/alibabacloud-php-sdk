@@ -11,6 +11,7 @@ class DescribeHoneyPotSuspStatisticsRequest extends Model
     /**
      * @description The source of the request. Set the value to **honeypot**.
      *
+     * This parameter is required.
      * @example honeypot
      *
      * @var string
@@ -32,6 +33,7 @@ class DescribeHoneyPotSuspStatisticsRequest extends Model
     /**
      * @description The time range of the data to query. Unit: days.
      *
+     * This parameter is required.
      * @example 30
      *
      * @var int
@@ -44,6 +46,7 @@ class DescribeHoneyPotSuspStatisticsRequest extends Model
      *   **vpcInstanceId**: VPC
      *   **uuid**: server
      *
+     * This parameter is required.
      * @example vpcInstanceId
      *
      * @var string

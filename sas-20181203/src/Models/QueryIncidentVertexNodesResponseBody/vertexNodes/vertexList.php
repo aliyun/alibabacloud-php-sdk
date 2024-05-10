@@ -66,7 +66,7 @@ class vertexList extends Model
     /**
      * @description The node properties. The value is in the text format.
      *
-     * @example {\"bandWidth\":\"5120\",\"internetIp\":\"47.242.191.206\",\"changeReason\":\"EIP_BIND\",\"bindInstanceId\":\"eci-j6ci7lvci50rore7dkv8\",\"bindType\":\"EIP_ECS\"}
+     * @example {\\"bandWidth\\":\\"5120\\",\\"internetIp\\":\\"47.242.191.206\\",\\"changeReason\\":\\"EIP_BIND\\",\\"bindInstanceId\\":\\"eci-j6ci7lvci50rore7dkv8\\",\\"bindType\\":\\"EIP_ECS\\"}
      *
      * @var string
      */

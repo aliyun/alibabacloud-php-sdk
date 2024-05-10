@@ -11,7 +11,7 @@ class DeleteCustomBlockRecordRequest extends Model
     /**
      * @description The ID of the IP address blocking policy.
      *
-     * > You can call the [DescribeCustomBlockRecords](~~DescribeCustomBlockRecords~~) operation to query the ID.
+     * This parameter is required.
      * @example 381**
      *
      * @var int

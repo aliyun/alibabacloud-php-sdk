@@ -14,6 +14,7 @@ class ModifyVulTargetConfigRequest extends Model
      *   **on**: yes
      *   **off**: no
      *
+     * This parameter is required.
      * @example off
      *
      * @var string
@@ -37,6 +38,7 @@ class ModifyVulTargetConfigRequest extends Model
      *   **cms**: Web-CMS vulnerability
      *   **emg**: urgent vulnerability
      *
+     * This parameter is required.
      * @example cve
      *
      * @var string
@@ -46,6 +48,7 @@ class ModifyVulTargetConfigRequest extends Model
     /**
      * @description The UUID of the server.
      *
+     * This parameter is required.
      * @example inet-7c676676-06fa-442e-90fb-b802e5d6****
      *
      * @var string

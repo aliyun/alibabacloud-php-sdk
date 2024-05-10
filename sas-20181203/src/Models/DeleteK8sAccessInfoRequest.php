@@ -38,6 +38,7 @@ class DeleteK8sAccessInfoRequest extends Model
     /**
      * @description The ID generated when Kubernetes is connected. You can call the GenerateK8sAccessInfo operation to query the ID.
      *
+     * This parameter is required.
      * @example 200
      *
      * @var int

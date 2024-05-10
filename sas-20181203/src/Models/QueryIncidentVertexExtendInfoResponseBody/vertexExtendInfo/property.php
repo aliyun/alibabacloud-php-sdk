@@ -139,7 +139,7 @@ class property extends Model
     public $assetList;
 
     /**
-     * @description ATT\&CK
+     * @description ATT\\&CK
      *
      * @example Keychain
      *

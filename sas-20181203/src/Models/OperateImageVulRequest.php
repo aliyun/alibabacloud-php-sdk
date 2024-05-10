@@ -22,7 +22,7 @@ class OperateImageVulRequest extends Model
      *   uuid: the UUID of the image
      *   ids: the IDs of the vulnerability primary keys
      *
-     * @example [{\"namespace\":\"cloud_oa****\",\"repoName\":\"hybirdc****\",\"regionId\":\"cn-shanghai\",\"instanceId\":\"cri-rv4nvbv8iju4****\",\"repoId\":\"crr-2q7302qrofxg****\",\"tag\":\"hybird-cloud-web_fix_167115945****\",\"digest\":\"e1a4fd25884ca2ef8840bb252c9926e4f549df9e046500dd93539b2d458c****\",\"newTag\":\"hybird-cloud-web_fix_167115996****\",\"uuid\":\"4ad91dd8c0c02de6574fa98085d0****\",\"ids\":[197540864,197540865,197540869]}]
+     * @example [{\\"namespace\\":\\"cloud_oa****\\",\\"repoName\\":\\"hybirdc****\\",\\"regionId\\":\\"cn-shanghai\\",\\"instanceId\\":\\"cri-rv4nvbv8iju4****\\",\\"repoId\\":\\"crr-2q7302qrofxg****\\",\\"tag\\":\\"hybird-cloud-web_fix_167115945****\\",\\"digest\\":\\"e1a4fd25884ca2ef8840bb252c9926e4f549df9e046500dd93539b2d458c****\\",\\"newTag\\":\\"hybird-cloud-web_fix_167115996****\\",\\"uuid\\":\\"4ad91dd8c0c02de6574fa98085d0****\\",\\"ids\\":[197540864,197540865,197540869]}]
      *
      * @var string
      */

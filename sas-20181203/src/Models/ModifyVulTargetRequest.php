@@ -18,7 +18,7 @@ class ModifyVulTargetRequest extends Model
      *   **cms**: Web-CMS vulnerabilities
      *   **emg**: urgent vulnerabilities
      *
-     * @example {\"vulType\":\"sys\"}
+     * @example {\\"vulType\\":\\"sys\\"}
      *
      * @var string
      */
@@ -36,7 +36,7 @@ class ModifyVulTargetRequest extends Model
      *   **add**: select
      *   **del**: deselect
      *
-     * @example [{\"target\": \"9cd5c684-7201-4de5-ad2c-cea89a5e****\", \"targetType\": \"uuid\", \"flag\": \"add\"}]
+     * @example [{\\"target\\": \\"9cd5c684-7201-4de5-ad2c-cea89a5e****\\", \\"targetType\\": \\"uuid\\", \\"flag\\": \\"add\\"}]
      *
      * @var string
      */

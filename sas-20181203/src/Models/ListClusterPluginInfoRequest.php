@@ -11,6 +11,7 @@ class ListClusterPluginInfoRequest extends Model
     /**
      * @description The IDs of the clusters.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $clusterIds;

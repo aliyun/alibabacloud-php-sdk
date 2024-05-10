@@ -38,7 +38,7 @@ class customConfigs extends Model
     /**
      * @description The type of the custom configuration item. The value is a JSON string.
      *
-     * @example {\"type\":\"NUMBER\",\"range\":[1,24]}
+     * @example {\\"type\\":\\"NUMBER\\",\\"range\\":[1,24]}
      *
      * @var string
      */

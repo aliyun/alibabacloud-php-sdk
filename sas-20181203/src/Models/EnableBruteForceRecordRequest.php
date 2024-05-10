@@ -11,6 +11,7 @@ class EnableBruteForceRecordRequest extends Model
     /**
      * @description The IP address that is specified in the policy.
      *
+     * This parameter is required.
      * @example 61.155.XX.XX
      *
      * @var string
@@ -56,6 +57,7 @@ class EnableBruteForceRecordRequest extends Model
     /**
      * @description The UUID of the server.
      *
+     * This parameter is required.
      * @example 71046acb-8bff-4c3b-9163-24deb007****
      *
      * @var string

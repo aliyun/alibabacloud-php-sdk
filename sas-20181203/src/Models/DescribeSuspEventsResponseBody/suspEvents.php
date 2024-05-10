@@ -394,7 +394,7 @@ class suspEvents extends Model
     /**
      * @description The advanced whitelist rule.
      *
-     * @example [{\"uuid\":\"ALL\",\"field\":\"gmtModified\",\"operate\":\"contains\",\"fieldValue\":\"222\"}]
+     * @example [{\\"uuid\\":\\"ALL\\",\\"field\\":\\"gmtModified\\",\\"operate\\":\\"contains\\",\\"fieldValue\\":\\"222\\"}]
      *
      * @var string
      */

@@ -11,7 +11,7 @@ class ModifyVulWhitelistTargetRequest extends Model
     /**
      * @description The ID of the whitelist.
      *
-     * >  You can call the [DescribeVulWhitelist](~~DescribeVulWhitelist~~) operation to query the IDs of whitelists.
+     * This parameter is required.
      * @example 2533681
      *
      * @var int

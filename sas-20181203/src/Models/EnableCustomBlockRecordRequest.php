@@ -11,6 +11,7 @@ class EnableCustomBlockRecordRequest extends Model
     /**
      * @description The IP address that is specified in the policy.
      *
+     * This parameter is required.
      * @example 43.248.XX.XX
      *
      * @var string
@@ -23,6 +24,7 @@ class EnableCustomBlockRecordRequest extends Model
      *   **in**: inbound
      *   **out**: outbound
      *
+     * This parameter is required.
      * @example in
      *
      * @var string

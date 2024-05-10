@@ -20,7 +20,7 @@ class data extends Model
     /**
      * @description The extended field for Server Guard.
      *
-     * @example {\"relatedType\":[{\"type\":\"sys\"}]}
+     * @example {\\"relatedType\\":[{\\"type\\":\\"sys\\"}]}
      *
      * @var string
      */

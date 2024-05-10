@@ -142,6 +142,7 @@ class DescribeUuidsByVulNamesRequest extends Model
      *   **cve**: Linux software vulnerability
      *   **sys**: Windows system vulnerability
      *
+     * This parameter is required.
      * @example cve
      *
      * @var string
@@ -160,7 +161,7 @@ class DescribeUuidsByVulNamesRequest extends Model
     /**
      * @description An array that consists of the names of vulnerabilities.
      *
-     * >  You can call the [DescribeGroupedVul](~~DescribeGroupedVul~~) operation to obtain the names of vulnerabilities.
+     * This parameter is required.
      * @var string[]
      */
     public $vulNames;

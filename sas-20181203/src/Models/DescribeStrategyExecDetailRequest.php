@@ -30,6 +30,8 @@ class DescribeStrategyExecDetailRequest extends Model
     public $sourceIp;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 8437592
      *
      * @var int

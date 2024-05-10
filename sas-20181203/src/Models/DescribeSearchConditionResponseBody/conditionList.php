@@ -16,7 +16,7 @@ class conditionList extends Model
     public $conditionType;
 
     /**
-     * @example {\"filterParams\":[{\"labelKey\":\"a|b\",\"value\":\"{\\\"name\\\":\\\"sadsasd\\\",\\\"value\\\":\\\"dasdsdas\\\"}\"}],\"LogicalExp\":\"OR\"}
+     * @example {\\"filterParams\\":[{\\"labelKey\\":\\"a|b\\",\\"value\\":\\"{\\\\\\"name\\\\\\":\\\\\\"sadsasd\\\\\\",\\\\\\"value\\\\\\":\\\\\\"dasdsdas\\\\\\"}\\"}],\\"LogicalExp\\":\\"OR\\"}
      *
      * @var string
      */

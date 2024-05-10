@@ -20,8 +20,8 @@ class list_ extends Model
     /**
      * @description The handling method. Valid values:
      *
-     *   **auto\_add_white**: Automatically Added to Whitelist
-     *   **defense\_not_notification**: Defense Without Notification
+     *   **auto_add_white**: Automatically Added to Whitelist
+     *   **defense_not_notification**: Defense Without Notification
      *
      * @example auto_add_white
      *

@@ -11,7 +11,7 @@ class DescribeClusterBasicInfoRequest extends Model
     /**
      * @description The ID of the cluster that you want to query.
      *
-     * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of clusters.
+     * This parameter is required.
      * @example c870ec78ecbcb41d2a35c679823ef****
      *
      * @var string
@@ -23,6 +23,7 @@ class DescribeClusterBasicInfoRequest extends Model
      *
      *   **Cluster**: the ID of the cluster
      *
+     * This parameter is required.
      * @example Cluster
      *
      * @var string
@@ -35,6 +36,7 @@ class DescribeClusterBasicInfoRequest extends Model
      *   **containerNetwork**: container network topology
      *   **interceptionSwitch**: cluster microsegmentation
      *
+     * This parameter is required.
      * @example containerNetwork
      *
      * @var string

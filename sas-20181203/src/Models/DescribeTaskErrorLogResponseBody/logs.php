@@ -11,7 +11,7 @@ class logs extends Model
     /**
      * @description The text content of the log.
      *
-     * @example mv: cannot move \"CentOS-Base.repo\" to \"CentOS-Base.repo.backup\": Permission denied
+     * @example mv: cannot move \\"CentOS-Base.repo\\" to \\"CentOS-Base.repo.backup\\": Permission denied
      *
      * @var string
      */

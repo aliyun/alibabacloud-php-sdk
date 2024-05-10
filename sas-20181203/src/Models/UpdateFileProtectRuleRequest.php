@@ -25,6 +25,7 @@ class UpdateFileProtectRuleRequest extends Model
     /**
      * @description The operations performed on the files.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $fileOps;
@@ -32,6 +33,7 @@ class UpdateFileProtectRuleRequest extends Model
     /**
      * @description The paths to the monitored files. Wildcard characters are supported.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $filePaths;
@@ -48,6 +50,7 @@ class UpdateFileProtectRuleRequest extends Model
     /**
      * @description The paths to the monitored processes.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $procPaths;
@@ -67,6 +70,7 @@ class UpdateFileProtectRuleRequest extends Model
     /**
      * @description The name of the rule.
      *
+     * This parameter is required.
      * @example test-rule-1
      *
      * @var string

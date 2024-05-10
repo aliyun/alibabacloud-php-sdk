@@ -12,6 +12,7 @@ class OperateApplicationRequest extends Model
     /**
      * @description The container application that is protected from being tampered with.
      *
+     * This parameter is required.
      * @var containerWebDefenseApplicationDTOS[]
      */
     public $containerWebDefenseApplicationDTOS;
@@ -19,6 +20,7 @@ class OperateApplicationRequest extends Model
     /**
      * @description The ID of the rule.
      *
+     * This parameter is required.
      * @example 300566
      *
      * @var int

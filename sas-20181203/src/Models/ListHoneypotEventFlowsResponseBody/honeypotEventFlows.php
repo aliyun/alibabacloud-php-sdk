@@ -65,7 +65,7 @@ class honeypotEventFlows extends Model
     /**
      * @description The extended information about the attack payload.
      *
-     * @example {\"payload\":{\"format\":\"line\",\"name\":{\"cn\":\"payload\",\"en\":\"payload\"},\"value\":\"\"},\"uid\":{\"format\":\"line\",\"name\":{\"cn\":\"\",\"en\":\"\"},\"uid\":\"5fa2ece9-aa08-4bbd-a272-5d27*********\",\"value\":\"\"}}
+     * @example {\\"payload\\":{\\"format\\":\\"line\\",\\"name\\":{\\"cn\\":\\"payload\\",\\"en\\":\\"payload\\"},\\"value\\":\\"\\"},\\"uid\\":{\\"format\\":\\"line\\",\\"name\\":{\\"cn\\":\\"\\",\\"en\\":\\"\\"},\\"uid\\":\\"5fa2ece9-aa08-4bbd-a272-5d27*********\\",\\"value\\":\\"\\"}}
      *
      * @var string
      */
@@ -74,7 +74,7 @@ class honeypotEventFlows extends Model
     /**
      * @description The extension information about the virtual private cloud (VPC).
      *
-     * @example {\"vpc_id\":\"\",\"vpc_dest_port\":\"\",\"vpc_dest_ip\":\"\"}
+     * @example {\\"vpc_id\\":\\"\\",\\"vpc_dest_port\\":\\"\\",\\"vpc_dest_ip\\":\\"\\"}
      *
      * @var string
      */

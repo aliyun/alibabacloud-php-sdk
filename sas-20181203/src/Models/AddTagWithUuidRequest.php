@@ -11,6 +11,7 @@ class AddTagWithUuidRequest extends Model
     /**
      * @description The name of the tag.
      *
+     * This parameter is required.
      * @example InternetIp
      *
      * @var string

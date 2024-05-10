@@ -63,7 +63,7 @@ class vertexList extends Model
     /**
      * @description The text that contains the properties of the current node.
      *
-     * @example [{\"PropertyValues\": [{\"PropertyValueId\": 239, \"PropertyValue\": \"121\"}, {\"PropertyValueId\": 240, \"PropertyValue\": \"6666\"}], \"PropertyKey\": \"22222222\", \"PropertyId\": 203}]
+     * @example [{\\"PropertyValues\\": [{\\"PropertyValueId\\": 239, \\"PropertyValue\\": \\"121\\"}, {\\"PropertyValueId\\": 240, \\"PropertyValue\\": \\"6666\\"}], \\"PropertyKey\\": \\"22222222\\", \\"PropertyId\\": 203}]
      *
      * @var string
      */
@@ -72,7 +72,7 @@ class vertexList extends Model
     /**
      * @description The property of the current node.
      *
-     * @example {\"coverage\":\"global\"}
+     * @example {\\"coverage\\":\\"global\\"}
      *
      * @var mixed[]
      */

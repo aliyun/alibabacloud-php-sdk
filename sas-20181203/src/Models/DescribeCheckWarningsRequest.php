@@ -121,7 +121,7 @@ class DescribeCheckWarningsRequest extends Model
     /**
      * @description The UUID of the server on which the baseline check is performed.
      *
-     * > To query specified risk items and the check items of a specified server, you must provide the ID of the server on which the baseline check is performed. You can call the [DescribeWarningMachines](~~DescribeWarningMachines~~) operation to query the IDs of servers.
+     * This parameter is required.
      * @example d42f938c-d962-48a0-90f9-05****
      *
      * @var string

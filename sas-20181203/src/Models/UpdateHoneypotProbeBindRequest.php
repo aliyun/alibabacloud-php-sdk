@@ -90,7 +90,7 @@ class UpdateHoneypotProbeBindRequest extends Model
     /**
      * @description The ports that are monitored.
      *
-     * @example {\"tcp\":\"1-65535\",\"udp\":\"1-65535\"}
+     * @example {\\"tcp\\":\\"1-65535\\",\\"udp\\":\\"1-65535\\"}
      *
      * @var string
      */

@@ -29,7 +29,7 @@ class ModifyInterceptionTargetRequest extends Model
     /**
      * @description The namespace.
      *
-     * > You can call the [DescribeContainerTags](~~DescribeContainerTags~~) operation to obtain the value of this parameter.
+     * This parameter is required.
      * @example demo4
      *
      * @var string
@@ -47,7 +47,7 @@ class ModifyInterceptionTargetRequest extends Model
     /**
      * @description The ID of the network object.
      *
-     * > You can call the [ListInterceptionTargetPage](~~ListInterceptionTargetPage~~) operation to obtain the value of this parameter.
+     * This parameter is required.
      * @example 400913
      *
      * @var int
@@ -57,6 +57,7 @@ class ModifyInterceptionTargetRequest extends Model
     /**
      * @description The name.
      *
+     * This parameter is required.
      * @example test001
      *
      * @var string
@@ -68,6 +69,7 @@ class ModifyInterceptionTargetRequest extends Model
      *
      *   **IMAGE**
      *
+     * This parameter is required.
      * @example IMAGE
      *
      * @var string

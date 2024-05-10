@@ -11,7 +11,7 @@ class ListRuleTargetAllRequest extends Model
     /**
      * @description The ID of the container cluster.
      *
-     * > You can call the [DescribeGroupedContainerInstances](~~182997~~) operation to query the IDs of container clusters.
+     * This parameter is required.
      * @example cfa7e2fb8c221483ba59e098c34c6****
      *
      * @var string

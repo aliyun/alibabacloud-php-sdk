@@ -50,7 +50,7 @@ class UpdateHoneypotProbeRequest extends Model
     /**
      * @description The ID of the probe.
      *
-     * > You can call the [ListHoneypotProbe](~~ListHoneypotProbe~~) operation to query the IDs of probes.
+     * This parameter is required.
      * @example bbe7e382-956f-473e-beed-bc73a258****
      *
      * @var string

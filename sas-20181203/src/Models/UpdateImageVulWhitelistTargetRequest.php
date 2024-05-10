@@ -56,7 +56,7 @@ class UpdateImageVulWhitelistTargetRequest extends Model
      *   **type**: The type of the vulnerability. The value is fixed to repo.
      *   **target**: The content of the vulnerability. The value is in the format of Namespace/Image repository.
      *
-     * @example {\"type\":\"repo\",\"target\":[\"sas_test/script_0209\",\"sas_test/script\"]}
+     * @example {\\"type\\":\\"repo\\",\\"target\\":[\\"sas_test/script_0209\\",\\"sas_test/script\\"]}
      *
      * @var string
      */

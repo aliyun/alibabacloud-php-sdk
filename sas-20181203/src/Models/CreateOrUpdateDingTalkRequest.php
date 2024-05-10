@@ -70,7 +70,7 @@ class CreateOrUpdateDingTalkRequest extends Model
     /**
      * @description The name of the chatbot.
      *
-     * > The name of a chatbot must be 2 to 64 characters in length.
+     * This parameter is required.
      * @example testNotify
      *
      * @var string
@@ -80,6 +80,7 @@ class CreateOrUpdateDingTalkRequest extends Model
     /**
      * @description The webhook URL.
      *
+     * This parameter is required.
      * @example https://oapi.dingtalk.com/robot/send?access_token=XXX
      *
      * @var string

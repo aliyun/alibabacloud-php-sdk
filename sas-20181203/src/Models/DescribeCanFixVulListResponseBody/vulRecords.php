@@ -106,7 +106,7 @@ class vulRecords extends Model
     /**
      * @description The name of the instance.
      *
-     * The name must be 3 to 64 characters in length and can contain letters, digits, hyphens (-), and underscores (\_).
+     * The name must be 3 to 64 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
      * @example testInstance
      *
      * @var string

@@ -20,7 +20,7 @@ class data extends Model
     /**
      * @description The names of the container applications.
      *
-     * @example [\"alicloud-monitor-controller\"]
+     * @example [\\"alicloud-monitor-controller\\"]
      *
      * @var string
      */

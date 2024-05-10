@@ -11,6 +11,7 @@ class DescribeVulExportInfoRequest extends Model
     /**
      * @description The ID of the task.
      *
+     * This parameter is required.
      * @example 14356
      *
      * @var int

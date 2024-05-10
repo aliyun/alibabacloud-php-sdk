@@ -11,6 +11,7 @@ class DescribeIpTagsRequest extends Model
     /**
      * @description The IP address in the alert event.
      *
+     * This parameter is required.
      * @example 192.168.XX.XX
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeIpTagsRequest extends Model
     /**
      * @description The ID of the alert event.
      *
+     * This parameter is required.
      * @example 11
      *
      * @var string

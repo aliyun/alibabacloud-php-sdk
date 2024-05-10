@@ -11,6 +11,7 @@ class DescribeClientConfSetupRequest extends Model
     /**
      * @description The tag that is added to the server.
      *
+     * This parameter is required.
      * @example machineResource
      *
      * @var string
@@ -24,6 +25,7 @@ class DescribeClientConfSetupRequest extends Model
      *   advanced
      *   basic
      *
+     * This parameter is required.
      * @example major
      *
      * @var string

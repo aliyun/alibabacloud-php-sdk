@@ -33,7 +33,7 @@ class CreateHoneypotProbeRequest extends Model
     /**
      * @description The ID of the management node.
      *
-     * > You can call the [ListHoneypotNode](~~ListHoneypotNode~~) operation to query the IDs of management nodes.
+     * This parameter is required.
      * @example a882e590-b87b-45a6-87b9-d0a3e5a0****
      *
      * @var string
@@ -43,6 +43,7 @@ class CreateHoneypotProbeRequest extends Model
     /**
      * @description The name of the probe.
      *
+     * This parameter is required.
      * @example testHoneyPotProbe
      *
      * @var string
@@ -74,6 +75,7 @@ class CreateHoneypotProbeRequest extends Model
      *   **host_probe**: host probe
      *   **vpc_black_hole_probe**: virtual private cloud (VPC) probe
      *
+     * This parameter is required.
      * @example host_probe
      *
      * @var string

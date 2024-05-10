@@ -11,6 +11,7 @@ class OperateImageBaselineWhitelistRequest extends Model
     /**
      * @description The keys of baseline check items.
      *
+     * This parameter is required.
      * @example hc.image.checklist.identify.hc_exploit_es_linux.item
      *
      * @var string
@@ -44,6 +45,7 @@ class OperateImageBaselineWhitelistRequest extends Model
      *   **add**: adds the check items to the whitelist
      *   **del**: removes the check items from the whitelist
      *
+     * This parameter is required.
      * @example add
      *
      * @var string

@@ -29,7 +29,7 @@ class backupFiles extends Model
     /**
      * @description The path to the subdirectory of the backup file.
      *
-     * @example Python27\
+     * @example Python27\\
      *
      * @var string
      */

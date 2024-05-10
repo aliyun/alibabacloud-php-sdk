@@ -11,7 +11,7 @@ class DescribeImageRequest extends Model
     /**
      * @description The instance ID of the image.
      *
-     * >  You can call the [DescribeImageInstances](~~DescribeImageInstances~~) operation to query the IDs of instances.
+     * This parameter is required.
      * @example cri-hfs6gaawhyu6****
      *
      * @var string
@@ -21,7 +21,7 @@ class DescribeImageRequest extends Model
     /**
      * @description The region ID of the image.
      *
-     * >  You can call the [DescribeImageInstances](~~DescribeImageInstances~~) operation to query the IDs of regions.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -31,7 +31,7 @@ class DescribeImageRequest extends Model
     /**
      * @description The ID of the image repository.
      *
-     * >  You can call the [DescribeImageInstances](~~DescribeImageInstances~~) operation to query the IDs of image repositories.
+     * This parameter is required.
      * @example crr-7i88t7lx3fmf****
      *
      * @var string
@@ -41,7 +41,7 @@ class DescribeImageRequest extends Model
     /**
      * @description The tag that is added to the image.
      *
-     * >  You can call the [DescribeImageInstances](~~DescribeImageInstances~~) operation to query tags.
+     * This parameter is required.
      * @example 1.8.0.15
      *
      * @var string

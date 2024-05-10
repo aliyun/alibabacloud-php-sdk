@@ -11,7 +11,7 @@ class DescribeExportInfoRequest extends Model
     /**
      * @description The ID of the export task.
      *
-     * > You can call the [ExportRecord](~~ExportRecord~~) operation to query the IDs of export tasks.
+     * This parameter is required.
      * @example 111
      *
      * @var int

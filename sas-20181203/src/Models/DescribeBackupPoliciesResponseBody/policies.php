@@ -78,13 +78,13 @@ class policies extends Model
      *   **1**: recommended policy
      *   **0**: custom policy
      *
-     *   **Include**: the format of the files that are protected. If the value of this field is \[], all formats of files are protected.
+     *   **Include**: the format of the files that are protected. If the value of this field is [], all formats of files are protected.
      *
-     *   **Source**: the directory that is protected. If the value of this field is \[], all directories are protected.
+     *   **Source**: the directory that is protected. If the value of this field is [], all directories are protected.
      *
      *   **ExcludeSystemPath**: indicates whether a specified directory is excluded from the anti-ransomware policy. If the value of this field is **true**, the directory is excluded. If this field is left empty, no directories are excluded.
      *
-     *   **Exclude**: the directory that is excluded from the anti-ransomware policy. If no directory is specified, the value of this field is \[].
+     *   **Exclude**: the directory that is excluded from the anti-ransomware policy. If no directory is specified, the value of this field is [].
      *
      *   **Schedule**: the start time and interval of a data backup task. A start time that begins during off-peak hours but does not start on the hour is recommended. Examples:
      *
@@ -101,7 +101,7 @@ class policies extends Model
      *   **false**: no
      *
      * >  The VSS feature is available only if you create the anti-ransomware policy for Windows servers. After you enable the feature, the number of backup failures due to running processes is significantly reduced. We recommend that you enable the VSS feature. After you enable the feature, the data of disks that are in the exFAT and FAT32 formats cannot be backed up.
-     * @example {"Exclude":["/bin/","/usr/bin/","/sbin/","/boot/","/proc/","/sys/","/srv/","/lib/","/selinux/","/usr/sbin/","/run/","/lib32/","/lib64/","/lost+found/","/var/lib/kubelet/","/var/lib/ntp/proc","/var/lib/container","Windows\\","Python27\\","Program Files (x86)\\","Program Files\\","Boot\\","$RECYCLE.BIN","System Volume Information\\","Users\\Administrator\\NTUSER.DAT*","ProgramData\\","pagefile.sys","Users\\Default\\NTUSER.DAT*","Users\\Administrator\\ntuser.*"],"ExcludeSystemPath":true,"Include":[],"IsDefault":1,"Retention":7,"Schedule":"I|1630689360|PT24H","Source":[],"SpeedLimiter":"","UseVss":true}
+     * @example {"Exclude":["/bin/","/usr/bin/","/sbin/","/boot/","/proc/","/sys/","/srv/","/lib/","/selinux/","/usr/sbin/","/run/","/lib32/","/lib64/","/lost+found/","/var/lib/kubelet/","/var/lib/ntp/proc","/var/lib/container","Windows\\\\","Python27\\\\","Program Files (x86)\\\\","Program Files\\\\","Boot\\\\","$RECYCLE.BIN","System Volume Information\\\\","Users\\\\Administrator\\\\NTUSER.DAT*","ProgramData\\\\","pagefile.sys","Users\\\\Default\\\\NTUSER.DAT*","Users\\\\Administrator\\\\ntuser.*"],"ExcludeSystemPath":true,"Include":[],"IsDefault":1,"Retention":7,"Schedule":"I|1630689360|PT24H","Source":[],"SpeedLimiter":"","UseVss":true}
      *
      * @var string
      */

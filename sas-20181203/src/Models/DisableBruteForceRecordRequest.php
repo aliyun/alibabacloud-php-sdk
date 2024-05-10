@@ -11,6 +11,7 @@ class DisableBruteForceRecordRequest extends Model
     /**
      * @description The IP address that you want to specify in the policy.
      *
+     * This parameter is required.
      * @example 8.210.XX.XX
      *
      * @var string
@@ -56,6 +57,7 @@ class DisableBruteForceRecordRequest extends Model
     /**
      * @description The UUID of the server.
      *
+     * This parameter is required.
      * @example cbb9aa80-a8d1-443c-9ff0-2c36cd39****
      *
      * @var string

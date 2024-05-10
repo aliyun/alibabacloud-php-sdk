@@ -21,7 +21,7 @@ class DescribeExposedInstanceDetailRequest extends Model
     /**
      * @description The UUID of the server that is exposed on the Internet.
      *
-     * >  You can call the [DescribeExposedInstanceList](~~198153~~) operation to query the UUIDs of servers.
+     * This parameter is required.
      * @example fc82b966-4d70-4e01-bf4f-aa4076a5****
      *
      * @var string

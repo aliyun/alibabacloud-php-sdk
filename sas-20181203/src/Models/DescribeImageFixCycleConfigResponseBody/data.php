@@ -35,7 +35,7 @@ class data extends Model
      *   **type**: The type of the image risk. The value is fixed to repo.
      *   **target**: The content of the image risk. The value is in the format of Namespace/Image repository.
      *
-     * @example {\"type\":\"repo\",\"target\":[\"qa-dac/yyuan9\",\"cdp-uat/zentao\",\"cafdms-qa/xxl-job-admin\",\"cafdms-qa/utils/jdk\",\"cafmfbi/ui\",\"cdp-uat/tradingdesk-webapp\"]}
+     * @example {\\"type\\":\\"repo\\",\\"target\\":[\\"qa-dac/yyuan9\\",\\"cdp-uat/zentao\\",\\"cafdms-qa/xxl-job-admin\\",\\"cafdms-qa/utils/jdk\\",\\"cafmfbi/ui\\",\\"cdp-uat/tradingdesk-webapp\\"]}
      *
      * @var string
      */

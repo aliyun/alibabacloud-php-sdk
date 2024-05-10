@@ -11,6 +11,7 @@ class UnMarkMonitorAccountsRequest extends Model
     /**
      * @description The IDs of the members.
      *
+     * This parameter is required.
      * @example 125267953644XXXX,125807832682XXXX
      *
      * @var string

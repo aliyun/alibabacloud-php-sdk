@@ -11,6 +11,7 @@ class CreateHoneypotPresetRequest extends Model
     /**
      * @description The name of the honeypot image.
      *
+     * This parameter is required.
      * @example webmin
      *
      * @var string
@@ -36,6 +37,7 @@ class CreateHoneypotPresetRequest extends Model
      *   **burp**: Burp-specific Defense
      *   **trojan_git**: Git-specific Defense
      *
+     * This parameter is required.
      * @example {"burp":"close","trojan_git":"close","portrait_option":"true"}
      *
      * @var string
@@ -45,7 +47,7 @@ class CreateHoneypotPresetRequest extends Model
     /**
      * @description The ID of the management node to which you want to deploy honeypots.
      *
-     * > You can call the [ListHoneypotNode](~~ListHoneypotNode~~) operation to query the IDs of management nodes.
+     * This parameter is required.
      * @example 9373fe59-74d5-4505-bb24-c85352fb****
      *
      * @var string
@@ -55,6 +57,7 @@ class CreateHoneypotPresetRequest extends Model
     /**
      * @description The custom name of the honeypot template.
      *
+     * This parameter is required.
      * @example WebMin-online
      *
      * @var string

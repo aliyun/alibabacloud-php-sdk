@@ -52,7 +52,7 @@ class data extends Model
      *
      * Valid values:
      *
-     *   The threat type. The value is an array. The elements in the array can be DDoS trojans, mining programs, network layer intrusions, network service scans, network sharing and discovery, mining pools, exploits, dark webs, malicious logons, malicious download sources, C\&C servers, webshells, and web attacks.
+     *   The threat type. The value is an array. The elements in the array can be DDoS trojans, mining programs, network layer intrusions, network service scans, network sharing and discovery, mining pools, exploits, dark webs, malicious logons, malicious download sources, C\\&C servers, webshells, and web attacks.
      *
      * @example ["The threat type"]
      *
@@ -63,7 +63,7 @@ class data extends Model
     /**
      * @description The details of the cloud sandbox check results.
      *
-     * @example {\"BehaviorData\": {}, \"ProcessData\": {}, \"SandboxData\": {}, \"AttackData\": [], \"NetworkData\": {}, \"SolutionData\": {}, \"FileData\": {}}
+     * @example {\\"BehaviorData\\": {}, \\"ProcessData\\": {}, \\"SandboxData\\": {}, \\"AttackData\\": [], \\"NetworkData\\": {}, \\"SolutionData\\": {}, \\"FileData\\": {}}
      *
      * @var string
      */

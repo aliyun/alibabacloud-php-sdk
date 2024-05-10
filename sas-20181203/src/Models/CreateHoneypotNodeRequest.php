@@ -32,6 +32,7 @@ class CreateHoneypotNodeRequest extends Model
     /**
      * @description The name of the management node.
      *
+     * This parameter is required.
      * @example manageNode
      *
      * @var string

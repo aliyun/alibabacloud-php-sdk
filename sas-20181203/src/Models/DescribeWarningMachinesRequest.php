@@ -56,7 +56,7 @@ class DescribeWarningMachinesRequest extends Model
     /**
      * @description The ID of the asset group.
      *
-     * > You can call the [DescribeAllGroups](~~130972~~) operation to query the IDs of asset groups.
+     * > You can call the [DescribeAllGroups](https://help.aliyun.com/document_detail/130972.html) operation to query the IDs of asset groups.
      * @example 123
      *
      * @var int
@@ -108,7 +108,7 @@ class DescribeWarningMachinesRequest extends Model
     /**
      * @description The ID of the risk item.
      *
-     * > You can call the [DescribeCheckWarningSummary](~~DescribeCheckWarningSummary~~) operation to query the IDs of risk items.
+     * This parameter is required.
      * @example 196
      *
      * @var int

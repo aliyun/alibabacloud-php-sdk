@@ -47,7 +47,7 @@ class securityEventOperationsResponse extends Model
     /**
      * @description The configuration of the operation performed to handle the alert event.
      *
-     * @example {\"subOperation\":\"killByMd5andPath\"}
+     * @example {\\"subOperation\\":\\"killByMd5andPath\\"}
      *
      * @var string
      */

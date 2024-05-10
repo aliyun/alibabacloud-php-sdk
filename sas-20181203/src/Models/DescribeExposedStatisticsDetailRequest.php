@@ -45,6 +45,7 @@ class DescribeExposedStatisticsDetailRequest extends Model
      *   **exposureComponent**: system components
      *   **exposureIp**: IP addresses
      *
+     * This parameter is required.
      * @example exposureType
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListCompressFileDetectResultRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +25,8 @@ class ListCompressFileDetectResultRequest extends Model
     public $hashKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 20
      *
      * @var int

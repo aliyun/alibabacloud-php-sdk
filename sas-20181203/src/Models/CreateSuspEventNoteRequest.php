@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateSuspEventNoteRequest extends Model
 {
     /**
-     * @description The ID of the alert event to which you want to add remarks. You can call the [DescribeSuspEvents](~~251497~~) operation to query the IDs of alert events.
+     * @description The ID of the alert event to which you want to add remarks. You can call the [DescribeSuspEvents](https://help.aliyun.com/document_detail/251497.html) operation to query the IDs of alert events.
      *
+     * This parameter is required.
      * @example 668931
      *
      * @var int
@@ -20,6 +21,7 @@ class CreateSuspEventNoteRequest extends Model
     /**
      * @description The remarks that you want to add.
      *
+     * This parameter is required.
      * @example Ignore
      *
      * @var string

@@ -11,6 +11,7 @@ class DeleteTagWithUuidRequest extends Model
     /**
      * @description The name of the tag.
      *
+     * This parameter is required.
      * @example abc
      *
      * @var string

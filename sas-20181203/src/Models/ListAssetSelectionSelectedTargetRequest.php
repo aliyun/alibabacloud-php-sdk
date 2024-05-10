@@ -11,6 +11,7 @@ class ListAssetSelectionSelectedTargetRequest extends Model
     /**
      * @description The unique ID of the asset.
      *
+     * This parameter is required.
      * @example 2e6ab33d-4e00-4581-ac16-0dd1f9ad****
      *
      * @var string

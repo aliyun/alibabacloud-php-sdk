@@ -11,6 +11,7 @@ class ModifyClientConfStrategyRequest extends Model
     /**
      * @description The key of the tag that is added to the agent configuration policy.
      *
+     * This parameter is required.
      * @example machineResource
      *
      * @var string
@@ -33,6 +34,7 @@ class ModifyClientConfStrategyRequest extends Model
      *   advanced
      *   basic
      *
+     * This parameter is required.
      * @example advanced
      *
      * @var string

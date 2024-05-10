@@ -24,6 +24,7 @@ class CreateAntiBruteForceRuleRequest extends Model
     /**
      * @description The maximum number of failed logon attempts from an account. Valid values: 2, 3, 4, 5, 10, 50, 80, and 100.
      *
+     * This parameter is required.
      * @example 2
      *
      * @var int
@@ -44,6 +45,7 @@ class CreateAntiBruteForceRuleRequest extends Model
      *   **10080**: 7 days
      *   **52560000**: permanent
      *
+     * This parameter is required.
      * @example 5
      *
      * @var int
@@ -53,6 +55,7 @@ class CreateAntiBruteForceRuleRequest extends Model
     /**
      * @description The name of the defense rule.
      *
+     * This parameter is required.
      * @example TestAntiBruteForceRule
      *
      * @var string
@@ -82,7 +85,7 @@ class CreateAntiBruteForceRuleRequest extends Model
      *   **10**
      *   **15**
      *
-     * >  To configure a defense rule, you must specify the Span, FailCount, and ForbiddenTime parameters. If the number of failed logon attempts from an account within the minutes specified by Span exceeds the value specified by FailCount, the account cannot be used for logons within the minutes specified by ForbiddenTime.
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -92,6 +95,7 @@ class CreateAntiBruteForceRuleRequest extends Model
     /**
      * @description The UUIDs of the servers to which you want to apply the defense rule.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $uuidList;

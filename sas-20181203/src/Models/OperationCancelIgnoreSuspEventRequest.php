@@ -20,6 +20,7 @@ class OperationCancelIgnoreSuspEventRequest extends Model
     /**
      * @description The IDs of alert events.
      *
+     * This parameter is required.
      * @var int[]
      */
     public $securityEventIds;

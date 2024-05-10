@@ -36,6 +36,7 @@ class OperateSuspiciousTargetConfigRequest extends Model
      *   **target**: specifies the UUID of the server for which you want to configure proactive defense.
      *   **flag**: specifies whether to enable or disable proactive defense for your server. Valid values are **add** and **del**. The value add indicates that proactive defense will be enabled for your server. The value del indicates that proactive defense will be disabled for your server.
      *
+     * This parameter is required.
      * @example "[{"targetType":"uuid","target":"0585f81a-dd84-4ddf-9971-f59d12345678","flag":"add"},{"targetType":"uuid","target":"01acfd9d-e6a4-4e61-b9eb-aae012345678","flag":"add"},{"targetType":"uuid","target":"04a0e735-ad32-4835-b635-045812345678","flag":"add"}]"
      *
      * @var string
@@ -46,6 +47,8 @@ class OperateSuspiciousTargetConfigRequest extends Model
      * @description The dimension from which you manage proactive defense. Only the server UUID dimension is supported.
      *
      * Set the value to **uuid**.
+     *
+     * This parameter is required.
      * @example uuid
      *
      * @var string
@@ -61,6 +64,7 @@ class OperateSuspiciousTargetConfigRequest extends Model
      *   **ransomware_breaking**: ransomware capture
      *   **alisecguard**: client protection
      *
+     * This parameter is required.
      * @example auto_breaking
      *
      * @var string

@@ -62,7 +62,7 @@ class edgeList extends Model
     /**
      * @description The edge properties. The value is in the text format.
      *
-     * @example {\"bandWidth\":\"7810048\",\"internetIp\":\"47.57.13.255\",\"changeReason\":\"MODIFY_SPEC\",\"bindInstanceId\":\"i-j6chvo01tle7qfnhewr3\",\"bindType\":\"EIP_ECS\"}
+     * @example {\\"bandWidth\\":\\"7810048\\",\\"internetIp\\":\\"47.57.13.255\\",\\"changeReason\\":\\"MODIFY_SPEC\\",\\"bindInstanceId\\":\\"i-j6chvo01tle7qfnhewr3\\",\\"bindType\\":\\"EIP_ECS\\"}
      *
      * @var string
      */

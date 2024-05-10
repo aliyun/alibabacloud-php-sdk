@@ -48,6 +48,7 @@ class StartBaselineSecurityCheckRequest extends Model
      *   **check**
      *   **verify**
      *
+     * This parameter is required.
      * @example verify
      *
      * @var string

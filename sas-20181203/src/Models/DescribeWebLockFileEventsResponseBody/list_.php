@@ -133,7 +133,7 @@ class list_ extends Model
     /**
      * @description The file path.
      *
-     * @example D:\test-tamper-proofing\123.html
+     * @example D:\\test-tamper-proofing\\123.html
      *
      * @var string
      */
@@ -151,7 +151,7 @@ class list_ extends Model
     /**
      * @description The path to the process.
      *
-     * @example C:\Windows\explorer.exe
+     * @example C:\\Windows\\explorer.exe
      *
      * @var string
      */

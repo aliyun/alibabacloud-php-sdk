@@ -14,6 +14,7 @@ class OperateWebLockFileEventsRequest extends Model
      *   **1**: yes
      *   **0**: no
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -23,6 +24,7 @@ class OperateWebLockFileEventsRequest extends Model
     /**
      * @description The IDs of alert events.
      *
+     * This parameter is required.
      * @var int[]
      */
     public $eventIds;
@@ -36,6 +38,7 @@ class OperateWebLockFileEventsRequest extends Model
      *   **whitelist**: adds the alert events to the whitelist
      *   **rm_whitelist**: cancels adding the alert events to the whitelist
      *
+     * This parameter is required.
      * @example whitelist
      *
      * @var string

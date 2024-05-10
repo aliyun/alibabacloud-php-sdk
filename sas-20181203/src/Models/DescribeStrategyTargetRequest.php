@@ -11,6 +11,7 @@ class DescribeStrategyTargetRequest extends Model
     /**
      * @description The ID of the baseline check policy.
      *
+     * This parameter is required.
      * @example {"strategyId":8167126}
      *
      * @var string
@@ -29,6 +30,7 @@ class DescribeStrategyTargetRequest extends Model
     /**
      * @description The type of the policy. Set the value to hc_strategy, which indicates baseline check policies.
      *
+     * This parameter is required.
      * @example hc_strategy
      *
      * @var string

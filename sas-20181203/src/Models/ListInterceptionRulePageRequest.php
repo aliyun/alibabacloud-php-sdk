@@ -11,6 +11,7 @@ class ListInterceptionRulePageRequest extends Model
     /**
      * @description The ID of the container cluster.
      *
+     * This parameter is required.
      * @example cc41de13ab5474210bc0ce772a009****
      *
      * @var string
@@ -46,6 +47,7 @@ class ListInterceptionRulePageRequest extends Model
     /**
      * @description The number of the page to return.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -55,6 +57,7 @@ class ListInterceptionRulePageRequest extends Model
     /**
      * @description The number of entries to return on each page.
      *
+     * This parameter is required.
      * @example 50
      *
      * @var int

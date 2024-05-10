@@ -14,6 +14,7 @@ class DescribeSnapshotsRequest extends Model
      *   **1.0.0**
      *   **2.0.0**
      *
+     * This parameter is required.
      * @example 2.0.0
      *
      * @var string
@@ -72,6 +73,7 @@ class DescribeSnapshotsRequest extends Model
     /**
      * @description The number of entries to return on each page.
      *
+     * This parameter is required.
      * @example 20
      *
      * @var int

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class InstallCloudMonitorRequest extends Model
 {
     /**
-     * @description The AccessKey ID that is required to install the CloudMonitor agent. You can call the [DescribeMonitoringAgentAccessKey](~~114948~~) operation to query the AccessKey ID.
+     * @description The AccessKey ID that is required to install the CloudMonitor agent. You can call the [DescribeMonitoringAgentAccessKey](https://help.aliyun.com/document_detail/114948.html) operation to query the AccessKey ID.
      *
      * > This parameter is required only when you install the CloudMonitor agent on servers that are not deployed on Alibaba Cloud.
      * @example usY*****R_U
@@ -19,7 +19,7 @@ class InstallCloudMonitorRequest extends Model
     public $agentAccessKey;
 
     /**
-     * @description The AccessKey secret that is required to install the CloudMonitor agent. You can call the [DescribeMonitoringAgentAccessKey](~~114948~~) operation to query the AccessKey secret.
+     * @description The AccessKey secret that is required to install the CloudMonitor agent. You can call the [DescribeMonitoringAgentAccessKey](https://help.aliyun.com/document_detail/114948.html) operation to query the AccessKey secret.
      *
      * > This parameter is required only when you install the CloudMonitor agent on servers that are not deployed on Alibaba Cloud.
      * @example UCxF2R1sIO90XlU9****
@@ -29,8 +29,9 @@ class InstallCloudMonitorRequest extends Model
     public $agentSecretKey;
 
     /**
-     * @description The version of the CloudMonitor agent that you want to install on the servers. For more information about the latest version of the CloudMonitor agent, see [Overview](~~183431~~).
+     * @description The version of the CloudMonitor agent that you want to install on the servers. For more information about the latest version of the CloudMonitor agent, see [Overview](https://help.aliyun.com/document_detail/183431.html).
      *
+     * This parameter is required.
      * @example 3.5.6
      *
      * @var string

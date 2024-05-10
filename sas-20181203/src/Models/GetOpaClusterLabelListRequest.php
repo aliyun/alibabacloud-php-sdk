@@ -11,7 +11,7 @@ class GetOpaClusterLabelListRequest extends Model
     /**
      * @description The ID of the cluster to which the container belongs.
      *
-     * >  You can call the [DescribeGroupedContainerInstances](~~182997~~) operation to query the IDs of clusters.
+     * >  You can call the [DescribeGroupedContainerInstances](https://help.aliyun.com/document_detail/182997.html) operation to query the IDs of clusters.
      * @example c556c8133b5ad4378b7fc533ddbda****
      *
      * @var string

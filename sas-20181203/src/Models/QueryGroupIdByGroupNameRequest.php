@@ -11,6 +11,7 @@ class QueryGroupIdByGroupNameRequest extends Model
     /**
      * @description The name of the asset group.
      *
+     * This parameter is required.
      * @example TestGroupName
      *
      * @var string

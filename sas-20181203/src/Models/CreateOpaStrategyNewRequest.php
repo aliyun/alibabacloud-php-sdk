@@ -114,7 +114,7 @@ class CreateOpaStrategyNewRequest extends Model
     /**
      * @description The ID of the rule template.
      *
-     * >  You can call the [GetOpaStrategyTemplateSummary](~~2539952~~) operation to query the ID of the rule template.
+     * >  You can call the [GetOpaStrategyTemplateSummary](https://help.aliyun.com/document_detail/2539952.html) operation to query the ID of the rule template.
      * @example 109
      *
      * @var int

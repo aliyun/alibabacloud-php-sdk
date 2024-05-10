@@ -11,7 +11,7 @@ class AddVpcHoneyPotRequest extends Model
     /**
      * @description The ID of the virtual private cloud (VPC) in which you want to create a honeypot.
      *
-     * > You can call the [DescribeVpcList](~~DescribeVpcList~~) operation to obtain the VPC ID. The VPC ID is the value of the InstanceId parameter.
+     * This parameter is required.
      * @example vpc-p0w5fgkfsl5a6791q****
      *
      * @var string

@@ -38,6 +38,7 @@ class DescribeImageBaselineItemListRequest extends Model
     /**
      * @description The UUID of the image.
      *
+     * This parameter is required.
      * @example 0b5c7193300da2070220038718ad****
      *
      * @var string

@@ -11,7 +11,7 @@ class item extends Model
     /**
      * @description The ID of the baseline check item.
      *
-     * >  You can call the [GetOpaClusterBaseLineList](~~2539883~~) operation to query the ID of the baseline check item.
+     * >  You can call the [GetOpaClusterBaseLineList](https://help.aliyun.com/document_detail/2539883.html) operation to query the ID of the baseline check item.
      * @example hc.image.checklist.identify.hc_exploit_couchdb_linux.item
      *
      * @var string
@@ -21,7 +21,7 @@ class item extends Model
     /**
      * @description The name of the baseline check item.
      *
-     * >  You can call the [GetOpaClusterBaseLineList](~~2539883~~) operation to query the name of the baseline check item.
+     * >  You can call the [GetOpaClusterBaseLineList](https://help.aliyun.com/document_detail/2539883.html) operation to query the name of the baseline check item.
      * @example passwd
      *
      * @var string

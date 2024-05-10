@@ -21,7 +21,7 @@ class ModifyInterceptionRuleSwitchRequest extends Model
     /**
      * @description The IDs of the rules whose status you want to change. Separate multiple IDs with commas (,).
      *
-     * > You can call the [ListInterceptionRulePage](~~182997~~) operation to query the IDs of rules.
+     * > You can call the [ListInterceptionRulePage](https://help.aliyun.com/document_detail/182997.html) operation to query the IDs of rules.
      * @example 403287
      *
      * @var string

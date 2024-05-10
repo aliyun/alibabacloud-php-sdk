@@ -88,6 +88,7 @@ class DescribeAttackAnalysisDataRequest extends Model
     /**
      * @description The timestamp when the attack stops. Unit: seconds.
      *
+     * This parameter is required.
      * @example 1649040221
      *
      * @var int
@@ -119,7 +120,7 @@ class DescribeAttackAnalysisDataRequest extends Model
     /**
      * @description The timestamp at which the attack starts. By default, the statistics of the previous seven days are queried. Unit: seconds.
      *
-     * >  The start time that you specify must be within the previous 40 days.
+     * This parameter is required.
      * @example 1644027670
      *
      * @var int
@@ -137,6 +138,8 @@ class DescribeAttackAnalysisDataRequest extends Model
      *   **DETAILS**: attack details
      *
      * >  If the Type parameter is set to **DETAILS**, you must specify the CurrentPage and PageSize parameters.
+     *
+     * This parameter is required.
      * @example DETAILS
      *
      * @var string

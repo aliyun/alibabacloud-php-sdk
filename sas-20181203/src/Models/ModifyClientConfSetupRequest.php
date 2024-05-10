@@ -23,6 +23,7 @@ class ModifyClientConfSetupRequest extends Model
     /**
      * @description The type of the tag.
      *
+     * This parameter is required.
      * @example machineResource
      *
      * @var string
@@ -36,6 +37,7 @@ class ModifyClientConfSetupRequest extends Model
      *   advanced
      *   basic
      *
+     * This parameter is required.
      * @example major
      *
      * @var string

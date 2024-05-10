@@ -12,6 +12,8 @@ class CreateHoneypotRequest extends Model
      * @description The ID of the honeypot image.
      *
      * > You can call the [ListAvailableHoneypot](~~ListAvailableHoneypot~~) operation to query the IDs of images from the **HoneypotImageId** response parameter.
+     *
+     * This parameter is required.
      * @example sha256:ebc4c102ac407d53733c2373e8888a733ddce86f163ccbe7492ae1cbf26****
      *
      * @var string
@@ -22,6 +24,8 @@ class CreateHoneypotRequest extends Model
      * @description The name of the honeypot image.
      *
      * > You can call the [ListAvailableHoneypot](~~ListAvailableHoneypot~~) operation to query the names of images from the **HoneypotImageName** response parameter.
+     *
+     * This parameter is required.
      * @example HoneyPotImageName
      *
      * @var string
@@ -31,6 +35,7 @@ class CreateHoneypotRequest extends Model
     /**
      * @description The custom name of the honeypot.
      *
+     * This parameter is required.
      * @example ruoyi
      *
      * @var string
@@ -60,7 +65,7 @@ class CreateHoneypotRequest extends Model
      *   **false**: Disable
      *   **true**: Enable
      *
-     * @example {\"trojan_git\":\"close\",\"burp\":\"close\",\"portrait_option\":\"false\"}
+     * @example {\\"trojan_git\\":\\"close\\",\\"burp\\":\\"close\\",\\"portrait_option\\":\\"false\\"}
      *
      * @var string
      */
@@ -69,7 +74,7 @@ class CreateHoneypotRequest extends Model
     /**
      * @description The ID of the management node.
      *
-     * > You can call the [ListHoneypotNode](~~ListHoneypotNode~~) operation to query the IDs of management nodes.
+     * This parameter is required.
      * @example a882e590-b87b-45a6-87b9-d0a3e5a0****
      *
      * @var string

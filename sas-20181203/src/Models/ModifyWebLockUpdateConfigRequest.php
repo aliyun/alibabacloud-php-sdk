@@ -14,6 +14,7 @@ class ModifyWebLockUpdateConfigRequest extends Model
      *   **block**: Interception Mode
      *   **audit**: Alert Mode
      *
+     * This parameter is required.
      * @example block
      *
      * @var string
@@ -23,6 +24,7 @@ class ModifyWebLockUpdateConfigRequest extends Model
     /**
      * @description The directory for which you want to enable web tamper proofing.
      *
+     * This parameter is required.
      * @example /home/admin/tomcat
      *
      * @var string
@@ -77,7 +79,7 @@ class ModifyWebLockUpdateConfigRequest extends Model
     /**
      * @description The ID of the protected directory for which you want to change the status of web tamper proofing.
      *
-     * > You can call the [DescribeWebLockConfigList](~~DescribeWebLockConfigList~~) operation to query the IDs of protected directories.
+     * This parameter is required.
      * @example 312077
      *
      * @var int
@@ -132,12 +134,13 @@ class ModifyWebLockUpdateConfigRequest extends Model
     public $lang;
 
     /**
-     * @description The local path to the backup files of the protected directory.\
+     * @description The local path to the backup files of the protected directory.\\
      * The directory format of a Linux server is different from that of a Windows server. You must enter the directory in the required format based on your operating system. Examples:
      *
      *   Linux server: /usr/local/aegis/bak
-     *   Windows server: C:\Program Files (x86)\Alibaba\Aegis\bak
+     *   Windows server: C:\\Program Files (x86)\\Alibaba\\Aegis\\bak
      *
+     * This parameter is required.
      * @example /usr/local/backup
      *
      * @var string
@@ -168,7 +171,7 @@ class ModifyWebLockUpdateConfigRequest extends Model
     /**
      * @description The UUID of the server on which the protected directory is located.
      *
-     * > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+     * This parameter is required.
      * @example 4fe8e1cd-3c37-4851-b9de-124da32c****
      *
      * @var string

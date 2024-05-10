@@ -11,7 +11,7 @@ class DescribeAlarmEventDetailRequest extends Model
     /**
      * @description The unique identifier of the alert event.
      *
-     * > To query the details of an alert event, you must provide the unique identifier of the alert event. You can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to obtain the identifier.
+     * This parameter is required.
      * @example 9f62555666f177aa84ee1eaf465a****
      *
      * @var string
@@ -21,6 +21,7 @@ class DescribeAlarmEventDetailRequest extends Model
     /**
      * @description The ID of the request source. Set the value to **sas**.
      *
+     * This parameter is required.
      * @example sas
      *
      * @var string

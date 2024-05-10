@@ -11,6 +11,7 @@ class DescribeStrategyDetailRequest extends Model
     /**
      * @description The ID of the baseline check policy.
      *
+     * This parameter is required.
      * @example 123456
      *
      * @var string

@@ -32,7 +32,7 @@ class DescribeAssetDetailByUuidRequest extends Model
     /**
      * @description The UUID of the server to query.
      *
-     * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+     * This parameter is required.
      * @example 9e6cad93-a379-46fd-a701-9bbf02f4****
      *
      * @var string

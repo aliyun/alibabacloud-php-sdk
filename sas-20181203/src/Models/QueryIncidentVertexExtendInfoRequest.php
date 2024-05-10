@@ -24,6 +24,7 @@ class QueryIncidentVertexExtendInfoRequest extends Model
      *   **process_connect_ip:** A process connects to an IP address.
      *   **domain_trgger_alert:** A domain name triggers an alert.
      *
+     * This parameter is required.
      * @example process_connect_ip
      *
      * @var string
@@ -42,7 +43,7 @@ class QueryIncidentVertexExtendInfoRequest extends Model
     /**
      * @description The ID of the node that you want to query.
      *
-     * >  You can call the [QueryIncidentTracingDetail](~~QueryIncidentTracingDetail~~) operation to query the node ID.
+     * This parameter is required.
      * @example 29872354f741b1b044b8a9b4e2ab0535
      *
      * @var string
@@ -58,6 +59,7 @@ class QueryIncidentVertexExtendInfoRequest extends Model
      *   **ip**
      *   **domain**
      *
+     * This parameter is required.
      * @example process
      *
      * @var string

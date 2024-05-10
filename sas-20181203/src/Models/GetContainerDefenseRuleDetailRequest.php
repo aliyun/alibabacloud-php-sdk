@@ -11,7 +11,7 @@ class GetContainerDefenseRuleDetailRequest extends Model
     /**
      * @description The rule ID.
      *
-     * >  You can call the [ListContainerDefenseRule](~~2590599~~) operation to query the rule ID.
+     * >  You can call the [ListContainerDefenseRule](https://help.aliyun.com/document_detail/2590599.html) operation to query the rule ID.
      * @example 156
      *
      * @var int

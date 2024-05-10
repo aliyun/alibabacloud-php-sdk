@@ -23,6 +23,7 @@ class pathConfDTOList extends Model
      *   **block**
      *   **audit**
      *
+     * This parameter is required.
      * @example audit
      *
      * @var string
@@ -32,6 +33,7 @@ class pathConfDTOList extends Model
     /**
      * @description The path that is protected.
      *
+     * This parameter is required.
      * @example /test/home/
      *
      * @var string
@@ -71,6 +73,7 @@ class pathConfDTOList extends Model
      *   **0**: basic mode (whitelist)
      *   **1**: complex mode (blacklist)
      *
+     * This parameter is required.
      * @example 0
      *
      * @var int

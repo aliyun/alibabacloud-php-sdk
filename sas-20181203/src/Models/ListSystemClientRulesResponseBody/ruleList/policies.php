@@ -20,7 +20,7 @@ class policies extends Model
     /**
      * @description The name of the policy.
      *
-     * @example System self-starting task\*\*\*\*
+     * @example System self-starting task\\*\\*\\*\\*
      *
      * @var string
      */

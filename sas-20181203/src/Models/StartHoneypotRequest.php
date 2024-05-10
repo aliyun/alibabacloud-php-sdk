@@ -11,7 +11,7 @@ class StartHoneypotRequest extends Model
     /**
      * @description The honeypot ID.
      *
-     * >  You can call the [ListHoneypot](~~ListHoneypot~~) operation to obtain IDs of honeypots.
+     * This parameter is required.
      * @example dba7d44775be8e0e5888ee3b1a62554a93d2512247cabc38ddeac17a3b3f****
      *
      * @var string

@@ -11,7 +11,7 @@ class GetSuspiciousStatisticsRequest extends Model
     /**
      * @description The ID of the asset group. Separate multiple IDs with commas (,).
      *
-     * > You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query the IDs of asset groups.
+     * This parameter is required.
      * @example 9997897
      *
      * @var string

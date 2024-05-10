@@ -31,6 +31,7 @@ class QueryPreCheckDatabaseRequest extends Model
     /**
      * @description The region ID of the server that hosts the database.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

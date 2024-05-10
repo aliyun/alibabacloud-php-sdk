@@ -20,7 +20,7 @@ class UpdateHoneypotPresetRequest extends Model
     /**
      * @description The ID of the honeypot template.
      *
-     * > You can call the [ListHoneypotPreset](~~ListHoneypotPreset~~) operation to query the IDs of honeypot templates.
+     * This parameter is required.
      * @example f75eddce-e9d3-4a88-af95-b10b6f65xxxx
      *
      * @var string

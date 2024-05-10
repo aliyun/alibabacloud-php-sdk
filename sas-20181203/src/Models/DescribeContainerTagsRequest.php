@@ -30,6 +30,7 @@ class DescribeContainerTagsRequest extends Model
     /**
      * @description The number of the page to return. Default value: **1**.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -44,6 +45,7 @@ class DescribeContainerTagsRequest extends Model
      *   **image**: the image
      *   **tag**: the tag
      *
+     * This parameter is required.
      * @example namespace
      *
      * @var string
@@ -71,6 +73,7 @@ class DescribeContainerTagsRequest extends Model
     /**
      * @description The number of entries to return on each page. Default value: 200.
      *
+     * This parameter is required.
      * @example 200
      *
      * @var int

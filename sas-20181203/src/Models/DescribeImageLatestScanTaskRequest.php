@@ -11,6 +11,7 @@ class DescribeImageLatestScanTaskRequest extends Model
     /**
      * @description The digest value of the image.
      *
+     * This parameter is required.
      * @example 8f0fbdb41d3d1ade4ffdf21558443f4c03342010563bb8c43ccc09594d50****
      *
      * @var string

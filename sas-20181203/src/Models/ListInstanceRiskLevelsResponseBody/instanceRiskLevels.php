@@ -32,7 +32,7 @@ class instanceRiskLevels extends Model
     public $level;
 
     /**
-     * @description The UUID of the server for which you want to modify the defense rule. You can call the [DescribeCloudCenterInstances](~~141932~~) operation to query the UUIDs of servers.
+     * @description The UUID of the server for which you want to modify the defense rule. You can call the [DescribeCloudCenterInstances](https://help.aliyun.com/document_detail/141932.html) operation to query the UUIDs of servers.
      *
      * @example f2d6e901-1004-4ca8-9dae-53ec04a92765
      *

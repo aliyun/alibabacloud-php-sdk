@@ -11,7 +11,7 @@ class ModifySecurityEventMarkMissIndividuallyRequest extends Model
     /**
      * @description The alert handling rule that you want to delete.
      *
-     * @example [{\"field\":\"loginSourceIp\",\"operate\":\"contains\",\"eventType\":\"SIL_AI_ALERT\",\"eventName\":\"login_common_ip\",\"fieldValue\":\"10.12.XX.XX\",\"uuids\":\"\"}]
+     * @example [{\\"field\\":\\"loginSourceIp\\",\\"operate\\":\\"contains\\",\\"eventType\\":\\"SIL_AI_ALERT\\",\\"eventName\\":\\"login_common_ip\\",\\"fieldValue\\":\\"10.12.XX.XX\\",\\"uuids\\":\\"\\"}]
      *
      * @var string
      */
@@ -29,7 +29,7 @@ class ModifySecurityEventMarkMissIndividuallyRequest extends Model
     /**
      * @description The alert handling that you want to add.
      *
-     * @example [{\"field\":\"location\",\"operate\":\"contains\",\"eventType\":\"SIL_AI_ALERT\",\"eventName\":\"login_common_ip\",\"fieldValue\":\"xx\",\"uuids\":\"4296ee47-bf19-4fa4-a4a6-6bxxxxxxxxx\"}]
+     * @example [{\\"field\\":\\"location\\",\\"operate\\":\\"contains\\",\\"eventType\\":\\"SIL_AI_ALERT\\",\\"eventName\\":\\"login_common_ip\\",\\"fieldValue\\":\\"xx\\",\\"uuids\\":\\"4296ee47-bf19-4fa4-a4a6-6bxxxxxxxxx\\"}]
      *
      * @var string
      */

@@ -11,7 +11,7 @@ class SaveImageBaselineStrategyRequest extends Model
     /**
      * @description The baseline check items.
      *
-     * > You can call the [DescribeImageBaselineStrategy](~~DescribeImageBaselineStrategy~~) operation to query baseline check items.
+     * This parameter is required.
      * @example ak_leak
      *
      * @var string

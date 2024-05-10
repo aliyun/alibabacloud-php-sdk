@@ -55,7 +55,7 @@ class CreateAgentlessScanTaskRequest extends Model
     /**
      * @description The UUIDs of the assets on which you want to run the detection task.
      *
-     * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+     * This parameter is required.
      * @var string[]
      */
     public $uuidList;

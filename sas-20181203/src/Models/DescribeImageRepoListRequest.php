@@ -85,6 +85,7 @@ class DescribeImageRepoListRequest extends Model
      *
      *   **image_repo**: the ID of the image repository
      *
+     * This parameter is required.
      * @example image_repo
      *
      * @var string
@@ -96,6 +97,7 @@ class DescribeImageRepoListRequest extends Model
      *
      *   **image_repo**: image repository protection
      *
+     * This parameter is required.
      * @example image_repo
      *
      * @var string

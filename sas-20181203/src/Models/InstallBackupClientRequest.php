@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class InstallBackupClientRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 2.0.0
      *
      * @var string

@@ -11,6 +11,7 @@ class AddPrivateRegistryRequest extends Model
     /**
      * @description The domain name of the image repository.
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string
@@ -35,6 +36,7 @@ class AddPrivateRegistryRequest extends Model
      *   **1**: Internet
      *   **2**: virtual private cloud (VPC)
      *
+     * This parameter is required.
      * @example 2
      *
      * @var int
@@ -44,6 +46,7 @@ class AddPrivateRegistryRequest extends Model
     /**
      * @description The password that is used to log on to the image repository.
      *
+     * This parameter is required.
      * @example ******
      *
      * @var string
@@ -65,6 +68,7 @@ class AddPrivateRegistryRequest extends Model
      *   **1**: HTTP
      *   **2**: HTTPS
      *
+     * This parameter is required.
      * @example 2
      *
      * @var int
@@ -74,7 +78,8 @@ class AddPrivateRegistryRequest extends Model
     /**
      * @description The IP address of the image repository.
      *
-     * @example 114.55.**.**
+     * This parameter is required.
+     * @example 114.55.\*\*.**
      *
      * @var string
      */
@@ -83,7 +88,7 @@ class AddPrivateRegistryRequest extends Model
     /**
      * @description The region ID.
      *
-     * >  You can call the [ListImageRegistryRegion](~~ListImageRegistryRegion~~) operation to query the IDs of supported regions.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -96,6 +101,7 @@ class AddPrivateRegistryRequest extends Model
      *   **harbor**
      *   **quay**
      *
+     * This parameter is required.
      * @example harbor
      *
      * @var string
@@ -108,6 +114,7 @@ class AddPrivateRegistryRequest extends Model
      *   **V1**
      *   **V2**
      *
+     * This parameter is required.
      * @example V2
      *
      * @var string
@@ -126,6 +133,7 @@ class AddPrivateRegistryRequest extends Model
     /**
      * @description The username that is used to log on to the image repository.
      *
+     * This parameter is required.
      * @example xxxxx
      *
      * @var string

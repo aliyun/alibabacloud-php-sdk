@@ -25,6 +25,7 @@ class DescribeCommonTargetResultListRequest extends Model
      *   **alidetect**: installation scope of local file detection
      *   **alidetect-scan-enable**: detection scope of local file detection
      *
+     * This parameter is required.
      * @example webshell_timescan
      *
      * @var string

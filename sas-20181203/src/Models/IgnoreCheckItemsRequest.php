@@ -61,6 +61,7 @@ class IgnoreCheckItemsRequest extends Model
      *  **1**: adds the risk item to the whitelist
      *  **2**: removes the risk item from the whitelist
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

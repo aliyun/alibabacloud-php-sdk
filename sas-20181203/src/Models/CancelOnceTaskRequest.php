@@ -11,7 +11,7 @@ class CancelOnceTaskRequest extends Model
     /**
      * @description The ID of the task.
      *
-     * >  You can call the [GenerateOnceTask](~~GenerateOnceTask~~) operation to query the IDs of tasks.
+     * This parameter is required.
      * @example ec9c0d88f36cc27765a98c554ee2****
      *
      * @var string

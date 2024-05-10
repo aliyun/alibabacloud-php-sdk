@@ -23,6 +23,7 @@ class DescribeVulDetailsRequest extends Model
      *   **zh**: Chinese
      *   **en**: English
      *
+     * This parameter is required.
      * @example zh
      *
      * @var string
@@ -32,7 +33,7 @@ class DescribeVulDetailsRequest extends Model
     /**
      * @description The name of the vulnerability.
      *
-     * > You can call the [DescribeGroupedVul](~~DescribeGroupedVul~~) or [DescribeVulList](~~DescribeVulList~~) operation to query the names of vulnerabilities.
+     * This parameter is required.
      * @example SCA:ACSV-2020-052801
      *
      * @var string
@@ -59,6 +60,7 @@ class DescribeVulDetailsRequest extends Model
      *   **emg**: urgent vulnerability
      *   **sca**: vulnerability that is detected based on software component analysis
      *
+     * This parameter is required.
      * @example sca
      *
      * @var string

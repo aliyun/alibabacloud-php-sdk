@@ -14,6 +14,7 @@ class AddClientUserDefineRuleRequest extends Model
      *   **0**: allow
      *   **1**: block
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -68,6 +69,7 @@ class AddClientUserDefineRuleRequest extends Model
     /**
      * @description The name of the custom defense rule.
      *
+     * This parameter is required.
      * @example Rule 1
      *
      * @var string
@@ -170,6 +172,7 @@ class AddClientUserDefineRuleRequest extends Model
      *   **6**: Dynamic-link Library Loading
      *   **7**: File Renaming
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

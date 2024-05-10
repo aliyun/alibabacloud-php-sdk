@@ -23,6 +23,7 @@ class ModifyEmgVulSubmitRequest extends Model
     /**
      * @description The name of the vulnerability.
      *
+     * This parameter is required.
      * @example scan:ASCV-2019-032401
      *
      * @var string
@@ -35,6 +36,7 @@ class ModifyEmgVulSubmitRequest extends Model
      *   **yes**
      *   **no**
      *
+     * This parameter is required.
      * @example yes
      *
      * @var string

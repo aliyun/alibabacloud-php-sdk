@@ -29,9 +29,9 @@ class DescribeCycleTaskListRequest extends Model
     /**
      * @description The name of the task. Valid values:
      *
-     *   **VIRUS\_VUL\_SCHEDULE_SCAN**: virus scan task
+     *   **VIRUS_VUL_SCHEDULE_SCAN**: virus scan task
      *   **IMAGE_SCAN**: image scan task
-     *   **EMG\_VUL\_SCHEDULE_SCAN**: urgent vulnerability scan task
+     *   **EMG_VUL_SCHEDULE_SCAN**: urgent vulnerability scan task
      *
      * @example IMAGE_SCAN
      *
@@ -42,10 +42,11 @@ class DescribeCycleTaskListRequest extends Model
     /**
      * @description The type of the task. Valid values:
      *
-     *   **VIRUS\_VUL\_SCHEDULE_SCAN**: virus scan task
+     *   **VIRUS_VUL_SCHEDULE_SCAN**: virus scan task
      *   **IMAGE_SCAN**: image scan task
-     *   **EMG\_VUL\_SCHEDULE_SCAN**: urgent vulnerability scan task
+     *   **EMG_VUL_SCHEDULE_SCAN**: urgent vulnerability scan task
      *
+     * This parameter is required.
      * @example IMAGE_SCAN
      *
      * @var string

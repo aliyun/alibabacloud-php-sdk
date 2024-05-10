@@ -23,6 +23,7 @@ class DeleteContainerPluginRuleRequest extends Model
     /**
      * @description The ID of the rule. You can call the addContainerWebDefenseRule operation to query the ID.
      *
+     * This parameter is required.
      * @example 200022
      *
      * @var int

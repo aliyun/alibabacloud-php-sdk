@@ -21,6 +21,7 @@ class DescribePropertyScheduleConfigRequest extends Model
      *   **scheduler_lkm_period**: kernel module
      *   **scheduler_sca_proxy_period**: website
      *
+     * This parameter is required.
      * @example scheduler_autorun_period
      *
      * @var string

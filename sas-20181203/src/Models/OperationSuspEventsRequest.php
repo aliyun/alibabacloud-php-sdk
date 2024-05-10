@@ -27,6 +27,7 @@ class OperationSuspEventsRequest extends Model
      *   **rm_mark_mis_info**: cancels false positives by removing the alerts from the whitelist.
      *   **offline_handled**: marks the alerts as handled.
      *
+     * This parameter is required.
      * @example deal
      *
      * @var string
@@ -58,7 +59,7 @@ class OperationSuspEventsRequest extends Model
     /**
      * @description The IDs of alert events.
      *
-     * > You can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to obtain the IDs of alert events from the SecurityEventIds response parameter.
+     * This parameter is required.
      * @example 290852
      *
      * @var string

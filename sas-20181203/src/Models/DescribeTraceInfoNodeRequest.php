@@ -21,6 +21,7 @@ class DescribeTraceInfoNodeRequest extends Model
     /**
      * @description The ID of the request source. Set the value to sas.
      *
+     * This parameter is required.
      * @example sas
      *
      * @var string
@@ -60,6 +61,7 @@ class DescribeTraceInfoNodeRequest extends Model
     /**
      * @description The type of the vertex. You can call the [DescribeTraceInfoDetail](~~DescribeTraceInfoDetail~~) operation to query the types of vertexes.
      *
+     * This parameter is required.
      * @example SAS_ASSET
      *
      * @var string
@@ -69,6 +71,7 @@ class DescribeTraceInfoNodeRequest extends Model
     /**
      * @description The UUID of the server. You can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to query the UUIDs of servers.
      *
+     * This parameter is required.
      * @example 6f346617-eef9-45e6-b6d1-946xxxxxxxx
      *
      * @var string
@@ -78,6 +81,7 @@ class DescribeTraceInfoNodeRequest extends Model
     /**
      * @description The ID of the vertex.
      *
+     * This parameter is required.
      * @example 03da4e2350a3eb50cd25a18cexxxxxxx
      *
      * @var string

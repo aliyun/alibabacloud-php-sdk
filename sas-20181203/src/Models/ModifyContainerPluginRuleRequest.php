@@ -35,6 +35,7 @@ class ModifyContainerPluginRuleRequest extends Model
     /**
      * @description The ID of the rule.
      *
+     * This parameter is required.
      * @example 100012
      *
      * @var int

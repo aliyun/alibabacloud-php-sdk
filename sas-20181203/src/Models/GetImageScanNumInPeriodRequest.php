@@ -11,6 +11,7 @@ class GetImageScanNumInPeriodRequest extends Model
     /**
      * @description The number of days.
      *
+     * This parameter is required.
      * @example 7
      *
      * @var string

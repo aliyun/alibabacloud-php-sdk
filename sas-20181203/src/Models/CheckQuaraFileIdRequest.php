@@ -11,7 +11,7 @@ class CheckQuaraFileIdRequest extends Model
     /**
      * @description The IDs of quarantined files that you want to check.
      *
-     * >  You can call the [DescribeSuspEventQuaraFiles](~~DescribeSuspEventQuaraFiles~~) operation to query the IDs of quarantined files.
+     * This parameter is required.
      * @var string[]
      */
     public $quaraFileIds;
@@ -19,7 +19,7 @@ class CheckQuaraFileIdRequest extends Model
     /**
      * @description The UUID of the server on which you want to check quarantined files.
      *
-     * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+     * This parameter is required.
      * @example 4fe8e1cd-3c37-4851-b9de-124da32c****
      *
      * @var string

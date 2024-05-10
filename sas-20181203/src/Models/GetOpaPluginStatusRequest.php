@@ -11,7 +11,7 @@ class GetOpaPluginStatusRequest extends Model
     /**
      * @description The cluster IDs.
      *
-     * >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of clusters.
+     * This parameter is required.
      * @var string[]
      */
     public $clusterIds;

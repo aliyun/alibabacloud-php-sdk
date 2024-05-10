@@ -14,6 +14,7 @@ class ModifyClientUserDefineRuleRequest extends Model
      *   **0**: allow
      *   **1**: block
      *
+     * This parameter is required.
      * @example 0
      *
      * @var int
@@ -59,7 +60,7 @@ class ModifyClientUserDefineRuleRequest extends Model
     /**
      * @description The ID of the rule.
      *
-     * >  You can call the [ListClientUserDefineRules](~~ListClientUserDefineRules~~) operation to query the IDs of rules.
+     * This parameter is required.
      * @example 210****
      *
      * @var int
@@ -78,7 +79,7 @@ class ModifyClientUserDefineRuleRequest extends Model
     /**
      * @description The name of the rule.
      *
-     * @example Rule\*\*\*\*
+     * @example Rule\\*\\*\\*\\*
      *
      * @var string
      */

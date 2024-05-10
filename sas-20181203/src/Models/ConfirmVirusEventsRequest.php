@@ -14,6 +14,7 @@ class ConfirmVirusEventsRequest extends Model
      *   **1**: yes
      *   **0**: no
      *
+     * This parameter is required.
      * @example 0
      *
      * @var int
@@ -25,9 +26,10 @@ class ConfirmVirusEventsRequest extends Model
      *
      *   **default**: performs in-depth detection and removal
      *   **ignore**: ignores the alert event
-     *   **advance\_mark\_mis_info**: adds the alert events to the whitelist
+     *   **advance_mark_mis_info**: adds the alert events to the whitelist
      *   **manual_handled**: marks the alert events as manually handled
      *
+     * This parameter is required.
      * @example default
      *
      * @var string
@@ -37,7 +39,7 @@ class ConfirmVirusEventsRequest extends Model
     /**
      * @description The server on which you want to perform the alert events.
      *
-     * @example [{\"type\":\"machine\",\"list\":[\"3aedba3d-bd4d-4dfb-bb0d-xxxxxxxxxxxx\"]}]
+     * @example [{\\"type\\":\\"machine\\",\\"list\\":[\\"3aedba3d-bd4d-4dfb-bb0d-xxxxxxxxxxxx\\"]}]
      *
      * @var string
      */

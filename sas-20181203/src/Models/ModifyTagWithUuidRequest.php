@@ -33,7 +33,7 @@ class ModifyTagWithUuidRequest extends Model
     /**
      * @description The names of the tags that you want to manage. Separate multiple tag names with commas (,).
      *
-     * >  You can call the [DescribeGroupedTags](~~DescribeGroupedTags~~) operation to query the names of tags.
+     * This parameter is required.
      * @example ac,ad
      *
      * @var string

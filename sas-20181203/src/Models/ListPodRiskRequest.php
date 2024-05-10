@@ -20,7 +20,7 @@ class ListPodRiskRequest extends Model
     /**
      * @description The ID of the container cluster.
      *
-     * > You can call the [DescribeGroupedContainerInstances](~~182997~~) operation to query the IDs of container clusters.
+     * > You can call the [DescribeGroupedContainerInstances](https://help.aliyun.com/document_detail/182997.html) operation to query the IDs of container clusters.
      * @example c314aa5b2f208461dad821cdfed82****
      *
      * @var string

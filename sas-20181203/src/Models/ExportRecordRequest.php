@@ -42,6 +42,7 @@ class ExportRecordRequest extends Model
      *   **attack**: the list of alert events for attack analysis
      *   **accessKey**: the list of alerts that are generated for AccessKey pair leaks
      *
+     * This parameter is required.
      * @example database
      *
      * @var string

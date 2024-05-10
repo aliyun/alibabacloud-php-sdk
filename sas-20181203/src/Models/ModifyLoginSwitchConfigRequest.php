@@ -11,10 +11,11 @@ class ModifyLoginSwitchConfigRequest extends Model
     /**
      * @description The type of the logon security settings that you want to enable or disable. Valid values:
      *
-     *   **login\_common_ip**: unapproved logon IP addresses
-     *   **login\_common_time**: unapproved logon time ranges
-     *   **login\_common_account**: unapproved logon accounts
+     *   **login_common_ip**: unapproved logon IP addresses
+     *   **login_common_time**: unapproved logon time ranges
+     *   **login_common_account**: unapproved logon accounts
      *
+     * This parameter is required.
      * @example login_common_account
      *
      * @var string
@@ -27,6 +28,7 @@ class ModifyLoginSwitchConfigRequest extends Model
      *   **0**: no
      *   **1**: yes
      *
+     * This parameter is required.
      * @example 0
      *
      * @var int

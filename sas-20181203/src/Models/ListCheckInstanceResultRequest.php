@@ -11,6 +11,7 @@ class ListCheckInstanceResultRequest extends Model
     /**
      * @description The ID of the check item.
      *
+     * This parameter is required.
      * @example 23
      *
      * @var int

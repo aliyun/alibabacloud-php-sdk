@@ -44,7 +44,7 @@ class AdvanceSecurityEventOperationsRequest extends Model
      *   Trusted exception
      *   Others
      *
-     * For more information about alert types, see [Alerts](~~68388~~).
+     * For more information about alert types, see [Alerts](https://help.aliyun.com/document_detail/68388.html).
      * @example Malicious script
      *
      * @var string

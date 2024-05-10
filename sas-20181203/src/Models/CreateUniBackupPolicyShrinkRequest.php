@@ -45,6 +45,7 @@ class CreateUniBackupPolicyShrinkRequest extends Model
      *   **ORACLE**
      *   **MSSQL**
      *
+     * This parameter is required.
      * @example MYSQL
      *
      * @var string
@@ -59,6 +60,7 @@ class CreateUniBackupPolicyShrinkRequest extends Model
      *   **type**: the unit of the interval.
      *   **days**: the days of a week on which a backup task is performed.
      *
+     * This parameter is required.
      * @example {"days":[4],"interval":1,"planType":"weekly","startTime":"22:00:00"}
      *
      * @var string
@@ -73,6 +75,7 @@ class CreateUniBackupPolicyShrinkRequest extends Model
      *   **type**: the unit of the interval.
      *   **days**: the days of a week on which a backup task is performed.
      *
+     * This parameter is required.
      * @example {"interval":1,"planType":"daily","startTime":"23:30:00"}
      *
      * @var string
@@ -82,7 +85,7 @@ class CreateUniBackupPolicyShrinkRequest extends Model
     /**
      * @description The ID of the Elastic Compute Service (ECS) instance.
      *
-     * >  You can call the [DescribeUniBackupDatabase](~~DescribeUniBackupDatabase~~) operation to query the IDs of ECS instances.
+     * This parameter is required.
      * @example i-bp1fu4aqltf1huhc****
      *
      * @var string
@@ -92,6 +95,7 @@ class CreateUniBackupPolicyShrinkRequest extends Model
     /**
      * @description The name of the anti-ransomware policy.
      *
+     * This parameter is required.
      * @example mysql-policy
      *
      * @var string
@@ -101,6 +105,7 @@ class CreateUniBackupPolicyShrinkRequest extends Model
     /**
      * @description The retention period of backup data.
      *
+     * This parameter is required.
      * @example 7
      *
      * @var int
@@ -110,6 +115,7 @@ class CreateUniBackupPolicyShrinkRequest extends Model
     /**
      * @description The maximum network bandwidth that is allowed during data backup. Unit: bytes.
      *
+     * This parameter is required.
      * @example 5242880
      *
      * @var int
@@ -119,6 +125,7 @@ class CreateUniBackupPolicyShrinkRequest extends Model
     /**
      * @description The region in which the server resides.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -128,7 +135,7 @@ class CreateUniBackupPolicyShrinkRequest extends Model
     /**
      * @description The UUID of the server whose data is backed up based on the anti-ransomware policy.
      *
-     * >  You can call the [DescribeCloudCenterInstances](~~141932~~) operation to query the UUIDs of servers.
+     * >  You can call the [DescribeCloudCenterInstances](https://help.aliyun.com/document_detail/141932.html) operation to query the UUIDs of servers.
      * @example 045cad48-eb08-4047-a70c-713aec7b****
      *
      * @var string

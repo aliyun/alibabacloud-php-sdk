@@ -32,7 +32,7 @@ class DescribeAgentInstallStatusRequest extends Model
     /**
      * @description The UUIDs of servers. Separate multiple UUIDs with commas (,).
      *
-     * > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+     * This parameter is required.
      * @example inet-eae014a7-16c4-4d4e-9f03-5208f4dc****,inet-eae047da-1e5a-41ce-828d-47606e9b****
      *
      * @var string

@@ -11,6 +11,7 @@ class DescribeOnceTaskLeafRecordPageRequest extends Model
     /**
      * @description The number of the page to return.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -29,6 +30,7 @@ class DescribeOnceTaskLeafRecordPageRequest extends Model
     /**
      * @description The number of entries to return on each page. Default value: 20
      *
+     * This parameter is required.
      * @example 20
      *
      * @var int
@@ -38,6 +40,7 @@ class DescribeOnceTaskLeafRecordPageRequest extends Model
     /**
      * @description Specifies whether extension information is associated.
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -84,6 +87,7 @@ class DescribeOnceTaskLeafRecordPageRequest extends Model
      *   **IMAGE_SCAN**: image scan task
      *   **IMAGE_REGISTRY_PULL**: image asset synchronization task
      *
+     * This parameter is required.
      * @example CLIENT_PROBLEM_CHECK
      *
      * @var string

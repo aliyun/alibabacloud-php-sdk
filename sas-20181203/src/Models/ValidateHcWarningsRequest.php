@@ -11,7 +11,7 @@ class ValidateHcWarningsRequest extends Model
     /**
      * @description The IDs of the check items. Separate multiple IDs with commas (,).
      *
-     * > You can call the [DescribeCheckWarningSummary](~~116179~~) operation to query the IDs of check items.
+     * > You can call the [DescribeCheckWarningSummary](https://help.aliyun.com/document_detail/116179.html) operation to query the IDs of check items.
      * @example 695,234
      *
      * @var string
@@ -31,7 +31,7 @@ class ValidateHcWarningsRequest extends Model
     /**
      * @description The UUIDs of the servers on which you want to verify the risk items. Separate multiple UUIDs with commas (,).
      *
-     * > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+     * This parameter is required.
      * @example 78645c8e-2e89-441b-8eb,a9622a6b-adb5-4dd3-929e,0136460a-1cb5-44e8-****
      *
      * @var string

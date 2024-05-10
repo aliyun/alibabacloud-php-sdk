@@ -28,6 +28,7 @@ class DescribeSecurityEventOperationsRequest extends Model
     /**
      * @description The ID of the alert event that you want to handle.
      *
+     * This parameter is required.
      * @example 61352054
      *
      * @var int

@@ -22,6 +22,7 @@ class DescribeClusterInfoListRequest extends Model
      *
      *   **Cluster**: the ID of the cluster
      *
+     * This parameter is required.
      * @example Cluster
      *
      * @var string
@@ -34,6 +35,7 @@ class DescribeClusterInfoListRequest extends Model
      *   **containerNetwork**: container network
      *   **interceptionSwitch**: cluster microsegmentation
      *
+     * This parameter is required.
      * @example containerNetwork
      *
      * @var string

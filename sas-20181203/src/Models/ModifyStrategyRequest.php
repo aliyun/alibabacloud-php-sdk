@@ -14,6 +14,7 @@ class ModifyStrategyRequest extends Model
      *   **custom**: a custom baseline check policy
      *   **common**: a standard baseline check policy
      *
+     * This parameter is required.
      * @example common
      *
      * @var string
@@ -28,6 +29,7 @@ class ModifyStrategyRequest extends Model
      *   **7**: every 8 days
      *   **30**: every 31 days
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -52,6 +54,7 @@ class ModifyStrategyRequest extends Model
     /**
      * @description The time when the baseline check based on the baseline check policy ends. Specify the time in the hh:mm:ss format.
      *
+     * This parameter is required.
      * @example 05:00:00
      *
      * @var string
@@ -70,6 +73,7 @@ class ModifyStrategyRequest extends Model
     /**
      * @description The new name of the baseline check policy.
      *
+     * This parameter is required.
      * @example testStrategy
      *
      * @var string
@@ -103,6 +107,7 @@ class ModifyStrategyRequest extends Model
     /**
      * @description The subtype of the baselines. You can call the [DescribeRiskType](~~DescribeRiskType~~) operation to query the subtypes of baselines.
      *
+     * This parameter is required.
      * @example hc_exploit_redis
      *
      * @var string
@@ -121,6 +126,7 @@ class ModifyStrategyRequest extends Model
     /**
      * @description The time when the baseline check based on the baseline check policy starts. Specify the time in the hh:mm:ss format.
      *
+     * This parameter is required.
      * @example 00:01:00
      *
      * @var string
@@ -133,6 +139,7 @@ class ModifyStrategyRequest extends Model
      *   **groupId**: asset groups
      *   **uuid**: assets
      *
+     * This parameter is required.
      * @example groupId
      *
      * @var string

@@ -41,7 +41,7 @@ class securityEventsResponse extends Model
      *   Image Scan
      *   Trusted exception
      *
-     * For more information about alert types, see [Overview](~~68388~~).
+     * For more information about alert types, see [Overview](https://help.aliyun.com/document_detail/68388.html).
      * @example Malicious Software
      *
      * @var string

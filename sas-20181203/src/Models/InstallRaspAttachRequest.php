@@ -11,6 +11,7 @@ class InstallRaspAttachRequest extends Model
     /**
      * @description The application group ID.
      *
+     * This parameter is required.
      * @example 64b8b994563c306b4fedxxxx
      *
      * @var string

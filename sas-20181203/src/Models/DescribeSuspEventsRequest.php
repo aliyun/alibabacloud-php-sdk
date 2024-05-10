@@ -309,7 +309,7 @@ class DescribeSuspEventsRequest extends Model
     public $status;
 
     /**
-     * @description The tactic ID of ATT\&CK.
+     * @description The tactic ID of ATT\\&CK.
      *
      * @example TA0001
      *

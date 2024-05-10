@@ -15,6 +15,7 @@ class StartPreCheckDatabaseRequest extends Model
      *   **MSSQL**
      *   **Oracle**
      *
+     * This parameter is required.
      * @example MYSQL
      *
      * @var string
@@ -24,7 +25,7 @@ class StartPreCheckDatabaseRequest extends Model
     /**
      * @description The UUID of the agent that is used to back up the data of the database.
      *
-     * > You can call the [DescribeUniBackupDatabase](~~DescribeUniBackupDatabase~~) operation to query the UUID.
+     * This parameter is required.
      * @example ec1c0ba21d2911ed800000163e0e****
      *
      * @var string
@@ -34,6 +35,7 @@ class StartPreCheckDatabaseRequest extends Model
     /**
      * @description The region ID of the server that hosts the database.
      *
+     * This parameter is required.
      * @example cn-hongkong
      *
      * @var string

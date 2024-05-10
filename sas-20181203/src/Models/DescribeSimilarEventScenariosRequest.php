@@ -14,6 +14,8 @@ class DescribeSimilarEventScenariosRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 12321
      *
      * @var int

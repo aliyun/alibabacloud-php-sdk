@@ -11,7 +11,7 @@ class OperateSwitchStatusRequest extends Model
     /**
      * @description The rule ID.
      *
-     * >  You can call the [ListContainerDefenseRule](~~2590599~~) operation to query the rule ID.
+     * This parameter is required.
      * @example 900001
      *
      * @var int
@@ -22,6 +22,8 @@ class OperateSwitchStatusRequest extends Model
      * @description The rule status for container tamper-proofing. Valid values:
      * - **on**
      * - **off**
+     *
+     * This parameter is required.
      * @example on
      *
      * @var string

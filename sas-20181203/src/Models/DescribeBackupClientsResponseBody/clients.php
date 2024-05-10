@@ -27,7 +27,7 @@ class clients extends Model
      *   **UNINSTALLING**: The agent is being uninstalled.
      *   **NOT_INSTALLED**: The agent is not installed.
      *   **ACTIVATED**: The agent is enabled.
-     *   **CLIENT\_CONNECTION_ERROR**: A connection error occurs on the agent.
+     *   **CLIENT_CONNECTION_ERROR**: A connection error occurs on the agent.
      *
      * @example ONLINE
      *

@@ -26,6 +26,11 @@ class checks extends Model
     public $checkPolicies;
 
     /**
+     * @var int
+     */
+    public $checkSaleType;
+
+    /**
      * @description The name of the check item.
      *
      * @example OSS-PublicReadOpenManifestFileWithoutEncryption
@@ -185,6 +190,7 @@ class checks extends Model
     protected $_name = [
         'checkId'         => 'CheckId',
         'checkPolicies'   => 'CheckPolicies',
+        'checkSaleType'   => 'CheckSaleType',
         'checkShowName'   => 'CheckShowName',
         'instanceSubType' => 'InstanceSubType',
         'instanceType'    => 'InstanceType',
@@ -216,6 +222,9 @@ class checks extends Model
                     $res['CheckPolicies'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->checkSaleType) {
+            $res['CheckSaleType'] = $this->checkSaleType;
         }
         if (null !== $this->checkShowName) {
             $res['CheckShowName'] = $this->checkShowName;
@@ -273,6 +282,9 @@ class checks extends Model
                     $model->checkPolicies[$n++] = null !== $item ? checkPolicies::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['CheckSaleType'])) {
+            $model->checkSaleType = $map['CheckSaleType'];
         }
         if (isset($map['CheckShowName'])) {
             $model->checkShowName = $map['CheckShowName'];

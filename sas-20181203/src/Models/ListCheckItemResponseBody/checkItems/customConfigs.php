@@ -38,7 +38,7 @@ class customConfigs extends Model
     /**
      * @description The type of the check item. The value is a JSON string.
      *
-     * @example {\"type\":\"LIST\",\"range\":[1,512],\"listType\":{\"type\":\"STRING\",\"range\":[0,22]}}
+     * @example {\\"type\\":\\"LIST\\",\\"range\\":[1,512],\\"listType\\":{\\"type\\":\\"STRING\\",\\"range\\":[0,22]}}
      *
      * @var string
      */

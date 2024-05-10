@@ -11,7 +11,7 @@ class DescribeAlarmEventStackInfoRequest extends Model
     /**
      * @description The name of the event.
      *
-     * >  You can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to query the names of events.
+     * This parameter is required.
      * @example Mining program
      *
      * @var string
@@ -52,6 +52,7 @@ class DescribeAlarmEventStackInfoRequest extends Model
     /**
      * @description The ID of the alert event.
      *
+     * This parameter is required.
      * @example 1fbe8d16727f61d1478a674d6fa0****
      *
      * @var string
@@ -61,7 +62,7 @@ class DescribeAlarmEventStackInfoRequest extends Model
     /**
      * @description The UUID of the server to query.
      *
-     * >  You can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to query the UUIDs of servers.
+     * This parameter is required.
      * @example 18b7336e-d469-473b-af83-8e5420f9****
      *
      * @var string

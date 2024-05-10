@@ -20,6 +20,7 @@ class ListObjectScanEventRequest extends Model
     /**
      * @description The page number.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -68,6 +69,7 @@ class ListObjectScanEventRequest extends Model
     /**
      * @description The number of entries per page.
      *
+     * This parameter is required.
      * @example 20
      *
      * @var int

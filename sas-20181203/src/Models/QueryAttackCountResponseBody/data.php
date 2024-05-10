@@ -18,7 +18,7 @@ class data extends Model
     public $eventCount;
 
     /**
-     * @description The stage ID of the ATT\&CK attack.
+     * @description The stage ID of the ATT\\&CK attack.
      *
      * @example TA0043
      *
@@ -27,7 +27,7 @@ class data extends Model
     public $tacticId;
 
     /**
-     * @description The type of stage of the ATT\&CK attack.
+     * @description The type of stage of the ATT\\&CK attack.
      *
      * @example Data collection
      *

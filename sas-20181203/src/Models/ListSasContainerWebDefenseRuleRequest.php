@@ -20,7 +20,7 @@ class ListSasContainerWebDefenseRuleRequest extends Model
      *   **OR**: The search conditions use a logical **OR**.
      *   **AND**: The search conditions use a logical **AND**.
      *
-     * @example [{\"name\":\"ruleName\",\"value\":\"test-1818\",\"logicalExp\":\"AND\"}]
+     * @example [{\\"name\\":\\"ruleName\\",\\"value\\":\\"test-1818\\",\\"logicalExp\\":\\"AND\\"}]
      *
      * @var string
      */
