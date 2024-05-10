@@ -23,6 +23,8 @@ class AlertQuery extends Model
     public $dashboardId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example now
      *
      * @var string
@@ -37,6 +39,8 @@ class AlertQuery extends Model
     public $powerSqlMode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example projectExample
      *
      * @var string
@@ -44,6 +48,8 @@ class AlertQuery extends Model
     public $project;
 
     /**
+     * @description This parameter is required.
+     *
      * @example * | select *
      *
      * @var string
@@ -51,6 +57,8 @@ class AlertQuery extends Model
     public $query;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -63,6 +71,8 @@ class AlertQuery extends Model
     public $roleArn;
 
     /**
+     * @description This parameter is required.
+     *
      * @example -5m
      *
      * @var string
@@ -70,6 +80,8 @@ class AlertQuery extends Model
     public $start;
 
     /**
+     * @description This parameter is required.
+     *
      * @example store Example
      *
      * @var string
@@ -77,6 +89,8 @@ class AlertQuery extends Model
     public $store;
 
     /**
+     * @description This parameter is required.
+     *
      * @example log
      *
      * @var string
@@ -84,6 +98,8 @@ class AlertQuery extends Model
     public $storeType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Relative
      *
      * @var string

@@ -54,7 +54,7 @@ class CreateLogStoreRequest extends Model
     /**
      * @description The retention period of data in the hot storage tier of the Logstore. Unit: days. You can specify a value that ranges from 30 to the value of ttl.
      *
-     * Hot data that is stored for longer than the period specified by hot_ttl is converted to cold data. For more information, see [Enable hot and cold-tiered storage for a Logstore](~~308645~~).
+     * Hot data that is stored for longer than the period specified by hot_ttl is converted to cold data. For more information, see [Enable hot and cold-tiered storage for a Logstore](https://help.aliyun.com/document_detail/308645.html).
      * @example 60
      *
      * @var int
@@ -70,10 +70,11 @@ class CreateLogStoreRequest extends Model
      * @description The name of the Logstore. The name must meet the following requirements:
      *
      *   The name must be unique in a project.
-     *   The name can contain only lowercase letters, digits, hyphens (-), and underscores (\_).
+     *   The name can contain only lowercase letters, digits, hyphens (-), and underscores (_).
      *   The name must start and end with a lowercase letter or a digit.
      *   The name must be 3 to 63 characters in length.
      *
+     * This parameter is required.
      * @example my-logstore
      *
      * @var string
@@ -105,7 +106,7 @@ class CreateLogStoreRequest extends Model
     /**
      * @description The number of shards.
      *
-     * > You cannot call the CreateLogStore operation to change the number of shards. You can call the SplitShard or MergeShards operation to change the number of shards.
+     * This parameter is required.
      * @example 2
      *
      * @var int
@@ -127,6 +128,7 @@ class CreateLogStoreRequest extends Model
     /**
      * @description The retention period of data. Unit: days. Valid values: 1 to 3000. If you set this parameter to 3650, data is permanently stored.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

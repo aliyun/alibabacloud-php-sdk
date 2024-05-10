@@ -14,6 +14,8 @@ class AlertConfiguration extends Model
     public $annotations;
 
     /**
+     * @description This parameter is required.
+     *
      * @example false
      *
      * @var bool
@@ -33,6 +35,8 @@ class AlertConfiguration extends Model
     public $dashboard;
 
     /**
+     * @description This parameter is required.
+     *
      * @var GroupConfiguration
      */
     public $groupConfiguration;
@@ -55,6 +59,8 @@ class AlertConfiguration extends Model
     public $muteUntil;
 
     /**
+     * @description This parameter is required.
+     *
      * @example false
      *
      * @var bool
@@ -74,11 +80,15 @@ class AlertConfiguration extends Model
     public $policyConfiguration;
 
     /**
+     * @description This parameter is required.
+     *
      * @var AlertQuery[]
      */
     public $queryList;
 
     /**
+     * @description This parameter is required.
+     *
      * @example false
      *
      * @var bool
@@ -86,6 +96,8 @@ class AlertConfiguration extends Model
     public $sendResolved;
 
     /**
+     * @description This parameter is required.
+     *
      * @var SeverityConfiguration[]
      */
     public $severityConfigurations;
@@ -116,6 +128,8 @@ class AlertConfiguration extends Model
     public $templateConfiguration;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -130,6 +144,8 @@ class AlertConfiguration extends Model
     public $type;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2.0
      *
      * @var string

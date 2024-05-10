@@ -19,6 +19,7 @@ class UpdateMachineGroupRequest extends Model
     /**
      * @description The name of the machine group.
      *
+     * This parameter is required.
      * @example test-machine-group
      *
      * @var string
@@ -40,6 +41,7 @@ class UpdateMachineGroupRequest extends Model
      *   ip: The machine group uses IP addresses as identifiers.
      *   userdefined: The machine group uses custom identifiers.
      *
+     * This parameter is required.
      * @example userdefined
      *
      * @var string
@@ -52,6 +54,7 @@ class UpdateMachineGroupRequest extends Model
      *   If you set machineIdentifyType to ip, enter the IP addresses of the machines.
      *   If you set machineIdentifyType to userdefined, enter a custom identifier.
      *
+     * This parameter is required.
      * @example [uu_id_1，uu_id_2]
      *
      * @var string[]

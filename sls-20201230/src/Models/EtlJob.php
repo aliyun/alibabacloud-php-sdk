@@ -13,6 +13,8 @@ use AlibabaCloud\Tea\Model;
 class EtlJob extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example true
      *
      * @var bool
@@ -20,31 +22,43 @@ class EtlJob extends Model
     public $enable;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $etlJobName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var functionConfig
      */
     public $functionConfig;
 
     /**
+     * @description This parameter is required.
+     *
      * @var mixed[]
      */
     public $functionParameter;
 
     /**
+     * @description This parameter is required.
+     *
      * @var logConfig
      */
     public $logConfig;
 
     /**
+     * @description This parameter is required.
+     *
      * @var sourceConfig
      */
     public $sourceConfig;
 
     /**
+     * @description This parameter is required.
+     *
      * @var triggerConfig
      */
     public $triggerConfig;

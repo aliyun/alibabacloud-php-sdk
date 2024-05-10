@@ -12,6 +12,7 @@ class UpdateLoggingRequest extends Model
     /**
      * @description The configurations of service logs.
      *
+     * This parameter is required.
      * @var loggingDetails[]
      */
     public $loggingDetails;
@@ -19,6 +20,7 @@ class UpdateLoggingRequest extends Model
     /**
      * @description The name of the project to which you want to save service logs.
      *
+     * This parameter is required.
      * @example my-project
      *
      * @var string

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DisableScheduledSQLResponse extends Model
+class EnableScheduledSQLResponse extends Model
 {
     /**
      * @var string[]
@@ -42,7 +42,7 @@ class DisableScheduledSQLResponse extends Model
     /**
      * @param array $map
      *
-     * @return DisableScheduledSQLResponse
+     * @return EnableScheduledSQLResponse
      */
     public static function fromMap($map = [])
     {

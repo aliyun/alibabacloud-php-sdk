@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class LogtailConfig extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example test-config
      *
      * @var string
@@ -24,11 +26,15 @@ class LogtailConfig extends Model
     public $createTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @var mixed[]
      */
     public $inputDetail;
 
     /**
+     * @description This parameter is required.
+     *
      * @example file
      *
      * @var string
@@ -50,11 +56,15 @@ class LogtailConfig extends Model
     public $logSample;
 
     /**
+     * @description This parameter is required.
+     *
      * @var outputDetail
      */
     public $outputDetail;
 
     /**
+     * @description This parameter is required.
+     *
      * @example LogService
      *
      * @var string

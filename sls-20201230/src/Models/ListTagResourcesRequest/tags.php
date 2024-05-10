@@ -11,6 +11,7 @@ class tags extends Model
     /**
      * @description The key of the tag that you want to use to filter resources. For example, if you set the key to `"test-key"`, only resources to which the key is added are returned.``
      *
+     * This parameter is required.
      * @example key1
      *
      * @var string

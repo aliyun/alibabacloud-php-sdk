@@ -16,6 +16,8 @@ class UntagResourcesRequest extends Model
     public $all;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ali-test-project
      *
      * @var string[]

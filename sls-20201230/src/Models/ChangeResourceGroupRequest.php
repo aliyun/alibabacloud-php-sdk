@@ -11,6 +11,7 @@ class ChangeResourceGroupRequest extends Model
     /**
      * @description The ID of the resource group.
      *
+     * This parameter is required.
      * @example rg-aek2i7nhaxifxey
      *
      * @var string
@@ -20,6 +21,7 @@ class ChangeResourceGroupRequest extends Model
     /**
      * @description The ID of the resource.
      *
+     * This parameter is required.
      * @example ali-test-project
      *
      * @var string

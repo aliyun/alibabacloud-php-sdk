@@ -12,6 +12,7 @@ class UpdateOssExternalStoreRequest extends Model
     /**
      * @description The name of the external store.
      *
+     * This parameter is required.
      * @example test-oss-store
      *
      * @var string
@@ -21,6 +22,7 @@ class UpdateOssExternalStoreRequest extends Model
     /**
      * @description The parameters that are configured for the external store.
      *
+     * This parameter is required.
      * @var parameter
      */
     public $parameter;
@@ -28,6 +30,7 @@ class UpdateOssExternalStoreRequest extends Model
     /**
      * @description The type of the external store. Set the value to oss.
      *
+     * This parameter is required.
      * @example oss
      *
      * @var string

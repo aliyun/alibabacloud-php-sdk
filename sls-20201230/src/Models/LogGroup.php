@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class LogGroup extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var LogTag[]
      */
     public $logTags;
 
     /**
+     * @description This parameter is required.
+     *
      * @var LogItem[]
      */
     public $logs;
@@ -26,6 +30,8 @@ class LogGroup extends Model
     public $source;
 
     /**
+     * @description This parameter is required.
+     *
      * @example topic-test
      *
      * @var string

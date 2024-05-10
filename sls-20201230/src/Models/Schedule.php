@@ -23,7 +23,7 @@ class Schedule extends Model
     public $delay;
 
     /**
-     * @example 1m/1h
+     * @example 60s
      *
      * @var string
      */
@@ -37,14 +37,16 @@ class Schedule extends Model
     public $runImmediately;
 
     /**
-     * @example "+0800"
+     * @example +0800
      *
      * @var string
      */
     public $timeZone;
 
     /**
-     * @example FixedRate、Cron
+     * @description This parameter is required.
+     *
+     * @example FixedRate
      *
      * @var string
      */

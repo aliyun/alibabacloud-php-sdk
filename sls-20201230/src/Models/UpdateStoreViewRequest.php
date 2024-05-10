@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateStoreViewRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example logstore
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateStoreViewRequest extends Model
     public $storeType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var StoreViewStore[]
      */
     public $stores;

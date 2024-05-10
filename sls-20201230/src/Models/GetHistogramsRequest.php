@@ -11,6 +11,7 @@ class GetHistogramsRequest extends Model
     /**
      * @description The start time of the subinterval. The value is a UNIX timestamp representing the number of seconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      *
+     * This parameter is required.
      * @example 1409529600
      *
      * @var int
@@ -18,7 +19,7 @@ class GetHistogramsRequest extends Model
     public $from;
 
     /**
-     * @description The search statement. Only search statements are supported. Analytic statements are not supported. For more information about the syntax of search statements, see [Log search overview](~~43772~~).
+     * @description The search statement. Only search statements are supported. Analytic statements are not supported. For more information about the syntax of search statements, see [Log search overview](https://help.aliyun.com/document_detail/43772.html).
      *
      * @example with_pack_meta
      *
@@ -29,6 +30,7 @@ class GetHistogramsRequest extends Model
     /**
      * @description The end time of the subinterval. The value is a UNIX timestamp representing the number of seconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      *
+     * This parameter is required.
      * @example 1409569200
      *
      * @var int

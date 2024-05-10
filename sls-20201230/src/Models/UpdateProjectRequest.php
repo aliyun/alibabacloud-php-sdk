@@ -11,6 +11,7 @@ class UpdateProjectRequest extends Model
     /**
      * @description The description of the project. The default value is an empty string.
      *
+     * This parameter is required.
      * @example Description of my-project-test
      *
      * @var string

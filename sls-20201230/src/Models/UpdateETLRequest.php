@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateETLRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var ETLConfiguration
      */
     public $configuration;
@@ -21,6 +23,8 @@ class UpdateETLRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example this is update
      *
      * @var string

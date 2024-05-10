@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateLogStoreMeteringModeRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ChargeByFunction
      *
      * @var string

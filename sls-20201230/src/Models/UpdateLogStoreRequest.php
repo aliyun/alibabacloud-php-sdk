@@ -52,7 +52,7 @@ class UpdateLogStoreRequest extends Model
     public $encryptConf;
 
     /**
-     * @description The retention period of data in the hot storage tier of the Logstore. Minimum value: 30. Unit: day. You can specify a value that ranges from 30 to the value of ttl. Hot data that is stored for longer than the period specified by hot_ttl is converted to cold data. For more information, see [Enable hot and cold-tiered storage for a Logstore](~~308645~~).
+     * @description The retention period of data in the hot storage tier of the Logstore. Minimum value: 30. Unit: day. You can specify a value that ranges from 30 to the value of ttl. Hot data that is stored for longer than the period specified by hot_ttl is converted to cold data. For more information, see [Enable hot and cold-tiered storage for a Logstore](https://help.aliyun.com/document_detail/308645.html).
      *
      * @example 60
      *
@@ -68,6 +68,7 @@ class UpdateLogStoreRequest extends Model
     /**
      * @description The name of the Logstore.
      *
+     * This parameter is required.
      * @example test-logstore
      *
      * @var string
@@ -125,6 +126,7 @@ class UpdateLogStoreRequest extends Model
     /**
      * @description The retention period of data. Unit: day. Valid values: 1 to 3650. If you set ttl to 3650, data is permanently stored.
      *
+     * This parameter is required.
      * @example 30
      *
      * @var int

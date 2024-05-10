@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateETLRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var ETLConfiguration
      */
     public $configuration;
@@ -21,6 +23,8 @@ class CreateETLRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example sls-test-etl
      *
      * @var string
@@ -28,6 +32,8 @@ class CreateETLRequest extends Model
     public $displayName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example etl-123456
      *
      * @var string

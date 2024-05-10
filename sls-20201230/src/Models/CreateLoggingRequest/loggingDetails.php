@@ -11,6 +11,7 @@ class loggingDetails extends Model
     /**
      * @description The name of the Logstore to which service logs of the type are stored.
      *
+     * This parameter is required.
      * @example my-logstore
      *
      * @var string
@@ -29,6 +30,7 @@ class loggingDetails extends Model
      *   scheduledsqlalert: the run logs of Scheduled SQL jobs.
      *   etl_alert: the run logs of data transformation jobs.
      *
+     * This parameter is required.
      * @example consumergroup_log
      *
      * @var string

@@ -15,6 +15,7 @@ class tags extends Model
      *   The key cannot contain `"http://"` or `"https://"`.
      *   The key cannot start with `"acs:"` or `"aliyun"`.
      *
+     * This parameter is required.
      * @example key1
      *
      * @var string
@@ -27,6 +28,7 @@ class tags extends Model
      *   The value must be `1 to 128` characters in length.
      *   The value cannot contain `"http://"` or `"https://"`.
      *
+     * This parameter is required.
      * @example value1
      *
      * @var string

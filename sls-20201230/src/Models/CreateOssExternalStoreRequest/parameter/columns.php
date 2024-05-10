@@ -11,6 +11,7 @@ class columns extends Model
     /**
      * @description The name of the field.
      *
+     * This parameter is required.
      * @example auto-test
      *
      * @var string
@@ -20,6 +21,7 @@ class columns extends Model
     /**
      * @description The type of the field.
      *
+     * This parameter is required.
      * @example sls
      *
      * @var string

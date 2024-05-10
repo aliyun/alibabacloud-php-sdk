@@ -35,6 +35,8 @@ class IndexKeysValue extends Model
     public $alias;
 
     /**
+     * @description This parameter is required.
+     *
      * @example text
      *
      * @var string

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class Logging extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var loggingDetails[]
      */
     public $loggingDetails;
 
     /**
+     * @description This parameter is required.
+     *
      * @example my-project
      *
      * @var string

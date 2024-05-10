@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateOSSHDFSExportRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var OSSExportConfiguration
      */
     public $configuration;
@@ -19,6 +21,8 @@ class CreateOSSHDFSExportRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ali-test-oss-hdfs-job
      *
      * @var string
@@ -26,6 +30,8 @@ class CreateOSSHDFSExportRequest extends Model
     public $displayName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example job-123456789-123456
      *
      * @var string

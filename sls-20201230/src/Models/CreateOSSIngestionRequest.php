@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateOSSIngestionRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var OSSIngestionConfiguration
      */
     public $configuration;
@@ -19,11 +21,15 @@ class CreateOSSIngestionRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ingest-oss-123456
      *
      * @var string

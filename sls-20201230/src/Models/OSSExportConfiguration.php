@@ -10,18 +10,22 @@ use AlibabaCloud\Tea\Model;
 class OSSExportConfiguration extends Model
 {
     /**
-     * @example 123456789
+     * @example 1714123644
      *
      * @var int
      */
     public $fromTime;
 
     /**
+     * @example logstore-demo
+     *
      * @var string
      */
     public $logstore;
 
     /**
+     * @example acs:ram::123456789:role/aliyunlogdefaultrole
+     *
      * @var string
      */
     public $roleArn;
@@ -32,7 +36,7 @@ class OSSExportConfiguration extends Model
     public $sink;
 
     /**
-     * @example 123456789
+     * @example 1714357112
      *
      * @var int
      */

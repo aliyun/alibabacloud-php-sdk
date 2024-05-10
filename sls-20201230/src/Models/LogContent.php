@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class LogContent extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example key-test
      *
      * @var string
@@ -16,6 +18,8 @@ class LogContent extends Model
     public $key;
 
     /**
+     * @description This parameter is required.
+     *
      * @example value-test
      *
      * @var string

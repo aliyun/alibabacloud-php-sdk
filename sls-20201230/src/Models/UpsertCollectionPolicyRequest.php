@@ -29,6 +29,8 @@ class UpsertCollectionPolicyRequest extends Model
     public $centralizeEnabled;
 
     /**
+     * @description This parameter is required.
+     *
      * @example access_log
      *
      * @var string
@@ -36,6 +38,8 @@ class UpsertCollectionPolicyRequest extends Model
     public $dataCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example true
      *
      * @var bool
@@ -43,11 +47,15 @@ class UpsertCollectionPolicyRequest extends Model
     public $enabled;
 
     /**
+     * @description This parameter is required.
+     *
      * @var policyConfig
      */
     public $policyConfig;
 
     /**
+     * @description This parameter is required.
+     *
      * @example your_log_policy
      *
      * @var string
@@ -55,6 +63,8 @@ class UpsertCollectionPolicyRequest extends Model
     public $policyName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example oss
      *
      * @var string

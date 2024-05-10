@@ -20,6 +20,7 @@ class CreateProjectRequest extends Model
     /**
      * @description The description of the project.
      *
+     * This parameter is required.
      * @example this is test
      *
      * @var string
@@ -34,6 +35,7 @@ class CreateProjectRequest extends Model
      *   It must start and end with a lowercase letter or a digit.
      *   It must be 3 to 63 characters in length.
      *
+     * This parameter is required.
      * @example test-project
      *
      * @var string

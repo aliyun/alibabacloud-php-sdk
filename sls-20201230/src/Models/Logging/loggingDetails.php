@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class loggingDetails extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example my-logstore
      *
      * @var string
@@ -16,6 +18,8 @@ class loggingDetails extends Model
     public $logstore;
 
     /**
+     * @description This parameter is required.
+     *
      * @example consumergroup_log
      *
      * @var string

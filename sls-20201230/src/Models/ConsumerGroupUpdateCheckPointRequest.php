@@ -17,6 +17,8 @@ class ConsumerGroupUpdateCheckPointRequest extends Model
     public $body;
 
     /**
+     * @description This parameter is required.
+     *
      * @example consumer_1
      *
      * @var string

@@ -12,6 +12,7 @@ class UpdateRdsExternalStoreRequest extends Model
     /**
      * @description The name of the external store.
      *
+     * This parameter is required.
      * @example rds_store
      *
      * @var string
@@ -21,6 +22,7 @@ class UpdateRdsExternalStoreRequest extends Model
     /**
      * @description The parameter struct.
      *
+     * This parameter is required.
      * @var parameter
      */
     public $parameter;
@@ -28,6 +30,7 @@ class UpdateRdsExternalStoreRequest extends Model
     /**
      * @description The storage type. Set the value to rds-vpc, which indicates an ApsaraDB RDS for MySQL database in a virtual private cloud (VPC).
      *
+     * This parameter is required.
      * @example rds-vpc
      *
      * @var string

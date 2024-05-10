@@ -11,6 +11,7 @@ class parameter extends Model
     /**
      * @description The name of the database in the ApsaraDB RDS for MySQL instance.
      *
+     * This parameter is required.
      * @example meta
      *
      * @var string
@@ -38,6 +39,7 @@ class parameter extends Model
     /**
      * @description The password that is used to log on to the ApsaraDB RDS for MySQL instance.
      *
+     * This parameter is required.
      * @example sfdsfldsfksfls****
      *
      * @var string
@@ -47,6 +49,7 @@ class parameter extends Model
     /**
      * @description The internal or public port of the ApsaraDB RDS for MySQL instance.
      *
+     * This parameter is required.
      * @example 3306
      *
      * @var string
@@ -56,6 +59,7 @@ class parameter extends Model
     /**
      * @description The region where the ApsaraDB RDS for MySQL instance resides. Valid values: cn-qingdao, cn-beijing, and cn-hangzhou.
      *
+     * This parameter is required.
      * @example cn-qingdao
      *
      * @var string
@@ -65,6 +69,7 @@ class parameter extends Model
     /**
      * @description The name of the database table in the ApsaraDB RDS for MySQL instance.
      *
+     * This parameter is required.
      * @example join_meta
      *
      * @var string
@@ -74,6 +79,7 @@ class parameter extends Model
     /**
      * @description The username that is used to log on to the ApsaraDB RDS for MySQL instance.
      *
+     * This parameter is required.
      * @example root
      *
      * @var string

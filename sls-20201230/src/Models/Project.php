@@ -14,6 +14,8 @@ class Project extends Model
     public $createTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $description;
@@ -29,6 +31,8 @@ class Project extends Model
     public $owner;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $projectName;

@@ -57,6 +57,8 @@ class Logstore extends Model
     public $lastModifyTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example my-logstore
      *
      * @var string
@@ -83,6 +85,8 @@ class Logstore extends Model
     public $productType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2
      *
      * @var int
@@ -95,6 +99,8 @@ class Logstore extends Model
     public $telemetryType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 30
      *
      * @var int

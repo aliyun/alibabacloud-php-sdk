@@ -14,6 +14,8 @@ class LogtailPipelineConfig extends Model
     public $aggregators;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-config
      *
      * @var string
@@ -28,6 +30,8 @@ class LogtailPipelineConfig extends Model
     public $createTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @var mixed[][]
      */
     public $flushers;
@@ -38,6 +42,8 @@ class LogtailPipelineConfig extends Model
     public $global;
 
     /**
+     * @description This parameter is required.
+     *
      * @var mixed[][]
      */
     public $inputs;

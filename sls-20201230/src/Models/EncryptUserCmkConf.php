@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class EncryptUserCmkConf extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $arn;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $cmkKeyId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $regionId;

@@ -13,6 +13,7 @@ class GetLogsV2Headers extends Model
     /**
      * @description The compression method.
      *
+     * This parameter is required.
      * @example lz4
      *
      * @var string

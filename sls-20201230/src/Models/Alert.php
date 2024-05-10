@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class Alert extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var AlertConfiguration
      */
     public $configuration;
@@ -26,6 +28,8 @@ class Alert extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example alertNameExample
      *
      * @var string
@@ -38,6 +42,8 @@ class Alert extends Model
     public $lastModifiedTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example alert-123456
      *
      * @var string
@@ -45,6 +51,8 @@ class Alert extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @var Schedule
      */
     public $schedule;

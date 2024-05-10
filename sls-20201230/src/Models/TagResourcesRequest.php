@@ -12,6 +12,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The resource IDs. You can specify only one resource and add tags to the resource.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $resourceId;
@@ -19,6 +20,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The type of the resource. Set the value to project.
      *
+     * This parameter is required.
      * @example project
      *
      * @var string
@@ -28,6 +30,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The tags that you want to add to the resource. Up to 20 tags are supported at a time. Each tag is a key-value pair.
      *
+     * This parameter is required.
      * @var tags[]
      */
     public $tags;

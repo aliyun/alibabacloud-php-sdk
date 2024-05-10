@@ -11,6 +11,7 @@ class ConsumerGroupHeartBeatRequest extends Model
     /**
      * @description The IDs of shards whose data is being consumed.
      *
+     * This parameter is required.
      * @var int[]
      */
     public $body;
@@ -18,6 +19,7 @@ class ConsumerGroupHeartBeatRequest extends Model
     /**
      * @description The consumer.
      *
+     * This parameter is required.
      * @example consumer_1
      *
      * @var string

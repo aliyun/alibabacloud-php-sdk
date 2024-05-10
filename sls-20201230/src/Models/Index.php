@@ -51,6 +51,8 @@ class Index extends Model
     public $maxTextLen;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 30
      *
      * @var int

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class logConfig extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $endpoint;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $logstoreName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $projectName;

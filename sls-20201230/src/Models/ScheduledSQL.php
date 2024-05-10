@@ -9,50 +9,71 @@ use AlibabaCloud\Tea\Model;
 class ScheduledSQL extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var ScheduledSQLConfiguration
      */
     public $configuration;
 
     /**
+     * @example 1714123644
+     *
      * @var int
      */
     public $createTime;
 
     /**
-     * @example This is a scheduled sql job
+     * @example schedule-sql-test
      *
      * @var string
      */
     public $description;
 
     /**
-     * @example This is a scheduled sql job
+     * @description This parameter is required.
+     *
+     * @example scheduleSqlTest
      *
      * @var string
      */
     public $displayName;
 
     /**
+     * @example 1714123644
+     *
      * @var int
      */
     public $lastModifiedTime;
 
     /**
-     * @example test-scheduled-sql
+     * @description This parameter is required.
+     *
+     * @example sql-1714123463-225223
      *
      * @var string
      */
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @var Schedule
      */
     public $schedule;
 
     /**
+     * @example e73f43732852064ad5d091914e39342f
+     *
      * @var string
      */
     public $scheduleId;
+
+    /**
+     * @example ENABLED
+     *
+     * @var string
+     */
+    public $status;
     protected $_name = [
         'configuration'    => 'configuration',
         'createTime'       => 'createTime',
@@ -62,6 +83,7 @@ class ScheduledSQL extends Model
         'name'             => 'name',
         'schedule'         => 'schedule',
         'scheduleId'       => 'scheduleId',
+        'status'           => 'status',
     ];
 
     public function validate()
@@ -94,6 +116,9 @@ class ScheduledSQL extends Model
         }
         if (null !== $this->scheduleId) {
             $res['scheduleId'] = $this->scheduleId;
+        }
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
         }
 
         return $res;
@@ -130,6 +155,9 @@ class ScheduledSQL extends Model
         }
         if (isset($map['scheduleId'])) {
             $model->scheduleId = $map['scheduleId'];
+        }
+        if (isset($map['status'])) {
+            $model->status = $map['status'];
         }
 
         return $model;

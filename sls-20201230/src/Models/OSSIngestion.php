@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class OSSIngestion extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var OSSIngestionConfiguration
      */
     public $configuration;
 
     /**
+     * @example 1714360481
+     *
      * @var int
      */
     public $createTime;
@@ -26,6 +30,8 @@ class OSSIngestion extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example oss ingestion
      *
      * @var string
@@ -33,11 +39,15 @@ class OSSIngestion extends Model
     public $displayName;
 
     /**
+     * @example 1714360481
+     *
      * @var int
      */
     public $lastModifiedTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ingest-oss-123456
      *
      * @var string
@@ -45,6 +55,8 @@ class OSSIngestion extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @var Schedule
      */
     public $schedule;

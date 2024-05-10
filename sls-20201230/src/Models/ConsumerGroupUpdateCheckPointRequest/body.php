@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class body extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example MTUyNDE1NTM3OTM3MzkwODQ5Ng==
      *
      * @var string
@@ -18,6 +20,7 @@ class body extends Model
     /**
      * @description Shard ID。
      *
+     * This parameter is required.
      * @example 0
      *
      * @var int

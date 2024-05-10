@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class OSSIngestionConfigurationSource extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ossbucket
      *
      * @var string
@@ -16,13 +18,17 @@ class OSSIngestionConfigurationSource extends Model
     public $bucket;
 
     /**
-     * @example none,snappy,gzip
+     * @description This parameter is required.
+     *
+     * @example none
      *
      * @var string
      */
     public $compressionCodec;
 
     /**
+     * @description This parameter is required.
+     *
      * @example UTF-8
      *
      * @var string
@@ -30,11 +36,15 @@ class OSSIngestionConfigurationSource extends Model
     public $encoding;
 
     /**
+     * @example 1714360481
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example oss-cn-hangzhou.aliyuncs.com
      *
      * @var string
@@ -42,11 +52,15 @@ class OSSIngestionConfigurationSource extends Model
     public $endpoint;
 
     /**
+     * @description This parameter is required.
+     *
      * @var mixed[]
      */
     public $format;
 
     /**
+     * @description This parameter is required.
+     *
      * @example never
      *
      * @var string
@@ -54,51 +68,73 @@ class OSSIngestionConfigurationSource extends Model
     public $interval;
 
     /**
+     * @example .*
+     *
      * @var string
      */
     public $pattern;
 
     /**
+     * @example prefix
+     *
      * @var string
      */
     public $prefix;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $restoreObjectEnabled;
 
     /**
+     * @example acs:ram::12345:role/aliyunlogdefaultrole
+     *
      * @var string
      */
     public $roleARN;
 
     /**
+     * @example 1714274081
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @example __time__
+     *
      * @var string
      */
     public $timeField;
 
     /**
+     * @example yyyy-MM-dd HH:mm:ss
+     *
      * @var string
      */
     public $timeFormat;
 
     /**
+     * @example [0-9]{0,2}\/[0-9a-zA-Z]+\/[0-9:,]+
+     *
      * @var string
      */
     public $timePattern;
 
     /**
+     * @example GMT+08:00
+     *
      * @var string
      */
     public $timeZone;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $useMetaIndex;

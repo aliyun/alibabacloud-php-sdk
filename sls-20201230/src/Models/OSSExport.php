@@ -14,35 +14,39 @@ class OSSExport extends Model
     public $configuration;
 
     /**
-     * @example 123456789
+     * @example 1714284025
      *
      * @var int
      */
     public $createTime;
 
     /**
-     * @example This is a oss export
+     * @example job-test
      *
      * @var string
      */
     public $description;
 
     /**
-     * @example This is a oss export
+     * @description This parameter is required.
+     *
+     * @example job-demo
      *
      * @var string
      */
     public $displayName;
 
     /**
-     * @example 123456789
+     * @example 1714284115
      *
      * @var int
      */
     public $lastModifiedTime;
 
     /**
-     * @example myossexportjob
+     * @description This parameter is required.
+     *
+     * @example job-1714109458-123456
      *
      * @var string
      */

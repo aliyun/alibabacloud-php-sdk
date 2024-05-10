@@ -14,6 +14,8 @@ class GroupConfiguration extends Model
     public $fields;
 
     /**
+     * @description This parameter is required.
+     *
      * @example custom
      *
      * @var string

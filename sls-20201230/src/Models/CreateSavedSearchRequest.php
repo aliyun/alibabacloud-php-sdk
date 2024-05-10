@@ -11,6 +11,7 @@ class CreateSavedSearchRequest extends Model
     /**
      * @description The display name.
      *
+     * This parameter is required.
      * @example displayname
      *
      * @var string
@@ -20,6 +21,7 @@ class CreateSavedSearchRequest extends Model
     /**
      * @description The name of the Logstore to which the saved search belongs.
      *
+     * This parameter is required.
      * @example aliyun-test-logstore
      *
      * @var string
@@ -29,6 +31,7 @@ class CreateSavedSearchRequest extends Model
     /**
      * @description The name of the saved search. The name must be 3 to 63 characters in length.
      *
+     * This parameter is required.
      * @example pv in minutes
      *
      * @var string
@@ -36,9 +39,10 @@ class CreateSavedSearchRequest extends Model
     public $savedsearchName;
 
     /**
-     * @description The query statement of the saved search. A query statement consists of a search statement and an analytic statement in the `Search statement|Analytic statement` format. For more information about search statements and analytic statements, see [Log search overview](~~43772~~) and [Log analysis overview](~~53608~~).
+     * @description The query statement of the saved search. A query statement consists of a search statement and an analytic statement in the `Search statement|Analytic statement` format. For more information about search statements and analytic statements, see [Log search overview](https://help.aliyun.com/document_detail/43772.html) and [Log analysis overview](https://help.aliyun.com/document_detail/53608.html).
      *
-     * @example *|select date_format(__time__-__time__%60, \"%H:%i:%s\") as time, COUNT(*) as pv group by time
+     * This parameter is required.
+     * @example *|select date_format(__time__-__time__%60, \\"%H:%i:%s\\") as time, COUNT(*) as pv group by time
      *
      * @var string
      */

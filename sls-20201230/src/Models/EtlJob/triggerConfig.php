@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class triggerConfig extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $maxRetryTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $roleArn;
@@ -33,6 +37,8 @@ class triggerConfig extends Model
     public $startingUnixtime;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $triggerInterval;

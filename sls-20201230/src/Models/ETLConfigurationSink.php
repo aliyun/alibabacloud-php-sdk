@@ -28,21 +28,37 @@ class ETLConfigurationSink extends Model
     public $endpoint;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example test-logstore
+     *
      * @var string
      */
     public $logstore;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example test-etljob
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example test-project
+     *
      * @var string
      */
     public $project;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example acs:ram::13234:role/logtarget
+     *
      * @var string
      */
     public $roleArn;

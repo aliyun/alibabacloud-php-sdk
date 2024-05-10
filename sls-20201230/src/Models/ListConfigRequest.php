@@ -20,6 +20,7 @@ class ListConfigRequest extends Model
     /**
      * @description The name of the Logstore.
      *
+     * This parameter is required.
      * @example ali-test-logstore
      *
      * @var string
@@ -29,6 +30,7 @@ class ListConfigRequest extends Model
     /**
      * @description The line from which the query starts. Default value: 0.
      *
+     * This parameter is required.
      * @example 0
      *
      * @var int
@@ -38,6 +40,7 @@ class ListConfigRequest extends Model
     /**
      * @description The number of entries per page. Maximum value: 500.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int

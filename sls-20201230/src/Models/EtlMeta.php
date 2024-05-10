@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class EtlMeta extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var bool
      */
     public $enable;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $etlMetaKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $etlMetaName;

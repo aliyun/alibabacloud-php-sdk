@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class MaxComputeExportConfigurationSink extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $fields;
@@ -28,6 +30,8 @@ class MaxComputeExportConfigurationSink extends Model
     public $odpsAccessSecret;
 
     /**
+     * @description This parameter is required.
+     *
      * @example http://xxxxxxxx
      *
      * @var string
@@ -35,6 +39,8 @@ class MaxComputeExportConfigurationSink extends Model
     public $odpsEndpoint;
 
     /**
+     * @description This parameter is required.
+     *
      * @example demo_project
      *
      * @var string
@@ -49,6 +55,8 @@ class MaxComputeExportConfigurationSink extends Model
     public $odpsRolearn;
 
     /**
+     * @description This parameter is required.
+     *
      * @example demo_table
      *
      * @var string
@@ -56,16 +64,22 @@ class MaxComputeExportConfigurationSink extends Model
     public $odpsTable;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $odpsTunnelEndpoint;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $partitionColumn;
 
     /**
+     * @description This parameter is required.
+     *
      * @example %Y_%m_%d
      *
      * @var string
@@ -73,6 +87,8 @@ class MaxComputeExportConfigurationSink extends Model
     public $partitionTimeFormat;
 
     /**
+     * @description This parameter is required.
+     *
      * @example +0800
      *
      * @var string

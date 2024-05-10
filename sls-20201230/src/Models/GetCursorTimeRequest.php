@@ -11,6 +11,7 @@ class GetCursorTimeRequest extends Model
     /**
      * @description The cursor.
      *
+     * This parameter is required.
      * @example MTU0NzQ3MDY4MjM3NjUxMzQ0Ng==
      *
      * @var string

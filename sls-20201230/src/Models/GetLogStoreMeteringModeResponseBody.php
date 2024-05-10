@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetLogStoreMeteringModeResponseBody extends Model
 {
     /**
+     * @example ChargeByFunction
+     *
      * @var string
      */
     public $meteringMode;

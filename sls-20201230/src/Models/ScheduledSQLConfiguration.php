@@ -9,86 +9,152 @@ use AlibabaCloud\Tea\Model;
 class ScheduledSQLConfiguration extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example log2log
+     *
      * @var string
      */
     public $dataFormat;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example cn-hangzhou-intranet.log.aliyuncs.com
+     *
      * @var string
      */
     public $destEndpoint;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example dest-logstore-demo
+     *
      * @var string
      */
     public $destLogstore;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example project-demo
+     *
      * @var string
      */
     public $destProject;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example acs:ram::123456789:role/aliyunlogetlrole
+     *
      * @var string
      */
     public $destRoleArn;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 1712592000
+     *
      * @var int
      */
     public $fromTime;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example @m-1m
+     *
      * @var string
      */
     public $fromTimeExpr;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $maxRetries;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 600
+     *
      * @var int
      */
     public $maxRunTimeInSeconds;
 
     /**
+     * @description This parameter is required.
+     *
      * @var mixed[]
      */
     public $parameters;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example enhanced
+     *
      * @var string
      */
     public $resourcePool;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example acs:ram::123456789:role/aliyunlogetlrole
+     *
      * @var string
      */
     public $roleArn;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example * | select *
+     *
      * @var string
      */
     public $script;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example source-logstore-demo
+     *
      * @var string
      */
     public $sourceLogstore;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example searchQuery
+     *
      * @var string
      */
     public $sqlType;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $toTime;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example @m
+     *
      * @var string
      */
     public $toTimeExpr;

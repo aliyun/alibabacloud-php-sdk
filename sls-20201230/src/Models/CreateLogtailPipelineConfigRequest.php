@@ -18,6 +18,7 @@ class CreateLogtailPipelineConfigRequest extends Model
     /**
      * @description The name of the configuration.
      *
+     * This parameter is required.
      * @example test-config
      *
      * @var string
@@ -27,6 +28,7 @@ class CreateLogtailPipelineConfigRequest extends Model
     /**
      * @description The data output plug-ins.
      *
+     * This parameter is required.
      * @var mixed[][]
      */
     public $flushers;
@@ -41,6 +43,7 @@ class CreateLogtailPipelineConfigRequest extends Model
     /**
      * @description The data source plug-ins.
      *
+     * This parameter is required.
      * @var mixed[][]
      */
     public $inputs;

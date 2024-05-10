@@ -19,6 +19,7 @@ class ListTagResourcesRequest extends Model
     /**
      * @description The type of the resource. Set the value to project.
      *
+     * This parameter is required.
      * @example project
      *
      * @var string

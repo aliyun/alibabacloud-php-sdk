@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class MaxComputeExportConfiguration extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $fromTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $logstore;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $roleArn;
 
     /**
+     * @description This parameter is required.
+     *
      * @var MaxComputeExportConfigurationSink
      */
     public $sink;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $toTime;

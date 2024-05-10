@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class OSSIngestionConfiguration extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example myLogstore
+     *
      * @var string
      */
     public $logstore;
 
     /**
+     * @description This parameter is required.
+     *
      * @var OSSIngestionConfigurationSource
      */
     public $source;

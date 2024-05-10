@@ -49,6 +49,7 @@ class line extends Model
     /**
      * @description The delimiters. You can specify a delimiter to delimit the content of a field value. For more information about delimiters, see Example.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $token;

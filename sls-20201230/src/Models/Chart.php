@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class Chart extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var mixed[]
      */
     public $action;
 
     /**
+     * @description This parameter is required.
+     *
      * @var mixed[]
      */
     public $display;
 
     /**
+     * @description This parameter is required.
+     *
      * @var mixed[]
      */
     public $search;
 
     /**
+     * @description This parameter is required.
+     *
      * @example my-chart
      *
      * @var string
@@ -31,6 +39,8 @@ class Chart extends Model
     public $title;
 
     /**
+     * @description This parameter is required.
+     *
      * @example linepro
      *
      * @var string

@@ -14,6 +14,8 @@ class TemplateConfiguration extends Model
     public $aonotations;
 
     /**
+     * @description This parameter is required.
+     *
      * @example sls.app.ack.ip.not_enough
      *
      * @var string
@@ -33,6 +35,8 @@ class TemplateConfiguration extends Model
     public $tokens;
 
     /**
+     * @description This parameter is required.
+     *
      * @example sys
      *
      * @var string

@@ -18,6 +18,7 @@ class UpdateDashboardRequest extends Model
     /**
      * @description The charts on the dashboard.
      *
+     * This parameter is required.
      * @var Chart[]
      */
     public $charts;
@@ -25,6 +26,7 @@ class UpdateDashboardRequest extends Model
     /**
      * @description The name of the dashboard.
      *
+     * This parameter is required.
      * @example dashboard-1609294922657-434834
      *
      * @var string
@@ -43,6 +45,7 @@ class UpdateDashboardRequest extends Model
     /**
      * @description The display name of the dashboard.
      *
+     * This parameter is required.
      * @example Method pv
      *
      * @var string

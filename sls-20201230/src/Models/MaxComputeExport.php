@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class MaxComputeExport extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var MaxComputeExportConfiguration
      */
     public $configuration;
@@ -26,6 +28,8 @@ class MaxComputeExport extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example MaxComputeExport
      *
      * @var string
@@ -38,6 +42,8 @@ class MaxComputeExport extends Model
     public $lastModifiedTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example MaxComputeExport
      *
      * @var string

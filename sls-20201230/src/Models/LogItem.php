@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class LogItem extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var LogContent[]
      */
     public $contents;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1690254376
      *
      * @var int

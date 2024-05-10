@@ -9,42 +9,54 @@ use AlibabaCloud\Tea\Model;
 class ETL extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var ETLConfiguration
      */
     public $configuration;
 
     /**
+     * @example 1714274900
+     *
      * @var int
      */
     public $createTime;
 
     /**
-     * @example ETL
+     * @example 加工作业
      *
      * @var string
      */
     public $description;
 
     /**
-     * @example ETL
+     * @description This parameter is required.
+     *
+     * @example etljob
      *
      * @var string
      */
     public $displayName;
 
     /**
+     * @example 1714274900
+     *
      * @var int
      */
     public $lastModifiedTime;
 
     /**
-     * @example ETL
+     * @description This parameter is required.
+     *
+     * @example etl-20240426
      *
      * @var string
      */
     public $name;
 
     /**
+     * @example f0eb655e501a8780808d1970ef6d04c4
+     *
      * @var string
      */
     public $scheduleId;

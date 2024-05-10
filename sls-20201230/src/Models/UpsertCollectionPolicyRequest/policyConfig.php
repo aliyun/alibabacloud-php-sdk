@@ -19,6 +19,8 @@ class policyConfig extends Model
     public $regions;
 
     /**
+     * @description This parameter is required.
+     *
      * @example all
      *
      * @var string

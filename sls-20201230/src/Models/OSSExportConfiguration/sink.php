@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class sink extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example test-bucket
+     *
      * @var string
      */
     public $bucket;
@@ -28,7 +32,7 @@ class sink extends Model
     public $bufferSize;
 
     /**
-     * @example snappy/gizp/zstd/none
+     * @example snappy
      *
      * @var string
      */
@@ -40,49 +44,66 @@ class sink extends Model
     public $contentDetail;
 
     /**
-     * @example json/parquet/csv/orc
+     * @example json
      *
      * @var string
      */
     public $contentType;
 
     /**
-     * @example 123
+     * @example 900
+     *
+     * @deprecated
      *
      * @var int
      */
     public $delaySec;
 
     /**
-     * @example http://xxxxxxxx
+     * @example 900
+     *
+     * @var int
+     */
+    public $delaySeconds;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @example http://oss-cn-hangzhou-internal.aliyuncs.com
      *
      * @var string
      */
     public $endpoint;
 
     /**
-     * @example %Y_%m_%d/good/bad
+     * @description This parameter is required.
+     *
+     * @example %Y/%m/%d/%H/%M
      *
      * @var string
      */
     public $pathFormat;
 
     /**
-     * @example only support time
+     * @description This parameter is required.
+     *
+     * @example time
      *
      * @var string
      */
     public $pathFormatType;
 
     /**
-     * @example prefixxxx/
+     * @example demo/
      *
      * @var string
      */
     public $prefix;
 
     /**
-     * @example acs:ram::xxxxxxx
+     * @description This parameter is required.
+     *
+     * @example acs:ram::123456789:role/aliyunlogdefaultrole
      *
      * @var string
      */
@@ -109,6 +130,7 @@ class sink extends Model
         'contentDetail'   => 'contentDetail',
         'contentType'     => 'contentType',
         'delaySec'        => 'delaySec',
+        'delaySeconds'    => 'delaySeconds',
         'endpoint'        => 'endpoint',
         'pathFormat'      => 'pathFormat',
         'pathFormatType'  => 'pathFormatType',
@@ -145,6 +167,9 @@ class sink extends Model
         }
         if (null !== $this->delaySec) {
             $res['delaySec'] = $this->delaySec;
+        }
+        if (null !== $this->delaySeconds) {
+            $res['delaySeconds'] = $this->delaySeconds;
         }
         if (null !== $this->endpoint) {
             $res['endpoint'] = $this->endpoint;
@@ -199,6 +224,9 @@ class sink extends Model
         }
         if (isset($map['delaySec'])) {
             $model->delaySec = $map['delaySec'];
+        }
+        if (isset($map['delaySeconds'])) {
+            $model->delaySeconds = $map['delaySeconds'];
         }
         if (isset($map['endpoint'])) {
             $model->endpoint = $map['endpoint'];

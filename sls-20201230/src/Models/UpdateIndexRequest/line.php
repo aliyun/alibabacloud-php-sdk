@@ -14,6 +14,7 @@ class line extends Model
      *   true
      *   false
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -26,6 +27,7 @@ class line extends Model
      *   true
      *   false
      *
+     * This parameter is required.
      * @example false
      *
      * @var bool
@@ -49,6 +51,7 @@ class line extends Model
     /**
      * @description The delimiters that are used to split text.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $token;

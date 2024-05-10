@@ -33,6 +33,8 @@ class line extends Model
     public $includeKeys;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $token;

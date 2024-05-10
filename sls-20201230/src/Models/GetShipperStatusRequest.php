@@ -11,6 +11,7 @@ class GetShipperStatusRequest extends Model
     /**
      * @description The start time of the log shipping job. The value is a UNIX timestamp representing the number of seconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      *
+     * This parameter is required.
      * @example 1409529600
      *
      * @var int
@@ -47,6 +48,7 @@ class GetShipperStatusRequest extends Model
     /**
      * @description The end time of the log shipping job. The value is a UNIX timestamp representing the number of seconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      *
+     * This parameter is required.
      * @example 1627269085
      *
      * @var int

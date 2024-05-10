@@ -58,6 +58,7 @@ class UpdateIndexRequest extends Model
     /**
      * @description The retention period of data. Unit: days. Valid values: 7, 30, and 90.
      *
+     * This parameter is required.
      * @example 30
      *
      * @var int

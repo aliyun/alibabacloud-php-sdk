@@ -14,11 +14,15 @@ class Dashboard extends Model
     public $attribute;
 
     /**
+     * @description This parameter is required.
+     *
      * @var Chart[]
      */
     public $charts;
 
     /**
+     * @description This parameter is required.
+     *
      * @example dashboard-1609294922657-434834
      *
      * @var string
@@ -33,6 +37,8 @@ class Dashboard extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-alert
      *
      * @var string

@@ -11,7 +11,9 @@ class PutWebtrackingRequest extends Model
     /**
      * @description The logs. Each element is a JSON object that indicates a log.
      *
-     * >  **Note**: The time in a log that is collected by using the web tracking feature is the time at which Simple Log Service receives the log. You do not need to configure the \__time\_\_ field for each log. If this field exists, it is overwritten by the time at which Simple Log Service receives the log.
+     * >  **Note**: The time in a log that is collected by using the web tracking feature is the time at which Simple Log Service receives the log. You do not need to configure the __time__ field for each log. If this field exists, it is overwritten by the time at which Simple Log Service receives the log.
+     *
+     * This parameter is required.
      * @var string[][]
      */
     public $logs;
@@ -19,6 +21,7 @@ class PutWebtrackingRequest extends Model
     /**
      * @description The source of the logs.
      *
+     * This parameter is required.
      * @example source
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class outputDetail extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou-intranet.log.aliyuncs.com
      *
      * @var string
@@ -16,6 +18,8 @@ class outputDetail extends Model
     public $endpoint;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-logstore
      *
      * @var string

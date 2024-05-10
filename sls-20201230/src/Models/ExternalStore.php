@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ExternalStore extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example rds_store
      *
      * @var string
@@ -16,11 +18,15 @@ class ExternalStore extends Model
     public $externalStoreName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var mixed[]
      */
     public $parameter;
 
     /**
+     * @description This parameter is required.
+     *
      * @example rds-vpc
      *
      * @var string

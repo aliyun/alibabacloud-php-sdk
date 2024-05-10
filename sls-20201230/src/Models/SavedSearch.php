@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class SavedSearch extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $logstore;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $savedsearchName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $searchQuery;

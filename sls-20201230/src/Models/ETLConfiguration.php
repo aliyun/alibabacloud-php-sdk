@@ -23,39 +23,59 @@ class ETLConfiguration extends Model
     public $accessKeySecret;
 
     /**
-     * @example 0
+     * @description This parameter is required.
+     *
+     * @example 1714274900
      *
      * @var int
      */
     public $fromTime;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example test-logstore
+     *
      * @var string
      */
     public $logstore;
 
     /**
+     * @example config.vpc.vpc_id.test1：vpc-uf6mskb0b****n9yj
+     *
      * @var mixed[]
      */
     public $parameters;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example acs:ram::13234:role/logtarget
+     *
      * @var string
      */
     public $roleArn;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example e_set("key","value")
+     *
      * @var string
      */
     public $script;
 
     /**
+     * @description This parameter is required.
+     *
      * @var ETLConfigurationSink[]
      */
     public $sinks;
 
     /**
-     * @example 0
+     * @description This parameter is required.
+     *
+     * @example 1714274970
      *
      * @var int
      */

@@ -15,6 +15,8 @@ class MachineGroup extends Model
     public $groupAttribute;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-group
      *
      * @var string
@@ -27,6 +29,8 @@ class MachineGroup extends Model
     public $groupType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ip
      *
      * @var string
@@ -34,6 +38,8 @@ class MachineGroup extends Model
     public $machineIdentifyType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $machineList;

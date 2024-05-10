@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateScheduledSQLRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var ScheduledSQLConfiguration
      */
     public $configuration;
@@ -19,6 +21,8 @@ class CreateScheduledSQLRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ali-test-scheduled-sql
      *
      * @var string
@@ -26,6 +30,8 @@ class CreateScheduledSQLRequest extends Model
     public $displayName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example sql-123456789-123456
      *
      * @var string
@@ -33,6 +39,8 @@ class CreateScheduledSQLRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @var Schedule
      */
     public $schedule;

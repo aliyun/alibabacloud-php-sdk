@@ -11,6 +11,7 @@ class CreateDashboardRequest extends Model
     /**
      * @description The data structure of the dashboard.
      *
+     * This parameter is required.
      * @var Dashboard
      */
     public $body;

@@ -26,6 +26,8 @@ class functionConfig extends Model
     public $functionName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example FunctionCompute
      *
      * @var string

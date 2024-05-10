@@ -12,6 +12,7 @@ class parameter extends Model
     /**
      * @description The AccessKey ID of your account.
      *
+     * This parameter is required.
      * @example LTAI5tFsHGGeYry*****1Sz
      *
      * @var string
@@ -21,6 +22,7 @@ class parameter extends Model
     /**
      * @description The AccessKey secret of your account.
      *
+     * This parameter is required.
      * @example GyviCLDVHkHrOztdkxuE6******Rp6
      *
      * @var string
@@ -30,6 +32,7 @@ class parameter extends Model
     /**
      * @description The name of the OSS bucket.
      *
+     * This parameter is required.
      * @example my-bucket
      *
      * @var string
@@ -39,6 +42,7 @@ class parameter extends Model
     /**
      * @description The fields that are associated to the external store.
      *
+     * This parameter is required.
      * @var columns[]
      */
     public $columns;
@@ -46,6 +50,7 @@ class parameter extends Model
     /**
      * @description The Object Storage Service (OSS) endpoint.
      *
+     * This parameter is required.
      * @example oss-cn-hangzhou.aliyuncs.com
      *
      * @var string
@@ -55,6 +60,7 @@ class parameter extends Model
     /**
      * @description The names of the OSS objects that are associated to the external store.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $objects;

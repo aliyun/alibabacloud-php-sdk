@@ -20,6 +20,7 @@ class UpdateMachineGroupMachineRequest extends Model
     /**
      * @description The machines to be added or removed.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $body;
