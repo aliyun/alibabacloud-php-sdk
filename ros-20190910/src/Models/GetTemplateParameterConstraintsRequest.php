@@ -12,7 +12,7 @@ class GetTemplateParameterConstraintsRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * For more information, see [Ensure idempotence](~~134212~~).
+     * For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/134212.html).
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -44,7 +44,7 @@ class GetTemplateParameterConstraintsRequest extends Model
     /**
      * @description The region ID of the template.
      *
-     * You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -29,7 +29,7 @@ class GenerateTemplateByScratchResponseBody extends Model
     /**
      * @description The template content of the scenario.
      *
-     * @example {\"ROSTemplateFormatVersion\": \"2015-09-01\", \"Resources\": {\"ECSVPC_001\": {\"DeletionPolicy\": \"Retain\", \"Type\": \"ALIYUN::ECS::VPC\", \"Properties\": {\"CidrBlock\": \"172.16.0.0/12\", \"VpcName\": \"MyTestVpc\", \"EnableIpv6\": false}}}}
+     * @example {\\"ROSTemplateFormatVersion\\": \\"2015-09-01\\", \\"Resources\\": {\\"ECSVPC_001\\": {\\"DeletionPolicy\\": \\"Retain\\", \\"Type\\": \\"ALIYUN::ECS::VPC\\", \\"Properties\\": {\\"CidrBlock\\": \\"172.16.0.0/12\\", \\"VpcName\\": \\"MyTestVpc\\", \\"EnableIpv6\\": false}}}}
      *
      * @var string
      */

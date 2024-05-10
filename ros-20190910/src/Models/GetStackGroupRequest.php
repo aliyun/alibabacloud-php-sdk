@@ -11,7 +11,7 @@ class GetStackGroupRequest extends Model
     /**
      * @description The name of the stack group. The name must be unique within a region.
      *
-     * >  You must specify one of the StackGroupName and StackGroupId parameters.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -11,7 +11,7 @@ class parameterOverrides extends Model
     /**
      * @description The key of parameter N that you want to use to override a specific parameter. If you do not specify this parameter, ROS uses the name that you specified when you created the stack group.
      *
-     * > - If you specify ParameterOverrides, you must specify ParameterOverrides.N.ParameterKey and ParameterOverrides.N.ParameterValue.
+     * This parameter is required.
      * @example Amount
      *
      * @var string
@@ -21,7 +21,7 @@ class parameterOverrides extends Model
     /**
      * @description The value of parameter N that you want to use to override a specific parameter. If you do not specify this parameter, ROS uses the value that you specified when you created the stack group.
      *
-     * > - If you specify ParameterOverrides, you must specify ParameterOverrides.N.ParameterKey and ParameterOverrides.N.ParameterValue.
+     * This parameter is required.
      * @example 1
      *
      * @var string

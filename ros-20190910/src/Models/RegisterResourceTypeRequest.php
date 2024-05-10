@@ -9,8 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RegisterResourceTypeRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.\
-     * For more information, see [Ensure idempotence](~~134212~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.\\
+     * For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/134212.html).
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -29,6 +29,7 @@ class RegisterResourceTypeRequest extends Model
     /**
      * @description The entity type. Set the value to Module.
      *
+     * This parameter is required.
      * @example Module
      *
      * @var string
@@ -38,6 +39,7 @@ class RegisterResourceTypeRequest extends Model
     /**
      * @description The resource type.
      *
+     * This parameter is required.
      * @example MODULE::MyOrganization::MyService::MyUsecase
      *
      * @var string

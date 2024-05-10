@@ -33,8 +33,9 @@ class ListStackInstancesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the stack group. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     * @description The region ID of the stack group. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -42,8 +43,8 @@ class ListStackInstancesRequest extends Model
     public $regionId;
 
     /**
-     * @description The name of the stack group. The name must be unique within a region.\
-     * The name can be up to 255 characters in length, and can contain digits, letters, hyphens (-), and underscores (\_). It must start with a digit or letter.
+     * @description The name of the stack group. The name must be unique within a region.\\
+     * This parameter is required.
      * @example MyStackGroup
      *
      * @var string
@@ -56,7 +57,7 @@ class ListStackInstancesRequest extends Model
      *   If the stack group is granted self-managed permissions, the stack belongs to an Alibaba Cloud account.
      *   If the stack group is granted service-managed permissions, the stack belongs to a member in a resource directory.
      *
-     * > For more information about the destination account, see [Overview](~~154578~~).
+     * > For more information about the destination account, see [Overview](https://help.aliyun.com/document_detail/154578.html).
      * @example 156552876021****
      *
      * @var string

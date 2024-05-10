@@ -45,7 +45,7 @@ class GetTemplateRequest extends Model
     public $includeTags;
 
     /**
-     * @description The region ID of the stack or stack group that uses the template. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     * @description The region ID of the stack or stack group that uses the template. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -98,7 +98,7 @@ class GetTemplateRequest extends Model
     public $templateStage;
 
     /**
-     * @description The version of the template. This parameter takes effect only if you specify TemplateId.\
+     * @description The version of the template. This parameter takes effect only if you specify TemplateId.\\
      * Valid values: v1 to v100.
      * @example v1
      *

@@ -9,8 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetStackRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.\
-     * For more information, see [Ensure idempotence](~~134212~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.\\
+     * For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/134212.html).
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -45,8 +45,9 @@ class GetStackRequest extends Model
     public $outputOption;
 
     /**
-     * @description The region ID of the stack. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     * @description The region ID of the stack. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -61,7 +62,7 @@ class GetStackRequest extends Model
      *
      * >  ROS and Terraform stacks are supported. Creation, resumed creation, update, deletion, import, and rollback operations on stacks are supported.
      *
-     *   EnabledIfCreateStack (not recommend): returns \*Count and InProgressResourceDetails of ResourceProgress only during a stack creation operation.
+     *   EnabledIfCreateStack (not recommend): returns \\*Count and InProgressResourceDetails of ResourceProgress only during a stack creation operation.
      *
      * >  During a creation operation, a stack is in one of the following states: CREATE_IN_PROGRESS, CREATE_COMPLETE, CREATE_FAILED, CREATE_ROLLBACK_IN_PROGRESS, CREATE_ROLLBACK_COMPLETE, and CREATE_ROLLBACK_FAILED.
      * @example Disabled
@@ -73,6 +74,7 @@ class GetStackRequest extends Model
     /**
      * @description The stack ID.
      *
+     * This parameter is required.
      * @example c754d2a4-28f1-46df-b557-9586173a****
      *
      * @var string

@@ -11,7 +11,7 @@ class parameters extends Model
     /**
      * @description The name of the parameter N. If you do not specify the name and value of a parameter, Resource Orchestration Service (ROS) uses the default name and value that are specified in the template. Maximum value of N: 200.
      *
-     * > If you specify Parameters, you must specify Parameters.N.ParameterKey.
+     * This parameter is required.
      * @example ALIYUN::AccountId
      *
      * @var string
@@ -21,7 +21,7 @@ class parameters extends Model
     /**
      * @description The value of parameter N. Maximum value of N: 200.
      *
-     * > If you specify Parameters, you must specify Parameters.N.ParameterValue.
+     * This parameter is required.
      * @example 151266687691****
      *
      * @var string

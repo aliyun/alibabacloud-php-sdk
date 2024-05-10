@@ -32,7 +32,7 @@ class ListTemplateScratchesRequest extends Model
     /**
      * @description The region ID of the scenario.
      *
-     * You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

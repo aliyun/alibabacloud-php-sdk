@@ -11,7 +11,7 @@ class autoDeployment extends Model
     /**
      * @description The IDs of the members in the resource directory. You can specify a maximum of 20 member IDs.
      *
-     * >  To view the member IDs, go to the **Overview** page in the **Resource Management** console. For more information, see [View the detailed information of a member](~~111624~~).
+     * >  To view the member IDs, go to the **Overview** page in the **Resource Management** console. For more information, see [View the detailed information of a member](https://help.aliyun.com/document_detail/111624.html).
      * @example true
      *
      * @var bool
@@ -21,7 +21,7 @@ class autoDeployment extends Model
     /**
      * @description The IDs of the members in the resource directory. You can specify a maximum of 20 member IDs.
      *
-     * >  To view the member IDs, go to the **Overview** page in the **Resource Management** console. For more information, see [View the detailed information of a member](~~111624~~).
+     * >  To view the member IDs, go to the **Overview** page in the **Resource Management** console. For more information, see [View the detailed information of a member](https://help.aliyun.com/document_detail/111624.html).
      * @example true
      *
      * @var bool

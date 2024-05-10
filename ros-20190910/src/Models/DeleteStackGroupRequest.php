@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteStackGroupRequest extends Model
 {
     /**
-     * @description The ID of the region to which the stack group belongs. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     * @description The ID of the region to which the stack group belongs. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -20,7 +21,7 @@ class DeleteStackGroupRequest extends Model
     /**
      * @description The name of the stack group. The name must be unique in a region.
      *
-     * The name can be up to 255 characters in length and can contain digits, letters, hyphens (-), and underscores (\_). The name must start with a digit or a letter.
+     * This parameter is required.
      * @example MyStackGroup
      *
      * @var string

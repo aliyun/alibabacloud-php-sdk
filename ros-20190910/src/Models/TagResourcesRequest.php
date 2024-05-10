@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesRequest extends Model
 {
     /**
-     * @description The region ID of the tag that you want to create. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     * @description The region ID of the tag that you want to create. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -21,6 +22,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The IDs of the resources.
      *
+     * This parameter is required.
      * @example 7fee80e1-8c48-4c2f-8300-0f6dc40b****
      *
      * @var string[]
@@ -35,6 +37,7 @@ class TagResourcesRequest extends Model
      *   template: template
      *   templatescratch: scenario
      *
+     * This parameter is required.
      * @example stack
      *
      * @var string
@@ -44,6 +47,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The tags of the resource. You can specify up to 20 tags.
      *
+     * This parameter is required.
      * @var tag[]
      */
     public $tag;

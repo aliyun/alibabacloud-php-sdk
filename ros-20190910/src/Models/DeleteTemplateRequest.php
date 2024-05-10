@@ -11,6 +11,7 @@ class DeleteTemplateRequest extends Model
     /**
      * @description The ID of the template. This parameter applies to only private templates.
      *
+     * This parameter is required.
      * @example 5ecd1e10-b0e9-4389-a565-e4c15efc****
      *
      * @var string

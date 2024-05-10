@@ -29,6 +29,7 @@ class ListStackResourceDriftsRequest extends Model
     /**
      * @description The physical ID of the resource.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -47,6 +48,7 @@ class ListStackResourceDriftsRequest extends Model
     /**
      * @description The ID of the stack.
      *
+     * This parameter is required.
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
      *
      * @var string

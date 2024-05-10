@@ -33,6 +33,11 @@ class stackGroup extends Model
     public $autoDeployment;
 
     /**
+     * @var string
+     */
+    public $createTime;
+
+    /**
      * @description The name of the stack group.
      *
      * @example StackGroup Description
@@ -83,7 +88,7 @@ class stackGroup extends Model
      *   SELF_MANAGED: the self-managed permission model
      *   SERVICE_MANAGED: the service-managed permission model
      *
-     * >  For more information about the permission models of stack groups, see [Overview](~~154578~~).
+     * >  For more information about the permission models of stack groups, see [Overview](https://help.aliyun.com/document_detail/154578.html).
      * @example rg-acfmxazb4ph6aiy****
      *
      * @var string
@@ -140,16 +145,22 @@ class stackGroup extends Model
     public $templateBody;
 
     /**
-     * @description The JSON-formatted structure that contains the template body. For more information, see [Template syntax](~~28857~~).
+     * @description The JSON-formatted structure that contains the template body. For more information, see [Template syntax](https://help.aliyun.com/document_detail/28857.html).
      *
      * @example {
      * }
      * @var string
      */
     public $templateContent;
+
+    /**
+     * @var string
+     */
+    public $updateTime;
     protected $_name = [
         'administrationRoleName'         => 'AdministrationRoleName',
         'autoDeployment'                 => 'AutoDeployment',
+        'createTime'                     => 'CreateTime',
         'description'                    => 'Description',
         'executionRoleName'              => 'ExecutionRoleName',
         'parameters'                     => 'Parameters',
@@ -162,6 +173,7 @@ class stackGroup extends Model
         'status'                         => 'Status',
         'templateBody'                   => 'TemplateBody',
         'templateContent'                => 'TemplateContent',
+        'updateTime'                     => 'UpdateTime',
     ];
 
     public function validate()
@@ -176,6 +188,9 @@ class stackGroup extends Model
         }
         if (null !== $this->autoDeployment) {
             $res['AutoDeployment'] = null !== $this->autoDeployment ? $this->autoDeployment->toMap() : null;
+        }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -219,6 +234,9 @@ class stackGroup extends Model
         if (null !== $this->templateContent) {
             $res['TemplateContent'] = $this->templateContent;
         }
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
+        }
 
         return $res;
     }
@@ -236,6 +254,9 @@ class stackGroup extends Model
         }
         if (isset($map['AutoDeployment'])) {
             $model->autoDeployment = autoDeployment::fromMap($map['AutoDeployment']);
+        }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
@@ -280,6 +301,9 @@ class stackGroup extends Model
         }
         if (isset($map['TemplateContent'])) {
             $model->templateContent = $map['TemplateContent'];
+        }
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
         }
 
         return $model;

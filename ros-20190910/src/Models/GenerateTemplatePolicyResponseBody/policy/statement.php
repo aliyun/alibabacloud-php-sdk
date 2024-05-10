@@ -37,7 +37,7 @@ class statement extends Model
     public $effect;
 
     /**
-     * @description The objects that the statement covers. An asterisk (\*) indicates all resources.
+     * @description The objects that the statement covers. An asterisk (\\*) indicates all resources.
      *
      * @example *
      *

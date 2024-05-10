@@ -11,7 +11,7 @@ class tags extends Model
     /**
      * @description The key of the tag that is added to the stack group.
      *
-     * > Tags is optional. If you specify Tags, you must specify Tags.N.Key.
+     * This parameter is required.
      * @example usage
      *
      * @var string

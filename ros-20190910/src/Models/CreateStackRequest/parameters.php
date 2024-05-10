@@ -11,7 +11,7 @@ class parameters extends Model
     /**
      * @description The key of parameter N that is defined in the template. If you do not specify the name and value of a parameter, ROS uses the default name and value that are specified in the template.
      *
-     * > The Parameters parameter is optional. If you specify Parameters, you must specify Parameters.N.ParameterKey and Parameters.N.ParameterValue.
+     * This parameter is required.
      * @example InstanceId
      *
      * @var string
@@ -21,7 +21,7 @@ class parameters extends Model
     /**
      * @description The value of parameter N that is defined in the template.
      *
-     * > The Parameters parameter is optional. If you specify Parameters, you must specify Parameters.N.ParameterKey and Parameters.N.ParameterValue.
+     * This parameter is required.
      * @example i-xxxxxx
      *
      * @var string

@@ -11,7 +11,7 @@ class parameters extends Model
     /**
      * @description The name of parameter N in the template.
      *
-     * >  The Parameters parameter is optional. If you specify the Parameters parameter, you must specify the Parameters.N.ParameterKey parameter.
+     * This parameter is required.
      * @example ZoneInfo
      *
      * @var string
@@ -21,7 +21,7 @@ class parameters extends Model
     /**
      * @description The value of parameter N in the template.
      *
-     * >  The Parameters parameter is optional. If you specify the Parameters parameter, you must specify the Parameters.N.ParameterValue parameter.
+     * This parameter is required.
      * @example cn-hangzhou-h
      *
      * @var string

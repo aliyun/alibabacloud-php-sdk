@@ -30,6 +30,7 @@ class ListTemplateVersionsRequest extends Model
     /**
      * @description The template ID. This parameter applies to shared and private templates.
      *
+     * This parameter is required.
      * @example 5ecd1e10-b0e9-4389-a565-e4c15efc****
      *
      * @var string

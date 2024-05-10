@@ -27,7 +27,7 @@ class GetTemplateEstimateCostRequest extends Model
     /**
      * @description The region ID of the scenario. The default value is the same as the value of the RegionId parameter.
      *
-     * You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
      * @var parameters[]
      */
     public $parameters;
@@ -35,7 +35,7 @@ class GetTemplateEstimateCostRequest extends Model
     /**
      * @description The ID of the template. This parameter applies to shared and private templates.
      *
-     * >  You must specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, and TemplateScratchId.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -84,7 +84,7 @@ class GetTemplateEstimateCostRequest extends Model
     /**
      * @description The region ID of the scenario. The default value is the same as the value of the RegionId parameter.
      *
-     * You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -94,7 +94,7 @@ class GetTemplateEstimateCostRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests.
      *
-     * For more information, see [Ensure idempotence](~~134212~~).
+     * For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/134212.html).
      * @example oss://ros-template/demo
      *
      * @var string

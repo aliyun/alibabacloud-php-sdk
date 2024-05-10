@@ -20,8 +20,8 @@ class GetTemplateSummaryRequest extends Model
     public $changeSetId;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.\
-     * For more information, see [Ensure idempotence](~~134212~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.\\
+     * For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/134212.html).
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -36,7 +36,7 @@ class GetTemplateSummaryRequest extends Model
     public $parameters;
 
     /**
-     * @description The region ID of the stack or stack group that uses the template. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     * @description The region ID of the stack or stack group that uses the template. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
      *
      * This parameter takes effect only when one of the following parameters are specified: StackId, ChangeSetId, and StackGroupName.
      * @example cn-hangzhou
@@ -66,7 +66,7 @@ class GetTemplateSummaryRequest extends Model
     public $stackId;
 
     /**
-     * @description The structure that contains the template body. The template body must be 1 to 524,288 bytes in length.\
+     * @description The structure that contains the template body. The template body must be 1 to 524,288 bytes in length.\\
      * You can specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, StackId, ChangeSetId, and StackGroupName.
      * @example {"ROSTemplateFormatVersion":"2015-09-01"}
      *

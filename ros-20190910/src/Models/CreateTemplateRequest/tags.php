@@ -11,7 +11,7 @@ class tags extends Model
     /**
      * @description The tag key of the template.
      *
-     * > Tags is optional. If you need to specify Tags, you must also specify Key.
+     * This parameter is required.
      * @example usage
      *
      * @var string

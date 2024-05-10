@@ -11,6 +11,7 @@ class DeregisterResourceTypeRequest extends Model
     /**
      * @description The resource type.
      *
+     * This parameter is required.
      * @example MODULE::MyOrganization::MyService::MyUsecase
      *
      * @var string

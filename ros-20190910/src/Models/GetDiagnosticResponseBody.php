@@ -82,7 +82,7 @@ class GetDiagnosticResponseBody extends Model
     /**
      * @description The suggestion for the diagnosis.
      *
-     * @example {\"RosActionMessages\": {\"Reason\": \"Fail to delete stack (fc966920-450a-456b-983c-deeaec8e****), as deletion protection is enabled.\", \"Recommend\": \"\"}}
+     * @example {\\"RosActionMessages\\": {\\"Reason\\": \\"Fail to delete stack (fc966920-450a-456b-983c-deeaec8e****), as deletion protection is enabled.\\", \\"Recommend\\": \\"\\"}}
      *
      * @var mixed[]
      */

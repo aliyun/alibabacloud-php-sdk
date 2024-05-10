@@ -9,9 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SetTemplatePermissionRequest extends Model
 {
     /**
-     * @description The Alibaba Cloud accounts with or from which you want to share or unshare the template.\
+     * @description The Alibaba Cloud accounts with or from which you want to share or unshare the template.\\
      * > - This parameter cannot be set to the ID of the Alibaba Cloud account that owns the template, or the RAM users of this Alibaba Cloud account.
-     * > - When ShareOption is set to CancelSharing, you can unshare the template from all the specified Alibaba Cloud accounts by using an asterisk (\*).
+     * > - When ShareOption is set to CancelSharing, you can unshare the template from all the specified Alibaba Cloud accounts by using an asterisk (\\*).
+     *
+     * This parameter is required.
      * @example 123456789
      *
      * @var string[]
@@ -26,6 +28,7 @@ class SetTemplatePermissionRequest extends Model
      *   ShareToAccounts: shares the template with other Alibaba Cloud accounts.
      *   CancelSharing: unshares the template.
      *
+     * This parameter is required.
      * @example ShareToAccounts
      *
      * @var string
@@ -35,6 +38,7 @@ class SetTemplatePermissionRequest extends Model
     /**
      * @description The ID of the template.
      *
+     * This parameter is required.
      * @example 5ecd1e10-b0e9-4389-a565-e4c15efc****
      *
      * @var string

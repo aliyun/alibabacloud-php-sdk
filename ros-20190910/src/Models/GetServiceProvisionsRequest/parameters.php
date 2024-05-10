@@ -11,7 +11,7 @@ class parameters extends Model
     /**
      * @description The name of the parameter. If you do not specify the name and value of a parameter, Resource Orchestration Service (ROS) uses the default name and value that are specified in the template.
      *
-     * > The Parameters parameter is optional. If you specify Parameters, you must specify ParameterKey.
+     * This parameter is required.
      * @example Amount
      *
      * @var string
@@ -21,7 +21,7 @@ class parameters extends Model
     /**
      * @description The value of the parameter.
      *
-     * > The Parameters parameter is optional. If you specify Parameters, you must specify ParameterValue.
+     * This parameter is required.
      * @example 12
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class stackProvision extends Model
 {
     /**
-     * @description Indicates whether the resource is replicated by calling the [CreateStack](~~132086~~) operation. Valid values:
+     * @description Indicates whether the resource is replicated by calling the [CreateStack](https://help.aliyun.com/document_detail/132086.html) operation. Valid values:
      *
      *   true
      *   false
@@ -21,7 +21,7 @@ class stackProvision extends Model
     public $creatable;
 
     /**
-     * @description Indicates whether the resource is managed by calling the [CreateChangeSet](~~131051~~) operation. Valid values:
+     * @description Indicates whether the resource is managed by calling the [CreateChangeSet](https://help.aliyun.com/document_detail/131051.html) operation. Valid values:
      *
      *   true
      *   false

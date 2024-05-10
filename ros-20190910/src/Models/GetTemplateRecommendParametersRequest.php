@@ -20,6 +20,8 @@ class GetTemplateRecommendParametersRequest extends Model
     public $parameters;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $regionId;

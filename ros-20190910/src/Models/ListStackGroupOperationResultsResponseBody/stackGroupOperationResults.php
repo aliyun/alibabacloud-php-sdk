@@ -14,7 +14,7 @@ class stackGroupOperationResults extends Model
      *   If the stack group has self-managed permissions, the stack instance belongs to an Alibaba Cloud account.
      *   If the stack group has service-managed permissions, the stack instance belongs to a member account in the resource directory.
      *
-     * >  For more information about the account, see [Overview](~~154578~~).
+     * >  For more information about the account, see [Overview](https://help.aliyun.com/document_detail/154578.html).
      * @example 175458090349****
      *
      * @var string

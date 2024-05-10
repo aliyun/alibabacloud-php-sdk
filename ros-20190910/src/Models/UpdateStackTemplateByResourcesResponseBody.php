@@ -11,7 +11,7 @@ class UpdateStackTemplateByResourcesResponseBody extends Model
     /**
      * @description The template content after correction.
      *
-     * @example {\"ROSTemplateFormatVersion\": \"2015-09-01\", \"Resources\": {\"Vpc\": {\"Type\": \"ALIYUN::ECS::VPC\", \"Properties\": {\"VpcName\": \"test\", \"CidrBlock\": \"192.168.0.0/16\", \"Description\": \"test2\"}}}, \"Outputs\": {\"VpcId\": {\"Value\": {\"Fn::GetAtt\": [\"Vpc\", \"VpcId\"]}}}}
+     * @example {\\"ROSTemplateFormatVersion\\": \\"2015-09-01\\", \\"Resources\\": {\\"Vpc\\": {\\"Type\\": \\"ALIYUN::ECS::VPC\\", \\"Properties\\": {\\"VpcName\\": \\"test\\", \\"CidrBlock\\": \\"192.168.0.0/16\\", \\"Description\\": \\"test2\\"}}}, \\"Outputs\\": {\\"VpcId\\": {\\"Value\\": {\\"Fn::GetAtt\\": [\\"Vpc\\", \\"VpcId\\"]}}}}
      *
      * @var string
      */
@@ -20,7 +20,7 @@ class UpdateStackTemplateByResourcesResponseBody extends Model
     /**
      * @description The template content before correction.
      *
-     * @example {\"ROSTemplateFormatVersion\": \"2015-09-01\", \"Resources\": {\"Vpc\": {\"Type\": \"ALIYUN::ECS::VPC\", \"Properties\": {\"VpcName\": \"test\", \"CidrBlock\": \"192.168.0.0/16\", \"Description\": \"test1\"}}}, \"Outputs\": {\"VpcId\": {\"Value\": {\"Fn::GetAtt\": [\"Vpc\", \"VpcId\"]}}}}
+     * @example {\\"ROSTemplateFormatVersion\\": \\"2015-09-01\\", \\"Resources\\": {\\"Vpc\\": {\\"Type\\": \\"ALIYUN::ECS::VPC\\", \\"Properties\\": {\\"VpcName\\": \\"test\\", \\"CidrBlock\\": \\"192.168.0.0/16\\", \\"Description\\": \\"test1\\"}}}, \\"Outputs\\": {\\"VpcId\\": {\\"Value\\": {\\"Fn::GetAtt\\": [\\"Vpc\\", \\"VpcId\\"]}}}}
      *
      * @var string
      */

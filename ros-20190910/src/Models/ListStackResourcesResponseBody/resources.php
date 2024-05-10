@@ -85,8 +85,8 @@ class resources extends Model
     public $stackId;
 
     /**
-     * @description The stack name.\
-     * The name can be up to 255 characters in length, and can contain digits, letters, hyphens (-), and underscores (\_). It must start with a digit or letter.
+     * @description The stack name.\\
+     * The name can be up to 255 characters in length, and can contain digits, letters, hyphens (-), and underscores (_). It must start with a digit or letter.
      * @example test-describe-resource
      *
      * @var string

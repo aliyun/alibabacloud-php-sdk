@@ -25,6 +25,7 @@ class sourceResources extends Model
     /**
      * @description The ID of the resource.
      *
+     * This parameter is required.
      * @example vpc-bp1m6fww66xbntjyc****
      *
      * @var string
@@ -34,6 +35,7 @@ class sourceResources extends Model
     /**
      * @description The type of the resource.
      *
+     * This parameter is required.
      * @example ALIYUN::ECS::VPC
      *
      * @var string

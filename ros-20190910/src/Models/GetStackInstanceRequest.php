@@ -22,8 +22,9 @@ class GetStackInstanceRequest extends Model
     public $outputOption;
 
     /**
-     * @description The region ID of the stack group. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     * @description The region ID of the stack group. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -31,8 +32,8 @@ class GetStackInstanceRequest extends Model
     public $regionId;
 
     /**
-     * @description The name of the stack group. The name must be unique within a region.\
-     * The name can be up to 255 characters in length, and can contain digits, letters, hyphens (-), and underscores (\_). It must start with a digit or letter.
+     * @description The name of the stack group. The name must be unique within a region.\\
+     * This parameter is required.
      * @example MyStackGroup
      *
      * @var string
@@ -45,7 +46,7 @@ class GetStackInstanceRequest extends Model
      *   If the stack group is granted self-managed permissions, the stack belongs to an Alibaba Cloud account.
      *   If the stack group is granted service-managed permissions, the stack belongs to a member in a resource directory.
      *
-     * > For more information about the destination account, see [Overview](~~154578~~).
+     * This parameter is required.
      * @example 151266687691****
      *
      * @var string
@@ -55,6 +56,7 @@ class GetStackInstanceRequest extends Model
     /**
      * @description The region ID of the stack.
      *
+     * This parameter is required.
      * @example cn-beijing
      *
      * @var string

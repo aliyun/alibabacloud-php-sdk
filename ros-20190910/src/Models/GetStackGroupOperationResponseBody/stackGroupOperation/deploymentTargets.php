@@ -11,7 +11,7 @@ class deploymentTargets extends Model
     /**
      * @description The IDs of the members in the resource directory.
      *
-     * > This parameter is returned only if AccountIds is specified when the [UpdateStackInstances](~~151716~~) operation is called to update stack instances.
+     * > This parameter is returned only if AccountIds is specified when the [UpdateStackInstances](https://help.aliyun.com/document_detail/151716.html) operation is called to update stack instances.
      * @var string[]
      */
     public $accountIds;

@@ -17,7 +17,7 @@ class ListStackEventsResponseBody extends Model
     public $events;
 
     /**
-     * @description The page number of the returned page.\
+     * @description The page number of the returned page.\\
      * Default value: 1.
      * @example 1
      *
@@ -26,7 +26,7 @@ class ListStackEventsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.\
+     * @description The number of entries returned per page.\\
      * Default value: 10.
      * @example 10
      *

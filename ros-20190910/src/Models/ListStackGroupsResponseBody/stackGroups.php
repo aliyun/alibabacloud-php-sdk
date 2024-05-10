@@ -18,6 +18,11 @@ class stackGroups extends Model
     public $autoDeployment;
 
     /**
+     * @var string
+     */
+    public $createTime;
+
+    /**
      * @description The description of the stack group.
      *
      * @example My Stack Group
@@ -43,7 +48,7 @@ class stackGroups extends Model
      *   SELF_MANAGED
      *   SERVICE_MANAGED
      *
-     * > For more information about the permission models of stack groups, see [Overview](~~154578~~).
+     * > For more information about the permission models of stack groups, see [Overview](https://help.aliyun.com/document_detail/154578.html).
      * @example SELF_MANAGED
      *
      * @var string
@@ -112,8 +117,14 @@ class stackGroups extends Model
      * @var tags[]
      */
     public $tags;
+
+    /**
+     * @var string
+     */
+    public $updateTime;
     protected $_name = [
         'autoDeployment'        => 'AutoDeployment',
+        'createTime'            => 'CreateTime',
         'description'           => 'Description',
         'driftDetectionTime'    => 'DriftDetectionTime',
         'permissionModel'       => 'PermissionModel',
@@ -123,6 +134,7 @@ class stackGroups extends Model
         'stackGroupName'        => 'StackGroupName',
         'status'                => 'Status',
         'tags'                  => 'Tags',
+        'updateTime'            => 'UpdateTime',
     ];
 
     public function validate()
@@ -134,6 +146,9 @@ class stackGroups extends Model
         $res = [];
         if (null !== $this->autoDeployment) {
             $res['AutoDeployment'] = null !== $this->autoDeployment ? $this->autoDeployment->toMap() : null;
+        }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -168,6 +183,9 @@ class stackGroups extends Model
                 }
             }
         }
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
+        }
 
         return $res;
     }
@@ -182,6 +200,9 @@ class stackGroups extends Model
         $model = new self();
         if (isset($map['AutoDeployment'])) {
             $model->autoDeployment = autoDeployment::fromMap($map['AutoDeployment']);
+        }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
@@ -215,6 +236,9 @@ class stackGroups extends Model
                     $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
         }
 
         return $model;

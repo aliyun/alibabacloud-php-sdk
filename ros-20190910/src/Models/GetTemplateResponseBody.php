@@ -169,7 +169,7 @@ class GetTemplateResponseBody extends Model
     public $templateName;
 
     /**
-     * @description The version of the template. This parameter is returned only if you specify TemplateId.\
+     * @description The version of the template. This parameter is returned only if you specify TemplateId.\\
      * If the template is a shared template, this parameter is returned only if you set VersionOption to AllVersions.
      * @example v1
      *

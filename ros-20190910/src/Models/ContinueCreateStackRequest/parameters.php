@@ -11,7 +11,7 @@ class parameters extends Model
     /**
      * @description The name of template parameter N that you want to use to override a specific parameter. If you do not specify the name and value of a template parameter, ROS uses the name and value specified in the previous operation that was performed to create the stack. Maximum value of N: 200.
      *
-     * > This parameter takes effect only when Mode is set to Recreate.
+     * This parameter is required.
      * @example Amount
      *
      * @var string
@@ -26,7 +26,7 @@ class parameters extends Model
      *   You cannot change the condition values in the Conditions section of a template from true to false or from false to true.
      *   The template parameters can be referenced only by resources that ROS continues to create.
      *
-     * > This parameter takes effect only when Mode is set to Recreate.
+     * This parameter is required.
      * @example 12
      *
      * @var string

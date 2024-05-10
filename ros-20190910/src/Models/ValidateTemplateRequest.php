@@ -11,7 +11,7 @@ class ValidateTemplateRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.
      *
-     * For more information, see [Ensure idempotence](~~134212~~).
+     * For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/134212.html).
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -19,7 +19,7 @@ class ValidateTemplateRequest extends Model
     public $clientToken;
 
     /**
-     * @description The region ID of the template. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     * @description The region ID of the template. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -35,7 +35,7 @@ class ValidateTemplateRequest extends Model
     /**
      * @description The URL of the file that contains the template body. The URL must point to a template that is located on an HTTP web server or in an Object Storage Service (OSS) bucket, such as oss://ros/template/demo or oss://ros/template/demo?RegionId=cn-hangzhou. The template body can be up to 524,288 bytes in length.
      *
-     * You can specify one of TemplateBody and TemplateURL, but not both of them. The URL can be up to 1,024 bytes in length.\
+     * You can specify one of TemplateBody and TemplateURL, but not both of them. The URL can be up to 1,024 bytes in length.\\
      * @example oss://ros/template/demo
      *
      * @var string

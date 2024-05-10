@@ -11,6 +11,7 @@ class sourceResourceGroup extends Model
     /**
      * @description The ID of the source resource group.
      *
+     * This parameter is required.
      * @example rg-acfmzawhxxc****
      *
      * @var string

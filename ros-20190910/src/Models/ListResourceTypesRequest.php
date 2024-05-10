@@ -12,8 +12,8 @@ class ListResourceTypesRequest extends Model
      * @description The entity type. Valid values:
      *
      *   All: all types of resources.
-     *   Resource (default): regular resources. For more information, see [Resources](~~28863~~).
-     *   DataSource: DataSource resources. For more information, see [DataSource resources](~~404753~~).
+     *   Resource (default): regular resources. For more information, see [Resources](https://help.aliyun.com/document_detail/28863.html).
+     *   DataSource: DataSource resources. For more information, see [DataSource resources](https://help.aliyun.com/document_detail/404753.html).
      *   Module: modules.
      *
      * @example Resource
@@ -35,7 +35,7 @@ class ListResourceTypesRequest extends Model
     public $provider;
 
     /**
-     * @description The resource type. The resource type can contain letters, digits, colons (:), and asterisks (\*). You can use an asterisk (\*) to perform a fuzzy match.
+     * @description The resource type. The resource type can contain letters, digits, colons (:), and asterisks (\\*). You can use an asterisk (\\*) to perform a fuzzy match.
      *
      * @example MODULE::MyOrganization::MyService::MyUsecase
      *

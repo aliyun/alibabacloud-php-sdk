@@ -11,7 +11,7 @@ class DetectStackGroupDriftRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests.
      *
-     * For more information, see [How to ensure idempotence](~~134212~~).
+     * For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/134212.html).
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -45,6 +45,7 @@ class DetectStackGroupDriftRequest extends Model
     /**
      * @description The region ID of the stack group. You can call the [DescribeRegions](~~131035#doc-api-ROS-DescribeRegions~~ "Queries the DescribeRegions list of a region.") operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -54,7 +55,7 @@ class DetectStackGroupDriftRequest extends Model
     /**
      * @description The name of the stack group. The name must be unique in a region.
      *
-     * The name can be up to 255 characters in length and can contain digits, letters, hyphens (-), and underscores (\_). It must start with a digit or letter.
+     * This parameter is required.
      * @example MyStackGroup
      *
      * @var string

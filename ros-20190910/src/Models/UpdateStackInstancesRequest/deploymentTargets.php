@@ -11,7 +11,7 @@ class deploymentTargets extends Model
     /**
      * @description The IDs of the member accounts in the resource directory. You can specify up to 20 member account IDs.
      *
-     * > To view the member account IDs, go to the **Overview** page in the **Resource Management** console. For more information, see [View the details of a member](~~111624~~).
+     * > To view the member account IDs, go to the **Overview** page in the **Resource Management** console. For more information, see [View the details of a member](https://help.aliyun.com/document_detail/111624.html).
      * @var string[]
      */
     public $accountIds;

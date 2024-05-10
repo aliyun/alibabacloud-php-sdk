@@ -11,8 +11,8 @@ use AlibabaCloud\Tea\Model;
 class CreateChangeSetRequest extends Model
 {
     /**
-     * @description The name of the change set.\
-     * > Make sure that the name is unique among all names of change sets that are associated with the specified stack.
+     * @description The name of the change set.\\
+     * This parameter is required.
      * @example MyChangeSet
      *
      * @var string
@@ -26,7 +26,12 @@ class CreateChangeSetRequest extends Model
      *   UPDATE (default): creates a change set for an existing stack.
      *   IMPORT: creates a change set for a new stack or an existing stack to import resources that are not managed by ROS.
      *
-     * If you want to create a change set for a new stack, do not set ChangeSetType to UPDATE. If you want to create a change set for an existing stack, do not set ChangeSetType to CREATE.
+     * >
+     *
+     *   You cannot set ChangeSetType to UPDATE when you create a change set for a new stack. You cannot set ChangeSetType to CREATE when you create a change set for an existing stack.
+     *
+     *   If you set ChangeSetType to Import, you cannot configure a stack policy. You can specify ChangeSetType only when you create or update a stack.
+     *
      * @example UPDATE
      *
      * @var string
@@ -34,8 +39,8 @@ class CreateChangeSetRequest extends Model
     public $changeSetType;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests.\
-     * For more information, see [How to ensure idempotence](~~134212~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests.\\
+     * For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/134212.html).
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -52,7 +57,7 @@ class CreateChangeSetRequest extends Model
     public $description;
 
     /**
-     * @description Specifies whether to disable rollback when the stack fails to be created.\
+     * @description Specifies whether to disable rollback when the stack fails to be created.\\
      * Valid values:
      *
      *   true: disables rollback for the stack when the stack fails to be created.
@@ -104,8 +109,8 @@ class CreateChangeSetRequest extends Model
     public $parameters;
 
     /**
-     * @description The name of the Resource Access Management (RAM) role. Resource Orchestration Service (ROS) assumes the RAM role to create the stack and uses the credentials of the role to call the APIs of Alibaba Cloud services.\
-     * The name of the RAM role can be up to 64 bytes in length.
+     * @description The name of the Resource Access Management (RAM) role. ROS assumes the RAM role to create the stack and uses the credentials of the role to call the APIs of Alibaba Cloud services.\\
+     * For more information about RAM roles, see [Use a stack role](https://help.aliyun.com/document_detail/2568025.html).
      * @example test-role
      *
      * @var string
@@ -113,8 +118,9 @@ class CreateChangeSetRequest extends Model
     public $ramRoleName;
 
     /**
-     * @description The region ID of the change set. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     * @description The region ID of the change set.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -135,16 +141,15 @@ class CreateChangeSetRequest extends Model
     public $replacementOption;
 
     /**
-     * @description The resources that you want to import into the stack.
+     * @description The resources that you want to import to the stack.
      *
      * @var resourcesToImport[]
      */
     public $resourcesToImport;
 
     /**
-     * @description The ID of the stack for which you want to create a change set. ROS compares the stack information with the information that you submit, such as a modified template or a changed parameter value, to generate the change set.
-     *
-     * > This parameter takes effect only for change sets of the UPDATE or IMPORT.
+     * @description The ID of the stack for which you want to create the change set. ROS compares the stack information with the information that you submit, such as an updated template or parameter value, to generate the change set.\\
+     * >  This parameter takes effect only when ChangeSetType is set to UPDATE or IMPORT.
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
      *
      * @var string
@@ -152,7 +157,7 @@ class CreateChangeSetRequest extends Model
     public $stackId;
 
     /**
-     * @description The name of the stack for which you want to create the change set.\
+     * @description The name of the stack for which you want to create the change set.\\
      * > This parameter takes effect only if you set ChangeSetType to CREATE or IMPORT.
      * @example MyStack
      *
@@ -161,7 +166,11 @@ class CreateChangeSetRequest extends Model
     public $stackName;
 
     /**
-     * @description The structure of the stack policy body. The policy body must be 1 to 16,384 bytes in length. If you set ChangeSetType to CREATE, you can specify StackPolicyBody or StackPolicyURL. If you set ChangeSetType to UPDATE, you can specify only one of the following parameters:
+     * @description The structure that contains the stack policy body. The policy body must be 1 to 16,384 bytes in length.
+     *
+     * If you set ChangeSetType to **CREATE**, you can specify StackPolicyBody or StackPolicyURL.
+     *
+     * If you set ChangeSetType to **UPDATE**, you can specify only one of the following parameters:
      *
      *   StackPolicyBody
      *   StackPolicyURL
@@ -175,7 +184,7 @@ class CreateChangeSetRequest extends Model
     public $stackPolicyBody;
 
     /**
-     * @description The structure of the temporary overriding stack policy. The policy body must be 1 to 16,384 bytes in length.\
+     * @description The structure of the temporary overriding stack policy. The policy body must be 1 to 16,384 bytes in length.\\
      * This parameter takes effect only if you set ChangeSetType to UPDATE. You can specify only one of the following parameters:
      *
      *   StackPolicyBody
@@ -206,9 +215,13 @@ class CreateChangeSetRequest extends Model
     public $stackPolicyDuringUpdateURL;
 
     /**
-     * @description The URL of the file that contains the stack policy. The URL must point to a policy that is located on an HTTP or HTTPS web server or in an Object Storage Service (OSS) bucket, such as oss://ros/stack-policy/demo and oss://ros/stack-policy/demo?RegionId=cn-hangzhou. The policy file can be up to 16,384 bytes in length.
+     * @description The URL of the file that contains the stack policy. The URL must point to a policy that is located on an HTTP or HTTPS web server or in an Object Storage Service (OSS) bucket, such as oss://ros/stack-policy/demo or oss://ros/stack-policy/demo?RegionId=cn-hangzhou. The policy file can be up to 16,384 bytes in length.
      *
-     * If you set ChangeSetType to CREATE, you can specify StackPolicyBody or StackPolicyURL. If you set ChangeSetType to UPDATE, you can specify only one of the following parameters:
+     * >  If you do not specify the region ID of the OSS bucket, the value of RegionId is used.
+     *
+     * If you set ChangeSetType to **CREATE**, you can specify StackPolicyBody or StackPolicyURL.
+     *
+     * If you set ChangeSetType to **UPDATE**, you can specify only one of the following parameters:
      *
      *   StackPolicyBody
      *   StackPolicyURL
@@ -227,9 +240,9 @@ class CreateChangeSetRequest extends Model
     public $templateBody;
 
     /**
-     * @description The ID of the template. This parameter applies to shared and private templates.
+     * @description The template ID. This parameter applies to shared templates and private templates.
      *
-     * You can specify only one of the following parameters: TemplateBody, TemplateURL, and TemplateId.
+     * >  You can specify only one of the following parameters: TemplateBody, TemplateURL, and TemplateId.
      * @example 5ecd1e10-b0e9-4389-a565-e4c15efc****
      *
      * @var string
@@ -237,8 +250,9 @@ class CreateChangeSetRequest extends Model
     public $templateId;
 
     /**
-     * @description The ID of the scenario template.
+     * @description The ID of the resource scenario. In this example, this parameter specifies the ID of a resource management scenario.
      *
+     * You can call the [ListTemplateScratches](https://help.aliyun.com/document_detail/610832.html) operation to query the ID of the resource management scenario.
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
      *
      * @var string
@@ -266,7 +280,7 @@ class CreateChangeSetRequest extends Model
     public $templateVersion;
 
     /**
-     * @description The amount of time that can elapse before the stack enters the CREATE_FAILED or UPDATE_FAILED state.\
+     * @description The amount of time that can elapse before the stack enters the CREATE_FAILED or UPDATE_FAILED state.\\
      * If you set ChangeSetType to CREATE, this parameter is required. If you set ChangeSetType to UPDATE, this parameter is optional.
      *
      *   Unit: minutes.

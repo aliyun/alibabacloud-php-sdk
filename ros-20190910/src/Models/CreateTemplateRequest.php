@@ -19,8 +19,8 @@ class CreateTemplateRequest extends Model
     public $description;
 
     /**
-     * @description The ID of the resource group.\
-     * For more information about resource groups, see [Resource groups](~~94475~~).
+     * @description The ID of the resource group.\\
+     * For more information about resource groups, see [Resource groups](https://help.aliyun.com/document_detail/94475.html).
      * @example rg-acfmxazb4ph6aiy****
      *
      * @var string
@@ -40,8 +40,8 @@ class CreateTemplateRequest extends Model
     public $templateBody;
 
     /**
-     * @description The name of the template.\
-     * The name can be up to 255 characters in length and can contain digits, letters, hyphens (-), and underscores (\_). It must start with a digit or a letter.
+     * @description The name of the template.\\
+     * This parameter is required.
      * @example MyTemplate
      *
      * @var string

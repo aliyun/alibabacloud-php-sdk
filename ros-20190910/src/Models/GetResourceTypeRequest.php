@@ -11,6 +11,7 @@ class GetResourceTypeRequest extends Model
     /**
      * @description The ID of the request.
      *
+     * This parameter is required.
      * @example ALIYUN::ROS::WaitConditionHandle
      *
      * @var string

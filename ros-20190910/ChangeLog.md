@@ -1,3 +1,8 @@
+2024-05-10 Version: 2.3.14
+- Update API GetStackGroup: update response param.
+- Update API ListStackGroups: update response param.
+
+
 2024-04-24 Version: 2.3.13
 - Generated php 2019-09-10 for ROS.
 

@@ -48,8 +48,9 @@ class ListStacksRequest extends Model
     public $parentStackId;
 
     /**
-     * @description The region ID of the stack. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     * @description The region ID of the stack. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -57,8 +58,8 @@ class ListStacksRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group.\
-     * For more information about resource groups, see the "Resource Group" section of the [What is Resource Management?](~~94475~~) topic.
+     * @description The ID of the resource group.\\
+     * For more information about resource groups, see the "Resource Group" section of the [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html) topic.
      * @example rg-acfmxazb4ph6aiy****
      *
      * @var string

@@ -16,6 +16,7 @@ class GetFeatureDetailsRequest extends Model
      *   TemplateScratch: the scenario feature.
      *   All: all features that are supported by ROS.
      *
+     * This parameter is required.
      * @example Terraform
      *
      * @var string
@@ -23,8 +24,9 @@ class GetFeatureDetailsRequest extends Model
     public $feature;
 
     /**
-     * @description The region ID of the stack. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     * @description The region ID of the stack. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

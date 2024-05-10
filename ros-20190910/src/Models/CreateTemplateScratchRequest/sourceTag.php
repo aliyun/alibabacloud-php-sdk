@@ -11,7 +11,7 @@ class sourceTag extends Model
     /**
      * @description The source tags that consist of key-value pairs. If you want to specify only the tag key, you must leave the tag value empty. Example: `{"TagKey": ""}`.
      *
-     * You can add up to 10 source tags.
+     * This parameter is required.
      * @example {"a": "b"}
      *
      * @var mixed[]

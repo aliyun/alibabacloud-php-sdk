@@ -11,6 +11,7 @@ class parameters extends Model
     /**
      * @description The ID of the request.
      *
+     * This parameter is required.
      * @example Name
      *
      * @var string
@@ -20,6 +21,7 @@ class parameters extends Model
     /**
      * @description Details of the resource.
      *
+     * This parameter is required.
      * @example DemoEip
      *
      * @var string

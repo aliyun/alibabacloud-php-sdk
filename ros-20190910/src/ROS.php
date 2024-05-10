@@ -219,10 +219,12 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param CancelStackOperationRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Cancels operations on a stack.
+     *  *
+     * @param CancelStackOperationRequest $request CancelStackOperationRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelStackOperationResponse
+     * @return CancelStackOperationResponse CancelStackOperationResponse
      */
     public function cancelStackOperationWithOptions($request, $runtime)
     {
@@ -259,9 +261,11 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param CancelStackOperationRequest $request
+     * @summary Cancels operations on a stack.
+     *  *
+     * @param CancelStackOperationRequest $request CancelStackOperationRequest
      *
-     * @return CancelStackOperationResponse
+     * @return CancelStackOperationResponse CancelStackOperationResponse
      */
     public function cancelStackOperation($request)
     {
@@ -271,10 +275,12 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param CancelUpdateStackRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Cancels an update operation on a stack. You can call this operation to cancel an update operation on a stack when the stack is being updated or created.
+     *  *
+     * @param CancelUpdateStackRequest $request CancelUpdateStackRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelUpdateStackResponse
+     * @return CancelUpdateStackResponse CancelUpdateStackResponse
      */
     public function cancelUpdateStackWithOptions($request, $runtime)
     {
@@ -308,9 +314,11 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param CancelUpdateStackRequest $request
+     * @summary Cancels an update operation on a stack. You can call this operation to cancel an update operation on a stack when the stack is being updated or created.
+     *  *
+     * @param CancelUpdateStackRequest $request CancelUpdateStackRequest
      *
-     * @return CancelUpdateStackResponse
+     * @return CancelUpdateStackResponse CancelUpdateStackResponse
      */
     public function cancelUpdateStack($request)
     {
@@ -320,8 +328,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to continue to create a stack after the stack fails to be created. In this example, the stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` is created in the China (Hangzhou) region.
-     *   *
+     * @summary Continues to create a stack after the stack fails to be created.
+     *  *
+     * @description This topic provides an example on how to continue to create a stack after the stack fails to be created. In this example, the stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` is created in the China (Hangzhou) region.
+     *  *
      * @param ContinueCreateStackRequest $request ContinueCreateStackRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -389,8 +399,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to continue to create a stack after the stack fails to be created. In this example, the stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` is created in the China (Hangzhou) region.
-     *   *
+     * @summary Continues to create a stack after the stack fails to be created.
+     *  *
+     * @description This topic provides an example on how to continue to create a stack after the stack fails to be created. In this example, the stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` is created in the China (Hangzhou) region.
+     *  *
      * @param ContinueCreateStackRequest $request ContinueCreateStackRequest
      *
      * @return ContinueCreateStackResponse ContinueCreateStackResponse
@@ -403,14 +415,24 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * ### Limits
-     *   * You can create and execute change sets to update running stacks. For more information about change sets, see [Overview](~~156038~~).
-     *   * ### Usage notes
-     *   * *   A stack can contain up to 20 change sets.
-     *   * *   Change sets reflect only the changes of stacks. Change sets do not reflect whether stacks are updated.
-     *   * *   You cannot use change sets to check the following items: whether the upper limit of your Alibaba Cloud account is reached, whether resources that cannot be updated are updated, and whether your Alibaba Cloud account has permissions to modify resources. These items may cause stack updates to fail. If stacks fail to be updated, Resource Orchestration Service (ROS) rolls back the resources to the original status.
-     *   * In this topic, a change set named `MyChangeSet` is created in the `China (Hangzhou)` region. In this example, the template of the stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` is updated to `{"ROSTemplateFormatVersion":"2015-09-01"}`.
-     *   *
+     * @summary Creates a change set for a stack. You can view proposed changes before you execute the change set.
+     *  *
+     * @description ### [](#)Scenarios
+     * #### [](#)Use a change set to create a stack
+     * If you want to manage a large number of cloud resources and preview the creation effect of the resources before a stack that contains the resources is created, you can create the stack by using a change set. In this case, you must set `ChangeSetType` to CREATE and configure the relevant parameters. For more information about change sets, see [Change set](https://help.aliyun.com/document_detail/155649.html).
+     * #### [](#)Use a change set to update a stack
+     * If you want to preview the impacts of changes to an existing stack before you update the stack resources, you can create a change set for the stack. In this case, you must set ChangeSetType to UPDATE and configure the relevant parameters. For more information about change sets, see [Change set](https://help.aliyun.com/document_detail/155649.html).
+     * #### [](#)Use a change set and existing resources to create a stack
+     * If you want to add existing cloud resources to a new stack for centralized management, you can use a change set to create a stack and import the resources to the stack. In this case, you must set ChangeSetType to IMPORT and configure the relevant parameters. For more information about the resource import feature, see [Overview](https://help.aliyun.com/document_detail/193454.html).
+     * #### [](#)Use a change set and existing resources to update a stack
+     * If you want to import existing resources to an existing stack for centralized management, you can use a change set to update the stack. In this case, you must set ChangeSetType to IMPORT and configure the relevant parameters. For more information about the resource import feature, see [Overview](https://help.aliyun.com/document_detail/193454.html).
+     * ### [](#)Limits
+     * *   You can use change sets to update only stacks that are in specific states. For more information, see [Use a change set to update a stack](https://help.aliyun.com/document_detail/155873.html).
+     * *   A stack can have up to 20 change sets.
+     * *   Change sets reflect only the changes to stacks. Change sets do not reflect whether stacks can be successfully updated.
+     * *   A change set does not check if you exceed an account limit, if you update resources that cannot be updated, or if you have insufficient permissions to modify resources, all of which can cause a stack update to fail. If a stack update fails, Resource Orchestration Service (ROS) attempts to roll back your resources to their original status.
+     * This topic provides an example on how to use a change set to update a stack. In this example, a change set named `MyChangeSet` is created in the `China (Hangzhou)` region. The template of a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` is updated to `{"ROSTemplateFormatVersion":"2015-09-01"}`.
+     *  *
      * @param CreateChangeSetRequest $request CreateChangeSetRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -516,14 +538,24 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * ### Limits
-     *   * You can create and execute change sets to update running stacks. For more information about change sets, see [Overview](~~156038~~).
-     *   * ### Usage notes
-     *   * *   A stack can contain up to 20 change sets.
-     *   * *   Change sets reflect only the changes of stacks. Change sets do not reflect whether stacks are updated.
-     *   * *   You cannot use change sets to check the following items: whether the upper limit of your Alibaba Cloud account is reached, whether resources that cannot be updated are updated, and whether your Alibaba Cloud account has permissions to modify resources. These items may cause stack updates to fail. If stacks fail to be updated, Resource Orchestration Service (ROS) rolls back the resources to the original status.
-     *   * In this topic, a change set named `MyChangeSet` is created in the `China (Hangzhou)` region. In this example, the template of the stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` is updated to `{"ROSTemplateFormatVersion":"2015-09-01"}`.
-     *   *
+     * @summary Creates a change set for a stack. You can view proposed changes before you execute the change set.
+     *  *
+     * @description ### [](#)Scenarios
+     * #### [](#)Use a change set to create a stack
+     * If you want to manage a large number of cloud resources and preview the creation effect of the resources before a stack that contains the resources is created, you can create the stack by using a change set. In this case, you must set `ChangeSetType` to CREATE and configure the relevant parameters. For more information about change sets, see [Change set](https://help.aliyun.com/document_detail/155649.html).
+     * #### [](#)Use a change set to update a stack
+     * If you want to preview the impacts of changes to an existing stack before you update the stack resources, you can create a change set for the stack. In this case, you must set ChangeSetType to UPDATE and configure the relevant parameters. For more information about change sets, see [Change set](https://help.aliyun.com/document_detail/155649.html).
+     * #### [](#)Use a change set and existing resources to create a stack
+     * If you want to add existing cloud resources to a new stack for centralized management, you can use a change set to create a stack and import the resources to the stack. In this case, you must set ChangeSetType to IMPORT and configure the relevant parameters. For more information about the resource import feature, see [Overview](https://help.aliyun.com/document_detail/193454.html).
+     * #### [](#)Use a change set and existing resources to update a stack
+     * If you want to import existing resources to an existing stack for centralized management, you can use a change set to update the stack. In this case, you must set ChangeSetType to IMPORT and configure the relevant parameters. For more information about the resource import feature, see [Overview](https://help.aliyun.com/document_detail/193454.html).
+     * ### [](#)Limits
+     * *   You can use change sets to update only stacks that are in specific states. For more information, see [Use a change set to update a stack](https://help.aliyun.com/document_detail/155873.html).
+     * *   A stack can have up to 20 change sets.
+     * *   Change sets reflect only the changes to stacks. Change sets do not reflect whether stacks can be successfully updated.
+     * *   A change set does not check if you exceed an account limit, if you update resources that cannot be updated, or if you have insufficient permissions to modify resources, all of which can cause a stack update to fail. If a stack update fails, Resource Orchestration Service (ROS) attempts to roll back your resources to their original status.
+     * This topic provides an example on how to use a change set to update a stack. In this example, a change set named `MyChangeSet` is created in the `China (Hangzhou)` region. The template of a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` is updated to `{"ROSTemplateFormatVersion":"2015-09-01"}`.
+     *  *
      * @param CreateChangeSetRequest $request CreateChangeSetRequest
      *
      * @return CreateChangeSetResponse CreateChangeSetResponse
@@ -536,10 +568,12 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param CreateDiagnosticRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Creates a dignosis task.
+     *  *
+     * @param CreateDiagnosticRequest $request CreateDiagnosticRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDiagnosticResponse
+     * @return CreateDiagnosticResponse CreateDiagnosticResponse
      */
     public function createDiagnosticWithOptions($request, $runtime)
     {
@@ -576,9 +610,11 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param CreateDiagnosticRequest $request
+     * @summary Creates a dignosis task.
+     *  *
+     * @param CreateDiagnosticRequest $request CreateDiagnosticRequest
      *
-     * @return CreateDiagnosticResponse
+     * @return CreateDiagnosticResponse CreateDiagnosticResponse
      */
     public function createDiagnostic($request)
     {
@@ -588,12 +624,14 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * A stack is a collection of ROS resources that you can manage as a single unit. To create a collection of resources, you can create a stack. For more information about stacks, see [Overview](~~172973~~).\\
-     *   * When you call the operation, take note of the following limits:
-     *   * *   You can create up to 200 stacks within an Alibaba Cloud account.
-     *   * *   You can create up to 200 resources in a stack.
-     *   * This topic provides an example on how to create a stack named `MyStack` in the China (Hangzhou) region by using a template. In this example, `TemplateBody` is set to `{"ROSTemplateFormatVersion":"2015-09-01"}`.
-     *   *
+     * @summary Creates a stack that contains a collection of resources by using a Resource Orchestration Service (ROS) template.
+     *  *
+     * @description A stack is a collection of ROS resources that you can manage as a single unit. To create a collection of resources, you can create a stack. For more information about stacks, see [Overview](https://help.aliyun.com/document_detail/172973.html).\\
+     * When you call the operation, take note of the following limits:
+     * *   You can create up to 200 stacks within an Alibaba Cloud account.
+     * *   You can create up to 200 resources in a stack.
+     * This topic provides an example on how to create a stack named `MyStack` in the China (Hangzhou) region by using a template. In this example, `TemplateBody` is set to `{"ROSTemplateFormatVersion":"2015-09-01"}`.
+     *  *
      * @param CreateStackRequest $request CreateStackRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
@@ -690,12 +728,14 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * A stack is a collection of ROS resources that you can manage as a single unit. To create a collection of resources, you can create a stack. For more information about stacks, see [Overview](~~172973~~).\\
-     *   * When you call the operation, take note of the following limits:
-     *   * *   You can create up to 200 stacks within an Alibaba Cloud account.
-     *   * *   You can create up to 200 resources in a stack.
-     *   * This topic provides an example on how to create a stack named `MyStack` in the China (Hangzhou) region by using a template. In this example, `TemplateBody` is set to `{"ROSTemplateFormatVersion":"2015-09-01"}`.
-     *   *
+     * @summary Creates a stack that contains a collection of resources by using a Resource Orchestration Service (ROS) template.
+     *  *
+     * @description A stack is a collection of ROS resources that you can manage as a single unit. To create a collection of resources, you can create a stack. For more information about stacks, see [Overview](https://help.aliyun.com/document_detail/172973.html).\\
+     * When you call the operation, take note of the following limits:
+     * *   You can create up to 200 stacks within an Alibaba Cloud account.
+     * *   You can create up to 200 resources in a stack.
+     * This topic provides an example on how to create a stack named `MyStack` in the China (Hangzhou) region by using a template. In this example, `TemplateBody` is set to `{"ROSTemplateFormatVersion":"2015-09-01"}`.
+     *  *
      * @param CreateStackRequest $request CreateStackRequest
      *
      * @return CreateStackResponse CreateStackResponse
@@ -708,13 +748,15 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * A stack group is a collection of ROS stacks that you can manage as a unit. You can use an ROS template of a stack group to create stacks within Alibaba Cloud accounts across regions.
-     *   * You can create a stack group that is granted self-managed or service-managed permissions:
-     *   * *   If you use an Alibaba Cloud account to create a self-managed stack group, the administrator account and the execution account are Alibaba Cloud accounts.
-     *   * *   If you enable a resource directory and use the management account or a delegated administrator account of the resource directory to create a service-managed stack group, the administrator account is the management account or delegated administrator account, and the execution account is a member account of the resource directory.
-     *   * For more information about stack groups, see [Overview](~~154578~~).
-     *   * In this topic, a stack group named `MyStackGroup` is created in the `China (Hangzhou)` region and granted the self-managed permissions. In this example, the template whose ID is `5ecd1e10-b0e9-4389-a565-e4c15efc****` is used.
-     *   *
+     * @summary Creates stack groups based on Resource Orchestration Service (ROS) templates. Stack groups allow you to create stacks within multiple Alibaba Cloud accounts across regions.
+     *  *
+     * @description A stack group is a collection of ROS stacks that you can manage as a unit. You can use an ROS template of a stack group to create stacks within Alibaba Cloud accounts across regions.
+     * You can create a stack group that is granted self-managed or service-managed permissions:
+     * *   If you use an Alibaba Cloud account to create a self-managed stack group, the administrator account and the execution account are Alibaba Cloud accounts.
+     * *   If you enable a resource directory and use the management account or a delegated administrator account of the resource directory to create a service-managed stack group, the administrator account is the management account or delegated administrator account, and the execution account is a member account of the resource directory.
+     * For more information about stack groups, see [Overview](https://help.aliyun.com/document_detail/154578.html).
+     * In this topic, a stack group named `MyStackGroup` is created in the `China (Hangzhou)` region and granted the self-managed permissions. In this example, the template whose ID is `5ecd1e10-b0e9-4389-a565-e4c15efc****` is used.
+     *  *
      * @param CreateStackGroupRequest $tmpReq  CreateStackGroupRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -798,13 +840,15 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * A stack group is a collection of ROS stacks that you can manage as a unit. You can use an ROS template of a stack group to create stacks within Alibaba Cloud accounts across regions.
-     *   * You can create a stack group that is granted self-managed or service-managed permissions:
-     *   * *   If you use an Alibaba Cloud account to create a self-managed stack group, the administrator account and the execution account are Alibaba Cloud accounts.
-     *   * *   If you enable a resource directory and use the management account or a delegated administrator account of the resource directory to create a service-managed stack group, the administrator account is the management account or delegated administrator account, and the execution account is a member account of the resource directory.
-     *   * For more information about stack groups, see [Overview](~~154578~~).
-     *   * In this topic, a stack group named `MyStackGroup` is created in the `China (Hangzhou)` region and granted the self-managed permissions. In this example, the template whose ID is `5ecd1e10-b0e9-4389-a565-e4c15efc****` is used.
-     *   *
+     * @summary Creates stack groups based on Resource Orchestration Service (ROS) templates. Stack groups allow you to create stacks within multiple Alibaba Cloud accounts across regions.
+     *  *
+     * @description A stack group is a collection of ROS stacks that you can manage as a unit. You can use an ROS template of a stack group to create stacks within Alibaba Cloud accounts across regions.
+     * You can create a stack group that is granted self-managed or service-managed permissions:
+     * *   If you use an Alibaba Cloud account to create a self-managed stack group, the administrator account and the execution account are Alibaba Cloud accounts.
+     * *   If you enable a resource directory and use the management account or a delegated administrator account of the resource directory to create a service-managed stack group, the administrator account is the management account or delegated administrator account, and the execution account is a member account of the resource directory.
+     * For more information about stack groups, see [Overview](https://help.aliyun.com/document_detail/154578.html).
+     * In this topic, a stack group named `MyStackGroup` is created in the `China (Hangzhou)` region and granted the self-managed permissions. In this example, the template whose ID is `5ecd1e10-b0e9-4389-a565-e4c15efc****` is used.
+     *  *
      * @param CreateStackGroupRequest $request CreateStackGroupRequest
      *
      * @return CreateStackGroupResponse CreateStackGroupResponse
@@ -817,9 +861,11 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that a stack group is created. For more information, see [CreateStackGroup](~~151333~~).
-     *   * In this topic, the stack group named `MyStackGroup` is used. The stack group is created in the China (Hangzhou) region and granted the self-managed permissions. In this example, stacks are created by using Alibaba Cloud accounts whose IDs are `151266687691****` and `141261387191****` in the China (Hangzhou) region and China (Beijing) region.
-     *   *
+     * @summary Creates stack instances in the specified accounts and regions.
+     *  *
+     * @description Before you call this operation, make sure that a stack group is created. For more information, see [CreateStackGroup](https://help.aliyun.com/document_detail/151333.html).
+     * In this topic, the stack group named `MyStackGroup` is used. The stack group is created in the China (Hangzhou) region and granted the self-managed permissions. In this example, stacks are created by using Alibaba Cloud accounts whose IDs are `151266687691****` and `141261387191****` in the China (Hangzhou) region and China (Beijing) region.
+     *  *
      * @param CreateStackInstancesRequest $tmpReq  CreateStackInstancesRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -895,9 +941,11 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that a stack group is created. For more information, see [CreateStackGroup](~~151333~~).
-     *   * In this topic, the stack group named `MyStackGroup` is used. The stack group is created in the China (Hangzhou) region and granted the self-managed permissions. In this example, stacks are created by using Alibaba Cloud accounts whose IDs are `151266687691****` and `141261387191****` in the China (Hangzhou) region and China (Beijing) region.
-     *   *
+     * @summary Creates stack instances in the specified accounts and regions.
+     *  *
+     * @description Before you call this operation, make sure that a stack group is created. For more information, see [CreateStackGroup](https://help.aliyun.com/document_detail/151333.html).
+     * In this topic, the stack group named `MyStackGroup` is used. The stack group is created in the China (Hangzhou) region and granted the self-managed permissions. In this example, stacks are created by using Alibaba Cloud accounts whose IDs are `151266687691****` and `141261387191****` in the China (Hangzhou) region and China (Beijing) region.
+     *  *
      * @param CreateStackInstancesRequest $request CreateStackInstancesRequest
      *
      * @return CreateStackInstancesResponse CreateStackInstancesResponse
@@ -910,8 +958,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this topic, a custom template named `MyTemplate` is created in the `cn-hangzhou` region. The `TemplateBody` parameter of the template is set to `{"ROSTemplateFormatVersion": "2015-09-01"}`.
-     *   *
+     * @summary Creates a custom template.
+     *  *
+     * @description In this topic, a custom template named `MyTemplate` is created in the `cn-hangzhou` region. The `TemplateBody` parameter of the template is set to `{"ROSTemplateFormatVersion": "2015-09-01"}`.
+     *  *
      * @param CreateTemplateRequest $request CreateTemplateRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -960,8 +1010,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this topic, a custom template named `MyTemplate` is created in the `cn-hangzhou` region. The `TemplateBody` parameter of the template is set to `{"ROSTemplateFormatVersion": "2015-09-01"}`.
-     *   *
+     * @summary Creates a custom template.
+     *  *
+     * @description In this topic, a custom template named `MyTemplate` is created in the `cn-hangzhou` region. The `TemplateBody` parameter of the template is set to `{"ROSTemplateFormatVersion": "2015-09-01"}`.
+     *  *
      * @param CreateTemplateRequest $request CreateTemplateRequest
      *
      * @return CreateTemplateResponse CreateTemplateResponse
@@ -974,10 +1026,12 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * ###
-     *   * You can call this operation to create a scenario that allows you to specify a resource scope on a visualized interface and easily replicate and manage the resources that you specify. For more information about scenarios, see [Overview](~~352074~~).
-     *   * In this example, a scenario of the Resource Replication type is created in the China (Hangzhou) region. In the scenario, the virtual private cloud (VPC) whose ID is `vpc-bp1m6fww66xbntjyc****` is replicated.
-     *   *
+     * @summary Creates a scenario.
+     *  *
+     * @description ###
+     * You can call this operation to create a scenario that allows you to specify a resource scope on a visualized interface and easily replicate and manage the resources that you specify. For more information about scenarios, see [Overview](https://help.aliyun.com/document_detail/352074.html).
+     * In this example, a scenario of the Resource Replication type is created in the China (Hangzhou) region. In the scenario, the virtual private cloud (VPC) whose ID is `vpc-bp1m6fww66xbntjyc****` is replicated.
+     *  *
      * @param CreateTemplateScratchRequest $tmpReq  CreateTemplateScratchRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -1056,10 +1110,12 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * ###
-     *   * You can call this operation to create a scenario that allows you to specify a resource scope on a visualized interface and easily replicate and manage the resources that you specify. For more information about scenarios, see [Overview](~~352074~~).
-     *   * In this example, a scenario of the Resource Replication type is created in the China (Hangzhou) region. In the scenario, the virtual private cloud (VPC) whose ID is `vpc-bp1m6fww66xbntjyc****` is replicated.
-     *   *
+     * @summary Creates a scenario.
+     *  *
+     * @description ###
+     * You can call this operation to create a scenario that allows you to specify a resource scope on a visualized interface and easily replicate and manage the resources that you specify. For more information about scenarios, see [Overview](https://help.aliyun.com/document_detail/352074.html).
+     * In this example, a scenario of the Resource Replication type is created in the China (Hangzhou) region. In the scenario, the virtual private cloud (VPC) whose ID is `vpc-bp1m6fww66xbntjyc****` is replicated.
+     *  *
      * @param CreateTemplateScratchRequest $request CreateTemplateScratchRequest
      *
      * @return CreateTemplateScratchResponse CreateTemplateScratchResponse
@@ -1072,14 +1128,16 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * *   Before you call this operation, make sure that the following requirements are met:
-     *   *     *   The status of the change set is CREATE_COMPLETE, CREATE_FAILED, or DELETE_FAILED.
-     *   *     *   The execution status is UNAVAILABLE or AVAILABLE.
-     *   * *   After a change set is executed, other change sets associated with the same stack as this change set are also deleted.
-     *   * *   After a stack is deleted, change sets associated with the stack are deleted.
-     *   * *   If a change set of the CREATE type is deleted, you must delete stacks associated with the change set.
-     *   * In this example, a change set whose ID is `1f6521a4-05af-4975-afe9-bc4b45ad****` is deleted. The change set is created in the China (Hangzhou) region.
-     *   *
+     * @summary Deletes change sets.
+     *  *
+     * @description *   Before you call this operation, make sure that the following requirements are met:
+     *     *   The status of the change set is CREATE_COMPLETE, CREATE_FAILED, or DELETE_FAILED.
+     *     *   The execution status is UNAVAILABLE or AVAILABLE.
+     * *   After a change set is executed, other change sets associated with the same stack as this change set are also deleted.
+     * *   After a stack is deleted, change sets associated with the stack are deleted.
+     * *   If a change set of the CREATE type is deleted, you must delete stacks associated with the change set.
+     * In this example, a change set whose ID is `1f6521a4-05af-4975-afe9-bc4b45ad****` is deleted. The change set is created in the China (Hangzhou) region.
+     *  *
      * @param DeleteChangeSetRequest $request DeleteChangeSetRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -1114,14 +1172,16 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * *   Before you call this operation, make sure that the following requirements are met:
-     *   *     *   The status of the change set is CREATE_COMPLETE, CREATE_FAILED, or DELETE_FAILED.
-     *   *     *   The execution status is UNAVAILABLE or AVAILABLE.
-     *   * *   After a change set is executed, other change sets associated with the same stack as this change set are also deleted.
-     *   * *   After a stack is deleted, change sets associated with the stack are deleted.
-     *   * *   If a change set of the CREATE type is deleted, you must delete stacks associated with the change set.
-     *   * In this example, a change set whose ID is `1f6521a4-05af-4975-afe9-bc4b45ad****` is deleted. The change set is created in the China (Hangzhou) region.
-     *   *
+     * @summary Deletes change sets.
+     *  *
+     * @description *   Before you call this operation, make sure that the following requirements are met:
+     *     *   The status of the change set is CREATE_COMPLETE, CREATE_FAILED, or DELETE_FAILED.
+     *     *   The execution status is UNAVAILABLE or AVAILABLE.
+     * *   After a change set is executed, other change sets associated with the same stack as this change set are also deleted.
+     * *   After a stack is deleted, change sets associated with the stack are deleted.
+     * *   If a change set of the CREATE type is deleted, you must delete stacks associated with the change set.
+     * In this example, a change set whose ID is `1f6521a4-05af-4975-afe9-bc4b45ad****` is deleted. The change set is created in the China (Hangzhou) region.
+     *  *
      * @param DeleteChangeSetRequest $request DeleteChangeSetRequest
      *
      * @return DeleteChangeSetResponse DeleteChangeSetResponse
@@ -1134,10 +1194,12 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param DeleteDiagnosticRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Deletes a diagnostic record.
+     *  *
+     * @param DeleteDiagnosticRequest $request DeleteDiagnosticRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDiagnosticResponse
+     * @return DeleteDiagnosticResponse DeleteDiagnosticResponse
      */
     public function deleteDiagnosticWithOptions($request, $runtime)
     {
@@ -1165,9 +1227,11 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param DeleteDiagnosticRequest $request
+     * @summary Deletes a diagnostic record.
+     *  *
+     * @param DeleteDiagnosticRequest $request DeleteDiagnosticRequest
      *
-     * @return DeleteDiagnosticResponse
+     * @return DeleteDiagnosticResponse DeleteDiagnosticResponse
      */
     public function deleteDiagnostic($request)
     {
@@ -1177,10 +1241,12 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param DeleteStackRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Deletes a stack. You can specify whether to retain resources.
+     *  *
+     * @param DeleteStackRequest $request DeleteStackRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteStackResponse
+     * @return DeleteStackResponse DeleteStackResponse
      */
     public function deleteStackWithOptions($request, $runtime)
     {
@@ -1223,9 +1289,11 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param DeleteStackRequest $request
+     * @summary Deletes a stack. You can specify whether to retain resources.
+     *  *
+     * @param DeleteStackRequest $request DeleteStackRequest
      *
-     * @return DeleteStackResponse
+     * @return DeleteStackResponse DeleteStackResponse
      */
     public function deleteStack($request)
     {
@@ -1235,9 +1303,11 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * A stack group can be deleted only when the stack group does not contain stacks. You can call the [DeleteStackInstances](~~151715~~) operation to delete stacks.
-     *   * This topic provides an example on how to delete a stack group. In this example, a stack group named `MyStackGroup` in the China (Hangzhou) region is deleted.
-     *   *
+     * @summary Deletes a stack group.
+     *  *
+     * @description A stack group can be deleted only when the stack group does not contain stacks. You can call the [DeleteStackInstances](https://help.aliyun.com/document_detail/151715.html) operation to delete stacks.
+     * This topic provides an example on how to delete a stack group. In this example, a stack group named `MyStackGroup` in the China (Hangzhou) region is deleted.
+     *  *
      * @param DeleteStackGroupRequest $request DeleteStackGroupRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -1272,9 +1342,11 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * A stack group can be deleted only when the stack group does not contain stacks. You can call the [DeleteStackInstances](~~151715~~) operation to delete stacks.
-     *   * This topic provides an example on how to delete a stack group. In this example, a stack group named `MyStackGroup` in the China (Hangzhou) region is deleted.
-     *   *
+     * @summary Deletes a stack group.
+     *  *
+     * @description A stack group can be deleted only when the stack group does not contain stacks. You can call the [DeleteStackInstances](https://help.aliyun.com/document_detail/151715.html) operation to delete stacks.
+     * This topic provides an example on how to delete a stack group. In this example, a stack group named `MyStackGroup` in the China (Hangzhou) region is deleted.
+     *  *
      * @param DeleteStackGroupRequest $request DeleteStackGroupRequest
      *
      * @return DeleteStackGroupResponse DeleteStackGroupResponse
@@ -1287,8 +1359,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this topic, the stack group named `MyStackGroup` that is created in the China (Hangzhou) region is used. In this example, the stacks of the stack group that are deployed in the China (Beijing) region by using the Alibaba Cloud account whose ID is `151266687691****` are deleted.
-     *   *
+     * @summary Deletes stack instances in the specified accounts and regions. You can retain specific resources based on your business requirements when you call this operation.
+     *  *
+     * @description In this topic, the stack group named `MyStackGroup` that is created in the China (Hangzhou) region is used. In this example, the stacks of the stack group that are deployed in the China (Beijing) region by using the Alibaba Cloud account whose ID is `151266687691****` are deleted.
+     *  *
      * @param DeleteStackInstancesRequest $tmpReq  DeleteStackInstancesRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -1358,8 +1432,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this topic, the stack group named `MyStackGroup` that is created in the China (Hangzhou) region is used. In this example, the stacks of the stack group that are deployed in the China (Beijing) region by using the Alibaba Cloud account whose ID is `151266687691****` are deleted.
-     *   *
+     * @summary Deletes stack instances in the specified accounts and regions. You can retain specific resources based on your business requirements when you call this operation.
+     *  *
+     * @description In this topic, the stack group named `MyStackGroup` that is created in the China (Hangzhou) region is used. In this example, the stacks of the stack group that are deployed in the China (Beijing) region by using the Alibaba Cloud account whose ID is `151266687691****` are deleted.
+     *  *
      * @param DeleteStackInstancesRequest $request DeleteStackInstancesRequest
      *
      * @return DeleteStackInstancesResponse DeleteStackInstancesResponse
@@ -1372,8 +1448,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * If a template is shared with other Alibaba Cloud accounts, you must unshare the template before you delete it.
-     *   *
+     * @summary Deletes a template.
+     *  *
+     * @description If a template is shared with other Alibaba Cloud accounts, you must unshare the template before you delete it.
+     *  *
      * @param DeleteTemplateRequest $request DeleteTemplateRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -1405,8 +1483,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * If a template is shared with other Alibaba Cloud accounts, you must unshare the template before you delete it.
-     *   *
+     * @summary Deletes a template.
+     *  *
+     * @description If a template is shared with other Alibaba Cloud accounts, you must unshare the template before you delete it.
+     *  *
      * @param DeleteTemplateRequest $request DeleteTemplateRequest
      *
      * @return DeleteTemplateResponse DeleteTemplateResponse
@@ -1419,8 +1499,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this topic, a scenario whose ID is `ts-4f83704400994409****` is deleted in the China (Hangzhou) region.
-     *   *
+     * @summary Deletes a scenario.
+     *  *
+     * @description In this topic, a scenario whose ID is `ts-4f83704400994409****` is deleted in the China (Hangzhou) region.
+     *  *
      * @param DeleteTemplateScratchRequest $request DeleteTemplateScratchRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -1455,8 +1537,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this topic, a scenario whose ID is `ts-4f83704400994409****` is deleted in the China (Hangzhou) region.
-     *   *
+     * @summary Deletes a scenario.
+     *  *
+     * @description In this topic, a scenario whose ID is `ts-4f83704400994409****` is deleted in the China (Hangzhou) region.
+     *  *
      * @param DeleteTemplateScratchRequest $request DeleteTemplateScratchRequest
      *
      * @return DeleteTemplateScratchResponse DeleteTemplateScratchResponse
@@ -1469,12 +1553,14 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * *   If you delete a resource type, you can no longer use the resource type in Resource Orchestration Service (ROS).
-     *   * *   If you delete a version of a resource type, you can no longer use the version in ROS.
-     *   * *   If a resource type has only one version, you can delete the version by calling the operation. If a resource type has more than one version, you must manually delete the remaining versions.
-     *   * *   When a resource type has more than one version, you cannot delete the default version by calling the operation.
-     *   * *   When a resource type has only one version, you can delete the resource type and the version by calling the operation.
-     *   *
+     * @summary Deletes a resource type or a version of a resource type.
+     *  *
+     * @description *   If you delete a resource type, you can no longer use the resource type in Resource Orchestration Service (ROS).
+     * *   If you delete a version of a resource type, you can no longer use the version in ROS.
+     * *   If a resource type has only one version, you can delete the version by calling the operation. If a resource type has more than one version, you must manually delete the remaining versions.
+     * *   When a resource type has more than one version, you cannot delete the default version by calling the operation.
+     * *   When a resource type has only one version, you can delete the resource type and the version by calling the operation.
+     *  *
      * @param DeregisterResourceTypeRequest $request DeregisterResourceTypeRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -1509,12 +1595,14 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * *   If you delete a resource type, you can no longer use the resource type in Resource Orchestration Service (ROS).
-     *   * *   If you delete a version of a resource type, you can no longer use the version in ROS.
-     *   * *   If a resource type has only one version, you can delete the version by calling the operation. If a resource type has more than one version, you must manually delete the remaining versions.
-     *   * *   When a resource type has more than one version, you cannot delete the default version by calling the operation.
-     *   * *   When a resource type has only one version, you can delete the resource type and the version by calling the operation.
-     *   *
+     * @summary Deletes a resource type or a version of a resource type.
+     *  *
+     * @description *   If you delete a resource type, you can no longer use the resource type in Resource Orchestration Service (ROS).
+     * *   If you delete a version of a resource type, you can no longer use the version in ROS.
+     * *   If a resource type has only one version, you can delete the version by calling the operation. If a resource type has more than one version, you must manually delete the remaining versions.
+     * *   When a resource type has more than one version, you cannot delete the default version by calling the operation.
+     * *   When a resource type has only one version, you can delete the resource type and the version by calling the operation.
+     *  *
      * @param DeregisterResourceTypeRequest $request DeregisterResourceTypeRequest
      *
      * @return DeregisterResourceTypeResponse DeregisterResourceTypeResponse
@@ -1527,10 +1615,12 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries a list of available regions.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
@@ -1558,9 +1648,11 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
+     * @summary Queries a list of available regions.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -1570,10 +1662,12 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param DetectStackDriftRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary You can call this operation to detect drift on a stack.
+     *  *
+     * @param DetectStackDriftRequest $request DetectStackDriftRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetectStackDriftResponse
+     * @return DetectStackDriftResponse DetectStackDriftResponse
      */
     public function detectStackDriftWithOptions($request, $runtime)
     {
@@ -1610,9 +1704,11 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param DetectStackDriftRequest $request
+     * @summary You can call this operation to detect drift on a stack.
+     *  *
+     * @param DetectStackDriftRequest $request DetectStackDriftRequest
      *
-     * @return DetectStackDriftResponse
+     * @return DetectStackDriftResponse DetectStackDriftResponse
      */
     public function detectStackDrift($request)
     {
@@ -1622,10 +1718,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param DetectStackGroupDriftRequest $tmpReq
-     * @param RuntimeOptions               $runtime
+     * @param DetectStackGroupDriftRequest $tmpReq  DetectStackGroupDriftRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetectStackGroupDriftResponse
+     * @return DetectStackGroupDriftResponse DetectStackGroupDriftResponse
      */
     public function detectStackGroupDriftWithOptions($tmpReq, $runtime)
     {
@@ -1667,9 +1763,9 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param DetectStackGroupDriftRequest $request
+     * @param DetectStackGroupDriftRequest $request DetectStackGroupDriftRequest
      *
-     * @return DetectStackGroupDriftResponse
+     * @return DetectStackGroupDriftResponse DetectStackGroupDriftResponse
      */
     public function detectStackGroupDrift($request)
     {
@@ -1679,10 +1775,12 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param DetectStackResourceDriftRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Performs drift detection on resources in a stack to determine whether the resources have drifted from the expected configurations.
+     *  *
+     * @param DetectStackResourceDriftRequest $request DetectStackResourceDriftRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetectStackResourceDriftResponse
+     * @return DetectStackResourceDriftResponse DetectStackResourceDriftResponse
      */
     public function detectStackResourceDriftWithOptions($request, $runtime)
     {
@@ -1719,9 +1817,11 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param DetectStackResourceDriftRequest $request
+     * @summary Performs drift detection on resources in a stack to determine whether the resources have drifted from the expected configurations.
+     *  *
+     * @param DetectStackResourceDriftRequest $request DetectStackResourceDriftRequest
      *
-     * @return DetectStackResourceDriftResponse
+     * @return DetectStackResourceDriftResponse DetectStackResourceDriftResponse
      */
     public function detectStackResourceDrift($request)
     {
@@ -1731,8 +1831,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this example, the change set whose ID is `1f6521a4-05af-4975-afe9-bc4b45ad****` is executed. The change set is created in the `China (Hangzhou)` region.
-     *   *
+     * @summary Executes change sets.
+     *  *
+     * @description In this example, the change set whose ID is `1f6521a4-05af-4975-afe9-bc4b45ad****` is executed. The change set is created in the `China (Hangzhou)` region.
+     *  *
      * @param ExecuteChangeSetRequest $request ExecuteChangeSetRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -1770,8 +1872,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this example, the change set whose ID is `1f6521a4-05af-4975-afe9-bc4b45ad****` is executed. The change set is created in the `China (Hangzhou)` region.
-     *   *
+     * @summary Executes change sets.
+     *  *
+     * @description In this example, the change set whose ID is `1f6521a4-05af-4975-afe9-bc4b45ad****` is executed. The change set is created in the `China (Hangzhou)` region.
+     *  *
      * @param ExecuteChangeSetRequest $request ExecuteChangeSetRequest
      *
      * @return ExecuteChangeSetResponse ExecuteChangeSetResponse
@@ -1784,8 +1888,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this example, a template is created for the scenario whose ID is `ts-aa9c62feab844a6b****`. The scenario is of the Resource Management type and resides in the China (Hangzhou) region.
-     *   *
+     * @summary Creates a template for a scenario.
+     *  *
+     * @description In this example, a template is created for the scenario whose ID is `ts-aa9c62feab844a6b****`. The scenario is of the Resource Management type and resides in the China (Hangzhou) region.
+     *  *
      * @param GenerateTemplateByScratchRequest $request GenerateTemplateByScratchRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -1826,8 +1932,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this example, a template is created for the scenario whose ID is `ts-aa9c62feab844a6b****`. The scenario is of the Resource Management type and resides in the China (Hangzhou) region.
-     *   *
+     * @summary Creates a template for a scenario.
+     *  *
+     * @description In this example, a template is created for the scenario whose ID is `ts-aa9c62feab844a6b****`. The scenario is of the Resource Management type and resides in the China (Hangzhou) region.
+     *  *
      * @param GenerateTemplateByScratchRequest $request GenerateTemplateByScratchRequest
      *
      * @return GenerateTemplateByScratchResponse GenerateTemplateByScratchResponse
@@ -1840,9 +1948,11 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * If the policy information is related to Enterprise Distributed Application Service (EDAS), you must log on to your Alibaba Cloud account and grant the required permissions to the relevant RAM users.
-     *   * In this example, a policy is generated for a template whose ID is `5ecd1e10-b0e9-4389-a565-e4c15efc****`.
-     *   *
+     * @summary Generates the information about a policy that is required by a template.
+     *  *
+     * @description If the policy information is related to Enterprise Distributed Application Service (EDAS), you must log on to your Alibaba Cloud account and grant the required permissions to the relevant RAM users.
+     * In this example, a policy is generated for a template whose ID is `5ecd1e10-b0e9-4389-a565-e4c15efc****`.
+     *  *
      * @param GenerateTemplatePolicyRequest $request GenerateTemplatePolicyRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -1886,9 +1996,11 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * If the policy information is related to Enterprise Distributed Application Service (EDAS), you must log on to your Alibaba Cloud account and grant the required permissions to the relevant RAM users.
-     *   * In this example, a policy is generated for a template whose ID is `5ecd1e10-b0e9-4389-a565-e4c15efc****`.
-     *   *
+     * @summary Generates the information about a policy that is required by a template.
+     *  *
+     * @description If the policy information is related to Enterprise Distributed Application Service (EDAS), you must log on to your Alibaba Cloud account and grant the required permissions to the relevant RAM users.
+     * In this example, a policy is generated for a template whose ID is `5ecd1e10-b0e9-4389-a565-e4c15efc****`.
+     *  *
      * @param GenerateTemplatePolicyRequest $request GenerateTemplatePolicyRequest
      *
      * @return GenerateTemplatePolicyResponse GenerateTemplatePolicyResponse
@@ -1901,8 +2013,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this example, the details of a change set whose ID is `4c11658d-bd47-4dd0-ba64-727edc62****` is queried. The change set is created in the China (Hangzhou) region.
-     *   *
+     * @summary Queries change sets. You can determine whether to query the templates of change sets.
+     *  *
+     * @description In this example, the details of a change set whose ID is `4c11658d-bd47-4dd0-ba64-727edc62****` is queried. The change set is created in the China (Hangzhou) region.
+     *  *
      * @param GetChangeSetRequest $request GetChangeSetRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -1940,8 +2054,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this example, the details of a change set whose ID is `4c11658d-bd47-4dd0-ba64-727edc62****` is queried. The change set is created in the China (Hangzhou) region.
-     *   *
+     * @summary Queries change sets. You can determine whether to query the templates of change sets.
+     *  *
+     * @description In this example, the details of a change set whose ID is `4c11658d-bd47-4dd0-ba64-727edc62****` is queried. The change set is created in the China (Hangzhou) region.
+     *  *
      * @param GetChangeSetRequest $request GetChangeSetRequest
      *
      * @return GetChangeSetResponse GetChangeSetResponse
@@ -1954,10 +2070,12 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param GetDiagnosticRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Obtains the diagnosis details based on a specified diagnostic report ID.
+     *  *
+     * @param GetDiagnosticRequest $request GetDiagnosticRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDiagnosticResponse
+     * @return GetDiagnosticResponse GetDiagnosticResponse
      */
     public function getDiagnosticWithOptions($request, $runtime)
     {
@@ -1985,9 +2103,11 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param GetDiagnosticRequest $request
+     * @summary Obtains the diagnosis details based on a specified diagnostic report ID.
+     *  *
+     * @param GetDiagnosticRequest $request GetDiagnosticRequest
      *
-     * @return GetDiagnosticResponse
+     * @return GetDiagnosticResponse GetDiagnosticResponse
      */
     public function getDiagnostic($request)
     {
@@ -1997,10 +2117,12 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the Terraform hosting, resource cleaner, and scenario features.
-     *   * This topic provides an example on how to query the details of features supported by ROS in the China (Hangzhou) region. The details include Terraform versions, provider versions, and supported resource types.
-     *   * >  In the Examples section, only part of the sample code is provided.
-     *   *
+     * @summary Queries the details of features that are supported by Resource Orchestration Service (ROS).
+     *  *
+     * @description You can call this operation to query the Terraform hosting, resource cleaner, and scenario features.
+     * This topic provides an example on how to query the details of features supported by ROS in the China (Hangzhou) region. The details include Terraform versions, provider versions, and supported resource types.
+     * >  In the Examples section, only part of the sample code is provided.
+     *  *
      * @param GetFeatureDetailsRequest $request GetFeatureDetailsRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -2035,10 +2157,12 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the Terraform hosting, resource cleaner, and scenario features.
-     *   * This topic provides an example on how to query the details of features supported by ROS in the China (Hangzhou) region. The details include Terraform versions, provider versions, and supported resource types.
-     *   * >  In the Examples section, only part of the sample code is provided.
-     *   *
+     * @summary Queries the details of features that are supported by Resource Orchestration Service (ROS).
+     *  *
+     * @description You can call this operation to query the Terraform hosting, resource cleaner, and scenario features.
+     * This topic provides an example on how to query the details of features supported by ROS in the China (Hangzhou) region. The details include Terraform versions, provider versions, and supported resource types.
+     * >  In the Examples section, only part of the sample code is provided.
+     *  *
      * @param GetFeatureDetailsRequest $request GetFeatureDetailsRequest
      *
      * @return GetFeatureDetailsResponse GetFeatureDetailsResponse
@@ -2051,8 +2175,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * For more information about common request parameters, see [Common parameters](~~131957~~).
-     *   *
+     * @summary This topic provides an example on how to query the details of `ALIYUN::ROS::WaitConditionHandle`.
+     *  *
+     * @description For more information about common request parameters, see [Common parameters](https://help.aliyun.com/document_detail/131957.html).
+     *  *
      * @param GetResourceTypeRequest $request GetResourceTypeRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -2087,8 +2213,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * For more information about common request parameters, see [Common parameters](~~131957~~).
-     *   *
+     * @summary This topic provides an example on how to query the details of `ALIYUN::ROS::WaitConditionHandle`.
+     *  *
+     * @description For more information about common request parameters, see [Common parameters](https://help.aliyun.com/document_detail/131957.html).
+     *  *
      * @param GetResourceTypeRequest $request GetResourceTypeRequest
      *
      * @return GetResourceTypeResponse GetResourceTypeResponse
@@ -2101,10 +2229,12 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param GetResourceTypeTemplateRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Generates a sample template based on a resource type.
+     *  *
+     * @param GetResourceTypeTemplateRequest $request GetResourceTypeTemplateRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetResourceTypeTemplateResponse
+     * @return GetResourceTypeTemplateResponse GetResourceTypeTemplateResponse
      */
     public function getResourceTypeTemplateWithOptions($request, $runtime)
     {
@@ -2135,9 +2265,11 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param GetResourceTypeTemplateRequest $request
+     * @summary Generates a sample template based on a resource type.
+     *  *
+     * @param GetResourceTypeTemplateRequest $request GetResourceTypeTemplateRequest
      *
-     * @return GetResourceTypeTemplateResponse
+     * @return GetResourceTypeTemplateResponse GetResourceTypeTemplateResponse
      */
     public function getResourceTypeTemplate($request)
     {
@@ -2147,10 +2279,12 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * ### Description
-     *   * This topic describes how to query the activation status and the RAM roles of an Alibaba Cloud service. In this example, the Elastic High Performance Computing (E-HPC) service that is deployed in the China (Hangzhou) region is queried.
-     *   * > Make sure that you have the permissions to call the [GetRole](~~28711~~) operation.
-     *   *
+     * @summary Queries the activation status and the RAM roles of an Alibaba Cloud service.
+     *  *
+     * @description ### Description
+     * This topic describes how to query the activation status and the RAM roles of an Alibaba Cloud service. In this example, the Elastic High Performance Computing (E-HPC) service that is deployed in the China (Hangzhou) region is queried.
+     * > Make sure that you have the permissions to call the [GetRole](https://help.aliyun.com/document_detail/28711.html) operation.
+     *  *
      * @param GetServiceProvisionsRequest $request GetServiceProvisionsRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -2202,10 +2336,12 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * ### Description
-     *   * This topic describes how to query the activation status and the RAM roles of an Alibaba Cloud service. In this example, the Elastic High Performance Computing (E-HPC) service that is deployed in the China (Hangzhou) region is queried.
-     *   * > Make sure that you have the permissions to call the [GetRole](~~28711~~) operation.
-     *   *
+     * @summary Queries the activation status and the RAM roles of an Alibaba Cloud service.
+     *  *
+     * @description ### Description
+     * This topic describes how to query the activation status and the RAM roles of an Alibaba Cloud service. In this example, the Elastic High Performance Computing (E-HPC) service that is deployed in the China (Hangzhou) region is queried.
+     * > Make sure that you have the permissions to call the [GetRole](https://help.aliyun.com/document_detail/28711.html) operation.
+     *  *
      * @param GetServiceProvisionsRequest $request GetServiceProvisionsRequest
      *
      * @return GetServiceProvisionsResponse GetServiceProvisionsResponse
@@ -2218,8 +2354,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this example, the information about a stack whose ID is `c754d2a4-28f1-46df-b557-9586173a****` in the China (Hangzhou) region is queried.
-     *   *
+     * @summary Queries the information about a stack in Resource Orchestration Service (ROS).
+     *  *
+     * @description In this example, the information about a stack whose ID is `c754d2a4-28f1-46df-b557-9586173a****` in the China (Hangzhou) region is queried.
+     *  *
      * @param GetStackRequest $request GetStackRequest
      * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
@@ -2266,8 +2404,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this example, the information about a stack whose ID is `c754d2a4-28f1-46df-b557-9586173a****` in the China (Hangzhou) region is queried.
-     *   *
+     * @summary Queries the information about a stack in Resource Orchestration Service (ROS).
+     *  *
+     * @description In this example, the information about a stack whose ID is `c754d2a4-28f1-46df-b557-9586173a****` in the China (Hangzhou) region is queried.
+     *  *
      * @param GetStackRequest $request GetStackRequest
      *
      * @return GetStackResponse GetStackResponse
@@ -2280,8 +2420,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this topic, the status of a drift detection operation whose ID is `a7044f0d-6f2e-4128-a307-4524ef88****` is queried. The operation is performed in the China (Hangzhou) region.
-     *   *
+     * @summary Queries the drift detection status of a stack.
+     *  *
+     * @description In this topic, the status of a drift detection operation whose ID is `a7044f0d-6f2e-4128-a307-4524ef88****` is queried. The operation is performed in the China (Hangzhou) region.
+     *  *
      * @param GetStackDriftDetectionStatusRequest $request GetStackDriftDetectionStatusRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -2316,8 +2458,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this topic, the status of a drift detection operation whose ID is `a7044f0d-6f2e-4128-a307-4524ef88****` is queried. The operation is performed in the China (Hangzhou) region.
-     *   *
+     * @summary Queries the drift detection status of a stack.
+     *  *
+     * @description In this topic, the status of a drift detection operation whose ID is `a7044f0d-6f2e-4128-a307-4524ef88****` is queried. The operation is performed in the China (Hangzhou) region.
+     *  *
      * @param GetStackDriftDetectionStatusRequest $request GetStackDriftDetectionStatusRequest
      *
      * @return GetStackDriftDetectionStatusResponse GetStackDriftDetectionStatusResponse
@@ -2330,8 +2474,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * For more information about common request parameters, see [Common parameters](~~131957~~).
-     *   *
+     * @summary In this example, the information about a stack group named \\`MyStackGroup\\` is queried. The stack group is granted self-managed permissions and created in the China (Hangzhou) region.
+     *  *
+     * @description For more information about common request parameters, see [Common parameters](https://help.aliyun.com/document_detail/131957.html).
+     *  *
      * @param GetStackGroupRequest $request GetStackGroupRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -2369,8 +2515,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * For more information about common request parameters, see [Common parameters](~~131957~~).
-     *   *
+     * @summary In this example, the information about a stack group named \\`MyStackGroup\\` is queried. The stack group is granted self-managed permissions and created in the China (Hangzhou) region.
+     *  *
+     * @description For more information about common request parameters, see [Common parameters](https://help.aliyun.com/document_detail/131957.html).
+     *  *
      * @param GetStackGroupRequest $request GetStackGroupRequest
      *
      * @return GetStackGroupResponse GetStackGroupResponse
@@ -2383,8 +2531,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this example, the information about the stack group operation whose ID is `6da106ca-1784-4a6f-a7e1-e723863d****` is queried. The stack group named `MyStackGroup` is granted self-managed permissions and deployed in the China (Hangzhou) region.
-     *   *
+     * @summary Queries the information about a stack group operation in an Alibaba Cloud region.
+     *  *
+     * @description In this example, the information about the stack group operation whose ID is `6da106ca-1784-4a6f-a7e1-e723863d****` is queried. The stack group named `MyStackGroup` is granted self-managed permissions and deployed in the China (Hangzhou) region.
+     *  *
      * @param GetStackGroupOperationRequest $request GetStackGroupOperationRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -2419,8 +2569,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this example, the information about the stack group operation whose ID is `6da106ca-1784-4a6f-a7e1-e723863d****` is queried. The stack group named `MyStackGroup` is granted self-managed permissions and deployed in the China (Hangzhou) region.
-     *   *
+     * @summary Queries the information about a stack group operation in an Alibaba Cloud region.
+     *  *
+     * @description In this example, the information about the stack group operation whose ID is `6da106ca-1784-4a6f-a7e1-e723863d****` is queried. The stack group named `MyStackGroup` is granted self-managed permissions and deployed in the China (Hangzhou) region.
+     *  *
      * @param GetStackGroupOperationRequest $request GetStackGroupOperationRequest
      *
      * @return GetStackGroupOperationResponse GetStackGroupOperationResponse
@@ -2433,8 +2585,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this example, the information about a stack instance associated with a stack group named `MyStackGroup` is queried. The stack instance is deployed in the China (Beijing) region within the `151266687691****` Alibaba Cloud account. The stack group is granted self-managed permissions and deployed in the China (Hangzhou) region.
-     *   *
+     * @summary Queries the information about a stack instance that is associated with a stack group.
+     *  *
+     * @description In this example, the information about a stack instance associated with a stack group named `MyStackGroup` is queried. The stack instance is deployed in the China (Beijing) region within the `151266687691****` Alibaba Cloud account. The stack group is granted self-managed permissions and deployed in the China (Hangzhou) region.
+     *  *
      * @param GetStackInstanceRequest $request GetStackInstanceRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -2478,8 +2632,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this example, the information about a stack instance associated with a stack group named `MyStackGroup` is queried. The stack instance is deployed in the China (Beijing) region within the `151266687691****` Alibaba Cloud account. The stack group is granted self-managed permissions and deployed in the China (Hangzhou) region.
-     *   *
+     * @summary Queries the information about a stack instance that is associated with a stack group.
+     *  *
+     * @description In this example, the information about a stack instance associated with a stack group named `MyStackGroup` is queried. The stack instance is deployed in the China (Beijing) region within the `151266687691****` Alibaba Cloud account. The stack group is granted self-managed permissions and deployed in the China (Hangzhou) region.
+     *  *
      * @param GetStackInstanceRequest $request GetStackInstanceRequest
      *
      * @return GetStackInstanceResponse GetStackInstanceResponse
@@ -2492,8 +2648,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this example, the stack policy of a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` is queried. The stack is deployed in the China (Hangzhou) region.
-     *   *
+     * @summary You can call this operation to query information about a stack policy.
+     *  *
+     * @description In this example, the stack policy of a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` is queried. The stack is deployed in the China (Hangzhou) region.
+     *  *
      * @param GetStackPolicyRequest $request GetStackPolicyRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -2528,8 +2686,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this example, the stack policy of a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` is queried. The stack is deployed in the China (Hangzhou) region.
-     *   *
+     * @summary You can call this operation to query information about a stack policy.
+     *  *
+     * @description In this example, the stack policy of a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` is queried. The stack is deployed in the China (Hangzhou) region.
+     *  *
      * @param GetStackPolicyRequest $request GetStackPolicyRequest
      *
      * @return GetStackPolicyResponse GetStackPolicyResponse
@@ -2542,11 +2702,13 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * | Http status code | Error code | Error message | Description |
-     *   * | ---------------- | ---------- | ------------- | ----------- |
-     *   * | 404 | ResourceNotFound | The Resource ({name}) could not be found in Stack {stack}. | The error message returned because the specified resource does not exist in the stack. name indicates the resource name. stack indicates the stack name or ID. |
-     *   * | 404 | StackNotFound | The Stack ({name}) could not be found. | The error message returned because the stack does not exist. name indicates the name or ID of the stack. |.
-     *   *
+     * @summary For more information about common request parameters, see [Common parameters]\\(~~131957~~).
+     *  *
+     * @description | Http status code | Error code | Error message | Description |
+     * | ---------------- | ---------- | ------------- | ----------- |
+     * | 404 | ResourceNotFound | The Resource ({name}) could not be found in Stack {stack}. | The error message returned because the specified resource does not exist in the stack. name indicates the resource name. stack indicates the stack name or ID. |
+     * | 404 | StackNotFound | The Stack ({name}) could not be found. | The error message returned because the stack does not exist. name indicates the name or ID of the stack. |
+     *  *
      * @param GetStackResourceRequest $request GetStackResourceRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -2593,11 +2755,13 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * | Http status code | Error code | Error message | Description |
-     *   * | ---------------- | ---------- | ------------- | ----------- |
-     *   * | 404 | ResourceNotFound | The Resource ({name}) could not be found in Stack {stack}. | The error message returned because the specified resource does not exist in the stack. name indicates the resource name. stack indicates the stack name or ID. |
-     *   * | 404 | StackNotFound | The Stack ({name}) could not be found. | The error message returned because the stack does not exist. name indicates the name or ID of the stack. |.
-     *   *
+     * @summary For more information about common request parameters, see [Common parameters]\\(~~131957~~).
+     *  *
+     * @description | Http status code | Error code | Error message | Description |
+     * | ---------------- | ---------- | ------------- | ----------- |
+     * | 404 | ResourceNotFound | The Resource ({name}) could not be found in Stack {stack}. | The error message returned because the specified resource does not exist in the stack. name indicates the resource name. stack indicates the stack name or ID. |
+     * | 404 | StackNotFound | The Stack ({name}) could not be found. | The error message returned because the stack does not exist. name indicates the name or ID of the stack. |
+     *  *
      * @param GetStackResourceRequest $request GetStackResourceRequest
      *
      * @return GetStackResourceResponse GetStackResourceResponse
@@ -2610,8 +2774,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this example, the details of a template whose ID is `5ecd1e10-b0e9-4389-a565-e4c15efc****` is queried. The region ID of the template is `cn-hangzhou`.
-     *   *
+     * @summary Queries the details of a template based on stacks, stack groups, change sets, or any custom template information.
+     *  *
+     * @description In this example, the details of a template whose ID is `5ecd1e10-b0e9-4389-a565-e4c15efc****` is queried. The region ID of the template is `cn-hangzhou`.
+     *  *
      * @param GetTemplateRequest $request GetTemplateRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
@@ -2667,8 +2833,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this example, the details of a template whose ID is `5ecd1e10-b0e9-4389-a565-e4c15efc****` is queried. The region ID of the template is `cn-hangzhou`.
-     *   *
+     * @summary Queries the details of a template based on stacks, stack groups, change sets, or any custom template information.
+     *  *
+     * @description In this example, the details of a template whose ID is `5ecd1e10-b0e9-4389-a565-e4c15efc****` is queried. The region ID of the template is `cn-hangzhou`.
+     *  *
      * @param GetTemplateRequest $request GetTemplateRequest
      *
      * @return GetTemplateResponse GetTemplateResponse
@@ -2681,57 +2849,59 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * ###
-     *   * *   For more information about the resources that support price inquiry in Resource Orchestration Service (ROS) templates, see the "**Resource types that support price inquiry**" section of the [Estimate resource prices](~~203165~~) topic.
-     *   * *   For more information about the resources that support price inquiry in Terraform templates, see the "**ROS resources supported by Terraform**" section of the [ROS features and resources supported by Terraform](~~184389~~) topic.
-     *   * The following sample code provides an example on how to query the estimated price of an elastic IP address (EIP) that you want to create based on a template. In this example, the following template is used:
-     *   *     {
-     *   *       "ROSTemplateFormatVersion": "2015-09-01",
-     *   *       "Parameters": {
-     *   *         "Isp": {
-     *   *           "Type": "String",
-     *   *           "Default": "BGP"
-     *   *         },
-     *   *         "Name": {
-     *   *           "Type": "String",
-     *   *           "Default": "test"
-     *   *         },
-     *   *         "Netmode": {
-     *   *           "Type": "String",
-     *   *           "Default": "public"
-     *   *         },
-     *   *         "Bandwidth": {
-     *   *           "Type": "Number",
-     *   *           "Default": 5
-     *   *         }
-     *   *       },
-     *   *       "Resources": {
-     *   *         "NewEip": {
-     *   *           "Type": "ALIYUN::VPC::EIP",
-     *   *           "Properties": {
-     *   *             "InstanceChargeType": "Prepaid",
-     *   *             "PricingCycle": "Month",
-     *   *             "Isp": {
-     *   *               "Ref": "Isp"
-     *   *             },
-     *   *             "Period": 1,
-     *   *             "DeletionProtection": false,
-     *   *             "AutoPay": false,
-     *   *             "Name": {
-     *   *               "Ref": "Name"
-     *   *             },
-     *   *             "InternetChargeType": "PayByTraffic",
-     *   *             "Netmode": {
-     *   *               "Ref": "Netmode"
-     *   *             },
-     *   *             "Bandwidth": {
-     *   *               "Ref": "Bandwidth"
-     *   *             }
-     *   *           }
-     *   *         }
-     *   *       }
-     *   *     }.
-     *   *
+     * @summary Queries the estimated prices of the resources in a template.
+     *  *
+     * @description ###
+     * *   For more information about the resources that support price inquiry in Resource Orchestration Service (ROS) templates, see the "**Resource types that support price inquiry**" section of the [Estimate resource prices](https://help.aliyun.com/document_detail/203165.html) topic.
+     * *   For more information about the resources that support price inquiry in Terraform templates, see the "**ROS resources supported by Terraform**" section of the [ROS features and resources supported by Terraform](https://help.aliyun.com/document_detail/184389.html) topic.
+     * The following sample code provides an example on how to query the estimated price of an elastic IP address (EIP) that you want to create based on a template. In this example, the following template is used:
+     *     {
+     *       "ROSTemplateFormatVersion": "2015-09-01",
+     *       "Parameters": {
+     *         "Isp": {
+     *           "Type": "String",
+     *           "Default": "BGP"
+     *         },
+     *         "Name": {
+     *           "Type": "String",
+     *           "Default": "test"
+     *         },
+     *         "Netmode": {
+     *           "Type": "String",
+     *           "Default": "public"
+     *         },
+     *         "Bandwidth": {
+     *           "Type": "Number",
+     *           "Default": 5
+     *         }
+     *       },
+     *       "Resources": {
+     *         "NewEip": {
+     *           "Type": "ALIYUN::VPC::EIP",
+     *           "Properties": {
+     *             "InstanceChargeType": "Prepaid",
+     *             "PricingCycle": "Month",
+     *             "Isp": {
+     *               "Ref": "Isp"
+     *             },
+     *             "Period": 1,
+     *             "DeletionProtection": false,
+     *             "AutoPay": false,
+     *             "Name": {
+     *               "Ref": "Name"
+     *             },
+     *             "InternetChargeType": "PayByTraffic",
+     *             "Netmode": {
+     *               "Ref": "Netmode"
+     *             },
+     *             "Bandwidth": {
+     *               "Ref": "Bandwidth"
+     *             }
+     *           }
+     *         }
+     *       }
+     *     }
+     *  *
      * @param GetTemplateEstimateCostRequest $request GetTemplateEstimateCostRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -2792,57 +2962,59 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * ###
-     *   * *   For more information about the resources that support price inquiry in Resource Orchestration Service (ROS) templates, see the "**Resource types that support price inquiry**" section of the [Estimate resource prices](~~203165~~) topic.
-     *   * *   For more information about the resources that support price inquiry in Terraform templates, see the "**ROS resources supported by Terraform**" section of the [ROS features and resources supported by Terraform](~~184389~~) topic.
-     *   * The following sample code provides an example on how to query the estimated price of an elastic IP address (EIP) that you want to create based on a template. In this example, the following template is used:
-     *   *     {
-     *   *       "ROSTemplateFormatVersion": "2015-09-01",
-     *   *       "Parameters": {
-     *   *         "Isp": {
-     *   *           "Type": "String",
-     *   *           "Default": "BGP"
-     *   *         },
-     *   *         "Name": {
-     *   *           "Type": "String",
-     *   *           "Default": "test"
-     *   *         },
-     *   *         "Netmode": {
-     *   *           "Type": "String",
-     *   *           "Default": "public"
-     *   *         },
-     *   *         "Bandwidth": {
-     *   *           "Type": "Number",
-     *   *           "Default": 5
-     *   *         }
-     *   *       },
-     *   *       "Resources": {
-     *   *         "NewEip": {
-     *   *           "Type": "ALIYUN::VPC::EIP",
-     *   *           "Properties": {
-     *   *             "InstanceChargeType": "Prepaid",
-     *   *             "PricingCycle": "Month",
-     *   *             "Isp": {
-     *   *               "Ref": "Isp"
-     *   *             },
-     *   *             "Period": 1,
-     *   *             "DeletionProtection": false,
-     *   *             "AutoPay": false,
-     *   *             "Name": {
-     *   *               "Ref": "Name"
-     *   *             },
-     *   *             "InternetChargeType": "PayByTraffic",
-     *   *             "Netmode": {
-     *   *               "Ref": "Netmode"
-     *   *             },
-     *   *             "Bandwidth": {
-     *   *               "Ref": "Bandwidth"
-     *   *             }
-     *   *           }
-     *   *         }
-     *   *       }
-     *   *     }.
-     *   *
+     * @summary Queries the estimated prices of the resources in a template.
+     *  *
+     * @description ###
+     * *   For more information about the resources that support price inquiry in Resource Orchestration Service (ROS) templates, see the "**Resource types that support price inquiry**" section of the [Estimate resource prices](https://help.aliyun.com/document_detail/203165.html) topic.
+     * *   For more information about the resources that support price inquiry in Terraform templates, see the "**ROS resources supported by Terraform**" section of the [ROS features and resources supported by Terraform](https://help.aliyun.com/document_detail/184389.html) topic.
+     * The following sample code provides an example on how to query the estimated price of an elastic IP address (EIP) that you want to create based on a template. In this example, the following template is used:
+     *     {
+     *       "ROSTemplateFormatVersion": "2015-09-01",
+     *       "Parameters": {
+     *         "Isp": {
+     *           "Type": "String",
+     *           "Default": "BGP"
+     *         },
+     *         "Name": {
+     *           "Type": "String",
+     *           "Default": "test"
+     *         },
+     *         "Netmode": {
+     *           "Type": "String",
+     *           "Default": "public"
+     *         },
+     *         "Bandwidth": {
+     *           "Type": "Number",
+     *           "Default": 5
+     *         }
+     *       },
+     *       "Resources": {
+     *         "NewEip": {
+     *           "Type": "ALIYUN::VPC::EIP",
+     *           "Properties": {
+     *             "InstanceChargeType": "Prepaid",
+     *             "PricingCycle": "Month",
+     *             "Isp": {
+     *               "Ref": "Isp"
+     *             },
+     *             "Period": 1,
+     *             "DeletionProtection": false,
+     *             "AutoPay": false,
+     *             "Name": {
+     *               "Ref": "Name"
+     *             },
+     *             "InternetChargeType": "PayByTraffic",
+     *             "Netmode": {
+     *               "Ref": "Netmode"
+     *             },
+     *             "Bandwidth": {
+     *               "Ref": "Bandwidth"
+     *             }
+     *           }
+     *         }
+     *       }
+     *     }
+     *  *
      * @param GetTemplateEstimateCostRequest $request GetTemplateEstimateCostRequest
      *
      * @return GetTemplateEstimateCostResponse GetTemplateEstimateCostResponse
@@ -2855,9 +3027,11 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the values of a parameter. In this example, the values of the `ZoneInfo` parameter in a template that is created in the China (Hangzhou) region are queried. The template body is `{"Parameters":{"ZoneInfo":{"Type": "String"},"InstanceType": {"Type": "String"}},"ROSTemplateFormatVersion": "2015-09-01","Resources":{"ECS":{"Properties":{"ZoneId":{"Ref": "ZoneInfo"},"InstanceType": {"Ref": "InstanceType"}},"Type": "ALIYUN::ECS::Instance"}}}`.
-     *   * For more information about the template parameters whose values you can query by calling this operation and the sample code of the template, see [Query the constraints of parameters](~~432820~~).
-     *   *
+     * @summary Queries the values of one or more parameters in a template.
+     *  *
+     * @description This topic provides an example on how to query the values of a parameter. In this example, the values of the `ZoneInfo` parameter in a template that is created in the China (Hangzhou) region are queried. The template body is `{"Parameters":{"ZoneInfo":{"Type": "String"},"InstanceType": {"Type": "String"}},"ROSTemplateFormatVersion": "2015-09-01","Resources":{"ECS":{"Properties":{"ZoneId":{"Ref": "ZoneInfo"},"InstanceType": {"Ref": "InstanceType"}},"Type": "ALIYUN::ECS::Instance"}}}`.
+     * For more information about the template parameters whose values you can query by calling this operation and the sample code of the template, see [Query the constraints of parameters](https://help.aliyun.com/document_detail/432820.html).
+     *  *
      * @param GetTemplateParameterConstraintsRequest $tmpReq  GetTemplateParameterConstraintsRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
@@ -2926,9 +3100,11 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the values of a parameter. In this example, the values of the `ZoneInfo` parameter in a template that is created in the China (Hangzhou) region are queried. The template body is `{"Parameters":{"ZoneInfo":{"Type": "String"},"InstanceType": {"Type": "String"}},"ROSTemplateFormatVersion": "2015-09-01","Resources":{"ECS":{"Properties":{"ZoneId":{"Ref": "ZoneInfo"},"InstanceType": {"Ref": "InstanceType"}},"Type": "ALIYUN::ECS::Instance"}}}`.
-     *   * For more information about the template parameters whose values you can query by calling this operation and the sample code of the template, see [Query the constraints of parameters](~~432820~~).
-     *   *
+     * @summary Queries the values of one or more parameters in a template.
+     *  *
+     * @description This topic provides an example on how to query the values of a parameter. In this example, the values of the `ZoneInfo` parameter in a template that is created in the China (Hangzhou) region are queried. The template body is `{"Parameters":{"ZoneInfo":{"Type": "String"},"InstanceType": {"Type": "String"}},"ROSTemplateFormatVersion": "2015-09-01","Resources":{"ECS":{"Properties":{"ZoneId":{"Ref": "ZoneInfo"},"InstanceType": {"Ref": "InstanceType"}},"Type": "ALIYUN::ECS::Instance"}}}`.
+     * For more information about the template parameters whose values you can query by calling this operation and the sample code of the template, see [Query the constraints of parameters](https://help.aliyun.com/document_detail/432820.html).
+     *  *
      * @param GetTemplateParameterConstraintsRequest $request GetTemplateParameterConstraintsRequest
      *
      * @return GetTemplateParameterConstraintsResponse GetTemplateParameterConstraintsResponse
@@ -2941,10 +3117,12 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param GetTemplateRecommendParametersRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary 推荐参数
+     *  *
+     * @param GetTemplateRecommendParametersRequest $request GetTemplateRecommendParametersRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTemplateRecommendParametersResponse
+     * @return GetTemplateRecommendParametersResponse GetTemplateRecommendParametersResponse
      */
     public function getTemplateRecommendParametersWithOptions($request, $runtime)
     {
@@ -2990,9 +3168,11 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param GetTemplateRecommendParametersRequest $request
+     * @summary 推荐参数
+     *  *
+     * @param GetTemplateRecommendParametersRequest $request GetTemplateRecommendParametersRequest
      *
-     * @return GetTemplateRecommendParametersResponse
+     * @return GetTemplateRecommendParametersResponse GetTemplateRecommendParametersResponse
      */
     public function getTemplateRecommendParameters($request)
     {
@@ -3002,8 +3182,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this example, the details of the scenario whose ID is `ts-7f7a704cf71c49a6****` is queried. In the response, the source node data is displayed.
-     *   *
+     * @summary Queries the details of a scenario.
+     *  *
+     * @description In this example, the details of the scenario whose ID is `ts-7f7a704cf71c49a6****` is queried. In the response, the source node data is displayed.
+     *  *
      * @param GetTemplateScratchRequest $request GetTemplateScratchRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -3041,8 +3223,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this example, the details of the scenario whose ID is `ts-7f7a704cf71c49a6****` is queried. In the response, the source node data is displayed.
-     *   *
+     * @summary Queries the details of a scenario.
+     *  *
+     * @description In this example, the details of the scenario whose ID is `ts-7f7a704cf71c49a6****` is queried. In the response, the source node data is displayed.
+     *  *
      * @param GetTemplateScratchRequest $request GetTemplateScratchRequest
      *
      * @return GetTemplateScratchResponse GetTemplateScratchResponse
@@ -3055,10 +3239,12 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param GetTemplateSummaryRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the information about a template resource by using the relevant template, stack, stack group, or change set.
+     *  *
+     * @param GetTemplateSummaryRequest $request GetTemplateSummaryRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTemplateSummaryResponse
+     * @return GetTemplateSummaryResponse GetTemplateSummaryResponse
      */
     public function getTemplateSummaryWithOptions($request, $runtime)
     {
@@ -3113,9 +3299,11 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param GetTemplateSummaryRequest $request
+     * @summary Queries the information about a template resource by using the relevant template, stack, stack group, or change set.
+     *  *
+     * @param GetTemplateSummaryRequest $request GetTemplateSummaryRequest
      *
-     * @return GetTemplateSummaryResponse
+     * @return GetTemplateSummaryResponse GetTemplateSummaryResponse
      */
     public function getTemplateSummary($request)
     {
@@ -3125,10 +3313,12 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param ListChangeSetsRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Queries change sets.
+     *  *
+     * @param ListChangeSetsRequest $request ListChangeSetsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListChangeSetsResponse
+     * @return ListChangeSetsResponse ListChangeSetsResponse
      */
     public function listChangeSetsWithOptions($request, $runtime)
     {
@@ -3177,9 +3367,11 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param ListChangeSetsRequest $request
+     * @summary Queries change sets.
+     *  *
+     * @param ListChangeSetsRequest $request ListChangeSetsRequest
      *
-     * @return ListChangeSetsResponse
+     * @return ListChangeSetsResponse ListChangeSetsResponse
      */
     public function listChangeSets($request)
     {
@@ -3189,10 +3381,12 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param ListDiagnosticsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries a diagnostic report.
+     *  *
+     * @param ListDiagnosticsRequest $request ListDiagnosticsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDiagnosticsResponse
+     * @return ListDiagnosticsResponse ListDiagnosticsResponse
      */
     public function listDiagnosticsWithOptions($request, $runtime)
     {
@@ -3232,9 +3426,11 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param ListDiagnosticsRequest $request
+     * @summary Queries a diagnostic report.
+     *  *
+     * @param ListDiagnosticsRequest $request ListDiagnosticsRequest
      *
-     * @return ListDiagnosticsResponse
+     * @return ListDiagnosticsResponse ListDiagnosticsResponse
      */
     public function listDiagnostics($request)
     {
@@ -3244,10 +3440,12 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param ListResourceTypeRegistrationsRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Queries the registration records of a resource.
+     *  *
+     * @param ListResourceTypeRegistrationsRequest $request ListResourceTypeRegistrationsRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListResourceTypeRegistrationsResponse
+     * @return ListResourceTypeRegistrationsResponse ListResourceTypeRegistrationsResponse
      */
     public function listResourceTypeRegistrationsWithOptions($request, $runtime)
     {
@@ -3290,9 +3488,11 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param ListResourceTypeRegistrationsRequest $request
+     * @summary Queries the registration records of a resource.
+     *  *
+     * @param ListResourceTypeRegistrationsRequest $request ListResourceTypeRegistrationsRequest
      *
-     * @return ListResourceTypeRegistrationsResponse
+     * @return ListResourceTypeRegistrationsResponse ListResourceTypeRegistrationsResponse
      */
     public function listResourceTypeRegistrations($request)
     {
@@ -3302,10 +3502,12 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param ListResourceTypeVersionsRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the versions of resource types, including the resource types created by you and provided by Resource Orchestration Service (ROS).
+     *  *
+     * @param ListResourceTypeVersionsRequest $request ListResourceTypeVersionsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListResourceTypeVersionsResponse
+     * @return ListResourceTypeVersionsResponse ListResourceTypeVersionsResponse
      */
     public function listResourceTypeVersionsWithOptions($request, $runtime)
     {
@@ -3333,9 +3535,11 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param ListResourceTypeVersionsRequest $request
+     * @summary Queries the versions of resource types, including the resource types created by you and provided by Resource Orchestration Service (ROS).
+     *  *
+     * @param ListResourceTypeVersionsRequest $request ListResourceTypeVersionsRequest
      *
-     * @return ListResourceTypeVersionsResponse
+     * @return ListResourceTypeVersionsResponse ListResourceTypeVersionsResponse
      */
     public function listResourceTypeVersions($request)
     {
@@ -3345,8 +3549,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * For more information about errors common to all operations, see [Common error codes](/help/en/resource-orchestration-service/latest/common-error-codes).
-     *   *
+     * @summary This topic provides an example on how to query the list of resource types supported by Resource Orchestration Service (ROS).
+     *  *
+     * @description For more information about errors common to all operations, see [Common error codes](/help/en/resource-orchestration-service/latest/common-error-codes).
+     *  *
      * @param ListResourceTypesRequest $request ListResourceTypesRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -3384,8 +3590,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * For more information about errors common to all operations, see [Common error codes](/help/en/resource-orchestration-service/latest/common-error-codes).
-     *   *
+     * @summary This topic provides an example on how to query the list of resource types supported by Resource Orchestration Service (ROS).
+     *  *
+     * @description For more information about errors common to all operations, see [Common error codes](/help/en/resource-orchestration-service/latest/common-error-codes).
+     *  *
      * @param ListResourceTypesRequest $request ListResourceTypesRequest
      *
      * @return ListResourceTypesResponse ListResourceTypesResponse
@@ -3398,10 +3606,12 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param ListStackEventsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries a stack and the resource events of the stack.
+     *  *
+     * @param ListStackEventsRequest $request ListStackEventsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListStackEventsResponse
+     * @return ListStackEventsResponse ListStackEventsResponse
      */
     public function listStackEventsWithOptions($request, $runtime)
     {
@@ -3447,9 +3657,11 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param ListStackEventsRequest $request
+     * @summary Queries a stack and the resource events of the stack.
+     *  *
+     * @param ListStackEventsRequest $request ListStackEventsRequest
      *
-     * @return ListStackEventsResponse
+     * @return ListStackEventsResponse ListStackEventsResponse
      */
     public function listStackEvents($request)
     {
@@ -3459,8 +3671,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this example, the operation ID `6da106ca-1784-4a6f-a7e1-e723863d∗∗∗∗` is set to query the results of an operation on a stack group named `MyStackGroup`. The stack group is granted self-managed permissions and created in the China (Hangzhou) region.
-     *   *
+     * @summary Queries the results of an operation on a stack group.
+     *  *
+     * @description In this example, the operation ID `6da106ca-1784-4a6f-a7e1-e723863d∗∗∗∗` is set to query the results of an operation on a stack group named `MyStackGroup`. The stack group is granted self-managed permissions and created in the China (Hangzhou) region.
+     *  *
      * @param ListStackGroupOperationResultsRequest $request ListStackGroupOperationResultsRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
@@ -3501,8 +3715,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this example, the operation ID `6da106ca-1784-4a6f-a7e1-e723863d∗∗∗∗` is set to query the results of an operation on a stack group named `MyStackGroup`. The stack group is granted self-managed permissions and created in the China (Hangzhou) region.
-     *   *
+     * @summary Queries the results of an operation on a stack group.
+     *  *
+     * @description In this example, the operation ID `6da106ca-1784-4a6f-a7e1-e723863d∗∗∗∗` is set to query the results of an operation on a stack group named `MyStackGroup`. The stack group is granted self-managed permissions and created in the China (Hangzhou) region.
+     *  *
      * @param ListStackGroupOperationResultsRequest $request ListStackGroupOperationResultsRequest
      *
      * @return ListStackGroupOperationResultsResponse ListStackGroupOperationResultsResponse
@@ -3515,10 +3731,12 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param ListStackGroupOperationsRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the information about stack group operations in an Alibaba Cloud region.
+     *  *
+     * @param ListStackGroupOperationsRequest $request ListStackGroupOperationsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListStackGroupOperationsResponse
+     * @return ListStackGroupOperationsResponse ListStackGroupOperationsResponse
      */
     public function listStackGroupOperationsWithOptions($request, $runtime)
     {
@@ -3555,9 +3773,11 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param ListStackGroupOperationsRequest $request
+     * @summary Queries the information about stack group operations in an Alibaba Cloud region.
+     *  *
+     * @param ListStackGroupOperationsRequest $request ListStackGroupOperationsRequest
      *
-     * @return ListStackGroupOperationsResponse
+     * @return ListStackGroupOperationsResponse ListStackGroupOperationsResponse
      */
     public function listStackGroupOperations($request)
     {
@@ -3567,8 +3787,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this example, the list of stack groups that are in the ACTIVE state and deployed in the China (Hangzhou) region is queried.
-     *   *
+     * @summary Queries a list of stack groups in an Alibaba Cloud region.
+     *  *
+     * @description In this example, the list of stack groups that are in the ACTIVE state and deployed in the China (Hangzhou) region is queried.
+     *  *
      * @param ListStackGroupsRequest $request ListStackGroupsRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -3615,8 +3837,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this example, the list of stack groups that are in the ACTIVE state and deployed in the China (Hangzhou) region is queried.
-     *   *
+     * @summary Queries a list of stack groups in an Alibaba Cloud region.
+     *  *
+     * @description In this example, the list of stack groups that are in the ACTIVE state and deployed in the China (Hangzhou) region is queried.
+     *  *
      * @param ListStackGroupsRequest $request ListStackGroupsRequest
      *
      * @return ListStackGroupsResponse ListStackGroupsResponse
@@ -3629,8 +3853,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this example, the list of stack instances that are associated with a stack group named `MyStackGroup` is queried. The stack group is granted self-managed permissions and deployed in the China (Hangzhou) region.
-     *   *
+     * @summary Queries the list of stack instances that are associated with a stack group in an Alibaba Cloud region.
+     *  *
+     * @description In this example, the list of stack instances that are associated with a stack group named `MyStackGroup` is queried. The stack group is granted self-managed permissions and deployed in the China (Hangzhou) region.
+     *  *
      * @param ListStackInstancesRequest $request ListStackInstancesRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -3677,8 +3903,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this example, the list of stack instances that are associated with a stack group named `MyStackGroup` is queried. The stack group is granted self-managed permissions and deployed in the China (Hangzhou) region.
-     *   *
+     * @summary Queries the list of stack instances that are associated with a stack group in an Alibaba Cloud region.
+     *  *
+     * @description In this example, the list of stack instances that are associated with a stack group named `MyStackGroup` is queried. The stack group is granted self-managed permissions and deployed in the China (Hangzhou) region.
+     *  *
      * @param ListStackInstancesRequest $request ListStackInstancesRequest
      *
      * @return ListStackInstancesResponse ListStackInstancesResponse
@@ -3691,10 +3919,12 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * The ListStackOperationRisks operation is suitable for the following scenarios:
-     *   * *   You want to detect high risks that may arise in resources when you delete a stack that contains the resources, and query the cause of each risk in a resource.
-     *   * *   When you create a stack, the creation may fail. In this case, you can call this operation to check which types of permissions that are required to create stacks are missing.
-     *   *
+     * @summary Detects stack-related operation risks and returns missing permissions and the causes of the risks.
+     *  *
+     * @description The ListStackOperationRisks operation is suitable for the following scenarios:
+     * *   You want to detect high risks that may arise in resources when you delete a stack that contains the resources, and query the cause of each risk in a resource.
+     * *   When you create a stack, the creation may fail. In this case, you can call this operation to check which types of permissions that are required to create stacks are missing.
+     *  *
      * @param ListStackOperationRisksRequest $request ListStackOperationRisksRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -3758,10 +3988,12 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * The ListStackOperationRisks operation is suitable for the following scenarios:
-     *   * *   You want to detect high risks that may arise in resources when you delete a stack that contains the resources, and query the cause of each risk in a resource.
-     *   * *   When you create a stack, the creation may fail. In this case, you can call this operation to check which types of permissions that are required to create stacks are missing.
-     *   *
+     * @summary Detects stack-related operation risks and returns missing permissions and the causes of the risks.
+     *  *
+     * @description The ListStackOperationRisks operation is suitable for the following scenarios:
+     * *   You want to detect high risks that may arise in resources when you delete a stack that contains the resources, and query the cause of each risk in a resource.
+     * *   When you create a stack, the creation may fail. In this case, you can call this operation to check which types of permissions that are required to create stacks are missing.
+     *  *
      * @param ListStackOperationRisksRequest $request ListStackOperationRisksRequest
      *
      * @return ListStackOperationRisksResponse ListStackOperationRisksResponse
@@ -3774,10 +4006,12 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param ListStackResourceDriftsRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary The query token. Set this parameter to the NextToken value returned in the last API call.
+     *  *
+     * @param ListStackResourceDriftsRequest $request ListStackResourceDriftsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListStackResourceDriftsResponse
+     * @return ListStackResourceDriftsResponse ListStackResourceDriftsResponse
      */
     public function listStackResourceDriftsWithOptions($request, $runtime)
     {
@@ -3817,9 +4051,11 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param ListStackResourceDriftsRequest $request
+     * @summary The query token. Set this parameter to the NextToken value returned in the last API call.
+     *  *
+     * @param ListStackResourceDriftsRequest $request ListStackResourceDriftsRequest
      *
-     * @return ListStackResourceDriftsResponse
+     * @return ListStackResourceDriftsResponse ListStackResourceDriftsResponse
      */
     public function listStackResourceDrifts($request)
     {
@@ -3829,8 +4065,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * For more information about common request parameters, see [Common parameters](~~131957~~).
-     *   *
+     * @summary This topic provides an example on how to query the resources in a specified stack. In this example, the resources in the stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` in the China (Hangzhou) region are queried.
+     *  *
+     * @description For more information about common request parameters, see [Common parameters](https://help.aliyun.com/document_detail/131957.html).
+     *  *
      * @param ListStackResourcesRequest $request ListStackResourcesRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -3865,8 +4103,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * For more information about common request parameters, see [Common parameters](~~131957~~).
-     *   *
+     * @summary This topic provides an example on how to query the resources in a specified stack. In this example, the resources in the stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` in the China (Hangzhou) region are queried.
+     *  *
+     * @description For more information about common request parameters, see [Common parameters](https://help.aliyun.com/document_detail/131957.html).
+     *  *
      * @param ListStackResourcesRequest $request ListStackResourcesRequest
      *
      * @return ListStackResourcesResponse ListStackResourcesResponse
@@ -3879,9 +4119,11 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * ###
-     *   * This topic provides an example on how to query a list of stacks. In this example, the stacks that are deployed in the China (Hangzhou) region are queried.
-     *   *
+     * @summary Queries a list of stacks.
+     *  *
+     * @description ###
+     * This topic provides an example on how to query a list of stacks. In this example, the stacks that are deployed in the China (Hangzhou) region are queried.
+     *  *
      * @param ListStacksRequest $request ListStacksRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
@@ -3949,9 +4191,11 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * ###
-     *   * This topic provides an example on how to query a list of stacks. In this example, the stacks that are deployed in the China (Hangzhou) region are queried.
-     *   *
+     * @summary Queries a list of stacks.
+     *  *
+     * @description ###
+     * This topic provides an example on how to query a list of stacks. In this example, the stacks that are deployed in the China (Hangzhou) region are queried.
+     *  *
      * @param ListStacksRequest $request ListStacksRequest
      *
      * @return ListStacksResponse ListStacksResponse
@@ -3964,8 +4208,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this example, the tag keys that are added to a stack in the China (Hangzhou) region are queried.
-     *   *
+     * @summary Queries the tag keys that are added to resources in a template or stack in an Alibaba Cloud region.
+     *  *
+     * @description In this example, the tag keys that are added to a stack in the China (Hangzhou) region are queried.
+     *  *
      * @param ListTagKeysRequest $request ListTagKeysRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
@@ -4003,8 +4249,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this example, the tag keys that are added to a stack in the China (Hangzhou) region are queried.
-     *   *
+     * @summary Queries the tag keys that are added to resources in a template or stack in an Alibaba Cloud region.
+     *  *
+     * @description In this example, the tag keys that are added to a stack in the China (Hangzhou) region are queried.
+     *  *
      * @param ListTagKeysRequest $request ListTagKeysRequest
      *
      * @return ListTagKeysResponse ListTagKeysResponse
@@ -4017,11 +4265,13 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * ###
-     *   * *   To specify the query object, specify ResourceId or Tag in the request. Tag consists of Key and Value.
-     *   * *   If you specify Tag and ResourceId, ROS resources that match both the parameters are returned.
-     *   * This topic provides an example on how to query the tags that are added to a stack. In this example, the stack ID is `6bc589b5-9c02-4944-8fc3-f3624234****`. The stack is deployed in the China (Hangzhou) region.
-     *   *
+     * @summary Queries the tags that are added to resources in a template or stack in an Alibaba Cloud region.
+     *  *
+     * @description ###
+     * *   To specify the query object, specify ResourceId or Tag in the request. Tag consists of Key and Value.
+     * *   If you specify Tag and ResourceId, ROS resources that match both the parameters are returned.
+     * This topic provides an example on how to query the tags that are added to a stack. In this example, the stack ID is `6bc589b5-9c02-4944-8fc3-f3624234****`. The stack is deployed in the China (Hangzhou) region.
+     *  *
      * @param ListTagResourcesRequest $request ListTagResourcesRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -4065,11 +4315,13 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * ###
-     *   * *   To specify the query object, specify ResourceId or Tag in the request. Tag consists of Key and Value.
-     *   * *   If you specify Tag and ResourceId, ROS resources that match both the parameters are returned.
-     *   * This topic provides an example on how to query the tags that are added to a stack. In this example, the stack ID is `6bc589b5-9c02-4944-8fc3-f3624234****`. The stack is deployed in the China (Hangzhou) region.
-     *   *
+     * @summary Queries the tags that are added to resources in a template or stack in an Alibaba Cloud region.
+     *  *
+     * @description ###
+     * *   To specify the query object, specify ResourceId or Tag in the request. Tag consists of Key and Value.
+     * *   If you specify Tag and ResourceId, ROS resources that match both the parameters are returned.
+     * This topic provides an example on how to query the tags that are added to a stack. In this example, the stack ID is `6bc589b5-9c02-4944-8fc3-f3624234****`. The stack is deployed in the China (Hangzhou) region.
+     *  *
      * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
      * @return ListTagResourcesResponse ListTagResourcesResponse
@@ -4082,8 +4334,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this example, the tag values of `TagKey1` that is added to a stack in the China (Hangzhou) region are queried.
-     *   *
+     * @summary Queries the tag values that are added to resources in a template or stack in an Alibaba Cloud region.
+     *  *
+     * @description In this example, the tag values of `TagKey1` that is added to a stack in the China (Hangzhou) region are queried.
+     *  *
      * @param ListTagValuesRequest $request ListTagValuesRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -4124,8 +4378,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this example, the tag values of `TagKey1` that is added to a stack in the China (Hangzhou) region are queried.
-     *   *
+     * @summary Queries the tag values that are added to resources in a template or stack in an Alibaba Cloud region.
+     *  *
+     * @description In this example, the tag values of `TagKey1` that is added to a stack in the China (Hangzhou) region are queried.
+     *  *
      * @param ListTagValuesRequest $request ListTagValuesRequest
      *
      * @return ListTagValuesResponse ListTagValuesResponse
@@ -4138,8 +4394,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this example, the scenarios that are created in the China (Hangzhou) region are queried. In the response, a scenario of the Resource Management and a scenario of the Resource Replication type are returned.
-     *   *
+     * @summary Queries scenarios.
+     *  *
+     * @description In this example, the scenarios that are created in the China (Hangzhou) region are queried. In the response, a scenario of the Resource Management and a scenario of the Resource Replication type are returned.
+     *  *
      * @param ListTemplateScratchesRequest $request ListTemplateScratchesRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -4192,8 +4450,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this example, the scenarios that are created in the China (Hangzhou) region are queried. In the response, a scenario of the Resource Management and a scenario of the Resource Replication type are returned.
-     *   *
+     * @summary Queries scenarios.
+     *  *
+     * @description In this example, the scenarios that are created in the China (Hangzhou) region are queried. In the response, a scenario of the Resource Management and a scenario of the Resource Replication type are returned.
+     *  *
      * @param ListTemplateScratchesRequest $request ListTemplateScratchesRequest
      *
      * @return ListTemplateScratchesResponse ListTemplateScratchesResponse
@@ -4206,10 +4466,12 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param ListTemplateVersionsRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the list of versions of a template.
+     *  *
+     * @param ListTemplateVersionsRequest $request ListTemplateVersionsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTemplateVersionsResponse
+     * @return ListTemplateVersionsResponse ListTemplateVersionsResponse
      */
     public function listTemplateVersionsWithOptions($request, $runtime)
     {
@@ -4243,9 +4505,11 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param ListTemplateVersionsRequest $request
+     * @summary Queries the list of versions of a template.
+     *  *
+     * @param ListTemplateVersionsRequest $request ListTemplateVersionsRequest
      *
-     * @return ListTemplateVersionsResponse
+     * @return ListTemplateVersionsResponse ListTemplateVersionsResponse
      */
     public function listTemplateVersions($request)
     {
@@ -4255,10 +4519,12 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param ListTemplatesRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Queries a list of private or shared templates.
+     *  *
+     * @param ListTemplatesRequest $request ListTemplatesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTemplatesResponse
+     * @return ListTemplatesResponse ListTemplatesResponse
      */
     public function listTemplatesWithOptions($request, $runtime)
     {
@@ -4304,9 +4570,11 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param ListTemplatesRequest $request
+     * @summary Queries a list of private or shared templates.
+     *  *
+     * @param ListTemplatesRequest $request ListTemplatesRequest
      *
-     * @return ListTemplatesResponse
+     * @return ListTemplatesResponse ListTemplatesResponse
      */
     public function listTemplates($request)
     {
@@ -4316,8 +4584,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this example, a stack deployed in the `China (Hangzhou)` region is moved to a specific resource group. The ID of the stack is `4e8611cb-251e-42b7-b9cb-3496362c****` and the ID of the resource group is `rg-acfm3peow3k****`.
-     *   *
+     * @summary Moves a resource to a specific resource group.
+     *  *
+     * @description In this example, a stack deployed in the `China (Hangzhou)` region is moved to a specific resource group. The ID of the stack is `4e8611cb-251e-42b7-b9cb-3496362c****` and the ID of the resource group is `rg-acfm3peow3k****`.
+     *  *
      * @param MoveResourceGroupRequest $request MoveResourceGroupRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -4358,8 +4628,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this example, a stack deployed in the `China (Hangzhou)` region is moved to a specific resource group. The ID of the stack is `4e8611cb-251e-42b7-b9cb-3496362c****` and the ID of the resource group is `rg-acfm3peow3k****`.
-     *   *
+     * @summary Moves a resource to a specific resource group.
+     *  *
+     * @description In this example, a stack deployed in the `China (Hangzhou)` region is moved to a specific resource group. The ID of the stack is `4e8611cb-251e-42b7-b9cb-3496362c****` and the ID of the resource group is `rg-acfm3peow3k****`.
+     *  *
      * @param MoveResourceGroupRequest $request MoveResourceGroupRequest
      *
      * @return MoveResourceGroupResponse MoveResourceGroupResponse
@@ -4372,8 +4644,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to create a stack named `MyStack` in the China (Hangzhou) region by using a template and preview the information about the stack. In this example, the `template body` is `{"ROSTemplateFormatVersion":"2015-09-01"}`.
-     *   *
+     * @summary Previews the information about a stack that you want to create based on a template. You can call this operation to verify whether the template resources are valid.
+     *  *
+     * @description This topic provides an example on how to create a stack named `MyStack` in the China (Hangzhou) region by using a template and preview the information about the stack. In this example, the `template body` is `{"ROSTemplateFormatVersion":"2015-09-01"}`.
+     *  *
      * @param PreviewStackRequest $request PreviewStackRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -4455,8 +4729,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to create a stack named `MyStack` in the China (Hangzhou) region by using a template and preview the information about the stack. In this example, the `template body` is `{"ROSTemplateFormatVersion":"2015-09-01"}`.
-     *   *
+     * @summary Previews the information about a stack that you want to create based on a template. You can call this operation to verify whether the template resources are valid.
+     *  *
+     * @description This topic provides an example on how to create a stack named `MyStack` in the China (Hangzhou) region by using a template and preview the information about the stack. In this example, the `template body` is `{"ROSTemplateFormatVersion":"2015-09-01"}`.
+     *  *
      * @param PreviewStackRequest $request PreviewStackRequest
      *
      * @return PreviewStackResponse PreviewStackResponse
@@ -4469,9 +4745,11 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * *   Versions increase from v1.
-     *   * *   If you create a new resource type, v1 is used as the default version of the resource type. You can call the SetResourceType operation to change the default version of a resource type.
-     *   *
+     * @summary Creates a new resource type, or creates a new version for an existing resource type.
+     *  *
+     * @description *   Versions increase from v1.
+     * *   If you create a new resource type, v1 is used as the default version of the resource type. You can call the SetResourceType operation to change the default version of a resource type.
+     *  *
      * @param RegisterResourceTypeRequest $request RegisterResourceTypeRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -4520,9 +4798,11 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * *   Versions increase from v1.
-     *   * *   If you create a new resource type, v1 is used as the default version of the resource type. You can call the SetResourceType operation to change the default version of a resource type.
-     *   *
+     * @summary Creates a new resource type, or creates a new version for an existing resource type.
+     *  *
+     * @description *   Versions increase from v1.
+     * *   If you create a new resource type, v1 is used as the default version of the resource type. You can call the SetResourceType operation to change the default version of a resource type.
+     *  *
      * @param RegisterResourceTypeRequest $request RegisterResourceTypeRequest
      *
      * @return RegisterResourceTypeResponse RegisterResourceTypeResponse
@@ -4535,10 +4815,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param SetDeletionProtectionRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param SetDeletionProtectionRequest $request SetDeletionProtectionRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetDeletionProtectionResponse
+     * @return SetDeletionProtectionResponse SetDeletionProtectionResponse
      */
     public function setDeletionProtectionWithOptions($request, $runtime)
     {
@@ -4572,9 +4852,9 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param SetDeletionProtectionRequest $request
+     * @param SetDeletionProtectionRequest $request SetDeletionProtectionRequest
      *
-     * @return SetDeletionProtectionResponse
+     * @return SetDeletionProtectionResponse SetDeletionProtectionResponse
      */
     public function setDeletionProtection($request)
     {
@@ -4584,10 +4864,12 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param SetResourceTypeRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Modifies a resource type or a version of a resource type.
+     *  *
+     * @param SetResourceTypeRequest $request SetResourceTypeRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetResourceTypeResponse
+     * @return SetResourceTypeResponse SetResourceTypeResponse
      */
     public function setResourceTypeWithOptions($request, $runtime)
     {
@@ -4624,9 +4906,11 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param SetResourceTypeRequest $request
+     * @summary Modifies a resource type or a version of a resource type.
+     *  *
+     * @param SetResourceTypeRequest $request SetResourceTypeRequest
      *
-     * @return SetResourceTypeResponse
+     * @return SetResourceTypeResponse SetResourceTypeResponse
      */
     public function setResourceType($request)
     {
@@ -4636,8 +4920,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this example, a stack policy is configured for a stack deployed in the `China (Hangzhou)` region whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****`. The URL to the stack policy body is `oss://ros/stack-policy/demo`.
-     *   *
+     * @summary You can call this operation to configure a stack policy.
+     *  *
+     * @description In this example, a stack policy is configured for a stack deployed in the `China (Hangzhou)` region whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****`. The URL to the stack policy body is `oss://ros/stack-policy/demo`.
+     *  *
      * @param SetStackPolicyRequest $request SetStackPolicyRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -4678,8 +4964,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this example, a stack policy is configured for a stack deployed in the `China (Hangzhou)` region whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****`. The URL to the stack policy body is `oss://ros/stack-policy/demo`.
-     *   *
+     * @summary You can call this operation to configure a stack policy.
+     *  *
+     * @description In this example, a stack policy is configured for a stack deployed in the `China (Hangzhou)` region whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****`. The URL to the stack policy body is `oss://ros/stack-policy/demo`.
+     *  *
      * @param SetStackPolicyRequest $request SetStackPolicyRequest
      *
      * @return SetStackPolicyResponse SetStackPolicyResponse
@@ -4692,9 +4980,11 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this example, the template whose ID is `5ecd1e10-b0e9-4389-a565-e4c15efc****` is shared with an Alibaba Cloud account. The ID of the Alibaba Cloud account is `151266687691****`.
-     *   * > The recipient Alibaba Cloud account (ID: `151266687691****`) can authorize RAM users to use the shared template.
-     *   *
+     * @summary Shares or unshares a template.
+     *  *
+     * @description In this example, the template whose ID is `5ecd1e10-b0e9-4389-a565-e4c15efc****` is shared with an Alibaba Cloud account. The ID of the Alibaba Cloud account is `151266687691****`.
+     * > The recipient Alibaba Cloud account (ID: `151266687691****`) can authorize RAM users to use the shared template.
+     *  *
      * @param SetTemplatePermissionRequest $request SetTemplatePermissionRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -4738,9 +5028,11 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this example, the template whose ID is `5ecd1e10-b0e9-4389-a565-e4c15efc****` is shared with an Alibaba Cloud account. The ID of the Alibaba Cloud account is `151266687691****`.
-     *   * > The recipient Alibaba Cloud account (ID: `151266687691****`) can authorize RAM users to use the shared template.
-     *   *
+     * @summary Shares or unshares a template.
+     *  *
+     * @description In this example, the template whose ID is `5ecd1e10-b0e9-4389-a565-e4c15efc****` is shared with an Alibaba Cloud account. The ID of the Alibaba Cloud account is `151266687691****`.
+     * > The recipient Alibaba Cloud account (ID: `151266687691****`) can authorize RAM users to use the shared template.
+     *  *
      * @param SetTemplatePermissionRequest $request SetTemplatePermissionRequest
      *
      * @return SetTemplatePermissionResponse SetTemplatePermissionResponse
@@ -4753,10 +5045,12 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param SignalResourceRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Sends a signal to a resource in a stack.
+     *  *
+     * @param SignalResourceRequest $request SignalResourceRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return SignalResourceResponse
+     * @return SignalResourceResponse SignalResourceResponse
      */
     public function signalResourceWithOptions($request, $runtime)
     {
@@ -4799,9 +5093,11 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param SignalResourceRequest $request
+     * @summary Sends a signal to a resource in a stack.
+     *  *
+     * @param SignalResourceRequest $request SignalResourceRequest
      *
-     * @return SignalResourceResponse
+     * @return SignalResourceResponse SignalResourceResponse
      */
     public function signalResource($request)
     {
@@ -4811,8 +5107,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to stop a stack group operation whose ID is `6da106ca-1784-4a6f-a7e1-e723863****` in the China (Hangzhou) region.
-     *   *
+     * @summary Stops a stack group operation.
+     *  *
+     * @description This topic provides an example on how to stop a stack group operation whose ID is `6da106ca-1784-4a6f-a7e1-e723863****` in the China (Hangzhou) region.
+     *  *
      * @param StopStackGroupOperationRequest $request StopStackGroupOperationRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -4847,8 +5145,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to stop a stack group operation whose ID is `6da106ca-1784-4a6f-a7e1-e723863****` in the China (Hangzhou) region.
-     *   *
+     * @summary Stops a stack group operation.
+     *  *
+     * @description This topic provides an example on how to stop a stack group operation whose ID is `6da106ca-1784-4a6f-a7e1-e723863****` in the China (Hangzhou) region.
+     *  *
      * @param StopStackGroupOperationRequest $request StopStackGroupOperationRequest
      *
      * @return StopStackGroupOperationResponse StopStackGroupOperationResponse
@@ -4861,8 +5161,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to create a tag and add the tag to a stack. In this example, the stack ID is `7fee80e1-8c48-4c2f-8300-0f6dc40b****`, the tag key is `FinanceDept`, and the tag value is `FinanceJoshua`.
-     *   *
+     * @summary Creates and adds tags to resources.
+     *  *
+     * @description This topic provides an example on how to create a tag and add the tag to a stack. In this example, the stack ID is `7fee80e1-8c48-4c2f-8300-0f6dc40b****`, the tag key is `FinanceDept`, and the tag value is `FinanceJoshua`.
+     *  *
      * @param TagResourcesRequest $request TagResourcesRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -4903,8 +5205,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to create a tag and add the tag to a stack. In this example, the stack ID is `7fee80e1-8c48-4c2f-8300-0f6dc40b****`, the tag key is `FinanceDept`, and the tag value is `FinanceJoshua`.
-     *   *
+     * @summary Creates and adds tags to resources.
+     *  *
+     * @description This topic provides an example on how to create a tag and add the tag to a stack. In this example, the stack ID is `7fee80e1-8c48-4c2f-8300-0f6dc40b****`, the tag key is `FinanceDept`, and the tag value is `FinanceJoshua`.
+     *  *
      * @param TagResourcesRequest $request TagResourcesRequest
      *
      * @return TagResourcesResponse TagResourcesResponse
@@ -4917,8 +5221,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to remove all tags from a stack that is deployed in the China (Hangzhou) region. In this example, the stack ID is `46ec7b78-9d5e-4b21-aefd-448c90aa****`.
-     *   *
+     * @summary Removes tags from resources and then deletes the tags.
+     *  *
+     * @description This topic provides an example on how to remove all tags from a stack that is deployed in the China (Hangzhou) region. In this example, the stack ID is `46ec7b78-9d5e-4b21-aefd-448c90aa****`.
+     *  *
      * @param UntagResourcesRequest $request UntagResourcesRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -4962,8 +5268,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to remove all tags from a stack that is deployed in the China (Hangzhou) region. In this example, the stack ID is `46ec7b78-9d5e-4b21-aefd-448c90aa****`.
-     *   *
+     * @summary Removes tags from resources and then deletes the tags.
+     *  *
+     * @description This topic provides an example on how to remove all tags from a stack that is deployed in the China (Hangzhou) region. In this example, the stack ID is `46ec7b78-9d5e-4b21-aefd-448c90aa****`.
+     *  *
      * @param UntagResourcesRequest $request UntagResourcesRequest
      *
      * @return UntagResourcesResponse UntagResourcesResponse
@@ -4976,11 +5284,13 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * The values of parameters in the Parameters section vary based on the value that you specify for the UsePreviousParameters parameter in the request. If you do not add the parameters that are defined in the template to the Parameters section, take note of the following items:
-     *   * *   UsePreviousParameters is set to false: If the template parameters have default values, the default values are used. Otherwise, you must specify values for the template parameters in the Parameters section.
-     *   * *   UsePreviousParameters is set to true: If you specify values for the template parameters when you create a stack, the values are used. If you leave the template parameters empty when you create a stack but the template parameters have default values, the default values are used.
-     *   * This topic describes how to update a stack. In this example, the template body of a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` in the China (Beijing) region is updated to `{"ROSTemplateFormatVersion": "2015-09-01"}`.
-     *   *
+     * @summary Updates a stack.
+     *  *
+     * @description The values of parameters in the Parameters section vary based on the value that you specify for the UsePreviousParameters parameter in the request. If you do not add the parameters that are defined in the template to the Parameters section, take note of the following items:
+     * *   UsePreviousParameters is set to false: If the template parameters have default values, the default values are used. Otherwise, you must specify values for the template parameters in the Parameters section.
+     * *   UsePreviousParameters is set to true: If you specify values for the template parameters when you create a stack, the values are used. If you leave the template parameters empty when you create a stack but the template parameters have default values, the default values are used.
+     * This topic describes how to update a stack. In this example, the template body of a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` in the China (Beijing) region is updated to `{"ROSTemplateFormatVersion": "2015-09-01"}`.
+     *  *
      * @param UpdateStackRequest $request UpdateStackRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
@@ -5077,11 +5387,13 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * The values of parameters in the Parameters section vary based on the value that you specify for the UsePreviousParameters parameter in the request. If you do not add the parameters that are defined in the template to the Parameters section, take note of the following items:
-     *   * *   UsePreviousParameters is set to false: If the template parameters have default values, the default values are used. Otherwise, you must specify values for the template parameters in the Parameters section.
-     *   * *   UsePreviousParameters is set to true: If you specify values for the template parameters when you create a stack, the values are used. If you leave the template parameters empty when you create a stack but the template parameters have default values, the default values are used.
-     *   * This topic describes how to update a stack. In this example, the template body of a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` in the China (Beijing) region is updated to `{"ROSTemplateFormatVersion": "2015-09-01"}`.
-     *   *
+     * @summary Updates a stack.
+     *  *
+     * @description The values of parameters in the Parameters section vary based on the value that you specify for the UsePreviousParameters parameter in the request. If you do not add the parameters that are defined in the template to the Parameters section, take note of the following items:
+     * *   UsePreviousParameters is set to false: If the template parameters have default values, the default values are used. Otherwise, you must specify values for the template parameters in the Parameters section.
+     * *   UsePreviousParameters is set to true: If you specify values for the template parameters when you create a stack, the values are used. If you leave the template parameters empty when you create a stack but the template parameters have default values, the default values are used.
+     * This topic describes how to update a stack. In this example, the template body of a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` in the China (Beijing) region is updated to `{"ROSTemplateFormatVersion": "2015-09-01"}`.
+     *  *
      * @param UpdateStackRequest $request UpdateStackRequest
      *
      * @return UpdateStackResponse UpdateStackResponse
@@ -5094,9 +5406,11 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * The name of the stack group. The name must be unique within a region.
-     *   * The name can be up to 255 characters in length and can contain digits, letters, hyphens (-), and underscores (\\_). The name must start with a digit or a letter.
-     *   *
+     * @summary The region ID of the stack group. You can call the [DescribeRegions]\\(~~131035~~) operation to query the latest list of Alibaba Cloud regions.
+     *  *
+     * @description The name of the stack group. The name must be unique within a region.
+     * The name can be up to 255 characters in length and can contain digits, letters, hyphens (-), and underscores (_). The name must start with a digit or a letter.
+     *  *
      * @param UpdateStackGroupRequest $tmpReq  UpdateStackGroupRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -5201,9 +5515,11 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * The name of the stack group. The name must be unique within a region.
-     *   * The name can be up to 255 characters in length and can contain digits, letters, hyphens (-), and underscores (\\_). The name must start with a digit or a letter.
-     *   *
+     * @summary The region ID of the stack group. You can call the [DescribeRegions]\\(~~131035~~) operation to query the latest list of Alibaba Cloud regions.
+     *  *
+     * @description The name of the stack group. The name must be unique within a region.
+     * The name can be up to 255 characters in length and can contain digits, letters, hyphens (-), and underscores (_). The name must start with a digit or a letter.
+     *  *
      * @param UpdateStackGroupRequest $request UpdateStackGroupRequest
      *
      * @return UpdateStackGroupResponse UpdateStackGroupResponse
@@ -5216,8 +5532,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this topic, the stack group named `MyStackGroup` that is created in the China (Hangzhou) region is used. The stack group is granted the self-managed permissions. In this example, stacks of the stack group are updated by using the Alibaba Cloud accounts whose IDs are `151266687691****` and `141261387191****` in the China (Hangzhou) region and China (Beijing) region.
-     *   *
+     * @summary Updates stack instances in the specified accounts and regions.
+     *  *
+     * @description In this topic, the stack group named `MyStackGroup` that is created in the China (Hangzhou) region is used. The stack group is granted the self-managed permissions. In this example, stacks of the stack group are updated by using the Alibaba Cloud accounts whose IDs are `151266687691****` and `141261387191****` in the China (Hangzhou) region and China (Beijing) region.
+     *  *
      * @param UpdateStackInstancesRequest $tmpReq  UpdateStackInstancesRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -5290,8 +5608,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this topic, the stack group named `MyStackGroup` that is created in the China (Hangzhou) region is used. The stack group is granted the self-managed permissions. In this example, stacks of the stack group are updated by using the Alibaba Cloud accounts whose IDs are `151266687691****` and `141261387191****` in the China (Hangzhou) region and China (Beijing) region.
-     *   *
+     * @summary Updates stack instances in the specified accounts and regions.
+     *  *
+     * @description In this topic, the stack group named `MyStackGroup` that is created in the China (Hangzhou) region is used. The stack group is granted the self-managed permissions. In this example, stacks of the stack group are updated by using the Alibaba Cloud accounts whose IDs are `151266687691****` and `141261387191****` in the China (Hangzhou) region and China (Beijing) region.
+     *  *
      * @param UpdateStackInstancesRequest $request UpdateStackInstancesRequest
      *
      * @return UpdateStackInstancesResponse UpdateStackInstancesResponse
@@ -5304,9 +5624,11 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * Limits: You can eliminate only drift on stacks that have drifted. You must call the [DetectStackDrift](~~155094~~) operation to perform drift detection on a stack, call the [GetStackDriftDetectionStatus](~~155097~~) operation to query the drift status of the stack to make sure that the stack has drifted, and then call the UpdateStackTemplateByResources operation to eliminate drift.
-     *   * In this topic, drift is eliminated for a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****`. The stack is deployed in the China (Hangzhou) region.
-     *   *
+     * @summary Corrects a template to eliminate stack drift.
+     *  *
+     * @description Limits: You can eliminate only drift on stacks that have drifted. You must call the [DetectStackDrift](https://help.aliyun.com/document_detail/155094.html) operation to perform drift detection on a stack, call the [GetStackDriftDetectionStatus](https://help.aliyun.com/document_detail/155097.html) operation to query the drift status of the stack to make sure that the stack has drifted, and then call the UpdateStackTemplateByResources operation to eliminate drift.
+     * In this topic, drift is eliminated for a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****`. The stack is deployed in the China (Hangzhou) region.
+     *  *
      * @param UpdateStackTemplateByResourcesRequest $request UpdateStackTemplateByResourcesRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
@@ -5353,9 +5675,11 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * Limits: You can eliminate only drift on stacks that have drifted. You must call the [DetectStackDrift](~~155094~~) operation to perform drift detection on a stack, call the [GetStackDriftDetectionStatus](~~155097~~) operation to query the drift status of the stack to make sure that the stack has drifted, and then call the UpdateStackTemplateByResources operation to eliminate drift.
-     *   * In this topic, drift is eliminated for a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****`. The stack is deployed in the China (Hangzhou) region.
-     *   *
+     * @summary Corrects a template to eliminate stack drift.
+     *  *
+     * @description Limits: You can eliminate only drift on stacks that have drifted. You must call the [DetectStackDrift](https://help.aliyun.com/document_detail/155094.html) operation to perform drift detection on a stack, call the [GetStackDriftDetectionStatus](https://help.aliyun.com/document_detail/155097.html) operation to query the drift status of the stack to make sure that the stack has drifted, and then call the UpdateStackTemplateByResources operation to eliminate drift.
+     * In this topic, drift is eliminated for a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****`. The stack is deployed in the China (Hangzhou) region.
+     *  *
      * @param UpdateStackTemplateByResourcesRequest $request UpdateStackTemplateByResourcesRequest
      *
      * @return UpdateStackTemplateByResourcesResponse UpdateStackTemplateByResourcesResponse
@@ -5368,11 +5692,13 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * When you update a template, take note of the following items:
-     *   * *   If you specify TemplateBody or TemplateURL, the existing version number is automatically incremented by 1 after the template is updated. For example, the version is changed from v1 to v2.
-     *   * *   If you do not specify TemplateBody or TemplateURL, the version number remains unchanged.
-     *   * *   A template can have up to 100 versions. If the number of templates reaches the upper limit, the template fails to be updated. You must create another template.
-     *   *
+     * @summary Updates a template by specifying the template URL or template details.
+     *  *
+     * @description When you update a template, take note of the following items:
+     * *   If you specify TemplateBody or TemplateURL, the existing version number is automatically incremented by 1 after the template is updated. For example, the version is changed from v1 to v2.
+     * *   If you do not specify TemplateBody or TemplateURL, the version number remains unchanged.
+     * *   A template can have up to 100 versions. If the number of templates reaches the upper limit, the template fails to be updated. You must create another template.
+     *  *
      * @param UpdateTemplateRequest $request UpdateTemplateRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -5418,11 +5744,13 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * When you update a template, take note of the following items:
-     *   * *   If you specify TemplateBody or TemplateURL, the existing version number is automatically incremented by 1 after the template is updated. For example, the version is changed from v1 to v2.
-     *   * *   If you do not specify TemplateBody or TemplateURL, the version number remains unchanged.
-     *   * *   A template can have up to 100 versions. If the number of templates reaches the upper limit, the template fails to be updated. You must create another template.
-     *   *
+     * @summary Updates a template by specifying the template URL or template details.
+     *  *
+     * @description When you update a template, take note of the following items:
+     * *   If you specify TemplateBody or TemplateURL, the existing version number is automatically incremented by 1 after the template is updated. For example, the version is changed from v1 to v2.
+     * *   If you do not specify TemplateBody or TemplateURL, the version number remains unchanged.
+     * *   A template can have up to 100 versions. If the number of templates reaches the upper limit, the template fails to be updated. You must create another template.
+     *  *
      * @param UpdateTemplateRequest $request UpdateTemplateRequest
      *
      * @return UpdateTemplateResponse UpdateTemplateResponse
@@ -5435,8 +5763,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this example, a scenario whose ID is `ts-7f7a704cf71c49a6****` is used. The scenario is created in the China (Hangzhou) region. In the scenario, the ID of a virtual private cloud (VPC) is updated to `vpc-bp1m6fww66xbntjyc****`.
-     *   *
+     * @summary Updates a scenario.
+     *  *
+     * @description In this example, a scenario whose ID is `ts-7f7a704cf71c49a6****` is used. The scenario is created in the China (Hangzhou) region. In the scenario, the ID of a virtual private cloud (VPC) is updated to `vpc-bp1m6fww66xbntjyc****`.
+     *  *
      * @param UpdateTemplateScratchRequest $tmpReq  UpdateTemplateScratchRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -5512,8 +5842,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this example, a scenario whose ID is `ts-7f7a704cf71c49a6****` is used. The scenario is created in the China (Hangzhou) region. In the scenario, the ID of a virtual private cloud (VPC) is updated to `vpc-bp1m6fww66xbntjyc****`.
-     *   *
+     * @summary Updates a scenario.
+     *  *
+     * @description In this example, a scenario whose ID is `ts-7f7a704cf71c49a6****` is used. The scenario is created in the China (Hangzhou) region. In the scenario, the ID of a virtual private cloud (VPC) is updated to `vpc-bp1m6fww66xbntjyc****`.
+     *  *
      * @param UpdateTemplateScratchRequest $request UpdateTemplateScratchRequest
      *
      * @return UpdateTemplateScratchResponse UpdateTemplateScratchResponse
@@ -5526,8 +5858,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this example, a template that you want to use to create a stack is validated. `TemplateURL` is set to `oss://ros/template/demo`.
-     *   *
+     * @summary Validates a template by using a template URL or template body. The template is used to create a stack.
+     *  *
+     * @description In this example, a template that you want to use to create a stack is validated. `TemplateURL` is set to `oss://ros/template/demo`.
+     *  *
      * @param ValidateTemplateRequest $request ValidateTemplateRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -5576,8 +5910,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this example, a template that you want to use to create a stack is validated. `TemplateURL` is set to `oss://ros/template/demo`.
-     *   *
+     * @summary Validates a template by using a template URL or template body. The template is used to create a stack.
+     *  *
+     * @description In this example, a template that you want to use to create a stack is validated. `TemplateURL` is set to `oss://ros/template/demo`.
+     *  *
      * @param ValidateTemplateRequest $request ValidateTemplateRequest
      *
      * @return ValidateTemplateResponse ValidateTemplateResponse

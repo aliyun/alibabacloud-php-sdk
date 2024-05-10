@@ -36,7 +36,7 @@ class UpdateStackGroupRequest extends Model
      *
      * You can create stacks within all members in the specified folders. If you create stacks in the Root folder, the stacks are created within all members in the resource directory.
      *
-     * >  To view the folder IDs, go to the **Overview** page in the **Resource Management** console. For more information, see [View the basic information of a folder](~~111223~~).
+     * >  To view the folder IDs, go to the **Overview** page in the **Resource Management** console. For more information, see [View the basic information of a folder](https://help.aliyun.com/document_detail/111223.html).
      * @example {"Enabled": true, "RetainStacksOnAccountRemoval": true}
      *
      * @var autoDeployment
@@ -129,7 +129,7 @@ class UpdateStackGroupRequest extends Model
      *   If you set only the AccountIds parameter, stacks are deployed within the specified members.
      *   If you set both parameters, the accounts specified by AccountIds must be contained in the folders specified by RdFolderIds.
      *
-     * >  To view the folder IDs, go to the **Overview** page in the **Resource Management** console. For more information, see [View the basic information of a folder](~~111223~~).
+     * >  To view the folder IDs, go to the **Overview** page in the **Resource Management** console. For more information, see [View the basic information of a folder](https://help.aliyun.com/document_detail/111223.html).
      * @example SELF_MANAGED
      *
      * @var string
@@ -139,6 +139,7 @@ class UpdateStackGroupRequest extends Model
     /**
      * @description The region IDs of stack instances. You can specify a maximum of 20 region IDs.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -157,6 +158,7 @@ class UpdateStackGroupRequest extends Model
     /**
      * @description The region IDs of stack instances. You can specify a maximum of 20 region IDs.
      *
+     * This parameter is required.
      * @example MyStackGroup
      *
      * @var string
@@ -176,7 +178,7 @@ class UpdateStackGroupRequest extends Model
      *   SELF_MANAGED: the self-managed permission model. This is the default value. If you use the self-managed model for the stack group, you must create RAM roles for the administrator and execution accounts, and establish a trust relationship between the accounts to deploy stacks within the execution account.
      *   SERVICE_MANAGED: the service-managed permission model. If you use the service-managed model for the stack group, ROS creates service-linked roles for the administrator and execution accounts, and the administrator account uses its role to deploy stacks within the execution account.
      *
-     * >- If you want to use the service-managed permission model to deploy stacks, your account must be the management account or a delegated administrator account of your resource directory and the trusted access feature is enabled for the account. For more information, see [Step 1: (Optional) Create a delegated administrator account](~~308253~~) and [Step 2: Enable trusted access](~~298229~~).
+     * >- If you want to use the service-managed permission model to deploy stacks, your account must be the management account or a delegated administrator account of your resource directory and the trusted access feature is enabled for the account. For more information, see [Step 1: (Optional) Create a delegated administrator account](https://help.aliyun.com/document_detail/308253.html) and [Step 2: Enable trusted access](https://help.aliyun.com/document_detail/298229.html).
      * @example 5ecd1e10-b0e9-4389-a565-e4c15efc****
      *
      * @var string

@@ -13,7 +13,7 @@ class UpdateStackRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests.
      *
-     * For more information, see [Ensure idempotence](~~134212~~).
+     * For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/134212.html).
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -85,8 +85,9 @@ class UpdateStackRequest extends Model
     public $ramRoleName;
 
     /**
-     * @description The ID of the region in which the stack is deployed. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     * @description The ID of the region in which the stack is deployed. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-beijing
      *
      * @var string
@@ -120,6 +121,7 @@ class UpdateStackRequest extends Model
     /**
      * @description The ID of the stack.
      *
+     * This parameter is required.
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
      *
      * @var string

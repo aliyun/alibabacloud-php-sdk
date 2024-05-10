@@ -20,7 +20,7 @@ class GetTemplateEstimateCostResponseBody extends Model
     /**
      * @description The resource details.
      *
-     * @example [{\"LogicalResourceIdPattern\": \"wait1\", \"ResourceType\": \"time_sleep\", \"ResourcePath\": \"wait1\"}, {\"LogicalResourceIdPattern\": \"wait2\", \"ResourceType\": \"time_sleep\", \"ResourcePath\": \"wait2\"}]
+     * @example [{\\"LogicalResourceIdPattern\\": \\"wait1\\", \\"ResourceType\\": \\"time_sleep\\", \\"ResourcePath\\": \\"wait1\\"}, {\\"LogicalResourceIdPattern\\": \\"wait2\\", \\"ResourceType\\": \\"time_sleep\\", \\"ResourcePath\\": \\"wait2\\"}]
      *
      * @var mixed[]
      */

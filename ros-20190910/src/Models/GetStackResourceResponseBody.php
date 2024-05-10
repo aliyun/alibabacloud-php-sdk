@@ -150,7 +150,7 @@ class GetStackResourceResponseBody extends Model
     /**
      * @description The name of the stack.
      *
-     * The name can be up to 255 characters in length, and can contain digits, letters, hyphens (-), and underscores (\_). The name must start with a digit or letter.
+     * The name can be up to 255 characters in length, and can contain digits, letters, hyphens (-), and underscores (_). The name must start with a digit or letter.
      * @example 2019-08-01T06:01:29
      *
      * @var string

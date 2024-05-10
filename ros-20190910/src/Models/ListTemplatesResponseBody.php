@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListTemplatesResponseBody extends Model
 {
     /**
-     * @description The page number.\
+     * @description The page number.\\
      * Pages start from page 1.
      * @example 1
      *

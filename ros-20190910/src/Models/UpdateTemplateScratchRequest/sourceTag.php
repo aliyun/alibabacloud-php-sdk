@@ -11,7 +11,7 @@ class sourceTag extends Model
     /**
      * @description The source tags that consist of key-value pairs.
      *
-     * If you set TemplateScratchType to ArchitectureDetection, you can add up to five source tags. In other cases, you can add up to 10 source tags.
+     * This parameter is required.
      * @example {"a": "b"}
      *
      * @var mixed[]

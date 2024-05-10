@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class CreateStackRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can be up to 64 characters in length, and can contain letters, digits, hyphens (-), and underscores (\_).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can be up to 64 characters in length, and can contain letters, digits, hyphens (-), and underscores (_).
      *
-     * For more information, see [Ensure idempotence](~~134212~~).
+     * For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/134212.html).
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -105,7 +105,7 @@ class CreateStackRequest extends Model
     public $parameters;
 
     /**
-     * @description The name of the RAM role. ROS assumes the RAM role to create the stack and uses the credentials of the role to call the APIs of Alibaba Cloud services.\
+     * @description The name of the RAM role. ROS assumes the RAM role to create the stack and uses the credentials of the role to call the APIs of Alibaba Cloud services.\\
      * The RAM role name can be up to 64 characters in length.
      * @example test-role
      *
@@ -114,8 +114,9 @@ class CreateStackRequest extends Model
     public $ramRoleName;
 
     /**
-     * @description The region ID of the stack. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     * @description The region ID of the stack. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -125,7 +126,7 @@ class CreateStackRequest extends Model
     /**
      * @description The ID of the resource group. If you leave this parameter empty, the stack is added to the default resource group.
      *
-     * For more information about resource groups, see the "Resource group" section of the [What is Resource Management?](~~94475~~) topic.
+     * For more information about resource groups, see the "Resource group" section of the [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html) topic.
      * @example rg-acfmxazb4ph6aiy****
      *
      * @var string
@@ -133,8 +134,8 @@ class CreateStackRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The name of the stack.\
-     * The name can be up to 255 characters in length, and can contain digits, letters, hyphens (-), and underscores (\_). It must start with a letter.
+     * @description The name of the stack.\\
+     * This parameter is required.
      * @example MyStack
      *
      * @var string
@@ -196,7 +197,7 @@ class CreateStackRequest extends Model
     /**
      * @description The region ID of the scenario. The default value is the same as the value of RegionId.
      *
-     * You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

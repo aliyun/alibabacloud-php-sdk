@@ -10,8 +10,8 @@ use AlibabaCloud\Tea\Model;
 class PreviewStackRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.\
-     * For more information, see [Ensure idempotence](~~134212~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.\\
+     * For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/134212.html).
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -62,8 +62,9 @@ class PreviewStackRequest extends Model
     public $parameters;
 
     /**
-     * @description The region ID of the stack. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     * @description The region ID of the stack. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -83,7 +84,7 @@ class PreviewStackRequest extends Model
     public $stackId;
 
     /**
-     * @description The stack name. You can use this parameter to preview the stack that you want to create. The name can be up to 255 characters in length, and can contain digits, letters, hyphens (-), and underscores (\_). It must start with a digit or letter.
+     * @description The stack name. You can use this parameter to preview the stack that you want to create. The name can be up to 255 characters in length, and can contain digits, letters, hyphens (-), and underscores (_). It must start with a digit or letter.
      *
      * > You must and can specify only one of StackName and StackId.
      * @example MyStack
@@ -140,7 +141,7 @@ class PreviewStackRequest extends Model
     /**
      * @description The region ID of the scenario. The default value is the same as the value of RegionId.
      *
-     * You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

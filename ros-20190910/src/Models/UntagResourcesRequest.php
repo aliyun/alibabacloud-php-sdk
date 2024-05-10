@@ -21,8 +21,9 @@ class UntagResourcesRequest extends Model
     public $all;
 
     /**
-     * @description The region ID of the tag. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     * @description The region ID of the tag. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -32,7 +33,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The IDs of the resource.
      *
-     * > If you set ResourceType to stackgroup, you must set ResourceId to the name of the stack group.
+     * This parameter is required.
      * @example 46ec7b78-9d5e-4b21-aefd-448c90aa****
      *
      * @var string[]
@@ -47,6 +48,7 @@ class UntagResourcesRequest extends Model
      *   template: template
      *   templatescratch: scenario
      *
+     * This parameter is required.
      * @example stack
      *
      * @var string

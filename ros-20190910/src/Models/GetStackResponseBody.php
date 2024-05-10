@@ -147,7 +147,7 @@ class GetStackResponseBody extends Model
     public $parentStackId;
 
     /**
-     * @description The name of the Resource Access Management (RAM) role. ROS assumes the RAM role to create the stack and uses the credentials of the role to call the APIs of Alibaba Cloud services.\
+     * @description The name of the Resource Access Management (RAM) role. ROS assumes the RAM role to create the stack and uses the credentials of the role to call the APIs of Alibaba Cloud services.\\
      * The RAM role name can be up to 64 characters in length.
      * @example test-role
      *
@@ -156,7 +156,7 @@ class GetStackResponseBody extends Model
     public $ramRoleName;
 
     /**
-     * @description The region ID of the stack. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     * @description The region ID of the stack. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -251,8 +251,8 @@ class GetStackResponseBody extends Model
     public $stackId;
 
     /**
-     * @description The stack name.\
-     * The name can be up to 255 characters in length, and can contain digits, letters, hyphens (-), and underscores (\_). The name must start with a digit or letter.
+     * @description The stack name.\\
+     * The name can be up to 255 characters in length, and can contain digits, letters, hyphens (-), and underscores (_). The name must start with a digit or letter.
      * @example MyStack
      *
      * @var string

@@ -45,7 +45,7 @@ class ListResourceTypeRegistrationsRequest extends Model
     public $registrationId;
 
     /**
-     * @description The resource type. The resource type can contain letters, digits, colons (:), and asterisks (\*). You can use an asterisk (\*) to perform a fuzzy match.
+     * @description The resource type. The resource type can contain letters, digits, colons (:), and asterisks (\\*). You can use an asterisk (\\*) to perform a fuzzy match.
      *
      * @example MODULE::MyOrganization::MyService::MyUsecase
      *

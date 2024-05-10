@@ -18,7 +18,7 @@ class ListStackEventsRequest extends Model
     public $logicalResourceId;
 
     /**
-     * @description The number of the page to return.\
+     * @description The number of the page to return.\\
      * Default value: 1.
      * @example 1
      *
@@ -27,7 +27,7 @@ class ListStackEventsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.\
+     * @description The number of entries to return on each page.\\
      * Default value: 10.
      * @example 10
      *
@@ -36,8 +36,9 @@ class ListStackEventsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the stack. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     * @description The region ID of the stack. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -56,6 +57,7 @@ class ListStackEventsRequest extends Model
     /**
      * @description The stack ID.
      *
+     * This parameter is required.
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
      *
      * @var string

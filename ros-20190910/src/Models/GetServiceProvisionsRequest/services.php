@@ -47,6 +47,7 @@ class services extends Model
      *   VS: Video Surveillance System
      *   Xtrace: Managed Service for OpenTelemetry
      *
+     * This parameter is required.
      * @example EHPC
      *
      * @var string

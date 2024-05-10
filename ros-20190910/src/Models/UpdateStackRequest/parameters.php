@@ -11,7 +11,7 @@ class parameters extends Model
     /**
      * @description The name of parameter N. If you do not specify the name and value of a parameter, ROS uses the default name and value in the template.
      *
-     * >  The Parameters parameter is optional. If you specify Parameters, you must specify both Parameters.N.ParameterKey and Parameters.N.ParameterValue.
+     * This parameter is required.
      * @example Amount
      *
      * @var string
@@ -21,7 +21,7 @@ class parameters extends Model
     /**
      * @description The value of parameter N. Maximum value of N: 200.
      *
-     * >  The Parameters parameter is optional. If you specify Parameters, you must specify both Parameters.N.ParameterKey and Parameters.N.ParameterValue.
+     * This parameter is required.
      * @example 12
      *
      * @var string

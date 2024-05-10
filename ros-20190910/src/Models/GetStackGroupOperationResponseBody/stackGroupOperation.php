@@ -73,7 +73,7 @@ class stackGroupOperation extends Model
     /**
      * @description The description of the operation.
      *
-     * > This parameter is returned only if OperationDescription is specified when the [CreateStackInstances](~~151338~~) operation is called to create stack instances.
+     * > This parameter is returned only if OperationDescription is specified when the [CreateStackInstances](https://help.aliyun.com/document_detail/151338.html) operation is called to create stack instances.
      * @example Create stack instance in hangzhou
      *
      * @var string

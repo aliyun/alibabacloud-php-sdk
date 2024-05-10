@@ -22,7 +22,7 @@ class ListTemplatesRequest extends Model
     public $includeTags;
 
     /**
-     * @description The page number.\
+     * @description The page number.\\
      * Default value: 1.
      * @example 1
      *
@@ -31,7 +31,7 @@ class ListTemplatesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries per page.\
+     * @description The number of entries per page.\\
      * Default value: 10.
      * @example 10
      *
@@ -40,8 +40,8 @@ class ListTemplatesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the resource group.\
-     * For more information about resource groups, see the "Resource Group" section of [What is Resource Management?](~~94475~~)
+     * @description The ID of the resource group.\\
+     * For more information about resource groups, see the "Resource Group" section of [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html)
      * @example rg-acfmxazb4ph6aiy****
      *
      * @var string
@@ -71,7 +71,7 @@ class ListTemplatesRequest extends Model
     public $tag;
 
     /**
-     * @description The template name. This parameter takes effect only when ShareType is set to Private. The name can be up to 255 characters in length, and can contain digits, letters, hyphens (-), and underscores (\_). The name must start with a digit or letter.
+     * @description The template name. This parameter takes effect only when ShareType is set to Private. The name can be up to 255 characters in length, and can contain digits, letters, hyphens (-), and underscores (_). The name must start with a digit or letter.
      *
      * @example MyTemplate
      *

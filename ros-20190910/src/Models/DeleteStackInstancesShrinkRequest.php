@@ -18,8 +18,8 @@ class DeleteStackInstancesShrinkRequest extends Model
     public $accountIdsShrink;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.\
-     * For more information, see [How to ensure idempotence](~~134212~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.\\
+     * For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/134212.html).
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -54,8 +54,9 @@ class DeleteStackInstancesShrinkRequest extends Model
     public $operationPreferencesShrink;
 
     /**
-     * @description The region ID of the stack group. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     * @description The region ID of the stack group. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -65,6 +66,7 @@ class DeleteStackInstancesShrinkRequest extends Model
     /**
      * @description The IDs of the regions where you want to delete the stacks. You can specify up to 20 region IDs.
      *
+     * This parameter is required.
      * @example ["cn-hangzhou", "cn-beijing"]
      *
      * @var string
@@ -79,6 +81,7 @@ class DeleteStackInstancesShrinkRequest extends Model
      *   true: retains the stacks.
      *   false: deletes the stacks.
      *
+     * This parameter is required.
      * @example false
      *
      * @var bool
@@ -86,8 +89,8 @@ class DeleteStackInstancesShrinkRequest extends Model
     public $retainStacks;
 
     /**
-     * @description The name of the stack group. The name must be unique within a region.\
-     * The name can be up to 255 characters in length and can contain digits, letters, hyphens (-), and underscores (\_). It must start with a digit or a letter.
+     * @description The name of the stack group. The name must be unique within a region.\\
+     * This parameter is required.
      * @example MyStackGroup
      *
      * @var string

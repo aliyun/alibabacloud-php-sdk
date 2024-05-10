@@ -25,6 +25,7 @@ class UpdateTemplateRequest extends Model
     /**
      * @description The ID of the template. This parameter applies to shared and private templates.
      *
+     * This parameter is required.
      * @example 5ecd1e10-b0e9-4389-a565-e4c15efc****
      *
      * @var string
@@ -34,7 +35,7 @@ class UpdateTemplateRequest extends Model
     /**
      * @description The name of the template.
      *
-     * The name can be up to 255 characters in length and can contain digits, letters, hyphens (-), and underscores (\_). It must start with a digit or letter.
+     * The name can be up to 255 characters in length and can contain digits, letters, hyphens (-), and underscores (_). It must start with a digit or letter.
      * @example MyTemplate
      *
      * @var string

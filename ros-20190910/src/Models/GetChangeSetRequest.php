@@ -11,6 +11,7 @@ class GetChangeSetRequest extends Model
     /**
      * @description The ID of the change set.
      *
+     * This parameter is required.
      * @example 4c11658d-bd47-4dd0-ba64-727edc62****
      *
      * @var string
@@ -18,8 +19,9 @@ class GetChangeSetRequest extends Model
     public $changeSetId;
 
     /**
-     * @description The region ID of the change set. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     * @description The region ID of the change set. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

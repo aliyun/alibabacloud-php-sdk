@@ -11,7 +11,7 @@ class StopStackGroupOperationRequest extends Model
     /**
      * @description The ID of the operation.
      *
-     * You can call the [ListStackGroupOperations](~~151342~~) operation to obtain the operation ID.
+     * This parameter is required.
      * @example 6da106ca-1784-4a6f-a7e1-e723863d****
      *
      * @var string
@@ -19,8 +19,9 @@ class StopStackGroupOperationRequest extends Model
     public $operationId;
 
     /**
-     * @description The region ID of the stack. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     * @description The region ID of the stack. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

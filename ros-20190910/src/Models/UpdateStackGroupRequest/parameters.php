@@ -16,7 +16,7 @@ class parameters extends Model
      *   true: retains the stacks.
      *   false: deletes the stacks.
      *
-     * >  This parameter is required if the Enabled parameter is set to true.
+     * This parameter is required.
      * @example Amount
      *
      * @var string
@@ -26,6 +26,7 @@ class parameters extends Model
     /**
      * @description The folders in which you want to use service-managed permissions to update stacks.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string

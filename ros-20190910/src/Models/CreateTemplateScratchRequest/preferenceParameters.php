@@ -12,7 +12,7 @@ class preferenceParameters extends Model
      * @description The key of the parameter.
      *
      * For information about the valid values of ParameterKey, see the **Additional information about request parameters** section of this topic.
-     * > -  If you set TemplateScratchType to ResourceImport, you must set ParameterKey to DeletionPolicy.
+     * This parameter is required.
      * @example DeletionPolicy
      *
      * @var string
@@ -24,7 +24,7 @@ class preferenceParameters extends Model
      *
      * For information about the valid values of ParameterValue, see the **Additional information about request parameters** section of this topic.
      *
-     * > PreferenceParameters is optional. If you want to specify PreferenceParameters, you must specify ParameterKey and ParameterValue.
+     * This parameter is required.
      * @example Retain
      *
      * @var string

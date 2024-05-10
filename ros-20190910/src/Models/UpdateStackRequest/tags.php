@@ -11,7 +11,7 @@ class tags extends Model
     /**
      * @description The key of tag N that you want to add to the stack.
      *
-     * > - The tag of a stack is propagated to each resource that supports the tag feature in the stack. For more information, see [Propagate tags](~~201421~~).
+     * This parameter is required.
      * @example usage
      *
      * @var string
@@ -21,7 +21,7 @@ class tags extends Model
     /**
      * @description The value of tag N that you want to add to the stack.
      *
-     * >  The tag of a stack is propagated to each resource that supports the tag feature in the stack. For more information, see [Propagate tags](~~201421~~).
+     * >  The tag of a stack is propagated to each resource that supports the tag feature in the stack. For more information, see [Propagate tags](https://help.aliyun.com/document_detail/201421.html).
      * @example test
      *
      * @var string

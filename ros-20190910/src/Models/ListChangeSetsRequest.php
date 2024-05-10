@@ -18,7 +18,7 @@ class ListChangeSetsRequest extends Model
     public $changeSetId;
 
     /**
-     * @description The name of change set N. Maximum value of N: 5. You can use an asterisk (\*) as a wildcard for fuzzy search.
+     * @description The name of change set N. Maximum value of N: 5. You can use an asterisk (\\*) as a wildcard for fuzzy search.
      *
      * @example MyChangeSet
      *
@@ -43,7 +43,7 @@ class ListChangeSetsRequest extends Model
     public $executionStatus;
 
     /**
-     * @description The page number.\
+     * @description The page number.\\
      * Default value: 1.
      * @example 1
      *
@@ -52,7 +52,7 @@ class ListChangeSetsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries per page.\
+     * @description The number of entries per page.\\
      * Default value: 10.
      * @example 10
      *
@@ -61,8 +61,9 @@ class ListChangeSetsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the change set. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     * @description The region ID of the change set. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -72,6 +73,7 @@ class ListChangeSetsRequest extends Model
     /**
      * @description The ID of the stack.
      *
+     * This parameter is required.
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RegisterResourceTypeResponseBody extends Model
 {
     /**
-     * @description The ID of the registration record. You can call the [ListResourceTypeRegistrations](~~2330740~~) operation to query registration records.
+     * @description The ID of the registration record. You can call the [ListResourceTypeRegistrations](https://help.aliyun.com/document_detail/2330740.html) operation to query registration records.
      *
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
      *
