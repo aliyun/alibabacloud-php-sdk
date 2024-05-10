@@ -52,12 +52,18 @@ class elasticDataNodeConfiguration extends Model
      * @var string
      */
     public $spec;
+
+    /**
+     * @var string
+     */
+    public $specInfo;
     protected $_name = [
         'amount'         => 'amount',
         'disk'           => 'disk',
         'diskEncryption' => 'diskEncryption',
         'diskType'       => 'diskType',
         'spec'           => 'spec',
+        'specInfo'       => 'specInfo',
     ];
 
     public function validate()
@@ -81,6 +87,9 @@ class elasticDataNodeConfiguration extends Model
         }
         if (null !== $this->spec) {
             $res['spec'] = $this->spec;
+        }
+        if (null !== $this->specInfo) {
+            $res['specInfo'] = $this->specInfo;
         }
 
         return $res;
@@ -108,6 +117,9 @@ class elasticDataNodeConfiguration extends Model
         }
         if (isset($map['spec'])) {
             $model->spec = $map['spec'];
+        }
+        if (isset($map['specInfo'])) {
+            $model->specInfo = $map['specInfo'];
         }
 
         return $model;

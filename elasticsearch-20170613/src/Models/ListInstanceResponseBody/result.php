@@ -73,6 +73,11 @@ class result extends Model
     public $elasticDataNodeConfiguration;
 
     /**
+     * @var int
+     */
+    public $endTime;
+
+    /**
      * @description The value of the tag.
      *
      * @example 6.7_with_X-Pack
@@ -237,6 +242,7 @@ class result extends Model
         'dedicateMaster'               => 'dedicateMaster',
         'description'                  => 'description',
         'elasticDataNodeConfiguration' => 'elasticDataNodeConfiguration',
+        'endTime'                      => 'endTime',
         'esVersion'                    => 'esVersion',
         'extendConfigs'                => 'extendConfigs',
         'instanceId'                   => 'instanceId',
@@ -284,6 +290,9 @@ class result extends Model
         }
         if (null !== $this->elasticDataNodeConfiguration) {
             $res['elasticDataNodeConfiguration'] = null !== $this->elasticDataNodeConfiguration ? $this->elasticDataNodeConfiguration->toMap() : null;
+        }
+        if (null !== $this->endTime) {
+            $res['endTime'] = $this->endTime;
         }
         if (null !== $this->esVersion) {
             $res['esVersion'] = $this->esVersion;
@@ -383,6 +392,9 @@ class result extends Model
         }
         if (isset($map['elasticDataNodeConfiguration'])) {
             $model->elasticDataNodeConfiguration = elasticDataNodeConfiguration::fromMap($map['elasticDataNodeConfiguration']);
+        }
+        if (isset($map['endTime'])) {
+            $model->endTime = $map['endTime'];
         }
         if (isset($map['esVersion'])) {
             $model->esVersion = $map['esVersion'];

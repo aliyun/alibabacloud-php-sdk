@@ -104,6 +104,11 @@ class result extends Model
     public $enablePublic;
 
     /**
+     * @var int
+     */
+    public $endtime;
+
+    /**
      * @example {"http.cors.allow-credentials":"false"}
      *
      * @var mixed[]
@@ -357,6 +362,7 @@ class result extends Model
         'enableKibanaPrivateNetwork'   => 'enableKibanaPrivateNetwork',
         'enableKibanaPublicNetwork'    => 'enableKibanaPublicNetwork',
         'enablePublic'                 => 'enablePublic',
+        'endtime'                      => 'endtime',
         'esConfig'                     => 'esConfig',
         'esIPBlacklist'                => 'esIPBlacklist',
         'esIPWhitelist'                => 'esIPWhitelist',
@@ -455,6 +461,9 @@ class result extends Model
         }
         if (null !== $this->enablePublic) {
             $res['enablePublic'] = $this->enablePublic;
+        }
+        if (null !== $this->endtime) {
+            $res['endtime'] = $this->endtime;
         }
         if (null !== $this->esConfig) {
             $res['esConfig'] = $this->esConfig;
@@ -659,6 +668,9 @@ class result extends Model
         }
         if (isset($map['enablePublic'])) {
             $model->enablePublic = $map['enablePublic'];
+        }
+        if (isset($map['endtime'])) {
+            $model->endtime = $map['endtime'];
         }
         if (isset($map['esConfig'])) {
             $model->esConfig = $map['esConfig'];
