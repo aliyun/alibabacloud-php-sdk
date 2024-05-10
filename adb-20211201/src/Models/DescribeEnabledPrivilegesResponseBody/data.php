@@ -12,6 +12,7 @@ class data extends Model
     /**
      * @description The description of the permission level.
      *
+     * This parameter is required.
      * @var string
      */
     public $description;
@@ -19,6 +20,7 @@ class data extends Model
     /**
      * @description The queried permissions.
      *
+     * This parameter is required.
      * @var privileges[]
      */
     public $privileges;
@@ -26,6 +28,7 @@ class data extends Model
     /**
      * @description The permission level.
      *
+     * This parameter is required.
      * @example Global
      *
      * @var string

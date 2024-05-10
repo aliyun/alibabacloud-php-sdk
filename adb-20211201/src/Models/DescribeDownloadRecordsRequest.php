@@ -11,7 +11,7 @@ class DescribeDownloadRecordsRequest extends Model
     /**
      * @description The cluster ID.
      *
-     * >  You can call the [DescribeDBClusters](~~129857~~) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters within a region.
+     * This parameter is required.
      * @example amv-8vb6ha79k6e****
      *
      * @var string
@@ -35,6 +35,7 @@ class DescribeDownloadRecordsRequest extends Model
     /**
      * @description The region ID of the cluster.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

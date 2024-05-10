@@ -11,7 +11,7 @@ class DescribeApsActionLogsRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *
-     * >  You can call the [DescribeDBClusters](~~454250~~) operation to query the ID of the cluster.
+     * This parameter is required.
      * @example amv-bp1r053byu48p****
      *
      * @var string
@@ -21,7 +21,7 @@ class DescribeApsActionLogsRequest extends Model
     /**
      * @description The end time of the logs to be queried. Specify the time in the ISO 8601 standard in the **yyyy-MM-ddTHH:mmZ** format. The time must be in UTC.
      *
-     * >  The end time must be later than the start time. Their interval cannot be longer than 30 days.
+     * This parameter is required.
      * @example 2023-02-11T09:30:00Z
      *
      * @var string
@@ -72,7 +72,7 @@ class DescribeApsActionLogsRequest extends Model
     /**
      * @description The region ID of the cluster.
      *
-     * >  You can call the [DescribeRegions](~~454314~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -106,6 +106,7 @@ class DescribeApsActionLogsRequest extends Model
     /**
      * @description The start time of the logs to be queried. Specify the time in the ISO 8601 standard in the **yyyy-MM-ddTHH:mm:ssZ** format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2023-02-11T08:30:00Z
      *
      * @var string
@@ -129,6 +130,7 @@ class DescribeApsActionLogsRequest extends Model
     /**
      * @description The ID of the real-time data ingestion task.
      *
+     * This parameter is required.
      * @example aps-hz109vpvt4fg8528d****
      *
      * @var string

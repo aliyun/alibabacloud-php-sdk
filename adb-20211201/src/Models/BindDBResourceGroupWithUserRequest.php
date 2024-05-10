@@ -11,6 +11,7 @@ class BindDBResourceGroupWithUserRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example am-bp1ub9grke1****
      *
      * @var string
@@ -20,6 +21,7 @@ class BindDBResourceGroupWithUserRequest extends Model
     /**
      * @description The name of the resource group.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -29,6 +31,7 @@ class BindDBResourceGroupWithUserRequest extends Model
     /**
      * @description The name of the database account. It can be a standard account or a privileged account.
      *
+     * This parameter is required.
      * @example accout
      *
      * @var string

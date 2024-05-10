@@ -12,7 +12,7 @@ class CreateDBClusterRequest extends Model
     /**
      * @description The ID of the backup set that you want to use to restore data.
      *
-     * >  You can call the [DescribeBackups](~~612318~~) operation to query the backup sets of the cluster.
+     * >  You can call the [DescribeBackups](https://help.aliyun.com/document_detail/612318.html) operation to query the backup sets of the cluster.
      * @example 1880808684
      *
      * @var string
@@ -53,6 +53,7 @@ class CreateDBClusterRequest extends Model
     /**
      * @description The version of the cluster. Set the value to **5.0**.
      *
+     * This parameter is required.
      * @example 5.0
      *
      * @var string
@@ -77,6 +78,7 @@ class CreateDBClusterRequest extends Model
      *   **Postpaid**: pay-as-you-go.
      *   **Prepaid**: subscription.
      *
+     * This parameter is required.
      * @example Prepaid
      *
      * @var string
@@ -106,7 +108,7 @@ class CreateDBClusterRequest extends Model
     /**
      * @description The region ID.
      *
-     * >  You can call the [DescribeRegions](~~454314~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -195,6 +197,7 @@ class CreateDBClusterRequest extends Model
     /**
      * @description The virtual private cloud (VPC) ID of the cluster.
      *
+     * This parameter is required.
      * @example vpc-bp1at5ze0t5u3xtqn****
      *
      * @var string
@@ -204,6 +207,7 @@ class CreateDBClusterRequest extends Model
     /**
      * @description The vSwitch ID of the cluster.
      *
+     * This parameter is required.
      * @example vsw-bp1aadw9k19x6cis9****
      *
      * @var string
@@ -213,7 +217,7 @@ class CreateDBClusterRequest extends Model
     /**
      * @description The zone ID.
      *
-     * >  You can call the [DescribeRegions](~~454314~~) operation to query the most recent zone list.
+     * This parameter is required.
      * @example cn-hangzhou-h
      *
      * @var string

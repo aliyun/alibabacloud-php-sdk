@@ -11,6 +11,7 @@ class GetSparkSQLEngineStateRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *
+     * This parameter is required.
      * @example amv-bp11q28kvl688****
      *
      * @var string
@@ -20,6 +21,7 @@ class GetSparkSQLEngineStateRequest extends Model
     /**
      * @description The name of the job resource group.
      *
+     * This parameter is required.
      * @example test_instance
      *
      * @var string

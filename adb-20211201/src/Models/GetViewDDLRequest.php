@@ -11,6 +11,7 @@ class GetViewDDLRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example am-bp1ub9grke1****
      *
      * @var string
@@ -20,6 +21,7 @@ class GetViewDDLRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

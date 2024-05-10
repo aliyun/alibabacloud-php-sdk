@@ -14,6 +14,7 @@ class ModifyClusterConnectionStringRequest extends Model
      *   The prefix can contain lowercase letters, digits, and hyphens (-). It must start with a lowercase letter.
      *   The prefix can be up to 30 characters in length.
      *
+     * This parameter is required.
      * @example test-123
      *
      * @var string
@@ -23,6 +24,7 @@ class ModifyClusterConnectionStringRequest extends Model
     /**
      * @description The public endpoint of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *
+     * This parameter is required.
      * @example amv-bp11q28kvl688****.ads.aliyuncs.com
      *
      * @var string
@@ -32,6 +34,7 @@ class ModifyClusterConnectionStringRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *
+     * This parameter is required.
      * @example amv-bp11q28kvl688****
      *
      * @var string

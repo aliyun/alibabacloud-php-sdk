@@ -11,7 +11,7 @@ class DescribeDiagnosisSQLInfoRequest extends Model
     /**
      * @description The cluster ID.
      *
-     * >  You can call the [DescribeDBClusters](~~129857~~) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters within a region.
+     * This parameter is required.
      * @example amv-bp1r053byu48p
      *
      * @var string
@@ -35,7 +35,7 @@ class DescribeDiagnosisSQLInfoRequest extends Model
     /**
      * @description The query ID.
      *
-     * >  You can call the [DescribeDiagnosisRecords](~~308207~~) operation to query the diagnostic information about SQL statements for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster, including the query ID.
+     * >  You can call the [DescribeDiagnosisRecords](https://help.aliyun.com/document_detail/308207.html) operation to query the diagnostic information about SQL statements for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster, including the query ID.
      * @example 2021070216432217201616806503453
      *
      * @var string
@@ -45,7 +45,7 @@ class DescribeDiagnosisSQLInfoRequest extends Model
     /**
      * @description The IP address and port number of the AnalyticDB for MySQL frontend node on which the SQL statement is executed.
      *
-     * >  You can call the [DescribeDiagnosisRecords](~~308207~~) operation to query the diagnostic information about SQL statements for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster, including the IP address and port number of the frontend node.
+     * >  You can call the [DescribeDiagnosisRecords](https://help.aliyun.com/document_detail/308207.html) operation to query the diagnostic information about SQL statements for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster, including the IP address and port number of the frontend node.
      * @example 192.45.***.***:3145
      *
      * @var string
@@ -55,7 +55,7 @@ class DescribeDiagnosisSQLInfoRequest extends Model
     /**
      * @description The execution start time of the SQL statement. Set the time to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
-     * >  You can call the [DescribeDiagnosisRecords](~~308207~~) operation to query the diagnostic information about SQL statements for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster, including the execution start time of the SQL statement.
+     * >  You can call the [DescribeDiagnosisRecords](https://help.aliyun.com/document_detail/308207.html) operation to query the diagnostic information about SQL statements for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster, including the execution start time of the SQL statement.
      * @example 1625215402000
      *
      * @var int
@@ -69,7 +69,7 @@ class DescribeDiagnosisSQLInfoRequest extends Model
      *   **finished**
      *   **failed**
      *
-     * >  You can call the [DescribeDiagnosisRecords](~~308207~~) operation to query the diagnostic information about SQL statements for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster, including the status of the SQL statement.
+     * >  You can call the [DescribeDiagnosisRecords](https://help.aliyun.com/document_detail/308207.html) operation to query the diagnostic information about SQL statements for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster, including the status of the SQL statement.
      * @example running
      *
      * @var string
@@ -79,7 +79,7 @@ class DescribeDiagnosisSQLInfoRequest extends Model
     /**
      * @description The region ID of the cluster.
      *
-     * >  You can call the [DescribeRegions](~~143074~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

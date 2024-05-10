@@ -20,6 +20,7 @@ class GetTableColumnsRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example amv-bp11q28kvl688****
      *
      * @var string
@@ -51,6 +52,7 @@ class GetTableColumnsRequest extends Model
     /**
      * @description The region ID of the cluster.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

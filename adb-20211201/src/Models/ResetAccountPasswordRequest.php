@@ -23,7 +23,7 @@ class ResetAccountPasswordRequest extends Model
     /**
      * @description The name of the database account.
      *
-     * > You can call the [DescribeAccounts](~~612430~~) operation to query the information about database accounts in a cluster, including the database account name.
+     * This parameter is required.
      * @example test_accout
      *
      * @var string
@@ -37,6 +37,7 @@ class ResetAccountPasswordRequest extends Model
      *   Special characters include `! @ # $ % ^ & * ( ) _ + - =`
      *   The password must be 8 to 32 characters in length.
      *
+     * This parameter is required.
      * @example Test_accout1
      *
      * @var string
@@ -46,6 +47,7 @@ class ResetAccountPasswordRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *
+     * This parameter is required.
      * @example amv-bp11q28kvl688****
      *
      * @var string

@@ -14,6 +14,7 @@ class ModifyDBClusterDescriptionRequest extends Model
      *   The description cannot start with `http://` or `https`.
      *   The description must be 2 to 256 characters in length.
      *
+     * This parameter is required.
      * @example adb_test
      *
      * @var string
@@ -23,6 +24,7 @@ class ModifyDBClusterDescriptionRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *
+     * This parameter is required.
      * @example amv-bp1r053byu48p****
      *
      * @var string

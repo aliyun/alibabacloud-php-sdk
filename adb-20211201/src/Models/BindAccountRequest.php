@@ -11,6 +11,7 @@ class BindAccountRequest extends Model
     /**
      * @description The standard account of the cluster.
      *
+     * This parameter is required.
      * @example test_accout
      *
      * @var string
@@ -20,6 +21,7 @@ class BindAccountRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *
+     * This parameter is required.
      * @example amv-wz99d9nh532****
      *
      * @var string
@@ -29,6 +31,7 @@ class BindAccountRequest extends Model
     /**
      * @description The ID of the RAM user.
      *
+     * This parameter is required.
      * @example 1444832459****
      *
      * @var string

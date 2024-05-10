@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class StartSparkSQLEngineRequest extends Model
 {
     /**
-     * @description The configuration that is required to start the Spark SQL engine. Specify this value in the JSON format. For more information, see [Conf configuration parameters](~~471203~~).
+     * @description The configuration that is required to start the Spark SQL engine. Specify this value in the JSON format. For more information, see [Conf configuration parameters](https://help.aliyun.com/document_detail/471203.html).
      *
      * @example { "spark.shuffle.timeout": ":0s" }
      *
@@ -20,6 +20,7 @@ class StartSparkSQLEngineRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example amv-abcd****
      *
      * @var string
@@ -56,6 +57,7 @@ class StartSparkSQLEngineRequest extends Model
     /**
      * @description The name of the resource group.
      *
+     * This parameter is required.
      * @example spark-rg-name
      *
      * @var string

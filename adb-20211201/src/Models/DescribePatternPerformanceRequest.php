@@ -11,7 +11,7 @@ class DescribePatternPerformanceRequest extends Model
     /**
      * @description The cluster ID.
      *
-     * > You can call the [DescribeDBClusters](~~129857~~) operation to query the information about all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters within a region, including cluster IDs.
+     * This parameter is required.
      * @example amv-uf6li1r3do8m****
      *
      * @var string
@@ -31,7 +31,7 @@ class DescribePatternPerformanceRequest extends Model
     /**
      * @description The SQL pattern ID.
      *
-     * >  You can call the [DescribeSQLPatterns](~~321868~~) operation to query the information about all SQL patterns in an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster within a period of time, including SQL pattern IDs.
+     * >  You can call the [DescribeSQLPatterns](https://help.aliyun.com/document_detail/321868.html) operation to query the information about all SQL patterns in an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster within a period of time, including SQL pattern IDs.
      * @example 3847585356974******
      *
      * @var string
@@ -41,6 +41,7 @@ class DescribePatternPerformanceRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

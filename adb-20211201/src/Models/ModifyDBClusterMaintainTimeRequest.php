@@ -11,6 +11,7 @@ class ModifyDBClusterMaintainTimeRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *
+     * This parameter is required.
      * @example amv-bp1r053byu48p****
      *
      * @var string
@@ -20,7 +21,7 @@ class ModifyDBClusterMaintainTimeRequest extends Model
     /**
      * @description The maintenance window of the cluster. It must be in the hh:mmZ-hh:mmZ format.
      *
-     * > The interval must be 1 hour and start and end at the beginning of an hour.
+     * This parameter is required.
      * @example 22:00Z-23:00Z
      *
      * @var string

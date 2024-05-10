@@ -25,6 +25,7 @@ class CreateSparkTemplateRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *
+     * This parameter is required.
      * @example amv-bp11q28kvl688****
      *
      * @var string
@@ -34,6 +35,7 @@ class CreateSparkTemplateRequest extends Model
     /**
      * @description The name of the application template. The name can be up to 64 characters in length.
      *
+     * This parameter is required.
      * @example batchfile
      *
      * @var string
@@ -43,7 +45,7 @@ class CreateSparkTemplateRequest extends Model
     /**
      * @description The ID of the directory to which the application template belongs.
      *
-     * >  You can call the [GetSparkTemplateFolderTree](~~456218~~) operation to query the directory ID.
+     * This parameter is required.
      * @example 10
      *
      * @var int
@@ -56,6 +58,7 @@ class CreateSparkTemplateRequest extends Model
      *   **folder**: directory.
      *   **file**: application.
      *
+     * This parameter is required.
      * @example file
      *
      * @var string

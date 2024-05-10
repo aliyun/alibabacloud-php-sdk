@@ -11,7 +11,7 @@ class UpdateSparkTemplateFileRequest extends Model
     /**
      * @description The template data to be updated.
      *
-     * >  If you do not specify this parameter, the application template is not updated. For information about how to configure a Spark application template, see [Configure a Spark application](~~452402~~).
+     * >  If you do not specify this parameter, the application template is not updated. For information about how to configure a Spark application template, see [Configure a Spark application](https://help.aliyun.com/document_detail/452402.html).
      * @example set spark.driver.resourceSpec=medium;set spark.executor.instances=2;set spark.executor.resourceSpec=medium;set spark.app.name=Spark SQL Test;
      *
      * @var string
@@ -21,6 +21,7 @@ class UpdateSparkTemplateFileRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *
+     * This parameter is required.
      * @example amv-pz5vp4585l466****
      *
      * @var string
@@ -30,7 +31,7 @@ class UpdateSparkTemplateFileRequest extends Model
     /**
      * @description The application template ID.
      *
-     * >  You can call the [GetSparkTemplateFullTree](~~456205~~) operation to query the application template ID.
+     * This parameter is required.
      * @example 718056
      *
      * @var int

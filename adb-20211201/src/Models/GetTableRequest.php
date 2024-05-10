@@ -11,6 +11,7 @@ class GetTableRequest extends Model
     /**
      * @description The ID of the cluster.
      *
+     * This parameter is required.
      * @example amv-*******
      *
      * @var string
@@ -29,6 +30,7 @@ class GetTableRequest extends Model
     /**
      * @description The ID of the region in which the cluster resides.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

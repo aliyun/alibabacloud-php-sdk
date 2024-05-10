@@ -11,6 +11,7 @@ class KillSparkLogAnalyzeTaskRequest extends Model
     /**
      * @description The ID of the Spark log analysis task. You can call the ListSparkLogAnalyzeTasks operation to query the IDs and states of all analysis tasks in the current cluster.
      *
+     * This parameter is required.
      * @example 15
      *
      * @var int

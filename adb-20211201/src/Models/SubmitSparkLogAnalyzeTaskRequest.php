@@ -11,6 +11,7 @@ class SubmitSparkLogAnalyzeTaskRequest extends Model
     /**
      * @description The ID of the Spark application.
      *
+     * This parameter is required.
      * @example s202301121553hzd9c6f7xxxx
      *
      * @var string

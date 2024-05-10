@@ -20,7 +20,7 @@ class DescribeBackupsRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *
-     * >  You can call the [DescribeDBClusters](~~454250~~) operation to query the information about all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters within a region, including cluster IDs.
+     * This parameter is required.
      * @example am-bp18934i73vb5****
      *
      * @var string
@@ -30,6 +30,7 @@ class DescribeBackupsRequest extends Model
     /**
      * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC. The end time must be later than the start time.
      *
+     * This parameter is required.
      * @example 2023-02-20T02:30Z
      *
      * @var string
@@ -82,6 +83,7 @@ class DescribeBackupsRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2011-06-01T16:00Z
      *
      * @var string

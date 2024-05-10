@@ -11,7 +11,7 @@ class ListSparkAppAttemptsRequest extends Model
     /**
      * @description The ID of the Spark application.
      *
-     * > You can call the [ListSparkApps](~~455888~~) operation to query all application IDs.
+     * This parameter is required.
      * @example s202204132018hzprec1ac****
      *
      * @var string
@@ -30,6 +30,7 @@ class ListSparkAppAttemptsRequest extends Model
     /**
      * @description The page number. The value must be an integer that is greater than 0. Default value: **1**.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

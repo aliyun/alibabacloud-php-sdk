@@ -11,6 +11,7 @@ class resourceGroupList extends Model
     /**
      * @description A reserved parameter.
      *
+     * This parameter is required.
      * @example 0
      *
      * @var string

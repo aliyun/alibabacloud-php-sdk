@@ -11,7 +11,7 @@ class DescribeClusterNetInfoRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *
-     * > You can call the [DescribeDBClusters](~~129857~~) operation to query the information about all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters within a region, including cluster IDs.
+     * This parameter is required.
      * @example amv-wz9dqvn0o7****
      *
      * @var string

@@ -11,6 +11,7 @@ class DetachUserENIRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example am-bp11q28kvl688****
      *
      * @var string

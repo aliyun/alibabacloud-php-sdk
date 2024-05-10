@@ -11,6 +11,7 @@ class SetSparkAppLogRootPathRequest extends Model
     /**
      * @description The database ID.
      *
+     * This parameter is required.
      * @example am-dbclusterid
      *
      * @var string

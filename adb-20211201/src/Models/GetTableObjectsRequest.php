@@ -11,6 +11,7 @@ class GetTableObjectsRequest extends Model
     /**
      * @description The ID of the cluster.
      *
+     * This parameter is required.
      * @example am-bp1565u55p32****
      *
      * @var string
@@ -95,6 +96,7 @@ class GetTableObjectsRequest extends Model
     /**
      * @description The ID of the region in which the cluster resides.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

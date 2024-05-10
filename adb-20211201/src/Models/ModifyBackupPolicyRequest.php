@@ -21,6 +21,7 @@ class ModifyBackupPolicyRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *
+     * This parameter is required.
      * @example am-bp1xxxxxxxx47
      *
      * @var string
@@ -71,7 +72,7 @@ class ModifyBackupPolicyRequest extends Model
      *   **Saturday**
      *   **Sunday**
      *
-     * >  To ensure data security, we recommend that you specify at least two values.
+     * This parameter is required.
      * @example Monday,Wednesday,Friday,Sunday
      *
      * @var string
@@ -81,7 +82,7 @@ class ModifyBackupPolicyRequest extends Model
     /**
      * @description The start time to perform a full backup. Specify the time in the HH:mmZ-HH:mmZ format. The time must be in UTC.
      *
-     * >  The time range must be 1 hour.
+     * This parameter is required.
      * @example 18:00Z-19:00Z
      *
      * @var string

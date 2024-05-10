@@ -11,6 +11,7 @@ class GetSparkTemplateFileContentRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *
+     * This parameter is required.
      * @example amv-8vbn8pq537k8w****
      *
      * @var string
@@ -20,7 +21,7 @@ class GetSparkTemplateFileContentRequest extends Model
     /**
      * @description The application template ID.
      *
-     * >  You can call the [GetSparkTemplateFullTree](~~456205~~) operation to query the application template ID.
+     * This parameter is required.
      * @example 725204
      *
      * @var int

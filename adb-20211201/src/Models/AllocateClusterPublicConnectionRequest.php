@@ -23,6 +23,7 @@ class AllocateClusterPublicConnectionRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *
+     * This parameter is required.
      * @example amv-bp1z5d2q71is2****
      *
      * @var string

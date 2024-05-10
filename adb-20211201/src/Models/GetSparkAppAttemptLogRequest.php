@@ -11,7 +11,7 @@ class GetSparkAppAttemptLogRequest extends Model
     /**
      * @description The ID of the log.
      *
-     * > You can call the [ListSparkAppAttempts](~~455887~~) operation to query the information about the retry attempts of a Spark application, including the retry log IDs.
+     * This parameter is required.
      * @example s202207151211hz****-0001
      *
      * @var string

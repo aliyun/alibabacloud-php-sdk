@@ -11,6 +11,7 @@ class ListSparkAppsRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *
+     * This parameter is required.
      * @example amv-bp11q28kvl688****
      *
      * @var string
@@ -20,6 +21,7 @@ class ListSparkAppsRequest extends Model
     /**
      * @description The number of the page to return. The value must be an integer that is greater than 0. Default value: **1**.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

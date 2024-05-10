@@ -24,7 +24,7 @@ class GetSparkAppInfoResponseBody extends Model
      *   **ResourceGroupName**: the name of the job resource group.
      *   **DurationInMillis**: the amount of time that is required to run the Spark application. Unit: milliseconds.
      *
-     * @example {     \"name\": \"SparkPi\",     \"file\": \"local:///tmp/spark-examples.jar\",     \"className\": \"org.apache.spark.examples.SparkPi\",     \"args\": [         \"1000000\"     ],     \"conf\": {         \"spark.driver.resourceSpec\": \"small\",         \"spark.executor.instances\": 1,         \"spark.executor.resourceSpec\": \"small\"     } }",
+     * @example {     \\"name\\": \\"SparkPi\\",     \\"file\\": \\"local:///tmp/spark-examples.jar\\",     \\"className\\": \\"org.apache.spark.examples.SparkPi\\",     \\"args\\": [         \\"1000000\\"     ],     \\"conf\\": {         \\"spark.driver.resourceSpec\\": \\"small\\",         \\"spark.executor.instances\\": 1,         \\"spark.executor.resourceSpec\\": \\"small\\"     } }",
      * }
      * @var SparkAppInfo
      */

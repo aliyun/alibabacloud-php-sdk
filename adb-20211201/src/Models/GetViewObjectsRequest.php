@@ -11,6 +11,7 @@ class GetViewObjectsRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example am-bp1xxxxxxxx47
      *
      * @var string
@@ -83,6 +84,7 @@ class GetViewObjectsRequest extends Model
     /**
      * @description The region ID of the cluster.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

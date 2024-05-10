@@ -11,7 +11,7 @@ class DescribeTableAccessCountRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *
-     * >  You can call the [DescribeDBClusters](~~454250~~) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters within a region.
+     * This parameter is required.
      * @example amv-2ze627uzpkh8a8****
      *
      * @var string
@@ -65,6 +65,7 @@ class DescribeTableAccessCountRequest extends Model
     /**
      * @description The region ID of the cluster.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

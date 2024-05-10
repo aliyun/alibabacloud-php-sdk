@@ -20,7 +20,7 @@ class ModifyElasticPlanRequest extends Model
     /**
      * @description The cluster ID.
      *
-     * >  You can call the [DescribeDBClusters](~~129857~~) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters within a region.
+     * This parameter is required.
      * @example amv-wz9509beptiz****
      *
      * @var string
@@ -30,7 +30,7 @@ class ModifyElasticPlanRequest extends Model
     /**
      * @description The name of the scaling plan.
      *
-     * >  You can call the [DescribeElasticPlans](~~601334~~) operation to query the names of scaling plans.
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -64,7 +64,7 @@ class ModifyElasticPlanRequest extends Model
      *
      *   If the scaling plan uses **EIUs** and **Default Proportional Scaling for EIUs** is enabled, you do not need to specify this parameter. In other cases, you must specify this parameter.
      *
-     *   You can call the [DescribeElasticPlanSpecifications](~~601278~~) operation to query the specifications that are supported for scaling plans.
+     *   You can call the [DescribeElasticPlanSpecifications](https://help.aliyun.com/document_detail/601278.html) operation to query the specifications that are supported for scaling plans.
      *
      * @example 32ACU
      *

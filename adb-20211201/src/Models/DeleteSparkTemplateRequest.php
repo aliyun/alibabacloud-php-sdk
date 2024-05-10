@@ -11,6 +11,7 @@ class DeleteSparkTemplateRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *
+     * This parameter is required.
      * @example amv-bp11q28kvl688****
      *
      * @var string
@@ -22,10 +23,11 @@ class DeleteSparkTemplateRequest extends Model
      *
      * >
      *
-     *   You can call the [GetSparkTemplateFullTree](~~456205~~) operation to query the directory ID of template files.
+     *   You can call the [GetSparkTemplateFullTree](https://help.aliyun.com/document_detail/456205.html) operation to query the directory ID of template files.
      *
      *   When you specify a directory ID, the directory and all template files that are included in the directory are deleted.
      *
+     * This parameter is required.
      * @example 725204
      *
      * @var int

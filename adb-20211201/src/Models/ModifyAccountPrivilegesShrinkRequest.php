@@ -11,6 +11,7 @@ class ModifyAccountPrivilegesShrinkRequest extends Model
     /**
      * @description The name of the database account.
      *
+     * This parameter is required.
      * @example account1
      *
      * @var string
@@ -20,6 +21,7 @@ class ModifyAccountPrivilegesShrinkRequest extends Model
     /**
      * @description The permissions of the database account.
      *
+     * This parameter is required.
      * @var string
      */
     public $accountPrivilegesShrink;
@@ -27,6 +29,7 @@ class ModifyAccountPrivilegesShrinkRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *
+     * This parameter is required.
      * @example amv-bp1k5p066e1a****
      *
      * @var string
@@ -36,6 +39,7 @@ class ModifyAccountPrivilegesShrinkRequest extends Model
     /**
      * @description The region ID of the cluster.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

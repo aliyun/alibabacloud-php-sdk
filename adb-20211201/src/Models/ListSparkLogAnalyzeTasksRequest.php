@@ -11,6 +11,7 @@ class ListSparkLogAnalyzeTasksRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example amv-9scxs****
      *
      * @var string
@@ -20,6 +21,7 @@ class ListSparkLogAnalyzeTasksRequest extends Model
     /**
      * @description The page number.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

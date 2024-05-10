@@ -14,7 +14,7 @@ class ModifyAuditLogConfigRequest extends Model
      *   **on**: enables SQL audit.
      *   **off**: disables SQL audit.
      *
-     * >  After you disable the SQL audit feature, all SQL audit logs are deleted. You must query and export SQL audit logs before you disable SQL audit. For more information, see Query and export SQL audit logs. When you re-enable SQL audit, audit logs that are generated from the last time when SQL audit was enabled are available for queries.
+     * This parameter is required.
      * @example on
      *
      * @var string
@@ -24,7 +24,7 @@ class ModifyAuditLogConfigRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *
-     * > You can call the [DescribeDBClusters](~~454250~~) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters within a region.
+     * This parameter is required.
      * @example amv-t4nj8619bz2w3****
      *
      * @var string
@@ -44,7 +44,7 @@ class ModifyAuditLogConfigRequest extends Model
     /**
      * @description The region ID.
      *
-     * > You can call the [DescribeRegions](~~454314~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

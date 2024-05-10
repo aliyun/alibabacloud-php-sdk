@@ -38,7 +38,7 @@ class CreateElasticPlanRequest extends Model
     /**
      * @description The cluster ID.
      *
-     * >  You can call the [DescribeDBClusters](~~454250~~) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters within a region.
+     * This parameter is required.
      * @example amv-wz9509beptiz****
      *
      * @var string
@@ -48,7 +48,7 @@ class CreateElasticPlanRequest extends Model
     /**
      * @description The name of the scaling plan.
      *
-     * >  The name must be 2 to 30 characters in length and can contain letters, digits, and underscores (\_). The name must start with a letter.
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -61,6 +61,7 @@ class CreateElasticPlanRequest extends Model
      *   true
      *   false
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -84,7 +85,7 @@ class CreateElasticPlanRequest extends Model
      *
      *   If you want to create a scaling plan that uses interactive resource groups, you must specify this parameter. If you want to create a scaling plan that uses elastic I/O units (EIUs), you do not need to specify this parameter.
      *
-     *   You can call the [DescribeDBResourceGroup](~~459446~~) operation to query the resource group name for a cluster.
+     *   You can call the [DescribeDBResourceGroup](https://help.aliyun.com/document_detail/459446.html) operation to query the resource group name for a cluster.
      *
      * @example test
      *
@@ -109,7 +110,7 @@ class CreateElasticPlanRequest extends Model
      *
      *   If the scaling plan uses **EIUs** and **Default Proportional Scaling for EIUs** is enabled, you do not need to specify this parameter. In other cases, you must specify this parameter.
      *
-     *   You can call the [DescribeElasticPlanSpecifications](~~601278~~) operation to query the specifications that are supported for scaling plans.
+     *   You can call the [DescribeElasticPlanSpecifications](https://help.aliyun.com/document_detail/601278.html) operation to query the specifications that are supported for scaling plans.
      *
      * @example 32ACU
      *
@@ -123,6 +124,7 @@ class CreateElasticPlanRequest extends Model
      *   EXECUTOR: the interactive resource group type, which indicates the computing resource type.
      *   WORKER: the EIU type.
      *
+     * This parameter is required.
      * @example EXECUTOR
      *
      * @var string

@@ -11,7 +11,7 @@ class DescribeEnabledPrivilegesRequest extends Model
     /**
      * @description The name of the database account.
      *
-     * >  You can call the [DescribeAccounts](~~612430~~) operation to query the information about database accounts for a cluster, including the account name.
+     * >  You can call the [DescribeAccounts](https://help.aliyun.com/document_detail/612430.html) operation to query the information about database accounts for a cluster, including the account name.
      * @example test_accout
      *
      * @var string
@@ -21,6 +21,7 @@ class DescribeEnabledPrivilegesRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *
+     * This parameter is required.
      * @example amv-bp14t95lun0w****
      *
      * @var string
@@ -30,6 +31,7 @@ class DescribeEnabledPrivilegesRequest extends Model
     /**
      * @description The region ID of the cluster.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

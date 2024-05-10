@@ -11,6 +11,7 @@ class DeleteSparkTemplateFileRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *
+     * This parameter is required.
      * @example amv-bp1y769u11748****
      *
      * @var string
@@ -20,7 +21,7 @@ class DeleteSparkTemplateFileRequest extends Model
     /**
      * @description The ID of the template file to be deleted.
      *
-     * >  You can call the [GetSparkTemplateFullTree](~~456205~~) operation to query all template file IDs.
+     * This parameter is required.
      * @example 284
      *
      * @var int

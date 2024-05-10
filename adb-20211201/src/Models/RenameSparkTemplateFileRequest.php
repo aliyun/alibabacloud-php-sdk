@@ -11,6 +11,7 @@ class RenameSparkTemplateFileRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *
+     * This parameter is required.
      * @example amv-d*****
      *
      * @var string
@@ -20,6 +21,7 @@ class RenameSparkTemplateFileRequest extends Model
     /**
      * @description The template file ID.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -29,6 +31,7 @@ class RenameSparkTemplateFileRequest extends Model
     /**
      * @description The name of the template file that you want to rename.
      *
+     * This parameter is required.
      * @example new_template_name
      *
      * @var string

@@ -11,6 +11,7 @@ class DescribeAccountPrivilegeObjectsRequest extends Model
     /**
      * @description The name of the database account.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -29,6 +30,7 @@ class DescribeAccountPrivilegeObjectsRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *
+     * This parameter is required.
      * @example amv-bp1k3wdmt139****
      *
      * @var string
@@ -74,6 +76,7 @@ class DescribeAccountPrivilegeObjectsRequest extends Model
     /**
      * @description The region ID of the cluster.
      *
+     * This parameter is required.
      * @example ch-hangzhou
      *
      * @var string

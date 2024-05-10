@@ -73,7 +73,7 @@ class groupsInfo extends Model
      *   **Interactive**
      *   **Job**
      *
-     * >  For more information about resource groups, see [Resource groups](~~428610~~).
+     * >  For more information about resource groups, see [Resource groups](https://help.aliyun.com/document_detail/428610.html).
      * @example Job
      *
      * @var string

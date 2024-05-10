@@ -191,7 +191,7 @@ class DBCluster extends Model
     /**
      * @description The maintenance window of the cluster. The time is displayed in the `HH:mmZ-HH:mmZ` format in UTC.
      *
-     * >  For more information about maintenance windows, see [Configure a maintenance window](~~122569~~).
+     * >  For more information about maintenance windows, see [Configure a maintenance window](https://help.aliyun.com/document_detail/122569.html).
      * @example 04:00Z-05:00Z
      *
      * @var string

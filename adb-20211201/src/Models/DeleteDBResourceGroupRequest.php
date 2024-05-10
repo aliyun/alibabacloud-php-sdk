@@ -11,6 +11,7 @@ class DeleteDBResourceGroupRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *
+     * This parameter is required.
      * @example amv-bp11q28kvl688****
      *
      * @var string
@@ -20,7 +21,7 @@ class DeleteDBResourceGroupRequest extends Model
     /**
      * @description The name of the resource group.
      *
-     * >  You can call the [DescribeDBResourceGroup](~~612410~~) operation to query the information about resource groups of an AnalyticDB for MySQL cluster, including resource group names.
+     * This parameter is required.
      * @example test_group
      *
      * @var string

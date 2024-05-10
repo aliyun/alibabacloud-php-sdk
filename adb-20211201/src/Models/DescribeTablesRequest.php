@@ -11,6 +11,7 @@ class DescribeTablesRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *
+     * This parameter is required.
      * @example amv-bp1xxxxxxxx47
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeTablesRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -11,6 +11,7 @@ class UnbindDBResourceGroupWithUserRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example am-bp1ub9grke1****
      *
      * @var string

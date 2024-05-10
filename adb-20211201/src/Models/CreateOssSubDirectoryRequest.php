@@ -11,7 +11,7 @@ class CreateOssSubDirectoryRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *
-     * >  You can call the [DescribeDBClusters](~~612397~~) operation to query the information about all AnalyticDB for MySQL clusters within a region, including cluster IDs.
+     * This parameter is required.
      * @example amv-bp149vz49b36t****
      *
      * @var string
@@ -21,6 +21,7 @@ class CreateOssSubDirectoryRequest extends Model
     /**
      * @description The OSS path where you want to create a subdirectory.
      *
+     * This parameter is required.
      * @example oss://testBucketName/das_lakehouse
      *
      * @var string

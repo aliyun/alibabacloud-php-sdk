@@ -11,7 +11,7 @@ class DescribeElasticPlanJobsRequest extends Model
     /**
      * @description The cluster ID.
      *
-     * >  You can call the [DescribeDBClusters](~~129857~~) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters within a region.
+     * This parameter is required.
      * @example amv-wz9509beptiz****
      *
      * @var string
@@ -25,7 +25,7 @@ class DescribeElasticPlanJobsRequest extends Model
      *
      *   If you do not specify this parameter, all scaling plans of the cluster are queried.
      *
-     *   You can call the [DescribeElasticPlans](~~601334~~) operation to query the names of scaling plans.
+     *   You can call the [DescribeElasticPlans](https://help.aliyun.com/document_detail/601334.html) operation to query the names of scaling plans.
      *
      * @example test
      *
@@ -36,6 +36,7 @@ class DescribeElasticPlanJobsRequest extends Model
     /**
      * @description The page number.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -45,6 +46,7 @@ class DescribeElasticPlanJobsRequest extends Model
     /**
      * @description The number of entries per page.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int
@@ -58,7 +60,7 @@ class DescribeElasticPlanJobsRequest extends Model
      *
      *   If you do not specify this parameter, the scaling plans of all resource groups are queried, including the interactive resource group and elastic I/O unit (EIU) types.
      *
-     *   You can call the [DescribeDBResourceGroup](~~459446~~) operation to query the resource group name for a cluster.
+     *   You can call the [DescribeDBResourceGroup](https://help.aliyun.com/document_detail/459446.html) operation to query the resource group name for a cluster.
      *
      * @example test
      *

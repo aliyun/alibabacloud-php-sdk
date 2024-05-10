@@ -11,7 +11,7 @@ class DescribeClusterResourceUsageRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *
-     * >  You can call the [DescribeDBClusters](~~612397~~) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters within a region.
+     * This parameter is required.
      * @example amv-bp11q28kvl688****
      *
      * @var string
@@ -21,6 +21,7 @@ class DescribeClusterResourceUsageRequest extends Model
     /**
      * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2022-08-22T01:06:00Z
      *
      * @var string
@@ -30,6 +31,7 @@ class DescribeClusterResourceUsageRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2022-11-29T10:20Z
      *
      * @var string

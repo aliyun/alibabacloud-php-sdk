@@ -11,7 +11,7 @@ class DescribeDiagnosisRecordsRequest extends Model
     /**
      * @description The source IP address.
      *
-     * >  You can call the [DescribeDiagnosisDimensions](~~308210~~) operation to query the resource groups, database names, usernames, and source IP addresses of the SQL statements that meet a query condition.
+     * >  You can call the [DescribeDiagnosisDimensions](https://help.aliyun.com/document_detail/308210.html) operation to query the resource groups, database names, usernames, and source IP addresses of the SQL statements that meet a query condition.
      * @example 59.82.XX.XX
      *
      * @var string
@@ -21,7 +21,7 @@ class DescribeDiagnosisRecordsRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *
-     * >  You can call the [DescribeDBClusters](~~612397~~) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters within a region.
+     * This parameter is required.
      * @example amv-bp1scs48yc125****
      *
      * @var string
@@ -31,7 +31,7 @@ class DescribeDiagnosisRecordsRequest extends Model
     /**
      * @description The name of the database on which the SQL statements are executed.
      *
-     * >  You can call the [DescribeDiagnosisDimensions](~~308210~~) operation to query the resource groups, database names, usernames, and source IP addresses of the SQL statements that meet a query condition.
+     * >  You can call the [DescribeDiagnosisDimensions](https://help.aliyun.com/document_detail/308210.html) operation to query the resource groups, database names, usernames, and source IP addresses of the SQL statements that meet a query condition.
      * @example adb_demo
      *
      * @var string
@@ -189,7 +189,7 @@ class DescribeDiagnosisRecordsRequest extends Model
     /**
      * @description The region ID of the cluster.
      *
-     * >  You can call the [DescribeRegions](~~143074~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -199,7 +199,7 @@ class DescribeDiagnosisRecordsRequest extends Model
     /**
      * @description The resource group to which the SQL statements belong.
      *
-     * >  You can call the [DescribeDiagnosisDimensions](~~308210~~) operation to query the resource groups, database names, usernames, and source IP addresses of the SQL statements that meet a query condition.
+     * >  You can call the [DescribeDiagnosisDimensions](https://help.aliyun.com/document_detail/308210.html) operation to query the resource groups, database names, usernames, and source IP addresses of the SQL statements that meet a query condition.
      * @example user_default
      *
      * @var string
@@ -217,7 +217,7 @@ class DescribeDiagnosisRecordsRequest extends Model
     public $startTime;
 
     /**
-     * @description The username that is used to execute the SQL statements. You can call the [DescribeDiagnosisDimensions](~~308210~~) operation to query the resource groups, database names, usernames, and source IP addresses of the SQL statements that meet a query condition.
+     * @description The username that is used to execute the SQL statements. You can call the [DescribeDiagnosisDimensions](https://help.aliyun.com/document_detail/308210.html) operation to query the resource groups, database names, usernames, and source IP addresses of the SQL statements that meet a query condition.
      *
      * @example test_user
      *

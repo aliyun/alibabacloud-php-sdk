@@ -11,6 +11,7 @@ class PreloadSparkAppMetricsRequest extends Model
     /**
      * @description The Spark application ID.
      *
+     * This parameter is required.
      * @example s202204221525hzca7d8140000003
      *
      * @var string
@@ -20,7 +21,7 @@ class PreloadSparkAppMetricsRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *
-     * >  You can call the [DescribeDBClusters](~~129857~~) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters within a region.
+     * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters within a region.
      * @example amv-bp1mfe9qmsw1dzyg
      *
      * @var string

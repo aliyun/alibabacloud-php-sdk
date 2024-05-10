@@ -11,7 +11,7 @@ class UnbindAccountRequest extends Model
     /**
      * @description The name of the database account.
      *
-     * >  You can call the [DescribeAccounts](~~612430~~) operation to query the information about database accounts of an AnalyticDB for MySQL cluster, including database account names.
+     * This parameter is required.
      * @example test_accout
      *
      * @var string
@@ -21,6 +21,7 @@ class UnbindAccountRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *
+     * This parameter is required.
      * @example amv-wz99d9nh5****
      *
      * @var string

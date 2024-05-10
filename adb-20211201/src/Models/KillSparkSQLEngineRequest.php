@@ -11,6 +11,7 @@ class KillSparkSQLEngineRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *
+     * This parameter is required.
      * @example amv-8vbn8pq537k8w****
      *
      * @var string
@@ -20,6 +21,7 @@ class KillSparkSQLEngineRequest extends Model
     /**
      * @description The name of the resource group.
      *
+     * This parameter is required.
      * @example spark_test
      *
      * @var string

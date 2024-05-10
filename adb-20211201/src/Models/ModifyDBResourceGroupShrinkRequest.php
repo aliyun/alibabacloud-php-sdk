@@ -29,6 +29,7 @@ class ModifyDBResourceGroupShrinkRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *
+     * This parameter is required.
      * @example amv-bp1r053byu48p****
      *
      * @var string
@@ -50,7 +51,7 @@ class ModifyDBResourceGroupShrinkRequest extends Model
     /**
      * @description The name of the resource group.
      *
-     * > You can call the [DescribeDBResourceGroup](~~459446~~) operation to query the name of a resource group in a cluster.
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -63,7 +64,7 @@ class ModifyDBResourceGroupShrinkRequest extends Model
      *   **Interactive**
      *   **Job**
      *
-     * > For information about resource groups of Data Lakehouse Edition, see [Resource groups](~~428610~~).
+     * This parameter is required.
      * @example Interactive
      *
      * @var string
@@ -115,7 +116,7 @@ class ModifyDBResourceGroupShrinkRequest extends Model
     /**
      * @description The region ID of the cluster.
      *
-     * >  You can call the [DescribeRegions](~~454314~~) operation to query the most recent region list.
+     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/454314.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

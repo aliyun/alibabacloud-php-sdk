@@ -11,7 +11,7 @@ class DescribeClusterResourceDetailRequest extends Model
     /**
      * @description The cluster ID.
      *
-     * >  You can call the [DescribeDBClusters](~~129857~~) operation to query the information about all AnalyticDB for MySQL clusters within a region, including cluster IDs.
+     * This parameter is required.
      * @example am-bp1jj9xqft1po****
      *
      * @var string

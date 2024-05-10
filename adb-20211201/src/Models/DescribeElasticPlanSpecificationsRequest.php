@@ -11,7 +11,7 @@ class DescribeElasticPlanSpecificationsRequest extends Model
     /**
      * @description The ID of the cluster.
      *
-     * >  You can call the [DescribeDBClusters](~~454250~~) operation to query the ID of an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+     * This parameter is required.
      * @example amv-wz9509beptiz****
      *
      * @var string
@@ -22,7 +22,7 @@ class DescribeElasticPlanSpecificationsRequest extends Model
      * @description The name of the resource group.
      *
      * > *   This parameter is required only when you query the resource specifications that can be scaled for an interactive resource group.
-     * > *   You can call the [DescribeDBResourceGroup](~~459446~~) operation to query the name of a resource group within a specific cluster.
+     * > *   You can call the [DescribeDBResourceGroup](https://help.aliyun.com/document_detail/459446.html) operation to query the name of a resource group within a specific cluster.
      * @example test
      *
      * @var string
@@ -35,6 +35,7 @@ class DescribeElasticPlanSpecificationsRequest extends Model
      *   EXECUTOR: interactive resource groups, which fall into the computing resource category.
      *   WORKER: EIUs.
      *
+     * This parameter is required.
      * @example EXECUTOR
      *
      * @var string

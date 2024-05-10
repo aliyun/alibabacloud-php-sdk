@@ -11,7 +11,7 @@ class DescribeBackupPolicyRequest extends Model
     /**
      * @description The cluster ID.
      *
-     * >  You can call the [DescribeDBClusters](~~129857~~) operation to query the information about all AnalyticDB for MySQL clusters within a region, including cluster IDs.
+     * This parameter is required.
      * @example am-uf6s7oa710rbu0x3b
      *
      * @var string

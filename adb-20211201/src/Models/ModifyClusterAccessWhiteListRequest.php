@@ -21,7 +21,7 @@ class ModifyClusterAccessWhiteListRequest extends Model
     /**
      * @description The name of the IP address whitelist. If you do not specify this parameter, the Default whitelist is modified.
      *
-     *   The whitelist name must be 2 to 32 characters in length. The name can contain lowercase letters, digits, and underscores (\_). The name must start with a lowercase letter and end with a lowercase letter or a digit.
+     *   The whitelist name must be 2 to 32 characters in length. The name can contain lowercase letters, digits, and underscores (_). The name must start with a lowercase letter and end with a lowercase letter or a digit.
      *   Each cluster supports up to 50 IP address whitelists.
      *
      * @example test
@@ -33,6 +33,7 @@ class ModifyClusterAccessWhiteListRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *
+     * This parameter is required.
      * @example amv-bp11q28kvl688****
      *
      * @var string
@@ -58,6 +59,7 @@ class ModifyClusterAccessWhiteListRequest extends Model
      *   IP addresses, such as 10.23.XX.XX.
      *   CIDR blocks, such as 10.23.xx.xx/24. In this example, 24 indicates that the prefix of each IP address in the IP whitelist is 24 bits in length. You can replace 24 with a value within the range of 1 to 32.
      *
+     * This parameter is required.
      * @example 10.23.xx.xx
      *
      * @var string

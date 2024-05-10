@@ -29,6 +29,7 @@ class CreateDBResourceGroupShrinkRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *
+     * This parameter is required.
      * @example amv-bp11q28kvl688****
      *
      * @var string
@@ -52,8 +53,9 @@ class CreateDBResourceGroupShrinkRequest extends Model
      *
      *   The name can be up to 255 characters in length.
      *   The name must start with a letter or a digit.
-     *   The name can contain letters, digits, hyphens (\_), and underscores (\_).
+     *   The name can contain letters, digits, hyphens (_), and underscores (_).
      *
+     * This parameter is required.
      * @example test_group
      *
      * @var string
@@ -66,7 +68,7 @@ class CreateDBResourceGroupShrinkRequest extends Model
      *   **Interactive**
      *   **Job**
      *
-     * > For information about resource groups of Data Lakehouse Edition, see [Resource groups](~~428610~~).
+     * This parameter is required.
      * @example Job
      *
      * @var string
@@ -118,7 +120,7 @@ class CreateDBResourceGroupShrinkRequest extends Model
     /**
      * @description The region ID of the cluster.
      *
-     * >  You can call the [DescribeRegions](~~612393~~) operation to query the most recent region list.
+     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/612393.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

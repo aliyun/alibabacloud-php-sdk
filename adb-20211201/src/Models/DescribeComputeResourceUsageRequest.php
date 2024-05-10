@@ -11,7 +11,7 @@ class DescribeComputeResourceUsageRequest extends Model
     /**
      * @description The cluster ID.
      *
-     * >  You can call the [DescribeDBClusters](~~129857~~) operation to query the information about all AnalyticDB for MySQL clusters within a region, including cluster IDs.
+     * This parameter is required.
      * @example am-bp1xxxxxxxx47
      *
      * @var string
@@ -21,6 +21,7 @@ class DescribeComputeResourceUsageRequest extends Model
     /**
      * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2023-02-05T03:45:00Z
      *
      * @var string
@@ -30,6 +31,7 @@ class DescribeComputeResourceUsageRequest extends Model
     /**
      * @description The name of the resource group.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -39,6 +41,7 @@ class DescribeComputeResourceUsageRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2023-02-04T03:45:00Z
      *
      * @var string

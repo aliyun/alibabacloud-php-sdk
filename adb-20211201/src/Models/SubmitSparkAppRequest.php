@@ -51,7 +51,7 @@ class SubmitSparkAppRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *
-     * > You can call the [DescribeDBClusters](~~454250~~) operation to query cluster IDs.
+     * This parameter is required.
      * @example amv-bp11q28kvl688****
      *
      * @var string
@@ -61,7 +61,7 @@ class SubmitSparkAppRequest extends Model
     /**
      * @description The data of the application template.
      *
-     * > For information about the application template configuration, see [Spark application configuration guide](~~452402~~).
+     * This parameter is required.
      * @example conf spark.driver.resourceSpec=small; conf spark.executor.instances=1; conf spark.executor.resourceSpec=small; conf spark.app.name=TestApp;
      *
      * @var string
@@ -71,7 +71,7 @@ class SubmitSparkAppRequest extends Model
     /**
      * @description The name of the job resource group.
      *
-     * >  You can call the [DescribeDBResourceGroup](~~612410~~) operation to query the resource group ID of an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+     * This parameter is required.
      * @example adb
      *
      * @var string
@@ -81,7 +81,7 @@ class SubmitSparkAppRequest extends Model
     /**
      * @description The ID of the application template.
      *
-     * > You can call the [GetSparkTemplateFullTree](~~456205~~) operation to query the application template ID.
+     * > You can call the [GetSparkTemplateFullTree](https://help.aliyun.com/document_detail/456205.html) operation to query the application template ID.
      * @example 15
      *
      * @var int
