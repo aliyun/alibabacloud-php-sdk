@@ -30,6 +30,8 @@ class UpdateRangeShrinkRequest extends Model
     public $numberFormat;
 
     /**
+     * @description This parameter is required.
+     *
      * @example A3:C3
      *
      * @var string
@@ -37,6 +39,8 @@ class UpdateRangeShrinkRequest extends Model
     public $rangeAddress;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Sheet1
      *
      * @var string
@@ -56,6 +60,8 @@ class UpdateRangeShrinkRequest extends Model
     public $valuesShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example stxxxx
      *
      * @var string

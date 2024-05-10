@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetRangeRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example A3:C3
      *
      * @var string
@@ -24,6 +26,8 @@ class GetRangeRequest extends Model
     public $select;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Sheet1
      *
      * @var string
@@ -36,6 +40,8 @@ class GetRangeRequest extends Model
     public $tenantContext;
 
     /**
+     * @description This parameter is required.
+     *
      * @example stxxxx
      *
      * @var string

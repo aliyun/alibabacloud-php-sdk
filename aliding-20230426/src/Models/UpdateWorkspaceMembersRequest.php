@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateWorkspaceMembersRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var members[]
      */
     public $members;
@@ -21,6 +23,8 @@ class UpdateWorkspaceMembersRequest extends Model
     public $tenantContext;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123
      *
      * @var string

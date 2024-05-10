@@ -23,6 +23,8 @@ class ListApplicationRequest extends Model
     public $appNameSearchKeyword;
 
     /**
+     * @description This parameter is required.
+     *
      * @example corpid
      *
      * @var string
@@ -44,6 +46,8 @@ class ListApplicationRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example keyword
      *
      * @var string

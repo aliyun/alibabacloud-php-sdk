@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class AddWorkspaceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $name;

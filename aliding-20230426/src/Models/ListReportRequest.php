@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListReportRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 0
      *
      * @var int
@@ -17,6 +19,8 @@ class ListReportRequest extends Model
     public $cursor;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1507564800000
      *
      * @var int
@@ -38,6 +42,8 @@ class ListReportRequest extends Model
     public $modifiedStartTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int
@@ -45,6 +51,8 @@ class ListReportRequest extends Model
     public $size;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1507564800000
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryConferenceInfoRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 607452e01401526ee39609e1
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateWorkspaceMembersShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $membersShrink;
@@ -19,6 +21,8 @@ class UpdateWorkspaceMembersShrinkRequest extends Model
     public $tenantContextShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123
      *
      * @var string

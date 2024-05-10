@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class CreateReportRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example []
      *
      * @var contents[]
@@ -18,6 +20,8 @@ class CreateReportRequest extends Model
     public $contents;
 
     /**
+     * @description This parameter is required.
+     *
      * @example client
      *
      * @var string
@@ -25,6 +29,8 @@ class CreateReportRequest extends Model
     public $ddFrom;
 
     /**
+     * @description This parameter is required.
+     *
      * @example sdfafdsfsafdfsaf
      *
      * @var string
@@ -37,6 +43,8 @@ class CreateReportRequest extends Model
     public $tenantContext;
 
     /**
+     * @description This parameter is required.
+     *
      * @example true
      *
      * @var bool

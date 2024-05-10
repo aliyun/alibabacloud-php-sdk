@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetFormComponentDefinitionListRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example APP_PBKT0xxx
      *
      * @var string
@@ -16,6 +18,8 @@ class GetFormComponentDefinitionListRequest extends Model
     public $appType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example FORM-xxxxx
      *
      * @var string
@@ -30,6 +34,8 @@ class GetFormComponentDefinitionListRequest extends Model
     public $language;
 
     /**
+     * @description This parameter is required.
+     *
      * @example hexxxx
      *
      * @var string

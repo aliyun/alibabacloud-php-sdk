@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteSheetShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example Sheet1
      *
      * @var string
@@ -21,6 +23,8 @@ class DeleteSheetShrinkRequest extends Model
     public $tenantContextShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example stxxxx
      *
      * @var string

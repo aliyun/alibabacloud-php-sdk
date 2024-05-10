@@ -22,16 +22,22 @@ class GrantHonorRequest extends Model
     public $expirationTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $grantReason;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $granterName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 21659398
      *
      * @var string
@@ -58,6 +64,8 @@ class GrantHonorRequest extends Model
     public $openConversationIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 345391052
      *
      * @var int
@@ -65,11 +73,15 @@ class GrantHonorRequest extends Model
     public $orgId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $receiverUserIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 363784
      *
      * @var string

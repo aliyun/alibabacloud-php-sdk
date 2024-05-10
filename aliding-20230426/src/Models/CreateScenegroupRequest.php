@@ -114,6 +114,8 @@ class CreateScenegroupRequest extends Model
     public $subadminIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example c354***-***-***-b4ea-6f1ab***65
      *
      * @var string
@@ -121,6 +123,8 @@ class CreateScenegroupRequest extends Model
     public $templateId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 测试群
      *
      * @var string

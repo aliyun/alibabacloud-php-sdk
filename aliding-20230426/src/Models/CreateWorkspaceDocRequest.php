@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateWorkspaceDocRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example DOC
      *
      * @var string
@@ -17,6 +19,8 @@ class CreateWorkspaceDocRequest extends Model
     public $docType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 测试文档
      *
      * @var string
@@ -50,6 +54,8 @@ class CreateWorkspaceDocRequest extends Model
     public $tenantContext;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123
      *
      * @var string

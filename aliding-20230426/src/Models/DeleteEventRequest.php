@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteEventRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example primary
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteEventRequest extends Model
     public $calendarId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example iiiP35sJadba8aBSgjrwPRKgiEiF
      *
      * @var string

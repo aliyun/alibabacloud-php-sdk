@@ -19,11 +19,15 @@ class CreateSubscribedCalendarShrinkRequest extends Model
     public $managersShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $subscribeScopeShrink;

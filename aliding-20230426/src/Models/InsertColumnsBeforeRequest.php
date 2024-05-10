@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class InsertColumnsBeforeRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class InsertColumnsBeforeRequest extends Model
     public $column;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 3
      *
      * @var int
@@ -24,6 +28,8 @@ class InsertColumnsBeforeRequest extends Model
     public $columnCount;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Sheet1
      *
      * @var string
@@ -36,6 +42,8 @@ class InsertColumnsBeforeRequest extends Model
     public $tenantContext;
 
     /**
+     * @description This parameter is required.
+     *
      * @example stxxxx
      *
      * @var string

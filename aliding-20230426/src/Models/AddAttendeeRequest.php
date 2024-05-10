@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class AddAttendeeRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var attendeesToAdd[]
      */
     public $attendeesToAdd;
 
     /**
+     * @description This parameter is required.
+     *
      * @example primary
      *
      * @var string
@@ -22,6 +26,8 @@ class AddAttendeeRequest extends Model
     public $calendarId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cnNTbW1YbU9sL2p6aFJZdEgvdlQrQT08
      *
      * @var string

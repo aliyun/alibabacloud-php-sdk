@@ -28,6 +28,8 @@ class UpdateTodoTaskExecutorStatusRequest extends Model
     public $operatorId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 15002141
      *
      * @var string

@@ -286,6 +286,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDocContentRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDocContentResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDocContentShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDocContentShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDocContentTakIdHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDocContentTakIdRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDocContentTakIdResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDocContentTakIdShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDocContentTakIdShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetEventHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetEventRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetEventResponse;
@@ -871,11 +876,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param AddAttendeeRequest $tmpReq
-     * @param AddAttendeeHeaders $tmpHeader
-     * @param RuntimeOptions     $runtime
+     * @summary 添加日程参与者
+     *  *
+     * @param AddAttendeeRequest $tmpReq    AddAttendeeRequest
+     * @param AddAttendeeHeaders $tmpHeader AddAttendeeHeaders
+     * @param RuntimeOptions     $runtime   runtime options for this request RuntimeOptions
      *
-     * @return AddAttendeeResponse
+     * @return AddAttendeeResponse AddAttendeeResponse
      */
     public function addAttendeeWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -933,9 +940,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param AddAttendeeRequest $request
+     * @summary 添加日程参与者
+     *  *
+     * @param AddAttendeeRequest $request AddAttendeeRequest
      *
-     * @return AddAttendeeResponse
+     * @return AddAttendeeResponse AddAttendeeResponse
      */
     public function addAttendee($request)
     {
@@ -946,11 +955,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param AddMeetingRoomsRequest $tmpReq
-     * @param AddMeetingRoomsHeaders $tmpHeader
-     * @param RuntimeOptions         $runtime
+     * @summary 预定会议室
+     *  *
+     * @param AddMeetingRoomsRequest $tmpReq    AddMeetingRoomsRequest
+     * @param AddMeetingRoomsHeaders $tmpHeader AddMeetingRoomsHeaders
+     * @param RuntimeOptions         $runtime   runtime options for this request RuntimeOptions
      *
-     * @return AddMeetingRoomsResponse
+     * @return AddMeetingRoomsResponse AddMeetingRoomsResponse
      */
     public function addMeetingRoomsWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -1002,9 +1013,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param AddMeetingRoomsRequest $request
+     * @summary 预定会议室
+     *  *
+     * @param AddMeetingRoomsRequest $request AddMeetingRoomsRequest
      *
-     * @return AddMeetingRoomsResponse
+     * @return AddMeetingRoomsResponse AddMeetingRoomsResponse
      */
     public function addMeetingRooms($request)
     {
@@ -1015,11 +1028,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param AddScenegroupMemberRequest $request
-     * @param AddScenegroupMemberHeaders $tmpHeader
-     * @param RuntimeOptions             $runtime
+     * @summary 新增群成员
+     *  *
+     * @param AddScenegroupMemberRequest $request   AddScenegroupMemberRequest
+     * @param AddScenegroupMemberHeaders $tmpHeader AddScenegroupMemberHeaders
+     * @param RuntimeOptions             $runtime   runtime options for this request RuntimeOptions
      *
-     * @return AddScenegroupMemberResponse
+     * @return AddScenegroupMemberResponse AddScenegroupMemberResponse
      */
     public function addScenegroupMemberWithOptions($request, $tmpHeader, $runtime)
     {
@@ -1063,9 +1078,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param AddScenegroupMemberRequest $request
+     * @summary 新增群成员
+     *  *
+     * @param AddScenegroupMemberRequest $request AddScenegroupMemberRequest
      *
-     * @return AddScenegroupMemberResponse
+     * @return AddScenegroupMemberResponse AddScenegroupMemberResponse
      */
     public function addScenegroupMember($request)
     {
@@ -1076,11 +1093,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param AddWorkspaceRequest $tmpReq
-     * @param AddWorkspaceHeaders $tmpHeader
-     * @param RuntimeOptions      $runtime
+     * @summary 新建知识库
+     *  *
+     * @param AddWorkspaceRequest $tmpReq    AddWorkspaceRequest
+     * @param AddWorkspaceHeaders $tmpHeader AddWorkspaceHeaders
+     * @param RuntimeOptions      $runtime   runtime options for this request RuntimeOptions
      *
-     * @return AddWorkspaceResponse
+     * @return AddWorkspaceResponse AddWorkspaceResponse
      */
     public function addWorkspaceWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -1135,9 +1154,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param AddWorkspaceRequest $request
+     * @summary 新建知识库
+     *  *
+     * @param AddWorkspaceRequest $request AddWorkspaceRequest
      *
-     * @return AddWorkspaceResponse
+     * @return AddWorkspaceResponse AddWorkspaceResponse
      */
     public function addWorkspace($request)
     {
@@ -1148,11 +1169,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param AddWorkspaceDocMembersRequest $tmpReq
-     * @param AddWorkspaceDocMembersHeaders $tmpHeader
-     * @param RuntimeOptions                $runtime
+     * @summary 添加知识库文档成员
+     *  *
+     * @param AddWorkspaceDocMembersRequest $tmpReq    AddWorkspaceDocMembersRequest
+     * @param AddWorkspaceDocMembersHeaders $tmpHeader AddWorkspaceDocMembersHeaders
+     * @param RuntimeOptions                $runtime   runtime options for this request RuntimeOptions
      *
-     * @return AddWorkspaceDocMembersResponse
+     * @return AddWorkspaceDocMembersResponse AddWorkspaceDocMembersResponse
      */
     public function addWorkspaceDocMembersWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -1210,9 +1233,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param AddWorkspaceDocMembersRequest $request
+     * @summary 添加知识库文档成员
+     *  *
+     * @param AddWorkspaceDocMembersRequest $request AddWorkspaceDocMembersRequest
      *
-     * @return AddWorkspaceDocMembersResponse
+     * @return AddWorkspaceDocMembersResponse AddWorkspaceDocMembersResponse
      */
     public function addWorkspaceDocMembers($request)
     {
@@ -1223,11 +1248,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param AddWorkspaceMembersRequest $tmpReq
-     * @param AddWorkspaceMembersHeaders $tmpHeader
-     * @param RuntimeOptions             $runtime
+     * @summary 添加知识库成员
+     *  *
+     * @param AddWorkspaceMembersRequest $tmpReq    AddWorkspaceMembersRequest
+     * @param AddWorkspaceMembersHeaders $tmpHeader AddWorkspaceMembersHeaders
+     * @param RuntimeOptions             $runtime   runtime options for this request RuntimeOptions
      *
-     * @return AddWorkspaceMembersResponse
+     * @return AddWorkspaceMembersResponse AddWorkspaceMembersResponse
      */
     public function addWorkspaceMembersWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -1282,9 +1309,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param AddWorkspaceMembersRequest $request
+     * @summary 添加知识库成员
+     *  *
+     * @param AddWorkspaceMembersRequest $request AddWorkspaceMembersRequest
      *
-     * @return AddWorkspaceMembersResponse
+     * @return AddWorkspaceMembersResponse AddWorkspaceMembersResponse
      */
     public function addWorkspaceMembers($request)
     {
@@ -1295,11 +1324,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param BatchGetFormDataByIdListRequest $tmpReq
-     * @param BatchGetFormDataByIdListHeaders $tmpHeader
-     * @param RuntimeOptions                  $runtime
+     * @summary 批量获取表单实例数据
+     *  *
+     * @param BatchGetFormDataByIdListRequest $tmpReq    BatchGetFormDataByIdListRequest
+     * @param BatchGetFormDataByIdListHeaders $tmpHeader BatchGetFormDataByIdListHeaders
+     * @param RuntimeOptions                  $runtime   runtime options for this request RuntimeOptions
      *
-     * @return BatchGetFormDataByIdListResponse
+     * @return BatchGetFormDataByIdListResponse BatchGetFormDataByIdListResponse
      */
     public function batchGetFormDataByIdListWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -1357,9 +1388,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param BatchGetFormDataByIdListRequest $request
+     * @summary 批量获取表单实例数据
+     *  *
+     * @param BatchGetFormDataByIdListRequest $request BatchGetFormDataByIdListRequest
      *
-     * @return BatchGetFormDataByIdListResponse
+     * @return BatchGetFormDataByIdListResponse BatchGetFormDataByIdListResponse
      */
     public function batchGetFormDataByIdList($request)
     {
@@ -1370,11 +1403,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param BatchRemovalByFormInstanceIdListRequest $tmpReq
-     * @param BatchRemovalByFormInstanceIdListHeaders $tmpHeader
-     * @param RuntimeOptions                          $runtime
+     * @summary 批量删除表单实例
+     *  *
+     * @param BatchRemovalByFormInstanceIdListRequest $tmpReq    BatchRemovalByFormInstanceIdListRequest
+     * @param BatchRemovalByFormInstanceIdListHeaders $tmpHeader BatchRemovalByFormInstanceIdListHeaders
+     * @param RuntimeOptions                          $runtime   runtime options for this request RuntimeOptions
      *
-     * @return BatchRemovalByFormInstanceIdListResponse
+     * @return BatchRemovalByFormInstanceIdListResponse BatchRemovalByFormInstanceIdListResponse
      */
     public function batchRemovalByFormInstanceIdListWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -1435,9 +1470,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param BatchRemovalByFormInstanceIdListRequest $request
+     * @summary 批量删除表单实例
+     *  *
+     * @param BatchRemovalByFormInstanceIdListRequest $request BatchRemovalByFormInstanceIdListRequest
      *
-     * @return BatchRemovalByFormInstanceIdListResponse
+     * @return BatchRemovalByFormInstanceIdListResponse BatchRemovalByFormInstanceIdListResponse
      */
     public function batchRemovalByFormInstanceIdList($request)
     {
@@ -1448,11 +1485,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param BatchSaveFormDataRequest $tmpReq
-     * @param BatchSaveFormDataHeaders $tmpHeader
-     * @param RuntimeOptions           $runtime
+     * @summary 批量创建表单实例
+     *  *
+     * @param BatchSaveFormDataRequest $tmpReq    BatchSaveFormDataRequest
+     * @param BatchSaveFormDataHeaders $tmpHeader BatchSaveFormDataHeaders
+     * @param RuntimeOptions           $runtime   runtime options for this request RuntimeOptions
      *
-     * @return BatchSaveFormDataResponse
+     * @return BatchSaveFormDataResponse BatchSaveFormDataResponse
      */
     public function batchSaveFormDataWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -1516,9 +1555,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param BatchSaveFormDataRequest $request
+     * @summary 批量创建表单实例
+     *  *
+     * @param BatchSaveFormDataRequest $request BatchSaveFormDataRequest
      *
-     * @return BatchSaveFormDataResponse
+     * @return BatchSaveFormDataResponse BatchSaveFormDataResponse
      */
     public function batchSaveFormData($request)
     {
@@ -1529,11 +1570,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param BatchUpdateFormDataByInstanceIdRequest $tmpReq
-     * @param BatchUpdateFormDataByInstanceIdHeaders $tmpHeader
-     * @param RuntimeOptions                         $runtime
+     * @summary 批量更新表单实例内的组件值
+     *  *
+     * @param BatchUpdateFormDataByInstanceIdRequest $tmpReq    BatchUpdateFormDataByInstanceIdRequest
+     * @param BatchUpdateFormDataByInstanceIdHeaders $tmpHeader BatchUpdateFormDataByInstanceIdHeaders
+     * @param RuntimeOptions                         $runtime   runtime options for this request RuntimeOptions
      *
-     * @return BatchUpdateFormDataByInstanceIdResponse
+     * @return BatchUpdateFormDataByInstanceIdResponse BatchUpdateFormDataByInstanceIdResponse
      */
     public function batchUpdateFormDataByInstanceIdWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -1603,9 +1646,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param BatchUpdateFormDataByInstanceIdRequest $request
+     * @summary 批量更新表单实例内的组件值
+     *  *
+     * @param BatchUpdateFormDataByInstanceIdRequest $request BatchUpdateFormDataByInstanceIdRequest
      *
-     * @return BatchUpdateFormDataByInstanceIdResponse
+     * @return BatchUpdateFormDataByInstanceIdResponse BatchUpdateFormDataByInstanceIdResponse
      */
     public function batchUpdateFormDataByInstanceId($request)
     {
@@ -1616,11 +1661,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param BatchUpdateFormDataByInstanceMapRequest $tmpReq
-     * @param BatchUpdateFormDataByInstanceMapHeaders $tmpHeader
-     * @param RuntimeOptions                          $runtime
+     * @summary 通过表单实例数据批量更新表单实例
+     *  *
+     * @param BatchUpdateFormDataByInstanceMapRequest $tmpReq    BatchUpdateFormDataByInstanceMapRequest
+     * @param BatchUpdateFormDataByInstanceMapHeaders $tmpHeader BatchUpdateFormDataByInstanceMapHeaders
+     * @param RuntimeOptions                          $runtime   runtime options for this request RuntimeOptions
      *
-     * @return BatchUpdateFormDataByInstanceMapResponse
+     * @return BatchUpdateFormDataByInstanceMapResponse BatchUpdateFormDataByInstanceMapResponse
      */
     public function batchUpdateFormDataByInstanceMapWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -1687,9 +1734,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param BatchUpdateFormDataByInstanceMapRequest $request
+     * @summary 通过表单实例数据批量更新表单实例
+     *  *
+     * @param BatchUpdateFormDataByInstanceMapRequest $request BatchUpdateFormDataByInstanceMapRequest
      *
-     * @return BatchUpdateFormDataByInstanceMapResponse
+     * @return BatchUpdateFormDataByInstanceMapResponse BatchUpdateFormDataByInstanceMapResponse
      */
     public function batchUpdateFormDataByInstanceMap($request)
     {
@@ -1700,11 +1749,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param CancelScheduleConferenceRequest $tmpReq
-     * @param CancelScheduleConferenceHeaders $tmpHeader
-     * @param RuntimeOptions                  $runtime
+     * @summary 取消预约会议
+     *  *
+     * @param CancelScheduleConferenceRequest $tmpReq    CancelScheduleConferenceRequest
+     * @param CancelScheduleConferenceHeaders $tmpHeader CancelScheduleConferenceHeaders
+     * @param RuntimeOptions                  $runtime   runtime options for this request RuntimeOptions
      *
-     * @return CancelScheduleConferenceResponse
+     * @return CancelScheduleConferenceResponse CancelScheduleConferenceResponse
      */
     public function cancelScheduleConferenceWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -1753,9 +1804,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param CancelScheduleConferenceRequest $request
+     * @summary 取消预约会议
+     *  *
+     * @param CancelScheduleConferenceRequest $request CancelScheduleConferenceRequest
      *
-     * @return CancelScheduleConferenceResponse
+     * @return CancelScheduleConferenceResponse CancelScheduleConferenceResponse
      */
     public function cancelScheduleConference($request)
     {
@@ -1766,11 +1819,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param CheckUserIsGroupMemberRequest $request
-     * @param CheckUserIsGroupMemberHeaders $tmpHeader
-     * @param RuntimeOptions                $runtime
+     * @summary 查询用户是否为企业内部群成员
+     *  *
+     * @param CheckUserIsGroupMemberRequest $request   CheckUserIsGroupMemberRequest
+     * @param CheckUserIsGroupMemberHeaders $tmpHeader CheckUserIsGroupMemberHeaders
+     * @param RuntimeOptions                $runtime   runtime options for this request RuntimeOptions
      *
-     * @return CheckUserIsGroupMemberResponse
+     * @return CheckUserIsGroupMemberResponse CheckUserIsGroupMemberResponse
      */
     public function checkUserIsGroupMemberWithOptions($request, $tmpHeader, $runtime)
     {
@@ -1811,9 +1866,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param CheckUserIsGroupMemberRequest $request
+     * @summary 查询用户是否为企业内部群成员
+     *  *
+     * @param CheckUserIsGroupMemberRequest $request CheckUserIsGroupMemberRequest
      *
-     * @return CheckUserIsGroupMemberResponse
+     * @return CheckUserIsGroupMemberResponse CheckUserIsGroupMemberResponse
      */
     public function checkUserIsGroupMember($request)
     {
@@ -1824,11 +1881,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param ClearRequest   $tmpReq
-     * @param ClearHeaders   $tmpHeader
-     * @param RuntimeOptions $runtime
+     * @summary 清除单元格所有内容
+     *  *
+     * @param ClearRequest   $tmpReq    ClearRequest
+     * @param ClearHeaders   $tmpHeader ClearHeaders
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return ClearResponse
+     * @return ClearResponse ClearResponse
      */
     public function clearWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -1883,9 +1942,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param ClearRequest $request
+     * @summary 清除单元格所有内容
+     *  *
+     * @param ClearRequest $request ClearRequest
      *
-     * @return ClearResponse
+     * @return ClearResponse ClearResponse
      */
     public function clear($request)
     {
@@ -1896,11 +1957,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param ClearDataRequest $tmpReq
-     * @param ClearDataHeaders $tmpHeader
-     * @param RuntimeOptions   $runtime
+     * @summary 清除单元格数据
+     *  *
+     * @param ClearDataRequest $tmpReq    ClearDataRequest
+     * @param ClearDataHeaders $tmpHeader ClearDataHeaders
+     * @param RuntimeOptions   $runtime   runtime options for this request RuntimeOptions
      *
-     * @return ClearDataResponse
+     * @return ClearDataResponse ClearDataResponse
      */
     public function clearDataWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -1955,9 +2018,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param ClearDataRequest $request
+     * @summary 清除单元格数据
+     *  *
+     * @param ClearDataRequest $request ClearDataRequest
      *
-     * @return ClearDataResponse
+     * @return ClearDataResponse ClearDataResponse
      */
     public function clearData($request)
     {
@@ -1968,11 +2033,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param CommentListReportRequest $tmpReq
-     * @param CommentListReportHeaders $tmpHeader
-     * @param RuntimeOptions           $runtime
+     * @summary 获取日志评论列表
+     *  *
+     * @param CommentListReportRequest $tmpReq    CommentListReportRequest
+     * @param CommentListReportHeaders $tmpHeader CommentListReportHeaders
+     * @param RuntimeOptions           $runtime   runtime options for this request RuntimeOptions
      *
-     * @return CommentListReportResponse
+     * @return CommentListReportResponse CommentListReportResponse
      */
     public function commentListReportWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -2027,9 +2094,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param CommentListReportRequest $request
+     * @summary 获取日志评论列表
+     *  *
+     * @param CommentListReportRequest $request CommentListReportRequest
      *
-     * @return CommentListReportResponse
+     * @return CommentListReportResponse CommentListReportResponse
      */
     public function commentListReport($request)
     {
@@ -2040,11 +2109,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param CreateDeliveryPlanRequest $tmpReq
-     * @param CreateDeliveryPlanHeaders $tmpHeader
-     * @param RuntimeOptions            $runtime
+     * @summary 发布钉钉投放活动
+     *  *
+     * @param CreateDeliveryPlanRequest $tmpReq    CreateDeliveryPlanRequest
+     * @param CreateDeliveryPlanHeaders $tmpHeader CreateDeliveryPlanHeaders
+     * @param RuntimeOptions            $runtime   runtime options for this request RuntimeOptions
      *
-     * @return CreateDeliveryPlanResponse
+     * @return CreateDeliveryPlanResponse CreateDeliveryPlanResponse
      */
     public function createDeliveryPlanWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -2111,9 +2182,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param CreateDeliveryPlanRequest $request
+     * @summary 发布钉钉投放活动
+     *  *
+     * @param CreateDeliveryPlanRequest $request CreateDeliveryPlanRequest
      *
-     * @return CreateDeliveryPlanResponse
+     * @return CreateDeliveryPlanResponse CreateDeliveryPlanResponse
      */
     public function createDeliveryPlan($request)
     {
@@ -2124,11 +2197,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param CreateEventRequest $tmpReq
-     * @param CreateEventHeaders $tmpHeader
-     * @param RuntimeOptions     $runtime
+     * @summary 创建日程
+     *  *
+     * @param CreateEventRequest $tmpReq    CreateEventRequest
+     * @param CreateEventHeaders $tmpHeader CreateEventHeaders
+     * @param RuntimeOptions     $runtime   runtime options for this request RuntimeOptions
      *
-     * @return CreateEventResponse
+     * @return CreateEventResponse CreateEventResponse
      */
     public function createEventWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -2240,9 +2315,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param CreateEventRequest $request
+     * @summary 创建日程
+     *  *
+     * @param CreateEventRequest $request CreateEventRequest
      *
-     * @return CreateEventResponse
+     * @return CreateEventResponse CreateEventResponse
      */
     public function createEvent($request)
     {
@@ -2253,11 +2330,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param CreateLiveRequest $tmpReq
-     * @param CreateLiveHeaders $tmpHeader
-     * @param RuntimeOptions    $runtime
+     * @summary 创建直播
+     *  *
+     * @param CreateLiveRequest $tmpReq    CreateLiveRequest
+     * @param CreateLiveHeaders $tmpHeader CreateLiveHeaders
+     * @param RuntimeOptions    $runtime   runtime options for this request RuntimeOptions
      *
-     * @return CreateLiveResponse
+     * @return CreateLiveResponse CreateLiveResponse
      */
     public function createLiveWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -2321,9 +2400,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param CreateLiveRequest $request
+     * @summary 创建直播
+     *  *
+     * @param CreateLiveRequest $request CreateLiveRequest
      *
-     * @return CreateLiveResponse
+     * @return CreateLiveResponse CreateLiveResponse
      */
     public function createLive($request)
     {
@@ -2334,11 +2415,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param CreateMeetingRoomRequest $tmpReq
-     * @param CreateMeetingRoomHeaders $tmpHeader
-     * @param RuntimeOptions           $runtime
+     * @summary 创建会议室
+     *  *
+     * @param CreateMeetingRoomRequest $tmpReq    CreateMeetingRoomRequest
+     * @param CreateMeetingRoomHeaders $tmpHeader CreateMeetingRoomHeaders
+     * @param RuntimeOptions           $runtime   runtime options for this request RuntimeOptions
      *
-     * @return CreateMeetingRoomResponse
+     * @return CreateMeetingRoomResponse CreateMeetingRoomResponse
      */
     public function createMeetingRoomWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -2423,9 +2506,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param CreateMeetingRoomRequest $request
+     * @summary 创建会议室
+     *  *
+     * @param CreateMeetingRoomRequest $request CreateMeetingRoomRequest
      *
-     * @return CreateMeetingRoomResponse
+     * @return CreateMeetingRoomResponse CreateMeetingRoomResponse
      */
     public function createMeetingRoom($request)
     {
@@ -2436,11 +2521,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param CreateMeetingRoomGroupRequest $tmpReq
-     * @param CreateMeetingRoomGroupHeaders $tmpHeader
-     * @param RuntimeOptions                $runtime
+     * @summary 创建会议室分组
+     *  *
+     * @param CreateMeetingRoomGroupRequest $tmpReq    CreateMeetingRoomGroupRequest
+     * @param CreateMeetingRoomGroupHeaders $tmpHeader CreateMeetingRoomGroupHeaders
+     * @param RuntimeOptions                $runtime   runtime options for this request RuntimeOptions
      *
-     * @return CreateMeetingRoomGroupResponse
+     * @return CreateMeetingRoomGroupResponse CreateMeetingRoomGroupResponse
      */
     public function createMeetingRoomGroupWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -2492,9 +2579,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param CreateMeetingRoomGroupRequest $request
+     * @summary 创建会议室分组
+     *  *
+     * @param CreateMeetingRoomGroupRequest $request CreateMeetingRoomGroupRequest
      *
-     * @return CreateMeetingRoomGroupResponse
+     * @return CreateMeetingRoomGroupResponse CreateMeetingRoomGroupResponse
      */
     public function createMeetingRoomGroup($request)
     {
@@ -2505,11 +2594,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param CreateOrUpdateFormDataRequest $request
-     * @param CreateOrUpdateFormDataHeaders $tmpHeader
-     * @param RuntimeOptions                $runtime
+     * @summary 新增或更新表单实例
+     *  *
+     * @param CreateOrUpdateFormDataRequest $request   CreateOrUpdateFormDataRequest
+     * @param CreateOrUpdateFormDataHeaders $tmpHeader CreateOrUpdateFormDataHeaders
+     * @param RuntimeOptions                $runtime   runtime options for this request RuntimeOptions
      *
-     * @return CreateOrUpdateFormDataResponse
+     * @return CreateOrUpdateFormDataResponse CreateOrUpdateFormDataResponse
      */
     public function createOrUpdateFormDataWithOptions($request, $tmpHeader, $runtime)
     {
@@ -2568,9 +2659,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param CreateOrUpdateFormDataRequest $request
+     * @summary 新增或更新表单实例
+     *  *
+     * @param CreateOrUpdateFormDataRequest $request CreateOrUpdateFormDataRequest
      *
-     * @return CreateOrUpdateFormDataResponse
+     * @return CreateOrUpdateFormDataResponse CreateOrUpdateFormDataResponse
      */
     public function createOrUpdateFormData($request)
     {
@@ -2581,11 +2674,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param CreateOrgHonorTemplateRequest $tmpReq
-     * @param CreateOrgHonorTemplateHeaders $tmpHeader
-     * @param RuntimeOptions                $runtime
+     * @summary 创建荣誉勋章模板
+     *  *
+     * @param CreateOrgHonorTemplateRequest $tmpReq    CreateOrgHonorTemplateRequest
+     * @param CreateOrgHonorTemplateHeaders $tmpHeader CreateOrgHonorTemplateHeaders
+     * @param RuntimeOptions                $runtime   runtime options for this request RuntimeOptions
      *
-     * @return CreateOrgHonorTemplateResponse
+     * @return CreateOrgHonorTemplateResponse CreateOrgHonorTemplateResponse
      */
     public function createOrgHonorTemplateWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -2652,9 +2747,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param CreateOrgHonorTemplateRequest $request
+     * @summary 创建荣誉勋章模板
+     *  *
+     * @param CreateOrgHonorTemplateRequest $request CreateOrgHonorTemplateRequest
      *
-     * @return CreateOrgHonorTemplateResponse
+     * @return CreateOrgHonorTemplateResponse CreateOrgHonorTemplateResponse
      */
     public function createOrgHonorTemplate($request)
     {
@@ -2665,11 +2762,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param CreatePersonalTodoTaskRequest $tmpReq
-     * @param CreatePersonalTodoTaskHeaders $tmpHeader
-     * @param RuntimeOptions                $runtime
+     * @summary 创建钉钉个人待办任务
+     *  *
+     * @param CreatePersonalTodoTaskRequest $tmpReq    CreatePersonalTodoTaskRequest
+     * @param CreatePersonalTodoTaskHeaders $tmpHeader CreatePersonalTodoTaskHeaders
+     * @param RuntimeOptions                $runtime   runtime options for this request RuntimeOptions
      *
-     * @return CreatePersonalTodoTaskResponse
+     * @return CreatePersonalTodoTaskResponse CreatePersonalTodoTaskResponse
      */
     public function createPersonalTodoTaskWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -2742,9 +2841,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param CreatePersonalTodoTaskRequest $request
+     * @summary 创建钉钉个人待办任务
+     *  *
+     * @param CreatePersonalTodoTaskRequest $request CreatePersonalTodoTaskRequest
      *
-     * @return CreatePersonalTodoTaskResponse
+     * @return CreatePersonalTodoTaskResponse CreatePersonalTodoTaskResponse
      */
     public function createPersonalTodoTask($request)
     {
@@ -2755,11 +2856,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param CreateReportRequest $tmpReq
-     * @param CreateReportHeaders $tmpHeader
-     * @param RuntimeOptions      $runtime
+     * @summary 创建日志
+     *  *
+     * @param CreateReportRequest $tmpReq    CreateReportRequest
+     * @param CreateReportHeaders $tmpHeader CreateReportHeaders
+     * @param RuntimeOptions      $runtime   runtime options for this request RuntimeOptions
      *
-     * @return CreateReportResponse
+     * @return CreateReportResponse CreateReportResponse
      */
     public function createReportWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -2832,9 +2935,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param CreateReportRequest $request
+     * @summary 创建日志
+     *  *
+     * @param CreateReportRequest $request CreateReportRequest
      *
-     * @return CreateReportResponse
+     * @return CreateReportResponse CreateReportResponse
      */
     public function createReport($request)
     {
@@ -2845,11 +2950,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param CreateScenegroupRequest $request
-     * @param CreateScenegroupHeaders $tmpHeader
-     * @param RuntimeOptions          $runtime
+     * @summary 创建场景群
+     *  *
+     * @param CreateScenegroupRequest $request   CreateScenegroupRequest
+     * @param CreateScenegroupHeaders $tmpHeader CreateScenegroupHeaders
+     * @param RuntimeOptions          $runtime   runtime options for this request RuntimeOptions
      *
-     * @return CreateScenegroupResponse
+     * @return CreateScenegroupResponse CreateScenegroupResponse
      */
     public function createScenegroupWithOptions($request, $tmpHeader, $runtime)
     {
@@ -2947,9 +3054,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param CreateScenegroupRequest $request
+     * @summary 创建场景群
+     *  *
+     * @param CreateScenegroupRequest $request CreateScenegroupRequest
      *
-     * @return CreateScenegroupResponse
+     * @return CreateScenegroupResponse CreateScenegroupResponse
      */
     public function createScenegroup($request)
     {
@@ -2960,11 +3069,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param CreateScheduleConferenceRequest $tmpReq
-     * @param CreateScheduleConferenceHeaders $tmpHeader
-     * @param RuntimeOptions                  $runtime
+     * @summary 创建预约会议
+     *  *
+     * @param CreateScheduleConferenceRequest $tmpReq    CreateScheduleConferenceRequest
+     * @param CreateScheduleConferenceHeaders $tmpHeader CreateScheduleConferenceHeaders
+     * @param RuntimeOptions                  $runtime   runtime options for this request RuntimeOptions
      *
-     * @return CreateScheduleConferenceResponse
+     * @return CreateScheduleConferenceResponse CreateScheduleConferenceResponse
      */
     public function createScheduleConferenceWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -3019,9 +3130,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param CreateScheduleConferenceRequest $request
+     * @summary 创建预约会议
+     *  *
+     * @param CreateScheduleConferenceRequest $request CreateScheduleConferenceRequest
      *
-     * @return CreateScheduleConferenceResponse
+     * @return CreateScheduleConferenceResponse CreateScheduleConferenceResponse
      */
     public function createScheduleConference($request)
     {
@@ -3032,11 +3145,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param CreateSearchDomeRequest $tmpReq
-     * @param CreateSearchDomeHeaders $tmpHeader
-     * @param RuntimeOptions          $runtime
+     * @summary 发布钉钉搜索穹顶
+     *  *
+     * @param CreateSearchDomeRequest $tmpReq    CreateSearchDomeRequest
+     * @param CreateSearchDomeHeaders $tmpHeader CreateSearchDomeHeaders
+     * @param RuntimeOptions          $runtime   runtime options for this request RuntimeOptions
      *
-     * @return CreateSearchDomeResponse
+     * @return CreateSearchDomeResponse CreateSearchDomeResponse
      */
     public function createSearchDomeWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -3100,9 +3215,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param CreateSearchDomeRequest $request
+     * @summary 发布钉钉搜索穹顶
+     *  *
+     * @param CreateSearchDomeRequest $request CreateSearchDomeRequest
      *
-     * @return CreateSearchDomeResponse
+     * @return CreateSearchDomeResponse CreateSearchDomeResponse
      */
     public function createSearchDome($request)
     {
@@ -3113,11 +3230,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param CreateSearchKeywordRequest $tmpReq
-     * @param CreateSearchKeywordHeaders $tmpHeader
-     * @param RuntimeOptions             $runtime
+     * @summary 发布钉钉搜索关键词
+     *  *
+     * @param CreateSearchKeywordRequest $tmpReq    CreateSearchKeywordRequest
+     * @param CreateSearchKeywordHeaders $tmpHeader CreateSearchKeywordHeaders
+     * @param RuntimeOptions             $runtime   runtime options for this request RuntimeOptions
      *
-     * @return CreateSearchKeywordResponse
+     * @return CreateSearchKeywordResponse CreateSearchKeywordResponse
      */
     public function createSearchKeywordWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -3181,9 +3300,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param CreateSearchKeywordRequest $request
+     * @summary 发布钉钉搜索关键词
+     *  *
+     * @param CreateSearchKeywordRequest $request CreateSearchKeywordRequest
      *
-     * @return CreateSearchKeywordResponse
+     * @return CreateSearchKeywordResponse CreateSearchKeywordResponse
      */
     public function createSearchKeyword($request)
     {
@@ -3194,11 +3315,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param CreateSheetRequest $tmpReq
-     * @param CreateSheetHeaders $tmpHeader
-     * @param RuntimeOptions     $runtime
+     * @summary 创建工作表
+     *  *
+     * @param CreateSheetRequest $tmpReq    CreateSheetRequest
+     * @param CreateSheetHeaders $tmpHeader CreateSheetHeaders
+     * @param RuntimeOptions     $runtime   runtime options for this request RuntimeOptions
      *
-     * @return CreateSheetResponse
+     * @return CreateSheetResponse CreateSheetResponse
      */
     public function createSheetWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -3250,9 +3373,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param CreateSheetRequest $request
+     * @summary 创建工作表
+     *  *
+     * @param CreateSheetRequest $request CreateSheetRequest
      *
-     * @return CreateSheetResponse
+     * @return CreateSheetResponse CreateSheetResponse
      */
     public function createSheet($request)
     {
@@ -3263,11 +3388,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param CreateSubscribedCalendarRequest $tmpReq
-     * @param CreateSubscribedCalendarHeaders $tmpHeader
-     * @param RuntimeOptions                  $runtime
+     * @summary 创建订阅日历
+     *  *
+     * @param CreateSubscribedCalendarRequest $tmpReq    CreateSubscribedCalendarRequest
+     * @param CreateSubscribedCalendarHeaders $tmpHeader CreateSubscribedCalendarHeaders
+     * @param RuntimeOptions                  $runtime   runtime options for this request RuntimeOptions
      *
-     * @return CreateSubscribedCalendarResponse
+     * @return CreateSubscribedCalendarResponse CreateSubscribedCalendarResponse
      */
     public function createSubscribedCalendarWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -3325,9 +3452,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param CreateSubscribedCalendarRequest $request
+     * @summary 创建订阅日历
+     *  *
+     * @param CreateSubscribedCalendarRequest $request CreateSubscribedCalendarRequest
      *
-     * @return CreateSubscribedCalendarResponse
+     * @return CreateSubscribedCalendarResponse CreateSubscribedCalendarResponse
      */
     public function createSubscribedCalendar($request)
     {
@@ -3338,11 +3467,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param CreateTodoTaskRequest $tmpReq
-     * @param CreateTodoTaskHeaders $tmpHeader
-     * @param RuntimeOptions        $runtime
+     * @summary 创建代办
+     *  *
+     * @param CreateTodoTaskRequest $tmpReq    CreateTodoTaskRequest
+     * @param CreateTodoTaskHeaders $tmpHeader CreateTodoTaskHeaders
+     * @param RuntimeOptions        $runtime   runtime options for this request RuntimeOptions
      *
-     * @return CreateTodoTaskResponse
+     * @return CreateTodoTaskResponse CreateTodoTaskResponse
      */
     public function createTodoTaskWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -3444,9 +3575,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param CreateTodoTaskRequest $request
+     * @summary 创建代办
+     *  *
+     * @param CreateTodoTaskRequest $request CreateTodoTaskRequest
      *
-     * @return CreateTodoTaskResponse
+     * @return CreateTodoTaskResponse CreateTodoTaskResponse
      */
     public function createTodoTask($request)
     {
@@ -3457,11 +3590,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param CreateVideoConferenceRequest $tmpReq
-     * @param CreateVideoConferenceHeaders $tmpHeader
-     * @param RuntimeOptions               $runtime
+     * @summary 创建视频会议
+     *  *
+     * @param CreateVideoConferenceRequest $tmpReq    CreateVideoConferenceRequest
+     * @param CreateVideoConferenceHeaders $tmpHeader CreateVideoConferenceHeaders
+     * @param RuntimeOptions               $runtime   runtime options for this request RuntimeOptions
      *
-     * @return CreateVideoConferenceResponse
+     * @return CreateVideoConferenceResponse CreateVideoConferenceResponse
      */
     public function createVideoConferenceWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -3513,9 +3648,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param CreateVideoConferenceRequest $request
+     * @summary 创建视频会议
+     *  *
+     * @param CreateVideoConferenceRequest $request CreateVideoConferenceRequest
      *
-     * @return CreateVideoConferenceResponse
+     * @return CreateVideoConferenceResponse CreateVideoConferenceResponse
      */
     public function createVideoConference($request)
     {
@@ -3526,11 +3663,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param CreateWorkspaceRequest $tmpReq
-     * @param CreateWorkspaceHeaders $tmpHeader
-     * @param RuntimeOptions         $runtime
+     * @summary 创建知识库
+     *  *
+     * @param CreateWorkspaceRequest $tmpReq    CreateWorkspaceRequest
+     * @param CreateWorkspaceHeaders $tmpHeader CreateWorkspaceHeaders
+     * @param RuntimeOptions         $runtime   runtime options for this request RuntimeOptions
      *
-     * @return CreateWorkspaceResponse
+     * @return CreateWorkspaceResponse CreateWorkspaceResponse
      */
     public function createWorkspaceWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -3582,9 +3721,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param CreateWorkspaceRequest $request
+     * @summary 创建知识库
+     *  *
+     * @param CreateWorkspaceRequest $request CreateWorkspaceRequest
      *
-     * @return CreateWorkspaceResponse
+     * @return CreateWorkspaceResponse CreateWorkspaceResponse
      */
     public function createWorkspace($request)
     {
@@ -3595,11 +3736,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param CreateWorkspaceDocRequest $tmpReq
-     * @param CreateWorkspaceDocHeaders $tmpHeader
-     * @param RuntimeOptions            $runtime
+     * @summary 创建知识库文档
+     *  *
+     * @param CreateWorkspaceDocRequest $tmpReq    CreateWorkspaceDocRequest
+     * @param CreateWorkspaceDocHeaders $tmpHeader CreateWorkspaceDocHeaders
+     * @param RuntimeOptions            $runtime   runtime options for this request RuntimeOptions
      *
-     * @return CreateWorkspaceDocResponse
+     * @return CreateWorkspaceDocResponse CreateWorkspaceDocResponse
      */
     public function createWorkspaceDocWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -3663,9 +3806,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param CreateWorkspaceDocRequest $request
+     * @summary 创建知识库文档
+     *  *
+     * @param CreateWorkspaceDocRequest $request CreateWorkspaceDocRequest
      *
-     * @return CreateWorkspaceDocResponse
+     * @return CreateWorkspaceDocResponse CreateWorkspaceDocResponse
      */
     public function createWorkspaceDoc($request)
     {
@@ -3676,11 +3821,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param DeleteColumnsRequest $tmpReq
-     * @param DeleteColumnsHeaders $tmpHeader
-     * @param RuntimeOptions       $runtime
+     * @summary 删除指定列
+     *  *
+     * @param DeleteColumnsRequest $tmpReq    DeleteColumnsRequest
+     * @param DeleteColumnsHeaders $tmpHeader DeleteColumnsHeaders
+     * @param RuntimeOptions       $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DeleteColumnsResponse
+     * @return DeleteColumnsResponse DeleteColumnsResponse
      */
     public function deleteColumnsWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -3738,9 +3885,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param DeleteColumnsRequest $request
+     * @summary 删除指定列
+     *  *
+     * @param DeleteColumnsRequest $request DeleteColumnsRequest
      *
-     * @return DeleteColumnsResponse
+     * @return DeleteColumnsResponse DeleteColumnsResponse
      */
     public function deleteColumns($request)
     {
@@ -3751,11 +3900,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param DeleteEventRequest $request
-     * @param DeleteEventHeaders $tmpHeader
-     * @param RuntimeOptions     $runtime
+     * @summary 删除日程
+     *  *
+     * @param DeleteEventRequest $request   DeleteEventRequest
+     * @param DeleteEventHeaders $tmpHeader DeleteEventHeaders
+     * @param RuntimeOptions     $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DeleteEventResponse
+     * @return DeleteEventResponse DeleteEventResponse
      */
     public function deleteEventWithOptions($request, $tmpHeader, $runtime)
     {
@@ -3802,9 +3953,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param DeleteEventRequest $request
+     * @summary 删除日程
+     *  *
+     * @param DeleteEventRequest $request DeleteEventRequest
      *
-     * @return DeleteEventResponse
+     * @return DeleteEventResponse DeleteEventResponse
      */
     public function deleteEvent($request)
     {
@@ -3815,11 +3968,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param DeleteFormDataRequest $request
-     * @param DeleteFormDataHeaders $tmpHeader
-     * @param RuntimeOptions        $runtime
+     * @summary 删除表单数据
+     *  *
+     * @param DeleteFormDataRequest $request   DeleteFormDataRequest
+     * @param DeleteFormDataHeaders $tmpHeader DeleteFormDataHeaders
+     * @param RuntimeOptions        $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DeleteFormDataResponse
+     * @return DeleteFormDataResponse DeleteFormDataResponse
      */
     public function deleteFormDataWithOptions($request, $tmpHeader, $runtime)
     {
@@ -3869,9 +4024,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param DeleteFormDataRequest $request
+     * @summary 删除表单数据
+     *  *
+     * @param DeleteFormDataRequest $request DeleteFormDataRequest
      *
-     * @return DeleteFormDataResponse
+     * @return DeleteFormDataResponse DeleteFormDataResponse
      */
     public function deleteFormData($request)
     {
@@ -3882,11 +4039,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param DeleteInstanceRequest $request
-     * @param DeleteInstanceHeaders $tmpHeader
-     * @param RuntimeOptions        $runtime
+     * @param DeleteInstanceRequest $request   DeleteInstanceRequest
+     * @param DeleteInstanceHeaders $tmpHeader DeleteInstanceHeaders
+     * @param RuntimeOptions        $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DeleteInstanceResponse
+     * @return DeleteInstanceResponse DeleteInstanceResponse
      */
     public function deleteInstanceWithOptions($request, $tmpHeader, $runtime)
     {
@@ -3936,9 +4093,9 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param DeleteInstanceRequest $request
+     * @param DeleteInstanceRequest $request DeleteInstanceRequest
      *
-     * @return DeleteInstanceResponse
+     * @return DeleteInstanceResponse DeleteInstanceResponse
      */
     public function deleteInstance($request)
     {
@@ -3949,11 +4106,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param DeleteLiveRequest $tmpReq
-     * @param DeleteLiveHeaders $tmpHeader
-     * @param RuntimeOptions    $runtime
+     * @summary 删除直播
+     *  *
+     * @param DeleteLiveRequest $tmpReq    DeleteLiveRequest
+     * @param DeleteLiveHeaders $tmpHeader DeleteLiveHeaders
+     * @param RuntimeOptions    $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DeleteLiveResponse
+     * @return DeleteLiveResponse DeleteLiveResponse
      */
     public function deleteLiveWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -4002,9 +4161,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param DeleteLiveRequest $request
+     * @summary 删除直播
+     *  *
+     * @param DeleteLiveRequest $request DeleteLiveRequest
      *
-     * @return DeleteLiveResponse
+     * @return DeleteLiveResponse DeleteLiveResponse
      */
     public function deleteLive($request)
     {
@@ -4015,11 +4176,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param DeleteMeetingRoomRequest $tmpReq
-     * @param DeleteMeetingRoomHeaders $tmpHeader
-     * @param RuntimeOptions           $runtime
+     * @summary 删除会议室
+     *  *
+     * @param DeleteMeetingRoomRequest $tmpReq    DeleteMeetingRoomRequest
+     * @param DeleteMeetingRoomHeaders $tmpHeader DeleteMeetingRoomHeaders
+     * @param RuntimeOptions           $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DeleteMeetingRoomResponse
+     * @return DeleteMeetingRoomResponse DeleteMeetingRoomResponse
      */
     public function deleteMeetingRoomWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -4068,9 +4231,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param DeleteMeetingRoomRequest $request
+     * @summary 删除会议室
+     *  *
+     * @param DeleteMeetingRoomRequest $request DeleteMeetingRoomRequest
      *
-     * @return DeleteMeetingRoomResponse
+     * @return DeleteMeetingRoomResponse DeleteMeetingRoomResponse
      */
     public function deleteMeetingRoom($request)
     {
@@ -4081,11 +4246,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param DeleteMeetingRoomGroupRequest $tmpReq
-     * @param DeleteMeetingRoomGroupHeaders $tmpHeader
-     * @param RuntimeOptions                $runtime
+     * @summary 删除会议室分组
+     *  *
+     * @param DeleteMeetingRoomGroupRequest $tmpReq    DeleteMeetingRoomGroupRequest
+     * @param DeleteMeetingRoomGroupHeaders $tmpHeader DeleteMeetingRoomGroupHeaders
+     * @param RuntimeOptions                $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DeleteMeetingRoomGroupResponse
+     * @return DeleteMeetingRoomGroupResponse DeleteMeetingRoomGroupResponse
      */
     public function deleteMeetingRoomGroupWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -4134,9 +4301,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param DeleteMeetingRoomGroupRequest $request
+     * @summary 删除会议室分组
+     *  *
+     * @param DeleteMeetingRoomGroupRequest $request DeleteMeetingRoomGroupRequest
      *
-     * @return DeleteMeetingRoomGroupResponse
+     * @return DeleteMeetingRoomGroupResponse DeleteMeetingRoomGroupResponse
      */
     public function deleteMeetingRoomGroup($request)
     {
@@ -4147,11 +4316,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param DeleteRowsRequest $tmpReq
-     * @param DeleteRowsHeaders $tmpHeader
-     * @param RuntimeOptions    $runtime
+     * @summary 删除指定行
+     *  *
+     * @param DeleteRowsRequest $tmpReq    DeleteRowsRequest
+     * @param DeleteRowsHeaders $tmpHeader DeleteRowsHeaders
+     * @param RuntimeOptions    $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DeleteRowsResponse
+     * @return DeleteRowsResponse DeleteRowsResponse
      */
     public function deleteRowsWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -4209,9 +4380,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param DeleteRowsRequest $request
+     * @summary 删除指定行
+     *  *
+     * @param DeleteRowsRequest $request DeleteRowsRequest
      *
-     * @return DeleteRowsResponse
+     * @return DeleteRowsResponse DeleteRowsResponse
      */
     public function deleteRows($request)
     {
@@ -4222,11 +4395,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param DeleteScenegroupMemberRequest $request
-     * @param DeleteScenegroupMemberHeaders $tmpHeader
-     * @param RuntimeOptions                $runtime
+     * @summary 删除群成员
+     *  *
+     * @param DeleteScenegroupMemberRequest $request   DeleteScenegroupMemberRequest
+     * @param DeleteScenegroupMemberHeaders $tmpHeader DeleteScenegroupMemberHeaders
+     * @param RuntimeOptions                $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DeleteScenegroupMemberResponse
+     * @return DeleteScenegroupMemberResponse DeleteScenegroupMemberResponse
      */
     public function deleteScenegroupMemberWithOptions($request, $tmpHeader, $runtime)
     {
@@ -4270,9 +4445,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param DeleteScenegroupMemberRequest $request
+     * @summary 删除群成员
+     *  *
+     * @param DeleteScenegroupMemberRequest $request DeleteScenegroupMemberRequest
      *
-     * @return DeleteScenegroupMemberResponse
+     * @return DeleteScenegroupMemberResponse DeleteScenegroupMemberResponse
      */
     public function deleteScenegroupMember($request)
     {
@@ -4283,11 +4460,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param DeleteSheetRequest $tmpReq
-     * @param DeleteSheetHeaders $tmpHeader
-     * @param RuntimeOptions     $runtime
+     * @summary 删除一个工作表
+     *  *
+     * @param DeleteSheetRequest $tmpReq    DeleteSheetRequest
+     * @param DeleteSheetHeaders $tmpHeader DeleteSheetHeaders
+     * @param RuntimeOptions     $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DeleteSheetResponse
+     * @return DeleteSheetResponse DeleteSheetResponse
      */
     public function deleteSheetWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -4339,9 +4518,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param DeleteSheetRequest $request
+     * @summary 删除一个工作表
+     *  *
+     * @param DeleteSheetRequest $request DeleteSheetRequest
      *
-     * @return DeleteSheetResponse
+     * @return DeleteSheetResponse DeleteSheetResponse
      */
     public function deleteSheet($request)
     {
@@ -4352,11 +4533,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param DeleteSubscribedCalendarRequest $request
-     * @param DeleteSubscribedCalendarHeaders $tmpHeader
-     * @param RuntimeOptions                  $runtime
+     * @summary 删除订阅日历
+     *  *
+     * @param DeleteSubscribedCalendarRequest $request   DeleteSubscribedCalendarRequest
+     * @param DeleteSubscribedCalendarHeaders $tmpHeader DeleteSubscribedCalendarHeaders
+     * @param RuntimeOptions                  $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DeleteSubscribedCalendarResponse
+     * @return DeleteSubscribedCalendarResponse DeleteSubscribedCalendarResponse
      */
     public function deleteSubscribedCalendarWithOptions($request, $tmpHeader, $runtime)
     {
@@ -4397,9 +4580,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param DeleteSubscribedCalendarRequest $request
+     * @summary 删除订阅日历
+     *  *
+     * @param DeleteSubscribedCalendarRequest $request DeleteSubscribedCalendarRequest
      *
-     * @return DeleteSubscribedCalendarResponse
+     * @return DeleteSubscribedCalendarResponse DeleteSubscribedCalendarResponse
      */
     public function deleteSubscribedCalendar($request)
     {
@@ -4410,11 +4595,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param DeleteTodoTaskRequest $tmpReq
-     * @param DeleteTodoTaskHeaders $tmpHeader
-     * @param RuntimeOptions        $runtime
+     * @summary 删除代办
+     *  *
+     * @param DeleteTodoTaskRequest $tmpReq    DeleteTodoTaskRequest
+     * @param DeleteTodoTaskHeaders $tmpHeader DeleteTodoTaskHeaders
+     * @param RuntimeOptions        $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DeleteTodoTaskResponse
+     * @return DeleteTodoTaskResponse DeleteTodoTaskResponse
      */
     public function deleteTodoTaskWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -4466,9 +4653,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param DeleteTodoTaskRequest $request
+     * @summary 删除代办
+     *  *
+     * @param DeleteTodoTaskRequest $request DeleteTodoTaskRequest
      *
-     * @return DeleteTodoTaskResponse
+     * @return DeleteTodoTaskResponse DeleteTodoTaskResponse
      */
     public function deleteTodoTask($request)
     {
@@ -4479,11 +4668,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param DeleteWorkspaceDocMembersRequest $tmpReq
-     * @param DeleteWorkspaceDocMembersHeaders $tmpHeader
-     * @param RuntimeOptions                   $runtime
+     * @summary 删除知识库文档成员
+     *  *
+     * @param DeleteWorkspaceDocMembersRequest $tmpReq    DeleteWorkspaceDocMembersRequest
+     * @param DeleteWorkspaceDocMembersHeaders $tmpHeader DeleteWorkspaceDocMembersHeaders
+     * @param RuntimeOptions                   $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DeleteWorkspaceDocMembersResponse
+     * @return DeleteWorkspaceDocMembersResponse DeleteWorkspaceDocMembersResponse
      */
     public function deleteWorkspaceDocMembersWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -4541,9 +4732,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param DeleteWorkspaceDocMembersRequest $request
+     * @summary 删除知识库文档成员
+     *  *
+     * @param DeleteWorkspaceDocMembersRequest $request DeleteWorkspaceDocMembersRequest
      *
-     * @return DeleteWorkspaceDocMembersResponse
+     * @return DeleteWorkspaceDocMembersResponse DeleteWorkspaceDocMembersResponse
      */
     public function deleteWorkspaceDocMembers($request)
     {
@@ -4554,11 +4747,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param DeleteWorkspaceMembersRequest $tmpReq
-     * @param DeleteWorkspaceMembersHeaders $tmpHeader
-     * @param RuntimeOptions                $runtime
+     * @summary 删除知识库成员
+     *  *
+     * @param DeleteWorkspaceMembersRequest $tmpReq    DeleteWorkspaceMembersRequest
+     * @param DeleteWorkspaceMembersHeaders $tmpHeader DeleteWorkspaceMembersHeaders
+     * @param RuntimeOptions                $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DeleteWorkspaceMembersResponse
+     * @return DeleteWorkspaceMembersResponse DeleteWorkspaceMembersResponse
      */
     public function deleteWorkspaceMembersWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -4613,9 +4808,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param DeleteWorkspaceMembersRequest $request
+     * @summary 删除知识库成员
+     *  *
+     * @param DeleteWorkspaceMembersRequest $request DeleteWorkspaceMembersRequest
      *
-     * @return DeleteWorkspaceMembersResponse
+     * @return DeleteWorkspaceMembersResponse DeleteWorkspaceMembersResponse
      */
     public function deleteWorkspaceMembers($request)
     {
@@ -4626,11 +4823,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param ExecuteBatchTaskRequest $request
-     * @param ExecuteBatchTaskHeaders $tmpHeader
-     * @param RuntimeOptions          $runtime
+     * @summary 批量执行宜搭审批任务
+     *  *
+     * @param ExecuteBatchTaskRequest $request   ExecuteBatchTaskRequest
+     * @param ExecuteBatchTaskHeaders $tmpHeader ExecuteBatchTaskHeaders
+     * @param RuntimeOptions          $runtime   runtime options for this request RuntimeOptions
      *
-     * @return ExecuteBatchTaskResponse
+     * @return ExecuteBatchTaskResponse ExecuteBatchTaskResponse
      */
     public function executeBatchTaskWithOptions($request, $tmpHeader, $runtime)
     {
@@ -4683,9 +4882,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param ExecuteBatchTaskRequest $request
+     * @summary 批量执行宜搭审批任务
+     *  *
+     * @param ExecuteBatchTaskRequest $request ExecuteBatchTaskRequest
      *
-     * @return ExecuteBatchTaskResponse
+     * @return ExecuteBatchTaskResponse ExecuteBatchTaskResponse
      */
     public function executeBatchTask($request)
     {
@@ -4696,11 +4897,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param ExecutePlatformTaskRequest $request
-     * @param ExecutePlatformTaskHeaders $tmpHeader
-     * @param RuntimeOptions             $runtime
+     * @summary 执行宜搭的审批任务
+     *  *
+     * @param ExecutePlatformTaskRequest $request   ExecutePlatformTaskRequest
+     * @param ExecutePlatformTaskHeaders $tmpHeader ExecutePlatformTaskHeaders
+     * @param RuntimeOptions             $runtime   runtime options for this request RuntimeOptions
      *
-     * @return ExecutePlatformTaskResponse
+     * @return ExecutePlatformTaskResponse ExecutePlatformTaskResponse
      */
     public function executePlatformTaskWithOptions($request, $tmpHeader, $runtime)
     {
@@ -4762,9 +4965,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param ExecutePlatformTaskRequest $request
+     * @summary 执行宜搭的审批任务
+     *  *
+     * @param ExecutePlatformTaskRequest $request ExecutePlatformTaskRequest
      *
-     * @return ExecutePlatformTaskResponse
+     * @return ExecutePlatformTaskResponse ExecutePlatformTaskResponse
      */
     public function executePlatformTask($request)
     {
@@ -4775,11 +4980,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param ExecuteTaskRequest $request
-     * @param ExecuteTaskHeaders $tmpHeader
-     * @param RuntimeOptions     $runtime
+     * @summary 同意或拒绝宜搭审批任务(执行审批任务)
+     *  *
+     * @param ExecuteTaskRequest $request   ExecuteTaskRequest
+     * @param ExecuteTaskHeaders $tmpHeader ExecuteTaskHeaders
+     * @param RuntimeOptions     $runtime   runtime options for this request RuntimeOptions
      *
-     * @return ExecuteTaskResponse
+     * @return ExecuteTaskResponse ExecuteTaskResponse
      */
     public function executeTaskWithOptions($request, $tmpHeader, $runtime)
     {
@@ -4847,9 +5054,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param ExecuteTaskRequest $request
+     * @summary 同意或拒绝宜搭审批任务(执行审批任务)
+     *  *
+     * @param ExecuteTaskRequest $request ExecuteTaskRequest
      *
-     * @return ExecuteTaskResponse
+     * @return ExecuteTaskResponse ExecuteTaskResponse
      */
     public function executeTask($request)
     {
@@ -4860,11 +5069,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param ExpandGroupCapacityRequest $tmpReq
-     * @param ExpandGroupCapacityHeaders $tmpHeader
-     * @param RuntimeOptions             $runtime
+     * @summary 群扩容
+     *  *
+     * @param ExpandGroupCapacityRequest $tmpReq    ExpandGroupCapacityRequest
+     * @param ExpandGroupCapacityHeaders $tmpHeader ExpandGroupCapacityHeaders
+     * @param RuntimeOptions             $runtime   runtime options for this request RuntimeOptions
      *
-     * @return ExpandGroupCapacityResponse
+     * @return ExpandGroupCapacityResponse ExpandGroupCapacityResponse
      */
     public function expandGroupCapacityWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -4913,9 +5124,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param ExpandGroupCapacityRequest $request
+     * @summary 群扩容
+     *  *
+     * @param ExpandGroupCapacityRequest $request ExpandGroupCapacityRequest
      *
-     * @return ExpandGroupCapacityResponse
+     * @return ExpandGroupCapacityResponse ExpandGroupCapacityResponse
      */
     public function expandGroupCapacity($request)
     {
@@ -4926,11 +5139,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetActivityListRequest $request
-     * @param GetActivityListHeaders $tmpHeader
-     * @param RuntimeOptions         $runtime
+     * @summary 获取流程设计的节点信息
+     *  *
+     * @param GetActivityListRequest $request   GetActivityListRequest
+     * @param GetActivityListHeaders $tmpHeader GetActivityListHeaders
+     * @param RuntimeOptions         $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetActivityListResponse
+     * @return GetActivityListResponse GetActivityListResponse
      */
     public function getActivityListWithOptions($request, $tmpHeader, $runtime)
     {
@@ -4980,9 +5195,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetActivityListRequest $request
+     * @summary 获取流程设计的节点信息
+     *  *
+     * @param GetActivityListRequest $request GetActivityListRequest
      *
-     * @return GetActivityListResponse
+     * @return GetActivityListResponse GetActivityListResponse
      */
     public function getActivityList($request)
     {
@@ -4993,11 +5210,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetAllSheetsRequest $tmpReq
-     * @param GetAllSheetsHeaders $tmpHeader
-     * @param RuntimeOptions      $runtime
+     * @summary 获取所有工作表
+     *  *
+     * @param GetAllSheetsRequest $tmpReq    GetAllSheetsRequest
+     * @param GetAllSheetsHeaders $tmpHeader GetAllSheetsHeaders
+     * @param RuntimeOptions      $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetAllSheetsResponse
+     * @return GetAllSheetsResponse GetAllSheetsResponse
      */
     public function getAllSheetsWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -5046,9 +5265,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetAllSheetsRequest $request
+     * @summary 获取所有工作表
+     *  *
+     * @param GetAllSheetsRequest $request GetAllSheetsRequest
      *
-     * @return GetAllSheetsResponse
+     * @return GetAllSheetsResponse GetAllSheetsResponse
      */
     public function getAllSheets($request)
     {
@@ -5059,11 +5280,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetConversaionSpaceRequest $tmpReq
-     * @param GetConversaionSpaceHeaders $tmpHeader
-     * @param RuntimeOptions             $runtime
+     * @summary 获取群存储空间信息
+     *  *
+     * @param GetConversaionSpaceRequest $tmpReq    GetConversaionSpaceRequest
+     * @param GetConversaionSpaceHeaders $tmpHeader GetConversaionSpaceHeaders
+     * @param RuntimeOptions             $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetConversaionSpaceResponse
+     * @return GetConversaionSpaceResponse GetConversaionSpaceResponse
      */
     public function getConversaionSpaceWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -5112,9 +5335,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetConversaionSpaceRequest $request
+     * @summary 获取群存储空间信息
+     *  *
+     * @param GetConversaionSpaceRequest $request GetConversaionSpaceRequest
      *
-     * @return GetConversaionSpaceResponse
+     * @return GetConversaionSpaceResponse GetConversaionSpaceResponse
      */
     public function getConversaionSpace($request)
     {
@@ -5125,11 +5350,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetCorpAccomplishmentTasksRequest $request
-     * @param GetCorpAccomplishmentTasksHeaders $tmpHeader
-     * @param RuntimeOptions                    $runtime
+     * @summary 获取组织内已完成的审批任务
+     *  *
+     * @param GetCorpAccomplishmentTasksRequest $request   GetCorpAccomplishmentTasksRequest
+     * @param GetCorpAccomplishmentTasksHeaders $tmpHeader GetCorpAccomplishmentTasksHeaders
+     * @param RuntimeOptions                    $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetCorpAccomplishmentTasksResponse
+     * @return GetCorpAccomplishmentTasksResponse GetCorpAccomplishmentTasksResponse
      */
     public function getCorpAccomplishmentTasksWithOptions($request, $tmpHeader, $runtime)
     {
@@ -5197,9 +5424,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetCorpAccomplishmentTasksRequest $request
+     * @summary 获取组织内已完成的审批任务
+     *  *
+     * @param GetCorpAccomplishmentTasksRequest $request GetCorpAccomplishmentTasksRequest
      *
-     * @return GetCorpAccomplishmentTasksResponse
+     * @return GetCorpAccomplishmentTasksResponse GetCorpAccomplishmentTasksResponse
      */
     public function getCorpAccomplishmentTasks($request)
     {
@@ -5210,11 +5439,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetCorpTasksRequest $request
-     * @param GetCorpTasksHeaders $tmpHeader
-     * @param RuntimeOptions      $runtime
+     * @summary 获取任务列表（组织维度）
+     *  *
+     * @param GetCorpTasksRequest $request   GetCorpTasksRequest
+     * @param GetCorpTasksHeaders $tmpHeader GetCorpTasksHeaders
+     * @param RuntimeOptions      $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetCorpTasksResponse
+     * @return GetCorpTasksResponse GetCorpTasksResponse
      */
     public function getCorpTasksWithOptions($request, $tmpHeader, $runtime)
     {
@@ -5282,9 +5513,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetCorpTasksRequest $request
+     * @summary 获取任务列表（组织维度）
+     *  *
+     * @param GetCorpTasksRequest $request GetCorpTasksRequest
      *
-     * @return GetCorpTasksResponse
+     * @return GetCorpTasksResponse GetCorpTasksResponse
      */
     public function getCorpTasks($request)
     {
@@ -5295,11 +5528,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetDocContentRequest $tmpReq
-     * @param GetDocContentHeaders $tmpHeader
-     * @param RuntimeOptions       $runtime
+     * @summary 委托权限获取文档内容
+     *  *
+     * @param GetDocContentRequest $tmpReq    GetDocContentRequest
+     * @param GetDocContentHeaders $tmpHeader GetDocContentHeaders
+     * @param RuntimeOptions       $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetDocContentResponse
+     * @return GetDocContentResponse GetDocContentResponse
      */
     public function getDocContentWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -5354,9 +5589,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetDocContentRequest $request
+     * @summary 委托权限获取文档内容
+     *  *
+     * @param GetDocContentRequest $request GetDocContentRequest
      *
-     * @return GetDocContentResponse
+     * @return GetDocContentResponse GetDocContentResponse
      */
     public function getDocContent($request)
     {
@@ -5367,11 +5604,86 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetEventRequest $request
-     * @param GetEventHeaders $tmpHeader
-     * @param RuntimeOptions  $runtime
+     * @summary 委托权限获取文档内容taskId
+     *  *
+     * @param GetDocContentTakIdRequest $tmpReq    GetDocContentTakIdRequest
+     * @param GetDocContentTakIdHeaders $tmpHeader GetDocContentTakIdHeaders
+     * @param RuntimeOptions            $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetEventResponse
+     * @return GetDocContentTakIdResponse GetDocContentTakIdResponse
+     */
+    public function getDocContentTakIdWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetDocContentTakIdShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new GetDocContentTakIdShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->dentryUuid)) {
+            $body['DentryUuid'] = $request->dentryUuid;
+        }
+        if (!Utils::isUnset($request->targetFormat)) {
+            $body['TargetFormat'] = $request->targetFormat;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDocContentTakId',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v2/documents/getDocContentTakId',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDocContentTakIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 委托权限获取文档内容taskId
+     *  *
+     * @param GetDocContentTakIdRequest $request GetDocContentTakIdRequest
+     *
+     * @return GetDocContentTakIdResponse GetDocContentTakIdResponse
+     */
+    public function getDocContentTakId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetDocContentTakIdHeaders([]);
+
+        return $this->getDocContentTakIdWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 查询单个日程详情
+     *  *
+     * @param GetEventRequest $request   GetEventRequest
+     * @param GetEventHeaders $tmpHeader GetEventHeaders
+     * @param RuntimeOptions  $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return GetEventResponse GetEventResponse
      */
     public function getEventWithOptions($request, $tmpHeader, $runtime)
     {
@@ -5420,9 +5732,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetEventRequest $request
+     * @summary 查询单个日程详情
+     *  *
+     * @param GetEventRequest $request GetEventRequest
      *
-     * @return GetEventResponse
+     * @return GetEventResponse GetEventResponse
      */
     public function getEvent($request)
     {
@@ -5433,11 +5747,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetFieldDefByUuidRequest $request
-     * @param GetFieldDefByUuidHeaders $tmpHeader
-     * @param RuntimeOptions           $runtime
+     * @summary 获取表单内的组件信息
+     *  *
+     * @param GetFieldDefByUuidRequest $request   GetFieldDefByUuidRequest
+     * @param GetFieldDefByUuidHeaders $tmpHeader GetFieldDefByUuidHeaders
+     * @param RuntimeOptions           $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetFieldDefByUuidResponse
+     * @return GetFieldDefByUuidResponse GetFieldDefByUuidResponse
      */
     public function getFieldDefByUuidWithOptions($request, $tmpHeader, $runtime)
     {
@@ -5484,9 +5800,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetFieldDefByUuidRequest $request
+     * @summary 获取表单内的组件信息
+     *  *
+     * @param GetFieldDefByUuidRequest $request GetFieldDefByUuidRequest
      *
-     * @return GetFieldDefByUuidResponse
+     * @return GetFieldDefByUuidResponse GetFieldDefByUuidResponse
      */
     public function getFieldDefByUuid($request)
     {
@@ -5497,11 +5815,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetFileDownloadInfoRequest $tmpReq
-     * @param GetFileDownloadInfoHeaders $tmpHeader
-     * @param RuntimeOptions             $runtime
+     * @summary 获取文件下载信息
+     *  *
+     * @param GetFileDownloadInfoRequest $tmpReq    GetFileDownloadInfoRequest
+     * @param GetFileDownloadInfoHeaders $tmpHeader GetFileDownloadInfoHeaders
+     * @param RuntimeOptions             $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetFileDownloadInfoResponse
+     * @return GetFileDownloadInfoResponse GetFileDownloadInfoResponse
      */
     public function getFileDownloadInfoWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -5559,9 +5879,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetFileDownloadInfoRequest $request
+     * @summary 获取文件下载信息
+     *  *
+     * @param GetFileDownloadInfoRequest $request GetFileDownloadInfoRequest
      *
-     * @return GetFileDownloadInfoResponse
+     * @return GetFileDownloadInfoResponse GetFileDownloadInfoResponse
      */
     public function getFileDownloadInfo($request)
     {
@@ -5572,11 +5894,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetFormComponentDefinitionListRequest $request
-     * @param GetFormComponentDefinitionListHeaders $tmpHeader
-     * @param RuntimeOptions                        $runtime
+     * @summary 获取表单组件定义列表
+     *  *
+     * @param GetFormComponentDefinitionListRequest $request   GetFormComponentDefinitionListRequest
+     * @param GetFormComponentDefinitionListHeaders $tmpHeader GetFormComponentDefinitionListHeaders
+     * @param RuntimeOptions                        $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetFormComponentDefinitionListResponse
+     * @return GetFormComponentDefinitionListResponse GetFormComponentDefinitionListResponse
      */
     public function getFormComponentDefinitionListWithOptions($request, $tmpHeader, $runtime)
     {
@@ -5626,9 +5950,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetFormComponentDefinitionListRequest $request
+     * @summary 获取表单组件定义列表
+     *  *
+     * @param GetFormComponentDefinitionListRequest $request GetFormComponentDefinitionListRequest
      *
-     * @return GetFormComponentDefinitionListResponse
+     * @return GetFormComponentDefinitionListResponse GetFormComponentDefinitionListResponse
      */
     public function getFormComponentDefinitionList($request)
     {
@@ -5639,11 +5965,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetFormDataByIDRequest $request
-     * @param GetFormDataByIDHeaders $tmpHeader
-     * @param RuntimeOptions         $runtime
+     * @summary 查询表单数据
+     *  *
+     * @param GetFormDataByIDRequest $request   GetFormDataByIDRequest
+     * @param GetFormDataByIDHeaders $tmpHeader GetFormDataByIDHeaders
+     * @param RuntimeOptions         $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetFormDataByIDResponse
+     * @return GetFormDataByIDResponse GetFormDataByIDResponse
      */
     public function getFormDataByIDWithOptions($request, $tmpHeader, $runtime)
     {
@@ -5693,9 +6021,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetFormDataByIDRequest $request
+     * @summary 查询表单数据
+     *  *
+     * @param GetFormDataByIDRequest $request GetFormDataByIDRequest
      *
-     * @return GetFormDataByIDResponse
+     * @return GetFormDataByIDResponse GetFormDataByIDResponse
      */
     public function getFormDataByID($request)
     {
@@ -5706,11 +6036,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetFormListInAppRequest $request
-     * @param GetFormListInAppHeaders $tmpHeader
-     * @param RuntimeOptions          $runtime
+     * @summary 获取指定应用下的表单列表
+     *  *
+     * @param GetFormListInAppRequest $request   GetFormListInAppRequest
+     * @param GetFormListInAppHeaders $tmpHeader GetFormListInAppHeaders
+     * @param RuntimeOptions          $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetFormListInAppResponse
+     * @return GetFormListInAppResponse GetFormListInAppResponse
      */
     public function getFormListInAppWithOptions($request, $tmpHeader, $runtime)
     {
@@ -5763,9 +6095,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetFormListInAppRequest $request
+     * @summary 获取指定应用下的表单列表
+     *  *
+     * @param GetFormListInAppRequest $request GetFormListInAppRequest
      *
-     * @return GetFormListInAppResponse
+     * @return GetFormListInAppResponse GetFormListInAppResponse
      */
     public function getFormListInApp($request)
     {
@@ -5776,11 +6110,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetInnerGroupMembersRequest $request
-     * @param GetInnerGroupMembersHeaders $tmpHeader
-     * @param RuntimeOptions              $runtime
+     * @summary 查询企业内部群成员
+     *  *
+     * @param GetInnerGroupMembersRequest $request   GetInnerGroupMembersRequest
+     * @param GetInnerGroupMembersHeaders $tmpHeader GetInnerGroupMembersHeaders
+     * @param RuntimeOptions              $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetInnerGroupMembersResponse
+     * @return GetInnerGroupMembersResponse GetInnerGroupMembersResponse
      */
     public function getInnerGroupMembersWithOptions($request, $tmpHeader, $runtime)
     {
@@ -5827,9 +6163,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetInnerGroupMembersRequest $request
+     * @summary 查询企业内部群成员
+     *  *
+     * @param GetInnerGroupMembersRequest $request GetInnerGroupMembersRequest
      *
-     * @return GetInnerGroupMembersResponse
+     * @return GetInnerGroupMembersResponse GetInnerGroupMembersResponse
      */
     public function getInnerGroupMembers($request)
     {
@@ -5840,11 +6178,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetInstanceByIdRequest $request
-     * @param GetInstanceByIdHeaders $tmpHeader
-     * @param RuntimeOptions         $runtime
+     * @summary 根据流程实例ID获取流程实例
+     *  *
+     * @param GetInstanceByIdRequest $request   GetInstanceByIdRequest
+     * @param GetInstanceByIdHeaders $tmpHeader GetInstanceByIdHeaders
+     * @param RuntimeOptions         $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetInstanceByIdResponse
+     * @return GetInstanceByIdResponse GetInstanceByIdResponse
      */
     public function getInstanceByIdWithOptions($request, $tmpHeader, $runtime)
     {
@@ -5894,9 +6234,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetInstanceByIdRequest $request
+     * @summary 根据流程实例ID获取流程实例
+     *  *
+     * @param GetInstanceByIdRequest $request GetInstanceByIdRequest
      *
-     * @return GetInstanceByIdResponse
+     * @return GetInstanceByIdResponse GetInstanceByIdResponse
      */
     public function getInstanceById($request)
     {
@@ -5907,11 +6249,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetInstanceIdListRequest $request
-     * @param GetInstanceIdListHeaders $tmpHeader
-     * @param RuntimeOptions           $runtime
+     * @summary 获取实例ID列表
+     *  *
+     * @param GetInstanceIdListRequest $request   GetInstanceIdListRequest
+     * @param GetInstanceIdListHeaders $tmpHeader GetInstanceIdListHeaders
+     * @param RuntimeOptions           $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetInstanceIdListResponse
+     * @return GetInstanceIdListResponse GetInstanceIdListResponse
      */
     public function getInstanceIdListWithOptions($request, $tmpHeader, $runtime)
     {
@@ -5994,9 +6338,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetInstanceIdListRequest $request
+     * @summary 获取实例ID列表
+     *  *
+     * @param GetInstanceIdListRequest $request GetInstanceIdListRequest
      *
-     * @return GetInstanceIdListResponse
+     * @return GetInstanceIdListResponse GetInstanceIdListResponse
      */
     public function getInstanceIdList($request)
     {
@@ -6007,11 +6353,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetInstancesRequest $request
-     * @param GetInstancesHeaders $tmpHeader
-     * @param RuntimeOptions      $runtime
+     * @summary 获取流程实例
+     *  *
+     * @param GetInstancesRequest $request   GetInstancesRequest
+     * @param GetInstancesHeaders $tmpHeader GetInstancesHeaders
+     * @param RuntimeOptions      $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetInstancesResponse
+     * @return GetInstancesResponse GetInstancesResponse
      */
     public function getInstancesWithOptions($request, $tmpHeader, $runtime)
     {
@@ -6097,9 +6445,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetInstancesRequest $request
+     * @summary 获取流程实例
+     *  *
+     * @param GetInstancesRequest $request GetInstancesRequest
      *
-     * @return GetInstancesResponse
+     * @return GetInstancesResponse GetInstancesResponse
      */
     public function getInstances($request)
     {
@@ -6110,11 +6460,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetInstancesByIdListRequest $request
-     * @param GetInstancesByIdListHeaders $tmpHeader
-     * @param RuntimeOptions              $runtime
+     * @summary 根据实例 ID 列表批量获取流程实例详情(批量获取流程实例列表)
+     *  *
+     * @param GetInstancesByIdListRequest $request   GetInstancesByIdListRequest
+     * @param GetInstancesByIdListHeaders $tmpHeader GetInstancesByIdListHeaders
+     * @param RuntimeOptions              $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetInstancesByIdListResponse
+     * @return GetInstancesByIdListResponse GetInstancesByIdListResponse
      */
     public function getInstancesByIdListWithOptions($request, $tmpHeader, $runtime)
     {
@@ -6164,9 +6516,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetInstancesByIdListRequest $request
+     * @summary 根据实例 ID 列表批量获取流程实例详情(批量获取流程实例列表)
+     *  *
+     * @param GetInstancesByIdListRequest $request GetInstancesByIdListRequest
      *
-     * @return GetInstancesByIdListResponse
+     * @return GetInstancesByIdListResponse GetInstancesByIdListResponse
      */
     public function getInstancesByIdList($request)
     {
@@ -6177,11 +6531,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetLiveReplayUrlRequest $tmpReq
-     * @param GetLiveReplayUrlHeaders $tmpHeader
-     * @param RuntimeOptions          $runtime
+     * @summary 获取直播的可下载回放地址
+     *  *
+     * @param GetLiveReplayUrlRequest $tmpReq    GetLiveReplayUrlRequest
+     * @param GetLiveReplayUrlHeaders $tmpHeader GetLiveReplayUrlHeaders
+     * @param RuntimeOptions          $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetLiveReplayUrlResponse
+     * @return GetLiveReplayUrlResponse GetLiveReplayUrlResponse
      */
     public function getLiveReplayUrlWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -6230,9 +6586,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetLiveReplayUrlRequest $request
+     * @summary 获取直播的可下载回放地址
+     *  *
+     * @param GetLiveReplayUrlRequest $request GetLiveReplayUrlRequest
      *
-     * @return GetLiveReplayUrlResponse
+     * @return GetLiveReplayUrlResponse GetLiveReplayUrlResponse
      */
     public function getLiveReplayUrl($request)
     {
@@ -6243,11 +6601,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetMeCorpSubmissionRequest $request
-     * @param GetMeCorpSubmissionHeaders $tmpHeader
-     * @param RuntimeOptions             $runtime
+     * @summary 获取组织内某人提交的任务
+     *  *
+     * @param GetMeCorpSubmissionRequest $request   GetMeCorpSubmissionRequest
+     * @param GetMeCorpSubmissionHeaders $tmpHeader GetMeCorpSubmissionHeaders
+     * @param RuntimeOptions             $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetMeCorpSubmissionResponse
+     * @return GetMeCorpSubmissionResponse GetMeCorpSubmissionResponse
      */
     public function getMeCorpSubmissionWithOptions($request, $tmpHeader, $runtime)
     {
@@ -6315,9 +6675,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetMeCorpSubmissionRequest $request
+     * @summary 获取组织内某人提交的任务
+     *  *
+     * @param GetMeCorpSubmissionRequest $request GetMeCorpSubmissionRequest
      *
-     * @return GetMeCorpSubmissionResponse
+     * @return GetMeCorpSubmissionResponse GetMeCorpSubmissionResponse
      */
     public function getMeCorpSubmission($request)
     {
@@ -6328,11 +6690,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetMeetingRoomsScheduleRequest $tmpReq
-     * @param GetMeetingRoomsScheduleHeaders $tmpHeader
-     * @param RuntimeOptions                 $runtime
+     * @summary 获取会议室忙闲信息
+     *  *
+     * @param GetMeetingRoomsScheduleRequest $tmpReq    GetMeetingRoomsScheduleRequest
+     * @param GetMeetingRoomsScheduleHeaders $tmpHeader GetMeetingRoomsScheduleHeaders
+     * @param RuntimeOptions                 $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetMeetingRoomsScheduleResponse
+     * @return GetMeetingRoomsScheduleResponse GetMeetingRoomsScheduleResponse
      */
     public function getMeetingRoomsScheduleWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -6384,9 +6748,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetMeetingRoomsScheduleRequest $request
+     * @summary 获取会议室忙闲信息
+     *  *
+     * @param GetMeetingRoomsScheduleRequest $request GetMeetingRoomsScheduleRequest
      *
-     * @return GetMeetingRoomsScheduleResponse
+     * @return GetMeetingRoomsScheduleResponse GetMeetingRoomsScheduleResponse
      */
     public function getMeetingRoomsSchedule($request)
     {
@@ -6397,11 +6763,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetMineWorkspaceRequest $tmpReq
-     * @param GetMineWorkspaceHeaders $tmpHeader
-     * @param RuntimeOptions          $runtime
+     * @summary 获取我的文档知识库信息
+     *  *
+     * @param GetMineWorkspaceRequest $tmpReq    GetMineWorkspaceRequest
+     * @param GetMineWorkspaceHeaders $tmpHeader GetMineWorkspaceHeaders
+     * @param RuntimeOptions          $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetMineWorkspaceResponse
+     * @return GetMineWorkspaceResponse GetMineWorkspaceResponse
      */
     public function getMineWorkspaceWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -6453,9 +6821,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetMineWorkspaceRequest $request
+     * @summary 获取我的文档知识库信息
+     *  *
+     * @param GetMineWorkspaceRequest $request GetMineWorkspaceRequest
      *
-     * @return GetMineWorkspaceResponse
+     * @return GetMineWorkspaceResponse GetMineWorkspaceResponse
      */
     public function getMineWorkspace($request)
     {
@@ -6466,11 +6836,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetNewestInnerGroupsRequest $tmpReq
-     * @param GetNewestInnerGroupsHeaders $tmpHeader
-     * @param RuntimeOptions              $runtime
+     * @summary 查询最近活跃的企业内部群列表
+     *  *
+     * @param GetNewestInnerGroupsRequest $tmpReq    GetNewestInnerGroupsRequest
+     * @param GetNewestInnerGroupsHeaders $tmpHeader GetNewestInnerGroupsHeaders
+     * @param RuntimeOptions              $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetNewestInnerGroupsResponse
+     * @return GetNewestInnerGroupsResponse GetNewestInnerGroupsResponse
      */
     public function getNewestInnerGroupsWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -6516,9 +6888,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetNewestInnerGroupsRequest $request
+     * @summary 查询最近活跃的企业内部群列表
+     *  *
+     * @param GetNewestInnerGroupsRequest $request GetNewestInnerGroupsRequest
      *
-     * @return GetNewestInnerGroupsResponse
+     * @return GetNewestInnerGroupsResponse GetNewestInnerGroupsResponse
      */
     public function getNewestInnerGroups($request)
     {
@@ -6529,11 +6903,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetNodeRequest $tmpReq
-     * @param GetNodeHeaders $tmpHeader
-     * @param RuntimeOptions $runtime
+     * @summary 获取节点
+     *  *
+     * @param GetNodeRequest $tmpReq    GetNodeRequest
+     * @param GetNodeHeaders $tmpHeader GetNodeHeaders
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetNodeResponse
+     * @return GetNodeResponse GetNodeResponse
      */
     public function getNodeWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -6588,9 +6964,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetNodeRequest $request
+     * @summary 获取节点
+     *  *
+     * @param GetNodeRequest $request GetNodeRequest
      *
-     * @return GetNodeResponse
+     * @return GetNodeResponse GetNodeResponse
      */
     public function getNode($request)
     {
@@ -6601,11 +6979,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetNodeByUrlRequest $tmpReq
-     * @param GetNodeByUrlHeaders $tmpHeader
-     * @param RuntimeOptions      $runtime
+     * @summary 通过链接获取节点
+     *  *
+     * @param GetNodeByUrlRequest $tmpReq    GetNodeByUrlRequest
+     * @param GetNodeByUrlHeaders $tmpHeader GetNodeByUrlHeaders
+     * @param RuntimeOptions      $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetNodeByUrlResponse
+     * @return GetNodeByUrlResponse GetNodeByUrlResponse
      */
     public function getNodeByUrlWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -6660,9 +7040,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetNodeByUrlRequest $request
+     * @summary 通过链接获取节点
+     *  *
+     * @param GetNodeByUrlRequest $request GetNodeByUrlRequest
      *
-     * @return GetNodeByUrlResponse
+     * @return GetNodeByUrlResponse GetNodeByUrlResponse
      */
     public function getNodeByUrl($request)
     {
@@ -6673,11 +7055,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetNodesRequest $tmpReq
-     * @param GetNodesHeaders $tmpHeader
-     * @param RuntimeOptions  $runtime
+     * @summary 批量获取节点
+     *  *
+     * @param GetNodesRequest $tmpReq    GetNodesRequest
+     * @param GetNodesHeaders $tmpHeader GetNodesHeaders
+     * @param RuntimeOptions  $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetNodesResponse
+     * @return GetNodesResponse GetNodesResponse
      */
     public function getNodesWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -6735,9 +7119,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetNodesRequest $request
+     * @summary 批量获取节点
+     *  *
+     * @param GetNodesRequest $request GetNodesRequest
      *
-     * @return GetNodesResponse
+     * @return GetNodesResponse GetNodesResponse
      */
     public function getNodes($request)
     {
@@ -6748,11 +7134,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetNotifyMeRequest $request
-     * @param GetNotifyMeHeaders $tmpHeader
-     * @param RuntimeOptions     $runtime
+     * @summary 获取发送给用户的通知
+     *  *
+     * @param GetNotifyMeRequest $request   GetNotifyMeRequest
+     * @param GetNotifyMeHeaders $tmpHeader GetNotifyMeHeaders
+     * @param RuntimeOptions     $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetNotifyMeResponse
+     * @return GetNotifyMeResponse GetNotifyMeResponse
      */
     public function getNotifyMeWithOptions($request, $tmpHeader, $runtime)
     {
@@ -6826,9 +7214,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetNotifyMeRequest $request
+     * @summary 获取发送给用户的通知
+     *  *
+     * @param GetNotifyMeRequest $request GetNotifyMeRequest
      *
-     * @return GetNotifyMeResponse
+     * @return GetNotifyMeResponse GetNotifyMeResponse
      */
     public function getNotifyMe($request)
     {
@@ -6839,11 +7229,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetOpenUrlRequest $request
-     * @param GetOpenUrlHeaders $tmpHeader
-     * @param RuntimeOptions    $runtime
+     * @summary 获取宜搭附件临时免登地址
+     *  *
+     * @param GetOpenUrlRequest $request   GetOpenUrlRequest
+     * @param GetOpenUrlHeaders $tmpHeader GetOpenUrlHeaders
+     * @param RuntimeOptions    $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetOpenUrlResponse
+     * @return GetOpenUrlResponse GetOpenUrlResponse
      */
     public function getOpenUrlWithOptions($request, $tmpHeader, $runtime)
     {
@@ -6896,9 +7288,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetOpenUrlRequest $request
+     * @summary 获取宜搭附件临时免登地址
+     *  *
+     * @param GetOpenUrlRequest $request GetOpenUrlRequest
      *
-     * @return GetOpenUrlResponse
+     * @return GetOpenUrlResponse GetOpenUrlResponse
      */
     public function getOpenUrl($request)
     {
@@ -6909,11 +7303,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetOperationRecordsRequest $request
-     * @param GetOperationRecordsHeaders $tmpHeader
-     * @param RuntimeOptions             $runtime
+     * @summary 获取审批记录
+     *  *
+     * @param GetOperationRecordsRequest $request   GetOperationRecordsRequest
+     * @param GetOperationRecordsHeaders $tmpHeader GetOperationRecordsHeaders
+     * @param RuntimeOptions             $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetOperationRecordsResponse
+     * @return GetOperationRecordsResponse GetOperationRecordsResponse
      */
     public function getOperationRecordsWithOptions($request, $tmpHeader, $runtime)
     {
@@ -6963,9 +7359,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetOperationRecordsRequest $request
+     * @summary 获取审批记录
+     *  *
+     * @param GetOperationRecordsRequest $request GetOperationRecordsRequest
      *
-     * @return GetOperationRecordsResponse
+     * @return GetOperationRecordsResponse GetOperationRecordsResponse
      */
     public function getOperationRecords($request)
     {
@@ -6976,11 +7374,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetProcessDefinitionRequest $request
-     * @param GetProcessDefinitionHeaders $tmpHeader
-     * @param RuntimeOptions              $runtime
+     * @summary 获取流程定义
+     *  *
+     * @param GetProcessDefinitionRequest $request   GetProcessDefinitionRequest
+     * @param GetProcessDefinitionHeaders $tmpHeader GetProcessDefinitionHeaders
+     * @param RuntimeOptions              $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetProcessDefinitionResponse
+     * @return GetProcessDefinitionResponse GetProcessDefinitionResponse
      */
     public function getProcessDefinitionWithOptions($request, $tmpHeader, $runtime)
     {
@@ -7045,9 +7445,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetProcessDefinitionRequest $request
+     * @summary 获取流程定义
+     *  *
+     * @param GetProcessDefinitionRequest $request GetProcessDefinitionRequest
      *
-     * @return GetProcessDefinitionResponse
+     * @return GetProcessDefinitionResponse GetProcessDefinitionResponse
      */
     public function getProcessDefinition($request)
     {
@@ -7058,11 +7460,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetRangeRequest $tmpReq
-     * @param GetRangeHeaders $tmpHeader
-     * @param RuntimeOptions  $runtime
+     * @summary 获取单元格区域
+     *  *
+     * @param GetRangeRequest $tmpReq    GetRangeRequest
+     * @param GetRangeHeaders $tmpHeader GetRangeHeaders
+     * @param RuntimeOptions  $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetRangeResponse
+     * @return GetRangeResponse GetRangeResponse
      */
     public function getRangeWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -7120,9 +7524,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetRangeRequest $request
+     * @summary 获取单元格区域
+     *  *
+     * @param GetRangeRequest $request GetRangeRequest
      *
-     * @return GetRangeResponse
+     * @return GetRangeResponse GetRangeResponse
      */
     public function getRange($request)
     {
@@ -7133,11 +7539,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetRelatedWorkspacesRequest $tmpReq
-     * @param GetRelatedWorkspacesHeaders $tmpHeader
-     * @param RuntimeOptions              $runtime
+     * @summary 查询用户有权限的知识库列表(旧)
+     *  *
+     * @param GetRelatedWorkspacesRequest $tmpReq    GetRelatedWorkspacesRequest
+     * @param GetRelatedWorkspacesHeaders $tmpHeader GetRelatedWorkspacesHeaders
+     * @param RuntimeOptions              $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetRelatedWorkspacesResponse
+     * @return GetRelatedWorkspacesResponse GetRelatedWorkspacesResponse
      */
     public function getRelatedWorkspacesWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -7186,9 +7594,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetRelatedWorkspacesRequest $request
+     * @summary 查询用户有权限的知识库列表(旧)
+     *  *
+     * @param GetRelatedWorkspacesRequest $request GetRelatedWorkspacesRequest
      *
-     * @return GetRelatedWorkspacesResponse
+     * @return GetRelatedWorkspacesResponse GetRelatedWorkspacesResponse
      */
     public function getRelatedWorkspaces($request)
     {
@@ -7199,11 +7609,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetReportTemplateByNameRequest $tmpReq
-     * @param GetReportTemplateByNameHeaders $tmpHeader
-     * @param RuntimeOptions                 $runtime
+     * @summary 获取模板详情
+     *  *
+     * @param GetReportTemplateByNameRequest $tmpReq    GetReportTemplateByNameRequest
+     * @param GetReportTemplateByNameHeaders $tmpHeader GetReportTemplateByNameHeaders
+     * @param RuntimeOptions                 $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetReportTemplateByNameResponse
+     * @return GetReportTemplateByNameResponse GetReportTemplateByNameResponse
      */
     public function getReportTemplateByNameWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -7252,9 +7664,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetReportTemplateByNameRequest $request
+     * @summary 获取模板详情
+     *  *
+     * @param GetReportTemplateByNameRequest $request GetReportTemplateByNameRequest
      *
-     * @return GetReportTemplateByNameResponse
+     * @return GetReportTemplateByNameResponse GetReportTemplateByNameResponse
      */
     public function getReportTemplateByName($request)
     {
@@ -7265,11 +7679,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetReportUnReadCountRequest $tmpReq
-     * @param GetReportUnReadCountHeaders $tmpHeader
-     * @param RuntimeOptions              $runtime
+     * @summary 获取员工有多少数量的日志（一个月内）是未读状态
+     *  *
+     * @param GetReportUnReadCountRequest $tmpReq    GetReportUnReadCountRequest
+     * @param GetReportUnReadCountHeaders $tmpHeader GetReportUnReadCountHeaders
+     * @param RuntimeOptions              $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetReportUnReadCountResponse
+     * @return GetReportUnReadCountResponse GetReportUnReadCountResponse
      */
     public function getReportUnReadCountWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -7321,9 +7737,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetReportUnReadCountRequest $request
+     * @summary 获取员工有多少数量的日志（一个月内）是未读状态
+     *  *
+     * @param GetReportUnReadCountRequest $request GetReportUnReadCountRequest
      *
-     * @return GetReportUnReadCountResponse
+     * @return GetReportUnReadCountResponse GetReportUnReadCountResponse
      */
     public function getReportUnReadCount($request)
     {
@@ -7334,11 +7752,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetRunningTasksRequest $request
-     * @param GetRunningTasksHeaders $tmpHeader
-     * @param RuntimeOptions         $runtime
+     * @summary 查询流程运行任务（VPC）
+     *  *
+     * @param GetRunningTasksRequest $request   GetRunningTasksRequest
+     * @param GetRunningTasksHeaders $tmpHeader GetRunningTasksHeaders
+     * @param RuntimeOptions         $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetRunningTasksResponse
+     * @return GetRunningTasksResponse GetRunningTasksResponse
      */
     public function getRunningTasksWithOptions($request, $tmpHeader, $runtime)
     {
@@ -7391,9 +7811,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetRunningTasksRequest $request
+     * @summary 查询流程运行任务（VPC）
+     *  *
+     * @param GetRunningTasksRequest $request GetRunningTasksRequest
      *
-     * @return GetRunningTasksResponse
+     * @return GetRunningTasksResponse GetRunningTasksResponse
      */
     public function getRunningTasks($request)
     {
@@ -7404,11 +7826,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetSheetRequest $tmpReq
-     * @param GetSheetHeaders $tmpHeader
-     * @param RuntimeOptions  $runtime
+     * @summary 获取工作表
+     *  *
+     * @param GetSheetRequest $tmpReq    GetSheetRequest
+     * @param GetSheetHeaders $tmpHeader GetSheetHeaders
+     * @param RuntimeOptions  $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetSheetResponse
+     * @return GetSheetResponse GetSheetResponse
      */
     public function getSheetWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -7460,9 +7884,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetSheetRequest $request
+     * @summary 获取工作表
+     *  *
+     * @param GetSheetRequest $request GetSheetRequest
      *
-     * @return GetSheetResponse
+     * @return GetSheetResponse GetSheetResponse
      */
     public function getSheet($request)
     {
@@ -7473,11 +7899,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetSpaceDirectoriesRequest $tmpReq
-     * @param GetSpaceDirectoriesHeaders $tmpHeader
-     * @param RuntimeOptions             $runtime
+     * @summary 查询知识库下的目录结构
+     *  *
+     * @param GetSpaceDirectoriesRequest $tmpReq    GetSpaceDirectoriesRequest
+     * @param GetSpaceDirectoriesHeaders $tmpHeader GetSpaceDirectoriesHeaders
+     * @param RuntimeOptions             $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetSpaceDirectoriesResponse
+     * @return GetSpaceDirectoriesResponse GetSpaceDirectoriesResponse
      */
     public function getSpaceDirectoriesWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -7535,9 +7963,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetSpaceDirectoriesRequest $request
+     * @summary 查询知识库下的目录结构
+     *  *
+     * @param GetSpaceDirectoriesRequest $request GetSpaceDirectoriesRequest
      *
-     * @return GetSpaceDirectoriesResponse
+     * @return GetSpaceDirectoriesResponse GetSpaceDirectoriesResponse
      */
     public function getSpaceDirectories($request)
     {
@@ -7548,11 +7978,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetSubscribedCalendarRequest $request
-     * @param GetSubscribedCalendarHeaders $tmpHeader
-     * @param RuntimeOptions               $runtime
+     * @summary 查询单个订阅日历详情
+     *  *
+     * @param GetSubscribedCalendarRequest $request   GetSubscribedCalendarRequest
+     * @param GetSubscribedCalendarHeaders $tmpHeader GetSubscribedCalendarHeaders
+     * @param RuntimeOptions               $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetSubscribedCalendarResponse
+     * @return GetSubscribedCalendarResponse GetSubscribedCalendarResponse
      */
     public function getSubscribedCalendarWithOptions($request, $tmpHeader, $runtime)
     {
@@ -7593,9 +8025,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetSubscribedCalendarRequest $request
+     * @summary 查询单个订阅日历详情
+     *  *
+     * @param GetSubscribedCalendarRequest $request GetSubscribedCalendarRequest
      *
-     * @return GetSubscribedCalendarResponse
+     * @return GetSubscribedCalendarResponse GetSubscribedCalendarResponse
      */
     public function getSubscribedCalendar($request)
     {
@@ -7606,11 +8040,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetTaskCopiesRequest $request
-     * @param GetTaskCopiesHeaders $tmpHeader
-     * @param RuntimeOptions       $runtime
+     * @summary 查询抄送我的任务列表（应用维度）
+     *  *
+     * @param GetTaskCopiesRequest $request   GetTaskCopiesRequest
+     * @param GetTaskCopiesHeaders $tmpHeader GetTaskCopiesHeaders
+     * @param RuntimeOptions       $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetTaskCopiesResponse
+     * @return GetTaskCopiesResponse GetTaskCopiesResponse
      */
     public function getTaskCopiesWithOptions($request, $tmpHeader, $runtime)
     {
@@ -7675,9 +8111,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetTaskCopiesRequest $request
+     * @summary 查询抄送我的任务列表（应用维度）
+     *  *
+     * @param GetTaskCopiesRequest $request GetTaskCopiesRequest
      *
-     * @return GetTaskCopiesResponse
+     * @return GetTaskCopiesResponse GetTaskCopiesResponse
      */
     public function getTaskCopies($request)
     {
@@ -7688,11 +8126,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetTemplateListByUserIdRequest $tmpReq
-     * @param GetTemplateListByUserIdHeaders $tmpHeader
-     * @param RuntimeOptions                 $runtime
+     * @summary 获取用户可见的日志模板
+     *  *
+     * @param GetTemplateListByUserIdRequest $tmpReq    GetTemplateListByUserIdRequest
+     * @param GetTemplateListByUserIdHeaders $tmpHeader GetTemplateListByUserIdHeaders
+     * @param RuntimeOptions                 $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetTemplateListByUserIdResponse
+     * @return GetTemplateListByUserIdResponse GetTemplateListByUserIdResponse
      */
     public function getTemplateListByUserIdWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -7744,9 +8184,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetTemplateListByUserIdRequest $request
+     * @summary 获取用户可见的日志模板
+     *  *
+     * @param GetTemplateListByUserIdRequest $request GetTemplateListByUserIdRequest
      *
-     * @return GetTemplateListByUserIdResponse
+     * @return GetTemplateListByUserIdResponse GetTemplateListByUserIdResponse
      */
     public function getTemplateListByUserId($request)
     {
@@ -7757,11 +8199,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetUserRequest $tmpReq
-     * @param GetUserHeaders $tmpHeader
-     * @param RuntimeOptions $runtime
+     * @summary 获取专属账号信息
+     *  *
+     * @param GetUserRequest $tmpReq    GetUserRequest
+     * @param GetUserHeaders $tmpHeader GetUserHeaders
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetUserResponse
+     * @return GetUserResponse GetUserResponse
      */
     public function getUserWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -7810,9 +8254,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetUserRequest $request
+     * @summary 获取专属账号信息
+     *  *
+     * @param GetUserRequest $request GetUserRequest
      *
-     * @return GetUserResponse
+     * @return GetUserResponse GetUserResponse
      */
     public function getUser($request)
     {
@@ -7823,11 +8269,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetUserLatestPlanRequest $tmpReq
-     * @param GetUserLatestPlanHeaders $tmpHeader
-     * @param RuntimeOptions           $runtime
+     * @summary 获取用户最新的有效的专属账号迁移方案
+     *  *
+     * @param GetUserLatestPlanRequest $tmpReq    GetUserLatestPlanRequest
+     * @param GetUserLatestPlanHeaders $tmpHeader GetUserLatestPlanHeaders
+     * @param RuntimeOptions           $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetUserLatestPlanResponse
+     * @return GetUserLatestPlanResponse GetUserLatestPlanResponse
      */
     public function getUserLatestPlanWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -7873,9 +8321,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetUserLatestPlanRequest $request
+     * @summary 获取用户最新的有效的专属账号迁移方案
+     *  *
+     * @param GetUserLatestPlanRequest $request GetUserLatestPlanRequest
      *
-     * @return GetUserLatestPlanResponse
+     * @return GetUserLatestPlanResponse GetUserLatestPlanResponse
      */
     public function getUserLatestPlan($request)
     {
@@ -7886,11 +8336,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetWorkspaceRequest $tmpReq
-     * @param GetWorkspaceHeaders $tmpHeader
-     * @param RuntimeOptions      $runtime
+     * @summary 获取知识库
+     *  *
+     * @param GetWorkspaceRequest $tmpReq    GetWorkspaceRequest
+     * @param GetWorkspaceHeaders $tmpHeader GetWorkspaceHeaders
+     * @param RuntimeOptions      $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetWorkspaceResponse
+     * @return GetWorkspaceResponse GetWorkspaceResponse
      */
     public function getWorkspaceWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -7942,9 +8394,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetWorkspaceRequest $request
+     * @summary 获取知识库
+     *  *
+     * @param GetWorkspaceRequest $request GetWorkspaceRequest
      *
-     * @return GetWorkspaceResponse
+     * @return GetWorkspaceResponse GetWorkspaceResponse
      */
     public function getWorkspace($request)
     {
@@ -7955,11 +8409,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetWorkspacesRequest $tmpReq
-     * @param GetWorkspacesHeaders $tmpHeader
-     * @param RuntimeOptions       $runtime
+     * @summary 批量获取知识库
+     *  *
+     * @param GetWorkspacesRequest $tmpReq    GetWorkspacesRequest
+     * @param GetWorkspacesHeaders $tmpHeader GetWorkspacesHeaders
+     * @param RuntimeOptions       $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetWorkspacesResponse
+     * @return GetWorkspacesResponse GetWorkspacesResponse
      */
     public function getWorkspacesWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -8017,9 +8473,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GetWorkspacesRequest $request
+     * @summary 批量获取知识库
+     *  *
+     * @param GetWorkspacesRequest $request GetWorkspacesRequest
      *
-     * @return GetWorkspacesResponse
+     * @return GetWorkspacesResponse GetWorkspacesResponse
      */
     public function getWorkspaces($request)
     {
@@ -8030,11 +8488,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GrantHonorRequest $tmpReq
-     * @param GrantHonorHeaders $tmpHeader
-     * @param RuntimeOptions    $runtime
+     * @summary 授予勋章
+     *  *
+     * @param GrantHonorRequest $tmpReq    GrantHonorRequest
+     * @param GrantHonorHeaders $tmpHeader GrantHonorHeaders
+     * @param RuntimeOptions    $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GrantHonorResponse
+     * @return GrantHonorResponse GrantHonorResponse
      */
     public function grantHonorWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -8116,9 +8576,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param GrantHonorRequest $request
+     * @summary 授予勋章
+     *  *
+     * @param GrantHonorRequest $request GrantHonorRequest
      *
-     * @return GrantHonorResponse
+     * @return GrantHonorResponse GrantHonorResponse
      */
     public function grantHonor($request)
     {
@@ -8129,11 +8591,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param InsertColumnsBeforeRequest $tmpReq
-     * @param InsertColumnsBeforeHeaders $tmpHeader
-     * @param RuntimeOptions             $runtime
+     * @summary 在指定列左侧插入若干列
+     *  *
+     * @param InsertColumnsBeforeRequest $tmpReq    InsertColumnsBeforeRequest
+     * @param InsertColumnsBeforeHeaders $tmpHeader InsertColumnsBeforeHeaders
+     * @param RuntimeOptions             $runtime   runtime options for this request RuntimeOptions
      *
-     * @return InsertColumnsBeforeResponse
+     * @return InsertColumnsBeforeResponse InsertColumnsBeforeResponse
      */
     public function insertColumnsBeforeWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -8191,9 +8655,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param InsertColumnsBeforeRequest $request
+     * @summary 在指定列左侧插入若干列
+     *  *
+     * @param InsertColumnsBeforeRequest $request InsertColumnsBeforeRequest
      *
-     * @return InsertColumnsBeforeResponse
+     * @return InsertColumnsBeforeResponse InsertColumnsBeforeResponse
      */
     public function insertColumnsBefore($request)
     {
@@ -8204,11 +8670,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param InsertRowsBeforeRequest $tmpReq
-     * @param InsertRowsBeforeHeaders $tmpHeader
-     * @param RuntimeOptions          $runtime
+     * @summary 在指定行上方插入若干行
+     *  *
+     * @param InsertRowsBeforeRequest $tmpReq    InsertRowsBeforeRequest
+     * @param InsertRowsBeforeHeaders $tmpHeader InsertRowsBeforeHeaders
+     * @param RuntimeOptions          $runtime   runtime options for this request RuntimeOptions
      *
-     * @return InsertRowsBeforeResponse
+     * @return InsertRowsBeforeResponse InsertRowsBeforeResponse
      */
     public function insertRowsBeforeWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -8266,9 +8734,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param InsertRowsBeforeRequest $request
+     * @summary 在指定行上方插入若干行
+     *  *
+     * @param InsertRowsBeforeRequest $request InsertRowsBeforeRequest
      *
-     * @return InsertRowsBeforeResponse
+     * @return InsertRowsBeforeResponse InsertRowsBeforeResponse
      */
     public function insertRowsBefore($request)
     {
@@ -8279,11 +8749,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param InviteUsersRequest $tmpReq
-     * @param InviteUsersHeaders $tmpHeader
-     * @param RuntimeOptions     $runtime
+     * @summary 邀请用户入会
+     *  *
+     * @param InviteUsersRequest $tmpReq    InviteUsersRequest
+     * @param InviteUsersHeaders $tmpHeader InviteUsersHeaders
+     * @param RuntimeOptions     $runtime   runtime options for this request RuntimeOptions
      *
-     * @return InviteUsersResponse
+     * @return InviteUsersResponse InviteUsersResponse
      */
     public function inviteUsersWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -8344,9 +8816,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param InviteUsersRequest $request
+     * @summary 邀请用户入会
+     *  *
+     * @param InviteUsersRequest $request InviteUsersRequest
      *
-     * @return InviteUsersResponse
+     * @return InviteUsersResponse InviteUsersResponse
      */
     public function inviteUsers($request)
     {
@@ -8357,11 +8831,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param ListApplicationRequest $request
-     * @param ListApplicationHeaders $tmpHeader
-     * @param RuntimeOptions         $runtime
+     * @summary 查询宜搭应用列表
+     *  *
+     * @param ListApplicationRequest $request   ListApplicationRequest
+     * @param ListApplicationHeaders $tmpHeader ListApplicationHeaders
+     * @param RuntimeOptions         $runtime   runtime options for this request RuntimeOptions
      *
-     * @return ListApplicationResponse
+     * @return ListApplicationResponse ListApplicationResponse
      */
     public function listApplicationWithOptions($request, $tmpHeader, $runtime)
     {
@@ -8417,9 +8893,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param ListApplicationRequest $request
+     * @summary 查询宜搭应用列表
+     *  *
+     * @param ListApplicationRequest $request ListApplicationRequest
      *
-     * @return ListApplicationResponse
+     * @return ListApplicationResponse ListApplicationResponse
      */
     public function listApplication($request)
     {
@@ -8430,11 +8908,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param ListCalendarsRequest $tmpReq
-     * @param ListCalendarsHeaders $tmpHeader
-     * @param RuntimeOptions       $runtime
+     * @summary 查询日历
+     *  *
+     * @param ListCalendarsRequest $tmpReq    ListCalendarsRequest
+     * @param ListCalendarsHeaders $tmpHeader ListCalendarsHeaders
+     * @param RuntimeOptions       $runtime   runtime options for this request RuntimeOptions
      *
-     * @return ListCalendarsResponse
+     * @return ListCalendarsResponse ListCalendarsResponse
      */
     public function listCalendarsWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -8480,9 +8960,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param ListCalendarsRequest $request
+     * @summary 查询日历
+     *  *
+     * @param ListCalendarsRequest $request ListCalendarsRequest
      *
-     * @return ListCalendarsResponse
+     * @return ListCalendarsResponse ListCalendarsResponse
      */
     public function listCalendars($request)
     {
@@ -8493,11 +8975,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param ListDentriesRequest $tmpReq
-     * @param ListDentriesHeaders $tmpHeader
-     * @param RuntimeOptions      $runtime
+     * @summary 获取文件或文件夹列表
+     *  *
+     * @param ListDentriesRequest $tmpReq    ListDentriesRequest
+     * @param ListDentriesHeaders $tmpHeader ListDentriesHeaders
+     * @param RuntimeOptions      $runtime   runtime options for this request RuntimeOptions
      *
-     * @return ListDentriesResponse
+     * @return ListDentriesResponse ListDentriesResponse
      */
     public function listDentriesWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -8564,9 +9048,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param ListDentriesRequest $request
+     * @summary 获取文件或文件夹列表
+     *  *
+     * @param ListDentriesRequest $request ListDentriesRequest
      *
-     * @return ListDentriesResponse
+     * @return ListDentriesResponse ListDentriesResponse
      */
     public function listDentries($request)
     {
@@ -8577,11 +9063,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param ListEventsRequest $request
-     * @param ListEventsHeaders $tmpHeader
-     * @param RuntimeOptions    $runtime
+     * @summary 查询日程列表
+     *  *
+     * @param ListEventsRequest $request   ListEventsRequest
+     * @param ListEventsHeaders $tmpHeader ListEventsHeaders
+     * @param RuntimeOptions    $runtime   runtime options for this request RuntimeOptions
      *
-     * @return ListEventsResponse
+     * @return ListEventsResponse ListEventsResponse
      */
     public function listEventsWithOptions($request, $tmpHeader, $runtime)
     {
@@ -8646,9 +9134,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param ListEventsRequest $request
+     * @summary 查询日程列表
+     *  *
+     * @param ListEventsRequest $request ListEventsRequest
      *
-     * @return ListEventsResponse
+     * @return ListEventsResponse ListEventsResponse
      */
     public function listEvents($request)
     {
@@ -8659,11 +9149,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param ListEventsViewRequest $request
-     * @param ListEventsViewHeaders $tmpHeader
-     * @param RuntimeOptions        $runtime
+     * @summary 查询日程视图
+     *  *
+     * @param ListEventsViewRequest $request   ListEventsViewRequest
+     * @param ListEventsViewHeaders $tmpHeader ListEventsViewHeaders
+     * @param RuntimeOptions        $runtime   runtime options for this request RuntimeOptions
      *
-     * @return ListEventsViewResponse
+     * @return ListEventsViewResponse ListEventsViewResponse
      */
     public function listEventsViewWithOptions($request, $tmpHeader, $runtime)
     {
@@ -8719,9 +9211,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param ListEventsViewRequest $request
+     * @summary 查询日程视图
+     *  *
+     * @param ListEventsViewRequest $request ListEventsViewRequest
      *
-     * @return ListEventsViewResponse
+     * @return ListEventsViewResponse ListEventsViewResponse
      */
     public function listEventsView($request)
     {
@@ -8732,11 +9226,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param ListFormRemarksRequest $tmpReq
-     * @param ListFormRemarksHeaders $tmpHeader
-     * @param RuntimeOptions         $runtime
+     * @summary 批量查询宜搭表单实例的评论
+     *  *
+     * @param ListFormRemarksRequest $tmpReq    ListFormRemarksRequest
+     * @param ListFormRemarksHeaders $tmpHeader ListFormRemarksHeaders
+     * @param RuntimeOptions         $runtime   runtime options for this request RuntimeOptions
      *
-     * @return ListFormRemarksResponse
+     * @return ListFormRemarksResponse ListFormRemarksResponse
      */
     public function listFormRemarksWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -8791,9 +9287,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param ListFormRemarksRequest $request
+     * @summary 批量查询宜搭表单实例的评论
+     *  *
+     * @param ListFormRemarksRequest $request ListFormRemarksRequest
      *
-     * @return ListFormRemarksResponse
+     * @return ListFormRemarksResponse ListFormRemarksResponse
      */
     public function listFormRemarks($request)
     {
@@ -8804,11 +9302,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param ListNavigationByFormTypeRequest $request
-     * @param ListNavigationByFormTypeHeaders $tmpHeader
-     * @param RuntimeOptions                  $runtime
+     * @summary 获取应用下的页面列表
+     *  *
+     * @param ListNavigationByFormTypeRequest $request   ListNavigationByFormTypeRequest
+     * @param ListNavigationByFormTypeHeaders $tmpHeader ListNavigationByFormTypeHeaders
+     * @param RuntimeOptions                  $runtime   runtime options for this request RuntimeOptions
      *
-     * @return ListNavigationByFormTypeResponse
+     * @return ListNavigationByFormTypeResponse ListNavigationByFormTypeResponse
      */
     public function listNavigationByFormTypeWithOptions($request, $tmpHeader, $runtime)
     {
@@ -8858,9 +9358,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param ListNavigationByFormTypeRequest $request
+     * @summary 获取应用下的页面列表
+     *  *
+     * @param ListNavigationByFormTypeRequest $request ListNavigationByFormTypeRequest
      *
-     * @return ListNavigationByFormTypeResponse
+     * @return ListNavigationByFormTypeResponse ListNavigationByFormTypeResponse
      */
     public function listNavigationByFormType($request)
     {
@@ -8871,11 +9373,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param ListNodesRequest $tmpReq
-     * @param ListNodesHeaders $tmpHeader
-     * @param RuntimeOptions   $runtime
+     * @summary 获取节点列表
+     *  *
+     * @param ListNodesRequest $tmpReq    ListNodesRequest
+     * @param ListNodesHeaders $tmpHeader ListNodesHeaders
+     * @param RuntimeOptions   $runtime   runtime options for this request RuntimeOptions
      *
-     * @return ListNodesResponse
+     * @return ListNodesResponse ListNodesResponse
      */
     public function listNodesWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -8933,9 +9437,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param ListNodesRequest $request
+     * @summary 获取节点列表
+     *  *
+     * @param ListNodesRequest $request ListNodesRequest
      *
-     * @return ListNodesResponse
+     * @return ListNodesResponse ListNodesResponse
      */
     public function listNodes($request)
     {
@@ -8946,11 +9452,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param ListReportRequest $tmpReq
-     * @param ListReportHeaders $tmpHeader
-     * @param RuntimeOptions    $runtime
+     * @summary 获取用户发出的日志列表
+     *  *
+     * @param ListReportRequest $tmpReq    ListReportRequest
+     * @param ListReportHeaders $tmpHeader ListReportHeaders
+     * @param RuntimeOptions    $runtime   runtime options for this request RuntimeOptions
      *
-     * @return ListReportResponse
+     * @return ListReportResponse ListReportResponse
      */
     public function listReportWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -9017,9 +9525,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param ListReportRequest $request
+     * @summary 获取用户发出的日志列表
+     *  *
+     * @param ListReportRequest $request ListReportRequest
      *
-     * @return ListReportResponse
+     * @return ListReportResponse ListReportResponse
      */
     public function listReport($request)
     {
@@ -9030,11 +9540,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param ListTableDataByFormInstanceIdTableIdRequest $request
-     * @param ListTableDataByFormInstanceIdTableIdHeaders $tmpHeader
-     * @param RuntimeOptions                              $runtime
+     * @summary 获取子表组件数据
+     *  *
+     * @param ListTableDataByFormInstanceIdTableIdRequest $request   ListTableDataByFormInstanceIdTableIdRequest
+     * @param ListTableDataByFormInstanceIdTableIdHeaders $tmpHeader ListTableDataByFormInstanceIdTableIdHeaders
+     * @param RuntimeOptions                              $runtime   runtime options for this request RuntimeOptions
      *
-     * @return ListTableDataByFormInstanceIdTableIdResponse
+     * @return ListTableDataByFormInstanceIdTableIdResponse ListTableDataByFormInstanceIdTableIdResponse
      */
     public function listTableDataByFormInstanceIdTableIdWithOptions($request, $tmpHeader, $runtime)
     {
@@ -9093,9 +9605,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param ListTableDataByFormInstanceIdTableIdRequest $request
+     * @summary 获取子表组件数据
+     *  *
+     * @param ListTableDataByFormInstanceIdTableIdRequest $request ListTableDataByFormInstanceIdTableIdRequest
      *
-     * @return ListTableDataByFormInstanceIdTableIdResponse
+     * @return ListTableDataByFormInstanceIdTableIdResponse ListTableDataByFormInstanceIdTableIdResponse
      */
     public function listTableDataByFormInstanceIdTableId($request)
     {
@@ -9106,11 +9620,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param ListTeamsRequest $tmpReq
-     * @param ListTeamsHeaders $tmpHeader
-     * @param RuntimeOptions   $runtime
+     * @summary 获取知识小组列表
+     *  *
+     * @param ListTeamsRequest $tmpReq    ListTeamsRequest
+     * @param ListTeamsHeaders $tmpHeader ListTeamsHeaders
+     * @param RuntimeOptions   $runtime   runtime options for this request RuntimeOptions
      *
-     * @return ListTeamsResponse
+     * @return ListTeamsResponse ListTeamsResponse
      */
     public function listTeamsWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -9162,9 +9678,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param ListTeamsRequest $request
+     * @summary 获取知识小组列表
+     *  *
+     * @param ListTeamsRequest $request ListTeamsRequest
      *
-     * @return ListTeamsResponse
+     * @return ListTeamsResponse ListTeamsResponse
      */
     public function listTeams($request)
     {
@@ -9175,11 +9693,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param ListWorkspacesRequest $tmpReq
-     * @param ListWorkspacesHeaders $tmpHeader
-     * @param RuntimeOptions        $runtime
+     * @summary 获取知识库列表
+     *  *
+     * @param ListWorkspacesRequest $tmpReq    ListWorkspacesRequest
+     * @param ListWorkspacesHeaders $tmpHeader ListWorkspacesHeaders
+     * @param RuntimeOptions        $runtime   runtime options for this request RuntimeOptions
      *
-     * @return ListWorkspacesResponse
+     * @return ListWorkspacesResponse ListWorkspacesResponse
      */
     public function listWorkspacesWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -9240,9 +9760,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param ListWorkspacesRequest $request
+     * @summary 获取知识库列表
+     *  *
+     * @param ListWorkspacesRequest $request ListWorkspacesRequest
      *
-     * @return ListWorkspacesResponse
+     * @return ListWorkspacesResponse ListWorkspacesResponse
      */
     public function listWorkspaces($request)
     {
@@ -9253,11 +9775,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param PatchEventRequest $tmpReq
-     * @param PatchEventHeaders $tmpHeader
-     * @param RuntimeOptions    $runtime
+     * @summary 修改日程
+     *  *
+     * @param PatchEventRequest $tmpReq    PatchEventRequest
+     * @param PatchEventHeaders $tmpHeader PatchEventHeaders
+     * @param RuntimeOptions    $runtime   runtime options for this request RuntimeOptions
      *
-     * @return PatchEventResponse
+     * @return PatchEventResponse PatchEventResponse
      */
     public function patchEventWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -9354,9 +9878,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param PatchEventRequest $request
+     * @summary 修改日程
+     *  *
+     * @param PatchEventRequest $request PatchEventRequest
      *
-     * @return PatchEventResponse
+     * @return PatchEventResponse PatchEventResponse
      */
     public function patchEvent($request)
     {
@@ -9367,11 +9893,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param QueryCloudRecordTextRequest $tmpReq
-     * @param QueryCloudRecordTextHeaders $tmpHeader
-     * @param RuntimeOptions              $runtime
+     * @summary 查询会议录制中的文本信息
+     *  *
+     * @param QueryCloudRecordTextRequest $tmpReq    QueryCloudRecordTextRequest
+     * @param QueryCloudRecordTextHeaders $tmpHeader QueryCloudRecordTextHeaders
+     * @param RuntimeOptions              $runtime   runtime options for this request RuntimeOptions
      *
-     * @return QueryCloudRecordTextResponse
+     * @return QueryCloudRecordTextResponse QueryCloudRecordTextResponse
      */
     public function queryCloudRecordTextWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -9432,9 +9960,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param QueryCloudRecordTextRequest $request
+     * @summary 查询会议录制中的文本信息
+     *  *
+     * @param QueryCloudRecordTextRequest $request QueryCloudRecordTextRequest
      *
-     * @return QueryCloudRecordTextResponse
+     * @return QueryCloudRecordTextResponse QueryCloudRecordTextResponse
      */
     public function queryCloudRecordText($request)
     {
@@ -9445,11 +9975,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param QueryCloudRecordVideoRequest $tmpReq
-     * @param QueryCloudRecordVideoHeaders $tmpHeader
-     * @param RuntimeOptions               $runtime
+     * @summary 查询会议录制的详情信息
+     *  *
+     * @param QueryCloudRecordVideoRequest $tmpReq    QueryCloudRecordVideoRequest
+     * @param QueryCloudRecordVideoHeaders $tmpHeader QueryCloudRecordVideoHeaders
+     * @param RuntimeOptions               $runtime   runtime options for this request RuntimeOptions
      *
-     * @return QueryCloudRecordVideoResponse
+     * @return QueryCloudRecordVideoResponse QueryCloudRecordVideoResponse
      */
     public function queryCloudRecordVideoWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -9498,9 +10030,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param QueryCloudRecordVideoRequest $request
+     * @summary 查询会议录制的详情信息
+     *  *
+     * @param QueryCloudRecordVideoRequest $request QueryCloudRecordVideoRequest
      *
-     * @return QueryCloudRecordVideoResponse
+     * @return QueryCloudRecordVideoResponse QueryCloudRecordVideoResponse
      */
     public function queryCloudRecordVideo($request)
     {
@@ -9511,11 +10045,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param QueryCloudRecordVideoPlayInfoRequest $tmpReq
-     * @param QueryCloudRecordVideoPlayInfoHeaders $tmpHeader
-     * @param RuntimeOptions                       $runtime
+     * @summary 查询会议录制中的视频信息
+     *  *
+     * @param QueryCloudRecordVideoPlayInfoRequest $tmpReq    QueryCloudRecordVideoPlayInfoRequest
+     * @param QueryCloudRecordVideoPlayInfoHeaders $tmpHeader QueryCloudRecordVideoPlayInfoHeaders
+     * @param RuntimeOptions                       $runtime   runtime options for this request RuntimeOptions
      *
-     * @return QueryCloudRecordVideoPlayInfoResponse
+     * @return QueryCloudRecordVideoPlayInfoResponse QueryCloudRecordVideoPlayInfoResponse
      */
     public function queryCloudRecordVideoPlayInfoWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -9570,9 +10106,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param QueryCloudRecordVideoPlayInfoRequest $request
+     * @summary 查询会议录制中的视频信息
+     *  *
+     * @param QueryCloudRecordVideoPlayInfoRequest $request QueryCloudRecordVideoPlayInfoRequest
      *
-     * @return QueryCloudRecordVideoPlayInfoResponse
+     * @return QueryCloudRecordVideoPlayInfoResponse QueryCloudRecordVideoPlayInfoResponse
      */
     public function queryCloudRecordVideoPlayInfo($request)
     {
@@ -9583,11 +10121,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param QueryConferenceInfoRequest $request
-     * @param QueryConferenceInfoHeaders $tmpHeader
-     * @param RuntimeOptions             $runtime
+     * @summary 查询视频会议信息
+     *  *
+     * @param QueryConferenceInfoRequest $request   QueryConferenceInfoRequest
+     * @param QueryConferenceInfoHeaders $tmpHeader QueryConferenceInfoHeaders
+     * @param RuntimeOptions             $runtime   runtime options for this request RuntimeOptions
      *
-     * @return QueryConferenceInfoResponse
+     * @return QueryConferenceInfoResponse QueryConferenceInfoResponse
      */
     public function queryConferenceInfoWithOptions($request, $tmpHeader, $runtime)
     {
@@ -9628,9 +10168,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param QueryConferenceInfoRequest $request
+     * @summary 查询视频会议信息
+     *  *
+     * @param QueryConferenceInfoRequest $request QueryConferenceInfoRequest
      *
-     * @return QueryConferenceInfoResponse
+     * @return QueryConferenceInfoResponse QueryConferenceInfoResponse
      */
     public function queryConferenceInfo($request)
     {
@@ -9641,11 +10183,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param QueryConferenceMembersRequest $tmpReq
-     * @param QueryConferenceMembersHeaders $tmpHeader
-     * @param RuntimeOptions                $runtime
+     * @summary 查询视频会议成员
+     *  *
+     * @param QueryConferenceMembersRequest $tmpReq    QueryConferenceMembersRequest
+     * @param QueryConferenceMembersHeaders $tmpHeader QueryConferenceMembersHeaders
+     * @param RuntimeOptions                $runtime   runtime options for this request RuntimeOptions
      *
-     * @return QueryConferenceMembersResponse
+     * @return QueryConferenceMembersResponse QueryConferenceMembersResponse
      */
     public function queryConferenceMembersWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -9700,9 +10244,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param QueryConferenceMembersRequest $request
+     * @summary 查询视频会议成员
+     *  *
+     * @param QueryConferenceMembersRequest $request QueryConferenceMembersRequest
      *
-     * @return QueryConferenceMembersResponse
+     * @return QueryConferenceMembersResponse QueryConferenceMembersResponse
      */
     public function queryConferenceMembers($request)
     {
@@ -9713,11 +10259,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param QueryDentryRequest $tmpReq
-     * @param QueryDentryHeaders $tmpHeader
-     * @param RuntimeOptions     $runtime
+     * @summary 查询知识库节点信息
+     *  *
+     * @param QueryDentryRequest $tmpReq    QueryDentryRequest
+     * @param QueryDentryHeaders $tmpHeader QueryDentryHeaders
+     * @param RuntimeOptions     $runtime   runtime options for this request RuntimeOptions
      *
-     * @return QueryDentryResponse
+     * @return QueryDentryResponse QueryDentryResponse
      */
     public function queryDentryWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -9772,9 +10320,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param QueryDentryRequest $request
+     * @summary 查询知识库节点信息
+     *  *
+     * @param QueryDentryRequest $request QueryDentryRequest
      *
-     * @return QueryDentryResponse
+     * @return QueryDentryResponse QueryDentryResponse
      */
     public function queryDentry($request)
     {
@@ -9785,11 +10335,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param QueryLiveInfoRequest $tmpReq
-     * @param QueryLiveInfoHeaders $tmpHeader
-     * @param RuntimeOptions       $runtime
+     * @summary 查询直播信息
+     *  *
+     * @param QueryLiveInfoRequest $tmpReq    QueryLiveInfoRequest
+     * @param QueryLiveInfoHeaders $tmpHeader QueryLiveInfoHeaders
+     * @param RuntimeOptions       $runtime   runtime options for this request RuntimeOptions
      *
-     * @return QueryLiveInfoResponse
+     * @return QueryLiveInfoResponse QueryLiveInfoResponse
      */
     public function queryLiveInfoWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -9838,9 +10390,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param QueryLiveInfoRequest $request
+     * @summary 查询直播信息
+     *  *
+     * @param QueryLiveInfoRequest $request QueryLiveInfoRequest
      *
-     * @return QueryLiveInfoResponse
+     * @return QueryLiveInfoResponse QueryLiveInfoResponse
      */
     public function queryLiveInfo($request)
     {
@@ -9851,11 +10405,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param QueryLiveWatchDetailRequest $tmpReq
-     * @param QueryLiveWatchDetailHeaders $tmpHeader
-     * @param RuntimeOptions              $runtime
+     * @summary 查询直播的观看数据
+     *  *
+     * @param QueryLiveWatchDetailRequest $tmpReq    QueryLiveWatchDetailRequest
+     * @param QueryLiveWatchDetailHeaders $tmpHeader QueryLiveWatchDetailHeaders
+     * @param RuntimeOptions              $runtime   runtime options for this request RuntimeOptions
      *
-     * @return QueryLiveWatchDetailResponse
+     * @return QueryLiveWatchDetailResponse QueryLiveWatchDetailResponse
      */
     public function queryLiveWatchDetailWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -9904,9 +10460,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param QueryLiveWatchDetailRequest $request
+     * @summary 查询直播的观看数据
+     *  *
+     * @param QueryLiveWatchDetailRequest $request QueryLiveWatchDetailRequest
      *
-     * @return QueryLiveWatchDetailResponse
+     * @return QueryLiveWatchDetailResponse QueryLiveWatchDetailResponse
      */
     public function queryLiveWatchDetail($request)
     {
@@ -9917,11 +10475,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param QueryLiveWatchUserListRequest $tmpReq
-     * @param QueryLiveWatchUserListHeaders $tmpHeader
-     * @param RuntimeOptions                $runtime
+     * @summary 查询直播观看人员信息
+     *  *
+     * @param QueryLiveWatchUserListRequest $tmpReq    QueryLiveWatchUserListRequest
+     * @param QueryLiveWatchUserListHeaders $tmpHeader QueryLiveWatchUserListHeaders
+     * @param RuntimeOptions                $runtime   runtime options for this request RuntimeOptions
      *
-     * @return QueryLiveWatchUserListResponse
+     * @return QueryLiveWatchUserListResponse QueryLiveWatchUserListResponse
      */
     public function queryLiveWatchUserListWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -9976,9 +10536,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param QueryLiveWatchUserListRequest $request
+     * @summary 查询直播观看人员信息
+     *  *
+     * @param QueryLiveWatchUserListRequest $request QueryLiveWatchUserListRequest
      *
-     * @return QueryLiveWatchUserListResponse
+     * @return QueryLiveWatchUserListResponse QueryLiveWatchUserListResponse
      */
     public function queryLiveWatchUserList($request)
     {
@@ -9989,11 +10551,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param QueryMeetingRoomRequest $tmpReq
-     * @param QueryMeetingRoomHeaders $tmpHeader
-     * @param RuntimeOptions          $runtime
+     * @summary 查询会议室详情
+     *  *
+     * @param QueryMeetingRoomRequest $tmpReq    QueryMeetingRoomRequest
+     * @param QueryMeetingRoomHeaders $tmpHeader QueryMeetingRoomHeaders
+     * @param RuntimeOptions          $runtime   runtime options for this request RuntimeOptions
      *
-     * @return QueryMeetingRoomResponse
+     * @return QueryMeetingRoomResponse QueryMeetingRoomResponse
      */
     public function queryMeetingRoomWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -10042,9 +10606,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param QueryMeetingRoomRequest $request
+     * @summary 查询会议室详情
+     *  *
+     * @param QueryMeetingRoomRequest $request QueryMeetingRoomRequest
      *
-     * @return QueryMeetingRoomResponse
+     * @return QueryMeetingRoomResponse QueryMeetingRoomResponse
      */
     public function queryMeetingRoom($request)
     {
@@ -10055,11 +10621,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param QueryMeetingRoomGroupRequest $tmpReq
-     * @param QueryMeetingRoomGroupHeaders $tmpHeader
-     * @param RuntimeOptions               $runtime
+     * @summary 查询会议室分组信息
+     *  *
+     * @param QueryMeetingRoomGroupRequest $tmpReq    QueryMeetingRoomGroupRequest
+     * @param QueryMeetingRoomGroupHeaders $tmpHeader QueryMeetingRoomGroupHeaders
+     * @param RuntimeOptions               $runtime   runtime options for this request RuntimeOptions
      *
-     * @return QueryMeetingRoomGroupResponse
+     * @return QueryMeetingRoomGroupResponse QueryMeetingRoomGroupResponse
      */
     public function queryMeetingRoomGroupWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -10108,9 +10676,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param QueryMeetingRoomGroupRequest $request
+     * @summary 查询会议室分组信息
+     *  *
+     * @param QueryMeetingRoomGroupRequest $request QueryMeetingRoomGroupRequest
      *
-     * @return QueryMeetingRoomGroupResponse
+     * @return QueryMeetingRoomGroupResponse QueryMeetingRoomGroupResponse
      */
     public function queryMeetingRoomGroup($request)
     {
@@ -10121,11 +10691,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param QueryMeetingRoomGroupListRequest $tmpReq
-     * @param QueryMeetingRoomGroupListHeaders $tmpHeader
-     * @param RuntimeOptions                   $runtime
+     * @summary 查询会议室分组列表
+     *  *
+     * @param QueryMeetingRoomGroupListRequest $tmpReq    QueryMeetingRoomGroupListRequest
+     * @param QueryMeetingRoomGroupListHeaders $tmpHeader QueryMeetingRoomGroupListHeaders
+     * @param RuntimeOptions                   $runtime   runtime options for this request RuntimeOptions
      *
-     * @return QueryMeetingRoomGroupListResponse
+     * @return QueryMeetingRoomGroupListResponse QueryMeetingRoomGroupListResponse
      */
     public function queryMeetingRoomGroupListWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -10177,9 +10749,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param QueryMeetingRoomGroupListRequest $request
+     * @summary 查询会议室分组列表
+     *  *
+     * @param QueryMeetingRoomGroupListRequest $request QueryMeetingRoomGroupListRequest
      *
-     * @return QueryMeetingRoomGroupListResponse
+     * @return QueryMeetingRoomGroupListResponse QueryMeetingRoomGroupListResponse
      */
     public function queryMeetingRoomGroupList($request)
     {
@@ -10190,11 +10764,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param QueryMeetingRoomListRequest $tmpReq
-     * @param QueryMeetingRoomListHeaders $tmpHeader
-     * @param RuntimeOptions              $runtime
+     * @summary 查询会议室列表
+     *  *
+     * @param QueryMeetingRoomListRequest $tmpReq    QueryMeetingRoomListRequest
+     * @param QueryMeetingRoomListHeaders $tmpHeader QueryMeetingRoomListHeaders
+     * @param RuntimeOptions              $runtime   runtime options for this request RuntimeOptions
      *
-     * @return QueryMeetingRoomListResponse
+     * @return QueryMeetingRoomListResponse QueryMeetingRoomListResponse
      */
     public function queryMeetingRoomListWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -10246,9 +10822,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param QueryMeetingRoomListRequest $request
+     * @summary 查询会议室列表
+     *  *
+     * @param QueryMeetingRoomListRequest $request QueryMeetingRoomListRequest
      *
-     * @return QueryMeetingRoomListResponse
+     * @return QueryMeetingRoomListResponse QueryMeetingRoomListResponse
      */
     public function queryMeetingRoomList($request)
     {
@@ -10259,11 +10837,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param QueryOrgHonorsRequest $tmpReq
-     * @param QueryOrgHonorsHeaders $tmpHeader
-     * @param RuntimeOptions        $runtime
+     * @summary 查询企业荣誉
+     *  *
+     * @param QueryOrgHonorsRequest $tmpReq    QueryOrgHonorsRequest
+     * @param QueryOrgHonorsHeaders $tmpHeader QueryOrgHonorsHeaders
+     * @param RuntimeOptions        $runtime   runtime options for this request RuntimeOptions
      *
-     * @return QueryOrgHonorsResponse
+     * @return QueryOrgHonorsResponse QueryOrgHonorsResponse
      */
     public function queryOrgHonorsWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -10318,9 +10898,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param QueryOrgHonorsRequest $request
+     * @summary 查询企业荣誉
+     *  *
+     * @param QueryOrgHonorsRequest $request QueryOrgHonorsRequest
      *
-     * @return QueryOrgHonorsResponse
+     * @return QueryOrgHonorsResponse QueryOrgHonorsResponse
      */
     public function queryOrgHonors($request)
     {
@@ -10331,11 +10913,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param QueryOrgTodoTasksRequest $tmpReq
-     * @param QueryOrgTodoTasksHeaders $tmpHeader
-     * @param RuntimeOptions           $runtime
+     * @summary 查询企业代办
+     *  *
+     * @param QueryOrgTodoTasksRequest $tmpReq    QueryOrgTodoTasksRequest
+     * @param QueryOrgTodoTasksHeaders $tmpHeader QueryOrgTodoTasksHeaders
+     * @param RuntimeOptions           $runtime   runtime options for this request RuntimeOptions
      *
-     * @return QueryOrgTodoTasksResponse
+     * @return QueryOrgTodoTasksResponse QueryOrgTodoTasksResponse
      */
     public function queryOrgTodoTasksWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -10387,9 +10971,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param QueryOrgTodoTasksRequest $request
+     * @summary 查询企业代办
+     *  *
+     * @param QueryOrgTodoTasksRequest $request QueryOrgTodoTasksRequest
      *
-     * @return QueryOrgTodoTasksResponse
+     * @return QueryOrgTodoTasksResponse QueryOrgTodoTasksResponse
      */
     public function queryOrgTodoTasks($request)
     {
@@ -10400,11 +10986,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param QueryScheduleConferenceRequest $tmpReq
-     * @param QueryScheduleConferenceHeaders $tmpHeader
-     * @param RuntimeOptions                 $runtime
+     * @summary 查询预约会议
+     *  *
+     * @param QueryScheduleConferenceRequest $tmpReq    QueryScheduleConferenceRequest
+     * @param QueryScheduleConferenceHeaders $tmpHeader QueryScheduleConferenceHeaders
+     * @param RuntimeOptions                 $runtime   runtime options for this request RuntimeOptions
      *
-     * @return QueryScheduleConferenceResponse
+     * @return QueryScheduleConferenceResponse QueryScheduleConferenceResponse
      */
     public function queryScheduleConferenceWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -10453,9 +11041,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param QueryScheduleConferenceRequest $request
+     * @summary 查询预约会议
+     *  *
+     * @param QueryScheduleConferenceRequest $request QueryScheduleConferenceRequest
      *
-     * @return QueryScheduleConferenceResponse
+     * @return QueryScheduleConferenceResponse QueryScheduleConferenceResponse
      */
     public function queryScheduleConference($request)
     {
@@ -10466,11 +11056,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param QueryUserHonorsRequest $tmpReq
-     * @param QueryUserHonorsHeaders $tmpHeader
-     * @param RuntimeOptions         $runtime
+     * @summary 查询员工勋章列表
+     *  *
+     * @param QueryUserHonorsRequest $tmpReq    QueryUserHonorsRequest
+     * @param QueryUserHonorsHeaders $tmpHeader QueryUserHonorsHeaders
+     * @param RuntimeOptions         $runtime   runtime options for this request RuntimeOptions
      *
-     * @return QueryUserHonorsResponse
+     * @return QueryUserHonorsResponse QueryUserHonorsResponse
      */
     public function queryUserHonorsWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -10528,9 +11120,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param QueryUserHonorsRequest $request
+     * @summary 查询员工勋章列表
+     *  *
+     * @param QueryUserHonorsRequest $request QueryUserHonorsRequest
      *
-     * @return QueryUserHonorsResponse
+     * @return QueryUserHonorsResponse QueryUserHonorsResponse
      */
     public function queryUserHonors($request)
     {
@@ -10541,11 +11135,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param RecallHonorRequest $tmpReq
-     * @param RecallHonorHeaders $tmpHeader
-     * @param RuntimeOptions     $runtime
+     * @summary 收回勋章
+     *  *
+     * @param RecallHonorRequest $tmpReq    RecallHonorRequest
+     * @param RecallHonorHeaders $tmpHeader RecallHonorHeaders
+     * @param RuntimeOptions     $runtime   runtime options for this request RuntimeOptions
      *
-     * @return RecallHonorResponse
+     * @return RecallHonorResponse RecallHonorResponse
      */
     public function recallHonorWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -10600,9 +11196,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param RecallHonorRequest $request
+     * @summary 收回勋章
+     *  *
+     * @param RecallHonorRequest $request RecallHonorRequest
      *
-     * @return RecallHonorResponse
+     * @return RecallHonorResponse RecallHonorResponse
      */
     public function recallHonor($request)
     {
@@ -10613,11 +11211,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param ReceiverListReportRequest $tmpReq
-     * @param ReceiverListReportHeaders $tmpHeader
-     * @param RuntimeOptions            $runtime
+     * @summary 获取日志接收人员列表
+     *  *
+     * @param ReceiverListReportRequest $tmpReq    ReceiverListReportRequest
+     * @param ReceiverListReportHeaders $tmpHeader ReceiverListReportHeaders
+     * @param RuntimeOptions            $runtime   runtime options for this request RuntimeOptions
      *
-     * @return ReceiverListReportResponse
+     * @return ReceiverListReportResponse ReceiverListReportResponse
      */
     public function receiverListReportWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -10672,9 +11272,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param ReceiverListReportRequest $request
+     * @summary 获取日志接收人员列表
+     *  *
+     * @param ReceiverListReportRequest $request ReceiverListReportRequest
      *
-     * @return ReceiverListReportResponse
+     * @return ReceiverListReportResponse ReceiverListReportResponse
      */
     public function receiverListReport($request)
     {
@@ -10685,11 +11287,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param RedirectTaskRequest $request
-     * @param RedirectTaskHeaders $tmpHeader
-     * @param RuntimeOptions      $runtime
+     * @summary 转交任务
+     *  *
+     * @param RedirectTaskRequest $request   RedirectTaskRequest
+     * @param RedirectTaskHeaders $tmpHeader RedirectTaskHeaders
+     * @param RuntimeOptions      $runtime   runtime options for this request RuntimeOptions
      *
-     * @return RedirectTaskResponse
+     * @return RedirectTaskResponse RedirectTaskResponse
      */
     public function redirectTaskWithOptions($request, $tmpHeader, $runtime)
     {
@@ -10751,9 +11355,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param RedirectTaskRequest $request
+     * @summary 转交任务
+     *  *
+     * @param RedirectTaskRequest $request RedirectTaskRequest
      *
-     * @return RedirectTaskResponse
+     * @return RedirectTaskResponse RedirectTaskResponse
      */
     public function redirectTask($request)
     {
@@ -10764,11 +11370,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param RemoveAttendeeRequest $tmpReq
-     * @param RemoveAttendeeHeaders $tmpHeader
-     * @param RuntimeOptions        $runtime
+     * @summary 删除日程参与者
+     *  *
+     * @param RemoveAttendeeRequest $tmpReq    RemoveAttendeeRequest
+     * @param RemoveAttendeeHeaders $tmpHeader RemoveAttendeeHeaders
+     * @param RuntimeOptions        $runtime   runtime options for this request RuntimeOptions
      *
-     * @return RemoveAttendeeResponse
+     * @return RemoveAttendeeResponse RemoveAttendeeResponse
      */
     public function removeAttendeeWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -10820,9 +11428,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param RemoveAttendeeRequest $request
+     * @summary 删除日程参与者
+     *  *
+     * @param RemoveAttendeeRequest $request RemoveAttendeeRequest
      *
-     * @return RemoveAttendeeResponse
+     * @return RemoveAttendeeResponse RemoveAttendeeResponse
      */
     public function removeAttendee($request)
     {
@@ -10833,11 +11443,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param RemoveMeetingRoomsRequest $tmpReq
-     * @param RemoveMeetingRoomsHeaders $tmpHeader
-     * @param RuntimeOptions            $runtime
+     * @summary 取消预定会议室
+     *  *
+     * @param RemoveMeetingRoomsRequest $tmpReq    RemoveMeetingRoomsRequest
+     * @param RemoveMeetingRoomsHeaders $tmpHeader RemoveMeetingRoomsHeaders
+     * @param RuntimeOptions            $runtime   runtime options for this request RuntimeOptions
      *
-     * @return RemoveMeetingRoomsResponse
+     * @return RemoveMeetingRoomsResponse RemoveMeetingRoomsResponse
      */
     public function removeMeetingRoomsWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -10889,9 +11501,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param RemoveMeetingRoomsRequest $request
+     * @summary 取消预定会议室
+     *  *
+     * @param RemoveMeetingRoomsRequest $request RemoveMeetingRoomsRequest
      *
-     * @return RemoveMeetingRoomsResponse
+     * @return RemoveMeetingRoomsResponse RemoveMeetingRoomsResponse
      */
     public function removeMeetingRooms($request)
     {
@@ -10902,11 +11516,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param SaveContentRequest $tmpReq
-     * @param SaveContentHeaders $tmpHeader
-     * @param RuntimeOptions     $runtime
+     * @summary 保存日志内容
+     *  *
+     * @param SaveContentRequest $tmpReq    SaveContentRequest
+     * @param SaveContentHeaders $tmpHeader SaveContentHeaders
+     * @param RuntimeOptions     $runtime   runtime options for this request RuntimeOptions
      *
-     * @return SaveContentResponse
+     * @return SaveContentResponse SaveContentResponse
      */
     public function saveContentWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -10964,9 +11580,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param SaveContentRequest $request
+     * @summary 保存日志内容
+     *  *
+     * @param SaveContentRequest $request SaveContentRequest
      *
-     * @return SaveContentResponse
+     * @return SaveContentResponse SaveContentResponse
      */
     public function saveContent($request)
     {
@@ -10977,11 +11595,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param SaveFormDataRequest $request
-     * @param SaveFormDataHeaders $tmpHeader
-     * @param RuntimeOptions      $runtime
+     * @summary 保存表单数据
+     *  *
+     * @param SaveFormDataRequest $request   SaveFormDataRequest
+     * @param SaveFormDataHeaders $tmpHeader SaveFormDataHeaders
+     * @param RuntimeOptions      $runtime   runtime options for this request RuntimeOptions
      *
-     * @return SaveFormDataResponse
+     * @return SaveFormDataResponse SaveFormDataResponse
      */
     public function saveFormDataWithOptions($request, $tmpHeader, $runtime)
     {
@@ -11034,9 +11654,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param SaveFormDataRequest $request
+     * @summary 保存表单数据
+     *  *
+     * @param SaveFormDataRequest $request SaveFormDataRequest
      *
-     * @return SaveFormDataResponse
+     * @return SaveFormDataResponse SaveFormDataResponse
      */
     public function saveFormData($request)
     {
@@ -11047,11 +11669,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param SaveFormRemarkRequest $request
-     * @param SaveFormRemarkHeaders $tmpHeader
-     * @param RuntimeOptions        $runtime
+     * @summary 提交表单或流程实例下的评论
+     *  *
+     * @param SaveFormRemarkRequest $request   SaveFormRemarkRequest
+     * @param SaveFormRemarkHeaders $tmpHeader SaveFormRemarkHeaders
+     * @param RuntimeOptions        $runtime   runtime options for this request RuntimeOptions
      *
-     * @return SaveFormRemarkResponse
+     * @return SaveFormRemarkResponse SaveFormRemarkResponse
      */
     public function saveFormRemarkWithOptions($request, $tmpHeader, $runtime)
     {
@@ -11110,9 +11734,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param SaveFormRemarkRequest $request
+     * @summary 提交表单或流程实例下的评论
+     *  *
+     * @param SaveFormRemarkRequest $request SaveFormRemarkRequest
      *
-     * @return SaveFormRemarkResponse
+     * @return SaveFormRemarkResponse SaveFormRemarkResponse
      */
     public function saveFormRemark($request)
     {
@@ -11123,11 +11749,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param SearchEmployeeFieldValuesRequest $request
-     * @param SearchEmployeeFieldValuesHeaders $tmpHeader
-     * @param RuntimeOptions                   $runtime
+     * @summary 获取员工组件的值
+     *  *
+     * @param SearchEmployeeFieldValuesRequest $request   SearchEmployeeFieldValuesRequest
+     * @param SearchEmployeeFieldValuesHeaders $tmpHeader SearchEmployeeFieldValuesHeaders
+     * @param RuntimeOptions                   $runtime   runtime options for this request RuntimeOptions
      *
-     * @return SearchEmployeeFieldValuesResponse
+     * @return SearchEmployeeFieldValuesResponse SearchEmployeeFieldValuesResponse
      */
     public function searchEmployeeFieldValuesWithOptions($request, $tmpHeader, $runtime)
     {
@@ -11198,9 +11826,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param SearchEmployeeFieldValuesRequest $request
+     * @summary 获取员工组件的值
+     *  *
+     * @param SearchEmployeeFieldValuesRequest $request SearchEmployeeFieldValuesRequest
      *
-     * @return SearchEmployeeFieldValuesResponse
+     * @return SearchEmployeeFieldValuesResponse SearchEmployeeFieldValuesResponse
      */
     public function searchEmployeeFieldValues($request)
     {
@@ -11211,11 +11841,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param SearchFormDataIdListRequest $request
-     * @param SearchFormDataIdListHeaders $tmpHeader
-     * @param RuntimeOptions              $runtime
+     * @summary 获取多个表单实例ID
+     *  *
+     * @param SearchFormDataIdListRequest $request   SearchFormDataIdListRequest
+     * @param SearchFormDataIdListHeaders $tmpHeader SearchFormDataIdListHeaders
+     * @param RuntimeOptions              $runtime   runtime options for this request RuntimeOptions
      *
-     * @return SearchFormDataIdListResponse
+     * @return SearchFormDataIdListResponse SearchFormDataIdListResponse
      */
     public function searchFormDataIdListWithOptions($request, $tmpHeader, $runtime)
     {
@@ -11289,9 +11921,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param SearchFormDataIdListRequest $request
+     * @summary 获取多个表单实例ID
+     *  *
+     * @param SearchFormDataIdListRequest $request SearchFormDataIdListRequest
      *
-     * @return SearchFormDataIdListResponse
+     * @return SearchFormDataIdListResponse SearchFormDataIdListResponse
      */
     public function searchFormDataIdList($request)
     {
@@ -11302,11 +11936,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param SearchFormDataSecondGenerationRequest $request
-     * @param SearchFormDataSecondGenerationHeaders $tmpHeader
-     * @param RuntimeOptions                        $runtime
+     * @summary 通过高级查询条件获取表单实例数据（包括子表单组件数据）
+     *  *
+     * @param SearchFormDataSecondGenerationRequest $request   SearchFormDataSecondGenerationRequest
+     * @param SearchFormDataSecondGenerationHeaders $tmpHeader SearchFormDataSecondGenerationHeaders
+     * @param RuntimeOptions                        $runtime   runtime options for this request RuntimeOptions
      *
-     * @return SearchFormDataSecondGenerationResponse
+     * @return SearchFormDataSecondGenerationResponse SearchFormDataSecondGenerationResponse
      */
     public function searchFormDataSecondGenerationWithOptions($request, $tmpHeader, $runtime)
     {
@@ -11380,9 +12016,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param SearchFormDataSecondGenerationRequest $request
+     * @summary 通过高级查询条件获取表单实例数据（包括子表单组件数据）
+     *  *
+     * @param SearchFormDataSecondGenerationRequest $request SearchFormDataSecondGenerationRequest
      *
-     * @return SearchFormDataSecondGenerationResponse
+     * @return SearchFormDataSecondGenerationResponse SearchFormDataSecondGenerationResponse
      */
     public function searchFormDataSecondGeneration($request)
     {
@@ -11393,11 +12031,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param SearchFormDataSecondGenerationNoTableFieldRequest $request
-     * @param SearchFormDataSecondGenerationNoTableFieldHeaders $tmpHeader
-     * @param RuntimeOptions                                    $runtime
+     * @summary 通过高级查询条件获取表单实例数据（不包括子表单组件数据）
+     *  *
+     * @param SearchFormDataSecondGenerationNoTableFieldRequest $request   SearchFormDataSecondGenerationNoTableFieldRequest
+     * @param SearchFormDataSecondGenerationNoTableFieldHeaders $tmpHeader SearchFormDataSecondGenerationNoTableFieldHeaders
+     * @param RuntimeOptions                                    $runtime   runtime options for this request RuntimeOptions
      *
-     * @return SearchFormDataSecondGenerationNoTableFieldResponse
+     * @return SearchFormDataSecondGenerationNoTableFieldResponse SearchFormDataSecondGenerationNoTableFieldResponse
      */
     public function searchFormDataSecondGenerationNoTableFieldWithOptions($request, $tmpHeader, $runtime)
     {
@@ -11471,9 +12111,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param SearchFormDataSecondGenerationNoTableFieldRequest $request
+     * @summary 通过高级查询条件获取表单实例数据（不包括子表单组件数据）
+     *  *
+     * @param SearchFormDataSecondGenerationNoTableFieldRequest $request SearchFormDataSecondGenerationNoTableFieldRequest
      *
-     * @return SearchFormDataSecondGenerationNoTableFieldResponse
+     * @return SearchFormDataSecondGenerationNoTableFieldResponse SearchFormDataSecondGenerationNoTableFieldResponse
      */
     public function searchFormDataSecondGenerationNoTableField($request)
     {
@@ -11484,11 +12126,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param SearchFormDatasRequest $request
-     * @param SearchFormDatasHeaders $tmpHeader
-     * @param RuntimeOptions         $runtime
+     * @summary 查询表单实例数据
+     *  *
+     * @param SearchFormDatasRequest $request   SearchFormDatasRequest
+     * @param SearchFormDatasHeaders $tmpHeader SearchFormDatasHeaders
+     * @param RuntimeOptions         $runtime   runtime options for this request RuntimeOptions
      *
-     * @return SearchFormDatasResponse
+     * @return SearchFormDatasResponse SearchFormDatasResponse
      */
     public function searchFormDatasWithOptions($request, $tmpHeader, $runtime)
     {
@@ -11565,9 +12209,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param SearchFormDatasRequest $request
+     * @summary 查询表单实例数据
+     *  *
+     * @param SearchFormDatasRequest $request SearchFormDatasRequest
      *
-     * @return SearchFormDatasResponse
+     * @return SearchFormDatasResponse SearchFormDatasResponse
      */
     public function searchFormDatas($request)
     {
@@ -11578,11 +12224,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param SearchInnerGroupsRequest $request
-     * @param SearchInnerGroupsHeaders $tmpHeader
-     * @param RuntimeOptions           $runtime
+     * @summary 根据关键词搜索企业内部群
+     *  *
+     * @param SearchInnerGroupsRequest $request   SearchInnerGroupsRequest
+     * @param SearchInnerGroupsHeaders $tmpHeader SearchInnerGroupsHeaders
+     * @param RuntimeOptions           $runtime   runtime options for this request RuntimeOptions
      *
-     * @return SearchInnerGroupsResponse
+     * @return SearchInnerGroupsResponse SearchInnerGroupsResponse
      */
     public function searchInnerGroupsWithOptions($request, $tmpHeader, $runtime)
     {
@@ -11626,9 +12274,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param SearchInnerGroupsRequest $request
+     * @summary 根据关键词搜索企业内部群
+     *  *
+     * @param SearchInnerGroupsRequest $request SearchInnerGroupsRequest
      *
-     * @return SearchInnerGroupsResponse
+     * @return SearchInnerGroupsResponse SearchInnerGroupsResponse
      */
     public function searchInnerGroups($request)
     {
@@ -11639,11 +12289,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param SendBannerRequest $tmpReq
-     * @param SendBannerHeaders $tmpHeader
-     * @param RuntimeOptions    $runtime
+     * @summary 发送钉钉Banner通知
+     *  *
+     * @param SendBannerRequest $tmpReq    SendBannerRequest
+     * @param SendBannerHeaders $tmpHeader SendBannerHeaders
+     * @param RuntimeOptions    $runtime   runtime options for this request RuntimeOptions
      *
-     * @return SendBannerResponse
+     * @return SendBannerResponse SendBannerResponse
      */
     public function sendBannerWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -11701,9 +12353,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param SendBannerRequest $request
+     * @summary 发送钉钉Banner通知
+     *  *
+     * @param SendBannerRequest $request SendBannerRequest
      *
-     * @return SendBannerResponse
+     * @return SendBannerResponse SendBannerResponse
      */
     public function sendBanner($request)
     {
@@ -11714,11 +12368,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param SendPopupRequest $tmpReq
-     * @param SendPopupHeaders $tmpHeader
-     * @param RuntimeOptions   $runtime
+     * @summary 发送钉钉封屏弹窗
+     *  *
+     * @param SendPopupRequest $tmpReq    SendPopupRequest
+     * @param SendPopupHeaders $tmpHeader SendPopupHeaders
+     * @param RuntimeOptions   $runtime   runtime options for this request RuntimeOptions
      *
-     * @return SendPopupResponse
+     * @return SendPopupResponse SendPopupResponse
      */
     public function sendPopupWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -11776,9 +12432,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param SendPopupRequest $request
+     * @summary 发送钉钉封屏弹窗
+     *  *
+     * @param SendPopupRequest $request SendPopupRequest
      *
-     * @return SendPopupResponse
+     * @return SendPopupResponse SendPopupResponse
      */
     public function sendPopup($request)
     {
@@ -11789,11 +12447,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param SendSearchShadeRequest $tmpReq
-     * @param SendSearchShadeHeaders $tmpHeader
-     * @param RuntimeOptions         $runtime
+     * @summary 发送钉钉搜索底纹
+     *  *
+     * @param SendSearchShadeRequest $tmpReq    SendSearchShadeRequest
+     * @param SendSearchShadeHeaders $tmpHeader SendSearchShadeHeaders
+     * @param RuntimeOptions         $runtime   runtime options for this request RuntimeOptions
      *
-     * @return SendSearchShadeResponse
+     * @return SendSearchShadeResponse SendSearchShadeResponse
      */
     public function sendSearchShadeWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -11851,9 +12511,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param SendSearchShadeRequest $request
+     * @summary 发送钉钉搜索底纹
+     *  *
+     * @param SendSearchShadeRequest $request SendSearchShadeRequest
      *
-     * @return SendSearchShadeResponse
+     * @return SendSearchShadeResponse SendSearchShadeResponse
      */
     public function sendSearchShade($request)
     {
@@ -11864,11 +12526,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param SetColumnsVisibilityRequest $tmpReq
-     * @param SetColumnsVisibilityHeaders $tmpHeader
-     * @param RuntimeOptions              $runtime
+     * @summary 指定列隐藏
+     *  *
+     * @param SetColumnsVisibilityRequest $tmpReq    SetColumnsVisibilityRequest
+     * @param SetColumnsVisibilityHeaders $tmpHeader SetColumnsVisibilityHeaders
+     * @param RuntimeOptions              $runtime   runtime options for this request RuntimeOptions
      *
-     * @return SetColumnsVisibilityResponse
+     * @return SetColumnsVisibilityResponse SetColumnsVisibilityResponse
      */
     public function setColumnsVisibilityWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -11929,9 +12593,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param SetColumnsVisibilityRequest $request
+     * @summary 指定列隐藏
+     *  *
+     * @param SetColumnsVisibilityRequest $request SetColumnsVisibilityRequest
      *
-     * @return SetColumnsVisibilityResponse
+     * @return SetColumnsVisibilityResponse SetColumnsVisibilityResponse
      */
     public function setColumnsVisibility($request)
     {
@@ -11942,11 +12608,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param SetRowsVisibilityRequest $tmpReq
-     * @param SetRowsVisibilityHeaders $tmpHeader
-     * @param RuntimeOptions           $runtime
+     * @summary 指定行隐藏
+     *  *
+     * @param SetRowsVisibilityRequest $tmpReq    SetRowsVisibilityRequest
+     * @param SetRowsVisibilityHeaders $tmpHeader SetRowsVisibilityHeaders
+     * @param RuntimeOptions           $runtime   runtime options for this request RuntimeOptions
      *
-     * @return SetRowsVisibilityResponse
+     * @return SetRowsVisibilityResponse SetRowsVisibilityResponse
      */
     public function setRowsVisibilityWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -12007,9 +12675,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param SetRowsVisibilityRequest $request
+     * @summary 指定行隐藏
+     *  *
+     * @param SetRowsVisibilityRequest $request SetRowsVisibilityRequest
      *
-     * @return SetRowsVisibilityResponse
+     * @return SetRowsVisibilityResponse SetRowsVisibilityResponse
      */
     public function setRowsVisibility($request)
     {
@@ -12020,11 +12690,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param SimpleListReportRequest $tmpReq
-     * @param SimpleListReportHeaders $tmpHeader
-     * @param RuntimeOptions          $runtime
+     * @summary 获取用户发送日志的概要信息
+     *  *
+     * @param SimpleListReportRequest $tmpReq    SimpleListReportRequest
+     * @param SimpleListReportHeaders $tmpHeader SimpleListReportHeaders
+     * @param RuntimeOptions          $runtime   runtime options for this request RuntimeOptions
      *
-     * @return SimpleListReportResponse
+     * @return SimpleListReportResponse SimpleListReportResponse
      */
     public function simpleListReportWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -12085,9 +12757,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param SimpleListReportRequest $request
+     * @summary 获取用户发送日志的概要信息
+     *  *
+     * @param SimpleListReportRequest $request SimpleListReportRequest
      *
-     * @return SimpleListReportResponse
+     * @return SimpleListReportResponse SimpleListReportResponse
      */
     public function simpleListReport($request)
     {
@@ -12098,11 +12772,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param StartCloudRecordRequest $tmpReq
-     * @param StartCloudRecordHeaders $tmpHeader
-     * @param RuntimeOptions          $runtime
+     * @summary 开启视频会议云录制
+     *  *
+     * @param StartCloudRecordRequest $tmpReq    StartCloudRecordRequest
+     * @param StartCloudRecordHeaders $tmpHeader StartCloudRecordHeaders
+     * @param RuntimeOptions          $runtime   runtime options for this request RuntimeOptions
      *
-     * @return StartCloudRecordResponse
+     * @return StartCloudRecordResponse StartCloudRecordResponse
      */
     public function startCloudRecordWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -12157,9 +12833,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param StartCloudRecordRequest $request
+     * @summary 开启视频会议云录制
+     *  *
+     * @param StartCloudRecordRequest $request StartCloudRecordRequest
      *
-     * @return StartCloudRecordResponse
+     * @return StartCloudRecordResponse StartCloudRecordResponse
      */
     public function startCloudRecord($request)
     {
@@ -12170,11 +12848,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param StartInstanceRequest $request
-     * @param StartInstanceHeaders $tmpHeader
-     * @param RuntimeOptions       $runtime
+     * @summary 发起宜搭审批流程
+     *  *
+     * @param StartInstanceRequest $request   StartInstanceRequest
+     * @param StartInstanceHeaders $tmpHeader StartInstanceHeaders
+     * @param RuntimeOptions       $runtime   runtime options for this request RuntimeOptions
      *
-     * @return StartInstanceResponse
+     * @return StartInstanceResponse StartInstanceResponse
      */
     public function startInstanceWithOptions($request, $tmpHeader, $runtime)
     {
@@ -12236,9 +12916,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param StartInstanceRequest $request
+     * @summary 发起宜搭审批流程
+     *  *
+     * @param StartInstanceRequest $request StartInstanceRequest
      *
-     * @return StartInstanceResponse
+     * @return StartInstanceResponse StartInstanceResponse
      */
     public function startInstance($request)
     {
@@ -12249,11 +12931,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param StatisticsListByTypeReportRequest $tmpReq
-     * @param StatisticsListByTypeReportHeaders $tmpHeader
-     * @param RuntimeOptions                    $runtime
+     * @summary 获取日志相关人员列表
+     *  *
+     * @param StatisticsListByTypeReportRequest $tmpReq    StatisticsListByTypeReportRequest
+     * @param StatisticsListByTypeReportHeaders $tmpHeader StatisticsListByTypeReportHeaders
+     * @param RuntimeOptions                    $runtime   runtime options for this request RuntimeOptions
      *
-     * @return StatisticsListByTypeReportResponse
+     * @return StatisticsListByTypeReportResponse StatisticsListByTypeReportResponse
      */
     public function statisticsListByTypeReportWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -12311,9 +12995,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param StatisticsListByTypeReportRequest $request
+     * @summary 获取日志相关人员列表
+     *  *
+     * @param StatisticsListByTypeReportRequest $request StatisticsListByTypeReportRequest
      *
-     * @return StatisticsListByTypeReportResponse
+     * @return StatisticsListByTypeReportResponse StatisticsListByTypeReportResponse
      */
     public function statisticsListByTypeReport($request)
     {
@@ -12324,11 +13010,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param StatisticsReportRequest $tmpReq
-     * @param StatisticsReportHeaders $tmpHeader
-     * @param RuntimeOptions          $runtime
+     * @summary 获取日志统计数据
+     *  *
+     * @param StatisticsReportRequest $tmpReq    StatisticsReportRequest
+     * @param StatisticsReportHeaders $tmpHeader StatisticsReportHeaders
+     * @param RuntimeOptions          $runtime   runtime options for this request RuntimeOptions
      *
-     * @return StatisticsReportResponse
+     * @return StatisticsReportResponse StatisticsReportResponse
      */
     public function statisticsReportWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -12377,9 +13065,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param StatisticsReportRequest $request
+     * @summary 获取日志统计数据
+     *  *
+     * @param StatisticsReportRequest $request StatisticsReportRequest
      *
-     * @return StatisticsReportResponse
+     * @return StatisticsReportResponse StatisticsReportResponse
      */
     public function statisticsReport($request)
     {
@@ -12390,11 +13080,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param StopCloudRecordRequest $tmpReq
-     * @param StopCloudRecordHeaders $tmpHeader
-     * @param RuntimeOptions         $runtime
+     * @summary 停止视频会议云录制
+     *  *
+     * @param StopCloudRecordRequest $tmpReq    StopCloudRecordRequest
+     * @param StopCloudRecordHeaders $tmpHeader StopCloudRecordHeaders
+     * @param RuntimeOptions         $runtime   runtime options for this request RuntimeOptions
      *
-     * @return StopCloudRecordResponse
+     * @return StopCloudRecordResponse StopCloudRecordResponse
      */
     public function stopCloudRecordWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -12443,9 +13135,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param StopCloudRecordRequest $request
+     * @summary 停止视频会议云录制
+     *  *
+     * @param StopCloudRecordRequest $request StopCloudRecordRequest
      *
-     * @return StopCloudRecordResponse
+     * @return StopCloudRecordResponse StopCloudRecordResponse
      */
     public function stopCloudRecord($request)
     {
@@ -12456,11 +13150,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param SubscribeCalendarRequest $request
-     * @param SubscribeCalendarHeaders $tmpHeader
-     * @param RuntimeOptions           $runtime
+     * @summary 订阅公共日历
+     *  *
+     * @param SubscribeCalendarRequest $request   SubscribeCalendarRequest
+     * @param SubscribeCalendarHeaders $tmpHeader SubscribeCalendarHeaders
+     * @param RuntimeOptions           $runtime   runtime options for this request RuntimeOptions
      *
-     * @return SubscribeCalendarResponse
+     * @return SubscribeCalendarResponse SubscribeCalendarResponse
      */
     public function subscribeCalendarWithOptions($request, $tmpHeader, $runtime)
     {
@@ -12501,9 +13197,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param SubscribeCalendarRequest $request
+     * @summary 订阅公共日历
+     *  *
+     * @param SubscribeCalendarRequest $request SubscribeCalendarRequest
      *
-     * @return SubscribeCalendarResponse
+     * @return SubscribeCalendarResponse SubscribeCalendarResponse
      */
     public function subscribeCalendar($request)
     {
@@ -12514,11 +13212,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param SyncDingTypeRequest $tmpReq
-     * @param SyncDingTypeHeaders $tmpHeader
-     * @param RuntimeOptions      $runtime
+     * @summary 同步钉钉账号类型
+     *  *
+     * @param SyncDingTypeRequest $tmpReq    SyncDingTypeRequest
+     * @param SyncDingTypeHeaders $tmpHeader SyncDingTypeHeaders
+     * @param RuntimeOptions      $runtime   runtime options for this request RuntimeOptions
      *
-     * @return SyncDingTypeResponse
+     * @return SyncDingTypeResponse SyncDingTypeResponse
      */
     public function syncDingTypeWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -12576,9 +13276,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param SyncDingTypeRequest $request
+     * @summary 同步钉钉账号类型
+     *  *
+     * @param SyncDingTypeRequest $request SyncDingTypeRequest
      *
-     * @return SyncDingTypeResponse
+     * @return SyncDingTypeResponse SyncDingTypeResponse
      */
     public function syncDingType($request)
     {
@@ -12589,11 +13291,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param TerminateInstanceRequest $request
-     * @param TerminateInstanceHeaders $tmpHeader
-     * @param RuntimeOptions           $runtime
+     * @summary 终止流程实例
+     *  *
+     * @param TerminateInstanceRequest $request   TerminateInstanceRequest
+     * @param TerminateInstanceHeaders $tmpHeader TerminateInstanceHeaders
+     * @param RuntimeOptions           $runtime   runtime options for this request RuntimeOptions
      *
-     * @return TerminateInstanceResponse
+     * @return TerminateInstanceResponse TerminateInstanceResponse
      */
     public function terminateInstanceWithOptions($request, $tmpHeader, $runtime)
     {
@@ -12643,9 +13347,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param TerminateInstanceRequest $request
+     * @summary 终止流程实例
+     *  *
+     * @param TerminateInstanceRequest $request TerminateInstanceRequest
      *
-     * @return TerminateInstanceResponse
+     * @return TerminateInstanceResponse TerminateInstanceResponse
      */
     public function terminateInstance($request)
     {
@@ -12656,11 +13362,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param UnsubscribeCalendarRequest $request
-     * @param UnsubscribeCalendarHeaders $tmpHeader
-     * @param RuntimeOptions             $runtime
+     * @summary 取消订阅公共日历
+     *  *
+     * @param UnsubscribeCalendarRequest $request   UnsubscribeCalendarRequest
+     * @param UnsubscribeCalendarHeaders $tmpHeader UnsubscribeCalendarHeaders
+     * @param RuntimeOptions             $runtime   runtime options for this request RuntimeOptions
      *
-     * @return UnsubscribeCalendarResponse
+     * @return UnsubscribeCalendarResponse UnsubscribeCalendarResponse
      */
     public function unsubscribeCalendarWithOptions($request, $tmpHeader, $runtime)
     {
@@ -12701,9 +13409,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param UnsubscribeCalendarRequest $request
+     * @summary 取消订阅公共日历
+     *  *
+     * @param UnsubscribeCalendarRequest $request UnsubscribeCalendarRequest
      *
-     * @return UnsubscribeCalendarResponse
+     * @return UnsubscribeCalendarResponse UnsubscribeCalendarResponse
      */
     public function unsubscribeCalendar($request)
     {
@@ -12714,11 +13424,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param UpdateFormDataRequest $request
-     * @param UpdateFormDataHeaders $tmpHeader
-     * @param RuntimeOptions        $runtime
+     * @summary 更新表单数据
+     *  *
+     * @param UpdateFormDataRequest $request   UpdateFormDataRequest
+     * @param UpdateFormDataHeaders $tmpHeader UpdateFormDataHeaders
+     * @param RuntimeOptions        $runtime   runtime options for this request RuntimeOptions
      *
-     * @return UpdateFormDataResponse
+     * @return UpdateFormDataResponse UpdateFormDataResponse
      */
     public function updateFormDataWithOptions($request, $tmpHeader, $runtime)
     {
@@ -12774,9 +13486,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param UpdateFormDataRequest $request
+     * @summary 更新表单数据
+     *  *
+     * @param UpdateFormDataRequest $request UpdateFormDataRequest
      *
-     * @return UpdateFormDataResponse
+     * @return UpdateFormDataResponse UpdateFormDataResponse
      */
     public function updateFormData($request)
     {
@@ -12787,11 +13501,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param UpdateInstanceRequest $request
-     * @param UpdateInstanceHeaders $tmpHeader
-     * @param RuntimeOptions        $runtime
+     * @summary 更新流程实例
+     *  *
+     * @param UpdateInstanceRequest $request   UpdateInstanceRequest
+     * @param UpdateInstanceHeaders $tmpHeader UpdateInstanceHeaders
+     * @param RuntimeOptions        $runtime   runtime options for this request RuntimeOptions
      *
-     * @return UpdateInstanceResponse
+     * @return UpdateInstanceResponse UpdateInstanceResponse
      */
     public function updateInstanceWithOptions($request, $tmpHeader, $runtime)
     {
@@ -12844,9 +13560,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param UpdateInstanceRequest $request
+     * @summary 更新流程实例
+     *  *
+     * @param UpdateInstanceRequest $request UpdateInstanceRequest
      *
-     * @return UpdateInstanceResponse
+     * @return UpdateInstanceResponse UpdateInstanceResponse
      */
     public function updateInstance($request)
     {
@@ -12857,11 +13575,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param UpdateLiveRequest $tmpReq
-     * @param UpdateLiveHeaders $tmpHeader
-     * @param RuntimeOptions    $runtime
+     * @summary 修改直播属性信息
+     *  *
+     * @param UpdateLiveRequest $tmpReq    UpdateLiveRequest
+     * @param UpdateLiveHeaders $tmpHeader UpdateLiveHeaders
+     * @param RuntimeOptions    $runtime   runtime options for this request RuntimeOptions
      *
-     * @return UpdateLiveResponse
+     * @return UpdateLiveResponse UpdateLiveResponse
      */
     public function updateLiveWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -12925,9 +13645,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param UpdateLiveRequest $request
+     * @summary 修改直播属性信息
+     *  *
+     * @param UpdateLiveRequest $request UpdateLiveRequest
      *
-     * @return UpdateLiveResponse
+     * @return UpdateLiveResponse UpdateLiveResponse
      */
     public function updateLive($request)
     {
@@ -12938,11 +13660,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param UpdateMeetingRoomRequest $tmpReq
-     * @param UpdateMeetingRoomHeaders $tmpHeader
-     * @param RuntimeOptions           $runtime
+     * @summary 更新会议室信息
+     *  *
+     * @param UpdateMeetingRoomRequest $tmpReq    UpdateMeetingRoomRequest
+     * @param UpdateMeetingRoomHeaders $tmpHeader UpdateMeetingRoomHeaders
+     * @param RuntimeOptions           $runtime   runtime options for this request RuntimeOptions
      *
-     * @return UpdateMeetingRoomResponse
+     * @return UpdateMeetingRoomResponse UpdateMeetingRoomResponse
      */
     public function updateMeetingRoomWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -13030,9 +13754,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param UpdateMeetingRoomRequest $request
+     * @summary 更新会议室信息
+     *  *
+     * @param UpdateMeetingRoomRequest $request UpdateMeetingRoomRequest
      *
-     * @return UpdateMeetingRoomResponse
+     * @return UpdateMeetingRoomResponse UpdateMeetingRoomResponse
      */
     public function updateMeetingRoom($request)
     {
@@ -13043,11 +13769,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param UpdateMeetingRoomGroupRequest $tmpReq
-     * @param UpdateMeetingRoomGroupHeaders $tmpHeader
-     * @param RuntimeOptions                $runtime
+     * @summary 更新会议室分组信息
+     *  *
+     * @param UpdateMeetingRoomGroupRequest $tmpReq    UpdateMeetingRoomGroupRequest
+     * @param UpdateMeetingRoomGroupHeaders $tmpHeader UpdateMeetingRoomGroupHeaders
+     * @param RuntimeOptions                $runtime   runtime options for this request RuntimeOptions
      *
-     * @return UpdateMeetingRoomGroupResponse
+     * @return UpdateMeetingRoomGroupResponse UpdateMeetingRoomGroupResponse
      */
     public function updateMeetingRoomGroupWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -13099,9 +13827,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param UpdateMeetingRoomGroupRequest $request
+     * @summary 更新会议室分组信息
+     *  *
+     * @param UpdateMeetingRoomGroupRequest $request UpdateMeetingRoomGroupRequest
      *
-     * @return UpdateMeetingRoomGroupResponse
+     * @return UpdateMeetingRoomGroupResponse UpdateMeetingRoomGroupResponse
      */
     public function updateMeetingRoomGroup($request)
     {
@@ -13112,11 +13842,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param UpdateRangeRequest $tmpReq
-     * @param UpdateRangeHeaders $tmpHeader
-     * @param RuntimeOptions     $runtime
+     * @summary 更新单元格区域
+     *  *
+     * @param UpdateRangeRequest $tmpReq    UpdateRangeRequest
+     * @param UpdateRangeHeaders $tmpHeader UpdateRangeHeaders
+     * @param RuntimeOptions     $runtime   runtime options for this request RuntimeOptions
      *
-     * @return UpdateRangeResponse
+     * @return UpdateRangeResponse UpdateRangeResponse
      */
     public function updateRangeWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -13192,9 +13924,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param UpdateRangeRequest $request
+     * @summary 更新单元格区域
+     *  *
+     * @param UpdateRangeRequest $request UpdateRangeRequest
      *
-     * @return UpdateRangeResponse
+     * @return UpdateRangeResponse UpdateRangeResponse
      */
     public function updateRange($request)
     {
@@ -13205,11 +13939,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param UpdateScheduleConfSettingsRequest $tmpReq
-     * @param UpdateScheduleConfSettingsHeaders $tmpHeader
-     * @param RuntimeOptions                    $runtime
+     * @summary 更新预约会议设置
+     *  *
+     * @param UpdateScheduleConfSettingsRequest $tmpReq    UpdateScheduleConfSettingsRequest
+     * @param UpdateScheduleConfSettingsHeaders $tmpHeader UpdateScheduleConfSettingsHeaders
+     * @param RuntimeOptions                    $runtime   runtime options for this request RuntimeOptions
      *
-     * @return UpdateScheduleConfSettingsResponse
+     * @return UpdateScheduleConfSettingsResponse UpdateScheduleConfSettingsResponse
      */
     public function updateScheduleConfSettingsWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -13264,9 +14000,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param UpdateScheduleConfSettingsRequest $request
+     * @summary 更新预约会议设置
+     *  *
+     * @param UpdateScheduleConfSettingsRequest $request UpdateScheduleConfSettingsRequest
      *
-     * @return UpdateScheduleConfSettingsResponse
+     * @return UpdateScheduleConfSettingsResponse UpdateScheduleConfSettingsResponse
      */
     public function updateScheduleConfSettings($request)
     {
@@ -13277,11 +14015,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param UpdateScheduleConferenceRequest $tmpReq
-     * @param UpdateScheduleConferenceHeaders $tmpHeader
-     * @param RuntimeOptions                  $runtime
+     * @summary 更新预约会议
+     *  *
+     * @param UpdateScheduleConferenceRequest $tmpReq    UpdateScheduleConferenceRequest
+     * @param UpdateScheduleConferenceHeaders $tmpHeader UpdateScheduleConferenceHeaders
+     * @param RuntimeOptions                  $runtime   runtime options for this request RuntimeOptions
      *
-     * @return UpdateScheduleConferenceResponse
+     * @return UpdateScheduleConferenceResponse UpdateScheduleConferenceResponse
      */
     public function updateScheduleConferenceWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -13339,9 +14079,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param UpdateScheduleConferenceRequest $request
+     * @summary 更新预约会议
+     *  *
+     * @param UpdateScheduleConferenceRequest $request UpdateScheduleConferenceRequest
      *
-     * @return UpdateScheduleConferenceResponse
+     * @return UpdateScheduleConferenceResponse UpdateScheduleConferenceResponse
      */
     public function updateScheduleConference($request)
     {
@@ -13352,11 +14094,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param UpdateStatusRequest $tmpReq
-     * @param UpdateStatusHeaders $tmpHeader
-     * @param RuntimeOptions      $runtime
+     * @summary 更新状态
+     *  *
+     * @param UpdateStatusRequest $tmpReq    UpdateStatusRequest
+     * @param UpdateStatusHeaders $tmpHeader UpdateStatusHeaders
+     * @param RuntimeOptions      $runtime   runtime options for this request RuntimeOptions
      *
-     * @return UpdateStatusResponse
+     * @return UpdateStatusResponse UpdateStatusResponse
      */
     public function updateStatusWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -13417,9 +14161,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param UpdateStatusRequest $request
+     * @summary 更新状态
+     *  *
+     * @param UpdateStatusRequest $request UpdateStatusRequest
      *
-     * @return UpdateStatusResponse
+     * @return UpdateStatusResponse UpdateStatusResponse
      */
     public function updateStatus($request)
     {
@@ -13430,11 +14176,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param UpdateSubscribedCalendarsRequest $tmpReq
-     * @param UpdateSubscribedCalendarsHeaders $tmpHeader
-     * @param RuntimeOptions                   $runtime
+     * @summary 更新订阅日历
+     *  *
+     * @param UpdateSubscribedCalendarsRequest $tmpReq    UpdateSubscribedCalendarsRequest
+     * @param UpdateSubscribedCalendarsHeaders $tmpHeader UpdateSubscribedCalendarsHeaders
+     * @param RuntimeOptions                   $runtime   runtime options for this request RuntimeOptions
      *
-     * @return UpdateSubscribedCalendarsResponse
+     * @return UpdateSubscribedCalendarsResponse UpdateSubscribedCalendarsResponse
      */
     public function updateSubscribedCalendarsWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -13495,9 +14243,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param UpdateSubscribedCalendarsRequest $request
+     * @summary 更新订阅日历
+     *  *
+     * @param UpdateSubscribedCalendarsRequest $request UpdateSubscribedCalendarsRequest
      *
-     * @return UpdateSubscribedCalendarsResponse
+     * @return UpdateSubscribedCalendarsResponse UpdateSubscribedCalendarsResponse
      */
     public function updateSubscribedCalendars($request)
     {
@@ -13508,11 +14258,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param UpdateTodoTaskRequest $tmpReq
-     * @param UpdateTodoTaskHeaders $tmpHeader
-     * @param RuntimeOptions        $runtime
+     * @summary 更新代办
+     *  *
+     * @param UpdateTodoTaskRequest $tmpReq    UpdateTodoTaskRequest
+     * @param UpdateTodoTaskHeaders $tmpHeader UpdateTodoTaskHeaders
+     * @param RuntimeOptions        $runtime   runtime options for this request RuntimeOptions
      *
-     * @return UpdateTodoTaskResponse
+     * @return UpdateTodoTaskResponse UpdateTodoTaskResponse
      */
     public function updateTodoTaskWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -13585,9 +14337,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param UpdateTodoTaskRequest $request
+     * @summary 更新代办
+     *  *
+     * @param UpdateTodoTaskRequest $request UpdateTodoTaskRequest
      *
-     * @return UpdateTodoTaskResponse
+     * @return UpdateTodoTaskResponse UpdateTodoTaskResponse
      */
     public function updateTodoTask($request)
     {
@@ -13598,11 +14352,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param UpdateTodoTaskExecutorStatusRequest $tmpReq
-     * @param UpdateTodoTaskExecutorStatusHeaders $tmpHeader
-     * @param RuntimeOptions                      $runtime
+     * @summary 更新代办执行者状态
+     *  *
+     * @param UpdateTodoTaskExecutorStatusRequest $tmpReq    UpdateTodoTaskExecutorStatusRequest
+     * @param UpdateTodoTaskExecutorStatusHeaders $tmpHeader UpdateTodoTaskExecutorStatusHeaders
+     * @param RuntimeOptions                      $runtime   runtime options for this request RuntimeOptions
      *
-     * @return UpdateTodoTaskExecutorStatusResponse
+     * @return UpdateTodoTaskExecutorStatusResponse UpdateTodoTaskExecutorStatusResponse
      */
     public function updateTodoTaskExecutorStatusWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -13660,9 +14416,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param UpdateTodoTaskExecutorStatusRequest $request
+     * @summary 更新代办执行者状态
+     *  *
+     * @param UpdateTodoTaskExecutorStatusRequest $request UpdateTodoTaskExecutorStatusRequest
      *
-     * @return UpdateTodoTaskExecutorStatusResponse
+     * @return UpdateTodoTaskExecutorStatusResponse UpdateTodoTaskExecutorStatusResponse
      */
     public function updateTodoTaskExecutorStatus($request)
     {
@@ -13673,11 +14431,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserAvatarRequest $request
-     * @param UpdateUserAvatarHeaders $tmpHeader
-     * @param RuntimeOptions          $runtime
+     * @summary 更新企业账号用户头像
+     *  *
+     * @param UpdateUserAvatarRequest $request   UpdateUserAvatarRequest
+     * @param UpdateUserAvatarHeaders $tmpHeader UpdateUserAvatarHeaders
+     * @param RuntimeOptions          $runtime   runtime options for this request RuntimeOptions
      *
-     * @return UpdateUserAvatarResponse
+     * @return UpdateUserAvatarResponse UpdateUserAvatarResponse
      */
     public function updateUserAvatarWithOptions($request, $tmpHeader, $runtime)
     {
@@ -13718,9 +14478,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserAvatarRequest $request
+     * @summary 更新企业账号用户头像
+     *  *
+     * @param UpdateUserAvatarRequest $request UpdateUserAvatarRequest
      *
-     * @return UpdateUserAvatarResponse
+     * @return UpdateUserAvatarResponse UpdateUserAvatarResponse
      */
     public function updateUserAvatar($request)
     {
@@ -13731,11 +14493,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param UpdateWorkspaceDocMembersRequest $tmpReq
-     * @param UpdateWorkspaceDocMembersHeaders $tmpHeader
-     * @param RuntimeOptions                   $runtime
+     * @summary 修改知识库文档成员权限
+     *  *
+     * @param UpdateWorkspaceDocMembersRequest $tmpReq    UpdateWorkspaceDocMembersRequest
+     * @param UpdateWorkspaceDocMembersHeaders $tmpHeader UpdateWorkspaceDocMembersHeaders
+     * @param RuntimeOptions                   $runtime   runtime options for this request RuntimeOptions
      *
-     * @return UpdateWorkspaceDocMembersResponse
+     * @return UpdateWorkspaceDocMembersResponse UpdateWorkspaceDocMembersResponse
      */
     public function updateWorkspaceDocMembersWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -13793,9 +14557,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param UpdateWorkspaceDocMembersRequest $request
+     * @summary 修改知识库文档成员权限
+     *  *
+     * @param UpdateWorkspaceDocMembersRequest $request UpdateWorkspaceDocMembersRequest
      *
-     * @return UpdateWorkspaceDocMembersResponse
+     * @return UpdateWorkspaceDocMembersResponse UpdateWorkspaceDocMembersResponse
      */
     public function updateWorkspaceDocMembers($request)
     {
@@ -13806,11 +14572,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param UpdateWorkspaceMembersRequest $tmpReq
-     * @param UpdateWorkspaceMembersHeaders $tmpHeader
-     * @param RuntimeOptions                $runtime
+     * @summary 更新知识库成员权限
+     *  *
+     * @param UpdateWorkspaceMembersRequest $tmpReq    UpdateWorkspaceMembersRequest
+     * @param UpdateWorkspaceMembersHeaders $tmpHeader UpdateWorkspaceMembersHeaders
+     * @param RuntimeOptions                $runtime   runtime options for this request RuntimeOptions
      *
-     * @return UpdateWorkspaceMembersResponse
+     * @return UpdateWorkspaceMembersResponse UpdateWorkspaceMembersResponse
      */
     public function updateWorkspaceMembersWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -13865,9 +14633,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param UpdateWorkspaceMembersRequest $request
+     * @summary 更新知识库成员权限
+     *  *
+     * @param UpdateWorkspaceMembersRequest $request UpdateWorkspaceMembersRequest
      *
-     * @return UpdateWorkspaceMembersResponse
+     * @return UpdateWorkspaceMembersResponse UpdateWorkspaceMembersResponse
      */
     public function updateWorkspaceMembers($request)
     {
@@ -13878,11 +14648,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param UploadMediaRequest $tmpReq
-     * @param UploadMediaHeaders $tmpHeader
-     * @param RuntimeOptions     $runtime
+     * @summary 上传媒体<br/>
+     *  *
+     * @param UploadMediaRequest $tmpReq    UploadMediaRequest
+     * @param UploadMediaHeaders $tmpHeader UploadMediaHeaders
+     * @param RuntimeOptions     $runtime   runtime options for this request RuntimeOptions
      *
-     * @return UploadMediaResponse
+     * @return UploadMediaResponse UploadMediaResponse
      */
     public function uploadMediaWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -13940,9 +14712,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param UploadMediaRequest $request
+     * @summary 上传媒体<br/>
+     *  *
+     * @param UploadMediaRequest $request UploadMediaRequest
      *
-     * @return UploadMediaResponse
+     * @return UploadMediaResponse UploadMediaResponse
      */
     public function uploadMedia($request)
     {
@@ -13953,11 +14727,13 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param WearOrgHonorRequest $tmpReq
-     * @param WearOrgHonorHeaders $tmpHeader
-     * @param RuntimeOptions      $runtime
+     * @summary 穿戴勋章
+     *  *
+     * @param WearOrgHonorRequest $tmpReq    WearOrgHonorRequest
+     * @param WearOrgHonorHeaders $tmpHeader WearOrgHonorHeaders
+     * @param RuntimeOptions      $runtime   runtime options for this request RuntimeOptions
      *
-     * @return WearOrgHonorResponse
+     * @return WearOrgHonorResponse WearOrgHonorResponse
      */
     public function wearOrgHonorWithOptions($tmpReq, $tmpHeader, $runtime)
     {
@@ -14015,9 +14791,11 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @param WearOrgHonorRequest $request
+     * @summary 穿戴勋章
+     *  *
+     * @param WearOrgHonorRequest $request WearOrgHonorRequest
      *
-     * @return WearOrgHonorResponse
+     * @return WearOrgHonorResponse WearOrgHonorResponse
      */
     public function wearOrgHonor($request)
     {

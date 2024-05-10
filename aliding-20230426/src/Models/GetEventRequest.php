@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetEventRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example primary
      *
      * @var string
@@ -16,6 +18,8 @@ class GetEventRequest extends Model
     public $calendarId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 311525211
      *
      * @var string

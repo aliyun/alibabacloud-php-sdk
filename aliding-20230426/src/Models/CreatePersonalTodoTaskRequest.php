@@ -25,6 +25,8 @@ class CreatePersonalTodoTaskRequest extends Model
     public $dueTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example [ "012345" ]
      *
      * @var string[]
@@ -44,6 +46,8 @@ class CreatePersonalTodoTaskRequest extends Model
     public $participantIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 待办标题
      *
      * @var string

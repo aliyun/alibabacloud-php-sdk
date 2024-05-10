@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateScheduleConferenceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1687928400000L
      *
      * @var int
@@ -17,6 +19,8 @@ class UpdateScheduleConferenceRequest extends Model
     public $endTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2a489xxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
      *
      * @var string
@@ -24,6 +28,8 @@ class UpdateScheduleConferenceRequest extends Model
     public $scheduleConferenceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1687924800000L
      *
      * @var int
@@ -36,6 +42,8 @@ class UpdateScheduleConferenceRequest extends Model
     public $tenantContext;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 预约会议标题
      *
      * @var string

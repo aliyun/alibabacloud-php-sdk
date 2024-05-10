@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @example {\"ODIN_TOPIC_ID\":\"256\"}
+     * @example {\\"ODIN_TOPIC_ID\\":\\"256\\"}
      *
      * @var string
      */

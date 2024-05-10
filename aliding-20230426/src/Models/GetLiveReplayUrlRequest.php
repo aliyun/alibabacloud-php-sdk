@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetLiveReplayUrlRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 4d38xxxxx
      *
      * @var string

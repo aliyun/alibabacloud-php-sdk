@@ -16,7 +16,7 @@ class CreateOrUpdateFormDataRequest extends Model
     public $appType;
 
     /**
-     * @example {\"countrySelectField_l0c1cwiu\":[{\"value\":\"US\"}]}
+     * @example {\\"countrySelectField_l0c1cwiu\\":[{\\"value\\":\\"US\\"}]}
      *
      * @var string
      */

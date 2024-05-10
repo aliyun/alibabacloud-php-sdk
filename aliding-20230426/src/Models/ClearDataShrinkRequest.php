@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ClearDataShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example A3:C3
      *
      * @var string
@@ -16,6 +18,8 @@ class ClearDataShrinkRequest extends Model
     public $rangeAddress;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Sheet1
      *
      * @var string
@@ -28,6 +32,8 @@ class ClearDataShrinkRequest extends Model
     public $tenantContextShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example stxxxx
      *
      * @var string

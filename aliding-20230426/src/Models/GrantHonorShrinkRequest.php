@@ -21,16 +21,22 @@ class GrantHonorShrinkRequest extends Model
     public $expirationTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $grantReason;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $granterName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 21659398
      *
      * @var string
@@ -57,6 +63,8 @@ class GrantHonorShrinkRequest extends Model
     public $openConversationIdsShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 345391052
      *
      * @var int
@@ -64,11 +72,15 @@ class GrantHonorShrinkRequest extends Model
     public $orgId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $receiverUserIdsShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 363784
      *
      * @var string

@@ -22,6 +22,8 @@ class GetWorkspaceRequest extends Model
     public $withPermissionRole;
 
     /**
+     * @description This parameter is required.
+     *
      * @example MJ0pDSKMV9dO20E4
      *
      * @var string

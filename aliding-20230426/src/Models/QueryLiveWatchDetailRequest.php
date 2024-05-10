@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryLiveWatchDetailRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 4d38xxxxx
      *
      * @var string

@@ -24,6 +24,8 @@ class CreateLiveRequest extends Model
     public $introduction;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1698596800000
      *
      * @var int
@@ -31,6 +33,8 @@ class CreateLiveRequest extends Model
     public $preEndTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1691596800000
      *
      * @var int
@@ -50,6 +54,8 @@ class CreateLiveRequest extends Model
     public $tenantContext;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 标题
      *
      * @var string

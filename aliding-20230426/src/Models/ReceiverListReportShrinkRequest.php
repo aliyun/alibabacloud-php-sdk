@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ReceiverListReportShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int
@@ -16,6 +18,8 @@ class ReceiverListReportShrinkRequest extends Model
     public $offset;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 173xxxx
      *
      * @var string
@@ -23,6 +27,8 @@ class ReceiverListReportShrinkRequest extends Model
     public $reportId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int

@@ -14,6 +14,8 @@ class QueryScheduleConferenceShrinkRequest extends Model
     public $tenantContextShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2a489c68-xxxx-xxxx-xxxx-xxxxxxxxxxxx
      *
      * @var string

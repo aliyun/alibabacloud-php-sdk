@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetDocContentRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example dentry_uuid
      *
      * @var string
@@ -29,6 +31,8 @@ class GetDocContentRequest extends Model
     public $tenantContext;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $userToken;

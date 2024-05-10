@@ -14,6 +14,8 @@ class RecallHonorShrinkRequest extends Model
     public $tenantContextShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 21660610
      *
      * @var string
@@ -21,6 +23,8 @@ class RecallHonorShrinkRequest extends Model
     public $honorId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 345391052
      *
      * @var int
@@ -28,6 +32,8 @@ class RecallHonorShrinkRequest extends Model
     public $orgId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 363784
      *
      * @var string

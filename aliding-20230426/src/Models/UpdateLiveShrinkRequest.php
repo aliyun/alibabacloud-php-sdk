@@ -23,6 +23,8 @@ class UpdateLiveShrinkRequest extends Model
     public $introduction;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 4d38xxxxx
      *
      * @var string
@@ -30,6 +32,8 @@ class UpdateLiveShrinkRequest extends Model
     public $liveId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1698596800000
      *
      * @var int
@@ -37,6 +41,8 @@ class UpdateLiveShrinkRequest extends Model
     public $preEndTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1691596800000
      *
      * @var int
@@ -49,6 +55,8 @@ class UpdateLiveShrinkRequest extends Model
     public $tenantContextShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 标题
      *
      * @var string

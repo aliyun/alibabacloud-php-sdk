@@ -15,6 +15,8 @@ class CreateOrgHonorTemplateRequest extends Model
     public $tenantContext;
 
     /**
+     * @description This parameter is required.
+     *
      * @example fsdfasdjf132342d
      *
      * @var string
@@ -22,6 +24,8 @@ class CreateOrgHonorTemplateRequest extends Model
     public $avatarFrameMediaId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example #FFFBB4
      *
      * @var string
@@ -29,11 +33,15 @@ class CreateOrgHonorTemplateRequest extends Model
     public $defaultBgColor;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $medalDesc;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1273adf23
      *
      * @var string
@@ -41,11 +49,15 @@ class CreateOrgHonorTemplateRequest extends Model
     public $medalMediaId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $medalName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123456
      *
      * @var int
@@ -53,6 +65,8 @@ class CreateOrgHonorTemplateRequest extends Model
     public $orgId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 363784
      *
      * @var string

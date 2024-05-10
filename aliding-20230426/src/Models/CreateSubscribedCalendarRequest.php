@@ -20,11 +20,15 @@ class CreateSubscribedCalendarRequest extends Model
     public $managers;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @var subscribeScope
      */
     public $subscribeScope;

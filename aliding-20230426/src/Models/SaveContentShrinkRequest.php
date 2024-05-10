@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SaveContentShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example []
      *
      * @var string
@@ -16,6 +18,8 @@ class SaveContentShrinkRequest extends Model
     public $contentsShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example client
      *
      * @var string
@@ -23,6 +27,8 @@ class SaveContentShrinkRequest extends Model
     public $ddFrom;
 
     /**
+     * @description This parameter is required.
+     *
      * @example sdfafdsfsafdfsaf
      *
      * @var string

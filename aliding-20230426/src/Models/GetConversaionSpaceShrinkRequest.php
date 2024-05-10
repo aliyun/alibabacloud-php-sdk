@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetConversaionSpaceShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example cidB8Pzg****FIWPv2PMA==
      *
      * @var string

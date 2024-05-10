@@ -65,7 +65,7 @@ class SearchEmployeeFieldValuesRequest extends Model
     public $originatorId;
 
     /**
-     * @example {\"textField_annandfa\":\"1212\"}
+     * @example {\\"textField_annandfa\\":\\"1212\\"}
      *
      * @var string
      */
@@ -79,7 +79,7 @@ class SearchEmployeeFieldValuesRequest extends Model
     public $systemToken;
 
     /**
-     * @example [\"textField_xahdfna\"]
+     * @example [\\"textField_xahdfna\\"]
      *
      * @var string
      */

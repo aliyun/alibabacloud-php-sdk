@@ -37,6 +37,8 @@ class ListDentriesShrinkRequest extends Model
     public $orderBy;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0
      *
      * @var string
@@ -44,6 +46,8 @@ class ListDentriesShrinkRequest extends Model
     public $parentId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 854xxxxx
      *
      * @var string

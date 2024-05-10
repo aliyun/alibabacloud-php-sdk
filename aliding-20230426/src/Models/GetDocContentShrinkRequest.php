@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDocContentShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example dentry_uuid
      *
      * @var string
@@ -28,6 +30,8 @@ class GetDocContentShrinkRequest extends Model
     public $tenantContextShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $userToken;

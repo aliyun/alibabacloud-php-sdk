@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetReportTemplateByNameShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 我管理的模版
      *
      * @var string

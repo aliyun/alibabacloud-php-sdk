@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetTemplateListByUserIdRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int
@@ -17,6 +19,8 @@ class GetTemplateListByUserIdRequest extends Model
     public $offset;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int

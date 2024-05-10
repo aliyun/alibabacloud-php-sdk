@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class contents extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ### 序号1
      *
      * @var string
@@ -16,6 +18,8 @@ class contents extends Model
     public $content;
 
     /**
+     * @description This parameter is required.
+     *
      * @example markdown
      *
      * @var string
@@ -23,6 +27,8 @@ class contents extends Model
     public $contentType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 今日完成工作
      *
      * @var string
@@ -30,6 +36,8 @@ class contents extends Model
     public $key;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0
      *
      * @var int
@@ -37,6 +45,8 @@ class contents extends Model
     public $sort;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int

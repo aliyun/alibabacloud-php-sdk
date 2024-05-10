@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RedirectTaskRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example APP_PBKxxx
      *
      * @var string
@@ -30,6 +32,8 @@ class RedirectTaskRequest extends Model
     public $language;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123456
      *
      * @var string
@@ -37,6 +41,8 @@ class RedirectTaskRequest extends Model
     public $nowActionExecutorId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example instxxxx
      *
      * @var string
@@ -51,6 +57,8 @@ class RedirectTaskRequest extends Model
     public $remark;
 
     /**
+     * @description This parameter is required.
+     *
      * @example hexxxx
      *
      * @var string
@@ -58,6 +66,8 @@ class RedirectTaskRequest extends Model
     public $systemToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example hexxxx
      *
      * @var int

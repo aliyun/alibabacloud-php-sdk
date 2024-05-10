@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class accountContext extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ba3a9b612345678d8fedf544ef69d19e
      *
      * @var string

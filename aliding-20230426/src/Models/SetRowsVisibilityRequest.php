@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class SetRowsVisibilityRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class SetRowsVisibilityRequest extends Model
     public $row;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 20
      *
      * @var int
@@ -24,6 +28,8 @@ class SetRowsVisibilityRequest extends Model
     public $rowCount;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Sheet1
      *
      * @var string
@@ -36,6 +42,8 @@ class SetRowsVisibilityRequest extends Model
     public $tenantContext;
 
     /**
+     * @description This parameter is required.
+     *
      * @example hidden
      *
      * @var string
@@ -43,6 +51,8 @@ class SetRowsVisibilityRequest extends Model
     public $visibility;
 
     /**
+     * @description This parameter is required.
+     *
      * @example stxxxx
      *
      * @var string

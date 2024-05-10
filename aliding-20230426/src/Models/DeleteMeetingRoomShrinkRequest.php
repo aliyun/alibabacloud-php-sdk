@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteMeetingRoomShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 0ffb7xxxxx
      *
      * @var string

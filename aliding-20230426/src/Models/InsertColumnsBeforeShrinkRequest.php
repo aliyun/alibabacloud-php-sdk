@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class InsertColumnsBeforeShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class InsertColumnsBeforeShrinkRequest extends Model
     public $column;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 3
      *
      * @var int
@@ -23,6 +27,8 @@ class InsertColumnsBeforeShrinkRequest extends Model
     public $columnCount;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Sheet1
      *
      * @var string
@@ -35,6 +41,8 @@ class InsertColumnsBeforeShrinkRequest extends Model
     public $tenantContextShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example stxxxx
      *
      * @var string

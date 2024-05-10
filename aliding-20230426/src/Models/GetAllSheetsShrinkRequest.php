@@ -14,6 +14,8 @@ class GetAllSheetsShrinkRequest extends Model
     public $tenantContextShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example stxxxx
      *
      * @var string

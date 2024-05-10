@@ -22,6 +22,8 @@ class QueryUserHonorsRequest extends Model
     public $maxResults;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 15
      *
      * @var string
@@ -29,6 +31,8 @@ class QueryUserHonorsRequest extends Model
     public $nextToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123456
      *
      * @var int
@@ -36,6 +40,8 @@ class QueryUserHonorsRequest extends Model
     public $orgId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123123
      *
      * @var string

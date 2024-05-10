@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryCloudRecordVideoPlayInfoShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 6139b4xxx
      *
      * @var string
@@ -16,6 +18,8 @@ class QueryCloudRecordVideoPlayInfoShrinkRequest extends Model
     public $conferenceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 44444444
      *
      * @var string
@@ -23,6 +27,8 @@ class QueryCloudRecordVideoPlayInfoShrinkRequest extends Model
     public $mediaId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-shenzhen
      *
      * @var string

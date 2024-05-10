@@ -17,6 +17,8 @@ class CreateMeetingRoomGroupRequest extends Model
     public $groupName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 172L
      *
      * @var int

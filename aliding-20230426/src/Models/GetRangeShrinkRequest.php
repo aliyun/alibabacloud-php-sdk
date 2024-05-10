@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetRangeShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example A3:C3
      *
      * @var string
@@ -23,6 +25,8 @@ class GetRangeShrinkRequest extends Model
     public $select;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Sheet1
      *
      * @var string
@@ -35,6 +39,8 @@ class GetRangeShrinkRequest extends Model
     public $tenantContextShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example stxxxx
      *
      * @var string

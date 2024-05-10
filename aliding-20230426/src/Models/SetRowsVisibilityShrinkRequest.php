@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetRowsVisibilityShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class SetRowsVisibilityShrinkRequest extends Model
     public $row;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 20
      *
      * @var int
@@ -23,6 +27,8 @@ class SetRowsVisibilityShrinkRequest extends Model
     public $rowCount;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Sheet1
      *
      * @var string
@@ -35,6 +41,8 @@ class SetRowsVisibilityShrinkRequest extends Model
     public $tenantContextShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example hidden
      *
      * @var string
@@ -42,6 +50,8 @@ class SetRowsVisibilityShrinkRequest extends Model
     public $visibility;
 
     /**
+     * @description This parameter is required.
+     *
      * @example stxxxx
      *
      * @var string

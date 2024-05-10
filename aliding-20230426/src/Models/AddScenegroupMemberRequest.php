@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddScenegroupMemberRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example cidt*****Xa4K10w==
      *
      * @var string
@@ -16,6 +18,8 @@ class AddScenegroupMemberRequest extends Model
     public $openConversationId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123xx,224xx
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryLiveInfoShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 4d38xxxxx
      *
      * @var string

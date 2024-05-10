@@ -70,6 +70,8 @@ class CreateEventRequest extends Model
     public $richTextDescription;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $summary;
@@ -80,6 +82,8 @@ class CreateEventRequest extends Model
     public $uiConfigs;
 
     /**
+     * @description This parameter is required.
+     *
      * @example primary
      *
      * @var string
@@ -87,6 +91,8 @@ class CreateEventRequest extends Model
     public $calendarId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var start
      */
     public $start;

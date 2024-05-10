@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListEventsViewRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example primary
      *
      * @var string

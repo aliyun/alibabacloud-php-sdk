@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SyncDingTypeShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ANT_DING
      *
      * @var string
@@ -23,6 +25,8 @@ class SyncDingTypeShrinkRequest extends Model
     public $isDimission;
 
     /**
+     * @description This parameter is required.
+     *
      * @example antding
      *
      * @var string
@@ -35,6 +39,8 @@ class SyncDingTypeShrinkRequest extends Model
     public $tenantContextShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 012345
      *
      * @var string

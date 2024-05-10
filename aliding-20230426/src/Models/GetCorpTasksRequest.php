@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetCorpTasksRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example APP_PBKxxx
      *
      * @var string
@@ -16,6 +18,8 @@ class GetCorpTasksRequest extends Model
     public $appTypes;
 
     /**
+     * @description This parameter is required.
+     *
      * @example corpId
      *
      * @var string
@@ -72,6 +76,8 @@ class GetCorpTasksRequest extends Model
     public $processCodes;
 
     /**
+     * @description This parameter is required.
+     *
      * @example hexxxx
      *
      * @var string

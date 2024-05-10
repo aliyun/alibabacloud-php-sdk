@@ -21,6 +21,8 @@ class AddWorkspaceMembersRequest extends Model
     public $tenantContext;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123
      *
      * @var string

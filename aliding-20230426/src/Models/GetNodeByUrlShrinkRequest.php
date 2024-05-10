@@ -19,6 +19,8 @@ class GetNodeByUrlShrinkRequest extends Model
     public $tenantContextShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example https://alidocs.dingtalk.com/i/nodes/EpGBa2L*********gN7R35y
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class BatchRemovalByFormInstanceIdListRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example APP_XCE0EVXS6DYG3YDYC5RD
      *
      * @var string
@@ -30,6 +32,8 @@ class BatchRemovalByFormInstanceIdListRequest extends Model
     public $executeExpression;
 
     /**
+     * @description This parameter is required.
+     *
      * @example []
      *
      * @var string[]
@@ -37,6 +41,8 @@ class BatchRemovalByFormInstanceIdListRequest extends Model
     public $formInstanceIdList;
 
     /**
+     * @description This parameter is required.
+     *
      * @example FORM-GX866MC1NC1VOFF6WVQW33FD16E23L3CPMKVKA
      *
      * @var string
@@ -44,6 +50,8 @@ class BatchRemovalByFormInstanceIdListRequest extends Model
     public $formUuid;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 09866181UTZVVD4R3DC955FNKIM52HVPU5WWK7
      *
      * @var string

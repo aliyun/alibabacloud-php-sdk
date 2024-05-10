@@ -61,6 +61,8 @@ class CreateEventShrinkRequest extends Model
     public $richTextDescriptionShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $summary;
@@ -71,6 +73,8 @@ class CreateEventShrinkRequest extends Model
     public $uiConfigsShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example primary
      *
      * @var string
@@ -78,6 +82,8 @@ class CreateEventShrinkRequest extends Model
     public $calendarId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $startShrink;

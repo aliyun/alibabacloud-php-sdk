@@ -19,6 +19,8 @@ class GetWorkspacesShrinkRequest extends Model
     public $tenantContextShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example workspace_id
      *
      * @var string

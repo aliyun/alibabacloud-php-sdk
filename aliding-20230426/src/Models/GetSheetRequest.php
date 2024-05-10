@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetSheetRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example Sheet1
      *
      * @var string
@@ -22,6 +24,8 @@ class GetSheetRequest extends Model
     public $tenantContext;
 
     /**
+     * @description This parameter is required.
+     *
      * @example stxxxx
      *
      * @var string

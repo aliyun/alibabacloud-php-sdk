@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateScheduleConferenceShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1687928400000L
      *
      * @var int
@@ -16,6 +18,8 @@ class CreateScheduleConferenceShrinkRequest extends Model
     public $endTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1687924800000L
      *
      * @var int
@@ -28,6 +32,8 @@ class CreateScheduleConferenceShrinkRequest extends Model
     public $tenantContextShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 预约会议标题
      *
      * @var string

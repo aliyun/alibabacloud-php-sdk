@@ -20,6 +20,8 @@ class PatchEventRequest extends Model
     public $attendees;
 
     /**
+     * @description This parameter is required.
+     *
      * @example primary
      *
      * @var string
@@ -37,6 +39,8 @@ class PatchEventRequest extends Model
     public $end;
 
     /**
+     * @description This parameter is required.
+     *
      * @example iiiP35sJadba8aBSgjrwPRKgiEiF
      *
      * @var string

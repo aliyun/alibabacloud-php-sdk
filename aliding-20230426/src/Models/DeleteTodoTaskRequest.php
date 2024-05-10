@@ -22,6 +22,8 @@ class DeleteTodoTaskRequest extends Model
     public $operatorId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 63edc8da7e917d6ecdaab11b
      *
      * @var string

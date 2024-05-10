@@ -16,6 +16,8 @@ class GetCorpAccomplishmentTasksRequest extends Model
     public $appTypes;
 
     /**
+     * @description This parameter is required.
+     *
      * @example corpIdxxx
      *
      * @var string
@@ -72,6 +74,8 @@ class GetCorpAccomplishmentTasksRequest extends Model
     public $processCodes;
 
     /**
+     * @description This parameter is required.
+     *
      * @example hexxxx
      *
      * @var string

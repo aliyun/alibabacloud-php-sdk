@@ -14,6 +14,8 @@ class UpdateWorkspaceDocMembersShrinkRequest extends Model
     public $membersShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example node_feb8fea0
      *
      * @var string
@@ -26,6 +28,8 @@ class UpdateWorkspaceDocMembersShrinkRequest extends Model
     public $tenantContextShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example xb8bkxxxxxrXJNaL
      *
      * @var string

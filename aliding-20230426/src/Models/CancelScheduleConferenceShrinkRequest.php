@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CancelScheduleConferenceShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 2a489xxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
      *
      * @var string

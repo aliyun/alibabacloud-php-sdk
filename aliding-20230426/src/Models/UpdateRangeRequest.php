@@ -31,6 +31,8 @@ class UpdateRangeRequest extends Model
     public $numberFormat;
 
     /**
+     * @description This parameter is required.
+     *
      * @example A3:C3
      *
      * @var string
@@ -38,6 +40,8 @@ class UpdateRangeRequest extends Model
     public $rangeAddress;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Sheet1
      *
      * @var string
@@ -57,6 +61,8 @@ class UpdateRangeRequest extends Model
     public $values;
 
     /**
+     * @description This parameter is required.
+     *
      * @example stxxxx
      *
      * @var string

@@ -24,6 +24,8 @@ class ListNodesRequest extends Model
     public $nextToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example MNDoBb60VLBPraakI1Ywxyyn8lemrZQ3
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetRunningTasksRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example APP_PBKxxx
      *
      * @var string
@@ -37,6 +39,8 @@ class GetRunningTasksRequest extends Model
     public $processInstanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example hexxxx
      *
      * @var string

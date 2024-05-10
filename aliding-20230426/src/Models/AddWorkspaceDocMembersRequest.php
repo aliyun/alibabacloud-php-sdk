@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class AddWorkspaceDocMembersRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var members[]
      */
     public $members;
 
     /**
+     * @description This parameter is required.
+     *
      * @example xxx
      *
      * @var string
@@ -28,6 +32,8 @@ class AddWorkspaceDocMembersRequest extends Model
     public $tenantContext;
 
     /**
+     * @description This parameter is required.
+     *
      * @example xxx
      *
      * @var string

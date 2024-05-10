@@ -14,6 +14,8 @@ class WearOrgHonorShrinkRequest extends Model
     public $tenantContextShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 21659595
      *
      * @var string
@@ -21,6 +23,8 @@ class WearOrgHonorShrinkRequest extends Model
     public $honorId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123456
      *
      * @var int
@@ -28,6 +32,8 @@ class WearOrgHonorShrinkRequest extends Model
     public $orgId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 363784
      *
      * @var string
@@ -35,6 +41,8 @@ class WearOrgHonorShrinkRequest extends Model
     public $userId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example false
      *
      * @var bool

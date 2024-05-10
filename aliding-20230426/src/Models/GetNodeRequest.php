@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetNodeRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example a9E05BDRVQ9K600yf1NplNDxV63zgkYA
      *
      * @var string

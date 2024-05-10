@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetMeetingRoomsScheduleRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 2020-01-01T10:15:30+08:00
      *
      * @var string
@@ -16,6 +18,8 @@ class GetMeetingRoomsScheduleRequest extends Model
     public $endTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ["4002xxxxx"]
      *
      * @var string[]
@@ -23,6 +27,8 @@ class GetMeetingRoomsScheduleRequest extends Model
     public $roomIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2020-01-01T10:15:30+08:00
      *
      * @var string

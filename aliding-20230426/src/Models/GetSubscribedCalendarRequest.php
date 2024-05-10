@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetSubscribedCalendarRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example M5MjkxNDUxQHVzZXJzLmRpbmd0YWxrLmNv
      *
      * @var string

@@ -19,6 +19,8 @@ class AddWorkspaceMembersShrinkRequest extends Model
     public $tenantContextShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123
      *
      * @var string

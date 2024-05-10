@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class RemoveMeetingRoomsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example primary
      *
      * @var string
@@ -17,6 +19,8 @@ class RemoveMeetingRoomsRequest extends Model
     public $calendarId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example U5Kxxxxx
      *
      * @var string

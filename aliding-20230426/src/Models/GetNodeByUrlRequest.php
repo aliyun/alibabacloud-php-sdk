@@ -21,6 +21,8 @@ class GetNodeByUrlRequest extends Model
     public $tenantContext;
 
     /**
+     * @description This parameter is required.
+     *
      * @example https://alidocs.dingtalk.com/i/nodes/EpGBa2L*********gN7R35y
      *
      * @var string

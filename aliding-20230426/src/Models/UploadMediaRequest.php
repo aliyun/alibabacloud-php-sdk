@@ -22,6 +22,8 @@ class UploadMediaRequest extends Model
     public $mediaName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example image
      *
      * @var string
@@ -29,6 +31,8 @@ class UploadMediaRequest extends Model
     public $mediaType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1234567
      *
      * @var int
@@ -36,6 +40,8 @@ class UploadMediaRequest extends Model
     public $orgId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example https://alicdn.com/xxx.jpg
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetMeCorpSubmissionRequest extends Model
 {
     /**
-     * @example [\"APP_xxx\",\"APP_xxx\"]
+     * @example [\\"APP_xxx\\",\\"APP_xxx\\"]
      *
      * @var string
      */
@@ -65,7 +65,7 @@ class GetMeCorpSubmissionRequest extends Model
     public $pageSize;
 
     /**
-     * @example [\"xx\",\"xxx\"]
+     * @example [\\"xx\\",\\"xxx\\"]
      *
      * @var string
      */

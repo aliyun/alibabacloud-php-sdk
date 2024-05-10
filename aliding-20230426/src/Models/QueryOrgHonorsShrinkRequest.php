@@ -21,6 +21,8 @@ class QueryOrgHonorsShrinkRequest extends Model
     public $maxResults;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 15
      *
      * @var string
@@ -28,6 +30,8 @@ class QueryOrgHonorsShrinkRequest extends Model
     public $nextToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123456
      *
      * @var int

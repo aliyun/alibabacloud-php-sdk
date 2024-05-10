@@ -17,6 +17,8 @@ class GetSpaceDirectoriesRequest extends Model
     public $dentryId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 30
      *
      * @var int
@@ -31,6 +33,8 @@ class GetSpaceDirectoriesRequest extends Model
     public $nextToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example qweqwe
      *
      * @var string

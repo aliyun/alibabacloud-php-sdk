@@ -88,6 +88,8 @@ class CreateTodoTaskShrinkRequest extends Model
     public $sourceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 接入钉钉待办
      *
      * @var string

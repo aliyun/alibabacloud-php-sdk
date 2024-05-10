@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class AddAttendeeShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $attendeesToAddShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example primary
      *
      * @var string
@@ -21,6 +25,8 @@ class AddAttendeeShrinkRequest extends Model
     public $calendarId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cnNTbW1YbU9sL2p6aFJZdEgvdlQrQT08
      *
      * @var string

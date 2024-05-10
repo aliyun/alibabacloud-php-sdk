@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ExpandGroupCapacityRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example cidt*****Xa4K10w==
      *
      * @var string

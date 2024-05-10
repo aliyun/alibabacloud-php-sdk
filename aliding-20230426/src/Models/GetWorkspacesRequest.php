@@ -21,6 +21,8 @@ class GetWorkspacesRequest extends Model
     public $tenantContext;
 
     /**
+     * @description This parameter is required.
+     *
      * @example workspace_id
      *
      * @var string[]

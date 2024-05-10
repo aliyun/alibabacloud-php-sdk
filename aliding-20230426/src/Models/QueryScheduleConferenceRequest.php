@@ -15,6 +15,8 @@ class QueryScheduleConferenceRequest extends Model
     public $tenantContext;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2a489c68-xxxx-xxxx-xxxx-xxxxxxxxxxxx
      *
      * @var string

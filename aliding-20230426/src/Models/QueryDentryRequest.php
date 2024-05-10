@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryDentryRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example xxx
      *
      * @var string
@@ -24,6 +26,8 @@ class QueryDentryRequest extends Model
     public $includeSpace;
 
     /**
+     * @description This parameter is required.
+     *
      * @example space-fxhb96vuddz8htqt
      *
      * @var string

@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class GetNodesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $nodeIds;

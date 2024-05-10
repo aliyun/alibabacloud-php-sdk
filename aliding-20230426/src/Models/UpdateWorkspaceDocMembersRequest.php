@@ -16,6 +16,8 @@ class UpdateWorkspaceDocMembersRequest extends Model
     public $members;
 
     /**
+     * @description This parameter is required.
+     *
      * @example node_feb8fea0
      *
      * @var string
@@ -28,6 +30,8 @@ class UpdateWorkspaceDocMembersRequest extends Model
     public $tenantContext;
 
     /**
+     * @description This parameter is required.
+     *
      * @example xb8bkxxxxxrXJNaL
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteScenegroupMemberRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example cidvkLfbOyIiSYqjgvAiWwFow==
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteScenegroupMemberRequest extends Model
     public $openConversationId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123xxx,223xxx
      *
      * @var string

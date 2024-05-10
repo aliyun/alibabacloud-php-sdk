@@ -15,6 +15,8 @@ class GetAllSheetsRequest extends Model
     public $tenantContext;
 
     /**
+     * @description This parameter is required.
+     *
      * @example stxxxx
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListReportShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +18,8 @@ class ListReportShrinkRequest extends Model
     public $cursor;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1507564800000
      *
      * @var int
@@ -37,6 +41,8 @@ class ListReportShrinkRequest extends Model
     public $modifiedStartTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int
@@ -44,6 +50,8 @@ class ListReportShrinkRequest extends Model
     public $size;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1507564800000
      *
      * @var int

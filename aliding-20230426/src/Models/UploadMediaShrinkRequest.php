@@ -21,6 +21,8 @@ class UploadMediaShrinkRequest extends Model
     public $mediaName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example image
      *
      * @var string
@@ -28,6 +30,8 @@ class UploadMediaShrinkRequest extends Model
     public $mediaType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1234567
      *
      * @var int
@@ -35,6 +39,8 @@ class UploadMediaShrinkRequest extends Model
     public $orgId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example https://alicdn.com/xxx.jpg
      *
      * @var string

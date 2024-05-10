@@ -100,7 +100,7 @@ class GetInstancesRequest extends Model
     public $pageSize;
 
     /**
-     * @example {\"textField\":\"123\"}
+     * @example {\\"textField\\":\\"123\\"}
      *
      * @var string
      */

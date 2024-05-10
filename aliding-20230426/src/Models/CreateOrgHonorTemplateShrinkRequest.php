@@ -14,6 +14,8 @@ class CreateOrgHonorTemplateShrinkRequest extends Model
     public $tenantContextShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example fsdfasdjf132342d
      *
      * @var string
@@ -21,6 +23,8 @@ class CreateOrgHonorTemplateShrinkRequest extends Model
     public $avatarFrameMediaId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example #FFFBB4
      *
      * @var string
@@ -28,11 +32,15 @@ class CreateOrgHonorTemplateShrinkRequest extends Model
     public $defaultBgColor;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $medalDesc;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1273adf23
      *
      * @var string
@@ -40,11 +48,15 @@ class CreateOrgHonorTemplateShrinkRequest extends Model
     public $medalMediaId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $medalName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123456
      *
      * @var int
@@ -52,6 +64,8 @@ class CreateOrgHonorTemplateShrinkRequest extends Model
     public $orgId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 363784
      *
      * @var string

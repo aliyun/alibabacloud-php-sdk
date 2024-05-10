@@ -56,6 +56,8 @@ class UpdateTodoTaskShrinkRequest extends Model
     public $subject;
 
     /**
+     * @description This parameter is required.
+     *
      * @example taskId
      *
      * @var string

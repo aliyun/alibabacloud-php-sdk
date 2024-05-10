@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class BatchGetFormDataByIdListRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example APP_PBKT0xxx
      *
      * @var string
@@ -16,6 +18,8 @@ class BatchGetFormDataByIdListRequest extends Model
     public $appType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example FORM-xxxxx
      *
      * @var string[]
@@ -23,6 +27,8 @@ class BatchGetFormDataByIdListRequest extends Model
     public $formInstanceIdList;
 
     /**
+     * @description This parameter is required.
+     *
      * @example FORM-xxxxx
      *
      * @var string
@@ -37,6 +43,8 @@ class BatchGetFormDataByIdListRequest extends Model
     public $needFormInstanceValue;
 
     /**
+     * @description This parameter is required.
+     *
      * @example hexxxx
      *
      * @var string

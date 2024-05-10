@@ -23,6 +23,8 @@ class BatchUpdateFormDataByInstanceIdRequest extends Model
     public $asynchronousExecution;
 
     /**
+     * @description This parameter is required.
+     *
      * @example [ "FINST-J8766S91O2UYN87ZX3XOF1MY8MBA2912BSV0L24" ]
      *
      * @var string[]
@@ -30,6 +32,8 @@ class BatchUpdateFormDataByInstanceIdRequest extends Model
     public $formInstanceIdList;
 
     /**
+     * @description This parameter is required.
+     *
      * @example FORM-GX866MC1NC1VOFF6WVQW33FD16E23L3CPMKVKA
      *
      * @var string
@@ -51,6 +55,8 @@ class BatchUpdateFormDataByInstanceIdRequest extends Model
     public $noExecuteExpression;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 09866181UTZVVD4R3DC955FNKIM52HVPU5WWK7
      *
      * @var string
@@ -58,6 +64,8 @@ class BatchUpdateFormDataByInstanceIdRequest extends Model
     public $systemToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example {\"countrySelectField_l0c1cwiu\":[{\"value\":\"US\"}],\"addressField_l0c1cwiy\":{\"address\":\"111\",\"regionIds\":[460000,469027,469023401],\"regionText\":[{\"en_US\":\"hai+nan+sheng\",\"zh_CN\":\"海南省\"},{\"en_US\":\"cheng+mai+xian\",\"zh_CN\":\"澄迈县\"},{\"en_US\":\"guo+ying+hong+gang+nong+chang\",\"zh_CN\":\"国营红岗农场\"}]}}
      *
      * @var string

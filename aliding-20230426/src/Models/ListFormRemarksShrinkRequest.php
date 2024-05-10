@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListFormRemarksShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example APP_PBKT0xxx
      *
      * @var string
@@ -16,6 +18,8 @@ class ListFormRemarksShrinkRequest extends Model
     public $appType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example FORM-xxxxx
      *
      * @var string
@@ -23,6 +27,8 @@ class ListFormRemarksShrinkRequest extends Model
     public $formInstanceIdListShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example FORM-xxxxx
      *
      * @var string
@@ -30,6 +36,8 @@ class ListFormRemarksShrinkRequest extends Model
     public $formUuid;
 
     /**
+     * @description This parameter is required.
+     *
      * @example hexxxx
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SearchFormDataIdListRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example APP_PBKT0xxx
      *
      * @var string
@@ -30,6 +32,8 @@ class SearchFormDataIdListRequest extends Model
     public $createToTimeGMT;
 
     /**
+     * @description This parameter is required.
+     *
      * @example FORM-xxxxx
      *
      * @var string
@@ -86,6 +90,8 @@ class SearchFormDataIdListRequest extends Model
     public $searchFieldJson;
 
     /**
+     * @description This parameter is required.
+     *
      * @example hexxxx
      *
      * @var string

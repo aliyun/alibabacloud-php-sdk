@@ -14,6 +14,8 @@ class StopCloudRecordShrinkRequest extends Model
     public $tenantContextShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 61289fxxx
      *
      * @var string

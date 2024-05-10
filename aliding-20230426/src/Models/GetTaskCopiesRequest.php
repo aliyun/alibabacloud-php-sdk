@@ -65,6 +65,8 @@ class GetTaskCopiesRequest extends Model
     public $processCodes;
 
     /**
+     * @description This parameter is required.
+     *
      * @example hexxxx
      *
      * @var string

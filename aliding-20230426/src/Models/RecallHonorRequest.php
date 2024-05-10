@@ -15,6 +15,8 @@ class RecallHonorRequest extends Model
     public $tenantContext;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 21660610
      *
      * @var string
@@ -22,6 +24,8 @@ class RecallHonorRequest extends Model
     public $honorId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 345391052
      *
      * @var int
@@ -29,6 +33,8 @@ class RecallHonorRequest extends Model
     public $orgId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 363784
      *
      * @var string

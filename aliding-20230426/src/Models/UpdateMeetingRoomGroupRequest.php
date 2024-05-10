@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateMeetingRoomGroupRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 172
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class StatisticsReportRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 173xxxx
      *
      * @var string

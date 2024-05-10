@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class inviteeList extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 测试用户
      *
      * @var string
