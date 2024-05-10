@@ -2,6 +2,10 @@
 - Support API ListTongyiChatHistorys.
 
 
+2024-05-10 Version: 1.4.0
+- Support API ListTongyiChatHistorys.
+
+
 2024-04-16 Version: 1.3.0
 - Support API CreateDoc.
 - Support API DeleteDoc.
