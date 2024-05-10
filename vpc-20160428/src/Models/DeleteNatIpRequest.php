@@ -35,6 +35,7 @@ class DeleteNatIpRequest extends Model
     /**
      * @description The ID of the NAT IP address that you want to delete.
      *
+     * This parameter is required.
      * @example vpcnatip-gw8y7q3cpk3fggs87****
      *
      * @var string
@@ -54,7 +55,7 @@ class DeleteNatIpRequest extends Model
     /**
      * @description The region ID of the NAT gateway to which the NAT IP address that you want to delete belongs.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-qingdao
      *
      * @var string

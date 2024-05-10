@@ -33,7 +33,7 @@ class DeleteSslVpnServerRequest extends Model
     /**
      * @description The region ID of the SSL server.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -53,6 +53,7 @@ class DeleteSslVpnServerRequest extends Model
     /**
      * @description The ID of the SSL server.
      *
+     * This parameter is required.
      * @example vss-bp18q7hzj6largv4v****
      *
      * @var string

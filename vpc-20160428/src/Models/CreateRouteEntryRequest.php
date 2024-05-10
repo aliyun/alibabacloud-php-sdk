@@ -37,6 +37,7 @@ class CreateRouteEntryRequest extends Model
      *   The destination CIDR block is not 100.64.0.0/10 or a subset of 100.64.0.0/10.
      *   The destination CIDR block of the custom route entry is different from the destination CIDR blocks of other route entries in the same route table.
      *
+     * This parameter is required.
      * @example 192.168.0.0/24
      *
      * @var string
@@ -91,7 +92,7 @@ class CreateRouteEntryRequest extends Model
     /**
      * @description The region ID of the route table.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -121,6 +122,7 @@ class CreateRouteEntryRequest extends Model
     /**
      * @description The ID of the route table to which you want to add a custom route entry.
      *
+     * This parameter is required.
      * @example vtb-bp145q7glnuzd****
      *
      * @var string

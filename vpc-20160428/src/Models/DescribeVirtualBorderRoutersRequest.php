@@ -53,8 +53,9 @@ class DescribeVirtualBorderRoutersRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the region in which the VBR is deployed. You can call the [DescribeRegions](~~36063~~) operation to obtain the region ID.
+     * @description The ID of the region in which the VBR is deployed. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
      *
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string
@@ -64,7 +65,7 @@ class DescribeVirtualBorderRoutersRequest extends Model
     /**
      * @description The resource group ID.
      *
-     * For more information about resource groups, see [What is a resource group?](~~94475~~)
+     * For more information about resource groups, see [What is a resource group?](https://help.aliyun.com/document_detail/94475.html)
      * @example rg-acfmxazb4ph6aiy****
      *
      * @var string

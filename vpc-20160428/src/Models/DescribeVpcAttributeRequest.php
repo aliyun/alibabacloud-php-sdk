@@ -45,7 +45,7 @@ class DescribeVpcAttributeRequest extends Model
     /**
      * @description The ID of the region where the VPC is deployed.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -65,6 +65,7 @@ class DescribeVpcAttributeRequest extends Model
     /**
      * @description The ID of the VPC that you want to query.
      *
+     * This parameter is required.
      * @example vpc-bp18sth14qii3pnv****
      *
      * @var string

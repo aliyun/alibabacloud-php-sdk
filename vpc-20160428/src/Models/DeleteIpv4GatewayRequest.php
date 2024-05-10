@@ -35,6 +35,7 @@ class DeleteIpv4GatewayRequest extends Model
     /**
      * @description The ID of the IPv4 gateway that you want to delete.
      *
+     * This parameter is required.
      * @example ipv4gw-5tsnc6s4ogsedtp3k****
      *
      * @var string
@@ -54,7 +55,7 @@ class DeleteIpv4GatewayRequest extends Model
     /**
      * @description The region ID of the IPv4 gateway that you want to delete.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example ap-southeast-6
      *
      * @var string

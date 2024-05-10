@@ -45,6 +45,7 @@ class UpdateVpcGatewayEndpointAttributeRequest extends Model
     /**
      * @description The ID of the gateway endpoint that you want to modify.
      *
+     * This parameter is required.
      * @example vpce-bp1w1dmdqjpwul0v3****
      *
      * @var string
@@ -74,7 +75,7 @@ class UpdateVpcGatewayEndpointAttributeRequest extends Model
     /**
      * @description The access policy for the cloud service.
      *
-     * For more information about the syntax and structure of the access policy, see [Policy syntax and structure](~~93739~~).
+     * For more information about the syntax and structure of the access policy, see [Policy syntax and structure](https://help.aliyun.com/document_detail/93739.html).
      * @example {   "Version" : "1",   "Statement" : [ {     "Effect" : "Allow",     "Resource" : [ "*" ],     "Action" : [ "*" ],     "Principal" : [ "*" ]   } ] }
      *
      * @var string
@@ -84,7 +85,7 @@ class UpdateVpcGatewayEndpointAttributeRequest extends Model
     /**
      * @description The region ID of the gateway endpoint.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

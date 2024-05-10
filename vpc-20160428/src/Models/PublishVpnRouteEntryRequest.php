@@ -23,6 +23,7 @@ class PublishVpnRouteEntryRequest extends Model
     /**
      * @description The next hop of the VPN gateway route.
      *
+     * This parameter is required.
      * @example vco-bp15oes1py4i66rmd****
      *
      * @var string
@@ -45,6 +46,7 @@ class PublishVpnRouteEntryRequest extends Model
      *   **true**
      *   **false**
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -54,7 +56,7 @@ class PublishVpnRouteEntryRequest extends Model
     /**
      * @description The ID of the region where the VPN gateway is created.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -74,6 +76,7 @@ class PublishVpnRouteEntryRequest extends Model
     /**
      * @description The destination CIDR block of the VPN gateway route.
      *
+     * This parameter is required.
      * @example 10.0.0.0/24
      *
      * @var string
@@ -86,6 +89,7 @@ class PublishVpnRouteEntryRequest extends Model
      *   **pbr**: policy-based route
      *   **dbr**: destination-based route
      *
+     * This parameter is required.
      * @example pbr
      *
      * @var string
@@ -95,6 +99,7 @@ class PublishVpnRouteEntryRequest extends Model
     /**
      * @description The ID of the VPN gateway.
      *
+     * This parameter is required.
      * @example vpn-bp1a3kqjiiq9legfx****
      *
      * @var string

@@ -36,6 +36,7 @@ class DeleteNetworkAclRequest extends Model
     /**
      * @description The ID of the network ACL.
      *
+     * This parameter is required.
      * @example nacl-bp1lhl0taikrbgnh****
      *
      * @var string
@@ -55,7 +56,7 @@ class DeleteNetworkAclRequest extends Model
     /**
      * @description The region ID of the network ACL.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

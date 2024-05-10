@@ -31,6 +31,7 @@ class CreateIpv6EgressOnlyRuleRequest extends Model
     /**
      * @description The ID of the IPv6 address for which you want to create an egress-only rule.
      *
+     * This parameter is required.
      * @example ipv6-hp3nxjkfxn5pnhgl5****
      *
      * @var string
@@ -50,6 +51,7 @@ class CreateIpv6EgressOnlyRuleRequest extends Model
     /**
      * @description The ID of the IPv6 gateway.
      *
+     * This parameter is required.
      * @example ipv6gw-hp3c2paq0ywauasza****
      *
      * @var string
@@ -59,7 +61,7 @@ class CreateIpv6EgressOnlyRuleRequest extends Model
     /**
      * @description The name of the egress-only rule.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
      * @example rulename
      *
      * @var string
@@ -79,7 +81,7 @@ class CreateIpv6EgressOnlyRuleRequest extends Model
     /**
      * @description The ID of the region in which the IPv6 gateway is deployed.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the region ID.
+     * This parameter is required.
      * @example cn-huhehaote
      *
      * @var string

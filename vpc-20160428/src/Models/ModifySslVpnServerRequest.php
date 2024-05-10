@@ -70,6 +70,11 @@ class ModifySslVpnServerRequest extends Model
     public $enableMultiFactorAuth;
 
     /**
+     * @var string
+     */
+    public $IDaaSApplicationId;
+
+    /**
      * @description The ID of the Identity as a Service (IDaaS) instance.
      *
      * @example idaas-cn-hangzhou-****
@@ -141,7 +146,7 @@ class ModifySslVpnServerRequest extends Model
     /**
      * @description The region ID of the VPN gateway.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -161,6 +166,7 @@ class ModifySslVpnServerRequest extends Model
     /**
      * @description The ID of the SSL server.
      *
+     * This parameter is required.
      * @example vss-bp18q7hzj6largv4v****
      *
      * @var string
@@ -172,6 +178,7 @@ class ModifySslVpnServerRequest extends Model
         'clientToken'           => 'ClientToken',
         'compress'              => 'Compress',
         'enableMultiFactorAuth' => 'EnableMultiFactorAuth',
+        'IDaaSApplicationId'    => 'IDaaSApplicationId',
         'IDaaSInstanceId'       => 'IDaaSInstanceId',
         'IDaaSRegionId'         => 'IDaaSRegionId',
         'localSubnet'           => 'LocalSubnet',
@@ -207,6 +214,9 @@ class ModifySslVpnServerRequest extends Model
         }
         if (null !== $this->enableMultiFactorAuth) {
             $res['EnableMultiFactorAuth'] = $this->enableMultiFactorAuth;
+        }
+        if (null !== $this->IDaaSApplicationId) {
+            $res['IDaaSApplicationId'] = $this->IDaaSApplicationId;
         }
         if (null !== $this->IDaaSInstanceId) {
             $res['IDaaSInstanceId'] = $this->IDaaSInstanceId;
@@ -270,6 +280,9 @@ class ModifySslVpnServerRequest extends Model
         }
         if (isset($map['EnableMultiFactorAuth'])) {
             $model->enableMultiFactorAuth = $map['EnableMultiFactorAuth'];
+        }
+        if (isset($map['IDaaSApplicationId'])) {
+            $model->IDaaSApplicationId = $map['IDaaSApplicationId'];
         }
         if (isset($map['IDaaSInstanceId'])) {
             $model->IDaaSInstanceId = $map['IDaaSInstanceId'];

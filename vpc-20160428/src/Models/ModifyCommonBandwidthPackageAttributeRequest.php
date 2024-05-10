@@ -11,6 +11,7 @@ class ModifyCommonBandwidthPackageAttributeRequest extends Model
     /**
      * @description The ID of the EIP bandwidth plan.
      *
+     * This parameter is required.
      * @example cbwp-2ze2ic1xd2qeqk145****
      *
      * @var string
@@ -27,7 +28,7 @@ class ModifyCommonBandwidthPackageAttributeRequest extends Model
     public $description;
 
     /**
-     * @description The name of the EIP bandwidth plan. The name must be 2 to 128 characters in length and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). It must start with a letter. It cannot start with `http://` or `https://`.
+     * @description The name of the EIP bandwidth plan. The name must be 2 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter. It cannot start with `http://` or `https://`.
      *
      * @example test123
      *
@@ -48,7 +49,7 @@ class ModifyCommonBandwidthPackageAttributeRequest extends Model
     /**
      * @description The ID of the region where the EIP bandwidth plan is created.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

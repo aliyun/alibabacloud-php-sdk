@@ -23,6 +23,7 @@ class AddBgpNetworkRequest extends Model
     /**
      * @description The CIDR block of the virtual private cloud (VPC) or vSwitch that you want to connect to a data center.
      *
+     * This parameter is required.
      * @example 10.10.XX.XX/32
      *
      * @var string
@@ -42,7 +43,7 @@ class AddBgpNetworkRequest extends Model
     /**
      * @description The region ID of the virtual border router (VBR) group.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string
@@ -62,6 +63,7 @@ class AddBgpNetworkRequest extends Model
     /**
      * @description The ID of the router that is associated with the router interface.
      *
+     * This parameter is required.
      * @example vrt-2zeo3xzyf38r4u******
      *
      * @var string

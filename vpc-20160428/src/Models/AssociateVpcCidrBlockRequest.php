@@ -67,7 +67,7 @@ class AssociateVpcCidrBlockRequest extends Model
     /**
      * @description The region ID of the VPC to which you want to add a secondary CIDR block.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the region ID.
+     * This parameter is required.
      * @example ch-hangzhou
      *
      * @var string
@@ -110,6 +110,7 @@ class AssociateVpcCidrBlockRequest extends Model
     /**
      * @description The ID of the VPC to which you want to add a secondary CIDR block.
      *
+     * This parameter is required.
      * @example vpc-o6wrloqsdqc9io3mg****
      *
      * @var string

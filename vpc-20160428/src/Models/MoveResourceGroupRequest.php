@@ -11,7 +11,7 @@ class MoveResourceGroupRequest extends Model
     /**
      * @description The ID of the resource group to which you want to move the resource.
      *
-     * >  You can use resource groups to facilitate resource grouping and permission management for an Alibaba Cloud. For more information, see [What is resource management?](~~94475~~)
+     * This parameter is required.
      * @example rg-acfm3peow3k****
      *
      * @var string
@@ -31,7 +31,7 @@ class MoveResourceGroupRequest extends Model
     /**
      * @description The ID of the region to which the cloud resource belongs.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -41,6 +41,7 @@ class MoveResourceGroupRequest extends Model
     /**
      * @description The resource ID.
      *
+     * This parameter is required.
      * @example vpc-hp31psbg8ec3023s6****
      *
      * @var string
@@ -74,6 +75,7 @@ class MoveResourceGroupRequest extends Model
      *   **DhcpOptionsSet**
      *   **GatewayEndpoint**
      *
+     * This parameter is required.
      * @example vpc
      *
      * @var string

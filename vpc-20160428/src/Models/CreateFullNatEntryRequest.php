@@ -11,6 +11,7 @@ class CreateFullNatEntryRequest extends Model
     /**
      * @description The backend IP address to be modified in FULLNAT address translation.
      *
+     * This parameter is required.
      * @example 192.168.XX.XX
      *
      * @var string
@@ -20,6 +21,7 @@ class CreateFullNatEntryRequest extends Model
     /**
      * @description The backend port to be modified in the mapping of FULLNAT port. Valid values: **1** to **65535**.
      *
+     * This parameter is required.
      * @example 80
      *
      * @var string
@@ -72,6 +74,7 @@ class CreateFullNatEntryRequest extends Model
     /**
      * @description The ID of the FULLNAT table to which the FULLNAT entry belongs.
      *
+     * This parameter is required.
      * @example fulltb-gw88z7hhlv43rmb26****
      *
      * @var string
@@ -84,6 +87,7 @@ class CreateFullNatEntryRequest extends Model
      *   **TCP**
      *   **UDP**
      *
+     * This parameter is required.
      * @example TCP
      *
      * @var string
@@ -93,6 +97,7 @@ class CreateFullNatEntryRequest extends Model
     /**
      * @description The NAT IP address that provides address translation.
      *
+     * This parameter is required.
      * @example 192.168.XX.XX
      *
      * @var string
@@ -102,6 +107,7 @@ class CreateFullNatEntryRequest extends Model
     /**
      * @description The frontend port to be modified in the mapping of FULLNAT port. Valid values: **1** to **65535**.
      *
+     * This parameter is required.
      * @example 80
      *
      * @var string
@@ -111,6 +117,7 @@ class CreateFullNatEntryRequest extends Model
     /**
      * @description The elastic network interface (ENI) ID.
      *
+     * This parameter is required.
      * @example eni-gw8g131ef2dnbu3k****
      *
      * @var string
@@ -130,7 +137,7 @@ class CreateFullNatEntryRequest extends Model
     /**
      * @description The region ID of the Virtual Private Cloud (VPC) NAT gateway to which the FULLNAT entry to be added belongs.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example eu-central-1
      *
      * @var string

@@ -31,7 +31,7 @@ class ModifyRouteTableAttributesRequest extends Model
     /**
      * @description The region ID of the virtual private cloud (VPC) to which the custom route table belongs.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -51,6 +51,7 @@ class ModifyRouteTableAttributesRequest extends Model
     /**
      * @description The ID of the route table.
      *
+     * This parameter is required.
      * @example vtb-bp145q7glnuzdvzu2****
      *
      * @var string

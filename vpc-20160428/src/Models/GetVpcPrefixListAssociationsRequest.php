@@ -42,6 +42,7 @@ class GetVpcPrefixListAssociationsRequest extends Model
     /**
      * @description The ID of the prefix list that you want to query.
      *
+     * This parameter is required.
      * @example pl-0b7hwu67****
      *
      * @var string
@@ -51,7 +52,7 @@ class GetVpcPrefixListAssociationsRequest extends Model
     /**
      * @description The region ID of the prefix list.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

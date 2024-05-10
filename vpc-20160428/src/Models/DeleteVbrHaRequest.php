@@ -23,6 +23,7 @@ class DeleteVbrHaRequest extends Model
     /**
      * @description The ID of the VBR failover group.
      *
+     * This parameter is required.
      * @example vbrha-sa1******
      *
      * @var string
@@ -42,6 +43,7 @@ class DeleteVbrHaRequest extends Model
     /**
      * @description The ID of the region in which the VBR is deployed.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

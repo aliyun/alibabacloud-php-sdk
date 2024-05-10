@@ -11,6 +11,7 @@ class AssociateVpnGatewayWithCertificateRequest extends Model
     /**
      * @description The ID of the certificate.
      *
+     * This parameter is required.
      * @example 6bfe4218-ea1d****
      *
      * @var string
@@ -23,6 +24,7 @@ class AssociateVpnGatewayWithCertificateRequest extends Model
      *   **Encryption**
      *   **Signature**
      *
+     * This parameter is required.
      * @example Signature
      *
      * @var string
@@ -56,7 +58,7 @@ class AssociateVpnGatewayWithCertificateRequest extends Model
     /**
      * @description The region ID of the VPN gateway.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -66,7 +68,7 @@ class AssociateVpnGatewayWithCertificateRequest extends Model
     /**
      * @description The ID of the VPN gateway.
      *
-     * > You can associate only VPN gateways of the SM type with certificates.
+     * This parameter is required.
      * @example vpn-bp1q8bgx4xnkm2ogj****
      *
      * @var string

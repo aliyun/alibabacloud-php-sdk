@@ -20,6 +20,7 @@ class ModifyBgpGroupAttributeRequest extends Model
     /**
      * @description The BGP group ID.
      *
+     * This parameter is required.
      * @example bgpg-wz9f62v4fbg2g****
      *
      * @var string
@@ -90,7 +91,7 @@ class ModifyBgpGroupAttributeRequest extends Model
     /**
      * @description The BGP group name.
      *
-     * The name must be 2 to 128 characters in length, and can contain digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
+     * The name must be 2 to 128 characters in length, and can contain digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
      * @example test
      *
      * @var string
@@ -119,7 +120,7 @@ class ModifyBgpGroupAttributeRequest extends Model
     /**
      * @description The region ID of the BGP group.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string

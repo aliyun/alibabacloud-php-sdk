@@ -34,7 +34,7 @@ class CreateDhcpOptionsSetRequest extends Model
     /**
      * @description The name of the DHCP options set.
      *
-     * The name must be 1 to 128 characters in length and can contain letters, digits, underscores (\_), and hyphens (-). It must start with a letter.
+     * The name must be 1 to 128 characters in length and can contain letters, digits, underscores (_), and hyphens (-). It must start with a letter.
      * @example name
      *
      * @var string
@@ -113,7 +113,7 @@ class CreateDhcpOptionsSetRequest extends Model
     /**
      * @description The region to which the DHCP options set belongs.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -11,6 +11,7 @@ class DeleteCommonBandwidthPackageRequest extends Model
     /**
      * @description The ID of the Internet Shared Bandwidth instance.
      *
+     * This parameter is required.
      * @example cbwp-2ze2ic1xd2qeqk145pn4u
      *
      * @var string
@@ -42,7 +43,7 @@ class DeleteCommonBandwidthPackageRequest extends Model
     /**
      * @description The ID of the region where the Internet Shared Bandwidth instance is created.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

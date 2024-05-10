@@ -69,6 +69,11 @@ class sslVpnServer extends Model
     public $enableMultiFactorAuth;
 
     /**
+     * @var string
+     */
+    public $IDaaSApplicationId;
+
+    /**
      * @description The ID of the IDaaS instance.
      *
      * @example idaas-cn-hangzhou-****
@@ -76,6 +81,11 @@ class sslVpnServer extends Model
      * @var string
      */
     public $IDaaSInstanceId;
+
+    /**
+     * @var string
+     */
+    public $IDaaSInstanceVersion;
 
     /**
      * @description The ID of the region where the IDaaS instance is created.
@@ -152,7 +162,7 @@ class sslVpnServer extends Model
     /**
      * @description The ID of the resource group to which the SSL server belongs.
      *
-     * You can call the [ListResourceGroups](~~158855~~) operation to query the resource group information.
+     * You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query the resource group information.
      * @example rg-acfmzs372yg****
      *
      * @var string
@@ -183,7 +193,9 @@ class sslVpnServer extends Model
         'connections'           => 'Connections',
         'createTime'            => 'CreateTime',
         'enableMultiFactorAuth' => 'EnableMultiFactorAuth',
+        'IDaaSApplicationId'    => 'IDaaSApplicationId',
         'IDaaSInstanceId'       => 'IDaaSInstanceId',
+        'IDaaSInstanceVersion'  => 'IDaaSInstanceVersion',
         'IDaaSRegionId'         => 'IDaaSRegionId',
         'internetIp'            => 'InternetIp',
         'localSubnet'           => 'LocalSubnet',
@@ -222,8 +234,14 @@ class sslVpnServer extends Model
         if (null !== $this->enableMultiFactorAuth) {
             $res['EnableMultiFactorAuth'] = $this->enableMultiFactorAuth;
         }
+        if (null !== $this->IDaaSApplicationId) {
+            $res['IDaaSApplicationId'] = $this->IDaaSApplicationId;
+        }
         if (null !== $this->IDaaSInstanceId) {
             $res['IDaaSInstanceId'] = $this->IDaaSInstanceId;
+        }
+        if (null !== $this->IDaaSInstanceVersion) {
+            $res['IDaaSInstanceVersion'] = $this->IDaaSInstanceVersion;
         }
         if (null !== $this->IDaaSRegionId) {
             $res['IDaaSRegionId'] = $this->IDaaSRegionId;
@@ -288,8 +306,14 @@ class sslVpnServer extends Model
         if (isset($map['EnableMultiFactorAuth'])) {
             $model->enableMultiFactorAuth = $map['EnableMultiFactorAuth'];
         }
+        if (isset($map['IDaaSApplicationId'])) {
+            $model->IDaaSApplicationId = $map['IDaaSApplicationId'];
+        }
         if (isset($map['IDaaSInstanceId'])) {
             $model->IDaaSInstanceId = $map['IDaaSInstanceId'];
+        }
+        if (isset($map['IDaaSInstanceVersion'])) {
+            $model->IDaaSInstanceVersion = $map['IDaaSInstanceVersion'];
         }
         if (isset($map['IDaaSRegionId'])) {
             $model->IDaaSRegionId = $map['IDaaSRegionId'];

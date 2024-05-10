@@ -136,7 +136,7 @@ class ModifyVpnGatewayAttributeResponseBody extends Model
     /**
      * @description VPN网关实例所属的资源组ID。
      *
-     * 您可以调用[ListResourceGroups](~~158855~~)接口查询资源组信息。
+     * 您可以调用[ListResourceGroups](https://help.aliyun.com/document_detail/158855.html)接口查询资源组信息。
      * @example rg-acfmzs372yg****
      *
      * @var string

@@ -33,7 +33,7 @@ class DiagnoseVpnGatewayRequest extends Model
     /**
      * @description The region ID of the VPN gateway.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-qingdao
      *
      * @var string
@@ -43,6 +43,7 @@ class DiagnoseVpnGatewayRequest extends Model
     /**
      * @description The ID of the resource to be diagnosed.
      *
+     * This parameter is required.
      * @example vco-uf66xniofskqtuoz1****
      *
      * @var string
@@ -53,6 +54,8 @@ class DiagnoseVpnGatewayRequest extends Model
      * @description The type of the resource.
      *
      * Set the value to **Ipsec**, which specifies an IPsec-VPN connection.
+     *
+     * This parameter is required.
      * @example IPsec
      *
      * @var string
@@ -62,6 +65,7 @@ class DiagnoseVpnGatewayRequest extends Model
     /**
      * @description The ID of the VPN gateway.
      *
+     * This parameter is required.
      * @example vpn-m5efhj0k1p47ctuhl****
      *
      * @var string

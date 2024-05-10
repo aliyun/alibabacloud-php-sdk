@@ -11,6 +11,7 @@ class SetHighDefinitionMonitorLogStatusRequest extends Model
     /**
      * @description The ID of the instance for which you want to configure fine-grained monitoring.
      *
+     * This parameter is required.
      * @example eip-wz9fi6qboho9fwgx7****
      *
      * @var string
@@ -29,6 +30,7 @@ class SetHighDefinitionMonitorLogStatusRequest extends Model
     /**
      * @description The name of the Simple Log Service (SLS) project.
      *
+     * This parameter is required.
      * @example hdmonitor-cn-shenzhen
      *
      * @var string
@@ -38,6 +40,7 @@ class SetHighDefinitionMonitorLogStatusRequest extends Model
     /**
      * @description The name of the Logstore.
      *
+     * This parameter is required.
      * @example hdmonitor
      *
      * @var string
@@ -57,7 +60,7 @@ class SetHighDefinitionMonitorLogStatusRequest extends Model
     /**
      * @description The region ID of the instance.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -80,6 +83,7 @@ class SetHighDefinitionMonitorLogStatusRequest extends Model
      *   **ON**
      *   **OFF**
      *
+     * This parameter is required.
      * @example ON
      *
      * @var string

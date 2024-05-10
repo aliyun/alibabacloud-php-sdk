@@ -30,6 +30,8 @@ class UpdateFailoverTestJobRequest extends Model
     public $jobDuration;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ftj-xxxxxxxxx
      *
      * @var string

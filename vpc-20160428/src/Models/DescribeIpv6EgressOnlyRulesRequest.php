@@ -40,6 +40,7 @@ class DescribeIpv6EgressOnlyRulesRequest extends Model
     /**
      * @description The ID of the IPv6 gateway.
      *
+     * This parameter is required.
      * @example ipv6gw-bp1rhhs9zjlxukc5e****
      *
      * @var string
@@ -84,8 +85,9 @@ class DescribeIpv6EgressOnlyRulesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the region where the IPv6 gateway is deployed. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * @description The ID of the region where the IPv6 gateway is deployed. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-huhehaote
      *
      * @var string

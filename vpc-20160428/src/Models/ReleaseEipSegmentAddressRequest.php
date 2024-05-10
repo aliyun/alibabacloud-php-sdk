@@ -31,8 +31,9 @@ class ReleaseEipSegmentAddressRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the contiguous EIPs. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * @description The region ID of the contiguous EIPs. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -52,7 +53,7 @@ class ReleaseEipSegmentAddressRequest extends Model
     /**
      * @description The ID of the contiguous EIP group to be released.
      *
-     * The system releases all EIPs in the group.
+     * This parameter is required.
      * @example eipsg-2zett8ba055tbsxme****
      *
      * @var string

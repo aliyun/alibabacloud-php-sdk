@@ -11,6 +11,7 @@ class ConvertBandwidthPackageRequest extends Model
     /**
      * @description The ID of the NAT service plan.
      *
+     * This parameter is required.
      * @example bwp-bp1xea10o8qxw4f****
      *
      * @var string
@@ -18,7 +19,7 @@ class ConvertBandwidthPackageRequest extends Model
     public $bandwidthPackageId;
 
     /**
-     * @description The client token that is used to ensure the idempotency of the request. You can use the client to generate a client token. Make sure that a unique client token is used for each request. The **token** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~36569~~).
+     * @description The client token that is used to ensure the idempotency of the request. You can use the client to generate a client token. Make sure that a unique client token is used for each request. The **token** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/36569.html).
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -32,8 +33,9 @@ class ConvertBandwidthPackageRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region where the NAT gateway resides. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * @description The region where the NAT gateway resides. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

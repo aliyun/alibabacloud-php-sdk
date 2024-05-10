@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class apList extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ap-cn-beijing-ft-A
      *
      * @var string
@@ -37,6 +39,8 @@ class apList extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example CT
      *
      * @var string
@@ -63,6 +67,8 @@ class apList extends Model
     public $portNum;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-shanghai
      *
      * @var string

@@ -76,7 +76,7 @@ class customerGateway extends Model
     /**
      * @description The ID of the resource group to which the customer gateway belongs.
      *
-     * You can call the [ListResourceGroups](~~158855~~) operation to query the resource group information.
+     * You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query the resource group information.
      * @example rg-acfmzs372yg****
      *
      * @var string

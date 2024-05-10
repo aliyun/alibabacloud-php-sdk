@@ -11,7 +11,7 @@ class ModifyIPv6TranslatorAclListEntryRequest extends Model
     /**
      * @description The remarks of the ACL rule.
      *
-     * It must be 2 to 100 characters in length, and can contain digits, underscores (\_), and hyphens (-). It must start with a letter.
+     * This parameter is required.
      * @example client IP
      *
      * @var string
@@ -21,6 +21,7 @@ class ModifyIPv6TranslatorAclListEntryRequest extends Model
     /**
      * @description The ID of the ACL rule to which the IP entry belongs.
      *
+     * This parameter is required.
      * @example ipv6transaclentry-bp1jzyn7ra8pyxehd****
      *
      * @var string
@@ -30,6 +31,7 @@ class ModifyIPv6TranslatorAclListEntryRequest extends Model
     /**
      * @description The ID of the ACL to which the IP entry belongs.
      *
+     * This parameter is required.
      * @example ipv6transacl-bp1b4z3tleyhq1s50****
      *
      * @var string
@@ -49,6 +51,7 @@ class ModifyIPv6TranslatorAclListEntryRequest extends Model
     /**
      * @description The region of the ACL.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

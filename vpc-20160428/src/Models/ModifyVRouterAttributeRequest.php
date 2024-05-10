@@ -31,7 +31,7 @@ class ModifyVRouterAttributeRequest extends Model
     /**
      * @description The region ID of the vRouter.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -51,6 +51,7 @@ class ModifyVRouterAttributeRequest extends Model
     /**
      * @description The vRouter ID.
      *
+     * This parameter is required.
      * @example vrt-gw0p7zigake75znix****
      *
      * @var string

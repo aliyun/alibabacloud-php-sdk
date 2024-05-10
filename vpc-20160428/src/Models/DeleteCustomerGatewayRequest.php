@@ -23,6 +23,7 @@ class DeleteCustomerGatewayRequest extends Model
     /**
      * @description The ID of the customer gateway.
      *
+     * This parameter is required.
      * @example cgw-bp1pvpl9r9adju6l5****
      *
      * @var string
@@ -40,8 +41,9 @@ class DeleteCustomerGatewayRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the customer gateway. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * @description The region ID of the customer gateway. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string

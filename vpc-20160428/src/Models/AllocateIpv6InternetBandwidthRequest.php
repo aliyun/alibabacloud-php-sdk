@@ -11,6 +11,7 @@ class AllocateIpv6InternetBandwidthRequest extends Model
     /**
      * @description The Internet bandwidth of the IPv6 gateway. Unit: Mbit/s. Valid values: **1 to 5000**.
      *
+     * This parameter is required.
      * @example 2
      *
      * @var int
@@ -44,6 +45,7 @@ class AllocateIpv6InternetBandwidthRequest extends Model
     /**
      * @description The ID of the IPv6 address.
      *
+     * This parameter is required.
      * @example ipv6-2zen5j4axcp5l5qyy****
      *
      * @var string
@@ -53,6 +55,7 @@ class AllocateIpv6InternetBandwidthRequest extends Model
     /**
      * @description The ID of the IPv6 gateway.
      *
+     * This parameter is required.
      * @example ipv6gw-uf6hcyzu65v98v3du****
      *
      * @var string
@@ -70,8 +73,9 @@ class AllocateIpv6InternetBandwidthRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region where the IPv6 gateway is deployed. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * @description The ID of the region where the IPv6 gateway is deployed. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-huhehaote
      *
      * @var string

@@ -64,6 +64,7 @@ class CreateVbrHaRequest extends Model
     /**
      * @description The ID of the other VBR in the VBR failover group.
      *
+     * This parameter is required.
      * @example vbr-bp12mw1f8k3jgygk9****
      *
      * @var string
@@ -73,6 +74,7 @@ class CreateVbrHaRequest extends Model
     /**
      * @description The ID of the region in which the VBR is deployed.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -92,6 +94,7 @@ class CreateVbrHaRequest extends Model
     /**
      * @description The ID of the VBR.
      *
+     * This parameter is required.
      * @example vbr-bp1jcg5cmxjbl9xgc****
      *
      * @var string

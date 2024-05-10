@@ -66,7 +66,7 @@ class CreateVpcGatewayEndpointRequest extends Model
     /**
      * @description The access policy for the cloud service.
      *
-     * For more information about the syntax and structure of the access policy, see [Policy syntax and structure](~~93739~~).
+     * For more information about the syntax and structure of the access policy, see [Policy syntax and structure](https://help.aliyun.com/document_detail/93739.html).
      * @example {   "Version" : "1",   "Statement" : [ {     "Effect" : "Allow",     "Resource" : [ "*" ],     "Action" : [ "*" ],     "Principal" : [ "*" ]   } ] }
      *
      * @var string
@@ -76,7 +76,7 @@ class CreateVpcGatewayEndpointRequest extends Model
     /**
      * @description The region ID of the gateway endpoint.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -105,6 +105,7 @@ class CreateVpcGatewayEndpointRequest extends Model
     /**
      * @description The name of the endpoint service.
      *
+     * This parameter is required.
      * @example com.aliyun.cn-hangzhou.oss
      *
      * @var string
@@ -121,7 +122,7 @@ class CreateVpcGatewayEndpointRequest extends Model
     /**
      * @description The ID of the virtual private cloud (VPC) where you want to create the gateway endpoint.
      *
-     * The VPC and gateway endpoint must be deployed in the same region.
+     * This parameter is required.
      * @example vpc-bp1gsk7h12ew7oegk****
      *
      * @var string

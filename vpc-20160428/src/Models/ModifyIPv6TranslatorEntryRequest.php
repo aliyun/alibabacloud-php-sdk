@@ -82,7 +82,7 @@ class ModifyIPv6TranslatorEntryRequest extends Model
     public $entryBandwidth;
 
     /**
-     * @description The description of the IPv6 mapping entry. It must be 2 to 100 characters in length, and can contain digits, periods (.), underscores (\_), and hyphens (-). It must start with a letter. It cannot start with http:// or [https://](https://。).
+     * @description The description of the IPv6 mapping entry. It must be 2 to 100 characters in length, and can contain digits, periods (.), underscores (_), and hyphens (-). It must start with a letter. It cannot start with http:// or [https://](https://。).
      *
      * @example entrydescription
      *
@@ -91,7 +91,7 @@ class ModifyIPv6TranslatorEntryRequest extends Model
     public $entryDescription;
 
     /**
-     * @description The name of the IPv6 mapping entry. It must be 2 to 100 characters in length, and can contain digits, periods (.), underscores (\_), and hyphens (-). It must start with a letter. It cannot start with http:// or [https://](https://。).
+     * @description The name of the IPv6 mapping entry. It must be 2 to 100 characters in length, and can contain digits, periods (.), underscores (_), and hyphens (-). It must start with a letter. It cannot start with http:// or [https://](https://。).
      *
      * @example entry1
      *
@@ -102,6 +102,7 @@ class ModifyIPv6TranslatorEntryRequest extends Model
     /**
      * @description The ID of the IPv6 mapping entry.
      *
+     * This parameter is required.
      * @example ipv6trans-bp1858ys****
      *
      * @var string
@@ -121,6 +122,7 @@ class ModifyIPv6TranslatorEntryRequest extends Model
     /**
      * @description The region of the IPv6 Translation Service instance. You can call the DescribeRegions operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -64,7 +64,7 @@ class physicalConnectionLOAType extends Model
     public $lineLabel;
 
     /**
-     * @description The contact information about line O\&M.
+     * @description The contact information about line O\\&M.
      *
      * @example 1388888****
      *

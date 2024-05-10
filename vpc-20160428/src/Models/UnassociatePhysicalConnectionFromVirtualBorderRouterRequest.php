@@ -33,6 +33,7 @@ class UnassociatePhysicalConnectionFromVirtualBorderRouterRequest extends Model
     /**
      * @description The ID of the Express Connect circuit.
      *
+     * This parameter is required.
      * @example pc-bp1qrb3044eqixog****
      *
      * @var string
@@ -42,7 +43,7 @@ class UnassociatePhysicalConnectionFromVirtualBorderRouterRequest extends Model
     /**
      * @description The region ID of the Express Connect circuit.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -62,6 +63,7 @@ class UnassociatePhysicalConnectionFromVirtualBorderRouterRequest extends Model
     /**
      * @description The ID of the VBR that you want to disassociate from the Express Connect circuit.
      *
+     * This parameter is required.
      * @example vbr-bp16ksp61j7e0tkn*****
      *
      * @var string

@@ -43,6 +43,8 @@ class DescribeExpressConnectTrafficQosQueueRequest extends Model
     public $queueNameList;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-shanghai
      *
      * @var string

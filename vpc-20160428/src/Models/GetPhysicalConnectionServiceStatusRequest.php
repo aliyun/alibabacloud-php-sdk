@@ -21,7 +21,7 @@ class GetPhysicalConnectionServiceStatusRequest extends Model
     /**
      * @description The ID of the region for which you want to query the status of outbound data transfer billing.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

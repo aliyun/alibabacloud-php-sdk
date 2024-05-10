@@ -45,7 +45,7 @@ class DescribeForwardTableEntriesRequest extends Model
     /**
      * @description The name of the DNAT entry.
      *
-     * The name must be 2 to 128 characters in length, and can contain digits, periods (.), underscores (\_), and hyphens (-). It must start with a letter.
+     * The name must be 2 to 128 characters in length, and can contain digits, periods (.), underscores (_), and hyphens (-). It must start with a letter.
      * @example ForwardEntry-1
      *
      * @var string
@@ -144,7 +144,7 @@ class DescribeForwardTableEntriesRequest extends Model
     /**
      * @description The ID of the region where you want to create the NAT gateway.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

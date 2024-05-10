@@ -58,7 +58,7 @@ class ModifyPhysicalConnectionAttributeRequest extends Model
     /**
      * @description The name of the Express Connect circuit.
      *
-     * The name must be 2 to 128 characters in length and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). It must start with a letter but cannot start with `http://` or `https://`.
+     * The name must be 2 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter but cannot start with `http://` or `https://`.
      * @example Name
      *
      * @var string
@@ -87,6 +87,7 @@ class ModifyPhysicalConnectionAttributeRequest extends Model
     /**
      * @description The ID of the Express Connect circuit.
      *
+     * This parameter is required.
      * @example pc-119mfjzm******
      *
      * @var string
@@ -123,7 +124,7 @@ class ModifyPhysicalConnectionAttributeRequest extends Model
     /**
      * @description The region ID of the Express Connect circuit.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string

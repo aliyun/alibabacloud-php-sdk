@@ -315,7 +315,7 @@ class routerInterfaceType extends Model
     /**
      * @description Resource Group ID.
      *
-     * For more information about resource groups, please refer to [What is a Resource Group?](~~94475~~)
+     * For more information about resource groups, please refer to [What is a Resource Group?](https://help.aliyun.com/document_detail/94475.html)
      * @example rg-acfmxazb4ph6aiy****
      *
      * @var string

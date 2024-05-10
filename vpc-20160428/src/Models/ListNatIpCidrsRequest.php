@@ -44,6 +44,7 @@ class ListNatIpCidrsRequest extends Model
     /**
      * @description The ID of the VPC NAT gateway that you want to query.
      *
+     * This parameter is required.
      * @example ngw-gw8v16wgvtq26vh59****
      *
      * @var string
@@ -111,7 +112,7 @@ class ListNatIpCidrsRequest extends Model
     /**
      * @description The region ID of the Virtual Private Cloud (VPC) NAT gateway that you want to query.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example eu-central-1
      *
      * @var string

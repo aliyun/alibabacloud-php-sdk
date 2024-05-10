@@ -57,6 +57,7 @@ class DescribeIPv6TranslatorAclListsRequest extends Model
     /**
      * @description The region of the ACL.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

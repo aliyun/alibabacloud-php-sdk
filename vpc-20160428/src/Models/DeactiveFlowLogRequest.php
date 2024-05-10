@@ -11,6 +11,7 @@ class DeactiveFlowLogRequest extends Model
     /**
      * @description The ID of the flow log.
      *
+     * This parameter is required.
      * @example fl-m5e8vhz2t21sel1nq****
      *
      * @var string
@@ -28,8 +29,9 @@ class DeactiveFlowLogRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region where you want to create the flow log. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * @description The ID of the region where you want to create the flow log. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-qingdao
      *
      * @var string

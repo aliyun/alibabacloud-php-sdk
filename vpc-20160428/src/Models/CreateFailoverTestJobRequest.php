@@ -23,6 +23,8 @@ class CreateFailoverTestJobRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 60
      *
      * @var int
@@ -30,6 +32,8 @@ class CreateFailoverTestJobRequest extends Model
     public $jobDuration;
 
     /**
+     * @description This parameter is required.
+     *
      * @example StartNow
      *
      * @var string
@@ -61,6 +65,8 @@ class CreateFailoverTestJobRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $resourceId;
@@ -71,6 +77,8 @@ class CreateFailoverTestJobRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @description This parameter is required.
+     *
      * @example PHYSICALCONNECTION
      *
      * @var string

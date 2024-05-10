@@ -11,6 +11,7 @@ class DeleteBgpPeerRequest extends Model
     /**
      * @description The ID of the BGP peer.
      *
+     * This parameter is required.
      * @example bgp-wz977wcrmb69a********
      *
      * @var string
@@ -42,7 +43,7 @@ class DeleteBgpPeerRequest extends Model
     /**
      * @description The region ID of the BGP group.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string

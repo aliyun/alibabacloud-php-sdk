@@ -12,6 +12,8 @@ class CreateCommonBandwidthPackageRequest extends Model
      * @description The maximum bandwidth of the Internet Shared Bandwidth instance. Unit: Mbit/s.
      *
      * Valid values: **1** to **1000**. Default value: **1**.
+     *
+     * This parameter is required.
      * @example 1000
      *
      * @var int
@@ -72,7 +74,7 @@ class CreateCommonBandwidthPackageRequest extends Model
     /**
      * @description The name of the Internet Shared Bandwidth instance.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter.
      * @example test123
      *
      * @var string
@@ -102,7 +104,7 @@ class CreateCommonBandwidthPackageRequest extends Model
     /**
      * @description The region ID of the Internet Shared Bandwidth instance.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

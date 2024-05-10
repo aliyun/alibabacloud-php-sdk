@@ -40,6 +40,8 @@ class DescribeExpressConnectTrafficQosRuleRequest extends Model
     public $queueId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-shanghai
      *
      * @var string

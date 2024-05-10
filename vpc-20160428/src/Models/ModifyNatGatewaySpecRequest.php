@@ -33,6 +33,7 @@ class ModifyNatGatewaySpecRequest extends Model
     /**
      * @description The ID of the Internet NAT gateway that you want to upgrade.
      *
+     * This parameter is required.
      * @example ngw-bp1uewa15k4iy5770****
      *
      * @var string
@@ -52,7 +53,7 @@ class ModifyNatGatewaySpecRequest extends Model
     /**
      * @description The ID of the region where the Internet NAT gateway is deployed.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -76,6 +77,7 @@ class ModifyNatGatewaySpecRequest extends Model
      *   **Middle**: medium
      *   **Large**: large
      *
+     * This parameter is required.
      * @example Middle
      *
      * @var string

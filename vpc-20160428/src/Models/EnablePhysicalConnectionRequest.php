@@ -44,6 +44,7 @@ class EnablePhysicalConnectionRequest extends Model
     /**
      * @description The ID of the Express Connect circuit.
      *
+     * This parameter is required.
      * @example pc-119mfjz****
      *
      * @var string
@@ -53,7 +54,7 @@ class EnablePhysicalConnectionRequest extends Model
     /**
      * @description The region where the Express Connect circuit is deployed.
      *
-     * You can call the DescribeRegions operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string

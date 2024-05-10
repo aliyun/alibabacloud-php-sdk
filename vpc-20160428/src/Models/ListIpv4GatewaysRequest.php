@@ -62,7 +62,7 @@ class ListIpv4GatewaysRequest extends Model
     /**
      * @description The ID of the region where the IPv4 gateways to be queried are deployed.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example ap-southeast-6
      *
      * @var string

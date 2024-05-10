@@ -23,6 +23,7 @@ class DescribeGrantRulesToCenRequest extends Model
     /**
      * @description The ID of the network instance that you want to query.
      *
+     * This parameter is required.
      * @example vpc-bp18sth14qii3pnvc****
      *
      * @var string
@@ -36,6 +37,7 @@ class DescribeGrantRulesToCenRequest extends Model
      *   **VBR**
      *   **CCN**
      *
+     * This parameter is required.
      * @example VPC
      *
      * @var string
@@ -73,6 +75,7 @@ class DescribeGrantRulesToCenRequest extends Model
     /**
      * @description The region ID of the network instance that you want to query.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -12,7 +12,7 @@ class tunnelBgpConfig extends Model
      * @description The ASN on the Alibaba Cloud side. Valid values: **1** to **4294967295**. Default value: **45104**.
      *
      * > *   If you set **EnableTunnelsBgp** to **true**, this parameter is required.
-     * >*   Before you configure BGP, we recommend that you learn about how BGP works and its limits. For more information, see [VPN Gateway supports BGP dynamic routing](~~170235~~).
+     * >*   Before you configure BGP, we recommend that you learn about how BGP works and its limits. For more information, see [VPN Gateway supports BGP dynamic routing](https://help.aliyun.com/document_detail/170235.html).
      * >*   We recommend that you use a private ASN to establish a connection with Alibaba Cloud over BGP. For information about the range of private ASNs, see the relevant documentation.
      * @example 65530
      *

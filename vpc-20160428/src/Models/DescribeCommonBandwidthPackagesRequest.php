@@ -82,7 +82,7 @@ class DescribeCommonBandwidthPackagesRequest extends Model
     /**
      * @description The ID of the region where the Internet Shared Bandwidth instance resides.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the region ID.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

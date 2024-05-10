@@ -20,6 +20,7 @@ class ListGatewayRouteTableEntriesRequest extends Model
     /**
      * @description The ID of the gateway route table that you want to query.
      *
+     * This parameter is required.
      * @example vtb-5ts0ohchwkp3dydt2****
      *
      * @var string
@@ -60,7 +61,7 @@ class ListGatewayRouteTableEntriesRequest extends Model
     /**
      * @description The region ID of the gateway route table.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent list of regions.
+     * This parameter is required.
      * @example ap-southeast-6
      *
      * @var string

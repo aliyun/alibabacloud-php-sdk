@@ -11,6 +11,7 @@ class RemoveIPv6TranslatorAclListEntryRequest extends Model
     /**
      * @description The ID of the ACL entry to be deleted.
      *
+     * This parameter is required.
      * @example ipv6transaclentry-bp105jrs****
      *
      * @var string
@@ -20,6 +21,7 @@ class RemoveIPv6TranslatorAclListEntryRequest extends Model
     /**
      * @description The ID of the ACL to which the ACL entry belongs.
      *
+     * This parameter is required.
      * @example ipv6transacl-bp1de2****
      *
      * @var string
@@ -49,6 +51,7 @@ class RemoveIPv6TranslatorAclListEntryRequest extends Model
     /**
      * @description The region of the ACL.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

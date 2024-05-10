@@ -14,6 +14,7 @@ class ModifyIpv6InternetBandwidthRequest extends Model
      *   If the billing method is pay-by-data-transfer, valid values are **1** to **1000**.
      *   If the billing method is pay-by-bandwidth, valid values are **1** to **2000**.
      *
+     * This parameter is required.
      * @example 4
      *
      * @var int
@@ -62,8 +63,9 @@ class ModifyIpv6InternetBandwidthRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region where the IPv6 gateway is deployed. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * @description The ID of the region where the IPv6 gateway is deployed. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-huhehaote
      *
      * @var string

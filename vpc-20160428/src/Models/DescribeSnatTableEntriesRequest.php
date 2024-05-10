@@ -49,7 +49,7 @@ class DescribeSnatTableEntriesRequest extends Model
     /**
      * @description The ID of the region where you want to create the NAT gateway.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -78,7 +78,7 @@ class DescribeSnatTableEntriesRequest extends Model
     /**
      * @description The name of the SNAT entry.
      *
-     * The name must be 2 to 128 characters in length, and can contain digits, underscores (\_), and hyphens (-). The name must start with a letter.
+     * The name must be 2 to 128 characters in length, and can contain digits, underscores (_), and hyphens (-). The name must start with a letter.
      * @example SnatEntry-1
      *
      * @var string

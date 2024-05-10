@@ -21,7 +21,7 @@ class DescribeIpv6GatewaysRequest extends Model
     /**
      * @description The name of the IPv6 gateway.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). It must start with a letter. The name must start with a letter and cannot start with `http://` or `https://`.
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter. The name must start with a letter and cannot start with `http://` or `https://`.
      * @example ipv6GW
      *
      * @var string
@@ -57,8 +57,9 @@ class DescribeIpv6GatewaysRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the region in which the IPv6 gateway is deployed. You can call the [DescribeRegions](~~36063~~) operation to query the region ID.
+     * @description The ID of the region in which the IPv6 gateway is deployed. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
      *
+     * This parameter is required.
      * @example cn-huhehaote
      *
      * @var string

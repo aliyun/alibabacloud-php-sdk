@@ -784,15 +784,7 @@ class Vpc extends OpenApiClient
         parent::__construct($config);
         $this->_endpointRule = 'regional';
         $this->_endpointMap  = [
-            'cn-qingdao'                  => 'vpc.aliyuncs.com',
-            'cn-beijing'                  => 'vpc.aliyuncs.com',
             'cn-hangzhou'                 => 'vpc.aliyuncs.com',
-            'cn-shanghai'                 => 'vpc.aliyuncs.com',
-            'cn-shenzhen'                 => 'vpc.aliyuncs.com',
-            'cn-hongkong'                 => 'vpc.aliyuncs.com',
-            'ap-southeast-1'              => 'vpc.aliyuncs.com',
-            'us-east-1'                   => 'vpc.aliyuncs.com',
-            'us-west-1'                   => 'vpc.aliyuncs.com',
             'cn-shanghai-finance-1'       => 'vpc.aliyuncs.com',
             'cn-shenzhen-finance-1'       => 'vpc.aliyuncs.com',
             'cn-north-2-gov-1'            => 'vpc.aliyuncs.com',
@@ -806,17 +798,17 @@ class Vpc extends OpenApiClient
             'cn-hangzhou-bj-b01'          => 'vpc.aliyuncs.com',
             'cn-hangzhou-finance'         => 'vpc.aliyuncs.com',
             'cn-hangzhou-internal-prod-1' => 'vpc.aliyuncs.com',
-            'cn-hangzhou-internal-test-1' => 'vpc.aliyuncs.com',
-            'cn-hangzhou-internal-test-2' => 'vpc.aliyuncs.com',
-            'cn-hangzhou-internal-test-3' => 'vpc.aliyuncs.com',
-            'cn-hangzhou-test-306'        => 'vpc.aliyuncs.com',
+            'cn-hangzhou-internal-test-1' => 'vpc-pre.cn-hangzhou.aliyuncs.com',
+            'cn-hangzhou-internal-test-2' => 'vpc-inner-pre.cn-hangzhou.aliyuncs.com',
+            'cn-hangzhou-internal-test-3' => 'vpc-pre.cn-hangzhou.aliyuncs.com',
+            'cn-hangzhou-test-306'        => 'vpc-pre.cn-hangzhou.aliyuncs.com',
             'cn-hongkong-finance-pop'     => 'vpc.aliyuncs.com',
             'cn-huhehaote-nebula-1'       => 'vpc-nebula.cn-qingdao-nebula.aliyuncs.com',
             'cn-qingdao-nebula'           => 'vpc-nebula.cn-qingdao-nebula.aliyuncs.com',
-            'cn-shanghai-et15-b01'        => 'vpc.aliyuncs.com',
+            'cn-shanghai-et15-b01'        => 'vpc-pre.cn-hangzhou.aliyuncs.com',
             'cn-shanghai-et2-b01'         => 'vpc.aliyuncs.com',
             'cn-shanghai-inner'           => 'vpc.aliyuncs.com',
-            'cn-shanghai-internal-test-1' => 'vpc.aliyuncs.com',
+            'cn-shanghai-internal-test-1' => 'vpc-pre.cn-hangzhou.aliyuncs.com',
             'cn-shenzhen-inner'           => 'vpc.aliyuncs.com',
             'cn-shenzhen-st4-d01'         => 'vpc.aliyuncs.com',
             'cn-shenzhen-su18-b01'        => 'vpc.aliyuncs.com',
@@ -857,9 +849,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * After you call this operation, the router interface enters the **Activating** state. After the router interface is activated, it enters the **Active** state.
-     *   * >  You cannot activate a router interface that has overdue payments.
-     *   *
+     * @summary Activates a router interface that is in the Inactive state.
+     *  *
+     * @description After you call this operation, the router interface enters the **Activating** state. After the router interface is activated, it enters the **Active** state.
+     * >  You cannot activate a router interface that has overdue payments.
+     *  *
      * @param ActivateRouterInterfaceRequest $request ActivateRouterInterfaceRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -903,9 +897,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * After you call this operation, the router interface enters the **Activating** state. After the router interface is activated, it enters the **Active** state.
-     *   * >  You cannot activate a router interface that has overdue payments.
-     *   *
+     * @summary Activates a router interface that is in the Inactive state.
+     *  *
+     * @description After you call this operation, the router interface enters the **Activating** state. After the router interface is activated, it enters the **Active** state.
+     * >  You cannot activate a router interface that has overdue payments.
+     *  *
      * @param ActivateRouterInterfaceRequest $request ActivateRouterInterfaceRequest
      *
      * @return ActivateRouterInterfaceResponse ActivateRouterInterfaceResponse
@@ -918,11 +914,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   The **ActiveFlowLog** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeFlowLogs](~~87923~~) operation to query the status of a flow log:
-     *   *     *   If the flow log is in the **Activating** state, the flow log is being started.
-     *   *     *   If the flow log is in the **Active** state, the flow log is started.
-     *   * *   You cannot repeatedly call the **ActiveFlowLog** operation to start a flow log within the specified period of time.
-     *   *
+     * @summary Enables a flow log. After the flow log is enabled, traffic information about a resource is captured.
+     *  *
+     * @description *   The **ActiveFlowLog** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeFlowLogs](https://help.aliyun.com/document_detail/87923.html) operation to query the status of a flow log:
+     *     *   If the flow log is in the **Activating** state, the flow log is being started.
+     *     *   If the flow log is in the **Active** state, the flow log is started.
+     * *   You cannot repeatedly call the **ActiveFlowLog** operation to start a flow log within the specified period of time.
+     *  *
      * @param ActiveFlowLogRequest $request ActiveFlowLogRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -969,11 +967,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   The **ActiveFlowLog** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeFlowLogs](~~87923~~) operation to query the status of a flow log:
-     *   *     *   If the flow log is in the **Activating** state, the flow log is being started.
-     *   *     *   If the flow log is in the **Active** state, the flow log is started.
-     *   * *   You cannot repeatedly call the **ActiveFlowLog** operation to start a flow log within the specified period of time.
-     *   *
+     * @summary Enables a flow log. After the flow log is enabled, traffic information about a resource is captured.
+     *  *
+     * @description *   The **ActiveFlowLog** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeFlowLogs](https://help.aliyun.com/document_detail/87923.html) operation to query the status of a flow log:
+     *     *   If the flow log is in the **Activating** state, the flow log is being started.
+     *     *   If the flow log is in the **Active** state, the flow log is started.
+     * *   You cannot repeatedly call the **ActiveFlowLog** operation to start a flow log within the specified period of time.
+     *  *
      * @param ActiveFlowLogRequest $request ActiveFlowLogRequest
      *
      * @return ActiveFlowLogResponse ActiveFlowLogResponse
@@ -986,10 +986,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param AddBgpNetworkRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Advertises a Border Gateway Protocol (BGP) network.
+     *  *
+     * @param AddBgpNetworkRequest $request AddBgpNetworkRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddBgpNetworkResponse
+     * @return AddBgpNetworkResponse AddBgpNetworkResponse
      */
     public function addBgpNetworkWithOptions($request, $runtime)
     {
@@ -1041,9 +1043,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param AddBgpNetworkRequest $request
+     * @summary Advertises a Border Gateway Protocol (BGP) network.
+     *  *
+     * @param AddBgpNetworkRequest $request AddBgpNetworkRequest
      *
-     * @return AddBgpNetworkResponse
+     * @return AddBgpNetworkResponse AddBgpNetworkResponse
      */
     public function addBgpNetwork($request)
     {
@@ -1053,15 +1057,17 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, take note of the following items:
-     *   * *   When you call this operation to associate an EIP with an Internet Shared Bandwidth instance, make sure that the EIP meets the following requirements:
-     *   *     *   The EIP uses the pay-as-you-go billing method.
-     *   *     *   The EIP and the Internet Shared Bandwidth instance belong to the same region.
-     *   *     *   The line type of the EIPs is the same as that of the Internet Shared Bandwidth instance.
-     *   * *   **AddCommonBandwidthPackageIp** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeCommonBandwidthPackages](~~120309~~) operation to query the status of the operation.
-     *   *     *   If the Internet Shared Bandwidth instance is in the **BINDING** state, the EIP is being associated with the Internet Shared Bandwidth instance. In this state, you can only query the Internet Shared Bandwidth instance and cannot perform other operations.
-     *   *     *   If the Internet Shared Bandwidth instance is in the **BINDED** state, the EIP is associated with the Internet Shared Bandwidth instance.
-     *   *
+     * @summary Associates an elastic IP address (EIP) with an Internet Shared Bandwidth instance.
+     *  *
+     * @description Before you call this operation, take note of the following items:
+     * *   When you call this operation to associate an EIP with an Internet Shared Bandwidth instance, make sure that the EIP meets the following requirements:
+     *     *   The EIP uses the pay-as-you-go billing method.
+     *     *   The EIP and the Internet Shared Bandwidth instance belong to the same region.
+     *     *   The line type of the EIPs is the same as that of the Internet Shared Bandwidth instance.
+     * *   **AddCommonBandwidthPackageIp** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeCommonBandwidthPackages](https://help.aliyun.com/document_detail/120309.html) operation to query the status of the operation.
+     *     *   If the Internet Shared Bandwidth instance is in the **BINDING** state, the EIP is being associated with the Internet Shared Bandwidth instance. In this state, you can only query the Internet Shared Bandwidth instance and cannot perform other operations.
+     *     *   If the Internet Shared Bandwidth instance is in the **BINDED** state, the EIP is associated with the Internet Shared Bandwidth instance.
+     *  *
      * @param AddCommonBandwidthPackageIpRequest $request AddCommonBandwidthPackageIpRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -1117,15 +1123,17 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, take note of the following items:
-     *   * *   When you call this operation to associate an EIP with an Internet Shared Bandwidth instance, make sure that the EIP meets the following requirements:
-     *   *     *   The EIP uses the pay-as-you-go billing method.
-     *   *     *   The EIP and the Internet Shared Bandwidth instance belong to the same region.
-     *   *     *   The line type of the EIPs is the same as that of the Internet Shared Bandwidth instance.
-     *   * *   **AddCommonBandwidthPackageIp** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeCommonBandwidthPackages](~~120309~~) operation to query the status of the operation.
-     *   *     *   If the Internet Shared Bandwidth instance is in the **BINDING** state, the EIP is being associated with the Internet Shared Bandwidth instance. In this state, you can only query the Internet Shared Bandwidth instance and cannot perform other operations.
-     *   *     *   If the Internet Shared Bandwidth instance is in the **BINDED** state, the EIP is associated with the Internet Shared Bandwidth instance.
-     *   *
+     * @summary Associates an elastic IP address (EIP) with an Internet Shared Bandwidth instance.
+     *  *
+     * @description Before you call this operation, take note of the following items:
+     * *   When you call this operation to associate an EIP with an Internet Shared Bandwidth instance, make sure that the EIP meets the following requirements:
+     *     *   The EIP uses the pay-as-you-go billing method.
+     *     *   The EIP and the Internet Shared Bandwidth instance belong to the same region.
+     *     *   The line type of the EIPs is the same as that of the Internet Shared Bandwidth instance.
+     * *   **AddCommonBandwidthPackageIp** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeCommonBandwidthPackages](https://help.aliyun.com/document_detail/120309.html) operation to query the status of the operation.
+     *     *   If the Internet Shared Bandwidth instance is in the **BINDING** state, the EIP is being associated with the Internet Shared Bandwidth instance. In this state, you can only query the Internet Shared Bandwidth instance and cannot perform other operations.
+     *     *   If the Internet Shared Bandwidth instance is in the **BINDED** state, the EIP is associated with the Internet Shared Bandwidth instance.
+     *  *
      * @param AddCommonBandwidthPackageIpRequest $request AddCommonBandwidthPackageIpRequest
      *
      * @return AddCommonBandwidthPackageIpResponse AddCommonBandwidthPackageIpResponse
@@ -1138,14 +1146,16 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   When you call this operation to associate EIPs with an Internet Shared Bandwidth instance, make sure that the EIPs meet the following requirements:
-     *   *     *   The EIPs use the pay-as-you-go billing method.
-     *   *     *   The EIP and the Internet Shared Bandwidth instance belong to the same region.
-     *   *     *   The line type of the EIPs is the same as that of the Internet Shared Bandwidth instance.
-     *   * *   **AddCommonBandwidthPackageIps** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeCommonBandwidthPackages](~~DescribeCommonBandwidthPackages~~) operation to query the status of the task.
-     *   *     *   If the Internet Shared Bandwidth instance is in the **BINDING** state, the EIP is being associated with the Internet Shared Bandwidth instance. In this state, you can only query the Internet Shared Bandwidth instance and cannot perform other operations.
-     *   *     *   If the Internet Shared Bandwidth instance is in the **BINDED** state, the EIP is associated with the Internet Shared Bandwidth instance.
-     *   *
+     * @summary Associates multiple elastic IP addresses (EIPs) with an Internet Shared Bandwidth instance.
+     *  *
+     * @description *   When you call this operation to associate EIPs with an Internet Shared Bandwidth instance, make sure that the EIPs meet the following requirements:
+     *     *   The EIPs use the pay-as-you-go billing method.
+     *     *   The EIP and the Internet Shared Bandwidth instance belong to the same region.
+     *     *   The line type of the EIPs is the same as that of the Internet Shared Bandwidth instance.
+     * *   **AddCommonBandwidthPackageIps** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeCommonBandwidthPackages](~~DescribeCommonBandwidthPackages~~) operation to query the status of the task.
+     *     *   If the Internet Shared Bandwidth instance is in the **BINDING** state, the EIP is being associated with the Internet Shared Bandwidth instance. In this state, you can only query the Internet Shared Bandwidth instance and cannot perform other operations.
+     *     *   If the Internet Shared Bandwidth instance is in the **BINDED** state, the EIP is associated with the Internet Shared Bandwidth instance.
+     *  *
      * @param AddCommonBandwidthPackageIpsRequest $request AddCommonBandwidthPackageIpsRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -1201,14 +1211,16 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   When you call this operation to associate EIPs with an Internet Shared Bandwidth instance, make sure that the EIPs meet the following requirements:
-     *   *     *   The EIPs use the pay-as-you-go billing method.
-     *   *     *   The EIP and the Internet Shared Bandwidth instance belong to the same region.
-     *   *     *   The line type of the EIPs is the same as that of the Internet Shared Bandwidth instance.
-     *   * *   **AddCommonBandwidthPackageIps** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeCommonBandwidthPackages](~~DescribeCommonBandwidthPackages~~) operation to query the status of the task.
-     *   *     *   If the Internet Shared Bandwidth instance is in the **BINDING** state, the EIP is being associated with the Internet Shared Bandwidth instance. In this state, you can only query the Internet Shared Bandwidth instance and cannot perform other operations.
-     *   *     *   If the Internet Shared Bandwidth instance is in the **BINDED** state, the EIP is associated with the Internet Shared Bandwidth instance.
-     *   *
+     * @summary Associates multiple elastic IP addresses (EIPs) with an Internet Shared Bandwidth instance.
+     *  *
+     * @description *   When you call this operation to associate EIPs with an Internet Shared Bandwidth instance, make sure that the EIPs meet the following requirements:
+     *     *   The EIPs use the pay-as-you-go billing method.
+     *     *   The EIP and the Internet Shared Bandwidth instance belong to the same region.
+     *     *   The line type of the EIPs is the same as that of the Internet Shared Bandwidth instance.
+     * *   **AddCommonBandwidthPackageIps** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeCommonBandwidthPackages](~~DescribeCommonBandwidthPackages~~) operation to query the status of the task.
+     *     *   If the Internet Shared Bandwidth instance is in the **BINDING** state, the EIP is being associated with the Internet Shared Bandwidth instance. In this state, you can only query the Internet Shared Bandwidth instance and cannot perform other operations.
+     *     *   If the Internet Shared Bandwidth instance is in the **BINDED** state, the EIP is associated with the Internet Shared Bandwidth instance.
+     *  *
      * @param AddCommonBandwidthPackageIpsRequest $request AddCommonBandwidthPackageIpsRequest
      *
      * @return AddCommonBandwidthPackageIpsResponse AddCommonBandwidthPackageIpsResponse
@@ -1221,10 +1233,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param AddGlobalAccelerationInstanceIpRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary Associates an elastic IP address (EIP) with a shared-bandwidth Global Accelerator (GA) instance.
+     *  *
+     * @param AddGlobalAccelerationInstanceIpRequest $request AddGlobalAccelerationInstanceIpRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddGlobalAccelerationInstanceIpResponse
+     * @return AddGlobalAccelerationInstanceIpResponse AddGlobalAccelerationInstanceIpResponse
      */
     public function addGlobalAccelerationInstanceIpWithOptions($request, $runtime)
     {
@@ -1270,9 +1284,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param AddGlobalAccelerationInstanceIpRequest $request
+     * @summary Associates an elastic IP address (EIP) with a shared-bandwidth Global Accelerator (GA) instance.
+     *  *
+     * @param AddGlobalAccelerationInstanceIpRequest $request AddGlobalAccelerationInstanceIpRequest
      *
-     * @return AddGlobalAccelerationInstanceIpResponse
+     * @return AddGlobalAccelerationInstanceIpResponse AddGlobalAccelerationInstanceIpResponse
      */
     public function addGlobalAccelerationInstanceIp($request)
     {
@@ -1282,8 +1298,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI AddIPv6TranslatorAclListEntry is deprecated
+     *  *
+     * @summary Adds an IP entry to an access control list (ACL).
+     *  *
      * Deprecated
      *
      * @param AddIPv6TranslatorAclListEntryRequest $request AddIPv6TranslatorAclListEntryRequest
@@ -1338,8 +1356,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI AddIPv6TranslatorAclListEntry is deprecated
+     *  *
+     * @summary Adds an IP entry to an access control list (ACL).
+     *  *
      * Deprecated
      *
      * @param AddIPv6TranslatorAclListEntryRequest $request AddIPv6TranslatorAclListEntryRequest
@@ -1354,14 +1374,16 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, take note of the following limits:
-     *   * *   The CIDR block and the IP address pool must belong to the same region.
-     *   * *   The CIDR block and the IP address pool must use the same line type.
-     *   * *   **AddPublicIpAddressPoolCidrBlock** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListPublicIpAddressPoolCidrBlocks](~~429436~~) operation to query the status of the task.
-     *   *     *   If the CIDR block is in the **Modifying** state, the CIDR block is being added. In this state, you can only query the CIDR block and cannot perform other operations.
-     *   *     *   If the CIDR block is in the **Created** state, the CIDR block is added.
-     *   * *   You cannot repeatedly call the **AddPublicIpAddressPoolCidrBlock** operation to add a CIDR block to an IP address pool within the specified period of time.
-     *   *
+     * @summary Adds a CIDR block to an IP address pool.
+     *  *
+     * @description Before you call this operation, take note of the following limits:
+     * *   The CIDR block and the IP address pool must belong to the same region.
+     * *   The CIDR block and the IP address pool must use the same line type.
+     * *   **AddPublicIpAddressPoolCidrBlock** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListPublicIpAddressPoolCidrBlocks](https://help.aliyun.com/document_detail/429436.html) operation to query the status of the task.
+     *     *   If the CIDR block is in the **Modifying** state, the CIDR block is being added. In this state, you can only query the CIDR block and cannot perform other operations.
+     *     *   If the CIDR block is in the **Created** state, the CIDR block is added.
+     * *   You cannot repeatedly call the **AddPublicIpAddressPoolCidrBlock** operation to add a CIDR block to an IP address pool within the specified period of time.
+     *  *
      * @param AddPublicIpAddressPoolCidrBlockRequest $request AddPublicIpAddressPoolCidrBlockRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
@@ -1420,14 +1442,16 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, take note of the following limits:
-     *   * *   The CIDR block and the IP address pool must belong to the same region.
-     *   * *   The CIDR block and the IP address pool must use the same line type.
-     *   * *   **AddPublicIpAddressPoolCidrBlock** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListPublicIpAddressPoolCidrBlocks](~~429436~~) operation to query the status of the task.
-     *   *     *   If the CIDR block is in the **Modifying** state, the CIDR block is being added. In this state, you can only query the CIDR block and cannot perform other operations.
-     *   *     *   If the CIDR block is in the **Created** state, the CIDR block is added.
-     *   * *   You cannot repeatedly call the **AddPublicIpAddressPoolCidrBlock** operation to add a CIDR block to an IP address pool within the specified period of time.
-     *   *
+     * @summary Adds a CIDR block to an IP address pool.
+     *  *
+     * @description Before you call this operation, take note of the following limits:
+     * *   The CIDR block and the IP address pool must belong to the same region.
+     * *   The CIDR block and the IP address pool must use the same line type.
+     * *   **AddPublicIpAddressPoolCidrBlock** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListPublicIpAddressPoolCidrBlocks](https://help.aliyun.com/document_detail/429436.html) operation to query the status of the task.
+     *     *   If the CIDR block is in the **Modifying** state, the CIDR block is being added. In this state, you can only query the CIDR block and cannot perform other operations.
+     *     *   If the CIDR block is in the **Created** state, the CIDR block is added.
+     * *   You cannot repeatedly call the **AddPublicIpAddressPoolCidrBlock** operation to add a CIDR block to an IP address pool within the specified period of time.
+     *  *
      * @param AddPublicIpAddressPoolCidrBlockRequest $request AddPublicIpAddressPoolCidrBlockRequest
      *
      * @return AddPublicIpAddressPoolCidrBlockResponse AddPublicIpAddressPoolCidrBlockResponse
@@ -1440,11 +1464,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **AddSourcesToTrafficMirrorSession** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorSessions](~~261367~~) operation to query the status of the task.
-     *   *     *   If the traffic mirror session is in the **Modifying** state, the traffic mirror source is being added to the traffic mirror session.
-     *   *     *   If the traffic mirror session is in the **Created** state, the traffic mirror source is added to the traffic mirror session.
-     *   * *   You cannot repeatedly call the **AddSourcesToTrafficMirrorSession** operation to add a traffic mirror source to a traffic mirror session within the specified period of time.
-     *   *
+     * @summary Adds a traffic mirror source to a traffic mirror session.
+     *  *
+     * @description *   **AddSourcesToTrafficMirrorSession** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorSessions](https://help.aliyun.com/document_detail/261367.html) operation to query the status of the task.
+     *     *   If the traffic mirror session is in the **Modifying** state, the traffic mirror source is being added to the traffic mirror session.
+     *     *   If the traffic mirror session is in the **Created** state, the traffic mirror source is added to the traffic mirror session.
+     * *   You cannot repeatedly call the **AddSourcesToTrafficMirrorSession** operation to add a traffic mirror source to a traffic mirror session within the specified period of time.
+     *  *
      * @param AddSourcesToTrafficMirrorSessionRequest $request AddSourcesToTrafficMirrorSessionRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
@@ -1500,11 +1526,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **AddSourcesToTrafficMirrorSession** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorSessions](~~261367~~) operation to query the status of the task.
-     *   *     *   If the traffic mirror session is in the **Modifying** state, the traffic mirror source is being added to the traffic mirror session.
-     *   *     *   If the traffic mirror session is in the **Created** state, the traffic mirror source is added to the traffic mirror session.
-     *   * *   You cannot repeatedly call the **AddSourcesToTrafficMirrorSession** operation to add a traffic mirror source to a traffic mirror session within the specified period of time.
-     *   *
+     * @summary Adds a traffic mirror source to a traffic mirror session.
+     *  *
+     * @description *   **AddSourcesToTrafficMirrorSession** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorSessions](https://help.aliyun.com/document_detail/261367.html) operation to query the status of the task.
+     *     *   If the traffic mirror session is in the **Modifying** state, the traffic mirror source is being added to the traffic mirror session.
+     *     *   If the traffic mirror session is in the **Created** state, the traffic mirror source is added to the traffic mirror session.
+     * *   You cannot repeatedly call the **AddSourcesToTrafficMirrorSession** operation to add a traffic mirror source to a traffic mirror session within the specified period of time.
+     *  *
      * @param AddSourcesToTrafficMirrorSessionRequest $request AddSourcesToTrafficMirrorSessionRequest
      *
      * @return AddSourcesToTrafficMirrorSessionResponse AddSourcesToTrafficMirrorSessionResponse
@@ -1517,9 +1545,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you are familiar with the billing methods and pricing of EIPs. For more information, see [Billing overview](~~122035~~).
-     *   * After you call this operation, the system randomly allocates an EIP that is in the **Available** state in the specified region. EIPs support only the ICMP, TCP, and UDP transport layer protocols. The IGMP and SCTP protocols are not supported.
-     *   *
+     * @summary Applies for an elastic IP address (EIP).
+     *  *
+     * @description Before you call this operation, make sure that you are familiar with the billing methods and pricing of EIPs. For more information, see [Billing overview](https://help.aliyun.com/document_detail/122035.html).
+     * After you call this operation, the system randomly allocates an EIP that is in the **Available** state in the specified region. EIPs support only the ICMP, TCP, and UDP transport layer protocols. The IGMP and SCTP protocols are not supported.
+     *  *
      * @param AllocateEipAddressRequest $request AllocateEipAddressRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -1617,9 +1647,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you are familiar with the billing methods and pricing of EIPs. For more information, see [Billing overview](~~122035~~).
-     *   * After you call this operation, the system randomly allocates an EIP that is in the **Available** state in the specified region. EIPs support only the ICMP, TCP, and UDP transport layer protocols. The IGMP and SCTP protocols are not supported.
-     *   *
+     * @summary Applies for an elastic IP address (EIP).
+     *  *
+     * @description Before you call this operation, make sure that you are familiar with the billing methods and pricing of EIPs. For more information, see [Billing overview](https://help.aliyun.com/document_detail/122035.html).
+     * After you call this operation, the system randomly allocates an EIP that is in the **Available** state in the specified region. EIPs support only the ICMP, TCP, and UDP transport layer protocols. The IGMP and SCTP protocols are not supported.
+     *  *
      * @param AllocateEipAddressRequest $request AllocateEipAddressRequest
      *
      * @return AllocateEipAddressResponse AllocateEipAddressResponse
@@ -1632,10 +1664,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param AllocateEipAddressProRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Requests a specified elastic IP address (EIP).
+     *  *
+     * @param AllocateEipAddressProRequest $request AllocateEipAddressProRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return AllocateEipAddressProResponse
+     * @return AllocateEipAddressProResponse AllocateEipAddressProResponse
      */
     public function allocateEipAddressProWithOptions($request, $runtime)
     {
@@ -1717,9 +1751,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param AllocateEipAddressProRequest $request
+     * @summary Requests a specified elastic IP address (EIP).
+     *  *
+     * @param AllocateEipAddressProRequest $request AllocateEipAddressProRequest
      *
-     * @return AllocateEipAddressProResponse
+     * @return AllocateEipAddressProResponse AllocateEipAddressProResponse
      */
     public function allocateEipAddressPro($request)
     {
@@ -1729,10 +1765,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * **AllocateEipSegmentAddress** is an asynchronous operation. After a request is sent, the system returns the ID of a contiguous EIP group and runs the task in the background. You can call the [DescribeEipSegment](~~156063~~) operation to query the status of the task.
-     *   * *   If the contiguous EIP group is in the **Allocating** state, the EIPs are being allocated. In this case, you can only perform the query operation and cannot perform other operations.
-     *   * *   If the contiguous EIP group is in the **Allocated** state, the EIPs are allocated.
-     *   *
+     * @summary Applies for contiguous elastic IP addresses (EIPs).
+     *  *
+     * @description **AllocateEipSegmentAddress** is an asynchronous operation. After a request is sent, the system returns the ID of a contiguous EIP group and runs the task in the background. You can call the [DescribeEipSegment](https://help.aliyun.com/document_detail/156063.html) operation to query the status of the task.
+     * *   If the contiguous EIP group is in the **Allocating** state, the EIPs are being allocated. In this case, you can only perform the query operation and cannot perform other operations.
+     * *   If the contiguous EIP group is in the **Allocated** state, the EIPs are allocated.
+     *  *
      * @param AllocateEipSegmentAddressRequest $request AllocateEipSegmentAddressRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -1800,10 +1838,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * **AllocateEipSegmentAddress** is an asynchronous operation. After a request is sent, the system returns the ID of a contiguous EIP group and runs the task in the background. You can call the [DescribeEipSegment](~~156063~~) operation to query the status of the task.
-     *   * *   If the contiguous EIP group is in the **Allocating** state, the EIPs are being allocated. In this case, you can only perform the query operation and cannot perform other operations.
-     *   * *   If the contiguous EIP group is in the **Allocated** state, the EIPs are allocated.
-     *   *
+     * @summary Applies for contiguous elastic IP addresses (EIPs).
+     *  *
+     * @description **AllocateEipSegmentAddress** is an asynchronous operation. After a request is sent, the system returns the ID of a contiguous EIP group and runs the task in the background. You can call the [DescribeEipSegment](https://help.aliyun.com/document_detail/156063.html) operation to query the status of the task.
+     * *   If the contiguous EIP group is in the **Allocating** state, the EIPs are being allocated. In this case, you can only perform the query operation and cannot perform other operations.
+     * *   If the contiguous EIP group is in the **Allocated** state, the EIPs are allocated.
+     *  *
      * @param AllocateEipSegmentAddressRequest $request AllocateEipSegmentAddressRequest
      *
      * @return AllocateEipSegmentAddressResponse AllocateEipSegmentAddressResponse
@@ -1816,10 +1856,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param AllocateIpv6AddressRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Assigns an IPv6 address.
+     *  *
+     * @param AllocateIpv6AddressRequest $request AllocateIpv6AddressRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return AllocateIpv6AddressResponse
+     * @return AllocateIpv6AddressResponse AllocateIpv6AddressResponse
      */
     public function allocateIpv6AddressWithOptions($request, $runtime)
     {
@@ -1886,9 +1928,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param AllocateIpv6AddressRequest $request
+     * @summary Assigns an IPv6 address.
+     *  *
+     * @param AllocateIpv6AddressRequest $request AllocateIpv6AddressRequest
      *
-     * @return AllocateIpv6AddressResponse
+     * @return AllocateIpv6AddressResponse AllocateIpv6AddressResponse
      */
     public function allocateIpv6Address($request)
     {
@@ -1898,8 +1942,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You cannot repeatedly call the **AllocateIpv6InternetBandwidth** operation within a specific time period.
-     *   *
+     * @summary Default IPv6 gateways support only private communication. You can call the AllocateIpv6InternetBandwidth operation to purchase Internet bandwidth resources for an IPv6 address. This way, ECS instances in a VPC can access the Internet through the IPv6 address. IPv6 clients can also access the ECS instances over the Internet.
+     *  *
+     * @description You cannot repeatedly call the **AllocateIpv6InternetBandwidth** operation within a specific time period.
+     *  *
      * @param AllocateIpv6InternetBandwidthRequest $request AllocateIpv6InternetBandwidthRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
@@ -1961,8 +2007,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You cannot repeatedly call the **AllocateIpv6InternetBandwidth** operation within a specific time period.
-     *   *
+     * @summary Default IPv6 gateways support only private communication. You can call the AllocateIpv6InternetBandwidth operation to purchase Internet bandwidth resources for an IPv6 address. This way, ECS instances in a VPC can access the Internet through the IPv6 address. IPv6 clients can also access the ECS instances over the Internet.
+     *  *
+     * @description You cannot repeatedly call the **AllocateIpv6InternetBandwidth** operation within a specific time period.
+     *  *
      * @param AllocateIpv6InternetBandwidthRequest $request AllocateIpv6InternetBandwidthRequest
      *
      * @return AllocateIpv6InternetBandwidthResponse AllocateIpv6InternetBandwidthResponse
@@ -1975,11 +2023,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * # [](#)
-     *   * The following section describes how to allocate an IPv6 CIDR block to a virtual private cloud (VPC):
-     *   * 1.  Call the AllocateVpcIpv6Cidr operation to reserve the IPv6 CIDR block.
-     *   * 2.  To allocate an IPv6 CIDR block to an existing VPC, call the [AssociateVpcCidrBlock](~~146745~~) operation. Set **RegionId**, **VpcId**, and **IPv6CidrBlock** to the IPv6 CIDR bock, and set **IpVersion** to **ipv6**. To allocate an IPv6 CIDR block when you create a VPC, call the [CreateVpc](~~35737~~) operation. Set **RegionId** and **Ipv6CidrBlock** to the IPv6 CIDR block, and set **EnableIpv6** to **true**.
-     *   *
+     * @summary Reserves an IPv6 CIDR block.
+     *  *
+     * @description # [](#)
+     * The following section describes how to allocate an IPv6 CIDR block to a virtual private cloud (VPC):
+     * 1.  Call the AllocateVpcIpv6Cidr operation to reserve the IPv6 CIDR block.
+     * 2.  To allocate an IPv6 CIDR block to an existing VPC, call the [AssociateVpcCidrBlock](https://help.aliyun.com/document_detail/146745.html) operation. Set **RegionId**, **VpcId**, and **IPv6CidrBlock** to the IPv6 CIDR bock, and set **IpVersion** to **ipv6**. To allocate an IPv6 CIDR block when you create a VPC, call the [CreateVpc](https://help.aliyun.com/document_detail/35737.html) operation. Set **RegionId** and **Ipv6CidrBlock** to the IPv6 CIDR block, and set **EnableIpv6** to **true**.
+     *  *
      * @param AllocateVpcIpv6CidrRequest $request AllocateVpcIpv6CidrRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -2038,11 +2088,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * # [](#)
-     *   * The following section describes how to allocate an IPv6 CIDR block to a virtual private cloud (VPC):
-     *   * 1.  Call the AllocateVpcIpv6Cidr operation to reserve the IPv6 CIDR block.
-     *   * 2.  To allocate an IPv6 CIDR block to an existing VPC, call the [AssociateVpcCidrBlock](~~146745~~) operation. Set **RegionId**, **VpcId**, and **IPv6CidrBlock** to the IPv6 CIDR bock, and set **IpVersion** to **ipv6**. To allocate an IPv6 CIDR block when you create a VPC, call the [CreateVpc](~~35737~~) operation. Set **RegionId** and **Ipv6CidrBlock** to the IPv6 CIDR block, and set **EnableIpv6** to **true**.
-     *   *
+     * @summary Reserves an IPv6 CIDR block.
+     *  *
+     * @description # [](#)
+     * The following section describes how to allocate an IPv6 CIDR block to a virtual private cloud (VPC):
+     * 1.  Call the AllocateVpcIpv6Cidr operation to reserve the IPv6 CIDR block.
+     * 2.  To allocate an IPv6 CIDR block to an existing VPC, call the [AssociateVpcCidrBlock](https://help.aliyun.com/document_detail/146745.html) operation. Set **RegionId**, **VpcId**, and **IPv6CidrBlock** to the IPv6 CIDR bock, and set **IpVersion** to **ipv6**. To allocate an IPv6 CIDR block when you create a VPC, call the [CreateVpc](https://help.aliyun.com/document_detail/35737.html) operation. Set **RegionId** and **Ipv6CidrBlock** to the IPv6 CIDR block, and set **EnableIpv6** to **true**.
+     *  *
      * @param AllocateVpcIpv6CidrRequest $request AllocateVpcIpv6CidrRequest
      *
      * @return AllocateVpcIpv6CidrResponse AllocateVpcIpv6CidrResponse
@@ -2055,10 +2107,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ApplyPhysicalConnectionLOARequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Applies for a Letter of Authorization (LOA) for an Express Connect circuit.
+     *  *
+     * @param ApplyPhysicalConnectionLOARequest $request ApplyPhysicalConnectionLOARequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ApplyPhysicalConnectionLOAResponse
+     * @return ApplyPhysicalConnectionLOAResponse ApplyPhysicalConnectionLOAResponse
      */
     public function applyPhysicalConnectionLOAWithOptions($request, $runtime)
     {
@@ -2128,9 +2182,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ApplyPhysicalConnectionLOARequest $request
+     * @summary Applies for a Letter of Authorization (LOA) for an Express Connect circuit.
+     *  *
+     * @param ApplyPhysicalConnectionLOARequest $request ApplyPhysicalConnectionLOARequest
      *
-     * @return ApplyPhysicalConnectionLOAResponse
+     * @return ApplyPhysicalConnectionLOAResponse ApplyPhysicalConnectionLOAResponse
      */
     public function applyPhysicalConnectionLOA($request)
     {
@@ -2140,12 +2196,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   You can associate an EIP with an Elastic Compute Service (ECS) instance, a Classic Load Balancer (CLB) instance, a secondary elastic network interface (ENI), a NAT gateway, or a high-availability virtual IP address (HAVIP) in the same region. The ECS instance and CLB instance must be deployed in a virtual private cloud (VPC).
-     *   * *   **AssociateEipAddress** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeEipAddresses](~~120193~~) operation to query the status of the task.
-     *   *     *   If the EIP is in the **Associating** state, the EIP is being associated. In this state, you can only query the EIP and cannot perform other operations.
-     *   *     *   If the EIP is in the **InUse** state, the EIP is associated.
-     *   * *   You cannot call the **AssociateEipAddress** operation to associate an EIP with multiple instances at a time.
-     *   *
+     * @summary Associates an elastic IP address (EIP) with an instance in the same region.
+     *  *
+     * @description *   You can associate an EIP with an Elastic Compute Service (ECS) instance, a Classic Load Balancer (CLB) instance, a secondary elastic network interface (ENI), a NAT gateway, or a high-availability virtual IP address (HAVIP) in the same region. The ECS instance and CLB instance must be deployed in a virtual private cloud (VPC).
+     * *   **AssociateEipAddress** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeEipAddresses](https://help.aliyun.com/document_detail/120193.html) operation to query the status of the task.
+     *     *   If the EIP is in the **Associating** state, the EIP is being associated. In this state, you can only query the EIP and cannot perform other operations.
+     *     *   If the EIP is in the **InUse** state, the EIP is associated.
+     * *   You cannot call the **AssociateEipAddress** operation to associate an EIP with multiple instances at a time.
+     *  *
      * @param AssociateEipAddressRequest $request AssociateEipAddressRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -2213,12 +2271,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   You can associate an EIP with an Elastic Compute Service (ECS) instance, a Classic Load Balancer (CLB) instance, a secondary elastic network interface (ENI), a NAT gateway, or a high-availability virtual IP address (HAVIP) in the same region. The ECS instance and CLB instance must be deployed in a virtual private cloud (VPC).
-     *   * *   **AssociateEipAddress** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeEipAddresses](~~120193~~) operation to query the status of the task.
-     *   *     *   If the EIP is in the **Associating** state, the EIP is being associated. In this state, you can only query the EIP and cannot perform other operations.
-     *   *     *   If the EIP is in the **InUse** state, the EIP is associated.
-     *   * *   You cannot call the **AssociateEipAddress** operation to associate an EIP with multiple instances at a time.
-     *   *
+     * @summary Associates an elastic IP address (EIP) with an instance in the same region.
+     *  *
+     * @description *   You can associate an EIP with an Elastic Compute Service (ECS) instance, a Classic Load Balancer (CLB) instance, a secondary elastic network interface (ENI), a NAT gateway, or a high-availability virtual IP address (HAVIP) in the same region. The ECS instance and CLB instance must be deployed in a virtual private cloud (VPC).
+     * *   **AssociateEipAddress** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeEipAddresses](https://help.aliyun.com/document_detail/120193.html) operation to query the status of the task.
+     *     *   If the EIP is in the **Associating** state, the EIP is being associated. In this state, you can only query the EIP and cannot perform other operations.
+     *     *   If the EIP is in the **InUse** state, the EIP is associated.
+     * *   You cannot call the **AssociateEipAddress** operation to associate an EIP with multiple instances at a time.
+     *  *
      * @param AssociateEipAddressRequest $request AssociateEipAddressRequest
      *
      * @return AssociateEipAddressResponse AssociateEipAddressResponse
@@ -2231,12 +2291,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   You can call the **AssociateEipAddressBatch** operation to associate EIPs with an instance in the same region. The instance must be a NAT gateway or a secondary elastic network interface (ENI). For more information about how to associate EIPs with other instances, see [AssociateEipAddress](~~120195~~).
-     *   * *   **AssociateEipAddressBatch** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEipAddresses](~~120193~~) operation to query the status of the task.
-     *   *     *   If the EIP is in the **Associating** state, the EIP is being associated. You can only query the EIP and cannot perform other operations.
-     *   *     *   If the EIP is in the **InUse** state, the EIP is associated.
-     *   * *   You cannot call the **AssociateEipAddressBatch** operation to associate an EIP with multiple instances at a time.
-     *   *
+     * @summary Associates multiple elastic IP addresses (EIPs) with an instance in the same region.
+     *  *
+     * @description *   You can call the **AssociateEipAddressBatch** operation to associate EIPs with an instance in the same region. The instance must be a NAT gateway or a secondary elastic network interface (ENI). For more information about how to associate EIPs with other instances, see [AssociateEipAddress](https://help.aliyun.com/document_detail/120195.html).
+     * *   **AssociateEipAddressBatch** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEipAddresses](https://help.aliyun.com/document_detail/120193.html) operation to query the status of the task.
+     *     *   If the EIP is in the **Associating** state, the EIP is being associated. You can only query the EIP and cannot perform other operations.
+     *     *   If the EIP is in the **InUse** state, the EIP is associated.
+     * *   You cannot call the **AssociateEipAddressBatch** operation to associate an EIP with multiple instances at a time.
+     *  *
      * @param AssociateEipAddressBatchRequest $request AssociateEipAddressBatchRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -2295,12 +2357,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   You can call the **AssociateEipAddressBatch** operation to associate EIPs with an instance in the same region. The instance must be a NAT gateway or a secondary elastic network interface (ENI). For more information about how to associate EIPs with other instances, see [AssociateEipAddress](~~120195~~).
-     *   * *   **AssociateEipAddressBatch** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEipAddresses](~~120193~~) operation to query the status of the task.
-     *   *     *   If the EIP is in the **Associating** state, the EIP is being associated. You can only query the EIP and cannot perform other operations.
-     *   *     *   If the EIP is in the **InUse** state, the EIP is associated.
-     *   * *   You cannot call the **AssociateEipAddressBatch** operation to associate an EIP with multiple instances at a time.
-     *   *
+     * @summary Associates multiple elastic IP addresses (EIPs) with an instance in the same region.
+     *  *
+     * @description *   You can call the **AssociateEipAddressBatch** operation to associate EIPs with an instance in the same region. The instance must be a NAT gateway or a secondary elastic network interface (ENI). For more information about how to associate EIPs with other instances, see [AssociateEipAddress](https://help.aliyun.com/document_detail/120195.html).
+     * *   **AssociateEipAddressBatch** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEipAddresses](https://help.aliyun.com/document_detail/120193.html) operation to query the status of the task.
+     *     *   If the EIP is in the **Associating** state, the EIP is being associated. You can only query the EIP and cannot perform other operations.
+     *     *   If the EIP is in the **InUse** state, the EIP is associated.
+     * *   You cannot call the **AssociateEipAddressBatch** operation to associate an EIP with multiple instances at a time.
+     *  *
      * @param AssociateEipAddressBatchRequest $request AssociateEipAddressBatchRequest
      *
      * @return AssociateEipAddressBatchResponse AssociateEipAddressBatchResponse
@@ -2313,17 +2377,19 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following limits:
-     *   * *   An HAVIP immediately takes effect after it is associated. You do not need to restart the ECS instance. However, you must associate the HAVIP with the ENI of the ECS instance.
-     *   * *   The HAVIP and ECS instance must belong to the same vSwitch.
-     *   * *   You can associate an HAVIP with at most two ECS instances.
-     *   * *   The ECS instance must be in the **Running** or **Stopped** state.
-     *   * *   The HAVIP must be in the **Available** or **InUse** state.
-     *   * *   The **AssociateHaVip** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeHaVips](~~114611~~) operation to query the status of an HAVIP:
-     *   *     *   If the HAVIP is in the **Associating** state, the HAVIP is being associated.
-     *   *     *   If the HAVIP is in the **InUse** state, the HAVIP is associated.
-     *   * *   You cannot repeatedly call the **AssociateHaVip** operation to associate an HAVIP within the specified period of time.
-     *   *
+     * @summary Associates a high-availability virtual IP address (HAVIP) with an Elastic Compute Service (ECS) instance or an elastic network interface (ENI).
+     *  *
+     * @description When you call this operation, take note of the following limits:
+     * *   An HAVIP immediately takes effect after it is associated. You do not need to restart the ECS instance. However, you must associate the HAVIP with the ENI of the ECS instance.
+     * *   The HAVIP and ECS instance must belong to the same vSwitch.
+     * *   You can associate an HAVIP with at most two ECS instances.
+     * *   The ECS instance must be in the **Running** or **Stopped** state.
+     * *   The HAVIP must be in the **Available** or **InUse** state.
+     * *   The **AssociateHaVip** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeHaVips](https://help.aliyun.com/document_detail/114611.html) operation to query the status of an HAVIP:
+     *     *   If the HAVIP is in the **Associating** state, the HAVIP is being associated.
+     *     *   If the HAVIP is in the **InUse** state, the HAVIP is associated.
+     * *   You cannot repeatedly call the **AssociateHaVip** operation to associate an HAVIP within the specified period of time.
+     *  *
      * @param AssociateHaVipRequest $request AssociateHaVipRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -2379,17 +2445,19 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following limits:
-     *   * *   An HAVIP immediately takes effect after it is associated. You do not need to restart the ECS instance. However, you must associate the HAVIP with the ENI of the ECS instance.
-     *   * *   The HAVIP and ECS instance must belong to the same vSwitch.
-     *   * *   You can associate an HAVIP with at most two ECS instances.
-     *   * *   The ECS instance must be in the **Running** or **Stopped** state.
-     *   * *   The HAVIP must be in the **Available** or **InUse** state.
-     *   * *   The **AssociateHaVip** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeHaVips](~~114611~~) operation to query the status of an HAVIP:
-     *   *     *   If the HAVIP is in the **Associating** state, the HAVIP is being associated.
-     *   *     *   If the HAVIP is in the **InUse** state, the HAVIP is associated.
-     *   * *   You cannot repeatedly call the **AssociateHaVip** operation to associate an HAVIP within the specified period of time.
-     *   *
+     * @summary Associates a high-availability virtual IP address (HAVIP) with an Elastic Compute Service (ECS) instance or an elastic network interface (ENI).
+     *  *
+     * @description When you call this operation, take note of the following limits:
+     * *   An HAVIP immediately takes effect after it is associated. You do not need to restart the ECS instance. However, you must associate the HAVIP with the ENI of the ECS instance.
+     * *   The HAVIP and ECS instance must belong to the same vSwitch.
+     * *   You can associate an HAVIP with at most two ECS instances.
+     * *   The ECS instance must be in the **Running** or **Stopped** state.
+     * *   The HAVIP must be in the **Available** or **InUse** state.
+     * *   The **AssociateHaVip** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeHaVips](https://help.aliyun.com/document_detail/114611.html) operation to query the status of an HAVIP:
+     *     *   If the HAVIP is in the **Associating** state, the HAVIP is being associated.
+     *     *   If the HAVIP is in the **InUse** state, the HAVIP is associated.
+     * *   You cannot repeatedly call the **AssociateHaVip** operation to associate an HAVIP within the specified period of time.
+     *  *
      * @param AssociateHaVipRequest $request AssociateHaVipRequest
      *
      * @return AssociateHaVipResponse AssociateHaVipResponse
@@ -2402,12 +2470,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)Description
-     *   * *   **AssociateNetworkAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNetworkAclAttributes](~~116542~~) operation to query the status of the task.
-     *   *     *   If the network ACL is in the **BINDING** state, the network ACL is being associated.
-     *   *     *   If the network ACL is in the **BINDED** state, the network ACL is associated.
-     *   * *   You cannot repeatedly call the **AssociateNetworkAcl** operation to associate a network ACL within the specified period of time.
-     *   *
+     * @summary Associates a network access control list (ACL) with a vSwitch.
+     *  *
+     * @description ## [](#)Description
+     * *   **AssociateNetworkAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNetworkAclAttributes](https://help.aliyun.com/document_detail/116542.html) operation to query the status of the task.
+     *     *   If the network ACL is in the **BINDING** state, the network ACL is being associated.
+     *     *   If the network ACL is in the **BINDED** state, the network ACL is associated.
+     * *   You cannot repeatedly call the **AssociateNetworkAcl** operation to associate a network ACL within the specified period of time.
+     *  *
      * @param AssociateNetworkAclRequest $request AssociateNetworkAclRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -2466,12 +2536,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)Description
-     *   * *   **AssociateNetworkAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNetworkAclAttributes](~~116542~~) operation to query the status of the task.
-     *   *     *   If the network ACL is in the **BINDING** state, the network ACL is being associated.
-     *   *     *   If the network ACL is in the **BINDED** state, the network ACL is associated.
-     *   * *   You cannot repeatedly call the **AssociateNetworkAcl** operation to associate a network ACL within the specified period of time.
-     *   *
+     * @summary Associates a network access control list (ACL) with a vSwitch.
+     *  *
+     * @description ## [](#)Description
+     * *   **AssociateNetworkAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNetworkAclAttributes](https://help.aliyun.com/document_detail/116542.html) operation to query the status of the task.
+     *     *   If the network ACL is in the **BINDING** state, the network ACL is being associated.
+     *     *   If the network ACL is in the **BINDED** state, the network ACL is associated.
+     * *   You cannot repeatedly call the **AssociateNetworkAcl** operation to associate a network ACL within the specified period of time.
+     *  *
      * @param AssociateNetworkAclRequest $request AssociateNetworkAclRequest
      *
      * @return AssociateNetworkAclResponse AssociateNetworkAclResponse
@@ -2484,10 +2556,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param AssociatePhysicalConnectionToVirtualBorderRouterRequest $request
-     * @param RuntimeOptions                                          $runtime
+     * @summary Associates a virtual border router (VBR) with a specified Express Connect circuit.
+     *  *
+     * @param AssociatePhysicalConnectionToVirtualBorderRouterRequest $request AssociatePhysicalConnectionToVirtualBorderRouterRequest
+     * @param RuntimeOptions                                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return AssociatePhysicalConnectionToVirtualBorderRouterResponse
+     * @return AssociatePhysicalConnectionToVirtualBorderRouterResponse AssociatePhysicalConnectionToVirtualBorderRouterResponse
      */
     public function associatePhysicalConnectionToVirtualBorderRouterWithOptions($request, $runtime)
     {
@@ -2563,9 +2637,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param AssociatePhysicalConnectionToVirtualBorderRouterRequest $request
+     * @summary Associates a virtual border router (VBR) with a specified Express Connect circuit.
+     *  *
+     * @param AssociatePhysicalConnectionToVirtualBorderRouterRequest $request AssociatePhysicalConnectionToVirtualBorderRouterRequest
      *
-     * @return AssociatePhysicalConnectionToVirtualBorderRouterResponse
+     * @return AssociatePhysicalConnectionToVirtualBorderRouterResponse AssociatePhysicalConnectionToVirtualBorderRouterResponse
      */
     public function associatePhysicalConnectionToVirtualBorderRouter($request)
     {
@@ -2575,10 +2651,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * **AssociateRouteTable** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](~~94567~~) operation to query the status of the task:
-     *   * *   If the vSwitch is in the **Pending** state, the route table is being associated with the vSwitch.
-     *   * *   If the vSwitch is in the **Available** state, the route table is associated with the vSwitch.
-     *   *
+     * @summary Associates a custom route table with a vSwitch in the same VPC.
+     *  *
+     * @description **AssociateRouteTable** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) operation to query the status of the task:
+     * *   If the vSwitch is in the **Pending** state, the route table is being associated with the vSwitch.
+     * *   If the vSwitch is in the **Available** state, the route table is associated with the vSwitch.
+     *  *
      * @param AssociateRouteTableRequest $request AssociateRouteTableRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -2634,10 +2712,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * **AssociateRouteTable** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](~~94567~~) operation to query the status of the task:
-     *   * *   If the vSwitch is in the **Pending** state, the route table is being associated with the vSwitch.
-     *   * *   If the vSwitch is in the **Available** state, the route table is associated with the vSwitch.
-     *   *
+     * @summary Associates a custom route table with a vSwitch in the same VPC.
+     *  *
+     * @description **AssociateRouteTable** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) operation to query the status of the task:
+     * *   If the vSwitch is in the **Pending** state, the route table is being associated with the vSwitch.
+     * *   If the vSwitch is in the **Available** state, the route table is associated with the vSwitch.
+     *  *
      * @param AssociateRouteTableRequest $request AssociateRouteTableRequest
      *
      * @return AssociateRouteTableResponse AssociateRouteTableResponse
@@ -2650,10 +2730,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param AssociateRouteTableWithGatewayRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Associates a gateway route table with an IPv4 gateway in the same virtual private cloud (VPC).
+     *  *
+     * @param AssociateRouteTableWithGatewayRequest $request AssociateRouteTableWithGatewayRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return AssociateRouteTableWithGatewayResponse
+     * @return AssociateRouteTableWithGatewayResponse AssociateRouteTableWithGatewayResponse
      */
     public function associateRouteTableWithGatewayWithOptions($request, $runtime)
     {
@@ -2711,9 +2793,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param AssociateRouteTableWithGatewayRequest $request
+     * @summary Associates a gateway route table with an IPv4 gateway in the same virtual private cloud (VPC).
+     *  *
+     * @param AssociateRouteTableWithGatewayRequest $request AssociateRouteTableWithGatewayRequest
      *
-     * @return AssociateRouteTableWithGatewayResponse
+     * @return AssociateRouteTableWithGatewayResponse AssociateRouteTableWithGatewayResponse
      */
     public function associateRouteTableWithGateway($request)
     {
@@ -2723,18 +2807,20 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following limits:
-     *   * *   The gateway endpoint to be associated with the route table cannot be in one of the following states: **Creating**, **Modifying**, **Associating**, **Dissociating**, or **Deleting**.
-     *   * *   The route table cannot be in one of the following states: **Creating**, **Modifying**, **Associating**, **Dissociating**, or **Deleting**.
-     *   * *   The gateway endpoint and route table must belong to the same virtual private cloud (VPC).
-     *   * *   The route table cannot be shared.
-     *   * *   You cannot associate a gateway endpoint with a virtual border router (VBR) route table.
-     *   * *   You can associate a gateway endpoint with at most 20 route tables at a time.
-     *   * *   **AssociateRouteTablesWithVpcGatewayEndpoint** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetVpcGatewayEndpointAttribute](~~311017~~) operation to query whether a route table is associated with a gateway endpoint.
-     *   *     *   If the **Associating** status is returned, the route table is being associated with the gateway endpoint.
-     *   *     *   If the **Created** status is returned, the route table is associated with the gateway endpoint.
-     *   * *   You cannot repeatedly call the **AssociateRouteTablesWithVpcGatewayEndpoint** operation within a specific period of time.
-     *   *
+     * @summary Associates a route table with a gateway endpoint.
+     *  *
+     * @description When you call this operation, take note of the following limits:
+     * *   The gateway endpoint to be associated with the route table cannot be in one of the following states: **Creating**, **Modifying**, **Associating**, **Dissociating**, or **Deleting**.
+     * *   The route table cannot be in one of the following states: **Creating**, **Modifying**, **Associating**, **Dissociating**, or **Deleting**.
+     * *   The gateway endpoint and route table must belong to the same virtual private cloud (VPC).
+     * *   The route table cannot be shared.
+     * *   You cannot associate a gateway endpoint with a virtual border router (VBR) route table.
+     * *   You can associate a gateway endpoint with at most 20 route tables at a time.
+     * *   **AssociateRouteTablesWithVpcGatewayEndpoint** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetVpcGatewayEndpointAttribute](https://help.aliyun.com/document_detail/311017.html) operation to query whether a route table is associated with a gateway endpoint.
+     *     *   If the **Associating** status is returned, the route table is being associated with the gateway endpoint.
+     *     *   If the **Created** status is returned, the route table is associated with the gateway endpoint.
+     * *   You cannot repeatedly call the **AssociateRouteTablesWithVpcGatewayEndpoint** operation within a specific period of time.
+     *  *
      * @param AssociateRouteTablesWithVpcGatewayEndpointRequest $request AssociateRouteTablesWithVpcGatewayEndpointRequest
      * @param RuntimeOptions                                    $runtime runtime options for this request RuntimeOptions
      *
@@ -2790,18 +2876,20 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following limits:
-     *   * *   The gateway endpoint to be associated with the route table cannot be in one of the following states: **Creating**, **Modifying**, **Associating**, **Dissociating**, or **Deleting**.
-     *   * *   The route table cannot be in one of the following states: **Creating**, **Modifying**, **Associating**, **Dissociating**, or **Deleting**.
-     *   * *   The gateway endpoint and route table must belong to the same virtual private cloud (VPC).
-     *   * *   The route table cannot be shared.
-     *   * *   You cannot associate a gateway endpoint with a virtual border router (VBR) route table.
-     *   * *   You can associate a gateway endpoint with at most 20 route tables at a time.
-     *   * *   **AssociateRouteTablesWithVpcGatewayEndpoint** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetVpcGatewayEndpointAttribute](~~311017~~) operation to query whether a route table is associated with a gateway endpoint.
-     *   *     *   If the **Associating** status is returned, the route table is being associated with the gateway endpoint.
-     *   *     *   If the **Created** status is returned, the route table is associated with the gateway endpoint.
-     *   * *   You cannot repeatedly call the **AssociateRouteTablesWithVpcGatewayEndpoint** operation within a specific period of time.
-     *   *
+     * @summary Associates a route table with a gateway endpoint.
+     *  *
+     * @description When you call this operation, take note of the following limits:
+     * *   The gateway endpoint to be associated with the route table cannot be in one of the following states: **Creating**, **Modifying**, **Associating**, **Dissociating**, or **Deleting**.
+     * *   The route table cannot be in one of the following states: **Creating**, **Modifying**, **Associating**, **Dissociating**, or **Deleting**.
+     * *   The gateway endpoint and route table must belong to the same virtual private cloud (VPC).
+     * *   The route table cannot be shared.
+     * *   You cannot associate a gateway endpoint with a virtual border router (VBR) route table.
+     * *   You can associate a gateway endpoint with at most 20 route tables at a time.
+     * *   **AssociateRouteTablesWithVpcGatewayEndpoint** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetVpcGatewayEndpointAttribute](https://help.aliyun.com/document_detail/311017.html) operation to query whether a route table is associated with a gateway endpoint.
+     *     *   If the **Associating** status is returned, the route table is being associated with the gateway endpoint.
+     *     *   If the **Created** status is returned, the route table is associated with the gateway endpoint.
+     * *   You cannot repeatedly call the **AssociateRouteTablesWithVpcGatewayEndpoint** operation within a specific period of time.
+     *  *
      * @param AssociateRouteTablesWithVpcGatewayEndpointRequest $request AssociateRouteTablesWithVpcGatewayEndpointRequest
      *
      * @return AssociateRouteTablesWithVpcGatewayEndpointResponse AssociateRouteTablesWithVpcGatewayEndpointResponse
@@ -2814,12 +2902,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)
-     *   * *   Take note of the following limits:
-     *   *     *   Each VPC can contain up to five secondary IPv4 CIDR blocks.
-     *   *     *   Each VPC can contain up to five secondary IPv6 CIDR blocks.
-     *   * *   You cannot repeatedly call the **AssociateVpcCidrBlock** operation to add secondary CIDR blocks to a VPC within the specified period of time.
-     *   *
+     * @summary Adds a secondary CIDR block to a virtual private cloud (VPC).
+     *  *
+     * @description ## [](#)
+     * *   Take note of the following limits:
+     *     *   Each VPC can contain up to five secondary IPv4 CIDR blocks.
+     *     *   Each VPC can contain up to five secondary IPv6 CIDR blocks.
+     * *   You cannot repeatedly call the **AssociateVpcCidrBlock** operation to add secondary CIDR blocks to a VPC within the specified period of time.
+     *  *
      * @param AssociateVpcCidrBlockRequest $request AssociateVpcCidrBlockRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -2887,12 +2977,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)
-     *   * *   Take note of the following limits:
-     *   *     *   Each VPC can contain up to five secondary IPv4 CIDR blocks.
-     *   *     *   Each VPC can contain up to five secondary IPv6 CIDR blocks.
-     *   * *   You cannot repeatedly call the **AssociateVpcCidrBlock** operation to add secondary CIDR blocks to a VPC within the specified period of time.
-     *   *
+     * @summary Adds a secondary CIDR block to a virtual private cloud (VPC).
+     *  *
+     * @description ## [](#)
+     * *   Take note of the following limits:
+     *     *   Each VPC can contain up to five secondary IPv4 CIDR blocks.
+     *     *   Each VPC can contain up to five secondary IPv6 CIDR blocks.
+     * *   You cannot repeatedly call the **AssociateVpcCidrBlock** operation to add secondary CIDR blocks to a VPC within the specified period of time.
+     *  *
      * @param AssociateVpcCidrBlockRequest $request AssociateVpcCidrBlockRequest
      *
      * @return AssociateVpcCidrBlockResponse AssociateVpcCidrBlockResponse
@@ -2905,17 +2997,19 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Before you associate a VPN gateway with an SSL certificate, take note of the following items:
-     *   * *   You can associate only VPN gateways of the ShangMi (SM) type with SSL certificates. You need to associate a VPN gateway of the SM type with two SSL certificates, one as the encryption certificate and the other as the signature certificate.
-     *   * *   The SSL certificates must use the SM algorithm.
-     *   * *   You cannot specify one SSL certificate as both the encryption certificate and signature certificate for one VPN gateway.
-     *   * *   **AssociateVpnGatewayWithCertificate** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](~~73720~~) operation to query the status of the task.
-     *   *     *   If the VPN gateway is in the **updating** state, the SSL certificate is being associated.
-     *   *     *   If the VPN gateway is in the **active** state, the SSL certificate is being associated.
-     *   * *   You cannot call **AssociateVpnGatewayWithCertificate** within a specific period of time.
-     *   * ### [](#)Prerequisites
-     *   * Make sure that you have two SSL certificates that use the SM algorithm in the Certificate Management Service console. For more information about SSL certificates, see [What is Certificate Management Service?](~~28535~~).
-     *   *
+     * @summary Associates a VPN gateway with a certificate.
+     *  *
+     * @description Before you associate a VPN gateway with an SSL certificate, take note of the following items:
+     * *   You can associate only VPN gateways of the ShangMi (SM) type with SSL certificates. You need to associate a VPN gateway of the SM type with two SSL certificates, one as the encryption certificate and the other as the signature certificate.
+     * *   The SSL certificates must use the SM algorithm.
+     * *   You cannot specify one SSL certificate as both the encryption certificate and signature certificate for one VPN gateway.
+     * *   **AssociateVpnGatewayWithCertificate** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status of the task.
+     *     *   If the VPN gateway is in the **updating** state, the SSL certificate is being associated.
+     *     *   If the VPN gateway is in the **active** state, the SSL certificate is being associated.
+     * *   You cannot call **AssociateVpnGatewayWithCertificate** within a specific period of time.
+     * ### [](#)Prerequisites
+     * Make sure that you have two SSL certificates that use the SM algorithm in the Certificate Management Service console. For more information about SSL certificates, see [What is Certificate Management Service?](https://help.aliyun.com/document_detail/28535.html).
+     *  *
      * @param AssociateVpnGatewayWithCertificateRequest $request AssociateVpnGatewayWithCertificateRequest
      * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
@@ -2962,17 +3056,19 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Before you associate a VPN gateway with an SSL certificate, take note of the following items:
-     *   * *   You can associate only VPN gateways of the ShangMi (SM) type with SSL certificates. You need to associate a VPN gateway of the SM type with two SSL certificates, one as the encryption certificate and the other as the signature certificate.
-     *   * *   The SSL certificates must use the SM algorithm.
-     *   * *   You cannot specify one SSL certificate as both the encryption certificate and signature certificate for one VPN gateway.
-     *   * *   **AssociateVpnGatewayWithCertificate** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](~~73720~~) operation to query the status of the task.
-     *   *     *   If the VPN gateway is in the **updating** state, the SSL certificate is being associated.
-     *   *     *   If the VPN gateway is in the **active** state, the SSL certificate is being associated.
-     *   * *   You cannot call **AssociateVpnGatewayWithCertificate** within a specific period of time.
-     *   * ### [](#)Prerequisites
-     *   * Make sure that you have two SSL certificates that use the SM algorithm in the Certificate Management Service console. For more information about SSL certificates, see [What is Certificate Management Service?](~~28535~~).
-     *   *
+     * @summary Associates a VPN gateway with a certificate.
+     *  *
+     * @description Before you associate a VPN gateway with an SSL certificate, take note of the following items:
+     * *   You can associate only VPN gateways of the ShangMi (SM) type with SSL certificates. You need to associate a VPN gateway of the SM type with two SSL certificates, one as the encryption certificate and the other as the signature certificate.
+     * *   The SSL certificates must use the SM algorithm.
+     * *   You cannot specify one SSL certificate as both the encryption certificate and signature certificate for one VPN gateway.
+     * *   **AssociateVpnGatewayWithCertificate** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status of the task.
+     *     *   If the VPN gateway is in the **updating** state, the SSL certificate is being associated.
+     *     *   If the VPN gateway is in the **active** state, the SSL certificate is being associated.
+     * *   You cannot call **AssociateVpnGatewayWithCertificate** within a specific period of time.
+     * ### [](#)Prerequisites
+     * Make sure that you have two SSL certificates that use the SM algorithm in the Certificate Management Service console. For more information about SSL certificates, see [What is Certificate Management Service?](https://help.aliyun.com/document_detail/28535.html).
+     *  *
      * @param AssociateVpnGatewayWithCertificateRequest $request AssociateVpnGatewayWithCertificateRequest
      *
      * @return AssociateVpnGatewayWithCertificateResponse AssociateVpnGatewayWithCertificateResponse
@@ -2985,11 +3081,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   The **AttachDhcpOptionsSetToVpc** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](~~94565~~) operation to query the status of a DHCP options set:
-     *   *     *   If the DHCP options set is in the **Pending** state, the DHCP options set is being associated.
-     *   *     *   If the DHCP options set is in the **InUse** state, the DHCP options set is associated.
-     *   * *   You cannot repeatedly call the **AttachDhcpOptionsSetToVpc** operation to associate DHCP options sets with a VPC within the specified period of time.
-     *   *
+     * @description *   The **AttachDhcpOptionsSetToVpc** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of a DHCP options set:
+     *     *   If the DHCP options set is in the **Pending** state, the DHCP options set is being associated.
+     *     *   If the DHCP options set is in the **InUse** state, the DHCP options set is associated.
+     * *   You cannot repeatedly call the **AttachDhcpOptionsSetToVpc** operation to associate DHCP options sets with a VPC within the specified period of time.
+     *  *
      * @param AttachDhcpOptionsSetToVpcRequest $request AttachDhcpOptionsSetToVpcRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -3045,11 +3141,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   The **AttachDhcpOptionsSetToVpc** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](~~94565~~) operation to query the status of a DHCP options set:
-     *   *     *   If the DHCP options set is in the **Pending** state, the DHCP options set is being associated.
-     *   *     *   If the DHCP options set is in the **InUse** state, the DHCP options set is associated.
-     *   * *   You cannot repeatedly call the **AttachDhcpOptionsSetToVpc** operation to associate DHCP options sets with a VPC within the specified period of time.
-     *   *
+     * @description *   The **AttachDhcpOptionsSetToVpc** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of a DHCP options set:
+     *     *   If the DHCP options set is in the **Pending** state, the DHCP options set is being associated.
+     *     *   If the DHCP options set is in the **InUse** state, the DHCP options set is associated.
+     * *   You cannot repeatedly call the **AttachDhcpOptionsSetToVpc** operation to associate DHCP options sets with a VPC within the specified period of time.
+     *  *
      * @param AttachDhcpOptionsSetToVpcRequest $request AttachDhcpOptionsSetToVpcRequest
      *
      * @return AttachDhcpOptionsSetToVpcResponse AttachDhcpOptionsSetToVpcResponse
@@ -3062,10 +3158,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param AttachVbrToVpconnRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Associates a virtual border router (VBR) with a hosted connection.
+     *  *
+     * @param AttachVbrToVpconnRequest $request AttachVbrToVpconnRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return AttachVbrToVpconnResponse
+     * @return AttachVbrToVpconnResponse AttachVbrToVpconnResponse
      */
     public function attachVbrToVpconnWithOptions($request, $runtime)
     {
@@ -3105,9 +3203,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param AttachVbrToVpconnRequest $request
+     * @summary Associates a virtual border router (VBR) with a hosted connection.
+     *  *
+     * @param AttachVbrToVpconnRequest $request AttachVbrToVpconnRequest
      *
-     * @return AttachVbrToVpconnResponse
+     * @return AttachVbrToVpconnResponse AttachVbrToVpconnResponse
      */
     public function attachVbrToVpconn($request)
     {
@@ -3117,10 +3217,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, take note of the following items:
-     *   * *   After this operation is performed, the maximum bandwidth of the EIP equals that of the Internet Shared Bandwidth instance.
-     *   * *   You cannot repeatedly call the **CancelCommonBandwidthPackageIpBandwidth** operation within a specific time period.
-     *   *
+     * @summary Cancels the maximum bandwidth configured for an elastic IP address (EIP) that is associated with an Internet Shared Bandwidth instance.
+     *  *
+     * @description Before you call this operation, take note of the following items:
+     * *   After this operation is performed, the maximum bandwidth of the EIP equals that of the Internet Shared Bandwidth instance.
+     * *   You cannot repeatedly call the **CancelCommonBandwidthPackageIpBandwidth** operation within a specific time period.
+     *  *
      * @param CancelCommonBandwidthPackageIpBandwidthRequest $request CancelCommonBandwidthPackageIpBandwidthRequest
      * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
      *
@@ -3170,10 +3272,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, take note of the following items:
-     *   * *   After this operation is performed, the maximum bandwidth of the EIP equals that of the Internet Shared Bandwidth instance.
-     *   * *   You cannot repeatedly call the **CancelCommonBandwidthPackageIpBandwidth** operation within a specific time period.
-     *   *
+     * @summary Cancels the maximum bandwidth configured for an elastic IP address (EIP) that is associated with an Internet Shared Bandwidth instance.
+     *  *
+     * @description Before you call this operation, take note of the following items:
+     * *   After this operation is performed, the maximum bandwidth of the EIP equals that of the Internet Shared Bandwidth instance.
+     * *   You cannot repeatedly call the **CancelCommonBandwidthPackageIpBandwidth** operation within a specific time period.
+     *  *
      * @param CancelCommonBandwidthPackageIpBandwidthRequest $request CancelCommonBandwidthPackageIpBandwidthRequest
      *
      * @return CancelCommonBandwidthPackageIpBandwidthResponse CancelCommonBandwidthPackageIpBandwidthResponse
@@ -3186,8 +3290,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You can cancel only an Express Connect circuit that is in the **Initial**, **Approved**, **Allocated**, or **Confirmed** state.
-     *   *
+     * @summary Cancels an Express Connect circuit before it is enabled. After you perform this operation, the Express Connect circuit enters the Canceled state.
+     *  *
+     * @description You can cancel only an Express Connect circuit that is in the **Initial**, **Approved**, **Allocated**, or **Confirmed** state.
+     *  *
      * @param CancelPhysicalConnectionRequest $request CancelPhysicalConnectionRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -3237,8 +3343,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You can cancel only an Express Connect circuit that is in the **Initial**, **Approved**, **Allocated**, or **Confirmed** state.
-     *   *
+     * @summary Cancels an Express Connect circuit before it is enabled. After you perform this operation, the Express Connect circuit enters the Canceled state.
+     *  *
+     * @description You can cancel only an Express Connect circuit that is in the **Initial**, **Approved**, **Allocated**, or **Confirmed** state.
+     *  *
      * @param CancelPhysicalConnectionRequest $request CancelPhysicalConnectionRequest
      *
      * @return CancelPhysicalConnectionResponse CancelPhysicalConnectionResponse
@@ -3251,9 +3359,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)
-     *   * You cannot repeatedly call the **ChangeResourceGroup** operation to modify the resource group of the same Express Connect circuit.
-     *   *
+     * @summary Moves an Express Connect circuit to a new resource group.
+     *  *
+     * @description ## [](#)
+     * You cannot repeatedly call the **ChangeResourceGroup** operation to modify the resource group of the same Express Connect circuit.
+     *  *
      * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -3294,9 +3404,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)
-     *   * You cannot repeatedly call the **ChangeResourceGroup** operation to modify the resource group of the same Express Connect circuit.
-     *   *
+     * @summary Moves an Express Connect circuit to a new resource group.
+     *  *
+     * @description ## [](#)
+     * You cannot repeatedly call the **ChangeResourceGroup** operation to modify the resource group of the same Express Connect circuit.
+     *  *
      * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
      *
      * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
@@ -3309,10 +3421,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param CheckCanAllocateVpcPrivateIpAddressRequest $request
-     * @param RuntimeOptions                             $runtime
+     * @summary Checks whether a private IP address in a specified vSwitch is available.
+     *  *
+     * @param CheckCanAllocateVpcPrivateIpAddressRequest $request CheckCanAllocateVpcPrivateIpAddressRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckCanAllocateVpcPrivateIpAddressResponse
+     * @return CheckCanAllocateVpcPrivateIpAddressResponse CheckCanAllocateVpcPrivateIpAddressResponse
      */
     public function checkCanAllocateVpcPrivateIpAddressWithOptions($request, $runtime)
     {
@@ -3361,9 +3475,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param CheckCanAllocateVpcPrivateIpAddressRequest $request
+     * @summary Checks whether a private IP address in a specified vSwitch is available.
+     *  *
+     * @param CheckCanAllocateVpcPrivateIpAddressRequest $request CheckCanAllocateVpcPrivateIpAddressRequest
      *
-     * @return CheckCanAllocateVpcPrivateIpAddressResponse
+     * @return CheckCanAllocateVpcPrivateIpAddressResponse CheckCanAllocateVpcPrivateIpAddressResponse
      */
     public function checkCanAllocateVpcPrivateIpAddress($request)
     {
@@ -3373,10 +3489,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param CheckVpnBgpEnabledRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Checks whether the region of an IPsec-VPN connection supports BGP.
+     *  *
+     * @param CheckVpnBgpEnabledRequest $request CheckVpnBgpEnabledRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckVpnBgpEnabledResponse
+     * @return CheckVpnBgpEnabledResponse CheckVpnBgpEnabledResponse
      */
     public function checkVpnBgpEnabledWithOptions($request, $runtime)
     {
@@ -3416,9 +3534,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param CheckVpnBgpEnabledRequest $request
+     * @summary Checks whether the region of an IPsec-VPN connection supports BGP.
+     *  *
+     * @param CheckVpnBgpEnabledRequest $request CheckVpnBgpEnabledRequest
      *
-     * @return CheckVpnBgpEnabledResponse
+     * @return CheckVpnBgpEnabledResponse CheckVpnBgpEnabledResponse
      */
     public function checkVpnBgpEnabled($request)
     {
@@ -3428,10 +3548,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param CompletePhysicalConnectionLOARequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary 增加LOA运维信息
+     *  *
+     * @param CompletePhysicalConnectionLOARequest $request CompletePhysicalConnectionLOARequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CompletePhysicalConnectionLOAResponse
+     * @return CompletePhysicalConnectionLOAResponse CompletePhysicalConnectionLOAResponse
      */
     public function completePhysicalConnectionLOAWithOptions($request, $runtime)
     {
@@ -3495,9 +3617,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param CompletePhysicalConnectionLOARequest $request
+     * @summary 增加LOA运维信息
+     *  *
+     * @param CompletePhysicalConnectionLOARequest $request CompletePhysicalConnectionLOARequest
      *
-     * @return CompletePhysicalConnectionLOAResponse
+     * @return CompletePhysicalConnectionLOAResponse CompletePhysicalConnectionLOAResponse
      */
     public function completePhysicalConnectionLOA($request)
     {
@@ -3507,10 +3631,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ConfirmPhysicalConnectionRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Changes the status of an Express Connect circuit to Confirmed.
+     *  *
+     * @param ConfirmPhysicalConnectionRequest $request ConfirmPhysicalConnectionRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ConfirmPhysicalConnectionResponse
+     * @return ConfirmPhysicalConnectionResponse ConfirmPhysicalConnectionResponse
      */
     public function confirmPhysicalConnectionWithOptions($request, $runtime)
     {
@@ -3556,9 +3682,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ConfirmPhysicalConnectionRequest $request
+     * @summary Changes the status of an Express Connect circuit to Confirmed.
+     *  *
+     * @param ConfirmPhysicalConnectionRequest $request ConfirmPhysicalConnectionRequest
      *
-     * @return ConfirmPhysicalConnectionResponse
+     * @return ConfirmPhysicalConnectionResponse ConfirmPhysicalConnectionResponse
      */
     public function confirmPhysicalConnection($request)
     {
@@ -3568,12 +3696,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * After you call this operation, the router interface enters the **Connecting** state. When the connection is established, it enters the **Active** state.
-     *   * When you call this operation, take note of the following items:
-     *   * *   Only an initiator router interface in the **Idle** state can initiate a connection.
-     *   * *   You can create only one pair of connected router interfaces between two routers.
-     *   * *   You cannot initiate a connection if your Alibaba Cloud account has a router interface with overdue payments.
-     *   *
+     * @summary Initiates a connection from the router interface of an initiator to the router interface of an accepter.
+     *  *
+     * @description After you call this operation, the router interface enters the **Connecting** state. When the connection is established, it enters the **Active** state.
+     * When you call this operation, take note of the following items:
+     * *   Only an initiator router interface in the **Idle** state can initiate a connection.
+     * *   You can create only one pair of connected router interfaces between two routers.
+     * *   You cannot initiate a connection if your Alibaba Cloud account has a router interface with overdue payments.
+     *  *
      * @param ConnectRouterInterfaceRequest $request ConnectRouterInterfaceRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -3617,12 +3747,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * After you call this operation, the router interface enters the **Connecting** state. When the connection is established, it enters the **Active** state.
-     *   * When you call this operation, take note of the following items:
-     *   * *   Only an initiator router interface in the **Idle** state can initiate a connection.
-     *   * *   You can create only one pair of connected router interfaces between two routers.
-     *   * *   You cannot initiate a connection if your Alibaba Cloud account has a router interface with overdue payments.
-     *   *
+     * @summary Initiates a connection from the router interface of an initiator to the router interface of an accepter.
+     *  *
+     * @description After you call this operation, the router interface enters the **Connecting** state. When the connection is established, it enters the **Active** state.
+     * When you call this operation, take note of the following items:
+     * *   Only an initiator router interface in the **Idle** state can initiate a connection.
+     * *   You can create only one pair of connected router interfaces between two routers.
+     * *   You cannot initiate a connection if your Alibaba Cloud account has a router interface with overdue payments.
+     *  *
      * @param ConnectRouterInterfaceRequest $request ConnectRouterInterfaceRequest
      *
      * @return ConnectRouterInterfaceResponse ConnectRouterInterfaceResponse
@@ -3635,11 +3767,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Before you convert a NAT service plan to an Internet Shared Bandwidth instance, take note of the following limits:
-     *   * *   You are not charged for the conversion.
-     *   * *   When you convert a NAT service plan to an Internet Shared Bandwidth instance, you can continue to use the SNAT and DNAT features of the NAT gateway, and your workloads are not affected. However, we recommend that you convert your NAT service plan during off-peak hours.
-     *   * *   After the NAT service plan is converted to an Internet Shared Bandwidth instance, the public IP addresses in the NAT service plan are converted to elastic IP addresses (EIPs). The maximum bandwidth and billing method of the Internet Shared Bandwidth instance are the same as those of the NAT service plan.
-     *   *
+     * @summary Converts a NAT service plan to an Internet Shared Bandwidth instance.
+     *  *
+     * @description Before you convert a NAT service plan to an Internet Shared Bandwidth instance, take note of the following limits:
+     * *   You are not charged for the conversion.
+     * *   When you convert a NAT service plan to an Internet Shared Bandwidth instance, you can continue to use the SNAT and DNAT features of the NAT gateway, and your workloads are not affected. However, we recommend that you convert your NAT service plan during off-peak hours.
+     * *   After the NAT service plan is converted to an Internet Shared Bandwidth instance, the public IP addresses in the NAT service plan are converted to elastic IP addresses (EIPs). The maximum bandwidth and billing method of the Internet Shared Bandwidth instance are the same as those of the NAT service plan.
+     *  *
      * @param ConvertBandwidthPackageRequest $request ConvertBandwidthPackageRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -3689,11 +3823,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Before you convert a NAT service plan to an Internet Shared Bandwidth instance, take note of the following limits:
-     *   * *   You are not charged for the conversion.
-     *   * *   When you convert a NAT service plan to an Internet Shared Bandwidth instance, you can continue to use the SNAT and DNAT features of the NAT gateway, and your workloads are not affected. However, we recommend that you convert your NAT service plan during off-peak hours.
-     *   * *   After the NAT service plan is converted to an Internet Shared Bandwidth instance, the public IP addresses in the NAT service plan are converted to elastic IP addresses (EIPs). The maximum bandwidth and billing method of the Internet Shared Bandwidth instance are the same as those of the NAT service plan.
-     *   *
+     * @summary Converts a NAT service plan to an Internet Shared Bandwidth instance.
+     *  *
+     * @description Before you convert a NAT service plan to an Internet Shared Bandwidth instance, take note of the following limits:
+     * *   You are not charged for the conversion.
+     * *   When you convert a NAT service plan to an Internet Shared Bandwidth instance, you can continue to use the SNAT and DNAT features of the NAT gateway, and your workloads are not affected. However, we recommend that you convert your NAT service plan during off-peak hours.
+     * *   After the NAT service plan is converted to an Internet Shared Bandwidth instance, the public IP addresses in the NAT service plan are converted to elastic IP addresses (EIPs). The maximum bandwidth and billing method of the Internet Shared Bandwidth instance are the same as those of the NAT service plan.
+     *  *
      * @param ConvertBandwidthPackageRequest $request ConvertBandwidthPackageRequest
      *
      * @return ConvertBandwidthPackageResponse ConvertBandwidthPackageResponse
@@ -3706,12 +3842,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)Description
-     *   * *   **CopyNetworkAclEntries** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNetworkAclAttributes](~~116542~~) operation to query the status of the task.
-     *   *     *   If the network ACL is in the **Modifying** state, the rules of the network ACL are being copied.
-     *   *     *   If the network ACL is in the **Available** state, the rules of the network ACL are copied.
-     *   * *   You cannot repeatedly call the **CopyNetworkAclEntries** operation within the specified period of time.
-     *   *
+     * @summary Copies rules of a network access control list (ACL).
+     *  *
+     * @description ## [](#)Description
+     * *   **CopyNetworkAclEntries** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNetworkAclAttributes](https://help.aliyun.com/document_detail/116542.html) operation to query the status of the task.
+     *     *   If the network ACL is in the **Modifying** state, the rules of the network ACL are being copied.
+     *     *   If the network ACL is in the **Available** state, the rules of the network ACL are copied.
+     * *   You cannot repeatedly call the **CopyNetworkAclEntries** operation within the specified period of time.
+     *  *
      * @param CopyNetworkAclEntriesRequest $request CopyNetworkAclEntriesRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -3770,12 +3908,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)Description
-     *   * *   **CopyNetworkAclEntries** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNetworkAclAttributes](~~116542~~) operation to query the status of the task.
-     *   *     *   If the network ACL is in the **Modifying** state, the rules of the network ACL are being copied.
-     *   *     *   If the network ACL is in the **Available** state, the rules of the network ACL are copied.
-     *   * *   You cannot repeatedly call the **CopyNetworkAclEntries** operation within the specified period of time.
-     *   *
+     * @summary Copies rules of a network access control list (ACL).
+     *  *
+     * @description ## [](#)Description
+     * *   **CopyNetworkAclEntries** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNetworkAclAttributes](https://help.aliyun.com/document_detail/116542.html) operation to query the status of the task.
+     *     *   If the network ACL is in the **Modifying** state, the rules of the network ACL are being copied.
+     *     *   If the network ACL is in the **Available** state, the rules of the network ACL are copied.
+     * *   You cannot repeatedly call the **CopyNetworkAclEntries** operation within the specified period of time.
+     *  *
      * @param CopyNetworkAclEntriesRequest $request CopyNetworkAclEntriesRequest
      *
      * @return CopyNetworkAclEntriesResponse CopyNetworkAclEntriesResponse
@@ -3788,15 +3928,17 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You can connect a VBR to a data center through BGP. Each BGP group is associated with a VBR. You can add a BGP peer that needs to communicate with a VBR to a BGP group and advertise the BGP network in the VBR.
-     *   * BGP groups are used to simplify BGP configurations. You can add BGP peers that use the same configurations to one BGP group. Before you start, you must create a BGP group with the requested autonomous system number (ASN).
-     *   * When you call this operation, take note of the following limits:
-     *   * *   You can specify only the data center that is connected to the VBR through an Express Connect circuit as a BGP peer.
-     *   * *   VBRs support only BGP-4.
-     *   * *   You can create at most eight BGP peers for each VBR.
-     *   * *   Each BGP peer supports at most 110 dynamic routes.
-     *   * *   The ASN of Alibaba Cloud is 45104. You can specify a 2-byte or 4-byte ASN for the data center.
-     *   *
+     * @summary Creates a BGP group for a virtual border router (VBR).
+     *  *
+     * @description You can connect a VBR to a data center through BGP. Each BGP group is associated with a VBR. You can add a BGP peer that needs to communicate with a VBR to a BGP group and advertise the BGP network in the VBR.
+     * BGP groups are used to simplify BGP configurations. You can add BGP peers that use the same configurations to one BGP group. Before you start, you must create a BGP group with the requested autonomous system number (ASN).
+     * When you call this operation, take note of the following limits:
+     * *   You can specify only the data center that is connected to the VBR through an Express Connect circuit as a BGP peer.
+     * *   VBRs support only BGP-4.
+     * *   You can create at most eight BGP peers for each VBR.
+     * *   Each BGP peer supports at most 110 dynamic routes.
+     * *   The ASN of Alibaba Cloud is 45104. You can specify a 2-byte or 4-byte ASN for the data center.
+     *  *
      * @param CreateBgpGroupRequest $request CreateBgpGroupRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -3870,15 +4012,17 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You can connect a VBR to a data center through BGP. Each BGP group is associated with a VBR. You can add a BGP peer that needs to communicate with a VBR to a BGP group and advertise the BGP network in the VBR.
-     *   * BGP groups are used to simplify BGP configurations. You can add BGP peers that use the same configurations to one BGP group. Before you start, you must create a BGP group with the requested autonomous system number (ASN).
-     *   * When you call this operation, take note of the following limits:
-     *   * *   You can specify only the data center that is connected to the VBR through an Express Connect circuit as a BGP peer.
-     *   * *   VBRs support only BGP-4.
-     *   * *   You can create at most eight BGP peers for each VBR.
-     *   * *   Each BGP peer supports at most 110 dynamic routes.
-     *   * *   The ASN of Alibaba Cloud is 45104. You can specify a 2-byte or 4-byte ASN for the data center.
-     *   *
+     * @summary Creates a BGP group for a virtual border router (VBR).
+     *  *
+     * @description You can connect a VBR to a data center through BGP. Each BGP group is associated with a VBR. You can add a BGP peer that needs to communicate with a VBR to a BGP group and advertise the BGP network in the VBR.
+     * BGP groups are used to simplify BGP configurations. You can add BGP peers that use the same configurations to one BGP group. Before you start, you must create a BGP group with the requested autonomous system number (ASN).
+     * When you call this operation, take note of the following limits:
+     * *   You can specify only the data center that is connected to the VBR through an Express Connect circuit as a BGP peer.
+     * *   VBRs support only BGP-4.
+     * *   You can create at most eight BGP peers for each VBR.
+     * *   Each BGP peer supports at most 110 dynamic routes.
+     * *   The ASN of Alibaba Cloud is 45104. You can specify a 2-byte or 4-byte ASN for the data center.
+     *  *
      * @param CreateBgpGroupRequest $request CreateBgpGroupRequest
      *
      * @return CreateBgpGroupResponse CreateBgpGroupResponse
@@ -3891,10 +4035,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param CreateBgpPeerRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Adds a Border Gateway Protocol (BGP) peer to a BGP group.
+     *  *
+     * @param CreateBgpPeerRequest $request CreateBgpPeerRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateBgpPeerResponse
+     * @return CreateBgpPeerResponse CreateBgpPeerResponse
      */
     public function createBgpPeerWithOptions($request, $runtime)
     {
@@ -3952,9 +4098,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param CreateBgpPeerRequest $request
+     * @summary Adds a Border Gateway Protocol (BGP) peer to a BGP group.
+     *  *
+     * @param CreateBgpPeerRequest $request CreateBgpPeerRequest
      *
-     * @return CreateBgpPeerResponse
+     * @return CreateBgpPeerResponse CreateBgpPeerResponse
      */
     public function createBgpPeer($request)
     {
@@ -3964,10 +4112,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param CreateCommonBandwidthPackageRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Creates an Internet Shared Bandwidth instance.
+     *  *
+     * @param CreateCommonBandwidthPackageRequest $request CreateCommonBandwidthPackageRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateCommonBandwidthPackageResponse
+     * @return CreateCommonBandwidthPackageResponse CreateCommonBandwidthPackageResponse
      */
     public function createCommonBandwidthPackageWithOptions($request, $runtime)
     {
@@ -4037,9 +4187,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param CreateCommonBandwidthPackageRequest $request
+     * @summary Creates an Internet Shared Bandwidth instance.
+     *  *
+     * @param CreateCommonBandwidthPackageRequest $request CreateCommonBandwidthPackageRequest
      *
-     * @return CreateCommonBandwidthPackageResponse
+     * @return CreateCommonBandwidthPackageResponse CreateCommonBandwidthPackageResponse
      */
     public function createCommonBandwidthPackage($request)
     {
@@ -4049,10 +4201,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param CreateCustomerGatewayRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Creates a customer gateway.
+     *  *
+     * @param CreateCustomerGatewayRequest $request CreateCustomerGatewayRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateCustomerGatewayResponse
+     * @return CreateCustomerGatewayResponse CreateCustomerGatewayResponse
      */
     public function createCustomerGatewayWithOptions($request, $runtime)
     {
@@ -4116,9 +4270,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param CreateCustomerGatewayRequest $request
+     * @summary Creates a customer gateway.
+     *  *
+     * @param CreateCustomerGatewayRequest $request CreateCustomerGatewayRequest
      *
-     * @return CreateCustomerGatewayResponse
+     * @return CreateCustomerGatewayResponse CreateCustomerGatewayResponse
      */
     public function createCustomerGateway($request)
     {
@@ -4128,17 +4284,19 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following limits:
-     *   * *   The first IP address and last three IP addresses of a vSwitch CIDR block are reserved. For example, if the CIDR block of a vSwitch is 192.168.1.0/24, the IP addresses 192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255 are reserved.
-     *   * *   The number of instances in the default vSwitch cannot exceed the remaining number of instances supported by the VPC (15,000 minus the number of existing instances).
-     *   * *   Default vSwitches do not support multicasting or broadcasting.
-     *   * *   After you create a default vSwitch, you cannot modify its CIDR block.
-     *   * *   **CreateDefaultVSwitch** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](~~94567~~) operation to query the status of a default vSwitch:
-     *   *     *   If a default vSwitch is in the **Pending** state, it is being configured.
-     *   *     *   If a default vSwitch is in the **Available** state, it is available.
-     *   * *   If a default vSwitch already exists in a region, you cannot call this operation to create a default vSwitch in this region.
-     *   * *   Before you create a default vSwitch, make sure that a default VPC is created. You can call the [CreateDefaultVpc](~~609152~~) operation to create a default VPC.
-     *   *
+     * @summary Creates a default vSwitch.
+     *  *
+     * @description When you call this operation, take note of the following limits:
+     * *   The first IP address and last three IP addresses of a vSwitch CIDR block are reserved. For example, if the CIDR block of a vSwitch is 192.168.1.0/24, the IP addresses 192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255 are reserved.
+     * *   The number of instances in the default vSwitch cannot exceed the remaining number of instances supported by the VPC (15,000 minus the number of existing instances).
+     * *   Default vSwitches do not support multicasting or broadcasting.
+     * *   After you create a default vSwitch, you cannot modify its CIDR block.
+     * *   **CreateDefaultVSwitch** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) operation to query the status of a default vSwitch:
+     *     *   If a default vSwitch is in the **Pending** state, it is being configured.
+     *     *   If a default vSwitch is in the **Available** state, it is available.
+     * *   If a default vSwitch already exists in a region, you cannot call this operation to create a default vSwitch in this region.
+     * *   Before you create a default vSwitch, make sure that a default VPC is created. You can call the [CreateDefaultVpc](https://help.aliyun.com/document_detail/609152.html) operation to create a default VPC.
+     *  *
      * @param CreateDefaultVSwitchRequest $request CreateDefaultVSwitchRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -4191,17 +4349,19 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following limits:
-     *   * *   The first IP address and last three IP addresses of a vSwitch CIDR block are reserved. For example, if the CIDR block of a vSwitch is 192.168.1.0/24, the IP addresses 192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255 are reserved.
-     *   * *   The number of instances in the default vSwitch cannot exceed the remaining number of instances supported by the VPC (15,000 minus the number of existing instances).
-     *   * *   Default vSwitches do not support multicasting or broadcasting.
-     *   * *   After you create a default vSwitch, you cannot modify its CIDR block.
-     *   * *   **CreateDefaultVSwitch** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](~~94567~~) operation to query the status of a default vSwitch:
-     *   *     *   If a default vSwitch is in the **Pending** state, it is being configured.
-     *   *     *   If a default vSwitch is in the **Available** state, it is available.
-     *   * *   If a default vSwitch already exists in a region, you cannot call this operation to create a default vSwitch in this region.
-     *   * *   Before you create a default vSwitch, make sure that a default VPC is created. You can call the [CreateDefaultVpc](~~609152~~) operation to create a default VPC.
-     *   *
+     * @summary Creates a default vSwitch.
+     *  *
+     * @description When you call this operation, take note of the following limits:
+     * *   The first IP address and last three IP addresses of a vSwitch CIDR block are reserved. For example, if the CIDR block of a vSwitch is 192.168.1.0/24, the IP addresses 192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255 are reserved.
+     * *   The number of instances in the default vSwitch cannot exceed the remaining number of instances supported by the VPC (15,000 minus the number of existing instances).
+     * *   Default vSwitches do not support multicasting or broadcasting.
+     * *   After you create a default vSwitch, you cannot modify its CIDR block.
+     * *   **CreateDefaultVSwitch** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) operation to query the status of a default vSwitch:
+     *     *   If a default vSwitch is in the **Pending** state, it is being configured.
+     *     *   If a default vSwitch is in the **Available** state, it is available.
+     * *   If a default vSwitch already exists in a region, you cannot call this operation to create a default vSwitch in this region.
+     * *   Before you create a default vSwitch, make sure that a default VPC is created. You can call the [CreateDefaultVpc](https://help.aliyun.com/document_detail/609152.html) operation to create a default VPC.
+     *  *
      * @param CreateDefaultVSwitchRequest $request CreateDefaultVSwitchRequest
      *
      * @return CreateDefaultVSwitchResponse CreateDefaultVSwitchResponse
@@ -4214,18 +4374,20 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## Usage notes
-     *   * When you call this operation, take note of the following items:
-     *   * *   After you create a default VPC, you cannot change its CIDR block. However, you can add secondary IPv4 CIDR blocks to it.
-     *   * *   In each default VPC, cloud services can use a maximum of 60,000 private IP addresses. You cannot increase the quota.
-     *   * *   After you create a default VPC, a vRouter and a route table are automatically created for the VPC.
-     *   * *   At most three user CIDR blocks can be added to a VPC. If a user CIDR block includes another user CIDR block, the one with the shorter subnet mask takes effect. For example, if 10.0.0.0/8 and 10.1.0.0/16 are specified, only 10.0.0.0/8 takes effect.
-     *   * *   **CreateDefaultVpc** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpcAttribute](~~94565~~) operation to query the status of the task:
-     *   *     *   If the default VPC is in the **Pending** state, the VPC is being configured.
-     *   *     *   If the default VPC is in the **Available** state, the VPC is available.
-     *   * *   You cannot repeatedly call the **CreateDefaultVpc** operation within a specific time period.
-     *   * *   You can create only one default VPC in each region.
-     *   *
+     * @summary Creates a default virtual private cloud (VPC).
+     *  *
+     * @description ## Usage notes
+     * When you call this operation, take note of the following items:
+     * *   After you create a default VPC, you cannot change its CIDR block. However, you can add secondary IPv4 CIDR blocks to it.
+     * *   In each default VPC, cloud services can use a maximum of 60,000 private IP addresses. You cannot increase the quota.
+     * *   After you create a default VPC, a vRouter and a route table are automatically created for the VPC.
+     * *   At most three user CIDR blocks can be added to a VPC. If a user CIDR block includes another user CIDR block, the one with the shorter subnet mask takes effect. For example, if 10.0.0.0/8 and 10.1.0.0/16 are specified, only 10.0.0.0/8 takes effect.
+     * *   **CreateDefaultVpc** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of the task:
+     *     *   If the default VPC is in the **Pending** state, the VPC is being configured.
+     *     *   If the default VPC is in the **Available** state, the VPC is available.
+     * *   You cannot repeatedly call the **CreateDefaultVpc** operation within a specific time period.
+     * *   You can create only one default VPC in each region.
+     *  *
      * @param CreateDefaultVpcRequest $request CreateDefaultVpcRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -4281,18 +4443,20 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## Usage notes
-     *   * When you call this operation, take note of the following items:
-     *   * *   After you create a default VPC, you cannot change its CIDR block. However, you can add secondary IPv4 CIDR blocks to it.
-     *   * *   In each default VPC, cloud services can use a maximum of 60,000 private IP addresses. You cannot increase the quota.
-     *   * *   After you create a default VPC, a vRouter and a route table are automatically created for the VPC.
-     *   * *   At most three user CIDR blocks can be added to a VPC. If a user CIDR block includes another user CIDR block, the one with the shorter subnet mask takes effect. For example, if 10.0.0.0/8 and 10.1.0.0/16 are specified, only 10.0.0.0/8 takes effect.
-     *   * *   **CreateDefaultVpc** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpcAttribute](~~94565~~) operation to query the status of the task:
-     *   *     *   If the default VPC is in the **Pending** state, the VPC is being configured.
-     *   *     *   If the default VPC is in the **Available** state, the VPC is available.
-     *   * *   You cannot repeatedly call the **CreateDefaultVpc** operation within a specific time period.
-     *   * *   You can create only one default VPC in each region.
-     *   *
+     * @summary Creates a default virtual private cloud (VPC).
+     *  *
+     * @description ## Usage notes
+     * When you call this operation, take note of the following items:
+     * *   After you create a default VPC, you cannot change its CIDR block. However, you can add secondary IPv4 CIDR blocks to it.
+     * *   In each default VPC, cloud services can use a maximum of 60,000 private IP addresses. You cannot increase the quota.
+     * *   After you create a default VPC, a vRouter and a route table are automatically created for the VPC.
+     * *   At most three user CIDR blocks can be added to a VPC. If a user CIDR block includes another user CIDR block, the one with the shorter subnet mask takes effect. For example, if 10.0.0.0/8 and 10.1.0.0/16 are specified, only 10.0.0.0/8 takes effect.
+     * *   **CreateDefaultVpc** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of the task:
+     *     *   If the default VPC is in the **Pending** state, the VPC is being configured.
+     *     *   If the default VPC is in the **Available** state, the VPC is available.
+     * *   You cannot repeatedly call the **CreateDefaultVpc** operation within a specific time period.
+     * *   You can create only one default VPC in each region.
+     *  *
      * @param CreateDefaultVpcRequest $request CreateDefaultVpcRequest
      *
      * @return CreateDefaultVpcResponse CreateDefaultVpcResponse
@@ -4305,10 +4469,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **CreateDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetDhcpOptionsSet](~~448820~~) to query the status of the task.
-     *   *     *   If the vSwitch is in the **Pending** state, the DHCP options set is being configured.
-     *   *     *   If the vSwitch is in the **Available** state, the DHCP options set is available.
-     *   *
+     * @summary Creates a DHCP options set.
+     *  *
+     * @description *   **CreateDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetDhcpOptionsSet](https://help.aliyun.com/document_detail/448820.html) to query the status of the task.
+     *     *   If the vSwitch is in the **Pending** state, the DHCP options set is being configured.
+     *     *   If the vSwitch is in the **Available** state, the DHCP options set is available.
+     *  *
      * @param CreateDhcpOptionsSetRequest $request CreateDhcpOptionsSetRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -4382,10 +4548,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **CreateDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetDhcpOptionsSet](~~448820~~) to query the status of the task.
-     *   *     *   If the vSwitch is in the **Pending** state, the DHCP options set is being configured.
-     *   *     *   If the vSwitch is in the **Available** state, the DHCP options set is available.
-     *   *
+     * @summary Creates a DHCP options set.
+     *  *
+     * @description *   **CreateDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetDhcpOptionsSet](https://help.aliyun.com/document_detail/448820.html) to query the status of the task.
+     *     *   If the vSwitch is in the **Pending** state, the DHCP options set is being configured.
+     *     *   If the vSwitch is in the **Available** state, the DHCP options set is available.
+     *  *
      * @param CreateDhcpOptionsSetRequest $request CreateDhcpOptionsSetRequest
      *
      * @return CreateDhcpOptionsSetResponse CreateDhcpOptionsSetResponse
@@ -4398,10 +4566,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param CreateExpressCloudConnectionRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Creates an Express Cloud Connect (ECC) instance.
+     *  *
+     * @param CreateExpressCloudConnectionRequest $request CreateExpressCloudConnectionRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateExpressCloudConnectionResponse
+     * @return CreateExpressCloudConnectionResponse CreateExpressCloudConnectionResponse
      */
     public function createExpressCloudConnectionWithOptions($request, $runtime)
     {
@@ -4474,9 +4644,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param CreateExpressCloudConnectionRequest $request
+     * @summary Creates an Express Cloud Connect (ECC) instance.
+     *  *
+     * @param CreateExpressCloudConnectionRequest $request CreateExpressCloudConnectionRequest
      *
-     * @return CreateExpressCloudConnectionResponse
+     * @return CreateExpressCloudConnectionResponse CreateExpressCloudConnectionResponse
      */
     public function createExpressCloudConnection($request)
     {
@@ -4486,10 +4658,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param CreateExpressConnectTrafficQosRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary 创建高速通道Qos
+     *  *
+     * @param CreateExpressConnectTrafficQosRequest $request CreateExpressConnectTrafficQosRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateExpressConnectTrafficQosResponse
+     * @return CreateExpressConnectTrafficQosResponse CreateExpressConnectTrafficQosResponse
      */
     public function createExpressConnectTrafficQosWithOptions($request, $runtime)
     {
@@ -4538,9 +4712,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param CreateExpressConnectTrafficQosRequest $request
+     * @summary 创建高速通道Qos
+     *  *
+     * @param CreateExpressConnectTrafficQosRequest $request CreateExpressConnectTrafficQosRequest
      *
-     * @return CreateExpressConnectTrafficQosResponse
+     * @return CreateExpressConnectTrafficQosResponse CreateExpressConnectTrafficQosResponse
      */
     public function createExpressConnectTrafficQos($request)
     {
@@ -4550,10 +4726,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param CreateExpressConnectTrafficQosQueueRequest $request
-     * @param RuntimeOptions                             $runtime
+     * @summary 创建高速通道Qos队列
+     *  *
+     * @param CreateExpressConnectTrafficQosQueueRequest $request CreateExpressConnectTrafficQosQueueRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateExpressConnectTrafficQosQueueResponse
+     * @return CreateExpressConnectTrafficQosQueueResponse CreateExpressConnectTrafficQosQueueResponse
      */
     public function createExpressConnectTrafficQosQueueWithOptions($request, $runtime)
     {
@@ -4611,9 +4789,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param CreateExpressConnectTrafficQosQueueRequest $request
+     * @summary 创建高速通道Qos队列
+     *  *
+     * @param CreateExpressConnectTrafficQosQueueRequest $request CreateExpressConnectTrafficQosQueueRequest
      *
-     * @return CreateExpressConnectTrafficQosQueueResponse
+     * @return CreateExpressConnectTrafficQosQueueResponse CreateExpressConnectTrafficQosQueueResponse
      */
     public function createExpressConnectTrafficQosQueue($request)
     {
@@ -4623,10 +4803,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param CreateExpressConnectTrafficQosRuleRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @summary 创建高速通道Qos规则
+     *  *
+     * @param CreateExpressConnectTrafficQosRuleRequest $request CreateExpressConnectTrafficQosRuleRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateExpressConnectTrafficQosRuleResponse
+     * @return CreateExpressConnectTrafficQosRuleResponse CreateExpressConnectTrafficQosRuleResponse
      */
     public function createExpressConnectTrafficQosRuleWithOptions($request, $runtime)
     {
@@ -4711,9 +4893,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param CreateExpressConnectTrafficQosRuleRequest $request
+     * @summary 创建高速通道Qos规则
+     *  *
+     * @param CreateExpressConnectTrafficQosRuleRequest $request CreateExpressConnectTrafficQosRuleRequest
      *
-     * @return CreateExpressConnectTrafficQosRuleResponse
+     * @return CreateExpressConnectTrafficQosRuleResponse CreateExpressConnectTrafficQosRuleResponse
      */
     public function createExpressConnectTrafficQosRule($request)
     {
@@ -4723,10 +4907,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param CreateFailoverTestJobRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 创建故障演练任务
+     *  *
+     * @param CreateFailoverTestJobRequest $request CreateFailoverTestJobRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateFailoverTestJobResponse
+     * @return CreateFailoverTestJobResponse CreateFailoverTestJobResponse
      */
     public function createFailoverTestJobWithOptions($request, $runtime)
     {
@@ -4787,9 +4973,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param CreateFailoverTestJobRequest $request
+     * @summary 创建故障演练任务
+     *  *
+     * @param CreateFailoverTestJobRequest $request CreateFailoverTestJobRequest
      *
-     * @return CreateFailoverTestJobResponse
+     * @return CreateFailoverTestJobResponse CreateFailoverTestJobResponse
      */
     public function createFailoverTestJob($request)
     {
@@ -4799,10 +4987,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * **CreateFlowLog** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeFlowLogs](~~87923~~) operation to query the status of the flow log.
-     *   * *   If the flow log is in the **Activating** state, the flow log is being created.
-     *   * *   If the flow log is in the **Active** state, the flow log is created and started.
-     *   *
+     * @summary Creates a flow log.
+     *  *
+     * @description **CreateFlowLog** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeFlowLogs](https://help.aliyun.com/document_detail/87923.html) operation to query the status of the flow log.
+     * *   If the flow log is in the **Activating** state, the flow log is being created.
+     * *   If the flow log is in the **Active** state, the flow log is created and started.
+     *  *
      * @param CreateFlowLogRequest $request CreateFlowLogRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -4879,10 +5069,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * **CreateFlowLog** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeFlowLogs](~~87923~~) operation to query the status of the flow log.
-     *   * *   If the flow log is in the **Activating** state, the flow log is being created.
-     *   * *   If the flow log is in the **Active** state, the flow log is created and started.
-     *   *
+     * @summary Creates a flow log.
+     *  *
+     * @description **CreateFlowLog** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeFlowLogs](https://help.aliyun.com/document_detail/87923.html) operation to query the status of the flow log.
+     * *   If the flow log is in the **Activating** state, the flow log is being created.
+     * *   If the flow log is in the **Active** state, the flow log is created and started.
+     *  *
      * @param CreateFlowLogRequest $request CreateFlowLogRequest
      *
      * @return CreateFlowLogResponse CreateFlowLogResponse
@@ -4895,19 +5087,21 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)
-     *   * Each DNAT entry consists of the following parameters: **ExternalIp**, **ExternalPort**, **IpProtocol**, **InternalIp**, and **InternalPort**. After you add a DNAT entry, the NAT gateway forwards packets over the specified protocol from **ExternalIp:ExternalPort** to **InternalIp:InternalPort** and sends responses back through the same route.
-     *   * When you call this operation, take note of the following limits:
-     *   * *   **CreateForwardEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeForwardTableEntries](~~36053~~) operation to query the status of the task.
-     *   *     *   If the DNAT entry is in the **Pending** state, the system is adding the DNAT entry. You can only query the DNAT entry, but cannot perform other operations.
-     *   *     *   If the DNAT entry is in the **Available** state, the DNAT entry is added.
-     *   * *   You cannot repeatedly call the **CreateForwardEntry** operation to add a DNAT entry within a specific period of time.
-     *   * *   All combinations of **ExternalIp**, **ExternalPort**, and **IpProtocol** used in DNAT entries must be unique. You cannot distribute requests to more than one Elastic Compute Service (ECS) instance if these requests are initiated from the same source IP address, received on the same port, and use the same protocol.
-     *   * *   The combinations of **IpProtocol**, **InternalIp**, and **InternalPort** must be unique.
-     *   * *   If one or more DNAT entries in the DNAT table are in the **Pending** or **Modifying** state, you cannot add DNAT entries to the DNAT table.
-     *   * *   You can add at most 100 DNAT entries to a DNAT table.
-     *   * *   For an elastic IP address (EIP) used by an Internet NAT gateway or a NAT IP address used by a Virtual Private Cloud (VPC) NAT gateway, take note of the following limit: If the IP address has IP mapping enabled and is specified in a DNAT entry, the IP address cannot be used by another DNAT or SNAT entry.
-     *   *
+     * @summary Adds a DNAT entry to a DNAT table.
+     *  *
+     * @description ## [](#)
+     * Each DNAT entry consists of the following parameters: **ExternalIp**, **ExternalPort**, **IpProtocol**, **InternalIp**, and **InternalPort**. After you add a DNAT entry, the NAT gateway forwards packets over the specified protocol from **ExternalIp:ExternalPort** to **InternalIp:InternalPort** and sends responses back through the same route.
+     * When you call this operation, take note of the following limits:
+     * *   **CreateForwardEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeForwardTableEntries](https://help.aliyun.com/document_detail/36053.html) operation to query the status of the task.
+     *     *   If the DNAT entry is in the **Pending** state, the system is adding the DNAT entry. You can only query the DNAT entry, but cannot perform other operations.
+     *     *   If the DNAT entry is in the **Available** state, the DNAT entry is added.
+     * *   You cannot repeatedly call the **CreateForwardEntry** operation to add a DNAT entry within a specific period of time.
+     * *   All combinations of **ExternalIp**, **ExternalPort**, and **IpProtocol** used in DNAT entries must be unique. You cannot distribute requests to more than one Elastic Compute Service (ECS) instance if these requests are initiated from the same source IP address, received on the same port, and use the same protocol.
+     * *   The combinations of **IpProtocol**, **InternalIp**, and **InternalPort** must be unique.
+     * *   If one or more DNAT entries in the DNAT table are in the **Pending** or **Modifying** state, you cannot add DNAT entries to the DNAT table.
+     * *   You can add at most 100 DNAT entries to a DNAT table.
+     * *   For an elastic IP address (EIP) used by an Internet NAT gateway or a NAT IP address used by a Virtual Private Cloud (VPC) NAT gateway, take note of the following limit: If the IP address has IP mapping enabled and is specified in a DNAT entry, the IP address cannot be used by another DNAT or SNAT entry.
+     *  *
      * @param CreateForwardEntryRequest $request CreateForwardEntryRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -4978,19 +5172,21 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)
-     *   * Each DNAT entry consists of the following parameters: **ExternalIp**, **ExternalPort**, **IpProtocol**, **InternalIp**, and **InternalPort**. After you add a DNAT entry, the NAT gateway forwards packets over the specified protocol from **ExternalIp:ExternalPort** to **InternalIp:InternalPort** and sends responses back through the same route.
-     *   * When you call this operation, take note of the following limits:
-     *   * *   **CreateForwardEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeForwardTableEntries](~~36053~~) operation to query the status of the task.
-     *   *     *   If the DNAT entry is in the **Pending** state, the system is adding the DNAT entry. You can only query the DNAT entry, but cannot perform other operations.
-     *   *     *   If the DNAT entry is in the **Available** state, the DNAT entry is added.
-     *   * *   You cannot repeatedly call the **CreateForwardEntry** operation to add a DNAT entry within a specific period of time.
-     *   * *   All combinations of **ExternalIp**, **ExternalPort**, and **IpProtocol** used in DNAT entries must be unique. You cannot distribute requests to more than one Elastic Compute Service (ECS) instance if these requests are initiated from the same source IP address, received on the same port, and use the same protocol.
-     *   * *   The combinations of **IpProtocol**, **InternalIp**, and **InternalPort** must be unique.
-     *   * *   If one or more DNAT entries in the DNAT table are in the **Pending** or **Modifying** state, you cannot add DNAT entries to the DNAT table.
-     *   * *   You can add at most 100 DNAT entries to a DNAT table.
-     *   * *   For an elastic IP address (EIP) used by an Internet NAT gateway or a NAT IP address used by a Virtual Private Cloud (VPC) NAT gateway, take note of the following limit: If the IP address has IP mapping enabled and is specified in a DNAT entry, the IP address cannot be used by another DNAT or SNAT entry.
-     *   *
+     * @summary Adds a DNAT entry to a DNAT table.
+     *  *
+     * @description ## [](#)
+     * Each DNAT entry consists of the following parameters: **ExternalIp**, **ExternalPort**, **IpProtocol**, **InternalIp**, and **InternalPort**. After you add a DNAT entry, the NAT gateway forwards packets over the specified protocol from **ExternalIp:ExternalPort** to **InternalIp:InternalPort** and sends responses back through the same route.
+     * When you call this operation, take note of the following limits:
+     * *   **CreateForwardEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeForwardTableEntries](https://help.aliyun.com/document_detail/36053.html) operation to query the status of the task.
+     *     *   If the DNAT entry is in the **Pending** state, the system is adding the DNAT entry. You can only query the DNAT entry, but cannot perform other operations.
+     *     *   If the DNAT entry is in the **Available** state, the DNAT entry is added.
+     * *   You cannot repeatedly call the **CreateForwardEntry** operation to add a DNAT entry within a specific period of time.
+     * *   All combinations of **ExternalIp**, **ExternalPort**, and **IpProtocol** used in DNAT entries must be unique. You cannot distribute requests to more than one Elastic Compute Service (ECS) instance if these requests are initiated from the same source IP address, received on the same port, and use the same protocol.
+     * *   The combinations of **IpProtocol**, **InternalIp**, and **InternalPort** must be unique.
+     * *   If one or more DNAT entries in the DNAT table are in the **Pending** or **Modifying** state, you cannot add DNAT entries to the DNAT table.
+     * *   You can add at most 100 DNAT entries to a DNAT table.
+     * *   For an elastic IP address (EIP) used by an Internet NAT gateway or a NAT IP address used by a Virtual Private Cloud (VPC) NAT gateway, take note of the following limit: If the IP address has IP mapping enabled and is specified in a DNAT entry, the IP address cannot be used by another DNAT or SNAT entry.
+     *  *
      * @param CreateForwardEntryRequest $request CreateForwardEntryRequest
      *
      * @return CreateForwardEntryResponse CreateForwardEntryResponse
@@ -5003,11 +5199,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **CreateFullNatEntry** is an asynchronous operation. After you send a request to call this operation, the system returns a FULLNAT entry and the FULLNAT entry is being added in the backend. You can call the [ListFullNatEntries](~~348779~~) operation to query the status of a FULLNAT entry.
-     *   *     *   If the FULLNAT entry is in the **Creating** state, the system is adding the FULLNAT entry. You can only query the status of the FULLNAT entry, but cannot perform other operations.
-     *   *     *   If the FULLNAT entry is in the **Available** state, the FULLNAT entry is added.
-     *   * *   You cannot repeatedly call the **CreateFullNatEntry** operation for the same VPN gateway within the specified period of time.
-     *   *
+     * @summary Adds a FULLNAT entry to the FULLNAT table.
+     *  *
+     * @description *   **CreateFullNatEntry** is an asynchronous operation. After you send a request to call this operation, the system returns a FULLNAT entry and the FULLNAT entry is being added in the backend. You can call the [ListFullNatEntries](https://help.aliyun.com/document_detail/348779.html) operation to query the status of a FULLNAT entry.
+     *     *   If the FULLNAT entry is in the **Creating** state, the system is adding the FULLNAT entry. You can only query the status of the FULLNAT entry, but cannot perform other operations.
+     *     *   If the FULLNAT entry is in the **Available** state, the FULLNAT entry is added.
+     * *   You cannot repeatedly call the **CreateFullNatEntry** operation for the same VPN gateway within the specified period of time.
+     *  *
      * @param CreateFullNatEntryRequest $request CreateFullNatEntryRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -5084,11 +5282,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **CreateFullNatEntry** is an asynchronous operation. After you send a request to call this operation, the system returns a FULLNAT entry and the FULLNAT entry is being added in the backend. You can call the [ListFullNatEntries](~~348779~~) operation to query the status of a FULLNAT entry.
-     *   *     *   If the FULLNAT entry is in the **Creating** state, the system is adding the FULLNAT entry. You can only query the status of the FULLNAT entry, but cannot perform other operations.
-     *   *     *   If the FULLNAT entry is in the **Available** state, the FULLNAT entry is added.
-     *   * *   You cannot repeatedly call the **CreateFullNatEntry** operation for the same VPN gateway within the specified period of time.
-     *   *
+     * @summary Adds a FULLNAT entry to the FULLNAT table.
+     *  *
+     * @description *   **CreateFullNatEntry** is an asynchronous operation. After you send a request to call this operation, the system returns a FULLNAT entry and the FULLNAT entry is being added in the backend. You can call the [ListFullNatEntries](https://help.aliyun.com/document_detail/348779.html) operation to query the status of a FULLNAT entry.
+     *     *   If the FULLNAT entry is in the **Creating** state, the system is adding the FULLNAT entry. You can only query the status of the FULLNAT entry, but cannot perform other operations.
+     *     *   If the FULLNAT entry is in the **Available** state, the FULLNAT entry is added.
+     * *   You cannot repeatedly call the **CreateFullNatEntry** operation for the same VPN gateway within the specified period of time.
+     *  *
      * @param CreateFullNatEntryRequest $request CreateFullNatEntryRequest
      *
      * @return CreateFullNatEntryResponse CreateFullNatEntryResponse
@@ -5101,10 +5301,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   * ## Usage notes
-     *   * You can call this operation to create only pay-as-you-go GA instances.
-     *   *
+     * @deprecated OpenAPI CreateGlobalAccelerationInstance is deprecated
+     *  *
+     * @summary Creates a Global Accelerator (GA) instance.
+     *  *
+     * @description ## Usage notes
+     * You can call this operation to create only pay-as-you-go GA instances.
+     *  *
      * Deprecated
      *
      * @param CreateGlobalAccelerationInstanceRequest $request CreateGlobalAccelerationInstanceRequest
@@ -5168,10 +5371,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   * ## Usage notes
-     *   * You can call this operation to create only pay-as-you-go GA instances.
-     *   *
+     * @deprecated OpenAPI CreateGlobalAccelerationInstance is deprecated
+     *  *
+     * @summary Creates a Global Accelerator (GA) instance.
+     *  *
+     * @description ## Usage notes
+     * You can call this operation to create only pay-as-you-go GA instances.
+     *  *
      * Deprecated
      *
      * @param CreateGlobalAccelerationInstanceRequest $request CreateGlobalAccelerationInstanceRequest
@@ -5186,10 +5392,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * **CreateHaVip** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeHaVips](~~114611~~) operation to query the status of the task:
-     *   * *   If the HAVIP is in the **Creating** state, the HAVIP is being created.
-     *   * *   If the HAVIP is in the **Available** state, the HAVIP is created.
-     *   *
+     * @summary Creates a high-availability virtual IP address (HAVIP).
+     *  *
+     * @description **CreateHaVip** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeHaVips](https://help.aliyun.com/document_detail/114611.html) operation to query the status of the task:
+     * *   If the HAVIP is in the **Creating** state, the HAVIP is being created.
+     * *   If the HAVIP is in the **Available** state, the HAVIP is created.
+     *  *
      * @param CreateHaVipRequest $request CreateHaVipRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
@@ -5254,10 +5462,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * **CreateHaVip** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeHaVips](~~114611~~) operation to query the status of the task:
-     *   * *   If the HAVIP is in the **Creating** state, the HAVIP is being created.
-     *   * *   If the HAVIP is in the **Available** state, the HAVIP is created.
-     *   *
+     * @summary Creates a high-availability virtual IP address (HAVIP).
+     *  *
+     * @description **CreateHaVip** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeHaVips](https://help.aliyun.com/document_detail/114611.html) operation to query the status of the task:
+     * *   If the HAVIP is in the **Creating** state, the HAVIP is being created.
+     * *   If the HAVIP is in the **Available** state, the HAVIP is created.
+     *  *
      * @param CreateHaVipRequest $request CreateHaVipRequest
      *
      * @return CreateHaVipResponse CreateHaVipResponse
@@ -5270,10 +5480,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param CreateHighReliablePhysicalConnectionRequest $request
-     * @param RuntimeOptions                              $runtime
+     * @summary 创建高可靠物理专线
+     *  *
+     * @param CreateHighReliablePhysicalConnectionRequest $request CreateHighReliablePhysicalConnectionRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateHighReliablePhysicalConnectionResponse
+     * @return CreateHighReliablePhysicalConnectionResponse CreateHighReliablePhysicalConnectionResponse
      */
     public function createHighReliablePhysicalConnectionWithOptions($request, $runtime)
     {
@@ -5343,9 +5555,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param CreateHighReliablePhysicalConnectionRequest $request
+     * @summary 创建高可靠物理专线
+     *  *
+     * @param CreateHighReliablePhysicalConnectionRequest $request CreateHighReliablePhysicalConnectionRequest
      *
-     * @return CreateHighReliablePhysicalConnectionResponse
+     * @return CreateHighReliablePhysicalConnectionResponse CreateHighReliablePhysicalConnectionResponse
      */
     public function createHighReliablePhysicalConnection($request)
     {
@@ -5355,8 +5569,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI CreateIPv6Translator is deprecated
+     *  *
+     * @summary Creates an IPv6 Translation Service instance.
+     *  *
      * Deprecated
      *
      * @param CreateIPv6TranslatorRequest $request CreateIPv6TranslatorRequest
@@ -5426,8 +5642,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI CreateIPv6Translator is deprecated
+     *  *
+     * @summary Creates an IPv6 Translation Service instance.
+     *  *
      * Deprecated
      *
      * @param CreateIPv6TranslatorRequest $request CreateIPv6TranslatorRequest
@@ -5442,8 +5660,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI CreateIPv6TranslatorAclList is deprecated
+     *  *
+     * @summary Creates an access control list (ACL).
+     *  *
      * Deprecated
      *
      * @param CreateIPv6TranslatorAclListRequest $request CreateIPv6TranslatorAclListRequest
@@ -5495,8 +5715,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI CreateIPv6TranslatorAclList is deprecated
+     *  *
+     * @summary Creates an access control list (ACL).
+     *  *
      * Deprecated
      *
      * @param CreateIPv6TranslatorAclListRequest $request CreateIPv6TranslatorAclListRequest
@@ -5511,8 +5733,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI CreateIPv6TranslatorEntry is deprecated
+     *  *
+     * @summary Adds an IPv6 mapping entry to an IPv6 Translation Service instance.
+     *  *
      * Deprecated
      *
      * @param CreateIPv6TranslatorEntryRequest $request CreateIPv6TranslatorEntryRequest
@@ -5591,8 +5815,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI CreateIPv6TranslatorEntry is deprecated
+     *  *
+     * @summary Adds an IPv6 mapping entry to an IPv6 Translation Service instance.
+     *  *
      * Deprecated
      *
      * @param CreateIPv6TranslatorEntryRequest $request CreateIPv6TranslatorEntryRequest
@@ -5607,13 +5833,15 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   Before you create an IPsec server, you must create a VPN gateway and enable the SSL-VPN feature for the VPN gateway. For more information, see [CreateVpnGateway](~~120363~~).
-     *   * *   Before you create an IPsec server, make sure that no IPsec-VPN connection exists on the VPN gateway. For more information, see [DeleteVpnConnection](~~2526948~~).
-     *   * *   **CreateIpsecServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-     *   *     *   If the VPN gateway is in the **updating** state, the IPsec server is being created.
-     *   *     *   If the VPN gateway is in the **active** state, the IPsec server is created.
-     *   * *   You cannot repeatedly call **CreateIpsecServer** within the specified period of time.
-     *   *
+     * @summary Creates an IPsec server.
+     *  *
+     * @description *   Before you create an IPsec server, you must create a VPN gateway and enable the SSL-VPN feature for the VPN gateway. For more information, see [CreateVpnGateway](https://help.aliyun.com/document_detail/120363.html).
+     * *   Before you create an IPsec server, make sure that no IPsec-VPN connection exists on the VPN gateway. For more information, see [DeleteVpnConnection](https://help.aliyun.com/document_detail/2526948.html).
+     * *   **CreateIpsecServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+     *     *   If the VPN gateway is in the **updating** state, the IPsec server is being created.
+     *     *   If the VPN gateway is in the **active** state, the IPsec server is created.
+     * *   You cannot repeatedly call **CreateIpsecServer** within the specified period of time.
+     *  *
      * @param CreateIpsecServerRequest $request CreateIpsecServerRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -5678,13 +5906,15 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   Before you create an IPsec server, you must create a VPN gateway and enable the SSL-VPN feature for the VPN gateway. For more information, see [CreateVpnGateway](~~120363~~).
-     *   * *   Before you create an IPsec server, make sure that no IPsec-VPN connection exists on the VPN gateway. For more information, see [DeleteVpnConnection](~~2526948~~).
-     *   * *   **CreateIpsecServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-     *   *     *   If the VPN gateway is in the **updating** state, the IPsec server is being created.
-     *   *     *   If the VPN gateway is in the **active** state, the IPsec server is created.
-     *   * *   You cannot repeatedly call **CreateIpsecServer** within the specified period of time.
-     *   *
+     * @summary Creates an IPsec server.
+     *  *
+     * @description *   Before you create an IPsec server, you must create a VPN gateway and enable the SSL-VPN feature for the VPN gateway. For more information, see [CreateVpnGateway](https://help.aliyun.com/document_detail/120363.html).
+     * *   Before you create an IPsec server, make sure that no IPsec-VPN connection exists on the VPN gateway. For more information, see [DeleteVpnConnection](https://help.aliyun.com/document_detail/2526948.html).
+     * *   **CreateIpsecServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+     *     *   If the VPN gateway is in the **updating** state, the IPsec server is being created.
+     *     *   If the VPN gateway is in the **active** state, the IPsec server is created.
+     * *   You cannot repeatedly call **CreateIpsecServer** within the specified period of time.
+     *  *
      * @param CreateIpsecServerRequest $request CreateIpsecServerRequest
      *
      * @return CreateIpsecServerResponse CreateIpsecServerResponse
@@ -5697,11 +5927,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **CreateIpv4Gateway** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetIpv4GatewayAttribute](~~407670~~) operation to query the status of an IPv4 gateway:
-     *   *     *   If the IPv4 gateway is in the **Creating** state, the IPv4 gateway is being created.
-     *   *     *   If the IPv4 gateway is in the **Created** state, the IPv4 gateway is created.
-     *   * *   You cannot repeatedly call the **CreateIpv4Gateway** operation to create IPv4 gateways in a virtual private cloud (VPC) within the specified period of time.
-     *   *
+     * @summary 创建IPv4网关。
+     *  *
+     * @description *   **CreateIpv4Gateway** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetIpv4GatewayAttribute](https://help.aliyun.com/document_detail/407670.html) operation to query the status of an IPv4 gateway:
+     *     *   If the IPv4 gateway is in the **Creating** state, the IPv4 gateway is being created.
+     *     *   If the IPv4 gateway is in the **Created** state, the IPv4 gateway is created.
+     * *   You cannot repeatedly call the **CreateIpv4Gateway** operation to create IPv4 gateways in a virtual private cloud (VPC) within the specified period of time.
+     *  *
      * @param CreateIpv4GatewayRequest $request CreateIpv4GatewayRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -5769,11 +6001,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **CreateIpv4Gateway** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetIpv4GatewayAttribute](~~407670~~) operation to query the status of an IPv4 gateway:
-     *   *     *   If the IPv4 gateway is in the **Creating** state, the IPv4 gateway is being created.
-     *   *     *   If the IPv4 gateway is in the **Created** state, the IPv4 gateway is created.
-     *   * *   You cannot repeatedly call the **CreateIpv4Gateway** operation to create IPv4 gateways in a virtual private cloud (VPC) within the specified period of time.
-     *   *
+     * @summary 创建IPv4网关。
+     *  *
+     * @description *   **CreateIpv4Gateway** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetIpv4GatewayAttribute](https://help.aliyun.com/document_detail/407670.html) operation to query the status of an IPv4 gateway:
+     *     *   If the IPv4 gateway is in the **Creating** state, the IPv4 gateway is being created.
+     *     *   If the IPv4 gateway is in the **Created** state, the IPv4 gateway is created.
+     * *   You cannot repeatedly call the **CreateIpv4Gateway** operation to create IPv4 gateways in a virtual private cloud (VPC) within the specified period of time.
+     *  *
      * @param CreateIpv4GatewayRequest $request CreateIpv4GatewayRequest
      *
      * @return CreateIpv4GatewayResponse CreateIpv4GatewayResponse
@@ -5786,11 +6020,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **CreateIpv6EgressOnlyRule** is an asynchronous operation. After a request is sent, the system returns a request ID and creates the rule in the background. You can call the [DescribeIpv6EgressOnlyRules](~~102208~~) operation to query the status of the task.
-     *   *     *   If the egress-only rule is in the **Creating** state, the egress-only rule is being created.
-     *   *     *   If the egress-only rule is in the **Created** state, the egress-only rule is created.
-     *   * *   You cannot repeatedly call the **CreateIpv6EgressOnlyRule** operation to add egress-only rules for an IPv6 address within the specified period of time.
-     *   *
+     * @summary You can call CreateIpv6EgressOnlyRule to create egress-only rules to enable ECS instances in VPCs that have IPv6 enabled to access IPv6 clients. However, IPv6 clients cannot access the ECS instances over the Internet.
+     *  *
+     * @description *   **CreateIpv6EgressOnlyRule** is an asynchronous operation. After a request is sent, the system returns a request ID and creates the rule in the background. You can call the [DescribeIpv6EgressOnlyRules](https://help.aliyun.com/document_detail/102208.html) operation to query the status of the task.
+     *     *   If the egress-only rule is in the **Creating** state, the egress-only rule is being created.
+     *     *   If the egress-only rule is in the **Created** state, the egress-only rule is created.
+     * *   You cannot repeatedly call the **CreateIpv6EgressOnlyRule** operation to add egress-only rules for an IPv6 address within the specified period of time.
+     *  *
      * @param CreateIpv6EgressOnlyRuleRequest $request CreateIpv6EgressOnlyRuleRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -5855,11 +6091,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **CreateIpv6EgressOnlyRule** is an asynchronous operation. After a request is sent, the system returns a request ID and creates the rule in the background. You can call the [DescribeIpv6EgressOnlyRules](~~102208~~) operation to query the status of the task.
-     *   *     *   If the egress-only rule is in the **Creating** state, the egress-only rule is being created.
-     *   *     *   If the egress-only rule is in the **Created** state, the egress-only rule is created.
-     *   * *   You cannot repeatedly call the **CreateIpv6EgressOnlyRule** operation to add egress-only rules for an IPv6 address within the specified period of time.
-     *   *
+     * @summary You can call CreateIpv6EgressOnlyRule to create egress-only rules to enable ECS instances in VPCs that have IPv6 enabled to access IPv6 clients. However, IPv6 clients cannot access the ECS instances over the Internet.
+     *  *
+     * @description *   **CreateIpv6EgressOnlyRule** is an asynchronous operation. After a request is sent, the system returns a request ID and creates the rule in the background. You can call the [DescribeIpv6EgressOnlyRules](https://help.aliyun.com/document_detail/102208.html) operation to query the status of the task.
+     *     *   If the egress-only rule is in the **Creating** state, the egress-only rule is being created.
+     *     *   If the egress-only rule is in the **Created** state, the egress-only rule is created.
+     * *   You cannot repeatedly call the **CreateIpv6EgressOnlyRule** operation to add egress-only rules for an IPv6 address within the specified period of time.
+     *  *
      * @param CreateIpv6EgressOnlyRuleRequest $request CreateIpv6EgressOnlyRuleRequest
      *
      * @return CreateIpv6EgressOnlyRuleResponse CreateIpv6EgressOnlyRuleResponse
@@ -5872,11 +6110,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **CreateIpv6Gateway** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpv6GatewayAttribute](~~102226~~) operation to query the status of the task.
-     *   *     *   If the IPv6 gateway is in the **Creating** state, the IPv6 gateway is being created.
-     *   *     *   If the IPv6 gateway is in the **Created** state, the IPv6 gateway is created.
-     *   * *   You cannot repeatedly call the **CreateIpv6Gateway** operation within a specific time period.
-     *   *
+     * @summary IPv6 gateways are used to control the IPv6 traffic of virtual private clouds (VPCs). You can call the CreateIpv6Gateway operation to create IPv6 gateways.
+     *  *
+     * @description *   **CreateIpv6Gateway** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpv6GatewayAttribute](https://help.aliyun.com/document_detail/102226.html) operation to query the status of the task.
+     *     *   If the IPv6 gateway is in the **Creating** state, the IPv6 gateway is being created.
+     *     *   If the IPv6 gateway is in the **Created** state, the IPv6 gateway is created.
+     * *   You cannot repeatedly call the **CreateIpv6Gateway** operation within a specific time period.
+     *  *
      * @param CreateIpv6GatewayRequest $request CreateIpv6GatewayRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -5941,11 +6181,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **CreateIpv6Gateway** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpv6GatewayAttribute](~~102226~~) operation to query the status of the task.
-     *   *     *   If the IPv6 gateway is in the **Creating** state, the IPv6 gateway is being created.
-     *   *     *   If the IPv6 gateway is in the **Created** state, the IPv6 gateway is created.
-     *   * *   You cannot repeatedly call the **CreateIpv6Gateway** operation within a specific time period.
-     *   *
+     * @summary IPv6 gateways are used to control the IPv6 traffic of virtual private clouds (VPCs). You can call the CreateIpv6Gateway operation to create IPv6 gateways.
+     *  *
+     * @description *   **CreateIpv6Gateway** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpv6GatewayAttribute](https://help.aliyun.com/document_detail/102226.html) operation to query the status of the task.
+     *     *   If the IPv6 gateway is in the **Creating** state, the IPv6 gateway is being created.
+     *     *   If the IPv6 gateway is in the **Created** state, the IPv6 gateway is created.
+     * *   You cannot repeatedly call the **CreateIpv6Gateway** operation within a specific time period.
+     *  *
      * @param CreateIpv6GatewayRequest $request CreateIpv6GatewayRequest
      *
      * @return CreateIpv6GatewayResponse CreateIpv6GatewayResponse
@@ -5958,16 +6200,18 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)
-     *   * Before you call this operation, take note of the following items:
-     *   * *   The first time you create a NAT gateway, the system automatically creates the service-linked role AliyunServiceRoleForNatgw. Then, the system attaches the permission policy AliyunServiceRolePolicyForNatgw to the role. This allows the NAT gateway to access other resources on Alibaba Cloud. For more information, see [Service-linked roles](~~174251~~).
-     *   * *   After you create an enhanced Internet NAT gateway, a route entry is automatically added to the route table of the VPC. The destination CIDR block of the route entry is 0.0.0.0/0 and the next hop is the NAT gateway. This ensures that traffic is routed to the NAT gateway.
-     *   * *   **CreateNatGateway** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNatGateways](~~36054~~) operation to query the status of the task.
-     *   *     *   If a NAT gateway is in the **Creating** state, the NAT gateway is being created. In this case, you can query the NAT gateway but cannot perform other operations.
-     *   *     *   If a NAT gateway is in the **Available** state, the NAT gateway is created.
-     *   * It takes 1 to 3 minutes to create a NAT gateway.
-     *   * *   You cannot repeatedly call the **CreateNatGateway** operation within a specific period of time.
-     *   *
+     * @summary Creates an enhanced Internet NAT gateway or a Virtual Private Cloud (VPC) NAT gateway.
+     *  *
+     * @description ## [](#)
+     * Before you call this operation, take note of the following items:
+     * *   The first time you create a NAT gateway, the system automatically creates the service-linked role AliyunServiceRoleForNatgw. Then, the system attaches the permission policy AliyunServiceRolePolicyForNatgw to the role. This allows the NAT gateway to access other resources on Alibaba Cloud. For more information, see [Service-linked roles](https://help.aliyun.com/document_detail/174251.html).
+     * *   After you create an enhanced Internet NAT gateway, a route entry is automatically added to the route table of the VPC. The destination CIDR block of the route entry is 0.0.0.0/0 and the next hop is the NAT gateway. This ensures that traffic is routed to the NAT gateway.
+     * *   **CreateNatGateway** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNatGateways](https://help.aliyun.com/document_detail/36054.html) operation to query the status of the task.
+     *     *   If a NAT gateway is in the **Creating** state, the NAT gateway is being created. In this case, you can query the NAT gateway but cannot perform other operations.
+     *     *   If a NAT gateway is in the **Available** state, the NAT gateway is created.
+     * It takes 1 to 3 minutes to create a NAT gateway.
+     * *   You cannot repeatedly call the **CreateNatGateway** operation within a specific period of time.
+     *  *
      * @param CreateNatGatewayRequest $request CreateNatGatewayRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -6062,16 +6306,18 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)
-     *   * Before you call this operation, take note of the following items:
-     *   * *   The first time you create a NAT gateway, the system automatically creates the service-linked role AliyunServiceRoleForNatgw. Then, the system attaches the permission policy AliyunServiceRolePolicyForNatgw to the role. This allows the NAT gateway to access other resources on Alibaba Cloud. For more information, see [Service-linked roles](~~174251~~).
-     *   * *   After you create an enhanced Internet NAT gateway, a route entry is automatically added to the route table of the VPC. The destination CIDR block of the route entry is 0.0.0.0/0 and the next hop is the NAT gateway. This ensures that traffic is routed to the NAT gateway.
-     *   * *   **CreateNatGateway** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNatGateways](~~36054~~) operation to query the status of the task.
-     *   *     *   If a NAT gateway is in the **Creating** state, the NAT gateway is being created. In this case, you can query the NAT gateway but cannot perform other operations.
-     *   *     *   If a NAT gateway is in the **Available** state, the NAT gateway is created.
-     *   * It takes 1 to 3 minutes to create a NAT gateway.
-     *   * *   You cannot repeatedly call the **CreateNatGateway** operation within a specific period of time.
-     *   *
+     * @summary Creates an enhanced Internet NAT gateway or a Virtual Private Cloud (VPC) NAT gateway.
+     *  *
+     * @description ## [](#)
+     * Before you call this operation, take note of the following items:
+     * *   The first time you create a NAT gateway, the system automatically creates the service-linked role AliyunServiceRoleForNatgw. Then, the system attaches the permission policy AliyunServiceRolePolicyForNatgw to the role. This allows the NAT gateway to access other resources on Alibaba Cloud. For more information, see [Service-linked roles](https://help.aliyun.com/document_detail/174251.html).
+     * *   After you create an enhanced Internet NAT gateway, a route entry is automatically added to the route table of the VPC. The destination CIDR block of the route entry is 0.0.0.0/0 and the next hop is the NAT gateway. This ensures that traffic is routed to the NAT gateway.
+     * *   **CreateNatGateway** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNatGateways](https://help.aliyun.com/document_detail/36054.html) operation to query the status of the task.
+     *     *   If a NAT gateway is in the **Creating** state, the NAT gateway is being created. In this case, you can query the NAT gateway but cannot perform other operations.
+     *     *   If a NAT gateway is in the **Available** state, the NAT gateway is created.
+     * It takes 1 to 3 minutes to create a NAT gateway.
+     * *   You cannot repeatedly call the **CreateNatGateway** operation within a specific period of time.
+     *  *
      * @param CreateNatGatewayRequest $request CreateNatGatewayRequest
      *
      * @return CreateNatGatewayResponse CreateNatGatewayResponse
@@ -6084,12 +6330,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)
-     *   * **CreateNatIp** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListNatIps](~~287000~~) operation to query the status of the task.
-     *   * *   If a NAT IP address is in the **Creating** state, the NAT IP address is being created. In this case, you can only query the NAT IP address and cannot perform other operations.
-     *   * *   If a NAT IP address is in the **Available** state, the NAT IP address is created.
-     *   * You cannot repeatedly call the **CreateNatIp** operation to create a NAT IP address within a specific period of time.
-     *   *
+     * @summary Creates a NAT IP address.
+     *  *
+     * @description ## [](#)
+     * **CreateNatIp** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListNatIps](https://help.aliyun.com/document_detail/287000.html) operation to query the status of the task.
+     * *   If a NAT IP address is in the **Creating** state, the NAT IP address is being created. In this case, you can only query the NAT IP address and cannot perform other operations.
+     * *   If a NAT IP address is in the **Available** state, the NAT IP address is created.
+     * You cannot repeatedly call the **CreateNatIp** operation to create a NAT IP address within a specific period of time.
+     *  *
      * @param CreateNatIpRequest $request CreateNatIpRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
@@ -6157,12 +6405,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)
-     *   * **CreateNatIp** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListNatIps](~~287000~~) operation to query the status of the task.
-     *   * *   If a NAT IP address is in the **Creating** state, the NAT IP address is being created. In this case, you can only query the NAT IP address and cannot perform other operations.
-     *   * *   If a NAT IP address is in the **Available** state, the NAT IP address is created.
-     *   * You cannot repeatedly call the **CreateNatIp** operation to create a NAT IP address within a specific period of time.
-     *   *
+     * @summary Creates a NAT IP address.
+     *  *
+     * @description ## [](#)
+     * **CreateNatIp** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListNatIps](https://help.aliyun.com/document_detail/287000.html) operation to query the status of the task.
+     * *   If a NAT IP address is in the **Creating** state, the NAT IP address is being created. In this case, you can only query the NAT IP address and cannot perform other operations.
+     * *   If a NAT IP address is in the **Available** state, the NAT IP address is created.
+     * You cannot repeatedly call the **CreateNatIp** operation to create a NAT IP address within a specific period of time.
+     *  *
      * @param CreateNatIpRequest $request CreateNatIpRequest
      *
      * @return CreateNatIpResponse CreateNatIpResponse
@@ -6175,9 +6425,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)Description
-     *   * You cannot repeatedly call the **CreateNatIpCidr** operation to create a NAT CIDR block within the specified period of time.
-     *   *
+     * @summary Creates a NAT CIDR block.
+     *  *
+     * @description ## [](#)Description
+     * You cannot repeatedly call the **CreateNatIpCidr** operation to create a NAT CIDR block within the specified period of time.
+     *  *
      * @param CreateNatIpCidrRequest $request CreateNatIpCidrRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -6242,9 +6494,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)Description
-     *   * You cannot repeatedly call the **CreateNatIpCidr** operation to create a NAT CIDR block within the specified period of time.
-     *   *
+     * @summary Creates a NAT CIDR block.
+     *  *
+     * @description ## [](#)Description
+     * You cannot repeatedly call the **CreateNatIpCidr** operation to create a NAT CIDR block within the specified period of time.
+     *  *
      * @param CreateNatIpCidrRequest $request CreateNatIpCidrRequest
      *
      * @return CreateNatIpCidrResponse CreateNatIpCidrResponse
@@ -6257,10 +6511,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param CreateNetworkAclRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Creates a network ACL.
+     *  *
+     * @param CreateNetworkAclRequest $request CreateNetworkAclRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateNetworkAclResponse
+     * @return CreateNetworkAclResponse CreateNetworkAclResponse
      */
     public function createNetworkAclWithOptions($request, $runtime)
     {
@@ -6318,9 +6574,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param CreateNetworkAclRequest $request
+     * @summary Creates a network ACL.
+     *  *
+     * @param CreateNetworkAclRequest $request CreateNetworkAclRequest
      *
-     * @return CreateNetworkAclResponse
+     * @return CreateNetworkAclResponse CreateNetworkAclResponse
      */
     public function createNetworkAcl($request)
     {
@@ -6330,11 +6588,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You can apply for a dedicated Express Connect circuit for yourself or create a hosted connection for a tenant. After your application is approved, the Express Connect circuit changes to the **Initial** state. You can contact the connectivity provider to start construction.
-     *   * When you call this operation, take note of the following limits:
-     *   * *   If your Alibaba Cloud account has more than five Express Connect circuits that are not in the **Enabled** state, you cannot apply for another Express Connect circuit.
-     *   * *   If your Alibaba Cloud account has an Express Connect circuit with overdue payments, you cannot apply for another Express Connect circuit.
-     *   *
+     * @summary Applies for an Express Connect circuit.
+     *  *
+     * @description You can apply for a dedicated Express Connect circuit for yourself or create a hosted connection for a tenant. After your application is approved, the Express Connect circuit changes to the **Initial** state. You can contact the connectivity provider to start construction.
+     * When you call this operation, take note of the following limits:
+     * *   If your Alibaba Cloud account has more than five Express Connect circuits that are not in the **Enabled** state, you cannot apply for another Express Connect circuit.
+     * *   If your Alibaba Cloud account has an Express Connect circuit with overdue payments, you cannot apply for another Express Connect circuit.
+     *  *
      * @param CreatePhysicalConnectionRequest $request CreatePhysicalConnectionRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -6423,11 +6683,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You can apply for a dedicated Express Connect circuit for yourself or create a hosted connection for a tenant. After your application is approved, the Express Connect circuit changes to the **Initial** state. You can contact the connectivity provider to start construction.
-     *   * When you call this operation, take note of the following limits:
-     *   * *   If your Alibaba Cloud account has more than five Express Connect circuits that are not in the **Enabled** state, you cannot apply for another Express Connect circuit.
-     *   * *   If your Alibaba Cloud account has an Express Connect circuit with overdue payments, you cannot apply for another Express Connect circuit.
-     *   *
+     * @summary Applies for an Express Connect circuit.
+     *  *
+     * @description You can apply for a dedicated Express Connect circuit for yourself or create a hosted connection for a tenant. After your application is approved, the Express Connect circuit changes to the **Initial** state. You can contact the connectivity provider to start construction.
+     * When you call this operation, take note of the following limits:
+     * *   If your Alibaba Cloud account has more than five Express Connect circuits that are not in the **Enabled** state, you cannot apply for another Express Connect circuit.
+     * *   If your Alibaba Cloud account has an Express Connect circuit with overdue payments, you cannot apply for another Express Connect circuit.
+     *  *
      * @param CreatePhysicalConnectionRequest $request CreatePhysicalConnectionRequest
      *
      * @return CreatePhysicalConnectionResponse CreatePhysicalConnectionResponse
@@ -6440,8 +6702,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * >  You can call this operation only when the Express Connect circuit is in the **Complete** state.
-     *   *
+     * @summary Creates an order for resource usage fees.
+     *  *
+     * @description >  You can call this operation only when the Express Connect circuit is in the **Complete** state.
+     *  *
      * @param CreatePhysicalConnectionOccupancyOrderRequest $request CreatePhysicalConnectionOccupancyOrderRequest
      * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
@@ -6503,8 +6767,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * >  You can call this operation only when the Express Connect circuit is in the **Complete** state.
-     *   *
+     * @summary Creates an order for resource usage fees.
+     *  *
+     * @description >  You can call this operation only when the Express Connect circuit is in the **Complete** state.
+     *  *
      * @param CreatePhysicalConnectionOccupancyOrderRequest $request CreatePhysicalConnectionOccupancyOrderRequest
      *
      * @return CreatePhysicalConnectionOccupancyOrderResponse CreatePhysicalConnectionOccupancyOrderResponse
@@ -6517,10 +6783,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param CreatePhysicalConnectionSetupOrderRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @param CreatePhysicalConnectionSetupOrderRequest $request CreatePhysicalConnectionSetupOrderRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreatePhysicalConnectionSetupOrderResponse
+     * @return CreatePhysicalConnectionSetupOrderResponse CreatePhysicalConnectionSetupOrderResponse
      */
     public function createPhysicalConnectionSetupOrderWithOptions($request, $runtime)
     {
@@ -6581,9 +6847,9 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param CreatePhysicalConnectionSetupOrderRequest $request
+     * @param CreatePhysicalConnectionSetupOrderRequest $request CreatePhysicalConnectionSetupOrderRequest
      *
-     * @return CreatePhysicalConnectionSetupOrderResponse
+     * @return CreatePhysicalConnectionSetupOrderResponse CreatePhysicalConnectionSetupOrderResponse
      */
     public function createPhysicalConnectionSetupOrder($request)
     {
@@ -6593,8 +6859,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * By default, the IP address pool feature is unavailable. You can apply for the privilege to use the **IP address pool feature** in the Quota Center console. For more information, see the "Request a quota increase in the Quota Center console" section in the [Manage EIP quotas](~~108213~~) topic.
-     *   *
+     * @summary Creates an IP address pool.
+     *  *
+     * @description By default, the IP address pool feature is unavailable. You can apply for the privilege to use the **IP address pool feature** in the Quota Center console. For more information, see the "Request a quota increase in the Quota Center console" section in the [Manage EIP quotas](https://help.aliyun.com/document_detail/108213.html) topic.
+     *  *
      * @param CreatePublicIpAddressPoolRequest $request CreatePublicIpAddressPoolRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -6668,8 +6936,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * By default, the IP address pool feature is unavailable. You can apply for the privilege to use the **IP address pool feature** in the Quota Center console. For more information, see the "Request a quota increase in the Quota Center console" section in the [Manage EIP quotas](~~108213~~) topic.
-     *   *
+     * @summary Creates an IP address pool.
+     *  *
+     * @description By default, the IP address pool feature is unavailable. You can apply for the privilege to use the **IP address pool feature** in the Quota Center console. For more information, see the "Request a quota increase in the Quota Center console" section in the [Manage EIP quotas](https://help.aliyun.com/document_detail/108213.html) topic.
+     *  *
      * @param CreatePublicIpAddressPoolRequest $request CreatePublicIpAddressPoolRequest
      *
      * @return CreatePublicIpAddressPoolResponse CreatePublicIpAddressPoolResponse
@@ -6682,20 +6952,22 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)References
-     *   * *   **CreateRouteEntries** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteEntryList](~~138148~~) operation to query the status of the task.
-     *   *     *   If the route entry is in the **Creating** state, the route entry is being created.
-     *   *     *   If the route entry is in the **Created** state, the route entry is created.
-     *   * *   You cannot repeatedly call the **CreateRouteEntries** operation to create the same route entry within the specified period of time.
-     *   * **When you call this operation to add custom route entries to the route table of a vRouter, take note of the following items:**
-     *   * *   A route table can contain up to 200 custom route entries.
-     *   * *   The destination CIDR block (**DstCidrBlock**) of a custom route entry cannot be the same as or overlap with the CIDR block of a vSwitch in the VPC.
-     *   * *   The destination CIDR block (**DstCidrBlock**) of a custom route entry cannot be 100.64.0.0/10 or its subnets.
-     *   * *   The destination CIDR blocks (**DstCidrBlock**) of route entries in the same route table must be unique.
-     *   * *   If you do not include the mask length when you specify the destination CIDR block (**DstCidrBlock**), the destination CIDR block is considered a host IP address whose mask length is 32 bits.
-     *   * *   Multiple custom route entries can point to the same next hop (**NextHop**).
-     *   * *   The next hop (**NextHop**) of a custom route entry must belong to the same VPC as the route table.
-     *   *
+     * @summary Adds custom route entries to the route table of a vRouter in a virtual private cloud (VPC).
+     *  *
+     * @description ## [](#)References
+     * *   **CreateRouteEntries** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html) operation to query the status of the task.
+     *     *   If the route entry is in the **Creating** state, the route entry is being created.
+     *     *   If the route entry is in the **Created** state, the route entry is created.
+     * *   You cannot repeatedly call the **CreateRouteEntries** operation to create the same route entry within the specified period of time.
+     * **When you call this operation to add custom route entries to the route table of a vRouter, take note of the following items:**
+     * *   A route table can contain up to 200 custom route entries.
+     * *   The destination CIDR block (**DstCidrBlock**) of a custom route entry cannot be the same as or overlap with the CIDR block of a vSwitch in the VPC.
+     * *   The destination CIDR block (**DstCidrBlock**) of a custom route entry cannot be 100.64.0.0/10 or its subnets.
+     * *   The destination CIDR blocks (**DstCidrBlock**) of route entries in the same route table must be unique.
+     * *   If you do not include the mask length when you specify the destination CIDR block (**DstCidrBlock**), the destination CIDR block is considered a host IP address whose mask length is 32 bits.
+     * *   Multiple custom route entries can point to the same next hop (**NextHop**).
+     * *   The next hop (**NextHop**) of a custom route entry must belong to the same VPC as the route table.
+     *  *
      * @param CreateRouteEntriesRequest $request CreateRouteEntriesRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -6745,20 +7017,22 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)References
-     *   * *   **CreateRouteEntries** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteEntryList](~~138148~~) operation to query the status of the task.
-     *   *     *   If the route entry is in the **Creating** state, the route entry is being created.
-     *   *     *   If the route entry is in the **Created** state, the route entry is created.
-     *   * *   You cannot repeatedly call the **CreateRouteEntries** operation to create the same route entry within the specified period of time.
-     *   * **When you call this operation to add custom route entries to the route table of a vRouter, take note of the following items:**
-     *   * *   A route table can contain up to 200 custom route entries.
-     *   * *   The destination CIDR block (**DstCidrBlock**) of a custom route entry cannot be the same as or overlap with the CIDR block of a vSwitch in the VPC.
-     *   * *   The destination CIDR block (**DstCidrBlock**) of a custom route entry cannot be 100.64.0.0/10 or its subnets.
-     *   * *   The destination CIDR blocks (**DstCidrBlock**) of route entries in the same route table must be unique.
-     *   * *   If you do not include the mask length when you specify the destination CIDR block (**DstCidrBlock**), the destination CIDR block is considered a host IP address whose mask length is 32 bits.
-     *   * *   Multiple custom route entries can point to the same next hop (**NextHop**).
-     *   * *   The next hop (**NextHop**) of a custom route entry must belong to the same VPC as the route table.
-     *   *
+     * @summary Adds custom route entries to the route table of a vRouter in a virtual private cloud (VPC).
+     *  *
+     * @description ## [](#)References
+     * *   **CreateRouteEntries** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html) operation to query the status of the task.
+     *     *   If the route entry is in the **Creating** state, the route entry is being created.
+     *     *   If the route entry is in the **Created** state, the route entry is created.
+     * *   You cannot repeatedly call the **CreateRouteEntries** operation to create the same route entry within the specified period of time.
+     * **When you call this operation to add custom route entries to the route table of a vRouter, take note of the following items:**
+     * *   A route table can contain up to 200 custom route entries.
+     * *   The destination CIDR block (**DstCidrBlock**) of a custom route entry cannot be the same as or overlap with the CIDR block of a vSwitch in the VPC.
+     * *   The destination CIDR block (**DstCidrBlock**) of a custom route entry cannot be 100.64.0.0/10 or its subnets.
+     * *   The destination CIDR blocks (**DstCidrBlock**) of route entries in the same route table must be unique.
+     * *   If you do not include the mask length when you specify the destination CIDR block (**DstCidrBlock**), the destination CIDR block is considered a host IP address whose mask length is 32 bits.
+     * *   Multiple custom route entries can point to the same next hop (**NextHop**).
+     * *   The next hop (**NextHop**) of a custom route entry must belong to the same VPC as the route table.
+     *  *
      * @param CreateRouteEntriesRequest $request CreateRouteEntriesRequest
      *
      * @return CreateRouteEntriesResponse CreateRouteEntriesResponse
@@ -6771,33 +7045,35 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **CreateRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteEntryList](~~138148~~) operation to query the status of the task:
-     *   *     *   If a route is in the **Creating** state, the route is being added.
-     *   *     *   If a route is in the **Created** state, the route is added.
-     *   * *   You cannot repeatedly call **CreateRouteEntry** within a specific period of time.
-     *   * **When you call this operation to add a custom route entry to the route table of a vRouter, take note of the following limits:**
-     *   * >  When you add a route entry from a prefix list, the quota usage is calculated by adding the number of existing route entries and the maximum number of route entries of the prefix list.
-     *   * *   A route table can contain up to 200 custom route entries.
-     *   * *   The destination CIDR block (**DestinationCidrBlock**) of a custom route entry cannot be the same as or be a subset of the CIDR block of a vSwitch in the virtual private cloud (VPC). The destination CIDR block can contain the CIDR block of a vSwitch.
-     *   * *   The destination CIDR block (**DestinationCidrBlock**) of a custom route entry cannot be 100.64.0.0/10 or a subset of it.
-     *   * *   The destination CIDR blocks (**DestinationCidrBlock**) of route entries in the same route table must be unique.
-     *   * *   If you do not include the mask length when you specify the destination CIDR block (**DestinationCidrBlock**), the destination CIDR block is considered a host IP address whose mask length is 32 bits.
-     *   * *   Multiple custom route entries can point to the same next hop (**NextHopId**).
-     *   * *   The next hop (**NextHopId**) of a custom route entry must in the same VPC as the route table.
-     *   * *   Equal-cost multi-path (ECMP) routing can be configured by specifying the **NextHopList** parameter.
-     *   *     *   When you add non-ECMP route entries, you must specify **DestinationCidrBlock**, **NextHopType**, and **NextHopId**, and you must not specify **NextHopList**.
-     *   *     *   When you add route entries for ECMP routing, you must specify **DestinationCidrBlock** and **NextHopList**, and you must not specify **NextHopType** or **NextHopId**.
-     *   * **When you call this operation to add a custom route entry to the route table of a VBR, take note of the following limits:**
-     *   * *   A route table can contain up to 200 custom route entries.
-     *   * *   **NextHopList** is not supported.
-     *   * *   The destination CIDR block (**DestinationCidrBlock**) of a custom route entry cannot be 100.64.0.0/10 or a subset of it.
-     *   * *   The destination CIDR blocks (**DestinationCidrBlock**) of route entries in the same route table must be unique.
-     *   * *   If you do not include the mask length when you specify the destination CIDR block (**DestinationCidrBlock**), the destination CIDR block is considered a host IP address whose mask length is 32 bits.
-     *   * *   Multiple custom route entries can point to the same next hop (**NextHopId**).
-     *   * *   The next hop (**NextHopId**) of a custom route entry must be a router interface associated with the VBR.
-     *   * *   You can add route entries only when the VBR is in the **Active** state, and the Express Connect circuit associated with the VBR is in the **Enabled** state and is not locked due to overdue payments.
-     *   * *   Only non-ECMP route entries are supported. When you add non-ECMP route entries, you must specify **DestinationCidrBlock**, **NextHopType**, and **NextHopId**, and you cannot specify **NextHopList**.
-     *   *
+     * @summary Creates a custom route entry in the route table of a VRouter or virtual border router (VBR).
+     *  *
+     * @description *   **CreateRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html) operation to query the status of the task:
+     *     *   If a route is in the **Creating** state, the route is being added.
+     *     *   If a route is in the **Created** state, the route is added.
+     * *   You cannot repeatedly call **CreateRouteEntry** within a specific period of time.
+     * **When you call this operation to add a custom route entry to the route table of a vRouter, take note of the following limits:**
+     * >  When you add a route entry from a prefix list, the quota usage is calculated by adding the number of existing route entries and the maximum number of route entries of the prefix list.
+     * *   A route table can contain up to 200 custom route entries.
+     * *   The destination CIDR block (**DestinationCidrBlock**) of a custom route entry cannot be the same as or be a subset of the CIDR block of a vSwitch in the virtual private cloud (VPC). The destination CIDR block can contain the CIDR block of a vSwitch.
+     * *   The destination CIDR block (**DestinationCidrBlock**) of a custom route entry cannot be 100.64.0.0/10 or a subset of it.
+     * *   The destination CIDR blocks (**DestinationCidrBlock**) of route entries in the same route table must be unique.
+     * *   If you do not include the mask length when you specify the destination CIDR block (**DestinationCidrBlock**), the destination CIDR block is considered a host IP address whose mask length is 32 bits.
+     * *   Multiple custom route entries can point to the same next hop (**NextHopId**).
+     * *   The next hop (**NextHopId**) of a custom route entry must in the same VPC as the route table.
+     * *   Equal-cost multi-path (ECMP) routing can be configured by specifying the **NextHopList** parameter.
+     *     *   When you add non-ECMP route entries, you must specify **DestinationCidrBlock**, **NextHopType**, and **NextHopId**, and you must not specify **NextHopList**.
+     *     *   When you add route entries for ECMP routing, you must specify **DestinationCidrBlock** and **NextHopList**, and you must not specify **NextHopType** or **NextHopId**.
+     * **When you call this operation to add a custom route entry to the route table of a VBR, take note of the following limits:**
+     * *   A route table can contain up to 200 custom route entries.
+     * *   **NextHopList** is not supported.
+     * *   The destination CIDR block (**DestinationCidrBlock**) of a custom route entry cannot be 100.64.0.0/10 or a subset of it.
+     * *   The destination CIDR blocks (**DestinationCidrBlock**) of route entries in the same route table must be unique.
+     * *   If you do not include the mask length when you specify the destination CIDR block (**DestinationCidrBlock**), the destination CIDR block is considered a host IP address whose mask length is 32 bits.
+     * *   Multiple custom route entries can point to the same next hop (**NextHopId**).
+     * *   The next hop (**NextHopId**) of a custom route entry must be a router interface associated with the VBR.
+     * *   You can add route entries only when the VBR is in the **Active** state, and the Express Connect circuit associated with the VBR is in the **Enabled** state and is not locked due to overdue payments.
+     * *   Only non-ECMP route entries are supported. When you add non-ECMP route entries, you must specify **DestinationCidrBlock**, **NextHopType**, and **NextHopId**, and you cannot specify **NextHopList**.
+     *  *
      * @param CreateRouteEntryRequest $request CreateRouteEntryRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -6865,33 +7141,35 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **CreateRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteEntryList](~~138148~~) operation to query the status of the task:
-     *   *     *   If a route is in the **Creating** state, the route is being added.
-     *   *     *   If a route is in the **Created** state, the route is added.
-     *   * *   You cannot repeatedly call **CreateRouteEntry** within a specific period of time.
-     *   * **When you call this operation to add a custom route entry to the route table of a vRouter, take note of the following limits:**
-     *   * >  When you add a route entry from a prefix list, the quota usage is calculated by adding the number of existing route entries and the maximum number of route entries of the prefix list.
-     *   * *   A route table can contain up to 200 custom route entries.
-     *   * *   The destination CIDR block (**DestinationCidrBlock**) of a custom route entry cannot be the same as or be a subset of the CIDR block of a vSwitch in the virtual private cloud (VPC). The destination CIDR block can contain the CIDR block of a vSwitch.
-     *   * *   The destination CIDR block (**DestinationCidrBlock**) of a custom route entry cannot be 100.64.0.0/10 or a subset of it.
-     *   * *   The destination CIDR blocks (**DestinationCidrBlock**) of route entries in the same route table must be unique.
-     *   * *   If you do not include the mask length when you specify the destination CIDR block (**DestinationCidrBlock**), the destination CIDR block is considered a host IP address whose mask length is 32 bits.
-     *   * *   Multiple custom route entries can point to the same next hop (**NextHopId**).
-     *   * *   The next hop (**NextHopId**) of a custom route entry must in the same VPC as the route table.
-     *   * *   Equal-cost multi-path (ECMP) routing can be configured by specifying the **NextHopList** parameter.
-     *   *     *   When you add non-ECMP route entries, you must specify **DestinationCidrBlock**, **NextHopType**, and **NextHopId**, and you must not specify **NextHopList**.
-     *   *     *   When you add route entries for ECMP routing, you must specify **DestinationCidrBlock** and **NextHopList**, and you must not specify **NextHopType** or **NextHopId**.
-     *   * **When you call this operation to add a custom route entry to the route table of a VBR, take note of the following limits:**
-     *   * *   A route table can contain up to 200 custom route entries.
-     *   * *   **NextHopList** is not supported.
-     *   * *   The destination CIDR block (**DestinationCidrBlock**) of a custom route entry cannot be 100.64.0.0/10 or a subset of it.
-     *   * *   The destination CIDR blocks (**DestinationCidrBlock**) of route entries in the same route table must be unique.
-     *   * *   If you do not include the mask length when you specify the destination CIDR block (**DestinationCidrBlock**), the destination CIDR block is considered a host IP address whose mask length is 32 bits.
-     *   * *   Multiple custom route entries can point to the same next hop (**NextHopId**).
-     *   * *   The next hop (**NextHopId**) of a custom route entry must be a router interface associated with the VBR.
-     *   * *   You can add route entries only when the VBR is in the **Active** state, and the Express Connect circuit associated with the VBR is in the **Enabled** state and is not locked due to overdue payments.
-     *   * *   Only non-ECMP route entries are supported. When you add non-ECMP route entries, you must specify **DestinationCidrBlock**, **NextHopType**, and **NextHopId**, and you cannot specify **NextHopList**.
-     *   *
+     * @summary Creates a custom route entry in the route table of a VRouter or virtual border router (VBR).
+     *  *
+     * @description *   **CreateRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html) operation to query the status of the task:
+     *     *   If a route is in the **Creating** state, the route is being added.
+     *     *   If a route is in the **Created** state, the route is added.
+     * *   You cannot repeatedly call **CreateRouteEntry** within a specific period of time.
+     * **When you call this operation to add a custom route entry to the route table of a vRouter, take note of the following limits:**
+     * >  When you add a route entry from a prefix list, the quota usage is calculated by adding the number of existing route entries and the maximum number of route entries of the prefix list.
+     * *   A route table can contain up to 200 custom route entries.
+     * *   The destination CIDR block (**DestinationCidrBlock**) of a custom route entry cannot be the same as or be a subset of the CIDR block of a vSwitch in the virtual private cloud (VPC). The destination CIDR block can contain the CIDR block of a vSwitch.
+     * *   The destination CIDR block (**DestinationCidrBlock**) of a custom route entry cannot be 100.64.0.0/10 or a subset of it.
+     * *   The destination CIDR blocks (**DestinationCidrBlock**) of route entries in the same route table must be unique.
+     * *   If you do not include the mask length when you specify the destination CIDR block (**DestinationCidrBlock**), the destination CIDR block is considered a host IP address whose mask length is 32 bits.
+     * *   Multiple custom route entries can point to the same next hop (**NextHopId**).
+     * *   The next hop (**NextHopId**) of a custom route entry must in the same VPC as the route table.
+     * *   Equal-cost multi-path (ECMP) routing can be configured by specifying the **NextHopList** parameter.
+     *     *   When you add non-ECMP route entries, you must specify **DestinationCidrBlock**, **NextHopType**, and **NextHopId**, and you must not specify **NextHopList**.
+     *     *   When you add route entries for ECMP routing, you must specify **DestinationCidrBlock** and **NextHopList**, and you must not specify **NextHopType** or **NextHopId**.
+     * **When you call this operation to add a custom route entry to the route table of a VBR, take note of the following limits:**
+     * *   A route table can contain up to 200 custom route entries.
+     * *   **NextHopList** is not supported.
+     * *   The destination CIDR block (**DestinationCidrBlock**) of a custom route entry cannot be 100.64.0.0/10 or a subset of it.
+     * *   The destination CIDR blocks (**DestinationCidrBlock**) of route entries in the same route table must be unique.
+     * *   If you do not include the mask length when you specify the destination CIDR block (**DestinationCidrBlock**), the destination CIDR block is considered a host IP address whose mask length is 32 bits.
+     * *   Multiple custom route entries can point to the same next hop (**NextHopId**).
+     * *   The next hop (**NextHopId**) of a custom route entry must be a router interface associated with the VBR.
+     * *   You can add route entries only when the VBR is in the **Active** state, and the Express Connect circuit associated with the VBR is in the **Enabled** state and is not locked due to overdue payments.
+     * *   Only non-ECMP route entries are supported. When you add non-ECMP route entries, you must specify **DestinationCidrBlock**, **NextHopType**, and **NextHopId**, and you cannot specify **NextHopList**.
+     *  *
      * @param CreateRouteEntryRequest $request CreateRouteEntryRequest
      *
      * @return CreateRouteEntryResponse CreateRouteEntryResponse
@@ -6904,11 +7182,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **CreateRouteTable** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the operation in the background. You can call the [DescribeRouteTableList](~~87602~~) operation to query the status of the task.
-     *   *     *   If the custom route table is in the **Creating** state, the custom route table is being created.
-     *   *     *   If the custom route table is in the **Created** state, the custom route table is created.
-     *   * *   You cannot repeatedly call the **CreateRouteTable** operation within the specified period of time.
-     *   *
+     * @summary Creates a custom route table.
+     *  *
+     * @description *   **CreateRouteTable** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the operation in the background. You can call the [DescribeRouteTableList](https://help.aliyun.com/document_detail/87602.html) operation to query the status of the task.
+     *     *   If the custom route table is in the **Creating** state, the custom route table is being created.
+     *     *   If the custom route table is in the **Created** state, the custom route table is created.
+     * *   You cannot repeatedly call the **CreateRouteTable** operation within the specified period of time.
+     *  *
      * @param CreateRouteTableRequest $request CreateRouteTableRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -6973,11 +7253,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **CreateRouteTable** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the operation in the background. You can call the [DescribeRouteTableList](~~87602~~) operation to query the status of the task.
-     *   *     *   If the custom route table is in the **Creating** state, the custom route table is being created.
-     *   *     *   If the custom route table is in the **Created** state, the custom route table is created.
-     *   * *   You cannot repeatedly call the **CreateRouteTable** operation within the specified period of time.
-     *   *
+     * @summary Creates a custom route table.
+     *  *
+     * @description *   **CreateRouteTable** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the operation in the background. You can call the [DescribeRouteTableList](https://help.aliyun.com/document_detail/87602.html) operation to query the status of the task.
+     *     *   If the custom route table is in the **Creating** state, the custom route table is being created.
+     *     *   If the custom route table is in the **Created** state, the custom route table is created.
+     * *   You cannot repeatedly call the **CreateRouteTable** operation within the specified period of time.
+     *  *
      * @param CreateRouteTableRequest $request CreateRouteTableRequest
      *
      * @return CreateRouteTableResponse CreateRouteTableResponse
@@ -6990,14 +7272,16 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following limits:
-     *   * *   You can create only one pair of interfaces to be connected between two routers.
-     *   * *   You can create a maximum of five router interfaces for a router.
-     *   * *   If your Alibaba Cloud account has a router interface with overdue payments, you cannot create new router interfaces.
-     *   * *   Each destination CIDR block of route entries in the same route table must be unique.
-     *   * *   A virtual border router (VBR) can serve only as a requester. The VBR must be in the Activated state.
-     *   * *   You can call this operation to create subscription and pay-as-you-go router interfaces.
-     *   *
+     * @summary Creates a router interface.
+     *  *
+     * @description When you call this operation, take note of the following limits:
+     * *   You can create only one pair of interfaces to be connected between two routers.
+     * *   You can create a maximum of five router interfaces for a router.
+     * *   If your Alibaba Cloud account has a router interface with overdue payments, you cannot create new router interfaces.
+     * *   Each destination CIDR block of route entries in the same route table must be unique.
+     * *   A virtual border router (VBR) can serve only as a requester. The VBR must be in the Activated state.
+     * *   You can call this operation to create subscription and pay-as-you-go router interfaces.
+     *  *
      * @param CreateRouterInterfaceRequest $request CreateRouterInterfaceRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -7116,14 +7400,16 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following limits:
-     *   * *   You can create only one pair of interfaces to be connected between two routers.
-     *   * *   You can create a maximum of five router interfaces for a router.
-     *   * *   If your Alibaba Cloud account has a router interface with overdue payments, you cannot create new router interfaces.
-     *   * *   Each destination CIDR block of route entries in the same route table must be unique.
-     *   * *   A virtual border router (VBR) can serve only as a requester. The VBR must be in the Activated state.
-     *   * *   You can call this operation to create subscription and pay-as-you-go router interfaces.
-     *   *
+     * @summary Creates a router interface.
+     *  *
+     * @description When you call this operation, take note of the following limits:
+     * *   You can create only one pair of interfaces to be connected between two routers.
+     * *   You can create a maximum of five router interfaces for a router.
+     * *   If your Alibaba Cloud account has a router interface with overdue payments, you cannot create new router interfaces.
+     * *   Each destination CIDR block of route entries in the same route table must be unique.
+     * *   A virtual border router (VBR) can serve only as a requester. The VBR must be in the Activated state.
+     * *   You can call this operation to create subscription and pay-as-you-go router interfaces.
+     *  *
      * @param CreateRouterInterfaceRequest $request CreateRouterInterfaceRequest
      *
      * @return CreateRouterInterfaceResponse CreateRouterInterfaceResponse
@@ -7136,16 +7422,18 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You can call this operation to add SNAT entries to Internet NAT gateways and Virtual Private Cloud (VPC) NAT gateways. In this topic, a **NAT** gateway refers to both gateway types.
-     *   * Before you call this operation, take note of the following limits:
-     *   * *   **CreateSnatEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeSnatTableEntries](~~42677~~) operation to query the status of the task.
-     *   *     *   If the SNAT entry is in the **Pending** state, the system is adding the SNAT entry. You can only query the status of the SNAT entry, and cannot perform other operations.
-     *   *     *   If the SNAT entry is in the **Available** state, the SNAT entry is added.
-     *   * *   You cannot repeatedly call the **CreateSnatEntry** operation to add an SNAT entry to an SNAT table within the specified period of time.
-     *   * *   The vSwitch and Elastic Compute Service (ECS) instance specified in an SNAT entry must be created in the VPC where the NAT gateway is deployed.
-     *   * *   Each vSwitch or ECS instance can be specified in only one SNAT entry.
-     *   * *   If a high-availability virtual IP address (HAVIP) exists in a vSwitch, you cannot create SNAT entries.
-     *   *
+     * @summary Adds an SNAT entry to an SNAT table.
+     *  *
+     * @description You can call this operation to add SNAT entries to Internet NAT gateways and Virtual Private Cloud (VPC) NAT gateways. In this topic, a **NAT** gateway refers to both gateway types.
+     * Before you call this operation, take note of the following limits:
+     * *   **CreateSnatEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeSnatTableEntries](https://help.aliyun.com/document_detail/42677.html) operation to query the status of the task.
+     *     *   If the SNAT entry is in the **Pending** state, the system is adding the SNAT entry. You can only query the status of the SNAT entry, and cannot perform other operations.
+     *     *   If the SNAT entry is in the **Available** state, the SNAT entry is added.
+     * *   You cannot repeatedly call the **CreateSnatEntry** operation to add an SNAT entry to an SNAT table within the specified period of time.
+     * *   The vSwitch and Elastic Compute Service (ECS) instance specified in an SNAT entry must be created in the VPC where the NAT gateway is deployed.
+     * *   Each vSwitch or ECS instance can be specified in only one SNAT entry.
+     * *   If a high-availability virtual IP address (HAVIP) exists in a vSwitch, you cannot create SNAT entries.
+     *  *
      * @param CreateSnatEntryRequest $request CreateSnatEntryRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -7210,16 +7498,18 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You can call this operation to add SNAT entries to Internet NAT gateways and Virtual Private Cloud (VPC) NAT gateways. In this topic, a **NAT** gateway refers to both gateway types.
-     *   * Before you call this operation, take note of the following limits:
-     *   * *   **CreateSnatEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeSnatTableEntries](~~42677~~) operation to query the status of the task.
-     *   *     *   If the SNAT entry is in the **Pending** state, the system is adding the SNAT entry. You can only query the status of the SNAT entry, and cannot perform other operations.
-     *   *     *   If the SNAT entry is in the **Available** state, the SNAT entry is added.
-     *   * *   You cannot repeatedly call the **CreateSnatEntry** operation to add an SNAT entry to an SNAT table within the specified period of time.
-     *   * *   The vSwitch and Elastic Compute Service (ECS) instance specified in an SNAT entry must be created in the VPC where the NAT gateway is deployed.
-     *   * *   Each vSwitch or ECS instance can be specified in only one SNAT entry.
-     *   * *   If a high-availability virtual IP address (HAVIP) exists in a vSwitch, you cannot create SNAT entries.
-     *   *
+     * @summary Adds an SNAT entry to an SNAT table.
+     *  *
+     * @description You can call this operation to add SNAT entries to Internet NAT gateways and Virtual Private Cloud (VPC) NAT gateways. In this topic, a **NAT** gateway refers to both gateway types.
+     * Before you call this operation, take note of the following limits:
+     * *   **CreateSnatEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeSnatTableEntries](https://help.aliyun.com/document_detail/42677.html) operation to query the status of the task.
+     *     *   If the SNAT entry is in the **Pending** state, the system is adding the SNAT entry. You can only query the status of the SNAT entry, and cannot perform other operations.
+     *     *   If the SNAT entry is in the **Available** state, the SNAT entry is added.
+     * *   You cannot repeatedly call the **CreateSnatEntry** operation to add an SNAT entry to an SNAT table within the specified period of time.
+     * *   The vSwitch and Elastic Compute Service (ECS) instance specified in an SNAT entry must be created in the VPC where the NAT gateway is deployed.
+     * *   Each vSwitch or ECS instance can be specified in only one SNAT entry.
+     * *   If a high-availability virtual IP address (HAVIP) exists in a vSwitch, you cannot create SNAT entries.
+     *  *
      * @param CreateSnatEntryRequest $request CreateSnatEntryRequest
      *
      * @return CreateSnatEntryResponse CreateSnatEntryResponse
@@ -7232,10 +7522,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param CreateSslVpnClientCertRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 创建SSL-VPN客户端证书
+     *  *
+     * @param CreateSslVpnClientCertRequest $request CreateSslVpnClientCertRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateSslVpnClientCertResponse
+     * @return CreateSslVpnClientCertResponse CreateSslVpnClientCertResponse
      */
     public function createSslVpnClientCertWithOptions($request, $runtime)
     {
@@ -7284,9 +7576,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param CreateSslVpnClientCertRequest $request
+     * @summary 创建SSL-VPN客户端证书
+     *  *
+     * @param CreateSslVpnClientCertRequest $request CreateSslVpnClientCertRequest
      *
-     * @return CreateSslVpnClientCertResponse
+     * @return CreateSslVpnClientCertResponse CreateSslVpnClientCertResponse
      */
     public function createSslVpnClientCert($request)
     {
@@ -7296,13 +7590,15 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **CreateSslVpnServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](~~73720~~) operation to query the status of the task.
-     *   *     *   If the VPN gateway is in the **updating** state, the SSL server is being created.
-     *   *     *   If the VPN gateway is in the **active** state, the SSL server is created.
-     *   * *   You cannot call the **CreateSslVpnServer** operation to create multiple SSL servers at a time for the same VPN gateway.
-     *   * ### [](#)Prerequisites
-     *   * A VPN gateway is created, and the SSL-VPN feature is enabled for the VPN gateway. For more information, see [CreateVpnGateway](~~2526913~~).
-     *   *
+     * @summary Creates an SSL server.
+     *  *
+     * @description *   **CreateSslVpnServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status of the task.
+     *     *   If the VPN gateway is in the **updating** state, the SSL server is being created.
+     *     *   If the VPN gateway is in the **active** state, the SSL server is created.
+     * *   You cannot call the **CreateSslVpnServer** operation to create multiple SSL servers at a time for the same VPN gateway.
+     * ### [](#)Prerequisites
+     * A VPN gateway is created, and the SSL-VPN feature is enabled for the VPN gateway. For more information, see [CreateVpnGateway](https://help.aliyun.com/document_detail/2526913.html).
+     *  *
      * @param CreateSslVpnServerRequest $request CreateSslVpnServerRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -7326,6 +7622,9 @@ class Vpc extends OpenApiClient
         }
         if (!Utils::isUnset($request->enableMultiFactorAuth)) {
             $query['EnableMultiFactorAuth'] = $request->enableMultiFactorAuth;
+        }
+        if (!Utils::isUnset($request->IDaaSApplicationId)) {
+            $query['IDaaSApplicationId'] = $request->IDaaSApplicationId;
         }
         if (!Utils::isUnset($request->IDaaSInstanceId)) {
             $query['IDaaSInstanceId'] = $request->IDaaSInstanceId;
@@ -7382,13 +7681,15 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **CreateSslVpnServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](~~73720~~) operation to query the status of the task.
-     *   *     *   If the VPN gateway is in the **updating** state, the SSL server is being created.
-     *   *     *   If the VPN gateway is in the **active** state, the SSL server is created.
-     *   * *   You cannot call the **CreateSslVpnServer** operation to create multiple SSL servers at a time for the same VPN gateway.
-     *   * ### [](#)Prerequisites
-     *   * A VPN gateway is created, and the SSL-VPN feature is enabled for the VPN gateway. For more information, see [CreateVpnGateway](~~2526913~~).
-     *   *
+     * @summary Creates an SSL server.
+     *  *
+     * @description *   **CreateSslVpnServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status of the task.
+     *     *   If the VPN gateway is in the **updating** state, the SSL server is being created.
+     *     *   If the VPN gateway is in the **active** state, the SSL server is created.
+     * *   You cannot call the **CreateSslVpnServer** operation to create multiple SSL servers at a time for the same VPN gateway.
+     * ### [](#)Prerequisites
+     * A VPN gateway is created, and the SSL-VPN feature is enabled for the VPN gateway. For more information, see [CreateVpnGateway](https://help.aliyun.com/document_detail/2526913.html).
+     *  *
      * @param CreateSslVpnServerRequest $request CreateSslVpnServerRequest
      *
      * @return CreateSslVpnServerResponse CreateSslVpnServerResponse
@@ -7401,10 +7702,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * **CreateTrafficMirrorFilter** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorFilters](~~261353~~) operation to query the status of the task.
-     *   * *   If the filter is in the **Creating** state, the filter is being created.
-     *   * *   If the filter is in the **Created** state, the filter is created.
-     *   *
+     * @summary Creates a filter for traffic mirroring.
+     *  *
+     * @description **CreateTrafficMirrorFilter** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorFilters](https://help.aliyun.com/document_detail/261353.html) operation to query the status of the task.
+     * *   If the filter is in the **Creating** state, the filter is being created.
+     * *   If the filter is in the **Created** state, the filter is created.
+     *  *
      * @param CreateTrafficMirrorFilterRequest $request CreateTrafficMirrorFilterRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -7472,10 +7775,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * **CreateTrafficMirrorFilter** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorFilters](~~261353~~) operation to query the status of the task.
-     *   * *   If the filter is in the **Creating** state, the filter is being created.
-     *   * *   If the filter is in the **Created** state, the filter is created.
-     *   *
+     * @summary Creates a filter for traffic mirroring.
+     *  *
+     * @description **CreateTrafficMirrorFilter** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorFilters](https://help.aliyun.com/document_detail/261353.html) operation to query the status of the task.
+     * *   If the filter is in the **Creating** state, the filter is being created.
+     * *   If the filter is in the **Created** state, the filter is created.
+     *  *
      * @param CreateTrafficMirrorFilterRequest $request CreateTrafficMirrorFilterRequest
      *
      * @return CreateTrafficMirrorFilterResponse CreateTrafficMirrorFilterResponse
@@ -7488,11 +7793,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **CreateTrafficMirrorFilterRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListTrafficMirrorFilters](~~261353~~) to query the status of the task.
-     *   *     *   If the inbound or outbound rule is in the **Creating** state, the rule is being created.
-     *   *     *   If the inbound or outbound rule is in the **Created** state, the rule is created.
-     *   * *   You cannot call **CreateTrafficMirrorFilterRules** within the specified period of time.
-     *   *
+     * @summary Creates an inbound or outbound rule for traffic mirroring.
+     *  *
+     * @description *   **CreateTrafficMirrorFilterRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListTrafficMirrorFilters](https://help.aliyun.com/document_detail/261353.html) to query the status of the task.
+     *     *   If the inbound or outbound rule is in the **Creating** state, the rule is being created.
+     *     *   If the inbound or outbound rule is in the **Created** state, the rule is created.
+     * *   You cannot call **CreateTrafficMirrorFilterRules** within the specified period of time.
+     *  *
      * @param CreateTrafficMirrorFilterRulesRequest $request CreateTrafficMirrorFilterRulesRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
@@ -7551,11 +7858,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **CreateTrafficMirrorFilterRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListTrafficMirrorFilters](~~261353~~) to query the status of the task.
-     *   *     *   If the inbound or outbound rule is in the **Creating** state, the rule is being created.
-     *   *     *   If the inbound or outbound rule is in the **Created** state, the rule is created.
-     *   * *   You cannot call **CreateTrafficMirrorFilterRules** within the specified period of time.
-     *   *
+     * @summary Creates an inbound or outbound rule for traffic mirroring.
+     *  *
+     * @description *   **CreateTrafficMirrorFilterRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListTrafficMirrorFilters](https://help.aliyun.com/document_detail/261353.html) to query the status of the task.
+     *     *   If the inbound or outbound rule is in the **Creating** state, the rule is being created.
+     *     *   If the inbound or outbound rule is in the **Created** state, the rule is created.
+     * *   You cannot call **CreateTrafficMirrorFilterRules** within the specified period of time.
+     *  *
      * @param CreateTrafficMirrorFilterRulesRequest $request CreateTrafficMirrorFilterRulesRequest
      *
      * @return CreateTrafficMirrorFilterRulesResponse CreateTrafficMirrorFilterRulesResponse
@@ -7568,10 +7877,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * **CreateTrafficMirrorSession** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListTrafficMirrorSessions](~~261367~~) to query the status of the task.
-     *   * *   If the traffic mirror session is in the **Creating** state, it is being created.
-     *   * *   If the traffic mirror session is in the **Created** state, it is created.
-     *   *
+     * @summary Creates a traffic mirror session.
+     *  *
+     * @description **CreateTrafficMirrorSession** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListTrafficMirrorSessions](https://help.aliyun.com/document_detail/261367.html) to query the status of the task.
+     * *   If the traffic mirror session is in the **Creating** state, it is being created.
+     * *   If the traffic mirror session is in the **Created** state, it is created.
+     *  *
      * @param CreateTrafficMirrorSessionRequest $request CreateTrafficMirrorSessionRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -7657,10 +7968,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * **CreateTrafficMirrorSession** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListTrafficMirrorSessions](~~261367~~) to query the status of the task.
-     *   * *   If the traffic mirror session is in the **Creating** state, it is being created.
-     *   * *   If the traffic mirror session is in the **Created** state, it is created.
-     *   *
+     * @summary Creates a traffic mirror session.
+     *  *
+     * @description **CreateTrafficMirrorSession** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListTrafficMirrorSessions](https://help.aliyun.com/document_detail/261367.html) to query the status of the task.
+     * *   If the traffic mirror session is in the **Creating** state, it is being created.
+     * *   If the traffic mirror session is in the **Created** state, it is created.
+     *  *
      * @param CreateTrafficMirrorSessionRequest $request CreateTrafficMirrorSessionRequest
      *
      * @return CreateTrafficMirrorSessionResponse CreateTrafficMirrorSessionResponse
@@ -7673,18 +7986,20 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following limits:
-     *   * *   You can create at most 150 vSwitches in a virtual private cloud (VPC).
-     *   * *   The first IP address and last three IP addresses of each vSwitch CIDR block are reserved. For example, if the CIDR block of a vSwitch is 192.168.1.0/24, the IP addresses 192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255 are reserved.
-     *   * *   The number of instances in a vSwitch cannot exceed the remaining capacity of the VPC. The remaining capacity is the difference between 15,000 and the current number of instances.
-     *   * *   Each instance can belong to only one vSwitch.
-     *   * *   vSwitches do not support multicast or broadcast.
-     *   * *   After you create a vSwitch, you cannot modify its CIDR block.
-     *   * *   **CreateVSwitch** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVSwitchAttributes](~~94567~~) to query the status of the task.
-     *   *     *   If the vSwitch is in the **Pending** state, the vSwitch is being configured.
-     *   *     *   If the vSwitch is in the **Available** state, the vSwitch is available.
-     *   * *   You cannot repeatedly call the **CreateVSwitch** operation to create a vSwitch in a VPC within the specified period of time.
-     *   *
+     * @summary 创建交换机。
+     *  *
+     * @description When you call this operation, take note of the following limits:
+     * *   You can create at most 150 vSwitches in a virtual private cloud (VPC).
+     * *   The first IP address and last three IP addresses of each vSwitch CIDR block are reserved. For example, if the CIDR block of a vSwitch is 192.168.1.0/24, the IP addresses 192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255 are reserved.
+     * *   The number of instances in a vSwitch cannot exceed the remaining capacity of the VPC. The remaining capacity is the difference between 15,000 and the current number of instances.
+     * *   Each instance can belong to only one vSwitch.
+     * *   vSwitches do not support multicast or broadcast.
+     * *   After you create a vSwitch, you cannot modify its CIDR block.
+     * *   **CreateVSwitch** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) to query the status of the task.
+     *     *   If the vSwitch is in the **Pending** state, the vSwitch is being configured.
+     *     *   If the vSwitch is in the **Available** state, the vSwitch is available.
+     * *   You cannot repeatedly call the **CreateVSwitch** operation to create a vSwitch in a VPC within the specified period of time.
+     *  *
      * @param CreateVSwitchRequest $request CreateVSwitchRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -7755,18 +8070,20 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following limits:
-     *   * *   You can create at most 150 vSwitches in a virtual private cloud (VPC).
-     *   * *   The first IP address and last three IP addresses of each vSwitch CIDR block are reserved. For example, if the CIDR block of a vSwitch is 192.168.1.0/24, the IP addresses 192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255 are reserved.
-     *   * *   The number of instances in a vSwitch cannot exceed the remaining capacity of the VPC. The remaining capacity is the difference between 15,000 and the current number of instances.
-     *   * *   Each instance can belong to only one vSwitch.
-     *   * *   vSwitches do not support multicast or broadcast.
-     *   * *   After you create a vSwitch, you cannot modify its CIDR block.
-     *   * *   **CreateVSwitch** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVSwitchAttributes](~~94567~~) to query the status of the task.
-     *   *     *   If the vSwitch is in the **Pending** state, the vSwitch is being configured.
-     *   *     *   If the vSwitch is in the **Available** state, the vSwitch is available.
-     *   * *   You cannot repeatedly call the **CreateVSwitch** operation to create a vSwitch in a VPC within the specified period of time.
-     *   *
+     * @summary 创建交换机。
+     *  *
+     * @description When you call this operation, take note of the following limits:
+     * *   You can create at most 150 vSwitches in a virtual private cloud (VPC).
+     * *   The first IP address and last three IP addresses of each vSwitch CIDR block are reserved. For example, if the CIDR block of a vSwitch is 192.168.1.0/24, the IP addresses 192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255 are reserved.
+     * *   The number of instances in a vSwitch cannot exceed the remaining capacity of the VPC. The remaining capacity is the difference between 15,000 and the current number of instances.
+     * *   Each instance can belong to only one vSwitch.
+     * *   vSwitches do not support multicast or broadcast.
+     * *   After you create a vSwitch, you cannot modify its CIDR block.
+     * *   **CreateVSwitch** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) to query the status of the task.
+     *     *   If the vSwitch is in the **Pending** state, the vSwitch is being configured.
+     *     *   If the vSwitch is in the **Available** state, the vSwitch is available.
+     * *   You cannot repeatedly call the **CreateVSwitch** operation to create a vSwitch in a VPC within the specified period of time.
+     *  *
      * @param CreateVSwitchRequest $request CreateVSwitchRequest
      *
      * @return CreateVSwitchResponse CreateVSwitchResponse
@@ -7779,16 +8096,18 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)Description
-     *   * Take note of the following items:
-     *   * *   You can create at most 10 reserved IPv4 CIDR blocks and 10 reserved IPv6 CIDR blocks for each vSwitch in a virtual private cloud (VPC).
-     *   * *   After you create a reserved CIDR block for a vSwitch, the CIDR block cannot contain the IP address of the subnet gateway of the VPC to which the vSwitch belongs.
-     *   * *   **CreateVSwitchCidrReservation** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListVSwitchCidrReservations](~~610155~~) to query the status of the task:
-     *   *     *   If the vSwitch is in the **Assigning** state, the reserved CIDR block is being created.
-     *   *     *   If the vSwitch is in the **Assigned** state, the reserved CIDR block is created.
-     *   * *   When you create a reserved IPv4 CIDR block for a vSwitch, the first IP address and the last three IP addresses of the vSwitch are reserved by the system. The four IP addresses will not be allocated.
-     *   * *   When you create a reserved IPv6 CIDR block for a vSwitch, the first IP address and the last nine IP addresses of the vSwitch are reserved by the system. The 10 IP addresses will not be allocated. For example, if you create a reserved IPv4 CIDR block for a vSwitch whose CIDR block is 192.168.1.0/24, the reserved CIDR block cannot contain the following IP addresses: 192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255.
-     *   *
+     * @summary Creates a reserved CIDR block for a vSwitch.
+     *  *
+     * @description ## [](#)Description
+     * Take note of the following items:
+     * *   You can create at most 10 reserved IPv4 CIDR blocks and 10 reserved IPv6 CIDR blocks for each vSwitch in a virtual private cloud (VPC).
+     * *   After you create a reserved CIDR block for a vSwitch, the CIDR block cannot contain the IP address of the subnet gateway of the VPC to which the vSwitch belongs.
+     * *   **CreateVSwitchCidrReservation** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListVSwitchCidrReservations](https://help.aliyun.com/document_detail/610155.html) to query the status of the task:
+     *     *   If the vSwitch is in the **Assigning** state, the reserved CIDR block is being created.
+     *     *   If the vSwitch is in the **Assigned** state, the reserved CIDR block is created.
+     * *   When you create a reserved IPv4 CIDR block for a vSwitch, the first IP address and the last three IP addresses of the vSwitch are reserved by the system. The four IP addresses will not be allocated.
+     * *   When you create a reserved IPv6 CIDR block for a vSwitch, the first IP address and the last nine IP addresses of the vSwitch are reserved by the system. The 10 IP addresses will not be allocated. For example, if you create a reserved IPv4 CIDR block for a vSwitch whose CIDR block is 192.168.1.0/24, the reserved CIDR block cannot contain the following IP addresses: 192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255.
+     *  *
      * @param CreateVSwitchCidrReservationRequest $request CreateVSwitchCidrReservationRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -7862,16 +8181,18 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)Description
-     *   * Take note of the following items:
-     *   * *   You can create at most 10 reserved IPv4 CIDR blocks and 10 reserved IPv6 CIDR blocks for each vSwitch in a virtual private cloud (VPC).
-     *   * *   After you create a reserved CIDR block for a vSwitch, the CIDR block cannot contain the IP address of the subnet gateway of the VPC to which the vSwitch belongs.
-     *   * *   **CreateVSwitchCidrReservation** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListVSwitchCidrReservations](~~610155~~) to query the status of the task:
-     *   *     *   If the vSwitch is in the **Assigning** state, the reserved CIDR block is being created.
-     *   *     *   If the vSwitch is in the **Assigned** state, the reserved CIDR block is created.
-     *   * *   When you create a reserved IPv4 CIDR block for a vSwitch, the first IP address and the last three IP addresses of the vSwitch are reserved by the system. The four IP addresses will not be allocated.
-     *   * *   When you create a reserved IPv6 CIDR block for a vSwitch, the first IP address and the last nine IP addresses of the vSwitch are reserved by the system. The 10 IP addresses will not be allocated. For example, if you create a reserved IPv4 CIDR block for a vSwitch whose CIDR block is 192.168.1.0/24, the reserved CIDR block cannot contain the following IP addresses: 192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255.
-     *   *
+     * @summary Creates a reserved CIDR block for a vSwitch.
+     *  *
+     * @description ## [](#)Description
+     * Take note of the following items:
+     * *   You can create at most 10 reserved IPv4 CIDR blocks and 10 reserved IPv6 CIDR blocks for each vSwitch in a virtual private cloud (VPC).
+     * *   After you create a reserved CIDR block for a vSwitch, the CIDR block cannot contain the IP address of the subnet gateway of the VPC to which the vSwitch belongs.
+     * *   **CreateVSwitchCidrReservation** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListVSwitchCidrReservations](https://help.aliyun.com/document_detail/610155.html) to query the status of the task:
+     *     *   If the vSwitch is in the **Assigning** state, the reserved CIDR block is being created.
+     *     *   If the vSwitch is in the **Assigned** state, the reserved CIDR block is created.
+     * *   When you create a reserved IPv4 CIDR block for a vSwitch, the first IP address and the last three IP addresses of the vSwitch are reserved by the system. The four IP addresses will not be allocated.
+     * *   When you create a reserved IPv6 CIDR block for a vSwitch, the first IP address and the last nine IP addresses of the vSwitch are reserved by the system. The 10 IP addresses will not be allocated. For example, if you create a reserved IPv4 CIDR block for a vSwitch whose CIDR block is 192.168.1.0/24, the reserved CIDR block cannot contain the following IP addresses: 192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255.
+     *  *
      * @param CreateVSwitchCidrReservationRequest $request CreateVSwitchCidrReservationRequest
      *
      * @return CreateVSwitchCidrReservationResponse CreateVSwitchCidrReservationResponse
@@ -7884,10 +8205,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param CreateVbrHaRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Creates a virtual border router (VBR) failover group.
+     *  *
+     * @param CreateVbrHaRequest $request CreateVbrHaRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateVbrHaResponse
+     * @return CreateVbrHaResponse CreateVbrHaResponse
      */
     public function createVbrHaWithOptions($request, $runtime)
     {
@@ -7945,9 +8268,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param CreateVbrHaRequest $request
+     * @summary Creates a virtual border router (VBR) failover group.
+     *  *
+     * @param CreateVbrHaRequest $request CreateVbrHaRequest
      *
-     * @return CreateVbrHaResponse
+     * @return CreateVbrHaResponse CreateVbrHaResponse
      */
     public function createVbrHa($request)
     {
@@ -7957,14 +8282,16 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   The IPsec-VPN connection must be associated with a transit router. For more information, see [CreateTransitRouterVpnAttachment](~~468249~~).
-     *   * *   You cannot create a destination-based route whose destination CIDR block is 0.0.0.0/0.
-     *   * *   Do not add a destination-based route whose destination CIDR block is 100.64.0.0/10, or a CIDR block that contains 100.64.0.0/10 or belongs to 100.64.0.0/10. Such a route will make the console fail to display the status of the IPsec-VPN connection or cause IPsec negotiation failures.
-     *   * *   **CreateVcoRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnConnection](~~53046~~) to query the status of the task.
-     *   *     *   If the IPsec-VPN connection is in the **updating** state, the destination-based route is being created.
-     *   *     *   If the IPsec-VPN connection is in the **attached** state, the destination-based route is created.
-     *   * *   You cannot repeatedly call **CreateVcoRouteEntry** within the specified period of time.
-     *   *
+     * @summary Adds a destination-based route for an IPsec-VPN connection.
+     *  *
+     * @description *   The IPsec-VPN connection must be associated with a transit router. For more information, see [CreateTransitRouterVpnAttachment](https://help.aliyun.com/document_detail/468249.html).
+     * *   You cannot create a destination-based route whose destination CIDR block is 0.0.0.0/0.
+     * *   Do not add a destination-based route whose destination CIDR block is 100.64.0.0/10, or a CIDR block that contains 100.64.0.0/10 or belongs to 100.64.0.0/10. Such a route will make the console fail to display the status of the IPsec-VPN connection or cause IPsec negotiation failures.
+     * *   **CreateVcoRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnConnection](https://help.aliyun.com/document_detail/53046.html) to query the status of the task.
+     *     *   If the IPsec-VPN connection is in the **updating** state, the destination-based route is being created.
+     *     *   If the IPsec-VPN connection is in the **attached** state, the destination-based route is created.
+     * *   You cannot repeatedly call **CreateVcoRouteEntry** within the specified period of time.
+     *  *
      * @param CreateVcoRouteEntryRequest $request CreateVcoRouteEntryRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -8026,14 +8353,16 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   The IPsec-VPN connection must be associated with a transit router. For more information, see [CreateTransitRouterVpnAttachment](~~468249~~).
-     *   * *   You cannot create a destination-based route whose destination CIDR block is 0.0.0.0/0.
-     *   * *   Do not add a destination-based route whose destination CIDR block is 100.64.0.0/10, or a CIDR block that contains 100.64.0.0/10 or belongs to 100.64.0.0/10. Such a route will make the console fail to display the status of the IPsec-VPN connection or cause IPsec negotiation failures.
-     *   * *   **CreateVcoRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnConnection](~~53046~~) to query the status of the task.
-     *   *     *   If the IPsec-VPN connection is in the **updating** state, the destination-based route is being created.
-     *   *     *   If the IPsec-VPN connection is in the **attached** state, the destination-based route is created.
-     *   * *   You cannot repeatedly call **CreateVcoRouteEntry** within the specified period of time.
-     *   *
+     * @summary Adds a destination-based route for an IPsec-VPN connection.
+     *  *
+     * @description *   The IPsec-VPN connection must be associated with a transit router. For more information, see [CreateTransitRouterVpnAttachment](https://help.aliyun.com/document_detail/468249.html).
+     * *   You cannot create a destination-based route whose destination CIDR block is 0.0.0.0/0.
+     * *   Do not add a destination-based route whose destination CIDR block is 100.64.0.0/10, or a CIDR block that contains 100.64.0.0/10 or belongs to 100.64.0.0/10. Such a route will make the console fail to display the status of the IPsec-VPN connection or cause IPsec negotiation failures.
+     * *   **CreateVcoRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnConnection](https://help.aliyun.com/document_detail/53046.html) to query the status of the task.
+     *     *   If the IPsec-VPN connection is in the **updating** state, the destination-based route is being created.
+     *     *   If the IPsec-VPN connection is in the **attached** state, the destination-based route is created.
+     * *   You cannot repeatedly call **CreateVcoRouteEntry** within the specified period of time.
+     *  *
      * @param CreateVcoRouteEntryRequest $request CreateVcoRouteEntryRequest
      *
      * @return CreateVcoRouteEntryResponse CreateVcoRouteEntryResponse
@@ -8046,8 +8375,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * After you create a VBR, the VBR is in the **active** state.
-     *   *
+     * @summary Creates a virtual border router (VBR).
+     *  *
+     * @description After you create a VBR, the VBR is in the **active** state.
+     *  *
      * @param CreateVirtualBorderRouterRequest $request CreateVirtualBorderRouterRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -8142,8 +8473,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * After you create a VBR, the VBR is in the **active** state.
-     *   *
+     * @summary Creates a virtual border router (VBR).
+     *  *
+     * @description After you create a VBR, the VBR is in the **active** state.
+     *  *
      * @param CreateVirtualBorderRouterRequest $request CreateVirtualBorderRouterRequest
      *
      * @return CreateVirtualBorderRouterResponse CreateVirtualBorderRouterResponse
@@ -8156,9 +8489,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * # [](#)Description
-     *   * Before you call this operation, we recommend that you learn about the workflow for creating a hosted connection and the environment requirements. For more information, see [Overview of hosted connections](~~146571~~) and [Operations performed by Express Connect partners](~~155987~~).
-     *   *
+     * @summary Creates a hosted connection over Express Connect circuit.
+     *  *
+     * @description # [](#)Description
+     * Before you call this operation, we recommend that you learn about the workflow for creating a hosted connection and the environment requirements. For more information, see [Overview of hosted connections](https://help.aliyun.com/document_detail/146571.html) and [Operations performed by Express Connect partners](https://help.aliyun.com/document_detail/155987.html).
+     *  *
      * @param CreateVirtualPhysicalConnectionRequest $request CreateVirtualPhysicalConnectionRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
@@ -8223,9 +8558,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * # [](#)Description
-     *   * Before you call this operation, we recommend that you learn about the workflow for creating a hosted connection and the environment requirements. For more information, see [Overview of hosted connections](~~146571~~) and [Operations performed by Express Connect partners](~~155987~~).
-     *   *
+     * @summary Creates a hosted connection over Express Connect circuit.
+     *  *
+     * @description # [](#)Description
+     * Before you call this operation, we recommend that you learn about the workflow for creating a hosted connection and the environment requirements. For more information, see [Overview of hosted connections](https://help.aliyun.com/document_detail/146571.html) and [Operations performed by Express Connect partners](https://help.aliyun.com/document_detail/155987.html).
+     *  *
      * @param CreateVirtualPhysicalConnectionRequest $request CreateVirtualPhysicalConnectionRequest
      *
      * @return CreateVirtualPhysicalConnectionResponse CreateVirtualPhysicalConnectionResponse
@@ -8238,17 +8575,19 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following items:
-     *   * *   You can specify only one CIDR block for each VPC.
-     *   * *   After you create a VPC, you cannot change its CIDR block. However, you can add secondary IPv4 CIDR blocks to the VPC.
-     *   * *   In each VPC, cloud services can use a maximum of 60,000 private IP addresses. You cannot increase the quota.
-     *   * *   After you create a VPC, a vRouter and a route table are automatically created.
-     *   * *   At most three user CIDR blocks can be added to a VPC. If a user CIDR block includes another user CIDR block, the one with the shorter subnet mask takes effect. For example, if both 10.0.0.0/8 and 10.1.0.0/16 are specified, only 10.0.0.0/8 takes effect.
-     *   * *   **CreateVpc** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpcAttribute](~~94565~~) operation to query the status of the task:
-     *   *     *   If the VPC is in the **Creating** state, the VPC is being created.
-     *   *     *   If the VPC is in the **Created** state, the VPC is created.
-     *   * *   You cannot repeatedly call the **DeleteRouteEntry** operation to create default VPCs within a specific time period. However, you can repeatedly call this operation to create custom VPCs within a specific time period.
-     *   *
+     * @summary Creates a virtual private cloud (VPC).
+     *  *
+     * @description When you call this operation, take note of the following items:
+     * *   You can specify only one CIDR block for each VPC.
+     * *   After you create a VPC, you cannot change its CIDR block. However, you can add secondary IPv4 CIDR blocks to the VPC.
+     * *   In each VPC, cloud services can use a maximum of 60,000 private IP addresses. You cannot increase the quota.
+     * *   After you create a VPC, a vRouter and a route table are automatically created.
+     * *   At most three user CIDR blocks can be added to a VPC. If a user CIDR block includes another user CIDR block, the one with the shorter subnet mask takes effect. For example, if both 10.0.0.0/8 and 10.1.0.0/16 are specified, only 10.0.0.0/8 takes effect.
+     * *   **CreateVpc** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of the task:
+     *     *   If the VPC is in the **Creating** state, the VPC is being created.
+     *     *   If the VPC is in the **Created** state, the VPC is created.
+     * *   You cannot repeatedly call the **DeleteRouteEntry** operation to create default VPCs within a specific time period. However, you can repeatedly call this operation to create custom VPCs within a specific time period.
+     *  *
      * @param CreateVpcRequest $request CreateVpcRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
@@ -8331,17 +8670,19 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following items:
-     *   * *   You can specify only one CIDR block for each VPC.
-     *   * *   After you create a VPC, you cannot change its CIDR block. However, you can add secondary IPv4 CIDR blocks to the VPC.
-     *   * *   In each VPC, cloud services can use a maximum of 60,000 private IP addresses. You cannot increase the quota.
-     *   * *   After you create a VPC, a vRouter and a route table are automatically created.
-     *   * *   At most three user CIDR blocks can be added to a VPC. If a user CIDR block includes another user CIDR block, the one with the shorter subnet mask takes effect. For example, if both 10.0.0.0/8 and 10.1.0.0/16 are specified, only 10.0.0.0/8 takes effect.
-     *   * *   **CreateVpc** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpcAttribute](~~94565~~) operation to query the status of the task:
-     *   *     *   If the VPC is in the **Creating** state, the VPC is being created.
-     *   *     *   If the VPC is in the **Created** state, the VPC is created.
-     *   * *   You cannot repeatedly call the **DeleteRouteEntry** operation to create default VPCs within a specific time period. However, you can repeatedly call this operation to create custom VPCs within a specific time period.
-     *   *
+     * @summary Creates a virtual private cloud (VPC).
+     *  *
+     * @description When you call this operation, take note of the following items:
+     * *   You can specify only one CIDR block for each VPC.
+     * *   After you create a VPC, you cannot change its CIDR block. However, you can add secondary IPv4 CIDR blocks to the VPC.
+     * *   In each VPC, cloud services can use a maximum of 60,000 private IP addresses. You cannot increase the quota.
+     * *   After you create a VPC, a vRouter and a route table are automatically created.
+     * *   At most three user CIDR blocks can be added to a VPC. If a user CIDR block includes another user CIDR block, the one with the shorter subnet mask takes effect. For example, if both 10.0.0.0/8 and 10.1.0.0/16 are specified, only 10.0.0.0/8 takes effect.
+     * *   **CreateVpc** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of the task:
+     *     *   If the VPC is in the **Creating** state, the VPC is being created.
+     *     *   If the VPC is in the **Created** state, the VPC is created.
+     * *   You cannot repeatedly call the **DeleteRouteEntry** operation to create default VPCs within a specific time period. However, you can repeatedly call this operation to create custom VPCs within a specific time period.
+     *  *
      * @param CreateVpcRequest $request CreateVpcRequest
      *
      * @return CreateVpcResponse CreateVpcResponse
@@ -8354,11 +8695,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **CreateVpcGatewayEndpoint** is an asynchronous operation. After a request is sent, the system returns an **EndpointId** and runs the task in the background. You can call the [ListVpcGatewayEndpoints](~~448682~~) operation to query the status of the task.
-     *   *     *   If the gateway endpoint is in the **Creating** state, the gateway endpoint is being created.
-     *   *     *   If the gateway endpoint is in the **Created** state, the gateway endpoint is created.
-     *   * *   You cannot repeatedly call the **CreateVpcGatewayEndpoint** operation for the same endpoint service within the specified period of time.
-     *   *
+     * @summary Creates a gateway endpoint.
+     *  *
+     * @description *   **CreateVpcGatewayEndpoint** is an asynchronous operation. After a request is sent, the system returns an **EndpointId** and runs the task in the background. You can call the [ListVpcGatewayEndpoints](https://help.aliyun.com/document_detail/448682.html) operation to query the status of the task.
+     *     *   If the gateway endpoint is in the **Creating** state, the gateway endpoint is being created.
+     *     *   If the gateway endpoint is in the **Created** state, the gateway endpoint is created.
+     * *   You cannot repeatedly call the **CreateVpcGatewayEndpoint** operation for the same endpoint service within the specified period of time.
+     *  *
      * @param CreateVpcGatewayEndpointRequest $request CreateVpcGatewayEndpointRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -8429,11 +8772,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **CreateVpcGatewayEndpoint** is an asynchronous operation. After a request is sent, the system returns an **EndpointId** and runs the task in the background. You can call the [ListVpcGatewayEndpoints](~~448682~~) operation to query the status of the task.
-     *   *     *   If the gateway endpoint is in the **Creating** state, the gateway endpoint is being created.
-     *   *     *   If the gateway endpoint is in the **Created** state, the gateway endpoint is created.
-     *   * *   You cannot repeatedly call the **CreateVpcGatewayEndpoint** operation for the same endpoint service within the specified period of time.
-     *   *
+     * @summary Creates a gateway endpoint.
+     *  *
+     * @description *   **CreateVpcGatewayEndpoint** is an asynchronous operation. After a request is sent, the system returns an **EndpointId** and runs the task in the background. You can call the [ListVpcGatewayEndpoints](https://help.aliyun.com/document_detail/448682.html) operation to query the status of the task.
+     *     *   If the gateway endpoint is in the **Creating** state, the gateway endpoint is being created.
+     *     *   If the gateway endpoint is in the **Created** state, the gateway endpoint is created.
+     * *   You cannot repeatedly call the **CreateVpcGatewayEndpoint** operation for the same endpoint service within the specified period of time.
+     *  *
      * @param CreateVpcGatewayEndpointRequest $request CreateVpcGatewayEndpointRequest
      *
      * @return CreateVpcGatewayEndpointResponse CreateVpcGatewayEndpointResponse
@@ -8446,8 +8791,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You cannot repeatedly call the **CreateVpcPrefixList** operation within the specified period of time.
-     *   *
+     * @summary Creates a prefix list.
+     *  *
+     * @description You cannot repeatedly call the **CreateVpcPrefixList** operation within the specified period of time.
+     *  *
      * @param CreateVpcPrefixListRequest $request CreateVpcPrefixListRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -8518,8 +8865,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You cannot repeatedly call the **CreateVpcPrefixList** operation within the specified period of time.
-     *   *
+     * @summary Creates a prefix list.
+     *  *
+     * @description You cannot repeatedly call the **CreateVpcPrefixList** operation within the specified period of time.
+     *  *
      * @param CreateVpcPrefixListRequest $request CreateVpcPrefixListRequest
      *
      * @return CreateVpcPrefixListResponse CreateVpcPrefixListResponse
@@ -8532,13 +8881,15 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * If an Express Connect partner has created a virtual border router (VBR) for a tenant before, the Express Connect partner can push the Express Connect circuit that is associated with the VBR to the tenant account by adding a shared port for the tenant account. The service of the tenant is not interrupted in this process.
-     *   * Preparations:
-     *   * Before the Express Connect partner performs the operation, the Express Connect partner must notify the tenant and request the tenant to enable outbound data transfer billing. For more information, see [Enable outbound data transfer billing](~~274385~~).
-     *   * What to do next:
-     *   * 1.  After the Express Connect partner performs the operation, a shared port is added for the tenant account. The tenant must call the [ConfirmPhysicalConnection](~~324198~~) operation to accept the shared port.
-     *   * 2.  Then, the Express Connect partner must call the [AttachVbrToVpconn](~~324191~~) operation to associate the VBR with the newly added shared port that belongs to the tenant account.
-     *   *
+     * @summary Adds a shared port to a hosted connection.
+     *  *
+     * @description If an Express Connect partner has created a virtual border router (VBR) for a tenant before, the Express Connect partner can push the Express Connect circuit that is associated with the VBR to the tenant account by adding a shared port for the tenant account. The service of the tenant is not interrupted in this process.
+     * Preparations:
+     * Before the Express Connect partner performs the operation, the Express Connect partner must notify the tenant and request the tenant to enable outbound data transfer billing. For more information, see [Enable outbound data transfer billing](https://help.aliyun.com/document_detail/274385.html).
+     * What to do next:
+     * 1.  After the Express Connect partner performs the operation, a shared port is added for the tenant account. The tenant must call the [ConfirmPhysicalConnection](https://help.aliyun.com/document_detail/324198.html) operation to accept the shared port.
+     * 2.  Then, the Express Connect partner must call the [AttachVbrToVpconn](https://help.aliyun.com/document_detail/324191.html) operation to associate the VBR with the newly added shared port that belongs to the tenant account.
+     *  *
      * @param CreateVpconnFromVbrRequest $request CreateVpconnFromVbrRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -8582,13 +8933,15 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * If an Express Connect partner has created a virtual border router (VBR) for a tenant before, the Express Connect partner can push the Express Connect circuit that is associated with the VBR to the tenant account by adding a shared port for the tenant account. The service of the tenant is not interrupted in this process.
-     *   * Preparations:
-     *   * Before the Express Connect partner performs the operation, the Express Connect partner must notify the tenant and request the tenant to enable outbound data transfer billing. For more information, see [Enable outbound data transfer billing](~~274385~~).
-     *   * What to do next:
-     *   * 1.  After the Express Connect partner performs the operation, a shared port is added for the tenant account. The tenant must call the [ConfirmPhysicalConnection](~~324198~~) operation to accept the shared port.
-     *   * 2.  Then, the Express Connect partner must call the [AttachVbrToVpconn](~~324191~~) operation to associate the VBR with the newly added shared port that belongs to the tenant account.
-     *   *
+     * @summary Adds a shared port to a hosted connection.
+     *  *
+     * @description If an Express Connect partner has created a virtual border router (VBR) for a tenant before, the Express Connect partner can push the Express Connect circuit that is associated with the VBR to the tenant account by adding a shared port for the tenant account. The service of the tenant is not interrupted in this process.
+     * Preparations:
+     * Before the Express Connect partner performs the operation, the Express Connect partner must notify the tenant and request the tenant to enable outbound data transfer billing. For more information, see [Enable outbound data transfer billing](https://help.aliyun.com/document_detail/274385.html).
+     * What to do next:
+     * 1.  After the Express Connect partner performs the operation, a shared port is added for the tenant account. The tenant must call the [ConfirmPhysicalConnection](https://help.aliyun.com/document_detail/324198.html) operation to accept the shared port.
+     * 2.  Then, the Express Connect partner must call the [AttachVbrToVpconn](https://help.aliyun.com/document_detail/324191.html) operation to associate the VBR with the newly added shared port that belongs to the tenant account.
+     *  *
      * @param CreateVpconnFromVbrRequest $request CreateVpconnFromVbrRequest
      *
      * @return CreateVpconnFromVbrResponse CreateVpconnFromVbrResponse
@@ -8601,11 +8954,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * By default, an IPsec-VPN connection created by calling the `CreateVpnAttachment` operation is not associated with a resource. You can associate an IPsec-VPN connection with a transit router by calling the [CreateTransitRouterVpnAttachment](~~443993~~) operation.
-     *   * ### [](#)Prerequisites
-     *   * Before you create an IPsec-VPN connection, make sure that you created a customer gateway in the region where you want to create the IPsec-VPN connection. For more information, see [CreateCustomerGateway](~~120368~~).
-     *   * If you want to add BGP configurations to an IPsec-VPN connection, make sure that an autonomous system number (ASN) is assigned to the customer gateway.
-     *   *
+     * @summary Creates an IPsec-VPN connection. After you create the IPsec-VPN connection, you can associate the IPsec-VPN connection with a transit router.
+     *  *
+     * @description By default, an IPsec-VPN connection created by calling the `CreateVpnAttachment` operation is not associated with a resource. You can associate an IPsec-VPN connection with a transit router by calling the [CreateTransitRouterVpnAttachment](https://help.aliyun.com/document_detail/443993.html) operation.
+     * ### [](#)Prerequisites
+     * Before you create an IPsec-VPN connection, make sure that you created a customer gateway in the region where you want to create the IPsec-VPN connection. For more information, see [CreateCustomerGateway](https://help.aliyun.com/document_detail/120368.html).
+     * If you want to add BGP configurations to an IPsec-VPN connection, make sure that an autonomous system number (ASN) is assigned to the customer gateway.
+     *  *
      * @param CreateVpnAttachmentRequest $request CreateVpnAttachmentRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -8697,11 +9052,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * By default, an IPsec-VPN connection created by calling the `CreateVpnAttachment` operation is not associated with a resource. You can associate an IPsec-VPN connection with a transit router by calling the [CreateTransitRouterVpnAttachment](~~443993~~) operation.
-     *   * ### [](#)Prerequisites
-     *   * Before you create an IPsec-VPN connection, make sure that you created a customer gateway in the region where you want to create the IPsec-VPN connection. For more information, see [CreateCustomerGateway](~~120368~~).
-     *   * If you want to add BGP configurations to an IPsec-VPN connection, make sure that an autonomous system number (ASN) is assigned to the customer gateway.
-     *   *
+     * @summary Creates an IPsec-VPN connection. After you create the IPsec-VPN connection, you can associate the IPsec-VPN connection with a transit router.
+     *  *
+     * @description By default, an IPsec-VPN connection created by calling the `CreateVpnAttachment` operation is not associated with a resource. You can associate an IPsec-VPN connection with a transit router by calling the [CreateTransitRouterVpnAttachment](https://help.aliyun.com/document_detail/443993.html) operation.
+     * ### [](#)Prerequisites
+     * Before you create an IPsec-VPN connection, make sure that you created a customer gateway in the region where you want to create the IPsec-VPN connection. For more information, see [CreateCustomerGateway](https://help.aliyun.com/document_detail/120368.html).
+     * If you want to add BGP configurations to an IPsec-VPN connection, make sure that an autonomous system number (ASN) is assigned to the customer gateway.
+     *  *
      * @param CreateVpnAttachmentRequest $request CreateVpnAttachmentRequest
      *
      * @return CreateVpnAttachmentResponse CreateVpnAttachmentResponse
@@ -8714,16 +9071,18 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   If the VPN gateway supports the dual-tunnel mode, you can specify the following parameters in addition to the required parameters when you call `CreateVpnConnection`:
-     *   *     **ClientToken**, **Name**, **EffectImmediately**, **AutoConfigRoute**, **Tags** array, **TunnelOptionsSpecification** array, and **EnableTunnelsBgp**.
-     *   *     For more information about the regions and zones that support the dual-tunnel mode, see [IPsec-VPN connections support the dual-tunnel mode](~~2358946~~).
-     *   * *   If the VPN gateway supports only the dual-tunnel mode, you can specify the following parameters in addition to the required parameters when you call `CreateVpnConnection`:
-     *   *     **ClientToken**, **CustomerGatewayId**, **Name**, **EffectImmediately**, **IkeConfig**, **IpsecConfig**, **HealthCheckConfig**, **AutoConfigRoute**, **EnableDpd**, **EnableNatTraversal**, **BgpConfig**, **RemoteCaCertificate**, and **Tags** array.
-     *   * *   **CreateVpnConnection** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-     *   *     *   If the VPN gateway is in the **updating** state, the IPsec-VPN connection is being created.
-     *   *     *   If the VPN gateway is in the **active** state, the IPsec-VPN connection is created.
-     *   * *   You cannot call **CreateVpnConnection** to create multiple IPsec-VPN connections associated with a VPN gateway at the same time.
-     *   *
+     * @summary Creates an IPsec-VPN connection.
+     *  *
+     * @description *   If the VPN gateway supports the dual-tunnel mode, you can specify the following parameters in addition to the required parameters when you call `CreateVpnConnection`:
+     *     **ClientToken**, **Name**, **EffectImmediately**, **AutoConfigRoute**, **Tags** array, **TunnelOptionsSpecification** array, and **EnableTunnelsBgp**.
+     *     For more information about the regions and zones that support the dual-tunnel mode, see [IPsec-VPN connections support the dual-tunnel mode](https://help.aliyun.com/document_detail/2358946.html).
+     * *   If the VPN gateway supports only the dual-tunnel mode, you can specify the following parameters in addition to the required parameters when you call `CreateVpnConnection`:
+     *     **ClientToken**, **CustomerGatewayId**, **Name**, **EffectImmediately**, **IkeConfig**, **IpsecConfig**, **HealthCheckConfig**, **AutoConfigRoute**, **EnableDpd**, **EnableNatTraversal**, **BgpConfig**, **RemoteCaCertificate**, and **Tags** array.
+     * *   **CreateVpnConnection** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+     *     *   If the VPN gateway is in the **updating** state, the IPsec-VPN connection is being created.
+     *     *   If the VPN gateway is in the **active** state, the IPsec-VPN connection is created.
+     * *   You cannot call **CreateVpnConnection** to create multiple IPsec-VPN connections associated with a VPN gateway at the same time.
+     *  *
      * @param CreateVpnConnectionRequest $request CreateVpnConnectionRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -8825,16 +9184,18 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   If the VPN gateway supports the dual-tunnel mode, you can specify the following parameters in addition to the required parameters when you call `CreateVpnConnection`:
-     *   *     **ClientToken**, **Name**, **EffectImmediately**, **AutoConfigRoute**, **Tags** array, **TunnelOptionsSpecification** array, and **EnableTunnelsBgp**.
-     *   *     For more information about the regions and zones that support the dual-tunnel mode, see [IPsec-VPN connections support the dual-tunnel mode](~~2358946~~).
-     *   * *   If the VPN gateway supports only the dual-tunnel mode, you can specify the following parameters in addition to the required parameters when you call `CreateVpnConnection`:
-     *   *     **ClientToken**, **CustomerGatewayId**, **Name**, **EffectImmediately**, **IkeConfig**, **IpsecConfig**, **HealthCheckConfig**, **AutoConfigRoute**, **EnableDpd**, **EnableNatTraversal**, **BgpConfig**, **RemoteCaCertificate**, and **Tags** array.
-     *   * *   **CreateVpnConnection** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-     *   *     *   If the VPN gateway is in the **updating** state, the IPsec-VPN connection is being created.
-     *   *     *   If the VPN gateway is in the **active** state, the IPsec-VPN connection is created.
-     *   * *   You cannot call **CreateVpnConnection** to create multiple IPsec-VPN connections associated with a VPN gateway at the same time.
-     *   *
+     * @summary Creates an IPsec-VPN connection.
+     *  *
+     * @description *   If the VPN gateway supports the dual-tunnel mode, you can specify the following parameters in addition to the required parameters when you call `CreateVpnConnection`:
+     *     **ClientToken**, **Name**, **EffectImmediately**, **AutoConfigRoute**, **Tags** array, **TunnelOptionsSpecification** array, and **EnableTunnelsBgp**.
+     *     For more information about the regions and zones that support the dual-tunnel mode, see [IPsec-VPN connections support the dual-tunnel mode](https://help.aliyun.com/document_detail/2358946.html).
+     * *   If the VPN gateway supports only the dual-tunnel mode, you can specify the following parameters in addition to the required parameters when you call `CreateVpnConnection`:
+     *     **ClientToken**, **CustomerGatewayId**, **Name**, **EffectImmediately**, **IkeConfig**, **IpsecConfig**, **HealthCheckConfig**, **AutoConfigRoute**, **EnableDpd**, **EnableNatTraversal**, **BgpConfig**, **RemoteCaCertificate**, and **Tags** array.
+     * *   **CreateVpnConnection** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+     *     *   If the VPN gateway is in the **updating** state, the IPsec-VPN connection is being created.
+     *     *   If the VPN gateway is in the **active** state, the IPsec-VPN connection is created.
+     * *   You cannot call **CreateVpnConnection** to create multiple IPsec-VPN connections associated with a VPN gateway at the same time.
+     *  *
      * @param CreateVpnConnectionRequest $request CreateVpnConnectionRequest
      *
      * @return CreateVpnConnectionResponse CreateVpnConnectionResponse
@@ -8847,12 +9208,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   Before you create a VPN gateway, we recommend that you know more about the limits of VPN gateways. For more information, see the [Limits](~~65290~~) section in the "Create and manage a VPN gateway" topic.
-     *   * *   VPN gateways in some regions support only IPsec-VPN connections in dual-tunnel mode. If you call `CreateVpnGateway` in these regions, you must specify **VSwitchId** and **DisasterRecoveryVSwitchId** in addition to the required parameters. For more information about the regions and zones that support the IPsec-VPN connections in dual-tunnel mode, see [IPsec-VPN connections support the dual-tunnel mode](~~2358946~~).
-     *   * *   **CreateVpnGateway** is an asynchronous operation. After you send a request to call this operation, the system returns a request ID and the endpoint service is being created in the backend. You can call [DescribeVpnGateway](~~73720~~) to query the status of a VPN gateway.
-     *   *     *   If the VPN gateway is in the **provisioning** state, the VPN gateway is being created.
-     *   *     *   If the VPN gateway is in the **active** state, the VPN gateway is created.
-     *   *
+     * @summary Creates a VPN gateway.
+     *  *
+     * @description *   Before you create a VPN gateway, we recommend that you know more about the limits of VPN gateways. For more information, see the [Limits](https://help.aliyun.com/document_detail/65290.html) section in the "Create and manage a VPN gateway" topic.
+     * *   VPN gateways in some regions support only IPsec-VPN connections in dual-tunnel mode. If you call `CreateVpnGateway` in these regions, you must specify **VSwitchId** and **DisasterRecoveryVSwitchId** in addition to the required parameters. For more information about the regions and zones that support the IPsec-VPN connections in dual-tunnel mode, see [IPsec-VPN connections support the dual-tunnel mode](https://help.aliyun.com/document_detail/2358946.html).
+     * *   **CreateVpnGateway** is an asynchronous operation. After you send a request to call this operation, the system returns a request ID and the endpoint service is being created in the backend. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of a VPN gateway.
+     *     *   If the VPN gateway is in the **provisioning** state, the VPN gateway is being created.
+     *     *   If the VPN gateway is in the **active** state, the VPN gateway is created.
+     *  *
      * @param CreateVpnGatewayRequest $request CreateVpnGatewayRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -8941,12 +9304,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   Before you create a VPN gateway, we recommend that you know more about the limits of VPN gateways. For more information, see the [Limits](~~65290~~) section in the "Create and manage a VPN gateway" topic.
-     *   * *   VPN gateways in some regions support only IPsec-VPN connections in dual-tunnel mode. If you call `CreateVpnGateway` in these regions, you must specify **VSwitchId** and **DisasterRecoveryVSwitchId** in addition to the required parameters. For more information about the regions and zones that support the IPsec-VPN connections in dual-tunnel mode, see [IPsec-VPN connections support the dual-tunnel mode](~~2358946~~).
-     *   * *   **CreateVpnGateway** is an asynchronous operation. After you send a request to call this operation, the system returns a request ID and the endpoint service is being created in the backend. You can call [DescribeVpnGateway](~~73720~~) to query the status of a VPN gateway.
-     *   *     *   If the VPN gateway is in the **provisioning** state, the VPN gateway is being created.
-     *   *     *   If the VPN gateway is in the **active** state, the VPN gateway is created.
-     *   *
+     * @summary Creates a VPN gateway.
+     *  *
+     * @description *   Before you create a VPN gateway, we recommend that you know more about the limits of VPN gateways. For more information, see the [Limits](https://help.aliyun.com/document_detail/65290.html) section in the "Create and manage a VPN gateway" topic.
+     * *   VPN gateways in some regions support only IPsec-VPN connections in dual-tunnel mode. If you call `CreateVpnGateway` in these regions, you must specify **VSwitchId** and **DisasterRecoveryVSwitchId** in addition to the required parameters. For more information about the regions and zones that support the IPsec-VPN connections in dual-tunnel mode, see [IPsec-VPN connections support the dual-tunnel mode](https://help.aliyun.com/document_detail/2358946.html).
+     * *   **CreateVpnGateway** is an asynchronous operation. After you send a request to call this operation, the system returns a request ID and the endpoint service is being created in the backend. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of a VPN gateway.
+     *     *   If the VPN gateway is in the **provisioning** state, the VPN gateway is being created.
+     *     *   If the VPN gateway is in the **active** state, the VPN gateway is created.
+     *  *
      * @param CreateVpnGatewayRequest $request CreateVpnGatewayRequest
      *
      * @return CreateVpnGatewayResponse CreateVpnGatewayResponse
@@ -8959,13 +9324,15 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   Before you call this operation, make sure that you are familiar with the match rules of and limits on policy-based routes. For more information, see [Manage policy-based routes](~~110777~~).
-     *   * *   Before you create a policy-based route, make sure that an IPsec-VPN connection is created. For more information, see [CreateVpnConnection](~~120391~~).
-     *   * *   **CreateVpnPbrRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](~~73720~~) operation to query the status of the VPN gateway.
-     *   *     *   If the VPN gateway is in the **updating** state, the policy-based route is being created.
-     *   *     *   If the VPN gateway is in the **active** state, the policy-based route is created.
-     *   * *   You cannot call the **CreateVpnPbrRouteEntry** operation to create multiple policy-based routes for a VPN gateway at a time.
-     *   *
+     * @summary Creates a policy-based route for a VPN gateway.
+     *  *
+     * @description *   Before you call this operation, make sure that you are familiar with the match rules of and limits on policy-based routes. For more information, see [Manage policy-based routes](https://help.aliyun.com/document_detail/110777.html).
+     * *   Before you create a policy-based route, make sure that an IPsec-VPN connection is created. For more information, see [CreateVpnConnection](https://help.aliyun.com/document_detail/120391.html).
+     * *   **CreateVpnPbrRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status of the VPN gateway.
+     *     *   If the VPN gateway is in the **updating** state, the policy-based route is being created.
+     *     *   If the VPN gateway is in the **active** state, the policy-based route is created.
+     * *   You cannot call the **CreateVpnPbrRouteEntry** operation to create multiple policy-based routes for a VPN gateway at a time.
+     *  *
      * @param CreateVpnPbrRouteEntryRequest $request CreateVpnPbrRouteEntryRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -9039,13 +9406,15 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   Before you call this operation, make sure that you are familiar with the match rules of and limits on policy-based routes. For more information, see [Manage policy-based routes](~~110777~~).
-     *   * *   Before you create a policy-based route, make sure that an IPsec-VPN connection is created. For more information, see [CreateVpnConnection](~~120391~~).
-     *   * *   **CreateVpnPbrRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](~~73720~~) operation to query the status of the VPN gateway.
-     *   *     *   If the VPN gateway is in the **updating** state, the policy-based route is being created.
-     *   *     *   If the VPN gateway is in the **active** state, the policy-based route is created.
-     *   * *   You cannot call the **CreateVpnPbrRouteEntry** operation to create multiple policy-based routes for a VPN gateway at a time.
-     *   *
+     * @summary Creates a policy-based route for a VPN gateway.
+     *  *
+     * @description *   Before you call this operation, make sure that you are familiar with the match rules of and limits on policy-based routes. For more information, see [Manage policy-based routes](https://help.aliyun.com/document_detail/110777.html).
+     * *   Before you create a policy-based route, make sure that an IPsec-VPN connection is created. For more information, see [CreateVpnConnection](https://help.aliyun.com/document_detail/120391.html).
+     * *   **CreateVpnPbrRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status of the VPN gateway.
+     *     *   If the VPN gateway is in the **updating** state, the policy-based route is being created.
+     *     *   If the VPN gateway is in the **active** state, the policy-based route is created.
+     * *   You cannot call the **CreateVpnPbrRouteEntry** operation to create multiple policy-based routes for a VPN gateway at a time.
+     *  *
      * @param CreateVpnPbrRouteEntryRequest $request CreateVpnPbrRouteEntryRequest
      *
      * @return CreateVpnPbrRouteEntryResponse CreateVpnPbrRouteEntryResponse
@@ -9058,11 +9427,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **CreateVpnRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-     *   *     *   If a VPN gateway is in the **updating** state, the destination-based route entry is being created.
-     *   *     *   If a VPN gateway is in the **active** state, the destination-based route entry has been created.
-     *   * *   You cannot repeatedly call **CreateVpnRouteEntry** to create a destination-based route entry for a VPN gateway within the specified period of time.
-     *   *
+     * @summary Creates a destination-based route entry for a VPN gateway.
+     *  *
+     * @description *   **CreateVpnRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+     *     *   If a VPN gateway is in the **updating** state, the destination-based route entry is being created.
+     *     *   If a VPN gateway is in the **active** state, the destination-based route entry has been created.
+     * *   You cannot repeatedly call **CreateVpnRouteEntry** to create a destination-based route entry for a VPN gateway within the specified period of time.
+     *  *
      * @param CreateVpnRouteEntryRequest $request CreateVpnRouteEntryRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -9130,11 +9501,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **CreateVpnRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-     *   *     *   If a VPN gateway is in the **updating** state, the destination-based route entry is being created.
-     *   *     *   If a VPN gateway is in the **active** state, the destination-based route entry has been created.
-     *   * *   You cannot repeatedly call **CreateVpnRouteEntry** to create a destination-based route entry for a VPN gateway within the specified period of time.
-     *   *
+     * @summary Creates a destination-based route entry for a VPN gateway.
+     *  *
+     * @description *   **CreateVpnRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+     *     *   If a VPN gateway is in the **updating** state, the destination-based route entry is being created.
+     *     *   If a VPN gateway is in the **active** state, the destination-based route entry has been created.
+     * *   You cannot repeatedly call **CreateVpnRouteEntry** to create a destination-based route entry for a VPN gateway within the specified period of time.
+     *  *
      * @param CreateVpnRouteEntryRequest $request CreateVpnRouteEntryRequest
      *
      * @return CreateVpnRouteEntryResponse CreateVpnRouteEntryResponse
@@ -9147,10 +9520,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DeactivateRouterInterfaceRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 冻结路由器接口
+     *  *
+     * @param DeactivateRouterInterfaceRequest $request DeactivateRouterInterfaceRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeactivateRouterInterfaceResponse
+     * @return DeactivateRouterInterfaceResponse DeactivateRouterInterfaceResponse
      */
     public function deactivateRouterInterfaceWithOptions($request, $runtime)
     {
@@ -9190,9 +9565,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DeactivateRouterInterfaceRequest $request
+     * @summary 冻结路由器接口
+     *  *
+     * @param DeactivateRouterInterfaceRequest $request DeactivateRouterInterfaceRequest
      *
-     * @return DeactivateRouterInterfaceResponse
+     * @return DeactivateRouterInterfaceResponse DeactivateRouterInterfaceResponse
      */
     public function deactivateRouterInterface($request)
     {
@@ -9202,11 +9579,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   The **DeactiveFlowLog** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeFlowLogs](~~87923~~) operation to query the status of a flow log:
-     *   *     *   If the flow log is in the **Deactivating** state, the flow log is being disabled.
-     *   *     *   If the flow log is in the **Inactive** state, the flow log is disabled.
-     *   * *   You cannot repeatedly call the **DeactiveFlowLog** operation to disable a flow log within the specified period of time.
-     *   *
+     * @summary Disables a flow log. After a flow log is disabled, the system no longer captures the traffic information about a resource.
+     *  *
+     * @description *   The **DeactiveFlowLog** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeFlowLogs](https://help.aliyun.com/document_detail/87923.html) operation to query the status of a flow log:
+     *     *   If the flow log is in the **Deactivating** state, the flow log is being disabled.
+     *     *   If the flow log is in the **Inactive** state, the flow log is disabled.
+     * *   You cannot repeatedly call the **DeactiveFlowLog** operation to disable a flow log within the specified period of time.
+     *  *
      * @param DeactiveFlowLogRequest $request DeactiveFlowLogRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -9253,11 +9632,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   The **DeactiveFlowLog** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeFlowLogs](~~87923~~) operation to query the status of a flow log:
-     *   *     *   If the flow log is in the **Deactivating** state, the flow log is being disabled.
-     *   *     *   If the flow log is in the **Inactive** state, the flow log is disabled.
-     *   * *   You cannot repeatedly call the **DeactiveFlowLog** operation to disable a flow log within the specified period of time.
-     *   *
+     * @summary Disables a flow log. After a flow log is disabled, the system no longer captures the traffic information about a resource.
+     *  *
+     * @description *   The **DeactiveFlowLog** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeFlowLogs](https://help.aliyun.com/document_detail/87923.html) operation to query the status of a flow log:
+     *     *   If the flow log is in the **Deactivating** state, the flow log is being disabled.
+     *     *   If the flow log is in the **Inactive** state, the flow log is disabled.
+     * *   You cannot repeatedly call the **DeactiveFlowLog** operation to disable a flow log within the specified period of time.
+     *  *
      * @param DeactiveFlowLogRequest $request DeactiveFlowLogRequest
      *
      * @return DeactiveFlowLogResponse DeactiveFlowLogResponse
@@ -9270,10 +9651,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DeleteBgpGroupRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Deletes a Border Gateway Protocol (BGP) group.
+     *  *
+     * @param DeleteBgpGroupRequest $request DeleteBgpGroupRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteBgpGroupResponse
+     * @return DeleteBgpGroupResponse DeleteBgpGroupResponse
      */
     public function deleteBgpGroupWithOptions($request, $runtime)
     {
@@ -9319,9 +9702,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DeleteBgpGroupRequest $request
+     * @summary Deletes a Border Gateway Protocol (BGP) group.
+     *  *
+     * @param DeleteBgpGroupRequest $request DeleteBgpGroupRequest
      *
-     * @return DeleteBgpGroupResponse
+     * @return DeleteBgpGroupResponse DeleteBgpGroupResponse
      */
     public function deleteBgpGroup($request)
     {
@@ -9331,10 +9716,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DeleteBgpNetworkRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Deletes an advertised Border Gateway Protocol (BGP) network.
+     *  *
+     * @param DeleteBgpNetworkRequest $request DeleteBgpNetworkRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteBgpNetworkResponse
+     * @return DeleteBgpNetworkResponse DeleteBgpNetworkResponse
      */
     public function deleteBgpNetworkWithOptions($request, $runtime)
     {
@@ -9383,9 +9770,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DeleteBgpNetworkRequest $request
+     * @summary Deletes an advertised Border Gateway Protocol (BGP) network.
+     *  *
+     * @param DeleteBgpNetworkRequest $request DeleteBgpNetworkRequest
      *
-     * @return DeleteBgpNetworkResponse
+     * @return DeleteBgpNetworkResponse DeleteBgpNetworkResponse
      */
     public function deleteBgpNetwork($request)
     {
@@ -9395,10 +9784,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DeleteBgpPeerRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Deletes a Border Gateway Protocol (BGP) peer.
+     *  *
+     * @param DeleteBgpPeerRequest $request DeleteBgpPeerRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteBgpPeerResponse
+     * @return DeleteBgpPeerResponse DeleteBgpPeerResponse
      */
     public function deleteBgpPeerWithOptions($request, $runtime)
     {
@@ -9444,9 +9835,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DeleteBgpPeerRequest $request
+     * @summary Deletes a Border Gateway Protocol (BGP) peer.
+     *  *
+     * @param DeleteBgpPeerRequest $request DeleteBgpPeerRequest
      *
-     * @return DeleteBgpPeerResponse
+     * @return DeleteBgpPeerResponse DeleteBgpPeerResponse
      */
     public function deleteBgpPeer($request)
     {
@@ -9456,8 +9849,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You cannot repeatedly call the **DeleteCommonBandwidthPackage** operation to delete an Internet Shared Bandwidth instance within the specified period of time.
-     *   *
+     * @summary Deletes an Internet Shared Bandwidth instance.
+     *  *
+     * @description You cannot repeatedly call the **DeleteCommonBandwidthPackage** operation to delete an Internet Shared Bandwidth instance within the specified period of time.
+     *  *
      * @param DeleteCommonBandwidthPackageRequest $request DeleteCommonBandwidthPackageRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -9507,8 +9902,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You cannot repeatedly call the **DeleteCommonBandwidthPackage** operation to delete an Internet Shared Bandwidth instance within the specified period of time.
-     *   *
+     * @summary Deletes an Internet Shared Bandwidth instance.
+     *  *
+     * @description You cannot repeatedly call the **DeleteCommonBandwidthPackage** operation to delete an Internet Shared Bandwidth instance within the specified period of time.
+     *  *
      * @param DeleteCommonBandwidthPackageRequest $request DeleteCommonBandwidthPackageRequest
      *
      * @return DeleteCommonBandwidthPackageResponse DeleteCommonBandwidthPackageResponse
@@ -9521,10 +9918,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DeleteCustomerGatewayRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Deletes a customer gateway.
+     *  *
+     * @param DeleteCustomerGatewayRequest $request DeleteCustomerGatewayRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteCustomerGatewayResponse
+     * @return DeleteCustomerGatewayResponse DeleteCustomerGatewayResponse
      */
     public function deleteCustomerGatewayWithOptions($request, $runtime)
     {
@@ -9570,9 +9969,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DeleteCustomerGatewayRequest $request
+     * @summary Deletes a customer gateway.
+     *  *
+     * @param DeleteCustomerGatewayRequest $request DeleteCustomerGatewayRequest
      *
-     * @return DeleteCustomerGatewayResponse
+     * @return DeleteCustomerGatewayResponse DeleteCustomerGatewayResponse
      */
     public function deleteCustomerGateway($request)
     {
@@ -9582,12 +9983,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)Description
-     *   * *   **DeleteDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetDhcpOptionsSet](~~189208~~) operation to query the status of the task.
-     *   *     *   If the DHCP options set is in the **Deleting** state, the DHCP options set is being deleted.
-     *   *     *   If you cannot query the DHCP options set, the DHCP options set is deleted.
-     *   * *   You cannot repeatedly call the **DeleteDhcpOptionsSet** operation to delete a DHCP options set within the specified period of time.
-     *   *
+     * @summary Deletes a DHCP options set.
+     *  *
+     * @description ## [](#)Description
+     * *   **DeleteDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetDhcpOptionsSet](https://help.aliyun.com/document_detail/189208.html) operation to query the status of the task.
+     *     *   If the DHCP options set is in the **Deleting** state, the DHCP options set is being deleted.
+     *     *   If you cannot query the DHCP options set, the DHCP options set is deleted.
+     * *   You cannot repeatedly call the **DeleteDhcpOptionsSet** operation to delete a DHCP options set within the specified period of time.
+     *  *
      * @param DeleteDhcpOptionsSetRequest $request DeleteDhcpOptionsSetRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -9640,12 +10043,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)Description
-     *   * *   **DeleteDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetDhcpOptionsSet](~~189208~~) operation to query the status of the task.
-     *   *     *   If the DHCP options set is in the **Deleting** state, the DHCP options set is being deleted.
-     *   *     *   If you cannot query the DHCP options set, the DHCP options set is deleted.
-     *   * *   You cannot repeatedly call the **DeleteDhcpOptionsSet** operation to delete a DHCP options set within the specified period of time.
-     *   *
+     * @summary Deletes a DHCP options set.
+     *  *
+     * @description ## [](#)Description
+     * *   **DeleteDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetDhcpOptionsSet](https://help.aliyun.com/document_detail/189208.html) operation to query the status of the task.
+     *     *   If the DHCP options set is in the **Deleting** state, the DHCP options set is being deleted.
+     *     *   If you cannot query the DHCP options set, the DHCP options set is deleted.
+     * *   You cannot repeatedly call the **DeleteDhcpOptionsSet** operation to delete a DHCP options set within the specified period of time.
+     *  *
      * @param DeleteDhcpOptionsSetRequest $request DeleteDhcpOptionsSetRequest
      *
      * @return DeleteDhcpOptionsSetResponse DeleteDhcpOptionsSetResponse
@@ -9658,10 +10063,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DeleteExpressConnectTrafficQosRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary 删除高速通道Qos
+     *  *
+     * @param DeleteExpressConnectTrafficQosRequest $request DeleteExpressConnectTrafficQosRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteExpressConnectTrafficQosResponse
+     * @return DeleteExpressConnectTrafficQosResponse DeleteExpressConnectTrafficQosResponse
      */
     public function deleteExpressConnectTrafficQosWithOptions($request, $runtime)
     {
@@ -9707,9 +10114,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DeleteExpressConnectTrafficQosRequest $request
+     * @summary 删除高速通道Qos
+     *  *
+     * @param DeleteExpressConnectTrafficQosRequest $request DeleteExpressConnectTrafficQosRequest
      *
-     * @return DeleteExpressConnectTrafficQosResponse
+     * @return DeleteExpressConnectTrafficQosResponse DeleteExpressConnectTrafficQosResponse
      */
     public function deleteExpressConnectTrafficQos($request)
     {
@@ -9719,10 +10128,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DeleteExpressConnectTrafficQosQueueRequest $request
-     * @param RuntimeOptions                             $runtime
+     * @summary 删除高速通道Qos队列
+     *  *
+     * @param DeleteExpressConnectTrafficQosQueueRequest $request DeleteExpressConnectTrafficQosQueueRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteExpressConnectTrafficQosQueueResponse
+     * @return DeleteExpressConnectTrafficQosQueueResponse DeleteExpressConnectTrafficQosQueueResponse
      */
     public function deleteExpressConnectTrafficQosQueueWithOptions($request, $runtime)
     {
@@ -9771,9 +10182,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DeleteExpressConnectTrafficQosQueueRequest $request
+     * @summary 删除高速通道Qos队列
+     *  *
+     * @param DeleteExpressConnectTrafficQosQueueRequest $request DeleteExpressConnectTrafficQosQueueRequest
      *
-     * @return DeleteExpressConnectTrafficQosQueueResponse
+     * @return DeleteExpressConnectTrafficQosQueueResponse DeleteExpressConnectTrafficQosQueueResponse
      */
     public function deleteExpressConnectTrafficQosQueue($request)
     {
@@ -9783,10 +10196,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DeleteExpressConnectTrafficQosRuleRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @summary 删除高速通道Qos规则
+     *  *
+     * @param DeleteExpressConnectTrafficQosRuleRequest $request DeleteExpressConnectTrafficQosRuleRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteExpressConnectTrafficQosRuleResponse
+     * @return DeleteExpressConnectTrafficQosRuleResponse DeleteExpressConnectTrafficQosRuleResponse
      */
     public function deleteExpressConnectTrafficQosRuleWithOptions($request, $runtime)
     {
@@ -9838,9 +10253,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DeleteExpressConnectTrafficQosRuleRequest $request
+     * @summary 删除高速通道Qos规则
+     *  *
+     * @param DeleteExpressConnectTrafficQosRuleRequest $request DeleteExpressConnectTrafficQosRuleRequest
      *
-     * @return DeleteExpressConnectTrafficQosRuleResponse
+     * @return DeleteExpressConnectTrafficQosRuleResponse DeleteExpressConnectTrafficQosRuleResponse
      */
     public function deleteExpressConnectTrafficQosRule($request)
     {
@@ -9850,10 +10267,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DeleteFailoverTestJobRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 删除故障演练任务
+     *  *
+     * @param DeleteFailoverTestJobRequest $request DeleteFailoverTestJobRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteFailoverTestJobResponse
+     * @return DeleteFailoverTestJobResponse DeleteFailoverTestJobResponse
      */
     public function deleteFailoverTestJobWithOptions($request, $runtime)
     {
@@ -9899,9 +10318,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DeleteFailoverTestJobRequest $request
+     * @summary 删除故障演练任务
+     *  *
+     * @param DeleteFailoverTestJobRequest $request DeleteFailoverTestJobRequest
      *
-     * @return DeleteFailoverTestJobResponse
+     * @return DeleteFailoverTestJobResponse DeleteFailoverTestJobResponse
      */
     public function deleteFailoverTestJob($request)
     {
@@ -9911,11 +10332,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   The **DeleteFlowLog** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeFlowLogs](~~87923~~) operation to query the status of a flow log:
-     *   *     *   If the flow log is in the **Deleting** state, the flow log is being deleted.
-     *   *     *   If you cannot query the flow log, the flow log is deleted.
-     *   * *   You cannot repeatedly call the **DeleteFlowLog** operation to delete a flow log within the specified period of time.
-     *   *
+     * @summary Deletes a flow log.
+     *  *
+     * @description *   The **DeleteFlowLog** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeFlowLogs](https://help.aliyun.com/document_detail/87923.html) operation to query the status of a flow log:
+     *     *   If the flow log is in the **Deleting** state, the flow log is being deleted.
+     *     *   If you cannot query the flow log, the flow log is deleted.
+     * *   You cannot repeatedly call the **DeleteFlowLog** operation to delete a flow log within the specified period of time.
+     *  *
      * @param DeleteFlowLogRequest $request DeleteFlowLogRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -9962,11 +10385,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   The **DeleteFlowLog** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeFlowLogs](~~87923~~) operation to query the status of a flow log:
-     *   *     *   If the flow log is in the **Deleting** state, the flow log is being deleted.
-     *   *     *   If you cannot query the flow log, the flow log is deleted.
-     *   * *   You cannot repeatedly call the **DeleteFlowLog** operation to delete a flow log within the specified period of time.
-     *   *
+     * @summary Deletes a flow log.
+     *  *
+     * @description *   The **DeleteFlowLog** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeFlowLogs](https://help.aliyun.com/document_detail/87923.html) operation to query the status of a flow log:
+     *     *   If the flow log is in the **Deleting** state, the flow log is being deleted.
+     *     *   If you cannot query the flow log, the flow log is deleted.
+     * *   You cannot repeatedly call the **DeleteFlowLog** operation to delete a flow log within the specified period of time.
+     *  *
      * @param DeleteFlowLogRequest $request DeleteFlowLogRequest
      *
      * @return DeleteFlowLogResponse DeleteFlowLogResponse
@@ -9979,13 +10404,15 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)Description
-     *   * *   **DeleteForwardEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeForwardTableEntries](~~36053~~) operation to query the status of the task.
-     *   *     *   If the DNAT entry is in the **Deleting** state, the system is deleting the DNAT entry. In this case, you can only query the status of the DNAT entry, but cannot perform other operations.
-     *   *     *   If the DNAT entry cannot be found, it is deleted.
-     *   * >  If a DNAT table has DNAT entries in the **Pending** state, you cannot delete the DNAT entries.
-     *   * *   You cannot repeatedly call the **DeleteForwardEntry** operation to delete a DNAT entry within the specified period of time.
-     *   *
+     * @summary Deletes a DNAT entry.
+     *  *
+     * @description ## [](#)Description
+     * *   **DeleteForwardEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeForwardTableEntries](https://help.aliyun.com/document_detail/36053.html) operation to query the status of the task.
+     *     *   If the DNAT entry is in the **Deleting** state, the system is deleting the DNAT entry. In this case, you can only query the status of the DNAT entry, but cannot perform other operations.
+     *     *   If the DNAT entry cannot be found, it is deleted.
+     * >  If a DNAT table has DNAT entries in the **Pending** state, you cannot delete the DNAT entries.
+     * *   You cannot repeatedly call the **DeleteForwardEntry** operation to delete a DNAT entry within the specified period of time.
+     *  *
      * @param DeleteForwardEntryRequest $request DeleteForwardEntryRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -10038,13 +10465,15 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)Description
-     *   * *   **DeleteForwardEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeForwardTableEntries](~~36053~~) operation to query the status of the task.
-     *   *     *   If the DNAT entry is in the **Deleting** state, the system is deleting the DNAT entry. In this case, you can only query the status of the DNAT entry, but cannot perform other operations.
-     *   *     *   If the DNAT entry cannot be found, it is deleted.
-     *   * >  If a DNAT table has DNAT entries in the **Pending** state, you cannot delete the DNAT entries.
-     *   * *   You cannot repeatedly call the **DeleteForwardEntry** operation to delete a DNAT entry within the specified period of time.
-     *   *
+     * @summary Deletes a DNAT entry.
+     *  *
+     * @description ## [](#)Description
+     * *   **DeleteForwardEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeForwardTableEntries](https://help.aliyun.com/document_detail/36053.html) operation to query the status of the task.
+     *     *   If the DNAT entry is in the **Deleting** state, the system is deleting the DNAT entry. In this case, you can only query the status of the DNAT entry, but cannot perform other operations.
+     *     *   If the DNAT entry cannot be found, it is deleted.
+     * >  If a DNAT table has DNAT entries in the **Pending** state, you cannot delete the DNAT entries.
+     * *   You cannot repeatedly call the **DeleteForwardEntry** operation to delete a DNAT entry within the specified period of time.
+     *  *
      * @param DeleteForwardEntryRequest $request DeleteForwardEntryRequest
      *
      * @return DeleteForwardEntryResponse DeleteForwardEntryResponse
@@ -10057,12 +10486,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)Description
-     *   * **DeleteFullNatEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListFullNatEntries](~~348779~~) operation to query the status of a FULLNAT entry.
-     *   * *   If the FULLNAT entry is in the **Deleting** state, the system is deleting the FULLNAT entry. In this case, you can query the status of the FULLNAT entry, but cannot perform other operations.
-     *   * *   If the FULLNAT entry cannot be found, the FULLNAT entry is deleted.
-     *   * You cannot repeatedly call the **DeleteFullNatEntry** operation to delete a FULLNAT entry within the specified period of time.
-     *   *
+     * @summary Deletes a FULLNAT entry.
+     *  *
+     * @description ## [](#)Description
+     * **DeleteFullNatEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListFullNatEntries](https://help.aliyun.com/document_detail/348779.html) operation to query the status of a FULLNAT entry.
+     * *   If the FULLNAT entry is in the **Deleting** state, the system is deleting the FULLNAT entry. In this case, you can query the status of the FULLNAT entry, but cannot perform other operations.
+     * *   If the FULLNAT entry cannot be found, the FULLNAT entry is deleted.
+     * You cannot repeatedly call the **DeleteFullNatEntry** operation to delete a FULLNAT entry within the specified period of time.
+     *  *
      * @param DeleteFullNatEntryRequest $request DeleteFullNatEntryRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -10118,12 +10549,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)Description
-     *   * **DeleteFullNatEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListFullNatEntries](~~348779~~) operation to query the status of a FULLNAT entry.
-     *   * *   If the FULLNAT entry is in the **Deleting** state, the system is deleting the FULLNAT entry. In this case, you can query the status of the FULLNAT entry, but cannot perform other operations.
-     *   * *   If the FULLNAT entry cannot be found, the FULLNAT entry is deleted.
-     *   * You cannot repeatedly call the **DeleteFullNatEntry** operation to delete a FULLNAT entry within the specified period of time.
-     *   *
+     * @summary Deletes a FULLNAT entry.
+     *  *
+     * @description ## [](#)Description
+     * **DeleteFullNatEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListFullNatEntries](https://help.aliyun.com/document_detail/348779.html) operation to query the status of a FULLNAT entry.
+     * *   If the FULLNAT entry is in the **Deleting** state, the system is deleting the FULLNAT entry. In this case, you can query the status of the FULLNAT entry, but cannot perform other operations.
+     * *   If the FULLNAT entry cannot be found, the FULLNAT entry is deleted.
+     * You cannot repeatedly call the **DeleteFullNatEntry** operation to delete a FULLNAT entry within the specified period of time.
+     *  *
      * @param DeleteFullNatEntryRequest $request DeleteFullNatEntryRequest
      *
      * @return DeleteFullNatEntryResponse DeleteFullNatEntryResponse
@@ -10136,11 +10569,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following items:
-     *   * *   You can delete only pay-as-you-go instances.
-     *   * *   Before you can delete a dedicated instance, disassociate the backend server from the instance first.
-     *   * *   Before you can delete a shared instance, disassociate the elastic IP address (EIP) from the instance first.
-     *   *
+     * @summary Deletes a Global Accelerator (GA) instance.
+     *  *
+     * @description When you call this operation, take note of the following items:
+     * *   You can delete only pay-as-you-go instances.
+     * *   Before you can delete a dedicated instance, disassociate the backend server from the instance first.
+     * *   Before you can delete a shared instance, disassociate the elastic IP address (EIP) from the instance first.
+     *  *
      * @param DeleteGlobalAccelerationInstanceRequest $request DeleteGlobalAccelerationInstanceRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
@@ -10187,11 +10622,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following items:
-     *   * *   You can delete only pay-as-you-go instances.
-     *   * *   Before you can delete a dedicated instance, disassociate the backend server from the instance first.
-     *   * *   Before you can delete a shared instance, disassociate the elastic IP address (EIP) from the instance first.
-     *   *
+     * @summary Deletes a Global Accelerator (GA) instance.
+     *  *
+     * @description When you call this operation, take note of the following items:
+     * *   You can delete only pay-as-you-go instances.
+     * *   Before you can delete a dedicated instance, disassociate the backend server from the instance first.
+     * *   Before you can delete a shared instance, disassociate the elastic IP address (EIP) from the instance first.
+     *  *
      * @param DeleteGlobalAccelerationInstanceRequest $request DeleteGlobalAccelerationInstanceRequest
      *
      * @return DeleteGlobalAccelerationInstanceResponse DeleteGlobalAccelerationInstanceResponse
@@ -10204,15 +10641,17 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following rules:
-     *   * *   You can delete only HAVIPs that are in the Available state.
-     *   * *   Make sure that no route points to the HAVIP that you want to delete.
-     *   * *   Make sure that no elastic IP address (EIP) is associated with the HAVIP that you want to delete.
-     *   * *   The **DeleteHaVip** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeHaVips](~~114611~~) operation to query the status of an HAVIP:
-     *   *     *   If the HAVIP is in the **Deleting** state, the HAVIP is being deleted.
-     *   *     *   If you cannot query the HAVIP, the HAVIP is deleted.
-     *   * *   You cannot repeatedly call the **DeleteHaVip** operation to delete an HAVIP within the specified period of time.
-     *   *
+     * @summary Deletes a high-availability virtual IP address (HAVIP).
+     *  *
+     * @description When you call this operation, take note of the following rules:
+     * *   You can delete only HAVIPs that are in the Available state.
+     * *   Make sure that no route points to the HAVIP that you want to delete.
+     * *   Make sure that no elastic IP address (EIP) is associated with the HAVIP that you want to delete.
+     * *   The **DeleteHaVip** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeHaVips](https://help.aliyun.com/document_detail/114611.html) operation to query the status of an HAVIP:
+     *     *   If the HAVIP is in the **Deleting** state, the HAVIP is being deleted.
+     *     *   If you cannot query the HAVIP, the HAVIP is deleted.
+     * *   You cannot repeatedly call the **DeleteHaVip** operation to delete an HAVIP within the specified period of time.
+     *  *
      * @param DeleteHaVipRequest $request DeleteHaVipRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
@@ -10262,15 +10701,17 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following rules:
-     *   * *   You can delete only HAVIPs that are in the Available state.
-     *   * *   Make sure that no route points to the HAVIP that you want to delete.
-     *   * *   Make sure that no elastic IP address (EIP) is associated with the HAVIP that you want to delete.
-     *   * *   The **DeleteHaVip** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeHaVips](~~114611~~) operation to query the status of an HAVIP:
-     *   *     *   If the HAVIP is in the **Deleting** state, the HAVIP is being deleted.
-     *   *     *   If you cannot query the HAVIP, the HAVIP is deleted.
-     *   * *   You cannot repeatedly call the **DeleteHaVip** operation to delete an HAVIP within the specified period of time.
-     *   *
+     * @summary Deletes a high-availability virtual IP address (HAVIP).
+     *  *
+     * @description When you call this operation, take note of the following rules:
+     * *   You can delete only HAVIPs that are in the Available state.
+     * *   Make sure that no route points to the HAVIP that you want to delete.
+     * *   Make sure that no elastic IP address (EIP) is associated with the HAVIP that you want to delete.
+     * *   The **DeleteHaVip** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeHaVips](https://help.aliyun.com/document_detail/114611.html) operation to query the status of an HAVIP:
+     *     *   If the HAVIP is in the **Deleting** state, the HAVIP is being deleted.
+     *     *   If you cannot query the HAVIP, the HAVIP is deleted.
+     * *   You cannot repeatedly call the **DeleteHaVip** operation to delete an HAVIP within the specified period of time.
+     *  *
      * @param DeleteHaVipRequest $request DeleteHaVipRequest
      *
      * @return DeleteHaVipResponse DeleteHaVipResponse
@@ -10283,10 +10724,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DeleteIPv6TranslatorRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Deletes an IPv6 Translation Service instance.
+     *  *
+     * @param DeleteIPv6TranslatorRequest $request DeleteIPv6TranslatorRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteIPv6TranslatorResponse
+     * @return DeleteIPv6TranslatorResponse DeleteIPv6TranslatorResponse
      */
     public function deleteIPv6TranslatorWithOptions($request, $runtime)
     {
@@ -10332,9 +10775,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DeleteIPv6TranslatorRequest $request
+     * @summary Deletes an IPv6 Translation Service instance.
+     *  *
+     * @param DeleteIPv6TranslatorRequest $request DeleteIPv6TranslatorRequest
      *
-     * @return DeleteIPv6TranslatorResponse
+     * @return DeleteIPv6TranslatorResponse DeleteIPv6TranslatorResponse
      */
     public function deleteIPv6Translator($request)
     {
@@ -10344,8 +10789,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI DeleteIPv6TranslatorAclList is deprecated
+     *  *
+     * @summary Deletes an access control list (ACL). You can delete an ACL only when the ACL is not associated with IPv6 translation mappings.
+     *  *
      * Deprecated
      *
      * @param DeleteIPv6TranslatorAclListRequest $request DeleteIPv6TranslatorAclListRequest
@@ -10397,8 +10844,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI DeleteIPv6TranslatorAclList is deprecated
+     *  *
+     * @summary Deletes an access control list (ACL). You can delete an ACL only when the ACL is not associated with IPv6 translation mappings.
+     *  *
      * Deprecated
      *
      * @param DeleteIPv6TranslatorAclListRequest $request DeleteIPv6TranslatorAclListRequest
@@ -10413,8 +10862,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI DeleteIPv6TranslatorEntry is deprecated
+     *  *
+     * @summary Deletes an IPv6 mapping entry.
+     *  *
      * Deprecated
      *
      * @param DeleteIPv6TranslatorEntryRequest $request DeleteIPv6TranslatorEntryRequest
@@ -10469,8 +10920,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI DeleteIPv6TranslatorEntry is deprecated
+     *  *
+     * @summary Deletes an IPv6 mapping entry.
+     *  *
      * Deprecated
      *
      * @param DeleteIPv6TranslatorEntryRequest $request DeleteIPv6TranslatorEntryRequest
@@ -10485,11 +10938,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **DeleteIpsecServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-     *   *     *   If a VPN gateway is in the **updating** state, the IPsec server is being deleted.
-     *   *     *   If a VPN gateway is in the **active** state, the IPsec server is deleted.
-     *   * *   You cannot repeatedly call **DeleteIpsecServer** to delete an IPsec server from a VPN gateway within the specified period of time.
-     *   *
+     * @summary Deletes an IPsec server.
+     *  *
+     * @description *   **DeleteIpsecServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+     *     *   If a VPN gateway is in the **updating** state, the IPsec server is being deleted.
+     *     *   If a VPN gateway is in the **active** state, the IPsec server is deleted.
+     * *   You cannot repeatedly call **DeleteIpsecServer** to delete an IPsec server from a VPN gateway within the specified period of time.
+     *  *
      * @param DeleteIpsecServerRequest $request DeleteIpsecServerRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -10530,11 +10985,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **DeleteIpsecServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-     *   *     *   If a VPN gateway is in the **updating** state, the IPsec server is being deleted.
-     *   *     *   If a VPN gateway is in the **active** state, the IPsec server is deleted.
-     *   * *   You cannot repeatedly call **DeleteIpsecServer** to delete an IPsec server from a VPN gateway within the specified period of time.
-     *   *
+     * @summary Deletes an IPsec server.
+     *  *
+     * @description *   **DeleteIpsecServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+     *     *   If a VPN gateway is in the **updating** state, the IPsec server is being deleted.
+     *     *   If a VPN gateway is in the **active** state, the IPsec server is deleted.
+     * *   You cannot repeatedly call **DeleteIpsecServer** to delete an IPsec server from a VPN gateway within the specified period of time.
+     *  *
      * @param DeleteIpsecServerRequest $request DeleteIpsecServerRequest
      *
      * @return DeleteIpsecServerResponse DeleteIpsecServerResponse
@@ -10547,13 +11004,15 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ### [](#)Description
-     *   * *   Before you delete an IPv4 gateway, make sure that no route tables are associated with the IPv4 gateway.
-     *   * *   **DeleteIpv4Gateway** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call the [GetIpv4GatewayAttribute](~~407670~~) operation to query the status of the task.
-     *   *     *   If the IPv4 gateway is in the **Deleting** state, the IPv4 gateway is being deleted.
-     *   *     *   If the IPv4 gateway cannot be queried, the IPv4 gateway is deleted.
-     *   * *   After you call the **DeleteIpv4Gateway** operation to delete an IPv4 gateway, you cannot call the operation again to delete the IPv4 gateway until the deletion task is complete.
-     *   *
+     * @summary Deletes an IPv4 gateway.
+     *  *
+     * @description ### [](#)Description
+     * *   Before you delete an IPv4 gateway, make sure that no route tables are associated with the IPv4 gateway.
+     * *   **DeleteIpv4Gateway** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call the [GetIpv4GatewayAttribute](https://help.aliyun.com/document_detail/407670.html) operation to query the status of the task.
+     *     *   If the IPv4 gateway is in the **Deleting** state, the IPv4 gateway is being deleted.
+     *     *   If the IPv4 gateway cannot be queried, the IPv4 gateway is deleted.
+     * *   After you call the **DeleteIpv4Gateway** operation to delete an IPv4 gateway, you cannot call the operation again to delete the IPv4 gateway until the deletion task is complete.
+     *  *
      * @param DeleteIpv4GatewayRequest $request DeleteIpv4GatewayRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -10609,13 +11068,15 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ### [](#)Description
-     *   * *   Before you delete an IPv4 gateway, make sure that no route tables are associated with the IPv4 gateway.
-     *   * *   **DeleteIpv4Gateway** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call the [GetIpv4GatewayAttribute](~~407670~~) operation to query the status of the task.
-     *   *     *   If the IPv4 gateway is in the **Deleting** state, the IPv4 gateway is being deleted.
-     *   *     *   If the IPv4 gateway cannot be queried, the IPv4 gateway is deleted.
-     *   * *   After you call the **DeleteIpv4Gateway** operation to delete an IPv4 gateway, you cannot call the operation again to delete the IPv4 gateway until the deletion task is complete.
-     *   *
+     * @summary Deletes an IPv4 gateway.
+     *  *
+     * @description ### [](#)Description
+     * *   Before you delete an IPv4 gateway, make sure that no route tables are associated with the IPv4 gateway.
+     * *   **DeleteIpv4Gateway** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call the [GetIpv4GatewayAttribute](https://help.aliyun.com/document_detail/407670.html) operation to query the status of the task.
+     *     *   If the IPv4 gateway is in the **Deleting** state, the IPv4 gateway is being deleted.
+     *     *   If the IPv4 gateway cannot be queried, the IPv4 gateway is deleted.
+     * *   After you call the **DeleteIpv4Gateway** operation to delete an IPv4 gateway, you cannot call the operation again to delete the IPv4 gateway until the deletion task is complete.
+     *  *
      * @param DeleteIpv4GatewayRequest $request DeleteIpv4GatewayRequest
      *
      * @return DeleteIpv4GatewayResponse DeleteIpv4GatewayResponse
@@ -10628,11 +11089,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **DeleteIpv6EgressOnlyRule** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpv6EgressOnlyRules](~~102208~~) operation to query the status of the task.
-     *   *     *   If the egress-only rule is in the **Deleting** state, the egress-only rule is being deleted.
-     *   *     *   If you cannot query the egress-only rule, the egress-only rule is deleted.
-     *   * *   You cannot call the **DeleteIpv6EgressOnlyRule** within the specified period of time.
-     *   *
+     * @summary Deletes an egress-only rule.
+     *  *
+     * @description *   **DeleteIpv6EgressOnlyRule** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpv6EgressOnlyRules](https://help.aliyun.com/document_detail/102208.html) operation to query the status of the task.
+     *     *   If the egress-only rule is in the **Deleting** state, the egress-only rule is being deleted.
+     *     *   If you cannot query the egress-only rule, the egress-only rule is deleted.
+     * *   You cannot call the **DeleteIpv6EgressOnlyRule** within the specified period of time.
+     *  *
      * @param DeleteIpv6EgressOnlyRuleRequest $request DeleteIpv6EgressOnlyRuleRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -10685,11 +11148,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **DeleteIpv6EgressOnlyRule** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpv6EgressOnlyRules](~~102208~~) operation to query the status of the task.
-     *   *     *   If the egress-only rule is in the **Deleting** state, the egress-only rule is being deleted.
-     *   *     *   If you cannot query the egress-only rule, the egress-only rule is deleted.
-     *   * *   You cannot call the **DeleteIpv6EgressOnlyRule** within the specified period of time.
-     *   *
+     * @summary Deletes an egress-only rule.
+     *  *
+     * @description *   **DeleteIpv6EgressOnlyRule** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpv6EgressOnlyRules](https://help.aliyun.com/document_detail/102208.html) operation to query the status of the task.
+     *     *   If the egress-only rule is in the **Deleting** state, the egress-only rule is being deleted.
+     *     *   If you cannot query the egress-only rule, the egress-only rule is deleted.
+     * *   You cannot call the **DeleteIpv6EgressOnlyRule** within the specified period of time.
+     *  *
      * @param DeleteIpv6EgressOnlyRuleRequest $request DeleteIpv6EgressOnlyRuleRequest
      *
      * @return DeleteIpv6EgressOnlyRuleResponse DeleteIpv6EgressOnlyRuleResponse
@@ -10702,12 +11167,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Before you delete an IPv6 gateway, you must delete the egress-only rules of the IPv6 gateway. For more information, see [DeleteIpv6EgressOnlyRule](~~102201~~).
-     *   * *   **DeleteIpv6Gateway** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpv6GatewayAttribute](~~102226~~) operation to query the status of the task:
-     *   *     *   If the IPv6 gateway is in the **Deleting** state, the IPv6 gateway is being deleted.
-     *   *     *   If you cannot query the IPv6 gateway, the IPv6 gateway is deleted.
-     *   * *   You cannot repeatedly call the **DeleteIpv6Gateway** operation to delete an IPv6 gateway within the specified period of time.
-     *   *
+     * @summary Deletes an IPv6 gateway.
+     *  *
+     * @description Before you delete an IPv6 gateway, you must delete the egress-only rules of the IPv6 gateway. For more information, see [DeleteIpv6EgressOnlyRule](https://help.aliyun.com/document_detail/102201.html).
+     * *   **DeleteIpv6Gateway** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpv6GatewayAttribute](https://help.aliyun.com/document_detail/102226.html) operation to query the status of the task:
+     *     *   If the IPv6 gateway is in the **Deleting** state, the IPv6 gateway is being deleted.
+     *     *   If you cannot query the IPv6 gateway, the IPv6 gateway is deleted.
+     * *   You cannot repeatedly call the **DeleteIpv6Gateway** operation to delete an IPv6 gateway within the specified period of time.
+     *  *
      * @param DeleteIpv6GatewayRequest $request DeleteIpv6GatewayRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -10757,12 +11224,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Before you delete an IPv6 gateway, you must delete the egress-only rules of the IPv6 gateway. For more information, see [DeleteIpv6EgressOnlyRule](~~102201~~).
-     *   * *   **DeleteIpv6Gateway** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpv6GatewayAttribute](~~102226~~) operation to query the status of the task:
-     *   *     *   If the IPv6 gateway is in the **Deleting** state, the IPv6 gateway is being deleted.
-     *   *     *   If you cannot query the IPv6 gateway, the IPv6 gateway is deleted.
-     *   * *   You cannot repeatedly call the **DeleteIpv6Gateway** operation to delete an IPv6 gateway within the specified period of time.
-     *   *
+     * @summary Deletes an IPv6 gateway.
+     *  *
+     * @description Before you delete an IPv6 gateway, you must delete the egress-only rules of the IPv6 gateway. For more information, see [DeleteIpv6EgressOnlyRule](https://help.aliyun.com/document_detail/102201.html).
+     * *   **DeleteIpv6Gateway** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpv6GatewayAttribute](https://help.aliyun.com/document_detail/102226.html) operation to query the status of the task:
+     *     *   If the IPv6 gateway is in the **Deleting** state, the IPv6 gateway is being deleted.
+     *     *   If you cannot query the IPv6 gateway, the IPv6 gateway is deleted.
+     * *   You cannot repeatedly call the **DeleteIpv6Gateway** operation to delete an IPv6 gateway within the specified period of time.
+     *  *
      * @param DeleteIpv6GatewayRequest $request DeleteIpv6GatewayRequest
      *
      * @return DeleteIpv6GatewayResponse DeleteIpv6GatewayResponse
@@ -10775,8 +11244,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You cannot call the **DeleteIpv6InternetBandwidth** operation within the specified period of time.
-     *   *
+     * @summary Deletes Internet bandwidth.
+     *  *
+     * @description You cannot call the **DeleteIpv6InternetBandwidth** operation within the specified period of time.
+     *  *
      * @param DeleteIpv6InternetBandwidthRequest $request DeleteIpv6InternetBandwidthRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -10829,8 +11300,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You cannot call the **DeleteIpv6InternetBandwidth** operation within the specified period of time.
-     *   *
+     * @summary Deletes Internet bandwidth.
+     *  *
+     * @description You cannot call the **DeleteIpv6InternetBandwidth** operation within the specified period of time.
+     *  *
      * @param DeleteIpv6InternetBandwidthRequest $request DeleteIpv6InternetBandwidthRequest
      *
      * @return DeleteIpv6InternetBandwidthResponse DeleteIpv6InternetBandwidthResponse
@@ -10843,13 +11316,15 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)Description
-     *   * *   **DeleteNatGateway** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNatGateways](~~36054~~) to query the status of the task.
-     *   *     *   If a NAT gateway is in the **Deleting** state, the NAT gateway is being deleted. In this case, you can query the NAT gateway but you cannot perform other operations.
-     *   *     *   If the NAT gateway cannot be found, the NAT gateway is deleted.
-     *   *         After you delete a NAT gateway, you cannot restore the NAT gateway. Proceed with caution.
-     *   * *   You cannot repeatedly call the **DeleteNatGateway** operation to delete a NAT gateway within the specified period of time.
-     *   *
+     * @summary Deletes a specified Internet NAT gateway.
+     *  *
+     * @description ## [](#)Description
+     * *   **DeleteNatGateway** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNatGateways](https://help.aliyun.com/document_detail/36054.html) to query the status of the task.
+     *     *   If a NAT gateway is in the **Deleting** state, the NAT gateway is being deleted. In this case, you can query the NAT gateway but you cannot perform other operations.
+     *     *   If the NAT gateway cannot be found, the NAT gateway is deleted.
+     *         After you delete a NAT gateway, you cannot restore the NAT gateway. Proceed with caution.
+     * *   You cannot repeatedly call the **DeleteNatGateway** operation to delete a NAT gateway within the specified period of time.
+     *  *
      * @param DeleteNatGatewayRequest $request DeleteNatGatewayRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -10899,13 +11374,15 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)Description
-     *   * *   **DeleteNatGateway** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNatGateways](~~36054~~) to query the status of the task.
-     *   *     *   If a NAT gateway is in the **Deleting** state, the NAT gateway is being deleted. In this case, you can query the NAT gateway but you cannot perform other operations.
-     *   *     *   If the NAT gateway cannot be found, the NAT gateway is deleted.
-     *   *         After you delete a NAT gateway, you cannot restore the NAT gateway. Proceed with caution.
-     *   * *   You cannot repeatedly call the **DeleteNatGateway** operation to delete a NAT gateway within the specified period of time.
-     *   *
+     * @summary Deletes a specified Internet NAT gateway.
+     *  *
+     * @description ## [](#)Description
+     * *   **DeleteNatGateway** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNatGateways](https://help.aliyun.com/document_detail/36054.html) to query the status of the task.
+     *     *   If a NAT gateway is in the **Deleting** state, the NAT gateway is being deleted. In this case, you can query the NAT gateway but you cannot perform other operations.
+     *     *   If the NAT gateway cannot be found, the NAT gateway is deleted.
+     *         After you delete a NAT gateway, you cannot restore the NAT gateway. Proceed with caution.
+     * *   You cannot repeatedly call the **DeleteNatGateway** operation to delete a NAT gateway within the specified period of time.
+     *  *
      * @param DeleteNatGatewayRequest $request DeleteNatGatewayRequest
      *
      * @return DeleteNatGatewayResponse DeleteNatGatewayResponse
@@ -10918,12 +11395,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)Description
-     *   * *   **DeleteNatIp** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListNatIps](~~281979~~) operation to query the status of the task.
-     *   *     *   If the NAT IP address is in the **Deleting** state, the NAT IP address is being deleted. In this case, you can only query the NAT IP address but cannot perform other operations.
-     *   *     *   If the NAT IP address cannot be found, it is deleted.
-     *   * *   You cannot repeatedly call the **DeleteNatIp** operation to delete a NAT IP address within the specified period of time.
-     *   *
+     * @summary Deletes a NAT IP address.
+     *  *
+     * @description ## [](#)Description
+     * *   **DeleteNatIp** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListNatIps](https://help.aliyun.com/document_detail/281979.html) operation to query the status of the task.
+     *     *   If the NAT IP address is in the **Deleting** state, the NAT IP address is being deleted. In this case, you can only query the NAT IP address but cannot perform other operations.
+     *     *   If the NAT IP address cannot be found, it is deleted.
+     * *   You cannot repeatedly call the **DeleteNatIp** operation to delete a NAT IP address within the specified period of time.
+     *  *
      * @param DeleteNatIpRequest $request DeleteNatIpRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
@@ -10979,12 +11458,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)Description
-     *   * *   **DeleteNatIp** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListNatIps](~~281979~~) operation to query the status of the task.
-     *   *     *   If the NAT IP address is in the **Deleting** state, the NAT IP address is being deleted. In this case, you can only query the NAT IP address but cannot perform other operations.
-     *   *     *   If the NAT IP address cannot be found, it is deleted.
-     *   * *   You cannot repeatedly call the **DeleteNatIp** operation to delete a NAT IP address within the specified period of time.
-     *   *
+     * @summary Deletes a NAT IP address.
+     *  *
+     * @description ## [](#)Description
+     * *   **DeleteNatIp** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListNatIps](https://help.aliyun.com/document_detail/281979.html) operation to query the status of the task.
+     *     *   If the NAT IP address is in the **Deleting** state, the NAT IP address is being deleted. In this case, you can only query the NAT IP address but cannot perform other operations.
+     *     *   If the NAT IP address cannot be found, it is deleted.
+     * *   You cannot repeatedly call the **DeleteNatIp** operation to delete a NAT IP address within the specified period of time.
+     *  *
      * @param DeleteNatIpRequest $request DeleteNatIpRequest
      *
      * @return DeleteNatIpResponse DeleteNatIpResponse
@@ -10997,9 +11478,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)Description
-     *   * You cannot repeatedly call the **DeleteNatIpCidr** operation to delete a NAT CIDR block within the specified period of time.
-     *   *
+     * @summary Deletes a NAT CIDR block.
+     *  *
+     * @description ## [](#)Description
+     * You cannot repeatedly call the **DeleteNatIpCidr** operation to delete a NAT CIDR block within the specified period of time.
+     *  *
      * @param DeleteNatIpCidrRequest $request DeleteNatIpCidrRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -11058,9 +11541,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)Description
-     *   * You cannot repeatedly call the **DeleteNatIpCidr** operation to delete a NAT CIDR block within the specified period of time.
-     *   *
+     * @summary Deletes a NAT CIDR block.
+     *  *
+     * @description ## [](#)Description
+     * You cannot repeatedly call the **DeleteNatIpCidr** operation to delete a NAT CIDR block within the specified period of time.
+     *  *
      * @param DeleteNatIpCidrRequest $request DeleteNatIpCidrRequest
      *
      * @return DeleteNatIpCidrResponse DeleteNatIpCidrResponse
@@ -11073,9 +11558,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)Description
-     *   * You cannot repeatedly call the **DeleteNetworkAcl** operation within the specified period of time.
-     *   *
+     * @summary Deletes a network access control list (ACL).
+     *  *
+     * @description ## [](#)Description
+     * You cannot repeatedly call the **DeleteNetworkAcl** operation within the specified period of time.
+     *  *
      * @param DeleteNetworkAclRequest $request DeleteNetworkAclRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -11131,9 +11618,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)Description
-     *   * You cannot repeatedly call the **DeleteNetworkAcl** operation within the specified period of time.
-     *   *
+     * @summary Deletes a network access control list (ACL).
+     *  *
+     * @description ## [](#)Description
+     * You cannot repeatedly call the **DeleteNetworkAcl** operation within the specified period of time.
+     *  *
      * @param DeleteNetworkAclRequest $request DeleteNetworkAclRequest
      *
      * @return DeleteNetworkAclResponse DeleteNetworkAclResponse
@@ -11146,8 +11635,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You can only delete a connection over an Express Connect circuit that is in the **Rejected**, **Canceled**, **AllocationFailed**, or **Terminated** state.
-     *   *
+     * @summary Deletes a connection over an Express Connect circuit.
+     *  *
+     * @description You can only delete a connection over an Express Connect circuit that is in the **Rejected**, **Canceled**, **AllocationFailed**, or **Terminated** state.
+     *  *
      * @param DeletePhysicalConnectionRequest $request DeletePhysicalConnectionRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -11197,8 +11688,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You can only delete a connection over an Express Connect circuit that is in the **Rejected**, **Canceled**, **AllocationFailed**, or **Terminated** state.
-     *   *
+     * @summary Deletes a connection over an Express Connect circuit.
+     *  *
+     * @description You can only delete a connection over an Express Connect circuit that is in the **Rejected**, **Canceled**, **AllocationFailed**, or **Terminated** state.
+     *  *
      * @param DeletePhysicalConnectionRequest $request DeletePhysicalConnectionRequest
      *
      * @return DeletePhysicalConnectionResponse DeletePhysicalConnectionResponse
@@ -11211,13 +11704,15 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, take note of the following items:
-     *   * *   Before you delete an IP address pool, make sure that no IP address in the pool is being used.
-     *   * *   **DeletePublicIpAddressPool** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListPublicIpAddressPools](~~429433~~) operation to query the status of the task.
-     *   *     *   If the IP address pool is in the **Deleting** state, the IP address pool is being deleted. In this state. you can only query the IP address pool and cannot perform other operations.
-     *   *     *   If you cannot query the IP address pool, the IP address pool is deleted.
-     *   * *   You cannot repeatedly call the **DeletePublicIpAddressPool** operation to delete an IP address pool within the specified period of time.
-     *   *
+     * @summary Deletes an IP address pool.
+     *  *
+     * @description Before you call this operation, take note of the following items:
+     * *   Before you delete an IP address pool, make sure that no IP address in the pool is being used.
+     * *   **DeletePublicIpAddressPool** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListPublicIpAddressPools](https://help.aliyun.com/document_detail/429433.html) operation to query the status of the task.
+     *     *   If the IP address pool is in the **Deleting** state, the IP address pool is being deleted. In this state. you can only query the IP address pool and cannot perform other operations.
+     *     *   If you cannot query the IP address pool, the IP address pool is deleted.
+     * *   You cannot repeatedly call the **DeletePublicIpAddressPool** operation to delete an IP address pool within the specified period of time.
+     *  *
      * @param DeletePublicIpAddressPoolRequest $request DeletePublicIpAddressPoolRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -11270,13 +11765,15 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, take note of the following items:
-     *   * *   Before you delete an IP address pool, make sure that no IP address in the pool is being used.
-     *   * *   **DeletePublicIpAddressPool** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListPublicIpAddressPools](~~429433~~) operation to query the status of the task.
-     *   *     *   If the IP address pool is in the **Deleting** state, the IP address pool is being deleted. In this state. you can only query the IP address pool and cannot perform other operations.
-     *   *     *   If you cannot query the IP address pool, the IP address pool is deleted.
-     *   * *   You cannot repeatedly call the **DeletePublicIpAddressPool** operation to delete an IP address pool within the specified period of time.
-     *   *
+     * @summary Deletes an IP address pool.
+     *  *
+     * @description Before you call this operation, take note of the following items:
+     * *   Before you delete an IP address pool, make sure that no IP address in the pool is being used.
+     * *   **DeletePublicIpAddressPool** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListPublicIpAddressPools](https://help.aliyun.com/document_detail/429433.html) operation to query the status of the task.
+     *     *   If the IP address pool is in the **Deleting** state, the IP address pool is being deleted. In this state. you can only query the IP address pool and cannot perform other operations.
+     *     *   If you cannot query the IP address pool, the IP address pool is deleted.
+     * *   You cannot repeatedly call the **DeletePublicIpAddressPool** operation to delete an IP address pool within the specified period of time.
+     *  *
      * @param DeletePublicIpAddressPoolRequest $request DeletePublicIpAddressPoolRequest
      *
      * @return DeletePublicIpAddressPoolResponse DeletePublicIpAddressPoolResponse
@@ -11289,13 +11786,15 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, take note of the following items:
-     *   * *   Before you delete a CIDR block, make sure that it is not being used.
-     *   * *   **DeletePublicIpAddressPoolCidrBlock** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListPublicIpAddressPoolCidrBlocks](~~429436~~) operation to query the status of the task.
-     *   *     *   If the CIDR block is in the **Deleting** state, the CIDR block is being deleted. In this state, you can only query the CIDR block and cannot perform other operations.
-     *   *     *   If you cannot query the CIDR block, the CIDR block is deleted.
-     *   * *   You cannot repeatedly call the **DeletePublicIpAddressPoolCidrBlock** operation to delete a CIDR block within the specified period of time.
-     *   *
+     * @summary Deletes a CIDR block from an IP address pool.
+     *  *
+     * @description Before you call this operation, take note of the following items:
+     * *   Before you delete a CIDR block, make sure that it is not being used.
+     * *   **DeletePublicIpAddressPoolCidrBlock** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListPublicIpAddressPoolCidrBlocks](https://help.aliyun.com/document_detail/429436.html) operation to query the status of the task.
+     *     *   If the CIDR block is in the **Deleting** state, the CIDR block is being deleted. In this state, you can only query the CIDR block and cannot perform other operations.
+     *     *   If you cannot query the CIDR block, the CIDR block is deleted.
+     * *   You cannot repeatedly call the **DeletePublicIpAddressPoolCidrBlock** operation to delete a CIDR block within the specified period of time.
+     *  *
      * @param DeletePublicIpAddressPoolCidrBlockRequest $request DeletePublicIpAddressPoolCidrBlockRequest
      * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
@@ -11351,13 +11850,15 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, take note of the following items:
-     *   * *   Before you delete a CIDR block, make sure that it is not being used.
-     *   * *   **DeletePublicIpAddressPoolCidrBlock** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListPublicIpAddressPoolCidrBlocks](~~429436~~) operation to query the status of the task.
-     *   *     *   If the CIDR block is in the **Deleting** state, the CIDR block is being deleted. In this state, you can only query the CIDR block and cannot perform other operations.
-     *   *     *   If you cannot query the CIDR block, the CIDR block is deleted.
-     *   * *   You cannot repeatedly call the **DeletePublicIpAddressPoolCidrBlock** operation to delete a CIDR block within the specified period of time.
-     *   *
+     * @summary Deletes a CIDR block from an IP address pool.
+     *  *
+     * @description Before you call this operation, take note of the following items:
+     * *   Before you delete a CIDR block, make sure that it is not being used.
+     * *   **DeletePublicIpAddressPoolCidrBlock** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListPublicIpAddressPoolCidrBlocks](https://help.aliyun.com/document_detail/429436.html) operation to query the status of the task.
+     *     *   If the CIDR block is in the **Deleting** state, the CIDR block is being deleted. In this state, you can only query the CIDR block and cannot perform other operations.
+     *     *   If you cannot query the CIDR block, the CIDR block is deleted.
+     * *   You cannot repeatedly call the **DeletePublicIpAddressPoolCidrBlock** operation to delete a CIDR block within the specified period of time.
+     *  *
      * @param DeletePublicIpAddressPoolCidrBlockRequest $request DeletePublicIpAddressPoolCidrBlockRequest
      *
      * @return DeletePublicIpAddressPoolCidrBlockResponse DeletePublicIpAddressPoolCidrBlockResponse
@@ -11370,14 +11871,16 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following items:
-     *   * *   You can delete only routes that are in the **Available** state.
-     *   * *   You cannot delete a route of a virtual private cloud (VPC) in which a vSwitch or another route is being created or deleted.
-     *   * *   **DeleteRouteEntries** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteEntryList](~~138148~~) operation to query the status of the task.
-     *   *     *   If the route is in the **Deleting** state, the route is being deleted.
-     *   *     *   If you cannot query the route, the route is deleted.
-     *   * *   You cannot repeatedly call **DeleteRouteEntries** within a specific period of time.
-     *   *
+     * @summary Deletes multiple custom route entries at a time.
+     *  *
+     * @description When you call this operation, take note of the following items:
+     * *   You can delete only routes that are in the **Available** state.
+     * *   You cannot delete a route of a virtual private cloud (VPC) in which a vSwitch or another route is being created or deleted.
+     * *   **DeleteRouteEntries** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html) operation to query the status of the task.
+     *     *   If the route is in the **Deleting** state, the route is being deleted.
+     *     *   If you cannot query the route, the route is deleted.
+     * *   You cannot repeatedly call **DeleteRouteEntries** within a specific period of time.
+     *  *
      * @param DeleteRouteEntriesRequest $request DeleteRouteEntriesRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -11427,14 +11930,16 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following items:
-     *   * *   You can delete only routes that are in the **Available** state.
-     *   * *   You cannot delete a route of a virtual private cloud (VPC) in which a vSwitch or another route is being created or deleted.
-     *   * *   **DeleteRouteEntries** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteEntryList](~~138148~~) operation to query the status of the task.
-     *   *     *   If the route is in the **Deleting** state, the route is being deleted.
-     *   *     *   If you cannot query the route, the route is deleted.
-     *   * *   You cannot repeatedly call **DeleteRouteEntries** within a specific period of time.
-     *   *
+     * @summary Deletes multiple custom route entries at a time.
+     *  *
+     * @description When you call this operation, take note of the following items:
+     * *   You can delete only routes that are in the **Available** state.
+     * *   You cannot delete a route of a virtual private cloud (VPC) in which a vSwitch or another route is being created or deleted.
+     * *   **DeleteRouteEntries** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html) operation to query the status of the task.
+     *     *   If the route is in the **Deleting** state, the route is being deleted.
+     *     *   If you cannot query the route, the route is deleted.
+     * *   You cannot repeatedly call **DeleteRouteEntries** within a specific period of time.
+     *  *
      * @param DeleteRouteEntriesRequest $request DeleteRouteEntriesRequest
      *
      * @return DeleteRouteEntriesResponse DeleteRouteEntriesResponse
@@ -11447,15 +11952,17 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following items:
-     *   * *   You can delete only routes that are in the **Available** state.
-     *   * *   You cannot delete a route entry of a virtual private cloud (VPC) in which a vSwitch or another route entry is being created or deleted.
-     *   * *   Before you call this operation to delete a route of a VBR route table, call the [DescribeRouteEntryList](~~138148~~) operation to query the **NextHopId** of the route first.
-     *   * *   **DeleteRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteEntryList](~~138148~~) operation to query the status of the task.
-     *   *     *   If the route is in the **Deleting** state, the route is being deleted.
-     *   *     *   If you cannot query the route entry, the route entry is deleted.
-     *   * *   You cannot repeatedly call the **DeleteRouteEntry** operation to delete a route from the route table of a vRouter or a VBR within the specified period of time.
-     *   *
+     * @summary Deletes a route entry from a route table of a VRouter or virtual border router (VBR).
+     *  *
+     * @description When you call this operation, take note of the following items:
+     * *   You can delete only routes that are in the **Available** state.
+     * *   You cannot delete a route entry of a virtual private cloud (VPC) in which a vSwitch or another route entry is being created or deleted.
+     * *   Before you call this operation to delete a route of a VBR route table, call the [DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html) operation to query the **NextHopId** of the route first.
+     * *   **DeleteRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html) operation to query the status of the task.
+     *     *   If the route is in the **Deleting** state, the route is being deleted.
+     *     *   If you cannot query the route entry, the route entry is deleted.
+     * *   You cannot repeatedly call the **DeleteRouteEntry** operation to delete a route from the route table of a vRouter or a VBR within the specified period of time.
+     *  *
      * @param DeleteRouteEntryRequest $request DeleteRouteEntryRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -11514,15 +12021,17 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following items:
-     *   * *   You can delete only routes that are in the **Available** state.
-     *   * *   You cannot delete a route entry of a virtual private cloud (VPC) in which a vSwitch or another route entry is being created or deleted.
-     *   * *   Before you call this operation to delete a route of a VBR route table, call the [DescribeRouteEntryList](~~138148~~) operation to query the **NextHopId** of the route first.
-     *   * *   **DeleteRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteEntryList](~~138148~~) operation to query the status of the task.
-     *   *     *   If the route is in the **Deleting** state, the route is being deleted.
-     *   *     *   If you cannot query the route entry, the route entry is deleted.
-     *   * *   You cannot repeatedly call the **DeleteRouteEntry** operation to delete a route from the route table of a vRouter or a VBR within the specified period of time.
-     *   *
+     * @summary Deletes a route entry from a route table of a VRouter or virtual border router (VBR).
+     *  *
+     * @description When you call this operation, take note of the following items:
+     * *   You can delete only routes that are in the **Available** state.
+     * *   You cannot delete a route entry of a virtual private cloud (VPC) in which a vSwitch or another route entry is being created or deleted.
+     * *   Before you call this operation to delete a route of a VBR route table, call the [DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html) operation to query the **NextHopId** of the route first.
+     * *   **DeleteRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html) operation to query the status of the task.
+     *     *   If the route is in the **Deleting** state, the route is being deleted.
+     *     *   If you cannot query the route entry, the route entry is deleted.
+     * *   You cannot repeatedly call the **DeleteRouteEntry** operation to delete a route from the route table of a vRouter or a VBR within the specified period of time.
+     *  *
      * @param DeleteRouteEntryRequest $request DeleteRouteEntryRequest
      *
      * @return DeleteRouteEntryResponse DeleteRouteEntryResponse
@@ -11535,12 +12044,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)Description
-     *   * *   **DeleteRouteTable** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteTableList](~~87602~~) operation to query the status of the task.
-     *   *     *   If the custom route table is in the **Deleting** state, the custom route table is being deleted.
-     *   *     *   If you cannot query the custom route table, the custom route table is deleted.
-     *   * *   You cannot repeatedly call the **DeleteRouteTable** operation to delete a custom route table within the specified period of time.
-     *   *
+     * @summary Deletes a custom route table.
+     *  *
+     * @description ## [](#)Description
+     * *   **DeleteRouteTable** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteTableList](https://help.aliyun.com/document_detail/87602.html) operation to query the status of the task.
+     *     *   If the custom route table is in the **Deleting** state, the custom route table is being deleted.
+     *     *   If you cannot query the custom route table, the custom route table is deleted.
+     * *   You cannot repeatedly call the **DeleteRouteTable** operation to delete a custom route table within the specified period of time.
+     *  *
      * @param DeleteRouteTableRequest $request DeleteRouteTableRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -11590,12 +12101,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)Description
-     *   * *   **DeleteRouteTable** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteTableList](~~87602~~) operation to query the status of the task.
-     *   *     *   If the custom route table is in the **Deleting** state, the custom route table is being deleted.
-     *   *     *   If you cannot query the custom route table, the custom route table is deleted.
-     *   * *   You cannot repeatedly call the **DeleteRouteTable** operation to delete a custom route table within the specified period of time.
-     *   *
+     * @summary Deletes a custom route table.
+     *  *
+     * @description ## [](#)Description
+     * *   **DeleteRouteTable** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteTableList](https://help.aliyun.com/document_detail/87602.html) operation to query the status of the task.
+     *     *   If the custom route table is in the **Deleting** state, the custom route table is being deleted.
+     *     *   If you cannot query the custom route table, the custom route table is deleted.
+     * *   You cannot repeatedly call the **DeleteRouteTable** operation to delete a custom route table within the specified period of time.
+     *  *
      * @param DeleteRouteTableRequest $request DeleteRouteTableRequest
      *
      * @return DeleteRouteTableResponse DeleteRouteTableResponse
@@ -11608,10 +12121,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following limits:
-     *   * *   You can delete only a router interface that is in the **Idle** or **Inactive** state.
-     *   * *   Before you delete a router interface, you must delete all custom route entries destined for the router interface.
-     *   *
+     * @summary Deletes a router interface.
+     *  *
+     * @description When you call this operation, take note of the following limits:
+     * *   You can delete only a router interface that is in the **Idle** or **Inactive** state.
+     * *   Before you delete a router interface, you must delete all custom route entries destined for the router interface.
+     *  *
      * @param DeleteRouterInterfaceRequest $request DeleteRouterInterfaceRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -11661,10 +12176,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following limits:
-     *   * *   You can delete only a router interface that is in the **Idle** or **Inactive** state.
-     *   * *   Before you delete a router interface, you must delete all custom route entries destined for the router interface.
-     *   *
+     * @summary Deletes a router interface.
+     *  *
+     * @description When you call this operation, take note of the following limits:
+     * *   You can delete only a router interface that is in the **Idle** or **Inactive** state.
+     * *   Before you delete a router interface, you must delete all custom route entries destined for the router interface.
+     *  *
      * @param DeleteRouterInterfaceRequest $request DeleteRouterInterfaceRequest
      *
      * @return DeleteRouterInterfaceResponse DeleteRouterInterfaceResponse
@@ -11677,11 +12194,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * DeleteSnatEntry is an asynchronous operation. After you make a request, the ID of the request is returned but the specified SNAT entry is not deleted. The system deletes the SNAT entry in the background. You can call the [DescribeSnatTableEntries](~~42677~~) operation to query the status of SNAT entries.
-     *   * *   If the SNAT entries are in the **Deleting** state, the system is deleting the SNAT entries. In this case, you can only query the status of the SNAT entries, and cannot perform other operations.
-     *   * *   If no SNAT entry is returned in the response, the SNAT entry is deleted.
-     *   * If some SNAT entries are in the **Pending** state, you cannot delete these SNAT entries.
-     *   *
+     * @summary Deletes an SNAT entry.
+     *  *
+     * @description DeleteSnatEntry is an asynchronous operation. After you make a request, the ID of the request is returned but the specified SNAT entry is not deleted. The system deletes the SNAT entry in the background. You can call the [DescribeSnatTableEntries](https://help.aliyun.com/document_detail/42677.html) operation to query the status of SNAT entries.
+     * *   If the SNAT entries are in the **Deleting** state, the system is deleting the SNAT entries. In this case, you can only query the status of the SNAT entries, and cannot perform other operations.
+     * *   If no SNAT entry is returned in the response, the SNAT entry is deleted.
+     * If some SNAT entries are in the **Pending** state, you cannot delete these SNAT entries.
+     *  *
      * @param DeleteSnatEntryRequest $request DeleteSnatEntryRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -11734,11 +12253,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * DeleteSnatEntry is an asynchronous operation. After you make a request, the ID of the request is returned but the specified SNAT entry is not deleted. The system deletes the SNAT entry in the background. You can call the [DescribeSnatTableEntries](~~42677~~) operation to query the status of SNAT entries.
-     *   * *   If the SNAT entries are in the **Deleting** state, the system is deleting the SNAT entries. In this case, you can only query the status of the SNAT entries, and cannot perform other operations.
-     *   * *   If no SNAT entry is returned in the response, the SNAT entry is deleted.
-     *   * If some SNAT entries are in the **Pending** state, you cannot delete these SNAT entries.
-     *   *
+     * @summary Deletes an SNAT entry.
+     *  *
+     * @description DeleteSnatEntry is an asynchronous operation. After you make a request, the ID of the request is returned but the specified SNAT entry is not deleted. The system deletes the SNAT entry in the background. You can call the [DescribeSnatTableEntries](https://help.aliyun.com/document_detail/42677.html) operation to query the status of SNAT entries.
+     * *   If the SNAT entries are in the **Deleting** state, the system is deleting the SNAT entries. In this case, you can only query the status of the SNAT entries, and cannot perform other operations.
+     * *   If no SNAT entry is returned in the response, the SNAT entry is deleted.
+     * If some SNAT entries are in the **Pending** state, you cannot delete these SNAT entries.
+     *  *
      * @param DeleteSnatEntryRequest $request DeleteSnatEntryRequest
      *
      * @return DeleteSnatEntryResponse DeleteSnatEntryResponse
@@ -11751,11 +12272,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **DeleteSslVpnClientCert** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-     *   *     *   If the VPN gateway is in the **updating** state, the SSL client certificate is being deleted.
-     *   *     *   If the VPN gateway is in the **active** state, the SSL client certificate is deleted.
-     *   * *   You cannot repeatedly call **DeleteSslVpnClientCert** to delete an SSL client certificate from the same VPN gateway within the specified period of time.
-     *   *
+     * @summary Deletes an SSL client certificate.
+     *  *
+     * @description *   **DeleteSslVpnClientCert** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+     *     *   If the VPN gateway is in the **updating** state, the SSL client certificate is being deleted.
+     *     *   If the VPN gateway is in the **active** state, the SSL client certificate is deleted.
+     * *   You cannot repeatedly call **DeleteSslVpnClientCert** to delete an SSL client certificate from the same VPN gateway within the specified period of time.
+     *  *
      * @param DeleteSslVpnClientCertRequest $request DeleteSslVpnClientCertRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -11805,11 +12328,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **DeleteSslVpnClientCert** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-     *   *     *   If the VPN gateway is in the **updating** state, the SSL client certificate is being deleted.
-     *   *     *   If the VPN gateway is in the **active** state, the SSL client certificate is deleted.
-     *   * *   You cannot repeatedly call **DeleteSslVpnClientCert** to delete an SSL client certificate from the same VPN gateway within the specified period of time.
-     *   *
+     * @summary Deletes an SSL client certificate.
+     *  *
+     * @description *   **DeleteSslVpnClientCert** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+     *     *   If the VPN gateway is in the **updating** state, the SSL client certificate is being deleted.
+     *     *   If the VPN gateway is in the **active** state, the SSL client certificate is deleted.
+     * *   You cannot repeatedly call **DeleteSslVpnClientCert** to delete an SSL client certificate from the same VPN gateway within the specified period of time.
+     *  *
      * @param DeleteSslVpnClientCertRequest $request DeleteSslVpnClientCertRequest
      *
      * @return DeleteSslVpnClientCertResponse DeleteSslVpnClientCertResponse
@@ -11822,11 +12347,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **DeleteSslVpnServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](~~73720~~) operation to query the status of the task.
-     *   *     *   If the VPN gateway is in the **updating** state, the SSL server is being deleted.
-     *   *     *   If the VPN gateway is in the **active** state, the SSL server is deleted.
-     *   * *   You cannot repeatedly call the **DeleteSslVpnServer** operation to delete an SSL server from the same VPN gateway within the specified period of time.
-     *   *
+     * @summary Deletes an SSL server.
+     *  *
+     * @description *   **DeleteSslVpnServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status of the task.
+     *     *   If the VPN gateway is in the **updating** state, the SSL server is being deleted.
+     *     *   If the VPN gateway is in the **active** state, the SSL server is deleted.
+     * *   You cannot repeatedly call the **DeleteSslVpnServer** operation to delete an SSL server from the same VPN gateway within the specified period of time.
+     *  *
      * @param DeleteSslVpnServerRequest $request DeleteSslVpnServerRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -11876,11 +12403,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **DeleteSslVpnServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](~~73720~~) operation to query the status of the task.
-     *   *     *   If the VPN gateway is in the **updating** state, the SSL server is being deleted.
-     *   *     *   If the VPN gateway is in the **active** state, the SSL server is deleted.
-     *   * *   You cannot repeatedly call the **DeleteSslVpnServer** operation to delete an SSL server from the same VPN gateway within the specified period of time.
-     *   *
+     * @summary Deletes an SSL server.
+     *  *
+     * @description *   **DeleteSslVpnServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status of the task.
+     *     *   If the VPN gateway is in the **updating** state, the SSL server is being deleted.
+     *     *   If the VPN gateway is in the **active** state, the SSL server is deleted.
+     * *   You cannot repeatedly call the **DeleteSslVpnServer** operation to delete an SSL server from the same VPN gateway within the specified period of time.
+     *  *
      * @param DeleteSslVpnServerRequest $request DeleteSslVpnServerRequest
      *
      * @return DeleteSslVpnServerResponse DeleteSslVpnServerResponse
@@ -11893,11 +12422,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   The **DeleteTrafficMirrorFilter** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [ListTrafficMirrorFilters](~~261353~~) operation to query the status of a filter:
-     *   *     *   If the filter is in the **Deleting** state, the filter is being deleted.
-     *   *     *   If you cannot query the filter, the filter is deleted.
-     *   * *   You cannot repeatedly call the **DeleteTrafficMirrorFilter** operation to delete a filter within the specified period of time.
-     *   *
+     * @summary Deletes a filter of traffic mirroring.
+     *  *
+     * @description *   The **DeleteTrafficMirrorFilter** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [ListTrafficMirrorFilters](https://help.aliyun.com/document_detail/261353.html) operation to query the status of a filter:
+     *     *   If the filter is in the **Deleting** state, the filter is being deleted.
+     *     *   If you cannot query the filter, the filter is deleted.
+     * *   You cannot repeatedly call the **DeleteTrafficMirrorFilter** operation to delete a filter within the specified period of time.
+     *  *
      * @param DeleteTrafficMirrorFilterRequest $request DeleteTrafficMirrorFilterRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -11950,11 +12481,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   The **DeleteTrafficMirrorFilter** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [ListTrafficMirrorFilters](~~261353~~) operation to query the status of a filter:
-     *   *     *   If the filter is in the **Deleting** state, the filter is being deleted.
-     *   *     *   If you cannot query the filter, the filter is deleted.
-     *   * *   You cannot repeatedly call the **DeleteTrafficMirrorFilter** operation to delete a filter within the specified period of time.
-     *   *
+     * @summary Deletes a filter of traffic mirroring.
+     *  *
+     * @description *   The **DeleteTrafficMirrorFilter** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [ListTrafficMirrorFilters](https://help.aliyun.com/document_detail/261353.html) operation to query the status of a filter:
+     *     *   If the filter is in the **Deleting** state, the filter is being deleted.
+     *     *   If you cannot query the filter, the filter is deleted.
+     * *   You cannot repeatedly call the **DeleteTrafficMirrorFilter** operation to delete a filter within the specified period of time.
+     *  *
      * @param DeleteTrafficMirrorFilterRequest $request DeleteTrafficMirrorFilterRequest
      *
      * @return DeleteTrafficMirrorFilterResponse DeleteTrafficMirrorFilterResponse
@@ -11967,11 +12500,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **DeleteTrafficMirrorFilterRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListTrafficMirrorFilters](~~261353~~) to query the status of the task.
-     *   *     *   If the inbound or outbound rule is in the **Deleting** state, the rule is being deleted.
-     *   *     *   If you cannot query the rule, the rule is deleted.
-     *   * *   You cannot repeatedly call **DeleteTrafficMirrorFilterRules** within the specified period of time.
-     *   *
+     * @summary Deletes an inbound or outbound rule of a filter for traffic mirroring.
+     *  *
+     * @description *   **DeleteTrafficMirrorFilterRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListTrafficMirrorFilters](https://help.aliyun.com/document_detail/261353.html) to query the status of the task.
+     *     *   If the inbound or outbound rule is in the **Deleting** state, the rule is being deleted.
+     *     *   If you cannot query the rule, the rule is deleted.
+     * *   You cannot repeatedly call **DeleteTrafficMirrorFilterRules** within the specified period of time.
+     *  *
      * @param DeleteTrafficMirrorFilterRulesRequest $request DeleteTrafficMirrorFilterRulesRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
@@ -12027,11 +12562,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **DeleteTrafficMirrorFilterRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListTrafficMirrorFilters](~~261353~~) to query the status of the task.
-     *   *     *   If the inbound or outbound rule is in the **Deleting** state, the rule is being deleted.
-     *   *     *   If you cannot query the rule, the rule is deleted.
-     *   * *   You cannot repeatedly call **DeleteTrafficMirrorFilterRules** within the specified period of time.
-     *   *
+     * @summary Deletes an inbound or outbound rule of a filter for traffic mirroring.
+     *  *
+     * @description *   **DeleteTrafficMirrorFilterRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListTrafficMirrorFilters](https://help.aliyun.com/document_detail/261353.html) to query the status of the task.
+     *     *   If the inbound or outbound rule is in the **Deleting** state, the rule is being deleted.
+     *     *   If you cannot query the rule, the rule is deleted.
+     * *   You cannot repeatedly call **DeleteTrafficMirrorFilterRules** within the specified period of time.
+     *  *
      * @param DeleteTrafficMirrorFilterRulesRequest $request DeleteTrafficMirrorFilterRulesRequest
      *
      * @return DeleteTrafficMirrorFilterRulesResponse DeleteTrafficMirrorFilterRulesResponse
@@ -12044,11 +12581,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **DeleteTrafficMirrorSession** is an asynchronous operation. After you send the request, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorSessions](~~261367~~) operation to query the status of a traffic mirror session.
-     *   *     *   If the traffic mirror session is in the **Deleting** state, the traffic mirror session is being deleted.
-     *   *     *   If you cannot query the traffic mirror session, the traffic mirror session is deleted.
-     *   * *   You cannot repeatedly call the **DeleteTrafficMirrorSession** operation to delete a traffic mirror session within the specified period of time.
-     *   *
+     * @summary Deletes a traffic mirror session.
+     *  *
+     * @description *   **DeleteTrafficMirrorSession** is an asynchronous operation. After you send the request, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorSessions](https://help.aliyun.com/document_detail/261367.html) operation to query the status of a traffic mirror session.
+     *     *   If the traffic mirror session is in the **Deleting** state, the traffic mirror session is being deleted.
+     *     *   If you cannot query the traffic mirror session, the traffic mirror session is deleted.
+     * *   You cannot repeatedly call the **DeleteTrafficMirrorSession** operation to delete a traffic mirror session within the specified period of time.
+     *  *
      * @param DeleteTrafficMirrorSessionRequest $request DeleteTrafficMirrorSessionRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -12101,11 +12640,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **DeleteTrafficMirrorSession** is an asynchronous operation. After you send the request, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorSessions](~~261367~~) operation to query the status of a traffic mirror session.
-     *   *     *   If the traffic mirror session is in the **Deleting** state, the traffic mirror session is being deleted.
-     *   *     *   If you cannot query the traffic mirror session, the traffic mirror session is deleted.
-     *   * *   You cannot repeatedly call the **DeleteTrafficMirrorSession** operation to delete a traffic mirror session within the specified period of time.
-     *   *
+     * @summary Deletes a traffic mirror session.
+     *  *
+     * @description *   **DeleteTrafficMirrorSession** is an asynchronous operation. After you send the request, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorSessions](https://help.aliyun.com/document_detail/261367.html) operation to query the status of a traffic mirror session.
+     *     *   If the traffic mirror session is in the **Deleting** state, the traffic mirror session is being deleted.
+     *     *   If you cannot query the traffic mirror session, the traffic mirror session is deleted.
+     * *   You cannot repeatedly call the **DeleteTrafficMirrorSession** operation to delete a traffic mirror session within the specified period of time.
+     *  *
      * @param DeleteTrafficMirrorSessionRequest $request DeleteTrafficMirrorSessionRequest
      *
      * @return DeleteTrafficMirrorSessionResponse DeleteTrafficMirrorSessionResponse
@@ -12118,15 +12659,17 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following limits:
-     *   * *   Before you delete a vSwitch, you must first release or remove all virtual private cloud (VPC) resources, including vSwitches, instances, router interfaces, and high-availability virtual IP addresses (HAVIPs).
-     *   * *   You can delete only vSwitches that are in the **Available** state.
-     *   * *   You cannot delete a vSwitch from a VPC where a vSwitch or a route is being created or deleted.
-     *   * *   **DeleteVSwitch** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](~~94567~~) operation to query the status of the task:
-     *   *     *   If the vSwitch is in the **Pending** state, the vSwitch is being deleted.
-     *   *     *   If you cannot query the vSwitch, the vSwitch is deleted.
-     *   * *   You cannot repeatedly call the **DeleteVSwitch** operation to delete a vSwitch within the specified period of time.
-     *   *
+     * @summary Deletes a vSwitch.
+     *  *
+     * @description When you call this operation, take note of the following limits:
+     * *   Before you delete a vSwitch, you must first release or remove all virtual private cloud (VPC) resources, including vSwitches, instances, router interfaces, and high-availability virtual IP addresses (HAVIPs).
+     * *   You can delete only vSwitches that are in the **Available** state.
+     * *   You cannot delete a vSwitch from a VPC where a vSwitch or a route is being created or deleted.
+     * *   **DeleteVSwitch** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) operation to query the status of the task:
+     *     *   If the vSwitch is in the **Pending** state, the vSwitch is being deleted.
+     *     *   If you cannot query the vSwitch, the vSwitch is deleted.
+     * *   You cannot repeatedly call the **DeleteVSwitch** operation to delete a vSwitch within the specified period of time.
+     *  *
      * @param DeleteVSwitchRequest $request DeleteVSwitchRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -12173,15 +12716,17 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following limits:
-     *   * *   Before you delete a vSwitch, you must first release or remove all virtual private cloud (VPC) resources, including vSwitches, instances, router interfaces, and high-availability virtual IP addresses (HAVIPs).
-     *   * *   You can delete only vSwitches that are in the **Available** state.
-     *   * *   You cannot delete a vSwitch from a VPC where a vSwitch or a route is being created or deleted.
-     *   * *   **DeleteVSwitch** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](~~94567~~) operation to query the status of the task:
-     *   *     *   If the vSwitch is in the **Pending** state, the vSwitch is being deleted.
-     *   *     *   If you cannot query the vSwitch, the vSwitch is deleted.
-     *   * *   You cannot repeatedly call the **DeleteVSwitch** operation to delete a vSwitch within the specified period of time.
-     *   *
+     * @summary Deletes a vSwitch.
+     *  *
+     * @description When you call this operation, take note of the following limits:
+     * *   Before you delete a vSwitch, you must first release or remove all virtual private cloud (VPC) resources, including vSwitches, instances, router interfaces, and high-availability virtual IP addresses (HAVIPs).
+     * *   You can delete only vSwitches that are in the **Available** state.
+     * *   You cannot delete a vSwitch from a VPC where a vSwitch or a route is being created or deleted.
+     * *   **DeleteVSwitch** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) operation to query the status of the task:
+     *     *   If the vSwitch is in the **Pending** state, the vSwitch is being deleted.
+     *     *   If you cannot query the vSwitch, the vSwitch is deleted.
+     * *   You cannot repeatedly call the **DeleteVSwitch** operation to delete a vSwitch within the specified period of time.
+     *  *
      * @param DeleteVSwitchRequest $request DeleteVSwitchRequest
      *
      * @return DeleteVSwitchResponse DeleteVSwitchResponse
@@ -12194,12 +12739,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)Description
-     *   * *   Before you call this operation, make sure that the IP address allocated to an elastic network interface (ENI) from the reserved CIDR block is deleted. If the IP address of the ENI is not deleted, call [UnassignPrivateIpAddresses](~~85919~~) or [UnassignIpv6Addresses](~~98611~~) to delete the IPv4 or IPv6 address.
-     *   * *   **DeleteVSwitchCidrReservation** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListVSwitchCidrReservations](~~610155~~) to query the status of the task:
-     *   *     *   If the reserved CIDR block is in the **Releasing** state, it is being released.
-     *   *     *   If the reserved CIDR block is in the **Released** state, it is released.
-     *   *
+     * @summary Deletes a reserved CIDR block of a vSwitch.
+     *  *
+     * @description ## [](#)Description
+     * *   Before you call this operation, make sure that the IP address allocated to an elastic network interface (ENI) from the reserved CIDR block is deleted. If the IP address of the ENI is not deleted, call [UnassignPrivateIpAddresses](https://help.aliyun.com/document_detail/85919.html) or [UnassignIpv6Addresses](https://help.aliyun.com/document_detail/98611.html) to delete the IPv4 or IPv6 address.
+     * *   **DeleteVSwitchCidrReservation** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListVSwitchCidrReservations](https://help.aliyun.com/document_detail/610155.html) to query the status of the task:
+     *     *   If the reserved CIDR block is in the **Releasing** state, it is being released.
+     *     *   If the reserved CIDR block is in the **Released** state, it is released.
+     *  *
      * @param DeleteVSwitchCidrReservationRequest $request DeleteVSwitchCidrReservationRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -12246,12 +12793,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)Description
-     *   * *   Before you call this operation, make sure that the IP address allocated to an elastic network interface (ENI) from the reserved CIDR block is deleted. If the IP address of the ENI is not deleted, call [UnassignPrivateIpAddresses](~~85919~~) or [UnassignIpv6Addresses](~~98611~~) to delete the IPv4 or IPv6 address.
-     *   * *   **DeleteVSwitchCidrReservation** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListVSwitchCidrReservations](~~610155~~) to query the status of the task:
-     *   *     *   If the reserved CIDR block is in the **Releasing** state, it is being released.
-     *   *     *   If the reserved CIDR block is in the **Released** state, it is released.
-     *   *
+     * @summary Deletes a reserved CIDR block of a vSwitch.
+     *  *
+     * @description ## [](#)Description
+     * *   Before you call this operation, make sure that the IP address allocated to an elastic network interface (ENI) from the reserved CIDR block is deleted. If the IP address of the ENI is not deleted, call [UnassignPrivateIpAddresses](https://help.aliyun.com/document_detail/85919.html) or [UnassignIpv6Addresses](https://help.aliyun.com/document_detail/98611.html) to delete the IPv4 or IPv6 address.
+     * *   **DeleteVSwitchCidrReservation** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListVSwitchCidrReservations](https://help.aliyun.com/document_detail/610155.html) to query the status of the task:
+     *     *   If the reserved CIDR block is in the **Releasing** state, it is being released.
+     *     *   If the reserved CIDR block is in the **Released** state, it is released.
+     *  *
      * @param DeleteVSwitchCidrReservationRequest $request DeleteVSwitchCidrReservationRequest
      *
      * @return DeleteVSwitchCidrReservationResponse DeleteVSwitchCidrReservationResponse
@@ -12264,10 +12813,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DeleteVbrHaRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Deletes a virtual border router (VBR) failover group.
+     *  *
+     * @param DeleteVbrHaRequest $request DeleteVbrHaRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteVbrHaResponse
+     * @return DeleteVbrHaResponse DeleteVbrHaResponse
      */
     public function deleteVbrHaWithOptions($request, $runtime)
     {
@@ -12313,9 +12864,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DeleteVbrHaRequest $request
+     * @summary Deletes a virtual border router (VBR) failover group.
+     *  *
+     * @param DeleteVbrHaRequest $request DeleteVbrHaRequest
      *
-     * @return DeleteVbrHaResponse
+     * @return DeleteVbrHaResponse DeleteVbrHaResponse
      */
     public function deleteVbrHa($request)
     {
@@ -12325,11 +12878,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **DeleteVcoRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnConnection](~~53046~~) operation to query the status of the task.
-     *   *     *   If the IPsec-VPN connection is in the **updating** state, the route is being deleted.
-     *   *     *   If the IPsec-VPN connection is in the **attached** state, the route is deleted.
-     *   * *   You cannot repeatedly call the **DeleteVcoRouteEntry** operation within a specific time period.
-     *   *
+     * @summary Deletes a destination-based route from an IPsec-VPN connection.
+     *  *
+     * @description *   **DeleteVcoRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnConnection](https://help.aliyun.com/document_detail/53046.html) operation to query the status of the task.
+     *     *   If the IPsec-VPN connection is in the **updating** state, the route is being deleted.
+     *     *   If the IPsec-VPN connection is in the **attached** state, the route is deleted.
+     * *   You cannot repeatedly call the **DeleteVcoRouteEntry** operation within a specific time period.
+     *  *
      * @param DeleteVcoRouteEntryRequest $request DeleteVcoRouteEntryRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -12388,11 +12943,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **DeleteVcoRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnConnection](~~53046~~) operation to query the status of the task.
-     *   *     *   If the IPsec-VPN connection is in the **updating** state, the route is being deleted.
-     *   *     *   If the IPsec-VPN connection is in the **attached** state, the route is deleted.
-     *   * *   You cannot repeatedly call the **DeleteVcoRouteEntry** operation within a specific time period.
-     *   *
+     * @summary Deletes a destination-based route from an IPsec-VPN connection.
+     *  *
+     * @description *   **DeleteVcoRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnConnection](https://help.aliyun.com/document_detail/53046.html) operation to query the status of the task.
+     *     *   If the IPsec-VPN connection is in the **updating** state, the route is being deleted.
+     *     *   If the IPsec-VPN connection is in the **attached** state, the route is deleted.
+     * *   You cannot repeatedly call the **DeleteVcoRouteEntry** operation within a specific time period.
+     *  *
      * @param DeleteVcoRouteEntryRequest $request DeleteVcoRouteEntryRequest
      *
      * @return DeleteVcoRouteEntryResponse DeleteVcoRouteEntryResponse
@@ -12405,11 +12962,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, take note of the following limits:
-     *   * *   Before you delete a VBR, you must delete all router interfaces of the VBR.
-     *   * *   You can delete only a VBR in the **unconfirmed**, **active**, or **terminated** state.
-     *   * *   The owner of an Express Connect circuit can delete a VBR that belongs to another account only if the VBR is in the **unconfirmed** state.
-     *   *
+     * @summary Deletes a virtual border router (VBR).
+     *  *
+     * @description Before you call this operation, take note of the following limits:
+     * *   Before you delete a VBR, you must delete all router interfaces of the VBR.
+     * *   You can delete only a VBR in the **unconfirmed**, **active**, or **terminated** state.
+     * *   The owner of an Express Connect circuit can delete a VBR that belongs to another account only if the VBR is in the **unconfirmed** state.
+     *  *
      * @param DeleteVirtualBorderRouterRequest $request DeleteVirtualBorderRouterRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -12459,11 +13018,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, take note of the following limits:
-     *   * *   Before you delete a VBR, you must delete all router interfaces of the VBR.
-     *   * *   You can delete only a VBR in the **unconfirmed**, **active**, or **terminated** state.
-     *   * *   The owner of an Express Connect circuit can delete a VBR that belongs to another account only if the VBR is in the **unconfirmed** state.
-     *   *
+     * @summary Deletes a virtual border router (VBR).
+     *  *
+     * @description Before you call this operation, take note of the following limits:
+     * *   Before you delete a VBR, you must delete all router interfaces of the VBR.
+     * *   You can delete only a VBR in the **unconfirmed**, **active**, or **terminated** state.
+     * *   The owner of an Express Connect circuit can delete a VBR that belongs to another account only if the VBR is in the **unconfirmed** state.
+     *  *
      * @param DeleteVirtualBorderRouterRequest $request DeleteVirtualBorderRouterRequest
      *
      * @return DeleteVirtualBorderRouterResponse DeleteVirtualBorderRouterResponse
@@ -12476,14 +13037,16 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following limits:
-     *   * *   Before you delete a VPC, make sure that all resources deployed in the VPC are released or removed, such as vSwitches, instances, and high-availability virtual IP addresses (HAVIPs).
-     *   * *   You can delete only a VPC that is in the **Available** state.
-     *   * *   The **DeleteVpc** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](~~94565~~) operation to query the status of a VPC:
-     *   *     *   If the VPC is in the **Deleting** state, the VPC is being deleted.
-     *   *     *   If you cannot query the VPC, the VPC is deleted.
-     *   * *   You cannot repeatedly call the **DeleteVpc** operation to delete a VPC within the specified period of time.
-     *   *
+     * @summary Deletes a virtual private cloud (VPC).
+     *  *
+     * @description When you call this operation, take note of the following limits:
+     * *   Before you delete a VPC, make sure that all resources deployed in the VPC are released or removed, such as vSwitches, instances, and high-availability virtual IP addresses (HAVIPs).
+     * *   You can delete only a VPC that is in the **Available** state.
+     * *   The **DeleteVpc** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of a VPC:
+     *     *   If the VPC is in the **Deleting** state, the VPC is being deleted.
+     *     *   If you cannot query the VPC, the VPC is deleted.
+     * *   You cannot repeatedly call the **DeleteVpc** operation to delete a VPC within the specified period of time.
+     *  *
      * @param DeleteVpcRequest $request DeleteVpcRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
@@ -12536,14 +13099,16 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following limits:
-     *   * *   Before you delete a VPC, make sure that all resources deployed in the VPC are released or removed, such as vSwitches, instances, and high-availability virtual IP addresses (HAVIPs).
-     *   * *   You can delete only a VPC that is in the **Available** state.
-     *   * *   The **DeleteVpc** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](~~94565~~) operation to query the status of a VPC:
-     *   *     *   If the VPC is in the **Deleting** state, the VPC is being deleted.
-     *   *     *   If you cannot query the VPC, the VPC is deleted.
-     *   * *   You cannot repeatedly call the **DeleteVpc** operation to delete a VPC within the specified period of time.
-     *   *
+     * @summary Deletes a virtual private cloud (VPC).
+     *  *
+     * @description When you call this operation, take note of the following limits:
+     * *   Before you delete a VPC, make sure that all resources deployed in the VPC are released or removed, such as vSwitches, instances, and high-availability virtual IP addresses (HAVIPs).
+     * *   You can delete only a VPC that is in the **Available** state.
+     * *   The **DeleteVpc** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of a VPC:
+     *     *   If the VPC is in the **Deleting** state, the VPC is being deleted.
+     *     *   If you cannot query the VPC, the VPC is deleted.
+     * *   You cannot repeatedly call the **DeleteVpc** operation to delete a VPC within the specified period of time.
+     *  *
      * @param DeleteVpcRequest $request DeleteVpcRequest
      *
      * @return DeleteVpcResponse DeleteVpcResponse
@@ -12556,10 +13121,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DeleteVpcGatewayEndpointRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Deletes a gateway endpoint.
+     *  *
+     * @param DeleteVpcGatewayEndpointRequest $request DeleteVpcGatewayEndpointRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteVpcGatewayEndpointResponse
+     * @return DeleteVpcGatewayEndpointResponse DeleteVpcGatewayEndpointResponse
      */
     public function deleteVpcGatewayEndpointWithOptions($request, $runtime)
     {
@@ -12608,9 +13175,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DeleteVpcGatewayEndpointRequest $request
+     * @summary Deletes a gateway endpoint.
+     *  *
+     * @param DeleteVpcGatewayEndpointRequest $request DeleteVpcGatewayEndpointRequest
      *
-     * @return DeleteVpcGatewayEndpointResponse
+     * @return DeleteVpcGatewayEndpointResponse DeleteVpcGatewayEndpointResponse
      */
     public function deleteVpcGatewayEndpoint($request)
     {
@@ -12620,8 +13189,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You cannot repeatedly call the **DeleteDhcpOptionsSet** operation to delete a prefix list within the specified period of time.
-     *   *
+     * @summary Deletes a prefix list.
+     *  *
+     * @description You cannot repeatedly call the **DeleteDhcpOptionsSet** operation to delete a prefix list within the specified period of time.
+     *  *
      * @param DeleteVpcPrefixListRequest $request DeleteVpcPrefixListRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -12674,8 +13245,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You cannot repeatedly call the **DeleteDhcpOptionsSet** operation to delete a prefix list within the specified period of time.
-     *   *
+     * @summary Deletes a prefix list.
+     *  *
+     * @description You cannot repeatedly call the **DeleteDhcpOptionsSet** operation to delete a prefix list within the specified period of time.
+     *  *
      * @param DeleteVpcPrefixListRequest $request DeleteVpcPrefixListRequest
      *
      * @return DeleteVpcPrefixListResponse DeleteVpcPrefixListResponse
@@ -12688,9 +13261,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   If an IPsec-VPN connection is associated with a transit router, you must disassociate the transit router from the IPsec-VPN connection before you delete the IPsec-VPN connection. For more information, see [DeleteTransitRouterVpnAttachment](~~468251~~).
-     *   * *   If an IPsec-VPN connection is not associated with a resource, you can call `DeleteVpnAttachment` to directly delete the IPsec-VPN connection.
-     *   *
+     * @summary Deletes an IPsec-VPN connection.
+     *  *
+     * @description *   If an IPsec-VPN connection is associated with a transit router, you must disassociate the transit router from the IPsec-VPN connection before you delete the IPsec-VPN connection. For more information, see [DeleteTransitRouterVpnAttachment](https://help.aliyun.com/document_detail/468251.html).
+     * *   If an IPsec-VPN connection is not associated with a resource, you can call `DeleteVpnAttachment` to directly delete the IPsec-VPN connection.
+     *  *
      * @param DeleteVpnAttachmentRequest $request DeleteVpnAttachmentRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -12737,9 +13312,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   If an IPsec-VPN connection is associated with a transit router, you must disassociate the transit router from the IPsec-VPN connection before you delete the IPsec-VPN connection. For more information, see [DeleteTransitRouterVpnAttachment](~~468251~~).
-     *   * *   If an IPsec-VPN connection is not associated with a resource, you can call `DeleteVpnAttachment` to directly delete the IPsec-VPN connection.
-     *   *
+     * @summary Deletes an IPsec-VPN connection.
+     *  *
+     * @description *   If an IPsec-VPN connection is associated with a transit router, you must disassociate the transit router from the IPsec-VPN connection before you delete the IPsec-VPN connection. For more information, see [DeleteTransitRouterVpnAttachment](https://help.aliyun.com/document_detail/468251.html).
+     * *   If an IPsec-VPN connection is not associated with a resource, you can call `DeleteVpnAttachment` to directly delete the IPsec-VPN connection.
+     *  *
      * @param DeleteVpnAttachmentRequest $request DeleteVpnAttachmentRequest
      *
      * @return DeleteVpnAttachmentResponse DeleteVpnAttachmentResponse
@@ -12752,12 +13329,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **DeleteVpnConnection** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](~~73720~~) operation to query the status of the task.
-     *   *     *   If the VPN gateway is in the **updating** state, the IPsec-VPN connection is being deleted.
-     *   *     *   If the VPN gateway is in the **active** state, the IPsec-VPN connection is deleted.
-     *   * *   You cannot repeatedly call **DeleteVpnConnection** to delete an IPsec-VPN connection from the same VPN gateway within the specified period of time.
-     *   * >  After an IPsec-VPN connection between a virtual private cloud (VPC) and a data center is deleted, the communication between the VPC and data center is interrupted.
-     *   *
+     * @summary Deletes an IPsec-VPN connection.
+     *  *
+     * @description *   **DeleteVpnConnection** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status of the task.
+     *     *   If the VPN gateway is in the **updating** state, the IPsec-VPN connection is being deleted.
+     *     *   If the VPN gateway is in the **active** state, the IPsec-VPN connection is deleted.
+     * *   You cannot repeatedly call **DeleteVpnConnection** to delete an IPsec-VPN connection from the same VPN gateway within the specified period of time.
+     * >  After an IPsec-VPN connection between a virtual private cloud (VPC) and a data center is deleted, the communication between the VPC and data center is interrupted.
+     *  *
      * @param DeleteVpnConnectionRequest $request DeleteVpnConnectionRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -12807,12 +13386,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **DeleteVpnConnection** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](~~73720~~) operation to query the status of the task.
-     *   *     *   If the VPN gateway is in the **updating** state, the IPsec-VPN connection is being deleted.
-     *   *     *   If the VPN gateway is in the **active** state, the IPsec-VPN connection is deleted.
-     *   * *   You cannot repeatedly call **DeleteVpnConnection** to delete an IPsec-VPN connection from the same VPN gateway within the specified period of time.
-     *   * >  After an IPsec-VPN connection between a virtual private cloud (VPC) and a data center is deleted, the communication between the VPC and data center is interrupted.
-     *   *
+     * @summary Deletes an IPsec-VPN connection.
+     *  *
+     * @description *   **DeleteVpnConnection** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status of the task.
+     *     *   If the VPN gateway is in the **updating** state, the IPsec-VPN connection is being deleted.
+     *     *   If the VPN gateway is in the **active** state, the IPsec-VPN connection is deleted.
+     * *   You cannot repeatedly call **DeleteVpnConnection** to delete an IPsec-VPN connection from the same VPN gateway within the specified period of time.
+     * >  After an IPsec-VPN connection between a virtual private cloud (VPC) and a data center is deleted, the communication between the VPC and data center is interrupted.
+     *  *
      * @param DeleteVpnConnectionRequest $request DeleteVpnConnectionRequest
      *
      * @return DeleteVpnConnectionResponse DeleteVpnConnectionResponse
@@ -12825,8 +13406,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * >  You cannot delete a VPN gateway associated with existing IPsec-VPN connections.
-     *   *
+     * @summary Deletes a VPN gateway.
+     *  *
+     * @description >  You cannot delete a VPN gateway associated with existing IPsec-VPN connections.
+     *  *
      * @param DeleteVpnGatewayRequest $request DeleteVpnGatewayRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -12876,8 +13459,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * >  You cannot delete a VPN gateway associated with existing IPsec-VPN connections.
-     *   *
+     * @summary Deletes a VPN gateway.
+     *  *
+     * @description >  You cannot delete a VPN gateway associated with existing IPsec-VPN connections.
+     *  *
      * @param DeleteVpnGatewayRequest $request DeleteVpnGatewayRequest
      *
      * @return DeleteVpnGatewayResponse DeleteVpnGatewayResponse
@@ -12890,11 +13475,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **DeleteVpnPbrRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-     *   *     *   If a VPN gateway is in the **updating** state, the policy-based route is being deleted.
-     *   *     *   If a VPN gateway is in the **active** state, the policy-based route has been deleted.
-     *   * *   You cannot repeatedly call **DeleteVpnPbrRouteEntry** to delete a policy-based route within the specified period of time.
-     *   *
+     * @summary Deletes a policy-based route from a VPN gateway.
+     *  *
+     * @description *   **DeleteVpnPbrRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+     *     *   If a VPN gateway is in the **updating** state, the policy-based route is being deleted.
+     *     *   If a VPN gateway is in the **active** state, the policy-based route has been deleted.
+     * *   You cannot repeatedly call **DeleteVpnPbrRouteEntry** to delete a policy-based route within the specified period of time.
+     *  *
      * @param DeleteVpnPbrRouteEntryRequest $request DeleteVpnPbrRouteEntryRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -12962,11 +13549,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **DeleteVpnPbrRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-     *   *     *   If a VPN gateway is in the **updating** state, the policy-based route is being deleted.
-     *   *     *   If a VPN gateway is in the **active** state, the policy-based route has been deleted.
-     *   * *   You cannot repeatedly call **DeleteVpnPbrRouteEntry** to delete a policy-based route within the specified period of time.
-     *   *
+     * @summary Deletes a policy-based route from a VPN gateway.
+     *  *
+     * @description *   **DeleteVpnPbrRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+     *     *   If a VPN gateway is in the **updating** state, the policy-based route is being deleted.
+     *     *   If a VPN gateway is in the **active** state, the policy-based route has been deleted.
+     * *   You cannot repeatedly call **DeleteVpnPbrRouteEntry** to delete a policy-based route within the specified period of time.
+     *  *
      * @param DeleteVpnPbrRouteEntryRequest $request DeleteVpnPbrRouteEntryRequest
      *
      * @return DeleteVpnPbrRouteEntryResponse DeleteVpnPbrRouteEntryResponse
@@ -12979,11 +13568,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **DeleteVpnRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-     *   *     *   If a VPN gateway is in the **updating** state, the destination-based route is being deleted.
-     *   *     *   If the VPN gateway is in the **active** state, the destination-based route is deleted.
-     *   * *   You cannot repeatedly call **DeleteVpnRouteEntry** to delete a destination-based route from a VPN gateway within the specified period of time.
-     *   *
+     * @summary Deletes a destination-based route from a VPN gateway.
+     *  *
+     * @description *   **DeleteVpnRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+     *     *   If a VPN gateway is in the **updating** state, the destination-based route is being deleted.
+     *     *   If the VPN gateway is in the **active** state, the destination-based route is deleted.
+     * *   You cannot repeatedly call **DeleteVpnRouteEntry** to delete a destination-based route from a VPN gateway within the specified period of time.
+     *  *
      * @param DeleteVpnRouteEntryRequest $request DeleteVpnRouteEntryRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -13045,11 +13636,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **DeleteVpnRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-     *   *     *   If a VPN gateway is in the **updating** state, the destination-based route is being deleted.
-     *   *     *   If the VPN gateway is in the **active** state, the destination-based route is deleted.
-     *   * *   You cannot repeatedly call **DeleteVpnRouteEntry** to delete a destination-based route from a VPN gateway within the specified period of time.
-     *   *
+     * @summary Deletes a destination-based route from a VPN gateway.
+     *  *
+     * @description *   **DeleteVpnRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+     *     *   If a VPN gateway is in the **updating** state, the destination-based route is being deleted.
+     *     *   If the VPN gateway is in the **active** state, the destination-based route is deleted.
+     * *   You cannot repeatedly call **DeleteVpnRouteEntry** to delete a destination-based route from a VPN gateway within the specified period of time.
+     *  *
      * @param DeleteVpnRouteEntryRequest $request DeleteVpnRouteEntryRequest
      *
      * @return DeleteVpnRouteEntryResponse DeleteVpnRouteEntryResponse
@@ -13062,8 +13655,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * After you enable deletion protection for an instance, you cannot delete the instance. You must disable deletion protection before you can delete the instance.
-     *   *
+     * @summary 设置实例删除保护功能。
+     *  *
+     * @description After you enable deletion protection for an instance, you cannot delete the instance. You must disable deletion protection before you can delete the instance.
+     *  *
      * @param DeletionProtectionRequest $request DeletionProtectionRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -13119,8 +13714,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * After you enable deletion protection for an instance, you cannot delete the instance. You must disable deletion protection before you can delete the instance.
-     *   *
+     * @summary 设置实例删除保护功能。
+     *  *
+     * @description After you enable deletion protection for an instance, you cannot delete the instance. You must disable deletion protection before you can delete the instance.
+     *  *
      * @param DeletionProtectionRequest $request DeletionProtectionRequest
      *
      * @return DeletionProtectionResponse DeletionProtectionResponse
@@ -13133,10 +13730,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param Describe95TrafficRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries traffic data of a pay-by-enhanced-95th-percentile Internet Shared Bandwidth instance.
+     *  *
+     * @param Describe95TrafficRequest $request Describe95TrafficRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return Describe95TrafficResponse
+     * @return Describe95TrafficResponse Describe95TrafficResponse
      */
     public function describe95TrafficWithOptions($request, $runtime)
     {
@@ -13185,9 +13784,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param Describe95TrafficRequest $request
+     * @summary Queries traffic data of a pay-by-enhanced-95th-percentile Internet Shared Bandwidth instance.
+     *  *
+     * @param Describe95TrafficRequest $request Describe95TrafficRequest
      *
-     * @return Describe95TrafficResponse
+     * @return Describe95TrafficResponse Describe95TrafficResponse
      */
     public function describe95Traffic($request)
     {
@@ -13197,10 +13798,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeAccessPointsRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the access points of Express Connect circuits in a region.
+     *  *
+     * @param DescribeAccessPointsRequest $request DescribeAccessPointsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAccessPointsResponse
+     * @return DescribeAccessPointsResponse DescribeAccessPointsResponse
      */
     public function describeAccessPointsWithOptions($request, $runtime)
     {
@@ -13246,9 +13849,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeAccessPointsRequest $request
+     * @summary Queries the access points of Express Connect circuits in a region.
+     *  *
+     * @param DescribeAccessPointsRequest $request DescribeAccessPointsRequest
      *
-     * @return DescribeAccessPointsResponse
+     * @return DescribeAccessPointsResponse DescribeAccessPointsResponse
      */
     public function describeAccessPoints($request)
     {
@@ -13258,10 +13863,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeBgpGroupsRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries Border Gateway Protocol (BGP) groups in a region.
+     *  *
+     * @param DescribeBgpGroupsRequest $request DescribeBgpGroupsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBgpGroupsResponse
+     * @return DescribeBgpGroupsResponse DescribeBgpGroupsResponse
      */
     public function describeBgpGroupsWithOptions($request, $runtime)
     {
@@ -13316,9 +13923,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeBgpGroupsRequest $request
+     * @summary Queries Border Gateway Protocol (BGP) groups in a region.
+     *  *
+     * @param DescribeBgpGroupsRequest $request DescribeBgpGroupsRequest
      *
-     * @return DescribeBgpGroupsResponse
+     * @return DescribeBgpGroupsResponse DescribeBgpGroupsResponse
      */
     public function describeBgpGroups($request)
     {
@@ -13328,10 +13937,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeBgpNetworksRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries advertised Border Gateway Protocol (BGP) networks.
+     *  *
+     * @param DescribeBgpNetworksRequest $request DescribeBgpNetworksRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBgpNetworksResponse
+     * @return DescribeBgpNetworksResponse DescribeBgpNetworksResponse
      */
     public function describeBgpNetworksWithOptions($request, $runtime)
     {
@@ -13380,9 +13991,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeBgpNetworksRequest $request
+     * @summary Queries advertised Border Gateway Protocol (BGP) networks.
+     *  *
+     * @param DescribeBgpNetworksRequest $request DescribeBgpNetworksRequest
      *
-     * @return DescribeBgpNetworksResponse
+     * @return DescribeBgpNetworksResponse DescribeBgpNetworksResponse
      */
     public function describeBgpNetworks($request)
     {
@@ -13392,10 +14005,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeBgpPeersRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries Border Gateway Protocol (BGP) peers in a region.
+     *  *
+     * @param DescribeBgpPeersRequest $request DescribeBgpPeersRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBgpPeersResponse
+     * @return DescribeBgpPeersResponse DescribeBgpPeersResponse
      */
     public function describeBgpPeersWithOptions($request, $runtime)
     {
@@ -13453,9 +14068,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeBgpPeersRequest $request
+     * @summary Queries Border Gateway Protocol (BGP) peers in a region.
+     *  *
+     * @param DescribeBgpPeersRequest $request DescribeBgpPeersRequest
      *
-     * @return DescribeBgpPeersResponse
+     * @return DescribeBgpPeersResponse DescribeBgpPeersResponse
      */
     public function describeBgpPeers($request)
     {
@@ -13465,10 +14082,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeCommonBandwidthPackagesRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary Queries a list of Internet Shared Bandwidth instances in a region.
+     *  *
+     * @param DescribeCommonBandwidthPackagesRequest $request DescribeCommonBandwidthPackagesRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCommonBandwidthPackagesResponse
+     * @return DescribeCommonBandwidthPackagesResponse DescribeCommonBandwidthPackagesResponse
      */
     public function describeCommonBandwidthPackagesWithOptions($request, $runtime)
     {
@@ -13535,9 +14154,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeCommonBandwidthPackagesRequest $request
+     * @summary Queries a list of Internet Shared Bandwidth instances in a region.
+     *  *
+     * @param DescribeCommonBandwidthPackagesRequest $request DescribeCommonBandwidthPackagesRequest
      *
-     * @return DescribeCommonBandwidthPackagesResponse
+     * @return DescribeCommonBandwidthPackagesResponse DescribeCommonBandwidthPackagesResponse
      */
     public function describeCommonBandwidthPackages($request)
     {
@@ -13547,10 +14168,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeCustomerGatewayRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries details of a customer gateway.
+     *  *
+     * @param DescribeCustomerGatewayRequest $request DescribeCustomerGatewayRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCustomerGatewayResponse
+     * @return DescribeCustomerGatewayResponse DescribeCustomerGatewayResponse
      */
     public function describeCustomerGatewayWithOptions($request, $runtime)
     {
@@ -13593,9 +14216,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeCustomerGatewayRequest $request
+     * @summary Queries details of a customer gateway.
+     *  *
+     * @param DescribeCustomerGatewayRequest $request DescribeCustomerGatewayRequest
      *
-     * @return DescribeCustomerGatewayResponse
+     * @return DescribeCustomerGatewayResponse DescribeCustomerGatewayResponse
      */
     public function describeCustomerGateway($request)
     {
@@ -13605,10 +14230,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeCustomerGatewaysRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries customer gateways.
+     *  *
+     * @param DescribeCustomerGatewaysRequest $request DescribeCustomerGatewaysRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCustomerGatewaysResponse
+     * @return DescribeCustomerGatewaysResponse DescribeCustomerGatewaysResponse
      */
     public function describeCustomerGatewaysWithOptions($request, $runtime)
     {
@@ -13663,9 +14290,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeCustomerGatewaysRequest $request
+     * @summary Queries customer gateways.
+     *  *
+     * @param DescribeCustomerGatewaysRequest $request DescribeCustomerGatewaysRequest
      *
-     * @return DescribeCustomerGatewaysResponse
+     * @return DescribeCustomerGatewaysResponse DescribeCustomerGatewaysResponse
      */
     public function describeCustomerGateways($request)
     {
@@ -13675,10 +14304,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeEcGrantRelationRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries whether permissions on a virtual private cloud (VPC) are granted to a virtual border router (VBR).
+     *  *
+     * @param DescribeEcGrantRelationRequest $request DescribeEcGrantRelationRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEcGrantRelationResponse
+     * @return DescribeEcGrantRelationResponse DescribeEcGrantRelationResponse
      */
     public function describeEcGrantRelationWithOptions($request, $runtime)
     {
@@ -13718,9 +14349,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeEcGrantRelationRequest $request
+     * @summary Queries whether permissions on a virtual private cloud (VPC) are granted to a virtual border router (VBR).
+     *  *
+     * @param DescribeEcGrantRelationRequest $request DescribeEcGrantRelationRequest
      *
-     * @return DescribeEcGrantRelationResponse
+     * @return DescribeEcGrantRelationResponse DescribeEcGrantRelationResponse
      */
     public function describeEcGrantRelation($request)
     {
@@ -13730,8 +14363,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query information about EIPs in a region, including maximum bandwidth, billing methods, and associated instances.
-     *   *
+     * @summary Queries elastic IP addresses (EIPs) created in a region.
+     *  *
+     * @description You can call this operation to query information about EIPs in a region, including maximum bandwidth, billing methods, and associated instances.
+     *  *
      * @param DescribeEipAddressesRequest $request DescribeEipAddressesRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -13835,8 +14470,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query information about EIPs in a region, including maximum bandwidth, billing methods, and associated instances.
-     *   *
+     * @summary Queries elastic IP addresses (EIPs) created in a region.
+     *  *
+     * @description You can call this operation to query information about EIPs in a region, including maximum bandwidth, billing methods, and associated instances.
+     *  *
      * @param DescribeEipAddressesRequest $request DescribeEipAddressesRequest
      *
      * @return DescribeEipAddressesResponse DescribeEipAddressesResponse
@@ -13849,8 +14486,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You can query only EIPs that are associated with secondary elastic network interfaces (ENIs) in multi-EIP-to-ENI mode.
-     *   *
+     * @summary Queries the gateway and subnet mask of an elastic IP address (EIP).
+     *  *
+     * @description You can query only EIPs that are associated with secondary elastic network interfaces (ENIs) in multi-EIP-to-ENI mode.
+     *  *
      * @param DescribeEipGatewayInfoRequest $request DescribeEipGatewayInfoRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -13900,8 +14539,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You can query only EIPs that are associated with secondary elastic network interfaces (ENIs) in multi-EIP-to-ENI mode.
-     *   *
+     * @summary Queries the gateway and subnet mask of an elastic IP address (EIP).
+     *  *
+     * @description You can query only EIPs that are associated with secondary elastic network interfaces (ENIs) in multi-EIP-to-ENI mode.
+     *  *
      * @param DescribeEipGatewayInfoRequest $request DescribeEipGatewayInfoRequest
      *
      * @return DescribeEipGatewayInfoResponse DescribeEipGatewayInfoResponse
@@ -13914,8 +14555,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * To improve user experience in querying monitoring data, we recommend that you call the DescribeMetricList API operation provided by CloudMonitor to query EIP monitoring data. For more information, see [DescribeMetricList](~~51936~~) and [EIP monitoring data](~~162874~~).
-     *   *
+     * @summary Queries the monitoring data of an elastic IP address (EIP). You can query monitoring data within the last 30 days, and obtain up to 400 data points in each request.
+     *  *
+     * @description To improve user experience in querying monitoring data, we recommend that you call the DescribeMetricList API operation provided by CloudMonitor to query EIP monitoring data. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html) and [EIP monitoring data](https://help.aliyun.com/document_detail/162874.html).
+     *  *
      * @param DescribeEipMonitorDataRequest $request DescribeEipMonitorDataRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -13971,8 +14614,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * To improve user experience in querying monitoring data, we recommend that you call the DescribeMetricList API operation provided by CloudMonitor to query EIP monitoring data. For more information, see [DescribeMetricList](~~51936~~) and [EIP monitoring data](~~162874~~).
-     *   *
+     * @summary Queries the monitoring data of an elastic IP address (EIP). You can query monitoring data within the last 30 days, and obtain up to 400 data points in each request.
+     *  *
+     * @description To improve user experience in querying monitoring data, we recommend that you call the DescribeMetricList API operation provided by CloudMonitor to query EIP monitoring data. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html) and [EIP monitoring data](https://help.aliyun.com/document_detail/162874.html).
+     *  *
      * @param DescribeEipMonitorDataRequest $request DescribeEipMonitorDataRequest
      *
      * @return DescribeEipMonitorDataResponse DescribeEipMonitorDataResponse
@@ -13985,10 +14630,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeEipSegmentRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries contiguous elastic IP address (EIP) groups.
+     *  *
+     * @param DescribeEipSegmentRequest $request DescribeEipSegmentRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEipSegmentResponse
+     * @return DescribeEipSegmentResponse DescribeEipSegmentResponse
      */
     public function describeEipSegmentWithOptions($request, $runtime)
     {
@@ -14040,9 +14687,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeEipSegmentRequest $request
+     * @summary Queries contiguous elastic IP address (EIP) groups.
+     *  *
+     * @param DescribeEipSegmentRequest $request DescribeEipSegmentRequest
      *
-     * @return DescribeEipSegmentResponse
+     * @return DescribeEipSegmentResponse DescribeEipSegmentResponse
      */
     public function describeEipSegment($request)
     {
@@ -14052,10 +14701,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeExpressConnectTrafficQosRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary 查询高速通道Qos
+     *  *
+     * @param DescribeExpressConnectTrafficQosRequest $request DescribeExpressConnectTrafficQosRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeExpressConnectTrafficQosResponse
+     * @return DescribeExpressConnectTrafficQosResponse DescribeExpressConnectTrafficQosResponse
      */
     public function describeExpressConnectTrafficQosWithOptions($request, $runtime)
     {
@@ -14110,9 +14761,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeExpressConnectTrafficQosRequest $request
+     * @summary 查询高速通道Qos
+     *  *
+     * @param DescribeExpressConnectTrafficQosRequest $request DescribeExpressConnectTrafficQosRequest
      *
-     * @return DescribeExpressConnectTrafficQosResponse
+     * @return DescribeExpressConnectTrafficQosResponse DescribeExpressConnectTrafficQosResponse
      */
     public function describeExpressConnectTrafficQos($request)
     {
@@ -14122,10 +14775,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeExpressConnectTrafficQosQueueRequest $request
-     * @param RuntimeOptions                               $runtime
+     * @summary 查询高速通道Qos队列
+     *  *
+     * @param DescribeExpressConnectTrafficQosQueueRequest $request DescribeExpressConnectTrafficQosQueueRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeExpressConnectTrafficQosQueueResponse
+     * @return DescribeExpressConnectTrafficQosQueueResponse DescribeExpressConnectTrafficQosQueueResponse
      */
     public function describeExpressConnectTrafficQosQueueWithOptions($request, $runtime)
     {
@@ -14177,9 +14832,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeExpressConnectTrafficQosQueueRequest $request
+     * @summary 查询高速通道Qos队列
+     *  *
+     * @param DescribeExpressConnectTrafficQosQueueRequest $request DescribeExpressConnectTrafficQosQueueRequest
      *
-     * @return DescribeExpressConnectTrafficQosQueueResponse
+     * @return DescribeExpressConnectTrafficQosQueueResponse DescribeExpressConnectTrafficQosQueueResponse
      */
     public function describeExpressConnectTrafficQosQueue($request)
     {
@@ -14189,10 +14846,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeExpressConnectTrafficQosRuleRequest $request
-     * @param RuntimeOptions                              $runtime
+     * @summary 查询高速通道Qos规则
+     *  *
+     * @param DescribeExpressConnectTrafficQosRuleRequest $request DescribeExpressConnectTrafficQosRuleRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeExpressConnectTrafficQosRuleResponse
+     * @return DescribeExpressConnectTrafficQosRuleResponse DescribeExpressConnectTrafficQosRuleResponse
      */
     public function describeExpressConnectTrafficQosRuleWithOptions($request, $runtime)
     {
@@ -14247,9 +14906,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeExpressConnectTrafficQosRuleRequest $request
+     * @summary 查询高速通道Qos规则
+     *  *
+     * @param DescribeExpressConnectTrafficQosRuleRequest $request DescribeExpressConnectTrafficQosRuleRequest
      *
-     * @return DescribeExpressConnectTrafficQosRuleResponse
+     * @return DescribeExpressConnectTrafficQosRuleResponse DescribeExpressConnectTrafficQosRuleResponse
      */
     public function describeExpressConnectTrafficQosRule($request)
     {
@@ -14259,10 +14920,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeFailoverTestJobRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 查询故障演练任务详情
+     *  *
+     * @param DescribeFailoverTestJobRequest $request DescribeFailoverTestJobRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFailoverTestJobResponse
+     * @return DescribeFailoverTestJobResponse DescribeFailoverTestJobResponse
      */
     public function describeFailoverTestJobWithOptions($request, $runtime)
     {
@@ -14308,9 +14971,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeFailoverTestJobRequest $request
+     * @summary 查询故障演练任务详情
+     *  *
+     * @param DescribeFailoverTestJobRequest $request DescribeFailoverTestJobRequest
      *
-     * @return DescribeFailoverTestJobResponse
+     * @return DescribeFailoverTestJobResponse DescribeFailoverTestJobResponse
      */
     public function describeFailoverTestJob($request)
     {
@@ -14320,10 +14985,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeFailoverTestJobsRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 批量查询故障演练任务
+     *  *
+     * @param DescribeFailoverTestJobsRequest $request DescribeFailoverTestJobsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFailoverTestJobsResponse
+     * @return DescribeFailoverTestJobsResponse DescribeFailoverTestJobsResponse
      */
     public function describeFailoverTestJobsWithOptions($request, $runtime)
     {
@@ -14375,9 +15042,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeFailoverTestJobsRequest $request
+     * @summary 批量查询故障演练任务
+     *  *
+     * @param DescribeFailoverTestJobsRequest $request DescribeFailoverTestJobsRequest
      *
-     * @return DescribeFailoverTestJobsResponse
+     * @return DescribeFailoverTestJobsResponse DescribeFailoverTestJobsResponse
      */
     public function describeFailoverTestJobs($request)
     {
@@ -14387,10 +15056,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeFlowLogsRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the information about flow logs.
+     *  *
+     * @param DescribeFlowLogsRequest $request DescribeFlowLogsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFlowLogsResponse
+     * @return DescribeFlowLogsResponse DescribeFlowLogsResponse
      */
     public function describeFlowLogsWithOptions($request, $runtime)
     {
@@ -14472,9 +15143,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeFlowLogsRequest $request
+     * @summary Queries the information about flow logs.
+     *  *
+     * @param DescribeFlowLogsRequest $request DescribeFlowLogsRequest
      *
-     * @return DescribeFlowLogsResponse
+     * @return DescribeFlowLogsResponse DescribeFlowLogsResponse
      */
     public function describeFlowLogs($request)
     {
@@ -14484,10 +15157,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeForwardTableEntriesRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries DNAT entries.
+     *  *
+     * @param DescribeForwardTableEntriesRequest $request DescribeForwardTableEntriesRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeForwardTableEntriesResponse
+     * @return DescribeForwardTableEntriesResponse DescribeForwardTableEntriesResponse
      */
     public function describeForwardTableEntriesWithOptions($request, $runtime)
     {
@@ -14560,9 +15235,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeForwardTableEntriesRequest $request
+     * @summary Queries DNAT entries.
+     *  *
+     * @param DescribeForwardTableEntriesRequest $request DescribeForwardTableEntriesRequest
      *
-     * @return DescribeForwardTableEntriesResponse
+     * @return DescribeForwardTableEntriesResponse DescribeForwardTableEntriesResponse
      */
     public function describeForwardTableEntries($request)
     {
@@ -14572,10 +15249,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeGlobalAccelerationInstancesRequest $request
-     * @param RuntimeOptions                             $runtime
+     * @summary Queries Global Accelerator (GA) instances.
+     *  *
+     * @param DescribeGlobalAccelerationInstancesRequest $request DescribeGlobalAccelerationInstancesRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeGlobalAccelerationInstancesResponse
+     * @return DescribeGlobalAccelerationInstancesResponse DescribeGlobalAccelerationInstancesResponse
      */
     public function describeGlobalAccelerationInstancesWithOptions($request, $runtime)
     {
@@ -14645,9 +15324,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeGlobalAccelerationInstancesRequest $request
+     * @summary Queries Global Accelerator (GA) instances.
+     *  *
+     * @param DescribeGlobalAccelerationInstancesRequest $request DescribeGlobalAccelerationInstancesRequest
      *
-     * @return DescribeGlobalAccelerationInstancesResponse
+     * @return DescribeGlobalAccelerationInstancesResponse DescribeGlobalAccelerationInstancesResponse
      */
     public function describeGlobalAccelerationInstances($request)
     {
@@ -14657,10 +15338,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeGrantRulesToCenRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 查询指定网络实例（VPC、VBR）的云企业网跨账号授权信息
+     *  *
+     * @param DescribeGrantRulesToCenRequest $request DescribeGrantRulesToCenRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeGrantRulesToCenResponse
+     * @return DescribeGrantRulesToCenResponse DescribeGrantRulesToCenResponse
      */
     public function describeGrantRulesToCenWithOptions($request, $runtime)
     {
@@ -14718,9 +15401,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeGrantRulesToCenRequest $request
+     * @summary 查询指定网络实例（VPC、VBR）的云企业网跨账号授权信息
+     *  *
+     * @param DescribeGrantRulesToCenRequest $request DescribeGrantRulesToCenRequest
      *
-     * @return DescribeGrantRulesToCenResponse
+     * @return DescribeGrantRulesToCenResponse DescribeGrantRulesToCenResponse
      */
     public function describeGrantRulesToCen($request)
     {
@@ -14730,10 +15415,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeHaVipsRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Queries HAVIPs in a region.
+     *  *
+     * @param DescribeHaVipsRequest $request DescribeHaVipsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeHaVipsResponse
+     * @return DescribeHaVipsResponse DescribeHaVipsResponse
      */
     public function describeHaVipsWithOptions($request, $runtime)
     {
@@ -14788,9 +15475,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeHaVipsRequest $request
+     * @summary Queries HAVIPs in a region.
+     *  *
+     * @param DescribeHaVipsRequest $request DescribeHaVipsRequest
      *
-     * @return DescribeHaVipsResponse
+     * @return DescribeHaVipsResponse DescribeHaVipsResponse
      */
     public function describeHaVips($request)
     {
@@ -14800,10 +15489,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeHighDefinitionMonitorLogAttributeRequest $request
-     * @param RuntimeOptions                                   $runtime
+     * @summary Queries configurations about the fine-grained monitoring feature of an elastic IP address (EIP).
+     *  *
+     * @param DescribeHighDefinitionMonitorLogAttributeRequest $request DescribeHighDefinitionMonitorLogAttributeRequest
+     * @param RuntimeOptions                                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeHighDefinitionMonitorLogAttributeResponse
+     * @return DescribeHighDefinitionMonitorLogAttributeResponse DescribeHighDefinitionMonitorLogAttributeResponse
      */
     public function describeHighDefinitionMonitorLogAttributeWithOptions($request, $runtime)
     {
@@ -14849,9 +15540,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeHighDefinitionMonitorLogAttributeRequest $request
+     * @summary Queries configurations about the fine-grained monitoring feature of an elastic IP address (EIP).
+     *  *
+     * @param DescribeHighDefinitionMonitorLogAttributeRequest $request DescribeHighDefinitionMonitorLogAttributeRequest
      *
-     * @return DescribeHighDefinitionMonitorLogAttributeResponse
+     * @return DescribeHighDefinitionMonitorLogAttributeResponse DescribeHighDefinitionMonitorLogAttributeResponse
      */
     public function describeHighDefinitionMonitorLogAttribute($request)
     {
@@ -14861,10 +15554,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeIPv6TranslatorAclListAttributesRequest $request
-     * @param RuntimeOptions                                 $runtime
+     * @summary Queries the details of an access control list (ACL), including the specified IP addresses and associated IPv6 mapping entries.
+     *  *
+     * @param DescribeIPv6TranslatorAclListAttributesRequest $request DescribeIPv6TranslatorAclListAttributesRequest
+     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeIPv6TranslatorAclListAttributesResponse
+     * @return DescribeIPv6TranslatorAclListAttributesResponse DescribeIPv6TranslatorAclListAttributesResponse
      */
     public function describeIPv6TranslatorAclListAttributesWithOptions($request, $runtime)
     {
@@ -14913,9 +15608,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeIPv6TranslatorAclListAttributesRequest $request
+     * @summary Queries the details of an access control list (ACL), including the specified IP addresses and associated IPv6 mapping entries.
+     *  *
+     * @param DescribeIPv6TranslatorAclListAttributesRequest $request DescribeIPv6TranslatorAclListAttributesRequest
      *
-     * @return DescribeIPv6TranslatorAclListAttributesResponse
+     * @return DescribeIPv6TranslatorAclListAttributesResponse DescribeIPv6TranslatorAclListAttributesResponse
      */
     public function describeIPv6TranslatorAclListAttributes($request)
     {
@@ -14925,8 +15622,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI DescribeIPv6TranslatorAclLists is deprecated
+     *  *
+     * @summary Queries access control lists (ACLs).
+     *  *
      * Deprecated
      *
      * @param DescribeIPv6TranslatorAclListsRequest $request DescribeIPv6TranslatorAclListsRequest
@@ -14984,8 +15683,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI DescribeIPv6TranslatorAclLists is deprecated
+     *  *
+     * @summary Queries access control lists (ACLs).
+     *  *
      * Deprecated
      *
      * @param DescribeIPv6TranslatorAclListsRequest $request DescribeIPv6TranslatorAclListsRequest
@@ -15000,8 +15701,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI DescribeIPv6TranslatorEntries is deprecated
+     *  *
+     * @summary Queries IPv6 mapping entries.
+     *  *
      * Deprecated
      *
      * @param DescribeIPv6TranslatorEntriesRequest $request DescribeIPv6TranslatorEntriesRequest
@@ -15089,8 +15792,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI DescribeIPv6TranslatorEntries is deprecated
+     *  *
+     * @summary Queries IPv6 mapping entries.
+     *  *
      * Deprecated
      *
      * @param DescribeIPv6TranslatorEntriesRequest $request DescribeIPv6TranslatorEntriesRequest
@@ -15105,8 +15810,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI DescribeIPv6Translators is deprecated
+     *  *
+     * @summary Queries IPv6 Translation Service instances.
+     *  *
      * Deprecated
      *
      * @param DescribeIPv6TranslatorsRequest $request DescribeIPv6TranslatorsRequest
@@ -15182,8 +15889,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI DescribeIPv6Translators is deprecated
+     *  *
+     * @summary Queries IPv6 Translation Service instances.
+     *  *
      * Deprecated
      *
      * @param DescribeIPv6TranslatorsRequest $request DescribeIPv6TranslatorsRequest
@@ -15198,10 +15907,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeIpv6AddressesRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries IPv6 addresses in a region.
+     *  *
+     * @param DescribeIpv6AddressesRequest $request DescribeIpv6AddressesRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeIpv6AddressesResponse
+     * @return DescribeIpv6AddressesResponse DescribeIpv6AddressesResponse
      */
     public function describeIpv6AddressesWithOptions($request, $runtime)
     {
@@ -15289,9 +16000,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeIpv6AddressesRequest $request
+     * @summary Queries IPv6 addresses in a region.
+     *  *
+     * @param DescribeIpv6AddressesRequest $request DescribeIpv6AddressesRequest
      *
-     * @return DescribeIpv6AddressesResponse
+     * @return DescribeIpv6AddressesResponse DescribeIpv6AddressesResponse
      */
     public function describeIpv6Addresses($request)
     {
@@ -15301,10 +16014,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeIpv6EgressOnlyRulesRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param DescribeIpv6EgressOnlyRulesRequest $request DescribeIpv6EgressOnlyRulesRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeIpv6EgressOnlyRulesResponse
+     * @return DescribeIpv6EgressOnlyRulesResponse DescribeIpv6EgressOnlyRulesResponse
      */
     public function describeIpv6EgressOnlyRulesWithOptions($request, $runtime)
     {
@@ -15368,9 +16081,9 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeIpv6EgressOnlyRulesRequest $request
+     * @param DescribeIpv6EgressOnlyRulesRequest $request DescribeIpv6EgressOnlyRulesRequest
      *
-     * @return DescribeIpv6EgressOnlyRulesResponse
+     * @return DescribeIpv6EgressOnlyRulesResponse DescribeIpv6EgressOnlyRulesResponse
      */
     public function describeIpv6EgressOnlyRules($request)
     {
@@ -15380,10 +16093,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeIpv6GatewayAttributeRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries the information about an IPv6 gateway, including the region, virtual private cloud (VPC), status, and billing method.
+     *  *
+     * @param DescribeIpv6GatewayAttributeRequest $request DescribeIpv6GatewayAttributeRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeIpv6GatewayAttributeResponse
+     * @return DescribeIpv6GatewayAttributeResponse DescribeIpv6GatewayAttributeResponse
      */
     public function describeIpv6GatewayAttributeWithOptions($request, $runtime)
     {
@@ -15429,9 +16144,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeIpv6GatewayAttributeRequest $request
+     * @summary Queries the information about an IPv6 gateway, including the region, virtual private cloud (VPC), status, and billing method.
+     *  *
+     * @param DescribeIpv6GatewayAttributeRequest $request DescribeIpv6GatewayAttributeRequest
      *
-     * @return DescribeIpv6GatewayAttributeResponse
+     * @return DescribeIpv6GatewayAttributeResponse DescribeIpv6GatewayAttributeResponse
      */
     public function describeIpv6GatewayAttribute($request)
     {
@@ -15441,10 +16158,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeIpv6GatewaysRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries IPv6 gateways in a region.
+     *  *
+     * @param DescribeIpv6GatewaysRequest $request DescribeIpv6GatewaysRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeIpv6GatewaysResponse
+     * @return DescribeIpv6GatewaysResponse DescribeIpv6GatewaysResponse
      */
     public function describeIpv6GatewaysWithOptions($request, $runtime)
     {
@@ -15508,9 +16227,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeIpv6GatewaysRequest $request
+     * @summary Queries IPv6 gateways in a region.
+     *  *
+     * @param DescribeIpv6GatewaysRequest $request DescribeIpv6GatewaysRequest
      *
-     * @return DescribeIpv6GatewaysResponse
+     * @return DescribeIpv6GatewaysResponse DescribeIpv6GatewaysResponse
      */
     public function describeIpv6Gateways($request)
     {
@@ -15520,8 +16241,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query both Virtual Private Cloud (VPC) NAT gateways and Internet NAT gateways. NAT gateways in this topic refer to both VPC NAT gateways and Internet NAT gateways.
-     *   *
+     * @summary Queries NAT gateways that meet specific conditions in a specified region.
+     *  *
+     * @description You can call this operation to query both Virtual Private Cloud (VPC) NAT gateways and Internet NAT gateways. NAT gateways in this topic refer to both VPC NAT gateways and Internet NAT gateways.
+     *  *
      * @param DescribeNatGatewaysRequest $request DescribeNatGatewaysRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -15607,8 +16330,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query both Virtual Private Cloud (VPC) NAT gateways and Internet NAT gateways. NAT gateways in this topic refer to both VPC NAT gateways and Internet NAT gateways.
-     *   *
+     * @summary Queries NAT gateways that meet specific conditions in a specified region.
+     *  *
+     * @description You can call this operation to query both Virtual Private Cloud (VPC) NAT gateways and Internet NAT gateways. NAT gateways in this topic refer to both VPC NAT gateways and Internet NAT gateways.
+     *  *
      * @param DescribeNatGatewaysRequest $request DescribeNatGatewaysRequest
      *
      * @return DescribeNatGatewaysResponse DescribeNatGatewaysResponse
@@ -15621,10 +16346,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeNetworkAclAttributesRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries network access control lists (ACLs).
+     *  *
+     * @param DescribeNetworkAclAttributesRequest $request DescribeNetworkAclAttributesRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeNetworkAclAttributesResponse
+     * @return DescribeNetworkAclAttributesResponse DescribeNetworkAclAttributesResponse
      */
     public function describeNetworkAclAttributesWithOptions($request, $runtime)
     {
@@ -15673,9 +16400,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeNetworkAclAttributesRequest $request
+     * @summary Queries network access control lists (ACLs).
+     *  *
+     * @param DescribeNetworkAclAttributesRequest $request DescribeNetworkAclAttributesRequest
      *
-     * @return DescribeNetworkAclAttributesResponse
+     * @return DescribeNetworkAclAttributesResponse DescribeNetworkAclAttributesResponse
      */
     public function describeNetworkAclAttributes($request)
     {
@@ -15685,10 +16414,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeNetworkAclsRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries network ACLs.
+     *  *
+     * @param DescribeNetworkAclsRequest $request DescribeNetworkAclsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeNetworkAclsResponse
+     * @return DescribeNetworkAclsResponse DescribeNetworkAclsResponse
      */
     public function describeNetworkAclsWithOptions($request, $runtime)
     {
@@ -15758,9 +16489,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeNetworkAclsRequest $request
+     * @summary Queries network ACLs.
+     *  *
+     * @param DescribeNetworkAclsRequest $request DescribeNetworkAclsRequest
      *
-     * @return DescribeNetworkAclsResponse
+     * @return DescribeNetworkAclsResponse DescribeNetworkAclsResponse
      */
     public function describeNetworkAcls($request)
     {
@@ -15770,10 +16503,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribePhysicalConnectionLOARequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary 查询物理专线LOA信息
+     *  *
+     * @param DescribePhysicalConnectionLOARequest $request DescribePhysicalConnectionLOARequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePhysicalConnectionLOAResponse
+     * @return DescribePhysicalConnectionLOAResponse DescribePhysicalConnectionLOAResponse
      */
     public function describePhysicalConnectionLOAWithOptions($request, $runtime)
     {
@@ -15819,9 +16554,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribePhysicalConnectionLOARequest $request
+     * @summary 查询物理专线LOA信息
+     *  *
+     * @param DescribePhysicalConnectionLOARequest $request DescribePhysicalConnectionLOARequest
      *
-     * @return DescribePhysicalConnectionLOAResponse
+     * @return DescribePhysicalConnectionLOAResponse DescribePhysicalConnectionLOAResponse
      */
     public function describePhysicalConnectionLOA($request)
     {
@@ -15831,8 +16568,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * By default, the system queries information about all Express Connect circuits in the specified region. You can query Express Connect circuits that meet specific conditions by specifying filter conditions provided by the **DescribePhysicalConnections** operation. For more information about the supported filter conditions, see **Key** in the **Request parameters** section.
-     *   *
+     * @summary Queries Express Connect circuits in a region.
+     *  *
+     * @description By default, the system queries information about all Express Connect circuits in the specified region. You can query Express Connect circuits that meet specific conditions by specifying filter conditions provided by the **DescribePhysicalConnections** operation. For more information about the supported filter conditions, see **Key** in the **Request parameters** section.
+     *  *
      * @param DescribePhysicalConnectionsRequest $request DescribePhysicalConnectionsRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -15897,8 +16636,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * By default, the system queries information about all Express Connect circuits in the specified region. You can query Express Connect circuits that meet specific conditions by specifying filter conditions provided by the **DescribePhysicalConnections** operation. For more information about the supported filter conditions, see **Key** in the **Request parameters** section.
-     *   *
+     * @summary Queries Express Connect circuits in a region.
+     *  *
+     * @description By default, the system queries information about all Express Connect circuits in the specified region. You can query Express Connect circuits that meet specific conditions by specifying filter conditions provided by the **DescribePhysicalConnections** operation. For more information about the supported filter conditions, see **Key** in the **Request parameters** section.
+     *  *
      * @param DescribePhysicalConnectionsRequest $request DescribePhysicalConnectionsRequest
      *
      * @return DescribePhysicalConnectionsResponse DescribePhysicalConnectionsResponse
@@ -15911,8 +16652,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You cannot query the range of public IP addresses of a classic network by calling the **DescribePublicIpAddress** operation.
-     *   *
+     * @summary Queries the public IP address range of a virtual private cloud (VPC) in a region.
+     *  *
+     * @description You cannot query the range of public IP addresses of a classic network by calling the **DescribePublicIpAddress** operation.
+     *  *
      * @param DescribePublicIpAddressRequest $request DescribePublicIpAddressRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -15965,8 +16708,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You cannot query the range of public IP addresses of a classic network by calling the **DescribePublicIpAddress** operation.
-     *   *
+     * @summary Queries the public IP address range of a virtual private cloud (VPC) in a region.
+     *  *
+     * @description You cannot query the range of public IP addresses of a classic network by calling the **DescribePublicIpAddress** operation.
+     *  *
      * @param DescribePublicIpAddressRequest $request DescribePublicIpAddressRequest
      *
      * @return DescribePublicIpAddressResponse DescribePublicIpAddressResponse
@@ -15979,10 +16724,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries the most recent region list.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
@@ -16025,9 +16772,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
+     * @summary Queries the most recent region list.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -16037,8 +16786,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Before you call the [DeleteRouteEntry](~~36013~~) operation to delete a route, you can call this operation to query the next hop of the route that you want to delete.
-     *   *
+     * @summary Queries information about route entries in a route table.
+     *  *
+     * @description Before you call the [DeleteRouteEntry](https://help.aliyun.com/document_detail/36013.html) operation to delete a route, you can call this operation to query the next hop of the route that you want to delete.
+     *  *
      * @param DescribeRouteEntryListRequest $request DescribeRouteEntryListRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -16121,8 +16872,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Before you call the [DeleteRouteEntry](~~36013~~) operation to delete a route, you can call this operation to query the next hop of the route that you want to delete.
-     *   *
+     * @summary Queries information about route entries in a route table.
+     *  *
+     * @description Before you call the [DeleteRouteEntry](https://help.aliyun.com/document_detail/36013.html) operation to delete a route, you can call this operation to query the next hop of the route that you want to delete.
+     *  *
      * @param DescribeRouteEntryListRequest $request DescribeRouteEntryListRequest
      *
      * @return DescribeRouteEntryListResponse DescribeRouteEntryListResponse
@@ -16135,10 +16888,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeRouteTableListRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries route tables.
+     *  *
+     * @param DescribeRouteTableListRequest $request DescribeRouteTableListRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRouteTableListResponse
+     * @return DescribeRouteTableListResponse DescribeRouteTableListResponse
      */
     public function describeRouteTableListWithOptions($request, $runtime)
     {
@@ -16208,9 +16963,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeRouteTableListRequest $request
+     * @summary Queries route tables.
+     *  *
+     * @param DescribeRouteTableListRequest $request DescribeRouteTableListRequest
      *
-     * @return DescribeRouteTableListResponse
+     * @return DescribeRouteTableListResponse DescribeRouteTableListResponse
      */
     public function describeRouteTableList($request)
     {
@@ -16220,10 +16977,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeRouteTablesRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries route tables.
+     *  *
+     * @param DescribeRouteTablesRequest $request DescribeRouteTablesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRouteTablesResponse
+     * @return DescribeRouteTablesResponse DescribeRouteTablesResponse
      */
     public function describeRouteTablesWithOptions($request, $runtime)
     {
@@ -16290,9 +17049,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeRouteTablesRequest $request
+     * @summary Queries route tables.
+     *  *
+     * @param DescribeRouteTablesRequest $request DescribeRouteTablesRequest
      *
-     * @return DescribeRouteTablesResponse
+     * @return DescribeRouteTablesResponse DescribeRouteTablesResponse
      */
     public function describeRouteTables($request)
     {
@@ -16302,10 +17063,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeRouterInterfaceAttributeRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary Queries the configuration of a router interface.
+     *  *
+     * @param DescribeRouterInterfaceAttributeRequest $request DescribeRouterInterfaceAttributeRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRouterInterfaceAttributeResponse
+     * @return DescribeRouterInterfaceAttributeResponse DescribeRouterInterfaceAttributeResponse
      */
     public function describeRouterInterfaceAttributeWithOptions($request, $runtime)
     {
@@ -16345,9 +17108,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeRouterInterfaceAttributeRequest $request
+     * @summary Queries the configuration of a router interface.
+     *  *
+     * @param DescribeRouterInterfaceAttributeRequest $request DescribeRouterInterfaceAttributeRequest
      *
-     * @return DescribeRouterInterfaceAttributeResponse
+     * @return DescribeRouterInterfaceAttributeResponse DescribeRouterInterfaceAttributeResponse
      */
     public function describeRouterInterfaceAttribute($request)
     {
@@ -16357,10 +17122,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeRouterInterfacesRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries router interfaces in a specified region.
+     *  *
+     * @param DescribeRouterInterfacesRequest $request DescribeRouterInterfacesRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRouterInterfacesResponse
+     * @return DescribeRouterInterfacesResponse DescribeRouterInterfacesResponse
      */
     public function describeRouterInterfacesWithOptions($request, $runtime)
     {
@@ -16415,9 +17182,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeRouterInterfacesRequest $request
+     * @summary Queries router interfaces in a specified region.
+     *  *
+     * @param DescribeRouterInterfacesRequest $request DescribeRouterInterfacesRequest
      *
-     * @return DescribeRouterInterfacesResponse
+     * @return DescribeRouterInterfacesResponse DescribeRouterInterfacesResponse
      */
     public function describeRouterInterfaces($request)
     {
@@ -16427,8 +17196,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * > You can call this operation to query only dedicated-bandwidth GA instances.
-     *   *
+     * @summary Queries Global Accelerator (GA) instances that are associated with a backend server.
+     *  *
+     * @description > You can call this operation to query only dedicated-bandwidth GA instances.
+     *  *
      * @param DescribeServerRelatedGlobalAccelerationInstancesRequest $request DescribeServerRelatedGlobalAccelerationInstancesRequest
      * @param RuntimeOptions                                          $runtime runtime options for this request RuntimeOptions
      *
@@ -16478,8 +17249,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * > You can call this operation to query only dedicated-bandwidth GA instances.
-     *   *
+     * @summary Queries Global Accelerator (GA) instances that are associated with a backend server.
+     *  *
+     * @description > You can call this operation to query only dedicated-bandwidth GA instances.
+     *  *
      * @param DescribeServerRelatedGlobalAccelerationInstancesRequest $request DescribeServerRelatedGlobalAccelerationInstancesRequest
      *
      * @return DescribeServerRelatedGlobalAccelerationInstancesResponse DescribeServerRelatedGlobalAccelerationInstancesResponse
@@ -16492,10 +17265,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeSnatTableEntriesRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries SNAT entries.
+     *  *
+     * @param DescribeSnatTableEntriesRequest $request DescribeSnatTableEntriesRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSnatTableEntriesResponse
+     * @return DescribeSnatTableEntriesResponse DescribeSnatTableEntriesResponse
      */
     public function describeSnatTableEntriesWithOptions($request, $runtime)
     {
@@ -16562,9 +17337,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeSnatTableEntriesRequest $request
+     * @summary Queries SNAT entries.
+     *  *
+     * @param DescribeSnatTableEntriesRequest $request DescribeSnatTableEntriesRequest
      *
-     * @return DescribeSnatTableEntriesResponse
+     * @return DescribeSnatTableEntriesResponse DescribeSnatTableEntriesResponse
      */
     public function describeSnatTableEntries($request)
     {
@@ -16574,10 +17351,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeSslVpnClientCertRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the details of an SSL client certificate.
+     *  *
+     * @param DescribeSslVpnClientCertRequest $request DescribeSslVpnClientCertRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSslVpnClientCertResponse
+     * @return DescribeSslVpnClientCertResponse DescribeSslVpnClientCertResponse
      */
     public function describeSslVpnClientCertWithOptions($request, $runtime)
     {
@@ -16620,9 +17399,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeSslVpnClientCertRequest $request
+     * @summary Queries the details of an SSL client certificate.
+     *  *
+     * @param DescribeSslVpnClientCertRequest $request DescribeSslVpnClientCertRequest
      *
-     * @return DescribeSslVpnClientCertResponse
+     * @return DescribeSslVpnClientCertResponse DescribeSslVpnClientCertResponse
      */
     public function describeSslVpnClientCert($request)
     {
@@ -16632,10 +17413,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeSslVpnClientCertsRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries SSL client certificates.
+     *  *
+     * @param DescribeSslVpnClientCertsRequest $request DescribeSslVpnClientCertsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSslVpnClientCertsResponse
+     * @return DescribeSslVpnClientCertsResponse DescribeSslVpnClientCertsResponse
      */
     public function describeSslVpnClientCertsWithOptions($request, $runtime)
     {
@@ -16693,9 +17476,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeSslVpnClientCertsRequest $request
+     * @summary Queries SSL client certificates.
+     *  *
+     * @param DescribeSslVpnClientCertsRequest $request DescribeSslVpnClientCertsRequest
      *
-     * @return DescribeSslVpnClientCertsResponse
+     * @return DescribeSslVpnClientCertsResponse DescribeSslVpnClientCertsResponse
      */
     public function describeSslVpnClientCerts($request)
     {
@@ -16705,9 +17490,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * If your VPN gateway was created before December 10, 2022, you must upgrade your VPN gateway to the latest version before you can view connection information about SSL clients. For more information, see [Upgrade a VPN gateway](~~303968~~).
-     *   * If your VPN gateway was created after December 10, 2022, you can view connection information about SSL clients by default.
-     *   *
+     * @summary Queries the clients that have connected to a VPN gateway through SSL-VPN connections.
+     *  *
+     * @description If your VPN gateway was created before December 10, 2022, you must upgrade your VPN gateway to the latest version before you can view connection information about SSL clients. For more information, see [Upgrade a VPN gateway](https://help.aliyun.com/document_detail/303968.html).
+     * If your VPN gateway was created after December 10, 2022, you can view connection information about SSL clients by default.
+     *  *
      * @param DescribeSslVpnClientsRequest $request DescribeSslVpnClientsRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -16760,9 +17547,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * If your VPN gateway was created before December 10, 2022, you must upgrade your VPN gateway to the latest version before you can view connection information about SSL clients. For more information, see [Upgrade a VPN gateway](~~303968~~).
-     *   * If your VPN gateway was created after December 10, 2022, you can view connection information about SSL clients by default.
-     *   *
+     * @summary Queries the clients that have connected to a VPN gateway through SSL-VPN connections.
+     *  *
+     * @description If your VPN gateway was created before December 10, 2022, you must upgrade your VPN gateway to the latest version before you can view connection information about SSL clients. For more information, see [Upgrade a VPN gateway](https://help.aliyun.com/document_detail/303968.html).
+     * If your VPN gateway was created after December 10, 2022, you can view connection information about SSL clients by default.
+     *  *
      * @param DescribeSslVpnClientsRequest $request DescribeSslVpnClientsRequest
      *
      * @return DescribeSslVpnClientsResponse DescribeSslVpnClientsResponse
@@ -16775,10 +17564,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeSslVpnServersRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries one or more SSL-VPN servers.
+     *  *
+     * @param DescribeSslVpnServersRequest $request DescribeSslVpnServersRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSslVpnServersResponse
+     * @return DescribeSslVpnServersResponse DescribeSslVpnServersResponse
      */
     public function describeSslVpnServersWithOptions($request, $runtime)
     {
@@ -16836,9 +17627,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeSslVpnServersRequest $request
+     * @summary Queries one or more SSL-VPN servers.
+     *  *
+     * @param DescribeSslVpnServersRequest $request DescribeSslVpnServersRequest
      *
-     * @return DescribeSslVpnServersResponse
+     * @return DescribeSslVpnServersResponse DescribeSslVpnServersResponse
      */
     public function describeSslVpnServers($request)
     {
@@ -16848,10 +17641,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeTagKeysRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 查询标签键列表。
+     *  *
+     * @param DescribeTagKeysRequest $request DescribeTagKeysRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTagKeysResponse
+     * @return DescribeTagKeysResponse DescribeTagKeysResponse
      */
     public function describeTagKeysWithOptions($request, $runtime)
     {
@@ -16906,9 +17701,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeTagKeysRequest $request
+     * @summary 查询标签键列表。
+     *  *
+     * @param DescribeTagKeysRequest $request DescribeTagKeysRequest
      *
-     * @return DescribeTagKeysResponse
+     * @return DescribeTagKeysResponse DescribeTagKeysResponse
      */
     public function describeTagKeys($request)
     {
@@ -16918,10 +17715,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeTagKeysForExpressConnectRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary Queries the tags of an Express Connect circuit.
+     *  *
+     * @param DescribeTagKeysForExpressConnectRequest $request DescribeTagKeysForExpressConnectRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTagKeysForExpressConnectResponse
+     * @return DescribeTagKeysForExpressConnectResponse DescribeTagKeysForExpressConnectResponse
      */
     public function describeTagKeysForExpressConnectWithOptions($request, $runtime)
     {
@@ -16976,9 +17775,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeTagKeysForExpressConnectRequest $request
+     * @summary Queries the tags of an Express Connect circuit.
+     *  *
+     * @param DescribeTagKeysForExpressConnectRequest $request DescribeTagKeysForExpressConnectRequest
      *
-     * @return DescribeTagKeysForExpressConnectResponse
+     * @return DescribeTagKeysForExpressConnectResponse DescribeTagKeysForExpressConnectResponse
      */
     public function describeTagKeysForExpressConnect($request)
     {
@@ -16988,11 +17789,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   You must specify **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object that you want to query.
-     *   * *   **Tag.N** is a resource tag that consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values that are associated with the specified tag key are returned. If you specify only **Tag.N.Value**, an error message is returned.
-     *   * *   If you specify **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
-     *   * *   If you specify multiple key-value pairs, all tags that match the key-value pairs are returned.
-     *   *
+     * @summary 查询满足筛选条件的标签列表。
+     *  *
+     * @description *   You must specify **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object that you want to query.
+     * *   **Tag.N** is a resource tag that consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values that are associated with the specified tag key are returned. If you specify only **Tag.N.Value**, an error message is returned.
+     * *   If you specify **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
+     * *   If you specify multiple key-value pairs, all tags that match the key-value pairs are returned.
+     *  *
      * @param DescribeTagsRequest $request DescribeTagsRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -17051,11 +17854,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   You must specify **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object that you want to query.
-     *   * *   **Tag.N** is a resource tag that consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values that are associated with the specified tag key are returned. If you specify only **Tag.N.Value**, an error message is returned.
-     *   * *   If you specify **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
-     *   * *   If you specify multiple key-value pairs, all tags that match the key-value pairs are returned.
-     *   *
+     * @summary 查询满足筛选条件的标签列表。
+     *  *
+     * @description *   You must specify **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object that you want to query.
+     * *   **Tag.N** is a resource tag that consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values that are associated with the specified tag key are returned. If you specify only **Tag.N.Value**, an error message is returned.
+     * *   If you specify **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
+     * *   If you specify multiple key-value pairs, all tags that match the key-value pairs are returned.
+     *  *
      * @param DescribeTagsRequest $request DescribeTagsRequest
      *
      * @return DescribeTagsResponse DescribeTagsResponse
@@ -17068,10 +17873,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeVRoutersRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 查询路由器列表
+     *  *
+     * @param DescribeVRoutersRequest $request DescribeVRoutersRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVRoutersResponse
+     * @return DescribeVRoutersResponse DescribeVRoutersResponse
      */
     public function describeVRoutersWithOptions($request, $runtime)
     {
@@ -17120,9 +17927,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeVRoutersRequest $request
+     * @summary 查询路由器列表
+     *  *
+     * @param DescribeVRoutersRequest $request DescribeVRoutersRequest
      *
-     * @return DescribeVRoutersResponse
+     * @return DescribeVRoutersResponse DescribeVRoutersResponse
      */
     public function describeVRouters($request)
     {
@@ -17132,10 +17941,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeVSwitchAttributesRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the detailed information about a vSwitch.
+     *  *
+     * @param DescribeVSwitchAttributesRequest $request DescribeVSwitchAttributesRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVSwitchAttributesResponse
+     * @return DescribeVSwitchAttributesResponse DescribeVSwitchAttributesResponse
      */
     public function describeVSwitchAttributesWithOptions($request, $runtime)
     {
@@ -17181,9 +17992,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeVSwitchAttributesRequest $request
+     * @summary Queries the detailed information about a vSwitch.
+     *  *
+     * @param DescribeVSwitchAttributesRequest $request DescribeVSwitchAttributesRequest
      *
-     * @return DescribeVSwitchAttributesResponse
+     * @return DescribeVSwitchAttributesResponse DescribeVSwitchAttributesResponse
      */
     public function describeVSwitchAttributes($request)
     {
@@ -17193,10 +18006,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeVSwitchesRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries the information about available vSwitches that are used for an internal network.
+     *  *
+     * @param DescribeVSwitchesRequest $request DescribeVSwitchesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVSwitchesResponse
+     * @return DescribeVSwitchesResponse DescribeVSwitchesResponse
      */
     public function describeVSwitchesWithOptions($request, $runtime)
     {
@@ -17272,9 +18087,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeVSwitchesRequest $request
+     * @summary Queries the information about available vSwitches that are used for an internal network.
+     *  *
+     * @param DescribeVSwitchesRequest $request DescribeVSwitchesRequest
      *
-     * @return DescribeVSwitchesResponse
+     * @return DescribeVSwitchesResponse DescribeVSwitchesResponse
      */
     public function describeVSwitches($request)
     {
@@ -17284,10 +18101,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeVbrHaRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Queries virtual border router (VBR) failover groups.
+     *  *
+     * @param DescribeVbrHaRequest $request DescribeVbrHaRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVbrHaResponse
+     * @return DescribeVbrHaResponse DescribeVbrHaResponse
      */
     public function describeVbrHaWithOptions($request, $runtime)
     {
@@ -17339,9 +18158,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeVbrHaRequest $request
+     * @summary Queries virtual border router (VBR) failover groups.
+     *  *
+     * @param DescribeVbrHaRequest $request DescribeVbrHaRequest
      *
-     * @return DescribeVbrHaResponse
+     * @return DescribeVbrHaResponse DescribeVbrHaResponse
      */
     public function describeVbrHa($request)
     {
@@ -17351,10 +18172,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeVcoRouteEntriesRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the routes of an IPsec-VPN connection.
+     *  *
+     * @param DescribeVcoRouteEntriesRequest $request DescribeVcoRouteEntriesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVcoRouteEntriesResponse
+     * @return DescribeVcoRouteEntriesResponse DescribeVcoRouteEntriesResponse
      */
     public function describeVcoRouteEntriesWithOptions($request, $runtime)
     {
@@ -17406,9 +18229,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeVcoRouteEntriesRequest $request
+     * @summary Queries the routes of an IPsec-VPN connection.
+     *  *
+     * @param DescribeVcoRouteEntriesRequest $request DescribeVcoRouteEntriesRequest
      *
-     * @return DescribeVcoRouteEntriesResponse
+     * @return DescribeVcoRouteEntriesResponse DescribeVcoRouteEntriesResponse
      */
     public function describeVcoRouteEntries($request)
     {
@@ -17418,10 +18243,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeVirtualBorderRoutersRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries virtual border routers (VBRs).
+     *  *
+     * @param DescribeVirtualBorderRoutersRequest $request DescribeVirtualBorderRoutersRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVirtualBorderRoutersResponse
+     * @return DescribeVirtualBorderRoutersResponse DescribeVirtualBorderRoutersResponse
      */
     public function describeVirtualBorderRoutersWithOptions($request, $runtime)
     {
@@ -17476,9 +18303,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeVirtualBorderRoutersRequest $request
+     * @summary Queries virtual border routers (VBRs).
+     *  *
+     * @param DescribeVirtualBorderRoutersRequest $request DescribeVirtualBorderRoutersRequest
      *
-     * @return DescribeVirtualBorderRoutersResponse
+     * @return DescribeVirtualBorderRoutersResponse DescribeVirtualBorderRoutersResponse
      */
     public function describeVirtualBorderRouters($request)
     {
@@ -17488,10 +18317,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeVirtualBorderRoutersForPhysicalConnectionRequest $request
-     * @param RuntimeOptions                                           $runtime
+     * @summary Queries the virtual border routers (VBRs) that are associated with an Express Connect circuit. The VBRs can be created by the owner of the Express Connect circuit and by other Alibaba Cloud accounts.
+     *  *
+     * @param DescribeVirtualBorderRoutersForPhysicalConnectionRequest $request DescribeVirtualBorderRoutersForPhysicalConnectionRequest
+     * @param RuntimeOptions                                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVirtualBorderRoutersForPhysicalConnectionResponse
+     * @return DescribeVirtualBorderRoutersForPhysicalConnectionResponse DescribeVirtualBorderRoutersForPhysicalConnectionResponse
      */
     public function describeVirtualBorderRoutersForPhysicalConnectionWithOptions($request, $runtime)
     {
@@ -17540,9 +18371,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeVirtualBorderRoutersForPhysicalConnectionRequest $request
+     * @summary Queries the virtual border routers (VBRs) that are associated with an Express Connect circuit. The VBRs can be created by the owner of the Express Connect circuit and by other Alibaba Cloud accounts.
+     *  *
+     * @param DescribeVirtualBorderRoutersForPhysicalConnectionRequest $request DescribeVirtualBorderRoutersForPhysicalConnectionRequest
      *
-     * @return DescribeVirtualBorderRoutersForPhysicalConnectionResponse
+     * @return DescribeVirtualBorderRoutersForPhysicalConnectionResponse DescribeVirtualBorderRoutersForPhysicalConnectionResponse
      */
     public function describeVirtualBorderRoutersForPhysicalConnection($request)
     {
@@ -17552,10 +18385,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeVpcAttributeRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the configuration of a virtual private cloud (VPC).
+     *  *
+     * @param DescribeVpcAttributeRequest $request DescribeVpcAttributeRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVpcAttributeResponse
+     * @return DescribeVpcAttributeResponse DescribeVpcAttributeResponse
      */
     public function describeVpcAttributeWithOptions($request, $runtime)
     {
@@ -17604,9 +18439,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeVpcAttributeRequest $request
+     * @summary Queries the configuration of a virtual private cloud (VPC).
+     *  *
+     * @param DescribeVpcAttributeRequest $request DescribeVpcAttributeRequest
      *
-     * @return DescribeVpcAttributeResponse
+     * @return DescribeVpcAttributeResponse DescribeVpcAttributeResponse
      */
     public function describeVpcAttribute($request)
     {
@@ -17616,10 +18453,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeVpcsRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Queries virtual private clouds (VPCs).
+     *  *
+     * @param DescribeVpcsRequest $request DescribeVpcsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVpcsResponse
+     * @return DescribeVpcsResponse DescribeVpcsResponse
      */
     public function describeVpcsWithOptions($request, $runtime)
     {
@@ -17689,9 +18528,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeVpcsRequest $request
+     * @summary Queries virtual private clouds (VPCs).
+     *  *
+     * @param DescribeVpcsRequest $request DescribeVpcsRequest
      *
-     * @return DescribeVpcsResponse
+     * @return DescribeVpcsResponse DescribeVpcsResponse
      */
     public function describeVpcs($request)
     {
@@ -17701,10 +18542,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeVpnAttachmentsRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries the IPsec-VPN connections associated with a transit router.
+     *  *
+     * @param DescribeVpnAttachmentsRequest $request DescribeVpnAttachmentsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVpnAttachmentsResponse
+     * @return DescribeVpnAttachmentsResponse DescribeVpnAttachmentsResponse
      */
     public function describeVpnAttachmentsWithOptions($request, $runtime)
     {
@@ -17756,9 +18599,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeVpnAttachmentsRequest $request
+     * @summary Queries the IPsec-VPN connections associated with a transit router.
+     *  *
+     * @param DescribeVpnAttachmentsRequest $request DescribeVpnAttachmentsRequest
      *
-     * @return DescribeVpnAttachmentsResponse
+     * @return DescribeVpnAttachmentsResponse DescribeVpnAttachmentsResponse
      */
     public function describeVpnAttachments($request)
     {
@@ -17768,10 +18613,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeVpnConnectionRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the detailed information about an IPsec-VPN connection.
+     *  *
+     * @param DescribeVpnConnectionRequest $request DescribeVpnConnectionRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVpnConnectionResponse
+     * @return DescribeVpnConnectionResponse DescribeVpnConnectionResponse
      */
     public function describeVpnConnectionWithOptions($request, $runtime)
     {
@@ -17814,9 +18661,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeVpnConnectionRequest $request
+     * @summary Queries the detailed information about an IPsec-VPN connection.
+     *  *
+     * @param DescribeVpnConnectionRequest $request DescribeVpnConnectionRequest
      *
-     * @return DescribeVpnConnectionResponse
+     * @return DescribeVpnConnectionResponse DescribeVpnConnectionResponse
      */
     public function describeVpnConnection($request)
     {
@@ -17826,10 +18675,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeVpnConnectionLogsRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries logs of IPsec-VPN connections.
+     *  *
+     * @param DescribeVpnConnectionLogsRequest $request DescribeVpnConnectionLogsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVpnConnectionLogsResponse
+     * @return DescribeVpnConnectionLogsResponse DescribeVpnConnectionLogsResponse
      */
     public function describeVpnConnectionLogsWithOptions($request, $runtime)
     {
@@ -17890,9 +18741,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeVpnConnectionLogsRequest $request
+     * @summary Queries logs of IPsec-VPN connections.
+     *  *
+     * @param DescribeVpnConnectionLogsRequest $request DescribeVpnConnectionLogsRequest
      *
-     * @return DescribeVpnConnectionLogsResponse
+     * @return DescribeVpnConnectionLogsResponse DescribeVpnConnectionLogsResponse
      */
     public function describeVpnConnectionLogs($request)
     {
@@ -17902,10 +18755,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeVpnConnectionsRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries IPsec-VPN connections.
+     *  *
+     * @param DescribeVpnConnectionsRequest $request DescribeVpnConnectionsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVpnConnectionsResponse
+     * @return DescribeVpnConnectionsResponse DescribeVpnConnectionsResponse
      */
     public function describeVpnConnectionsWithOptions($request, $runtime)
     {
@@ -17966,9 +18821,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeVpnConnectionsRequest $request
+     * @summary Queries IPsec-VPN connections.
+     *  *
+     * @param DescribeVpnConnectionsRequest $request DescribeVpnConnectionsRequest
      *
-     * @return DescribeVpnConnectionsResponse
+     * @return DescribeVpnConnectionsResponse DescribeVpnConnectionsResponse
      */
     public function describeVpnConnections($request)
     {
@@ -17978,10 +18835,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeVpnCrossAccountAuthorizationsRequest $request
-     * @param RuntimeOptions                               $runtime
+     * @summary Queries the cross-account authorization information about an IPsec-VPN connection.
+     *  *
+     * @param DescribeVpnCrossAccountAuthorizationsRequest $request DescribeVpnCrossAccountAuthorizationsRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVpnCrossAccountAuthorizationsResponse
+     * @return DescribeVpnCrossAccountAuthorizationsResponse DescribeVpnCrossAccountAuthorizationsResponse
      */
     public function describeVpnCrossAccountAuthorizationsWithOptions($request, $runtime)
     {
@@ -18030,9 +18889,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeVpnCrossAccountAuthorizationsRequest $request
+     * @summary Queries the cross-account authorization information about an IPsec-VPN connection.
+     *  *
+     * @param DescribeVpnCrossAccountAuthorizationsRequest $request DescribeVpnCrossAccountAuthorizationsRequest
      *
-     * @return DescribeVpnCrossAccountAuthorizationsResponse
+     * @return DescribeVpnCrossAccountAuthorizationsResponse DescribeVpnCrossAccountAuthorizationsResponse
      */
     public function describeVpnCrossAccountAuthorizations($request)
     {
@@ -18042,10 +18903,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeVpnGatewayRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the detailed information about a VPN gateway.
+     *  *
+     * @param DescribeVpnGatewayRequest $request DescribeVpnGatewayRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVpnGatewayResponse
+     * @return DescribeVpnGatewayResponse DescribeVpnGatewayResponse
      */
     public function describeVpnGatewayWithOptions($request, $runtime)
     {
@@ -18091,9 +18954,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeVpnGatewayRequest $request
+     * @summary Queries the detailed information about a VPN gateway.
+     *  *
+     * @param DescribeVpnGatewayRequest $request DescribeVpnGatewayRequest
      *
-     * @return DescribeVpnGatewayResponse
+     * @return DescribeVpnGatewayResponse DescribeVpnGatewayResponse
      */
     public function describeVpnGateway($request)
     {
@@ -18103,10 +18968,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeVpnGatewayAvailableZonesRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary 基于地域查询可以创建双隧道VPN与IPSec连接（CEN）的可用区
+     *  *
+     * @param DescribeVpnGatewayAvailableZonesRequest $request DescribeVpnGatewayAvailableZonesRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVpnGatewayAvailableZonesResponse
+     * @return DescribeVpnGatewayAvailableZonesResponse DescribeVpnGatewayAvailableZonesResponse
      */
     public function describeVpnGatewayAvailableZonesWithOptions($request, $runtime)
     {
@@ -18131,9 +18998,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeVpnGatewayAvailableZonesRequest $request
+     * @summary 基于地域查询可以创建双隧道VPN与IPSec连接（CEN）的可用区
+     *  *
+     * @param DescribeVpnGatewayAvailableZonesRequest $request DescribeVpnGatewayAvailableZonesRequest
      *
-     * @return DescribeVpnGatewayAvailableZonesResponse
+     * @return DescribeVpnGatewayAvailableZonesResponse DescribeVpnGatewayAvailableZonesResponse
      */
     public function describeVpnGatewayAvailableZones($request)
     {
@@ -18143,10 +19012,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeVpnGatewaysRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries VPN gateways in a region.
+     *  *
+     * @param DescribeVpnGatewaysRequest $request DescribeVpnGatewaysRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVpnGatewaysResponse
+     * @return DescribeVpnGatewaysResponse DescribeVpnGatewaysResponse
      */
     public function describeVpnGatewaysWithOptions($request, $runtime)
     {
@@ -18213,9 +19084,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeVpnGatewaysRequest $request
+     * @summary Queries VPN gateways in a region.
+     *  *
+     * @param DescribeVpnGatewaysRequest $request DescribeVpnGatewaysRequest
      *
-     * @return DescribeVpnGatewaysResponse
+     * @return DescribeVpnGatewaysResponse DescribeVpnGatewaysResponse
      */
     public function describeVpnGateways($request)
     {
@@ -18225,10 +19098,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeVpnPbrRouteEntriesRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries policy-based routes configured for a VPN gateway.
+     *  *
+     * @param DescribeVpnPbrRouteEntriesRequest $request DescribeVpnPbrRouteEntriesRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVpnPbrRouteEntriesResponse
+     * @return DescribeVpnPbrRouteEntriesResponse DescribeVpnPbrRouteEntriesResponse
      */
     public function describeVpnPbrRouteEntriesWithOptions($request, $runtime)
     {
@@ -18277,9 +19152,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeVpnPbrRouteEntriesRequest $request
+     * @summary Queries policy-based routes configured for a VPN gateway.
+     *  *
+     * @param DescribeVpnPbrRouteEntriesRequest $request DescribeVpnPbrRouteEntriesRequest
      *
-     * @return DescribeVpnPbrRouteEntriesResponse
+     * @return DescribeVpnPbrRouteEntriesResponse DescribeVpnPbrRouteEntriesResponse
      */
     public function describeVpnPbrRouteEntries($request)
     {
@@ -18289,10 +19166,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeVpnRouteEntriesRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries destination-based and BGP route entries of a VPN gateway.
+     *  *
+     * @param DescribeVpnRouteEntriesRequest $request DescribeVpnRouteEntriesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVpnRouteEntriesResponse
+     * @return DescribeVpnRouteEntriesResponse DescribeVpnRouteEntriesResponse
      */
     public function describeVpnRouteEntriesWithOptions($request, $runtime)
     {
@@ -18344,9 +19223,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeVpnRouteEntriesRequest $request
+     * @summary Queries destination-based and BGP route entries of a VPN gateway.
+     *  *
+     * @param DescribeVpnRouteEntriesRequest $request DescribeVpnRouteEntriesRequest
      *
-     * @return DescribeVpnRouteEntriesResponse
+     * @return DescribeVpnRouteEntriesResponse DescribeVpnRouteEntriesResponse
      */
     public function describeVpnRouteEntries($request)
     {
@@ -18356,10 +19237,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeVpnSslServerLogsRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param DescribeVpnSslServerLogsRequest $request DescribeVpnSslServerLogsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVpnSslServerLogsResponse
+     * @return DescribeVpnSslServerLogsResponse DescribeVpnSslServerLogsResponse
      */
     public function describeVpnSslServerLogsWithOptions($request, $runtime)
     {
@@ -18420,9 +19301,9 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeVpnSslServerLogsRequest $request
+     * @param DescribeVpnSslServerLogsRequest $request DescribeVpnSslServerLogsRequest
      *
-     * @return DescribeVpnSslServerLogsResponse
+     * @return DescribeVpnSslServerLogsResponse DescribeVpnSslServerLogsResponse
      */
     public function describeVpnSslServerLogs($request)
     {
@@ -18432,10 +19313,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeZonesRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Queries zones in a region.
+     *  *
+     * @param DescribeZonesRequest $request DescribeZonesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeZonesResponse
+     * @return DescribeZonesResponse DescribeZonesResponse
      */
     public function describeZonesWithOptions($request, $runtime)
     {
@@ -18481,9 +19364,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DescribeZonesRequest $request
+     * @summary Queries zones in a region.
+     *  *
+     * @param DescribeZonesRequest $request DescribeZonesRequest
      *
-     * @return DescribeZonesResponse
+     * @return DescribeZonesResponse DescribeZonesResponse
      */
     public function describeZones($request)
     {
@@ -18493,12 +19378,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)Description
-     *   * *   **DetachDhcpOptionsSetFromVpc** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpcAttribute](~~94565~~) operation to query the status of the task.
-     *   *     *   If the DHCP options set is in the **Pending** state, the DHCP options set is being disassociated.
-     *   *     *   If the DHCP options set is in the **UnUsed** state, the DHCP options set is disassociated.
-     *   * *   You cannot repeatedly call the **DetachDhcpOptionsSetFromVpc** operation to disassociate a DHCP options set from a VPC within the specified period of time.
-     *   *
+     * @summary Disassociates a DHCP options set from a virtual private cloud (VPC).
+     *  *
+     * @description ## [](#)Description
+     * *   **DetachDhcpOptionsSetFromVpc** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of the task.
+     *     *   If the DHCP options set is in the **Pending** state, the DHCP options set is being disassociated.
+     *     *   If the DHCP options set is in the **UnUsed** state, the DHCP options set is disassociated.
+     * *   You cannot repeatedly call the **DetachDhcpOptionsSetFromVpc** operation to disassociate a DHCP options set from a VPC within the specified period of time.
+     *  *
      * @param DetachDhcpOptionsSetFromVpcRequest $request DetachDhcpOptionsSetFromVpcRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -18554,12 +19441,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)Description
-     *   * *   **DetachDhcpOptionsSetFromVpc** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpcAttribute](~~94565~~) operation to query the status of the task.
-     *   *     *   If the DHCP options set is in the **Pending** state, the DHCP options set is being disassociated.
-     *   *     *   If the DHCP options set is in the **UnUsed** state, the DHCP options set is disassociated.
-     *   * *   You cannot repeatedly call the **DetachDhcpOptionsSetFromVpc** operation to disassociate a DHCP options set from a VPC within the specified period of time.
-     *   *
+     * @summary Disassociates a DHCP options set from a virtual private cloud (VPC).
+     *  *
+     * @description ## [](#)Description
+     * *   **DetachDhcpOptionsSetFromVpc** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of the task.
+     *     *   If the DHCP options set is in the **Pending** state, the DHCP options set is being disassociated.
+     *     *   If the DHCP options set is in the **UnUsed** state, the DHCP options set is disassociated.
+     * *   You cannot repeatedly call the **DetachDhcpOptionsSetFromVpc** operation to disassociate a DHCP options set from a VPC within the specified period of time.
+     *  *
      * @param DetachDhcpOptionsSetFromVpcRequest $request DetachDhcpOptionsSetFromVpcRequest
      *
      * @return DetachDhcpOptionsSetFromVpcResponse DetachDhcpOptionsSetFromVpcResponse
@@ -18572,10 +19461,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DiagnoseVpnConnectionsRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 诊断vpn connection
+     *  *
+     * @param DiagnoseVpnConnectionsRequest $request DiagnoseVpnConnectionsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DiagnoseVpnConnectionsResponse
+     * @return DiagnoseVpnConnectionsResponse DiagnoseVpnConnectionsResponse
      */
     public function diagnoseVpnConnectionsWithOptions($request, $runtime)
     {
@@ -18621,9 +19512,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DiagnoseVpnConnectionsRequest $request
+     * @summary 诊断vpn connection
+     *  *
+     * @param DiagnoseVpnConnectionsRequest $request DiagnoseVpnConnectionsRequest
      *
-     * @return DiagnoseVpnConnectionsResponse
+     * @return DiagnoseVpnConnectionsResponse DiagnoseVpnConnectionsResponse
      */
     public function diagnoseVpnConnections($request)
     {
@@ -18633,8 +19526,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Only VPN gateways in specific regions support the quick diagnostics feature. For more information about the supported regions, see [Supported regions](~~430697~~).
-     *   *
+     * @summary Diagnoses a VPN gateway.
+     *  *
+     * @description Only VPN gateways in specific regions support the quick diagnostics feature. For more information about the supported regions, see [Supported regions](https://help.aliyun.com/document_detail/430697.html).
+     *  *
      * @param DiagnoseVpnGatewayRequest $request DiagnoseVpnGatewayRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -18681,8 +19576,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Only VPN gateways in specific regions support the quick diagnostics feature. For more information about the supported regions, see [Supported regions](~~430697~~).
-     *   *
+     * @summary Diagnoses a VPN gateway.
+     *  *
+     * @description Only VPN gateways in specific regions support the quick diagnostics feature. For more information about the supported regions, see [Supported regions](https://help.aliyun.com/document_detail/430697.html).
+     *  *
      * @param DiagnoseVpnGatewayRequest $request DiagnoseVpnGatewayRequest
      *
      * @return DiagnoseVpnGatewayResponse DiagnoseVpnGatewayResponse
@@ -18695,10 +19592,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DisableNatGatewayEcsMetricRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Disables traffic monitoring for an Elastic Compute Service (ECS) instance.
+     *  *
+     * @param DisableNatGatewayEcsMetricRequest $request DisableNatGatewayEcsMetricRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableNatGatewayEcsMetricResponse
+     * @return DisableNatGatewayEcsMetricResponse DisableNatGatewayEcsMetricResponse
      */
     public function disableNatGatewayEcsMetricWithOptions($request, $runtime)
     {
@@ -18735,9 +19634,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DisableNatGatewayEcsMetricRequest $request
+     * @summary Disables traffic monitoring for an Elastic Compute Service (ECS) instance.
+     *  *
+     * @param DisableNatGatewayEcsMetricRequest $request DisableNatGatewayEcsMetricRequest
      *
-     * @return DisableNatGatewayEcsMetricResponse
+     * @return DisableNatGatewayEcsMetricResponse DisableNatGatewayEcsMetricResponse
      */
     public function disableNatGatewayEcsMetric($request)
     {
@@ -18747,10 +19648,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DisableVpcClassicLinkRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Disables ClassicLink for a virtual private cloud (VPC).
+     *  *
+     * @param DisableVpcClassicLinkRequest $request DisableVpcClassicLinkRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableVpcClassicLinkResponse
+     * @return DisableVpcClassicLinkResponse DisableVpcClassicLinkResponse
      */
     public function disableVpcClassicLinkWithOptions($request, $runtime)
     {
@@ -18796,9 +19699,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DisableVpcClassicLinkRequest $request
+     * @summary Disables ClassicLink for a virtual private cloud (VPC).
+     *  *
+     * @param DisableVpcClassicLinkRequest $request DisableVpcClassicLinkRequest
      *
-     * @return DisableVpcClassicLinkResponse
+     * @return DisableVpcClassicLinkResponse DisableVpcClassicLinkResponse
      */
     public function disableVpcClassicLink($request)
     {
@@ -18808,10 +19713,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DissociateRouteTableFromGatewayRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary Disassociates a gateway route table from an IPv4 gateway.
+     *  *
+     * @param DissociateRouteTableFromGatewayRequest $request DissociateRouteTableFromGatewayRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DissociateRouteTableFromGatewayResponse
+     * @return DissociateRouteTableFromGatewayResponse DissociateRouteTableFromGatewayResponse
      */
     public function dissociateRouteTableFromGatewayWithOptions($request, $runtime)
     {
@@ -18869,9 +19776,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DissociateRouteTableFromGatewayRequest $request
+     * @summary Disassociates a gateway route table from an IPv4 gateway.
+     *  *
+     * @param DissociateRouteTableFromGatewayRequest $request DissociateRouteTableFromGatewayRequest
      *
-     * @return DissociateRouteTableFromGatewayResponse
+     * @return DissociateRouteTableFromGatewayResponse DissociateRouteTableFromGatewayResponse
      */
     public function dissociateRouteTableFromGateway($request)
     {
@@ -18881,10 +19790,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DissociateRouteTablesFromVpcGatewayEndpointRequest $request
-     * @param RuntimeOptions                                     $runtime
+     * @summary Disassociates a gateway endpoint from a route table.
+     *  *
+     * @param DissociateRouteTablesFromVpcGatewayEndpointRequest $request DissociateRouteTablesFromVpcGatewayEndpointRequest
+     * @param RuntimeOptions                                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DissociateRouteTablesFromVpcGatewayEndpointResponse
+     * @return DissociateRouteTablesFromVpcGatewayEndpointResponse DissociateRouteTablesFromVpcGatewayEndpointResponse
      */
     public function dissociateRouteTablesFromVpcGatewayEndpointWithOptions($request, $runtime)
     {
@@ -18936,9 +19847,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DissociateRouteTablesFromVpcGatewayEndpointRequest $request
+     * @summary Disassociates a gateway endpoint from a route table.
+     *  *
+     * @param DissociateRouteTablesFromVpcGatewayEndpointRequest $request DissociateRouteTablesFromVpcGatewayEndpointRequest
      *
-     * @return DissociateRouteTablesFromVpcGatewayEndpointResponse
+     * @return DissociateRouteTablesFromVpcGatewayEndpointResponse DissociateRouteTablesFromVpcGatewayEndpointResponse
      */
     public function dissociateRouteTablesFromVpcGatewayEndpoint($request)
     {
@@ -18948,11 +19861,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **DissociateVpnGatewayWithCertificate** is an asynchronous operation. After a request is sent, the system returns a request and runs the task in the background. You can call the [DescribeVpnGateway](~~73720~~) operation to query the status the task.
-     *   *     *   If the VPN gateway is in the **updating** state, the SSL certificate is being disassociated from the VPN gateway.
-     *   *     *   If the VPN gateway is in the **active** state, the SSL certificate is disassociated from the VPN gateway.
-     *   * *   You cannot repeatedly call **DissociateVpnGatewayWithCertificate** within a specific period of time.
-     *   *
+     * @summary Disassociates a certificate from a VPN gateway.
+     *  *
+     * @description *   **DissociateVpnGatewayWithCertificate** is an asynchronous operation. After a request is sent, the system returns a request and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status the task.
+     *     *   If the VPN gateway is in the **updating** state, the SSL certificate is being disassociated from the VPN gateway.
+     *     *   If the VPN gateway is in the **active** state, the SSL certificate is disassociated from the VPN gateway.
+     * *   You cannot repeatedly call **DissociateVpnGatewayWithCertificate** within a specific period of time.
+     *  *
      * @param DissociateVpnGatewayWithCertificateRequest $request DissociateVpnGatewayWithCertificateRequest
      * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
@@ -18999,11 +19914,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **DissociateVpnGatewayWithCertificate** is an asynchronous operation. After a request is sent, the system returns a request and runs the task in the background. You can call the [DescribeVpnGateway](~~73720~~) operation to query the status the task.
-     *   *     *   If the VPN gateway is in the **updating** state, the SSL certificate is being disassociated from the VPN gateway.
-     *   *     *   If the VPN gateway is in the **active** state, the SSL certificate is disassociated from the VPN gateway.
-     *   * *   You cannot repeatedly call **DissociateVpnGatewayWithCertificate** within a specific period of time.
-     *   *
+     * @summary Disassociates a certificate from a VPN gateway.
+     *  *
+     * @description *   **DissociateVpnGatewayWithCertificate** is an asynchronous operation. After a request is sent, the system returns a request and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status the task.
+     *     *   If the VPN gateway is in the **updating** state, the SSL certificate is being disassociated from the VPN gateway.
+     *     *   If the VPN gateway is in the **active** state, the SSL certificate is disassociated from the VPN gateway.
+     * *   You cannot repeatedly call **DissociateVpnGatewayWithCertificate** within a specific period of time.
+     *  *
      * @param DissociateVpnGatewayWithCertificateRequest $request DissociateVpnGatewayWithCertificateRequest
      *
      * @return DissociateVpnGatewayWithCertificateResponse DissociateVpnGatewayWithCertificateResponse
@@ -19016,10 +19933,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DownloadVpnConnectionConfigRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries the configuration of an IPsec-VPN connection.
+     *  *
+     * @param DownloadVpnConnectionConfigRequest $request DownloadVpnConnectionConfigRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DownloadVpnConnectionConfigResponse
+     * @return DownloadVpnConnectionConfigResponse DownloadVpnConnectionConfigResponse
      */
     public function downloadVpnConnectionConfigWithOptions($request, $runtime)
     {
@@ -19062,9 +19981,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param DownloadVpnConnectionConfigRequest $request
+     * @summary Queries the configuration of an IPsec-VPN connection.
+     *  *
+     * @param DownloadVpnConnectionConfigRequest $request DownloadVpnConnectionConfigRequest
      *
-     * @return DownloadVpnConnectionConfigResponse
+     * @return DownloadVpnConnectionConfigResponse DownloadVpnConnectionConfigResponse
      */
     public function downloadVpnConnectionConfig($request)
     {
@@ -19074,10 +19995,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param EnableNatGatewayEcsMetricRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Enables Elastic Compute Service (ECS) traffic monitoring.
+     *  *
+     * @param EnableNatGatewayEcsMetricRequest $request EnableNatGatewayEcsMetricRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableNatGatewayEcsMetricResponse
+     * @return EnableNatGatewayEcsMetricResponse EnableNatGatewayEcsMetricResponse
      */
     public function enableNatGatewayEcsMetricWithOptions($request, $runtime)
     {
@@ -19114,9 +20037,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param EnableNatGatewayEcsMetricRequest $request
+     * @summary Enables Elastic Compute Service (ECS) traffic monitoring.
+     *  *
+     * @param EnableNatGatewayEcsMetricRequest $request EnableNatGatewayEcsMetricRequest
      *
-     * @return EnableNatGatewayEcsMetricResponse
+     * @return EnableNatGatewayEcsMetricResponse EnableNatGatewayEcsMetricResponse
      */
     public function enableNatGatewayEcsMetric($request)
     {
@@ -19126,12 +20051,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following limits:
-     *   * *   You can enable only an Express Connect circuit that is in the **Confirmed** state.
-     *   * *   After you enable an Express Connect circuit, it enters the **Enabled** state.
-     *   * *   **EnablePhysicalConnection** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribePhysicalConnections](~~36042~~) operation to query the status of the task.
-     *   * *   You cannot repeatedly call **EnablePhysicalConnection** for an Express Connect circuit in the **Confirmed** state within a specific time period.
-     *   *
+     * @summary Enables an Express Connect circuit that is in the Confirmed state. After you perform this operation, the Express Connect circuit enters the Enabled state.
+     *  *
+     * @description When you call this operation, take note of the following limits:
+     * *   You can enable only an Express Connect circuit that is in the **Confirmed** state.
+     * *   After you enable an Express Connect circuit, it enters the **Enabled** state.
+     * *   **EnablePhysicalConnection** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribePhysicalConnections](https://help.aliyun.com/document_detail/36042.html) operation to query the status of the task.
+     * *   You cannot repeatedly call **EnablePhysicalConnection** for an Express Connect circuit in the **Confirmed** state within a specific time period.
+     *  *
      * @param EnablePhysicalConnectionRequest $request EnablePhysicalConnectionRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -19184,12 +20111,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following limits:
-     *   * *   You can enable only an Express Connect circuit that is in the **Confirmed** state.
-     *   * *   After you enable an Express Connect circuit, it enters the **Enabled** state.
-     *   * *   **EnablePhysicalConnection** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribePhysicalConnections](~~36042~~) operation to query the status of the task.
-     *   * *   You cannot repeatedly call **EnablePhysicalConnection** for an Express Connect circuit in the **Confirmed** state within a specific time period.
-     *   *
+     * @summary Enables an Express Connect circuit that is in the Confirmed state. After you perform this operation, the Express Connect circuit enters the Enabled state.
+     *  *
+     * @description When you call this operation, take note of the following limits:
+     * *   You can enable only an Express Connect circuit that is in the **Confirmed** state.
+     * *   After you enable an Express Connect circuit, it enters the **Enabled** state.
+     * *   **EnablePhysicalConnection** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribePhysicalConnections](https://help.aliyun.com/document_detail/36042.html) operation to query the status of the task.
+     * *   You cannot repeatedly call **EnablePhysicalConnection** for an Express Connect circuit in the **Confirmed** state within a specific time period.
+     *  *
      * @param EnablePhysicalConnectionRequest $request EnablePhysicalConnectionRequest
      *
      * @return EnablePhysicalConnectionResponse EnablePhysicalConnectionResponse
@@ -19202,10 +20131,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param EnableVpcClassicLinkRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Enables ClassicLink for a VPC.
+     *  *
+     * @param EnableVpcClassicLinkRequest $request EnableVpcClassicLinkRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableVpcClassicLinkResponse
+     * @return EnableVpcClassicLinkResponse EnableVpcClassicLinkResponse
      */
     public function enableVpcClassicLinkWithOptions($request, $runtime)
     {
@@ -19251,9 +20182,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param EnableVpcClassicLinkRequest $request
+     * @summary Enables ClassicLink for a VPC.
+     *  *
+     * @param EnableVpcClassicLinkRequest $request EnableVpcClassicLinkRequest
      *
-     * @return EnableVpcClassicLinkResponse
+     * @return EnableVpcClassicLinkResponse EnableVpcClassicLinkResponse
      */
     public function enableVpcClassicLink($request)
     {
@@ -19263,12 +20196,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)Description
-     *   * *   **EnableVpcIpv4Gateway** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call the [GetIpv4GatewayAttribute](~~407670~~) operation to query the status of an IPv4 gateway.
-     *   *     *   If the IPv4 gateway is in the **Activating** state, the IPv4 gateway is being activated.
-     *   *     *   If the IPv4 gateway is in the **Created** state, the IPv4 gateway is activated.
-     *   * *   You cannot repeatedly call the **EnableVpcIpv4Gateway** operation to activate an IPv4 gateway within the specified period of time.
-     *   *
+     * @summary Activates an IPv4 gateway.
+     *  *
+     * @description ## [](#)Description
+     * *   **EnableVpcIpv4Gateway** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call the [GetIpv4GatewayAttribute](https://help.aliyun.com/document_detail/407670.html) operation to query the status of an IPv4 gateway.
+     *     *   If the IPv4 gateway is in the **Activating** state, the IPv4 gateway is being activated.
+     *     *   If the IPv4 gateway is in the **Created** state, the IPv4 gateway is activated.
+     * *   You cannot repeatedly call the **EnableVpcIpv4Gateway** operation to activate an IPv4 gateway within the specified period of time.
+     *  *
      * @param EnableVpcIpv4GatewayRequest $request EnableVpcIpv4GatewayRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -19327,12 +20262,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)Description
-     *   * *   **EnableVpcIpv4Gateway** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call the [GetIpv4GatewayAttribute](~~407670~~) operation to query the status of an IPv4 gateway.
-     *   *     *   If the IPv4 gateway is in the **Activating** state, the IPv4 gateway is being activated.
-     *   *     *   If the IPv4 gateway is in the **Created** state, the IPv4 gateway is activated.
-     *   * *   You cannot repeatedly call the **EnableVpcIpv4Gateway** operation to activate an IPv4 gateway within the specified period of time.
-     *   *
+     * @summary Activates an IPv4 gateway.
+     *  *
+     * @description ## [](#)Description
+     * *   **EnableVpcIpv4Gateway** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call the [GetIpv4GatewayAttribute](https://help.aliyun.com/document_detail/407670.html) operation to query the status of an IPv4 gateway.
+     *     *   If the IPv4 gateway is in the **Activating** state, the IPv4 gateway is being activated.
+     *     *   If the IPv4 gateway is in the **Created** state, the IPv4 gateway is activated.
+     * *   You cannot repeatedly call the **EnableVpcIpv4Gateway** operation to activate an IPv4 gateway within the specified period of time.
+     *  *
      * @param EnableVpcIpv4GatewayRequest $request EnableVpcIpv4GatewayRequest
      *
      * @return EnableVpcIpv4GatewayResponse EnableVpcIpv4GatewayResponse
@@ -19345,10 +20282,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param GetDhcpOptionsSetRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries a DHCP options set.
+     *  *
+     * @param GetDhcpOptionsSetRequest $request GetDhcpOptionsSetRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDhcpOptionsSetResponse
+     * @return GetDhcpOptionsSetResponse GetDhcpOptionsSetResponse
      */
     public function getDhcpOptionsSetWithOptions($request, $runtime)
     {
@@ -19391,9 +20330,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param GetDhcpOptionsSetRequest $request
+     * @summary Queries a DHCP options set.
+     *  *
+     * @param GetDhcpOptionsSetRequest $request GetDhcpOptionsSetRequest
      *
-     * @return GetDhcpOptionsSetResponse
+     * @return GetDhcpOptionsSetResponse GetDhcpOptionsSetResponse
      */
     public function getDhcpOptionsSet($request)
     {
@@ -19403,10 +20344,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param GetFlowLogServiceStatusRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the status of a flow log.
+     *  *
+     * @param GetFlowLogServiceStatusRequest $request GetFlowLogServiceStatusRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetFlowLogServiceStatusResponse
+     * @return GetFlowLogServiceStatusResponse GetFlowLogServiceStatusResponse
      */
     public function getFlowLogServiceStatusWithOptions($request, $runtime)
     {
@@ -19452,9 +20395,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param GetFlowLogServiceStatusRequest $request
+     * @summary Queries the status of a flow log.
+     *  *
+     * @param GetFlowLogServiceStatusRequest $request GetFlowLogServiceStatusRequest
      *
-     * @return GetFlowLogServiceStatusResponse
+     * @return GetFlowLogServiceStatusResponse GetFlowLogServiceStatusResponse
      */
     public function getFlowLogServiceStatus($request)
     {
@@ -19464,10 +20409,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param GetIpv4GatewayAttributeRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries an IPv4 gateway.
+     *  *
+     * @param GetIpv4GatewayAttributeRequest $request GetIpv4GatewayAttributeRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetIpv4GatewayAttributeResponse
+     * @return GetIpv4GatewayAttributeResponse GetIpv4GatewayAttributeResponse
      */
     public function getIpv4GatewayAttributeWithOptions($request, $runtime)
     {
@@ -19513,9 +20460,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param GetIpv4GatewayAttributeRequest $request
+     * @summary Queries an IPv4 gateway.
+     *  *
+     * @param GetIpv4GatewayAttributeRequest $request GetIpv4GatewayAttributeRequest
      *
-     * @return GetIpv4GatewayAttributeResponse
+     * @return GetIpv4GatewayAttributeResponse GetIpv4GatewayAttributeResponse
      */
     public function getIpv4GatewayAttribute($request)
     {
@@ -19525,8 +20474,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query information about a specified Internet NAT gateway or Virtual Private Cloud (VPC) NAT gateway. In this topic, "NAT gateway" refers to both gateway types.
-     *   *
+     * @summary 查询NAT详情信息
+     *  *
+     * @description You can call this operation to query information about a specified Internet NAT gateway or Virtual Private Cloud (VPC) NAT gateway. In this topic, "NAT gateway" refers to both gateway types.
+     *  *
      * @param GetNatGatewayAttributeRequest $request GetNatGatewayAttributeRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -19576,8 +20527,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query information about a specified Internet NAT gateway or Virtual Private Cloud (VPC) NAT gateway. In this topic, "NAT gateway" refers to both gateway types.
-     *   *
+     * @summary 查询NAT详情信息
+     *  *
+     * @description You can call this operation to query information about a specified Internet NAT gateway or Virtual Private Cloud (VPC) NAT gateway. In this topic, "NAT gateway" refers to both gateway types.
+     *  *
      * @param GetNatGatewayAttributeRequest $request GetNatGatewayAttributeRequest
      *
      * @return GetNatGatewayAttributeResponse GetNatGatewayAttributeResponse
@@ -19590,8 +20543,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to query the status of outbound data transfer billing for the current account. For more information about outbound data transfer billing, see [Outbound data transfer billing](~~274385~~) and [Billing](~~54582~~).
-     *   *
+     * @summary 查询是否开通了出云流量服务
+     *  *
+     * @description You can call this API operation to query the status of outbound data transfer billing for the current account. For more information about outbound data transfer billing, see [Outbound data transfer billing](https://help.aliyun.com/document_detail/274385.html) and [Billing](https://help.aliyun.com/document_detail/54582.html).
+     *  *
      * @param GetPhysicalConnectionServiceStatusRequest $request GetPhysicalConnectionServiceStatusRequest
      * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
@@ -19635,8 +20590,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to query the status of outbound data transfer billing for the current account. For more information about outbound data transfer billing, see [Outbound data transfer billing](~~274385~~) and [Billing](~~54582~~).
-     *   *
+     * @summary 查询是否开通了出云流量服务
+     *  *
+     * @description You can call this API operation to query the status of outbound data transfer billing for the current account. For more information about outbound data transfer billing, see [Outbound data transfer billing](https://help.aliyun.com/document_detail/274385.html) and [Billing](https://help.aliyun.com/document_detail/54582.html).
+     *  *
      * @param GetPhysicalConnectionServiceStatusRequest $request GetPhysicalConnectionServiceStatusRequest
      *
      * @return GetPhysicalConnectionServiceStatusResponse GetPhysicalConnectionServiceStatusResponse
@@ -19649,10 +20606,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param GetTrafficMirrorServiceStatusRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Queries the status of the traffic mirroring feature.
+     *  *
+     * @param GetTrafficMirrorServiceStatusRequest $request GetTrafficMirrorServiceStatusRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTrafficMirrorServiceStatusResponse
+     * @return GetTrafficMirrorServiceStatusResponse GetTrafficMirrorServiceStatusResponse
      */
     public function getTrafficMirrorServiceStatusWithOptions($request, $runtime)
     {
@@ -19698,9 +20657,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param GetTrafficMirrorServiceStatusRequest $request
+     * @summary Queries the status of the traffic mirroring feature.
+     *  *
+     * @param GetTrafficMirrorServiceStatusRequest $request GetTrafficMirrorServiceStatusRequest
      *
-     * @return GetTrafficMirrorServiceStatusResponse
+     * @return GetTrafficMirrorServiceStatusResponse GetTrafficMirrorServiceStatusResponse
      */
     public function getTrafficMirrorServiceStatus($request)
     {
@@ -19710,10 +20671,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param GetVSwitchCidrReservationUsageRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Queries the usage of a prefix list.
+     *  *
+     * @param GetVSwitchCidrReservationUsageRequest $request GetVSwitchCidrReservationUsageRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetVSwitchCidrReservationUsageResponse
+     * @return GetVSwitchCidrReservationUsageResponse GetVSwitchCidrReservationUsageResponse
      */
     public function getVSwitchCidrReservationUsageWithOptions($request, $runtime)
     {
@@ -19762,9 +20725,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param GetVSwitchCidrReservationUsageRequest $request
+     * @summary Queries the usage of a prefix list.
+     *  *
+     * @param GetVSwitchCidrReservationUsageRequest $request GetVSwitchCidrReservationUsageRequest
      *
-     * @return GetVSwitchCidrReservationUsageResponse
+     * @return GetVSwitchCidrReservationUsageResponse GetVSwitchCidrReservationUsageResponse
      */
     public function getVSwitchCidrReservationUsage($request)
     {
@@ -19774,10 +20739,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param GetVpcGatewayEndpointAttributeRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Queries the attributes of a gateway endpoint.
+     *  *
+     * @param GetVpcGatewayEndpointAttributeRequest $request GetVpcGatewayEndpointAttributeRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetVpcGatewayEndpointAttributeResponse
+     * @return GetVpcGatewayEndpointAttributeResponse GetVpcGatewayEndpointAttributeResponse
      */
     public function getVpcGatewayEndpointAttributeWithOptions($request, $runtime)
     {
@@ -19820,9 +20787,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param GetVpcGatewayEndpointAttributeRequest $request
+     * @summary Queries the attributes of a gateway endpoint.
+     *  *
+     * @param GetVpcGatewayEndpointAttributeRequest $request GetVpcGatewayEndpointAttributeRequest
      *
-     * @return GetVpcGatewayEndpointAttributeResponse
+     * @return GetVpcGatewayEndpointAttributeResponse GetVpcGatewayEndpointAttributeResponse
      */
     public function getVpcGatewayEndpointAttribute($request)
     {
@@ -19832,10 +20801,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param GetVpcPrefixListAssociationsRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries the resources that are associated with a prefix list.
+     *  *
+     * @param GetVpcPrefixListAssociationsRequest $request GetVpcPrefixListAssociationsRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetVpcPrefixListAssociationsResponse
+     * @return GetVpcPrefixListAssociationsResponse GetVpcPrefixListAssociationsResponse
      */
     public function getVpcPrefixListAssociationsWithOptions($request, $runtime)
     {
@@ -19884,9 +20855,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param GetVpcPrefixListAssociationsRequest $request
+     * @summary Queries the resources that are associated with a prefix list.
+     *  *
+     * @param GetVpcPrefixListAssociationsRequest $request GetVpcPrefixListAssociationsRequest
      *
-     * @return GetVpcPrefixListAssociationsResponse
+     * @return GetVpcPrefixListAssociationsResponse GetVpcPrefixListAssociationsResponse
      */
     public function getVpcPrefixListAssociations($request)
     {
@@ -19896,10 +20869,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param GetVpcPrefixListEntriesRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the information about a prefix list.
+     *  *
+     * @param GetVpcPrefixListEntriesRequest $request GetVpcPrefixListEntriesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetVpcPrefixListEntriesResponse
+     * @return GetVpcPrefixListEntriesResponse GetVpcPrefixListEntriesResponse
      */
     public function getVpcPrefixListEntriesWithOptions($request, $runtime)
     {
@@ -19948,9 +20923,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param GetVpcPrefixListEntriesRequest $request
+     * @summary Queries the information about a prefix list.
+     *  *
+     * @param GetVpcPrefixListEntriesRequest $request GetVpcPrefixListEntriesRequest
      *
-     * @return GetVpcPrefixListEntriesResponse
+     * @return GetVpcPrefixListEntriesResponse GetVpcPrefixListEntriesResponse
      */
     public function getVpcPrefixListEntries($request)
     {
@@ -19960,10 +20937,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param GetVpcRouteEntrySummaryRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 查询路由类型的明细。
+     *  *
+     * @param GetVpcRouteEntrySummaryRequest $request GetVpcRouteEntrySummaryRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetVpcRouteEntrySummaryResponse
+     * @return GetVpcRouteEntrySummaryResponse GetVpcRouteEntrySummaryResponse
      */
     public function getVpcRouteEntrySummaryWithOptions($request, $runtime)
     {
@@ -20012,9 +20991,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param GetVpcRouteEntrySummaryRequest $request
+     * @summary 查询路由类型的明细。
+     *  *
+     * @param GetVpcRouteEntrySummaryRequest $request GetVpcRouteEntrySummaryRequest
      *
-     * @return GetVpcRouteEntrySummaryResponse
+     * @return GetVpcRouteEntrySummaryResponse GetVpcRouteEntrySummaryResponse
      */
     public function getVpcRouteEntrySummary($request)
     {
@@ -20024,8 +21005,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * When you call the **GetVpnGatewayDiagnoseResult** operation, you must specify one of **DiagnoseId** and **VpnGatewayId**.
-     *   *
+     * @summary Queries the diagnostic result of a VPN gateway.
+     *  *
+     * @description When you call the **GetVpnGatewayDiagnoseResult** operation, you must specify one of **DiagnoseId** and **VpnGatewayId**.
+     *  *
      * @param GetVpnGatewayDiagnoseResultRequest $request GetVpnGatewayDiagnoseResultRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -20066,8 +21049,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * When you call the **GetVpnGatewayDiagnoseResult** operation, you must specify one of **DiagnoseId** and **VpnGatewayId**.
-     *   *
+     * @summary Queries the diagnostic result of a VPN gateway.
+     *  *
+     * @description When you call the **GetVpnGatewayDiagnoseResult** operation, you must specify one of **DiagnoseId** and **VpnGatewayId**.
+     *  *
      * @param GetVpnGatewayDiagnoseResultRequest $request GetVpnGatewayDiagnoseResultRequest
      *
      * @return GetVpnGatewayDiagnoseResultResponse GetVpnGatewayDiagnoseResultResponse
@@ -20080,10 +21065,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   Before you can attach a network instance that belongs to another Alibaba Cloud account to your CEN instance, you must grant permissions to your CEN instance.
-     *   * >  **GrantInstanceToCen** is a Virtual Private Cloud (VPC) operation. Therefore, you must use the `vpc.aliyuncs.com` domain name to call this operation. The API version is `2016-04-28`.
-     *   * *   You cannot repeatedly call the **GrantInstanceToCen** operation to grant the permissions on a network instance to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance.
-     *   *
+     * @summary Grants permissions to a Cloud Enterprise Network (CEN) instance.
+     *  *
+     * @description *   Before you can attach a network instance that belongs to another Alibaba Cloud account to your CEN instance, you must grant permissions to your CEN instance.
+     * >  **GrantInstanceToCen** is a Virtual Private Cloud (VPC) operation. Therefore, you must use the `vpc.aliyuncs.com` domain name to call this operation. The API version is `2016-04-28`.
+     * *   You cannot repeatedly call the **GrantInstanceToCen** operation to grant the permissions on a network instance to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance.
+     *  *
      * @param GrantInstanceToCenRequest $request GrantInstanceToCenRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -20142,10 +21129,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   Before you can attach a network instance that belongs to another Alibaba Cloud account to your CEN instance, you must grant permissions to your CEN instance.
-     *   * >  **GrantInstanceToCen** is a Virtual Private Cloud (VPC) operation. Therefore, you must use the `vpc.aliyuncs.com` domain name to call this operation. The API version is `2016-04-28`.
-     *   * *   You cannot repeatedly call the **GrantInstanceToCen** operation to grant the permissions on a network instance to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance.
-     *   *
+     * @summary Grants permissions to a Cloud Enterprise Network (CEN) instance.
+     *  *
+     * @description *   Before you can attach a network instance that belongs to another Alibaba Cloud account to your CEN instance, you must grant permissions to your CEN instance.
+     * >  **GrantInstanceToCen** is a Virtual Private Cloud (VPC) operation. Therefore, you must use the `vpc.aliyuncs.com` domain name to call this operation. The API version is `2016-04-28`.
+     * *   You cannot repeatedly call the **GrantInstanceToCen** operation to grant the permissions on a network instance to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance.
+     *  *
      * @param GrantInstanceToCenRequest $request GrantInstanceToCenRequest
      *
      * @return GrantInstanceToCenResponse GrantInstanceToCenResponse
@@ -20158,9 +21147,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## Usage notes
-     *   * When you connect a VBR to a VPC that belongs to another Alibaba Cloud account, the VBR must acquire the required permissions from the VPC.
-     *   *
+     * @summary Grants a virtual border router (VBR) the permissions to connect to a virtual private cloud (VPC) that belongs to another Alibaba Cloud account.
+     *  *
+     * @description ## Usage notes
+     * When you connect a VBR to a VPC that belongs to another Alibaba Cloud account, the VBR must acquire the required permissions from the VPC.
+     *  *
      * @param GrantInstanceToVbrRequest $tmpReq  GrantInstanceToVbrRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -20212,9 +21203,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## Usage notes
-     *   * When you connect a VBR to a VPC that belongs to another Alibaba Cloud account, the VBR must acquire the required permissions from the VPC.
-     *   *
+     * @summary Grants a virtual border router (VBR) the permissions to connect to a virtual private cloud (VPC) that belongs to another Alibaba Cloud account.
+     *  *
+     * @description ## Usage notes
+     * When you connect a VBR to a VPC that belongs to another Alibaba Cloud account, the VBR must acquire the required permissions from the VPC.
+     *  *
      * @param GrantInstanceToVbrRequest $request GrantInstanceToVbrRequest
      *
      * @return GrantInstanceToVbrResponse GrantInstanceToVbrResponse
@@ -20227,10 +21220,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ListBusinessAccessPointsRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the access points of an Express Connect circuit.
+     *  *
+     * @param ListBusinessAccessPointsRequest $request ListBusinessAccessPointsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListBusinessAccessPointsResponse
+     * @return ListBusinessAccessPointsResponse ListBusinessAccessPointsResponse
      */
     public function listBusinessAccessPointsWithOptions($request, $runtime)
     {
@@ -20261,9 +21256,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ListBusinessAccessPointsRequest $request
+     * @summary Queries the access points of an Express Connect circuit.
+     *  *
+     * @param ListBusinessAccessPointsRequest $request ListBusinessAccessPointsRequest
      *
-     * @return ListBusinessAccessPointsResponse
+     * @return ListBusinessAccessPointsResponse ListBusinessAccessPointsResponse
      */
     public function listBusinessAccessPoints($request)
     {
@@ -20273,10 +21270,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ListDhcpOptionsSetsRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries Dynamic Host Configuration Protocol (DHCP) options sets.
+     *  *
+     * @param ListDhcpOptionsSetsRequest $request ListDhcpOptionsSetsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDhcpOptionsSetsResponse
+     * @return ListDhcpOptionsSetsResponse ListDhcpOptionsSetsResponse
      */
     public function listDhcpOptionsSetsWithOptions($request, $runtime)
     {
@@ -20337,9 +21336,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ListDhcpOptionsSetsRequest $request
+     * @summary Queries Dynamic Host Configuration Protocol (DHCP) options sets.
+     *  *
+     * @param ListDhcpOptionsSetsRequest $request ListDhcpOptionsSetsRequest
      *
-     * @return ListDhcpOptionsSetsResponse
+     * @return ListDhcpOptionsSetsResponse ListDhcpOptionsSetsResponse
      */
     public function listDhcpOptionsSets($request)
     {
@@ -20349,8 +21350,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query zones that support NAT gateways, including Internet NAT gateways and Virtual Private Cloud (VPC) NAT gateways.
-     *   *
+     * @summary Queries the zones that support NAT gateways.
+     *  *
+     * @description You can call this operation to query zones that support NAT gateways, including Internet NAT gateways and Virtual Private Cloud (VPC) NAT gateways.
+     *  *
      * @param ListEnhanhcedNatGatewayAvailableZonesRequest $request ListEnhanhcedNatGatewayAvailableZonesRequest
      * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
@@ -20403,8 +21406,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query zones that support NAT gateways, including Internet NAT gateways and Virtual Private Cloud (VPC) NAT gateways.
-     *   *
+     * @summary Queries the zones that support NAT gateways.
+     *  *
+     * @description You can call this operation to query zones that support NAT gateways, including Internet NAT gateways and Virtual Private Cloud (VPC) NAT gateways.
+     *  *
      * @param ListEnhanhcedNatGatewayAvailableZonesRequest $request ListEnhanhcedNatGatewayAvailableZonesRequest
      *
      * @return ListEnhanhcedNatGatewayAvailableZonesResponse ListEnhanhcedNatGatewayAvailableZonesResponse
@@ -20417,10 +21422,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ListFullNatEntriesRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries FULLNAT entries.
+     *  *
+     * @param ListFullNatEntriesRequest $request ListFullNatEntriesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListFullNatEntriesResponse
+     * @return ListFullNatEntriesResponse ListFullNatEntriesResponse
      */
     public function listFullNatEntriesWithOptions($request, $runtime)
     {
@@ -20493,9 +21500,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ListFullNatEntriesRequest $request
+     * @summary Queries FULLNAT entries.
+     *  *
+     * @param ListFullNatEntriesRequest $request ListFullNatEntriesRequest
      *
-     * @return ListFullNatEntriesResponse
+     * @return ListFullNatEntriesResponse ListFullNatEntriesResponse
      */
     public function listFullNatEntries($request)
     {
@@ -20505,10 +21514,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ListGatewayRouteTableEntriesRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries route entries of a gateway route table.
+     *  *
+     * @param ListGatewayRouteTableEntriesRequest $request ListGatewayRouteTableEntriesRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListGatewayRouteTableEntriesResponse
+     * @return ListGatewayRouteTableEntriesResponse ListGatewayRouteTableEntriesResponse
      */
     public function listGatewayRouteTableEntriesWithOptions($request, $runtime)
     {
@@ -20563,9 +21574,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ListGatewayRouteTableEntriesRequest $request
+     * @summary Queries route entries of a gateway route table.
+     *  *
+     * @param ListGatewayRouteTableEntriesRequest $request ListGatewayRouteTableEntriesRequest
      *
-     * @return ListGatewayRouteTableEntriesResponse
+     * @return ListGatewayRouteTableEntriesResponse ListGatewayRouteTableEntriesResponse
      */
     public function listGatewayRouteTableEntries($request)
     {
@@ -20575,9 +21588,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the most recent region list.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListGeographicSubRegionsResponse
+     * @return ListGeographicSubRegionsResponse ListGeographicSubRegionsResponse
      */
     public function listGeographicSubRegionsWithOptions($runtime)
     {
@@ -20598,7 +21613,9 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @return ListGeographicSubRegionsResponse
+     * @summary Queries the most recent region list.
+     *  *
+     * @return ListGeographicSubRegionsResponse ListGeographicSubRegionsResponse
      */
     public function listGeographicSubRegions()
     {
@@ -20608,10 +21625,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ListIpsecServerLogsRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param ListIpsecServerLogsRequest $request ListIpsecServerLogsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListIpsecServerLogsResponse
+     * @return ListIpsecServerLogsResponse ListIpsecServerLogsResponse
      */
     public function listIpsecServerLogsWithOptions($request, $runtime)
     {
@@ -20657,9 +21674,9 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ListIpsecServerLogsRequest $request
+     * @param ListIpsecServerLogsRequest $request ListIpsecServerLogsRequest
      *
-     * @return ListIpsecServerLogsResponse
+     * @return ListIpsecServerLogsResponse ListIpsecServerLogsResponse
      */
     public function listIpsecServerLogs($request)
     {
@@ -20669,10 +21686,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ListIpsecServersRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries IPsec servers.
+     *  *
+     * @param ListIpsecServersRequest $request ListIpsecServersRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListIpsecServersResponse
+     * @return ListIpsecServersResponse ListIpsecServersResponse
      */
     public function listIpsecServersWithOptions($request, $runtime)
     {
@@ -20718,9 +21737,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ListIpsecServersRequest $request
+     * @summary Queries IPsec servers.
+     *  *
+     * @param ListIpsecServersRequest $request ListIpsecServersRequest
      *
-     * @return ListIpsecServersResponse
+     * @return ListIpsecServersResponse ListIpsecServersResponse
      */
     public function listIpsecServers($request)
     {
@@ -20730,10 +21751,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ListIpv4GatewaysRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries IPv4 gateways.
+     *  *
+     * @param ListIpv4GatewaysRequest $request ListIpv4GatewaysRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListIpv4GatewaysResponse
+     * @return ListIpv4GatewaysResponse ListIpv4GatewaysResponse
      */
     public function listIpv4GatewaysWithOptions($request, $runtime)
     {
@@ -20797,9 +21820,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ListIpv4GatewaysRequest $request
+     * @summary Queries IPv4 gateways.
+     *  *
+     * @param ListIpv4GatewaysRequest $request ListIpv4GatewaysRequest
      *
-     * @return ListIpv4GatewaysResponse
+     * @return ListIpv4GatewaysResponse ListIpv4GatewaysResponse
      */
     public function listIpv4Gateways($request)
     {
@@ -20809,10 +21834,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ListNatIpCidrsRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Queries the CIDR blocks of a specified NAT gateway.
+     *  *
+     * @param ListNatIpCidrsRequest $request ListNatIpCidrsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListNatIpCidrsResponse
+     * @return ListNatIpCidrsResponse ListNatIpCidrsResponse
      */
     public function listNatIpCidrsWithOptions($request, $runtime)
     {
@@ -20882,9 +21909,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ListNatIpCidrsRequest $request
+     * @summary Queries the CIDR blocks of a specified NAT gateway.
+     *  *
+     * @param ListNatIpCidrsRequest $request ListNatIpCidrsRequest
      *
-     * @return ListNatIpCidrsResponse
+     * @return ListNatIpCidrsResponse ListNatIpCidrsResponse
      */
     public function listNatIpCidrs($request)
     {
@@ -20894,10 +21923,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ListNatIpsRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Queries the IP addresses on a NAT gateway.
+     *  *
+     * @param ListNatIpsRequest $request ListNatIpsRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListNatIpsResponse
+     * @return ListNatIpsResponse ListNatIpsResponse
      */
     public function listNatIpsWithOptions($request, $runtime)
     {
@@ -20967,9 +21998,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ListNatIpsRequest $request
+     * @summary Queries the IP addresses on a NAT gateway.
+     *  *
+     * @param ListNatIpsRequest $request ListNatIpsRequest
      *
-     * @return ListNatIpsResponse
+     * @return ListNatIpsResponse ListNatIpsResponse
      */
     public function listNatIps($request)
     {
@@ -20979,10 +22012,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ListPrefixListsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries prefix lists.
+     *  *
+     * @param ListPrefixListsRequest $request ListPrefixListsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPrefixListsResponse
+     * @return ListPrefixListsResponse ListPrefixListsResponse
      */
     public function listPrefixListsWithOptions($request, $runtime)
     {
@@ -21040,9 +22075,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ListPrefixListsRequest $request
+     * @summary Queries prefix lists.
+     *  *
+     * @param ListPrefixListsRequest $request ListPrefixListsRequest
      *
-     * @return ListPrefixListsResponse
+     * @return ListPrefixListsResponse ListPrefixListsResponse
      */
     public function listPrefixLists($request)
     {
@@ -21052,10 +22089,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ListPublicIpAddressPoolCidrBlocksRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @param ListPublicIpAddressPoolCidrBlocksRequest $request ListPublicIpAddressPoolCidrBlocksRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPublicIpAddressPoolCidrBlocksResponse
+     * @return ListPublicIpAddressPoolCidrBlocksResponse ListPublicIpAddressPoolCidrBlocksResponse
      */
     public function listPublicIpAddressPoolCidrBlocksWithOptions($request, $runtime)
     {
@@ -21110,9 +22147,9 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ListPublicIpAddressPoolCidrBlocksRequest $request
+     * @param ListPublicIpAddressPoolCidrBlocksRequest $request ListPublicIpAddressPoolCidrBlocksRequest
      *
-     * @return ListPublicIpAddressPoolCidrBlocksResponse
+     * @return ListPublicIpAddressPoolCidrBlocksResponse ListPublicIpAddressPoolCidrBlocksResponse
      */
     public function listPublicIpAddressPoolCidrBlocks($request)
     {
@@ -21122,10 +22159,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ListPublicIpAddressPoolsRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the information about the available IP address pools.
+     *  *
+     * @param ListPublicIpAddressPoolsRequest $request ListPublicIpAddressPoolsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPublicIpAddressPoolsResponse
+     * @return ListPublicIpAddressPoolsResponse ListPublicIpAddressPoolsResponse
      */
     public function listPublicIpAddressPoolsWithOptions($request, $runtime)
     {
@@ -21195,9 +22234,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ListPublicIpAddressPoolsRequest $request
+     * @summary Queries the information about the available IP address pools.
+     *  *
+     * @param ListPublicIpAddressPoolsRequest $request ListPublicIpAddressPoolsRequest
      *
-     * @return ListPublicIpAddressPoolsResponse
+     * @return ListPublicIpAddressPoolsResponse ListPublicIpAddressPoolsResponse
      */
     public function listPublicIpAddressPools($request)
     {
@@ -21207,12 +22248,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## Usage notes
-     *   * *   You must specify **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object that you want to query.
-     *   * *   **Tag.N** is a resource tag that consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values that are associated with the specified key are returned. If you specify only **Tag.N.Value**, an error message is returned.
-     *   * *   If you specify **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
-     *   * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
-     *   *
+     * @summary Queries the tags that are added to resources.
+     *  *
+     * @description ## Usage notes
+     * *   You must specify **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object that you want to query.
+     * *   **Tag.N** is a resource tag that consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values that are associated with the specified key are returned. If you specify only **Tag.N.Value**, an error message is returned.
+     * *   If you specify **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
+     * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
+     *  *
      * @param ListTagResourcesRequest $request ListTagResourcesRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -21271,12 +22314,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## Usage notes
-     *   * *   You must specify **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object that you want to query.
-     *   * *   **Tag.N** is a resource tag that consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values that are associated with the specified key are returned. If you specify only **Tag.N.Value**, an error message is returned.
-     *   * *   If you specify **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
-     *   * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
-     *   *
+     * @summary Queries the tags that are added to resources.
+     *  *
+     * @description ## Usage notes
+     * *   You must specify **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object that you want to query.
+     * *   **Tag.N** is a resource tag that consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values that are associated with the specified key are returned. If you specify only **Tag.N.Value**, an error message is returned.
+     * *   If you specify **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
+     * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
+     *  *
      * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
      * @return ListTagResourcesResponse ListTagResourcesResponse
@@ -21289,12 +22334,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)
-     *   * *   If you want to query a specific object, you must specify **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request.
-     *   * *   **Tag.N** is a resource tag that consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values that are associated with the specified key are returned. If you specify only **Tag.N.Value**, an error message is returned.
-     *   * *   If you specify **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
-     *   * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
-     *   *
+     * @summary Queries the tags that are added to an Express Connect circuit.
+     *  *
+     * @description ## [](#)
+     * *   If you want to query a specific object, you must specify **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request.
+     * *   **Tag.N** is a resource tag that consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values that are associated with the specified key are returned. If you specify only **Tag.N.Value**, an error message is returned.
+     * *   If you specify **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
+     * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
+     *  *
      * @param ListTagResourcesForExpressConnectRequest $request ListTagResourcesForExpressConnectRequest
      * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
@@ -21353,12 +22400,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)
-     *   * *   If you want to query a specific object, you must specify **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request.
-     *   * *   **Tag.N** is a resource tag that consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values that are associated with the specified key are returned. If you specify only **Tag.N.Value**, an error message is returned.
-     *   * *   If you specify **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
-     *   * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
-     *   *
+     * @summary Queries the tags that are added to an Express Connect circuit.
+     *  *
+     * @description ## [](#)
+     * *   If you want to query a specific object, you must specify **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request.
+     * *   **Tag.N** is a resource tag that consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values that are associated with the specified key are returned. If you specify only **Tag.N.Value**, an error message is returned.
+     * *   If you specify **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
+     * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
+     *  *
      * @param ListTagResourcesForExpressConnectRequest $request ListTagResourcesForExpressConnectRequest
      *
      * @return ListTagResourcesForExpressConnectResponse ListTagResourcesForExpressConnectResponse
@@ -21371,10 +22420,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ListTrafficMirrorFiltersRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries filters for traffic mirroring.
+     *  *
+     * @param ListTrafficMirrorFiltersRequest $request ListTrafficMirrorFiltersRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTrafficMirrorFiltersResponse
+     * @return ListTrafficMirrorFiltersResponse ListTrafficMirrorFiltersResponse
      */
     public function listTrafficMirrorFiltersWithOptions($request, $runtime)
     {
@@ -21432,9 +22483,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ListTrafficMirrorFiltersRequest $request
+     * @summary Queries filters for traffic mirroring.
+     *  *
+     * @param ListTrafficMirrorFiltersRequest $request ListTrafficMirrorFiltersRequest
      *
-     * @return ListTrafficMirrorFiltersResponse
+     * @return ListTrafficMirrorFiltersResponse ListTrafficMirrorFiltersResponse
      */
     public function listTrafficMirrorFilters($request)
     {
@@ -21444,10 +22497,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ListTrafficMirrorSessionsRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the details of a traffic mirror session.
+     *  *
+     * @param ListTrafficMirrorSessionsRequest $request ListTrafficMirrorSessionsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTrafficMirrorSessionsResponse
+     * @return ListTrafficMirrorSessionsResponse ListTrafficMirrorSessionsResponse
      */
     public function listTrafficMirrorSessionsWithOptions($request, $runtime)
     {
@@ -21523,9 +22578,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ListTrafficMirrorSessionsRequest $request
+     * @summary Queries the details of a traffic mirror session.
+     *  *
+     * @param ListTrafficMirrorSessionsRequest $request ListTrafficMirrorSessionsRequest
      *
-     * @return ListTrafficMirrorSessionsResponse
+     * @return ListTrafficMirrorSessionsResponse ListTrafficMirrorSessionsResponse
      */
     public function listTrafficMirrorSessions($request)
     {
@@ -21535,10 +22592,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ListVSwitchCidrReservationsRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries the CIDR reservation information about vSwitches.
+     *  *
+     * @param ListVSwitchCidrReservationsRequest $request ListVSwitchCidrReservationsRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListVSwitchCidrReservationsResponse
+     * @return ListVSwitchCidrReservationsResponse ListVSwitchCidrReservationsResponse
      */
     public function listVSwitchCidrReservationsWithOptions($request, $runtime)
     {
@@ -21599,9 +22658,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ListVSwitchCidrReservationsRequest $request
+     * @summary Queries the CIDR reservation information about vSwitches.
+     *  *
+     * @param ListVSwitchCidrReservationsRequest $request ListVSwitchCidrReservationsRequest
      *
-     * @return ListVSwitchCidrReservationsResponse
+     * @return ListVSwitchCidrReservationsResponse ListVSwitchCidrReservationsResponse
      */
     public function listVSwitchCidrReservations($request)
     {
@@ -21611,10 +22672,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ListVirtualPhysicalConnectionsRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Queries hosted connections.
+     *  *
+     * @param ListVirtualPhysicalConnectionsRequest $request ListVirtualPhysicalConnectionsRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListVirtualPhysicalConnectionsResponse
+     * @return ListVirtualPhysicalConnectionsResponse ListVirtualPhysicalConnectionsResponse
      */
     public function listVirtualPhysicalConnectionsWithOptions($request, $runtime)
     {
@@ -21675,9 +22738,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ListVirtualPhysicalConnectionsRequest $request
+     * @summary Queries hosted connections.
+     *  *
+     * @param ListVirtualPhysicalConnectionsRequest $request ListVirtualPhysicalConnectionsRequest
      *
-     * @return ListVirtualPhysicalConnectionsResponse
+     * @return ListVirtualPhysicalConnectionsResponse ListVirtualPhysicalConnectionsResponse
      */
     public function listVirtualPhysicalConnections($request)
     {
@@ -21687,10 +22752,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ListVpcEndpointServicesByEndUserRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary Queries available endpoint services.
+     *  *
+     * @param ListVpcEndpointServicesByEndUserRequest $request ListVpcEndpointServicesByEndUserRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListVpcEndpointServicesByEndUserResponse
+     * @return ListVpcEndpointServicesByEndUserResponse ListVpcEndpointServicesByEndUserResponse
      */
     public function listVpcEndpointServicesByEndUserWithOptions($request, $runtime)
     {
@@ -21739,9 +22806,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ListVpcEndpointServicesByEndUserRequest $request
+     * @summary Queries available endpoint services.
+     *  *
+     * @param ListVpcEndpointServicesByEndUserRequest $request ListVpcEndpointServicesByEndUserRequest
      *
-     * @return ListVpcEndpointServicesByEndUserResponse
+     * @return ListVpcEndpointServicesByEndUserResponse ListVpcEndpointServicesByEndUserResponse
      */
     public function listVpcEndpointServicesByEndUser($request)
     {
@@ -21751,10 +22820,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ListVpcGatewayEndpointsRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries gateway endpoints.
+     *  *
+     * @param ListVpcGatewayEndpointsRequest $request ListVpcGatewayEndpointsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListVpcGatewayEndpointsResponse
+     * @return ListVpcGatewayEndpointsResponse ListVpcGatewayEndpointsResponse
      */
     public function listVpcGatewayEndpointsWithOptions($request, $runtime)
     {
@@ -21815,9 +22886,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ListVpcGatewayEndpointsRequest $request
+     * @summary Queries gateway endpoints.
+     *  *
+     * @param ListVpcGatewayEndpointsRequest $request ListVpcGatewayEndpointsRequest
      *
-     * @return ListVpcGatewayEndpointsResponse
+     * @return ListVpcGatewayEndpointsResponse ListVpcGatewayEndpointsResponse
      */
     public function listVpcGatewayEndpoints($request)
     {
@@ -21827,12 +22900,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * When you call **ListVpnCertificateAssociations**, take note of the following information:
-     *   * *   If you specify only **RegionId**, the SSL certificates associated with all VPN gateways in the specified region are queried.
-     *   * *   If you specify **RegionId** and **CertificateType**, the SSL certificates of the specified type that are associated with the VPN gateways in the specified region are queried.
-     *   * *   If you specify **RegionId** and **VpnGatewayId**, the SSL certificates associated with the specified VPN gateway in the specified region are queried.
-     *   * *   If you specify **RegionId** and **CertificateId**, the VPN gateways associated with the specified SSL certificate in the specified region are queried.
-     *   *
+     * @summary Queries the association between VPN gateways and certificates in a region.
+     *  *
+     * @description When you call **ListVpnCertificateAssociations**, take note of the following information:
+     * *   If you specify only **RegionId**, the SSL certificates associated with all VPN gateways in the specified region are queried.
+     * *   If you specify **RegionId** and **CertificateType**, the SSL certificates of the specified type that are associated with the VPN gateways in the specified region are queried.
+     * *   If you specify **RegionId** and **VpnGatewayId**, the SSL certificates associated with the specified VPN gateway in the specified region are queried.
+     * *   If you specify **RegionId** and **CertificateId**, the VPN gateways associated with the specified SSL certificate in the specified region are queried.
+     *  *
      * @param ListVpnCertificateAssociationsRequest $request ListVpnCertificateAssociationsRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
@@ -21879,12 +22954,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * When you call **ListVpnCertificateAssociations**, take note of the following information:
-     *   * *   If you specify only **RegionId**, the SSL certificates associated with all VPN gateways in the specified region are queried.
-     *   * *   If you specify **RegionId** and **CertificateType**, the SSL certificates of the specified type that are associated with the VPN gateways in the specified region are queried.
-     *   * *   If you specify **RegionId** and **VpnGatewayId**, the SSL certificates associated with the specified VPN gateway in the specified region are queried.
-     *   * *   If you specify **RegionId** and **CertificateId**, the VPN gateways associated with the specified SSL certificate in the specified region are queried.
-     *   *
+     * @summary Queries the association between VPN gateways and certificates in a region.
+     *  *
+     * @description When you call **ListVpnCertificateAssociations**, take note of the following information:
+     * *   If you specify only **RegionId**, the SSL certificates associated with all VPN gateways in the specified region are queried.
+     * *   If you specify **RegionId** and **CertificateType**, the SSL certificates of the specified type that are associated with the VPN gateways in the specified region are queried.
+     * *   If you specify **RegionId** and **VpnGatewayId**, the SSL certificates associated with the specified VPN gateway in the specified region are queried.
+     * *   If you specify **RegionId** and **CertificateId**, the VPN gateways associated with the specified SSL certificate in the specified region are queried.
+     *  *
      * @param ListVpnCertificateAssociationsRequest $request ListVpnCertificateAssociationsRequest
      *
      * @return ListVpnCertificateAssociationsResponse ListVpnCertificateAssociationsResponse
@@ -21897,10 +22974,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ModifyBgpGroupAttributeRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Modifies the configuration of a Border Gateway Protocol (BGP) group.
+     *  *
+     * @param ModifyBgpGroupAttributeRequest $request ModifyBgpGroupAttributeRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyBgpGroupAttributeResponse
+     * @return ModifyBgpGroupAttributeResponse ModifyBgpGroupAttributeResponse
      */
     public function modifyBgpGroupAttributeWithOptions($request, $runtime)
     {
@@ -21970,9 +23049,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ModifyBgpGroupAttributeRequest $request
+     * @summary Modifies the configuration of a Border Gateway Protocol (BGP) group.
+     *  *
+     * @param ModifyBgpGroupAttributeRequest $request ModifyBgpGroupAttributeRequest
      *
-     * @return ModifyBgpGroupAttributeResponse
+     * @return ModifyBgpGroupAttributeResponse ModifyBgpGroupAttributeResponse
      */
     public function modifyBgpGroupAttribute($request)
     {
@@ -21982,10 +23063,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ModifyBgpPeerAttributeRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Modifies the configuration of a BGP peer.
+     *  *
+     * @param ModifyBgpPeerAttributeRequest $request ModifyBgpPeerAttributeRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyBgpPeerAttributeResponse
+     * @return ModifyBgpPeerAttributeResponse ModifyBgpPeerAttributeResponse
      */
     public function modifyBgpPeerAttributeWithOptions($request, $runtime)
     {
@@ -22043,9 +23126,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ModifyBgpPeerAttributeRequest $request
+     * @summary Modifies the configuration of a BGP peer.
+     *  *
+     * @param ModifyBgpPeerAttributeRequest $request ModifyBgpPeerAttributeRequest
      *
-     * @return ModifyBgpPeerAttributeResponse
+     * @return ModifyBgpPeerAttributeResponse ModifyBgpPeerAttributeResponse
      */
     public function modifyBgpPeerAttribute($request)
     {
@@ -22055,10 +23140,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ModifyCommonBandwidthPackageAttributeRequest $request
-     * @param RuntimeOptions                               $runtime
+     * @summary Modifies the name and description of an EIP bandwidth plan.
+     *  *
+     * @param ModifyCommonBandwidthPackageAttributeRequest $request ModifyCommonBandwidthPackageAttributeRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyCommonBandwidthPackageAttributeResponse
+     * @return ModifyCommonBandwidthPackageAttributeResponse ModifyCommonBandwidthPackageAttributeResponse
      */
     public function modifyCommonBandwidthPackageAttributeWithOptions($request, $runtime)
     {
@@ -22107,9 +23194,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ModifyCommonBandwidthPackageAttributeRequest $request
+     * @summary Modifies the name and description of an EIP bandwidth plan.
+     *  *
+     * @param ModifyCommonBandwidthPackageAttributeRequest $request ModifyCommonBandwidthPackageAttributeRequest
      *
-     * @return ModifyCommonBandwidthPackageAttributeResponse
+     * @return ModifyCommonBandwidthPackageAttributeResponse ModifyCommonBandwidthPackageAttributeResponse
      */
     public function modifyCommonBandwidthPackageAttribute($request)
     {
@@ -22119,13 +23208,15 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You can call the **ModifyCommonBandwidthPackageIpBandwidth** operation to set the maximum bandwidth of an EIP that is associated with an Internet Shared Bandwidth instance. This prevents an EIP from exhausting the bandwidth resources of an Internet Shared Bandwidth instance.
-     *   * For example, two EIPs are associated with an Internet Shared Bandwidth instance whose maximum bandwidth is 800 Mbit/s. In this case, you can set the maximum bandwidth of one EIP to 500 Mbit/s and that of the other EIP to 400 Mbit/s. After you set the maximum bandwidth values, the first EIP cannot consume bandwidth higher than 500 Mbit/s. The second EIP cannot consume bandwidth higher than 400 Mbit/s.
-     *   * When you call this operation, take note of the following items:
-     *   * *   This operation is valid only for EIPs that are associated with Elastic Compute Service (ECS) instances. This operation is invalid for EIPs that are associated with Server Load Balancer (SLB) instances, NAT gateways, secondary elastic network interfaces (ENIs), or high-availability virtual IP addresses (HAVIPs).
-     *   * *   This operation is in public preview. You can call this operation to set the maximum bandwidth of EIPs only if the EIPs are associated with an Internet Shared Bandwidth instance. The feature is not supported in the console.
-     *   * *   You cannot repeatedly call this operation to set the maximum bandwidth of an EIP within the specified period of time.
-     *   *
+     * @summary Sets the maximum bandwidth of an EIP that is associated with an Internet Shared Bandwidth instance.
+     *  *
+     * @description You can call the **ModifyCommonBandwidthPackageIpBandwidth** operation to set the maximum bandwidth of an EIP that is associated with an Internet Shared Bandwidth instance. This prevents an EIP from exhausting the bandwidth resources of an Internet Shared Bandwidth instance.
+     * For example, two EIPs are associated with an Internet Shared Bandwidth instance whose maximum bandwidth is 800 Mbit/s. In this case, you can set the maximum bandwidth of one EIP to 500 Mbit/s and that of the other EIP to 400 Mbit/s. After you set the maximum bandwidth values, the first EIP cannot consume bandwidth higher than 500 Mbit/s. The second EIP cannot consume bandwidth higher than 400 Mbit/s.
+     * When you call this operation, take note of the following items:
+     * *   This operation is valid only for EIPs that are associated with Elastic Compute Service (ECS) instances. This operation is invalid for EIPs that are associated with Server Load Balancer (SLB) instances, NAT gateways, secondary elastic network interfaces (ENIs), or high-availability virtual IP addresses (HAVIPs).
+     * *   This operation is in public preview. You can call this operation to set the maximum bandwidth of EIPs only if the EIPs are associated with an Internet Shared Bandwidth instance. The feature is not supported in the console.
+     * *   You cannot repeatedly call this operation to set the maximum bandwidth of an EIP within the specified period of time.
+     *  *
      * @param ModifyCommonBandwidthPackageIpBandwidthRequest $request ModifyCommonBandwidthPackageIpBandwidthRequest
      * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
      *
@@ -22178,13 +23269,15 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You can call the **ModifyCommonBandwidthPackageIpBandwidth** operation to set the maximum bandwidth of an EIP that is associated with an Internet Shared Bandwidth instance. This prevents an EIP from exhausting the bandwidth resources of an Internet Shared Bandwidth instance.
-     *   * For example, two EIPs are associated with an Internet Shared Bandwidth instance whose maximum bandwidth is 800 Mbit/s. In this case, you can set the maximum bandwidth of one EIP to 500 Mbit/s and that of the other EIP to 400 Mbit/s. After you set the maximum bandwidth values, the first EIP cannot consume bandwidth higher than 500 Mbit/s. The second EIP cannot consume bandwidth higher than 400 Mbit/s.
-     *   * When you call this operation, take note of the following items:
-     *   * *   This operation is valid only for EIPs that are associated with Elastic Compute Service (ECS) instances. This operation is invalid for EIPs that are associated with Server Load Balancer (SLB) instances, NAT gateways, secondary elastic network interfaces (ENIs), or high-availability virtual IP addresses (HAVIPs).
-     *   * *   This operation is in public preview. You can call this operation to set the maximum bandwidth of EIPs only if the EIPs are associated with an Internet Shared Bandwidth instance. The feature is not supported in the console.
-     *   * *   You cannot repeatedly call this operation to set the maximum bandwidth of an EIP within the specified period of time.
-     *   *
+     * @summary Sets the maximum bandwidth of an EIP that is associated with an Internet Shared Bandwidth instance.
+     *  *
+     * @description You can call the **ModifyCommonBandwidthPackageIpBandwidth** operation to set the maximum bandwidth of an EIP that is associated with an Internet Shared Bandwidth instance. This prevents an EIP from exhausting the bandwidth resources of an Internet Shared Bandwidth instance.
+     * For example, two EIPs are associated with an Internet Shared Bandwidth instance whose maximum bandwidth is 800 Mbit/s. In this case, you can set the maximum bandwidth of one EIP to 500 Mbit/s and that of the other EIP to 400 Mbit/s. After you set the maximum bandwidth values, the first EIP cannot consume bandwidth higher than 500 Mbit/s. The second EIP cannot consume bandwidth higher than 400 Mbit/s.
+     * When you call this operation, take note of the following items:
+     * *   This operation is valid only for EIPs that are associated with Elastic Compute Service (ECS) instances. This operation is invalid for EIPs that are associated with Server Load Balancer (SLB) instances, NAT gateways, secondary elastic network interfaces (ENIs), or high-availability virtual IP addresses (HAVIPs).
+     * *   This operation is in public preview. You can call this operation to set the maximum bandwidth of EIPs only if the EIPs are associated with an Internet Shared Bandwidth instance. The feature is not supported in the console.
+     * *   You cannot repeatedly call this operation to set the maximum bandwidth of an EIP within the specified period of time.
+     *  *
      * @param ModifyCommonBandwidthPackageIpBandwidthRequest $request ModifyCommonBandwidthPackageIpBandwidthRequest
      *
      * @return ModifyCommonBandwidthPackageIpBandwidthResponse ModifyCommonBandwidthPackageIpBandwidthResponse
@@ -22197,12 +23290,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, take note of the following items:
-     *   * *   **ModifyCommonBandwidthPackageSpec** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeCommonBandwidthPackages](~~120309~~) operation to query the status of the task.
-     *   *     *   If the Internet Shared Bandwidth instance is in the **Modifying** state, the maximum bandwidth of the Internet Shared Bandwidth instance is being modified. In this state, you can only query the Internet Shared Bandwidth instance and cannot perform other operations.
-     *   *     *   If the Internet Shared Bandwidth instance is in the **Available** state, the maximum bandwidth of the Internet Shared Bandwidth instance is modified.
-     *   * *   You cannot repeatedly call the **ModifyCommonBandwidthPackageSpec** operation to modify the maximum bandwidth of an Internet Shared Bandwidth instance within the specified period of time.
-     *   *
+     * @summary Modifies the maximum bandwidth of an Internet Shared Bandwidth instance.
+     *  *
+     * @description Before you call this operation, take note of the following items:
+     * *   **ModifyCommonBandwidthPackageSpec** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeCommonBandwidthPackages](https://help.aliyun.com/document_detail/120309.html) operation to query the status of the task.
+     *     *   If the Internet Shared Bandwidth instance is in the **Modifying** state, the maximum bandwidth of the Internet Shared Bandwidth instance is being modified. In this state, you can only query the Internet Shared Bandwidth instance and cannot perform other operations.
+     *     *   If the Internet Shared Bandwidth instance is in the **Available** state, the maximum bandwidth of the Internet Shared Bandwidth instance is modified.
+     * *   You cannot repeatedly call the **ModifyCommonBandwidthPackageSpec** operation to modify the maximum bandwidth of an Internet Shared Bandwidth instance within the specified period of time.
+     *  *
      * @param ModifyCommonBandwidthPackageSpecRequest $request ModifyCommonBandwidthPackageSpecRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
@@ -22252,12 +23347,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, take note of the following items:
-     *   * *   **ModifyCommonBandwidthPackageSpec** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeCommonBandwidthPackages](~~120309~~) operation to query the status of the task.
-     *   *     *   If the Internet Shared Bandwidth instance is in the **Modifying** state, the maximum bandwidth of the Internet Shared Bandwidth instance is being modified. In this state, you can only query the Internet Shared Bandwidth instance and cannot perform other operations.
-     *   *     *   If the Internet Shared Bandwidth instance is in the **Available** state, the maximum bandwidth of the Internet Shared Bandwidth instance is modified.
-     *   * *   You cannot repeatedly call the **ModifyCommonBandwidthPackageSpec** operation to modify the maximum bandwidth of an Internet Shared Bandwidth instance within the specified period of time.
-     *   *
+     * @summary Modifies the maximum bandwidth of an Internet Shared Bandwidth instance.
+     *  *
+     * @description Before you call this operation, take note of the following items:
+     * *   **ModifyCommonBandwidthPackageSpec** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeCommonBandwidthPackages](https://help.aliyun.com/document_detail/120309.html) operation to query the status of the task.
+     *     *   If the Internet Shared Bandwidth instance is in the **Modifying** state, the maximum bandwidth of the Internet Shared Bandwidth instance is being modified. In this state, you can only query the Internet Shared Bandwidth instance and cannot perform other operations.
+     *     *   If the Internet Shared Bandwidth instance is in the **Available** state, the maximum bandwidth of the Internet Shared Bandwidth instance is modified.
+     * *   You cannot repeatedly call the **ModifyCommonBandwidthPackageSpec** operation to modify the maximum bandwidth of an Internet Shared Bandwidth instance within the specified period of time.
+     *  *
      * @param ModifyCommonBandwidthPackageSpecRequest $request ModifyCommonBandwidthPackageSpecRequest
      *
      * @return ModifyCommonBandwidthPackageSpecResponse ModifyCommonBandwidthPackageSpecResponse
@@ -22270,12 +23367,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   When you call **ModifyCustomerGatewayAttribute**, if a value is assigned to **AuthKey**, the operation is asynchronous. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-     *   *     *   If a VPN gateway is in the **updating** state, the configurations are being modified.
-     *   *     *   If a VPN gateway is in the **active** state, the configurations are modified.
-     *   * *   When you call **ModifyCustomerGatewayAttribute**, if no value is assigned to **AuthKey**, the operation is synchronous.
-     *   * *   You cannot repeatedly call **ModifyCustomerGatewayAttribute** to modify the configurations of a customer gateway within the specified period of time.
-     *   *
+     * @summary Modifies the configuration of a customer gateway.
+     *  *
+     * @description *   When you call **ModifyCustomerGatewayAttribute**, if a value is assigned to **AuthKey**, the operation is asynchronous. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+     *     *   If a VPN gateway is in the **updating** state, the configurations are being modified.
+     *     *   If a VPN gateway is in the **active** state, the configurations are modified.
+     * *   When you call **ModifyCustomerGatewayAttribute**, if no value is assigned to **AuthKey**, the operation is synchronous.
+     * *   You cannot repeatedly call **ModifyCustomerGatewayAttribute** to modify the configurations of a customer gateway within the specified period of time.
+     *  *
      * @param ModifyCustomerGatewayAttributeRequest $request ModifyCustomerGatewayAttributeRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
@@ -22334,12 +23433,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   When you call **ModifyCustomerGatewayAttribute**, if a value is assigned to **AuthKey**, the operation is asynchronous. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-     *   *     *   If a VPN gateway is in the **updating** state, the configurations are being modified.
-     *   *     *   If a VPN gateway is in the **active** state, the configurations are modified.
-     *   * *   When you call **ModifyCustomerGatewayAttribute**, if no value is assigned to **AuthKey**, the operation is synchronous.
-     *   * *   You cannot repeatedly call **ModifyCustomerGatewayAttribute** to modify the configurations of a customer gateway within the specified period of time.
-     *   *
+     * @summary Modifies the configuration of a customer gateway.
+     *  *
+     * @description *   When you call **ModifyCustomerGatewayAttribute**, if a value is assigned to **AuthKey**, the operation is asynchronous. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+     *     *   If a VPN gateway is in the **updating** state, the configurations are being modified.
+     *     *   If a VPN gateway is in the **active** state, the configurations are modified.
+     * *   When you call **ModifyCustomerGatewayAttribute**, if no value is assigned to **AuthKey**, the operation is synchronous.
+     * *   You cannot repeatedly call **ModifyCustomerGatewayAttribute** to modify the configurations of a customer gateway within the specified period of time.
+     *  *
      * @param ModifyCustomerGatewayAttributeRequest $request ModifyCustomerGatewayAttributeRequest
      *
      * @return ModifyCustomerGatewayAttributeResponse ModifyCustomerGatewayAttributeResponse
@@ -22352,10 +23453,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ModifyEipAddressAttributeRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Modifies the name, description, and maximum bandwidth of an elastic IP address (EIP).
+     *  *
+     * @param ModifyEipAddressAttributeRequest $request ModifyEipAddressAttributeRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyEipAddressAttributeResponse
+     * @return ModifyEipAddressAttributeResponse ModifyEipAddressAttributeResponse
      */
     public function modifyEipAddressAttributeWithOptions($request, $runtime)
     {
@@ -22407,9 +23510,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ModifyEipAddressAttributeRequest $request
+     * @summary Modifies the name, description, and maximum bandwidth of an elastic IP address (EIP).
+     *  *
+     * @param ModifyEipAddressAttributeRequest $request ModifyEipAddressAttributeRequest
      *
-     * @return ModifyEipAddressAttributeResponse
+     * @return ModifyEipAddressAttributeResponse ModifyEipAddressAttributeResponse
      */
     public function modifyEipAddressAttribute($request)
     {
@@ -22419,10 +23524,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ModifyExpressCloudConnectionAttributeRequest $request
-     * @param RuntimeOptions                               $runtime
+     * @summary Modifies the configuration of an Express Cloud Connect (ECC) instance.
+     *  *
+     * @param ModifyExpressCloudConnectionAttributeRequest $request ModifyExpressCloudConnectionAttributeRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyExpressCloudConnectionAttributeResponse
+     * @return ModifyExpressCloudConnectionAttributeResponse ModifyExpressCloudConnectionAttributeResponse
      */
     public function modifyExpressCloudConnectionAttributeWithOptions($request, $runtime)
     {
@@ -22480,9 +23587,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ModifyExpressCloudConnectionAttributeRequest $request
+     * @summary Modifies the configuration of an Express Cloud Connect (ECC) instance.
+     *  *
+     * @param ModifyExpressCloudConnectionAttributeRequest $request ModifyExpressCloudConnectionAttributeRequest
      *
-     * @return ModifyExpressCloudConnectionAttributeResponse
+     * @return ModifyExpressCloudConnectionAttributeResponse ModifyExpressCloudConnectionAttributeResponse
      */
     public function modifyExpressCloudConnectionAttribute($request)
     {
@@ -22492,10 +23601,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ModifyExpressCloudConnectionBandwidthRequest $request
-     * @param RuntimeOptions                               $runtime
+     * @summary Modifies the bandwidth of an Express Cloud Connect (ECC) instance.
+     *  *
+     * @param ModifyExpressCloudConnectionBandwidthRequest $request ModifyExpressCloudConnectionBandwidthRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyExpressCloudConnectionBandwidthResponse
+     * @return ModifyExpressCloudConnectionBandwidthResponse ModifyExpressCloudConnectionBandwidthResponse
      */
     public function modifyExpressCloudConnectionBandwidthWithOptions($request, $runtime)
     {
@@ -22541,9 +23652,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ModifyExpressCloudConnectionBandwidthRequest $request
+     * @summary Modifies the bandwidth of an Express Cloud Connect (ECC) instance.
+     *  *
+     * @param ModifyExpressCloudConnectionBandwidthRequest $request ModifyExpressCloudConnectionBandwidthRequest
      *
-     * @return ModifyExpressCloudConnectionBandwidthResponse
+     * @return ModifyExpressCloudConnectionBandwidthResponse ModifyExpressCloudConnectionBandwidthResponse
      */
     public function modifyExpressCloudConnectionBandwidth($request)
     {
@@ -22553,10 +23666,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ModifyExpressConnectTrafficQosRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary 修改高速通道Qos
+     *  *
+     * @param ModifyExpressConnectTrafficQosRequest $request ModifyExpressConnectTrafficQosRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyExpressConnectTrafficQosResponse
+     * @return ModifyExpressConnectTrafficQosResponse ModifyExpressConnectTrafficQosResponse
      */
     public function modifyExpressConnectTrafficQosWithOptions($request, $runtime)
     {
@@ -22614,9 +23729,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ModifyExpressConnectTrafficQosRequest $request
+     * @summary 修改高速通道Qos
+     *  *
+     * @param ModifyExpressConnectTrafficQosRequest $request ModifyExpressConnectTrafficQosRequest
      *
-     * @return ModifyExpressConnectTrafficQosResponse
+     * @return ModifyExpressConnectTrafficQosResponse ModifyExpressConnectTrafficQosResponse
      */
     public function modifyExpressConnectTrafficQos($request)
     {
@@ -22626,10 +23743,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ModifyExpressConnectTrafficQosQueueRequest $request
-     * @param RuntimeOptions                             $runtime
+     * @summary 修改高速通道Qos队列
+     *  *
+     * @param ModifyExpressConnectTrafficQosQueueRequest $request ModifyExpressConnectTrafficQosQueueRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyExpressConnectTrafficQosQueueResponse
+     * @return ModifyExpressConnectTrafficQosQueueResponse ModifyExpressConnectTrafficQosQueueResponse
      */
     public function modifyExpressConnectTrafficQosQueueWithOptions($request, $runtime)
     {
@@ -22687,9 +23806,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ModifyExpressConnectTrafficQosQueueRequest $request
+     * @summary 修改高速通道Qos队列
+     *  *
+     * @param ModifyExpressConnectTrafficQosQueueRequest $request ModifyExpressConnectTrafficQosQueueRequest
      *
-     * @return ModifyExpressConnectTrafficQosQueueResponse
+     * @return ModifyExpressConnectTrafficQosQueueResponse ModifyExpressConnectTrafficQosQueueResponse
      */
     public function modifyExpressConnectTrafficQosQueue($request)
     {
@@ -22699,10 +23820,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ModifyExpressConnectTrafficQosRuleRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @summary 修改高速通道Qos规则
+     *  *
+     * @param ModifyExpressConnectTrafficQosRuleRequest $request ModifyExpressConnectTrafficQosRuleRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyExpressConnectTrafficQosRuleResponse
+     * @return ModifyExpressConnectTrafficQosRuleResponse ModifyExpressConnectTrafficQosRuleResponse
      */
     public function modifyExpressConnectTrafficQosRuleWithOptions($request, $runtime)
     {
@@ -22790,9 +23913,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ModifyExpressConnectTrafficQosRuleRequest $request
+     * @summary 修改高速通道Qos规则
+     *  *
+     * @param ModifyExpressConnectTrafficQosRuleRequest $request ModifyExpressConnectTrafficQosRuleRequest
      *
-     * @return ModifyExpressConnectTrafficQosRuleResponse
+     * @return ModifyExpressConnectTrafficQosRuleResponse ModifyExpressConnectTrafficQosRuleResponse
      */
     public function modifyExpressConnectTrafficQosRule($request)
     {
@@ -22802,11 +23927,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **ModifyFlowLogAttribute** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeFlowLogs](~~87923~~) operation to query the status of a flow log:
-     *   *     *   If the flow log is in the **Modifying** state, the flow log is being modified.
-     *   *     *   If the flow log is in the **Active** or **Inactive** state, the flow log is modified.
-     *   * *   You cannot repeatedly call the **ModifyFlowLogAttribute** operation to modify a flow log within the specified period of time.
-     *   *
+     * @summary Modifies the name and description of a flow log.
+     *  *
+     * @description *   **ModifyFlowLogAttribute** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeFlowLogs](https://help.aliyun.com/document_detail/87923.html) operation to query the status of a flow log:
+     *     *   If the flow log is in the **Modifying** state, the flow log is being modified.
+     *     *   If the flow log is in the **Active** or **Inactive** state, the flow log is modified.
+     * *   You cannot repeatedly call the **ModifyFlowLogAttribute** operation to modify a flow log within the specified period of time.
+     *  *
      * @param ModifyFlowLogAttributeRequest $request ModifyFlowLogAttributeRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -22862,11 +23989,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **ModifyFlowLogAttribute** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeFlowLogs](~~87923~~) operation to query the status of a flow log:
-     *   *     *   If the flow log is in the **Modifying** state, the flow log is being modified.
-     *   *     *   If the flow log is in the **Active** or **Inactive** state, the flow log is modified.
-     *   * *   You cannot repeatedly call the **ModifyFlowLogAttribute** operation to modify a flow log within the specified period of time.
-     *   *
+     * @summary Modifies the name and description of a flow log.
+     *  *
+     * @description *   **ModifyFlowLogAttribute** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeFlowLogs](https://help.aliyun.com/document_detail/87923.html) operation to query the status of a flow log:
+     *     *   If the flow log is in the **Modifying** state, the flow log is being modified.
+     *     *   If the flow log is in the **Active** or **Inactive** state, the flow log is modified.
+     * *   You cannot repeatedly call the **ModifyFlowLogAttribute** operation to modify a flow log within the specified period of time.
+     *  *
      * @param ModifyFlowLogAttributeRequest $request ModifyFlowLogAttributeRequest
      *
      * @return ModifyFlowLogAttributeResponse ModifyFlowLogAttributeResponse
@@ -22879,11 +24008,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **ModifyForwardEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeForwardTableEntries](~~36053~~) operation to query the status of the task.
-     *   *     *   **Pending**: indicates that the system is modifying the DNAT entry. You can only query the DNAT entry, but cannot perform other operations.
-     *   *     *   **Available**: indicates that the DNAT entry is modified.
-     *   * *   You cannot repeatedly call the **ModifyForwardEntry** operation to modify a DNAT entry within the specified period of time.
-     *   *
+     * @summary Modifies a DNAT entry.
+     *  *
+     * @description *   **ModifyForwardEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeForwardTableEntries](https://help.aliyun.com/document_detail/36053.html) operation to query the status of the task.
+     *     *   **Pending**: indicates that the system is modifying the DNAT entry. You can only query the DNAT entry, but cannot perform other operations.
+     *     *   **Available**: indicates that the DNAT entry is modified.
+     * *   You cannot repeatedly call the **ModifyForwardEntry** operation to modify a DNAT entry within the specified period of time.
+     *  *
      * @param ModifyForwardEntryRequest $request ModifyForwardEntryRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -22957,11 +24088,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **ModifyForwardEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeForwardTableEntries](~~36053~~) operation to query the status of the task.
-     *   *     *   **Pending**: indicates that the system is modifying the DNAT entry. You can only query the DNAT entry, but cannot perform other operations.
-     *   *     *   **Available**: indicates that the DNAT entry is modified.
-     *   * *   You cannot repeatedly call the **ModifyForwardEntry** operation to modify a DNAT entry within the specified period of time.
-     *   *
+     * @summary Modifies a DNAT entry.
+     *  *
+     * @description *   **ModifyForwardEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeForwardTableEntries](https://help.aliyun.com/document_detail/36053.html) operation to query the status of the task.
+     *     *   **Pending**: indicates that the system is modifying the DNAT entry. You can only query the DNAT entry, but cannot perform other operations.
+     *     *   **Available**: indicates that the DNAT entry is modified.
+     * *   You cannot repeatedly call the **ModifyForwardEntry** operation to modify a DNAT entry within the specified period of time.
+     *  *
      * @param ModifyForwardEntryRequest $request ModifyForwardEntryRequest
      *
      * @return ModifyForwardEntryResponse ModifyForwardEntryResponse
@@ -22974,12 +24107,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)
-     *   * *   **ModifyFullNatEntryAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListFullNatEntries](~~348779~~) operation to query the status of a FULLNAT entry.
-     *   *     *   **Modifying**: indicates that the system is modifying the FULLNAT entry. You can query the FULLNAT entry, but cannot perform other operations.
-     *   *     *   **Available**: indicates that the FULLNAT entry is modified.
-     *   * *   You cannot repeatedly call the **ModifyFullNatEntryAttribute** operation to modify a FULLNAT entry within the specified period of time.
-     *   *
+     * @summary Modifies a FULLNAT entry.
+     *  *
+     * @description ## [](#)
+     * *   **ModifyFullNatEntryAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListFullNatEntries](https://help.aliyun.com/document_detail/348779.html) operation to query the status of a FULLNAT entry.
+     *     *   **Modifying**: indicates that the system is modifying the FULLNAT entry. You can query the FULLNAT entry, but cannot perform other operations.
+     *     *   **Available**: indicates that the FULLNAT entry is modified.
+     * *   You cannot repeatedly call the **ModifyFullNatEntryAttribute** operation to modify a FULLNAT entry within the specified period of time.
+     *  *
      * @param ModifyFullNatEntryAttributeRequest $request ModifyFullNatEntryAttributeRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -23059,12 +24194,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)
-     *   * *   **ModifyFullNatEntryAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListFullNatEntries](~~348779~~) operation to query the status of a FULLNAT entry.
-     *   *     *   **Modifying**: indicates that the system is modifying the FULLNAT entry. You can query the FULLNAT entry, but cannot perform other operations.
-     *   *     *   **Available**: indicates that the FULLNAT entry is modified.
-     *   * *   You cannot repeatedly call the **ModifyFullNatEntryAttribute** operation to modify a FULLNAT entry within the specified period of time.
-     *   *
+     * @summary Modifies a FULLNAT entry.
+     *  *
+     * @description ## [](#)
+     * *   **ModifyFullNatEntryAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListFullNatEntries](https://help.aliyun.com/document_detail/348779.html) operation to query the status of a FULLNAT entry.
+     *     *   **Modifying**: indicates that the system is modifying the FULLNAT entry. You can query the FULLNAT entry, but cannot perform other operations.
+     *     *   **Available**: indicates that the FULLNAT entry is modified.
+     * *   You cannot repeatedly call the **ModifyFullNatEntryAttribute** operation to modify a FULLNAT entry within the specified period of time.
+     *  *
      * @param ModifyFullNatEntryAttributeRequest $request ModifyFullNatEntryAttributeRequest
      *
      * @return ModifyFullNatEntryAttributeResponse ModifyFullNatEntryAttributeResponse
@@ -23077,10 +24214,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ModifyGlobalAccelerationInstanceAttributesRequest $request
-     * @param RuntimeOptions                                    $runtime
+     * @summary Modifies the name and description of a Global Accelerator (GA) instance.
+     *  *
+     * @param ModifyGlobalAccelerationInstanceAttributesRequest $request ModifyGlobalAccelerationInstanceAttributesRequest
+     * @param RuntimeOptions                                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyGlobalAccelerationInstanceAttributesResponse
+     * @return ModifyGlobalAccelerationInstanceAttributesResponse ModifyGlobalAccelerationInstanceAttributesResponse
      */
     public function modifyGlobalAccelerationInstanceAttributesWithOptions($request, $runtime)
     {
@@ -23129,9 +24268,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ModifyGlobalAccelerationInstanceAttributesRequest $request
+     * @summary Modifies the name and description of a Global Accelerator (GA) instance.
+     *  *
+     * @param ModifyGlobalAccelerationInstanceAttributesRequest $request ModifyGlobalAccelerationInstanceAttributesRequest
      *
-     * @return ModifyGlobalAccelerationInstanceAttributesResponse
+     * @return ModifyGlobalAccelerationInstanceAttributesResponse ModifyGlobalAccelerationInstanceAttributesResponse
      */
     public function modifyGlobalAccelerationInstanceAttributes($request)
     {
@@ -23141,9 +24282,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## Usage notes
-     *   * You cannot call this operation to modify the maximum bandwidth of a subscription GA instance.
-     *   *
+     * @summary Modifies the maximum bandwidth of a Global Accelerator (GA) instance.
+     *  *
+     * @description ## Usage notes
+     * You cannot call this operation to modify the maximum bandwidth of a subscription GA instance.
+     *  *
      * @param ModifyGlobalAccelerationInstanceSpecRequest $request ModifyGlobalAccelerationInstanceSpecRequest
      * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
@@ -23193,9 +24336,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## Usage notes
-     *   * You cannot call this operation to modify the maximum bandwidth of a subscription GA instance.
-     *   *
+     * @summary Modifies the maximum bandwidth of a Global Accelerator (GA) instance.
+     *  *
+     * @description ## Usage notes
+     * You cannot call this operation to modify the maximum bandwidth of a subscription GA instance.
+     *  *
      * @param ModifyGlobalAccelerationInstanceSpecRequest $request ModifyGlobalAccelerationInstanceSpecRequest
      *
      * @return ModifyGlobalAccelerationInstanceSpecResponse ModifyGlobalAccelerationInstanceSpecResponse
@@ -23208,8 +24353,8 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You cannot repeatedly call the **ModifyHaVipAttribute** operation to modify the name and description of an HAVIP within the specified period of time.
-     *   *
+     * @description You cannot repeatedly call the **ModifyHaVipAttribute** operation to modify the name and description of an HAVIP within the specified period of time.
+     *  *
      * @param ModifyHaVipAttributeRequest $request ModifyHaVipAttributeRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -23265,8 +24410,8 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You cannot repeatedly call the **ModifyHaVipAttribute** operation to modify the name and description of an HAVIP within the specified period of time.
-     *   *
+     * @description You cannot repeatedly call the **ModifyHaVipAttribute** operation to modify the name and description of an HAVIP within the specified period of time.
+     *  *
      * @param ModifyHaVipAttributeRequest $request ModifyHaVipAttributeRequest
      *
      * @return ModifyHaVipAttributeResponse ModifyHaVipAttributeResponse
@@ -23279,8 +24424,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI ModifyIPv6TranslatorAclAttribute is deprecated
+     *  *
+     * @summary Modifies the name of an access control list (ACL).
+     *  *
      * Deprecated
      *
      * @param ModifyIPv6TranslatorAclAttributeRequest $request ModifyIPv6TranslatorAclAttributeRequest
@@ -23335,8 +24482,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI ModifyIPv6TranslatorAclAttribute is deprecated
+     *  *
+     * @summary Modifies the name of an access control list (ACL).
+     *  *
      * Deprecated
      *
      * @param ModifyIPv6TranslatorAclAttributeRequest $request ModifyIPv6TranslatorAclAttributeRequest
@@ -23351,10 +24500,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ModifyIPv6TranslatorAclListEntryRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary Modifies an IP entry in an access control list (ACL).
+     *  *
+     * @param ModifyIPv6TranslatorAclListEntryRequest $request ModifyIPv6TranslatorAclListEntryRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyIPv6TranslatorAclListEntryResponse
+     * @return ModifyIPv6TranslatorAclListEntryResponse ModifyIPv6TranslatorAclListEntryResponse
      */
     public function modifyIPv6TranslatorAclListEntryWithOptions($request, $runtime)
     {
@@ -23403,9 +24554,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ModifyIPv6TranslatorAclListEntryRequest $request
+     * @summary Modifies an IP entry in an access control list (ACL).
+     *  *
+     * @param ModifyIPv6TranslatorAclListEntryRequest $request ModifyIPv6TranslatorAclListEntryRequest
      *
-     * @return ModifyIPv6TranslatorAclListEntryResponse
+     * @return ModifyIPv6TranslatorAclListEntryResponse ModifyIPv6TranslatorAclListEntryResponse
      */
     public function modifyIPv6TranslatorAclListEntry($request)
     {
@@ -23415,10 +24568,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ModifyIPv6TranslatorAttributeRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Modifies the name and description of an IPv6 Translation Service instance.
+     *  *
+     * @param ModifyIPv6TranslatorAttributeRequest $request ModifyIPv6TranslatorAttributeRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyIPv6TranslatorAttributeResponse
+     * @return ModifyIPv6TranslatorAttributeResponse ModifyIPv6TranslatorAttributeResponse
      */
     public function modifyIPv6TranslatorAttributeWithOptions($request, $runtime)
     {
@@ -23470,9 +24625,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ModifyIPv6TranslatorAttributeRequest $request
+     * @summary Modifies the name and description of an IPv6 Translation Service instance.
+     *  *
+     * @param ModifyIPv6TranslatorAttributeRequest $request ModifyIPv6TranslatorAttributeRequest
      *
-     * @return ModifyIPv6TranslatorAttributeResponse
+     * @return ModifyIPv6TranslatorAttributeResponse ModifyIPv6TranslatorAttributeResponse
      */
     public function modifyIPv6TranslatorAttribute($request)
     {
@@ -23482,10 +24639,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ModifyIPv6TranslatorBandwidthRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Modifies the maximum bandwidth of an IPv6 Translation Service instance.
+     *  *
+     * @param ModifyIPv6TranslatorBandwidthRequest $request ModifyIPv6TranslatorBandwidthRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyIPv6TranslatorBandwidthResponse
+     * @return ModifyIPv6TranslatorBandwidthResponse ModifyIPv6TranslatorBandwidthResponse
      */
     public function modifyIPv6TranslatorBandwidthWithOptions($request, $runtime)
     {
@@ -23537,9 +24696,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ModifyIPv6TranslatorBandwidthRequest $request
+     * @summary Modifies the maximum bandwidth of an IPv6 Translation Service instance.
+     *  *
+     * @param ModifyIPv6TranslatorBandwidthRequest $request ModifyIPv6TranslatorBandwidthRequest
      *
-     * @return ModifyIPv6TranslatorBandwidthResponse
+     * @return ModifyIPv6TranslatorBandwidthResponse ModifyIPv6TranslatorBandwidthResponse
      */
     public function modifyIPv6TranslatorBandwidth($request)
     {
@@ -23549,8 +24710,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI ModifyIPv6TranslatorEntry is deprecated
+     *  *
+     * @summary Modifies an IPv6 mapping entry.
+     *  *
      * Deprecated
      *
      * @param ModifyIPv6TranslatorEntryRequest $request ModifyIPv6TranslatorEntryRequest
@@ -23629,8 +24792,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI ModifyIPv6TranslatorEntry is deprecated
+     *  *
+     * @summary Modifies an IPv6 mapping entry.
+     *  *
      * Deprecated
      *
      * @param ModifyIPv6TranslatorEntryRequest $request ModifyIPv6TranslatorEntryRequest
@@ -23645,10 +24810,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ModifyIpv6AddressAttributeRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Modifies the name and description of an IPv6 address.
+     *  *
+     * @param ModifyIpv6AddressAttributeRequest $request ModifyIpv6AddressAttributeRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyIpv6AddressAttributeResponse
+     * @return ModifyIpv6AddressAttributeResponse ModifyIpv6AddressAttributeResponse
      */
     public function modifyIpv6AddressAttributeWithOptions($request, $runtime)
     {
@@ -23700,9 +24867,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ModifyIpv6AddressAttributeRequest $request
+     * @summary Modifies the name and description of an IPv6 address.
+     *  *
+     * @param ModifyIpv6AddressAttributeRequest $request ModifyIpv6AddressAttributeRequest
      *
-     * @return ModifyIpv6AddressAttributeResponse
+     * @return ModifyIpv6AddressAttributeResponse ModifyIpv6AddressAttributeResponse
      */
     public function modifyIpv6AddressAttribute($request)
     {
@@ -23712,10 +24881,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ModifyIpv6GatewayAttributeRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Modifies the name and description of an IPv6 gateway.
+     *  *
+     * @param ModifyIpv6GatewayAttributeRequest $request ModifyIpv6GatewayAttributeRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyIpv6GatewayAttributeResponse
+     * @return ModifyIpv6GatewayAttributeResponse ModifyIpv6GatewayAttributeResponse
      */
     public function modifyIpv6GatewayAttributeWithOptions($request, $runtime)
     {
@@ -23767,9 +24938,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ModifyIpv6GatewayAttributeRequest $request
+     * @summary Modifies the name and description of an IPv6 gateway.
+     *  *
+     * @param ModifyIpv6GatewayAttributeRequest $request ModifyIpv6GatewayAttributeRequest
      *
-     * @return ModifyIpv6GatewayAttributeResponse
+     * @return ModifyIpv6GatewayAttributeResponse ModifyIpv6GatewayAttributeResponse
      */
     public function modifyIpv6GatewayAttribute($request)
     {
@@ -23779,8 +24952,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You cannot repeatedly call the **ModifyIpv6InternetBandwidth** operation to modify the Internet bandwidth value of an IPv6 CIDR block within the specified period of time.
-     *   *
+     * @summary Modifies the Internet bandwidth value of an IPv6 address.
+     *  *
+     * @description You cannot repeatedly call the **ModifyIpv6InternetBandwidth** operation to modify the Internet bandwidth value of an IPv6 CIDR block within the specified period of time.
+     *  *
      * @param ModifyIpv6InternetBandwidthRequest $request ModifyIpv6InternetBandwidthRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -23839,8 +25014,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You cannot repeatedly call the **ModifyIpv6InternetBandwidth** operation to modify the Internet bandwidth value of an IPv6 CIDR block within the specified period of time.
-     *   *
+     * @summary Modifies the Internet bandwidth value of an IPv6 address.
+     *  *
+     * @description You cannot repeatedly call the **ModifyIpv6InternetBandwidth** operation to modify the Internet bandwidth value of an IPv6 CIDR block within the specified period of time.
+     *  *
      * @param ModifyIpv6InternetBandwidthRequest $request ModifyIpv6InternetBandwidthRequest
      *
      * @return ModifyIpv6InternetBandwidthResponse ModifyIpv6InternetBandwidthResponse
@@ -23853,9 +25030,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)Description
-     *   * You can call this operation to query an Internet NAT gateway or a virtual private cloud (VPC) NAT gateway. The term NAT gateway in this topic refers to both NAT gateway types.
-     *   *
+     * @summary Modifies the name and description of a NAT gateway.
+     *  *
+     * @description ## [](#)Description
+     * You can call this operation to query an Internet NAT gateway or a virtual private cloud (VPC) NAT gateway. The term NAT gateway in this topic refers to both NAT gateway types.
+     *  *
      * @param ModifyNatGatewayAttributeRequest $tmpReq  ModifyNatGatewayAttributeRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -23925,9 +25104,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)Description
-     *   * You can call this operation to query an Internet NAT gateway or a virtual private cloud (VPC) NAT gateway. The term NAT gateway in this topic refers to both NAT gateway types.
-     *   *
+     * @summary Modifies the name and description of a NAT gateway.
+     *  *
+     * @description ## [](#)Description
+     * You can call this operation to query an Internet NAT gateway or a virtual private cloud (VPC) NAT gateway. The term NAT gateway in this topic refers to both NAT gateway types.
+     *  *
      * @param ModifyNatGatewayAttributeRequest $request ModifyNatGatewayAttributeRequest
      *
      * @return ModifyNatGatewayAttributeResponse ModifyNatGatewayAttributeResponse
@@ -23940,18 +25121,20 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * - You cannot call this operation to downgrade a subscription Internet NAT gateway. You can downgrade a subscription Internet NAT gateway only in the console.
-     *   * - When you call this operation to upgrade a subscription Internet NAT gateway, an order is generated. After you complete the payment in the order center, the Internet NAT gateway is upgraded.
-     *   * - **ModifyNatGatewaySpec** is an asynchronous operation. After you make a request, the ID of the request is returned but the Internet NAT gateway is not upgraded. The system upgrades the NAT gateway in the background. You can call the [DescribeNatGateways](/help/en/virtual-private-cloud/latest/describenatgateways) operation to query the status of an Internet NAT gateway.    - If an Internet NAT gateway is in the **Modifying** state, the NAT gateway is being upgraded. In this case, you can only query the NAT gateway but cannot perform other operations.
-     *   *   - If an Internet NAT gateway is in the **Available** state, the Internet NAT gateway is upgraded.
-     *   * - You cannot repeatedly call the **ModifyNatGatewaySpec** operation to resize a pay-by-specification NAT gateway.
-     *   * Internet NAT gateways are available in different sizes. The size of an Internet NAT gateway determines the SNAT performance, which includes the maximum number of connections and the number of new connections per second. However, the size of a NAT gateway does not affect the data throughput. The following table describes the correlations between different sizes of Internet NAT gateways and SNAT performance metrics.
-     *   * | Size | Maximum number of connections | Number of new connections per second |
-     *   * | ---- | ----------------------------- | ------------------------------------ |
-     *   * | Small | 10,000 | 1,000 |
-     *   * | Medium | 50,000 | 5,000 |
-     *   * | Large | 200,000 | 10,000 |.
-     *   *
+     * @summary Upgrades a subscription Internet NAT gateway.
+     *  *
+     * @description - You cannot call this operation to downgrade a subscription Internet NAT gateway. You can downgrade a subscription Internet NAT gateway only in the console.
+     * - When you call this operation to upgrade a subscription Internet NAT gateway, an order is generated. After you complete the payment in the order center, the Internet NAT gateway is upgraded.
+     * - **ModifyNatGatewaySpec** is an asynchronous operation. After you make a request, the ID of the request is returned but the Internet NAT gateway is not upgraded. The system upgrades the NAT gateway in the background. You can call the [DescribeNatGateways](/help/en/virtual-private-cloud/latest/describenatgateways) operation to query the status of an Internet NAT gateway.    - If an Internet NAT gateway is in the **Modifying** state, the NAT gateway is being upgraded. In this case, you can only query the NAT gateway but cannot perform other operations.
+     *   - If an Internet NAT gateway is in the **Available** state, the Internet NAT gateway is upgraded.
+     * - You cannot repeatedly call the **ModifyNatGatewaySpec** operation to resize a pay-by-specification NAT gateway.
+     * Internet NAT gateways are available in different sizes. The size of an Internet NAT gateway determines the SNAT performance, which includes the maximum number of connections and the number of new connections per second. However, the size of a NAT gateway does not affect the data throughput. The following table describes the correlations between different sizes of Internet NAT gateways and SNAT performance metrics.
+     * | Size | Maximum number of connections | Number of new connections per second |
+     * | ---- | ----------------------------- | ------------------------------------ |
+     * | Small | 10,000 | 1,000 |
+     * | Medium | 50,000 | 5,000 |
+     * | Large | 200,000 | 10,000 |
+     *  *
      * @param ModifyNatGatewaySpecRequest $request ModifyNatGatewaySpecRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -24007,18 +25190,20 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * - You cannot call this operation to downgrade a subscription Internet NAT gateway. You can downgrade a subscription Internet NAT gateway only in the console.
-     *   * - When you call this operation to upgrade a subscription Internet NAT gateway, an order is generated. After you complete the payment in the order center, the Internet NAT gateway is upgraded.
-     *   * - **ModifyNatGatewaySpec** is an asynchronous operation. After you make a request, the ID of the request is returned but the Internet NAT gateway is not upgraded. The system upgrades the NAT gateway in the background. You can call the [DescribeNatGateways](/help/en/virtual-private-cloud/latest/describenatgateways) operation to query the status of an Internet NAT gateway.    - If an Internet NAT gateway is in the **Modifying** state, the NAT gateway is being upgraded. In this case, you can only query the NAT gateway but cannot perform other operations.
-     *   *   - If an Internet NAT gateway is in the **Available** state, the Internet NAT gateway is upgraded.
-     *   * - You cannot repeatedly call the **ModifyNatGatewaySpec** operation to resize a pay-by-specification NAT gateway.
-     *   * Internet NAT gateways are available in different sizes. The size of an Internet NAT gateway determines the SNAT performance, which includes the maximum number of connections and the number of new connections per second. However, the size of a NAT gateway does not affect the data throughput. The following table describes the correlations between different sizes of Internet NAT gateways and SNAT performance metrics.
-     *   * | Size | Maximum number of connections | Number of new connections per second |
-     *   * | ---- | ----------------------------- | ------------------------------------ |
-     *   * | Small | 10,000 | 1,000 |
-     *   * | Medium | 50,000 | 5,000 |
-     *   * | Large | 200,000 | 10,000 |.
-     *   *
+     * @summary Upgrades a subscription Internet NAT gateway.
+     *  *
+     * @description - You cannot call this operation to downgrade a subscription Internet NAT gateway. You can downgrade a subscription Internet NAT gateway only in the console.
+     * - When you call this operation to upgrade a subscription Internet NAT gateway, an order is generated. After you complete the payment in the order center, the Internet NAT gateway is upgraded.
+     * - **ModifyNatGatewaySpec** is an asynchronous operation. After you make a request, the ID of the request is returned but the Internet NAT gateway is not upgraded. The system upgrades the NAT gateway in the background. You can call the [DescribeNatGateways](/help/en/virtual-private-cloud/latest/describenatgateways) operation to query the status of an Internet NAT gateway.    - If an Internet NAT gateway is in the **Modifying** state, the NAT gateway is being upgraded. In this case, you can only query the NAT gateway but cannot perform other operations.
+     *   - If an Internet NAT gateway is in the **Available** state, the Internet NAT gateway is upgraded.
+     * - You cannot repeatedly call the **ModifyNatGatewaySpec** operation to resize a pay-by-specification NAT gateway.
+     * Internet NAT gateways are available in different sizes. The size of an Internet NAT gateway determines the SNAT performance, which includes the maximum number of connections and the number of new connections per second. However, the size of a NAT gateway does not affect the data throughput. The following table describes the correlations between different sizes of Internet NAT gateways and SNAT performance metrics.
+     * | Size | Maximum number of connections | Number of new connections per second |
+     * | ---- | ----------------------------- | ------------------------------------ |
+     * | Small | 10,000 | 1,000 |
+     * | Medium | 50,000 | 5,000 |
+     * | Large | 200,000 | 10,000 |
+     *  *
      * @param ModifyNatGatewaySpecRequest $request ModifyNatGatewaySpecRequest
      *
      * @return ModifyNatGatewaySpecResponse ModifyNatGatewaySpecResponse
@@ -24031,9 +25216,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)Description
-     *   * You cannot repeatedly call the **ModifyNatIpAttribute** operation to modify the name and description of a NAT IP address within the specified period of time.
-     *   *
+     * @summary Modifies the name and description of a NAT IP address.
+     *  *
+     * @description ## [](#)Description
+     * You cannot repeatedly call the **ModifyNatIpAttribute** operation to modify the name and description of a NAT IP address within the specified period of time.
+     *  *
      * @param ModifyNatIpAttributeRequest $request ModifyNatIpAttributeRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -24095,9 +25282,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)Description
-     *   * You cannot repeatedly call the **ModifyNatIpAttribute** operation to modify the name and description of a NAT IP address within the specified period of time.
-     *   *
+     * @summary Modifies the name and description of a NAT IP address.
+     *  *
+     * @description ## [](#)Description
+     * You cannot repeatedly call the **ModifyNatIpAttribute** operation to modify the name and description of a NAT IP address within the specified period of time.
+     *  *
      * @param ModifyNatIpAttributeRequest $request ModifyNatIpAttributeRequest
      *
      * @return ModifyNatIpAttributeResponse ModifyNatIpAttributeResponse
@@ -24110,10 +25299,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ModifyNatIpCidrAttributeRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Modifies the name and description of a NAT CIDR block.
+     *  *
+     * @param ModifyNatIpCidrAttributeRequest $request ModifyNatIpCidrAttributeRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyNatIpCidrAttributeResponse
+     * @return ModifyNatIpCidrAttributeResponse ModifyNatIpCidrAttributeResponse
      */
     public function modifyNatIpCidrAttributeWithOptions($request, $runtime)
     {
@@ -24174,9 +25365,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ModifyNatIpCidrAttributeRequest $request
+     * @summary Modifies the name and description of a NAT CIDR block.
+     *  *
+     * @param ModifyNatIpCidrAttributeRequest $request ModifyNatIpCidrAttributeRequest
      *
-     * @return ModifyNatIpCidrAttributeResponse
+     * @return ModifyNatIpCidrAttributeResponse ModifyNatIpCidrAttributeResponse
      */
     public function modifyNatIpCidrAttribute($request)
     {
@@ -24186,10 +25379,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ModifyNetworkAclAttributesRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Modifies the attributes of a network access control list (ACL).
+     *  *
+     * @param ModifyNetworkAclAttributesRequest $request ModifyNetworkAclAttributesRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyNetworkAclAttributesResponse
+     * @return ModifyNetworkAclAttributesResponse ModifyNetworkAclAttributesResponse
      */
     public function modifyNetworkAclAttributesWithOptions($request, $runtime)
     {
@@ -24247,9 +25442,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ModifyNetworkAclAttributesRequest $request
+     * @summary Modifies the attributes of a network access control list (ACL).
+     *  *
+     * @param ModifyNetworkAclAttributesRequest $request ModifyNetworkAclAttributesRequest
      *
-     * @return ModifyNetworkAclAttributesResponse
+     * @return ModifyNetworkAclAttributesResponse ModifyNetworkAclAttributesResponse
      */
     public function modifyNetworkAclAttributes($request)
     {
@@ -24259,11 +25456,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following limits:
-     *   * *   If an Express Connect circuit is in the **Initial**, **Enabled**, or **Rejected** state, you can modify the specifications of the Express Connect circuit and the ID of the redundant circuit.
-     *   * *   If an Express Connect circuit is in the **Canceled**, **Allocating**, **AllocationFailed**, or **Terminated** state, you cannot modify the specifications of the Express Connect circuit.
-     *   * *   After you modify the specifications of an Express Connect circuit that is in the **Rejected** state, the Express Connect circuit enters the **Initial** state.
-     *   *
+     * @summary Modifies the configurations of an Express Connect circuit.
+     *  *
+     * @description When you call this operation, take note of the following limits:
+     * *   If an Express Connect circuit is in the **Initial**, **Enabled**, or **Rejected** state, you can modify the specifications of the Express Connect circuit and the ID of the redundant circuit.
+     * *   If an Express Connect circuit is in the **Canceled**, **Allocating**, **AllocationFailed**, or **Terminated** state, you cannot modify the specifications of the Express Connect circuit.
+     * *   After you modify the specifications of an Express Connect circuit that is in the **Rejected** state, the Express Connect circuit enters the **Initial** state.
+     *  *
      * @param ModifyPhysicalConnectionAttributeRequest $request ModifyPhysicalConnectionAttributeRequest
      * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
@@ -24340,11 +25539,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following limits:
-     *   * *   If an Express Connect circuit is in the **Initial**, **Enabled**, or **Rejected** state, you can modify the specifications of the Express Connect circuit and the ID of the redundant circuit.
-     *   * *   If an Express Connect circuit is in the **Canceled**, **Allocating**, **AllocationFailed**, or **Terminated** state, you cannot modify the specifications of the Express Connect circuit.
-     *   * *   After you modify the specifications of an Express Connect circuit that is in the **Rejected** state, the Express Connect circuit enters the **Initial** state.
-     *   *
+     * @summary Modifies the configurations of an Express Connect circuit.
+     *  *
+     * @description When you call this operation, take note of the following limits:
+     * *   If an Express Connect circuit is in the **Initial**, **Enabled**, or **Rejected** state, you can modify the specifications of the Express Connect circuit and the ID of the redundant circuit.
+     * *   If an Express Connect circuit is in the **Canceled**, **Allocating**, **AllocationFailed**, or **Terminated** state, you cannot modify the specifications of the Express Connect circuit.
+     * *   After you modify the specifications of an Express Connect circuit that is in the **Rejected** state, the Express Connect circuit enters the **Initial** state.
+     *  *
      * @param ModifyPhysicalConnectionAttributeRequest $request ModifyPhysicalConnectionAttributeRequest
      *
      * @return ModifyPhysicalConnectionAttributeResponse ModifyPhysicalConnectionAttributeResponse
@@ -24357,8 +25558,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You cannot repeatedly call the **ModifyRouteEntry** operation to modify the name and description of a custom route within the specified period of time.
-     *   *
+     * @summary 修改路由条目属性
+     *  *
+     * @description You cannot repeatedly call the **ModifyRouteEntry** operation to modify the name and description of a custom route within the specified period of time.
+     *  *
      * @param ModifyRouteEntryRequest $request ModifyRouteEntryRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -24417,8 +25620,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You cannot repeatedly call the **ModifyRouteEntry** operation to modify the name and description of a custom route within the specified period of time.
-     *   *
+     * @summary 修改路由条目属性
+     *  *
+     * @description You cannot repeatedly call the **ModifyRouteEntry** operation to modify the name and description of a custom route within the specified period of time.
+     *  *
      * @param ModifyRouteEntryRequest $request ModifyRouteEntryRequest
      *
      * @return ModifyRouteEntryResponse ModifyRouteEntryResponse
@@ -24431,8 +25636,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You cannot repeatedly call the **ModifyRouteTableAttributes** operation to modify the name and description of a route table within the specified period of time.
-     *   *
+     * @summary Modifies the name and description of a route table.
+     *  *
+     * @description You cannot repeatedly call the **ModifyRouteTableAttributes** operation to modify the name and description of a route table within the specified period of time.
+     *  *
      * @param ModifyRouteTableAttributesRequest $request ModifyRouteTableAttributesRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -24485,8 +25692,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You cannot repeatedly call the **ModifyRouteTableAttributes** operation to modify the name and description of a route table within the specified period of time.
-     *   *
+     * @summary Modifies the name and description of a route table.
+     *  *
+     * @description You cannot repeatedly call the **ModifyRouteTableAttributes** operation to modify the name and description of a route table within the specified period of time.
+     *  *
      * @param ModifyRouteTableAttributesRequest $request ModifyRouteTableAttributesRequest
      *
      * @return ModifyRouteTableAttributesResponse ModifyRouteTableAttributesResponse
@@ -24499,10 +25708,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ModifyRouterInterfaceAttributeRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Modifies the configuration of a router interface.
+     *  *
+     * @param ModifyRouterInterfaceAttributeRequest $request ModifyRouterInterfaceAttributeRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyRouterInterfaceAttributeResponse
+     * @return ModifyRouterInterfaceAttributeResponse ModifyRouterInterfaceAttributeResponse
      */
     public function modifyRouterInterfaceAttributeWithOptions($request, $runtime)
     {
@@ -24575,9 +25786,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ModifyRouterInterfaceAttributeRequest $request
+     * @summary Modifies the configuration of a router interface.
+     *  *
+     * @param ModifyRouterInterfaceAttributeRequest $request ModifyRouterInterfaceAttributeRequest
      *
-     * @return ModifyRouterInterfaceAttributeResponse
+     * @return ModifyRouterInterfaceAttributeResponse ModifyRouterInterfaceAttributeResponse
      */
     public function modifyRouterInterfaceAttribute($request)
     {
@@ -24587,9 +25800,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * After you call this operation, the router interface enters the **Activating** state. After the router interface is activated, the router interface enters the **Active** state.
-     *   * >  You cannot modify the specification of a router interface that has overdue payments.
-     *   *
+     * @summary Modifies the specification of a router interface.
+     *  *
+     * @description After you call this operation, the router interface enters the **Activating** state. After the router interface is activated, the router interface enters the **Active** state.
+     * >  You cannot modify the specification of a router interface that has overdue payments.
+     *  *
      * @param ModifyRouterInterfaceSpecRequest $request ModifyRouterInterfaceSpecRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -24642,9 +25857,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * After you call this operation, the router interface enters the **Activating** state. After the router interface is activated, the router interface enters the **Active** state.
-     *   * >  You cannot modify the specification of a router interface that has overdue payments.
-     *   *
+     * @summary Modifies the specification of a router interface.
+     *  *
+     * @description After you call this operation, the router interface enters the **Activating** state. After the router interface is activated, the router interface enters the **Active** state.
+     * >  You cannot modify the specification of a router interface that has overdue payments.
+     *  *
      * @param ModifyRouterInterfaceSpecRequest $request ModifyRouterInterfaceSpecRequest
      *
      * @return ModifyRouterInterfaceSpecResponse ModifyRouterInterfaceSpecResponse
@@ -24657,13 +25874,15 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)
-     *   * **ModifySnatEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeSnatTableEntries](~~42677~~) operation to query the status of the task.
-     *   * *   **Pending**: indicates that the system is modifying the SNAT entry. You can only query the status of the SNAT entry, but cannot perform other operations.
-     *   * *   **Available**: indicates that the SNAT entry is modified.
-     *   * >  If an SNAT entry is in the **Pending** state, it indicates that you cannot modify the SNAT entry.
-     *   * You cannot repeatedly call the **ModifySnatEntry** operation to modify an SNAT entry within a specific period of time.
-     *   *
+     * @summary Modifies an SNAT entry.
+     *  *
+     * @description ## [](#)
+     * **ModifySnatEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeSnatTableEntries](https://help.aliyun.com/document_detail/42677.html) operation to query the status of the task.
+     * *   **Pending**: indicates that the system is modifying the SNAT entry. You can only query the status of the SNAT entry, but cannot perform other operations.
+     * *   **Available**: indicates that the SNAT entry is modified.
+     * >  If an SNAT entry is in the **Pending** state, it indicates that you cannot modify the SNAT entry.
+     * You cannot repeatedly call the **ModifySnatEntry** operation to modify an SNAT entry within a specific period of time.
+     *  *
      * @param ModifySnatEntryRequest $request ModifySnatEntryRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -24725,13 +25944,15 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)
-     *   * **ModifySnatEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeSnatTableEntries](~~42677~~) operation to query the status of the task.
-     *   * *   **Pending**: indicates that the system is modifying the SNAT entry. You can only query the status of the SNAT entry, but cannot perform other operations.
-     *   * *   **Available**: indicates that the SNAT entry is modified.
-     *   * >  If an SNAT entry is in the **Pending** state, it indicates that you cannot modify the SNAT entry.
-     *   * You cannot repeatedly call the **ModifySnatEntry** operation to modify an SNAT entry within a specific period of time.
-     *   *
+     * @summary Modifies an SNAT entry.
+     *  *
+     * @description ## [](#)
+     * **ModifySnatEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeSnatTableEntries](https://help.aliyun.com/document_detail/42677.html) operation to query the status of the task.
+     * *   **Pending**: indicates that the system is modifying the SNAT entry. You can only query the status of the SNAT entry, but cannot perform other operations.
+     * *   **Available**: indicates that the SNAT entry is modified.
+     * >  If an SNAT entry is in the **Pending** state, it indicates that you cannot modify the SNAT entry.
+     * You cannot repeatedly call the **ModifySnatEntry** operation to modify an SNAT entry within a specific period of time.
+     *  *
      * @param ModifySnatEntryRequest $request ModifySnatEntryRequest
      *
      * @return ModifySnatEntryResponse ModifySnatEntryResponse
@@ -24744,10 +25965,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ModifySslVpnClientCertRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param ModifySslVpnClientCertRequest $request ModifySslVpnClientCertRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifySslVpnClientCertResponse
+     * @return ModifySslVpnClientCertResponse ModifySslVpnClientCertResponse
      */
     public function modifySslVpnClientCertWithOptions($request, $runtime)
     {
@@ -24796,9 +26017,9 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ModifySslVpnClientCertRequest $request
+     * @param ModifySslVpnClientCertRequest $request ModifySslVpnClientCertRequest
      *
-     * @return ModifySslVpnClientCertResponse
+     * @return ModifySslVpnClientCertResponse ModifySslVpnClientCertResponse
      */
     public function modifySslVpnClientCert($request)
     {
@@ -24808,12 +26029,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   If you modify only the **name** of the SSL server, the operation is synchronous. If you also modify other configurations besides the **name**, the operation is asynchronous.
-     *   * *   When **ModifySslVpnServer** is an asynchronous operation, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-     *   *     *   If a VPN gateway is in the **updating** state, the configurations of the SSL server are being modified.
-     *   *     *   If a VPN gateway is in the **active** state, the configurations of the SSL server are modified.
-     *   * *   You cannot repeatedly call **ModifySslVpnServer** to modify the configurations of an SSL server within the specified period of time.
-     *   *
+     * @summary Modifies the configurations of an SSL server.
+     *  *
+     * @description *   If you modify only the **name** of the SSL server, the operation is synchronous. If you also modify other configurations besides the **name**, the operation is asynchronous.
+     * *   When **ModifySslVpnServer** is an asynchronous operation, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+     *     *   If a VPN gateway is in the **updating** state, the configurations of the SSL server are being modified.
+     *     *   If a VPN gateway is in the **active** state, the configurations of the SSL server are modified.
+     * *   You cannot repeatedly call **ModifySslVpnServer** to modify the configurations of an SSL server within the specified period of time.
+     *  *
      * @param ModifySslVpnServerRequest $request ModifySslVpnServerRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -24837,6 +26060,9 @@ class Vpc extends OpenApiClient
         }
         if (!Utils::isUnset($request->enableMultiFactorAuth)) {
             $query['EnableMultiFactorAuth'] = $request->enableMultiFactorAuth;
+        }
+        if (!Utils::isUnset($request->IDaaSApplicationId)) {
+            $query['IDaaSApplicationId'] = $request->IDaaSApplicationId;
         }
         if (!Utils::isUnset($request->IDaaSInstanceId)) {
             $query['IDaaSInstanceId'] = $request->IDaaSInstanceId;
@@ -24893,12 +26119,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   If you modify only the **name** of the SSL server, the operation is synchronous. If you also modify other configurations besides the **name**, the operation is asynchronous.
-     *   * *   When **ModifySslVpnServer** is an asynchronous operation, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-     *   *     *   If a VPN gateway is in the **updating** state, the configurations of the SSL server are being modified.
-     *   *     *   If a VPN gateway is in the **active** state, the configurations of the SSL server are modified.
-     *   * *   You cannot repeatedly call **ModifySslVpnServer** to modify the configurations of an SSL server within the specified period of time.
-     *   *
+     * @summary Modifies the configurations of an SSL server.
+     *  *
+     * @description *   If you modify only the **name** of the SSL server, the operation is synchronous. If you also modify other configurations besides the **name**, the operation is asynchronous.
+     * *   When **ModifySslVpnServer** is an asynchronous operation, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+     *     *   If a VPN gateway is in the **updating** state, the configurations of the SSL server are being modified.
+     *     *   If a VPN gateway is in the **active** state, the configurations of the SSL server are modified.
+     * *   You cannot repeatedly call **ModifySslVpnServer** to modify the configurations of an SSL server within the specified period of time.
+     *  *
      * @param ModifySslVpnServerRequest $request ModifySslVpnServerRequest
      *
      * @return ModifySslVpnServerResponse ModifySslVpnServerResponse
@@ -24911,10 +26139,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ModifyTunnelAttributeRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Modifies a VPN tunnel.
+     *  *
+     * @param ModifyTunnelAttributeRequest $request ModifyTunnelAttributeRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyTunnelAttributeResponse
+     * @return ModifyTunnelAttributeResponse ModifyTunnelAttributeResponse
      */
     public function modifyTunnelAttributeWithOptions($request, $runtime)
     {
@@ -24966,9 +26196,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ModifyTunnelAttributeRequest $request
+     * @summary Modifies a VPN tunnel.
+     *  *
+     * @param ModifyTunnelAttributeRequest $request ModifyTunnelAttributeRequest
      *
-     * @return ModifyTunnelAttributeResponse
+     * @return ModifyTunnelAttributeResponse ModifyTunnelAttributeResponse
      */
     public function modifyTunnelAttribute($request)
     {
@@ -24978,8 +26210,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You cannot repeatedly call the **ModifyVRouterAttribute** operation within a specific period of time.
-     *   *
+     * @summary Modifies the name and description of a vRouter.
+     *  *
+     * @description You cannot repeatedly call the **ModifyVRouterAttribute** operation within a specific period of time.
+     *  *
      * @param ModifyVRouterAttributeRequest $request ModifyVRouterAttributeRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -25032,8 +26266,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You cannot repeatedly call the **ModifyVRouterAttribute** operation within a specific period of time.
-     *   *
+     * @summary Modifies the name and description of a vRouter.
+     *  *
+     * @description You cannot repeatedly call the **ModifyVRouterAttribute** operation within a specific period of time.
+     *  *
      * @param ModifyVRouterAttributeRequest $request ModifyVRouterAttributeRequest
      *
      * @return ModifyVRouterAttributeResponse ModifyVRouterAttributeResponse
@@ -25046,11 +26282,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **ModifyVSwitchAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](~~94567~~) operation to query the status of the task:
-     *   *     *   If the vSwitch is in the **Pending** state, the name and description of the vSwitch are being modified.
-     *   *     *   If the vSwitch is in the **Available** state, the name and description of the vSwitch are modified.
-     *   * *   You cannot repeatedly call the **ModifyVSwitchAttribute** operation to modify the name and description of a vSwitch within the specified period of time.
-     *   *
+     * @summary 修改VSwitch属性
+     *  *
+     * @description *   **ModifyVSwitchAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) operation to query the status of the task:
+     *     *   If the vSwitch is in the **Pending** state, the name and description of the vSwitch are being modified.
+     *     *   If the vSwitch is in the **Available** state, the name and description of the vSwitch are modified.
+     * *   You cannot repeatedly call the **ModifyVSwitchAttribute** operation to modify the name and description of a vSwitch within the specified period of time.
+     *  *
      * @param ModifyVSwitchAttributeRequest $request ModifyVSwitchAttributeRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -25112,11 +26350,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **ModifyVSwitchAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](~~94567~~) operation to query the status of the task:
-     *   *     *   If the vSwitch is in the **Pending** state, the name and description of the vSwitch are being modified.
-     *   *     *   If the vSwitch is in the **Available** state, the name and description of the vSwitch are modified.
-     *   * *   You cannot repeatedly call the **ModifyVSwitchAttribute** operation to modify the name and description of a vSwitch within the specified period of time.
-     *   *
+     * @summary 修改VSwitch属性
+     *  *
+     * @description *   **ModifyVSwitchAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) operation to query the status of the task:
+     *     *   If the vSwitch is in the **Pending** state, the name and description of the vSwitch are being modified.
+     *     *   If the vSwitch is in the **Available** state, the name and description of the vSwitch are modified.
+     * *   You cannot repeatedly call the **ModifyVSwitchAttribute** operation to modify the name and description of a vSwitch within the specified period of time.
+     *  *
      * @param ModifyVSwitchAttributeRequest $request ModifyVSwitchAttributeRequest
      *
      * @return ModifyVSwitchAttributeResponse ModifyVSwitchAttributeResponse
@@ -25129,9 +26369,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)Usage notes
-     *   * You cannot repeatedly call **ModifyVSwitchCidrReservationAttribute** within a specific time period.
-     *   *
+     * @summary 修改交换机预留网段的名称和描述信息。
+     *  *
+     * @description ## [](#)Usage notes
+     * You cannot repeatedly call **ModifyVSwitchCidrReservationAttribute** within a specific time period.
+     *  *
      * @param ModifyVSwitchCidrReservationAttributeRequest $request ModifyVSwitchCidrReservationAttributeRequest
      * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
@@ -25184,9 +26426,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)Usage notes
-     *   * You cannot repeatedly call **ModifyVSwitchCidrReservationAttribute** within a specific time period.
-     *   *
+     * @summary 修改交换机预留网段的名称和描述信息。
+     *  *
+     * @description ## [](#)Usage notes
+     * You cannot repeatedly call **ModifyVSwitchCidrReservationAttribute** within a specific time period.
+     *  *
      * @param ModifyVSwitchCidrReservationAttributeRequest $request ModifyVSwitchCidrReservationAttributeRequest
      *
      * @return ModifyVSwitchCidrReservationAttributeResponse ModifyVSwitchCidrReservationAttributeResponse
@@ -25199,11 +26443,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **ModifyVcoRouteEntryWeight** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnConnection](~~53046~~) operation to query the status of the associated IPsec-VPN connection and determine whether the weight of the specified destination-based route is modified.
-     *   *     *   If the IPsec-VPN connection is in the **updating** state, the weight of the destination-based route is being modified.
-     *   *     *   If the IPsec-VPN connection is in the **attached** state, the weight of the destination-based route is modified.
-     *   * *   You cannot repeatedly call the **ModifyVcoRouteEntryWeight** operation for the same IPsec-VPN connection within the specified period of time.
-     *   *
+     * @summary Modifies the weight of a destination-based route for an IPsec-VPN connection.
+     *  *
+     * @description *   **ModifyVcoRouteEntryWeight** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnConnection](https://help.aliyun.com/document_detail/53046.html) operation to query the status of the associated IPsec-VPN connection and determine whether the weight of the specified destination-based route is modified.
+     *     *   If the IPsec-VPN connection is in the **updating** state, the weight of the destination-based route is being modified.
+     *     *   If the IPsec-VPN connection is in the **attached** state, the weight of the destination-based route is modified.
+     * *   You cannot repeatedly call the **ModifyVcoRouteEntryWeight** operation for the same IPsec-VPN connection within the specified period of time.
+     *  *
      * @param ModifyVcoRouteEntryWeightRequest $request ModifyVcoRouteEntryWeightRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -25265,11 +26511,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **ModifyVcoRouteEntryWeight** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnConnection](~~53046~~) operation to query the status of the associated IPsec-VPN connection and determine whether the weight of the specified destination-based route is modified.
-     *   *     *   If the IPsec-VPN connection is in the **updating** state, the weight of the destination-based route is being modified.
-     *   *     *   If the IPsec-VPN connection is in the **attached** state, the weight of the destination-based route is modified.
-     *   * *   You cannot repeatedly call the **ModifyVcoRouteEntryWeight** operation for the same IPsec-VPN connection within the specified period of time.
-     *   *
+     * @summary Modifies the weight of a destination-based route for an IPsec-VPN connection.
+     *  *
+     * @description *   **ModifyVcoRouteEntryWeight** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnConnection](https://help.aliyun.com/document_detail/53046.html) operation to query the status of the associated IPsec-VPN connection and determine whether the weight of the specified destination-based route is modified.
+     *     *   If the IPsec-VPN connection is in the **updating** state, the weight of the destination-based route is being modified.
+     *     *   If the IPsec-VPN connection is in the **attached** state, the weight of the destination-based route is modified.
+     * *   You cannot repeatedly call the **ModifyVcoRouteEntryWeight** operation for the same IPsec-VPN connection within the specified period of time.
+     *  *
      * @param ModifyVcoRouteEntryWeightRequest $request ModifyVcoRouteEntryWeightRequest
      *
      * @return ModifyVcoRouteEntryWeightResponse ModifyVcoRouteEntryWeightResponse
@@ -25282,14 +26530,16 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * # [](#)
-     *   * *   Only the owner of an Express Connect circuit can modify the **VlanId** parameter.
-     *   * *   One VLAN ID of an Express Connect circuit cannot be used only by one VBR at the same time.
-     *   * *   The VLAN ID of a VBR in the **Terminated** state is reserved for seven days and cannot be used by other VBRs. The VLAN ID can be used by other VBRs after 7 days.
-     *   * *   You cannot set **LocalGatewayIp**, **PeerGatewayIp**, or **PeeringSubnetMask** for VBRs that do not belong to your Alibaba Cloud account.
-     *   * *   Set **PeeringSubnetMask** to a subnet mask with 24 to 30 bits in length (255.255.255.0～255.255.255.252).
-     *   * *   Set **LocalGatewayIp** and **PeerGatewayIp** to IP addresses that belong to the same CIDR block. For example, you can set LocalGatewayIp to 192.168.XX.XX, PeerGatewayIp to 192.168.XX.XX, and PeeringSubnetMask to 255.255.255.248.
-     *   *
+     * @summary Modifies the configuration of a virtual border router (VBR).
+     *  *
+     * @description # [](#)
+     * *   Only the owner of an Express Connect circuit can modify the **VlanId** parameter.
+     * *   One VLAN ID of an Express Connect circuit cannot be used only by one VBR at the same time.
+     * *   The VLAN ID of a VBR in the **Terminated** state is reserved for seven days and cannot be used by other VBRs. The VLAN ID can be used by other VBRs after 7 days.
+     * *   You cannot set **LocalGatewayIp**, **PeerGatewayIp**, or **PeeringSubnetMask** for VBRs that do not belong to your Alibaba Cloud account.
+     * *   Set **PeeringSubnetMask** to a subnet mask with 24 to 30 bits in length (255.255.255.0～255.255.255.252).
+     * *   Set **LocalGatewayIp** and **PeerGatewayIp** to IP addresses that belong to the same CIDR block. For example, you can set LocalGatewayIp to 192.168.XX.XX, PeerGatewayIp to 192.168.XX.XX, and PeeringSubnetMask to 255.255.255.248.
+     *  *
      * @param ModifyVirtualBorderRouterAttributeRequest $request ModifyVirtualBorderRouterAttributeRequest
      * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
@@ -25390,14 +26640,16 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * # [](#)
-     *   * *   Only the owner of an Express Connect circuit can modify the **VlanId** parameter.
-     *   * *   One VLAN ID of an Express Connect circuit cannot be used only by one VBR at the same time.
-     *   * *   The VLAN ID of a VBR in the **Terminated** state is reserved for seven days and cannot be used by other VBRs. The VLAN ID can be used by other VBRs after 7 days.
-     *   * *   You cannot set **LocalGatewayIp**, **PeerGatewayIp**, or **PeeringSubnetMask** for VBRs that do not belong to your Alibaba Cloud account.
-     *   * *   Set **PeeringSubnetMask** to a subnet mask with 24 to 30 bits in length (255.255.255.0～255.255.255.252).
-     *   * *   Set **LocalGatewayIp** and **PeerGatewayIp** to IP addresses that belong to the same CIDR block. For example, you can set LocalGatewayIp to 192.168.XX.XX, PeerGatewayIp to 192.168.XX.XX, and PeeringSubnetMask to 255.255.255.248.
-     *   *
+     * @summary Modifies the configuration of a virtual border router (VBR).
+     *  *
+     * @description # [](#)
+     * *   Only the owner of an Express Connect circuit can modify the **VlanId** parameter.
+     * *   One VLAN ID of an Express Connect circuit cannot be used only by one VBR at the same time.
+     * *   The VLAN ID of a VBR in the **Terminated** state is reserved for seven days and cannot be used by other VBRs. The VLAN ID can be used by other VBRs after 7 days.
+     * *   You cannot set **LocalGatewayIp**, **PeerGatewayIp**, or **PeeringSubnetMask** for VBRs that do not belong to your Alibaba Cloud account.
+     * *   Set **PeeringSubnetMask** to a subnet mask with 24 to 30 bits in length (255.255.255.0～255.255.255.252).
+     * *   Set **LocalGatewayIp** and **PeerGatewayIp** to IP addresses that belong to the same CIDR block. For example, you can set LocalGatewayIp to 192.168.XX.XX, PeerGatewayIp to 192.168.XX.XX, and PeeringSubnetMask to 255.255.255.248.
+     *  *
      * @param ModifyVirtualBorderRouterAttributeRequest $request ModifyVirtualBorderRouterAttributeRequest
      *
      * @return ModifyVirtualBorderRouterAttributeResponse ModifyVirtualBorderRouterAttributeResponse
@@ -25410,9 +26662,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)Description
-     *   * You cannot repeatedly call the **ModifyVpcAttribute** operation to modify the name and description of a VPC within the specified period of time.
-     *   *
+     * @summary Modifies the name and description of a virtual private cloud (VPC).
+     *  *
+     * @description ## [](#)Description
+     * You cannot repeatedly call the **ModifyVpcAttribute** operation to modify the name and description of a VPC within the specified period of time.
+     *  *
      * @param ModifyVpcAttributeRequest $request ModifyVpcAttributeRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -25477,9 +26731,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)Description
-     *   * You cannot repeatedly call the **ModifyVpcAttribute** operation to modify the name and description of a VPC within the specified period of time.
-     *   *
+     * @summary Modifies the name and description of a virtual private cloud (VPC).
+     *  *
+     * @description ## [](#)Description
+     * You cannot repeatedly call the **ModifyVpcAttribute** operation to modify the name and description of a VPC within the specified period of time.
+     *  *
      * @param ModifyVpcAttributeRequest $request ModifyVpcAttributeRequest
      *
      * @return ModifyVpcAttributeResponse ModifyVpcAttributeResponse
@@ -25492,12 +26748,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **ModifyVpcPrefixList** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListPrefixLists](~~311535~~) to query the status of the task.
-     *   *     *   If the prefix list is in the **Modifying** state, the configuration of the prefix list is being modified.
-     *   *     *   If the prefix list is in the **Created** state, the configuration of the prefix list is modified.
-     *   *     *   After the configuration of the prefix list is modified, you can call the [GetVpcPrefixListAssociations](~~445478~~) operation to query the information about the network instances that are associated with the prefix list and determine whether the associated network instances use the new CIDR blocks. If the association **status** of the prefix list is **Created**, the new CIDR blocks are used by the network instances that are associated with the prefix list.
-     *   * *   You cannot repeatedly call **ModifyVpcPrefixList** to modify the configuration of a prefix list within the specified period of time.
-     *   *
+     * @summary Modifies the configuration of a prefix list.
+     *  *
+     * @description *   **ModifyVpcPrefixList** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListPrefixLists](https://help.aliyun.com/document_detail/311535.html) to query the status of the task.
+     *     *   If the prefix list is in the **Modifying** state, the configuration of the prefix list is being modified.
+     *     *   If the prefix list is in the **Created** state, the configuration of the prefix list is modified.
+     *     *   After the configuration of the prefix list is modified, you can call the [GetVpcPrefixListAssociations](https://help.aliyun.com/document_detail/445478.html) operation to query the information about the network instances that are associated with the prefix list and determine whether the associated network instances use the new CIDR blocks. If the association **status** of the prefix list is **Created**, the new CIDR blocks are used by the network instances that are associated with the prefix list.
+     * *   You cannot repeatedly call **ModifyVpcPrefixList** to modify the configuration of a prefix list within the specified period of time.
+     *  *
      * @param ModifyVpcPrefixListRequest $request ModifyVpcPrefixListRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -25565,12 +26823,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **ModifyVpcPrefixList** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListPrefixLists](~~311535~~) to query the status of the task.
-     *   *     *   If the prefix list is in the **Modifying** state, the configuration of the prefix list is being modified.
-     *   *     *   If the prefix list is in the **Created** state, the configuration of the prefix list is modified.
-     *   *     *   After the configuration of the prefix list is modified, you can call the [GetVpcPrefixListAssociations](~~445478~~) operation to query the information about the network instances that are associated with the prefix list and determine whether the associated network instances use the new CIDR blocks. If the association **status** of the prefix list is **Created**, the new CIDR blocks are used by the network instances that are associated with the prefix list.
-     *   * *   You cannot repeatedly call **ModifyVpcPrefixList** to modify the configuration of a prefix list within the specified period of time.
-     *   *
+     * @summary Modifies the configuration of a prefix list.
+     *  *
+     * @description *   **ModifyVpcPrefixList** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListPrefixLists](https://help.aliyun.com/document_detail/311535.html) to query the status of the task.
+     *     *   If the prefix list is in the **Modifying** state, the configuration of the prefix list is being modified.
+     *     *   If the prefix list is in the **Created** state, the configuration of the prefix list is modified.
+     *     *   After the configuration of the prefix list is modified, you can call the [GetVpcPrefixListAssociations](https://help.aliyun.com/document_detail/445478.html) operation to query the information about the network instances that are associated with the prefix list and determine whether the associated network instances use the new CIDR blocks. If the association **status** of the prefix list is **Created**, the new CIDR blocks are used by the network instances that are associated with the prefix list.
+     * *   You cannot repeatedly call **ModifyVpcPrefixList** to modify the configuration of a prefix list within the specified period of time.
+     *  *
      * @param ModifyVpcPrefixListRequest $request ModifyVpcPrefixListRequest
      *
      * @return ModifyVpcPrefixListResponse ModifyVpcPrefixListResponse
@@ -25583,14 +26843,16 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **ModifyVpnAttachmentAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task to modify the configuration of an IPsec-VPN connection in the background. You can call the [DescribeVpnConnection](~~53046~~) operation to query the status of the task.
-     *   *     *   If the IPsec-VPN connection is in the **updating** state, the configuration of the IPsec-VPN connection is being modified.
-     *   *     *   If the IPsec-VPN connection is in the **attached** state, the configuration of the IPsec-VPN connection is modified.
-     *   * *   You cannot call the **ModifyVpnAttachmentAttribute** operation again on the same IPsec-VPN connection before the previous operation is complete.
-     *   * *   When you call the **ModifyVpnAttachmentAttribute** operation, take note of the following items:
-     *   *     *   If the IPsec-VPN connection is associated with a transit router, you cannot change the type of the gateway connected to the IPsec-VPN connection.
-     *   *     *   If the IPsec-VPN connection is not associated with a resource, you cannot change the type of the gateway connected to the IPsec-VPN connection or the customer gateway connected to the IPsec-VPN connection.
-     *   *
+     * @summary Modifies the configuration of an IPsec-VPN connection.
+     *  *
+     * @description *   **ModifyVpnAttachmentAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task to modify the configuration of an IPsec-VPN connection in the background. You can call the [DescribeVpnConnection](https://help.aliyun.com/document_detail/53046.html) operation to query the status of the task.
+     *     *   If the IPsec-VPN connection is in the **updating** state, the configuration of the IPsec-VPN connection is being modified.
+     *     *   If the IPsec-VPN connection is in the **attached** state, the configuration of the IPsec-VPN connection is modified.
+     * *   You cannot call the **ModifyVpnAttachmentAttribute** operation again on the same IPsec-VPN connection before the previous operation is complete.
+     * *   When you call the **ModifyVpnAttachmentAttribute** operation, take note of the following items:
+     *     *   If the IPsec-VPN connection is associated with a transit router, you cannot change the type of the gateway connected to the IPsec-VPN connection.
+     *     *   If the IPsec-VPN connection is not associated with a resource, you cannot change the type of the gateway connected to the IPsec-VPN connection or the customer gateway connected to the IPsec-VPN connection.
+     *  *
      * @param ModifyVpnAttachmentAttributeRequest $request ModifyVpnAttachmentAttributeRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -25679,14 +26941,16 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **ModifyVpnAttachmentAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task to modify the configuration of an IPsec-VPN connection in the background. You can call the [DescribeVpnConnection](~~53046~~) operation to query the status of the task.
-     *   *     *   If the IPsec-VPN connection is in the **updating** state, the configuration of the IPsec-VPN connection is being modified.
-     *   *     *   If the IPsec-VPN connection is in the **attached** state, the configuration of the IPsec-VPN connection is modified.
-     *   * *   You cannot call the **ModifyVpnAttachmentAttribute** operation again on the same IPsec-VPN connection before the previous operation is complete.
-     *   * *   When you call the **ModifyVpnAttachmentAttribute** operation, take note of the following items:
-     *   *     *   If the IPsec-VPN connection is associated with a transit router, you cannot change the type of the gateway connected to the IPsec-VPN connection.
-     *   *     *   If the IPsec-VPN connection is not associated with a resource, you cannot change the type of the gateway connected to the IPsec-VPN connection or the customer gateway connected to the IPsec-VPN connection.
-     *   *
+     * @summary Modifies the configuration of an IPsec-VPN connection.
+     *  *
+     * @description *   **ModifyVpnAttachmentAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task to modify the configuration of an IPsec-VPN connection in the background. You can call the [DescribeVpnConnection](https://help.aliyun.com/document_detail/53046.html) operation to query the status of the task.
+     *     *   If the IPsec-VPN connection is in the **updating** state, the configuration of the IPsec-VPN connection is being modified.
+     *     *   If the IPsec-VPN connection is in the **attached** state, the configuration of the IPsec-VPN connection is modified.
+     * *   You cannot call the **ModifyVpnAttachmentAttribute** operation again on the same IPsec-VPN connection before the previous operation is complete.
+     * *   When you call the **ModifyVpnAttachmentAttribute** operation, take note of the following items:
+     *     *   If the IPsec-VPN connection is associated with a transit router, you cannot change the type of the gateway connected to the IPsec-VPN connection.
+     *     *   If the IPsec-VPN connection is not associated with a resource, you cannot change the type of the gateway connected to the IPsec-VPN connection or the customer gateway connected to the IPsec-VPN connection.
+     *  *
      * @param ModifyVpnAttachmentAttributeRequest $request ModifyVpnAttachmentAttributeRequest
      *
      * @return ModifyVpnAttachmentAttributeResponse ModifyVpnAttachmentAttributeResponse
@@ -25699,15 +26963,17 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   If you want to modify a IPsec-VPN connection in dual-tunnel mode, call the `ModifyVpnConnectionAttribute` operation. You can modify the required parameters and the following request parameters:
-     *   *     **ClientToken**, **Name**, **LocalSubnet**, **RemoteSubnet**, **EffectImmediately**, **AutoConfigRoute**, **TunnelOptionsSpecification**, and **EnableTunnelsBgp**.
-     *   * *   If you want to modify a IPsec-VPN connection in single-tunnel mode, call the `ModifyVpnConnectionAttribute` operation. You can modify the required parameters and the following request parameters:
-     *   *     **ClientToken**, **Name**, **LocalSubnet**, **RemoteSubnet**, **EffectImmediately**, **IkeConfig**, **IpsecConfig**, **HealthCheckConfig**, **AutoConfigRoute**, **EnableDpd**, **EnableNatTraversal**, **BgpConfig**, and **RemoteCaCertificate**.
-     *   * *   **ModifyVpnConnectionAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and modifies the configuration of the IPsec-VPN connection in the backend. You can call the [DescribeVpnGateway](~~73720~~) operation to query the status of a VPN gateway.
-     *   *     *   If the VPN gateway is in the **updating** state, the configuration of the IPsec-VPN connection is being modified.
-     *   *     *   If the VPN gateway is in the **active** state, the configuration of the IPsec-VPN connection is modified.
-     *   * *   You cannot repeatedly call the **ModifyVpnConnectionAttribute** operation for the same VPN gateway within the specified period of time.
-     *   *
+     * @summary Modifies the configuration of an IPsec-VPN connection.
+     *  *
+     * @description *   If you want to modify a IPsec-VPN connection in dual-tunnel mode, call the `ModifyVpnConnectionAttribute` operation. You can modify the required parameters and the following request parameters:
+     *     **ClientToken**, **Name**, **LocalSubnet**, **RemoteSubnet**, **EffectImmediately**, **AutoConfigRoute**, **TunnelOptionsSpecification**, and **EnableTunnelsBgp**.
+     * *   If you want to modify a IPsec-VPN connection in single-tunnel mode, call the `ModifyVpnConnectionAttribute` operation. You can modify the required parameters and the following request parameters:
+     *     **ClientToken**, **Name**, **LocalSubnet**, **RemoteSubnet**, **EffectImmediately**, **IkeConfig**, **IpsecConfig**, **HealthCheckConfig**, **AutoConfigRoute**, **EnableDpd**, **EnableNatTraversal**, **BgpConfig**, and **RemoteCaCertificate**.
+     * *   **ModifyVpnConnectionAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and modifies the configuration of the IPsec-VPN connection in the backend. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status of a VPN gateway.
+     *     *   If the VPN gateway is in the **updating** state, the configuration of the IPsec-VPN connection is being modified.
+     *     *   If the VPN gateway is in the **active** state, the configuration of the IPsec-VPN connection is modified.
+     * *   You cannot repeatedly call the **ModifyVpnConnectionAttribute** operation for the same VPN gateway within the specified period of time.
+     *  *
      * @param ModifyVpnConnectionAttributeRequest $request ModifyVpnConnectionAttributeRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -25803,15 +27069,17 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   If you want to modify a IPsec-VPN connection in dual-tunnel mode, call the `ModifyVpnConnectionAttribute` operation. You can modify the required parameters and the following request parameters:
-     *   *     **ClientToken**, **Name**, **LocalSubnet**, **RemoteSubnet**, **EffectImmediately**, **AutoConfigRoute**, **TunnelOptionsSpecification**, and **EnableTunnelsBgp**.
-     *   * *   If you want to modify a IPsec-VPN connection in single-tunnel mode, call the `ModifyVpnConnectionAttribute` operation. You can modify the required parameters and the following request parameters:
-     *   *     **ClientToken**, **Name**, **LocalSubnet**, **RemoteSubnet**, **EffectImmediately**, **IkeConfig**, **IpsecConfig**, **HealthCheckConfig**, **AutoConfigRoute**, **EnableDpd**, **EnableNatTraversal**, **BgpConfig**, and **RemoteCaCertificate**.
-     *   * *   **ModifyVpnConnectionAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and modifies the configuration of the IPsec-VPN connection in the backend. You can call the [DescribeVpnGateway](~~73720~~) operation to query the status of a VPN gateway.
-     *   *     *   If the VPN gateway is in the **updating** state, the configuration of the IPsec-VPN connection is being modified.
-     *   *     *   If the VPN gateway is in the **active** state, the configuration of the IPsec-VPN connection is modified.
-     *   * *   You cannot repeatedly call the **ModifyVpnConnectionAttribute** operation for the same VPN gateway within the specified period of time.
-     *   *
+     * @summary Modifies the configuration of an IPsec-VPN connection.
+     *  *
+     * @description *   If you want to modify a IPsec-VPN connection in dual-tunnel mode, call the `ModifyVpnConnectionAttribute` operation. You can modify the required parameters and the following request parameters:
+     *     **ClientToken**, **Name**, **LocalSubnet**, **RemoteSubnet**, **EffectImmediately**, **AutoConfigRoute**, **TunnelOptionsSpecification**, and **EnableTunnelsBgp**.
+     * *   If you want to modify a IPsec-VPN connection in single-tunnel mode, call the `ModifyVpnConnectionAttribute` operation. You can modify the required parameters and the following request parameters:
+     *     **ClientToken**, **Name**, **LocalSubnet**, **RemoteSubnet**, **EffectImmediately**, **IkeConfig**, **IpsecConfig**, **HealthCheckConfig**, **AutoConfigRoute**, **EnableDpd**, **EnableNatTraversal**, **BgpConfig**, and **RemoteCaCertificate**.
+     * *   **ModifyVpnConnectionAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and modifies the configuration of the IPsec-VPN connection in the backend. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status of a VPN gateway.
+     *     *   If the VPN gateway is in the **updating** state, the configuration of the IPsec-VPN connection is being modified.
+     *     *   If the VPN gateway is in the **active** state, the configuration of the IPsec-VPN connection is modified.
+     * *   You cannot repeatedly call the **ModifyVpnConnectionAttribute** operation for the same VPN gateway within the specified period of time.
+     *  *
      * @param ModifyVpnConnectionAttributeRequest $request ModifyVpnConnectionAttributeRequest
      *
      * @return ModifyVpnConnectionAttributeResponse ModifyVpnConnectionAttributeResponse
@@ -25824,11 +27092,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **ModifyVpnGatewayAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-     *   *     *   If the VPN gateway is in the **updating** state, the VPN gateway is being modified.
-     *   *     *   If the VPN gateway is in the **active** state, the VPN gateway is modified.
-     *   * *   You cannot repeatedly call **ModifyVpnGatewayAttribute** to modify a VPN gateway within the specified period of time.
-     *   *
+     * @summary Modifies the name and description of a VPN gateway.
+     *  *
+     * @description *   **ModifyVpnGatewayAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+     *     *   If the VPN gateway is in the **updating** state, the VPN gateway is being modified.
+     *     *   If the VPN gateway is in the **active** state, the VPN gateway is modified.
+     * *   You cannot repeatedly call **ModifyVpnGatewayAttribute** to modify a VPN gateway within the specified period of time.
+     *  *
      * @param ModifyVpnGatewayAttributeRequest $request ModifyVpnGatewayAttributeRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -25887,11 +27157,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **ModifyVpnGatewayAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-     *   *     *   If the VPN gateway is in the **updating** state, the VPN gateway is being modified.
-     *   *     *   If the VPN gateway is in the **active** state, the VPN gateway is modified.
-     *   * *   You cannot repeatedly call **ModifyVpnGatewayAttribute** to modify a VPN gateway within the specified period of time.
-     *   *
+     * @summary Modifies the name and description of a VPN gateway.
+     *  *
+     * @description *   **ModifyVpnGatewayAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+     *     *   If the VPN gateway is in the **updating** state, the VPN gateway is being modified.
+     *     *   If the VPN gateway is in the **active** state, the VPN gateway is modified.
+     * *   You cannot repeatedly call **ModifyVpnGatewayAttribute** to modify a VPN gateway within the specified period of time.
+     *  *
      * @param ModifyVpnGatewayAttributeRequest $request ModifyVpnGatewayAttributeRequest
      *
      * @return ModifyVpnGatewayAttributeResponse ModifyVpnGatewayAttributeResponse
@@ -25904,15 +27176,17 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   You can call the **ModifyVpnPbrRouteEntryAttribute** operation to modify the weight and priority of a policy-based route.
-     *   *     *   If you want to modify only the weight of a policy-based route, call [ModifyVpnPbrRouteEntryWeight](~~127249~~).
-     *   *     *   If you want to modify only the priority of a policy-based route, call [ModifyVpnPbrRouteEntryPriority](~~466870~~).
-     *   *     *   If a policy-based route does not support priorities, you can only call [ModifyVpnPbrRouteEntryWeight](~~127249~~) to modify its weight.
-     *   * *   The **ModifyVpnPbrRouteEntryAttribute** operation is asynchronous. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call [DescribeVpnGateway](~~73720~~) to query the status of a VPN gateway.
-     *   *     *   If a VPN gateway is in the **updating** state, the policy-based route entry is being modified.
-     *   *     *   If a VPN gateway is in the **active** state, the policy-based route entry is modified.
-     *   * *   You cannot repeatedly call the **ModifyVpnPbrRouteEntryAttribute** operation for the same VPN gateway within the specified period of time.
-     *   *
+     * @summary Modifies the weight and priority of a policy-based route.
+     *  *
+     * @description *   You can call the **ModifyVpnPbrRouteEntryAttribute** operation to modify the weight and priority of a policy-based route.
+     *     *   If you want to modify only the weight of a policy-based route, call [ModifyVpnPbrRouteEntryWeight](https://help.aliyun.com/document_detail/127249.html).
+     *     *   If you want to modify only the priority of a policy-based route, call [ModifyVpnPbrRouteEntryPriority](https://help.aliyun.com/document_detail/466870.html).
+     *     *   If a policy-based route does not support priorities, you can only call [ModifyVpnPbrRouteEntryWeight](https://help.aliyun.com/document_detail/127249.html) to modify its weight.
+     * *   The **ModifyVpnPbrRouteEntryAttribute** operation is asynchronous. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of a VPN gateway.
+     *     *   If a VPN gateway is in the **updating** state, the policy-based route entry is being modified.
+     *     *   If a VPN gateway is in the **active** state, the policy-based route entry is modified.
+     * *   You cannot repeatedly call the **ModifyVpnPbrRouteEntryAttribute** operation for the same VPN gateway within the specified period of time.
+     *  *
      * @param ModifyVpnPbrRouteEntryAttributeRequest $request ModifyVpnPbrRouteEntryAttributeRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
@@ -25983,15 +27257,17 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   You can call the **ModifyVpnPbrRouteEntryAttribute** operation to modify the weight and priority of a policy-based route.
-     *   *     *   If you want to modify only the weight of a policy-based route, call [ModifyVpnPbrRouteEntryWeight](~~127249~~).
-     *   *     *   If you want to modify only the priority of a policy-based route, call [ModifyVpnPbrRouteEntryPriority](~~466870~~).
-     *   *     *   If a policy-based route does not support priorities, you can only call [ModifyVpnPbrRouteEntryWeight](~~127249~~) to modify its weight.
-     *   * *   The **ModifyVpnPbrRouteEntryAttribute** operation is asynchronous. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call [DescribeVpnGateway](~~73720~~) to query the status of a VPN gateway.
-     *   *     *   If a VPN gateway is in the **updating** state, the policy-based route entry is being modified.
-     *   *     *   If a VPN gateway is in the **active** state, the policy-based route entry is modified.
-     *   * *   You cannot repeatedly call the **ModifyVpnPbrRouteEntryAttribute** operation for the same VPN gateway within the specified period of time.
-     *   *
+     * @summary Modifies the weight and priority of a policy-based route.
+     *  *
+     * @description *   You can call the **ModifyVpnPbrRouteEntryAttribute** operation to modify the weight and priority of a policy-based route.
+     *     *   If you want to modify only the weight of a policy-based route, call [ModifyVpnPbrRouteEntryWeight](https://help.aliyun.com/document_detail/127249.html).
+     *     *   If you want to modify only the priority of a policy-based route, call [ModifyVpnPbrRouteEntryPriority](https://help.aliyun.com/document_detail/466870.html).
+     *     *   If a policy-based route does not support priorities, you can only call [ModifyVpnPbrRouteEntryWeight](https://help.aliyun.com/document_detail/127249.html) to modify its weight.
+     * *   The **ModifyVpnPbrRouteEntryAttribute** operation is asynchronous. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of a VPN gateway.
+     *     *   If a VPN gateway is in the **updating** state, the policy-based route entry is being modified.
+     *     *   If a VPN gateway is in the **active** state, the policy-based route entry is modified.
+     * *   You cannot repeatedly call the **ModifyVpnPbrRouteEntryAttribute** operation for the same VPN gateway within the specified period of time.
+     *  *
      * @param ModifyVpnPbrRouteEntryAttributeRequest $request ModifyVpnPbrRouteEntryAttributeRequest
      *
      * @return ModifyVpnPbrRouteEntryAttributeResponse ModifyVpnPbrRouteEntryAttributeResponse
@@ -26004,11 +27280,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **ModifyVpnPbrRouteEntryPriority** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-     *   *     *   If a VPN gateway is in the **updating** state, the policy-based route entry is being modified.
-     *   *     *   If the VPN gateway is in the **active** state, the policy-based route is created.
-     *   * *   You cannot repeatedly call the **ModifyVpnPbrRouteEntryPriority** operation for the same VPN gateway within the specified period of time.
-     *   *
+     * @summary Modifies the priority of a policy-based route.
+     *  *
+     * @description *   **ModifyVpnPbrRouteEntryPriority** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+     *     *   If a VPN gateway is in the **updating** state, the policy-based route entry is being modified.
+     *     *   If the VPN gateway is in the **active** state, the policy-based route is created.
+     * *   You cannot repeatedly call the **ModifyVpnPbrRouteEntryPriority** operation for the same VPN gateway within the specified period of time.
+     *  *
      * @param ModifyVpnPbrRouteEntryPriorityRequest $request ModifyVpnPbrRouteEntryPriorityRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
@@ -26076,11 +27354,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **ModifyVpnPbrRouteEntryPriority** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-     *   *     *   If a VPN gateway is in the **updating** state, the policy-based route entry is being modified.
-     *   *     *   If the VPN gateway is in the **active** state, the policy-based route is created.
-     *   * *   You cannot repeatedly call the **ModifyVpnPbrRouteEntryPriority** operation for the same VPN gateway within the specified period of time.
-     *   *
+     * @summary Modifies the priority of a policy-based route.
+     *  *
+     * @description *   **ModifyVpnPbrRouteEntryPriority** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+     *     *   If a VPN gateway is in the **updating** state, the policy-based route entry is being modified.
+     *     *   If the VPN gateway is in the **active** state, the policy-based route is created.
+     * *   You cannot repeatedly call the **ModifyVpnPbrRouteEntryPriority** operation for the same VPN gateway within the specified period of time.
+     *  *
      * @param ModifyVpnPbrRouteEntryPriorityRequest $request ModifyVpnPbrRouteEntryPriorityRequest
      *
      * @return ModifyVpnPbrRouteEntryPriorityResponse ModifyVpnPbrRouteEntryPriorityResponse
@@ -26093,11 +27373,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **ModifyVpnPbrRouteEntryWeight** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-     *   *     *   If a VPN gateway is in the **updating** state, the policy-based route entry is being modified.
-     *   *     *   If a VPN gateway is in the **active** state, the policy-based route entry is modified.
-     *   * *   You cannot repeatedly call the **ModifyVpnPbrRouteEntryWeight** operation for the same VPN gateway within the specified period of time.
-     *   *
+     * @summary Modifies the weight of a policy-based route of a VPN gateway.
+     *  *
+     * @description *   **ModifyVpnPbrRouteEntryWeight** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+     *     *   If a VPN gateway is in the **updating** state, the policy-based route entry is being modified.
+     *     *   If a VPN gateway is in the **active** state, the policy-based route entry is modified.
+     * *   You cannot repeatedly call the **ModifyVpnPbrRouteEntryWeight** operation for the same VPN gateway within the specified period of time.
+     *  *
      * @param ModifyVpnPbrRouteEntryWeightRequest $request ModifyVpnPbrRouteEntryWeightRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -26168,11 +27450,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **ModifyVpnPbrRouteEntryWeight** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-     *   *     *   If a VPN gateway is in the **updating** state, the policy-based route entry is being modified.
-     *   *     *   If a VPN gateway is in the **active** state, the policy-based route entry is modified.
-     *   * *   You cannot repeatedly call the **ModifyVpnPbrRouteEntryWeight** operation for the same VPN gateway within the specified period of time.
-     *   *
+     * @summary Modifies the weight of a policy-based route of a VPN gateway.
+     *  *
+     * @description *   **ModifyVpnPbrRouteEntryWeight** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+     *     *   If a VPN gateway is in the **updating** state, the policy-based route entry is being modified.
+     *     *   If a VPN gateway is in the **active** state, the policy-based route entry is modified.
+     * *   You cannot repeatedly call the **ModifyVpnPbrRouteEntryWeight** operation for the same VPN gateway within the specified period of time.
+     *  *
      * @param ModifyVpnPbrRouteEntryWeightRequest $request ModifyVpnPbrRouteEntryWeightRequest
      *
      * @return ModifyVpnPbrRouteEntryWeightResponse ModifyVpnPbrRouteEntryWeightResponse
@@ -26185,11 +27469,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **ModifyVpnRouteEntryWeight** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-     *   *     *   If the VPN gateway is in the **updating** state, the weight of the destination-based route is being modified.
-     *   *     *   If the VPN gateway is in the **active** state, the weight of the destination-based route is modified.
-     *   * *   You cannot repeatedly call the **ModifyVpnRouteEntryWeight** operation to modify the weight of destination-based route for the same VPN gateway within the specified period of time.
-     *   *
+     * @summary Modifies the weight of a destination-based route of a VPN gateway.
+     *  *
+     * @description *   **ModifyVpnRouteEntryWeight** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+     *     *   If the VPN gateway is in the **updating** state, the weight of the destination-based route is being modified.
+     *     *   If the VPN gateway is in the **active** state, the weight of the destination-based route is modified.
+     * *   You cannot repeatedly call the **ModifyVpnRouteEntryWeight** operation to modify the weight of destination-based route for the same VPN gateway within the specified period of time.
+     *  *
      * @param ModifyVpnRouteEntryWeightRequest $request ModifyVpnRouteEntryWeightRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -26254,11 +27540,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **ModifyVpnRouteEntryWeight** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-     *   *     *   If the VPN gateway is in the **updating** state, the weight of the destination-based route is being modified.
-     *   *     *   If the VPN gateway is in the **active** state, the weight of the destination-based route is modified.
-     *   * *   You cannot repeatedly call the **ModifyVpnRouteEntryWeight** operation to modify the weight of destination-based route for the same VPN gateway within the specified period of time.
-     *   *
+     * @summary Modifies the weight of a destination-based route of a VPN gateway.
+     *  *
+     * @description *   **ModifyVpnRouteEntryWeight** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+     *     *   If the VPN gateway is in the **updating** state, the weight of the destination-based route is being modified.
+     *     *   If the VPN gateway is in the **active** state, the weight of the destination-based route is modified.
+     * *   You cannot repeatedly call the **ModifyVpnRouteEntryWeight** operation to modify the weight of destination-based route for the same VPN gateway within the specified period of time.
+     *  *
      * @param ModifyVpnRouteEntryWeightRequest $request ModifyVpnRouteEntryWeightRequest
      *
      * @return ModifyVpnRouteEntryWeightResponse ModifyVpnRouteEntryWeightResponse
@@ -26271,10 +27559,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param MoveResourceGroupRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Moves a resource to another resource group.
+     *  *
+     * @param MoveResourceGroupRequest $request MoveResourceGroupRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return MoveResourceGroupResponse
+     * @return MoveResourceGroupResponse MoveResourceGroupResponse
      */
     public function moveResourceGroupWithOptions($request, $runtime)
     {
@@ -26323,9 +27613,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param MoveResourceGroupRequest $request
+     * @summary Moves a resource to another resource group.
+     *  *
+     * @param MoveResourceGroupRequest $request MoveResourceGroupRequest
      *
-     * @return MoveResourceGroupResponse
+     * @return MoveResourceGroupResponse MoveResourceGroupResponse
      */
     public function moveResourceGroup($request)
     {
@@ -26335,10 +27627,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param MoveVpnResourceGroupRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Moves a VPN gateway resource to a new resource group.
+     *  *
+     * @param MoveVpnResourceGroupRequest $request MoveVpnResourceGroupRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return MoveVpnResourceGroupResponse
+     * @return MoveVpnResourceGroupResponse MoveVpnResourceGroupResponse
      */
     public function moveVpnResourceGroupWithOptions($request, $runtime)
     {
@@ -26387,9 +27681,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param MoveVpnResourceGroupRequest $request
+     * @summary Moves a VPN gateway resource to a new resource group.
+     *  *
+     * @param MoveVpnResourceGroupRequest $request MoveVpnResourceGroupRequest
      *
-     * @return MoveVpnResourceGroupResponse
+     * @return MoveVpnResourceGroupResponse MoveVpnResourceGroupResponse
      */
     public function moveVpnResourceGroup($request)
     {
@@ -26399,9 +27695,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   You cannot repeatedly call the **OpenFlowLogService** operation within the specified period of time by using an Alibaba Cloud account.
-     *   * *   You can call the [GetFlowLogServiceStatus](~~449624~~) operation to query the status of the flow log feature.
-     *   *
+     * @summary Enables the flow log feature.
+     *  *
+     * @description *   You cannot repeatedly call the **OpenFlowLogService** operation within the specified period of time by using an Alibaba Cloud account.
+     * *   You can call the [GetFlowLogServiceStatus](https://help.aliyun.com/document_detail/449624.html) operation to query the status of the flow log feature.
+     *  *
      * @param OpenFlowLogServiceRequest $request OpenFlowLogServiceRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -26451,9 +27749,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   You cannot repeatedly call the **OpenFlowLogService** operation within the specified period of time by using an Alibaba Cloud account.
-     *   * *   You can call the [GetFlowLogServiceStatus](~~449624~~) operation to query the status of the flow log feature.
-     *   *
+     * @summary Enables the flow log feature.
+     *  *
+     * @description *   You cannot repeatedly call the **OpenFlowLogService** operation within the specified period of time by using an Alibaba Cloud account.
+     * *   You can call the [GetFlowLogServiceStatus](https://help.aliyun.com/document_detail/449624.html) operation to query the status of the flow log feature.
+     *  *
      * @param OpenFlowLogServiceRequest $request OpenFlowLogServiceRequest
      *
      * @return OpenFlowLogServiceResponse OpenFlowLogServiceResponse
@@ -26466,10 +27766,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param OpenPhysicalConnectionServiceRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary 开通出云流量服务
+     *  *
+     * @param OpenPhysicalConnectionServiceRequest $request OpenPhysicalConnectionServiceRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return OpenPhysicalConnectionServiceResponse
+     * @return OpenPhysicalConnectionServiceResponse OpenPhysicalConnectionServiceResponse
      */
     public function openPhysicalConnectionServiceWithOptions($request, $runtime)
     {
@@ -26509,9 +27811,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param OpenPhysicalConnectionServiceRequest $request
+     * @summary 开通出云流量服务
+     *  *
+     * @param OpenPhysicalConnectionServiceRequest $request OpenPhysicalConnectionServiceRequest
      *
-     * @return OpenPhysicalConnectionServiceResponse
+     * @return OpenPhysicalConnectionServiceResponse OpenPhysicalConnectionServiceResponse
      */
     public function openPhysicalConnectionService($request)
     {
@@ -26521,9 +27825,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)Usage notes
-     *   * You can enable traffic mirroring for different regions. You cannot repeatedly call the **OpenTrafficMirrorService** operation to enable traffic mirroring for one region within the specified period of time.
-     *   *
+     * @summary Enables traffic mirroring.
+     *  *
+     * @description ## [](#)Usage notes
+     * You can enable traffic mirroring for different regions. You cannot repeatedly call the **OpenTrafficMirrorService** operation to enable traffic mirroring for one region within the specified period of time.
+     *  *
      * @param OpenTrafficMirrorServiceRequest $request OpenTrafficMirrorServiceRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -26573,9 +27879,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)Usage notes
-     *   * You can enable traffic mirroring for different regions. You cannot repeatedly call the **OpenTrafficMirrorService** operation to enable traffic mirroring for one region within the specified period of time.
-     *   *
+     * @summary Enables traffic mirroring.
+     *  *
+     * @description ## [](#)Usage notes
+     * You can enable traffic mirroring for different regions. You cannot repeatedly call the **OpenTrafficMirrorService** operation to enable traffic mirroring for one region within the specified period of time.
+     *  *
      * @param OpenTrafficMirrorServiceRequest $request OpenTrafficMirrorServiceRequest
      *
      * @return OpenTrafficMirrorServiceResponse OpenTrafficMirrorServiceResponse
@@ -26588,10 +27896,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param PublishVpnRouteEntryRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Advertises a VPN route to a VPC.
+     *  *
+     * @param PublishVpnRouteEntryRequest $request PublishVpnRouteEntryRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return PublishVpnRouteEntryResponse
+     * @return PublishVpnRouteEntryResponse PublishVpnRouteEntryResponse
      */
     public function publishVpnRouteEntryWithOptions($request, $runtime)
     {
@@ -26649,9 +27959,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param PublishVpnRouteEntryRequest $request
+     * @summary Advertises a VPN route to a VPC.
+     *  *
+     * @param PublishVpnRouteEntryRequest $request PublishVpnRouteEntryRequest
      *
-     * @return PublishVpnRouteEntryResponse
+     * @return PublishVpnRouteEntryResponse PublishVpnRouteEntryResponse
      */
     public function publishVpnRouteEntry($request)
     {
@@ -26661,9 +27973,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * # [](#)Description
-     *   * You can call this API operation to resume a suspended Express Connect circuit. You can resume only shared Express Connect circuits by calling this API operation.
-     *   *
+     * @summary Resumes an Express Connect circuit.
+     *  *
+     * @description # [](#)Description
+     * You can call this API operation to resume a suspended Express Connect circuit. You can resume only shared Express Connect circuits by calling this API operation.
+     *  *
      * @param RecoverPhysicalConnectionRequest $request RecoverPhysicalConnectionRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -26704,9 +28018,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * # [](#)Description
-     *   * You can call this API operation to resume a suspended Express Connect circuit. You can resume only shared Express Connect circuits by calling this API operation.
-     *   *
+     * @summary Resumes an Express Connect circuit.
+     *  *
+     * @description # [](#)Description
+     * You can call this API operation to resume a suspended Express Connect circuit. You can resume only shared Express Connect circuits by calling this API operation.
+     *  *
      * @param RecoverPhysicalConnectionRequest $request RecoverPhysicalConnectionRequest
      *
      * @return RecoverPhysicalConnectionResponse RecoverPhysicalConnectionResponse
@@ -26719,11 +28035,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * After you call this operation, the VBR changes from the **terminated** state to the **recovering** state. After the operation is performed, the VBR enters the **active** state.
-     *   * When you call this operation, take note of the following items:
-     *   * *   Only the owner of the Express Connect circuit can call this operation.
-     *   * *   The Express Connect circuit to which the VBR connects must be in the **Enabled** state.
-     *   *
+     * @summary Enables a disabled virtual border router (VBR).
+     *  *
+     * @description After you call this operation, the VBR changes from the **terminated** state to the **recovering** state. After the operation is performed, the VBR enters the **active** state.
+     * When you call this operation, take note of the following items:
+     * *   Only the owner of the Express Connect circuit can call this operation.
+     * *   The Express Connect circuit to which the VBR connects must be in the **Enabled** state.
+     *  *
      * @param RecoverVirtualBorderRouterRequest $request RecoverVirtualBorderRouterRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -26773,11 +28091,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * After you call this operation, the VBR changes from the **terminated** state to the **recovering** state. After the operation is performed, the VBR enters the **active** state.
-     *   * When you call this operation, take note of the following items:
-     *   * *   Only the owner of the Express Connect circuit can call this operation.
-     *   * *   The Express Connect circuit to which the VBR connects must be in the **Enabled** state.
-     *   *
+     * @summary Enables a disabled virtual border router (VBR).
+     *  *
+     * @description After you call this operation, the VBR changes from the **terminated** state to the **recovering** state. After the operation is performed, the VBR enters the **active** state.
+     * When you call this operation, take note of the following items:
+     * *   Only the owner of the Express Connect circuit can call this operation.
+     * *   The Express Connect circuit to which the VBR connects must be in the **Enabled** state.
+     *  *
      * @param RecoverVirtualBorderRouterRequest $request RecoverVirtualBorderRouterRequest
      *
      * @return RecoverVirtualBorderRouterResponse RecoverVirtualBorderRouterResponse
@@ -26790,15 +28110,17 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, take note of the following items:
-     *   * *   Before you release an EIP, make sure that the EIP meets the following requirements:
-     *   *     *   You can release only an EIP that is in the **Available** state.
-     *   *     *   You can release only a pay-as-you-go EIP. You cannot release a subscription EIP.
-     *   * *   **ReleaseEipAddress** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEipAddresses](~~120193~~) operation to query the status of the task:
-     *   *     *   If the EIP is in the **Releasing** state, the EIP is being released. In this state, you can only query the EIP and cannot perform other operations.
-     *   *     *   If you cannot query the EIP, the EIP is released.
-     *   * *   You cannot repeatedly call the **ReleaseEipAddress** operation to release an EIP within the specified period of time.
-     *   *
+     * @summary Releases an elastic IP address (EIP).
+     *  *
+     * @description Before you call this operation, take note of the following items:
+     * *   Before you release an EIP, make sure that the EIP meets the following requirements:
+     *     *   You can release only an EIP that is in the **Available** state.
+     *     *   You can release only a pay-as-you-go EIP. You cannot release a subscription EIP.
+     * *   **ReleaseEipAddress** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEipAddresses](https://help.aliyun.com/document_detail/120193.html) operation to query the status of the task:
+     *     *   If the EIP is in the **Releasing** state, the EIP is being released. In this state, you can only query the EIP and cannot perform other operations.
+     *     *   If you cannot query the EIP, the EIP is released.
+     * *   You cannot repeatedly call the **ReleaseEipAddress** operation to release an EIP within the specified period of time.
+     *  *
      * @param ReleaseEipAddressRequest $request ReleaseEipAddressRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -26845,15 +28167,17 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, take note of the following items:
-     *   * *   Before you release an EIP, make sure that the EIP meets the following requirements:
-     *   *     *   You can release only an EIP that is in the **Available** state.
-     *   *     *   You can release only a pay-as-you-go EIP. You cannot release a subscription EIP.
-     *   * *   **ReleaseEipAddress** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEipAddresses](~~120193~~) operation to query the status of the task:
-     *   *     *   If the EIP is in the **Releasing** state, the EIP is being released. In this state, you can only query the EIP and cannot perform other operations.
-     *   *     *   If you cannot query the EIP, the EIP is released.
-     *   * *   You cannot repeatedly call the **ReleaseEipAddress** operation to release an EIP within the specified period of time.
-     *   *
+     * @summary Releases an elastic IP address (EIP).
+     *  *
+     * @description Before you call this operation, take note of the following items:
+     * *   Before you release an EIP, make sure that the EIP meets the following requirements:
+     *     *   You can release only an EIP that is in the **Available** state.
+     *     *   You can release only a pay-as-you-go EIP. You cannot release a subscription EIP.
+     * *   **ReleaseEipAddress** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEipAddresses](https://help.aliyun.com/document_detail/120193.html) operation to query the status of the task:
+     *     *   If the EIP is in the **Releasing** state, the EIP is being released. In this state, you can only query the EIP and cannot perform other operations.
+     *     *   If you cannot query the EIP, the EIP is released.
+     * *   You cannot repeatedly call the **ReleaseEipAddress** operation to release an EIP within the specified period of time.
+     *  *
      * @param ReleaseEipAddressRequest $request ReleaseEipAddressRequest
      *
      * @return ReleaseEipAddressResponse ReleaseEipAddressResponse
@@ -26866,12 +28190,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   After you call the **ReleaseEipSegmentAddress** operation, all EIPs in the specified group are released.
-     *   * *   **ReleaseEipSegmentAddress** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEipSegment](~~156063~~) operation to query the status of the task.
-     *   *     *   If the group is in the **Releasing** state, EIPs in the group are being released. In this state, you can only query the group and cannot perform other operations.
-     *   *     *   If you cannot query the group of contiguous EIPs, the contiguous EIPs are released.
-     *   * *   You cannot repeatedly call the **ReleaseEipSegmentAddress** operation to release a group of contiguous EIPs within the specified period of time.
-     *   *
+     * @summary Releases contiguous elastic IP addresses (EIPs).
+     *  *
+     * @description *   After you call the **ReleaseEipSegmentAddress** operation, all EIPs in the specified group are released.
+     * *   **ReleaseEipSegmentAddress** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEipSegment](https://help.aliyun.com/document_detail/156063.html) operation to query the status of the task.
+     *     *   If the group is in the **Releasing** state, EIPs in the group are being released. In this state, you can only query the group and cannot perform other operations.
+     *     *   If you cannot query the group of contiguous EIPs, the contiguous EIPs are released.
+     * *   You cannot repeatedly call the **ReleaseEipSegmentAddress** operation to release a group of contiguous EIPs within the specified period of time.
+     *  *
      * @param ReleaseEipSegmentAddressRequest $request ReleaseEipSegmentAddressRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -26921,12 +28247,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   After you call the **ReleaseEipSegmentAddress** operation, all EIPs in the specified group are released.
-     *   * *   **ReleaseEipSegmentAddress** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEipSegment](~~156063~~) operation to query the status of the task.
-     *   *     *   If the group is in the **Releasing** state, EIPs in the group are being released. In this state, you can only query the group and cannot perform other operations.
-     *   *     *   If you cannot query the group of contiguous EIPs, the contiguous EIPs are released.
-     *   * *   You cannot repeatedly call the **ReleaseEipSegmentAddress** operation to release a group of contiguous EIPs within the specified period of time.
-     *   *
+     * @summary Releases contiguous elastic IP addresses (EIPs).
+     *  *
+     * @description *   After you call the **ReleaseEipSegmentAddress** operation, all EIPs in the specified group are released.
+     * *   **ReleaseEipSegmentAddress** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEipSegment](https://help.aliyun.com/document_detail/156063.html) operation to query the status of the task.
+     *     *   If the group is in the **Releasing** state, EIPs in the group are being released. In this state, you can only query the group and cannot perform other operations.
+     *     *   If you cannot query the group of contiguous EIPs, the contiguous EIPs are released.
+     * *   You cannot repeatedly call the **ReleaseEipSegmentAddress** operation to release a group of contiguous EIPs within the specified period of time.
+     *  *
      * @param ReleaseEipSegmentAddressRequest $request ReleaseEipSegmentAddressRequest
      *
      * @return ReleaseEipSegmentAddressResponse ReleaseEipSegmentAddressResponse
@@ -26939,10 +28267,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ReleaseIpv6AddressRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Releases an idle IPv6 address.
+     *  *
+     * @param ReleaseIpv6AddressRequest $request ReleaseIpv6AddressRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReleaseIpv6AddressResponse
+     * @return ReleaseIpv6AddressResponse ReleaseIpv6AddressResponse
      */
     public function releaseIpv6AddressWithOptions($request, $runtime)
     {
@@ -26994,9 +28324,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param ReleaseIpv6AddressRequest $request
+     * @summary Releases an idle IPv6 address.
+     *  *
+     * @param ReleaseIpv6AddressRequest $request ReleaseIpv6AddressRequest
      *
-     * @return ReleaseIpv6AddressResponse
+     * @return ReleaseIpv6AddressResponse ReleaseIpv6AddressResponse
      */
     public function releaseIpv6Address($request)
     {
@@ -27006,10 +28338,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param RemoveCommonBandwidthPackageIpRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Disassociates an EIP from an Internet Shared Bandwidth instance.
+     *  *
+     * @param RemoveCommonBandwidthPackageIpRequest $request RemoveCommonBandwidthPackageIpRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveCommonBandwidthPackageIpResponse
+     * @return RemoveCommonBandwidthPackageIpResponse RemoveCommonBandwidthPackageIpResponse
      */
     public function removeCommonBandwidthPackageIpWithOptions($request, $runtime)
     {
@@ -27058,9 +28392,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param RemoveCommonBandwidthPackageIpRequest $request
+     * @summary Disassociates an EIP from an Internet Shared Bandwidth instance.
+     *  *
+     * @param RemoveCommonBandwidthPackageIpRequest $request RemoveCommonBandwidthPackageIpRequest
      *
-     * @return RemoveCommonBandwidthPackageIpResponse
+     * @return RemoveCommonBandwidthPackageIpResponse RemoveCommonBandwidthPackageIpResponse
      */
     public function removeCommonBandwidthPackageIp($request)
     {
@@ -27070,10 +28406,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param RemoveGlobalAccelerationInstanceIpRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @param RemoveGlobalAccelerationInstanceIpRequest $request RemoveGlobalAccelerationInstanceIpRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveGlobalAccelerationInstanceIpResponse
+     * @return RemoveGlobalAccelerationInstanceIpResponse RemoveGlobalAccelerationInstanceIpResponse
      */
     public function removeGlobalAccelerationInstanceIpWithOptions($request, $runtime)
     {
@@ -27119,9 +28455,9 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param RemoveGlobalAccelerationInstanceIpRequest $request
+     * @param RemoveGlobalAccelerationInstanceIpRequest $request RemoveGlobalAccelerationInstanceIpRequest
      *
-     * @return RemoveGlobalAccelerationInstanceIpResponse
+     * @return RemoveGlobalAccelerationInstanceIpResponse RemoveGlobalAccelerationInstanceIpResponse
      */
     public function removeGlobalAccelerationInstanceIp($request)
     {
@@ -27131,10 +28467,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param RemoveIPv6TranslatorAclListEntryRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary Deletes an IP entry from an ACL.
+     *  *
+     * @param RemoveIPv6TranslatorAclListEntryRequest $request RemoveIPv6TranslatorAclListEntryRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveIPv6TranslatorAclListEntryResponse
+     * @return RemoveIPv6TranslatorAclListEntryResponse RemoveIPv6TranslatorAclListEntryResponse
      */
     public function removeIPv6TranslatorAclListEntryWithOptions($request, $runtime)
     {
@@ -27183,9 +28521,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param RemoveIPv6TranslatorAclListEntryRequest $request
+     * @summary Deletes an IP entry from an ACL.
+     *  *
+     * @param RemoveIPv6TranslatorAclListEntryRequest $request RemoveIPv6TranslatorAclListEntryRequest
      *
-     * @return RemoveIPv6TranslatorAclListEntryResponse
+     * @return RemoveIPv6TranslatorAclListEntryResponse RemoveIPv6TranslatorAclListEntryResponse
      */
     public function removeIPv6TranslatorAclListEntry($request)
     {
@@ -27195,11 +28535,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **RemoveSourcesFromTrafficMirrorSession** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorSessions](~~261367~~) operation to query the status of the task.
-     *   *     *   If the traffic mirror session is in the **Modifying** state, the traffic mirror source is being deleted.
-     *   *     *   If the traffic mirror session is in the **Created** state, the traffic mirror source is deleted.
-     *   * *   You cannot repeatedly call **RemoveSourcesFromTrafficMirrorSession** within the specified period of time.
-     *   *
+     * @summary Deletes a traffic mirror source from a traffic mirror session.
+     *  *
+     * @description *   **RemoveSourcesFromTrafficMirrorSession** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorSessions](https://help.aliyun.com/document_detail/261367.html) operation to query the status of the task.
+     *     *   If the traffic mirror session is in the **Modifying** state, the traffic mirror source is being deleted.
+     *     *   If the traffic mirror session is in the **Created** state, the traffic mirror source is deleted.
+     * *   You cannot repeatedly call **RemoveSourcesFromTrafficMirrorSession** within the specified period of time.
+     *  *
      * @param RemoveSourcesFromTrafficMirrorSessionRequest $request RemoveSourcesFromTrafficMirrorSessionRequest
      * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
@@ -27255,11 +28597,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **RemoveSourcesFromTrafficMirrorSession** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorSessions](~~261367~~) operation to query the status of the task.
-     *   *     *   If the traffic mirror session is in the **Modifying** state, the traffic mirror source is being deleted.
-     *   *     *   If the traffic mirror session is in the **Created** state, the traffic mirror source is deleted.
-     *   * *   You cannot repeatedly call **RemoveSourcesFromTrafficMirrorSession** within the specified period of time.
-     *   *
+     * @summary Deletes a traffic mirror source from a traffic mirror session.
+     *  *
+     * @description *   **RemoveSourcesFromTrafficMirrorSession** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorSessions](https://help.aliyun.com/document_detail/261367.html) operation to query the status of the task.
+     *     *   If the traffic mirror session is in the **Modifying** state, the traffic mirror source is being deleted.
+     *     *   If the traffic mirror session is in the **Created** state, the traffic mirror source is deleted.
+     * *   You cannot repeatedly call **RemoveSourcesFromTrafficMirrorSession** within the specified period of time.
+     *  *
      * @param RemoveSourcesFromTrafficMirrorSessionRequest $request RemoveSourcesFromTrafficMirrorSessionRequest
      *
      * @return RemoveSourcesFromTrafficMirrorSessionResponse RemoveSourcesFromTrafficMirrorSessionResponse
@@ -27272,11 +28616,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   The **ReplaceVpcDhcpOptionsSet** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](~~94565~~) operation to query the status of a DHCP options set:
-     *   *     *   If the DHCP options set is in the **Pending** state, the DHCP options set is being replaced.
-     *   *     *   If the DHCP options set is in the **InUse** state, the DHCP options set is replaced.
-     *   * *   You cannot repeatedly call the **ReplaceVpcDhcpOptionsSet** operation to replace the DHCP options set associated with a VPC within the specified period of time.
-     *   *
+     * @summary 更改DHCP选项集与VPC的关联。
+     *  *
+     * @description *   The **ReplaceVpcDhcpOptionsSet** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of a DHCP options set:
+     *     *   If the DHCP options set is in the **Pending** state, the DHCP options set is being replaced.
+     *     *   If the DHCP options set is in the **InUse** state, the DHCP options set is replaced.
+     * *   You cannot repeatedly call the **ReplaceVpcDhcpOptionsSet** operation to replace the DHCP options set associated with a VPC within the specified period of time.
+     *  *
      * @param ReplaceVpcDhcpOptionsSetRequest $request ReplaceVpcDhcpOptionsSetRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -27332,11 +28678,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   The **ReplaceVpcDhcpOptionsSet** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](~~94565~~) operation to query the status of a DHCP options set:
-     *   *     *   If the DHCP options set is in the **Pending** state, the DHCP options set is being replaced.
-     *   *     *   If the DHCP options set is in the **InUse** state, the DHCP options set is replaced.
-     *   * *   You cannot repeatedly call the **ReplaceVpcDhcpOptionsSet** operation to replace the DHCP options set associated with a VPC within the specified period of time.
-     *   *
+     * @summary 更改DHCP选项集与VPC的关联。
+     *  *
+     * @description *   The **ReplaceVpcDhcpOptionsSet** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of a DHCP options set:
+     *     *   If the DHCP options set is in the **Pending** state, the DHCP options set is being replaced.
+     *     *   If the DHCP options set is in the **InUse** state, the DHCP options set is replaced.
+     * *   You cannot repeatedly call the **ReplaceVpcDhcpOptionsSet** operation to replace the DHCP options set associated with a VPC within the specified period of time.
+     *  *
      * @param ReplaceVpcDhcpOptionsSetRequest $request ReplaceVpcDhcpOptionsSetRequest
      *
      * @return ReplaceVpcDhcpOptionsSetResponse ReplaceVpcDhcpOptionsSetResponse
@@ -27349,13 +28697,15 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   If you modify the information about a prefix list but the modification is not automatically applied to the route table that is associated with the prefix list, you can call this operation to apply the latest prefix list to the associated route table.
-     *   * *   The **RetryVpcPrefixListAssociation** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the background. You can call the [GetVpcPrefixListAssociations](~~445478~~) to check whether the prefix list is re-applied.
-     *   *     *   If the prefix list is in the **Modifying** state, the prefix list is being re-applied.
-     *   *     *   If the prefix list is in the **ModifyFailed** state, the prefix list fails to be re-applied.
-     *   *     *   If the prefix list is in the **Created** state, the prefix list is re-applied.
-     *   * *   After you call the **RetryVpcPrefixListAssociation** operation to re-apply a prefix list, you cannot call the operation again until the current task is complete.
-     *   *
+     * @summary Re-applies a prefix list.
+     *  *
+     * @description *   If you modify the information about a prefix list but the modification is not automatically applied to the route table that is associated with the prefix list, you can call this operation to apply the latest prefix list to the associated route table.
+     * *   The **RetryVpcPrefixListAssociation** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the background. You can call the [GetVpcPrefixListAssociations](https://help.aliyun.com/document_detail/445478.html) to check whether the prefix list is re-applied.
+     *     *   If the prefix list is in the **Modifying** state, the prefix list is being re-applied.
+     *     *   If the prefix list is in the **ModifyFailed** state, the prefix list fails to be re-applied.
+     *     *   If the prefix list is in the **Created** state, the prefix list is re-applied.
+     * *   After you call the **RetryVpcPrefixListAssociation** operation to re-apply a prefix list, you cannot call the operation again until the current task is complete.
+     *  *
      * @param RetryVpcPrefixListAssociationRequest $request RetryVpcPrefixListAssociationRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
@@ -27414,13 +28764,15 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   If you modify the information about a prefix list but the modification is not automatically applied to the route table that is associated with the prefix list, you can call this operation to apply the latest prefix list to the associated route table.
-     *   * *   The **RetryVpcPrefixListAssociation** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the background. You can call the [GetVpcPrefixListAssociations](~~445478~~) to check whether the prefix list is re-applied.
-     *   *     *   If the prefix list is in the **Modifying** state, the prefix list is being re-applied.
-     *   *     *   If the prefix list is in the **ModifyFailed** state, the prefix list fails to be re-applied.
-     *   *     *   If the prefix list is in the **Created** state, the prefix list is re-applied.
-     *   * *   After you call the **RetryVpcPrefixListAssociation** operation to re-apply a prefix list, you cannot call the operation again until the current task is complete.
-     *   *
+     * @summary Re-applies a prefix list.
+     *  *
+     * @description *   If you modify the information about a prefix list but the modification is not automatically applied to the route table that is associated with the prefix list, you can call this operation to apply the latest prefix list to the associated route table.
+     * *   The **RetryVpcPrefixListAssociation** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the background. You can call the [GetVpcPrefixListAssociations](https://help.aliyun.com/document_detail/445478.html) to check whether the prefix list is re-applied.
+     *     *   If the prefix list is in the **Modifying** state, the prefix list is being re-applied.
+     *     *   If the prefix list is in the **ModifyFailed** state, the prefix list fails to be re-applied.
+     *     *   If the prefix list is in the **Created** state, the prefix list is re-applied.
+     * *   After you call the **RetryVpcPrefixListAssociation** operation to re-apply a prefix list, you cannot call the operation again until the current task is complete.
+     *  *
      * @param RetryVpcPrefixListAssociationRequest $request RetryVpcPrefixListAssociationRequest
      *
      * @return RetryVpcPrefixListAssociationResponse RetryVpcPrefixListAssociationResponse
@@ -27433,10 +28785,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)Usage notes
-     *   * *   **RevokeInstanceFromCen** is a Virtual Private Cloud (VPC) operation. Therefore, you must use `vpc.aliyuncs.com` as the domain name when you call this operation. The API version is `2016-04-28`.
-     *   * *   You cannot repeatedly call the **RevokeInstanceFromCen** operation to revoke the permissions on a network instance that is attached to a CEN instance within the specified period of time. The network instance can be a VPC, virtual border router (VBR), or a Cloud Connect Network (CCN) instance.
-     *   *
+     * @summary Revokes the permissions granted to a Cloud Enterprise Network (CEN) instance on a network instance.
+     *  *
+     * @description ## [](#)Usage notes
+     * *   **RevokeInstanceFromCen** is a Virtual Private Cloud (VPC) operation. Therefore, you must use `vpc.aliyuncs.com` as the domain name when you call this operation. The API version is `2016-04-28`.
+     * *   You cannot repeatedly call the **RevokeInstanceFromCen** operation to revoke the permissions on a network instance that is attached to a CEN instance within the specified period of time. The network instance can be a VPC, virtual border router (VBR), or a Cloud Connect Network (CCN) instance.
+     *  *
      * @param RevokeInstanceFromCenRequest $request RevokeInstanceFromCenRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -27495,10 +28849,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)Usage notes
-     *   * *   **RevokeInstanceFromCen** is a Virtual Private Cloud (VPC) operation. Therefore, you must use `vpc.aliyuncs.com` as the domain name when you call this operation. The API version is `2016-04-28`.
-     *   * *   You cannot repeatedly call the **RevokeInstanceFromCen** operation to revoke the permissions on a network instance that is attached to a CEN instance within the specified period of time. The network instance can be a VPC, virtual border router (VBR), or a Cloud Connect Network (CCN) instance.
-     *   *
+     * @summary Revokes the permissions granted to a Cloud Enterprise Network (CEN) instance on a network instance.
+     *  *
+     * @description ## [](#)Usage notes
+     * *   **RevokeInstanceFromCen** is a Virtual Private Cloud (VPC) operation. Therefore, you must use `vpc.aliyuncs.com` as the domain name when you call this operation. The API version is `2016-04-28`.
+     * *   You cannot repeatedly call the **RevokeInstanceFromCen** operation to revoke the permissions on a network instance that is attached to a CEN instance within the specified period of time. The network instance can be a VPC, virtual border router (VBR), or a Cloud Connect Network (CCN) instance.
+     *  *
      * @param RevokeInstanceFromCenRequest $request RevokeInstanceFromCenRequest
      *
      * @return RevokeInstanceFromCenResponse RevokeInstanceFromCenResponse
@@ -27511,10 +28867,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param RevokeInstanceFromVbrRequest $tmpReq
-     * @param RuntimeOptions               $runtime
+     * @summary Revokes the permissions granted to a virtual border router (VBR) on a virtual private cloud (VPC).
+     *  *
+     * @param RevokeInstanceFromVbrRequest $tmpReq  RevokeInstanceFromVbrRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return RevokeInstanceFromVbrResponse
+     * @return RevokeInstanceFromVbrResponse RevokeInstanceFromVbrResponse
      */
     public function revokeInstanceFromVbrWithOptions($tmpReq, $runtime)
     {
@@ -27562,9 +28920,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param RevokeInstanceFromVbrRequest $request
+     * @summary Revokes the permissions granted to a virtual border router (VBR) on a virtual private cloud (VPC).
+     *  *
+     * @param RevokeInstanceFromVbrRequest $request RevokeInstanceFromVbrRequest
      *
-     * @return RevokeInstanceFromVbrResponse
+     * @return RevokeInstanceFromVbrResponse RevokeInstanceFromVbrResponse
      */
     public function revokeInstanceFromVbr($request)
     {
@@ -27574,10 +28934,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param SecondApplyPhysicalConnectionLOARequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary If your application for a Letter of Authorization (LOA) by calling the ApplyPhysicalConnectionLOA operation is denied, you can call this operation to apply again.
+     *  *
+     * @param SecondApplyPhysicalConnectionLOARequest $request SecondApplyPhysicalConnectionLOARequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return SecondApplyPhysicalConnectionLOAResponse
+     * @return SecondApplyPhysicalConnectionLOAResponse SecondApplyPhysicalConnectionLOAResponse
      */
     public function secondApplyPhysicalConnectionLOAWithOptions($request, $runtime)
     {
@@ -27644,9 +29006,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param SecondApplyPhysicalConnectionLOARequest $request
+     * @summary If your application for a Letter of Authorization (LOA) by calling the ApplyPhysicalConnectionLOA operation is denied, you can call this operation to apply again.
+     *  *
+     * @param SecondApplyPhysicalConnectionLOARequest $request SecondApplyPhysicalConnectionLOARequest
      *
-     * @return SecondApplyPhysicalConnectionLOAResponse
+     * @return SecondApplyPhysicalConnectionLOAResponse SecondApplyPhysicalConnectionLOAResponse
      */
     public function secondApplyPhysicalConnectionLOA($request)
     {
@@ -27656,8 +29020,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You cannot repeatedly call **SetHighDefinitionMonitorLogStatus** within a specific period of time.
-     *   *
+     * @summary Configures fine-grained monitoring for an elastic IP address (EIP).
+     *  *
+     * @description You cannot repeatedly call **SetHighDefinitionMonitorLogStatus** within a specific period of time.
+     *  *
      * @param SetHighDefinitionMonitorLogStatusRequest $request SetHighDefinitionMonitorLogStatusRequest
      * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
@@ -27716,8 +29082,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You cannot repeatedly call **SetHighDefinitionMonitorLogStatus** within a specific period of time.
-     *   *
+     * @summary Configures fine-grained monitoring for an elastic IP address (EIP).
+     *  *
+     * @description You cannot repeatedly call **SetHighDefinitionMonitorLogStatus** within a specific period of time.
+     *  *
      * @param SetHighDefinitionMonitorLogStatusRequest $request SetHighDefinitionMonitorLogStatusRequest
      *
      * @return SetHighDefinitionMonitorLogStatusResponse SetHighDefinitionMonitorLogStatusResponse
@@ -27730,10 +29098,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param StartFailoverTestJobRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 开始故障演练任务
+     *  *
+     * @param StartFailoverTestJobRequest $request StartFailoverTestJobRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartFailoverTestJobResponse
+     * @return StartFailoverTestJobResponse StartFailoverTestJobResponse
      */
     public function startFailoverTestJobWithOptions($request, $runtime)
     {
@@ -27779,9 +29149,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param StartFailoverTestJobRequest $request
+     * @summary 开始故障演练任务
+     *  *
+     * @param StartFailoverTestJobRequest $request StartFailoverTestJobRequest
      *
-     * @return StartFailoverTestJobResponse
+     * @return StartFailoverTestJobResponse StartFailoverTestJobResponse
      */
     public function startFailoverTestJob($request)
     {
@@ -27791,10 +29163,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param StopFailoverTestJobRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 结束故障演练任务
+     *  *
+     * @param StopFailoverTestJobRequest $request StopFailoverTestJobRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopFailoverTestJobResponse
+     * @return StopFailoverTestJobResponse StopFailoverTestJobResponse
      */
     public function stopFailoverTestJobWithOptions($request, $runtime)
     {
@@ -27840,9 +29214,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param StopFailoverTestJobRequest $request
+     * @summary 结束故障演练任务
+     *  *
+     * @param StopFailoverTestJobRequest $request StopFailoverTestJobRequest
      *
-     * @return StopFailoverTestJobResponse
+     * @return StopFailoverTestJobResponse StopFailoverTestJobResponse
      */
     public function stopFailoverTestJob($request)
     {
@@ -27852,15 +29228,17 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Tags are used to classify instances. Each tag consists of a key-value pair. Before you use tags, take note of the following limits:
-     *   * *   The keys of tags that are added to the same instance must be unique.
-     *   * *   You cannot create tags without adding them to instances. All tags must be added to instances.
-     *   * *   Tag information is not shared across regions.
-     *   *     For example, you cannot view the tags that are created in the China (Hangzhou) region from the China (Shanghai) region.
-     *   * *   Virtual private clouds (VPCs), route tables, vSwitches, and elastic IP addresses (EIPs) that belong to the same Alibaba Cloud account and are deployed in the same region share tag information with each other.
-     *   *     For example, if you added a tag to a VPC, the tag is available to vSwitches, route tables, and EIPs that belong to the same account and are deployed in the same region in which the VPC is created. You can select this tag from the editing page without the need to enter the tag again. You can modify the key and the value of a tag or remove a tag from an instance. After you delete an instance, all tags that are added to the instance are deleted.
-     *   * *   You can add up to 20 tags to each instance. Before you add a tag to an instance, the system automatically checks the number of existing tags. An error message is returned if the maximum number of tags is reached.
-     *   *
+     * @summary Creates and adds tags to resources.
+     *  *
+     * @description Tags are used to classify instances. Each tag consists of a key-value pair. Before you use tags, take note of the following limits:
+     * *   The keys of tags that are added to the same instance must be unique.
+     * *   You cannot create tags without adding them to instances. All tags must be added to instances.
+     * *   Tag information is not shared across regions.
+     *     For example, you cannot view the tags that are created in the China (Hangzhou) region from the China (Shanghai) region.
+     * *   Virtual private clouds (VPCs), route tables, vSwitches, and elastic IP addresses (EIPs) that belong to the same Alibaba Cloud account and are deployed in the same region share tag information with each other.
+     *     For example, if you added a tag to a VPC, the tag is available to vSwitches, route tables, and EIPs that belong to the same account and are deployed in the same region in which the VPC is created. You can select this tag from the editing page without the need to enter the tag again. You can modify the key and the value of a tag or remove a tag from an instance. After you delete an instance, all tags that are added to the instance are deleted.
+     * *   You can add up to 20 tags to each instance. Before you add a tag to an instance, the system automatically checks the number of existing tags. An error message is returned if the maximum number of tags is reached.
+     *  *
      * @param TagResourcesRequest $request TagResourcesRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -27913,15 +29291,17 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Tags are used to classify instances. Each tag consists of a key-value pair. Before you use tags, take note of the following limits:
-     *   * *   The keys of tags that are added to the same instance must be unique.
-     *   * *   You cannot create tags without adding them to instances. All tags must be added to instances.
-     *   * *   Tag information is not shared across regions.
-     *   *     For example, you cannot view the tags that are created in the China (Hangzhou) region from the China (Shanghai) region.
-     *   * *   Virtual private clouds (VPCs), route tables, vSwitches, and elastic IP addresses (EIPs) that belong to the same Alibaba Cloud account and are deployed in the same region share tag information with each other.
-     *   *     For example, if you added a tag to a VPC, the tag is available to vSwitches, route tables, and EIPs that belong to the same account and are deployed in the same region in which the VPC is created. You can select this tag from the editing page without the need to enter the tag again. You can modify the key and the value of a tag or remove a tag from an instance. After you delete an instance, all tags that are added to the instance are deleted.
-     *   * *   You can add up to 20 tags to each instance. Before you add a tag to an instance, the system automatically checks the number of existing tags. An error message is returned if the maximum number of tags is reached.
-     *   *
+     * @summary Creates and adds tags to resources.
+     *  *
+     * @description Tags are used to classify instances. Each tag consists of a key-value pair. Before you use tags, take note of the following limits:
+     * *   The keys of tags that are added to the same instance must be unique.
+     * *   You cannot create tags without adding them to instances. All tags must be added to instances.
+     * *   Tag information is not shared across regions.
+     *     For example, you cannot view the tags that are created in the China (Hangzhou) region from the China (Shanghai) region.
+     * *   Virtual private clouds (VPCs), route tables, vSwitches, and elastic IP addresses (EIPs) that belong to the same Alibaba Cloud account and are deployed in the same region share tag information with each other.
+     *     For example, if you added a tag to a VPC, the tag is available to vSwitches, route tables, and EIPs that belong to the same account and are deployed in the same region in which the VPC is created. You can select this tag from the editing page without the need to enter the tag again. You can modify the key and the value of a tag or remove a tag from an instance. After you delete an instance, all tags that are added to the instance are deleted.
+     * *   You can add up to 20 tags to each instance. Before you add a tag to an instance, the system automatically checks the number of existing tags. An error message is returned if the maximum number of tags is reached.
+     *  *
      * @param TagResourcesRequest $request TagResourcesRequest
      *
      * @return TagResourcesResponse TagResourcesResponse
@@ -27934,14 +29314,16 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)
-     *   * Tags are used to classify instances. Each tag consists of a key-value pair. Before you use tags, take note of the following items:
-     *   * *   Each tag key that is added to an instance must be unique.
-     *   * *   You cannot create tags without adding them to instances. All tags must be added to instances.
-     *   * *   Tag information is not shared across regions.
-     *   *     For example, you cannot view the tags that are created in the China (Hangzhou) region from the China (Shanghai) region.
-     *   * *   You can add up to 20 tags to each instance. Before you add a tag to an instance, the system automatically checks the number of existing tags. An error message is returned if the maximum number of tags is reached.
-     *   *
+     * @summary Creates tags and adds the tags to an Express Connect circuit.
+     *  *
+     * @description ## [](#)
+     * Tags are used to classify instances. Each tag consists of a key-value pair. Before you use tags, take note of the following items:
+     * *   Each tag key that is added to an instance must be unique.
+     * *   You cannot create tags without adding them to instances. All tags must be added to instances.
+     * *   Tag information is not shared across regions.
+     *     For example, you cannot view the tags that are created in the China (Hangzhou) region from the China (Shanghai) region.
+     * *   You can add up to 20 tags to each instance. Before you add a tag to an instance, the system automatically checks the number of existing tags. An error message is returned if the maximum number of tags is reached.
+     *  *
      * @param TagResourcesForExpressConnectRequest $request TagResourcesForExpressConnectRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
@@ -27994,14 +29376,16 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)
-     *   * Tags are used to classify instances. Each tag consists of a key-value pair. Before you use tags, take note of the following items:
-     *   * *   Each tag key that is added to an instance must be unique.
-     *   * *   You cannot create tags without adding them to instances. All tags must be added to instances.
-     *   * *   Tag information is not shared across regions.
-     *   *     For example, you cannot view the tags that are created in the China (Hangzhou) region from the China (Shanghai) region.
-     *   * *   You can add up to 20 tags to each instance. Before you add a tag to an instance, the system automatically checks the number of existing tags. An error message is returned if the maximum number of tags is reached.
-     *   *
+     * @summary Creates tags and adds the tags to an Express Connect circuit.
+     *  *
+     * @description ## [](#)
+     * Tags are used to classify instances. Each tag consists of a key-value pair. Before you use tags, take note of the following items:
+     * *   Each tag key that is added to an instance must be unique.
+     * *   You cannot create tags without adding them to instances. All tags must be added to instances.
+     * *   Tag information is not shared across regions.
+     *     For example, you cannot view the tags that are created in the China (Hangzhou) region from the China (Shanghai) region.
+     * *   You can add up to 20 tags to each instance. Before you add a tag to an instance, the system automatically checks the number of existing tags. An error message is returned if the maximum number of tags is reached.
+     *  *
      * @param TagResourcesForExpressConnectRequest $request TagResourcesForExpressConnectRequest
      *
      * @return TagResourcesForExpressConnectResponse TagResourcesForExpressConnectResponse
@@ -28014,10 +29398,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * After you call this operation, the specified Express Connect circuit changes to the **Terminating** state. After the Express Connect circuit is disabled, it changes to the **Terminated** state. When you call this operation, take note of the following limits:
-     *   * *   You can only disable an Express Connect circuit that is in the **Enabled** state.
-     *   * *   Before you disable an Express Connect circuit, you must delete the virtual border routers (VBRs) associated with it.
-     *   *
+     * @summary Disables an Express Connect circuit after it is enabled.
+     *  *
+     * @description After you call this operation, the specified Express Connect circuit changes to the **Terminating** state. After the Express Connect circuit is disabled, it changes to the **Terminated** state. When you call this operation, take note of the following limits:
+     * *   You can only disable an Express Connect circuit that is in the **Enabled** state.
+     * *   Before you disable an Express Connect circuit, you must delete the virtual border routers (VBRs) associated with it.
+     *  *
      * @param TerminatePhysicalConnectionRequest $request TerminatePhysicalConnectionRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -28067,10 +29453,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * After you call this operation, the specified Express Connect circuit changes to the **Terminating** state. After the Express Connect circuit is disabled, it changes to the **Terminated** state. When you call this operation, take note of the following limits:
-     *   * *   You can only disable an Express Connect circuit that is in the **Enabled** state.
-     *   * *   Before you disable an Express Connect circuit, you must delete the virtual border routers (VBRs) associated with it.
-     *   *
+     * @summary Disables an Express Connect circuit after it is enabled.
+     *  *
+     * @description After you call this operation, the specified Express Connect circuit changes to the **Terminating** state. After the Express Connect circuit is disabled, it changes to the **Terminated** state. When you call this operation, take note of the following limits:
+     * *   You can only disable an Express Connect circuit that is in the **Enabled** state.
+     * *   Before you disable an Express Connect circuit, you must delete the virtual border routers (VBRs) associated with it.
+     *  *
      * @param TerminatePhysicalConnectionRequest $request TerminatePhysicalConnectionRequest
      *
      * @return TerminatePhysicalConnectionResponse TerminatePhysicalConnectionResponse
@@ -28083,9 +29471,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * After you call this operation, the VBR enters the **terminating** state from the **active** state. After the VBR is terminated, the VBR enters the **terminated** state.
-     *   * >  Only the owner of an Express Connect circuit can call this operation.
-     *   *
+     * @summary Terminates a virtual border router (VBR).
+     *  *
+     * @description After you call this operation, the VBR enters the **terminating** state from the **active** state. After the VBR is terminated, the VBR enters the **terminated** state.
+     * >  Only the owner of an Express Connect circuit can call this operation.
+     *  *
      * @param TerminateVirtualBorderRouterRequest $request TerminateVirtualBorderRouterRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -28135,9 +29525,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * After you call this operation, the VBR enters the **terminating** state from the **active** state. After the VBR is terminated, the VBR enters the **terminated** state.
-     *   * >  Only the owner of an Express Connect circuit can call this operation.
-     *   *
+     * @summary Terminates a virtual border router (VBR).
+     *  *
+     * @description After you call this operation, the VBR enters the **terminating** state from the **active** state. After the VBR is terminated, the VBR enters the **terminated** state.
+     * >  Only the owner of an Express Connect circuit can call this operation.
+     *  *
      * @param TerminateVirtualBorderRouterRequest $request TerminateVirtualBorderRouterRequest
      *
      * @return TerminateVirtualBorderRouterResponse TerminateVirtualBorderRouterResponse
@@ -28150,10 +29542,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param UnTagResourcesRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Removes tags from resources.
+     *  *
+     * @param UnTagResourcesRequest $request UnTagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnTagResourcesResponse
+     * @return UnTagResourcesResponse UnTagResourcesResponse
      */
     public function unTagResourcesWithOptions($request, $runtime)
     {
@@ -28205,9 +29599,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param UnTagResourcesRequest $request
+     * @summary Removes tags from resources.
+     *  *
+     * @param UnTagResourcesRequest $request UnTagResourcesRequest
      *
-     * @return UnTagResourcesResponse
+     * @return UnTagResourcesResponse UnTagResourcesResponse
      */
     public function unTagResources($request)
     {
@@ -28217,11 +29613,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **UnassociateEipAddress** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEipAddresses](~~120193~~) operation to query the status of the task.
-     *   *     *   If the EIP is in the **Unassociating** state, the EIP is being disassociated. In this state, you can only query the EIP and cannot perform other operations.
-     *   *     *   If the EIP is in the **Available** state, the EIP is disassociated.
-     *   * *   You cannot repeatedly call the **UnassociateEipAddress** operation within the specified period of time.
-     *   *
+     * @summary Disassociates an elastic IP address (EIP) from a cloud resource.
+     *  *
+     * @description *   **UnassociateEipAddress** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEipAddresses](https://help.aliyun.com/document_detail/120193.html) operation to query the status of the task.
+     *     *   If the EIP is in the **Unassociating** state, the EIP is being disassociated. In this state, you can only query the EIP and cannot perform other operations.
+     *     *   If the EIP is in the **Available** state, the EIP is disassociated.
+     * *   You cannot repeatedly call the **UnassociateEipAddress** operation within the specified period of time.
+     *  *
      * @param UnassociateEipAddressRequest $request UnassociateEipAddressRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -28283,11 +29681,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **UnassociateEipAddress** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEipAddresses](~~120193~~) operation to query the status of the task.
-     *   *     *   If the EIP is in the **Unassociating** state, the EIP is being disassociated. In this state, you can only query the EIP and cannot perform other operations.
-     *   *     *   If the EIP is in the **Available** state, the EIP is disassociated.
-     *   * *   You cannot repeatedly call the **UnassociateEipAddress** operation within the specified period of time.
-     *   *
+     * @summary Disassociates an elastic IP address (EIP) from a cloud resource.
+     *  *
+     * @description *   **UnassociateEipAddress** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEipAddresses](https://help.aliyun.com/document_detail/120193.html) operation to query the status of the task.
+     *     *   If the EIP is in the **Unassociating** state, the EIP is being disassociated. In this state, you can only query the EIP and cannot perform other operations.
+     *     *   If the EIP is in the **Available** state, the EIP is disassociated.
+     * *   You cannot repeatedly call the **UnassociateEipAddress** operation within the specified period of time.
+     *  *
      * @param UnassociateEipAddressRequest $request UnassociateEipAddressRequest
      *
      * @return UnassociateEipAddressResponse UnassociateEipAddressResponse
@@ -28300,10 +29700,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param UnassociateGlobalAccelerationInstanceRequest $request
-     * @param RuntimeOptions                               $runtime
+     * @summary Disassociates a Global Accelerator (GA) instance from a backend server.
+     *  *
+     * @param UnassociateGlobalAccelerationInstanceRequest $request UnassociateGlobalAccelerationInstanceRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnassociateGlobalAccelerationInstanceResponse
+     * @return UnassociateGlobalAccelerationInstanceResponse UnassociateGlobalAccelerationInstanceResponse
      */
     public function unassociateGlobalAccelerationInstanceWithOptions($request, $runtime)
     {
@@ -28349,9 +29751,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param UnassociateGlobalAccelerationInstanceRequest $request
+     * @summary Disassociates a Global Accelerator (GA) instance from a backend server.
+     *  *
+     * @param UnassociateGlobalAccelerationInstanceRequest $request UnassociateGlobalAccelerationInstanceRequest
      *
-     * @return UnassociateGlobalAccelerationInstanceResponse
+     * @return UnassociateGlobalAccelerationInstanceResponse UnassociateGlobalAccelerationInstanceResponse
      */
     public function unassociateGlobalAccelerationInstance($request)
     {
@@ -28361,15 +29765,17 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)
-     *   * When you call this operation, take note of the following limits:
-     *   * *   The ECS instance must be in the **Running** or **Stopped** state.
-     *   * *   The HAVIP must be in the **Available** or **InUse** state.
-     *   * *   **UnassociateHaVip** is an asynchronous operation. After a request is sent, the system returns a request ID and an instance ID and runs the task in the background. You can call the [DescribeHaVips](~~114611~~) operation to query the status of an HAVIP:
-     *   *     *   If the HAVIP is in the **Unassociating** state, the HAVIP is being disassociated.
-     *   *     *   If the HAVIP is in the **Inuse** or **Available** state, the HAVIP is disassociated.
-     *   * *   You cannot repeatedly call the **UnassociateHaVip** operation to disassociate an HAVIP within the specified period of time.
-     *   *
+     * @summary Disassociates a high-availability virtual IP address (HAVIP) from an Elastic Compute Service (ECS) in a virtual private cloud (VPC) or from an elastic network interface (ENI).
+     *  *
+     * @description ## [](#)
+     * When you call this operation, take note of the following limits:
+     * *   The ECS instance must be in the **Running** or **Stopped** state.
+     * *   The HAVIP must be in the **Available** or **InUse** state.
+     * *   **UnassociateHaVip** is an asynchronous operation. After a request is sent, the system returns a request ID and an instance ID and runs the task in the background. You can call the [DescribeHaVips](https://help.aliyun.com/document_detail/114611.html) operation to query the status of an HAVIP:
+     *     *   If the HAVIP is in the **Unassociating** state, the HAVIP is being disassociated.
+     *     *   If the HAVIP is in the **Inuse** or **Available** state, the HAVIP is disassociated.
+     * *   You cannot repeatedly call the **UnassociateHaVip** operation to disassociate an HAVIP within the specified period of time.
+     *  *
      * @param UnassociateHaVipRequest $request UnassociateHaVipRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -28428,15 +29834,17 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)
-     *   * When you call this operation, take note of the following limits:
-     *   * *   The ECS instance must be in the **Running** or **Stopped** state.
-     *   * *   The HAVIP must be in the **Available** or **InUse** state.
-     *   * *   **UnassociateHaVip** is an asynchronous operation. After a request is sent, the system returns a request ID and an instance ID and runs the task in the background. You can call the [DescribeHaVips](~~114611~~) operation to query the status of an HAVIP:
-     *   *     *   If the HAVIP is in the **Unassociating** state, the HAVIP is being disassociated.
-     *   *     *   If the HAVIP is in the **Inuse** or **Available** state, the HAVIP is disassociated.
-     *   * *   You cannot repeatedly call the **UnassociateHaVip** operation to disassociate an HAVIP within the specified period of time.
-     *   *
+     * @summary Disassociates a high-availability virtual IP address (HAVIP) from an Elastic Compute Service (ECS) in a virtual private cloud (VPC) or from an elastic network interface (ENI).
+     *  *
+     * @description ## [](#)
+     * When you call this operation, take note of the following limits:
+     * *   The ECS instance must be in the **Running** or **Stopped** state.
+     * *   The HAVIP must be in the **Available** or **InUse** state.
+     * *   **UnassociateHaVip** is an asynchronous operation. After a request is sent, the system returns a request ID and an instance ID and runs the task in the background. You can call the [DescribeHaVips](https://help.aliyun.com/document_detail/114611.html) operation to query the status of an HAVIP:
+     *     *   If the HAVIP is in the **Unassociating** state, the HAVIP is being disassociated.
+     *     *   If the HAVIP is in the **Inuse** or **Available** state, the HAVIP is disassociated.
+     * *   You cannot repeatedly call the **UnassociateHaVip** operation to disassociate an HAVIP within the specified period of time.
+     *  *
      * @param UnassociateHaVipRequest $request UnassociateHaVipRequest
      *
      * @return UnassociateHaVipResponse UnassociateHaVipResponse
@@ -28449,12 +29857,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)Description
-     *   * *   **UnassociateNetworkAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNetworkAclAttributes](~~116542~~) operation to query the status of the task.
-     *   *     *   If the network ACL is in the **UNBINDING** state, the network ACL is being disassociated from the vSwitch.
-     *   *     *   If the network ACL is in the **UNBINDED** state, the network ACL is disassociated from the vSwitch.
-     *   * *   You cannot repeatedly call the **UnassociateNetworkAcl** operation to disassociate a network ACL from a vSwitch within the specified period of time.
-     *   *
+     * @summary Disassociates a network access control list (ACL) from a vSwitch.
+     *  *
+     * @description ## [](#)Description
+     * *   **UnassociateNetworkAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNetworkAclAttributes](https://help.aliyun.com/document_detail/116542.html) operation to query the status of the task.
+     *     *   If the network ACL is in the **UNBINDING** state, the network ACL is being disassociated from the vSwitch.
+     *     *   If the network ACL is in the **UNBINDED** state, the network ACL is disassociated from the vSwitch.
+     * *   You cannot repeatedly call the **UnassociateNetworkAcl** operation to disassociate a network ACL from a vSwitch within the specified period of time.
+     *  *
      * @param UnassociateNetworkAclRequest $request UnassociateNetworkAclRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -28513,12 +29923,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)Description
-     *   * *   **UnassociateNetworkAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNetworkAclAttributes](~~116542~~) operation to query the status of the task.
-     *   *     *   If the network ACL is in the **UNBINDING** state, the network ACL is being disassociated from the vSwitch.
-     *   *     *   If the network ACL is in the **UNBINDED** state, the network ACL is disassociated from the vSwitch.
-     *   * *   You cannot repeatedly call the **UnassociateNetworkAcl** operation to disassociate a network ACL from a vSwitch within the specified period of time.
-     *   *
+     * @summary Disassociates a network access control list (ACL) from a vSwitch.
+     *  *
+     * @description ## [](#)Description
+     * *   **UnassociateNetworkAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNetworkAclAttributes](https://help.aliyun.com/document_detail/116542.html) operation to query the status of the task.
+     *     *   If the network ACL is in the **UNBINDING** state, the network ACL is being disassociated from the vSwitch.
+     *     *   If the network ACL is in the **UNBINDED** state, the network ACL is disassociated from the vSwitch.
+     * *   You cannot repeatedly call the **UnassociateNetworkAcl** operation to disassociate a network ACL from a vSwitch within the specified period of time.
+     *  *
      * @param UnassociateNetworkAclRequest $request UnassociateNetworkAclRequest
      *
      * @return UnassociateNetworkAclResponse UnassociateNetworkAclResponse
@@ -28531,10 +29943,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param UnassociatePhysicalConnectionFromVirtualBorderRouterRequest $request
-     * @param RuntimeOptions                                              $runtime
+     * @summary Disassociates a virtual border router (VBR) from an Express Connect circuit.
+     *  *
+     * @param UnassociatePhysicalConnectionFromVirtualBorderRouterRequest $request UnassociatePhysicalConnectionFromVirtualBorderRouterRequest
+     * @param RuntimeOptions                                              $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnassociatePhysicalConnectionFromVirtualBorderRouterResponse
+     * @return UnassociatePhysicalConnectionFromVirtualBorderRouterResponse UnassociatePhysicalConnectionFromVirtualBorderRouterResponse
      */
     public function unassociatePhysicalConnectionFromVirtualBorderRouterWithOptions($request, $runtime)
     {
@@ -28583,9 +29997,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param UnassociatePhysicalConnectionFromVirtualBorderRouterRequest $request
+     * @summary Disassociates a virtual border router (VBR) from an Express Connect circuit.
+     *  *
+     * @param UnassociatePhysicalConnectionFromVirtualBorderRouterRequest $request UnassociatePhysicalConnectionFromVirtualBorderRouterRequest
      *
-     * @return UnassociatePhysicalConnectionFromVirtualBorderRouterResponse
+     * @return UnassociatePhysicalConnectionFromVirtualBorderRouterResponse UnassociatePhysicalConnectionFromVirtualBorderRouterResponse
      */
     public function unassociatePhysicalConnectionFromVirtualBorderRouter($request)
     {
@@ -28595,12 +30011,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)References
-     *   * *   **UnassociateRouteTable** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](~~94567~~) operation to query the status of the task.
-     *   *     *   If the vSwitch is in the **Pending** state, the route table is being disassociated.
-     *   *     *   If the vSwitch is in the **Available** state, the route table is disassociated.
-     *   * *   You cannot repeatedly call the **UnassociateRouteTable** operation to disassociate a route table from a vSwitch within the specified period of time.
-     *   *
+     * @summary Disassociates a route table from a vSwitch.
+     *  *
+     * @description ## [](#)References
+     * *   **UnassociateRouteTable** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) operation to query the status of the task.
+     *     *   If the vSwitch is in the **Pending** state, the route table is being disassociated.
+     *     *   If the vSwitch is in the **Available** state, the route table is disassociated.
+     * *   You cannot repeatedly call the **UnassociateRouteTable** operation to disassociate a route table from a vSwitch within the specified period of time.
+     *  *
      * @param UnassociateRouteTableRequest $request UnassociateRouteTableRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -28656,12 +30074,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)References
-     *   * *   **UnassociateRouteTable** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](~~94567~~) operation to query the status of the task.
-     *   *     *   If the vSwitch is in the **Pending** state, the route table is being disassociated.
-     *   *     *   If the vSwitch is in the **Available** state, the route table is disassociated.
-     *   * *   You cannot repeatedly call the **UnassociateRouteTable** operation to disassociate a route table from a vSwitch within the specified period of time.
-     *   *
+     * @summary Disassociates a route table from a vSwitch.
+     *  *
+     * @description ## [](#)References
+     * *   **UnassociateRouteTable** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) operation to query the status of the task.
+     *     *   If the vSwitch is in the **Pending** state, the route table is being disassociated.
+     *     *   If the vSwitch is in the **Available** state, the route table is disassociated.
+     * *   You cannot repeatedly call the **UnassociateRouteTable** operation to disassociate a route table from a vSwitch within the specified period of time.
+     *  *
      * @param UnassociateRouteTableRequest $request UnassociateRouteTableRequest
      *
      * @return UnassociateRouteTableResponse UnassociateRouteTableResponse
@@ -28674,9 +30094,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   Before you delete a secondary CIDR block from a VPC, delete the vSwitch which is created with the CIDR block. For more information, see [DeleteVSwitch](~~35746~~).
-     *   * *   You cannot repeatedly call the **UnassociateVpcCidrBlock** operation to delete a secondary CIDR block from a VPC within the specified period of time.
-     *   *
+     * @summary Removes a secondary CIDR block from a virtual private cloud (VPC).
+     *  *
+     * @description *   Before you delete a secondary CIDR block from a VPC, delete the vSwitch which is created with the CIDR block. For more information, see [DeleteVSwitch](https://help.aliyun.com/document_detail/35746.html).
+     * *   You cannot repeatedly call the **UnassociateVpcCidrBlock** operation to delete a secondary CIDR block from a VPC within the specified period of time.
+     *  *
      * @param UnassociateVpcCidrBlockRequest $request UnassociateVpcCidrBlockRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -28732,9 +30154,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   Before you delete a secondary CIDR block from a VPC, delete the vSwitch which is created with the CIDR block. For more information, see [DeleteVSwitch](~~35746~~).
-     *   * *   You cannot repeatedly call the **UnassociateVpcCidrBlock** operation to delete a secondary CIDR block from a VPC within the specified period of time.
-     *   *
+     * @summary Removes a secondary CIDR block from a virtual private cloud (VPC).
+     *  *
+     * @description *   Before you delete a secondary CIDR block from a VPC, delete the vSwitch which is created with the CIDR block. For more information, see [DeleteVSwitch](https://help.aliyun.com/document_detail/35746.html).
+     * *   You cannot repeatedly call the **UnassociateVpcCidrBlock** operation to delete a secondary CIDR block from a VPC within the specified period of time.
+     *  *
      * @param UnassociateVpcCidrBlockRequest $request UnassociateVpcCidrBlockRequest
      *
      * @return UnassociateVpcCidrBlockResponse UnassociateVpcCidrBlockResponse
@@ -28747,10 +30171,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesForExpressConnectRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary Removes tags from an Express Connect circuit at a time.
+     *  *
+     * @param UntagResourcesForExpressConnectRequest $request UntagResourcesForExpressConnectRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return UntagResourcesForExpressConnectResponse
+     * @return UntagResourcesForExpressConnectResponse UntagResourcesForExpressConnectResponse
      */
     public function untagResourcesForExpressConnectWithOptions($request, $runtime)
     {
@@ -28802,9 +30228,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesForExpressConnectRequest $request
+     * @summary Removes tags from an Express Connect circuit at a time.
+     *  *
+     * @param UntagResourcesForExpressConnectRequest $request UntagResourcesForExpressConnectRequest
      *
-     * @return UntagResourcesForExpressConnectResponse
+     * @return UntagResourcesForExpressConnectResponse UntagResourcesForExpressConnectResponse
      */
     public function untagResourcesForExpressConnect($request)
     {
@@ -28814,10 +30242,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param UpdateDhcpOptionsSetAttributeRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary 修改Dhcp选项集信息
+     *  *
+     * @param UpdateDhcpOptionsSetAttributeRequest $request UpdateDhcpOptionsSetAttributeRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateDhcpOptionsSetAttributeResponse
+     * @return UpdateDhcpOptionsSetAttributeResponse UpdateDhcpOptionsSetAttributeResponse
      */
     public function updateDhcpOptionsSetAttributeWithOptions($request, $runtime)
     {
@@ -28884,9 +30314,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param UpdateDhcpOptionsSetAttributeRequest $request
+     * @summary 修改Dhcp选项集信息
+     *  *
+     * @param UpdateDhcpOptionsSetAttributeRequest $request UpdateDhcpOptionsSetAttributeRequest
      *
-     * @return UpdateDhcpOptionsSetAttributeResponse
+     * @return UpdateDhcpOptionsSetAttributeResponse UpdateDhcpOptionsSetAttributeResponse
      */
     public function updateDhcpOptionsSetAttribute($request)
     {
@@ -28896,10 +30328,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param UpdateFailoverTestJobRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 更新故障演练任务
+     *  *
+     * @param UpdateFailoverTestJobRequest $request UpdateFailoverTestJobRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateFailoverTestJobResponse
+     * @return UpdateFailoverTestJobResponse UpdateFailoverTestJobResponse
      */
     public function updateFailoverTestJobWithOptions($request, $runtime)
     {
@@ -28957,9 +30391,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param UpdateFailoverTestJobRequest $request
+     * @summary 更新故障演练任务
+     *  *
+     * @param UpdateFailoverTestJobRequest $request UpdateFailoverTestJobRequest
      *
-     * @return UpdateFailoverTestJobResponse
+     * @return UpdateFailoverTestJobResponse UpdateFailoverTestJobResponse
      */
     public function updateFailoverTestJob($request)
     {
@@ -28969,10 +30405,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param UpdateGatewayRouteTableEntryAttributeRequest $request
-     * @param RuntimeOptions                               $runtime
+     * @summary Modifies the next hop type and next hop of the route entry in a gateway route table.
+     *  *
+     * @param UpdateGatewayRouteTableEntryAttributeRequest $request UpdateGatewayRouteTableEntryAttributeRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateGatewayRouteTableEntryAttributeResponse
+     * @return UpdateGatewayRouteTableEntryAttributeResponse UpdateGatewayRouteTableEntryAttributeResponse
      */
     public function updateGatewayRouteTableEntryAttributeWithOptions($request, $runtime)
     {
@@ -29042,9 +30480,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param UpdateGatewayRouteTableEntryAttributeRequest $request
+     * @summary Modifies the next hop type and next hop of the route entry in a gateway route table.
+     *  *
+     * @param UpdateGatewayRouteTableEntryAttributeRequest $request UpdateGatewayRouteTableEntryAttributeRequest
      *
-     * @return UpdateGatewayRouteTableEntryAttributeResponse
+     * @return UpdateGatewayRouteTableEntryAttributeResponse UpdateGatewayRouteTableEntryAttributeResponse
      */
     public function updateGatewayRouteTableEntryAttribute($request)
     {
@@ -29054,12 +30494,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   If you modify only the **IpsecServerName** parameter, this operation is synchronous. If you modify parameters other than **IpsecServerName**, this operation is asynchronous.
-     *   * *   When the **UpdateIpsecServer** operation is asynchronous, the system returns a request ID after you send a request to call this operation and the IPsec server is being modified in the backend. You can call [DescribeVpnGateway](~~73720~~) to query the status of a VPN gateway.
-     *   *     *   If the VPN gateway is in the **updating** state, the configuration of the IPsec server is being modified.
-     *   *     *   If the VPN gateway is in the **active** state, the configuration of the IPsec server is modified.
-     *   * *   You cannot repeatedly call the **UpdateIpsecServer** operation for the same VPN gateway within the specified period of time.
-     *   *
+     * @summary Modifies the configuration of an IPsec server.
+     *  *
+     * @description *   If you modify only the **IpsecServerName** parameter, this operation is synchronous. If you modify parameters other than **IpsecServerName**, this operation is asynchronous.
+     * *   When the **UpdateIpsecServer** operation is asynchronous, the system returns a request ID after you send a request to call this operation and the IPsec server is being modified in the backend. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of a VPN gateway.
+     *     *   If the VPN gateway is in the **updating** state, the configuration of the IPsec server is being modified.
+     *     *   If the VPN gateway is in the **active** state, the configuration of the IPsec server is modified.
+     * *   You cannot repeatedly call the **UpdateIpsecServer** operation for the same VPN gateway within the specified period of time.
+     *  *
      * @param UpdateIpsecServerRequest $request UpdateIpsecServerRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -29124,12 +30566,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   If you modify only the **IpsecServerName** parameter, this operation is synchronous. If you modify parameters other than **IpsecServerName**, this operation is asynchronous.
-     *   * *   When the **UpdateIpsecServer** operation is asynchronous, the system returns a request ID after you send a request to call this operation and the IPsec server is being modified in the backend. You can call [DescribeVpnGateway](~~73720~~) to query the status of a VPN gateway.
-     *   *     *   If the VPN gateway is in the **updating** state, the configuration of the IPsec server is being modified.
-     *   *     *   If the VPN gateway is in the **active** state, the configuration of the IPsec server is modified.
-     *   * *   You cannot repeatedly call the **UpdateIpsecServer** operation for the same VPN gateway within the specified period of time.
-     *   *
+     * @summary Modifies the configuration of an IPsec server.
+     *  *
+     * @description *   If you modify only the **IpsecServerName** parameter, this operation is synchronous. If you modify parameters other than **IpsecServerName**, this operation is asynchronous.
+     * *   When the **UpdateIpsecServer** operation is asynchronous, the system returns a request ID after you send a request to call this operation and the IPsec server is being modified in the backend. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of a VPN gateway.
+     *     *   If the VPN gateway is in the **updating** state, the configuration of the IPsec server is being modified.
+     *     *   If the VPN gateway is in the **active** state, the configuration of the IPsec server is modified.
+     * *   You cannot repeatedly call the **UpdateIpsecServer** operation for the same VPN gateway within the specified period of time.
+     *  *
      * @param UpdateIpsecServerRequest $request UpdateIpsecServerRequest
      *
      * @return UpdateIpsecServerResponse UpdateIpsecServerResponse
@@ -29142,8 +30586,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You cannot repeatedly call the **UpdateIpv4GatewayAttribute** operation to modify the name or description of an IPv4 gateway within the specified period of time.
-     *   *
+     * @summary Modifies the description or name of an IPv4 gateway.
+     *  *
+     * @description You cannot repeatedly call the **UpdateIpv4GatewayAttribute** operation to modify the name or description of an IPv4 gateway within the specified period of time.
+     *  *
      * @param UpdateIpv4GatewayAttributeRequest $request UpdateIpv4GatewayAttributeRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -29205,8 +30651,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You cannot repeatedly call the **UpdateIpv4GatewayAttribute** operation to modify the name or description of an IPv4 gateway within the specified period of time.
-     *   *
+     * @summary Modifies the description or name of an IPv4 gateway.
+     *  *
+     * @description You cannot repeatedly call the **UpdateIpv4GatewayAttribute** operation to modify the name or description of an IPv4 gateway within the specified period of time.
+     *  *
      * @param UpdateIpv4GatewayAttributeRequest $request UpdateIpv4GatewayAttributeRequest
      *
      * @return UpdateIpv4GatewayAttributeResponse UpdateIpv4GatewayAttributeResponse
@@ -29219,16 +30667,18 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, take note of the following limits:
-     *   * *   **UpdateNatGatewayNatType** is an asynchronous operation. After you send a request to call this operation, the system returns a request ID and the NAT gateway is still being upgraded in the backend. You can call the GetNatGatewayConvertStatus operation to query the upgrade progress of a NAT gateway. For more information, see [GetNatGatewayConvertStatus](~~184744~~).
-     *   *     *   If the NAT gateway is in the **processing** state, the NAT gateway is being upgraded. You can only query the status of the NAT gateway but cannot perform other operations.
-     *   *     *   If the NAT gateway is in the **successful** state, the NAT gateway is upgraded.
-     *   *     *   If the NAT gateway is in the **failed** state, the system failed to upgrade the NAT gateway.
-     *   * *   You cannot repeatedly call the **UpdateNatGatewayNatType** operation for the same VPN gateway within the specified period of time.
-     *   * *   The billing method and billable items remain the same after the upgrade.
-     *   * *   It takes about five minutes to upgrade a standard NAT gateway to an enhanced NAT gateway. During the upgrade, transient connection errors may occur once or twice. The service can be recovered by reconnection. You can determine whether to enable automatic reconnection or use manual reconnection based on your business requirements.
-     *   * *   You can only upgrade standard NAT gateways to enhanced NAT gateways. You are not allowed to downgrade enhanced NAT gateways to standard NAT gateways.
-     *   *
+     * @summary Upgrades a standard NAT gateway to an enhanced NAT gateway.
+     *  *
+     * @description Before you call this operation, take note of the following limits:
+     * *   **UpdateNatGatewayNatType** is an asynchronous operation. After you send a request to call this operation, the system returns a request ID and the NAT gateway is still being upgraded in the backend. You can call the GetNatGatewayConvertStatus operation to query the upgrade progress of a NAT gateway. For more information, see [GetNatGatewayConvertStatus](https://help.aliyun.com/document_detail/184744.html).
+     *     *   If the NAT gateway is in the **processing** state, the NAT gateway is being upgraded. You can only query the status of the NAT gateway but cannot perform other operations.
+     *     *   If the NAT gateway is in the **successful** state, the NAT gateway is upgraded.
+     *     *   If the NAT gateway is in the **failed** state, the system failed to upgrade the NAT gateway.
+     * *   You cannot repeatedly call the **UpdateNatGatewayNatType** operation for the same VPN gateway within the specified period of time.
+     * *   The billing method and billable items remain the same after the upgrade.
+     * *   It takes about five minutes to upgrade a standard NAT gateway to an enhanced NAT gateway. During the upgrade, transient connection errors may occur once or twice. The service can be recovered by reconnection. You can determine whether to enable automatic reconnection or use manual reconnection based on your business requirements.
+     * *   You can only upgrade standard NAT gateways to enhanced NAT gateways. You are not allowed to downgrade enhanced NAT gateways to standard NAT gateways.
+     *  *
      * @param UpdateNatGatewayNatTypeRequest $request UpdateNatGatewayNatTypeRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -29290,16 +30740,18 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, take note of the following limits:
-     *   * *   **UpdateNatGatewayNatType** is an asynchronous operation. After you send a request to call this operation, the system returns a request ID and the NAT gateway is still being upgraded in the backend. You can call the GetNatGatewayConvertStatus operation to query the upgrade progress of a NAT gateway. For more information, see [GetNatGatewayConvertStatus](~~184744~~).
-     *   *     *   If the NAT gateway is in the **processing** state, the NAT gateway is being upgraded. You can only query the status of the NAT gateway but cannot perform other operations.
-     *   *     *   If the NAT gateway is in the **successful** state, the NAT gateway is upgraded.
-     *   *     *   If the NAT gateway is in the **failed** state, the system failed to upgrade the NAT gateway.
-     *   * *   You cannot repeatedly call the **UpdateNatGatewayNatType** operation for the same VPN gateway within the specified period of time.
-     *   * *   The billing method and billable items remain the same after the upgrade.
-     *   * *   It takes about five minutes to upgrade a standard NAT gateway to an enhanced NAT gateway. During the upgrade, transient connection errors may occur once or twice. The service can be recovered by reconnection. You can determine whether to enable automatic reconnection or use manual reconnection based on your business requirements.
-     *   * *   You can only upgrade standard NAT gateways to enhanced NAT gateways. You are not allowed to downgrade enhanced NAT gateways to standard NAT gateways.
-     *   *
+     * @summary Upgrades a standard NAT gateway to an enhanced NAT gateway.
+     *  *
+     * @description Before you call this operation, take note of the following limits:
+     * *   **UpdateNatGatewayNatType** is an asynchronous operation. After you send a request to call this operation, the system returns a request ID and the NAT gateway is still being upgraded in the backend. You can call the GetNatGatewayConvertStatus operation to query the upgrade progress of a NAT gateway. For more information, see [GetNatGatewayConvertStatus](https://help.aliyun.com/document_detail/184744.html).
+     *     *   If the NAT gateway is in the **processing** state, the NAT gateway is being upgraded. You can only query the status of the NAT gateway but cannot perform other operations.
+     *     *   If the NAT gateway is in the **successful** state, the NAT gateway is upgraded.
+     *     *   If the NAT gateway is in the **failed** state, the system failed to upgrade the NAT gateway.
+     * *   You cannot repeatedly call the **UpdateNatGatewayNatType** operation for the same VPN gateway within the specified period of time.
+     * *   The billing method and billable items remain the same after the upgrade.
+     * *   It takes about five minutes to upgrade a standard NAT gateway to an enhanced NAT gateway. During the upgrade, transient connection errors may occur once or twice. The service can be recovered by reconnection. You can determine whether to enable automatic reconnection or use manual reconnection based on your business requirements.
+     * *   You can only upgrade standard NAT gateways to enhanced NAT gateways. You are not allowed to downgrade enhanced NAT gateways to standard NAT gateways.
+     *  *
      * @param UpdateNatGatewayNatTypeRequest $request UpdateNatGatewayNatTypeRequest
      *
      * @return UpdateNatGatewayNatTypeResponse UpdateNatGatewayNatTypeResponse
@@ -29312,11 +30764,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **UpdateNetworkAclEntries** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNetworkAclAttributes](~~116542~~) operation to query the status of a network ACL:
-     *   *     *   If the network ACL is in the **Modifying** state, the rules of the network ACL are being updated.
-     *   *     *   If the network ACL is in the **Available** state, the rules of the network ACL are updated.
-     *   * *   You cannot repeatedly call the **UpdateNetworkAclEntries** operation to update the rules of a network ACL within the specified period of time.
-     *   *
+     * @summary Updates the rules of a network access control list (ACL).
+     *  *
+     * @description *   **UpdateNetworkAclEntries** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNetworkAclAttributes](https://help.aliyun.com/document_detail/116542.html) operation to query the status of a network ACL:
+     *     *   If the network ACL is in the **Modifying** state, the rules of the network ACL are being updated.
+     *     *   If the network ACL is in the **Available** state, the rules of the network ACL are updated.
+     * *   You cannot repeatedly call the **UpdateNetworkAclEntries** operation to update the rules of a network ACL within the specified period of time.
+     *  *
      * @param UpdateNetworkAclEntriesRequest $request UpdateNetworkAclEntriesRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -29384,11 +30838,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **UpdateNetworkAclEntries** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNetworkAclAttributes](~~116542~~) operation to query the status of a network ACL:
-     *   *     *   If the network ACL is in the **Modifying** state, the rules of the network ACL are being updated.
-     *   *     *   If the network ACL is in the **Available** state, the rules of the network ACL are updated.
-     *   * *   You cannot repeatedly call the **UpdateNetworkAclEntries** operation to update the rules of a network ACL within the specified period of time.
-     *   *
+     * @summary Updates the rules of a network access control list (ACL).
+     *  *
+     * @description *   **UpdateNetworkAclEntries** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNetworkAclAttributes](https://help.aliyun.com/document_detail/116542.html) operation to query the status of a network ACL:
+     *     *   If the network ACL is in the **Modifying** state, the rules of the network ACL are being updated.
+     *     *   If the network ACL is in the **Available** state, the rules of the network ACL are updated.
+     * *   You cannot repeatedly call the **UpdateNetworkAclEntries** operation to update the rules of a network ACL within the specified period of time.
+     *  *
      * @param UpdateNetworkAclEntriesRequest $request UpdateNetworkAclEntriesRequest
      *
      * @return UpdateNetworkAclEntriesResponse UpdateNetworkAclEntriesResponse
@@ -29401,8 +30857,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You cannot repeatedly call the **UpdatePublicIpAddressPoolAttribute** operation to modify the attributes of an IP address pool within the specified period of time.
-     *   *
+     * @summary Modifies the attributes of an IP address pool.
+     *  *
+     * @description You cannot repeatedly call the **UpdatePublicIpAddressPoolAttribute** operation to modify the attributes of an IP address pool within the specified period of time.
+     *  *
      * @param UpdatePublicIpAddressPoolAttributeRequest $request UpdatePublicIpAddressPoolAttributeRequest
      * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
@@ -29461,8 +30919,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You cannot repeatedly call the **UpdatePublicIpAddressPoolAttribute** operation to modify the attributes of an IP address pool within the specified period of time.
-     *   *
+     * @summary Modifies the attributes of an IP address pool.
+     *  *
+     * @description You cannot repeatedly call the **UpdatePublicIpAddressPoolAttribute** operation to modify the attributes of an IP address pool within the specified period of time.
+     *  *
      * @param UpdatePublicIpAddressPoolAttributeRequest $request UpdatePublicIpAddressPoolAttributeRequest
      *
      * @return UpdatePublicIpAddressPoolAttributeResponse UpdatePublicIpAddressPoolAttributeResponse
@@ -29475,8 +30935,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You cannot repeatedly call the **UpdateTrafficMirrorFilterAttribute** operation to modify the configuration of a filter for traffic mirroring within the specified period of time.
-     *   *
+     * @summary Modifies the configuration of a filter for traffic mirroring.
+     *  *
+     * @description You cannot repeatedly call the **UpdateTrafficMirrorFilterAttribute** operation to modify the configuration of a filter for traffic mirroring within the specified period of time.
+     *  *
      * @param UpdateTrafficMirrorFilterAttributeRequest $request UpdateTrafficMirrorFilterAttributeRequest
      * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
@@ -29535,8 +30997,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You cannot repeatedly call the **UpdateTrafficMirrorFilterAttribute** operation to modify the configuration of a filter for traffic mirroring within the specified period of time.
-     *   *
+     * @summary Modifies the configuration of a filter for traffic mirroring.
+     *  *
+     * @description You cannot repeatedly call the **UpdateTrafficMirrorFilterAttribute** operation to modify the configuration of a filter for traffic mirroring within the specified period of time.
+     *  *
      * @param UpdateTrafficMirrorFilterAttributeRequest $request UpdateTrafficMirrorFilterAttributeRequest
      *
      * @return UpdateTrafficMirrorFilterAttributeResponse UpdateTrafficMirrorFilterAttributeResponse
@@ -29549,11 +31013,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   The **UpdateTrafficMirrorFilterRuleAttribute** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [ListTrafficMirrorFilters](~~261353~~) operation to query the status of an inbound or outbound rule:
-     *   *     *   If the rule is in the **Modifying** state, the rule is being modified.
-     *   *     *   If the rule is in the **Created** state, the rule is modified.
-     *   * *   You cannot repeatedly call the **UpdateTrafficMirrorFilterRuleAttribute** operation to modify an inbound or outbound rule within the specified period of time.
-     *   *
+     * @summary Modifies the configuration of an inbound or outbound rule for traffic mirroring.
+     *  *
+     * @description *   The **UpdateTrafficMirrorFilterRuleAttribute** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [ListTrafficMirrorFilters](https://help.aliyun.com/document_detail/261353.html) operation to query the status of an inbound or outbound rule:
+     *     *   If the rule is in the **Modifying** state, the rule is being modified.
+     *     *   If the rule is in the **Created** state, the rule is modified.
+     * *   You cannot repeatedly call the **UpdateTrafficMirrorFilterRuleAttribute** operation to modify an inbound or outbound rule within the specified period of time.
+     *  *
      * @param UpdateTrafficMirrorFilterRuleAttributeRequest $request UpdateTrafficMirrorFilterRuleAttributeRequest
      * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
@@ -29627,11 +31093,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   The **UpdateTrafficMirrorFilterRuleAttribute** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [ListTrafficMirrorFilters](~~261353~~) operation to query the status of an inbound or outbound rule:
-     *   *     *   If the rule is in the **Modifying** state, the rule is being modified.
-     *   *     *   If the rule is in the **Created** state, the rule is modified.
-     *   * *   You cannot repeatedly call the **UpdateTrafficMirrorFilterRuleAttribute** operation to modify an inbound or outbound rule within the specified period of time.
-     *   *
+     * @summary Modifies the configuration of an inbound or outbound rule for traffic mirroring.
+     *  *
+     * @description *   The **UpdateTrafficMirrorFilterRuleAttribute** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [ListTrafficMirrorFilters](https://help.aliyun.com/document_detail/261353.html) operation to query the status of an inbound or outbound rule:
+     *     *   If the rule is in the **Modifying** state, the rule is being modified.
+     *     *   If the rule is in the **Created** state, the rule is modified.
+     * *   You cannot repeatedly call the **UpdateTrafficMirrorFilterRuleAttribute** operation to modify an inbound or outbound rule within the specified period of time.
+     *  *
      * @param UpdateTrafficMirrorFilterRuleAttributeRequest $request UpdateTrafficMirrorFilterRuleAttributeRequest
      *
      * @return UpdateTrafficMirrorFilterRuleAttributeResponse UpdateTrafficMirrorFilterRuleAttributeResponse
@@ -29644,12 +31112,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## Usage notes
-     *   * *   **UpdateTrafficMirrorSessionAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorSessions](~~261367~~) operation to query the status of the task.
-     *   *     *   If the traffic mirror session is in the **Modifying** state, the configuration of the traffic mirror session is being modified.
-     *   *     *   If the traffic mirror session is in the **Created** state, the configuration of the traffic mirror session is modified.
-     *   * *   You cannot repeatedly call the **UpdateTrafficMirrorSessionAttribute** operation within a specific period of time.
-     *   *
+     * @summary Modifies the configuration of a traffic mirror session.
+     *  *
+     * @description ## Usage notes
+     * *   **UpdateTrafficMirrorSessionAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorSessions](https://help.aliyun.com/document_detail/261367.html) operation to query the status of the task.
+     *     *   If the traffic mirror session is in the **Modifying** state, the configuration of the traffic mirror session is being modified.
+     *     *   If the traffic mirror session is in the **Created** state, the configuration of the traffic mirror session is modified.
+     * *   You cannot repeatedly call the **UpdateTrafficMirrorSessionAttribute** operation within a specific period of time.
+     *  *
      * @param UpdateTrafficMirrorSessionAttributeRequest $request UpdateTrafficMirrorSessionAttributeRequest
      * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
@@ -29729,12 +31199,14 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## Usage notes
-     *   * *   **UpdateTrafficMirrorSessionAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorSessions](~~261367~~) operation to query the status of the task.
-     *   *     *   If the traffic mirror session is in the **Modifying** state, the configuration of the traffic mirror session is being modified.
-     *   *     *   If the traffic mirror session is in the **Created** state, the configuration of the traffic mirror session is modified.
-     *   * *   You cannot repeatedly call the **UpdateTrafficMirrorSessionAttribute** operation within a specific period of time.
-     *   *
+     * @summary Modifies the configuration of a traffic mirror session.
+     *  *
+     * @description ## Usage notes
+     * *   **UpdateTrafficMirrorSessionAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorSessions](https://help.aliyun.com/document_detail/261367.html) operation to query the status of the task.
+     *     *   If the traffic mirror session is in the **Modifying** state, the configuration of the traffic mirror session is being modified.
+     *     *   If the traffic mirror session is in the **Created** state, the configuration of the traffic mirror session is modified.
+     * *   You cannot repeatedly call the **UpdateTrafficMirrorSessionAttribute** operation within a specific period of time.
+     *  *
      * @param UpdateTrafficMirrorSessionAttributeRequest $request UpdateTrafficMirrorSessionAttributeRequest
      *
      * @return UpdateTrafficMirrorSessionAttributeResponse UpdateTrafficMirrorSessionAttributeResponse
@@ -29747,10 +31219,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param UpdateVirtualBorderBandwidthRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Updates the maximum bandwidth value of outbound data transfer for a virtual border router (VBR).
+     *  *
+     * @param UpdateVirtualBorderBandwidthRequest $request UpdateVirtualBorderBandwidthRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateVirtualBorderBandwidthResponse
+     * @return UpdateVirtualBorderBandwidthResponse UpdateVirtualBorderBandwidthResponse
      */
     public function updateVirtualBorderBandwidthWithOptions($request, $runtime)
     {
@@ -29799,9 +31273,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param UpdateVirtualBorderBandwidthRequest $request
+     * @summary Updates the maximum bandwidth value of outbound data transfer for a virtual border router (VBR).
+     *  *
+     * @param UpdateVirtualBorderBandwidthRequest $request UpdateVirtualBorderBandwidthRequest
      *
-     * @return UpdateVirtualBorderBandwidthResponse
+     * @return UpdateVirtualBorderBandwidthResponse UpdateVirtualBorderBandwidthResponse
      */
     public function updateVirtualBorderBandwidth($request)
     {
@@ -29811,10 +31287,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param UpdateVirtualPhysicalConnectionRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary Changes the virtual local area network (VLAN) ID of a hosted connection over Express Connect circuit.
+     *  *
+     * @param UpdateVirtualPhysicalConnectionRequest $request UpdateVirtualPhysicalConnectionRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateVirtualPhysicalConnectionResponse
+     * @return UpdateVirtualPhysicalConnectionResponse UpdateVirtualPhysicalConnectionResponse
      */
     public function updateVirtualPhysicalConnectionWithOptions($request, $runtime)
     {
@@ -29857,9 +31335,11 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @param UpdateVirtualPhysicalConnectionRequest $request
+     * @summary Changes the virtual local area network (VLAN) ID of a hosted connection over Express Connect circuit.
+     *  *
+     * @param UpdateVirtualPhysicalConnectionRequest $request UpdateVirtualPhysicalConnectionRequest
      *
-     * @return UpdateVirtualPhysicalConnectionResponse
+     * @return UpdateVirtualPhysicalConnectionResponse UpdateVirtualPhysicalConnectionResponse
      */
     public function updateVirtualPhysicalConnection($request)
     {
@@ -29869,11 +31349,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **UpdateVpcGatewayEndpointAttribute** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call the [GetVpcGatewayEndpointAttribute](~~311017~~) operation to query the status of the task.
-     *   *     *   If the gateway endpoint is in the **Updating** state, it is being modified.
-     *   *     *   If the gateway endpoint is in the **Created** state, it is modified.
-     *   * *   You cannot call the **UpdateVpcGatewayEndpointAttribute** operation within a specific period of time.
-     *   *
+     * @summary Modifies the configuration of a gateway endpoint.
+     *  *
+     * @description *   **UpdateVpcGatewayEndpointAttribute** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call the [GetVpcGatewayEndpointAttribute](https://help.aliyun.com/document_detail/311017.html) operation to query the status of the task.
+     *     *   If the gateway endpoint is in the **Updating** state, it is being modified.
+     *     *   If the gateway endpoint is in the **Created** state, it is modified.
+     * *   You cannot call the **UpdateVpcGatewayEndpointAttribute** operation within a specific period of time.
+     *  *
      * @param UpdateVpcGatewayEndpointAttributeRequest $request UpdateVpcGatewayEndpointAttributeRequest
      * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
@@ -29935,11 +31417,13 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   **UpdateVpcGatewayEndpointAttribute** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call the [GetVpcGatewayEndpointAttribute](~~311017~~) operation to query the status of the task.
-     *   *     *   If the gateway endpoint is in the **Updating** state, it is being modified.
-     *   *     *   If the gateway endpoint is in the **Created** state, it is modified.
-     *   * *   You cannot call the **UpdateVpcGatewayEndpointAttribute** operation within a specific period of time.
-     *   *
+     * @summary Modifies the configuration of a gateway endpoint.
+     *  *
+     * @description *   **UpdateVpcGatewayEndpointAttribute** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call the [GetVpcGatewayEndpointAttribute](https://help.aliyun.com/document_detail/311017.html) operation to query the status of the task.
+     *     *   If the gateway endpoint is in the **Updating** state, it is being modified.
+     *     *   If the gateway endpoint is in the **Created** state, it is modified.
+     * *   You cannot call the **UpdateVpcGatewayEndpointAttribute** operation within a specific period of time.
+     *  *
      * @param UpdateVpcGatewayEndpointAttributeRequest $request UpdateVpcGatewayEndpointAttributeRequest
      *
      * @return UpdateVpcGatewayEndpointAttributeResponse UpdateVpcGatewayEndpointAttributeResponse
@@ -29952,8 +31436,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that a VPC NAT gateway is created. For more information, see [CreateNatGateway](~~120219~~).
-     *   *
+     * @summary 查看eni quota
+     *  *
+     * @description Before you call this operation, make sure that a VPC NAT gateway is created. For more information, see [CreateNatGateway](https://help.aliyun.com/document_detail/120219.html).
+     *  *
      * @param VpcDescribeVpcNatGatewayNetworkInterfaceQuotaRequest $request VpcDescribeVpcNatGatewayNetworkInterfaceQuotaRequest
      * @param RuntimeOptions                                       $runtime runtime options for this request RuntimeOptions
      *
@@ -30006,8 +31492,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that a VPC NAT gateway is created. For more information, see [CreateNatGateway](~~120219~~).
-     *   *
+     * @summary 查看eni quota
+     *  *
+     * @description Before you call this operation, make sure that a VPC NAT gateway is created. For more information, see [CreateNatGateway](https://help.aliyun.com/document_detail/120219.html).
+     *  *
      * @param VpcDescribeVpcNatGatewayNetworkInterfaceQuotaRequest $request VpcDescribeVpcNatGatewayNetworkInterfaceQuotaRequest
      *
      * @return VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponse VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponse

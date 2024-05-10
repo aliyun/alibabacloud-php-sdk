@@ -45,6 +45,7 @@ class ModifyNatIpAttributeRequest extends Model
     /**
      * @description The ID of the NAT IP address that you want to modify.
      *
+     * This parameter is required.
      * @example vpcnatip-gw8e1n11f44wpg****
      *
      * @var string
@@ -54,7 +55,7 @@ class ModifyNatIpAttributeRequest extends Model
     /**
      * @description The name of the NAT IP address that you want to modify.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). It must start with a letter. The name must start with a letter and cannot start with `http://` or `https://`.
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter. The name must start with a letter and cannot start with `http://` or `https://`.
      * @example newname
      *
      * @var string
@@ -74,7 +75,7 @@ class ModifyNatIpAttributeRequest extends Model
     /**
      * @description The region ID of the NAT gateway to which the NAT IP address that you want to modify belongs.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example eu-central-1
      *
      * @var string

@@ -21,7 +21,7 @@ class GetVpcRouteEntrySummaryRequest extends Model
     /**
      * @description The region ID of the route table.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -47,6 +47,7 @@ class GetVpcRouteEntrySummaryRequest extends Model
      *   **BGP**: a BGP route
      *   **CEN**: a Cloud Enterprise Network (CEN) route
      *
+     * This parameter is required.
      * @example Custom
      *
      * @var string
@@ -65,6 +66,7 @@ class GetVpcRouteEntrySummaryRequest extends Model
     /**
      * @description The ID of the virtual private cloud (VPC) to which the route table belongs.
      *
+     * This parameter is required.
      * @example vpc-bp15zckdt37pq72****
      *
      * @var string

@@ -24,7 +24,7 @@ class GetVpnGatewayDiagnoseResultRequest extends Model
     /**
      * @description The ID of the diagnostic operation.
      *
-     * When you call the [DiagnoseVpnGateway](~~469751~~) operation, the system returns a corresponding ID.
+     * When you call the [DiagnoseVpnGateway](https://help.aliyun.com/document_detail/469751.html) operation, the system returns a corresponding ID.
      * @example vpndgn-uf6kuxbe3iv028k3s****
      *
      * @var string
@@ -34,7 +34,7 @@ class GetVpnGatewayDiagnoseResultRequest extends Model
     /**
      * @description The region ID of the VPN gateway.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-qingdao
      *
      * @var string

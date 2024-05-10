@@ -11,6 +11,7 @@ class DeleteIpv6GatewayRequest extends Model
     /**
      * @description The ID of the IPv6 gateway that you want to delete.
      *
+     * This parameter is required.
      * @example ipv6gw-hp3y0l3ln89j8****
      *
      * @var string
@@ -28,8 +29,9 @@ class DeleteIpv6GatewayRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the IPv6 gateway. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * @description The region ID of the IPv6 gateway. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-huhehaote
      *
      * @var string

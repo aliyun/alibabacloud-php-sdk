@@ -43,7 +43,7 @@ class AllocateEipSegmentAddressRequest extends Model
      *   **25**: applies for 128 contiguous EIPs in each call.
      *   **24**: applies for 256 contiguous EIPs in each call.
      *
-     * >  Some IP address are reserved for specific purposes. Therefore, the actual number of the contiguous EIPs may be one, three, or four less than the expected number.
+     * This parameter is required.
      * @example 28
      *
      * @var string
@@ -106,7 +106,7 @@ class AllocateEipSegmentAddressRequest extends Model
     /**
      * @description The ID of the region in which the contiguous EIP group resides.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the region ID.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

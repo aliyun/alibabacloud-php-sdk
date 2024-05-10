@@ -54,7 +54,7 @@ class CreateSnatEntryRequest extends Model
      *
      *   ap-northeast-2-pop
      *
-     * .
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -88,6 +88,7 @@ class CreateSnatEntryRequest extends Model
      *
      *   When you add SNAT entries for a VPC NAT gateway, this parameter specifies the NAT IP addresses in the SNAT entry. Separate multiple NAT IP addresses with commas (,).
      *
+     * This parameter is required.
      * @example 47.98.XX.XX
      *
      * @var string
@@ -97,6 +98,7 @@ class CreateSnatEntryRequest extends Model
     /**
      * @description The ID of the SNAT table.
      *
+     * This parameter is required.
      * @example stb-bp190wu8io1vgev****
      *
      * @var string

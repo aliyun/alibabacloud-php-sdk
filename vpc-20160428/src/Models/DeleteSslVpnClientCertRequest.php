@@ -33,7 +33,7 @@ class DeleteSslVpnClientCertRequest extends Model
     /**
      * @description The ID of the region where the SSL client certificate is created.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -53,6 +53,7 @@ class DeleteSslVpnClientCertRequest extends Model
     /**
      * @description The ID of the SSL client certificate.
      *
+     * This parameter is required.
      * @example vsc-bp1n8wcf134yl0osr****
      *
      * @var string

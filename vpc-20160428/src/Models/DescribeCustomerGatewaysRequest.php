@@ -50,7 +50,7 @@ class DescribeCustomerGatewaysRequest extends Model
     /**
      * @description The ID of the region where the customer gateway is deployed.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string
@@ -60,7 +60,7 @@ class DescribeCustomerGatewaysRequest extends Model
     /**
      * @description The ID of the resource group to which the customer gateway belongs.
      *
-     * You can call the [ListResourceGroups](~~158855~~) operation to query the resource group list.
+     * You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query the resource group list.
      * @example rg-acfmzs372yg****
      *
      * @var string

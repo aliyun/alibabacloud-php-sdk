@@ -11,6 +11,7 @@ class CreateGlobalAccelerationInstanceRequest extends Model
     /**
      * @description The maximum bandwidth of the GA instance. Set the value to **10**. Unit: Mbit/s.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var string
@@ -52,7 +53,7 @@ class CreateGlobalAccelerationInstanceRequest extends Model
     /**
      * @description The name of the GA instance.
      *
-     * The name must be 2 to 128 characters in length and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). It must start with a letter and cannot start with `http://` or `https://`.
+     * The name must be 2 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter and cannot start with `http://` or `https://`.
      * @example GA-1
      *
      * @var string
@@ -72,7 +73,7 @@ class CreateGlobalAccelerationInstanceRequest extends Model
     /**
      * @description The region ID of the GA instance.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -97,6 +98,7 @@ class CreateGlobalAccelerationInstanceRequest extends Model
      *   **asia-pacific**
      *   **europe**
      *
+     * This parameter is required.
      * @example china-mainland
      *
      * @var string

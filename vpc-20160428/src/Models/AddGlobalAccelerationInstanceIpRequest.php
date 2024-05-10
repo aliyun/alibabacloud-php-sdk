@@ -11,6 +11,7 @@ class AddGlobalAccelerationInstanceIpRequest extends Model
     /**
      * @description The ID of the shared-bandwidth GA instance.
      *
+     * This parameter is required.
      * @example ga-Ldefrgbttnyyf****
      *
      * @var string
@@ -18,9 +19,9 @@ class AddGlobalAccelerationInstanceIpRequest extends Model
     public $globalAccelerationInstanceId;
 
     /**
-     * @description The EIP ID. You can call the [DescribeEipAddresses](~~36018~~) operation to query EIP IDs.
+     * @description The EIP ID. You can call the [DescribeEipAddresses](https://help.aliyun.com/document_detail/36018.html) operation to query EIP IDs.
      *
-     * >  Make sure that the billing method of the EIP is pay-as-you-go, and the EIP and the shared-bandwidth GA instance belong to the same region.
+     * This parameter is required.
      * @example eip-rw434rwfdeaf****
      *
      * @var string
@@ -41,6 +42,8 @@ class AddGlobalAccelerationInstanceIpRequest extends Model
      * @description The region of the shared-bandwidth GA instance.
      *
      * You can call the **DescribeRegions** operation to query the most recent region list.
+     *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

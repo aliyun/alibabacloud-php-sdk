@@ -50,6 +50,7 @@ class ModifyVpnPbrRouteEntryAttributeRequest extends Model
     /**
      * @description The next hop of the policy-based route.
      *
+     * This parameter is required.
      * @example vco-bp15oes1py4i66rmd****
      *
      * @var string
@@ -69,7 +70,7 @@ class ModifyVpnPbrRouteEntryAttributeRequest extends Model
     /**
      * @description The original priority of the policy-based route. Valid values: **1** to **100**.
      *
-     * A smaller value indicates a higher priority.
+     * This parameter is required.
      * @example 5
      *
      * @var int
@@ -79,7 +80,7 @@ class ModifyVpnPbrRouteEntryAttributeRequest extends Model
     /**
      * @description The region ID of the VPN gateway.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-heyuan
      *
      * @var string
@@ -99,6 +100,7 @@ class ModifyVpnPbrRouteEntryAttributeRequest extends Model
     /**
      * @description The destination CIDR block of the policy-based route.
      *
+     * This parameter is required.
      * @example 10.0.0.0/24
      *
      * @var string
@@ -108,6 +110,7 @@ class ModifyVpnPbrRouteEntryAttributeRequest extends Model
     /**
      * @description The source CIDR block of the policy-based route.
      *
+     * This parameter is required.
      * @example 192.168.1.0/24
      *
      * @var string
@@ -117,6 +120,7 @@ class ModifyVpnPbrRouteEntryAttributeRequest extends Model
     /**
      * @description The ID of the VPN gateway.
      *
+     * This parameter is required.
      * @example vpn-bp1a3kqjiiq9legfx****
      *
      * @var string
@@ -129,6 +133,7 @@ class ModifyVpnPbrRouteEntryAttributeRequest extends Model
      *   **100**: The IPsec-VPN connection associated with the policy-based route serves as an active connection.
      *   **0**: The IPsec-VPN connection associated with the policy-based route serves as a standby connection.
      *
+     * This parameter is required.
      * @example 100
      *
      * @var int

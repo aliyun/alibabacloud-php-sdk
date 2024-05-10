@@ -33,6 +33,7 @@ class UpdateDhcpOptionsSetAttributeRequest extends Model
     /**
      * @description The ID of the DHCP options set.
      *
+     * This parameter is required.
      * @example dopt-o6w0df4epg9zo8isy****
      *
      * @var string
@@ -42,7 +43,7 @@ class UpdateDhcpOptionsSetAttributeRequest extends Model
     /**
      * @description The name of the DHCP options set.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter.
      * @example name
      *
      * @var string
@@ -119,8 +120,9 @@ class UpdateDhcpOptionsSetAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region where the DHCP options set is deployed. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * @description The region where the DHCP options set is deployed. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

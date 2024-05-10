@@ -73,6 +73,7 @@ class ModifyVpcPrefixListRequest extends Model
     /**
      * @description The ID of the prefix list.
      *
+     * This parameter is required.
      * @example pl-0b7hwu67****
      *
      * @var string
@@ -92,6 +93,7 @@ class ModifyVpcPrefixListRequest extends Model
     /**
      * @description The region ID of the prefix list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

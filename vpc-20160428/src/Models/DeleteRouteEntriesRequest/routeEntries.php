@@ -41,6 +41,7 @@ class routeEntries extends Model
     /**
      * @description The ID of the route table to which the routes to be deleted belongs. You can specify up to 50 route table IDs.
      *
+     * This parameter is required.
      * @example vtb-2ze3jgygk9bmsj23s****
      *
      * @var string

@@ -11,6 +11,7 @@ class ModifyCommonBandwidthPackageIpBandwidthRequest extends Model
     /**
      * @description The maximum bandwidth for the EIP. This value cannot be larger than the maximum bandwidth of the Internet Shared Bandwidth instance. Unit: Mbit/s.
      *
+     * This parameter is required.
      * @example 500
      *
      * @var string
@@ -20,6 +21,7 @@ class ModifyCommonBandwidthPackageIpBandwidthRequest extends Model
     /**
      * @description The ID of the Internet Shared Bandwidth instance.
      *
+     * This parameter is required.
      * @example cbwp-2zep6hw5d6y8exscd****
      *
      * @var string
@@ -29,6 +31,7 @@ class ModifyCommonBandwidthPackageIpBandwidthRequest extends Model
     /**
      * @description The ID of the EIP that is associated with the Internet Shared Bandwidth instance.
      *
+     * This parameter is required.
      * @example eip-2zewysoansu0svfbg****
      *
      * @var string
@@ -46,8 +49,9 @@ class ModifyCommonBandwidthPackageIpBandwidthRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the Internet Shared Bandwidth instance. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * @description The region ID of the Internet Shared Bandwidth instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

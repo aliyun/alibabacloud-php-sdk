@@ -38,7 +38,7 @@ class ModifySnatEntryRequest extends Model
     /**
      * @description The region ID of the NAT gateway.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to obtain the region ID.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -58,6 +58,7 @@ class ModifySnatEntryRequest extends Model
     /**
      * @description The ID of the SNAT entry that you want to modify.
      *
+     * This parameter is required.
      * @example snat-bp1vcgcf8tm0plqcg****
      *
      * @var string
@@ -90,6 +91,7 @@ class ModifySnatEntryRequest extends Model
     /**
      * @description The ID of the SNAT table to which the SNAT entry belongs.
      *
+     * This parameter is required.
      * @example stb-8vbczigrhop8x5u3t****
      *
      * @var string

@@ -14,6 +14,7 @@ class GrantInstanceToVbrRequest extends Model
      *   **All**: Permissions on the VPC are granted to all VBRs that belong to the specified region and Alibaba Cloud account. In this case, you can leave **VbrInstanceIds** empty.
      *   **Specify**: Permissions on the VPC are granted to the specified VBRs. **VbrInstanceIds** must be assigned a value.
      *
+     * This parameter is required.
      * @example All
      *
      * @var string
@@ -23,6 +24,7 @@ class GrantInstanceToVbrRequest extends Model
     /**
      * @description The ID of the VPC.
      *
+     * This parameter is required.
      * @example vpc-bp1lqhq93q8evjpky****
      *
      * @var string
@@ -32,7 +34,7 @@ class GrantInstanceToVbrRequest extends Model
     /**
      * @description The ID of the region where the VPC is deployed.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -49,6 +51,7 @@ class GrantInstanceToVbrRequest extends Model
     /**
      * @description The ID of the Alibaba Cloud account to which the VBR belongs.
      *
+     * This parameter is required.
      * @example 1210123456123456
      *
      * @var int
@@ -58,6 +61,7 @@ class GrantInstanceToVbrRequest extends Model
     /**
      * @description The ID of the region where the VBR is deployed.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

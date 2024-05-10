@@ -11,6 +11,7 @@ class ModifyGlobalAccelerationInstanceSpecRequest extends Model
     /**
      * @description The maximum bandwidth of the GA instance. Unit: Mbit/s. Set the value to **10**.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var string
@@ -20,6 +21,7 @@ class ModifyGlobalAccelerationInstanceSpecRequest extends Model
     /**
      * @description The ID of the GA instance.
      *
+     * This parameter is required.
      * @example ga-32s33s****
      *
      * @var string
@@ -39,7 +41,7 @@ class ModifyGlobalAccelerationInstanceSpecRequest extends Model
     /**
      * @description The region ID of the GA instance.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

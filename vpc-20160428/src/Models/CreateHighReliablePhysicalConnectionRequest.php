@@ -18,6 +18,8 @@ class CreateHighReliablePhysicalConnectionRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description This parameter is required.
+     *
      * @var apList[]
      */
     public $apList;
@@ -42,6 +44,8 @@ class CreateHighReliablePhysicalConnectionRequest extends Model
     public $dryRun;
 
     /**
+     * @description This parameter is required.
+     *
      * @example MultiApMultiDevice
      *
      * @var string
@@ -59,6 +63,8 @@ class CreateHighReliablePhysicalConnectionRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1000Base-T
      *
      * @var string

@@ -34,7 +34,7 @@ class CreateIpv6GatewayRequest extends Model
     /**
      * @description The name of the IPv6 gateway.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
      * @example ipv6GW
      *
      * @var string
@@ -52,8 +52,9 @@ class CreateIpv6GatewayRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the IPv6 gateway. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * @description The region ID of the IPv6 gateway. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-huhehaote
      *
      * @var string
@@ -89,6 +90,7 @@ class CreateIpv6GatewayRequest extends Model
     /**
      * @description The ID of the VPC in which you want to create the IPv6 gateway.
      *
+     * This parameter is required.
      * @example vpc-123sedrfswd23****
      *
      * @var string

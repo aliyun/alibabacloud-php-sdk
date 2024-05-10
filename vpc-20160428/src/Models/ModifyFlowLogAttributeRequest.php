@@ -30,6 +30,7 @@ class ModifyFlowLogAttributeRequest extends Model
     /**
      * @description The ID of the flow log.
      *
+     * This parameter is required.
      * @example fl-m5e8vhz2t21sel1nq****
      *
      * @var string
@@ -59,7 +60,7 @@ class ModifyFlowLogAttributeRequest extends Model
     /**
      * @description The ID of the region where the flow log is created.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-qingdao
      *
      * @var string

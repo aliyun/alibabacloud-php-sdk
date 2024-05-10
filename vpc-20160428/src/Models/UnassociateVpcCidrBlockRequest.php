@@ -31,7 +31,7 @@ class UnassociateVpcCidrBlockRequest extends Model
     /**
      * @description The region ID of the VPC to which the secondary CIDR block to be deleted belongs.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example ch-hangzhou
      *
      * @var string
@@ -61,6 +61,7 @@ class UnassociateVpcCidrBlockRequest extends Model
     /**
      * @description The ID of the VPC from which you want to delete a secondary CIDR block.
      *
+     * This parameter is required.
      * @example vpc-o6wrloqsdqc9io3mg****
      *
      * @var string

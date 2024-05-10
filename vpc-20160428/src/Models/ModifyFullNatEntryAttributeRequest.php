@@ -63,6 +63,7 @@ class ModifyFullNatEntryAttributeRequest extends Model
     /**
      * @description The ID of the FULLNAT entry to be modified.
      *
+     * This parameter is required.
      * @example fullnat-gw8fz23jezpbblf1j****
      *
      * @var string
@@ -82,6 +83,7 @@ class ModifyFullNatEntryAttributeRequest extends Model
     /**
      * @description The ID of the FULLNAT table to be modified.
      *
+     * This parameter is required.
      * @example fulltb-gw88z7hhlv43rmb26****
      *
      * @var string
@@ -140,7 +142,7 @@ class ModifyFullNatEntryAttributeRequest extends Model
     /**
      * @description The region ID of the Virtual Private Cloud (VPC) NAT gateway to which the FULLNAT entry to be modified belongs.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example eu-central-1
      *
      * @var string

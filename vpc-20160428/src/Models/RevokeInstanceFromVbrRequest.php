@@ -14,6 +14,7 @@ class RevokeInstanceFromVbrRequest extends Model
      *   **ALL**: Permissions on the VPC are revoked for all VBRs in the specified region. **VbrInstanceIds** can be left empty.
      *   **Specify**: Permissions on the VPC are revoked for the specified VBRs. **VbrInstanceIds** must be assigned a value.
      *
+     * This parameter is required.
      * @example ALL
      *
      * @var string
@@ -23,6 +24,7 @@ class RevokeInstanceFromVbrRequest extends Model
     /**
      * @description The VPC ID.
      *
+     * This parameter is required.
      * @example vpc-bp1brjuegjc88v3u9****
      *
      * @var string
@@ -32,7 +34,7 @@ class RevokeInstanceFromVbrRequest extends Model
     /**
      * @description The ID of the region where the VPC is deployed.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -49,6 +51,7 @@ class RevokeInstanceFromVbrRequest extends Model
     /**
      * @description The ID of the Alibaba Cloud account to which the VBR belongs.
      *
+     * This parameter is required.
      * @example 1210123456123456
      *
      * @var string
@@ -58,6 +61,7 @@ class RevokeInstanceFromVbrRequest extends Model
     /**
      * @description The ID of the region where the VBR is deployed.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

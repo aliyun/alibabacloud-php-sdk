@@ -33,6 +33,7 @@ class UnassociateHaVipRequest extends Model
     /**
      * @description The ID of the HAVIP that you want to disassociate.
      *
+     * This parameter is required.
      * @example havip-2zeo05qre24nhrqpy****
      *
      * @var string
@@ -42,6 +43,7 @@ class UnassociateHaVipRequest extends Model
     /**
      * @description The ID of the ECS instance or ENI from which you want to disassociate the HAVIP.
      *
+     * This parameter is required.
      * @example i-faf344422ffsfad****
      *
      * @var string
@@ -74,7 +76,7 @@ class UnassociateHaVipRequest extends Model
     /**
      * @description The region ID of the HAVIP.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string

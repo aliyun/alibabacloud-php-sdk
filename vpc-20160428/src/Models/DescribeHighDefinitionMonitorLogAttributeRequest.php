@@ -11,6 +11,7 @@ class DescribeHighDefinitionMonitorLogAttributeRequest extends Model
     /**
      * @description The ID of the instance whose fine-grained monitoring configurations you want to query.
      *
+     * This parameter is required.
      * @example eip-wz9fi6qboho9fwgx7****
      *
      * @var string
@@ -39,7 +40,7 @@ class DescribeHighDefinitionMonitorLogAttributeRequest extends Model
     /**
      * @description The region ID of the instance.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

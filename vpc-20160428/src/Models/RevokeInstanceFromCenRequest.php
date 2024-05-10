@@ -11,6 +11,7 @@ class RevokeInstanceFromCenRequest extends Model
     /**
      * @description The ID of the CEN instance to which the network instance is attached.
      *
+     * This parameter is required.
      * @example cen-7qthudw0ll6jmc****
      *
      * @var string
@@ -20,6 +21,7 @@ class RevokeInstanceFromCenRequest extends Model
     /**
      * @description The user ID (UID) of the Apsara Stack tenant account to which the CEN instance belongs.
      *
+     * This parameter is required.
      * @example 123456789
      *
      * @var int
@@ -41,6 +43,7 @@ class RevokeInstanceFromCenRequest extends Model
     /**
      * @description The ID of the network instance.
      *
+     * This parameter is required.
      * @example vpc-uf6o8d1dj8sjwxi6o****
      *
      * @var string
@@ -54,6 +57,7 @@ class RevokeInstanceFromCenRequest extends Model
      *   **VBR**
      *   **CCN**
      *
+     * This parameter is required.
      * @example VPC
      *
      * @var string
@@ -73,7 +77,7 @@ class RevokeInstanceFromCenRequest extends Model
     /**
      * @description The ID of the region where the network instance is deployed.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

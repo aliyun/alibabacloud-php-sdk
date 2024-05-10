@@ -22,7 +22,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The region ID of the resource.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -32,6 +32,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The resource ID. You can specify at most 20 IDs.
      *
+     * This parameter is required.
      * @example vpc-bp16qjewdsunr41m1****
      *
      * @var string[]
@@ -59,6 +60,7 @@ class TagResourcesRequest extends Model
      *   **NATGATEWAY**: a NAT gateway
      *   **COMMONBANDWIDTHPACKAGE**: an EIP bandwidth plan
      *
+     * This parameter is required.
      * @example VPC
      *
      * @var string
@@ -68,6 +70,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The tag information.
      *
+     * This parameter is required.
      * @example TagResources
      *
      * @var tag[]

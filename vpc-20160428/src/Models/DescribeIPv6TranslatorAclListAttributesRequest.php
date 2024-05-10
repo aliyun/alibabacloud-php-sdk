@@ -11,6 +11,7 @@ class DescribeIPv6TranslatorAclListAttributesRequest extends Model
     /**
      * @description The ACL ID.
      *
+     * This parameter is required.
      * @example ipv6transacl-bp1de2****
      *
      * @var string
@@ -48,6 +49,7 @@ class DescribeIPv6TranslatorAclListAttributesRequest extends Model
     /**
      * @description The region of the ACL.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

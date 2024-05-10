@@ -35,6 +35,7 @@ class EnableVpcIpv4GatewayRequest extends Model
     /**
      * @description The ID of the IPv4 gateway that you want to activate.
      *
+     * This parameter is required.
      * @example ipv4gw-5tsp9lumsxoqizvq2****
      *
      * @var string
@@ -54,7 +55,7 @@ class EnableVpcIpv4GatewayRequest extends Model
     /**
      * @description The region ID of the IPv4 gateway.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent list of regions.
+     * This parameter is required.
      * @example ap-southeast-6
      *
      * @var string

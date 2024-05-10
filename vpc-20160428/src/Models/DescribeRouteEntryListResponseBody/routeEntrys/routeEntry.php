@@ -30,6 +30,7 @@ class routeEntry extends Model
     /**
      * @description The time when the route was modified. The time follows the ISO 8601 standard in the `YYYY-MM-DDThh:mm:ssZ` format. The time is displayed in UTC.
      *
+     * Use the UTC time format: yyyy-MM-ddTHH:mmZ
      * @example 2022-05-09T03:00:07Z
      *
      * @var string

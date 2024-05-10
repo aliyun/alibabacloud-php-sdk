@@ -92,6 +92,7 @@ class bgpPeer extends Model
     /**
      * @description The time when the BGP peer is modified.
      *
+     * Use the UTC time format: yyyy-MM-ddTHH:mmZ
      * @example 2022-05-20T07:29:08Z
      *
      * @var string

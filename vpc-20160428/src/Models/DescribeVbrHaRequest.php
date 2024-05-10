@@ -45,6 +45,7 @@ class DescribeVbrHaRequest extends Model
     /**
      * @description The ID of the region in which the VBR is deployed.
      *
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string

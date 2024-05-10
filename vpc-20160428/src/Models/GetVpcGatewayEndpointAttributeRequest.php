@@ -11,6 +11,7 @@ class GetVpcGatewayEndpointAttributeRequest extends Model
     /**
      * @description The ID of the gateway endpoint.
      *
+     * This parameter is required.
      * @example vpce-bp1w1dmdqjpwul0v3****
      *
      * @var string
@@ -30,7 +31,7 @@ class GetVpcGatewayEndpointAttributeRequest extends Model
     /**
      * @description The region ID of the gateway endpoint.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

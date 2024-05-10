@@ -43,7 +43,7 @@ class DescribeTagsRequest extends Model
     /**
      * @description The ID of the region to which the resource belongs.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

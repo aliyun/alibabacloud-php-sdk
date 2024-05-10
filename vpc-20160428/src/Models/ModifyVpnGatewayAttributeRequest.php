@@ -43,7 +43,7 @@ class ModifyVpnGatewayAttributeRequest extends Model
     /**
      * @description The new name of the VPN gateway.
      *
-     * The name must be 2 to 100 characters in length and cannot start with `http://` or `https://`. It must start with a letter and can contain letters, digits, underscores (\_), hyphens (-), and periods (.). Other characters are not supported.
+     * The name must be 2 to 100 characters in length and cannot start with `http://` or `https://`. It must start with a letter and can contain letters, digits, underscores (_), hyphens (-), and periods (.). Other characters are not supported.
      * @example myvpn
      *
      * @var string
@@ -61,8 +61,9 @@ class ModifyVpnGatewayAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region where the VPN gateway is created. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * @description The ID of the region where the VPN gateway is created. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string
@@ -82,6 +83,7 @@ class ModifyVpnGatewayAttributeRequest extends Model
     /**
      * @description The ID of the VPN gateway.
      *
+     * This parameter is required.
      * @example vpn-bp1q8bgx4xnkm2ogj****
      *
      * @var string

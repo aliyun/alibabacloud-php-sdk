@@ -46,7 +46,7 @@ class DescribeVpnCrossAccountAuthorizationsRequest extends Model
     /**
      * @description The ID of the region to which the IPsec-VPN connection belongs.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -66,6 +66,7 @@ class DescribeVpnCrossAccountAuthorizationsRequest extends Model
     /**
      * @description The ID of the IPsec-VPN connection.
      *
+     * This parameter is required.
      * @example vco-p0w2jpkhi2eeop6q6****
      *
      * @var string

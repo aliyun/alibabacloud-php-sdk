@@ -395,7 +395,7 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
     /**
      * @description The resource group ID.
      *
-     * For more information about resource groups, see [What is a resource group?](~~94475~~)
+     * For more information about resource groups, see [What is a resource group?](https://help.aliyun.com/document_detail/94475.html)
      * @example rg-acfmxazb4ph6aiy****
      *
      * @var string

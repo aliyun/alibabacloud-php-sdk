@@ -35,6 +35,7 @@ class DeleteIpsecServerRequest extends Model
     /**
      * @description The ID of the IPsec server.
      *
+     * This parameter is required.
      * @example iss-bp1jougp8cfsbo8y9****
      *
      * @var string
@@ -44,6 +45,7 @@ class DeleteIpsecServerRequest extends Model
     /**
      * @description The ID of the region where the IPsec server is created.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

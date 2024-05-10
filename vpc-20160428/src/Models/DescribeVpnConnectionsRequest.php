@@ -49,7 +49,7 @@ class DescribeVpnConnectionsRequest extends Model
     /**
      * @description The ID of the region where the IPsec-VPN connection is created.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -59,7 +59,7 @@ class DescribeVpnConnectionsRequest extends Model
     /**
      * @description The ID of the resource group to which the IPsec-VPN connection belongs.
      *
-     * You can call the [ListResourceGroups](~~158855~~) operation to query the resource group ID.
+     * You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query the resource group ID.
      * @example rg-acfmzs372yg****
      *
      * @var string

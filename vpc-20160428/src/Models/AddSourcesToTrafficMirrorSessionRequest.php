@@ -45,7 +45,7 @@ class AddSourcesToTrafficMirrorSessionRequest extends Model
     /**
      * @description The ID of the region to which the traffic mirror session belongs.
      *
-     * For more information about regions that support traffic mirroring, see [Overview of traffic mirroring](~~207513~~).
+     * This parameter is required.
      * @example cn-hongkong
      *
      * @var string
@@ -65,6 +65,7 @@ class AddSourcesToTrafficMirrorSessionRequest extends Model
     /**
      * @description The ID of the traffic mirror session.
      *
+     * This parameter is required.
      * @example tms-j6cla50buc44ap8tu****
      *
      * @var string
@@ -74,6 +75,7 @@ class AddSourcesToTrafficMirrorSessionRequest extends Model
     /**
      * @description The ID of the traffic mirror source. You can specify only an elastic network interface (ENI) as the traffic mirror source. The default value of **N** is **1**, which indicates that you can add only one traffic mirror source to a traffic mirror session.
      *
+     * This parameter is required.
      * @example eni-j6ccmrl8z3xkvxgw****
      *
      * @var string[]

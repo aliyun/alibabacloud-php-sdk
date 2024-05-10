@@ -67,6 +67,7 @@ class AddPublicIpAddressPoolCidrBlockRequest extends Model
     /**
      * @description The ID of the IP address pool.
      *
+     * This parameter is required.
      * @example pippool-6wetvn6fumkgycssx****
      *
      * @var string
@@ -76,6 +77,7 @@ class AddPublicIpAddressPoolCidrBlockRequest extends Model
     /**
      * @description The region ID of the IP address pool to which you want to add the CIDR block.
      *
+     * This parameter is required.
      * @example cn-chengdu
      *
      * @var string

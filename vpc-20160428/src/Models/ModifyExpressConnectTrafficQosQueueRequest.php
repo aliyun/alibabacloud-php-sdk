@@ -33,6 +33,8 @@ class ModifyExpressConnectTrafficQosQueueRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example qos-2giu0a6vd5x0mv4700
      *
      * @var string
@@ -47,6 +49,8 @@ class ModifyExpressConnectTrafficQosQueueRequest extends Model
     public $queueDescription;
 
     /**
+     * @description This parameter is required.
+     *
      * @example qos-queue-9nyx2u7n71s2rcy4n5
      *
      * @var string
@@ -61,6 +65,8 @@ class ModifyExpressConnectTrafficQosQueueRequest extends Model
     public $queueName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-shanghai
      *
      * @var string

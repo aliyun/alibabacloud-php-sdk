@@ -23,6 +23,7 @@ class DeletionProtectionRequest extends Model
     /**
      * @description The ID of the instance for which you want to enable deletion protection.
      *
+     * This parameter is required.
      * @example eip-uf6id7gvguruxe41v****
      *
      * @var string
@@ -40,6 +41,7 @@ class DeletionProtectionRequest extends Model
      *   **true**: yes
      *   **false**: no
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -47,8 +49,9 @@ class DeletionProtectionRequest extends Model
     public $protectionEnable;
 
     /**
-     * @description The ID of the region where the instance for which you want to enable deletion protection is deployed. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * @description The ID of the region where the instance for which you want to enable deletion protection is deployed. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -72,6 +75,7 @@ class DeletionProtectionRequest extends Model
      *   **CBWP**: EIP bandwidth plan
      *   **NATGW**: NAT gateway
      *
+     * This parameter is required.
      * @example EIP
      *
      * @var string

@@ -11,6 +11,7 @@ class AssociateEipAddressRequest extends Model
     /**
      * @description The ID of the EIP that you want to associate with an instance.
      *
+     * This parameter is required.
      * @example eip-2zeerraiwb7ujsxdc****
      *
      * @var string
@@ -32,7 +33,7 @@ class AssociateEipAddressRequest extends Model
     /**
      * @description The ID of the instance with which you want to associate the EIP.
      *
-     * You can enter the ID of a NAT gateway, CLB instance, ECS instance, secondary ENI, HAVIP, or IP address.
+     * This parameter is required.
      * @example i-2zebb08phyczzawe****
      *
      * @var string
@@ -103,7 +104,7 @@ class AssociateEipAddressRequest extends Model
     /**
      * @description The ID of the region to which the EIP belongs.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the region ID.
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
      * @example cn-hangzhou
      *
      * @var string

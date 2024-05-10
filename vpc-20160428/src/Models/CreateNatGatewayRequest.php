@@ -83,7 +83,7 @@ class CreateNatGatewayRequest extends Model
      *
      * Set the value to **PostPaid** (pay-as-you-go), which is the default value.
      *
-     * For more information, see [Internet NAT gateway billing](~~48126~~) and [VPC NAT gateway billing](~~270913~~).
+     * For more information, see [Internet NAT gateway billing](https://help.aliyun.com/document_detail/48126.html) and [VPC NAT gateway billing](https://help.aliyun.com/document_detail/270913.html).
      * @example PostPaid
      *
      * @var string
@@ -152,7 +152,7 @@ class CreateNatGatewayRequest extends Model
     /**
      * @description The region ID of the NAT gateway.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to obtain the region ID.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -172,7 +172,7 @@ class CreateNatGatewayRequest extends Model
     /**
      * @description Specifies whether to enable the firewall feature. Valid values:
      *
-     *   **false** (default)><notice>This parameter is deprecated.></notice>
+     *   **false** (default)>Notice: This parameter is deprecated.
      *
      * @example false
      *
@@ -206,7 +206,7 @@ class CreateNatGatewayRequest extends Model
      *   To attach the NAT gateway to an existing vSwitch, make sure that the zone to which the vSwitch belongs supports NAT gateways. In addition, the vSwitch must have idle IP addresses.
      *   If no vSwitch exists in the VPC, create a vSwitch in a zone that supports NAT gateways. Then, specify the vSwitch for the NAT gateway.
      *
-     * >  You can call the [ListEnhanhcedNatGatewayAvailableZones](~~182292~~) operation to query zones that support NAT gateways. You can call the [DescribeVSwitches](~~35748~~) operation to query idle IP addresses in a vSwitch.
+     * >  You can call the [ListEnhanhcedNatGatewayAvailableZones](https://help.aliyun.com/document_detail/182292.html) operation to query zones that support NAT gateways. You can call the [DescribeVSwitches](https://help.aliyun.com/document_detail/35748.html) operation to query idle IP addresses in a vSwitch.
      * @example vsw-bp1e3se98n9fq8hle****
      *
      * @var string
@@ -216,6 +216,7 @@ class CreateNatGatewayRequest extends Model
     /**
      * @description The ID of the VPC where you want to create the NAT gateway.
      *
+     * This parameter is required.
      * @example vpc-bp1di7uewzmtvfuq8****
      *
      * @var string

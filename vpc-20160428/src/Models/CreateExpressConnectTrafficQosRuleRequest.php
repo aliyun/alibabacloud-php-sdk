@@ -54,6 +54,8 @@ class CreateExpressConnectTrafficQosRuleRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -61,6 +63,8 @@ class CreateExpressConnectTrafficQosRuleRequest extends Model
     public $priority;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ALL
      *
      * @var string
@@ -68,6 +72,8 @@ class CreateExpressConnectTrafficQosRuleRequest extends Model
     public $protocol;
 
     /**
+     * @description This parameter is required.
+     *
      * @example qos-2giu0a6vd5x0mv4700
      *
      * @var string
@@ -75,6 +81,8 @@ class CreateExpressConnectTrafficQosRuleRequest extends Model
     public $qosId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example qos-queue-9nyx2u7n71s2rcy4n5
      *
      * @var string
@@ -82,6 +90,8 @@ class CreateExpressConnectTrafficQosRuleRequest extends Model
     public $queueId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-shanghai
      *
      * @var string

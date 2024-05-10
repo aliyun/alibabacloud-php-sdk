@@ -65,7 +65,7 @@ class ModifyCustomerGatewayAttributeResponseBody extends Model
     /**
      * @description The ID of the resource group to which the customer gateway belongs.
      *
-     * You can call the [ListResourceGroups](~~158855~~) operation to query resource groups.
+     * You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource groups.
      * @example rg-acfmzs372yg****
      *
      * @var string

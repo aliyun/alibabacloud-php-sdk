@@ -55,7 +55,7 @@ class DescribeRouterInterfacesRequest extends Model
     /**
      * @description The region ID of the router interface.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -65,7 +65,7 @@ class DescribeRouterInterfacesRequest extends Model
     /**
      * @description Resource Group ID.
      *
-     * For more information about resource groups, please refer to [What is a Resource Group?](~~94475~~)
+     * For more information about resource groups, please refer to [What is a Resource Group?](https://help.aliyun.com/document_detail/94475.html)
      * @example rg-acfmxazb4ph6aiy****
      *
      * @var string

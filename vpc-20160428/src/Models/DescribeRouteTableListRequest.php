@@ -44,6 +44,7 @@ class DescribeRouteTableListRequest extends Model
     /**
      * @description The number of entries per page.
      *
+     * This parameter is required.
      * @example ap-southeast-6
      *
      * @var string
@@ -100,7 +101,7 @@ class DescribeRouteTableListRequest extends Model
     /**
      * @description The region ID of the VPC to which the route table belongs.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
      * @example vrt-bp1lhl0taikrteen8****
      *
      * @var string

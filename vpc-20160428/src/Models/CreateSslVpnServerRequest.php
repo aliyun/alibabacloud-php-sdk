@@ -46,7 +46,7 @@ class CreateSslVpnServerRequest extends Model
      *   If the number of SSL-VPN connections is 200, we recommend that you specify a client CIDR block with a subnet mask that is less than or equal to 22 bits in length. Examples: 10.0.0.0/22 and 10.0.0.0/21.
      *   If the number of SSL-VPN connections is 500, we recommend that you specify a client CIDR block with a subnet mask that is less than or equal to 21 bits in length. Examples: 10.0.0.0/21 and 10.0.0.0/20.
      *   If the number of SSL-VPN connections is 1,000, we recommend that you specify a client CIDR block with a subnet mask that is less than or equal to 20 bits in length. Examples: 10.0.0.0/20 and 10.0.0.0/19.
-     * > - After you create an SSL server, the system automatically adds routes that point to the client CIDR block to the VPC route table, which is not displayed in the console by default. Do not add routes that point to the client CIDR block to the VPC route table again. Otherwise, SSL-VPN connections cannot work as expected.
+     * This parameter is required.
      * @example 192.168.1.0/24
      *
      * @var string
@@ -91,6 +91,11 @@ class CreateSslVpnServerRequest extends Model
     public $enableMultiFactorAuth;
 
     /**
+     * @var string
+     */
+    public $IDaaSApplicationId;
+
+    /**
      * @description The Identity as a Service (IDaaS) instance ID.
      *
      * @example idaas-cn-hangzhou-p****
@@ -119,6 +124,7 @@ class CreateSslVpnServerRequest extends Model
      *   224.0.0.0~239.255.255.255
      *   255.0.0.0~255.255.255.255
      *
+     * This parameter is required.
      * @example 10.0.0.0/8
      *
      * @var string
@@ -170,7 +176,7 @@ class CreateSslVpnServerRequest extends Model
     /**
      * @description The region ID of the VPN gateway.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string
@@ -190,6 +196,7 @@ class CreateSslVpnServerRequest extends Model
     /**
      * @description The ID of the VPN gateway.
      *
+     * This parameter is required.
      * @example vpn-bp1hgim8by0kc9nga****
      *
      * @var string
@@ -201,6 +208,7 @@ class CreateSslVpnServerRequest extends Model
         'clientToken'           => 'ClientToken',
         'compress'              => 'Compress',
         'enableMultiFactorAuth' => 'EnableMultiFactorAuth',
+        'IDaaSApplicationId'    => 'IDaaSApplicationId',
         'IDaaSInstanceId'       => 'IDaaSInstanceId',
         'IDaaSRegionId'         => 'IDaaSRegionId',
         'localSubnet'           => 'LocalSubnet',
@@ -236,6 +244,9 @@ class CreateSslVpnServerRequest extends Model
         }
         if (null !== $this->enableMultiFactorAuth) {
             $res['EnableMultiFactorAuth'] = $this->enableMultiFactorAuth;
+        }
+        if (null !== $this->IDaaSApplicationId) {
+            $res['IDaaSApplicationId'] = $this->IDaaSApplicationId;
         }
         if (null !== $this->IDaaSInstanceId) {
             $res['IDaaSInstanceId'] = $this->IDaaSInstanceId;
@@ -299,6 +310,9 @@ class CreateSslVpnServerRequest extends Model
         }
         if (isset($map['EnableMultiFactorAuth'])) {
             $model->enableMultiFactorAuth = $map['EnableMultiFactorAuth'];
+        }
+        if (isset($map['IDaaSApplicationId'])) {
+            $model->IDaaSApplicationId = $map['IDaaSApplicationId'];
         }
         if (isset($map['IDaaSInstanceId'])) {
             $model->IDaaSInstanceId = $map['IDaaSInstanceId'];

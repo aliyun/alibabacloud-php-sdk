@@ -35,6 +35,7 @@ class ModifyNatIpCidrAttributeRequest extends Model
     /**
      * @description The ID of the Virtual Private Cloud (VPC) NAT gateway to which the NAT CIDR block belongs.
      *
+     * This parameter is required.
      * @example ngw-gw8v16wgvtq26vh59****
      *
      * @var string
@@ -44,6 +45,7 @@ class ModifyNatIpCidrAttributeRequest extends Model
     /**
      * @description The NAT CIDR block whose name and description you want to modify.
      *
+     * This parameter is required.
      * @example 172.16.0.0/24
      *
      * @var string
@@ -63,7 +65,7 @@ class ModifyNatIpCidrAttributeRequest extends Model
     /**
      * @description The new name of the NAT CIDR block.
      *
-     * The name must be 2 to 128 characters in length, and can contain digits, periods (.), underscores (\_), and hyphens (-). It must start with a letter.
+     * The name must be 2 to 128 characters in length, and can contain digits, periods (.), underscores (_), and hyphens (-). It must start with a letter.
      * @example newname
      *
      * @var string
@@ -83,7 +85,7 @@ class ModifyNatIpCidrAttributeRequest extends Model
     /**
      * @description The region ID of the NAT gateway to which the NAT CIDR block belongs.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example eu-central-1
      *
      * @var string

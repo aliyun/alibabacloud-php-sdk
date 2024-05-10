@@ -20,6 +20,7 @@ class ModifyIpv6GatewayAttributeRequest extends Model
     /**
      * @description The ID of the IPv6 gateway that you want to modify.
      *
+     * This parameter is required.
      * @example ipv6gw-hp39kh1ya51yzp2lu****
      *
      * @var string
@@ -29,7 +30,7 @@ class ModifyIpv6GatewayAttributeRequest extends Model
     /**
      * @description The name of the IPv6 gateway.
      *
-     * It must be 2 to 256 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). It must start with a letter. The name must start with a letter and cannot start with `http://` or `https://`.
+     * It must be 2 to 256 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter. The name must start with a letter and cannot start with `http://` or `https://`.
      * @example ipv6name
      *
      * @var string
@@ -47,8 +48,9 @@ class ModifyIpv6GatewayAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the IPv6 gateway. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * @description The region ID of the IPv6 gateway. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-huhehaote
      *
      * @var string

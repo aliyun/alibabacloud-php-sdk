@@ -12,7 +12,7 @@ class GetFlowLogServiceStatusResponseBody extends Model
      * @description Indicates whether the flow log feature is enabled. Valid values:
      *
      *   **true**: yes
-     *   **false**: no You can call the [OpenFlowLogService](~~449637~~) operation to enable the flow log feature.
+     *   **false**: no You can call the [OpenFlowLogService](https://help.aliyun.com/document_detail/449637.html) operation to enable the flow log feature.
      *
      * @example true
      *

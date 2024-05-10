@@ -41,10 +41,11 @@ class CreateFlowLogRequest extends Model
     /**
      * @description The name of the Logstore that stores the captured traffic data.
      *
-     *   The name can contain only lowercase letters, digits, hyphens (-), and underscores (\_).
+     *   The name can contain only lowercase letters, digits, hyphens (-), and underscores (_).
      *   The name must start and end with a lowercase letter or a digit.
      *   The name must be 3 to 63 characters in length.
      *
+     * This parameter is required.
      * @example FlowLogStore
      *
      * @var string
@@ -68,6 +69,7 @@ class CreateFlowLogRequest extends Model
      *   The name must start and end with a lowercase letter or a digit.
      *   The name must be 3 to 63 characters in length.
      *
+     * This parameter is required.
      * @example FlowLogProject
      *
      * @var string
@@ -75,8 +77,9 @@ class CreateFlowLogRequest extends Model
     public $projectName;
 
     /**
-     * @description The ID of the region where you want to create the flow log. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * @description The ID of the region where you want to create the flow log. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-qingdao
      *
      * @var string
@@ -95,6 +98,7 @@ class CreateFlowLogRequest extends Model
     /**
      * @description The ID of the resource whose traffic you want to capture.
      *
+     * This parameter is required.
      * @example eni-askldfas****
      *
      * @var string
@@ -118,6 +122,7 @@ class CreateFlowLogRequest extends Model
      *   **VSwitch**: all ENIs in a vSwitch
      *   **VPC**: all ENIs in a virtual private cloud (VPC)
      *
+     * This parameter is required.
      * @example NetworkInterface
      *
      * @var string
@@ -148,6 +153,7 @@ class CreateFlowLogRequest extends Model
      *   **Allow**: traffic that is allowed
      *   **Drop**: traffic that is rejected
      *
+     * This parameter is required.
      * @example All
      *
      * @var string

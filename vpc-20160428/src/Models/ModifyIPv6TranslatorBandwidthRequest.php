@@ -23,6 +23,7 @@ class ModifyIPv6TranslatorBandwidthRequest extends Model
     /**
      * @description The maximum bandwidth of the IPv6 Translation Service instance. Valid values: **1** to **200**. Unit: Mbit/s.
      *
+     * This parameter is required.
      * @example 2
      *
      * @var int
@@ -42,6 +43,7 @@ class ModifyIPv6TranslatorBandwidthRequest extends Model
     /**
      * @description The ID of the IPv6 Translation Service instance.
      *
+     * This parameter is required.
      * @example ipv6trans-bp1858ys****
      *
      * @var string
@@ -61,6 +63,7 @@ class ModifyIPv6TranslatorBandwidthRequest extends Model
     /**
      * @description The region of the IPv6 Translation Service instance. You can call the **DescribeRegions** operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

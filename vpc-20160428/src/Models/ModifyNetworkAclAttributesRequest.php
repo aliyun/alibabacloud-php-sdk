@@ -45,6 +45,7 @@ class ModifyNetworkAclAttributesRequest extends Model
     /**
      * @description The ID of the network ACL.
      *
+     * This parameter is required.
      * @example acl-bp1lhl0taikrxxxxxxxx
      *
      * @var string
@@ -74,7 +75,7 @@ class ModifyNetworkAclAttributesRequest extends Model
     /**
      * @description The region ID of the network ACL.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

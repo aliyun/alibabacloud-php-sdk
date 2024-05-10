@@ -40,7 +40,7 @@ class DeleteIpv6InternetBandwidthRequest extends Model
     /**
      * @description The region ID of the IPv6 gateway.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-huhehaote
      *
      * @var string

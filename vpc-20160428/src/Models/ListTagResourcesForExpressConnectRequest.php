@@ -43,7 +43,7 @@ class ListTagResourcesForExpressConnectRequest extends Model
     /**
      * @description The ID of the region to which the resource resides.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to obtain the region ID.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -74,6 +74,7 @@ class ListTagResourcesForExpressConnectRequest extends Model
      *   **VIRTUALBORDERROUTER**: virtual border router (VBR).
      *   **ROUTERINTERFACE**: router interface.
      *
+     * This parameter is required.
      * @example PHYSICALCONNECTION
      *
      * @var string

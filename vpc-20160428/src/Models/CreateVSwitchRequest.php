@@ -16,6 +16,7 @@ class CreateVSwitchRequest extends Model
      *   The CIDR block of the vSwitch must fall within the CIDR block of the VPC to which the vSwitch belongs.
      *   The CIDR block of a vSwitch cannot be the same as the destination CIDR block in a route entry of the VPC. However, it can be a subset of the destination CIDR block.
      *
+     * This parameter is required.
      * @example 172.16.0.0/24
      *
      * @var string
@@ -66,7 +67,7 @@ class CreateVSwitchRequest extends Model
     /**
      * @description The region ID of the vSwitch.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -103,6 +104,7 @@ class CreateVSwitchRequest extends Model
     /**
      * @description The ID of the VPC where you want to create the vSwitch.
      *
+     * This parameter is required.
      * @example vpc-257gqcdfvx6n****
      *
      * @var string
@@ -121,7 +123,7 @@ class CreateVSwitchRequest extends Model
     /**
      * @description The zone ID of the vSwitch.
      *
-     * You can call the [DescribeZones](~~36064~~) operation to query the most recent zone list.
+     * This parameter is required.
      * @example cn-hangzhou-b
      *
      * @var string

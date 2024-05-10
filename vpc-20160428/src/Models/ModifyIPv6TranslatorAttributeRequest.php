@@ -19,7 +19,7 @@ class ModifyIPv6TranslatorAttributeRequest extends Model
     public $clientToken;
 
     /**
-     * @description The description of IPv6 Translation Service. This parameter is empty by default. It must be 2 to 100 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). It cannot start with http:// or [https://](https://。).
+     * @description The description of IPv6 Translation Service. This parameter is empty by default. It must be 2 to 100 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It cannot start with http:// or [https://](https://。).
      *
      * @example instancedescription
      *
@@ -30,6 +30,7 @@ class ModifyIPv6TranslatorAttributeRequest extends Model
     /**
      * @description The ID of the IPv6 Translation Service instance.
      *
+     * This parameter is required.
      * @example ipv6trans-bp1858ys****
      *
      * @var string
@@ -37,7 +38,7 @@ class ModifyIPv6TranslatorAttributeRequest extends Model
     public $ipv6TranslatorId;
 
     /**
-     * @description The name of the IPv6 Translation Service instance. The default name is the instance ID. It must be 2 to 100 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). It cannot start with http:// or [https://](https://。).
+     * @description The name of the IPv6 Translation Service instance. The default name is the instance ID. It must be 2 to 100 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It cannot start with http:// or [https://](https://。).
      *
      * @example instancename
      *
@@ -58,6 +59,7 @@ class ModifyIPv6TranslatorAttributeRequest extends Model
     /**
      * @description The region of the IPv6 Translation Service instance. You can call the **DescribeRegions** operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

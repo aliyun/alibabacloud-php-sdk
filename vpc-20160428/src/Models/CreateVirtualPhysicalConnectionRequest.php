@@ -34,7 +34,7 @@ class CreateVirtualPhysicalConnectionRequest extends Model
     /**
      * @description The name of the hosted connection.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
      * @example nametest
      *
      * @var string
@@ -47,6 +47,7 @@ class CreateVirtualPhysicalConnectionRequest extends Model
      *   **PayByPhysicalConnectionOwner**: The partner pays for the hosted connection.
      *   **PayByVirtualPhysicalConnectionOwner**: The tenant pays for the hosted connection.
      *
+     * This parameter is required.
      * @example PayByVirtualPhysicalConnectionOwner
      *
      * @var string
@@ -56,6 +57,7 @@ class CreateVirtualPhysicalConnectionRequest extends Model
     /**
      * @description The ID of the Express Connect circuit over which the hosted connection is created.
      *
+     * This parameter is required.
      * @example pc-bp1ciz7ekd2grn1as****
      *
      * @var string
@@ -65,7 +67,7 @@ class CreateVirtualPhysicalConnectionRequest extends Model
     /**
      * @description The region ID of the hosted connection.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to obtain the region ID.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -90,6 +92,7 @@ class CreateVirtualPhysicalConnectionRequest extends Model
      *
      **M** indicates Mbit/s and **G** indicates Gbit/s.
      *
+     * This parameter is required.
      * @example 50M
      *
      * @var string
@@ -121,6 +124,7 @@ class CreateVirtualPhysicalConnectionRequest extends Model
      *   If the VLAN ID is set to **0**, it indicates that the switch port of the virtual border router (VBR) is a Layer 3 router interface instead of a VLAN interface. When a Layer 3 router interface is used, each Express Connect circuit corresponds to a VBR.
      *   If the VLAN ID is set to a value from **1** to **2999**, the switch port of the VBR is a Layer 3 VLAN subinterface. When a Layer 3 VLAN subinterface is used, each VLAN ID corresponds to one VBR. In this case, the Express Connect circuit with which the VBR is associated can be used to connect to virtual private clouds (VPCs) that belong to different Alibaba Cloud accounts. VBRs in different VLANs are isolated from each other at Layer 2.
      *
+     * This parameter is required.
      * @example 4
      *
      * @var int
@@ -130,6 +134,7 @@ class CreateVirtualPhysicalConnectionRequest extends Model
     /**
      * @description The Alibaba Cloud account ID of the tenant.
      *
+     * This parameter is required.
      * @example 1210123456123456
      *
      * @var int

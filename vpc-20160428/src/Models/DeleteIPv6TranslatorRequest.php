@@ -21,6 +21,7 @@ class DeleteIPv6TranslatorRequest extends Model
     /**
      * @description The ID of the IPv6 Translation Service instance.
      *
+     * This parameter is required.
      * @example ipv6trans-bp1i8ahxut1ie****
      *
      * @var string
@@ -40,6 +41,7 @@ class DeleteIPv6TranslatorRequest extends Model
     /**
      * @description The region ID of the IPv6 Translation Service instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

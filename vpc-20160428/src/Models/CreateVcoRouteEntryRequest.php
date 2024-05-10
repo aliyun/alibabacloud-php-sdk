@@ -32,6 +32,7 @@ class CreateVcoRouteEntryRequest extends Model
     /**
      * @description The next hop of the destination-based route.
      *
+     * This parameter is required.
      * @example vco-p0w2jpkhi2eeop6q6****
      *
      * @var string
@@ -55,7 +56,7 @@ class CreateVcoRouteEntryRequest extends Model
     /**
      * @description The ID of the region where the IPsec-VPN connection is established.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -75,6 +76,7 @@ class CreateVcoRouteEntryRequest extends Model
     /**
      * @description The destination CIDR block of the destination-based route.
      *
+     * This parameter is required.
      * @example 192.168.10.0/24
      *
      * @var string
@@ -84,6 +86,7 @@ class CreateVcoRouteEntryRequest extends Model
     /**
      * @description The ID of the IPsec-VPN connection.
      *
+     * This parameter is required.
      * @example vco-p0w2jpkhi2eeop6q6****
      *
      * @var string
@@ -96,6 +99,7 @@ class CreateVcoRouteEntryRequest extends Model
      *   **0**: a low priority
      *   **100**: a high priority
      *
+     * This parameter is required.
      * @example 100
      *
      * @var int

@@ -88,7 +88,7 @@ class CreateVirtualBorderRouterRequest extends Model
     /**
      * @description The name of the VBR.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter.
      * @example test
      *
      * @var string
@@ -148,7 +148,7 @@ class CreateVirtualBorderRouterRequest extends Model
     /**
      * @description The ID of the Express Connect circuit.
      *
-     * You can create a VBR for a dedicated connection or a hosted connection.
+     * This parameter is required.
      * @example pc-2zextbehcx****
      *
      * @var string
@@ -158,7 +158,7 @@ class CreateVirtualBorderRouterRequest extends Model
     /**
      * @description The region ID of the Express Connect circuit.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string
@@ -168,7 +168,7 @@ class CreateVirtualBorderRouterRequest extends Model
     /**
      * @description The resource group ID.
      *
-     * For more information about resource group, see [What is Resource Management?](~~94475~~)
+     * For more information about resource group, see [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html)
      * @example rg-acfmxazb4ph6aiy****
      *
      * @var string
@@ -205,7 +205,7 @@ class CreateVirtualBorderRouterRequest extends Model
     /**
      * @description The VLAN ID of the VBR. Valid values: **0 to 2999**.
      *
-     * >  Only the owner of the Express Connect circuit can set this parameter. The VLAN IDs of two VBRs of the same the Express Connect circuit must be different.
+     * This parameter is required.
      * @example 0
      *
      * @var int

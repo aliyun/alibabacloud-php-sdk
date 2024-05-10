@@ -72,7 +72,7 @@ class ModifyRouterInterfaceAttributeRequest extends Model
     /**
      * @description The name of the router interface.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter.
      * @example TEST
      *
      * @var string
@@ -126,7 +126,7 @@ class ModifyRouterInterfaceAttributeRequest extends Model
     /**
      * @description The region ID of the router interface.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string
@@ -146,6 +146,7 @@ class ModifyRouterInterfaceAttributeRequest extends Model
     /**
      * @description The ID of the router interface.
      *
+     * This parameter is required.
      * @example ri-2zeo3xzyf38r4urz****
      *
      * @var string

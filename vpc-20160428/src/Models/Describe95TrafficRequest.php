@@ -11,6 +11,7 @@ class Describe95TrafficRequest extends Model
     /**
      * @description The date in UTC+8. Format: year-month-day.
      *
+     * This parameter is required.
      * @example 2022-10-22
      *
      * @var string
@@ -20,6 +21,7 @@ class Describe95TrafficRequest extends Model
     /**
      * @description The resource ID.
      *
+     * This parameter is required.
      * @example cbwp-wz9j19xrwf78fvz7*****
      *
      * @var string
@@ -39,7 +41,7 @@ class Describe95TrafficRequest extends Model
     /**
      * @description The region ID of the resource.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -59,6 +61,7 @@ class Describe95TrafficRequest extends Model
     /**
      * @description The resource type. Set the value to cbwp, which specifies Internet Shared Bandwidth.
      *
+     * This parameter is required.
      * @example cbwp
      *
      * @var string

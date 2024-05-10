@@ -11,7 +11,7 @@ class AssociateEipAddressBatchRequest extends Model
     /**
      * @description The ID of the instance with which you want to associate the EIPs.
      *
-     * The instance can be a NAT gateway or a secondary ENI.
+     * This parameter is required.
      * @example ngw-hp3akk9irtd69jad****
      *
      * @var string
@@ -24,6 +24,7 @@ class AssociateEipAddressBatchRequest extends Model
      *   **Nat**: NAT gateway
      *   **NetworkInterface**: secondary ENI
      *
+     * This parameter is required.
      * @example Nat
      *
      * @var string
@@ -45,7 +46,7 @@ class AssociateEipAddressBatchRequest extends Model
     /**
      * @description The EIPs to be associated with the instance.
      *
-     * You must enter at least one EIP. You can enter up to 50 EIPs.
+     * This parameter is required.
      * @var string[]
      */
     public $instanceIds;
@@ -66,8 +67,9 @@ class AssociateEipAddressBatchRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region to which the EIPs belong. You can call the [DescribeRegions](~~36063~~) operation to query the region ID.
+     * @description The ID of the region to which the EIPs belong. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

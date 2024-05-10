@@ -23,6 +23,7 @@ class DeleteIpv6EgressOnlyRuleRequest extends Model
     /**
      * @description The ID of the egress-only rule that you want to delete.
      *
+     * This parameter is required.
      * @example ipv6py-hp3w98rmlbqp0xxxxxxxx
      *
      * @var string
@@ -40,8 +41,9 @@ class DeleteIpv6EgressOnlyRuleRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the IPv6 gateway. You can call the [DescribeRegions](~~448570~~) operation to query the most recent region list.
+     * @description The region ID of the IPv6 gateway. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/448570.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-huhehaote
      *
      * @var string

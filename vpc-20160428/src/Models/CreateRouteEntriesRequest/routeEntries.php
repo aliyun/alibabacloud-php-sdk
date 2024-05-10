@@ -24,6 +24,7 @@ class routeEntries extends Model
      *   The destination CIDR block is not 100.64.0.0/10 or a subset of 100.64.0.0/10.
      *   The destination CIDR block of the custom route entry is different from the destination CIDR blocks of other route entries in the same route table.
      *
+     * This parameter is required.
      * @example 192.168.0.0/24
      *
      * @var string
@@ -55,6 +56,7 @@ class routeEntries extends Model
     /**
      * @description The next hop ID of the custom route entry. You can specify up to 50 next hop IDs.
      *
+     * This parameter is required.
      * @example i-j6c2fp57q8rr4jlu****
      *
      * @var string
@@ -74,6 +76,7 @@ class routeEntries extends Model
      *   **Attachment**: a transit router.
      *   **VpcPeer**: a VPC peering connection.
      *
+     * This parameter is required.
      * @example RouterInterface
      *
      * @var string
@@ -83,6 +86,7 @@ class routeEntries extends Model
     /**
      * @description The ID of the route table to which you want to add a custom route entry. You can specify up to 50 route table IDs.
      *
+     * This parameter is required.
      * @example vtb-bp145q7glnuzd****
      *
      * @var string

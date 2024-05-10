@@ -21,6 +21,7 @@ class CreateBgpPeerRequest extends Model
     /**
      * @description The ID of the BGP group.
      *
+     * This parameter is required.
      * @example bgpg-wz9f62v4fbg****
      *
      * @var string
@@ -85,7 +86,7 @@ class CreateBgpPeerRequest extends Model
     /**
      * @description The ID of the region to which the BGP group belongs.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string

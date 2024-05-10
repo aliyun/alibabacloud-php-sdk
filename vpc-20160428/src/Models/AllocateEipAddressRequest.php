@@ -72,7 +72,7 @@ class AllocateEipAddressRequest extends Model
      *   **BGP** (default): BGP (Multi-ISP) All regions support BGP (Multi-ISP) EIPs.
      *   **BGP_PRO**: BGP (Multi-ISP) Pro Only the following regions support BGP (Multi-ISP) Pro lines: China (Hong Kong), Singapore, Japan (Tokyo), Malaysia (Kuala Lumpur), Philippines (Manila), Indonesia (Jakarta), and Thailand (Bangkok).
      *
-     * For more information about BGP (Multi-ISP) and BGP (Multi-ISP) Pro, see the "Line types" section of [What is EIP?](~~32321~~)
+     * For more information about BGP (Multi-ISP) and BGP (Multi-ISP) Pro, see the "Line types" section of [What is EIP?](https://help.aliyun.com/document_detail/32321.html)
      *
      *   If you are allowed to use single-ISP bandwidth, you can also choose one of the following values:
      *
@@ -198,7 +198,7 @@ class AllocateEipAddressRequest extends Model
     /**
      * @description The ID of the IP address pool.
      *
-     * By default, the IP address pool feature is unavailable. To use the IP address pool, apply for the privilege in the Quota Center console. For more information, see the "Request a quota increase in the Quota Center console" section in [Manage EIP quotas](~~108213~~).
+     * By default, the IP address pool feature is unavailable. To use the IP address pool, apply for the privilege in the Quota Center console. For more information, see the "Request a quota increase in the Quota Center console" section in [Manage EIP quotas](https://help.aliyun.com/document_detail/108213.html).
      * @example pippool-2vc0kxcedhquybdsz****
      *
      * @var string
@@ -208,7 +208,7 @@ class AllocateEipAddressRequest extends Model
     /**
      * @description The ID of the region to which the EIP belongs.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the region ID.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -252,7 +252,7 @@ class AllocateEipAddressRequest extends Model
      *
      * When the service type of the IP address pool specified by **PublicIpAddressPoolId** is CloudBox, the default value is the zone of the IP address pool.
      *
-     * For more information, see [ListPublicIpAddressPools](~~429433~~).
+     * For more information, see [ListPublicIpAddressPools](https://help.aliyun.com/document_detail/429433.html).
      * @example cn-hangzhou-a
      *
      * @var string

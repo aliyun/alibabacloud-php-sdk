@@ -57,8 +57,9 @@ class DescribeVpnSslServerLogsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the region where the SSL server is created. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * @description The ID of the region where the SSL server is created. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -97,6 +98,7 @@ class DescribeVpnSslServerLogsRequest extends Model
     /**
      * @description The ID of the SSL server.
      *
+     * This parameter is required.
      * @example vss-bp155e9yclsg1xgq4****
      *
      * @var string

@@ -62,8 +62,9 @@ class CreateHaVipRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the HAVIP. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * @description The region ID of the HAVIP. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -99,6 +100,7 @@ class CreateHaVipRequest extends Model
     /**
      * @description The ID of the vSwitch to which the HAVIP belongs.
      *
+     * This parameter is required.
      * @example vsw-asdfjlnaue4g****
      *
      * @var string

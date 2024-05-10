@@ -33,6 +33,7 @@ class UpdateGatewayRouteTableEntryAttributeRequest extends Model
     /**
      * @description The destination CIDR block of the route entry in the gateway route table.
      *
+     * This parameter is required.
      * @example 47.100.XX.XX/16
      *
      * @var string
@@ -72,7 +73,7 @@ class UpdateGatewayRouteTableEntryAttributeRequest extends Model
     /**
      * @description The name of the gateway route table.
      *
-     * The name must be 2 to 128 characters in length and can contain letter, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter.
+     * The name must be 2 to 128 characters in length and can contain letter, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
      * @example test
      *
      * @var string
@@ -100,6 +101,7 @@ class UpdateGatewayRouteTableEntryAttributeRequest extends Model
      *   **NetworkInterface**: elastic network interface (ENI)
      *   **Local**: local next hop
      *
+     * This parameter is required.
      * @example EcsInstance
      *
      * @var string
@@ -119,7 +121,7 @@ class UpdateGatewayRouteTableEntryAttributeRequest extends Model
     /**
      * @description The ID of the region to which the gateway route table that you want to modify belongs.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example ap-southeast-6
      *
      * @var string

@@ -35,6 +35,7 @@ class CopyNetworkAclEntriesRequest extends Model
     /**
      * @description The ID of the network ACL.
      *
+     * This parameter is required.
      * @example nacl-a2do9e413e0spxxxxxxxx
      *
      * @var string
@@ -52,8 +53,9 @@ class CopyNetworkAclEntriesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the network ACL. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * @description The region ID of the network ACL. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -73,6 +75,7 @@ class CopyNetworkAclEntriesRequest extends Model
     /**
      * @description The ID of the network ACL whose rules you want to copy.
      *
+     * This parameter is required.
      * @example nacl-ghuo9ehg3e0spxxxxxxxx
      *
      * @var string

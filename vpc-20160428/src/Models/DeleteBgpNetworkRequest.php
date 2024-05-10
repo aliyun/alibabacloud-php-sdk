@@ -23,6 +23,7 @@ class DeleteBgpNetworkRequest extends Model
     /**
      * @description The CIDR block of the virtual private cloud (VPC) or vSwitch that you want to connect to a data center.
      *
+     * This parameter is required.
      * @example 10.110.192.12/32
      *
      * @var string
@@ -42,7 +43,7 @@ class DeleteBgpNetworkRequest extends Model
     /**
      * @description The region ID of the BGP group.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -62,6 +63,7 @@ class DeleteBgpNetworkRequest extends Model
     /**
      * @description The ID of the VBR.
      *
+     * This parameter is required.
      * @example vrt-bp1lhl0taikrteen8****
      *
      * @var string

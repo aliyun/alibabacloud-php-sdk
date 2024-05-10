@@ -42,6 +42,7 @@ class DescribeVirtualBorderRoutersForPhysicalConnectionRequest extends Model
     /**
      * @description The ID of the Express Connect circuit.
      *
+     * This parameter is required.
      * @example pc-119mfj****
      *
      * @var string
@@ -49,8 +50,9 @@ class DescribeVirtualBorderRoutersForPhysicalConnectionRequest extends Model
     public $physicalConnectionId;
 
     /**
-     * @description The region in which the Express Connect circuit is deployed. You can call the [DescribeRegions](~~36063~~) operation to obtain the region ID.
+     * @description The region in which the Express Connect circuit is deployed. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
      *
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string

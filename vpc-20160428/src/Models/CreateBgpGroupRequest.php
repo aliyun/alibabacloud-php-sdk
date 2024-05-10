@@ -81,7 +81,7 @@ class CreateBgpGroupRequest extends Model
     /**
      * @description The name of the BGP group.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter.
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
      * @example test
      *
      * @var string
@@ -101,6 +101,7 @@ class CreateBgpGroupRequest extends Model
     /**
      * @description The ASN of the gateway device in the data center.
      *
+     * This parameter is required.
      * @example 1****
      *
      * @var int
@@ -110,7 +111,7 @@ class CreateBgpGroupRequest extends Model
     /**
      * @description The region ID of the VBR.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string
@@ -139,6 +140,7 @@ class CreateBgpGroupRequest extends Model
     /**
      * @description The ID of the VBR.
      *
+     * This parameter is required.
      * @example vbr-bp1ctxy813985gkuk****
      *
      * @var string

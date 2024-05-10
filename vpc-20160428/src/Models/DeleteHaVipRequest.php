@@ -23,6 +23,7 @@ class DeleteHaVipRequest extends Model
     /**
      * @description The ID of the HAVIP that you want to delete.
      *
+     * This parameter is required.
      * @example havip-2zeo05qre24nhrqpy****
      *
      * @var string
@@ -40,8 +41,9 @@ class DeleteHaVipRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region where the HAVIP is deployed. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * @description The ID of the region where the HAVIP is deployed. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string

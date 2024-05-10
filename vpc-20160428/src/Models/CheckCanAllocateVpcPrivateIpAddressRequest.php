@@ -33,6 +33,7 @@ class CheckCanAllocateVpcPrivateIpAddressRequest extends Model
     /**
      * @description To query whether a private IP address is available, the private IP address must belong to the vSwitch specified by the **VSwitchId** parameter.
      *
+     * This parameter is required.
      * @example 10.0.0.7
      *
      * @var string
@@ -42,7 +43,7 @@ class CheckCanAllocateVpcPrivateIpAddressRequest extends Model
     /**
      * @description The region ID of the vSwitch to which the private IP address that you want to query belongs.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-qingdao
      *
      * @var string
@@ -62,6 +63,7 @@ class CheckCanAllocateVpcPrivateIpAddressRequest extends Model
     /**
      * @description The ID of the vSwitch to which the private IP address to be queried belongs.
      *
+     * This parameter is required.
      * @example vsw-m5ew3t46z2drmifnt****
      *
      * @var string

@@ -35,6 +35,7 @@ class DissociateRouteTableFromGatewayRequest extends Model
     /**
      * @description The ID of the IPv4 gateway.
      *
+     * This parameter is required.
      * @example ipv4gw-5tsnc6s4ogsedtp3k****
      *
      * @var string
@@ -63,7 +64,7 @@ class DissociateRouteTableFromGatewayRequest extends Model
     /**
      * @description The region ID of the IPv4 gateway from which you want to disassociate the gateway route table.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example ap-southeast-6
      *
      * @var string
@@ -83,6 +84,7 @@ class DissociateRouteTableFromGatewayRequest extends Model
     /**
      * @description The ID of the gateway route table.
      *
+     * This parameter is required.
      * @example vtb-5ts0ohchwkp3dydt2****
      *
      * @var string

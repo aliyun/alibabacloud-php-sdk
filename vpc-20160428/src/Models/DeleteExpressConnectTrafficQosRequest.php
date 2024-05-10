@@ -26,6 +26,8 @@ class DeleteExpressConnectTrafficQosRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example qos-2giu0a6vd5x0mv4700
      *
      * @var string
@@ -33,6 +35,8 @@ class DeleteExpressConnectTrafficQosRequest extends Model
     public $qosId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-shanghai
      *
      * @var string

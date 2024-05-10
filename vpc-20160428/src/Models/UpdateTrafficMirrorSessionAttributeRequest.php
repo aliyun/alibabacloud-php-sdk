@@ -75,8 +75,9 @@ class UpdateTrafficMirrorSessionAttributeRequest extends Model
     public $priority;
 
     /**
-     * @description The region ID of the traffic mirror session. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list. For more information about the regions that support traffic mirroring, see [Overview of traffic mirroring](~~207513~~).
+     * @description The region ID of the traffic mirror session. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list. For more information about the regions that support traffic mirroring, see [Overview of traffic mirroring](https://help.aliyun.com/document_detail/207513.html).
      *
+     * This parameter is required.
      * @example cn-hongkong
      *
      * @var string
@@ -115,6 +116,7 @@ class UpdateTrafficMirrorSessionAttributeRequest extends Model
     /**
      * @description The ID of the traffic mirror session.
      *
+     * This parameter is required.
      * @example tms-j6cla50buc44ap8tu****
      *
      * @var string

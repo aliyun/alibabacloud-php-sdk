@@ -26,6 +26,8 @@ class DescribeVpnGatewayAvailableZonesRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -43,6 +45,8 @@ class DescribeVpnGatewayAvailableZonesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 5M
      *
      * @var string

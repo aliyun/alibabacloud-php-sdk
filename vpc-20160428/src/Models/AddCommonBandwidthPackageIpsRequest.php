@@ -11,6 +11,7 @@ class AddCommonBandwidthPackageIpsRequest extends Model
     /**
      * @description The ID of the Internet Shared Bandwidth instance.
      *
+     * This parameter is required.
      * @example cbwp-2ze2ic1xd2qeqasdf****
      *
      * @var string
@@ -32,7 +33,7 @@ class AddCommonBandwidthPackageIpsRequest extends Model
     /**
      * @description The list of EIPs that you want to associate with the Internet Shared Bandwidth instance.
      *
-     * You can specify at most 10 EIP IDs at a time.
+     * This parameter is required.
      * @var string[]
      */
     public $ipInstanceIds;
@@ -59,7 +60,7 @@ class AddCommonBandwidthPackageIpsRequest extends Model
     /**
      * @description The region ID of the Internet Shared Bandwidth instance.
      *
-     * You can call the [DescribeRegions](~~448570~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string

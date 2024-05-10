@@ -56,6 +56,7 @@ class CreateCustomerGatewayRequest extends Model
     /**
      * @description The public IP address of the gateway device in the data center.
      *
+     * This parameter is required.
      * @example 101.12.XX.XX
      *
      * @var string
@@ -85,7 +86,7 @@ class CreateCustomerGatewayRequest extends Model
     /**
      * @description The region ID of the customer gateway.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string

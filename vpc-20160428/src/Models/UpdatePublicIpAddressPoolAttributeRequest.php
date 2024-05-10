@@ -45,7 +45,7 @@ class UpdatePublicIpAddressPoolAttributeRequest extends Model
     /**
      * @description The name of the IP address pool.
      *
-     * This parameter is optional. The name must be 1 to 128 characters in length, and can contain digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
+     * This parameter is optional. The name must be 1 to 128 characters in length, and can contain digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
      * @example AddressPoolName
      *
      * @var string
@@ -65,6 +65,7 @@ class UpdatePublicIpAddressPoolAttributeRequest extends Model
     /**
      * @description The ID of the IP address pool.
      *
+     * This parameter is required.
      * @example pippool-6wetvn6fumkgycssx****
      *
      * @var string
@@ -74,6 +75,7 @@ class UpdatePublicIpAddressPoolAttributeRequest extends Model
     /**
      * @description The region ID of the IP address pool that you want to modify.
      *
+     * This parameter is required.
      * @example cn-chengdu
      *
      * @var string

@@ -40,6 +40,8 @@ class ModifyExpressConnectTrafficQosRequest extends Model
     public $qosDescription;
 
     /**
+     * @description This parameter is required.
+     *
      * @example qos-2giu0a6vd5x0mv4700
      *
      * @var string
@@ -54,6 +56,8 @@ class ModifyExpressConnectTrafficQosRequest extends Model
     public $qosName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-shanghai
      *
      * @var string

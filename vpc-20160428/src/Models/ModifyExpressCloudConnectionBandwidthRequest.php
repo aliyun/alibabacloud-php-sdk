@@ -20,6 +20,7 @@ class ModifyExpressCloudConnectionBandwidthRequest extends Model
     /**
      * @description The ID of the ECC instance.
      *
+     * This parameter is required.
      * @example ecc-xxxxxxxxx
      *
      * @var string
@@ -39,6 +40,7 @@ class ModifyExpressCloudConnectionBandwidthRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -23,6 +23,7 @@ class DeleteVpnRouteEntryRequest extends Model
     /**
      * @description The next hop of the destination-based route.
      *
+     * This parameter is required.
      * @example vco-bp15oes1py4i66rmd****
      *
      * @var string
@@ -49,8 +50,9 @@ class DeleteVpnRouteEntryRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region where the VPN gateway is created. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * @description The ID of the region where the VPN gateway is created. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -70,6 +72,7 @@ class DeleteVpnRouteEntryRequest extends Model
     /**
      * @description The destination CIDR block of the destination-based route.
      *
+     * This parameter is required.
      * @example 10.0.0.0/24
      *
      * @var string
@@ -79,6 +82,7 @@ class DeleteVpnRouteEntryRequest extends Model
     /**
      * @description The ID of the VPN gateway.
      *
+     * This parameter is required.
      * @example vpn-bp1a3kqjiiq9legfx****
      *
      * @var string
@@ -91,6 +95,7 @@ class DeleteVpnRouteEntryRequest extends Model
      *   **0**: a low priority
      *   **100**: a high priority
      *
+     * This parameter is required.
      * @example 0
      *
      * @var int

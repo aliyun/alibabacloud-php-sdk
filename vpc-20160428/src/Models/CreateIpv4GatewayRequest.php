@@ -66,7 +66,7 @@ class CreateIpv4GatewayRequest extends Model
     /**
      * @description The ID of the region where you want to create the IPv4 gateway.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example ap-southeast-6
      *
      * @var string
@@ -102,7 +102,7 @@ class CreateIpv4GatewayRequest extends Model
     /**
      * @description The ID of the VPC where you want to create the IPv4 gateway.
      *
-     * You can create only one IPv4 gateway in a VPC.
+     * This parameter is required.
      * @example vpc-5tss06uvoyps5xoya****
      *
      * @var string

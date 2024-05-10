@@ -23,6 +23,7 @@ class DeleteDhcpOptionsSetRequest extends Model
     /**
      * @description The ID of the DHCP options set to be deleted.
      *
+     * This parameter is required.
      * @example dopt-o6w0df4epg9zo8isy****
      *
      * @var string
@@ -53,8 +54,9 @@ class DeleteDhcpOptionsSetRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region of the DHCP options set to be deleted. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * @description The region of the DHCP options set to be deleted. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

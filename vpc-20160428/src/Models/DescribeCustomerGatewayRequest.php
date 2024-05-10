@@ -11,6 +11,7 @@ class DescribeCustomerGatewayRequest extends Model
     /**
      * @description The ID of the customer gateway.
      *
+     * This parameter is required.
      * @example cgw-bp1pvpl9r9adju6l5****
      *
      * @var string
@@ -30,7 +31,7 @@ class DescribeCustomerGatewayRequest extends Model
     /**
      * @description The ID of the region where the customer gateway is deployed.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string

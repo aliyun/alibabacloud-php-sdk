@@ -71,7 +71,7 @@ class DescribeNetworkAclsRequest extends Model
     /**
      * @description The region ID of the network ACL.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -117,6 +117,7 @@ class AssociatePhysicalConnectionToVirtualBorderRouterRequest extends Model
     /**
      * @description The ID of the Express Connect circuit.
      *
+     * This parameter is required.
      * @example pc-bp1qrb3044eqixog****
      *
      * @var string
@@ -126,7 +127,7 @@ class AssociatePhysicalConnectionToVirtualBorderRouterRequest extends Model
     /**
      * @description The region ID of the Express Connect circuit.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -146,6 +147,7 @@ class AssociatePhysicalConnectionToVirtualBorderRouterRequest extends Model
     /**
      * @description The ID of the VBR.
      *
+     * This parameter is required.
      * @example vbr-bp186tnz6rijyhj******
      *
      * @var string
@@ -155,7 +157,7 @@ class AssociatePhysicalConnectionToVirtualBorderRouterRequest extends Model
     /**
      * @description The VLAN ID of the VBR. Valid values: **0 to 2999**.
      *
-     * >  Only the Express Connect circuit owner can specify this parameter. Two VBRs associated with the same Express Connect circuit cannot use the same VLAN ID.
+     * This parameter is required.
      * @example 123
      *
      * @var string

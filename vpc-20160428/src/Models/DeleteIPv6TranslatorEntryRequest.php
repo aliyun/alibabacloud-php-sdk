@@ -50,6 +50,7 @@ class DeleteIPv6TranslatorEntryRequest extends Model
     /**
      * @description The region of the IPv6 Translation Service instance. You can call the **DescribeRegions** operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

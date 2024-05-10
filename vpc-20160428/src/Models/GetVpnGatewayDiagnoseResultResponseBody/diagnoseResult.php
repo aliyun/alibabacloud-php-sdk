@@ -19,7 +19,7 @@ class diagnoseResult extends Model
      *   **VcoUserInternetIpConnectivity**: Internet connectivity of the customer gateway.
      *   **VcoPrivateConnectivity**: private network connectivity.
      *
-     * For more information about the diagnostic items, see [Background information about quick diagnostics](~~190330~~).
+     * For more information about the diagnostic items, see [Background information about quick diagnostics](https://help.aliyun.com/document_detail/190330.html).
      * @example RouteEntryConflict
      *
      * @var string
@@ -71,7 +71,7 @@ class diagnoseResult extends Model
      *   **rtt**: the latency when the source IP address accesses the destination IP address. Unit: milliseconds.
      *   **lossRate**: the packet loss when the source IP address accesses the destination IP address.
      *
-     * @example {\"targetIp\":\"192.168.0.1\",\"srcIp\":\"192.168.1.1\",\"rtt\":-1.0,\"lossRate\":100.0}
+     * @example {\\"targetIp\\":\\"192.168.0.1\\",\\"srcIp\\":\\"192.168.1.1\\",\\"rtt\\":-1.0,\\"lossRate\\":100.0}
      *
      * @var string
      */
@@ -84,7 +84,7 @@ class diagnoseResult extends Model
      *   **warning**
      *   **error**
      *
-     * For more information, see [Background information about quick diagnostics](~~190330~~).
+     * For more information, see [Background information about quick diagnostics](https://help.aliyun.com/document_detail/190330.html).
      * @example normal
      *
      * @var string

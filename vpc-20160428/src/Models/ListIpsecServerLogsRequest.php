@@ -21,6 +21,7 @@ class ListIpsecServerLogsRequest extends Model
     /**
      * @description The ID of the IPsec server.
      *
+     * This parameter is required.
      * @example iss-2zei2n5q5zhirfh73****
      *
      * @var string
@@ -58,7 +59,7 @@ class ListIpsecServerLogsRequest extends Model
     /**
      * @description The ID of the region where the IPsec server is created.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to obtain the region ID.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

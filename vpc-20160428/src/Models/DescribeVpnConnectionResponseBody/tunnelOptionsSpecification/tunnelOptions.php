@@ -135,7 +135,7 @@ class tunnelOptions extends Model
     /**
      * @description The zone where the tunnel is deployed.
      *
-     * You can call [DescribeZones](~~36064~~) to query zone IDs.
+     * You can call [DescribeZones](https://help.aliyun.com/document_detail/36064.html) to query zone IDs.
      * @example cn-hangzhou-i
      *
      * @var string

@@ -51,7 +51,7 @@ class ModifyVSwitchAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region where the vSwitch is deployed. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * @description The ID of the region where the vSwitch is deployed. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -72,6 +72,7 @@ class ModifyVSwitchAttributeRequest extends Model
     /**
      * @description The ID of the vSwitch.
      *
+     * This parameter is required.
      * @example vsw-25nacdfvue4****
      *
      * @var string

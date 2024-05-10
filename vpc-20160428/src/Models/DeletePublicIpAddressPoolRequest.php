@@ -43,6 +43,7 @@ class DeletePublicIpAddressPoolRequest extends Model
     /**
      * @description The ID of the IP address pool.
      *
+     * This parameter is required.
      * @example pippool-6wetvn6fumkgycssx****
      *
      * @var string
@@ -52,6 +53,7 @@ class DeletePublicIpAddressPoolRequest extends Model
     /**
      * @description The ID of the region where you want to create the IP address pool.
      *
+     * This parameter is required.
      * @example cn-chengdu
      *
      * @var string

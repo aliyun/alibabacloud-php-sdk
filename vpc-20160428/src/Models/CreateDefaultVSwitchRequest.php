@@ -42,7 +42,7 @@ class CreateDefaultVSwitchRequest extends Model
     /**
      * @description The region ID of the default vSwitch.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -62,7 +62,7 @@ class CreateDefaultVSwitchRequest extends Model
     /**
      * @description The zone ID of the default vSwitch.
      *
-     * You can call the [DescribeZones](~~36064~~) operation to query the most recent zone list.
+     * This parameter is required.
      * @example cn-hangzhou-b
      *
      * @var string

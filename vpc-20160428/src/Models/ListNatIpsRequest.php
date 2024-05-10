@@ -44,6 +44,7 @@ class ListNatIpsRequest extends Model
     /**
      * @description The ID of the NAT gateway.
      *
+     * This parameter is required.
      * @example ngw-gw8v16wgvtq26vh59****
      *
      * @var string
@@ -115,7 +116,7 @@ class ListNatIpsRequest extends Model
     /**
      * @description The ID of the region where the NAT gateway is deployed.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example eu-central-1
      *
      * @var string

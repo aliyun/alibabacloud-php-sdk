@@ -39,7 +39,7 @@ class DescribeBgpNetworksRequest extends Model
     /**
      * @description The region ID of the BGP group.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -11,6 +11,7 @@ class ModifyEipAddressAttributeRequest extends Model
     /**
      * @description The ID of the pay-as-you-go EIP.
      *
+     * This parameter is required.
      * @example eip-2zeerraiwb7uj6i0d****
      *
      * @var string
@@ -42,7 +43,7 @@ class ModifyEipAddressAttributeRequest extends Model
     /**
      * @description The new name of the EIP.
      *
-     * The name must be 1 to 128 characters in length, and can contain digits, periods (.), underscores (\_), and hyphens (-).
+     * The name must be 1 to 128 characters in length, and can contain digits, periods (.), underscores (_), and hyphens (-).
      * @example Test123
      *
      * @var string
@@ -62,7 +63,7 @@ class ModifyEipAddressAttributeRequest extends Model
     /**
      * @description The region ID of the EIP.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

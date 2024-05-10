@@ -51,7 +51,7 @@ class ListIpsecServersRequest extends Model
     /**
      * @description The ID of the region where the IPsec server is created.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -61,7 +61,7 @@ class ListIpsecServersRequest extends Model
     /**
      * @description The ID of the resource group to which the IPsec server belongs.
      *
-     * You can call the [DescribeVpnGateway](~~2526915~~) operation to query the ID of the resource group to which the VPN gateway instance belongs.
+     * You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/2526915.html) operation to query the ID of the resource group to which the VPN gateway instance belongs.
      * @example rg-acfmzs372yg****
      *
      * @var string

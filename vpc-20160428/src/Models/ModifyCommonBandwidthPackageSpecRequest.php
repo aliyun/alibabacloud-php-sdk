@@ -12,6 +12,8 @@ class ModifyCommonBandwidthPackageSpecRequest extends Model
      * @description The maximum bandwidth of the Internet Shared Bandwidth instance. Unit: Mbit/s.
      *
      * Valid values: **1** to **1000**.
+     *
+     * This parameter is required.
      * @example 1000
      *
      * @var string
@@ -21,6 +23,7 @@ class ModifyCommonBandwidthPackageSpecRequest extends Model
     /**
      * @description The ID of the Internet Shared Bandwidth instance.
      *
+     * This parameter is required.
      * @example cbwp-2ze2ic1xd2qeqk145****
      *
      * @var string
@@ -40,7 +43,7 @@ class ModifyCommonBandwidthPackageSpecRequest extends Model
     /**
      * @description The region ID of the Internet Shared Bandwidth instance.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

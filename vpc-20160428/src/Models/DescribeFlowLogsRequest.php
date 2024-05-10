@@ -87,7 +87,7 @@ class DescribeFlowLogsRequest extends Model
     /**
      * @description The region ID of the flow log.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -34,6 +34,7 @@ class ApplyPhysicalConnectionLOARequest extends Model
     /**
      * @description The name of the customer company that requires the Express Connect circuit.
      *
+     * This parameter is required.
      * @example company
      *
      * @var string
@@ -43,6 +44,7 @@ class ApplyPhysicalConnectionLOARequest extends Model
     /**
      * @description The time when construction started. Specify the time in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
      *
+     * This parameter is required.
      * @example 2022-02-28T16:00:00Z
      *
      * @var string
@@ -52,6 +54,7 @@ class ApplyPhysicalConnectionLOARequest extends Model
     /**
      * @description The ID of the Express Connect circuit.
      *
+     * This parameter is required.
      * @example pc-bp1qrb3044eqi****
      *
      * @var string
@@ -66,6 +69,7 @@ class ApplyPhysicalConnectionLOARequest extends Model
      *   **FIBRE**: fiber line
      *   **Other**: other types
      *
+     * This parameter is required.
      * @example FIBRE
      *
      * @var string
@@ -101,7 +105,7 @@ class ApplyPhysicalConnectionLOARequest extends Model
     /**
      * @description The region ID of the Express Connect circuit.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -121,6 +125,7 @@ class ApplyPhysicalConnectionLOARequest extends Model
     /**
      * @description The construction company.
      *
+     * This parameter is required.
      * @example company
      *
      * @var string

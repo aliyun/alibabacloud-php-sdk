@@ -11,6 +11,7 @@ class UpdateVirtualBorderBandwidthRequest extends Model
     /**
      * @description The new maximum bandwidth value for the VBR. Unit: Mbit/s.
      *
+     * This parameter is required.
      * @example 2
      *
      * @var int
@@ -42,7 +43,7 @@ class UpdateVirtualBorderBandwidthRequest extends Model
     /**
      * @description The region ID of the VBR.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string
@@ -62,6 +63,7 @@ class UpdateVirtualBorderBandwidthRequest extends Model
     /**
      * @description The ID of the VBR.
      *
+     * This parameter is required.
      * @example vbr-bp15zckdt37pq72****
      *
      * @var string

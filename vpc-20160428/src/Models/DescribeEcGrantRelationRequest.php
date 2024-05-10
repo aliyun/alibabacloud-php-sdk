@@ -14,6 +14,7 @@ class DescribeEcGrantRelationRequest extends Model
      *   If you set **InstanceType** to **VBR**, specify a VBR ID.
      *   If you set **InstanceType** to **VPC**, specify a VPC ID.
      *
+     * This parameter is required.
      * @example vbr-bp12mw1f8k3jgygk9****
      *
      * @var string
@@ -26,6 +27,7 @@ class DescribeEcGrantRelationRequest extends Model
      *   **VBR**: queries the permissions that are granted to a VBR.
      *   **VPC**: queries the permissions that are granted from a VPC.
      *
+     * This parameter is required.
      * @example VBR
      *
      * @var string

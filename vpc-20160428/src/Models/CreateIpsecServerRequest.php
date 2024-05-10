@@ -11,7 +11,7 @@ class CreateIpsecServerRequest extends Model
     /**
      * @description The client CIDR block from which an IP address is allocated to the virtual network interface controller (NIC) of the client.
      *
-     * >  The client CIDR block must not overlap with the CIDR blocks of the VPC.
+     * This parameter is required.
      * @example 10.0.0.0/24
      *
      * @var string
@@ -99,7 +99,7 @@ class CreateIpsecServerRequest extends Model
     /**
      * @description The local CIDR blocks, which are the CIDR blocks of the virtual private cloud (VPC) for the client to access.
      *
-     * Multiple CIDR blocks are separated with commas (,). Example: 192.168.1.0/24,192.168.2.0/24.
+     * This parameter is required.
      * @example 192.168.0.0/24
      *
      * @var string
@@ -129,6 +129,7 @@ class CreateIpsecServerRequest extends Model
     /**
      * @description The ID of the region where the VPN gateway is deployed.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -138,6 +139,7 @@ class CreateIpsecServerRequest extends Model
     /**
      * @description The ID of the VPN gateway.
      *
+     * This parameter is required.
      * @example vpn-bp17lofy9fd0dnvzv****
      *
      * @var string

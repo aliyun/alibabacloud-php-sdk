@@ -68,7 +68,7 @@ class CreateTrafficMirrorSessionRequest extends Model
     /**
      * @description The priority of the traffic mirror session. Valid values: **1** to **32766**.
      *
-     * A smaller value indicates a higher priority. You cannot specify identical priorities for traffic mirror sessions that are created in the same region by using the same account.
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -76,8 +76,9 @@ class CreateTrafficMirrorSessionRequest extends Model
     public $priority;
 
     /**
-     * @description The ID of the region to which the traffic mirror session belongs. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list. For more information about regions that support traffic mirroring, see [Overview of traffic mirroring](~~207513~~).
+     * @description The ID of the region to which the traffic mirror session belongs. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list. For more information about regions that support traffic mirroring, see [Overview of traffic mirroring](https://help.aliyun.com/document_detail/207513.html).
      *
+     * This parameter is required.
      * @example cn-hongkong
      *
      * @var string
@@ -113,6 +114,7 @@ class CreateTrafficMirrorSessionRequest extends Model
     /**
      * @description The ID of the filter.
      *
+     * This parameter is required.
      * @example tmf-j6cmls82xnc86vtpe****
      *
      * @var string
@@ -142,6 +144,7 @@ class CreateTrafficMirrorSessionRequest extends Model
     /**
      * @description The ID of the traffic mirror source. You can specify only an elastic network interface (ENI) as the traffic mirror source. The default value of **N** is **1**, which indicates that you can add only one traffic mirror source to a traffic mirror session.
      *
+     * This parameter is required.
      * @example eni-j6c2fp57q8rr47rp****
      *
      * @var string[]
@@ -151,6 +154,7 @@ class CreateTrafficMirrorSessionRequest extends Model
     /**
      * @description The ID of the traffic mirror destination. You can specify only an elastic network interface (ENI) or a Server Load Balancer (SLB) instance as a traffic mirror destination.
      *
+     * This parameter is required.
      * @example eni-j6c8znm5l1yt4sox****
      *
      * @var string
@@ -163,6 +167,7 @@ class CreateTrafficMirrorSessionRequest extends Model
      *   **NetworkInterface**: an ENI
      *   **SLB**: an SLB instance
      *
+     * This parameter is required.
      * @example NetworkInterface
      *
      * @var string

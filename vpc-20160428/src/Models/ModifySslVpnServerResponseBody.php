@@ -66,6 +66,11 @@ class ModifySslVpnServerResponseBody extends Model
     public $enableMultiFactorAuth;
 
     /**
+     * @var string
+     */
+    public $IDaaSApplicationId;
+
+    /**
      * @description The ID of the IDaaS instance.
      *
      * @example idaas-cn-hangzhou-****
@@ -73,6 +78,11 @@ class ModifySslVpnServerResponseBody extends Model
      * @var string
      */
     public $IDaaSInstanceId;
+
+    /**
+     * @var string
+     */
+    public $IDaaSInstanceVersion;
 
     /**
      * @description The public IP address.
@@ -149,7 +159,7 @@ class ModifySslVpnServerResponseBody extends Model
     /**
      * @description The ID of the resource group to which the SSL server belongs.
      *
-     * The SSL server and the VPN gateway associated with the SSL server belong to the same resource group. You can call the [ListResourceGroups](~~158855~~) operation to query resource groups.
+     * The SSL server and the VPN gateway associated with the SSL server belong to the same resource group. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource groups.
      * @example rg-acfmzs372yg****
      *
      * @var string
@@ -180,7 +190,9 @@ class ModifySslVpnServerResponseBody extends Model
         'connections'           => 'Connections',
         'createTime'            => 'CreateTime',
         'enableMultiFactorAuth' => 'EnableMultiFactorAuth',
+        'IDaaSApplicationId'    => 'IDaaSApplicationId',
         'IDaaSInstanceId'       => 'IDaaSInstanceId',
+        'IDaaSInstanceVersion'  => 'IDaaSInstanceVersion',
         'internetIp'            => 'InternetIp',
         'localSubnet'           => 'LocalSubnet',
         'maxConnections'        => 'MaxConnections',
@@ -219,8 +231,14 @@ class ModifySslVpnServerResponseBody extends Model
         if (null !== $this->enableMultiFactorAuth) {
             $res['EnableMultiFactorAuth'] = $this->enableMultiFactorAuth;
         }
+        if (null !== $this->IDaaSApplicationId) {
+            $res['IDaaSApplicationId'] = $this->IDaaSApplicationId;
+        }
         if (null !== $this->IDaaSInstanceId) {
             $res['IDaaSInstanceId'] = $this->IDaaSInstanceId;
+        }
+        if (null !== $this->IDaaSInstanceVersion) {
+            $res['IDaaSInstanceVersion'] = $this->IDaaSInstanceVersion;
         }
         if (null !== $this->internetIp) {
             $res['InternetIp'] = $this->internetIp;
@@ -285,8 +303,14 @@ class ModifySslVpnServerResponseBody extends Model
         if (isset($map['EnableMultiFactorAuth'])) {
             $model->enableMultiFactorAuth = $map['EnableMultiFactorAuth'];
         }
+        if (isset($map['IDaaSApplicationId'])) {
+            $model->IDaaSApplicationId = $map['IDaaSApplicationId'];
+        }
         if (isset($map['IDaaSInstanceId'])) {
             $model->IDaaSInstanceId = $map['IDaaSInstanceId'];
+        }
+        if (isset($map['IDaaSInstanceVersion'])) {
+            $model->IDaaSInstanceVersion = $map['IDaaSInstanceVersion'];
         }
         if (isset($map['InternetIp'])) {
             $model->internetIp = $map['InternetIp'];

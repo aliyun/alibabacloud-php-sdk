@@ -40,6 +40,8 @@ class CreateExpressConnectTrafficQosRequest extends Model
     public $qosName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-shanghai
      *
      * @var string

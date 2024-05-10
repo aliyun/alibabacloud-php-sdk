@@ -21,7 +21,7 @@ class ModifyVSwitchCidrReservationAttributeRequest extends Model
     /**
      * @description The ID of the region where the vSwitch is deployed.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -51,6 +51,7 @@ class ModifyVSwitchCidrReservationAttributeRequest extends Model
     /**
      * @description The ID of the reserved CIDR block.
      *
+     * This parameter is required.
      * @example vcr-bp1m12saqteraw3rp****
      *
      * @var string
@@ -60,7 +61,7 @@ class ModifyVSwitchCidrReservationAttributeRequest extends Model
     /**
      * @description The new name of the reserved CIDR block.
      *
-     * The name must be 2 to 128 characters in length and can contain letters, digits, underscores (\_), and hyphens (-). It must start with a letter.
+     * The name must be 2 to 128 characters in length and can contain letters, digits, underscores (_), and hyphens (-). It must start with a letter.
      * @example ReservationName
      *
      * @var string

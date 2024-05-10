@@ -39,7 +39,7 @@ class DescribeVpnRouteEntriesRequest extends Model
     /**
      * @description The ID of the region where the VPN gateway is created.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -71,6 +71,7 @@ class DescribeVpnRouteEntriesRequest extends Model
     /**
      * @description The ID of the VPN gateway.
      *
+     * This parameter is required.
      * @example vpn-bp1cmw7jh1nfe43m9****
      *
      * @var string

@@ -23,7 +23,7 @@ class RecoverPhysicalConnectionRequest extends Model
     /**
      * @description The ID of the Express Connect circuit.
      *
-     * >  You can resume only shared Express Connect circuits by calling this API operation.
+     * This parameter is required.
      * @example pc-bp1mrgfbtmc9brre7****
      *
      * @var string
@@ -33,7 +33,7 @@ class RecoverPhysicalConnectionRequest extends Model
     /**
      * @description The region ID of the Express Connect circuit.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

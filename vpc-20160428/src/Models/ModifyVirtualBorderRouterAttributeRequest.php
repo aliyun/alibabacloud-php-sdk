@@ -126,7 +126,7 @@ class ModifyVirtualBorderRouterAttributeRequest extends Model
     /**
      * @description The name of the VBR.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter. It cannot start with `http://` or `https://`.
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter. It cannot start with `http://` or `https://`.
      * @example VBR
      *
      * @var string
@@ -188,7 +188,7 @@ class ModifyVirtualBorderRouterAttributeRequest extends Model
     /**
      * @description The region ID of the VBR.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string
@@ -213,6 +213,7 @@ class ModifyVirtualBorderRouterAttributeRequest extends Model
     /**
      * @description The VBR ID.
      *
+     * This parameter is required.
      * @example vbr-bp1lhl0taikrte****
      *
      * @var string

@@ -59,7 +59,7 @@ class DescribeVpnConnectionLogsRequest extends Model
     /**
      * @description The ID of the region to which the IPsec-VPN connection belongs.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example eu-central-1
      *
      * @var string
@@ -98,6 +98,7 @@ class DescribeVpnConnectionLogsRequest extends Model
     /**
      * @description The ID of the IPsec-VPN connection.
      *
+     * This parameter is required.
      * @example vco-m5evqnds4y459flt3****
      *
      * @var string

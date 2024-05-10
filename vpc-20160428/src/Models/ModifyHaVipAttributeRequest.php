@@ -33,6 +33,7 @@ class ModifyHaVipAttributeRequest extends Model
     /**
      * @description The ID of the HAVIP.
      *
+     * This parameter is required.
      * @example havip-2zeo05qre24nhrqp****
      *
      * @var string
@@ -62,7 +63,7 @@ class ModifyHaVipAttributeRequest extends Model
     /**
      * @description The ID of the region to which the HAVIP belongs.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string

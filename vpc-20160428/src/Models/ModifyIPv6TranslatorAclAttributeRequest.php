@@ -11,6 +11,7 @@ class ModifyIPv6TranslatorAclAttributeRequest extends Model
     /**
      * @description The ID of the ACL that you want to modify.
      *
+     * This parameter is required.
      * @example ipv6transacl-bp1de2****
      *
      * @var string
@@ -20,6 +21,7 @@ class ModifyIPv6TranslatorAclAttributeRequest extends Model
     /**
      * @description The name of the ACL.
      *
+     * This parameter is required.
      * @example acl1
      *
      * @var string
@@ -49,6 +51,7 @@ class ModifyIPv6TranslatorAclAttributeRequest extends Model
     /**
      * @description The region of the IPv6 Translation Service instance. You can call the DescribeRegions operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

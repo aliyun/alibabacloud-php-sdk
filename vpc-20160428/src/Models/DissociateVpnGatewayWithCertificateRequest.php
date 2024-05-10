@@ -11,7 +11,7 @@ class DissociateVpnGatewayWithCertificateRequest extends Model
     /**
      * @description The certificate ID.
      *
-     * >  The certificate ID refers to the ID generated after the SSL certificate is associated with a VPN gateway. It is not the ID of the certificate itself. You can call [ListVpnCertificateAssociations](~~448813~~) to query certificate IDs.
+     * This parameter is required.
      * @example 6bfe4218-ea1d****
      *
      * @var string
@@ -24,6 +24,7 @@ class DissociateVpnGatewayWithCertificateRequest extends Model
      *   **Encryption**
      *   **Signature**
      *
+     * This parameter is required.
      * @example Encryption
      *
      * @var string
@@ -57,7 +58,7 @@ class DissociateVpnGatewayWithCertificateRequest extends Model
     /**
      * @description The region ID of the VPN gateway.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -67,6 +68,7 @@ class DissociateVpnGatewayWithCertificateRequest extends Model
     /**
      * @description The ID of the VPN gateway.
      *
+     * This parameter is required.
      * @example vpn-bp1q8bgx4xnkm2ogj****
      *
      * @var string

@@ -33,7 +33,7 @@ class DeleteSnatEntryRequest extends Model
     /**
      * @description The region ID of the NAT gateway.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -53,6 +53,7 @@ class DeleteSnatEntryRequest extends Model
     /**
      * @description The ID of the SNAT entry that you want to delete.
      *
+     * This parameter is required.
      * @example snat-bp1vcgcf8tm0plqcg****
      *
      * @var string
@@ -62,6 +63,7 @@ class DeleteSnatEntryRequest extends Model
     /**
      * @description The ID of the SNAT table to which the SNAT entry belongs.
      *
+     * This parameter is required.
      * @example stb-bp190wu8io1vgev80****
      *
      * @var string

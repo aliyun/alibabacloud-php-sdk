@@ -101,7 +101,7 @@ class DescribeRouteEntryListRequest extends Model
     /**
      * @description The region ID of the route table.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -155,6 +155,7 @@ class DescribeRouteEntryListRequest extends Model
     /**
      * @description The ID of the route table that you want to query.
      *
+     * This parameter is required.
      * @example vtb-bp1r9pvl4xen8s9ju****
      *
      * @var string

@@ -22,7 +22,7 @@ class TagResourcesForExpressConnectRequest extends Model
     /**
      * @description The ID of the region in which the resource is deployed.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to obtain the region ID.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -32,6 +32,7 @@ class TagResourcesForExpressConnectRequest extends Model
     /**
      * @description The resource IDs. You can specify up to 20 resource IDs.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $resourceId;
@@ -53,6 +54,7 @@ class TagResourcesForExpressConnectRequest extends Model
      *   **VIRTUALBORDERROUTER**: virtual border router (VBR).
      *   **ROUTERINTERFACE**: router interface.
      *
+     * This parameter is required.
      * @example PHYSICALCONNECTION
      *
      * @var string
@@ -62,6 +64,7 @@ class TagResourcesForExpressConnectRequest extends Model
     /**
      * @description The tags to add to the resource.
      *
+     * This parameter is required.
      * @var tag[]
      */
     public $tag;

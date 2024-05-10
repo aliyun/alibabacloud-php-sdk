@@ -16,6 +16,8 @@ class StopFailoverTestJobRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ftj-xxxxxxxxx
      *
      * @var string

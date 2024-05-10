@@ -11,6 +11,7 @@ class UnassociateEipAddressRequest extends Model
     /**
      * @description The ID of the EIP that you want to disassociate.
      *
+     * This parameter is required.
      * @example eip-2zeerraiwb7uj6i0d****
      *
      * @var string
@@ -85,7 +86,7 @@ class UnassociateEipAddressRequest extends Model
     public $privateIpAddress;
 
     /**
-     * @description The ID of the region to which the EIP belongs. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * @description The ID of the region to which the EIP belongs. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

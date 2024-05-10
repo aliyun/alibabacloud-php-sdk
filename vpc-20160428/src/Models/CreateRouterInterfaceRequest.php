@@ -117,7 +117,7 @@ class CreateRouterInterfaceRequest extends Model
     /**
      * @description The name of the router interface.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-).
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-).
      * @example abc
      *
      * @var string
@@ -155,6 +155,7 @@ class CreateRouterInterfaceRequest extends Model
     /**
      * @description The ID of the region in which the acceptor is deployed.
      *
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string
@@ -221,7 +222,7 @@ class CreateRouterInterfaceRequest extends Model
     /**
      * @description The ID of the region to which the router interface belongs.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to obtain the region ID.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -231,7 +232,7 @@ class CreateRouterInterfaceRequest extends Model
     /**
      * @description The ID of the resource group.
      *
-     * For more information about resource group, see [What is Resource Management?](~~94475~~)
+     * For more information about resource group, see [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html)
      * @example rg-acfmxazb4ph6aiy****
      *
      * @var string
@@ -254,6 +255,7 @@ class CreateRouterInterfaceRequest extends Model
      *   **InitiatingSide**: requester
      *   **AcceptingSide**: acceptor
      *
+     * This parameter is required.
      * @example InitiatingSide
      *
      * @var string
@@ -263,6 +265,7 @@ class CreateRouterInterfaceRequest extends Model
     /**
      * @description The ID of the router that is associated with the router interface.
      *
+     * This parameter is required.
      * @example vbr-m5ebm6g9ptc9mly1c****
      *
      * @var string
@@ -275,6 +278,7 @@ class CreateRouterInterfaceRequest extends Model
      *   **VRouter**
      *   **VBR**
      *
+     * This parameter is required.
      * @example VRouter
      *
      * @var string
@@ -298,6 +302,8 @@ class CreateRouterInterfaceRequest extends Model
      *   **Xlarge.1**: 10,000 Mbit/s
      *
      * >  If **Role** is set to **AcceptingSide**, set **Spec** to **Negative**. This indicates that you do not need to specify the specification when you create an acceptor router interface.
+     *
+     * This parameter is required.
      * @example Mini.2
      *
      * @var string

@@ -35,6 +35,7 @@ class DeleteNatIpCidrRequest extends Model
     /**
      * @description The ID of the NAT gateway to which the NAT CIDR block to be deleted belongs.
      *
+     * This parameter is required.
      * @example ngw-gw8v16wgvtq26vh59****
      *
      * @var string
@@ -47,6 +48,7 @@ class DeleteNatIpCidrRequest extends Model
      *   Before you delete a NAT CIDR block, you must delete all NAT IP addresses from the CIDR block.
      *   The default NAT CIDR block cannot be deleted.
      *
+     * This parameter is required.
      * @example 172.16.0.0/24
      *
      * @var string
@@ -66,7 +68,7 @@ class DeleteNatIpCidrRequest extends Model
     /**
      * @description The region ID of the NAT gateway to which the NAT CIDR block to be deleted belongs.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example eu-central-1
      *
      * @var string

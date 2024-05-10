@@ -45,7 +45,7 @@ class DeleteVpcRequest extends Model
     /**
      * @description The ID of the region where the VPC is deployed.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -65,6 +65,7 @@ class DeleteVpcRequest extends Model
     /**
      * @description The ID of the VPC that you want to delete.
      *
+     * This parameter is required.
      * @example vpc-bp1m7v25emi1h5mtc****
      *
      * @var string

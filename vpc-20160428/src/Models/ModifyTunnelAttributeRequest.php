@@ -34,7 +34,7 @@ class ModifyTunnelAttributeRequest extends Model
     /**
      * @description The ID of the region in which the IPsec connection is established.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the region ID.
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
      * @example cn-hangzhou
      *
      * @var string
@@ -54,6 +54,7 @@ class ModifyTunnelAttributeRequest extends Model
     /**
      * @description The tunnel ID.
      *
+     * This parameter is required.
      * @example tun-gbyz2e070xzo93****
      *
      * @var string
@@ -70,6 +71,7 @@ class ModifyTunnelAttributeRequest extends Model
     /**
      * @description The ID of the IPsec connection.
      *
+     * This parameter is required.
      * @example vco-gw69vm1i71y354****
      *
      * @var string

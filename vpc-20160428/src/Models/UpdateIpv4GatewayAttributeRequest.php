@@ -44,6 +44,7 @@ class UpdateIpv4GatewayAttributeRequest extends Model
     /**
      * @description The ID of the IPv4 gateway whose name or description you want to modify.
      *
+     * This parameter is required.
      * @example ipv4gw-5tsnc6s4ogsedtp3k****
      *
      * @var string
@@ -72,7 +73,7 @@ class UpdateIpv4GatewayAttributeRequest extends Model
     /**
      * @description The region ID of the IPv4 gateway whose name or description you want to modify.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example ap-southeast-6
      *
      * @var string

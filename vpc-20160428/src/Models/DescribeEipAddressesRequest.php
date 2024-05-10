@@ -46,7 +46,7 @@ class DescribeEipAddressesRequest extends Model
      *   **NetworkInterface**: a secondary ENI.
      *   **IpAddress**: an IP address.
      *
-     * >  Each ECS instance, CLB instance, HAVIP, and IP address can be associated with only one EIP. A NAT gateway can be associated with multiple EIPs. The number of EIPs that you can associate with a secondary ENI depends on the association mode. For more information, see [Associate EIPs with and disassociate EIPs from cloud resources](~~72125~~).
+     * >  Each ECS instance, CLB instance, HAVIP, and IP address can be associated with only one EIP. A NAT gateway can be associated with multiple EIPs. The number of EIPs that you can associate with a secondary ENI depends on the association mode. For more information, see [Associate EIPs with and disassociate EIPs from cloud resources](https://help.aliyun.com/document_detail/72125.html).
      * @example EcsInstance
      *
      * @var string
@@ -92,7 +92,7 @@ class DescribeEipAddressesRequest extends Model
     /**
      * @description The name of the EIP.
      *
-     * The name must be 1 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
+     * The name must be 1 to 128 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter.
      * @example EIP-01
      *
      * @var string
@@ -185,7 +185,7 @@ class DescribeEipAddressesRequest extends Model
     /**
      * @description The region ID of the EIP.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the region ID.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

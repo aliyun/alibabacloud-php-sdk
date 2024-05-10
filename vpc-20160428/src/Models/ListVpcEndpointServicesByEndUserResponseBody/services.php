@@ -11,7 +11,7 @@ class services extends Model
     /**
      * @description The default access policy.
      *
-     * @example {   \"Version\" : \"1\",   \"Statement\" : [ {     \"Effect\" : \"Allow\",     \"Action\" : \"*\",     \"Principal\" : \"*\",     \"Resource\" : \"*\"   } ] }
+     * @example {   \\"Version\\" : \\"1\\",   \\"Statement\\" : [ {     \\"Effect\\" : \\"Allow\\",     \\"Action\\" : \\"*\\",     \\"Principal\\" : \\"*\\",     \\"Resource\\" : \\"*\\"   } ] }
      *
      * @var string
      */

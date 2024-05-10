@@ -41,7 +41,7 @@ class ListEnhanhcedNatGatewayAvailableZonesRequest extends Model
     /**
      * @description The ID of the region that you want to query.
      *
-     * In this example, zones that support NAT gateways in the UAE (Dubai) region are queried.
+     * This parameter is required.
      * @example me-east-1
      *
      * @var string

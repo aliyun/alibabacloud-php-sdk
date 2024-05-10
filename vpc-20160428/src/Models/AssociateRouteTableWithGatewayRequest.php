@@ -36,6 +36,8 @@ class AssociateRouteTableWithGatewayRequest extends Model
      * @description The ID of the IPv4 gateway.
      *
      * The IPv4 gateway must be in the **Activated** state.
+     *
+     * This parameter is required.
      * @example ipv4gw-5tsnc6s4ogsedtp3k****
      *
      * @var string
@@ -64,7 +66,7 @@ class AssociateRouteTableWithGatewayRequest extends Model
     /**
      * @description The region ID of the IPv4 gateway with which you want to associate the gateway route table.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example ap-southeast-6
      *
      * @var string
@@ -84,6 +86,7 @@ class AssociateRouteTableWithGatewayRequest extends Model
     /**
      * @description The ID of the gateway route table.
      *
+     * This parameter is required.
      * @example vtb-5ts0ohchwkp3dydt2****
      *
      * @var string

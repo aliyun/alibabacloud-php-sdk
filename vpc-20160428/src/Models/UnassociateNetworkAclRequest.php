@@ -37,6 +37,7 @@ class UnassociateNetworkAclRequest extends Model
     /**
      * @description The ID of the network ACL that you want to disassociate from a resource.
      *
+     * This parameter is required.
      * @example nacl-a2do9e413e0sp****
      *
      * @var string
@@ -56,7 +57,7 @@ class UnassociateNetworkAclRequest extends Model
     /**
      * @description The region ID of the network ACL.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

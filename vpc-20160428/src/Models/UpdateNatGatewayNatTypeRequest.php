@@ -36,6 +36,7 @@ class UpdateNatGatewayNatTypeRequest extends Model
     /**
      * @description The ID of the standard NAT gateway to be upgraded.
      *
+     * This parameter is required.
      * @example ngw-bp1b0lic8uz4r6vf2****
      *
      * @var string
@@ -45,6 +46,7 @@ class UpdateNatGatewayNatTypeRequest extends Model
     /**
      * @description The type of Internet NAT gateway. Set the value to **Enhanced**, which specifies an enhanced Internet NAT gateway.
      *
+     * This parameter is required.
      * @example Enhanced
      *
      * @var string
@@ -64,7 +66,7 @@ class UpdateNatGatewayNatTypeRequest extends Model
     /**
      * @description The ID of the region where the NAT gateway that you want to upgrade is deployed.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-qingdao
      *
      * @var string
@@ -84,7 +86,7 @@ class UpdateNatGatewayNatTypeRequest extends Model
     /**
      * @description The vSwitch to which the enhanced Internet NAT gateway belongs.
      *
-     * >  If you do not set this parameter, the system generates an Internet NAT gateway in a random vSwitch of a virtual private cloud (VPC).
+     * This parameter is required.
      * @example vsw-bp17nszybg8epodke****
      *
      * @var string

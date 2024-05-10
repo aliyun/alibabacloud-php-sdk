@@ -11,6 +11,7 @@ class MoveVpnResourceGroupRequest extends Model
     /**
      * @description The ID of the resource.
      *
+     * This parameter is required.
      * @example vpn-8vb3lzn7biepthri8****
      *
      * @var string
@@ -20,6 +21,7 @@ class MoveVpnResourceGroupRequest extends Model
     /**
      * @description The ID of the new resource group.
      *
+     * This parameter is required.
      * @example rg-acfmzs372yg****
      *
      * @var string
@@ -39,7 +41,7 @@ class MoveVpnResourceGroupRequest extends Model
     /**
      * @description The region ID of the resource.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-zhangjiakou
      *
      * @var string
@@ -67,7 +69,7 @@ class MoveVpnResourceGroupRequest extends Model
      *
      *   **VpnAttachment**: IPsec-VPN connection
      *
-     * An IPsec-VPN connection associated with a transit router or not associate with a resource.
+     * This parameter is required.
      * @example VpnGateway
      *
      * @var string

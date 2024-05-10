@@ -24,6 +24,7 @@ class EnableNatGatewayEcsMetricRequest extends Model
     /**
      * @description The ID of the NAT gateway for which you want to enable ECS traffic monitoring.
      *
+     * This parameter is required.
      * @example ngw-2vc53wynunp35lw1y****
      *
      * @var string
@@ -31,8 +32,9 @@ class EnableNatGatewayEcsMetricRequest extends Model
     public $natGatewayId;
 
     /**
-     * @description The region ID of the NAT gateway. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * @description The region ID of the NAT gateway. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-chengdu
      *
      * @var string

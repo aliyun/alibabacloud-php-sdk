@@ -89,6 +89,7 @@ class UpdateIpsecServerRequest extends Model
     /**
      * @description The IPsec server ID.
      *
+     * This parameter is required.
      * @example iss-bp1bo3xuvcxo7ixll****
      *
      * @var string
@@ -137,7 +138,7 @@ class UpdateIpsecServerRequest extends Model
     /**
      * @description The ID of the region where the IPsec server is created.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string

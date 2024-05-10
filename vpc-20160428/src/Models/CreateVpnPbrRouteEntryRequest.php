@@ -31,6 +31,7 @@ class CreateVpnPbrRouteEntryRequest extends Model
     /**
      * @description The next hop of the policy-based route.
      *
+     * This parameter is required.
      * @example vco-bp15oes1py4i66rmd****
      *
      * @var string
@@ -72,6 +73,7 @@ class CreateVpnPbrRouteEntryRequest extends Model
      *   **true**
      *   **false**
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -79,8 +81,9 @@ class CreateVpnPbrRouteEntryRequest extends Model
     public $publishVpc;
 
     /**
-     * @description The region ID of the VPN gateway. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * @description The region ID of the VPN gateway. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -100,6 +103,7 @@ class CreateVpnPbrRouteEntryRequest extends Model
     /**
      * @description The destination CIDR block of the policy-based route.
      *
+     * This parameter is required.
      * @example 10.0.0.0/24
      *
      * @var string
@@ -109,6 +113,7 @@ class CreateVpnPbrRouteEntryRequest extends Model
     /**
      * @description The source CIDR block of the policy-based route.
      *
+     * This parameter is required.
      * @example 192.168.1.0/24
      *
      * @var string
@@ -118,6 +123,7 @@ class CreateVpnPbrRouteEntryRequest extends Model
     /**
      * @description The VPN gateway ID.
      *
+     * This parameter is required.
      * @example vpn-bp1a3kqjiiq9legfx****
      *
      * @var string
@@ -127,12 +133,12 @@ class CreateVpnPbrRouteEntryRequest extends Model
     /**
      * @description The weight of the policy-based route.
      *
-     * You can configure health checks to automatically check the connectivity of IPsec-VPN connections. If the active connection is down, the standby connection automatically takes over. For more information, see [CreateVpnConnection](~~120391~~).
+     * You can configure health checks to automatically check the connectivity of IPsec-VPN connections. If the active connection is down, the standby connection automatically takes over. For more information, see [CreateVpnConnection](https://help.aliyun.com/document_detail/120391.html).
      *
      *   **100**: The IPsec-VPN connection associated with the policy-based route serves as an active connection.
      *   **0**: The IPsec-VPN connection associated with the policy-based route serves as a standby connection.
      *
-     * >  If you specify active/standby IPsec-VPN connections, the active policy-based route and the standby policy-based route must have the same source and destination CIDR blocks.
+     * This parameter is required.
      * @example 0
      *
      * @var int

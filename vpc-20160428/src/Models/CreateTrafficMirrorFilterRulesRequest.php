@@ -61,7 +61,7 @@ class CreateTrafficMirrorFilterRulesRequest extends Model
     /**
      * @description The ID of the region to which the mirrored traffic belongs.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list. For more information about regions that support traffic mirroring, see [Overview of traffic mirroring](~~207513~~).
+     * This parameter is required.
      * @example cn-hongkong
      *
      * @var string
@@ -81,6 +81,7 @@ class CreateTrafficMirrorFilterRulesRequest extends Model
     /**
      * @description The ID of the filter.
      *
+     * This parameter is required.
      * @example tmf-j6cmls82xnc86vtpe****
      *
      * @var string

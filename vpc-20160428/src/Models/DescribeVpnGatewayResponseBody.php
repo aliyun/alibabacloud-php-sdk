@@ -177,7 +177,7 @@ class DescribeVpnGatewayResponseBody extends Model
     /**
      * @description The ID of the resource group to which the VPN gateway belongs.
      *
-     * You can call the [ListResourceGroups](~~158855~~) operation to query resource groups.
+     * You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource groups.
      * @example rg-acfmzs372yg****
      *
      * @var string
@@ -266,7 +266,7 @@ class DescribeVpnGatewayResponseBody extends Model
      *
      *   **VpnVersion**
      *
-     * @example {\"VpnEnableBgp\":\"true\",\"VisuallySsl\":\"true\",\"PbrPriority\":\"true\",\"VpnNewImage\":\"true\",\"description\":\"forwarding1.3.7\",\"VpnVersion\":\"v1.2.4\"}
+     * @example {\\"VpnEnableBgp\\":\\"true\\",\\"VisuallySsl\\":\\"true\\",\\"PbrPriority\\":\\"true\\",\\"VpnNewImage\\":\\"true\\",\\"description\\":\\"forwarding1.3.7\\",\\"VpnVersion\\":\\"v1.2.4\\"}
      *
      * @var string
      */

@@ -48,6 +48,7 @@ class ModifyForwardEntryRequest extends Model
     /**
      * @description The ID of the DNAT entry.
      *
+     * This parameter is required.
      * @example fwd-8vbn3bc8roygjp0gy****
      *
      * @var string
@@ -67,6 +68,7 @@ class ModifyForwardEntryRequest extends Model
     /**
      * @description The ID of the DNAT table to which the DNAT entry belongs.
      *
+     * This parameter is required.
      * @example ftb-8vbx8xu2lqj9qb334****
      *
      * @var string
@@ -131,7 +133,7 @@ class ModifyForwardEntryRequest extends Model
     /**
      * @description The region ID of the NAT gateway.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

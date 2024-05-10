@@ -51,7 +51,7 @@ class DescribeTagKeysForExpressConnectRequest extends Model
     /**
      * @description The ID of the region to which the resource resides.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to obtain the region ID.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

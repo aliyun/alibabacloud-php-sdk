@@ -11,6 +11,7 @@ class DeletePublicIpAddressPoolCidrBlockRequest extends Model
     /**
      * @description The CIDR block.
      *
+     * This parameter is required.
      * @example 47.0.XX.XX/24
      *
      * @var string
@@ -52,6 +53,7 @@ class DeletePublicIpAddressPoolCidrBlockRequest extends Model
     /**
      * @description The ID of the IP address pool.
      *
+     * This parameter is required.
      * @example pippool-6wetvn6fumkgycssx****
      *
      * @var string
@@ -61,6 +63,7 @@ class DeletePublicIpAddressPoolCidrBlockRequest extends Model
     /**
      * @description The region ID of the IP address pool from which you want to delete a CIDR block.
      *
+     * This parameter is required.
      * @example cn-chengdu
      *
      * @var string

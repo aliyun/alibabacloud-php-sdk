@@ -43,8 +43,9 @@ class DeleteTrafficMirrorSessionRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region to which the traffic mirror session belongs. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list. For more information about regions that support traffic mirroring, see [Overview of traffic mirroring](~~207513~~).
+     * @description The ID of the region to which the traffic mirror session belongs. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list. For more information about regions that support traffic mirroring, see [Overview of traffic mirroring](https://help.aliyun.com/document_detail/207513.html).
      *
+     * This parameter is required.
      * @example cn-hongkong
      *
      * @var string
@@ -64,6 +65,7 @@ class DeleteTrafficMirrorSessionRequest extends Model
     /**
      * @description The ID of the traffic mirror session.
      *
+     * This parameter is required.
      * @example tms-j6cla50buc44ap8tu****
      *
      * @var string

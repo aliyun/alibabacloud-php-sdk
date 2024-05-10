@@ -20,7 +20,7 @@ class traffic95Summary extends Model
 
     /**
      * @description The daily peak bandwidth. Unit: Mbit/s.
-     * <props="china"> For more information, see [Daily peak bandwidth](~~89729~~).</props>
+     * <props="china"> For more information, see [Daily peak bandwidth](https://help.aliyun.com/document_detail/89729.html).
      * @example 1064.244837773641
      *
      * @var string

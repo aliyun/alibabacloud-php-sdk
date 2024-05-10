@@ -33,7 +33,7 @@ class DeleteRouterInterfaceRequest extends Model
     /**
      * @description The ID of the region where the router interface is deployed.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string
@@ -53,6 +53,7 @@ class DeleteRouterInterfaceRequest extends Model
     /**
      * @description The ID of the router interface.
      *
+     * This parameter is required.
      * @example ri-2zeo3xzyf38r4urz****
      *
      * @var string

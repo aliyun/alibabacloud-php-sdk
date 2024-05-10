@@ -29,8 +29,9 @@ class DeleteVirtualBorderRouterRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the VBR. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * @description The region ID of the VBR. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string
@@ -50,6 +51,7 @@ class DeleteVirtualBorderRouterRequest extends Model
     /**
      * @description The ID of the VBR.
      *
+     * This parameter is required.
      * @example vbr-bp12mw1f8k3jgygk9****
      *
      * @var string

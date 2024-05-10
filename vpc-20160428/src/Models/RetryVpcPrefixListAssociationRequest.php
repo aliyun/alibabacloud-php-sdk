@@ -45,6 +45,7 @@ class RetryVpcPrefixListAssociationRequest extends Model
     /**
      * @description The ID of the prefix list that you want to re-apply.
      *
+     * This parameter is required.
      * @example pl-0b7hwu67****
      *
      * @var string
@@ -54,7 +55,7 @@ class RetryVpcPrefixListAssociationRequest extends Model
     /**
      * @description The region ID of the prefix list that you want to re-apply.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -64,6 +65,7 @@ class RetryVpcPrefixListAssociationRequest extends Model
     /**
      * @description The ID of the associated resource.
      *
+     * This parameter is required.
      * @example vtb-bp1drpcfz9srr393h****
      *
      * @var string
@@ -86,6 +88,7 @@ class RetryVpcPrefixListAssociationRequest extends Model
      *   **vpcRouteTable**: VPC route table
      *   **trRouteTable**: route table of a transit router
      *
+     * This parameter is required.
      * @example vpcRouteTable
      *
      * @var string

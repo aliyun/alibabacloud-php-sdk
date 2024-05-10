@@ -118,7 +118,7 @@ class CreateVpcRequest extends Model
     /**
      * @description The ID of the region to which the VPC belongs.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -128,7 +128,7 @@ class CreateVpcRequest extends Model
     /**
      * @description The ID of the resource group.
      *
-     * For more information about resource groups, see [What is a resource group?](~~94475~~)
+     * For more information about resource groups, see [What is a resource group?](https://help.aliyun.com/document_detail/94475.html)
      * @example rg-acfmxazb4ph6aiy****
      *
      * @var string
@@ -155,7 +155,7 @@ class CreateVpcRequest extends Model
     /**
      * @description The user CIDR block. Separate user CIDR blocks with commas (,). You can specify up to three user CIDR blocks.
      *
-     * For more information about user CIDR blocks, see the `What is a user CIDR block?` section in [VPC FAQ](~~185311~~).
+     * For more information about user CIDR blocks, see the `What is a user CIDR block?` section in [VPC FAQ](https://help.aliyun.com/document_detail/185311.html).
      * @example 192.168.0.0/12
      *
      * @var string

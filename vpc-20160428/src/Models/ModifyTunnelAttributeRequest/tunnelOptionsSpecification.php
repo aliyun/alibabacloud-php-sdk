@@ -47,7 +47,7 @@ class tunnelOptionsSpecification extends Model
     /**
      * @description The Border Gateway Protocol (BGP) configurations of the tunnel.
      *
-     * If the BGP feature is not enabled for the tunnel, you must call the [ModifyVpnConnectionAttribute](~~120381~~) operation to enable the BGP feature for the tunnel and configure BGP.
+     * If the BGP feature is not enabled for the tunnel, you must call the [ModifyVpnConnectionAttribute](https://help.aliyun.com/document_detail/120381.html) operation to enable the BGP feature for the tunnel and configure BGP.
      * @var tunnelBgpConfig
      */
     public $tunnelBgpConfig;

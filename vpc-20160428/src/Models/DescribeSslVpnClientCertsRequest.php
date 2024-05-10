@@ -48,7 +48,7 @@ class DescribeSslVpnClientCertsRequest extends Model
     /**
      * @description The region ID of the SSL client certificate.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -58,7 +58,7 @@ class DescribeSslVpnClientCertsRequest extends Model
     /**
      * @description The ID of the resource group to which the SSL client certificate belongs.
      *
-     * You can call the [DescribeSslVpnServers](~~2526933~~) operation to query the ID of the resource group to which the SSL server belongs.
+     * You can call the [DescribeSslVpnServers](https://help.aliyun.com/document_detail/2526933.html) operation to query the ID of the resource group to which the SSL server belongs.
      * @example rg-acfmzs372yg****
      *
      * @var string

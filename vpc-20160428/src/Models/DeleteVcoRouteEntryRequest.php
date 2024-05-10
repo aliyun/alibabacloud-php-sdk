@@ -23,6 +23,7 @@ class DeleteVcoRouteEntryRequest extends Model
     /**
      * @description The next hop of the destination-based route that you want to delete.
      *
+     * This parameter is required.
      * @example vco-p0w5112fgnl2ihlmf****
      *
      * @var string
@@ -46,7 +47,7 @@ class DeleteVcoRouteEntryRequest extends Model
     /**
      * @description The ID of the region where the IPsec-VPN connection is established.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -66,6 +67,7 @@ class DeleteVcoRouteEntryRequest extends Model
     /**
      * @description The destination CIDR block of the destination-based route that you want to delete.
      *
+     * This parameter is required.
      * @example 192.168.10.0/24
      *
      * @var string
@@ -75,6 +77,7 @@ class DeleteVcoRouteEntryRequest extends Model
     /**
      * @description The ID of the IPsec-VPN attachment.
      *
+     * This parameter is required.
      * @example vco-p0w5112fgnl2ihlmf****
      *
      * @var string
@@ -87,6 +90,7 @@ class DeleteVcoRouteEntryRequest extends Model
      *   **0**: a low priority
      *   **100**: a high priority
      *
+     * This parameter is required.
      * @example 100
      *
      * @var int

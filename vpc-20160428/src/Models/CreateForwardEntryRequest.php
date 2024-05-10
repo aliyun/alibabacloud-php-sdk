@@ -24,6 +24,7 @@ class CreateForwardEntryRequest extends Model
      * @description *   The EIP that can be accessed over the Internet when you configure a DNAT entry for an Internet NAT gateway.
      *   The NAT IP address that can be accessed by external networks when you configure a DNAT entry for a VPC NAT gateway.
      *
+     * This parameter is required.
      * @example 116.28.XX.XX
      *
      * @var string
@@ -39,6 +40,7 @@ class CreateForwardEntryRequest extends Model
      *
      *   The port that can be accessed by external networks when you configure a DNAT entry for a VPC NAT gateway. Valid values: **1** to **65535**.
      *
+     * This parameter is required.
      * @example 8080
      *
      * @var string
@@ -58,6 +60,7 @@ class CreateForwardEntryRequest extends Model
     /**
      * @description The ID of the DNAT table.
      *
+     * This parameter is required.
      * @example ftb-bp1mbjubq34hlcqpa****
      *
      * @var string
@@ -72,6 +75,7 @@ class CreateForwardEntryRequest extends Model
      *
      *   The private IP address that uses DNAT when you add a DNAT entry to a VPC NAT gateway.
      *
+     * This parameter is required.
      * @example 192.168.XX.XX
      *
      * @var string
@@ -82,6 +86,7 @@ class CreateForwardEntryRequest extends Model
      * @description *   The internal port or port range that is used for port forwarding when you configure a DNAT entry for an Internet NAT gateway. Valid values: **1** to **65535**.
      *   The port of the destination ECS instance to be mapped when you configure a DNAT entry for a VPC NAT gateway. Valid values: **1** to **65535**.
      *
+     * This parameter is required.
      * @example 80
      *
      * @var string
@@ -95,6 +100,7 @@ class CreateForwardEntryRequest extends Model
      *   **UDP**
      *   **Any** If you set **IpProtocol** to **Any**, you must also set **ExternalPort** and **InternalPort** to **Any** to implement DNAT IP mapping.
      *
+     * This parameter is required.
      * @example TCP
      *
      * @var string
@@ -127,7 +133,7 @@ class CreateForwardEntryRequest extends Model
     /**
      * @description The region ID of the NAT gateway.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to obtain the region ID.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -12,6 +12,7 @@ class CreatePhysicalConnectionRequest extends Model
     /**
      * @description The access point ID of the Express Connect circuit.
      *
+     * This parameter is required.
      * @example ap-cn-beijing-ft-A
      *
      * @var string
@@ -66,6 +67,7 @@ class CreatePhysicalConnectionRequest extends Model
      *   **Equinix**: Equinix.
      *   **Other**: other connectivity providers outside the Chinese mainland.
      *
+     * This parameter is required.
      * @example CT
      *
      * @var string
@@ -75,7 +77,7 @@ class CreatePhysicalConnectionRequest extends Model
     /**
      * @description The name of the Express Connect circuit.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
      * @example test
      *
      * @var string
@@ -131,7 +133,7 @@ class CreatePhysicalConnectionRequest extends Model
     /**
      * @description The region ID of the Express Connect circuit.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string

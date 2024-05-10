@@ -63,7 +63,7 @@ class DescribeVSwitchesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the vSwitch. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * @description The region ID of the vSwitch. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
      *
      * >  You must set at least one of **RegionId** and **VpcId**.
      * @example cn-hangzhou
@@ -146,7 +146,7 @@ class DescribeVSwitchesRequest extends Model
     public $vpcId;
 
     /**
-     * @description The ID of the zone to which the vSwitches belong. You can call the [DescribeZones](~~36064~~) operation to query the most recent zone list.
+     * @description The ID of the zone to which the vSwitches belong. You can call the [DescribeZones](https://help.aliyun.com/document_detail/36064.html) operation to query the most recent zone list.
      *
      * @example cn-hangzhou-d
      *

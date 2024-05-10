@@ -33,7 +33,7 @@ class UnTagResourcesRequest extends Model
     /**
      * @description The region ID of the resource.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -43,6 +43,7 @@ class UnTagResourcesRequest extends Model
     /**
      * @description The resource ID. You can specify up to 20 resource IDs.
      *
+     * This parameter is required.
      * @example vpc-bp16qjewdsunr41m1****
      *
      * @var string[]
@@ -70,6 +71,7 @@ class UnTagResourcesRequest extends Model
      *   **NATGATEWAY**
      *   **COMMONBANDWIDTHPACKAGE**: EIP bandwidth plan
      *
+     * This parameter is required.
      * @example VPC
      *
      * @var string
@@ -79,7 +81,7 @@ class UnTagResourcesRequest extends Model
     /**
      * @description The key of the tag that you want to remove. You can specify at most 20 tag keys. It can be an empty string.
      *
-     * The key cannot exceed 64 characters in length, and can contain digits, periods (.), underscores (\_), and hyphens (-). The key must start with a letter but cannot start with `aliyun` or `acs:`. The key cannot contain `http://` or `https://`.
+     * The key cannot exceed 64 characters in length, and can contain digits, periods (.), underscores (_), and hyphens (-). The key must start with a letter but cannot start with `aliyun` or `acs:`. The key cannot contain `http://` or `https://`.
      * @example FinanceDept
      *
      * @var string[]

@@ -33,7 +33,7 @@ class DisableVpcClassicLinkRequest extends Model
     /**
      * @description The region ID of the VPC for which you want to disable ClassicLink.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -53,6 +53,7 @@ class DisableVpcClassicLinkRequest extends Model
     /**
      * @description The ID of the VPC for which you want to disable ClassicLink.
      *
+     * This parameter is required.
      * @example vpc-bp1m7v25emi1h5mtc****
      *
      * @var string

@@ -44,6 +44,7 @@ class CreateIPv6TranslatorEntryRequest extends Model
     /**
      * @description The port that is used by the IPv6 address allocated to the IPv6 Translation Service instance.
      *
+     * This parameter is required.
      * @example 80
      *
      * @var int
@@ -53,6 +54,7 @@ class CreateIPv6TranslatorEntryRequest extends Model
     /**
      * @description The public IPv4 address that needs to provide IPv6 services.
      *
+     * This parameter is required.
      * @example 46.22.xx.xx
      *
      * @var string
@@ -62,6 +64,7 @@ class CreateIPv6TranslatorEntryRequest extends Model
     /**
      * @description The port of the public IPv4 address that needs to provide IPv6 services.
      *
+     * This parameter is required.
      * @example 80
      *
      * @var int
@@ -71,7 +74,7 @@ class CreateIPv6TranslatorEntryRequest extends Model
     /**
      * @description The maximum bandwidth specified in the IPv6 mapping entry. Valid values:
      *
-     *   \-1 (default): does not limit the maximum bandwidth specified in the IPv6 mapping entry.
+     *   \\-1 (default): does not limit the maximum bandwidth specified in the IPv6 mapping entry.
      *   1 to 200: the bandwidth value specified in the IPv6 mapping entry. Unit: Mbit/s.
      *
      * > The sum of the maximum bandwidth values specified in all IPv6 entries cannot exceed the maximum bandwidth supported by the instance.
@@ -91,7 +94,7 @@ class CreateIPv6TranslatorEntryRequest extends Model
     public $entryDescription;
 
     /**
-     * @description The name of the IPv6 mapping entry. It must be 2 to 100 characters in length and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). It must start with a letter. It cannot start with `http://` or `https://`.
+     * @description The name of the IPv6 mapping entry. It must be 2 to 100 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter. It cannot start with `http://` or `https://`.
      *
      * @example name1
      *
@@ -102,6 +105,7 @@ class CreateIPv6TranslatorEntryRequest extends Model
     /**
      * @description The ID of the IPv6 Translation Service instance.
      *
+     * This parameter is required.
      * @example ipv6trans-bp1858ys57xxxxxx
      *
      * @var string
@@ -121,6 +125,7 @@ class CreateIPv6TranslatorEntryRequest extends Model
     /**
      * @description The region of the IPv6 Translation Service instance. You can call the **DescribeRegions** operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -143,6 +148,7 @@ class CreateIPv6TranslatorEntryRequest extends Model
      *   **tcp**
      *   **udp**
      *
+     * This parameter is required.
      * @example tcp
      *
      * @var string

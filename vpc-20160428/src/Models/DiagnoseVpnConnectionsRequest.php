@@ -23,6 +23,8 @@ class DiagnoseVpnConnectionsRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-qingdao
      *
      * @var string

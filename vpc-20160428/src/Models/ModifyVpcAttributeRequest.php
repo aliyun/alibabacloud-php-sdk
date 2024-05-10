@@ -77,7 +77,7 @@ class ModifyVpcAttributeRequest extends Model
     /**
      * @description The region ID of the VPC.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -97,6 +97,7 @@ class ModifyVpcAttributeRequest extends Model
     /**
      * @description The ID of the VPC that you want to modify.
      *
+     * This parameter is required.
      * @example vpc-bp1qtbach57ywecf****
      *
      * @var string

@@ -35,6 +35,7 @@ class DeleteFullNatEntryRequest extends Model
     /**
      * @description The ID of the FULLNAT entry that you want to delete.
      *
+     * This parameter is required.
      * @example fullnat-gw8fz23jezpbblf1j****
      *
      * @var string
@@ -44,6 +45,7 @@ class DeleteFullNatEntryRequest extends Model
     /**
      * @description The ID of the FULLNAT table to which the FULLNAT entry to be deleted belongs.
      *
+     * This parameter is required.
      * @example fulltb-gw88z7hhlv43rmb26****
      *
      * @var string
@@ -63,7 +65,7 @@ class DeleteFullNatEntryRequest extends Model
     /**
      * @description The region ID of the VPC NAT gateway to which the FULLNAT entry to be deleted belongs.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent list of regions.
+     * This parameter is required.
      * @example eu-central-1
      *
      * @var string

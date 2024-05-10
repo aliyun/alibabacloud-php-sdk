@@ -35,7 +35,7 @@ class CreateVpconnFromVbrRequest extends Model
     /**
      * @description The region ID of the hosted connection.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -55,6 +55,7 @@ class CreateVpconnFromVbrRequest extends Model
     /**
      * @description The ID of the associated VBR.
      *
+     * This parameter is required.
      * @example vbr-bp136flp1mf8mlq6r****
      *
      * @var string

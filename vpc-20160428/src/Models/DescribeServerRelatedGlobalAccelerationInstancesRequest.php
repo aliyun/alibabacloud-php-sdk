@@ -21,7 +21,7 @@ class DescribeServerRelatedGlobalAccelerationInstancesRequest extends Model
     /**
      * @description The region ID of the GA instance.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -41,6 +41,7 @@ class DescribeServerRelatedGlobalAccelerationInstancesRequest extends Model
     /**
      * @description The ID of the backend service instance.
      *
+     * This parameter is required.
      * @example i-12s3sdf****
      *
      * @var string

@@ -72,7 +72,7 @@ class DescribeIpv6AddressesRequest extends Model
     /**
      * @description The name of the IPv6 address that you want to query.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
      * @example test
      *
      * @var string
@@ -120,8 +120,9 @@ class DescribeIpv6AddressesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the region in which you want to query IPv6 addresses. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * @description The ID of the region in which you want to query IPv6 addresses. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-huhehaote
      *
      * @var string

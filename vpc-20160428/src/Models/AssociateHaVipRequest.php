@@ -23,6 +23,7 @@ class AssociateHaVipRequest extends Model
     /**
      * @description The ID of the HAVIP.
      *
+     * This parameter is required.
      * @example havip-2zeo05qre24nhrqpy****
      *
      * @var string
@@ -32,6 +33,7 @@ class AssociateHaVipRequest extends Model
     /**
      * @description The ID of the ECS instance to be associated with the HAVIP.
      *
+     * This parameter is required.
      * @example i-faf344422ffsfad****
      *
      * @var string
@@ -63,7 +65,7 @@ class AssociateHaVipRequest extends Model
     /**
      * @description The ID of the region to which the HAVIP belongs.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string

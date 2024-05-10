@@ -11,6 +11,7 @@ class DescribeRouterInterfaceAttributeRequest extends Model
     /**
      * @description The ID of the router interface.
      *
+     * This parameter is required.
      * @example ri-m5egfc10sednwk2yt****
      *
      * @var string
@@ -25,7 +26,7 @@ class DescribeRouterInterfaceAttributeRequest extends Model
     /**
      * @description The ID of the region to which the router interface belongs.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-qingdao
      *
      * @var string

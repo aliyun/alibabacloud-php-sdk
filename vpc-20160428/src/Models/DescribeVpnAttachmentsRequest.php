@@ -49,7 +49,7 @@ class DescribeVpnAttachmentsRequest extends Model
     /**
      * @description The ID of the region where the IPsec-VPN connection is established.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

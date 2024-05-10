@@ -11,6 +11,7 @@ class CreatePhysicalConnectionSetupOrderRequest extends Model
     /**
      * @description The ID of the access point.
      *
+     * This parameter is required.
      * @example ap-cn-beijing-ft-A
      *
      * @var string
@@ -51,6 +52,7 @@ class CreatePhysicalConnectionSetupOrderRequest extends Model
      *   **Equinix**: Equinix
      *   **Other**: other connectivity providers outside the Chinese mainland
      *
+     * This parameter is required.
      * @example CT
      *
      * @var string
@@ -97,7 +99,7 @@ class CreatePhysicalConnectionSetupOrderRequest extends Model
     /**
      * @description The region ID of the Express Connect circuit.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-beijing
      *
      * @var string

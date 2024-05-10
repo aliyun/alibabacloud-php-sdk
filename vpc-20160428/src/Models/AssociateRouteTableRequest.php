@@ -33,7 +33,7 @@ class AssociateRouteTableRequest extends Model
     /**
      * @description The region ID of the VPC to which the route table belongs.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -53,6 +53,7 @@ class AssociateRouteTableRequest extends Model
     /**
      * @description The ID of the route table.
      *
+     * This parameter is required.
      * @example vtb-bp145q7glnuzdvzu2****
      *
      * @var string
@@ -62,6 +63,7 @@ class AssociateRouteTableRequest extends Model
     /**
      * @description The ID of the vSwitch.
      *
+     * This parameter is required.
      * @example vsw-25ncdvfaue4****
      *
      * @var string

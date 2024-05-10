@@ -39,7 +39,7 @@ class DescribeVRoutersRequest extends Model
     /**
      * @description The region ID of the vRouter that you want to query.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

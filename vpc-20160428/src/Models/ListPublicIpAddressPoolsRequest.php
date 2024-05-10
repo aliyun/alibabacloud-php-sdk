@@ -55,7 +55,7 @@ class ListPublicIpAddressPoolsRequest extends Model
     /**
      * @description The name of the IP address pool.
      *
-     * If you enter a name, the name must be 1 to 128 characters in length and can contain digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
+     * If you enter a name, the name must be 1 to 128 characters in length and can contain digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
      * @example AddressPoolName
      *
      * @var string
@@ -95,7 +95,7 @@ class ListPublicIpAddressPoolsRequest extends Model
     /**
      * @description The ID of the region in which the IP address pool that you want to query resides.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the region ID.
+     * This parameter is required.
      * @example cn-chengdu
      *
      * @var string

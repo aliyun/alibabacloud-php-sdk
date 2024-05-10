@@ -11,7 +11,7 @@ class CreateExpressCloudConnectionRequest extends Model
     /**
      * @description The bandwidth for ECC, which corresponds to the bandwidth for the underlying circuit.
      *
-     * Unit: Mbit/s.
+     * This parameter is required.
      * @example 2
      *
      * @var int
@@ -58,6 +58,7 @@ class CreateExpressCloudConnectionRequest extends Model
     /**
      * @description The Internet service provider (ISP) for the data center.
      *
+     * This parameter is required.
      * @example CU
      *
      * @var string
@@ -67,7 +68,7 @@ class CreateExpressCloudConnectionRequest extends Model
     /**
      * @description The name of the ECC instance.
      *
-     * The name must be 2 to 128 characters in length and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). It must start with a letter but cannot start with `http://` or `https://`.
+     * The name must be 2 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter but cannot start with `http://` or `https://`.
      * @example doctest
      *
      * @var string
@@ -96,8 +97,8 @@ class CreateExpressCloudConnectionRequest extends Model
     /**
      * @description The geographical location of the data center.
      *
-     * > It must be accurate to house number-floor-room number-server rack number.
-     * @example \*\*city\*\*district/county\*\*road\*\*number\*\*property or building name\*\*building\*\*floor\*\*room number\*\*server rack number\*\*server rack name\*\*device\*\*port
+     * This parameter is required.
+     * @example \\*\\*city\\*\\*district/county\\*\\*road\\*\\*number\\*\\*property or building name\\*\\*building\\*\\*floor\\*\\*room number\\*\\*server rack number\\*\\*server rack name\\*\\*device\\*\\*port
      *
      * @var string
      */
@@ -130,6 +131,7 @@ class CreateExpressCloudConnectionRequest extends Model
     /**
      * @description The region ID of the ECC instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

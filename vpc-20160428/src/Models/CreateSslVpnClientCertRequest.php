@@ -43,7 +43,7 @@ class CreateSslVpnClientCertRequest extends Model
     /**
      * @description The ID of the region where the VPN gateway is created.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -63,6 +63,7 @@ class CreateSslVpnClientCertRequest extends Model
     /**
      * @description The ID of the SSL server.
      *
+     * This parameter is required.
      * @example vss-m5et0q3iy1qex328w****
      *
      * @var string

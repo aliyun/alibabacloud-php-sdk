@@ -33,7 +33,7 @@ class TerminateVirtualBorderRouterRequest extends Model
     /**
      * @description The region ID of the VBR.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string
@@ -53,6 +53,7 @@ class TerminateVirtualBorderRouterRequest extends Model
     /**
      * @description The ID of the VBR.
      *
+     * This parameter is required.
      * @example vbr-bp15zckdt37pq72****
      *
      * @var string

@@ -33,6 +33,7 @@ class AssociateRouteTablesWithVpcGatewayEndpointRequest extends Model
     /**
      * @description The ID of the gateway endpoint to be associated with the route table.
      *
+     * This parameter is required.
      * @example vpce-m5e371h5clm3uadih****
      *
      * @var string
@@ -52,7 +53,7 @@ class AssociateRouteTablesWithVpcGatewayEndpointRequest extends Model
     /**
      * @description The region ID of the gateway endpoint.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -72,6 +73,7 @@ class AssociateRouteTablesWithVpcGatewayEndpointRequest extends Model
     /**
      * @description The ID of the route table. Valid values of **N** are **1** to **20**, which specifies that you can associate a gateway endpoint with at most 20 route tables at a time.
      *
+     * This parameter is required.
      * @example vtb-m5elgtm3aj586iitr****
      *
      * @var string[]

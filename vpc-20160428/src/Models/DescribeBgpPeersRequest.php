@@ -69,7 +69,7 @@ class DescribeBgpPeersRequest extends Model
     /**
      * @description The region ID of the BGP group to which the BGP peer that you want to query belongs.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to obtain the region ID.
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string

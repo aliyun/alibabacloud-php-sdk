@@ -39,7 +39,7 @@ class DescribeRouteTablesRequest extends Model
     /**
      * @description The region ID of the VPC to which the route table belongs.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -77,7 +77,7 @@ class DescribeRouteTablesRequest extends Model
     /**
      * @description The name of the route table that you want to query.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-).
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-).
      * @example RouteTable-1
      *
      * @var string

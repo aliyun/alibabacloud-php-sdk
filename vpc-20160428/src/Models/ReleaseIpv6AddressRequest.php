@@ -33,6 +33,7 @@ class ReleaseIpv6AddressRequest extends Model
     /**
      * @description The ID of the IPv6 address.
      *
+     * This parameter is required.
      * @example ipv6-2zen5j4axcp5l5qyy****
      *
      * @var string
@@ -52,6 +53,7 @@ class ReleaseIpv6AddressRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

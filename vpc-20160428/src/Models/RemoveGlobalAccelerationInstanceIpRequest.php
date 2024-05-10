@@ -11,6 +11,7 @@ class RemoveGlobalAccelerationInstanceIpRequest extends Model
     /**
      * @description The ID of the shared-bandwidth instance.
      *
+     * This parameter is required.
      * @example ga-m5ex47zwya1sejyni****
      *
      * @var string
@@ -20,7 +21,7 @@ class RemoveGlobalAccelerationInstanceIpRequest extends Model
     /**
      * @description The ID of the EIP.
      *
-     * To query the EIP ID, call DescribeEipAddresses.
+     * This parameter is required.
      * @example eip-bp13e9i2qst4g6jzi****
      *
      * @var string
@@ -40,7 +41,7 @@ class RemoveGlobalAccelerationInstanceIpRequest extends Model
     /**
      * @description The ID of the region where the shared-bandwidth instance is located.
      *
-     * To query the region ID, call DescribeRegions.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

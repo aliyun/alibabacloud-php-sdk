@@ -43,7 +43,7 @@ class ListTagResourcesRequest extends Model
     /**
      * @description The region ID of the resource.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -80,6 +80,7 @@ class ListTagResourcesRequest extends Model
      *   **NATGATEWAY**
      *   **COMMONBANDWIDTHPACKAGE**: EIP bandwidth plan
      *
+     * This parameter is required.
      * @example VPC
      *
      * @var string
@@ -89,7 +90,7 @@ class ListTagResourcesRequest extends Model
     /**
      * @description The tag value. You can specify up to 20 tag values. It can be an empty string.
      *
-     * The value can be up to 128 characters in length and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The value must start with a letter but cannot start with `aliyun` or `acs:`. The value cannot contain `http://` or `https://`.
+     * The value can be up to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The value must start with a letter but cannot start with `aliyun` or `acs:`. The value cannot contain `http://` or `https://`.
      *
      * >  You must specify at least one of **ResourceId.N** and **Tag.N** (**Tag.N.Key** and **Tag.N.Value**).
      * @example ListTagResources

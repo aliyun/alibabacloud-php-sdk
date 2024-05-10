@@ -30,6 +30,7 @@ class ModifyBgpPeerAttributeRequest extends Model
     /**
      * @description The ID of the BGP peer that you want to modify.
      *
+     * This parameter is required.
      * @example bgp-m5eoyp2mwegk8ce9v****
      *
      * @var string
@@ -82,7 +83,7 @@ class ModifyBgpPeerAttributeRequest extends Model
     /**
      * @description The region ID of the BGP group to which the BGP peer that you want to modify belongs.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string
