@@ -16,6 +16,8 @@ class DeleteUserSayRequest extends Model
     public $agentKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 343df2sdf23
      *
      * @var string
@@ -23,6 +25,8 @@ class DeleteUserSayRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 5564564546
      *
      * @var int
@@ -30,6 +34,8 @@ class DeleteUserSayRequest extends Model
     public $intentId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 4562121234
      *
      * @var int

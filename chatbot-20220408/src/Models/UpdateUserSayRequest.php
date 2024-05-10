@@ -17,6 +17,8 @@ class UpdateUserSayRequest extends Model
     public $agentKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example chatbot-cn-yjzbyrEvqd
      *
      * @var string
@@ -29,6 +31,8 @@ class UpdateUserSayRequest extends Model
     public $userSayDefinition;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 34512323
      *
      * @var int

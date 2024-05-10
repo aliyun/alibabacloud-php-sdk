@@ -23,6 +23,8 @@ class ListSaasInfoRequest extends Model
     public $saasGroupCodes;
 
     /**
+     * @description This parameter is required.
+     *
      * @example userTest
      *
      * @var string

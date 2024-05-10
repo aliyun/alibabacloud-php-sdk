@@ -16,6 +16,8 @@ class DeleteDSEntityValueRequest extends Model
     public $agentKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 345346223452
      *
      * @var int
@@ -23,6 +25,8 @@ class DeleteDSEntityValueRequest extends Model
     public $entityId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 3453453452
      *
      * @var int
@@ -30,6 +34,8 @@ class DeleteDSEntityValueRequest extends Model
     public $entityValueId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example chatbot-cn-yjzbyrEvqd
      *
      * @var string

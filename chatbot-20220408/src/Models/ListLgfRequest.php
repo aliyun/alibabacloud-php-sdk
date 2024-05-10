@@ -16,6 +16,8 @@ class ListLgfRequest extends Model
     public $agentKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example chatbot-cn-yjzbyrEvqd
      *
      * @var string
@@ -23,6 +25,8 @@ class ListLgfRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123
      *
      * @var int

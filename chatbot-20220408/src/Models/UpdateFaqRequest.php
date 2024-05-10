@@ -16,6 +16,8 @@ class UpdateFaqRequest extends Model
     public $agentKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 30000049006
      *
      * @var int
@@ -30,6 +32,8 @@ class UpdateFaqRequest extends Model
     public $endDate;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 30001905617
      *
      * @var int
@@ -44,6 +48,8 @@ class UpdateFaqRequest extends Model
     public $startDate;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $title;

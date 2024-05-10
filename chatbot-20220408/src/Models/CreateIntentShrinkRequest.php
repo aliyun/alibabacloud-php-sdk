@@ -16,6 +16,8 @@ class CreateIntentShrinkRequest extends Model
     public $agentKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example chatbot-cn-yjzbyrEvqd
      *
      * @var string

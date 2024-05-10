@@ -16,6 +16,8 @@ class DeleteLgfRequest extends Model
     public $agentKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example chatbot-cn-yjzbyrEvqd
      *
      * @var string
@@ -23,6 +25,8 @@ class DeleteLgfRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 23242342
      *
      * @var int
@@ -32,6 +36,7 @@ class DeleteLgfRequest extends Model
     /**
      * @description lgf Id
      *
+     * This parameter is required.
      * @example 2342424
      *
      * @var int

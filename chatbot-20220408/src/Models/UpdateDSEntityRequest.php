@@ -16,6 +16,8 @@ class UpdateDSEntityRequest extends Model
     public $agentKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123
      *
      * @var int
@@ -23,6 +25,8 @@ class UpdateDSEntityRequest extends Model
     public $entityId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 实体名称
      *
      * @var string
@@ -37,6 +41,8 @@ class UpdateDSEntityRequest extends Model
     public $entityType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example chatbot-cn-yjzbyrEvqd
      *
      * @var string

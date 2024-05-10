@@ -16,6 +16,8 @@ class GetAsyncResultRequest extends Model
     public $agentKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $taskId;

@@ -16,6 +16,8 @@ class DeleteSolutionRequest extends Model
     public $agentKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 100001321580
      *
      * @var int

@@ -16,6 +16,8 @@ class DeleteConnQuestionRequest extends Model
     public $agentKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 877397683
      *
      * @var int

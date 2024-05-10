@@ -16,6 +16,8 @@ class DescribeCategoryRequest extends Model
     public $agentKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 30000049006
      *
      * @var int

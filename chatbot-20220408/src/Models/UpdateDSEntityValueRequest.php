@@ -16,11 +16,15 @@ class UpdateDSEntityValueRequest extends Model
     public $agentKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 223423423
      *
      * @var int
@@ -28,6 +32,8 @@ class UpdateDSEntityValueRequest extends Model
     public $entityId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2342377423
      *
      * @var int
@@ -35,6 +41,8 @@ class UpdateDSEntityValueRequest extends Model
     public $entityValueId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example chatbot-cn-yjzbyrEvqd
      *
      * @var string

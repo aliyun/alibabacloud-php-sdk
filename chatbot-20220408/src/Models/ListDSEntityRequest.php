@@ -23,6 +23,8 @@ class ListDSEntityRequest extends Model
     public $entityType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example chatbot-cn-yjzbyrEvqd
      *
      * @var string

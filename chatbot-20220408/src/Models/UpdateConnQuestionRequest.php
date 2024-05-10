@@ -16,6 +16,8 @@ class UpdateConnQuestionRequest extends Model
     public $agentKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1000000295
      *
      * @var int
@@ -23,6 +25,8 @@ class UpdateConnQuestionRequest extends Model
     public $connQuestionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 877397683
      *
      * @var int

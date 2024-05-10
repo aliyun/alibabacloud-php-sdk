@@ -16,6 +16,8 @@ class DeleteDocRequest extends Model
     public $agentKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 30001905617
      *
      * @var int

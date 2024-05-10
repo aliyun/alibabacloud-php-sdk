@@ -16,6 +16,8 @@ class CreateSimQuestionRequest extends Model
     public $agentKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 30001905617
      *
      * @var int
@@ -23,6 +25,8 @@ class CreateSimQuestionRequest extends Model
     public $knowledgeId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $title;

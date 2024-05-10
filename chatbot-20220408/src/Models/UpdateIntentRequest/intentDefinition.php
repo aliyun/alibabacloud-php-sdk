@@ -15,6 +15,8 @@ class intentDefinition extends Model
     public $aliasName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $intentName;

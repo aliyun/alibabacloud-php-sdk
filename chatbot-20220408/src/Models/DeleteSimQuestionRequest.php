@@ -16,6 +16,8 @@ class DeleteSimQuestionRequest extends Model
     public $agentKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1000002788
      *
      * @var int

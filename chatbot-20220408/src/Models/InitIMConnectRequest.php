@@ -16,6 +16,8 @@ class InitIMConnectRequest extends Model
     public $agentKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 8XNBzDucJv
      *
      * @var string

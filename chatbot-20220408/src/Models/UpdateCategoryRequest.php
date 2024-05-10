@@ -21,6 +21,8 @@ class UpdateCategoryRequest extends Model
     public $bizCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 231001028593
      *
      * @var int
@@ -28,6 +30,8 @@ class UpdateCategoryRequest extends Model
     public $categoryId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $name;

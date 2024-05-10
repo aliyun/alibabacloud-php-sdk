@@ -137,6 +137,8 @@ use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListSimQuestionRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListSimQuestionResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListSolutionRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListSolutionResponse;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListTongyiChatHistorysRequest;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListTongyiChatHistorysResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListUserSayRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListUserSayResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\NluRequest;
@@ -221,10 +223,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param ApplyForStreamAccessTokenRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 申请流式网关AccessToken
+     *  *
+     * @param ApplyForStreamAccessTokenRequest $request ApplyForStreamAccessTokenRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ApplyForStreamAccessTokenResponse
+     * @return ApplyForStreamAccessTokenResponse ApplyForStreamAccessTokenResponse
      */
     public function applyForStreamAccessTokenWithOptions($request, $runtime)
     {
@@ -252,9 +256,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param ApplyForStreamAccessTokenRequest $request
+     * @summary 申请流式网关AccessToken
+     *  *
+     * @param ApplyForStreamAccessTokenRequest $request ApplyForStreamAccessTokenRequest
      *
-     * @return ApplyForStreamAccessTokenResponse
+     * @return ApplyForStreamAccessTokenResponse ApplyForStreamAccessTokenResponse
      */
     public function applyForStreamAccessToken($request)
     {
@@ -264,10 +270,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param AssociateRequest $tmpReq
-     * @param RuntimeOptions   $runtime
+     * @summary 会话-联想API
+     *  *
+     * @param AssociateRequest $tmpReq  AssociateRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return AssociateResponse
+     * @return AssociateResponse AssociateResponse
      */
     public function associateWithOptions($tmpReq, $runtime)
     {
@@ -315,9 +323,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param AssociateRequest $request
+     * @summary 会话-联想API
+     *  *
+     * @param AssociateRequest $request AssociateRequest
      *
-     * @return AssociateResponse
+     * @return AssociateResponse AssociateResponse
      */
     public function associate($request)
     {
@@ -327,10 +337,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param BeginSessionRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 获取欢迎语
+     *  *
+     * @param BeginSessionRequest $request BeginSessionRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return BeginSessionResponse
+     * @return BeginSessionResponse BeginSessionResponse
      */
     public function beginSessionWithOptions($request, $runtime)
     {
@@ -361,9 +373,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param BeginSessionRequest $request
+     * @summary 获取欢迎语
+     *  *
+     * @param BeginSessionRequest $request BeginSessionRequest
      *
-     * @return BeginSessionResponse
+     * @return BeginSessionResponse BeginSessionResponse
      */
     public function beginSession($request)
     {
@@ -373,10 +387,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param CancelInstancePublishTaskRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 取消机器人发布
+     *  *
+     * @param CancelInstancePublishTaskRequest $request CancelInstancePublishTaskRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelInstancePublishTaskResponse
+     * @return CancelInstancePublishTaskResponse CancelInstancePublishTaskResponse
      */
     public function cancelInstancePublishTaskWithOptions($request, $runtime)
     {
@@ -410,9 +426,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param CancelInstancePublishTaskRequest $request
+     * @summary 取消机器人发布
+     *  *
+     * @param CancelInstancePublishTaskRequest $request CancelInstancePublishTaskRequest
      *
-     * @return CancelInstancePublishTaskResponse
+     * @return CancelInstancePublishTaskResponse CancelInstancePublishTaskResponse
      */
     public function cancelInstancePublishTask($request)
     {
@@ -422,10 +440,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param CancelPublishTaskRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 取消发布任务
+     *  *
+     * @param CancelPublishTaskRequest $request CancelPublishTaskRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelPublishTaskResponse
+     * @return CancelPublishTaskResponse CancelPublishTaskResponse
      */
     public function cancelPublishTaskWithOptions($request, $runtime)
     {
@@ -456,9 +476,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param CancelPublishTaskRequest $request
+     * @summary 取消发布任务
+     *  *
+     * @param CancelPublishTaskRequest $request CancelPublishTaskRequest
      *
-     * @return CancelPublishTaskResponse
+     * @return CancelPublishTaskResponse CancelPublishTaskResponse
      */
     public function cancelPublishTask($request)
     {
@@ -468,10 +490,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param ChatRequest    $tmpReq
-     * @param RuntimeOptions $runtime
+     * @summary 会话API
+     *  *
+     * @param ChatRequest    $tmpReq  ChatRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ChatResponse
+     * @return ChatResponse ChatResponse
      */
     public function chatWithOptions($tmpReq, $runtime)
     {
@@ -534,9 +558,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param ChatRequest $request
+     * @summary 会话API
+     *  *
+     * @param ChatRequest $request ChatRequest
      *
-     * @return ChatResponse
+     * @return ChatResponse ChatResponse
      */
     public function chat($request)
     {
@@ -546,10 +572,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param ContinueInstancePublishTaskRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary 继续机器人发布
+     *  *
+     * @param ContinueInstancePublishTaskRequest $request ContinueInstancePublishTaskRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ContinueInstancePublishTaskResponse
+     * @return ContinueInstancePublishTaskResponse ContinueInstancePublishTaskResponse
      */
     public function continueInstancePublishTaskWithOptions($request, $runtime)
     {
@@ -583,9 +611,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param ContinueInstancePublishTaskRequest $request
+     * @summary 继续机器人发布
+     *  *
+     * @param ContinueInstancePublishTaskRequest $request ContinueInstancePublishTaskRequest
      *
-     * @return ContinueInstancePublishTaskResponse
+     * @return ContinueInstancePublishTaskResponse ContinueInstancePublishTaskResponse
      */
     public function continueInstancePublishTask($request)
     {
@@ -595,10 +625,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param CreateCategoryRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 新增类目
+     *  *
+     * @param CreateCategoryRequest $request CreateCategoryRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateCategoryResponse
+     * @return CreateCategoryResponse CreateCategoryResponse
      */
     public function createCategoryWithOptions($request, $runtime)
     {
@@ -640,9 +672,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param CreateCategoryRequest $request
+     * @summary 新增类目
+     *  *
+     * @param CreateCategoryRequest $request CreateCategoryRequest
      *
-     * @return CreateCategoryResponse
+     * @return CreateCategoryResponse CreateCategoryResponse
      */
     public function createCategory($request)
     {
@@ -652,10 +686,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param CreateConnQuestionRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 新建FAQ关联问
+     *  *
+     * @param CreateConnQuestionRequest $request CreateConnQuestionRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateConnQuestionResponse
+     * @return CreateConnQuestionResponse CreateConnQuestionResponse
      */
     public function createConnQuestionWithOptions($request, $runtime)
     {
@@ -691,9 +727,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param CreateConnQuestionRequest $request
+     * @summary 新建FAQ关联问
+     *  *
+     * @param CreateConnQuestionRequest $request CreateConnQuestionRequest
      *
-     * @return CreateConnQuestionResponse
+     * @return CreateConnQuestionResponse CreateConnQuestionResponse
      */
     public function createConnQuestion($request)
     {
@@ -703,10 +741,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param CreateDSEntityRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 实体-创建
+     *  *
+     * @param CreateDSEntityRequest $request CreateDSEntityRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDSEntityResponse
+     * @return CreateDSEntityResponse CreateDSEntityResponse
      */
     public function createDSEntityWithOptions($request, $runtime)
     {
@@ -743,9 +783,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param CreateDSEntityRequest $request
+     * @summary 实体-创建
+     *  *
+     * @param CreateDSEntityRequest $request CreateDSEntityRequest
      *
-     * @return CreateDSEntityResponse
+     * @return CreateDSEntityResponse CreateDSEntityResponse
      */
     public function createDSEntity($request)
     {
@@ -755,10 +797,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param CreateDSEntityValueRequest $tmpReq
-     * @param RuntimeOptions             $runtime
+     * @summary 实体成员-创建
+     *  *
+     * @param CreateDSEntityValueRequest $tmpReq  CreateDSEntityValueRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDSEntityValueResponse
+     * @return CreateDSEntityValueResponse CreateDSEntityValueResponse
      */
     public function createDSEntityValueWithOptions($tmpReq, $runtime)
     {
@@ -805,9 +849,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param CreateDSEntityValueRequest $request
+     * @summary 实体成员-创建
+     *  *
+     * @param CreateDSEntityValueRequest $request CreateDSEntityValueRequest
      *
-     * @return CreateDSEntityValueResponse
+     * @return CreateDSEntityValueResponse CreateDSEntityValueResponse
      */
     public function createDSEntityValue($request)
     {
@@ -817,10 +863,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param CreateDocRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary 创建文档
+     *  *
+     * @param CreateDocRequest $request CreateDocRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDocResponse
+     * @return CreateDocResponse CreateDocResponse
      */
     public function createDocWithOptions($request, $runtime)
     {
@@ -869,9 +917,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param CreateDocRequest $request
+     * @summary 创建文档
+     *  *
+     * @param CreateDocRequest $request CreateDocRequest
      *
-     * @return CreateDocResponse
+     * @return CreateDocResponse CreateDocResponse
      */
     public function createDoc($request)
     {
@@ -881,10 +931,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param CreateFaqRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary 新建FAQ
+     *  *
+     * @param CreateFaqRequest $request CreateFaqRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateFaqResponse
+     * @return CreateFaqResponse CreateFaqResponse
      */
     public function createFaqWithOptions($request, $runtime)
     {
@@ -932,9 +984,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param CreateFaqRequest $request
+     * @summary 新建FAQ
+     *  *
+     * @param CreateFaqRequest $request CreateFaqRequest
      *
-     * @return CreateFaqResponse
+     * @return CreateFaqResponse CreateFaqResponse
      */
     public function createFaq($request)
     {
@@ -944,10 +998,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param CreateInstanceRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 机器人-创建
+     *  *
+     * @param CreateInstanceRequest $request CreateInstanceRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateInstanceResponse
+     * @return CreateInstanceResponse CreateInstanceResponse
      */
     public function createInstanceWithOptions($request, $runtime)
     {
@@ -987,9 +1043,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param CreateInstanceRequest $request
+     * @summary 机器人-创建
+     *  *
+     * @param CreateInstanceRequest $request CreateInstanceRequest
      *
-     * @return CreateInstanceResponse
+     * @return CreateInstanceResponse CreateInstanceResponse
      */
     public function createInstance($request)
     {
@@ -999,10 +1057,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param CreateInstancePublishTaskRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 创建机器人发布任务
+     *  *
+     * @param CreateInstancePublishTaskRequest $request CreateInstancePublishTaskRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateInstancePublishTaskResponse
+     * @return CreateInstancePublishTaskResponse CreateInstancePublishTaskResponse
      */
     public function createInstancePublishTaskWithOptions($request, $runtime)
     {
@@ -1033,9 +1093,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param CreateInstancePublishTaskRequest $request
+     * @summary 创建机器人发布任务
+     *  *
+     * @param CreateInstancePublishTaskRequest $request CreateInstancePublishTaskRequest
      *
-     * @return CreateInstancePublishTaskResponse
+     * @return CreateInstancePublishTaskResponse CreateInstancePublishTaskResponse
      */
     public function createInstancePublishTask($request)
     {
@@ -1045,10 +1107,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param CreateIntentRequest $tmpReq
-     * @param RuntimeOptions      $runtime
+     * @summary 意图-创建
+     *  *
+     * @param CreateIntentRequest $tmpReq  CreateIntentRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateIntentResponse
+     * @return CreateIntentResponse CreateIntentResponse
      */
     public function createIntentWithOptions($tmpReq, $runtime)
     {
@@ -1087,9 +1151,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param CreateIntentRequest $request
+     * @summary 意图-创建
+     *  *
+     * @param CreateIntentRequest $request CreateIntentRequest
      *
-     * @return CreateIntentResponse
+     * @return CreateIntentResponse CreateIntentResponse
      */
     public function createIntent($request)
     {
@@ -1099,10 +1165,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param CreateLgfRequest $tmpReq
-     * @param RuntimeOptions   $runtime
+     * @summary 意图-LGF-创建
+     *  *
+     * @param CreateLgfRequest $tmpReq  CreateLgfRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateLgfResponse
+     * @return CreateLgfResponse CreateLgfResponse
      */
     public function createLgfWithOptions($tmpReq, $runtime)
     {
@@ -1141,9 +1209,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param CreateLgfRequest $request
+     * @summary 意图-LGF-创建
+     *  *
+     * @param CreateLgfRequest $request CreateLgfRequest
      *
-     * @return CreateLgfResponse
+     * @return CreateLgfResponse CreateLgfResponse
      */
     public function createLgf($request)
     {
@@ -1153,10 +1223,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param CreatePerspectiveRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 视角-创建
+     *  *
+     * @param CreatePerspectiveRequest $request CreatePerspectiveRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreatePerspectiveResponse
+     * @return CreatePerspectiveResponse CreatePerspectiveResponse
      */
     public function createPerspectiveWithOptions($request, $runtime)
     {
@@ -1190,9 +1262,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param CreatePerspectiveRequest $request
+     * @summary 视角-创建
+     *  *
+     * @param CreatePerspectiveRequest $request CreatePerspectiveRequest
      *
-     * @return CreatePerspectiveResponse
+     * @return CreatePerspectiveResponse CreatePerspectiveResponse
      */
     public function createPerspective($request)
     {
@@ -1202,10 +1276,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param CreatePublishTaskRequest $tmpReq
-     * @param RuntimeOptions           $runtime
+     * @summary 创建发布任务
+     *  *
+     * @param CreatePublishTaskRequest $tmpReq  CreatePublishTaskRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreatePublishTaskResponse
+     * @return CreatePublishTaskResponse CreatePublishTaskResponse
      */
     public function createPublishTaskWithOptions($tmpReq, $runtime)
     {
@@ -1244,9 +1320,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param CreatePublishTaskRequest $request
+     * @summary 创建发布任务
+     *  *
+     * @param CreatePublishTaskRequest $request CreatePublishTaskRequest
      *
-     * @return CreatePublishTaskResponse
+     * @return CreatePublishTaskResponse CreatePublishTaskResponse
      */
     public function createPublishTask($request)
     {
@@ -1256,10 +1334,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param CreateSimQuestionRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 新建FAQ相似问
+     *  *
+     * @param CreateSimQuestionRequest $request CreateSimQuestionRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateSimQuestionResponse
+     * @return CreateSimQuestionResponse CreateSimQuestionResponse
      */
     public function createSimQuestionWithOptions($request, $runtime)
     {
@@ -1295,9 +1375,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param CreateSimQuestionRequest $request
+     * @summary 新建FAQ相似问
+     *  *
+     * @param CreateSimQuestionRequest $request CreateSimQuestionRequest
      *
-     * @return CreateSimQuestionResponse
+     * @return CreateSimQuestionResponse CreateSimQuestionResponse
      */
     public function createSimQuestion($request)
     {
@@ -1307,10 +1389,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param CreateSolutionRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 新建FAQ答案
+     *  *
+     * @param CreateSolutionRequest $request CreateSolutionRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateSolutionResponse
+     * @return CreateSolutionResponse CreateSolutionResponse
      */
     public function createSolutionWithOptions($request, $runtime)
     {
@@ -1350,9 +1434,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param CreateSolutionRequest $request
+     * @summary 新建FAQ答案
+     *  *
+     * @param CreateSolutionRequest $request CreateSolutionRequest
      *
-     * @return CreateSolutionResponse
+     * @return CreateSolutionResponse CreateSolutionResponse
      */
     public function createSolution($request)
     {
@@ -1362,10 +1448,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param CreateUserSayRequest $tmpReq
-     * @param RuntimeOptions       $runtime
+     * @summary 意图-话术-创建
+     *  *
+     * @param CreateUserSayRequest $tmpReq  CreateUserSayRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateUserSayResponse
+     * @return CreateUserSayResponse CreateUserSayResponse
      */
     public function createUserSayWithOptions($tmpReq, $runtime)
     {
@@ -1404,9 +1492,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param CreateUserSayRequest $request
+     * @summary 意图-话术-创建
+     *  *
+     * @param CreateUserSayRequest $request CreateUserSayRequest
      *
-     * @return CreateUserSayResponse
+     * @return CreateUserSayResponse CreateUserSayResponse
      */
     public function createUserSay($request)
     {
@@ -1416,10 +1506,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param DeleteCategoryRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 删除类目
+     *  *
+     * @param DeleteCategoryRequest $request DeleteCategoryRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteCategoryResponse
+     * @return DeleteCategoryResponse DeleteCategoryResponse
      */
     public function deleteCategoryWithOptions($request, $runtime)
     {
@@ -1452,9 +1544,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param DeleteCategoryRequest $request
+     * @summary 删除类目
+     *  *
+     * @param DeleteCategoryRequest $request DeleteCategoryRequest
      *
-     * @return DeleteCategoryResponse
+     * @return DeleteCategoryResponse DeleteCategoryResponse
      */
     public function deleteCategory($request)
     {
@@ -1464,10 +1558,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param DeleteConnQuestionRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 删除FAQ关联问
+     *  *
+     * @param DeleteConnQuestionRequest $request DeleteConnQuestionRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteConnQuestionResponse
+     * @return DeleteConnQuestionResponse DeleteConnQuestionResponse
      */
     public function deleteConnQuestionWithOptions($request, $runtime)
     {
@@ -1500,9 +1596,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param DeleteConnQuestionRequest $request
+     * @summary 删除FAQ关联问
+     *  *
+     * @param DeleteConnQuestionRequest $request DeleteConnQuestionRequest
      *
-     * @return DeleteConnQuestionResponse
+     * @return DeleteConnQuestionResponse DeleteConnQuestionResponse
      */
     public function deleteConnQuestion($request)
     {
@@ -1512,10 +1610,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param DeleteDSEntityRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 实体-删除
+     *  *
+     * @param DeleteDSEntityRequest $request DeleteDSEntityRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDSEntityResponse
+     * @return DeleteDSEntityResponse DeleteDSEntityResponse
      */
     public function deleteDSEntityWithOptions($request, $runtime)
     {
@@ -1549,9 +1649,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param DeleteDSEntityRequest $request
+     * @summary 实体-删除
+     *  *
+     * @param DeleteDSEntityRequest $request DeleteDSEntityRequest
      *
-     * @return DeleteDSEntityResponse
+     * @return DeleteDSEntityResponse DeleteDSEntityResponse
      */
     public function deleteDSEntity($request)
     {
@@ -1561,10 +1663,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param DeleteDSEntityValueRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 实体成员-删除
+     *  *
+     * @param DeleteDSEntityValueRequest $request DeleteDSEntityValueRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDSEntityValueResponse
+     * @return DeleteDSEntityValueResponse DeleteDSEntityValueResponse
      */
     public function deleteDSEntityValueWithOptions($request, $runtime)
     {
@@ -1601,9 +1705,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param DeleteDSEntityValueRequest $request
+     * @summary 实体成员-删除
+     *  *
+     * @param DeleteDSEntityValueRequest $request DeleteDSEntityValueRequest
      *
-     * @return DeleteDSEntityValueResponse
+     * @return DeleteDSEntityValueResponse DeleteDSEntityValueResponse
      */
     public function deleteDSEntityValue($request)
     {
@@ -1613,10 +1719,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param DeleteDocRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary 文档删除
+     *  *
+     * @param DeleteDocRequest $request DeleteDocRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDocResponse
+     * @return DeleteDocResponse DeleteDocResponse
      */
     public function deleteDocWithOptions($request, $runtime)
     {
@@ -1647,9 +1755,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param DeleteDocRequest $request
+     * @summary 文档删除
+     *  *
+     * @param DeleteDocRequest $request DeleteDocRequest
      *
-     * @return DeleteDocResponse
+     * @return DeleteDocResponse DeleteDocResponse
      */
     public function deleteDoc($request)
     {
@@ -1659,10 +1769,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param DeleteFaqRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary 删除FAQ，如果是已发布的知识，删除之后，变成已删除未发布，需要发布才能真正删除
+     *  *
+     * @param DeleteFaqRequest $request DeleteFaqRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteFaqResponse
+     * @return DeleteFaqResponse DeleteFaqResponse
      */
     public function deleteFaqWithOptions($request, $runtime)
     {
@@ -1695,9 +1807,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param DeleteFaqRequest $request
+     * @summary 删除FAQ，如果是已发布的知识，删除之后，变成已删除未发布，需要发布才能真正删除
+     *  *
+     * @param DeleteFaqRequest $request DeleteFaqRequest
      *
-     * @return DeleteFaqResponse
+     * @return DeleteFaqResponse DeleteFaqResponse
      */
     public function deleteFaq($request)
     {
@@ -1707,10 +1821,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param DeleteInstanceRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 机器人-删除
+     *  *
+     * @param DeleteInstanceRequest $request DeleteInstanceRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteInstanceResponse
+     * @return DeleteInstanceResponse DeleteInstanceResponse
      */
     public function deleteInstanceWithOptions($request, $runtime)
     {
@@ -1741,9 +1857,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param DeleteInstanceRequest $request
+     * @summary 机器人-删除
+     *  *
+     * @param DeleteInstanceRequest $request DeleteInstanceRequest
      *
-     * @return DeleteInstanceResponse
+     * @return DeleteInstanceResponse DeleteInstanceResponse
      */
     public function deleteInstance($request)
     {
@@ -1753,10 +1871,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param DeleteIntentRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 意图-删除
+     *  *
+     * @param DeleteIntentRequest $request DeleteIntentRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteIntentResponse
+     * @return DeleteIntentResponse DeleteIntentResponse
      */
     public function deleteIntentWithOptions($request, $runtime)
     {
@@ -1790,9 +1910,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param DeleteIntentRequest $request
+     * @summary 意图-删除
+     *  *
+     * @param DeleteIntentRequest $request DeleteIntentRequest
      *
-     * @return DeleteIntentResponse
+     * @return DeleteIntentResponse DeleteIntentResponse
      */
     public function deleteIntent($request)
     {
@@ -1802,10 +1924,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param DeleteLgfRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary 意图-LGF-删除
+     *  *
+     * @param DeleteLgfRequest $request DeleteLgfRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteLgfResponse
+     * @return DeleteLgfResponse DeleteLgfResponse
      */
     public function deleteLgfWithOptions($request, $runtime)
     {
@@ -1842,9 +1966,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param DeleteLgfRequest $request
+     * @summary 意图-LGF-删除
+     *  *
+     * @param DeleteLgfRequest $request DeleteLgfRequest
      *
-     * @return DeleteLgfResponse
+     * @return DeleteLgfResponse DeleteLgfResponse
      */
     public function deleteLgf($request)
     {
@@ -1854,10 +1980,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param DeletePerspectiveRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 视角-删除
+     *  *
+     * @param DeletePerspectiveRequest $request DeletePerspectiveRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeletePerspectiveResponse
+     * @return DeletePerspectiveResponse DeletePerspectiveResponse
      */
     public function deletePerspectiveWithOptions($request, $runtime)
     {
@@ -1888,9 +2016,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param DeletePerspectiveRequest $request
+     * @summary 视角-删除
+     *  *
+     * @param DeletePerspectiveRequest $request DeletePerspectiveRequest
      *
-     * @return DeletePerspectiveResponse
+     * @return DeletePerspectiveResponse DeletePerspectiveResponse
      */
     public function deletePerspective($request)
     {
@@ -1900,10 +2030,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param DeleteSimQuestionRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 删除FAQ相似问
+     *  *
+     * @param DeleteSimQuestionRequest $request DeleteSimQuestionRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteSimQuestionResponse
+     * @return DeleteSimQuestionResponse DeleteSimQuestionResponse
      */
     public function deleteSimQuestionWithOptions($request, $runtime)
     {
@@ -1936,9 +2068,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param DeleteSimQuestionRequest $request
+     * @summary 删除FAQ相似问
+     *  *
+     * @param DeleteSimQuestionRequest $request DeleteSimQuestionRequest
      *
-     * @return DeleteSimQuestionResponse
+     * @return DeleteSimQuestionResponse DeleteSimQuestionResponse
      */
     public function deleteSimQuestion($request)
     {
@@ -1948,10 +2082,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param DeleteSolutionRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 删除FAQ答案
+     *  *
+     * @param DeleteSolutionRequest $request DeleteSolutionRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteSolutionResponse
+     * @return DeleteSolutionResponse DeleteSolutionResponse
      */
     public function deleteSolutionWithOptions($request, $runtime)
     {
@@ -1984,9 +2120,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param DeleteSolutionRequest $request
+     * @summary 删除FAQ答案
+     *  *
+     * @param DeleteSolutionRequest $request DeleteSolutionRequest
      *
-     * @return DeleteSolutionResponse
+     * @return DeleteSolutionResponse DeleteSolutionResponse
      */
     public function deleteSolution($request)
     {
@@ -1996,10 +2134,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserSayRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 意图-用户话术-删除
+     *  *
+     * @param DeleteUserSayRequest $request DeleteUserSayRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteUserSayResponse
+     * @return DeleteUserSayResponse DeleteUserSayResponse
      */
     public function deleteUserSayWithOptions($request, $runtime)
     {
@@ -2036,9 +2176,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserSayRequest $request
+     * @summary 意图-用户话术-删除
+     *  *
+     * @param DeleteUserSayRequest $request DeleteUserSayRequest
      *
-     * @return DeleteUserSayResponse
+     * @return DeleteUserSayResponse DeleteUserSayResponse
      */
     public function deleteUserSay($request)
     {
@@ -2048,10 +2190,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param DescribeCategoryRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 查看单个类目信息
+     *  *
+     * @param DescribeCategoryRequest $request DescribeCategoryRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCategoryResponse
+     * @return DescribeCategoryResponse DescribeCategoryResponse
      */
     public function describeCategoryWithOptions($request, $runtime)
     {
@@ -2084,9 +2228,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param DescribeCategoryRequest $request
+     * @summary 查看单个类目信息
+     *  *
+     * @param DescribeCategoryRequest $request DescribeCategoryRequest
      *
-     * @return DescribeCategoryResponse
+     * @return DescribeCategoryResponse DescribeCategoryResponse
      */
     public function describeCategory($request)
     {
@@ -2096,10 +2242,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param DescribeDSEntityRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 实体-详情
+     *  *
+     * @param DescribeDSEntityRequest $request DescribeDSEntityRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDSEntityResponse
+     * @return DescribeDSEntityResponse DescribeDSEntityResponse
      */
     public function describeDSEntityWithOptions($request, $runtime)
     {
@@ -2133,9 +2281,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param DescribeDSEntityRequest $request
+     * @summary 实体-详情
+     *  *
+     * @param DescribeDSEntityRequest $request DescribeDSEntityRequest
      *
-     * @return DescribeDSEntityResponse
+     * @return DescribeDSEntityResponse DescribeDSEntityResponse
      */
     public function describeDSEntity($request)
     {
@@ -2145,10 +2295,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param DescribeDocRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary 文档详情
+     *  *
+     * @param DescribeDocRequest $request DescribeDocRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDocResponse
+     * @return DescribeDocResponse DescribeDocResponse
      */
     public function describeDocWithOptions($request, $runtime)
     {
@@ -2182,9 +2334,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param DescribeDocRequest $request
+     * @summary 文档详情
+     *  *
+     * @param DescribeDocRequest $request DescribeDocRequest
      *
-     * @return DescribeDocResponse
+     * @return DescribeDocResponse DescribeDocResponse
      */
     public function describeDoc($request)
     {
@@ -2194,10 +2348,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param DescribeFaqRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary 知识详情
+     *  *
+     * @param DescribeFaqRequest $request DescribeFaqRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFaqResponse
+     * @return DescribeFaqResponse DescribeFaqResponse
      */
     public function describeFaqWithOptions($request, $runtime)
     {
@@ -2230,9 +2386,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param DescribeFaqRequest $request
+     * @summary 知识详情
+     *  *
+     * @param DescribeFaqRequest $request DescribeFaqRequest
      *
-     * @return DescribeFaqResponse
+     * @return DescribeFaqResponse DescribeFaqResponse
      */
     public function describeFaq($request)
     {
@@ -2242,10 +2400,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 机器人-详情
+     *  *
+     * @param DescribeInstanceRequest $request DescribeInstanceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceResponse
+     * @return DescribeInstanceResponse DescribeInstanceResponse
      */
     public function describeInstanceWithOptions($request, $runtime)
     {
@@ -2276,9 +2436,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceRequest $request
+     * @summary 机器人-详情
+     *  *
+     * @param DescribeInstanceRequest $request DescribeInstanceRequest
      *
-     * @return DescribeInstanceResponse
+     * @return DescribeInstanceResponse DescribeInstanceResponse
      */
     public function describeInstance($request)
     {
@@ -2288,10 +2450,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param DescribeIntentRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 意图-详情
+     *  *
+     * @param DescribeIntentRequest $request DescribeIntentRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeIntentResponse
+     * @return DescribeIntentResponse DescribeIntentResponse
      */
     public function describeIntentWithOptions($request, $runtime)
     {
@@ -2327,9 +2491,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param DescribeIntentRequest $request
+     * @summary 意图-详情
+     *  *
+     * @param DescribeIntentRequest $request DescribeIntentRequest
      *
-     * @return DescribeIntentResponse
+     * @return DescribeIntentResponse DescribeIntentResponse
      */
     public function describeIntent($request)
     {
@@ -2339,10 +2505,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param DescribePerspectiveRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 视角-详情
+     *  *
+     * @param DescribePerspectiveRequest $request DescribePerspectiveRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePerspectiveResponse
+     * @return DescribePerspectiveResponse DescribePerspectiveResponse
      */
     public function describePerspectiveWithOptions($request, $runtime)
     {
@@ -2373,9 +2541,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param DescribePerspectiveRequest $request
+     * @summary 视角-详情
+     *  *
+     * @param DescribePerspectiveRequest $request DescribePerspectiveRequest
      *
-     * @return DescribePerspectiveResponse
+     * @return DescribePerspectiveResponse DescribePerspectiveResponse
      */
     public function describePerspective($request)
     {
@@ -2385,10 +2555,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param FeedbackRequest $request
-     * @param RuntimeOptions  $runtime
+     * @summary 问答点赞、点踩API
+     *  *
+     * @param FeedbackRequest $request FeedbackRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return FeedbackResponse
+     * @return FeedbackResponse FeedbackResponse
      */
     public function feedbackWithOptions($request, $runtime)
     {
@@ -2431,9 +2603,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param FeedbackRequest $request
+     * @summary 问答点赞、点踩API
+     *  *
+     * @param FeedbackRequest $request FeedbackRequest
      *
-     * @return FeedbackResponse
+     * @return FeedbackResponse FeedbackResponse
      */
     public function feedback($request)
     {
@@ -2443,10 +2617,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param GenerateUserAccessTokenRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 生成用户免登Token
+     *  *
+     * @param GenerateUserAccessTokenRequest $request GenerateUserAccessTokenRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return GenerateUserAccessTokenResponse
+     * @return GenerateUserAccessTokenResponse GenerateUserAccessTokenResponse
      */
     public function generateUserAccessTokenWithOptions($request, $runtime)
     {
@@ -2492,9 +2668,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param GenerateUserAccessTokenRequest $request
+     * @summary 生成用户免登Token
+     *  *
+     * @param GenerateUserAccessTokenRequest $request GenerateUserAccessTokenRequest
      *
-     * @return GenerateUserAccessTokenResponse
+     * @return GenerateUserAccessTokenResponse GenerateUserAccessTokenResponse
      */
     public function generateUserAccessToken($request)
     {
@@ -2504,10 +2682,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param GetAgentInfoRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 获取业务空间信息
+     *  *
+     * @param GetAgentInfoRequest $request GetAgentInfoRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAgentInfoResponse
+     * @return GetAgentInfoResponse GetAgentInfoResponse
      */
     public function getAgentInfoWithOptions($request, $runtime)
     {
@@ -2535,9 +2715,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param GetAgentInfoRequest $request
+     * @summary 获取业务空间信息
+     *  *
+     * @param GetAgentInfoRequest $request GetAgentInfoRequest
      *
-     * @return GetAgentInfoResponse
+     * @return GetAgentInfoResponse GetAgentInfoResponse
      */
     public function getAgentInfo($request)
     {
@@ -2547,10 +2729,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param GetAsyncResultRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 获取异步函数执行结果接口
+     *  *
+     * @param GetAsyncResultRequest $request GetAsyncResultRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAsyncResultResponse
+     * @return GetAsyncResultResponse GetAsyncResultResponse
      */
     public function getAsyncResultWithOptions($request, $runtime)
     {
@@ -2581,9 +2765,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param GetAsyncResultRequest $request
+     * @summary 获取异步函数执行结果接口
+     *  *
+     * @param GetAsyncResultRequest $request GetAsyncResultRequest
      *
-     * @return GetAsyncResultResponse
+     * @return GetAsyncResultResponse GetAsyncResultResponse
      */
     public function getAsyncResult($request)
     {
@@ -2593,10 +2779,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param GetInstancePublishTaskStateRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary 查询机器人发布进度
+     *  *
+     * @param GetInstancePublishTaskStateRequest $request GetInstancePublishTaskStateRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetInstancePublishTaskStateResponse
+     * @return GetInstancePublishTaskStateResponse GetInstancePublishTaskStateResponse
      */
     public function getInstancePublishTaskStateWithOptions($request, $runtime)
     {
@@ -2630,9 +2818,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param GetInstancePublishTaskStateRequest $request
+     * @summary 查询机器人发布进度
+     *  *
+     * @param GetInstancePublishTaskStateRequest $request GetInstancePublishTaskStateRequest
      *
-     * @return GetInstancePublishTaskStateResponse
+     * @return GetInstancePublishTaskStateResponse GetInstancePublishTaskStateResponse
      */
     public function getInstancePublishTaskState($request)
     {
@@ -2642,10 +2832,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param GetPublishTaskStateRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 查询发布进度
+     *  *
+     * @param GetPublishTaskStateRequest $request GetPublishTaskStateRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPublishTaskStateResponse
+     * @return GetPublishTaskStateResponse GetPublishTaskStateResponse
      */
     public function getPublishTaskStateWithOptions($request, $runtime)
     {
@@ -2676,9 +2868,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param GetPublishTaskStateRequest $request
+     * @summary 查询发布进度
+     *  *
+     * @param GetPublishTaskStateRequest $request GetPublishTaskStateRequest
      *
-     * @return GetPublishTaskStateResponse
+     * @return GetPublishTaskStateResponse GetPublishTaskStateResponse
      */
     public function getPublishTaskState($request)
     {
@@ -2688,10 +2882,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param InitIMConnectRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 初始化im连接信息
+     *  *
+     * @param InitIMConnectRequest $request InitIMConnectRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return InitIMConnectResponse
+     * @return InitIMConnectResponse InitIMConnectResponse
      */
     public function initIMConnectWithOptions($request, $runtime)
     {
@@ -2725,9 +2921,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param InitIMConnectRequest $request
+     * @summary 初始化im连接信息
+     *  *
+     * @param InitIMConnectRequest $request InitIMConnectRequest
      *
-     * @return InitIMConnectResponse
+     * @return InitIMConnectResponse InitIMConnectResponse
      */
     public function initIMConnect($request)
     {
@@ -2737,10 +2935,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param LinkInstanceCategoryRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 机器人-绑定类目
+     *  *
+     * @param LinkInstanceCategoryRequest $request LinkInstanceCategoryRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return LinkInstanceCategoryResponse
+     * @return LinkInstanceCategoryResponse LinkInstanceCategoryResponse
      */
     public function linkInstanceCategoryWithOptions($request, $runtime)
     {
@@ -2776,9 +2976,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param LinkInstanceCategoryRequest $request
+     * @summary 机器人-绑定类目
+     *  *
+     * @param LinkInstanceCategoryRequest $request LinkInstanceCategoryRequest
      *
-     * @return LinkInstanceCategoryResponse
+     * @return LinkInstanceCategoryResponse LinkInstanceCategoryResponse
      */
     public function linkInstanceCategory($request)
     {
@@ -2788,10 +2990,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param ListAgentRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary 获取业务空间列表
+     *  *
+     * @param ListAgentRequest $request ListAgentRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAgentResponse
+     * @return ListAgentResponse ListAgentResponse
      */
     public function listAgentWithOptions($request, $runtime)
     {
@@ -2831,9 +3035,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param ListAgentRequest $request
+     * @summary 获取业务空间列表
+     *  *
+     * @param ListAgentRequest $request ListAgentRequest
      *
-     * @return ListAgentResponse
+     * @return ListAgentResponse ListAgentResponse
      */
     public function listAgent($request)
     {
@@ -2843,10 +3049,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param ListCategoryRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 类目列表
+     *  *
+     * @param ListCategoryRequest $request ListCategoryRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCategoryResponse
+     * @return ListCategoryResponse ListCategoryResponse
      */
     public function listCategoryWithOptions($request, $runtime)
     {
@@ -2882,9 +3090,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param ListCategoryRequest $request
+     * @summary 类目列表
+     *  *
+     * @param ListCategoryRequest $request ListCategoryRequest
      *
-     * @return ListCategoryResponse
+     * @return ListCategoryResponse ListCategoryResponse
      */
     public function listCategory($request)
     {
@@ -2894,10 +3104,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param ListConnQuestionRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 查询FAQ关联问列表
+     *  *
+     * @param ListConnQuestionRequest $request ListConnQuestionRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListConnQuestionResponse
+     * @return ListConnQuestionResponse ListConnQuestionResponse
      */
     public function listConnQuestionWithOptions($request, $runtime)
     {
@@ -2930,9 +3142,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param ListConnQuestionRequest $request
+     * @summary 查询FAQ关联问列表
+     *  *
+     * @param ListConnQuestionRequest $request ListConnQuestionRequest
      *
-     * @return ListConnQuestionResponse
+     * @return ListConnQuestionResponse ListConnQuestionResponse
      */
     public function listConnQuestion($request)
     {
@@ -2942,10 +3156,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param ListDSEntityRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 实体-列表
+     *  *
+     * @param ListDSEntityRequest $request ListDSEntityRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDSEntityResponse
+     * @return ListDSEntityResponse ListDSEntityResponse
      */
     public function listDSEntityWithOptions($request, $runtime)
     {
@@ -2988,9 +3204,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param ListDSEntityRequest $request
+     * @summary 实体-列表
+     *  *
+     * @param ListDSEntityRequest $request ListDSEntityRequest
      *
-     * @return ListDSEntityResponse
+     * @return ListDSEntityResponse ListDSEntityResponse
      */
     public function listDSEntity($request)
     {
@@ -3000,10 +3218,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param ListDSEntityValueRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 实体成员-列表
+     *  *
+     * @param ListDSEntityValueRequest $request ListDSEntityValueRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDSEntityValueResponse
+     * @return ListDSEntityValueResponse ListDSEntityValueResponse
      */
     public function listDSEntityValueWithOptions($request, $runtime)
     {
@@ -3051,9 +3271,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param ListDSEntityValueRequest $request
+     * @summary 实体成员-列表
+     *  *
+     * @param ListDSEntityValueRequest $request ListDSEntityValueRequest
      *
-     * @return ListDSEntityValueResponse
+     * @return ListDSEntityValueResponse ListDSEntityValueResponse
      */
     public function listDSEntityValue($request)
     {
@@ -3063,10 +3285,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param ListInstanceRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 机器人-修改
+     *  *
+     * @param ListInstanceRequest $request ListInstanceRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListInstanceResponse
+     * @return ListInstanceResponse ListInstanceResponse
      */
     public function listInstanceWithOptions($request, $runtime)
     {
@@ -3106,9 +3330,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param ListInstanceRequest $request
+     * @summary 机器人-修改
+     *  *
+     * @param ListInstanceRequest $request ListInstanceRequest
      *
-     * @return ListInstanceResponse
+     * @return ListInstanceResponse ListInstanceResponse
      */
     public function listInstance($request)
     {
@@ -3118,10 +3344,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param ListIntentRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary 意图-列表
+     *  *
+     * @param ListIntentRequest $request ListIntentRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListIntentResponse
+     * @return ListIntentResponse ListIntentResponse
      */
     public function listIntentWithOptions($request, $runtime)
     {
@@ -3161,9 +3389,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param ListIntentRequest $request
+     * @summary 意图-列表
+     *  *
+     * @param ListIntentRequest $request ListIntentRequest
      *
-     * @return ListIntentResponse
+     * @return ListIntentResponse ListIntentResponse
      */
     public function listIntent($request)
     {
@@ -3173,10 +3403,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param ListLgfRequest $request
-     * @param RuntimeOptions $runtime
+     * @summary 意图-LGF-列表
+     *  *
+     * @param ListLgfRequest $request ListLgfRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListLgfResponse
+     * @return ListLgfResponse ListLgfResponse
      */
     public function listLgfWithOptions($request, $runtime)
     {
@@ -3219,9 +3451,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param ListLgfRequest $request
+     * @summary 意图-LGF-列表
+     *  *
+     * @param ListLgfRequest $request ListLgfRequest
      *
-     * @return ListLgfResponse
+     * @return ListLgfResponse ListLgfResponse
      */
     public function listLgf($request)
     {
@@ -3231,10 +3465,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param ListSaasInfoRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 获取业务空间下可集成的SaaS信息列表
+     *  *
+     * @param ListSaasInfoRequest $request ListSaasInfoRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSaasInfoResponse
+     * @return ListSaasInfoResponse ListSaasInfoResponse
      */
     public function listSaasInfoWithOptions($request, $runtime)
     {
@@ -3268,9 +3504,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param ListSaasInfoRequest $request
+     * @summary 获取业务空间下可集成的SaaS信息列表
+     *  *
+     * @param ListSaasInfoRequest $request ListSaasInfoRequest
      *
-     * @return ListSaasInfoResponse
+     * @return ListSaasInfoResponse ListSaasInfoResponse
      */
     public function listSaasInfo($request)
     {
@@ -3280,10 +3518,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param ListSaasPermissionGroupInfosRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary 获取业务空间下可集成的权限组信息
+     *  *
+     * @param ListSaasPermissionGroupInfosRequest $request ListSaasPermissionGroupInfosRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSaasPermissionGroupInfosResponse
+     * @return ListSaasPermissionGroupInfosResponse ListSaasPermissionGroupInfosResponse
      */
     public function listSaasPermissionGroupInfosWithOptions($request, $runtime)
     {
@@ -3311,9 +3551,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param ListSaasPermissionGroupInfosRequest $request
+     * @summary 获取业务空间下可集成的权限组信息
+     *  *
+     * @param ListSaasPermissionGroupInfosRequest $request ListSaasPermissionGroupInfosRequest
      *
-     * @return ListSaasPermissionGroupInfosResponse
+     * @return ListSaasPermissionGroupInfosResponse ListSaasPermissionGroupInfosResponse
      */
     public function listSaasPermissionGroupInfos($request)
     {
@@ -3323,10 +3565,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param ListSimQuestionRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary FAQ相似问列表
+     *  *
+     * @param ListSimQuestionRequest $request ListSimQuestionRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSimQuestionResponse
+     * @return ListSimQuestionResponse ListSimQuestionResponse
      */
     public function listSimQuestionWithOptions($request, $runtime)
     {
@@ -3359,9 +3603,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param ListSimQuestionRequest $request
+     * @summary FAQ相似问列表
+     *  *
+     * @param ListSimQuestionRequest $request ListSimQuestionRequest
      *
-     * @return ListSimQuestionResponse
+     * @return ListSimQuestionResponse ListSimQuestionResponse
      */
     public function listSimQuestion($request)
     {
@@ -3371,10 +3617,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param ListSolutionRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary FAQ答案列表
+     *  *
+     * @param ListSolutionRequest $request ListSolutionRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSolutionResponse
+     * @return ListSolutionResponse ListSolutionResponse
      */
     public function listSolutionWithOptions($request, $runtime)
     {
@@ -3407,9 +3655,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param ListSolutionRequest $request
+     * @summary FAQ答案列表
+     *  *
+     * @param ListSolutionRequest $request ListSolutionRequest
      *
-     * @return ListSolutionResponse
+     * @return ListSolutionResponse ListSolutionResponse
      */
     public function listSolution($request)
     {
@@ -3419,10 +3669,71 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param ListUserSayRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Tongyi对话明细查询接口
+     *  *
+     * @param ListTongyiChatHistorysRequest $request ListTongyiChatHistorysRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUserSayResponse
+     * @return ListTongyiChatHistorysResponse ListTongyiChatHistorysResponse
+     */
+    public function listTongyiChatHistorysWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->robotInstanceId)) {
+            $query['RobotInstanceId'] = $request->robotInstanceId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTongyiChatHistorys',
+            'version'     => '2022-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTongyiChatHistorysResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Tongyi对话明细查询接口
+     *  *
+     * @param ListTongyiChatHistorysRequest $request ListTongyiChatHistorysRequest
+     *
+     * @return ListTongyiChatHistorysResponse ListTongyiChatHistorysResponse
+     */
+    public function listTongyiChatHistorys($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTongyiChatHistorysWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 话术-列表
+     *  *
+     * @param ListUserSayRequest $request ListUserSayRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListUserSayResponse ListUserSayResponse
      */
     public function listUserSayWithOptions($request, $runtime)
     {
@@ -3465,9 +3776,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param ListUserSayRequest $request
+     * @summary 话术-列表
+     *  *
+     * @param ListUserSayRequest $request ListUserSayRequest
      *
-     * @return ListUserSayResponse
+     * @return ListUserSayResponse ListUserSayResponse
      */
     public function listUserSay($request)
     {
@@ -3477,10 +3790,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param NluRequest     $request
-     * @param RuntimeOptions $runtime
+     * @summary 统一NLU接口
+     *  *
+     * @param NluRequest     $request NluRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return NluResponse
+     * @return NluResponse NluResponse
      */
     public function nluWithOptions($request, $runtime)
     {
@@ -3514,9 +3829,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param NluRequest $request
+     * @summary 统一NLU接口
+     *  *
+     * @param NluRequest $request NluRequest
      *
-     * @return NluResponse
+     * @return NluResponse NluResponse
      */
     public function nlu($request)
     {
@@ -3526,10 +3843,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param QueryPerspectivesRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 视角-列表
+     *  *
+     * @param QueryPerspectivesRequest $request QueryPerspectivesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryPerspectivesResponse
+     * @return QueryPerspectivesResponse QueryPerspectivesResponse
      */
     public function queryPerspectivesWithOptions($request, $runtime)
     {
@@ -3557,9 +3876,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param QueryPerspectivesRequest $request
+     * @summary 视角-列表
+     *  *
+     * @param QueryPerspectivesRequest $request QueryPerspectivesRequest
      *
-     * @return QueryPerspectivesResponse
+     * @return QueryPerspectivesResponse QueryPerspectivesResponse
      */
     public function queryPerspectives($request)
     {
@@ -3569,10 +3890,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param RetryDocRequest $request
-     * @param RuntimeOptions  $runtime
+     * @summary 文档重试
+     *  *
+     * @param RetryDocRequest $request RetryDocRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return RetryDocResponse
+     * @return RetryDocResponse RetryDocResponse
      */
     public function retryDocWithOptions($request, $runtime)
     {
@@ -3603,9 +3926,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param RetryDocRequest $request
+     * @summary 文档重试
+     *  *
+     * @param RetryDocRequest $request RetryDocRequest
      *
-     * @return RetryDocResponse
+     * @return RetryDocResponse RetryDocResponse
      */
     public function retryDoc($request)
     {
@@ -3615,10 +3940,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param SearchDocRequest $tmpReq
-     * @param RuntimeOptions   $runtime
+     * @summary 文档搜索
+     *  *
+     * @param SearchDocRequest $tmpReq  SearchDocRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return SearchDocResponse
+     * @return SearchDocResponse SearchDocResponse
      */
     public function searchDocWithOptions($tmpReq, $runtime)
     {
@@ -3702,9 +4029,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param SearchDocRequest $request
+     * @summary 文档搜索
+     *  *
+     * @param SearchDocRequest $request SearchDocRequest
      *
-     * @return SearchDocResponse
+     * @return SearchDocResponse SearchDocResponse
      */
     public function searchDoc($request)
     {
@@ -3714,10 +4043,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param SearchFaqRequest $tmpReq
-     * @param RuntimeOptions   $runtime
+     * @summary 知识搜索
+     *  *
+     * @param SearchFaqRequest $tmpReq  SearchFaqRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return SearchFaqResponse
+     * @return SearchFaqResponse SearchFaqResponse
      */
     public function searchFaqWithOptions($tmpReq, $runtime)
     {
@@ -3800,9 +4131,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param SearchFaqRequest $request
+     * @summary 知识搜索
+     *  *
+     * @param SearchFaqRequest $request SearchFaqRequest
      *
-     * @return SearchFaqResponse
+     * @return SearchFaqResponse SearchFaqResponse
      */
     public function searchFaq($request)
     {
@@ -3812,10 +4145,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param UpdateCategoryRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 编辑类目
+     *  *
+     * @param UpdateCategoryRequest $request UpdateCategoryRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateCategoryResponse
+     * @return UpdateCategoryResponse UpdateCategoryResponse
      */
     public function updateCategoryWithOptions($request, $runtime)
     {
@@ -3854,9 +4189,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param UpdateCategoryRequest $request
+     * @summary 编辑类目
+     *  *
+     * @param UpdateCategoryRequest $request UpdateCategoryRequest
      *
-     * @return UpdateCategoryResponse
+     * @return UpdateCategoryResponse UpdateCategoryResponse
      */
     public function updateCategory($request)
     {
@@ -3866,10 +4203,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param UpdateConnQuestionRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 更新FAQ关联问
+     *  *
+     * @param UpdateConnQuestionRequest $request UpdateConnQuestionRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateConnQuestionResponse
+     * @return UpdateConnQuestionResponse UpdateConnQuestionResponse
      */
     public function updateConnQuestionWithOptions($request, $runtime)
     {
@@ -3905,9 +4244,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param UpdateConnQuestionRequest $request
+     * @summary 更新FAQ关联问
+     *  *
+     * @param UpdateConnQuestionRequest $request UpdateConnQuestionRequest
      *
-     * @return UpdateConnQuestionResponse
+     * @return UpdateConnQuestionResponse UpdateConnQuestionResponse
      */
     public function updateConnQuestion($request)
     {
@@ -3917,10 +4258,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param UpdateDSEntityRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 实体-更新
+     *  *
+     * @param UpdateDSEntityRequest $request UpdateDSEntityRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateDSEntityResponse
+     * @return UpdateDSEntityResponse UpdateDSEntityResponse
      */
     public function updateDSEntityWithOptions($request, $runtime)
     {
@@ -3960,9 +4303,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param UpdateDSEntityRequest $request
+     * @summary 实体-更新
+     *  *
+     * @param UpdateDSEntityRequest $request UpdateDSEntityRequest
      *
-     * @return UpdateDSEntityResponse
+     * @return UpdateDSEntityResponse UpdateDSEntityResponse
      */
     public function updateDSEntity($request)
     {
@@ -3972,10 +4317,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param UpdateDSEntityValueRequest $tmpReq
-     * @param RuntimeOptions             $runtime
+     * @summary 实体成员-更新
+     *  *
+     * @param UpdateDSEntityValueRequest $tmpReq  UpdateDSEntityValueRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateDSEntityValueResponse
+     * @return UpdateDSEntityValueResponse UpdateDSEntityValueResponse
      */
     public function updateDSEntityValueWithOptions($tmpReq, $runtime)
     {
@@ -4025,9 +4372,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param UpdateDSEntityValueRequest $request
+     * @summary 实体成员-更新
+     *  *
+     * @param UpdateDSEntityValueRequest $request UpdateDSEntityValueRequest
      *
-     * @return UpdateDSEntityValueResponse
+     * @return UpdateDSEntityValueResponse UpdateDSEntityValueResponse
      */
     public function updateDSEntityValue($request)
     {
@@ -4037,10 +4386,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param UpdateDocRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary 文档变更
+     *  *
+     * @param UpdateDocRequest $request UpdateDocRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateDocResponse
+     * @return UpdateDocResponse UpdateDocResponse
      */
     public function updateDocWithOptions($request, $runtime)
     {
@@ -4095,9 +4446,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param UpdateDocRequest $request
+     * @summary 文档变更
+     *  *
+     * @param UpdateDocRequest $request UpdateDocRequest
      *
-     * @return UpdateDocResponse
+     * @return UpdateDocResponse UpdateDocResponse
      */
     public function updateDoc($request)
     {
@@ -4107,10 +4460,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param UpdateFaqRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary 更新FAQ
+     *  *
+     * @param UpdateFaqRequest $request UpdateFaqRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateFaqResponse
+     * @return UpdateFaqResponse UpdateFaqResponse
      */
     public function updateFaqWithOptions($request, $runtime)
     {
@@ -4155,9 +4510,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param UpdateFaqRequest $request
+     * @summary 更新FAQ
+     *  *
+     * @param UpdateFaqRequest $request UpdateFaqRequest
      *
-     * @return UpdateFaqResponse
+     * @return UpdateFaqResponse UpdateFaqResponse
      */
     public function updateFaq($request)
     {
@@ -4167,10 +4524,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param UpdateInstanceRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 机器人-修改
+     *  *
+     * @param UpdateInstanceRequest $request UpdateInstanceRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateInstanceResponse
+     * @return UpdateInstanceResponse UpdateInstanceResponse
      */
     public function updateInstanceWithOptions($request, $runtime)
     {
@@ -4207,9 +4566,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param UpdateInstanceRequest $request
+     * @summary 机器人-修改
+     *  *
+     * @param UpdateInstanceRequest $request UpdateInstanceRequest
      *
-     * @return UpdateInstanceResponse
+     * @return UpdateInstanceResponse UpdateInstanceResponse
      */
     public function updateInstance($request)
     {
@@ -4219,10 +4580,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param UpdateIntentRequest $tmpReq
-     * @param RuntimeOptions      $runtime
+     * @summary 意图-更新
+     *  *
+     * @param UpdateIntentRequest $tmpReq  UpdateIntentRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateIntentResponse
+     * @return UpdateIntentResponse UpdateIntentResponse
      */
     public function updateIntentWithOptions($tmpReq, $runtime)
     {
@@ -4264,9 +4627,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param UpdateIntentRequest $request
+     * @summary 意图-更新
+     *  *
+     * @param UpdateIntentRequest $request UpdateIntentRequest
      *
-     * @return UpdateIntentResponse
+     * @return UpdateIntentResponse UpdateIntentResponse
      */
     public function updateIntent($request)
     {
@@ -4276,10 +4641,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param UpdateLgfRequest $tmpReq
-     * @param RuntimeOptions   $runtime
+     * @summary 意图-LGF-更新
+     *  *
+     * @param UpdateLgfRequest $tmpReq  UpdateLgfRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateLgfResponse
+     * @return UpdateLgfResponse UpdateLgfResponse
      */
     public function updateLgfWithOptions($tmpReq, $runtime)
     {
@@ -4321,9 +4688,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param UpdateLgfRequest $request
+     * @summary 意图-LGF-更新
+     *  *
+     * @param UpdateLgfRequest $request UpdateLgfRequest
      *
-     * @return UpdateLgfResponse
+     * @return UpdateLgfResponse UpdateLgfResponse
      */
     public function updateLgf($request)
     {
@@ -4333,10 +4702,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param UpdatePerspectiveRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 视角-修改
+     *  *
+     * @param UpdatePerspectiveRequest $request UpdatePerspectiveRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdatePerspectiveResponse
+     * @return UpdatePerspectiveResponse UpdatePerspectiveResponse
      */
     public function updatePerspectiveWithOptions($request, $runtime)
     {
@@ -4370,9 +4741,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param UpdatePerspectiveRequest $request
+     * @summary 视角-修改
+     *  *
+     * @param UpdatePerspectiveRequest $request UpdatePerspectiveRequest
      *
-     * @return UpdatePerspectiveResponse
+     * @return UpdatePerspectiveResponse UpdatePerspectiveResponse
      */
     public function updatePerspective($request)
     {
@@ -4382,10 +4755,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param UpdateSimQuestionRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 更新FAQ相似问
+     *  *
+     * @param UpdateSimQuestionRequest $request UpdateSimQuestionRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateSimQuestionResponse
+     * @return UpdateSimQuestionResponse UpdateSimQuestionResponse
      */
     public function updateSimQuestionWithOptions($request, $runtime)
     {
@@ -4421,9 +4796,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param UpdateSimQuestionRequest $request
+     * @summary 更新FAQ相似问
+     *  *
+     * @param UpdateSimQuestionRequest $request UpdateSimQuestionRequest
      *
-     * @return UpdateSimQuestionResponse
+     * @return UpdateSimQuestionResponse UpdateSimQuestionResponse
      */
     public function updateSimQuestion($request)
     {
@@ -4433,10 +4810,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param UpdateSolutionRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 更新FAQ答案
+     *  *
+     * @param UpdateSolutionRequest $request UpdateSolutionRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateSolutionResponse
+     * @return UpdateSolutionResponse UpdateSolutionResponse
      */
     public function updateSolutionWithOptions($request, $runtime)
     {
@@ -4478,9 +4857,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param UpdateSolutionRequest $request
+     * @summary 更新FAQ答案
+     *  *
+     * @param UpdateSolutionRequest $request UpdateSolutionRequest
      *
-     * @return UpdateSolutionResponse
+     * @return UpdateSolutionResponse UpdateSolutionResponse
      */
     public function updateSolution($request)
     {
@@ -4490,10 +4871,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserSayRequest $tmpReq
-     * @param RuntimeOptions       $runtime
+     * @summary 意图-话术-更新
+     *  *
+     * @param UpdateUserSayRequest $tmpReq  UpdateUserSayRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateUserSayResponse
+     * @return UpdateUserSayResponse UpdateUserSayResponse
      */
     public function updateUserSayWithOptions($tmpReq, $runtime)
     {
@@ -4535,9 +4918,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserSayRequest $request
+     * @summary 意图-话术-更新
+     *  *
+     * @param UpdateUserSayRequest $request UpdateUserSayRequest
      *
-     * @return UpdateUserSayResponse
+     * @return UpdateUserSayResponse UpdateUserSayResponse
      */
     public function updateUserSay($request)
     {

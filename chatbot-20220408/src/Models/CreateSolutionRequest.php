@@ -16,6 +16,8 @@ class CreateSolutionRequest extends Model
     public $agentKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $content;
@@ -28,6 +30,8 @@ class CreateSolutionRequest extends Model
     public $contentType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 30001905617
      *
      * @var int
@@ -35,6 +39,8 @@ class CreateSolutionRequest extends Model
     public $knowledgeId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $perspectiveCodes;

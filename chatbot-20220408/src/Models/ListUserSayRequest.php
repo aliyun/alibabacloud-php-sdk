@@ -23,6 +23,8 @@ class ListUserSayRequest extends Model
     public $content;
 
     /**
+     * @description This parameter is required.
+     *
      * @example chatbot-cn-yjzbyrEvqd
      *
      * @var string
@@ -30,6 +32,8 @@ class ListUserSayRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 232
      *
      * @var int

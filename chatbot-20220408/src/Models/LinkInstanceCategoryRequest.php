@@ -16,7 +16,7 @@ class LinkInstanceCategoryRequest extends Model
     public $agentKey;
 
     /**
-     * @example [\"30000065789\"]
+     * @example [\\"30000065789\\"]
      *
      * @var string
      */

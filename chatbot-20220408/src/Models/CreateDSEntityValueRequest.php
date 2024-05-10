@@ -16,6 +16,8 @@ class CreateDSEntityValueRequest extends Model
     public $agentKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ada
      *
      * @var string
@@ -23,6 +25,8 @@ class CreateDSEntityValueRequest extends Model
     public $content;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 12
      *
      * @var int
@@ -30,6 +34,8 @@ class CreateDSEntityValueRequest extends Model
     public $entityId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example chatbot-cn-yjzbyrEvqd
      *
      * @var string

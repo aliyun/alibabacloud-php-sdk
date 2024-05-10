@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class lgfDefinition extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 4675678567
      *
      * @var int
@@ -16,6 +18,8 @@ class lgfDefinition extends Model
     public $intentId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $ruleText;

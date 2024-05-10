@@ -30,11 +30,15 @@ class slotInfos extends Model
     public $interactive;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example dgadf23dfg2f
      *
      * @var string
@@ -42,6 +46,8 @@ class slotInfos extends Model
     public $slotId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $value;

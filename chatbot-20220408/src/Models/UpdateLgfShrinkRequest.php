@@ -16,6 +16,8 @@ class UpdateLgfShrinkRequest extends Model
     public $agentKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example chatbot-cn-yjzbyrEvqd
      *
      * @var string
@@ -23,6 +25,8 @@ class UpdateLgfShrinkRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $lgfDefinitionShrink;
@@ -30,6 +34,7 @@ class UpdateLgfShrinkRequest extends Model
     /**
      * @description LGF ID
      *
+     * This parameter is required.
      * @example 12121
      *
      * @var int

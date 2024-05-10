@@ -16,6 +16,8 @@ class CreateDocRequest extends Model
     public $agentKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 30000049006
      *
      * @var int
@@ -30,6 +32,8 @@ class CreateDocRequest extends Model
     public $config;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $content;
@@ -56,6 +60,8 @@ class CreateDocRequest extends Model
     public $startDate;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $title;

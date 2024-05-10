@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class userSayDefinition extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123232
      *
      * @var int

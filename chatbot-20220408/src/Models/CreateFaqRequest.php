@@ -16,6 +16,8 @@ class CreateFaqRequest extends Model
     public $agentKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1000053274
      *
      * @var int
@@ -49,6 +51,8 @@ class CreateFaqRequest extends Model
     public $startDate;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $title;

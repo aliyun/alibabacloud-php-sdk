@@ -47,6 +47,8 @@ class UpdateDocRequest extends Model
     public $endDate;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 30001905617
      *
      * @var int

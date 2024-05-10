@@ -16,6 +16,8 @@ class UpdateSolutionRequest extends Model
     public $agentKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $content;
@@ -28,11 +30,15 @@ class UpdateSolutionRequest extends Model
     public $contentType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $perspectiveCodes;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 100001333260
      *
      * @var int

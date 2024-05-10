@@ -17,6 +17,8 @@ class UpdateIntentRequest extends Model
     public $agentKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example chatbot-cn-yjzbyrEvqd
      *
      * @var string
@@ -29,6 +31,8 @@ class UpdateIntentRequest extends Model
     public $intentDefinition;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 234234234534
      *
      * @var int

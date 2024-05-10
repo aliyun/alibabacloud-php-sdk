@@ -16,6 +16,8 @@ class DescribeDocRequest extends Model
     public $agentKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 30001979424
      *
      * @var int

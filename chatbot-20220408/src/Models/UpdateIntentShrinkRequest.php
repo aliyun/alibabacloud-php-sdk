@@ -16,6 +16,8 @@ class UpdateIntentShrinkRequest extends Model
     public $agentKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example chatbot-cn-yjzbyrEvqd
      *
      * @var string
@@ -28,6 +30,8 @@ class UpdateIntentShrinkRequest extends Model
     public $intentDefinitionShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 234234234534
      *
      * @var int

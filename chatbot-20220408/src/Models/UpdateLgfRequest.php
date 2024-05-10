@@ -17,6 +17,8 @@ class UpdateLgfRequest extends Model
     public $agentKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example chatbot-cn-yjzbyrEvqd
      *
      * @var string
@@ -24,6 +26,8 @@ class UpdateLgfRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var lgfDefinition
      */
     public $lgfDefinition;
@@ -31,6 +35,7 @@ class UpdateLgfRequest extends Model
     /**
      * @description LGF ID
      *
+     * This parameter is required.
      * @example 12121
      *
      * @var int

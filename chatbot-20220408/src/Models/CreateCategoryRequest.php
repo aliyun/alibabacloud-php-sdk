@@ -26,6 +26,8 @@ class CreateCategoryRequest extends Model
     public $knowledgeType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $name;

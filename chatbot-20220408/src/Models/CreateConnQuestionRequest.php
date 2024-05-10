@@ -16,6 +16,8 @@ class CreateConnQuestionRequest extends Model
     public $agentKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 30002654628
      *
      * @var int
@@ -23,6 +25,8 @@ class CreateConnQuestionRequest extends Model
     public $connQuestionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 30002174773
      *
      * @var int
