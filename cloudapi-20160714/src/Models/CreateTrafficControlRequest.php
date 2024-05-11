@@ -11,6 +11,7 @@ class CreateTrafficControlRequest extends Model
     /**
      * @description The default throttling value for each API.
      *
+     * This parameter is required.
      * @example 10000
      *
      * @var int
@@ -45,8 +46,9 @@ class CreateTrafficControlRequest extends Model
     public $securityToken;
 
     /**
-     * @description The name of the throttling policy. The name must be 4 to 50 characters in length and can contain letters, digits, and underscores (\_). It cannot start with an underscore.
+     * @description The name of the throttling policy. The name must be 4 to 50 characters in length and can contain letters, digits, and underscores (_). It cannot start with an underscore.
      *
+     * This parameter is required.
      * @example ThrottlingTest
      *
      * @var string
@@ -61,6 +63,7 @@ class CreateTrafficControlRequest extends Model
      *   **HOUR**
      *   **DAY**
      *
+     * This parameter is required.
      * @example MINUTE
      *
      * @var string

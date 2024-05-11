@@ -28,8 +28,9 @@ class CreateAppRequest extends Model
     public $appKey;
 
     /**
-     * @description The name of the application. The name must be 4 to 26 characters in length. The name can contain letters, digits, and underscores (\_), and must start with a letter.
+     * @description The name of the application. The name must be 4 to 26 characters in length. The name can contain letters, digits, and underscores (_), and must start with a letter.
      *
+     * This parameter is required.
      * @example CreateAppTest
      *
      * @var string

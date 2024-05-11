@@ -11,6 +11,7 @@ class DescribeAbolishApiTaskRequest extends Model
     /**
      * @description The ID of the unpublishing operation.
      *
+     * This parameter is required.
      * @example fc54****dd4c4***ad7edd7****39401
      *
      * @var string

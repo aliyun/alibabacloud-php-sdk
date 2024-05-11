@@ -12,6 +12,7 @@ class DescribeAppSecurityRequest extends Model
     /**
      * @description The ID of the app.
      *
+     * This parameter is required.
      * @example 20112314518278
      *
      * @var int

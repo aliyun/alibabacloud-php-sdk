@@ -30,6 +30,7 @@ class ModifyPluginRequest extends Model
     /**
      * @description The ID of the plug-in whose information you want to modify.
      *
+     * This parameter is required.
      * @example a96926e82f994915a8da40a119374537
      *
      * @var string
@@ -37,7 +38,7 @@ class ModifyPluginRequest extends Model
     public $pluginId;
 
     /**
-     * @description The name of the plug-in. The name must be 4 to 50 characters in length and can contain letters, digits, and underscores (\_). However, it cannot start with an underscore.
+     * @description The name of the plug-in. The name must be 4 to 50 characters in length and can contain letters, digits, and underscores (_). However, it cannot start with an underscore.
      *
      * @example modifyCors
      *

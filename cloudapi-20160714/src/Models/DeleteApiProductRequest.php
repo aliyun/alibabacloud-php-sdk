@@ -11,6 +11,7 @@ class DeleteApiProductRequest extends Model
     /**
      * @description The ID of the API product.
      *
+     * This parameter is required.
      * @example 117b7a64a8b3f064eaa4a47ac62aac5e
      *
      * @var string

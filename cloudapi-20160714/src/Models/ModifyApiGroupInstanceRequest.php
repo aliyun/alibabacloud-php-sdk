@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyApiGroupInstanceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 01c97ed08a614118849b00079753d1e2
      *
      * @var string
@@ -34,6 +36,8 @@ class ModifyApiGroupInstanceRequest extends Model
     public $tag;
 
     /**
+     * @description This parameter is required.
+     *
      * @example apigateway-bj-c325375b1ebe
      *
      * @var string

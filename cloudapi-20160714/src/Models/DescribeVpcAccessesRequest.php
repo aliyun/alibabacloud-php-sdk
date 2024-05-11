@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcAccessesRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $accurateQuery;
+
+    /**
      * @description The ID of the instance.
      *
      * @example 10.199.26.***
@@ -84,6 +89,7 @@ class DescribeVpcAccessesRequest extends Model
      */
     public $vpcId;
     protected $_name = [
+        'accurateQuery' => 'AccurateQuery',
         'instanceId'    => 'InstanceId',
         'name'          => 'Name',
         'pageNumber'    => 'PageNumber',
@@ -102,6 +108,9 @@ class DescribeVpcAccessesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accurateQuery) {
+            $res['AccurateQuery'] = $this->accurateQuery;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -147,6 +156,9 @@ class DescribeVpcAccessesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccurateQuery'])) {
+            $model->accurateQuery = $map['AccurateQuery'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

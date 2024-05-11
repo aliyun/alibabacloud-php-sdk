@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetAppsAuthToApiProductRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 117b7a64a8b3f064eaa4a47ac62aac5e
      *
      * @var string
@@ -16,6 +18,8 @@ class SetAppsAuthToApiProductRequest extends Model
     public $apiProductId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int[]
      */
     public $appIds;

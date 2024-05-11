@@ -140,7 +140,7 @@ class DescribeApiHistoryResponseBody extends Model
     /**
      * @description The sample error codes returned by the backend service.
      *
-     * For more information, see [ErrorCodeSample](~~44392~~).
+     * For more information, see [ErrorCodeSample](https://help.aliyun.com/document_detail/44392.html).
      * @var errorCodeSamples
      */
     public $errorCodeSamples;
@@ -210,7 +210,7 @@ class DescribeApiHistoryResponseBody extends Model
     /**
      * @description Configuration items of API requests sent by the consumer to API Gateway.
      *
-     * For more information, see [RequestConfig](~~43985~~).
+     * For more information, see [RequestConfig](https://help.aliyun.com/document_detail/43985.html).
      * @var requestConfig
      */
     public $requestConfig;
@@ -227,7 +227,7 @@ class DescribeApiHistoryResponseBody extends Model
     /**
      * @description The parameters of API requests sent by the consumer to API Gateway.
      *
-     * For more information, see [RequestParameter](~~43986~~).
+     * For more information, see [RequestParameter](https://help.aliyun.com/document_detail/43986.html).
      * @var requestParameters
      */
     public $requestParameters;
@@ -251,7 +251,7 @@ class DescribeApiHistoryResponseBody extends Model
     /**
      * @description The sample response.
      *
-     * @example {\n  \"status\": 0,\n  \"data\": {\n    \"count\": 1,\n    \"list\": [\n      \"352\"\n    ]\n  },\n  \"message\": \"success\"\n}
+     * @example {\\n  \\"status\\": 0,\\n  \\"data\\": {\\n    \\"count\\": 1,\\n    \\"list\\": [\\n      \\"352\\"\\n    ]\\n  },\\n  \\"message\\": \\"success\\"\\n}
      *
      * @var string
      */
@@ -276,7 +276,7 @@ class DescribeApiHistoryResponseBody extends Model
     /**
      * @description The parameters of API requests sent by API Gateway to the backend service.
      *
-     * For more information, see [ServiceParameter](~~43988~~).
+     * For more information, see [ServiceParameter](https://help.aliyun.com/document_detail/43988.html).
      * @var serviceParameters
      */
     public $serviceParameters;
@@ -284,7 +284,7 @@ class DescribeApiHistoryResponseBody extends Model
     /**
      * @description The mappings between parameters of requests sent by the consumer to API Gateway and parameters of requests sent by API Gateway to the backend service.
      *
-     * For more information, see [ServiceParameterMap](~~43989~~).
+     * For more information, see [ServiceParameterMap](https://help.aliyun.com/document_detail/43989.html).
      * @var serviceParametersMap
      */
     public $serviceParametersMap;

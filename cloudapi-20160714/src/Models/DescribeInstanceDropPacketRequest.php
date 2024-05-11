@@ -11,6 +11,7 @@ class DescribeInstanceDropPacketRequest extends Model
     /**
      * @description The end time. The time follows the ISO 8601 standard and UTC time is used. Format: YYYY-MM-DDThh:mm:ssZ
      *
+     * This parameter is required.
      * @example 2022-12-16T02:04:36Z
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeInstanceDropPacketRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example apigateway-cn-v641b9dxc00p
      *
      * @var string
@@ -33,6 +35,7 @@ class DescribeInstanceDropPacketRequest extends Model
      *   Minimum
      *   Average
      *
+     * This parameter is required.
      * @example Maximum
      *
      * @var string
@@ -47,6 +50,7 @@ class DescribeInstanceDropPacketRequest extends Model
     /**
      * @description The start time. The time follows the ISO 8601 standard and UTC time is used. Format: YYYY-MM-DDThh:mm:ssZ
      *
+     * This parameter is required.
      * @example 2022-09-06T04:00:36Z
      *
      * @var string

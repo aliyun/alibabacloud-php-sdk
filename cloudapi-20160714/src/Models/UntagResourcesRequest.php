@@ -23,6 +23,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The resource IDs.
      *
+     * This parameter is required.
      * @example 285bb759342649a1b70c2093a772e087
      *
      * @var string[]
@@ -36,6 +37,7 @@ class UntagResourcesRequest extends Model
      *   **plugin**
      *   **app**
      *
+     * This parameter is required.
      * @example apiGroup
      *
      * @var string

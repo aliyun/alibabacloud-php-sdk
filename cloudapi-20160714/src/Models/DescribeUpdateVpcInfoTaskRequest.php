@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeUpdateVpcInfoTaskRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 7d341787517a47afaaef9cc1bdb7acce
      *
      * @var string

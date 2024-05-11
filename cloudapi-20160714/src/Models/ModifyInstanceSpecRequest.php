@@ -24,6 +24,7 @@ class ModifyInstanceSpecRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example apigateway-cn-v6419k43xxxxx
      *
      * @var string
@@ -33,6 +34,7 @@ class ModifyInstanceSpecRequest extends Model
     /**
      * @description The specifications of the instance.
      *
+     * This parameter is required.
      * @example api.s1.small
      *
      * @var string
@@ -64,6 +66,7 @@ class ModifyInstanceSpecRequest extends Model
     /**
      * @description The password.
      *
+     * This parameter is required.
      * @example b5845042-2f2f-4e96-bd5c-36c6e5c2a68c
      *
      * @var string

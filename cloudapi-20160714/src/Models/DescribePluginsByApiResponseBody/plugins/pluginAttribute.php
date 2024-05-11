@@ -38,7 +38,7 @@ class pluginAttribute extends Model
     /**
      * @description The definition statement of the plug-in.
      *
-     * @example {\"unit\":\"MINUTE\",\"apiDefault\":20}
+     * @example {\\"unit\\":\\"MINUTE\\",\\"apiDefault\\":20}
      *
      * @var string
      */

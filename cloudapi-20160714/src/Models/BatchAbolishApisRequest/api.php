@@ -11,6 +11,7 @@ class api extends Model
     /**
      * @description The ID of the API.
      *
+     * This parameter is required.
      * @example 994f72dcdaf04af0b38022c65fdbd1ac
      *
      * @var string
@@ -20,6 +21,7 @@ class api extends Model
     /**
      * @description The ID of the API group.
      *
+     * This parameter is required.
      * @example ced5ab777f7b440398ea70e4470124de
      *
      * @var string

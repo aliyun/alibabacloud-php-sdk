@@ -20,6 +20,7 @@ class AddTrafficSpecialControlRequest extends Model
     /**
      * @description The ID of the app or Alibaba Cloud account. Specify this parameter based on the value of the **SpecialType** parameter. You can view your account ID on the [Account Management](https://account.console.aliyun.com/?spm=a2c4g.11186623.2.15.3f053654YpMPwo#/secure) page.
      *
+     * This parameter is required.
      * @example 3382463
      *
      * @var string
@@ -32,6 +33,7 @@ class AddTrafficSpecialControlRequest extends Model
      *   **APP**
      *   **USER**
      *
+     * This parameter is required.
      * @example APP
      *
      * @var string
@@ -41,6 +43,7 @@ class AddTrafficSpecialControlRequest extends Model
     /**
      * @description The ID of the specified throttling policy.
      *
+     * This parameter is required.
      * @example tf123456
      *
      * @var string
@@ -50,6 +53,7 @@ class AddTrafficSpecialControlRequest extends Model
     /**
      * @description The special throttling value.
      *
+     * This parameter is required.
      * @example 10000
      *
      * @var int

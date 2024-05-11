@@ -23,6 +23,8 @@ class DetachPluginRequest extends Model
     public $groupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 05df2b52a3644a3a8b1935ab8ab59e9d
      *
      * @var string
@@ -35,6 +37,8 @@ class DetachPluginRequest extends Model
     public $securityToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example RELEASE
      *
      * @var string

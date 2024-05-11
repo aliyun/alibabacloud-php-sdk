@@ -11,7 +11,7 @@ class tag extends Model
     /**
      * @description The key of the tag.
      *
-     * Valid values of n: `[1, 20]`.
+     * This parameter is required.
      * @example key
      *
      * @var string

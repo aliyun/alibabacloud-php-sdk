@@ -29,6 +29,7 @@ class DescribeApiHistoriesRequest extends Model
     /**
      * @description The ID of the API group.
      *
+     * This parameter is required.
      * @example 1084f9034c744137901057206b39d2b6
      *
      * @var string

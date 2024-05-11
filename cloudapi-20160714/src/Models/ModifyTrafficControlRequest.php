@@ -47,6 +47,7 @@ class ModifyTrafficControlRequest extends Model
     /**
      * @description The ID of the throttling policy.
      *
+     * This parameter is required.
      * @example tf123456
      *
      * @var string
@@ -54,7 +55,7 @@ class ModifyTrafficControlRequest extends Model
     public $trafficControlId;
 
     /**
-     * @description The throttling policy name. The name must be 4 to 50 characters in length and can contain letters, digits, and underscores (\_). It cannot start with an underscore.
+     * @description The throttling policy name. The name must be 4 to 50 characters in length and can contain letters, digits, and underscores (_). It cannot start with an underscore.
      *
      * @example ThrottlingTest
      *

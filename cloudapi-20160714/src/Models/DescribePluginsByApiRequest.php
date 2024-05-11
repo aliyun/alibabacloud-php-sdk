@@ -11,6 +11,7 @@ class DescribePluginsByApiRequest extends Model
     /**
      * @description The ID of the API.
      *
+     * This parameter is required.
      * @example 93f4ead4080c4b2da70b7f81f50ae459
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribePluginsByApiRequest extends Model
     /**
      * @description The ID of the group to which the API belongs.
      *
+     * This parameter is required.
      * @example 3c7a38392e764718ad7673e7b7f535d4
      *
      * @var string
@@ -56,6 +58,7 @@ class DescribePluginsByApiRequest extends Model
      *   **PRE**: staging
      *   **TEST**: test
      *
+     * This parameter is required.
      * @example RELEASE
      *
      * @var string

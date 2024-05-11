@@ -142,7 +142,7 @@ class domainItem extends Model
     /**
      * @description The wildcard domain name mode.
      *
-     * @example [\"{test}.test.com\"]
+     * @example [\\"{test}.test.com\\"]
      *
      * @var string
      */

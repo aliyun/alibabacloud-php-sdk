@@ -24,8 +24,9 @@ class CreateApiRequest extends Model
     public $allowSignatureMethod;
 
     /**
-     * @description The name of the API that you want to create. The name must be unique within the API group. The name must be 4 to 50 characters in length. It must start with a letter and can contain letters, digits, and underscores (\_).
+     * @description The name of the API that you want to create. The name must be unique within the API group. The name must be 4 to 50 characters in length. It must start with a letter and can contain letters, digits, and underscores (_).
      *
+     * This parameter is required.
      * @example ApiName
      *
      * @var string
@@ -44,7 +45,7 @@ class CreateApiRequest extends Model
     /**
      * @description The configuration items of API requests sent by the consumer to API Gateway.
      *
-     * For more information, see [RequestConfig](~~43985~~).
+     * For more information, see [RequestConfig](https://help.aliyun.com/document_detail/43985.html).
      * @example APP
      *
      * @var string
@@ -120,6 +121,7 @@ class CreateApiRequest extends Model
     /**
      * @description The ID of the API group.
      *
+     * This parameter is required.
      * @example 08ae4aa0f95e4321849ee57f4e0b3077
      *
      * @var string
@@ -132,7 +134,7 @@ class CreateApiRequest extends Model
      *   HmacSHA256
      *   HmacSHA1,HmacSHA256
      *
-     * @example {\"openIdApiType\":null,\"idTokenParamName\":null,\"publicKeyId\":null,\"publicKey\":null}
+     * @example {\\"openIdApiType\\":null,\\"idTokenParamName\\":null,\\"publicKeyId\\":null,\\"publicKey\\":null}
      *
      * @var string
      */
@@ -141,7 +143,7 @@ class CreateApiRequest extends Model
     /**
      * @description The configuration items of API requests sent by API Gateway to the backend service.
      *
-     * For more information, see [ServiceConfig](~~43987~~).
+     * This parameter is required.
      * @example {"RequestProtocol":"HTTP","RequestHttpMethod":"GET","RequestPath":"/v3/getUserTest/[userId]","BodyFormat":"FORM","PostBodyDescription":""}
      *
      * @var string
@@ -190,7 +192,7 @@ class CreateApiRequest extends Model
     /**
      * @description The parameters of API requests sent by the consumer to API Gateway.
      *
-     * For more information, see [RequestParameter](~~43986~~).
+     * This parameter is required.
      * @example {"ServiceProtocol":"HTTP","ServiceHttpMethod":"GET","ServiceAddress":"http://www.customerdomain.com","ServiceTimeout":"1000","ServicePath":"/v3/getUserTest/[userId]"}
      *
      * @var string
@@ -225,6 +227,7 @@ class CreateApiRequest extends Model
      *   **PUBLIC**: Make the API public. If you set this parameter to PUBLIC, this API is displayed on the APIs page for all users after the API is published to the production environment.
      *   **PRIVATE**: Make the API private. Private APIs are not displayed in the Alibaba Cloud Marketplace after the API group to which they belong is made available.
      *
+     * This parameter is required.
      * @example PUBLIC
      *
      * @var string

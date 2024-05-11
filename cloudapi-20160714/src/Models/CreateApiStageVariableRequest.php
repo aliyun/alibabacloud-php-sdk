@@ -11,6 +11,7 @@ class CreateApiStageVariableRequest extends Model
     /**
      * @description The ID of the API group.
      *
+     * This parameter is required.
      * @example 523e8dc7bbe04613b5b1d726c2a7889d
      *
      * @var string
@@ -25,6 +26,7 @@ class CreateApiStageVariableRequest extends Model
     /**
      * @description The ID of the runtime environment.
      *
+     * This parameter is required.
      * @example 6EF60BEC-0242-43AF-BB20-270359FB54A7
      *
      * @var string
@@ -50,6 +52,7 @@ class CreateApiStageVariableRequest extends Model
     /**
      * @description The name of the variable to be added. This parameter is case-sensitive.
      *
+     * This parameter is required.
      * @example serverName
      *
      * @var string

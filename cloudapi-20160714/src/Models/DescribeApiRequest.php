@@ -11,6 +11,7 @@ class DescribeApiRequest extends Model
     /**
      * @description The ID of the API.
      *
+     * This parameter is required.
      * @example 8afff6c8c4c6447abb035812e4d66b65
      *
      * @var string

@@ -12,6 +12,7 @@ class CreateDatasetRequest extends Model
     /**
      * @description The name of the dataset.
      *
+     * This parameter is required.
      * @example DatasetName
      *
      * @var string
@@ -25,6 +26,7 @@ class CreateDatasetRequest extends Model
      * IP_WHITELIST_CIDR : an IP address whitelist
      * PARAMETER_ACCESS : parameter-based access control
      *
+     * This parameter is required.
      * @example JWT_BLOCKING
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateBackendRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example testBackendService
      *
      * @var string
@@ -17,6 +19,8 @@ class CreateBackendRequest extends Model
     public $backendName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example HTTP
      *
      * @var string

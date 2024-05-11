@@ -11,6 +11,7 @@ class ResetAppCodeRequest extends Model
     /**
      * @description The AppCode of the app.
      *
+     * This parameter is required.
      * @example 3aaf905a0a1f4f0eabc6d891dfa08afc
      *
      * @var string

@@ -12,6 +12,7 @@ class DeleteInstanceRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example apigateway-sh-ae502ee79ef8
      *
      * @var string

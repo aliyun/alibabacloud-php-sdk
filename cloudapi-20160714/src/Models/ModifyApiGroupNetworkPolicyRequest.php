@@ -11,6 +11,7 @@ class ModifyApiGroupNetworkPolicyRequest extends Model
     /**
      * @description The ID of the API group.
      *
+     * This parameter is required.
      * @example b0162c75d7d34ff48506f1aff878b05e
      *
      * @var string

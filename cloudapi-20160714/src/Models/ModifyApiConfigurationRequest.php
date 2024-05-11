@@ -23,6 +23,7 @@ class ModifyApiConfigurationRequest extends Model
     /**
      * @description The ID of the API.
      *
+     * This parameter is required.
      * @example baacc592e63a4cb6a41920d9d3f91f38
      *
      * @var string
@@ -135,7 +136,7 @@ class ModifyApiConfigurationRequest extends Model
     /**
      * @description The sample error codes returned by the backend service.
      *
-     * For more information, see [ErrorCodeSample](~~44392~~).
+     * For more information, see [ErrorCodeSample](https://help.aliyun.com/document_detail/44392.html).
      * @example [{"Code":"400","Message":"Missing the userId","Description":"param invalid"}]
      *
      * @var string
@@ -240,7 +241,7 @@ class ModifyApiConfigurationRequest extends Model
     /**
      * @description The parameters of API requests sent by the consumer to API Gateway.
      *
-     * For more information, see [RequestParameter](~~43986~~).
+     * For more information, see [RequestParameter](https://help.aliyun.com/document_detail/43986.html).
      * @example [{"ParameterLocation":{"name":"Head","orderNumber":2},"ParameterType":"String","Required":"OPTIONAL","isHide":false,"ApiParameterName":"header1","DefaultValue":"123124","Location":"Head"},{"ParameterLocation":{"name":"Head","orderNumber":2},"ParameterType":"String","Required":"REQUIRED","isHide":false,"ApiParameterName":"header2","DefaultValue":"","Location":"Head"},{"ParameterLocation":{"name":"Query","orderNumber":3},"ParameterType":"String","Required":"OPTIONAL","isHide":false,"ApiParameterName":"query1","DefaultValue":"1245","Location":"Query"},{"ApiParameterName":"CaClientIp","ParameterLocation":{"name":"Query","orderNumber":0},"Location":"Query","ParameterType":"String","Required":"REQUIRED","Description":"ClientIP"},{"ApiParameterName":"testConstant","ParameterLocation":{"name":"Head","orderNumber":0},"Location":"Head","ParameterType":"String","Required":"REQUIRED","DefaultValue":"111"}]
      *
      * @var string
@@ -268,7 +269,7 @@ class ModifyApiConfigurationRequest extends Model
     /**
      * @description The sample response from the backend service. This value is used only to generate documents. It does not affect the returned result.
      *
-     * @example {\n  \"status\": 0,\n  \"data\": {\n    \"count\": 1,\n    \"list\": [\n      \"352\"\n    ]\n  },\n  \"message\": \"success\"\n}
+     * @example {\\n  \\"status\\": 0,\\n  \\"data\\": {\\n    \\"count\\": 1,\\n    \\"list\\": [\\n      \\"352\\"\\n    ]\\n  },\\n  \\"message\\": \\"success\\"\\n}
      *
      * @var string
      */
@@ -291,7 +292,7 @@ class ModifyApiConfigurationRequest extends Model
     /**
      * @description The parameters of API requests sent by API Gateway to the backend service.
      *
-     * For more information, see [ServiceParameter](~~43988~~).
+     * For more information, see [ServiceParameter](https://help.aliyun.com/document_detail/43988.html).
      * @example [{"ServiceParameterName":"header1","Location":"Head","Type":"String","ParameterCatalog":"REQUEST"},{"ServiceParameterName":"header2","Location":"Query","Type":"String","ParameterCatalog":"REQUEST"},{"ServiceParameterName":"query1","Location":"Head","Type":"String","ParameterCatalog":"REQUEST"},{"ServiceParameterName":"ipp","Location":"Query","Type":"String","ParameterCatalog":"SYSTEM"},{"ServiceParameterName":"testConstant","Location":"Head","Type":"String","ParameterCatalog":"CONSTANT"}]
      *
      * @var string
@@ -301,7 +302,7 @@ class ModifyApiConfigurationRequest extends Model
     /**
      * @description The mappings between parameters of requests sent by the consumer to API Gateway and parameters of requests sent by API Gateway to the backend service.
      *
-     * For more information, see [ServiceParameterMap](~~43989~~).
+     * For more information, see [ServiceParameterMap](https://help.aliyun.com/document_detail/43989.html).
      * @example [{"ServiceParameterName":"header1","RequestParameterName":"header1"},{"ServiceParameterName":"header2","RequestParameterName":"header2"},{"ServiceParameterName":"query1","RequestParameterName":"query1"},{"ServiceParameterName":"ipp","RequestParameterName":"CaClientIp"},{"ServiceParameterName":"testConstant","RequestParameterName":"testConstant"}]
      *
      * @var string

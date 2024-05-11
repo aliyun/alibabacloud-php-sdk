@@ -24,6 +24,8 @@ class CreateApiGroupRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Weather
      *
      * @var string

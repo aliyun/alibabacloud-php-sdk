@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackendListRequest extends Model
 {
     /**
-     * @description The name of the backend service. You can use \* to perform fuzzy queries.
+     * @description The name of the backend service. You can use \\* to perform fuzzy queries.
      *
      * @example test
      *

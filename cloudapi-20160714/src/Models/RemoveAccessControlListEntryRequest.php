@@ -9,13 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RemoveAccessControlListEntryRequest extends Model
 {
     /**
-     * @example [{\"entry\":\"192.168.1.0/24\",\"comment\":\"WhiteIp\"}]
+     * @example [{\\"entry\\":\\"192.168.1.0/24\\",\\"comment\\":\\"WhiteIp\\"}]
      *
      * @var string
      */
     public $aclEntrys;
 
     /**
+     * @description This parameter is required.
+     *
      * @example acl-bp12ag0xxcfhq1ll68wp9
      *
      * @var string

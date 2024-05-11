@@ -12,6 +12,7 @@ class ModifyAppRequest extends Model
     /**
      * @description The ID of the application.
      *
+     * This parameter is required.
      * @example 20112314518278
      *
      * @var int
@@ -19,7 +20,7 @@ class ModifyAppRequest extends Model
     public $appId;
 
     /**
-     * @description The ID must be 4 to 26 characters in length and can contain letters, digits, and underscores (\_). It must start with a letter.
+     * @description The ID must be 4 to 26 characters in length and can contain letters, digits, and underscores (_). It must start with a letter.
      *
      * If you do not want to modify the existing value, do not specify this parameter.
      * @example jiedian_pord

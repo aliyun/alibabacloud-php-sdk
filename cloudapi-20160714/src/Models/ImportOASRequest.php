@@ -35,6 +35,7 @@ class ImportOASRequest extends Model
     /**
      * @description The OAS-compliant text file or OSS object URL.
      *
+     * This parameter is required.
      * @example swagger: "2.0"
      * - "sold"
      * @var string
@@ -44,6 +45,7 @@ class ImportOASRequest extends Model
     /**
      * @description The ID of the API group.
      *
+     * This parameter is required.
      * @example 08ae4aa0f95e4321849ee57f4e0b3077
      *
      * @var string
@@ -71,7 +73,7 @@ class ImportOASRequest extends Model
     /**
      * @description Specifies whether to overwrite an existing API.
      *
-     * If an existing API has the same HTTP request type and backend request path as the API to be imported, the existing API is overwritten.
+     * This parameter is required.
      * @example true
      *
      * @var bool

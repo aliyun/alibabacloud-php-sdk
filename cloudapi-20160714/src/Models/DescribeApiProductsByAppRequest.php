@@ -11,6 +11,7 @@ class DescribeApiProductsByAppRequest extends Model
     /**
      * @description The application ID.
      *
+     * This parameter is required.
      * @example 110962435
      *
      * @var int

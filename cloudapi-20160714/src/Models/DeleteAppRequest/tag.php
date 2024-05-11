@@ -11,6 +11,7 @@ class tag extends Model
     /**
      * @description The key of the tag.
      *
+     * This parameter is required.
      * @example appname
      *
      * @var string

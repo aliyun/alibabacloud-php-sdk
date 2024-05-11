@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SetApiProductsAuthoritiesShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $apiProductIdsShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 111385984
      *
      * @var int

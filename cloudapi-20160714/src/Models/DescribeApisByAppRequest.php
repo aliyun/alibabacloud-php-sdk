@@ -23,6 +23,8 @@ class DescribeApisByAppRequest extends Model
     public $apiUid;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 333486644
      *
      * @var int

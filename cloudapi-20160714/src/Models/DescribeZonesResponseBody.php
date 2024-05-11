@@ -21,7 +21,7 @@ class DescribeZonesResponseBody extends Model
     /**
      * @description The zones available in the current region.
      *
-     * @example {\"Zone\": [{\"ZoneId\": \"cn-hangzhou-i\"}]}
+     * @example {\\"Zone\\": [{\\"ZoneId\\": \\"cn-hangzhou-i\\"}]}
      *
      * @var zones
      */

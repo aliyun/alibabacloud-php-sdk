@@ -11,6 +11,7 @@ class DescribeGroupTrafficRequest extends Model
     /**
      * @description The end time for the query. The time follows the ISO 8601 standard and UTC time is used. Format: YYYY-MM-DDThh:mm:ssZ.
      *
+     * This parameter is required.
      * @example 2023-06-16T02:16:53Z
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeGroupTrafficRequest extends Model
     /**
      * @description The ID of the API group.
      *
+     * This parameter is required.
      * @example 16df9d11caa04900bcafe23b38a81600
      *
      * @var string
@@ -38,6 +40,7 @@ class DescribeGroupTrafficRequest extends Model
      *   **PRE**: the staging environment
      *   **TEST**: the test environment
      *
+     * This parameter is required.
      * @example RELEASE
      *
      * @var string
@@ -47,6 +50,7 @@ class DescribeGroupTrafficRequest extends Model
     /**
      * @description The start time for the query. The time follows the ISO 8601 standard and UTC time is used. Format: YYYY-MM-DDThh:mm:ssZ.
      *
+     * This parameter is required.
      * @example 2023-01-29T01:27:43Z
      *
      * @var string

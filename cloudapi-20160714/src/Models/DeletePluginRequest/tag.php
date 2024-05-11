@@ -11,7 +11,7 @@ class tag extends Model
     /**
      * @description The key of the tag.
      *
-     * N can be an integer from 1 to 20.``
+     * This parameter is required.
      * @example env
      *
      * @var string
@@ -21,8 +21,8 @@ class tag extends Model
     /**
      * @description The value of the tag.
      *
-     * N can be an integer from 1 to 20.``
-     * @example \" \"
+     * This parameter is required.
+     * @example \\" \\"
      *
      * @var string
      */

@@ -38,7 +38,7 @@ class errorCodeSample extends Model
     /**
      * @description The model.
      *
-     * @example [\"*\"]
+     * @example [\\"*\\"]
      *
      * @var string
      */

@@ -38,6 +38,7 @@ class ListTagResourcesRequest extends Model
      *   **app**
      *   **api**
      *
+     * This parameter is required.
      * @example apiGroup
      *
      * @var string

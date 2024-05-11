@@ -12,6 +12,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The ID of the resource.
      *
+     * This parameter is required.
      * @example 285bb759342649a1b70c2093a772e087
      *
      * @var string[]
@@ -25,6 +26,7 @@ class TagResourcesRequest extends Model
      *   **plugin**
      *   **app**
      *
+     * This parameter is required.
      * @example apiGroup
      *
      * @var string
@@ -39,6 +41,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The tag of objects that match the lifecycle rule. You can specify multiple tags.
      *
+     * This parameter is required.
      * @example 2021022811
      *
      * @var tag[]

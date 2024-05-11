@@ -16,7 +16,7 @@ class CreateBackendModelRequest extends Model
     public $backendId;
 
     /**
-     * @example {\"ServiceAddress\":\"http://apigateway-echo-redux.alicloudapi.com:8080\"}
+     * @example {\\"ServiceAddress\\":\\"http://apigateway-echo-redux.alicloudapi.com:8080\\"}
      *
      * @var string
      */

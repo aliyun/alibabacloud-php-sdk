@@ -12,6 +12,7 @@ class BatchAbolishApisRequest extends Model
     /**
      * @description The APIs that you want to operate.
      *
+     * This parameter is required.
      * @var api[]
      */
     public $api;

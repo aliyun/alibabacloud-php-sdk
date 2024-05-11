@@ -11,6 +11,7 @@ class SwitchApiRequest extends Model
     /**
      * @description The ID of the API.
      *
+     * This parameter is required.
      * @example d6f679aeb3be4b91b3688e887ca1fe16
      *
      * @var string
@@ -20,6 +21,7 @@ class SwitchApiRequest extends Model
     /**
      * @description The description of the switch operation.
      *
+     * This parameter is required.
      * @example for_demo
      *
      * @var string
@@ -38,6 +40,7 @@ class SwitchApiRequest extends Model
     /**
      * @description The historical version that you want to switch to.
      *
+     * This parameter is required.
      * @example 20160705104552292
      *
      * @var string
@@ -55,6 +58,7 @@ class SwitchApiRequest extends Model
      *   **RELEASE**
      *   **TEST**
      *
+     * This parameter is required.
      * @example RELEASE
      *
      * @var string

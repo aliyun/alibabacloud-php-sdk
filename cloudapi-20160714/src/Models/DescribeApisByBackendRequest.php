@@ -11,6 +11,7 @@ class DescribeApisByBackendRequest extends Model
     /**
      * @description The ID of the backend service.
      *
+     * This parameter is required.
      * @example 4ac69b7a17524781b275ed4c5eb25c54
      *
      * @var string

@@ -23,6 +23,8 @@ class DescribeHistoryApisRequest extends Model
     public $apiName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0ccb66aadb5345b78a40f57d192d8aa4
      *
      * @var string

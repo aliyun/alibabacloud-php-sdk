@@ -11,6 +11,7 @@ class DisableInstanceAccessControlRequest extends Model
     /**
      * @description The ID of the access control policy.
      *
+     * This parameter is required.
      * @example acl-grgqc0mnuhkqciwtam
      *
      * @var string
@@ -29,6 +30,7 @@ class DisableInstanceAccessControlRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example apigateway-cn-v6419k43xxxxx
      *
      * @var string

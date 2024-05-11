@@ -11,6 +11,7 @@ class DeleteAccessControlListRequest extends Model
     /**
      * @description The ID of the access control policy.
      *
+     * This parameter is required.
      * @example acl-uf6fpfdg3b5muska7uqem
      *
      * @var string

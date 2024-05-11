@@ -11,6 +11,7 @@ class DeleteApiRequest extends Model
     /**
      * @description The ID of the API.
      *
+     * This parameter is required.
      * @example d6f679aeb3be4b91b3688e887ca1fe16
      *
      * @var string

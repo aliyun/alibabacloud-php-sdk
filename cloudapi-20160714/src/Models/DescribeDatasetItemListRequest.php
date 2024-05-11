@@ -11,6 +11,7 @@ class DescribeDatasetItemListRequest extends Model
     /**
      * @description The ID of the dataset.
      *
+     * This parameter is required.
      * @example 602e1f6b3543200eaab0a89e********
      *
      * @var string

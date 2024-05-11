@@ -11,6 +11,7 @@ class ImportSwaggerShrinkRequest extends Model
     /**
      * @description The Swagger text content.
      *
+     * This parameter is required.
      * @example "A Swagger API definition in YAML"
      *
      * @var string
@@ -23,6 +24,7 @@ class ImportSwaggerShrinkRequest extends Model
      *   json
      *   yaml
      *
+     * This parameter is required.
      * @example yaml
      *
      * @var string
@@ -50,6 +52,7 @@ class ImportSwaggerShrinkRequest extends Model
     /**
      * @description The ID of the API group to which the Swagger is imported.
      *
+     * This parameter is required.
      * @example 0009db9c828549768a200320714b8930
      *
      * @var string
@@ -59,7 +62,7 @@ class ImportSwaggerShrinkRequest extends Model
     /**
      * @description Specifies whether to overwrite the existing API.
      *
-     * APIs with the same HTTP request type and backend request path are considered the same.
+     * This parameter is required.
      * @example true
      *
      * @var bool

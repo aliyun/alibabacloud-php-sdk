@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SdkGenerateByAppRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 110797019
      *
      * @var int
@@ -16,6 +18,8 @@ class SdkGenerateByAppRequest extends Model
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example java
      *
      * @var string

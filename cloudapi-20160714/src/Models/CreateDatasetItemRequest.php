@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDatasetItemRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example a25a6589b2584ff490e891cc********
      *
      * @var string
@@ -33,6 +35,8 @@ class CreateDatasetItemRequest extends Model
     public $securityToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 106.43.XXX.XXX
      *
      * @var string

@@ -50,7 +50,7 @@ class DescribeApiDocResponseBody extends Model
     /**
      * @description The API description.
      *
-     * @example Lynk\&Co Digital Mall OMS-UAT
+     * @example Lynk\\&Co Digital Mall OMS-UAT
      *
      * @var string
      */
@@ -145,7 +145,7 @@ class DescribeApiDocResponseBody extends Model
     /**
      * @description The sample response.
      *
-     * @example {\n  \"status\": 0,\n  \"data\": {\n    \"count\": 1,\n    \"list\": [\n      \"352\"\n    ]\n  },\n  \"message\": \"success\"\n}
+     * @example {\\n  \\"status\\": 0,\\n  \\"data\\": {\\n    \\"count\\": 1,\\n    \\"list\\": [\\n      \\"352\\"\\n    ]\\n  },\\n  \\"message\\": \\"success\\"\\n}
      *
      * @var string
      */

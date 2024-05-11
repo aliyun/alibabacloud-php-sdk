@@ -12,6 +12,7 @@ class DescribeModelsRequest extends Model
     /**
      * @description The ID of the API group.
      *
+     * This parameter is required.
      * @example 30e792398d6c4569b04c0e53a3494381
      *
      * @var string

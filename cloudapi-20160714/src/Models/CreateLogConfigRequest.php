@@ -23,6 +23,7 @@ class CreateLogConfigRequest extends Model
     /**
      * @description slslogstore
      *
+     * This parameter is required.
      * @example api-gateway
      *
      * @var string
@@ -30,6 +31,8 @@ class CreateLogConfigRequest extends Model
     public $slsLogStore;
 
     /**
+     * @description This parameter is required.
+     *
      * @example rec-lq-sls
      *
      * @var string

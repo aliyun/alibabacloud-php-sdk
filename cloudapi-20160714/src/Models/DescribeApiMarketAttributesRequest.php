@@ -11,6 +11,7 @@ class DescribeApiMarketAttributesRequest extends Model
     /**
      * @description The ID of the API.
      *
+     * This parameter is required.
      * @example 1f9b5e9ba80943099cac52e040b7e160
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeApiMarketAttributesRequest extends Model
     /**
      * @description The ID of the API group.
      *
+     * This parameter is required.
      * @example b693252f3f19445e9a01dac177c4454c
      *
      * @var string

@@ -11,6 +11,7 @@ class DescribeInstanceSlbConnectRequest extends Model
     /**
      * @description The end time. The time follows the ISO 8601 standard and UTC time is used. Format: YYYY-MM-DDThh:mm:ssZ
      *
+     * This parameter is required.
      * @example 2022-09-15T15:07:06Z
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeInstanceSlbConnectRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example apigateway-sz-1574cc7c5a31
      *
      * @var string
@@ -33,6 +35,7 @@ class DescribeInstanceSlbConnectRequest extends Model
      *   Minimum
      *   Average
      *
+     * This parameter is required.
      * @example Maximum
      *
      * @var string
@@ -47,6 +50,7 @@ class DescribeInstanceSlbConnectRequest extends Model
     /**
      * @description The start time. The time follows the ISO 8601 standard and UTC time is used. Format: YYYY-MM-DDThh:mm:ssZ
      *
+     * This parameter is required.
      * @example 2022-09-01T02:09:33Z
      *
      * @var string

@@ -12,6 +12,7 @@ class DeleteAppRequest extends Model
     /**
      * @description The ID of the application.
      *
+     * This parameter is required.
      * @example 110840611
      *
      * @var int

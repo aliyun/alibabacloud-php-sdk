@@ -11,6 +11,7 @@ class DescribeMarketRemainsQuotaRequest extends Model
     /**
      * @description The custom domain name.
      *
+     * This parameter is required.
      * @example *.demo.com
      *
      * @var string

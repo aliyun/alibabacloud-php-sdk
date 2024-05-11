@@ -21,6 +21,8 @@ class ModifyLogConfigRequest extends Model
     public $securityToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example logs-gateway
      *
      * @var string
@@ -28,6 +30,8 @@ class ModifyLogConfigRequest extends Model
     public $slsLogStore;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ford-api-gateway-log
      *
      * @var string

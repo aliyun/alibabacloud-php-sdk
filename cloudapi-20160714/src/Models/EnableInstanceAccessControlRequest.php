@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class EnableInstanceAccessControlRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example acl-bp11escro2et2tioscy52
      *
      * @var string
@@ -16,6 +18,8 @@ class EnableInstanceAccessControlRequest extends Model
     public $aclId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example black
      *
      * @var string
@@ -28,6 +32,8 @@ class EnableInstanceAccessControlRequest extends Model
     public $addressIPVersion;
 
     /**
+     * @description This parameter is required.
+     *
      * @example apigateway-cn-v6419k43xxxxx
      *
      * @var string

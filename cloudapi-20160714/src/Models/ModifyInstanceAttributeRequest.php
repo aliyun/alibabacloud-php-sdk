@@ -38,6 +38,8 @@ class ModifyInstanceAttributeRequest extends Model
     public $IPV6Enabled;
 
     /**
+     * @description This parameter is required.
+     *
      * @example apigateway-ht-8xxxxxxxxx
      *
      * @var string

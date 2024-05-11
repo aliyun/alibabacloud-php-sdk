@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SetGroupAuthAppCodeRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $authAppCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $groupId;

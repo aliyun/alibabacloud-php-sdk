@@ -20,6 +20,7 @@ class DescribeApiTrafficControlsRequest extends Model
     /**
      * @description The ID of the API group that you want to query.
      *
+     * This parameter is required.
      * @example 0009db9c828549768a200320714b8930
      *
      * @var string
@@ -55,6 +56,7 @@ class DescribeApiTrafficControlsRequest extends Model
      *   **RELEASE**
      *   **TEST**: the test environment
      *
+     * This parameter is required.
      * @example RELEASE
      *
      * @var string

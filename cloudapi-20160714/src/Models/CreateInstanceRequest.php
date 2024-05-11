@@ -18,6 +18,8 @@ class CreateInstanceRequest extends Model
     public $autoPay;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $chargeType;
@@ -42,6 +44,8 @@ class CreateInstanceRequest extends Model
     public $instanceCidr;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ApigatewayInstance
      *
      * @var string
@@ -49,6 +53,8 @@ class CreateInstanceRequest extends Model
     public $instanceName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example api.s1.small
      *
      * @var string
@@ -73,6 +79,8 @@ class CreateInstanceRequest extends Model
     public $tag;
 
     /**
+     * @description This parameter is required.
+     *
      * @example c20d86c4-1eb3-4d0b-afe9-c586df1e2136
      *
      * @var string

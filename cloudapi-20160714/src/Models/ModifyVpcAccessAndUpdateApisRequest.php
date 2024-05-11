@@ -26,6 +26,7 @@ class ModifyVpcAccessAndUpdateApisRequest extends Model
      *
      *   You must set this parameter to the name of the current VPC authorization.
      *
+     * This parameter is required.
      * @example VpcName
      *
      * @var string

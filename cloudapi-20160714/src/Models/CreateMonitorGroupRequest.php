@@ -11,6 +11,7 @@ class CreateMonitorGroupRequest extends Model
     /**
      * @description The caller authentication status of the API. Valid values: **ok**: The authentication is successful. **mismatch**: The request is redirected. **servicenotfound**: A request error occurred. **Unknown**: An unknown error occurred.
      *
+     * This parameter is required.
      * @example false
      *
      * @var string
@@ -20,6 +21,7 @@ class CreateMonitorGroupRequest extends Model
     /**
      * @description The ID of the API group.
      *
+     * This parameter is required.
      * @example 6735211ab9094c818f32f27bc545b6c8
      *
      * @var string

@@ -11,6 +11,7 @@ class DescribeApiDocRequest extends Model
     /**
      * @description The ID of the API.
      *
+     * This parameter is required.
      * @example 3b81fd160f5645e097cc8855d75a1cf6
      *
      * @var string

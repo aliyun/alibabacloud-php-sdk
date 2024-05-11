@@ -11,6 +11,7 @@ class SetDomainWebSocketStatusRequest extends Model
     /**
      * @description The action.
      *
+     * This parameter is required.
      * @example OPEN
      *
      * @var string
@@ -20,6 +21,7 @@ class SetDomainWebSocketStatusRequest extends Model
     /**
      * @description The custom domain name.
      *
+     * This parameter is required.
      * @example ac.fluvet.cn
      *
      * @var string
@@ -29,6 +31,7 @@ class SetDomainWebSocketStatusRequest extends Model
     /**
      * @description The ID of the API group.
      *
+     * This parameter is required.
      * @example cf976e63b70c4993807e7bb9345d4695
      *
      * @var string

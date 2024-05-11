@@ -16,7 +16,7 @@ class ModifyBackendModelRequest extends Model
     public $backendId;
 
     /**
-     * @example {\"ServiceAddress\":\"http://121.40.XX.XX\"}
+     * @example {\\"ServiceAddress\\":\\"http://121.40.XX.XX\\"}
      *
      * @var string
      */

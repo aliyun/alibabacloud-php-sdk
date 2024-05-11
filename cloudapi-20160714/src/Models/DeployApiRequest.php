@@ -11,6 +11,7 @@ class DeployApiRequest extends Model
     /**
      * @description The ID of the API.
      *
+     * This parameter is required.
      * @example d6f679aeb3be4b91b3688e887ca1fe16
      *
      * @var string
@@ -20,6 +21,7 @@ class DeployApiRequest extends Model
     /**
      * @description The publishing remarks.
      *
+     * This parameter is required.
      * @example for_test1
      *
      * @var string
@@ -47,6 +49,7 @@ class DeployApiRequest extends Model
      *   **PRE**: the pre-release environment
      *   **TEST**
      *
+     * This parameter is required.
      * @example RELEASE
      *
      * @var string

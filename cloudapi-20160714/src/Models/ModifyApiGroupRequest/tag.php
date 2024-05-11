@@ -11,6 +11,7 @@ class tag extends Model
     /**
      * @description The key of the tag.
      *
+     * This parameter is required.
      * @example env
      *
      * @var string
@@ -20,6 +21,7 @@ class tag extends Model
     /**
      * @description The value of the tag.
      *
+     * This parameter is required.
      * @example uat
      *
      * @var string

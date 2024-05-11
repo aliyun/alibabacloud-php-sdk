@@ -38,6 +38,7 @@ class AttachPluginRequest extends Model
     /**
      * @description The ID of the plug-in to be bound.
      *
+     * This parameter is required.
      * @example 9a3f1a5279434f2ba74ccd91c295af9f
      *
      * @var string
@@ -56,6 +57,7 @@ class AttachPluginRequest extends Model
      *   **PRE: the pre-release environment**
      *   **TEST**
      *
+     * This parameter is required.
      * @example TEST
      *
      * @var string

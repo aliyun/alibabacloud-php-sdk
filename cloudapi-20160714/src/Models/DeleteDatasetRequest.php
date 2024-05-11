@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteDatasetRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example a25a6589b2584ff490e891cc********
      *
      * @var string

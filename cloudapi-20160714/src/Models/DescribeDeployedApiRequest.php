@@ -11,6 +11,7 @@ class DescribeDeployedApiRequest extends Model
     /**
      * @description The ID of the API.
      *
+     * This parameter is required.
      * @example ab7c95a01a7e42f28718f34497bbf47c
      *
      * @var string
@@ -38,6 +39,7 @@ class DescribeDeployedApiRequest extends Model
      *   **PRE: the pre-release environment**
      *   **TEST**
      *
+     * This parameter is required.
      * @example RELEASE
      *
      * @var string

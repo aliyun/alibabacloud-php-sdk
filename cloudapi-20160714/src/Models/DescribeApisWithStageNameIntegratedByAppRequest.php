@@ -29,6 +29,7 @@ class DescribeApisWithStageNameIntegratedByAppRequest extends Model
     /**
      * @description The application ID.
      *
+     * This parameter is required.
      * @example 2386789
      *
      * @var int

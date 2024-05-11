@@ -20,6 +20,7 @@ class ModifyModelRequest extends Model
     /**
      * @description The ID of the API group to which the model belongs.
      *
+     * This parameter is required.
      * @example 30e792398d6c4569b04c0e53a3494381
      *
      * @var string
@@ -29,6 +30,7 @@ class ModifyModelRequest extends Model
     /**
      * @description The name of the model.
      *
+     * This parameter is required.
      * @example Test
      *
      * @var string
@@ -47,7 +49,7 @@ class ModifyModelRequest extends Model
     /**
      * @description The new definition of the model.
      *
-     * @example {\"type\":\"object\",\"properties\":{\"id\":{\"format\":\"int64\",\"maximum\":100,\"exclusiveMaximum\":true,\"type\":\"integer\"},\"name\":{\"maxLength\":10,\"type\":\"string\"}}}
+     * @example {\\"type\\":\\"object\\",\\"properties\\":{\\"id\\":{\\"format\\":\\"int64\\",\\"maximum\\":100,\\"exclusiveMaximum\\":true,\\"type\\":\\"integer\\"},\\"name\\":{\\"maxLength\\":10,\\"type\\":\\"string\\"}}}
      *
      * @var string
      */

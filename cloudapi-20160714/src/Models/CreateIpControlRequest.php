@@ -19,8 +19,9 @@ class CreateIpControlRequest extends Model
     public $description;
 
     /**
-     * @description The name of the ACL. The name must be 4 to 50 characters in length, and can contain letters, digits, and underscores (\_). The name cannot start with an underscore (\_).``
+     * @description The name of the ACL. The name must be 4 to 50 characters in length, and can contain letters, digits, and underscores (_). The name cannot start with an underscore (_).``
      *
+     * This parameter is required.
      * @example controlNameTest
      *
      * @var string
@@ -40,6 +41,7 @@ class CreateIpControlRequest extends Model
      *   **ALLOW**: an IP address whitelist
      *   **REFUSE**: an IP address blacklist
      *
+     * This parameter is required.
      * @example ALLOW
      *
      * @var string

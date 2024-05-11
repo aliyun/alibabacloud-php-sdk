@@ -20,6 +20,7 @@ class DescribeApiSignaturesRequest extends Model
     /**
      * @description The ID of the API group.
      *
+     * This parameter is required.
      * @example 0009db9c828549768a200320714b8930
      *
      * @var string
@@ -55,6 +56,7 @@ class DescribeApiSignaturesRequest extends Model
      *   **RELEASE**
      *   **TEST**
      *
+     * This parameter is required.
      * @example TEST
      *
      * @var string

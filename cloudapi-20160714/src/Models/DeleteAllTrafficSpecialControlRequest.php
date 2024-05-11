@@ -20,6 +20,7 @@ class DeleteAllTrafficSpecialControlRequest extends Model
     /**
      * @description The ID of the throttling policy.
      *
+     * This parameter is required.
      * @example tf123456
      *
      * @var string

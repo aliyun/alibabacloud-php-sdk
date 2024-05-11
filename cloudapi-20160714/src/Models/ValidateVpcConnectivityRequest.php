@@ -11,6 +11,7 @@ class ValidateVpcConnectivityRequest extends Model
     /**
      * @description The ID of the API Gateway instance.
      *
+     * This parameter is required.
      * @example apigateway-hz-72bc18******
      *
      * @var string
@@ -25,6 +26,7 @@ class ValidateVpcConnectivityRequest extends Model
     /**
      * @description The ID of the VPC access authorization.
      *
+     * This parameter is required.
      * @example 5f1b3216f9********e2c1297b6741dc
      *
      * @var string

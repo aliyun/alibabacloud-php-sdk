@@ -11,6 +11,7 @@ class RemoveVpcAccessRequest extends Model
     /**
      * @description The ID of an ECS or SLB instance in the VPC.
      *
+     * This parameter is required.
      * @example i-uf6bzcg1pr4oh5jjmxxx
      *
      * @var string
@@ -29,6 +30,7 @@ class RemoveVpcAccessRequest extends Model
     /**
      * @description The port number that corresponds to the instance.
      *
+     * This parameter is required.
      * @example 80
      *
      * @var int
@@ -43,6 +45,7 @@ class RemoveVpcAccessRequest extends Model
     /**
      * @description The ID of the VPC.
      *
+     * This parameter is required.
      * @example vpc-uf657qec7lx42paw3qxxx
      *
      * @var string

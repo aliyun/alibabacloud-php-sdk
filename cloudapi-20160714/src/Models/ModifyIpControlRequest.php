@@ -20,6 +20,7 @@ class ModifyIpControlRequest extends Model
     /**
      * @description The ID of the ACL. The ID is unique.
      *
+     * This parameter is required.
      * @example 7ea91319a34d48a09b5c9c871d9768b1
      *
      * @var string
@@ -27,7 +28,7 @@ class ModifyIpControlRequest extends Model
     public $ipControlId;
 
     /**
-     * @description The name of the ACL. The name must be 4 to 50 characters in length, and can contain letters, digits, and underscores (\_). The name cannot start with an underscore (\_).
+     * @description The name of the ACL. The name must be 4 to 50 characters in length, and can contain letters, digits, and underscores (_). The name cannot start with an underscore (_).
      *
      * @example testControl11
      *

@@ -11,6 +11,7 @@ class apis extends Model
     /**
      * @description The API ID.
      *
+     * This parameter is required.
      * @example ba84c55eca46488598da17c0609f3ead
      *
      * @var string
@@ -24,6 +25,7 @@ class apis extends Model
      *   **PRE**: the pre-release environment
      *   **TEST**: the test environment
      *
+     * This parameter is required.
      * @example RELEASE
      *
      * @var string

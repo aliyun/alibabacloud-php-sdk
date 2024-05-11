@@ -61,6 +61,8 @@ class DescribePluginApisRequest extends Model
     public $path;
 
     /**
+     * @description This parameter is required.
+     *
      * @example bf6583efcef44c51adb00c4e********
      *
      * @var string

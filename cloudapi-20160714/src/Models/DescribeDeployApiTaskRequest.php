@@ -11,6 +11,7 @@ class DescribeDeployApiTaskRequest extends Model
     /**
      * @description The task ID.
      *
+     * This parameter is required.
      * @example 51524fb8f12846d694d0a1de9a0cf274
      *
      * @var string

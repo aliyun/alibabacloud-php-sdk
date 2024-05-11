@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SdkGenerateByGroupRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1a991a450b9548a1a3df38fd3af117c2
      *
      * @var string
@@ -16,6 +18,8 @@ class SdkGenerateByGroupRequest extends Model
     public $groupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example java
      *
      * @var string

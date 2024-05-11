@@ -11,6 +11,7 @@ class AbolishApiRequest extends Model
     /**
      * @description The ID of the specified API.
      *
+     * This parameter is required.
      * @example d6f679aeb3be4b91b3688e887ca1fe16
      *
      * @var string
@@ -37,6 +38,7 @@ class AbolishApiRequest extends Model
      *   **RELEASE**
      *   **TEST**
      *
+     * This parameter is required.
      * @example RELEASE
      *
      * @var string

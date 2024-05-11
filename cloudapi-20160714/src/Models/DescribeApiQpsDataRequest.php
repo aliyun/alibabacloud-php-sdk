@@ -11,6 +11,7 @@ class DescribeApiQpsDataRequest extends Model
     /**
      * @description The ID of the API.
      *
+     * This parameter is required.
      * @example d6f679aeb3be4b91b3688e887ca1fe16
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeApiQpsDataRequest extends Model
     /**
      * @description The end time in UTC. Format: YYYY-MM-DDThh:mm:ssZ
      *
+     * This parameter is required.
      * @example 2016-07-23T09:28:48Z
      *
      * @var string
@@ -56,6 +58,7 @@ class DescribeApiQpsDataRequest extends Model
     /**
      * @description The start time in UTC. Format: YYYY-MM-DDThh:mm:ssZ
      *
+     * This parameter is required.
      * @example 2016-07-23T08:28:48Z
      *
      * @var string

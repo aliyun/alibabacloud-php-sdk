@@ -34,6 +34,7 @@ class DescribeApisBySignatureRequest extends Model
     /**
      * @description The ID of the signature key.
      *
+     * This parameter is required.
      * @example dd05f1c54d6749eda95f9fa6d491449a
      *
      * @var string

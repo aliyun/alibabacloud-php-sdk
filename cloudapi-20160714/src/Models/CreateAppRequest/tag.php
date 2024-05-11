@@ -22,7 +22,7 @@ class tag extends Model
      * @description The value of the tag.
      *
      * Valid values of n: `[1, 20]`. If the parameter has a value, you must specify a value for the tag key with the same N as tag.N.Key. Otherwise, an error is reported.
-     * @example \" \"
+     * @example \\" \\"
      *
      * @var string
      */

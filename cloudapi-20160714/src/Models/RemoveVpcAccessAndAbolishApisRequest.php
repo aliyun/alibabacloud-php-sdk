@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RemoveVpcAccessAndAbolishApisRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example i-uf6iaale3gfef9t9cb41
      *
      * @var string
@@ -23,6 +25,8 @@ class RemoveVpcAccessAndAbolishApisRequest extends Model
     public $needBatchWork;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 8080
      *
      * @var int
@@ -35,6 +39,8 @@ class RemoveVpcAccessAndAbolishApisRequest extends Model
     public $securityToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example vpc-bp1iw82phcgkvupgfv0o8
      *
      * @var string

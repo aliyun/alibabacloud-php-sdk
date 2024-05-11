@@ -77,7 +77,7 @@ class DescribeApiGroupResponseBody extends Model
     /**
      * @description The custom trace configuration.
      *
-     * @example {\"parameterLocation\":\"HEADER\",\"parameterName\":\"traceId\"}
+     * @example {\\"parameterLocation\\":\\"HEADER\\",\\"parameterName\\":\\"traceId\\"}
      *
      * @var string
      */
@@ -289,7 +289,7 @@ class DescribeApiGroupResponseBody extends Model
     /**
      * @description The user log settings.
      *
-     * @example {\"requestBody\":true,\"responseBody\":true,\"queryString\":\"test\",\"requestHeaders\":\"test\",\"responseHeaders\":\"test\",\"jwtClaims\":\"test\"}
+     * @example {\\"requestBody\\":true,\\"responseBody\\":true,\\"queryString\\":\\"test\\",\\"requestHeaders\\":\\"test\\",\\"responseHeaders\\":\\"test\\",\\"jwtClaims\\":\\"test\\"}
      *
      * @var string
      */

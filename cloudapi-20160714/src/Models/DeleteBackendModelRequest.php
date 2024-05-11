@@ -16,6 +16,8 @@ class DeleteBackendModelRequest extends Model
     public $backendId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 4be6b110b7aa40b0bf0c83cc00b3bd86
      *
      * @var string
